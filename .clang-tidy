@@ -1,0 +1,85 @@
+---
+Checks: >
+  -*,
+  bugprone-*,
+  clang-analyzer-*,
+  concurrency-*,
+  cppcoreguidelines-*,
+  modernize-*,
+  -modernize-use-trailing-return-type,
+  performance-*,
+  portability-*,
+  readability-*,
+  -readability-braces-around-statements,
+  -readability-uppercase-literal-suffix,
+  cert-dcl21-cpp,
+  cert-dcl58-cpp,
+  cert-err34-c,
+  cert-err52-cpp,
+  cert-err58-cpp,
+  cert-err60-cpp,
+  cert-flp30-c,
+  cert-msc50-cpp,
+  cert-msc51-cpp,
+  google-default-arguments,
+  google-explicit-constructor,
+  google-runtime-operator,
+  hicpp-exception-baseclass,
+  hicpp-multiway-paths-covered,
+  misc-misleading-identifier,
+  misc-misplaced-const,
+  misc-new-delete-overloads,
+  misc-no-recursion,
+  misc-non-copyable-objects,
+  misc-non-private-member-variables-in-classes,
+  misc-redundant-expression,
+  misc-static-assert,
+  misc-throw-by-value-catch-by-reference,
+  misc-unconventional-assign-operator,
+  misc-uniqueptr-reset-release,
+  misc-unused-alias-decls,
+  misc-unused-parameters,
+  misc-unused-using-decls,
+  mpi-buffer-deref,
+  mpi-type-mismatch,
+  openmp-use-default-none
+CheckOptions:
+  - key: bugprone-argument-comment.StrictMode
+    value: 1
+  - key: bugprone-easily-swappable-parameters.SuppressParametersUsedTogether
+    value: 0
+  - key: bugprone-misplaced-widening-cast.CheckImplicitCasts
+    value: 1
+  - key: bugprone-sizeof-expression.WarnOnSizeOfIntegerExpression
+    value: 1
+  - key: bugprone-suspicious-enum-usage.StrictMode
+    value: 1
+  - key: bugprone-suspicious-string-compare.WarnOnLogicalNotComparison
+    value: 1
+  - key: cppcoreguidelines-macro-usage.AllowedRegexp
+    value: ^DEBUG_*|^JUCE_*
+  - key: cppcoreguidelines-narrowing-conversions.WarnWithinTemplateInstantiation
+    value: 1
+  - key: cppcoreguidelines-narrowing-conversions.PedanticMode
+    value: 1
+  - key: cppcoreguidelines-special-member-functions.AllowSoleDefaultDtor
+    value: 1
+  - key: misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic # yamllint disable-line
+    value: 1
+  - key: performance-inefficient-string-concatenation.StrictMode
+    value: 1
+  - key: readability-function-size.BranchThreshold
+    value: 25
+  - key: readability-function-size.ParameterThreshold
+    value: 10
+  - key: readability-identifier-length.MinimumLoopCounterNameLength
+    value: 1
+  - key: readability-inconsistent-declaration-parameter-name.Strict
+    value: 1
+  - key: readability-simplify-boolean-expr.ChainedConditionalReturn
+    value: 1
+  - key: readability-simplify-boolean-expr.ChainedConditionalAssignment
+    value: 1
+  - key: readability-uniqueptr-delete-release.PreferResetCall
+    value: 1
+FormatStyle: 'file'

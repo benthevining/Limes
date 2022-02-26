@@ -1,0 +1,126 @@
+{
+  "dependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "conventional-changelog-conventionalcommits": "^4.6.3",
+    "semantic-release": "^19.0.2"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "presetConfig": {
+            "types": [
+              {
+                "section": "Bug Fixes",
+                "type": "fix"
+              },
+              {
+                "section": "Features",
+                "type": "feat"
+              },
+              {
+                "hidden": true,
+                "type": "chore"
+              },
+              {
+                "hidden": true,
+                "type": "docs"
+              },
+              {
+                "hidden": true,
+                "type": "style"
+              },
+              {
+                "hidden": true,
+                "type": "refactor"
+              },
+              {
+                "hidden": true,
+                "type": "test"
+              },
+              {
+                "hidden": true,
+                "type": "ci"
+              }
+            ]
+          }
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits",
+          "presetConfig": {
+            "types": [
+              {
+                "section": "Bug Fixes",
+                "type": "fix"
+              },
+              {
+                "section": "Features",
+                "type": "feat"
+              },
+              {
+                "hidden": true,
+                "type": "chore"
+              },
+              {
+                "hidden": true,
+                "type": "docs"
+              },
+              {
+                "hidden": true,
+                "type": "style"
+              },
+              {
+                "hidden": true,
+                "type": "refactor"
+              },
+              {
+                "hidden": true,
+                "type": "test"
+              },
+              {
+                "hidden": true,
+                "type": "ci"
+              }
+            ]
+          }
+        }
+      ],
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md",
+          "changelogTitle": "# Lemons changelog"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md"
+          ]
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "label": "Changelog",
+              "path": "CHANGELOG.md"
+            }
+          ]
+        }
+      ]
+    ],
+    "repositoryUrl": "http://github.com/benthevining/Lemons.git"
+  }
+}

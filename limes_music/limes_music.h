@@ -1,0 +1,40 @@
+/*
+ * ======================================================================================
+ *
+ *  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
+ *  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
+ *  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
+ *  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
+ *  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
+ *  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+ *
+ *  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
+ *
+ * ======================================================================================
+ */
+
+#pragma once
+
+#include <limes_core.h>
+
+
+#include "harmony/PitchUtils.h"
+#include "harmony/PitchClass.h"
+#include "harmony/Pitch.h"
+
+#include "harmony/intervals/Interval.h"
+#include "harmony/intervals/CompoundInterval.h"
+#include "harmony/intervals/MicrotonalInterval.h"
+
+#include "harmony/scales/Scale.h"
+#include "harmony/scales/Chromatic.h"
+#include "harmony/scales/KeySignature.h"
+#include "harmony/scales/Mode.h"
+#include "harmony/scales/Octatonic.h"
+#include "harmony/scales/WholeTone.h"
+
+#include "harmony/Chord.h"
+
+#include "rhythm/NoteDuration.h"
+#include "rhythm/NoteLength.h"
+#include "rhythm/TimeSignature.h"

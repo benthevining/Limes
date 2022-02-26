@@ -1,0 +1,80 @@
+{
+  "encode": {
+    "emit_byteorder_mark": false,
+    "input_encoding": "utf-8",
+    "output_encoding": "utf-8"
+  },
+  "format": {
+    "always_wrap": [],
+    "autosort": true,
+    "command_case": "unchanged",
+    "dangle_align": "child",
+    "dangle_parens": false,
+    "disable": false,
+    "enable_sort": true,
+    "fractional_tab_policy": "use-space",
+    "keyword_case": "unchanged",
+    "layout_passes": {},
+    "line_ending": "unix",
+    "line_width": 100,
+    "max_lines_hwrap": 2,
+    "max_pargs_hwrap": 6,
+    "max_prefix_chars": 10,
+    "max_rows_cmdline": 2,
+    "max_subgroups_hwrap": 4,
+    "min_prefix_chars": 4,
+    "require_valid_layout": false,
+    "separate_ctrl_name_with_space": false,
+    "separate_fn_name_with_space": true,
+    "tab_size": 4,
+    "use_tabchars": true
+  },
+  "lint": {
+    "argument_var_pattern": ".*",
+    "disabled_codes": [
+      "C0301",
+      "C0307",
+      "E1120",
+      "E1126",
+      "R0915",
+      "W0106"
+    ],
+    "function_pattern": ".*",
+    "global_var_pattern": ".*",
+    "internal_var_pattern": ".*",
+    "keyword_pattern": ".*",
+    "local_var_pattern": ".*",
+    "macro_pattern": ".*",
+    "max_arguments": 5,
+    "max_branches": 13,
+    "max_conditionals_custom_parser": 2,
+    "max_localvars": 15,
+    "max_returns": 6,
+    "max_statement_spacing": 2,
+    "max_statements": 50,
+    "min_statement_spacing": 1,
+    "private_var_pattern": ".*",
+    "public_var_pattern": ".*"
+  },
+  "markup": {
+    "bullet_char": "*",
+    "canonicalize_hashrulers": false,
+    "enable_markup": true,
+    "enum_char": ".",
+    "explicit_trailing_pattern": "#<",
+    "fence_pattern": "^\\s*([`~]{3}[`~]*)(.*)$",
+    "first_comment_is_literal": true,
+    "hashruler_min_length": 10,
+    "literal_comment_pattern": "^#\\[\\[",
+    "ruler_pattern": "^\\s*[^\\w\\s]{3}.*[^\\w\\s]{3}$"
+  },
+  "misc": {
+    "per_command": {}
+  },
+  "parse": {
+    "additional_commands": {},
+    "override_spec": {},
+    "proptags": [],
+    "vartags": []
+  }
+}

@@ -1,0 +1,20 @@
+[MESSAGES CONTROL]
+
+disable=
+	bad-indentation,
+	invalid-name,
+	line-too-long,
+	missing-docstring,
+	unspecified-encoding
+
+
+[DESIGN]
+
+max-args=5
+
+max-branches=10
+
+
+[STRING]
+
+check-quote-consistency=yes
