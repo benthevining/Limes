@@ -1,0 +1,25 @@
+
+
+#
+# * <@insert_github_username>
+# Each line is a file pattern followed by one or more owners.
+# Lines starting with '#' are comments.
+# Order is important. The last matching pattern has the most precedence.
+# These owners will be the default owners for everything in the repo.
+# This file is also being managed automatically by the gitown tool.
+.clang-format benthevining
+limes_audio/limes_audio.h benthevining
+limes_core/data_structures/CMakeLists.txt benthevining
+limes_core/data_structures/LinkedListModel.h benthevining
+limes_core/data_structures/LinkedListModel_impl.h benthevining
+limes_core/math/Fraction_impl.h benthevining
+limes_core/text/CMakeLists.txt benthevining
+limes_core/text/StringUtils.h benthevining
+limes_core/threading/RealtimeSafeObject/NonrealtimeMutatableObject.h benthevining
+limes_music/harmony/CMakeLists.txt benthevining
+limes_music/harmony/Chord.h benthevining
+limes_music/harmony/scales/Chromatic.cpp benthevining
+limes_music/harmony/scales/Scale.cpp benthevining
+limes_music/rhythm/CMakeLists.txt benthevining
+limes_vecops/limes_vecops.cmake benthevining
+scripts/FindOranges.cmake benthevining
