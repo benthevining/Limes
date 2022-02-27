@@ -22,6 +22,15 @@ project (
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"
 	LANGUAGES CXX)
 
+if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU")
+	if("${CMAKE_CXX_COMPILER_VERSION}" VERSION_LESS 10.0.0)
+		message (
+			FATAL_ERROR
+				"This library requires C++ concepts, which are not supported on versions of GCC before 10. Your current version: ${CMAKE_CXX_COMPILER_VERSION}"
+			)
+	endif()
+endif()
+
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/scripts")
 
 find_package (Oranges REQUIRED)

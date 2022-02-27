@@ -10,6 +10,7 @@
 .clang-format benthevining
 .github/CODEOWNERS benthevining
 .github/workflows/test_and_release.yml benthevining
+CMakeLists.txt benthevining
 limes_audio/limes_audio.h benthevining
 limes_core/CMakeLists.txt benthevining
 limes_core/data_structures/CMakeLists.txt benthevining
