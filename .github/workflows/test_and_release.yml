@@ -40,7 +40,7 @@ jobs:
 
       - name: Install dependencies
         if: runner.os == 'Linux'
-        run: apt-get install ninja-build
+        run: sudo apt-get install ninja-build
 
       - name: Build
         run: make build
