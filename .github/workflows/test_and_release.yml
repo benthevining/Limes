@@ -38,6 +38,10 @@ jobs:
           key: ${{ runner.os }}.tests.${{ hashFiles('**/') }}
           restore-keys: ${{ runner.os }}.tests.
 
+      - name: Install dependencies
+        if: runner.os == 'Linux'
+        run: apt-get install ninja-build
+
       - name: Build
         run: make build
 

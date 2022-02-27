@@ -9,6 +9,7 @@
 # This file is also being managed automatically by the gitown tool.
 .clang-format benthevining
 .github/CODEOWNERS benthevining
+.github/workflows/test_and_release.yml benthevining
 limes_audio/limes_audio.h benthevining
 limes_core/CMakeLists.txt benthevining
 limes_core/data_structures/CMakeLists.txt benthevining
