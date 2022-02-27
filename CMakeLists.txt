@@ -24,7 +24,14 @@ project (
 
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/scripts")
 
-include ("${CMAKE_CURRENT_LIST_DIR}/${PROJECT_NAME}Config.cmake")
+find_package (Oranges REQUIRED)
+
+list (APPEND CMAKE_MODULE_PATH "${LEMONS_CMAKE_MODULE_PATH}")
+
+add_subdirectory (limes_vecops)
+add_subdirectory (limes_core)
+add_subdirectory (limes_audio)
+add_subdirectory (limes_music)
 
 # install files
 
@@ -46,4 +53,4 @@ write_basic_package_version_file ("${PROJECT_NAME}ConfigVersion.cmake" VERSION $
 								  COMPATIBILITY SameMajorVersion)
 
 install (FILES "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
-			   "${PROJECT_NAME}Config.cmake" DESTINATION ${installDest} COMPONENT ${PROJECT_NAME})
+		 DESTINATION ${installDest} COMPONENT ${PROJECT_NAME})

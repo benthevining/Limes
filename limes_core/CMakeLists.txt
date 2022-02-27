@@ -8,17 +8,11 @@
 #
 # ======================================================================================
 
-include_guard (GLOBAL)
-
-#
-
 include (LemonsStaticLibraryHelpers)
 
 add_library (limes_core STATIC)
 
 lemons_configure_static_library (limes_core)
-
-include (limes_vecops)
 
 target_link_libraries (limes_core PUBLIC limes_vecops)
 

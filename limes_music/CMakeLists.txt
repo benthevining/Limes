@@ -8,17 +8,11 @@
 #
 # ======================================================================================
 
-include_guard (GLOBAL)
-
-#
-
 include (LemonsStaticLibraryHelpers)
 
 add_library (limes_music STATIC)
 
 lemons_configure_static_library (limes_music)
-
-include (limes_core)
 
 target_link_libraries (limes_music PUBLIC limes_core)
 

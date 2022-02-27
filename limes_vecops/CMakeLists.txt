@@ -8,10 +8,6 @@
 #
 # ======================================================================================
 
-include_guard (GLOBAL)
-
-#
-
 include (LemonsDefaultProjectSettings)
 include (LemonsDefaultTarget)
 
