@@ -237,18 +237,6 @@ void generateRamp (DataType* const output, SizeType size, DataType startValue, D
 namespace window
 {
 
-namespace detail
-{
-
-template <Scalar ValueType>
-[[nodiscard]] constexpr ValueType ncos (int order, int i, int size) noexcept
-{
-	return std::cos (static_cast<ValueType> (order * i)
-					 * constants::pi<ValueType> / static_cast<ValueType> (size - 1));
-}
-
-}  // namespace detail
-
 template <Scalar DataType, Integral SizeType>
 void generateBlackman (DataType* const output, SizeType size);
 
@@ -292,6 +280,7 @@ static_assert (! (isUsingVDSP() && isUsingIPP() && isUsingFallback()));
 
 }  // namespace lemons::vecops
 
+#include "impl/fallback_impl.h"
 
 #if LIMES_VECOPS_USE_VDSP
 #	include "impl/vdsp.h"

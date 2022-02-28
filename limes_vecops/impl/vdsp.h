@@ -46,10 +46,7 @@ void fill (DataType* const data, SizeType size, DataType constantToFill)
 	else if constexpr (is_signed_32_bit_type<DataType>())
 		vDSP_vfilli (&constantToFill, data, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			data[i] = constantToFill;
-	}
+		fb::fill (data, size, constantToFill);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -60,9 +57,7 @@ void clear (DataType* const data, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vclrD (data, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		std::memset (data, 0, static_cast<size_t> (size) * sizeof (DataType));
-	}
+		fb::clear (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -73,15 +68,7 @@ void swap (DataType* const vecA, DataType* const vecB, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vswapD (vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-		{
-			const auto elem_a = vecA[i];
-
-			vecA[i] = vecB[i];
-			vecB[i] = elem_a;
-		}
-	}
+		fb::swap (vecA, vecB, size);
 }
 
 
@@ -113,10 +100,7 @@ void add (DataType* const data, SizeType size, DataType constantToAdd)
 	else if constexpr (is_signed_32_bit_type<DataType>())
 		vDSP_vsaddi (data, vDSP_Stride (1), &constantToAdd, data, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			data[i] += constantToAdd;
-	}
+		fb::add (data, size, constantToAdd);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -129,10 +113,7 @@ void add (DataType* const dataAndDest, SizeType size, const DataType* const data
 	else if constexpr (is_signed_32_bit_type<DataType>())
 		vDSP_vaddi (dataAndDest, vDSP_Stride (1), dataToAdd, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dataAndDest[i] += dataToAdd[i];
-	}
+		fb::add (dataAndDest, size, dataToAdd);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -145,10 +126,7 @@ void addAndCopy (DataType* const dest, const DataType* const origData, SizeType 
 	else if constexpr (is_signed_32_bit_type<DataType>())
 		vDSP_vsaddi (origData, vDSP_Stride (1), &constantToAdd, dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dest[i] = origData[i] + constantToAdd;
-	}
+		fb::addAndCopy (dest, origData, size, constantToAdd);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -161,10 +139,7 @@ void addAndCopy (DataType* const dest, const DataType* const origData, SizeType 
 	else if constexpr (is_signed_32_bit_type<DataType>())
 		vDSP_vaddi (origData, vDSP_Stride (1), dataToAdd, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dest[i] = origData[i] + dataToAdd[i];
-	}
+		fb::addAndCopy (dest, origData, size, dataToAdd);
 }
 
 
@@ -184,10 +159,7 @@ void subtract (DataType* const dataAndDest, SizeType size, const DataType* const
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vsubD (dataAndDest, vDSP_Stride (1), dataToSubtract, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dataAndDest[i] -= dataToSubtract[i];
-	}
+		fb::subtract (dataAndDest, size, dataToSubtract);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -204,10 +176,7 @@ void subtractAndCopy (DataType* const dest, const DataType* const origData, Size
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vsubD (origData, vDSP_Stride (1), dataToSubtract, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dest[i] = origData[i] - dataToSubtract[i];
-	}
+		fb::subtractAndCopy (dest, origData, size, dataToSubtract);
 }
 
 
@@ -221,10 +190,7 @@ void multiply (DataType* const data, SizeType size, DataType constantToMultiply)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vsmulD (data, vDSP_Stride (1), &constantToMultiply, data, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			data[i] *= constantToMultiply;
-	}
+		fb::multiply (data, size, constantToMultiply);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -235,10 +201,7 @@ void multiply (DataType* const dataAndDest, SizeType size, const DataType* const
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vmulD (dataAndDest, vDSP_Stride (1), dataToMultiply, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dataAndDest[i] *= dataToMultiply[i];
-	}
+		fb::multiply (dataAndDest, size, dataToMultiply);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -249,10 +212,7 @@ void multiplyAndCopy (DataType* const dest, const DataType* const origData, Size
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vsmulD (origData, vDSP_Stride (1), &constantToMultiply, dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dest[i] = origData[i] * constantToMultiply;
-	}
+		fb::multiplyAndCopy (dest, origData, size, constantToMultiply);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -263,10 +223,7 @@ void multiplyAndCopy (DataType* const dest, const DataType* const origData, Size
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vmulD (origData, vDSP_Stride (1), dataToMultiply, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dest[i] = origData[i] * dataToMultiply[i];
-	}
+		fb::multiplyAndCopy (dest, origData, size, dataToMultiply);
 }
 
 
@@ -282,10 +239,7 @@ void divide (DataType* const data, SizeType size, DataType constantToDivide)
 	else if constexpr (is_signed_32_bit_type<DataType>())
 		vDSP_vsdivi (data, vDSP_Stride (1), &constantToDivide, data, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			data[i] /= constantToDivide;
-	}
+		fb::divide (data, size, constantToDivide);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -298,10 +252,7 @@ void divide (DataType* const dataAndDest, SizeType size, const DataType* const d
 	else if constexpr (is_signed_32_bit_type<DataType>())
 		vDSP_vdivi (dataToDivide, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dataAndDest[i] /= dataToDivide[i];
-	}
+		fb::divide (dataAndDest, size, dataToDivide);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -314,10 +265,7 @@ void divideAndCopy (DataType* const dest, const DataType* const origData, SizeTy
 	else if constexpr (is_signed_32_bit_type<DataType>())
 		vDSP_vsdivi (origData, vDSP_Stride (1), &constantToDivide, dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dest[i] = origData[i] / constantToDivide;
-	}
+		fb::divideAndCopy (dest, origData, size, constantToDivide);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -330,10 +278,7 @@ void divideAndCopy (DataType* const dest, const DataType* const origData, SizeTy
 	else if constexpr (is_signed_32_bit_type<DataType>())
 		vDSP_vdivi (dataToDivide, vDSP_Stride (1), origData, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dest[i] = origData[i] / dataToDivide[i];
-	}
+		fb::divideAndCopy (dest, origData, size, dataToDivide);
 }
 
 
@@ -354,24 +299,19 @@ void square (DataType* const dest, const DataType* const data, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vsqD (data, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dest[i] = (data[i] * data[i]);
-	}
+		fb::square (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void squareRoot (DataType* const dataAndDest, SizeType size)
 {
-	for (auto i = SizeType (0); i < size; ++i)
-		dataAndDest[i] = static_cast<DataType> (std::sqrt (dataAndDest[i]));
+	fb::squareRoot (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void squareRoot (DataType* const dest, const DataType* const data, SizeType size)
 {
-	for (auto i = SizeType (0); i < size; ++i)
-		dest[i] = static_cast<DataType> (std::sqrt (data[i]));
+	fb::squareRoot (dest, data, size);
 }
 
 
@@ -386,9 +326,7 @@ void reverse (DataType* const dataAndDest, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vrvrsD (dataAndDest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		std::reverse (dataAndDest, dataAndDest + size);
-	}
+		fb::reverse (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -406,9 +344,7 @@ void sort (DataType* const dataAndDest, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vsortD (dataAndDest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		std::sort (dataAndDest, dataAndDest + size);
-	}
+		fb::sort (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -452,10 +388,7 @@ void abs (DataType* const dest, const DataType* const data, SizeType size)
 	else if constexpr (is_signed_32_bit_type<DataType>())
 		vDSP_vabsi (data, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dest[i] = std::abs (data[i]);
-	}
+		fb::abs (dest, data, size);
 }
 
 
@@ -473,10 +406,7 @@ void negate (DataType* const dest, const DataType* const data, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vnegD (data, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			dest[i] = -data[i];
-	}
+		fb::negate (dest, data, size);
 }
 
 
@@ -494,15 +424,7 @@ void clip (DataType* const dest, const DataType* const data, SizeType size, Data
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vclipD (data, vDSP_Stride (1), &lowClip, &hiClip, dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-		{
-			const auto curr = data[i];
-
-			dest[i] = std::max (curr, lowClip);
-			dest[i] = std::min (curr, hiClip);
-		}
-	}
+		fb::clip (dest, data, size, lowClip, hiClip);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -515,9 +437,7 @@ DataType max (const DataType* const data, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_maxvD (data, vDSP_Stride (1), &maxVal, vDSP_Length (size));
 	else
-	{
-		return *std::max_element (data, data + size);
-	}
+		return fb::max (data, size);
 
 	return maxVal;
 }
@@ -533,10 +453,7 @@ void max (const DataType* const data, SizeType size, DataType& maxValue, IndexTy
 		vDSP_maxviD (data, vDSP_Stride (1), &maxValue, &maxIdx, vDSP_Length (size));
 	else
 	{
-		const auto max_elem = std::max_element (data, data + size);
-
-		maxValue = *max_elem;
-		maxIndex = static_cast<IndexType> (std::distance (data, max_elem));
+		fb::max (data, size, maxValue, maxIndex);
 		return;
 	}
 
@@ -553,8 +470,7 @@ DataType maxAbs (const DataType* const data, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_maxmgvD (data, vDSP_Stride (1), &maxVal, vDSP_Length (size));
 	else
-	{
-	}
+		return fb::maxAbs (data, size);
 
 	return maxVal;
 }
@@ -570,6 +486,8 @@ void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, Inde
 		vDSP_maxmgviD (data, vDSP_Stride (1), &maxValue, &maxIdx, vDSP_Length (size));
 	else
 	{
+		fb::maxAbs (data, size, maxValue, maxIndex);
+		return;
 	}
 
 	maxIndex = static_cast<IndexType> (maxIdx);
@@ -585,9 +503,7 @@ DataType min (const DataType* const data, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_minvD (data, vDSP_Stride (1), &minVal, vDSP_Length (size));
 	else
-	{
-		return *std::min_element (data, data + size);
-	}
+		return fb::min (data, size);
 
 	return minVal;
 }
@@ -603,10 +519,7 @@ void min (const DataType* const data, SizeType size, DataType& minValue, IndexTy
 		vDSP_minviD (data, vDSP_Stride (1), &minValue, &minIdx, vDSP_Length (size));
 	else
 	{
-		const auto min_elem = std::min_element (data, data + size);
-
-		minValue = *min_elem;
-		minIndex = static_cast<IndexType> (std::distance (data, min_elem));
+		fb::min (data, size, minValue, minIndex);
 		return;
 	}
 
@@ -623,8 +536,7 @@ DataType minAbs (const DataType* const data, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_minmgvD (data, vDSP_Stride (1), &minVal, vDSP_Length (size));
 	else
-	{
-	}
+		return fb::minAbs (data, size);
 
 	return minVal;
 }
@@ -640,6 +552,8 @@ void minAbs (const DataType* const data, SizeType size, DataType& minValue, Inde
 		vDSP_minmgviD (data, vDSP_Stride (1), &minValue, &minIdx, vDSP_Length (size));
 	else
 	{
+		fb::minAbs (data, size, minValue, minIndex);
+		return;
 	}
 
 	minIndex = static_cast<IndexType> (minIdx);
@@ -655,8 +569,7 @@ DataType sum (const DataType* const data, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_sveD (data, vDSP_Stride (1), &sumVal, vDSP_Length (size));
 	else
-	{
-	}
+		return fb::sum (data, size);
 
 	return sumVal;
 }
@@ -671,8 +584,7 @@ DataType mean (const DataType* const data, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_meanvD (data, vDSP_Stride (1), &meanVal, vDSP_Length (size));
 	else
-	{
-	}
+		return fb::mean (data, size);
 
 	return meanVal;
 }
@@ -691,10 +603,7 @@ void generateRamp (DataType* const output, SizeType size, DataType startValue, D
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vrampD (&startValue, &increment, output, vDSP_Stride (1), vDSP_Length (size));
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			output[i] = startValue + (increment * static_cast<DataType> (i));
-	}
+		fb::generateRamp (output, size, startValue, endValue);
 }
 
 namespace window
@@ -708,17 +617,7 @@ void generateBlackman (DataType* const output, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_blkman_windowD (output, vDSP_Length (size), 0);
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-		{
-			constexpr auto alpha = DataType (0.16);
-
-			const auto cos2 = detail::ncos<DataType> (2, i, size);
-			const auto cos4 = detail::ncos<DataType> (4, i, size);
-
-			output[i] = static_cast<DataType> (0.5 * (1 - alpha) - 0.5 * cos2 + 0.5 * alpha * cos4);
-		}
-	}
+		fb::window::generateBlackman (output, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -729,10 +628,7 @@ void generateHamm (DataType* const output, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_hamm_windowD (output, vDSP_Length (size), 0);
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			output[i] = static_cast<DataType> (0.54 - 0.46 * detail::ncos<DataType> (2, i, size));
-	}
+		fb::window::generateHamm (output, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -743,10 +639,7 @@ void generateHanning (DataType* const output, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_hann_windowD (output, vDSP_Length (size), vDSP_HANN_NORM);
 	else
-	{
-		for (auto i = SizeType (0); i < size; ++i)
-			output[i] = static_cast<DataType> (0.5 - 0.5 * detail::ncos<DataType> (2, i, size));
-	}
+		fb::window::generateHanning (output, size);
 }
 
 }  // namespace window

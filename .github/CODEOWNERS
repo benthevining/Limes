@@ -10,12 +10,14 @@
 .clang-format benthevining
 .github/CODEOWNERS benthevining
 .github/ISSUE_TEMPLATE/bug_report.md benthevining
+.github/ISSUE_TEMPLATE/config.yml benthevining
 .github/ISSUE_TEMPLATE/feature_request.md benthevining
 .github/workflows/test_and_release.yml benthevining
 CMakeLists.txt benthevining
 README.md benthevining
 limes_audio/limes_audio.h benthevining
 limes_audio/psola/PeakFinder.h benthevining
+limes_audio/streams/oscillator.cpp benthevining
 limes_core/CMakeLists.txt benthevining
 limes_core/data_structures/CMakeLists.txt benthevining
 limes_core/data_structures/LinkedListModel.h benthevining
@@ -23,6 +25,7 @@ limes_core/data_structures/LinkedListModel_impl.h benthevining
 limes_core/data_structures/Version.h benthevining
 limes_core/math/Fraction_impl.h benthevining
 limes_core/math/mathHelpers.h benthevining
+limes_core/misc/TypeTraits.h benthevining
 limes_core/text/CMakeLists.txt benthevining
 limes_core/text/StringUtils.h benthevining
 limes_core/threading/RealtimeSafeObject/NonrealtimeMutatableObject.h benthevining
@@ -31,6 +34,7 @@ limes_music/CMakeLists.txt benthevining
 limes_music/harmony/CMakeLists.txt benthevining
 limes_music/harmony/Chord.h benthevining
 limes_music/harmony/intervals/CMakeLists.txt benthevining
+limes_music/harmony/intervals/CompoundInterval.cpp benthevining
 limes_music/harmony/intervals/Interval.h benthevining
 limes_music/harmony/scales/Chromatic.cpp benthevining
 limes_music/harmony/scales/Scale.cpp benthevining
