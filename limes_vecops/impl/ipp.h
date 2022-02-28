@@ -15,6 +15,7 @@
 static_assert (lemons::vecops::isUsingIPP());
 
 #include <ipps.h>
+#include <limits>
 
 namespace lemons::vecops
 {
@@ -37,6 +38,7 @@ using is_unsigned_int = ConditionalType<std::is_integral_v<DataType> && ! std::i
 
 
 static constexpr auto integer_scale_factor = 0;
+static constexpr auto alg_hint_type		   = ippAlgHintFast;
 
 
 template <Scalar DataType, Integral SizeType>
@@ -339,6 +341,30 @@ void square (DataType* const dest, const DataType* const data, SizeType size)
 	}
 }
 
+template <Scalar DataType, Integral SizeType>
+void squareRoot (DataType* const dataAndDest, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsSqrt_32f_I (dataAndDest, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsSqrt_64f_I (dataAndDest, static_cast<int> (size));
+	else
+	{
+	}
+}
+
+template <Scalar DataType, Integral SizeType>
+void squareRoot (DataType* const dest, const DataType* const data, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsSqrt_32f (data, dest, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsSqrt_64f (data, dest, static_cast<int> (size));
+	else
+	{
+	}
+}
+
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -386,6 +412,27 @@ void sort (DataType* const dest, const DataType* const data, SizeType size)
 {
 	copy (dest, data, size);
 	sort (dest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void sortReverse (DataType* const dataAndDest, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsSortDescend_32f_I (dataAndDest, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsSortDescend_64f_I (dataAndDest, static_cast<int> (size));
+	else if constexpr (is_signed_int<DataType>())
+		ippsSortDescend_32s_I (dataAndDest, static_cast<int> (size));
+	else
+	{
+	}
+}
+
+template <Scalar DataType, Integral SizeType>
+void sortReverse (DataType* const dest, const DataType* const data, SizeType size)
+{
+	copy (dest, data, size);
+	sortReverse (dest, size);
 }
 
 
@@ -518,6 +565,42 @@ void max (const DataType* const data, SizeType size, DataType& maxValue, IndexTy
 }
 
 template <Scalar DataType, Integral SizeType>
+DataType maxAbs (const DataType* const data, SizeType size)
+{
+	DataType maxVal { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		ippsMaxAbs_32f (data, static_cast<int> (size), &maxVal);
+	else if constexpr (is_double_type<DataType>())
+		ippsMaxAbs_64f (data, static_cast<int> (size), &maxVal);
+	else if constexpr (is_signed_int<DataType>())
+		ippsMaxAbs_32s (data, static_cast<int> (size), &maxVal);
+	else
+	{
+	}
+
+	return maxVal;
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex)
+{
+	int maxIdx { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		ippsMaxAbsIndx_32f (data, static_cast<int> (size), &maxValue, &maxIdx);
+	else if constexpr (is_double_type<DataType>())
+		ippsMaxAbsIndx_64f (data, static_cast<int> (size), &maxValue, &maxIdx);
+	else if constexpr (is_signed_int<DataType>())
+		ippsMaxAbsIndx_32s (data, static_cast<int> (size), &maxValue, &maxIdx);
+	else
+	{
+	}
+
+	maxIndex = static_cast<IndexType> (maxIdx);
+}
+
+template <Scalar DataType, Integral SizeType>
 DataType min (const DataType* const data, SizeType size)
 {
 	DataType minVal { 0 };
@@ -551,6 +634,78 @@ void min (const DataType* const data, SizeType size, DataType& minValue, IndexTy
 	}
 
 	minIndex = static_cast<IndexType> (minIdx);
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType minAbs (const DataType* const data, SizeType size)
+{
+	DataType minVal { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		ippsMinAbs_32f (data, static_cast<int> (size), &minVal);
+	else if constexpr (is_double_type<DataType>())
+		ippsMinAbs_64f (data, static_cast<int> (size), &minVal);
+	else if constexpr (is_signed_int<DataType>())
+		ippsMinAbs_32s (data, static_cast<int> (size), &minVal);
+	else
+	{
+	}
+
+	return minVal;
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void minAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex)
+{
+	int minIdx { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		ippsMinAbsIndx_32f (data, static_cast<int> (size), &minValue, &minIdx);
+	else if constexpr (is_double_type<DataType>())
+		ippsMinAbsIndx_64f (data, static_cast<int> (size), &minValue, &minIdx);
+	else if constexpr (is_signed_int<DataType>())
+		ippsMinAbsIndx_32s (data, static_cast<int> (size), &minValue, &minIdx);
+	else
+	{
+	}
+
+	minIndex = static_cast<IndexType> (minIdx);
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType sum (const DataType* const data, SizeType size)
+{
+	DataType sumVal { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		ippsSum_32f (data, static_cast<int> (size), &sumVal, alg_hint_type);
+	else if constexpr (is_double_type<DataType>())
+		ippsSum_64f (data, static_cast<int> (size), &sumVal);
+	else if constexpr (is_signed_int<DataType>())
+		ippsSum_32s_Sfs (data, static_cast<int> (size), &sumVal, integer_scale_factor);
+	else
+	{
+	}
+
+	return sumVal;
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType mean (const DataType* const data, SizeType size)
+{
+	DataType meanVal { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		ippsMean_32f (data, static_cast<int> (size), &meanVal, alg_hint_type);
+	else if constexpr (is_double_type<DataType>())
+		ippsMean_64f (data, static_cast<int> (size), &meanVal);
+	else if constexpr (is_signed_int<DataType>())
+		ippsMean_32s_Sfs (data, static_cast<int> (size), &meanVal, integer_scale_factor);
+	else
+	{
+	}
+
+	return meanVal;
 }
 
 

@@ -15,7 +15,10 @@
 static_assert (lemons::vecops::isUsingFallback());
 
 #include <cstring>	// for memset
+#include <cmath>
 #include <algorithm>
+#include <numeric>
+#include <limits>
 
 namespace lemons::vecops
 {
@@ -189,6 +192,20 @@ void square (DataType* const dest, const DataType* const data, SizeType size)
 		dest[i] = (data[i] * data[i]);
 }
 
+template <Scalar DataType, Integral SizeType>
+void squareRoot (DataType* const dataAndDest, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dataAndDest[i] = static_cast<DataType> (std::sqrt (dataAndDest[i]));
+}
+
+template <Scalar DataType, Integral SizeType>
+void squareRoot (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = static_cast<DataType> (std::sqrt (data[i]));
+}
+
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -217,6 +234,20 @@ void sort (DataType* const dest, const DataType* const data, SizeType size)
 {
 	copy (dest, data, size);
 	sort (dest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void sortReverse (DataType* const dataAndDest, SizeType size)
+{
+	std::sort (dataAndDest, dataAndDest + size);
+	std::reverse (dataAndDest, dataAndDest + size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void sortReverse (DataType* const dest, const DataType* const data, SizeType size)
+{
+	copy (dest, data, size);
+	sortReverse (dest, size);
 }
 
 
@@ -291,6 +322,34 @@ void max (const DataType* const data, SizeType size, DataType& maxValue, IndexTy
 }
 
 template <Scalar DataType, Integral SizeType>
+DataType maxAbs (const DataType* const data, SizeType size)
+{
+	DataType maxVal { 0 };
+
+	for (auto i = SizeType (0); i < size; ++i)
+		maxVal = std::max (maxVal, std::abs (data[i]));
+
+	return maxVal;
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex)
+{
+	maxValue = 0;
+
+	for (auto i = SizeType (0); i < size; ++i)
+	{
+		const auto curr = std::abs (data[i]);
+
+		if (curr > maxValue)
+		{
+			maxValue = curr;
+			maxIndex = static_cast<IndexType> (i);
+		}
+	}
+}
+
+template <Scalar DataType, Integral SizeType>
 DataType min (const DataType* const data, SizeType size)
 {
 	return *std::min_element (data, data + size);
@@ -303,6 +362,46 @@ void min (const DataType* const data, SizeType size, DataType& minValue, IndexTy
 
 	minValue = *min_elem;
 	minIndex = static_cast<IndexType> (std::distance (data, min_elem));
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType minAbs (const DataType* const data, SizeType size)
+{
+	auto minVal = std::numeric_limits<DataType>::max();
+
+	for (auto i = SizeType (0); i < size; ++i)
+		minVal = std::min (minVal, std::abs (data[i]));
+
+	return minVal;
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void minAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex)
+{
+	minValue = std::numeric_limits<DataType>::max();
+
+	for (auto i = SizeType (0); i < size; ++i)
+	{
+		const auto curr = std::abs (data[i]);
+
+		if (curr < minValue)
+		{
+			minValue = curr;
+			minIndex = static_cast<IndexType> (i);
+		}
+	}
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType sum (const DataType* const data, SizeType size)
+{
+	return std::accumulate (data, data + size, DataType (0));
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType mean (const DataType* const data, SizeType size)
+{
+	return sum (data, size) / static_cast<DataType> (size);
 }
 
 

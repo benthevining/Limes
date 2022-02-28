@@ -21,7 +21,11 @@
 #endif
 
 #ifndef LIMES_VECOPS_USE_IPP
-#	define LIMES_VECOPS_USE_IPP 0
+#	if __has_include(<ipps.h>)
+#		define LIMES_VECOPS_USE_IPP 1
+#	else
+#		define LIMES_VECOPS_USE_IPP 0
+#	endif
 #endif
 
 #include "util/Constants.h"
@@ -138,6 +142,12 @@ void square (DataType* const dataAndDest, SizeType size);
 template <Scalar DataType, Integral SizeType>
 void square (DataType* const dest, const DataType* const data, SizeType size);
 
+template <Scalar DataType, Integral SizeType>
+void squareRoot (DataType* const dataAndDest, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
+void squareRoot (DataType* const dest, const DataType* const data, SizeType size);
+
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -153,6 +163,12 @@ void sort (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
 void sort (DataType* const dest, const DataType* const data, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
+void sortReverse (DataType* const dataAndDest, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
+void sortReverse (DataType* const dest, const DataType* const data, SizeType size);
 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -186,10 +202,30 @@ template <Scalar DataType, Integral SizeType, Integral IndexType>
 void max (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex);
 
 template <Scalar DataType, Integral SizeType>
+DataType maxAbs (const DataType* const data, SizeType size);
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex);
+
+
+template <Scalar DataType, Integral SizeType>
 DataType min (const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 void min (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex);
+
+template <Scalar DataType, Integral SizeType>
+DataType minAbs (const DataType* const data, SizeType size);
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void minAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex);
+
+
+template <Scalar DataType, Integral SizeType>
+DataType sum (const DataType* const data, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
+DataType mean (const DataType* const data, SizeType size);
 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/

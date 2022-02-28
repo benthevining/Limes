@@ -17,6 +17,7 @@ static_assert (lemons::vecops::isUsingVDSP());
 #include <Accelerate/Accelerate.h>
 #include <limits>
 #include <cstring>	// for memset
+#include <cmath>
 
 namespace lemons::vecops
 {
@@ -42,13 +43,12 @@ void fill (DataType* const data, SizeType size, DataType constantToFill)
 		vDSP_vfill (&constantToFill, data, vDSP_Stride (1), vDSP_Length (size));
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vfillD (&constantToFill, data, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_signed_32_bit_type<DataType>())
+		vDSP_vfilli (&constantToFill, data, vDSP_Stride (1), vDSP_Length (size));
 	else
 	{
-		if constexpr (is_signed_32_bit_type<DataType>())
-			vDSP_vfilli (&constantToFill, data, vDSP_Stride (1), vDSP_Length (size));
-		else
-			for (auto i = SizeType (0); i < size; ++i)
-				data[i] = constantToFill;
+		for (auto i = SizeType (0); i < size; ++i)
+			data[i] = constantToFill;
 	}
 }
 
@@ -110,13 +110,12 @@ void add (DataType* const data, SizeType size, DataType constantToAdd)
 		vDSP_vsadd (data, vDSP_Stride (1), &constantToAdd, data, vDSP_Stride (1), vDSP_Length (size));
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vsaddD (data, vDSP_Stride (1), &constantToAdd, data, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_signed_32_bit_type<DataType>())
+		vDSP_vsaddi (data, vDSP_Stride (1), &constantToAdd, data, vDSP_Stride (1), vDSP_Length (size));
 	else
 	{
-		if constexpr (is_signed_32_bit_type<DataType>())
-			vDSP_vsaddi (data, vDSP_Stride (1), &constantToAdd, data, vDSP_Stride (1), vDSP_Length (size));
-		else
-			for (auto i = SizeType (0); i < size; ++i)
-				data[i] += constantToAdd;
+		for (auto i = SizeType (0); i < size; ++i)
+			data[i] += constantToAdd;
 	}
 }
 
@@ -127,13 +126,12 @@ void add (DataType* const dataAndDest, SizeType size, const DataType* const data
 		vDSP_vadd (dataAndDest, vDSP_Stride (1), dataToAdd, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vaddD (dataAndDest, vDSP_Stride (1), dataToAdd, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_signed_32_bit_type<DataType>())
+		vDSP_vaddi (dataAndDest, vDSP_Stride (1), dataToAdd, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
 	else
 	{
-		if constexpr (is_signed_32_bit_type<DataType>())
-			vDSP_vaddi (dataAndDest, vDSP_Stride (1), dataToAdd, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
-		else
-			for (auto i = SizeType (0); i < size; ++i)
-				dataAndDest[i] += dataToAdd[i];
+		for (auto i = SizeType (0); i < size; ++i)
+			dataAndDest[i] += dataToAdd[i];
 	}
 }
 
@@ -144,13 +142,12 @@ void addAndCopy (DataType* const dest, const DataType* const origData, SizeType 
 		vDSP_vsadd (origData, vDSP_Stride (1), &constantToAdd, dest, vDSP_Stride (1), vDSP_Length (size));
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vsaddD (origData, vDSP_Stride (1), &constantToAdd, dest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_signed_32_bit_type<DataType>())
+		vDSP_vsaddi (origData, vDSP_Stride (1), &constantToAdd, dest, vDSP_Stride (1), vDSP_Length (size));
 	else
 	{
-		if constexpr (is_signed_32_bit_type<DataType>())
-			vDSP_vsaddi (origData, vDSP_Stride (1), &constantToAdd, dest, vDSP_Stride (1), vDSP_Length (size));
-		else
-			for (auto i = SizeType (0); i < size; ++i)
-				dest[i] = origData[i] + constantToAdd;
+		for (auto i = SizeType (0); i < size; ++i)
+			dest[i] = origData[i] + constantToAdd;
 	}
 }
 
@@ -161,13 +158,12 @@ void addAndCopy (DataType* const dest, const DataType* const origData, SizeType 
 		vDSP_vadd (origData, vDSP_Stride (1), dataToAdd, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vaddD (origData, vDSP_Stride (1), dataToAdd, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_signed_32_bit_type<DataType>())
+		vDSP_vaddi (origData, vDSP_Stride (1), dataToAdd, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else
 	{
-		if constexpr (is_signed_32_bit_type<DataType>())
-			vDSP_vaddi (origData, vDSP_Stride (1), dataToAdd, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
-		else
-			for (auto i = SizeType (0); i < size; ++i)
-				dest[i] = origData[i] + dataToAdd[i];
+		for (auto i = SizeType (0); i < size; ++i)
+			dest[i] = origData[i] + dataToAdd[i];
 	}
 }
 
@@ -283,13 +279,12 @@ void divide (DataType* const data, SizeType size, DataType constantToDivide)
 		vDSP_vsdiv (data, vDSP_Stride (1), &constantToDivide, data, vDSP_Stride (1), vDSP_Length (size));
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vsdivD (data, vDSP_Stride (1), &constantToDivide, data, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_signed_32_bit_type<DataType>())
+		vDSP_vsdivi (data, vDSP_Stride (1), &constantToDivide, data, vDSP_Stride (1), vDSP_Length (size));
 	else
 	{
-		if constexpr (is_signed_32_bit_type<DataType>())
-			vDSP_vsdivi (data, vDSP_Stride (1), &constantToDivide, data, vDSP_Stride (1), vDSP_Length (size));
-		else
-			for (auto i = SizeType (0); i < size; ++i)
-				data[i] /= constantToDivide;
+		for (auto i = SizeType (0); i < size; ++i)
+			data[i] /= constantToDivide;
 	}
 }
 
@@ -300,13 +295,12 @@ void divide (DataType* const dataAndDest, SizeType size, const DataType* const d
 		vDSP_vdiv (dataToDivide, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vdivD (dataToDivide, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_signed_32_bit_type<DataType>())
+		vDSP_vdivi (dataToDivide, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
 	else
 	{
-		if constexpr (is_signed_32_bit_type<DataType>())
-			vDSP_vdivi (dataToDivide, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
-		else
-			for (auto i = SizeType (0); i < size; ++i)
-				dataAndDest[i] /= dataToDivide[i];
+		for (auto i = SizeType (0); i < size; ++i)
+			dataAndDest[i] /= dataToDivide[i];
 	}
 }
 
@@ -317,13 +311,12 @@ void divideAndCopy (DataType* const dest, const DataType* const origData, SizeTy
 		vDSP_vsdiv (origData, vDSP_Stride (1), &constantToDivide, dest, vDSP_Stride (1), vDSP_Length (size));
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vsdivD (origData, vDSP_Stride (1), &constantToDivide, dest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_signed_32_bit_type<DataType>())
+		vDSP_vsdivi (origData, vDSP_Stride (1), &constantToDivide, dest, vDSP_Stride (1), vDSP_Length (size));
 	else
 	{
-		if constexpr (is_signed_32_bit_type<DataType>())
-			vDSP_vsdivi (origData, vDSP_Stride (1), &constantToDivide, dest, vDSP_Stride (1), vDSP_Length (size));
-		else
-			for (auto i = SizeType (0); i < size; ++i)
-				dest[i] = origData[i] / constantToDivide;
+		for (auto i = SizeType (0); i < size; ++i)
+			dest[i] = origData[i] / constantToDivide;
 	}
 }
 
@@ -334,13 +327,12 @@ void divideAndCopy (DataType* const dest, const DataType* const origData, SizeTy
 		vDSP_vdiv (dataToDivide, vDSP_Stride (1), origData, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vdivD (dataToDivide, vDSP_Stride (1), origData, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_signed_32_bit_type<DataType>())
+		vDSP_vdivi (dataToDivide, vDSP_Stride (1), origData, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else
 	{
-		if constexpr (is_signed_32_bit_type<DataType>())
-			vDSP_vdivi (dataToDivide, vDSP_Stride (1), origData, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
-		else
-			for (auto i = SizeType (0); i < size; ++i)
-				dest[i] = origData[i] / dataToDivide[i];
+		for (auto i = SizeType (0); i < size; ++i)
+			dest[i] = origData[i] / dataToDivide[i];
 	}
 }
 
@@ -366,6 +358,20 @@ void square (DataType* const dest, const DataType* const data, SizeType size)
 		for (auto i = SizeType (0); i < size; ++i)
 			dest[i] = (data[i] * data[i]);
 	}
+}
+
+template <Scalar DataType, Integral SizeType>
+void squareRoot (DataType* const dataAndDest, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dataAndDest[i] = static_cast<DataType> (std::sqrt (dataAndDest[i]));
+}
+
+template <Scalar DataType, Integral SizeType>
+void squareRoot (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = static_cast<DataType> (std::sqrt (data[i]));
 }
 
 
@@ -412,6 +418,20 @@ void sort (DataType* const dest, const DataType* const data, SizeType size)
 	sort (dest, size);
 }
 
+template <Scalar DataType, Integral SizeType>
+void sortReverse (DataType* const dataAndDest, SizeType size)
+{
+	sort (dataAndDest, size);
+	reverse (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void sortReverse (DataType* const dest, const DataType* const data, SizeType size)
+{
+	sort (dest, data, size);
+	reverse (dest, size);
+}
+
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -429,15 +449,12 @@ void abs (DataType* const dest, const DataType* const data, SizeType size)
 		vDSP_vabs (data, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vabsD (data, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_signed_32_bit_type<DataType>())
+		vDSP_vabsi (data, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else
 	{
-		if constexpr (is_signed_32_bit_type<DataType>())
-			vDSP_vabsi (data, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
-		else
-		{
-			for (auto i = SizeType (0); i < size; ++i)
-				dest[i] = std::abs (data[i]);
-		}
+		for (auto i = SizeType (0); i < size; ++i)
+			dest[i] = std::abs (data[i]);
 	}
 }
 
@@ -527,6 +544,38 @@ void max (const DataType* const data, SizeType size, DataType& maxValue, IndexTy
 }
 
 template <Scalar DataType, Integral SizeType>
+DataType maxAbs (const DataType* const data, SizeType size)
+{
+	DataType maxVal { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		vDSP_maxmgv (data, vDSP_Stride (1), &maxVal, vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_maxmgvD (data, vDSP_Stride (1), &maxVal, vDSP_Length (size));
+	else
+	{
+	}
+
+	return maxVal;
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex)
+{
+	vDSP_Length maxIdx { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		vDSP_maxmgvi (data, vDSP_Stride (1), &maxValue, &maxIdx, vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_maxmgviD (data, vDSP_Stride (1), &maxValue, &maxIdx, vDSP_Length (size));
+	else
+	{
+	}
+
+	maxIndex = static_cast<IndexType> (maxIdx);
+}
+
+template <Scalar DataType, Integral SizeType>
 DataType min (const DataType* const data, SizeType size)
 {
 	DataType minVal { 0 };
@@ -562,6 +611,70 @@ void min (const DataType* const data, SizeType size, DataType& minValue, IndexTy
 	}
 
 	minIndex = static_cast<IndexType> (minIdx);
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType minAbs (const DataType* const data, SizeType size)
+{
+	DataType minVal { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		vDSP_minmgv (data, vDSP_Stride (1), &minVal, vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_minmgvD (data, vDSP_Stride (1), &minVal, vDSP_Length (size));
+	else
+	{
+	}
+
+	return minVal;
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void minAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex)
+{
+	vDSP_Length minIdx { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		vDSP_minmgvi (data, vDSP_Stride (1), &minValue, &minIdx, vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_minmgviD (data, vDSP_Stride (1), &minValue, &minIdx, vDSP_Length (size));
+	else
+	{
+	}
+
+	minIndex = static_cast<IndexType> (minIdx);
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType sum (const DataType* const data, SizeType size)
+{
+	DataType sumVal { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		vDSP_sve (data, vDSP_Stride (1), &sumVal, vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_sveD (data, vDSP_Stride (1), &sumVal, vDSP_Length (size));
+	else
+	{
+	}
+
+	return sumVal;
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType mean (const DataType* const data, SizeType size)
+{
+	DataType meanVal { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		vDSP_meanv (data, vDSP_Stride (1), &meanVal, vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_meanvD (data, vDSP_Stride (1), &meanVal, vDSP_Length (size));
+	else
+	{
+	}
+
+	return meanVal;
 }
 
 
