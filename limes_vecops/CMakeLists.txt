@@ -26,7 +26,7 @@ if(APPLE)
 	target_sources (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}/impl/vdsp.h")
 	# target_link_libraries (limes_vecops INTERFACE Accelerate)
 else()
-	# check for IPP...
+	# if on an Intel processor, check for IPP...
 
 	target_sources (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}/impl/fallback.h")
 endif()
