@@ -29,5 +29,6 @@ limes_music/harmony/scales/Scale.cpp benthevining
 limes_music/rhythm/CMakeLists.txt benthevining
 limes_music/rhythm/NoteLength.h benthevining
 limes_music/rhythm/TimeSignature.h benthevining
+limes_vecops/impl/vdsp.h benthevining
 limes_vecops/limes_vecops.cmake benthevining
 scripts/FindOranges.cmake benthevining
