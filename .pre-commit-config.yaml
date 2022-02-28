@@ -81,7 +81,7 @@ repos:
 
   # license header
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.1.12
+    rev: v1.1.13
     hooks:
       - id: insert-license
         name: "Insert license header in C++ source files"
@@ -125,7 +125,7 @@ repos:
     hooks:
       - id: yamllint
   - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.13.0
+    rev: 0.14.0
     hooks:
       - id: check-github-workflows
 
