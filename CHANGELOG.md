@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [1.1.0](http://github.com/benthevining/Limes/compare/v1.0.0...v1.1.0) (2022-02-28)
+
+
+### Features
+
+* implemented vecops functions for IPP ([25dc992](http://github.com/benthevining/Limes/commit/25dc9928a67b729f306322f03fcd766d65246714))
+
 ## 1.0.0 (2022-02-28)
 
 
