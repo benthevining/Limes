@@ -25,7 +25,9 @@ limes_core/data_structures/LinkedListModel_impl.h benthevining
 limes_core/data_structures/Version.h benthevining
 limes_core/math/Fraction_impl.h benthevining
 limes_core/math/mathHelpers.h benthevining
+limes_core/misc/CMakeLists.txt benthevining
 limes_core/misc/TypeTraits.h benthevining
+limes_core/misc/languages.cpp benthevining
 limes_core/text/CMakeLists.txt benthevining
 limes_core/text/StringUtils.h benthevining
 limes_core/threading/RealtimeSafeObject/NonrealtimeMutatableObject.h benthevining
@@ -35,6 +37,7 @@ limes_music/harmony/CMakeLists.txt benthevining
 limes_music/harmony/Chord.h benthevining
 limes_music/harmony/intervals/CMakeLists.txt benthevining
 limes_music/harmony/intervals/CompoundInterval.cpp benthevining
+limes_music/harmony/intervals/CompoundInterval.h benthevining
 limes_music/harmony/intervals/Interval.h benthevining
 limes_music/harmony/scales/Chromatic.cpp benthevining
 limes_music/harmony/scales/Scale.cpp benthevining

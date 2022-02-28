@@ -12,8 +12,8 @@
 
 #pragma once
 
+#include <limes_vecops.h>
 #include "../../misc/Algorithm.h"
-#include "../../misc/Platform.h"
 #include <vector>
 #include <initializer_list>
 

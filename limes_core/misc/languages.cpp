@@ -15,7 +15,7 @@
 #include <vector>
 #include "languages.h"
 #include "Algorithm.h"
-#include "../misc/Platform.h"
+#include <limes_vecops.h>
 
 namespace lemons::locale
 {

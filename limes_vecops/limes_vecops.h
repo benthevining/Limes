@@ -12,8 +12,15 @@
 
 #pragma once
 
+#include "util/Platform.h"
+#include "util/Constants.h"
+
+#include <type_traits>
+#include <cstring>	// for memcpy
+#include <cmath>
+
 #ifndef LIMES_VECOPS_USE_VDSP
-#	ifdef __APPLE__
+#	if LIMES_APPLE
 #		define LIMES_VECOPS_USE_VDSP 1
 #	else
 #		define LIMES_VECOPS_USE_VDSP 0
@@ -21,18 +28,17 @@
 #endif
 
 #ifndef LIMES_VECOPS_USE_IPP
-#	if __has_include(<ipps.h>)
-#		define LIMES_VECOPS_USE_IPP 1
-#	else
+#	if LIMES_VECOPS_USE_VDSP
 #		define LIMES_VECOPS_USE_IPP 0
+#	else
+#		if LIMES_INTEL && __has_include(<ipps.h>)
+#			define LIMES_VECOPS_USE_IPP 1
+#		else
+#			define LIMES_VECOPS_USE_IPP 0
+#		endif
 #	endif
 #endif
 
-#include "util/Constants.h"
-
-#include <type_traits>
-#include <cstring>	// for memcpy
-#include <cmath>
 
 namespace lemons::vecops
 {

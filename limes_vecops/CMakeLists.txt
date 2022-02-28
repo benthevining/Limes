@@ -15,8 +15,11 @@ add_library (limes_vecops INTERFACE)
 
 target_link_libraries (limes_vecops INTERFACE LemonsDefaultTarget)
 
-target_sources (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h"
-									   "${CMAKE_CURRENT_LIST_DIR}/util/Constants.h")
+target_sources (
+	limes_vecops
+	INTERFACE "${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h"
+			  "${CMAKE_CURRENT_LIST_DIR}/util/Platform.h"
+			  "${CMAKE_CURRENT_LIST_DIR}/util/Constants.h")
 
 target_include_directories (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}"
 												   "${CMAKE_CURRENT_LIST_DIR}/impl")

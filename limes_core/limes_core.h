@@ -12,7 +12,8 @@
 
 #pragma once
 
-#include "misc/Platform.h"
+#include <limes_vecops.h>
+
 #include "misc/TypeTraits.h"
 #include "misc/Algorithm.h"
 #include "misc/languages.h"

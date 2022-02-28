@@ -17,7 +17,7 @@
 #include <string>
 #include <vector>
 #include <list>
-#include "Platform.h"
+#include <limes_vecops.h>
 
 #if ! LIMES_WINDOWS
 #	include <cxxabi.h>

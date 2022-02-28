@@ -13,7 +13,7 @@
 #pragma once
 
 #include <cmath>
-#include "../misc/Platform.h"
+#include <limes_vecops.h>
 
 namespace lemons::math
 {
