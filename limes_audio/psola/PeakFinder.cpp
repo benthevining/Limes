@@ -242,28 +242,15 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const in
 
 	for (auto i = 0; i < finalHandfulSize; ++i)
 	{
-		struct MinDeltaData final
-		{
-			int index, deltaValue;
-		};
+		int index, deltaValue;
 
-		const auto minDeltaData = [this]
-		{
-			MinDeltaData data;
+		vecops::min (candidateDeltas.data(), candidateDeltas.numObjects(), deltaValue, index);
 
-			const auto minIt = std::min_element (candidateDeltas.begin(), candidateDeltas.end());
-
-			data.deltaValue = *minIt;
-			data.index		= static_cast<int> (std::distance (candidateDeltas.begin(), minIt));
-
-			return data;
-		}();
-
-		finalHandfulDeltas.push_back (minDeltaData.deltaValue);
-		finalHandful.push_back (peakCandidates[minDeltaData.index]);
+		finalHandfulDeltas.push_back (deltaValue);
+		finalHandful.push_back (peakCandidates[index]);
 
 		// make sure this value won't be chosen again, w/o deleting it from the candidateDeltas array
-		candidateDeltas[minDeltaData.index] = std::numeric_limits<int>::max();
+		candidateDeltas[index] = std::numeric_limits<int>::max();
 	}
 
 	LIMES_ASSERT (finalHandful.numObjects() == finalHandfulSize && finalHandfulDeltas.numObjects() == finalHandfulSize);
@@ -272,15 +259,17 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const in
 
 	const auto deltaRange = [this]
 	{
-		const auto pair = std::minmax_element (finalHandfulDeltas.begin(), finalHandfulDeltas.end());
+		int minDelta, maxDelta;
 
-		return *pair.second - *pair.first;
+		vecops::minMax (finalHandfulDeltas.data(), finalHandfulDeltas.numObjects(), minDelta, maxDelta);
+
+		return maxDelta - minDelta;
 	}();
-
-	LIMES_ASSERT (deltaRange >= 0);
 
 	if (deltaRange == 0)  // prevent dividing by 0 in the next step...
 		return finalHandful[0];
+
+	LIMES_ASSERT (deltaRange > 0);
 
 	auto get_weighted_sample = [this, deltaRange, inputSamples] (int sampleIndex, int finalHandfulIdx) -> SampleType
 	{
