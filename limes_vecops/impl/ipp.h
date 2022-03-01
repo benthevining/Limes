@@ -68,6 +68,19 @@ void clear (DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
+void copy (DataType* const dest, const DataType* const source, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsCopy_32f (source, dest, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsCopy_64f (source, dest, static_cast<int> (size));
+	else if constexpr (is_signed_int<DataType>())
+		ippsCopy_32s (source, dest, static_cast<int> (size));
+	else
+		fb::copy (dest, source, size);
+}
+
+template <Scalar DataType, Integral SizeType>
 void swap (DataType* const vecA, DataType* const vecB, SizeType size)
 {
 	fb::swap (vecA, vecB, size);
@@ -653,6 +666,58 @@ void minAbs (const DataType* const data, SizeType size, DataType& minValue, Inde
 }
 
 template <Scalar DataType, Integral SizeType>
+void minMax (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsMinMax_32f (data, static_cast<int> (size), &minValue, &maxValue);
+	else if constexpr (is_double_type<DataType>())
+		ippsMinMax_64f (data, static_cast<int> (size), &minValue, &maxValue);
+	else if constexpr (is_signed_int<DataType>())
+		ippsMinMax_32s (data, static_cast<int> (size), &minValue, &maxValue);
+	else if constexpr (is_unsigned_int<DataType>())
+		ippsMinMax_32u (data, static_cast<int> (size), &minValue, &maxValue);
+	else
+		fb::minMax (data, size, minValue, maxValue);
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void minMax (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex)
+{
+	int minIdx { 0 }, maxIdx { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		ippsMinMaxIndx_32f (data, static_cast<int> (size), &minValue, &minIdx, &maxValue, &maxIdx);
+	else if constexpr (is_double_type<DataType>())
+		ippsMinMaxIndx_64f (data, static_cast<int> (size), &minValue, &minIdx, &maxValue, &maxIdx);
+	else if constexpr (is_signed_int<DataType>())
+		ippsMinMaxIndx_32s (data, static_cast<int> (size), &minValue, &minIdx, &maxValue, &maxIdx);
+	else if constexpr (is_unsigned_int<DataType>())
+		ippsMinMaxIndx_32u (data, static_cast<int> (size), &minValue, &minIdx, &maxValue, &maxIdx);
+	else
+	{
+		fb::minMax (data, size, minValue, minIndex, maxValue, maxIndex);
+		return;
+	}
+
+	minIndex = static_cast<IndexType> (minIdx);
+	maxIndex = static_cast<IndexType> (maxIdx);
+}
+
+template <Scalar DataType, Integral SizeType>
+void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue)
+{
+	minValue = minAbs (data, size);
+	maxValue = maxAbs (data, size);
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex)
+{
+	minAbs (data, size, minValue, minIndex);
+	maxAbs (data, size, maxValue, maxIndex);
+}
+
+template <Scalar DataType, Integral SizeType>
 DataType sum (const DataType* const data, SizeType size)
 {
 	DataType sumVal { 0 };
@@ -696,28 +761,61 @@ void generateRamp (DataType* const output, SizeType size, DataType startValue, D
 	fb::generateRamp (output, size, startValue, endValue);
 }
 
+template <Scalar DataType, Integral SizeType>
+void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue)
+{
+	fb::applyRamp (dataAndDest, size, startValue, endValue);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyRamp (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
+{
+	fb::applyRamp (dest, data, size, startValue, endValue);
+}
+
+
 namespace window
 {
 
 template <Scalar DataType, Integral SizeType>
 void generateBlackman (DataType* const output, SizeType size)
 {
-	constexpr auto alpha = DataType (0.16);
-
 	if constexpr (is_float_type<DataType>())
 	{
 		fill (output, size, DataType (1));
-		ippsWinBlackman_32f_I (output, static_cast<int> (size), alpha);
+		ippsWinBlackman_32f_I (output, static_cast<int> (size), constants::blackman_alpha<DataType>);
 	}
 	else if constexpr (is_double_type<DataType>())
 	{
 		fill (output, size, DataType (1));
-		ippsWinBlackman_64f_I (output, static_cast<int> (size), alpha);
+		ippsWinBlackman_64f_I (output, static_cast<int> (size), constants::blackman_alpha<DataType>);
 	}
 	else
 	{
 		fb::window::generateBlackman (output, size);
 	}
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyBlackman (DataType* const dataAndDest, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsWinBlackman_32f_I (dataAndDest, static_cast<int> (size), constants::blackman_alpha<DataType>);
+	else if constexpr (is_double_type<DataType>())
+		ippsWinBlackman_64f_I (dataAndDest, static_cast<int> (size), constants::blackman_alpha<DataType>);
+	else
+		fb::window::applyBlackman (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyBlackman (DataType* const dest, const DataType* const data, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsWinBlackman_32f (data, dest, static_cast<int> (size), constants::blackman_alpha<DataType>);
+	else if constexpr (is_double_type<DataType>())
+		ippsWinBlackman_64f (data, dest, static_cast<int> (size), constants::blackman_alpha<DataType>);
+	else
+		fb::window::applyBlackman (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -740,6 +838,28 @@ void generateHamm (DataType* const output, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
+void applyHamm (DataType* const dataAndDest, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsWinHamming_32f_I (dataAndDest, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsWinHamming_64f_I (dataAndDest, static_cast<int> (size));
+	else
+		fb::window::generateHamm (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyHamm (DataType* const dest, const DataType* const data, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsWinHamming_32f (data, dest, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsWinHamming_64f (data, dest, static_cast<int> (size));
+	else
+		fb::window::generateHamm (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
 void generateHanning (DataType* const output, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
@@ -756,6 +876,28 @@ void generateHanning (DataType* const output, SizeType size)
 	{
 		fb::window::generateHanning (output, size);
 	}
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyHanning (DataType* const dataAndDest, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsWinHann_32f_I (dataAndDest, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsWinHann_64f_I (dataAndDest, static_cast<int> (size));
+	else
+		fb::window::applyHanning (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyHanning (DataType* const dest, const DataType* const data, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsWinHann_32f (data, dest, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsWinHann_64f (data, dest, static_cast<int> (size));
+	else
+		fb::window::applyHanning (dest, data, size);
 }
 
 }  // namespace window

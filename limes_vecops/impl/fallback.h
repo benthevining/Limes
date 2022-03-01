@@ -30,6 +30,12 @@ void clear (DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
+void copy (DataType* const dest, const DataType* const source, SizeType size)
+{
+	fb::copy (dest, source, size);
+}
+
+template <Scalar DataType, Integral SizeType>
 void swap (DataType* const vecA, DataType* const vecB, SizeType size)
 {
 	fb::swap (vecA, vecB, size);
@@ -303,6 +309,30 @@ void minAbs (const DataType* const data, SizeType size, DataType& minValue, Inde
 }
 
 template <Scalar DataType, Integral SizeType>
+void minMax (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue)
+{
+	fb::minMax (data, size, minValue, maxValue);
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void minMax (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex)
+{
+	fb::minMax (data, size, minValue, minIndex, maxValue, maxIndex);
+}
+
+template <Scalar DataType, Integral SizeType>
+void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue)
+{
+	fb::minMaxAbs (data, size, minValue, maxValue);
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex)
+{
+	fb::minMaxAbs (data, size, minValue, minIndex, maxValue, maxIndex);
+}
+
+template <Scalar DataType, Integral SizeType>
 DataType sum (const DataType* const data, SizeType size)
 {
 	return fb::sum (data, size);
@@ -324,6 +354,19 @@ void generateRamp (DataType* const output, SizeType size, DataType startValue, D
 	fb::generateRamp (output, size, startValue, endValue);
 }
 
+template <Scalar DataType, Integral SizeType>
+void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue)
+{
+	fb::applyRamp (dataAndDest, size, startValue, endValue);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyRamp (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
+{
+	fb::applyRamp (dest, data, size, startValue, endValue);
+}
+
+
 namespace window
 {
 
@@ -334,15 +377,51 @@ void generateBlackman (DataType* const output, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
+void applyBlackman (DataType* const dataAndDest, SizeType size)
+{
+	fb::window::applyBlackman (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyBlackman (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::window::applyBlackman (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
 void generateHamm (DataType* const output, SizeType size)
 {
 	fb::window::generateHamm (output, size);
 }
 
 template <Scalar DataType, Integral SizeType>
+void applyHamm (DataType* const dataAndDest, SizeType size)
+{
+	fb::window::applyHamm (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyHamm (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::window::applyHamm (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
 void generateHanning (DataType* const output, SizeType size)
 {
 	fb::window::generateHanning (output, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyHanning (DataType* const dataAndDest, SizeType size)
+{
+	fb::window::applyHanning (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyHanning (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::window::applyHanning (dest, data, size);
 }
 
 }  // namespace window

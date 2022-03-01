@@ -51,4 +51,7 @@ namespace lemons::constants
 template <Scalar T>
 static constexpr T two_pi = pi<T>* T (2.);
 
-}
+template <Scalar T>
+static constexpr T blackman_alpha = T (0.16);
+
+}  // namespace lemons::constants

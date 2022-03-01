@@ -14,16 +14,27 @@
 
 #include "util/Platform.h"
 #include "util/Constants.h"
-
 #include <type_traits>
-#include <cstring>	// for memcpy
-#include <cmath>
+
+
+static_assert (sizeof (float) == 4, "float is not 32-bits wide");
+static_assert (sizeof (double) == 8, "double is not 64-bits wide");
+
+
+#if LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_IPP
+#	error "Only one of LIMES_VECOPS_USE_VDSP or LIMES_VECOPS_USE_IPP may be set to 1!"
+#endif
+
 
 #ifndef LIMES_VECOPS_USE_VDSP
-#	if LIMES_APPLE
-#		define LIMES_VECOPS_USE_VDSP 1
-#	else
+#	if LIMES_VECOPS_USE_IPP
 #		define LIMES_VECOPS_USE_VDSP 0
+#	else
+#		if LIMES_APPLE
+#			define LIMES_VECOPS_USE_VDSP 1
+#		else
+#			define LIMES_VECOPS_USE_VDSP 0
+#		endif
 #	endif
 #endif
 
@@ -54,10 +65,7 @@ template <Scalar DataType, Integral SizeType>
 void clear (DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void copy (DataType* const dest, const DataType* const source, SizeType size)
-{
-	std::memcpy (dest, source, static_cast<size_t> (size) * sizeof (DataType));
-}
+void copy (DataType* const dest, const DataType* const source, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
 void swap (DataType* const vecA, DataType* const vecB, SizeType size);
@@ -202,36 +210,49 @@ void clip (DataType* const dest, const DataType* const data, SizeType size, Data
 
 
 template <Scalar DataType, Integral SizeType>
-DataType max (const DataType* const data, SizeType size);
+[[nodiscard]] DataType max (const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 void max (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex);
 
 template <Scalar DataType, Integral SizeType>
-DataType maxAbs (const DataType* const data, SizeType size);
+[[nodiscard]] DataType maxAbs (const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex);
 
 
 template <Scalar DataType, Integral SizeType>
-DataType min (const DataType* const data, SizeType size);
+[[nodiscard]] DataType min (const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 void min (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex);
 
 template <Scalar DataType, Integral SizeType>
-DataType minAbs (const DataType* const data, SizeType size);
+[[nodiscard]] DataType minAbs (const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 void minAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex);
 
 
 template <Scalar DataType, Integral SizeType>
-DataType sum (const DataType* const data, SizeType size);
+void minMax (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue);
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void minMax (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex);
 
 template <Scalar DataType, Integral SizeType>
-DataType mean (const DataType* const data, SizeType size);
+void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue);
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex);
+
+
+template <Scalar DataType, Integral SizeType>
+[[nodiscard]] DataType sum (const DataType* const data, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
+[[nodiscard]] DataType mean (const DataType* const data, SizeType size);
 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -240,6 +261,13 @@ DataType mean (const DataType* const data, SizeType size);
 template <Scalar DataType, Integral SizeType>
 void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue);
 
+template <Scalar DataType, Integral SizeType>
+void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue);
+
+template <Scalar DataType, Integral SizeType>
+void applyRamp (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue);
+
+
 namespace window
 {
 
@@ -247,10 +275,28 @@ template <Scalar DataType, Integral SizeType>
 void generateBlackman (DataType* const output, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
+void applyBlackman (DataType* const dataAndDest, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
+void applyBlackman (DataType* const dest, const DataType* const data, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
 void generateHamm (DataType* const output, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
+void applyHamm (DataType* const dataAndDest, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
+void applyHamm (DataType* const dest, const DataType* const data, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
 void generateHanning (DataType* const output, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
+void applyHanning (DataType* const dataAndDest, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
+void applyHanning (DataType* const dest, const DataType* const data, SizeType size);
 
 }  // namespace window
 

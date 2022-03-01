@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include <cstring>	// for memset
+#include <cstring>	// for memset, memcpy
 #include <cmath>
 #include <algorithm>
 #include <numeric>
@@ -31,6 +31,12 @@ template <Scalar DataType, Integral SizeType>
 inline void clear (DataType* const data, SizeType size)
 {
 	std::memset (data, 0, static_cast<size_t> (size) * sizeof (DataType));
+}
+
+template <Scalar DataType, Integral SizeType>
+inline void copy (DataType* const dest, const DataType* const source, SizeType size)
+{
+	std::memcpy (dest, source, static_cast<size_t> (size) * sizeof (DataType));
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -391,6 +397,41 @@ inline void minAbs (const DataType* const data, SizeType size, DataType& minValu
 }
 
 template <Scalar DataType, Integral SizeType>
+inline void minMax (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue)
+{
+	const auto pair = std::minmax_element (data, data + size);
+
+	minValue = *pair.first;
+	maxValue = *pair.second;
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+inline void minMax (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex)
+{
+	const auto pair = std::minmax_element (data, data + size);
+
+	minValue = *pair.first;
+	maxValue = *pair.second;
+
+	minIndex = static_cast<IndexType> (std::distance (data, pair.first));
+	maxIndex = static_cast<IndexType> (std::distance (data, pair.second));
+}
+
+template <Scalar DataType, Integral SizeType>
+inline void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue)
+{
+	minValue = minAbs (data, size);
+	maxValue = maxAbs (data, size);
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+inline void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex)
+{
+	minAbs (data, size, minValue, minIndex);
+	maxAbs (data, size, maxValue, maxIndex);
+}
+
+template <Scalar DataType, Integral SizeType>
 [[nodiscard]] inline DataType sum (const DataType* const data, SizeType size)
 {
 	return std::accumulate (data, data + size, DataType (0));
@@ -405,15 +446,33 @@ template <Scalar DataType, Integral SizeType>
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-
 template <Scalar DataType, Integral SizeType>
 inline void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue)
 {
 	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
 
 	for (auto i = SizeType (0); i < size; ++i)
-		output[i] = startValue + (increment * static_cast<DataType> (i));
+		output[i] = (startValue + (increment * static_cast<DataType> (i)));
 }
+
+template <Scalar DataType, Integral SizeType>
+inline void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue)
+{
+	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
+
+	for (auto i = SizeType (0); i < size; ++i)
+		dataAndDest[i] *= (startValue + (increment * static_cast<DataType> (i)));
+}
+
+template <Scalar DataType, Integral SizeType>
+inline void applyRamp (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
+{
+	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
+
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = data[i] * (startValue + (increment * static_cast<DataType> (i)));
+}
+
 
 namespace window
 {
@@ -421,11 +480,32 @@ namespace window
 namespace detail
 {
 
-template <Scalar ValueType>
-[[nodiscard]] constexpr ValueType ncos (int order, int i, int size) noexcept
+template <Scalar ValueType, Integral SizeType>
+[[nodiscard]] inline ValueType ncos (SizeType order, SizeType i, SizeType size) noexcept
 {
 	return std::cos (static_cast<ValueType> (order * i)
 					 * constants::pi<ValueType> / static_cast<ValueType> (size - 1));
+}
+
+template <Scalar DataType, Integral SizeType>
+[[nodiscard]] inline DataType getBlackmanSample (SizeType size, SizeType i) noexcept
+{
+	const auto cos2 = ncos<DataType> (SizeType (2), i, size);
+	const auto cos4 = ncos<DataType> (SizeType (4), i, size);
+
+	return static_cast<DataType> (0.5 * (1. - constants::blackman_alpha<DataType>) -0.5 * cos2 + 0.5 * constants::blackman_alpha<DataType> * cos4);
+}
+
+template <Scalar DataType, Integral SizeType>
+[[nodiscard]] inline DataType getHammSample (SizeType size, SizeType i) noexcept
+{
+	return static_cast<DataType> (0.54 - 0.46 * ncos<DataType> (SizeType (2), i, size));
+}
+
+template <Scalar DataType, Integral SizeType>
+[[nodiscard]] inline DataType getHanningSample (SizeType size, SizeType i) noexcept
+{
+	return static_cast<DataType> (0.5 - 0.5 * detail::ncos<DataType> (SizeType (2), i, size));
 }
 
 }  // namespace detail
@@ -434,28 +514,63 @@ template <Scalar DataType, Integral SizeType>
 inline void generateBlackman (DataType* const output, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
-	{
-		constexpr auto alpha = DataType (0.16);
+		output[i] = detail::getBlackmanSample<DataType> (size, i);
+}
 
-		const auto cos2 = detail::ncos<DataType> (2, i, size);
-		const auto cos4 = detail::ncos<DataType> (4, i, size);
+template <Scalar DataType, Integral SizeType>
+inline void applyBlackman (DataType* const dataAndDest, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dataAndDest[i] *= detail::getBlackmanSample<DataType> (size, i);
+}
 
-		output[i] = static_cast<DataType> (0.5 * (1 - alpha) - 0.5 * cos2 + 0.5 * alpha * cos4);
-	}
+template <Scalar DataType, Integral SizeType>
+inline void applyBlackman (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = data[i] * detail::getBlackmanSample<DataType> (size, i);
 }
 
 template <Scalar DataType, Integral SizeType>
 inline void generateHamm (DataType* const output, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
-		output[i] = static_cast<DataType> (0.54 - 0.46 * detail::ncos<DataType> (2, i, size));
+		output[i] = detail::getHammSample<DataType> (size, i);
+}
+
+template <Scalar DataType, Integral SizeType>
+inline void applyHamm (DataType* const dataAndDest, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dataAndDest[i] *= detail::getHammSample<DataType> (size, i);
+}
+
+template <Scalar DataType, Integral SizeType>
+inline void applyHamm (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = data[i] * detail::getHammSample<DataType> (size, i);
 }
 
 template <Scalar DataType, Integral SizeType>
 inline void generateHanning (DataType* const output, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
-		output[i] = static_cast<DataType> (0.5 - 0.5 * detail::ncos<DataType> (2, i, size));
+		output[i] = detail::getHanningSample<DataType> (size, i);
+}
+
+template <Scalar DataType, Integral SizeType>
+inline void applyHanning (DataType* const dataAndDest, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dataAndDest[i] *= detail::getHanningSample<DataType> (size, i);
+}
+
+template <Scalar DataType, Integral SizeType>
+inline void applyHanning (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = data[i] * detail::getHanningSample<DataType> (size, i);
 }
 
 }  // namespace window

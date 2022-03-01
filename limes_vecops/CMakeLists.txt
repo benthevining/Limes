@@ -21,13 +21,11 @@ target_sources (
 			  "${CMAKE_CURRENT_LIST_DIR}/util/Platform.h"
 			  "${CMAKE_CURRENT_LIST_DIR}/util/Constants.h")
 
-target_include_directories (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}"
-												   "${CMAKE_CURRENT_LIST_DIR}/impl")
+target_include_directories (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}")
 
 if(APPLE)
 	target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_VDSP=1)
 	target_sources (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}/impl/vdsp.h")
-	# target_link_libraries (limes_vecops INTERFACE Accelerate)
 else()
 	# if on an Intel processor, check for IPP...
 

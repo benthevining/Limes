@@ -61,6 +61,12 @@ void clear (DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
+void copy (DataType* const dest, const DataType* const source, SizeType size)
+{
+	fb::copy (dest, source, size);
+}
+
+template <Scalar DataType, Integral SizeType>
 void swap (DataType* const vecA, DataType* const vecB, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
@@ -560,6 +566,34 @@ void minAbs (const DataType* const data, SizeType size, DataType& minValue, Inde
 }
 
 template <Scalar DataType, Integral SizeType>
+void minMax (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue)
+{
+	minValue = min (data, size);
+	maxValue = max (data, size);
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void minMax (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex)
+{
+	min (data, size, minValue, minIndex);
+	max (data, size, maxValue, maxIndex);
+}
+
+template <Scalar DataType, Integral SizeType>
+void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue)
+{
+	minValue = minAbs (data, size);
+	maxValue = maxAbs (data, size);
+}
+
+template <Scalar DataType, Integral SizeType, Integral IndexType>
+void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex)
+{
+	minAbs (data, size, minValue, minIndex);
+	maxAbs (data, size, maxValue, maxIndex);
+}
+
+template <Scalar DataType, Integral SizeType>
 DataType sum (const DataType* const data, SizeType size)
 {
 	DataType sumVal { 0 };
@@ -606,6 +640,20 @@ void generateRamp (DataType* const output, SizeType size, DataType startValue, D
 		fb::generateRamp (output, size, startValue, endValue);
 }
 
+template <Scalar DataType, Integral SizeType>
+void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue)
+{
+	fb::applyRamp (dataAndDest, size, startValue, endValue);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyRamp (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
+{
+	generateRamp (dest, size, startValue, endValue);
+	multiply (dest, size, data);
+}
+
+
 namespace window
 {
 
@@ -621,6 +669,19 @@ void generateBlackman (DataType* const output, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
+void applyBlackman (DataType* const dataAndDest, SizeType size)
+{
+	fb::window::applyBlackman (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyBlackman (DataType* const dest, const DataType* const data, SizeType size)
+{
+	generateBlackman (dest, size);
+	multiply (dest, size, data);
+}
+
+template <Scalar DataType, Integral SizeType>
 void generateHamm (DataType* const output, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
@@ -632,6 +693,19 @@ void generateHamm (DataType* const output, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
+void applyHamm (DataType* const dataAndDest, SizeType size)
+{
+	fb::window::applyHamm (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyHamm (DataType* const dest, const DataType* const data, SizeType size)
+{
+	generateHamm (dest, size);
+	multiply (dest, size, data);
+}
+
+template <Scalar DataType, Integral SizeType>
 void generateHanning (DataType* const output, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
@@ -640,6 +714,19 @@ void generateHanning (DataType* const output, SizeType size)
 		vDSP_hann_windowD (output, vDSP_Length (size), vDSP_HANN_NORM);
 	else
 		fb::window::generateHanning (output, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyHanning (DataType* const dataAndDest, SizeType size)
+{
+	fb::window::applyHanning (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void applyHanning (DataType* const dest, const DataType* const data, SizeType size)
+{
+	generateHanning (dest, size);
+	multiply (dest, size, data);
 }
 
 }  // namespace window
