@@ -22,7 +22,8 @@ if(APPLE)
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_VDSP=0)
 	else()
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_VDSP=1)
-		target_sources (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}/../impl/vdsp.h")
+		target_sources (limes_vecops
+						INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../impl/vdsp.h>)
 
 		message (VERBOSE "limes_vecops -- using vDSP")
 
@@ -42,13 +43,14 @@ string (REGEX REPLACE ".*LIMES_INTEL_PLATFORM ([a-zA-Z0-9_-]*).*" "\\1" intel_pl
 
 if(intel_platform)
 
-	find_package (IPP)
+	find_package (IPP MODULE REQUIRED)
 
 	if(TARGET Intel::IPP)
 		target_link_libraries (limes_vecops INTERFACE Intel::IPP)
 
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_IPP=1)
-		target_sources (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}/../impl/ipp.h")
+		target_sources (limes_vecops
+						INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../impl/ipp.h>)
 
 		message (VERBOSE "limes_vecops -- using IPP")
 
@@ -67,32 +69,26 @@ string (REGEX REPLACE ".*LIMES_USE_MIPP ([a-zA-Z0-9_-]*).*" "\\1" use_mipp "${co
 
 if(use_mipp)
 
-	message (STATUS "MIPP")
+	find_package (MIPP MODULE REQUIRED)
 
-	include (LemonsGetCPM)
+	if(TARGET aff3ct::MIPP)
+		target_link_libraries (limes_vecops INTERFACE aff3ct::MIPP)
 
-	CPMAddPackage (
-		NAME
-		MIPP
-		GITHUB_REPOSITORY
-		aff3ct/MIPP
-		GIT_TAG
-		origin/master
-		DOWNLOAD_ONLY
-		ON)
+		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_MIPP=1)
+		target_sources (limes_vecops
+						INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../impl/mipp.h>)
 
-	target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_MIPP=1)
-	target_include_directories (limes_vecops INTERFACE "${MIPP_SOURCE_DIR}/src")
-	target_sources (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}/../impl/mipp.h")
+		message (VERBOSE "limes_vecops -- using MIPP")
 
-	message (VERBOSE "limes_vecops -- using MIPP")
-
-	return ()
+		return ()
+	endif()
 endif()
 
 #
 
 # Fallback :(
 
-target_sources (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}/../impl/fallback.h")
+target_sources (limes_vecops
+				INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../impl/fallback.h>)
+
 message (VERBOSE "limes_vecops -- using fallback implementation")

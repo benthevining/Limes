@@ -16,9 +16,10 @@ lemons_configure_static_library (limes_audio)
 
 target_link_libraries (limes_audio PUBLIC limes_core)
 
-target_sources (limes_audio PUBLIC "${CMAKE_CURRENT_LIST_DIR}/limes_audio.h")
+target_sources (limes_audio PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_audio.h>)
 
-target_include_directories (limes_audio INTERFACE "${CMAKE_CURRENT_LIST_DIR}")
+target_include_directories (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
+												   $<INSTALL_INTERFACE:include>)
 
 add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/streams"
 				  "${CMAKE_CURRENT_BINARY_DIR}/limes_audio/streams")
@@ -27,4 +28,8 @@ add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/psola" "${CMAKE_CURRENT_BINARY_DIR}
 
 lemons_sort_target_sources (limes_audio ${CMAKE_CURRENT_LIST_DIR})
 
-add_library (Lemons::limes_audio ALIAS limes_audio)
+add_library (Limes::limes_audio ALIAS limes_audio)
+
+target_link_libraries (Limes INTERFACE limes_audio)
+
+install (TARGETS limes_audio EXPORT LimesTargets)

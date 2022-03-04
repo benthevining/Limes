@@ -22,31 +22,54 @@ list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/scripts")
 
 find_package (Oranges REQUIRED)
 
+# include ("${CMAKE_CURRENT_BINARY_DIR}/cmake/OrangesTargets.cmake")
+
 list (APPEND CMAKE_MODULE_PATH "${LEMONS_CMAKE_MODULE_PATH}")
+
+#
+
+set (CMAKE_DEBUG_POSTFIX -d)
+
+add_library (Limes INTERFACE)
+
+include (GNUInstallDirs)
+
+install (
+	TARGETS Limes
+	EXPORT LimesTargets
+	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+	INCLUDES
+	DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
 
 add_subdirectory (limes_vecops)
 add_subdirectory (limes_core)
 add_subdirectory (limes_audio)
 add_subdirectory (limes_music)
 
-# install files
+add_library (Limes::Limes ALIAS Limes)
 
-include (GNUInstallDirs)
+target_include_directories (
+	limes_vecops
+	INTERFACE $<BUILD_INTERFACE:${Limes_SOURCE_DIR}/include>
+			  $<BUILD_INTERFACE:${Limes_BINARY_DIR}/include> $<INSTALL_INTERFACE:include>)
+
+#
+
+install (EXPORT LimesTargets FILE LimesTargets.cmake NAMESPACE Limes:: DESTINATION lib/cmake/Limes)
+export (EXPORT LimesTargets FILE "${CMAKE_CURRENT_BINARY_DIR}/cmake/LimesTargets.cmake"
+		NAMESPACE Limes::)
+
 include (CMakePackageConfigHelpers)
 
-set (installDest ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
-
-install (DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/limes_core" DESTINATION ${installDest}
-		 COMPONENT ${PROJECT_NAME})
-install (DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/limes_music" DESTINATION ${installDest}
-		 COMPONENT ${PROJECT_NAME})
-install (DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/limes_audio" DESTINATION ${installDest}
-		 COMPONENT ${PROJECT_NAME})
-install (DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/limes_vecops" DESTINATION ${installDest}
-		 COMPONENT ${PROJECT_NAME})
-
-write_basic_package_version_file ("${PROJECT_NAME}ConfigVersion.cmake" VERSION ${PROJECT_VERSION}
+write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_VERSION}"
 								  COMPATIBILITY SameMajorVersion)
 
-install (FILES "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
-		 DESTINATION ${installDest} COMPONENT ${PROJECT_NAME})
+configure_package_config_file (
+	"${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake" "LimesConfig.cmake"
+	INSTALL_DESTINATION lib/cmake/Limes PATH_VARS "" INSTALL_PREFIX "")
+
+if(PROJECT_IS_TOP_LEVEL)
+	include (CPack)
+endif()

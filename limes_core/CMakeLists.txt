@@ -16,9 +16,10 @@ lemons_configure_static_library (limes_core)
 
 target_link_libraries (limes_core PUBLIC limes_vecops)
 
-target_sources (limes_core PUBLIC "${CMAKE_CURRENT_LIST_DIR}/limes_core.h")
+target_sources (limes_core PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_core.h>)
 
-target_include_directories (limes_core INTERFACE "${CMAKE_CURRENT_LIST_DIR}")
+target_include_directories (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
+												   $<INSTALL_INTERFACE:include>)
 
 add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/data_structures"
 				  "${CMAKE_CURRENT_BINARY_DIR}/limes_core/data_structures")
@@ -30,4 +31,8 @@ add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/text" "${CMAKE_CURRENT_BINARY_DIR}/
 
 lemons_sort_target_sources (limes_core ${CMAKE_CURRENT_LIST_DIR})
 
-add_library (Lemons::limes_core ALIAS limes_core)
+add_library (Limes::limes_core ALIAS limes_core)
+
+target_link_libraries (Limes INTERFACE limes_core)
+
+install (TARGETS limes_core EXPORT LimesTargets)

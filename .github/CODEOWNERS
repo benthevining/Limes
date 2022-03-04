@@ -10,12 +10,14 @@
 .clang-format benthevining
 .clang-tidy benthevining
 .github/CODEOWNERS benthevining
+.github/FUNDING.yml benthevining
 .github/ISSUE_TEMPLATE/bug_report.md benthevining
 .github/ISSUE_TEMPLATE/config.yml benthevining
 .github/ISSUE_TEMPLATE/feature_request.md benthevining
 .github/workflows/test_and_release.yml benthevining
 .gitownrc benthevining
 CMakeLists.txt benthevining
+Makefile benthevining
 README.md benthevining
 limes_audio/limes_audio.h benthevining
 limes_audio/psola/CMakeLists.txt benthevining

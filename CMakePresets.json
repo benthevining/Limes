@@ -1,0 +1,100 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/Builds/${presetName}",
+      "debug": {
+        "output": true
+      },
+      "warnings": {
+        "uninitialized": true,
+        "unusedCli": false
+      }
+    },
+    {
+      "inherits": "base",
+      "name": "config_base",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "${presetName}"
+      }
+    },
+    {
+      "inherits": "config_base",
+      "name": "Debug"
+    },
+    {
+      "inherits": "config_base",
+      "name": "Release"
+    },
+    {
+      "inherits": "base",
+      "name": "ios_base",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_SYSTEM_NAME": "iOS",
+        "CMAKE_OSX_DEPLOYMENT_TARGET": "9.3"
+      }
+    },
+    {
+      "inherits": "ios_base",
+      "name": "ios_simulator",
+      "toolchainFile": "${sourceDir}/toolchains/ios_simulator.cmake"
+    },
+    {
+      "inherits": "ios_base",
+      "name": "ios",
+      "toolchainFile": "${sourceDir}/toolchains/ios.cmake",
+      "cacheVariables": {
+        "CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY": "\"iPhone Developer\""
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "cleanFirst": true,
+      "jobs": 4,
+      "verbose": true,
+      "configuration": "${presetName}"
+    },
+    {
+      "inherits": "base",
+      "name": "Debug",
+      "configurePreset": "Debug"
+    },
+    {
+      "inherits": "base",
+      "name": "Release",
+      "configurePreset": "Release"
+    },
+    {
+      "name": "ios_base",
+      "inherits": "base",
+      "hidden": true,
+      "nativeToolOptions": [
+        "-allowProvisioningUpdates"
+      ]
+    },
+    {
+      "inherits": "ios_base",
+      "name": "ios_simulator",
+      "nativeToolOptions": [
+        "-sdk",
+        "iphonesimulator"
+      ]
+    },
+    {
+      "inherits": "ios_base",
+      "name": "ios"
+    }
+  ]
+}

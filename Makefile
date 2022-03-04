@@ -35,13 +35,11 @@ override LIMES_ROOT := $(patsubst %/,%,$(strip $(dir $(realpath $(firstword $(MA
 
 override THIS_MAKEFILE := $(LIMES_ROOT)/Makefile
 
-override make_build_dir = $(LIMES_ROOT)/util/$(1)/$(BUILDS)
+override cmake_configure_configuration = echo "Configuring $(1) configuration..."; cd $(LIMES_ROOT) && $(CMAKE) -B $(BUILDS)/$(1) -G "$(CMAKE_GENERATOR)" -D "CMAKE_BUILD_TYPE=$(1)" --log-level=DEBUG
 
-override cmake_config = cd $(LIMES_ROOT) && $(CMAKE) -B $(BUILDS) -G "$(CMAKE_GENERATOR)" --log-level=DEBUG
+override cmake_build_configuration = echo "Building $(1) configuration..."; cd $(LIMES_ROOT) && $(CMAKE) --build $(BUILDS)/$(1) -j $(NUM_CORES) --config $(1)
 
-override cmake_build_configuration = echo "Building $(1) configuration..."; $(CMAKE) --build $(BUILDS) -j $(NUM_CORES) --config $(1)
-
-override cmake_build = $(foreach config,$(CONFIGS),$(call cmake_build_configuration,$(config));)
+override cmake_install_configuration = echo "Installing $(1) configuration..."; cd $(LIMES_ROOT) && $(CMAKE) --install $(BUILDS)/$(1) --config $(1) --strip --verbose
 
 #
 
@@ -51,17 +49,20 @@ help:  ## Print this message
 #
 
 config: ## Configure cmake
-	$(call cmake_config)
+	@$(foreach config,$(CONFIGS),$(call cmake_configure_configuration,$(config));)
 
 build: config ## Builds the libraries
-	$(call cmake_build)
+	@$(foreach config,$(CONFIGS),$(call cmake_build_configuration,$(config));)
+
+install: build ## Runs CMake install
+	@$(foreach config,$(CONFIGS),$(call cmake_install_configuration,$(config));)
 
 #
 
 SCRIPTS_DIR = $(LIMES_ROOT)/scripts
 
 clean:  ## Cleans the Lemons source tree
-	$(RM) $(BUILDS)
+	$(RM) $(LIMES_ROOT)/$(BUILDS)
 	$(PRECOMMIT) gc
 
 
