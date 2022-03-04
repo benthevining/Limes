@@ -8,13 +8,12 @@
 #
 # ======================================================================================
 
-include (LemonsStaticLibraryHelpers)
+include (LemonsDefaultProjectSettings)
 
 add_library (limes_audio STATIC)
 
-lemons_configure_static_library (limes_audio)
-
-target_link_libraries (limes_audio PUBLIC limes_core)
+target_link_libraries (limes_audio PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget
+										   Oranges::OrangesUnityBuild)
 
 target_sources (limes_audio PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_audio.h>
 								   $<INSTALL_INTERFACE:include/limes_audio.h>)
@@ -31,7 +30,7 @@ lemons_sort_target_sources (limes_audio ${CMAKE_CURRENT_LIST_DIR})
 
 add_library (Limes::limes_audio ALIAS limes_audio)
 
-target_link_libraries (Limes INTERFACE limes_audio)
+target_link_libraries (Limes INTERFACE Limes::limes_audio)
 
 install (TARGETS limes_audio EXPORT LimesTargets)
 

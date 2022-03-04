@@ -9,11 +9,11 @@
 # ======================================================================================
 
 include (LemonsDefaultProjectSettings)
-include (OrangesDefaultTarget)
 
 add_library (limes_vecops INTERFACE)
 
-target_link_libraries (limes_vecops INTERFACE Oranges::OrangesDefaultTarget)
+target_link_libraries (limes_vecops INTERFACE Oranges::OrangesDefaultTarget
+											  Oranges::OrangesUnityBuild)
 
 target_sources (
 	limes_vecops
@@ -33,7 +33,7 @@ set_target_properties (limes_vecops PROPERTIES LINKER_LANGUAGE CXX)
 
 add_library (Limes::limes_vecops ALIAS limes_vecops)
 
-target_link_libraries (Limes INTERFACE limes_vecops)
+target_link_libraries (Limes INTERFACE Limes::limes_vecops)
 
 install (TARGETS limes_vecops EXPORT LimesTargets)
 

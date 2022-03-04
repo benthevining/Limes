@@ -8,13 +8,12 @@
 #
 # ======================================================================================
 
-include (LemonsStaticLibraryHelpers)
+include (LemonsDefaultProjectSettings)
 
 add_library (limes_core STATIC)
 
-lemons_configure_static_library (limes_core)
-
-target_link_libraries (limes_core PUBLIC limes_vecops)
+target_link_libraries (limes_core PUBLIC Limes::limes_vecops Oranges::OrangesDefaultTarget
+										 Oranges::OrangesUnityBuild)
 
 target_sources (limes_core PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_core.h>
 								  $<INSTALL_INTERFACE:include/limes_core.h>)
@@ -34,7 +33,7 @@ lemons_sort_target_sources (limes_core ${CMAKE_CURRENT_LIST_DIR})
 
 add_library (Limes::limes_core ALIAS limes_core)
 
-target_link_libraries (Limes INTERFACE limes_core)
+target_link_libraries (Limes INTERFACE Limes::limes_core)
 
 install (TARGETS limes_core EXPORT LimesTargets)
 
