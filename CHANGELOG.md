@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [1.4.0](http://github.com/benthevining/Limes/compare/v1.3.0...v1.4.0) (2022-03-04)
+
+
+### Features
+
+* added more math helper functions ([a92b0fd](http://github.com/benthevining/Limes/commit/a92b0fd694c502c7da30fd4edf48344112926c2b))
+
 ## [1.3.0](http://github.com/benthevining/Limes/compare/v1.2.0...v1.3.0) (2022-03-01)
 
 
