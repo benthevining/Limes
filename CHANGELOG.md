@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [1.5.0](http://github.com/benthevining/Limes/compare/v1.4.0...v1.5.0) (2022-03-04)
+
+
+### Features
+
+* added a MIPP implementation of all vecops functions ([743064b](http://github.com/benthevining/Limes/commit/743064b1b2dddcf2d11506e106690256593d1ef0))
+
 ## [1.4.0](http://github.com/benthevining/Limes/compare/v1.3.0...v1.4.0) (2022-03-04)
 
 
