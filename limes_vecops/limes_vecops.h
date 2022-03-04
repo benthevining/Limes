@@ -249,6 +249,13 @@ void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, I
 
 
 template <Scalar DataType, Integral SizeType>
+[[nodiscard]] DataType range (const DataType* const data, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
+[[nodiscard]] DataType rangeAbs (const DataType* const data, SizeType size);
+
+
+template <Scalar DataType, Integral SizeType>
 [[nodiscard]] DataType sum (const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>

@@ -20,15 +20,17 @@
 namespace lemons
 {
 
-template <typename ElementType>
+template <typename ElementType, class Allocator = std::allocator<ElementType>>
 class basic_vector
 {
+	using vector_type = std::vector<ElementType, Allocator>;
+
 public:
 
 	using ObjectType = ElementType;
 
-	using iterator		 = typename std::vector<ElementType>::iterator;
-	using const_iterator = typename std::vector<ElementType>::const_iterator;
+	using iterator		 = typename vector_type::iterator;
+	using const_iterator = typename vector_type::const_iterator;
 
 	basic_vector() = default;
 
@@ -39,14 +41,19 @@ public:
 	{
 	}
 
+	template <class AllocatorType>
+	explicit basic_vector (const std::vector<ElementType, AllocatorType>& vectorToInitFrom)
+		: objects (vectorToInitFrom)
+	{
+	}
+
 	template <typename OtherElementType, class UnaryOp>
 	explicit basic_vector (const basic_vector<OtherElementType>& otherVector, UnaryOp&& transform)
 	{
 		*this = otherVector.template transformElementsTo<ElementType> (std::move (transform));
 	}
 
-	basic_vector (const basic_vector&) = default;
-
+	basic_vector (const basic_vector&)	= default;
 	basic_vector (basic_vector&& other) = default;
 
 	basic_vector& operator= (std::initializer_list<ElementType> objs)
@@ -58,6 +65,13 @@ public:
 	basic_vector& operator= (const basic_vector& other) = default;
 
 	basic_vector& operator= (basic_vector&& other) = default;
+
+	template <class AllocatorType>
+	basic_vector& operator= (const std::vector<ElementType, AllocatorType>& otherVector)
+	{
+		objects = otherVector;
+		return *this;
+	}
 
 	template <typename UnaryFunction>
 	constexpr void for_each (UnaryFunction&& func) const
@@ -324,9 +338,9 @@ public:
 
 protected:
 
-	std::vector<ElementType> objects;
+	vector_type objects;
 
-	using size_type = typename std::vector<ElementType>::size_type;
+	using size_type = typename vector_type::size_type;
 };
 
 }  // namespace lemons

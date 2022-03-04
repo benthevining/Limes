@@ -15,26 +15,26 @@
 namespace lemons::dsp
 {
 
-template <typename SampleType>
+template <Sample SampleType>
 SampleStream<SampleType>::SampleStream (std::function<SampleType()>&& sampleFuncToUse)
 	: sampleFunc (std::move (sampleFuncToUse))
 {
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 SampleType SampleStream<SampleType>::getSample() const
 {
 	return sampleFunc();
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void SampleStream<SampleType>::getSamples (SampleType* const output, int numSamples) const
 {
 	for (auto i = 0; i < numSamples; ++i)
 		output[i] = sampleFunc();
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void SampleStream<SampleType>::skipSamples (int numToSkip) const
 {
 	for (auto i = 0; i < numToSkip; ++i)

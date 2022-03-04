@@ -13,6 +13,7 @@
 #pragma once
 
 #include <limes_core.h>
+#include "../util/Misc.h"
 
 namespace lemons::dsp::psola
 {
@@ -32,7 +33,7 @@ namespace lemons::dsp::psola
 	You probably won't ever need to use this class directly, as it's mainly intended as a utility for the Analyzer class.
 	@see Analyzer
  */
-template <typename SampleType>
+template <Sample SampleType>
 class PeakFinder final
 {
 public:

@@ -13,6 +13,7 @@
 #pragma once
 
 #include <functional>
+#include "../util/Misc.h"
 
 namespace lemons::dsp
 {
@@ -20,7 +21,7 @@ namespace lemons::dsp
 /** Base class for any object that can output a stream of audio samples, with no audio or MIDI input.
 	The constructor takes a lambda that must produce the next sample value when called with no arguments.
  */
-template <typename SampleType>
+template <Sample SampleType>
 struct SampleStream
 {
 public:

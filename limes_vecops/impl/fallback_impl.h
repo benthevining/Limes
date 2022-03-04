@@ -432,6 +432,26 @@ inline void minMaxAbs (const DataType* const data, SizeType size, DataType& minV
 }
 
 template <Scalar DataType, Integral SizeType>
+[[nodiscard]] inline DataType range (const DataType* const data, SizeType size)
+{
+	DataType minVal, maxVal;
+
+	minMax (data, size, minVal, maxVal);
+
+	return maxVal - minVal;
+}
+
+template <Scalar DataType, Integral SizeType>
+[[nodiscard]] inline DataType rangeAbs (const DataType* const data, SizeType size)
+{
+	DataType minVal, maxVal;
+
+	minMaxAbs (data, size, minVal, maxVal);
+
+	return maxVal - minVal;
+}
+
+template <Scalar DataType, Integral SizeType>
 [[nodiscard]] inline DataType sum (const DataType* const data, SizeType size)
 {
 	return std::accumulate (data, data + size, DataType (0));

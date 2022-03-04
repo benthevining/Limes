@@ -12,21 +12,26 @@
 
 #pragma once
 
-#include "basic_vector.h"
-#include "scalar_vector.h"
-#include <string>
+#include <memory>
 
 namespace lemons
 {
 
-template <typename ObjectType, class Allocator = std::allocator<ObjectType>>
-using vector = std::conditional_t<std::is_scalar_v<ObjectType> && ! std::is_pointer_v<ObjectType>,
-								  scalar_vector<ObjectType, Allocator>,
-								  basic_vector<ObjectType, Allocator>>;
+template <auto Data>
+constexpr const auto& make_static() noexcept
+{
+	return Data;
+}
 
-using StringVector = vector<std::string>;
+template <typename ObjectType, typename... Args>
+ObjectType& getStaticObject (Args&& args)
+{
+	static std::unique_ptr<ObjectType> ptr;
 
-template <typename ObjectType>
-using Matrix = vector<vector<ObjectType>>;
+	if (ptr == nullptr)
+		ptr = std::make_unique<ObjectType> (std::forward<Args> (args)...);
+
+	return *ptr;  // cppcheck-suppress nullPointerRedundantCheck
+}
 
 }  // namespace lemons

@@ -19,14 +19,14 @@
 namespace lemons
 {
 
-template <typename ElementType>
-class scalar_vector final : public basic_vector<ElementType>
+template <typename ElementType, class Allocator = std::allocator<ElementType>>
+class scalar_vector final : public basic_vector<ElementType, Allocator>
 {
 public:
 
 	static_assert (std::is_scalar_v<ElementType>, "ElementType must be a scalar type!");
 
-	using basic_vector<ElementType>::basic_vector;
+	using basic_vector<ElementType, Allocator>::basic_vector;
 
 	scalar_vector& reserveAndZero (int newSize)
 	{

@@ -9,6 +9,6 @@
 # ======================================================================================
 
 target_sources (limes_audio PRIVATE Windowing.h PitchDetector.h PitchDetector.cpp
-									MonoStereoConverter.h MonoStereoConverter.cpp)
+									MonoStereoConverter.h MonoStereoConverter.cpp Misc.h)
 
 target_include_directories (limes_audio PRIVATE "${CMAKE_CURRENT_LIST_DIR}")

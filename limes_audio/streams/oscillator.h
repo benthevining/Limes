@@ -13,6 +13,7 @@
 #pragma once
 
 #include "SampleStream.h"
+#include "../util/Misc.h"
 
 namespace lemons::dsp
 {
@@ -20,7 +21,7 @@ namespace lemons::dsp
 /** Base class for any kind of oscillator.
 	Oscillators process only a single channel of samples at a time.
  */
-template <typename SampleType>
+template <Sample SampleType>
 struct Oscillator : public SampleStream<SampleType>
 {
 	/** You should provide the Oscillator constructor with a lambda for producing the next sample, identical to the SampleStream constructor. */

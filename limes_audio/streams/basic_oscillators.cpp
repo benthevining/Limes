@@ -18,7 +18,7 @@
 namespace lemons::dsp::osc
 {
 
-template <typename SampleType>
+template <Sample SampleType>
 [[nodiscard]] constexpr SampleType blep (SampleType phase, SampleType increment) noexcept
 {
 	LIMES_ASSERT (increment > 0);
@@ -40,7 +40,7 @@ template <typename SampleType>
 
 /*--------------------------------------------------------------------------------------------*/
 
-template <typename SampleType>
+template <Sample SampleType>
 Sine<SampleType>::Sine()
 	: Oscillator<SampleType> ([this]
 							  { return std::sin (phase.next (constants::two_pi<SampleType>)); })
@@ -48,13 +48,13 @@ Sine<SampleType>::Sine()
 	phase.resetPhase();
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void Sine<SampleType>::resetPhase()
 {
 	phase.resetPhase();
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void Sine<SampleType>::setFrequency (SampleType frequency, SampleType sampleRate)
 {
 	phase.setFrequency (constants::two_pi<SampleType> * frequency, sampleRate);
@@ -62,7 +62,7 @@ void Sine<SampleType>::setFrequency (SampleType frequency, SampleType sampleRate
 	freq = frequency;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 SampleType Sine<SampleType>::getFrequency() const noexcept
 {
 	return freq;
@@ -73,7 +73,7 @@ template struct Sine<double>;
 
 /*--------------------------------------------------------------------------------------------*/
 
-template <typename SampleType>
+template <Sample SampleType>
 Saw<SampleType>::Saw()
 	: Oscillator<SampleType> ([this]
 							  {
@@ -83,20 +83,20 @@ Saw<SampleType>::Saw()
 	phase.resetPhase();
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void Saw<SampleType>::resetPhase()
 {
 	phase.resetPhase();
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void Saw<SampleType>::setFrequency (SampleType frequency, SampleType sampleRate)
 {
 	phase.setFrequency (frequency, sampleRate);
 	freq = frequency;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 SampleType Saw<SampleType>::getFrequency() const noexcept
 {
 	return freq;
@@ -107,7 +107,7 @@ template struct Saw<double>;
 
 /*--------------------------------------------------------------------------------------------*/
 
-template <typename SampleType>
+template <Sample SampleType>
 Square<SampleType>::Square()
 	: Oscillator<SampleType> ([this]
 							  {
@@ -121,20 +121,20 @@ Square<SampleType>::Square()
 	phase.resetPhase();
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void Square<SampleType>::resetPhase()
 {
 	phase.resetPhase();
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void Square<SampleType>::setFrequency (SampleType frequency, SampleType sampleRate)
 {
 	phase.setFrequency (frequency, sampleRate);
 	freq = frequency;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 SampleType Square<SampleType>::getFrequency() const noexcept
 {
 	return freq;
@@ -145,7 +145,7 @@ template struct Square<double>;
 
 /*--------------------------------------------------------------------------------------------*/
 
-template <typename SampleType>
+template <Sample SampleType>
 Triangle<SampleType>::Triangle()
 	: Oscillator<SampleType> ([this]
 							  {
@@ -155,21 +155,21 @@ Triangle<SampleType>::Triangle()
 	resetPhase();
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void Triangle<SampleType>::resetPhase()
 {
 	square.resetPhase();
 	sum = static_cast<SampleType> (1);
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void Triangle<SampleType>::setFrequency (SampleType frequency, SampleType sampleRate)
 {
 	square.setFrequency (frequency, sampleRate);
 	freq = frequency;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 SampleType Triangle<SampleType>::getFrequency() const noexcept
 {
 	return freq;

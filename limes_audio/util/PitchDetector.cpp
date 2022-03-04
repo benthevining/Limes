@@ -16,14 +16,14 @@
 namespace lemons::dsp::psola
 {
 
-template <typename SampleType>
+template <Sample SampleType>
 PitchDetector<SampleType>::PitchDetector (int minFreqHz, float confidenceThreshold)
 	: minHz (minFreqHz), confidenceThresh (static_cast<SampleType> (confidenceThreshold))
 {
 	LIMES_ASSERT (minHz > 0);
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 float PitchDetector<SampleType>::detectPitch (const SampleType* const inputAudio, int numSamples)
 {
 	const auto period = detectPeriod (inputAudio, numSamples);
@@ -34,7 +34,7 @@ float PitchDetector<SampleType>::detectPitch (const SampleType* const inputAudio
 	return 0.f;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 float PitchDetector<SampleType>::detectPeriod (const SampleType* const inputAudio, int numSamples)
 {
 	LIMES_ASSERT (samplerate > 0.);					   // pitch detector hasn't been prepared before calling this function!
@@ -90,7 +90,7 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* const inputAudi
 	return 0.f;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void PitchDetector<SampleType>::updatePeriodBounds()
 {
 	LIMES_ASSERT (minHz > 0);
@@ -115,7 +115,7 @@ void PitchDetector<SampleType>::updatePeriodBounds()
 	LIMES_ASSERT (minPeriod > 0);
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 int PitchDetector<SampleType>::absoluteThreshold() const
 {
 	const auto maxYinIdx = maxPeriod - minPeriod;
@@ -144,7 +144,7 @@ int PitchDetector<SampleType>::absoluteThreshold() const
 	return tau;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) const
 {
 	LIMES_ASSERT (periodEstimate > 0);
@@ -190,14 +190,14 @@ float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) con
 	return static_cast<float> (period);
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void PitchDetector<SampleType>::setConfidenceThresh (float newThresh) noexcept
 {
 	LIMES_ASSERT (newThresh >= 0.f && newThresh <= 1.f);
 	confidenceThresh = static_cast<SampleType> (newThresh);
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 int PitchDetector<SampleType>::setSamplerate (double newSamplerate)
 {
 	LIMES_ASSERT (newSamplerate > 0.);
@@ -211,7 +211,7 @@ int PitchDetector<SampleType>::setSamplerate (double newSamplerate)
 	return latency;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 int PitchDetector<SampleType>::setMinHz (int newMinHz)
 {
 	LIMES_ASSERT (newMinHz > 0);
@@ -224,13 +224,13 @@ int PitchDetector<SampleType>::setMinHz (int newMinHz)
 	return 512;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 int PitchDetector<SampleType>::getMinHz() const noexcept
 {
 	return minHz;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 int PitchDetector<SampleType>::getLatencySamples() const noexcept
 {
 	if (samplerate == 0)
@@ -239,7 +239,7 @@ int PitchDetector<SampleType>::getLatencySamples() const noexcept
 	return math::periodInSamples (samplerate, minHz) * 2;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void PitchDetector<SampleType>::reset()
 {
 	periodLastFrame = 0.f;
@@ -247,7 +247,7 @@ void PitchDetector<SampleType>::reset()
 	maxPeriod		= 0;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void PitchDetector<SampleType>::releaseResources()
 {
 	reset();
@@ -257,7 +257,7 @@ void PitchDetector<SampleType>::releaseResources()
 	yinDataStorage.clearAndFree();
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void PitchDetector<SampleType>::getCurrentLegalPeriodRange (int& min, int& max) const
 {
 	// Did you call one of the pitch detection functions first?

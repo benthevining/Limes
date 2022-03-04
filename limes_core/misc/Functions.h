@@ -12,21 +12,32 @@
 
 #pragma once
 
-#include "basic_vector.h"
-#include "scalar_vector.h"
-#include <string>
+#include <type_traits>
 
 namespace lemons
 {
 
-template <typename ObjectType, class Allocator = std::allocator<ObjectType>>
-using vector = std::conditional_t<std::is_scalar_v<ObjectType> && ! std::is_pointer_v<ObjectType>,
-								  scalar_vector<ObjectType, Allocator>,
-								  basic_vector<ObjectType, Allocator>>;
+template <class Function>
+bool call_once (Function&& func, std::invoke_result_t<Function>* result = nullptr)
+{
+	static bool called = false;
 
-using StringVector = vector<std::string>;
+	if (called)
+		return false;
 
-template <typename ObjectType>
-using Matrix = vector<vector<ObjectType>>;
+	called = true;
+
+	if constexpr (std::is_void_v<std::invoke_result_t<Function>>)
+		func();
+	else
+	{
+		if (result == nullptr)
+			func();
+		else
+			*result = func();
+	}
+
+	return true;
+}
 
 }  // namespace lemons

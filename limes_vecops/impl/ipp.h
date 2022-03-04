@@ -718,6 +718,18 @@ void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, I
 }
 
 template <Scalar DataType, Integral SizeType>
+DataType range (const DataType* const data, SizeType size)
+{
+	return fb::range (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType rangeAbs (const DataType* const data, SizeType size)
+{
+	return fb::rangeAbs (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
 DataType sum (const DataType* const data, SizeType size)
 {
 	DataType sumVal { 0 };

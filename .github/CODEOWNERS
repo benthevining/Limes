@@ -8,22 +8,30 @@
 # These owners will be the default owners for everything in the repo.
 # This file is also being managed automatically by the gitown tool.
 .clang-format benthevining
+.clang-tidy benthevining
 .github/CODEOWNERS benthevining
 .github/ISSUE_TEMPLATE/bug_report.md benthevining
 .github/ISSUE_TEMPLATE/config.yml benthevining
 .github/ISSUE_TEMPLATE/feature_request.md benthevining
 .github/workflows/test_and_release.yml benthevining
+.gitownrc benthevining
 CMakeLists.txt benthevining
 README.md benthevining
 limes_audio/limes_audio.h benthevining
+limes_audio/psola/CMakeLists.txt benthevining
 limes_audio/psola/PeakFinder.cpp benthevining
 limes_audio/psola/PeakFinder.h benthevining
+limes_audio/streams/SampleStream.cpp benthevining
 limes_audio/streams/oscillator.cpp benthevining
+limes_audio/streams/oscillator.h benthevining
+limes_audio/util/MonoStereoConverter.h benthevining
+limes_audio/util/PitchDetector.cpp benthevining
 limes_core/CMakeLists.txt benthevining
 limes_core/data_structures/CMakeLists.txt benthevining
 limes_core/data_structures/LinkedListModel.h benthevining
 limes_core/data_structures/LinkedListModel_impl.h benthevining
 limes_core/data_structures/Version.h benthevining
+limes_core/data_structures/vectors/scalar_vector.h benthevining
 limes_core/math/Fraction_impl.h benthevining
 limes_core/math/mathHelpers.h benthevining
 limes_core/misc/CMakeLists.txt benthevining
@@ -36,6 +44,8 @@ limes_core/threading/ThreadSafeObject.h benthevining
 limes_music/CMakeLists.txt benthevining
 limes_music/harmony/CMakeLists.txt benthevining
 limes_music/harmony/Chord.h benthevining
+limes_music/harmony/Pitch.h benthevining
+limes_music/harmony/PitchClass.h benthevining
 limes_music/harmony/intervals/CMakeLists.txt benthevining
 limes_music/harmony/intervals/CompoundInterval.cpp benthevining
 limes_music/harmony/intervals/CompoundInterval.h benthevining

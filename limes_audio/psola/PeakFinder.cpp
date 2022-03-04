@@ -15,7 +15,7 @@
 namespace lemons::dsp::psola
 {
 
-template <typename SampleType>
+template <Sample SampleType>
 void PeakFinder<SampleType>::prepare (int maxBlocksize)
 {
 	LIMES_ASSERT (maxBlocksize > 0);
@@ -31,7 +31,7 @@ void PeakFinder<SampleType>::prepare (int maxBlocksize)
 		array->zero();
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void PeakFinder<SampleType>::reset()
 {
 	for (auto* array : arrays)
@@ -40,7 +40,7 @@ void PeakFinder<SampleType>::reset()
 	analysisFrameStart = 0;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void PeakFinder<SampleType>::releaseResources()
 {
 	for (auto* array : arrays)
@@ -49,7 +49,7 @@ void PeakFinder<SampleType>::releaseResources()
 	analysisFrameStart = 0;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 const vector<int>& PeakFinder<SampleType>::findPeaks (const SampleType* const inputSamples, int numSamples, float period)
 {
 	LIMES_ASSERT (period > 0.f && numSamples > 0);
@@ -108,7 +108,7 @@ const vector<int>& PeakFinder<SampleType>::findPeaks (const SampleType* const in
 	return peakIndices;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int predictedPeak,
 										  const SampleType* const inputSamples, int period, int grainSize)
 {
@@ -151,7 +151,7 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 }
 
 
-template <typename SampleType>
+template <Sample SampleType>
 int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* const inputSamples,
 													 int startSample, int endSample, int predictedPeak) const
 {
@@ -201,7 +201,7 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* const inp
 	return strongestIdx;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* const inputSamples) const
 {
 	auto strongestPeakIndex = peakCandidates[0];
@@ -222,7 +222,7 @@ int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* const
 }
 
 
-template <typename SampleType>
+template <Sample SampleType>
 int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const inputSamples, int deltaTarget1, int deltaTarget2)
 {
 	finalHandful.clear();
@@ -257,14 +257,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const in
 
 	// 3. choose the strongest overall peak from these final candidates, with peaks weighted by their delta values
 
-	const auto deltaRange = [this]
-	{
-		int minDelta, maxDelta;
-
-		vecops::minMax (finalHandfulDeltas.data(), finalHandfulDeltas.numObjects(), minDelta, maxDelta);
-
-		return maxDelta - minDelta;
-	}();
+	const auto deltaRange = vecops::range (finalHandfulDeltas.data(), finalHandfulDeltas.numObjects());
 
 	if (deltaRange == 0)  // prevent dividing by 0 in the next step...
 		return finalHandful[0];
@@ -301,7 +294,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const in
 	return chosenPeak;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void PeakFinder<SampleType>::sortSampleIndicesForPeakSearching (int startSample, int endSample, int predictedPeak)
 {
 	LIMES_ASSERT (predictedPeak >= startSample && predictedPeak <= endSample);

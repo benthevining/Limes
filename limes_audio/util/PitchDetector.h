@@ -14,6 +14,7 @@
 #pragma once
 
 #include <limes_core.h>
+#include "Misc.h"
 
 namespace lemons::dsp::psola
 {
@@ -21,7 +22,7 @@ namespace lemons::dsp::psola
 /** @ingroup lemons_psola_analysis
 	A pitch detector based on the YIN algorithm.
  */
-template <typename SampleType>
+template <Sample SampleType>
 class PitchDetector final
 {
 public:

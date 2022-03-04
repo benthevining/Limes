@@ -14,6 +14,7 @@
 #pragma once
 
 #include <limes_core.h>
+#include "Misc.h"
 
 namespace lemons::dsp
 {
@@ -40,7 +41,7 @@ enum class StereoReductionMode
 /** @ingroup lemons_stereo_conversion
 	A utility class for converting mono signals to stereo, or stereo signals to mono.
  */
-template <typename SampleType>
+template <Sample SampleType>
 class MonoStereoConverter final
 {
 public:

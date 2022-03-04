@@ -16,20 +16,20 @@
 namespace lemons::dsp
 {
 
-template <typename SampleType>
+template <Sample SampleType>
 void Oscillator<SampleType>::Phase::resetPhase() noexcept
 {
 	phase = 0;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void Oscillator<SampleType>::Phase::setFrequency (SampleType frequency, SampleType sampleRate)
 {
 	LIMES_ASSERT (sampleRate > 0 && frequency > 0);
 	increment = frequency / sampleRate;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 SampleType Oscillator<SampleType>::Phase::next (SampleType wrapLimit) noexcept
 {
 	const auto p = phase;
@@ -42,7 +42,7 @@ SampleType Oscillator<SampleType>::Phase::next (SampleType wrapLimit) noexcept
 	return p;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 SampleType Oscillator<SampleType>::Phase::getIncrement() const noexcept
 {
 	return increment;

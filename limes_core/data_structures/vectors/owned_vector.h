@@ -19,10 +19,10 @@
 namespace lemons
 {
 
-template <typename ElementType>
-class owned_vector final : public vector<std::unique_ptr<ElementType>>
+template <typename ElementType, class Allocator = std::allocator<ElementType>>
+class owned_vector final : public vector<std::unique_ptr<ElementType>, Allocator>
 {
-	using vector_type = vector<std::unique_ptr<ElementType>>;
+	using vector_type = vector<std::unique_ptr<ElementType>, Allocator>;
 
 	static_assert (std::is_base_of_v<vector_type, owned_vector<ElementType>>, "");
 

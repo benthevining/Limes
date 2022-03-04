@@ -8,6 +8,7 @@
 #
 # ======================================================================================
 
-target_sources (limes_core PRIVATE Algorithm.h TypeTraits.h languages.h languages.cpp)
+target_sources (limes_core PRIVATE Algorithm.h TypeTraits.h languages.h languages.cpp
+								   StaticObjects.h Functions.h)
 
 target_include_directories (limes_core PRIVATE "${CMAKE_CURRENT_LIST_DIR}")

@@ -17,27 +17,27 @@
 namespace lemons::dsp
 {
 
-template <typename SampleType>
+template <Sample SampleType>
 StereoReductionMode MonoStereoConverter<SampleType>::getStereoReductionMode() const noexcept
 {
 	return toMonoMode;
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void MonoStereoConverter<SampleType>::prepare (int blocksize)
 {
 	monoStorage.reserveAndZero (blocksize);
 }
 
 
-template <typename SampleType>
+template <Sample SampleType>
 void MonoStereoConverter<SampleType>::setStereoReductionMode (StereoReductionMode newmode)
 {
 	toMonoMode = newmode;
 }
 
 
-template <typename SampleType>
+template <Sample SampleType>
 void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* const leftIn,
 														   const SampleType* const rightIn,
 														   SampleType* const	   monoOut,
@@ -67,7 +67,7 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* con
 	}
 }
 
-template <typename SampleType>
+template <Sample SampleType>
 void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleType* const monoIn,
 														   SampleType* const	   leftOut,
 														   SampleType* const	   rightOut,
