@@ -48,7 +48,7 @@ help:  ## Print this message
 
 #
 
-config: clean ## Configure cmake
+config: ## Configure cmake
 	@$(foreach config,$(CONFIGS),$(call cmake_configure_preset,$(config));)
 
 build: config ## Builds the libraries

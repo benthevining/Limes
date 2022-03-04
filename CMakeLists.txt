@@ -22,8 +22,6 @@ list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/scripts")
 
 find_package (Oranges REQUIRED)
 
-list (APPEND CMAKE_MODULE_PATH "${LEMONS_CMAKE_MODULE_PATH}")
-
 #
 
 set (CMAKE_DEBUG_POSTFIX -d)
@@ -56,6 +54,7 @@ target_include_directories (
 #
 
 install (EXPORT LimesTargets FILE LimesTargets.cmake NAMESPACE Limes:: DESTINATION lib/cmake/Limes)
+
 export (EXPORT LimesTargets FILE "${CMAKE_CURRENT_BINARY_DIR}/cmake/LimesTargets.cmake"
 		NAMESPACE Limes::)
 
@@ -68,6 +67,4 @@ configure_package_config_file (
 	"${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake" "LimesConfig.cmake"
 	INSTALL_DESTINATION lib/cmake/Limes PATH_VARS "" INSTALL_PREFIX "")
 
-if(PROJECT_IS_TOP_LEVEL)
-	include (CPack)
-endif()
+include (LemonsDefaultCPackSettings)

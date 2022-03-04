@@ -12,15 +12,14 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-if(NOT DEFINED ENV{CPM_SOURCE_CACHE})
-	if(Lemons_SOURCE_DIR)
-		set (FETCHCONTENT_BASE_DIR "${Lemons_SOURCE_DIR}/Cache" CACHE INTERNAL "")
-	else()
-		set (FETCHCONTENT_BASE_DIR "${CMAKE_SOURCE_DIR}/Cache" CACHE INTERNAL "")
-	endif()
+if(DEFINED ENV{CPM_SOURCE_CACHE})
+	set (FETCHCONTENT_BASE_DIR "$ENV{CPM_SOURCE_CACHE}" CACHE PATH "FetchContent dependency cache")
 else()
-	set (FETCHCONTENT_BASE_DIR "$ENV{CPM_SOURCE_CACHE}" CACHE INTERNAL "")
+	set (FETCHCONTENT_BASE_DIR "${CMAKE_SOURCE_DIR}/Cache" CACHE PATH
+																 "FetchContent dependency cache")
 endif()
+
+mark_as_advanced (FORCE FETCHCONTENT_BASE_DIR)
 
 include (FetchContent)
 
@@ -28,3 +27,5 @@ FetchContent_Declare (Oranges GIT_REPOSITORY https://github.com/benthevining/Ora
 					  GIT_TAG origin/main)
 
 FetchContent_MakeAvailable (Oranges)
+
+list (APPEND CMAKE_MODULE_PATH "${ORANGES_CMAKE_MODULE_PATH}")
