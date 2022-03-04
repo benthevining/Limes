@@ -19,13 +19,13 @@ target_sources (
 	limes_vecops
 	INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h>
 			  $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/util/Platform.h>
-			  $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/util/Constants.h>
-			  $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/impl/fallback_impl.h>)
+			  $<INSTALL_INTERFACE:install/limes_vecops.h> $<INSTALL_INTERFACE:install/Platform.h>)
 
 target_include_directories (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
 												   $<INSTALL_INTERFACE:include>)
 
-include ("${CMAKE_CURRENT_LIST_DIR}/util/ConfigVecops.cmake")
+add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/impl")
+add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/util")
 
 lemons_sort_target_sources (limes_vecops ${CMAKE_CURRENT_LIST_DIR})
 
@@ -36,3 +36,7 @@ add_library (Limes::limes_vecops ALIAS limes_vecops)
 target_link_libraries (Limes INTERFACE limes_vecops)
 
 install (TARGETS limes_vecops EXPORT LimesTargets)
+
+get_target_property (vecops_sources limes_vecops INTERFACE_SOURCES)
+
+install (FILES ${vecops_sources} TYPE INCLUDE)

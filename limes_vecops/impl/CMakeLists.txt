@@ -8,10 +8,7 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_audio
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PeakFinder.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PeakFinder.cpp>
-			$<INSTALL_INTERFACE:include/PeakFinder.h>)
+include ("${CMAKE_CURRENT_LIST_DIR}/SelectImpl.cmake")
 
-target_include_directories (limes_audio PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)
+target_sources (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback_impl.h>
+									   $<INSTALL_INTERFACE:install/fallback_impl.h>)

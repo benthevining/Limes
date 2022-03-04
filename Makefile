@@ -35,9 +35,9 @@ override LIMES_ROOT := $(patsubst %/,%,$(strip $(dir $(realpath $(firstword $(MA
 
 override THIS_MAKEFILE := $(LIMES_ROOT)/Makefile
 
-override cmake_configure_configuration = echo "Configuring $(1) configuration..."; cd $(LIMES_ROOT) && $(CMAKE) -B $(BUILDS)/$(1) -G "$(CMAKE_GENERATOR)" -D "CMAKE_BUILD_TYPE=$(1)" --log-level=DEBUG
+override cmake_configure_preset = echo "Configuring $(1) preset..."; cd $(LIMES_ROOT) && $(CMAKE) --preset $(1) -G "$(CMAKE_GENERATOR)"
 
-override cmake_build_configuration = echo "Building $(1) configuration..."; cd $(LIMES_ROOT) && $(CMAKE) --build $(BUILDS)/$(1) -j $(NUM_CORES) --config $(1)
+override cmake_build_preset = echo "Building $(1) preset..."; cd $(LIMES_ROOT) && $(CMAKE) --build --preset $(1)
 
 override cmake_install_configuration = echo "Installing $(1) configuration..."; cd $(LIMES_ROOT) && $(CMAKE) --install $(BUILDS)/$(1) --config $(1) --strip --verbose
 
@@ -48,27 +48,37 @@ help:  ## Print this message
 
 #
 
-config: ## Configure cmake
-	@$(foreach config,$(CONFIGS),$(call cmake_configure_configuration,$(config));)
+config: clean ## Configure cmake
+	@$(foreach config,$(CONFIGS),$(call cmake_configure_preset,$(config));)
 
 build: config ## Builds the libraries
-	@$(foreach config,$(CONFIGS),$(call cmake_build_configuration,$(config));)
+	@$(foreach config,$(CONFIGS),$(call cmake_build_preset,$(config));)
 
 install: build ## Runs CMake install
 	@$(foreach config,$(CONFIGS),$(call cmake_install_configuration,$(config));)
 
 #
 
+config_ios: clean ## Configure iOS build [Mac only]
+	@$(call cmake_configure_preset,ios_simulator)
+
+build_ios: config_ios ## Run iOS build [Mac only]
+	@$(call cmake_build_preset,ios_simulator)
+
+#
+
 SCRIPTS_DIR = $(LIMES_ROOT)/scripts
 
 clean:  ## Cleans the Lemons source tree
-	$(RM) $(LIMES_ROOT)/$(BUILDS)
-	$(PRECOMMIT) gc
+	@echo "Cleaning..."
+	@$(RM) $(LIMES_ROOT)/$(BUILDS)
+	@$(PRECOMMIT) gc
 
 
 wipe: clean ## Wipes the persistent cache of fetched dependencies and ccache artifacts
-	$(RM) $(CACHE)
-	$(PRECOMMIT) clean
+	@echo "Wiping cache..."
+	@$(RM) $(CACHE)
+	@$(PRECOMMIT) clean
 
 
 init:  ## Initializes the Lemons workspace and installs all dependencies

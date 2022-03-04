@@ -8,7 +8,16 @@
 #
 # ======================================================================================
 
-target_sources (limes_audio PRIVATE SampleStream.cpp SampleStream.h oscillator.cpp oscillator.h
-									basic_oscillators.cpp basic_oscillators.h)
+target_sources (
+	limes_audio
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/SampleStream.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/SampleStream.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/oscillator.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/oscillator.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_oscillators.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_oscillators.h>
+			$<INSTALL_INTERFACE:include/SampleStream.h>
+			$<INSTALL_INTERFACE:include/oscillator.h>
+			$<INSTALL_INTERFACE:include/basic_oscillators.h>)
 
-target_include_directories (limes_audio PRIVATE "${CMAKE_CURRENT_LIST_DIR}")
+target_include_directories (limes_audio PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

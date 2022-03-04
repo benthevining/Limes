@@ -8,15 +8,15 @@
 #
 # ======================================================================================
 
+add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject")
+
 target_sources (
 	limes_core
-	PRIVATE RealtimeTypeTraits.h
-			RealtimeSafeObject.h
-			ThreadSafeObject.h
-			RealtimeSafeObject/ObjectBase.h
-			RealtimeSafeObject/AtomicObjectHolder.h
-			RealtimeSafeObject/NonrealtimeMutatableObject.h
-			RealtimeSafeObject/RealtimeMutatableObject.h
-			RealtimeSafeObject/RealtimeSafeObject_impl.h)
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeTypeTraits.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ThreadSafeObject.h>
+			$<INSTALL_INTERFACE:include/RealtimeTypeTraits.h>
+			$<INSTALL_INTERFACE:include/RealtimeSafeObject.h>
+			$<INSTALL_INTERFACE:include/ThreadSafeObject.h>)
 
-target_include_directories (limes_core PRIVATE "${CMAKE_CURRENT_LIST_DIR}")
+target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

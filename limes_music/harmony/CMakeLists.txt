@@ -8,17 +8,21 @@
 #
 # ======================================================================================
 
-add_subdirectory (intervals)
-add_subdirectory (scales)
+add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/intervals")
+add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/scales")
 
 target_sources (
 	limes_music
-	PRIVATE PitchClass.cpp
-			PitchClass.h
-			Pitch.cpp
-			Pitch.h
-			Chord.cpp
-			Chord.h
-			PitchUtils.h)
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchClass.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchClass.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Pitch.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Pitch.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Chord.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Chord.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchUtils.h>
+			$<INSTALL_INTERFACE:include/PitchClass.h>
+			$<INSTALL_INTERFACE:include/Pitch.h>
+			$<INSTALL_INTERFACE:include/Chord.h>
+			$<INSTALL_INTERFACE:include/PitchUtils.h>)
 
-target_include_directories (limes_core PRIVATE "${CMAKE_CURRENT_LIST_DIR}")
+target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

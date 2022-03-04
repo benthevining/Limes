@@ -22,8 +22,9 @@ if(APPLE)
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_VDSP=0)
 	else()
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_VDSP=1)
-		target_sources (limes_vecops
-						INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../impl/vdsp.h>)
+
+		target_sources (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/vdsp.h>
+											   $<INSTALL_INTERFACE:include/vdsp.h>)
 
 		message (VERBOSE "limes_vecops -- using vDSP")
 
@@ -43,14 +44,15 @@ string (REGEX REPLACE ".*LIMES_INTEL_PLATFORM ([a-zA-Z0-9_-]*).*" "\\1" intel_pl
 
 if(intel_platform)
 
-	find_package (IPP MODULE REQUIRED)
+	find_package (IPP MODULE)
 
 	if(TARGET Intel::IPP)
 		target_link_libraries (limes_vecops INTERFACE Intel::IPP)
 
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_IPP=1)
-		target_sources (limes_vecops
-						INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../impl/ipp.h>)
+
+		target_sources (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ipp.h>
+											   $<INSTALL_INTERFACE:include/ipp.h>)
 
 		message (VERBOSE "limes_vecops -- using IPP")
 
@@ -75,8 +77,9 @@ if(use_mipp)
 		target_link_libraries (limes_vecops INTERFACE aff3ct::MIPP)
 
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_MIPP=1)
-		target_sources (limes_vecops
-						INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../impl/mipp.h>)
+
+		target_sources (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mipp.h>
+											   $<INSTALL_INTERFACE:install/mipp.h>)
 
 		message (VERBOSE "limes_vecops -- using MIPP")
 
@@ -88,7 +91,7 @@ endif()
 
 # Fallback :(
 
-target_sources (limes_vecops
-				INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../impl/fallback.h>)
+target_sources (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback.h>
+									   $<INSTALL_INTERFACE:install/fallback.h>)
 
 message (VERBOSE "limes_vecops -- using fallback implementation")

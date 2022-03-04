@@ -22,8 +22,6 @@ list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/scripts")
 
 find_package (Oranges REQUIRED)
 
-# include ("${CMAKE_CURRENT_BINARY_DIR}/cmake/OrangesTargets.cmake")
-
 list (APPEND CMAKE_MODULE_PATH "${LEMONS_CMAKE_MODULE_PATH}")
 
 #

@@ -10,18 +10,25 @@
 
 target_sources (
 	limes_music
-	PRIVATE Scale.cpp
-			Scale.h
-			Chromatic.cpp
-			Chromatic.h
-			KeySignature.cpp
-			KeySignature.h
-			KeySignature_impl.h
-			Mode.cpp
-			Mode.h
-			Octatonic.cpp
-			Octatonic.h
-			WholeTone.cpp
-			WholeTone.h)
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Scale.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Scale.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Chromatic.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Chromatic.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/KeySignature.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/KeySignature.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/KeySignature_impl.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Mode.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Mode.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Octatonic.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Octatonic.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/WholeTone.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/WholeTone.h>
+			$<INSTALL_INTERFACE:include/Scale.h>
+			$<INSTALL_INTERFACE:include/Chromatic.h>
+			$<INSTALL_INTERFACE:include/KeySignature.h>
+			$<INSTALL_INTERFACE:includeKeySignature_impl.h>
+			$<INSTALL_INTERFACE:include/Mode.h>
+			$<INSTALL_INTERFACE:include/Octatonic.h>
+			$<INSTALL_INTERFACE:include/WholeTone.h>)
 
-target_include_directories (limes_core PRIVATE "${CMAKE_CURRENT_LIST_DIR}")
+target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

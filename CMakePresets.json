@@ -19,38 +19,44 @@
       }
     },
     {
-      "inherits": "base",
       "name": "config_base",
+      "inherits": "base",
       "hidden": true,
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "${presetName}"
       }
     },
     {
-      "inherits": "config_base",
-      "name": "Debug"
+      "name": "Debug",
+      "inherits": "config_base"
     },
     {
-      "inherits": "config_base",
-      "name": "Release"
+      "name": "Release",
+      "inherits": "config_base"
     },
     {
-      "inherits": "base",
       "name": "ios_base",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin"
+      },
+      "inherits": "base",
       "hidden": true,
+      "generator": "Xcode",
       "cacheVariables": {
         "CMAKE_SYSTEM_NAME": "iOS",
         "CMAKE_OSX_DEPLOYMENT_TARGET": "9.3"
       }
     },
     {
-      "inherits": "ios_base",
       "name": "ios_simulator",
+      "inherits": "ios_base",
       "toolchainFile": "${sourceDir}/toolchains/ios_simulator.cmake"
     },
     {
-      "inherits": "ios_base",
       "name": "ios",
+      "inherits": "ios_base",
       "toolchainFile": "${sourceDir}/toolchains/ios.cmake",
       "cacheVariables": {
         "CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY": "\"iPhone Developer\""
@@ -67,17 +73,22 @@
       "configuration": "${presetName}"
     },
     {
-      "inherits": "base",
       "name": "Debug",
-      "configurePreset": "Debug"
+      "inherits": "base",
+      "configurePreset": "${presetName}"
     },
     {
-      "inherits": "base",
       "name": "Release",
-      "configurePreset": "Release"
+      "inherits": "base",
+      "configurePreset": "${presetName}"
     },
     {
       "name": "ios_base",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin"
+      },
       "inherits": "base",
       "hidden": true,
       "nativeToolOptions": [
@@ -85,16 +96,18 @@
       ]
     },
     {
-      "inherits": "ios_base",
       "name": "ios_simulator",
+      "inherits": "ios_base",
+      "configurePreset": "${presetName}",
       "nativeToolOptions": [
         "-sdk",
         "iphonesimulator"
       ]
     },
     {
+      "name": "ios",
       "inherits": "ios_base",
-      "name": "ios"
+      "configurePreset": "${presetName}"
     }
   ]
 }

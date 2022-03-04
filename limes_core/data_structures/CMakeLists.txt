@@ -8,9 +8,19 @@
 #
 # ======================================================================================
 
-target_sources (limes_core PRIVATE Dimensions.cpp Dimensions.h Version.cpp Version.h
-								   LinkedListModel.h LinkedListModel_impl.h)
+add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/vectors")
 
-target_include_directories (limes_core PRIVATE "${CMAKE_CURRENT_LIST_DIR}")
+target_sources (
+	limes_core
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Dimensions.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Dimensions.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Version.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Version.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/LinkedListModel.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/LinkedListModel_impl.h>
+			$<INSTALL_INTERFACE:include/Dimensions.h>
+			$<INSTALL_INTERFACE:include/Version.h>
+			$<INSTALL_INTERFACE:include/LinkedListModel.h>
+			$<INSTALL_INTERFACE:include/LinkedListModel_impl.h>)
 
-add_subdirectory (vectors)
+target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)
