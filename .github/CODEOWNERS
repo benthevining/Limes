@@ -22,11 +22,13 @@ limes_audio/psola/CMakeLists.txt benthevining
 limes_audio/psola/PeakFinder.cpp benthevining
 limes_audio/psola/PeakFinder.h benthevining
 limes_audio/streams/SampleStream.cpp benthevining
+limes_audio/streams/basic_oscillators.cpp benthevining
 limes_audio/streams/oscillator.cpp benthevining
 limes_audio/streams/oscillator.h benthevining
 limes_audio/util/Misc.h benthevining
 limes_audio/util/MonoStereoConverter.h benthevining
 limes_audio/util/PitchDetector.cpp benthevining
+limes_audio/util/PitchDetector.h benthevining
 limes_core/CMakeLists.txt benthevining
 limes_core/data_structures/CMakeLists.txt benthevining
 limes_core/data_structures/LinkedListModel.h benthevining
@@ -40,6 +42,7 @@ limes_core/misc/TypeTraits.h benthevining
 limes_core/misc/languages.cpp benthevining
 limes_core/text/CMakeLists.txt benthevining
 limes_core/text/StringUtils.h benthevining
+limes_core/threading/RealtimeSafeObject/AtomicObjectHolder.h benthevining
 limes_core/threading/RealtimeSafeObject/NonrealtimeMutatableObject.h benthevining
 limes_core/threading/ThreadSafeObject.h benthevining
 limes_music/CMakeLists.txt benthevining
@@ -50,8 +53,10 @@ limes_music/harmony/PitchClass.h benthevining
 limes_music/harmony/intervals/CMakeLists.txt benthevining
 limes_music/harmony/intervals/CompoundInterval.cpp benthevining
 limes_music/harmony/intervals/CompoundInterval.h benthevining
+limes_music/harmony/intervals/Interval.cpp benthevining
 limes_music/harmony/intervals/Interval.h benthevining
 limes_music/harmony/scales/Chromatic.cpp benthevining
+limes_music/harmony/scales/Mode.cpp benthevining
 limes_music/harmony/scales/Scale.cpp benthevining
 limes_music/harmony/scales/WholeTone.cpp benthevining
 limes_music/rhythm/CMakeLists.txt benthevining
@@ -64,5 +69,6 @@ limes_vecops/impl/vdsp.h benthevining
 limes_vecops/limes_vecops.cmake benthevining
 limes_vecops/limes_vecops.h benthevining
 limes_vecops/util/Constants.h benthevining
+limes_vecops/util/Platform.h benthevining
 package.json benthevining
 scripts/FindOranges.cmake benthevining

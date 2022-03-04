@@ -16,7 +16,6 @@ static_assert (lemons::vecops::isUsingVDSP());
 
 #include <Accelerate/Accelerate.h>
 #include <limits>
-#include <cstring>	// for memset
 #include <cmath>
 
 namespace lemons::vecops

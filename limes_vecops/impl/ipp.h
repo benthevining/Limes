@@ -214,7 +214,7 @@ void multiply (DataType* const data, SizeType size, DataType constantToMultiply)
 	else if constexpr (is_double_type<DataType>())
 		ippsMulC_64f_I (constantToMultiply, data, static_cast<int> (size));
 	else if constexpr (is_signed_int<DataType>())
-		ippsMulC_32s_ISfs (onstantToMultiply, data, static_cast<int> (size), integer_scale_factor);
+		ippsMulC_32s_ISfs (constantToMultiply, data, static_cast<int> (size), integer_scale_factor);
 	else
 		fb::multiply (data, size, constantToMultiply);
 }
@@ -451,7 +451,7 @@ void abs (DataType* const dest, const DataType* const data, SizeType size)
 	else if constexpr (is_signed_int<DataType>())
 		ippsAbs_32s (data, dest, static_cast<int> (size));
 	else
-		fb::abs (dataAndDest, size);
+		fb::abs (dest, data, size);
 }
 
 

@@ -15,19 +15,20 @@
 #include "util/Platform.h"
 #include "util/Constants.h"
 #include <type_traits>
+#include <string>
 
 
 static_assert (sizeof (float) == 4, "float is not 32-bits wide");
 static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 
 
-#if LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_IPP
-#	error "Only one of LIMES_VECOPS_USE_VDSP or LIMES_VECOPS_USE_IPP may be set to 1!"
+#if (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_IPP) || (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_MIPP) || (LIMES_VECOPS_USE_IPP && LIMES_VECOPS_USE_MIPP)
+#	error "Only one of LIMES_VECOPS_USE_VDSP, LIMES_VECOPS_USE_IPP, or LIMES_VECOPS_USE_MIPP may be set to 1!"
 #endif
 
 
 #ifndef LIMES_VECOPS_USE_VDSP
-#	if LIMES_VECOPS_USE_IPP
+#	if (LIMES_VECOPS_USE_IPP || LIMES_VECOPS_USE_MIPP)
 #		define LIMES_VECOPS_USE_VDSP 0
 #	else
 #		if LIMES_APPLE
@@ -39,13 +40,25 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 #endif
 
 #ifndef LIMES_VECOPS_USE_IPP
-#	if LIMES_VECOPS_USE_VDSP
+#	if (LIMES_VECOPS_USE_VDSP || LIMES_VECOPS_USE_MIPP)
 #		define LIMES_VECOPS_USE_IPP 0
 #	else
 #		if LIMES_INTEL && __has_include(<ipps.h>)
 #			define LIMES_VECOPS_USE_IPP 1
 #		else
 #			define LIMES_VECOPS_USE_IPP 0
+#		endif
+#	endif
+#endif
+
+#ifndef LIMES_VECOPS_USE_MIPP
+#	if (LIMES_VECOPS_USE_VDSP || LIMES_VECOPS_USE_IPP)
+#		define LIMES_VECOPS_USE_MIPP 0
+#	else
+#		if (LIMES_SSE || LIMES_AVX || LIMES_AVX_512 || LIMES_ARM_NEON) && __has_include(<mipp.h>)
+#			define LIMES_VECOPS_USE_MIPP 1
+#		else
+#			define LIMES_VECOPS_USE_MIPP 0
 #		endif
 #	endif
 #endif
@@ -329,13 +342,34 @@ void applyHanning (DataType* const dest, const DataType* const data, SizeType si
 #endif
 }
 
-[[nodiscard]] constexpr bool isUsingFallback() noexcept
+[[nodiscard]] constexpr bool isUsingMIPP() noexcept
 {
-	return ! (isUsingVDSP() || isUsingIPP());  // cppcheck-suppress knownConditionTrueFalse
+#if LIMES_VECOPS_USE_MIPP
+	return true;
+#else
+	return false;
+#endif
 }
 
-static_assert (isUsingVDSP() || isUsingIPP() || isUsingFallback());
-static_assert (! (isUsingVDSP() && isUsingIPP() && isUsingFallback()));
+[[nodiscard]] constexpr bool isUsingFallback() noexcept
+{
+	return ! (isUsingVDSP() || isUsingIPP() || isUsingMIPP());	// cppcheck-suppress knownConditionTrueFalse
+}
+
+static_assert (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingFallback());
+
+
+[[nodiscard]] static inline std::string getImplementationName()
+{
+	if constexpr (isUsingVDSP())
+		return "Apple vDSP";
+	else if constexpr (isUsingIPP())
+		return "Intel IPP";
+	else if constexpr (isUsingMIPP())
+		return "MIPP";
+	else
+		return "Fallback";
+}
 
 }  // namespace lemons::vecops
 
@@ -345,6 +379,8 @@ static_assert (! (isUsingVDSP() && isUsingIPP() && isUsingFallback()));
 #	include "impl/vdsp.h"
 #elif LIMES_VECOPS_USE_IPP
 #	include "impl/ipp.h"
+#elif LIMES_VECOPS_USE_MIPP
+#	include "impl/mipp.h"
 #else
 #	include "impl/fallback.h"
 #endif

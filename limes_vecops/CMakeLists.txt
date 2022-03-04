@@ -23,20 +23,7 @@ target_sources (
 
 target_include_directories (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}")
 
-if(APPLE)
-	# option to prefer IPP
-
-	target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_VDSP=1)
-	target_sources (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}/impl/vdsp.h")
-
-	message (VERBOSE "limes_vecops -- using vDSP")
-else()
-	# if on an Intel processor, check for IPP...
-
-	target_sources (limes_vecops INTERFACE "${CMAKE_CURRENT_LIST_DIR}/impl/fallback.h")
-
-	message (VERBOSE "limes_vecops -- using fallback implementation")
-endif()
+include ("${CMAKE_CURRENT_LIST_DIR}/util/ConfigVecops.cmake")
 
 lemons_sort_target_sources (limes_vecops ${CMAKE_CURRENT_LIST_DIR})
 

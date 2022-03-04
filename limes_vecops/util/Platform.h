@@ -116,19 +116,28 @@
 /*-----------------------------------------------------------------------------------------------------------------------*/
 
 #if LIMES_WINDOWS
-
+#
 #	ifdef _DEBUG
 #		define LIMES_DEBUG 1
 #	endif
-
-#	define LIMES_INTEL 1
+#
+#	if defined _M_ARM || defined _M_ARM_ARMV7VE || defined _M_ARM64
+#		define LIMES_ARM 1
+#
+#		ifdef _M_ARM64
+#			define LIMES_ARM_NEON 1
+#		endif
+#
+#	else
+#		define LIMES_INTEL 1
+#	endif
 
 #elif LIMES_APPLE
-
+#
 #	if defined(DEBUG) || defined(_DEBUG) || ! (defined(NDEBUG) || defined(_NDEBUG))
 #		define LIMES_DEBUG 1
 #	endif
-
+#
 #	if defined(__arm__) || defined(__arm64__)
 #		define LIMES_ARM 1
 #	else
@@ -136,11 +145,11 @@
 #	endif
 
 #elif (LIMES_LINUX || LIMES_ANDROID || LIMES_BSD)
-
+#
 #	ifdef _DEBUG
 #		define LIMES_DEBUG 1
 #	endif
-
+#
 #	if defined(__arm__) || defined(__arm64__) || defined(__aarch64__)
 #		define LIMES_ARM 1
 #	elif __MMX__ || __SSE__ || __amd64__
@@ -173,6 +182,61 @@
 #	define LIMES_PROCESSOR "ARM"
 #else
 #	define LIMES_PROCESSOR "Unknown"
+#endif
+
+#if LIMES_INTEL && LIMES_ARM
+#	error
+#endif
+
+/*-----------------------------------------------------------------------------------------------------------------------*/
+
+// SIMD capabilities
+
+#if LIMES_WINDOWS
+#	if defined __AVX__ || defined __AVX2__
+#		define LIMES_AVX 1
+#	endif
+#
+#	if defined __AVX512BW__ || defined __AVX512CD__ || defined __AVX512DQ__ || defined __AVX512F__ || defined __AVX512VL__
+#		define LIMES_AVX_512 1
+#	endif
+
+#else
+#
+#	ifdef __arm64__
+#		define LIMES_ARM_NEON 1
+#	endif
+#
+#	if ! LIMES_APPLE
+#		if __SSE__
+#			define LIMES_SSE 1
+#		endif
+#	endif
+
+#endif
+
+#ifdef __AVX__
+#	define LIMES_AVX 1
+#endif
+
+#ifndef LIMES_ARM_NEON
+#	define LIMES_ARM_NEON 0
+#endif
+
+#if LIMES_ARM_NEON && ! LIMES_ARM
+#	error
+#endif
+
+#ifndef LIMES_SSE
+#	define LIMES_SSE 0
+#endif
+
+#ifndef LIMES_AVX
+#	define LIMES_AVX 0
+#endif
+
+#ifndef LIMES_AVX_512
+#	define LIMES_AVX_512 0
 #endif
 
 /*-----------------------------------------------------------------------------------------------------------------------*/
