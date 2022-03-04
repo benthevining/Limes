@@ -67,6 +67,27 @@ template <Scalar T>
 }
 
 
+template <Scalar T>
+[[nodiscard]] constexpr T limit (T input, T min, T max) noexcept
+{
+	LIMES_ASSERT (max > min);
+
+	if (input > max) return max;
+	if (input < min) return min;
+	return input;
+}
+
+
+template <Scalar T>
+[[nodiscard]] constexpr T map (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept
+{
+	LIMES_ASSERT (sourceRangeMax != sourceRangeMin);  // mapping from a range of zero will produce NaN!
+	LIMES_ASSERT (targetRangeMax != targetRangeMin);
+
+	return targetRangeMin + ((targetRangeMax - targetRangeMin) * (input - sourceRangeMin)) / (sourceRangeMax - sourceRangeMin);
+}
+
+
 /** Returns true if val is 2^something.
  */
 template <Integral Integer>
