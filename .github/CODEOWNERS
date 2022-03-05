@@ -17,6 +17,7 @@
 .github/ISSUE_TEMPLATE/feature_request.md benthevining
 .github/workflows/test_and_release.yml benthevining
 .gitownrc benthevining
+.style.yapf benthevining
 CMakeLists.txt benthevining
 CMakePresets.json benthevining
 Makefile benthevining
@@ -50,8 +51,10 @@ limes_core/misc/languages.cpp benthevining
 limes_core/text/CMakeLists.txt benthevining
 limes_core/text/StringUtils.h benthevining
 limes_core/text/TextTable.cpp benthevining
+limes_core/text/TextTable.h benthevining
 limes_core/threading/CMakeLists.txt benthevining
 limes_core/threading/RealtimeSafeObject/AtomicObjectHolder.h benthevining
+limes_core/threading/RealtimeSafeObject/CMakeLists.txt benthevining
 limes_core/threading/RealtimeSafeObject/NonrealtimeMutatableObject.h benthevining
 limes_core/threading/ThreadSafeObject.h benthevining
 limes_music/CMakeLists.txt benthevining

@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "cmakeMinimumRequired": {
     "major": 3,
-    "minor": 21
+    "minor": 23
   },
   "configurePresets": [
     {
@@ -46,47 +46,23 @@
         "CMAKE_SYSTEM_NAME": "iOS",
         "CMAKE_OSX_DEPLOYMENT_TARGET": "9.3"
       }
-    },
-    {
-      "name": "Debug",
-      "inherits": "config_base"
-    },
-    {
-      "name": "Release",
-      "inherits": "config_base"
-    },
-    {
-      "name": "ios_simulator",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Darwin"
-      },
-      "inherits": "ios_base",
-      "toolchainFile": "${sourceDir}/toolchains/ios_simulator.cmake"
-    },
-    {
-      "name": "ios",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Darwin"
-      },
-      "inherits": "ios_base",
-      "toolchainFile": "${sourceDir}/toolchains/ios.cmake",
-      "cacheVariables": {
-        "CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY": "\"iPhone Developer\""
-      }
     }
   ],
   "buildPresets": [
+    {
+      "name": "update_packages",
+      "cleanFirst": true,
+      "jobs": 4,
+      "resolvePackageReferences": "only"
+    },
     {
       "name": "base",
       "hidden": true,
       "configurePreset": "base",
       "cleanFirst": true,
       "jobs": 4,
-      "verbose": true
+      "verbose": true,
+      "resolvePackageReferences": "on"
     },
     {
       "name": "config_base",
@@ -108,40 +84,34 @@
       "nativeToolOptions": [
         "-allowProvisioningUpdates"
       ]
-    },
+    }
+  ],
+  "testPresets": [
     {
-      "name": "Debug",
-      "inherits": "config_base",
-      "configurePreset": "${presetName}"
-    },
-    {
-      "name": "Release",
-      "inherits": "config_base",
-      "configurePreset": "${presetName}"
-    },
-    {
-      "name": "ios_simulator",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Darwin"
+      "name": "base",
+      "hidden": true,
+      "configurePreset": "base",
+      "output": {
+        "shortProgress": true,
+        "verbosity": "extra",
+        "outputOnFailure": true,
+        "outputLogFile": "${sourceDir}/logs/${presetName}"
       },
-      "inherits": "ios_base",
-      "configurePreset": "${presetName}",
-      "nativeToolOptions": [
-        "-sdk",
-        "iphonesimulator"
-      ]
+      "execution": {
+        "jobs": 4,
+        "repeat": {
+          "mode": "until-pass",
+          "count": 3
+        },
+        "noTestsAction": "error"
+      }
     },
     {
-      "name": "ios",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Darwin"
-      },
-      "inherits": "ios_base",
-      "configurePreset": "${presetName}"
+      "name": "config_base",
+      "inherits": "base",
+      "hidden": true,
+      "configurePreset": "config_base",
+      "configuration": "${presetName}"
     }
   ]
 }
