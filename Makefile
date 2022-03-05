@@ -26,7 +26,6 @@ else
 	export CXX=g++-10
 endif
 
-BUILDS = Builds
 CACHE = Cache
 
 #
@@ -39,7 +38,7 @@ override cmake_configure_preset = echo "Configuring $(1) preset..."; cd $(LIMES_
 
 override cmake_build_preset = echo "Building $(1) preset..."; cd $(LIMES_ROOT) && $(CMAKE) --build --preset $(1)
 
-override cmake_install_configuration = echo "Installing $(1) configuration..."; cd $(LIMES_ROOT) && $(CMAKE) --install $(BUILDS)/$(1) --config $(1) --strip --verbose
+override cmake_install_configuration = echo "Installing $(1) configuration..."; cd $(LIMES_ROOT) && sudo $(CMAKE) --install Builds/$(1) --config $(1) --strip --verbose
 
 #
 
@@ -57,6 +56,9 @@ build: config ## Builds the libraries
 install: build ## Runs CMake install
 	@$(foreach config,$(CONFIGS),$(call cmake_install_configuration,$(config));)
 
+pack: install ## Creates a CPack installer
+	@cd $(ORANGES_ROOT) && $(CPACK) -G "" -C Release --verbose
+
 #
 
 config_ios: clean ## Configure iOS build [Mac only]
@@ -71,7 +73,7 @@ SCRIPTS_DIR = $(LIMES_ROOT)/scripts
 
 clean:  ## Cleans the Lemons source tree
 	@echo "Cleaning..."
-	@$(RM) $(LIMES_ROOT)/$(BUILDS)
+	@$(RM) $(LIMES_ROOT)/Builds
 	@$(PRECOMMIT) gc
 
 

@@ -24,8 +24,6 @@ find_package (Oranges REQUIRED)
 
 #
 
-set (CMAKE_DEBUG_POSTFIX -d)
-
 add_library (Limes INTERFACE)
 
 include (GNUInstallDirs)
@@ -53,10 +51,8 @@ target_include_directories (
 
 #
 
-install (EXPORT LimesTargets FILE LimesTargets.cmake NAMESPACE Limes:: DESTINATION lib/cmake/Limes)
-
-export (EXPORT LimesTargets FILE "${CMAKE_CURRENT_BINARY_DIR}/cmake/LimesTargets.cmake"
-		NAMESPACE Limes::)
+install (EXPORT LimesTargets NAMESPACE Limes:: DESTINATION lib/cmake/Limes
+		 EXPORT_LINK_INTERFACE_LIBRARIES)
 
 include (CMakePackageConfigHelpers)
 
@@ -67,4 +63,9 @@ configure_package_config_file (
 	"${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake" "LimesConfig.cmake"
 	INSTALL_DESTINATION lib/cmake/Limes PATH_VARS "" INSTALL_PREFIX "")
 
+install (FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
+			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION .)
+
 include (LemonsDefaultCPackSettings)
+
+export (PACKAGE Limes)
