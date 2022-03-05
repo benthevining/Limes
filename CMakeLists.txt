@@ -33,8 +33,6 @@ add_library (Limes INTERFACE)
 
 include (LemonsCmakeDevTools)
 
-oranges_install_targets (TARGETS Limes EXPORT LimesTargets)
-
 add_subdirectory (limes_vecops)
 add_subdirectory (limes_core)
 add_subdirectory (limes_audio)
@@ -47,10 +45,9 @@ target_include_directories (
 	INTERFACE $<BUILD_INTERFACE:${Limes_SOURCE_DIR}/include>
 			  $<BUILD_INTERFACE:${Limes_BINARY_DIR}/include> $<INSTALL_INTERFACE:include>)
 
-#
+oranges_install_targets (TARGETS Limes EXPORT LimesTargets REL_PATH "${LIMES_INSTALL_DEST}")
 
-install (EXPORT LimesTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST}"
-		 EXPORT_LINK_INTERFACE_LIBRARIES)
+#
 
 include (CMakePackageConfigHelpers)
 
@@ -60,6 +57,9 @@ write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_
 configure_package_config_file (
 	"${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake" "LimesConfig.cmake"
 	INSTALL_DESTINATION lib/cmake/Limes PATH_VARS "" INSTALL_PREFIX "")
+
+install (EXPORT LimesTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST}"
+		 EXPORT_LINK_INTERFACE_LIBRARIES)
 
 install (FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
 			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION "${LIMES_INSTALL_DEST}")

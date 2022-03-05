@@ -32,8 +32,4 @@ add_library (Limes::limes_audio ALIAS limes_audio)
 
 target_link_libraries (Limes INTERFACE Limes::limes_audio)
 
-oranges_install_targets (TARGETS limes_audio EXPORT LimesTargets)
-
-get_target_property (audio_sources limes_audio INTERFACE_SOURCES)
-
-install (FILES ${audio_sources} TYPE INCLUDE)
+oranges_install_targets (TARGETS limes_audio EXPORT LimesTargets REL_PATH "${LIMES_INSTALL_DEST}")
