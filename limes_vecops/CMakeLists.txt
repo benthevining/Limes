@@ -35,7 +35,7 @@ add_library (Limes::limes_vecops ALIAS limes_vecops)
 
 target_link_libraries (Limes INTERFACE Limes::limes_vecops)
 
-install (TARGETS limes_vecops EXPORT LimesTargets)
+oranges_install_targets (TARGETS limes_vecops EXPORT LimesTargets)
 
 get_target_property (vecops_sources limes_vecops INTERFACE_SOURCES)
 

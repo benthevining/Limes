@@ -35,7 +35,7 @@ add_library (Limes::limes_core ALIAS limes_core)
 
 target_link_libraries (Limes INTERFACE Limes::limes_core)
 
-install (TARGETS limes_core EXPORT LimesTargets)
+oranges_install_targets (TARGETS limes_core EXPORT LimesTargets)
 
 get_target_property (core_sources limes_core INTERFACE_SOURCES)
 
