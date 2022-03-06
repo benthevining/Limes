@@ -1,5 +1,21 @@
 # Limes changelog
 
+## [1.6.0](http://github.com/benthevining/Limes/compare/v1.5.0...v1.6.0) (2022-03-06)
+
+
+### Features
+
+* added Doxygen documentation build ([69bd5ce](http://github.com/benthevining/Limes/commit/69bd5ceaa387153967d9b524a327558d36d4d435))
+* implemented cmake uninstall target ([d8a4d9e](http://github.com/benthevining/Limes/commit/d8a4d9e7b11987bcec6754d3ad003243a0afe541))
+
+
+### Bug Fixes
+
+* fixed another installation bug ([549a33b](http://github.com/benthevining/Limes/commit/549a33b90d2f863bd13ec07f3b1c54849652f79b))
+* fixed bug with cmake install configuration ([dcf237e](http://github.com/benthevining/Limes/commit/dcf237e1ca559c19e3b67b5df709956e9df882b1))
+* fixed cmake install ([27f05f0](http://github.com/benthevining/Limes/commit/27f05f02e87840deed6c5567cd05b0aebd4f666e))
+* using better relative paths as include destinations in install ([141b770](http://github.com/benthevining/Limes/commit/141b77023f51f70b135c62f2eb39cf741d6e42c4))
+
 ## [1.5.0](http://github.com/benthevining/Limes/compare/v1.4.0...v1.5.0) (2022-03-04)
 
 
