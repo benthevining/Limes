@@ -16,10 +16,10 @@ target_link_libraries (limes_audio PRIVATE Limes::limes_core Oranges::OrangesDef
 										   Oranges::OrangesUnityBuild)
 
 target_sources (limes_audio PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_audio.h>
-								   $<INSTALL_INTERFACE:include/limes_audio.h>)
+								   $<INSTALL_INTERFACE:include/limes_audio/limes_audio.h>)
 
 target_include_directories (limes_audio INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-												  $<INSTALL_INTERFACE:include>)
+												  $<INSTALL_INTERFACE:include/limes_audio>)
 
 add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/streams"
 				  "${CMAKE_CURRENT_BINARY_DIR}/limes_audio/streams")
@@ -28,7 +28,7 @@ add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/psola" "${CMAKE_CURRENT_BINARY_DIR}
 
 lemons_sort_target_sources (limes_audio ${CMAKE_CURRENT_LIST_DIR})
 
-add_library (Limes::limes_audio ALIAS limes_audio)
+oranges_export_alias_target (limes_audio Limes)
 
 target_link_libraries (Limes INTERFACE Limes::limes_audio)
 

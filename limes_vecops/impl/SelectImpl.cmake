@@ -18,13 +18,15 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 if(APPLE)
 	option (LIMES_IGNORE_VDSP "Ignore vDSP for vecops" OFF)
 
+	mark_as_advanced (FORCE LIMES_IGNORE_VDSP)
+
 	if(LIMES_IGNORE_VDSP)
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_VDSP=0)
 	else()
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_VDSP=1)
 
 		target_sources (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/vdsp.h>
-											   $<INSTALL_INTERFACE:include/vdsp.h>)
+											   $<INSTALL_INTERFACE:include/limes_vecops/vdsp.h>)
 
 		message (VERBOSE "limes_vecops -- using vDSP")
 
@@ -52,7 +54,7 @@ if(intel_platform)
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_IPP=1)
 
 		target_sources (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ipp.h>
-											   $<INSTALL_INTERFACE:include/ipp.h>)
+											   $<INSTALL_INTERFACE:include/limes_vecops/ipp.h>)
 
 		message (VERBOSE "limes_vecops -- using IPP")
 
@@ -71,7 +73,7 @@ string (REGEX REPLACE ".*LIMES_USE_MIPP ([a-zA-Z0-9_-]*).*" "\\1" use_mipp "${co
 
 if(use_mipp)
 
-	find_package (MIPP MODULE REQUIRED)
+	find_package (MIPP MODULE)
 
 	if(TARGET aff3ct::MIPP)
 		target_link_libraries (limes_vecops INTERFACE aff3ct::MIPP)
@@ -79,7 +81,7 @@ if(use_mipp)
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_MIPP=1)
 
 		target_sources (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mipp.h>
-											   $<INSTALL_INTERFACE:install/mipp.h>)
+											   $<INSTALL_INTERFACE:include/limes_vecops/mipp.h>)
 
 		message (VERBOSE "limes_vecops -- using MIPP")
 
@@ -92,6 +94,6 @@ endif()
 # Fallback :(
 
 target_sources (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback.h>
-									   $<INSTALL_INTERFACE:install/fallback.h>)
+									   $<INSTALL_INTERFACE:include/limes_vecops/fallback.h>)
 
 message (VERBOSE "limes_vecops -- using fallback implementation")

@@ -16,10 +16,10 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NoteLength_impl.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NoteLength.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TimeSignature.h>
-			$<INSTALL_INTERFACE:include/NoteDuration.h>
-			$<INSTALL_INTERFACE:include/NoteDuration_impl.h>
-			$<INSTALL_INTERFACE:include/NoteLength.h>
-			$<INSTALL_INTERFACE:include/NoteLength_impl.h>
-			$<INSTALL_INTERFACE:include/TimeSignature.h>)
+			$<INSTALL_INTERFACE:include/limes_music/NoteDuration.h>
+			$<INSTALL_INTERFACE:include/limes_music/NoteDuration_impl.h>
+			$<INSTALL_INTERFACE:include/limes_music/NoteLength.h>
+			$<INSTALL_INTERFACE:include/limes_music/NoteLength_impl.h>
+			$<INSTALL_INTERFACE:include/limes_music/TimeSignature.h>)
 
-target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)
+target_include_directories (limes_music PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

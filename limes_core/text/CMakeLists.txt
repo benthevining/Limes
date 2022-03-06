@@ -14,7 +14,7 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/StringUtils.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TextTable.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TextTable.cpp>
-			$<INSTALL_INTERFACE:include/StringUtils.h>
-			$<INSTALL_INTERFACE:include/TextTable.h>)
+			$<INSTALL_INTERFACE:include/limes_core/StringUtils.h>
+			$<INSTALL_INTERFACE:include/limes_core/TextTable.h>)
 
 target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

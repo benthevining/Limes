@@ -38,14 +38,16 @@ add_subdirectory (limes_core)
 add_subdirectory (limes_audio)
 add_subdirectory (limes_music)
 
-add_library (Limes::Limes ALIAS Limes)
+oranges_export_alias_target (Limes Limes)
 
-target_include_directories (
-	limes_vecops
-	INTERFACE $<BUILD_INTERFACE:${Limes_SOURCE_DIR}/include>
-			  $<BUILD_INTERFACE:${Limes_BINARY_DIR}/include> $<INSTALL_INTERFACE:include>)
-
-oranges_install_targets (TARGETS Limes EXPORT LimesTargets REL_PATH "${LIMES_INSTALL_DEST}")
+oranges_install_targets (
+	TARGETS
+	Limes
+	EXPORT
+	LimesTargets
+	REL_PATH
+	"${LIMES_INSTALL_DEST}"
+	OPTIONAL)
 
 #
 

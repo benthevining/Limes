@@ -16,10 +16,10 @@ target_link_libraries (limes_music PRIVATE Oranges::OrangesDefaultTarget Oranges
 										   Limes::limes_core)
 
 target_sources (limes_music PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_music.h>
-								   $<INSTALL_INTERFACE:include/limes_music.h>)
+								   $<INSTALL_INTERFACE:include/limes_music/limes_music.h>)
 
 target_include_directories (limes_music INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-												  $<INSTALL_INTERFACE:include>)
+												  $<INSTALL_INTERFACE:include/limes_music>)
 
 add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/harmony"
 				  "${CMAKE_CURRENT_BINARY_DIR}/limes_music/harmony")
@@ -28,7 +28,7 @@ add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/rhythm"
 
 lemons_sort_target_sources (limes_music ${CMAKE_CURRENT_LIST_DIR})
 
-add_library (Limes::limes_music ALIAS limes_music)
+oranges_export_alias_target (limes_music Limes)
 
 target_link_libraries (Limes INTERFACE Limes::limes_music)
 

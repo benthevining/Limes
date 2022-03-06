@@ -15,14 +15,11 @@ add_library (limes_vecops INTERFACE)
 target_link_libraries (limes_vecops INTERFACE Oranges::OrangesDefaultTarget
 											  Oranges::OrangesUnityBuild)
 
-target_sources (
-	limes_vecops
-	INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h>
-			  $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/util/Platform.h>
-			  $<INSTALL_INTERFACE:install/limes_vecops.h> $<INSTALL_INTERFACE:install/Platform.h>)
+target_sources (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h>
+									   $<INSTALL_INTERFACE:include/limes_vecops/limes_vecops.h>)
 
 target_include_directories (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-												   $<INSTALL_INTERFACE:include>)
+												   $<INSTALL_INTERFACE:include/limes_vecops>)
 
 add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/impl")
 add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/util")
@@ -31,7 +28,7 @@ lemons_sort_target_sources (limes_vecops ${CMAKE_CURRENT_LIST_DIR})
 
 set_target_properties (limes_vecops PROPERTIES LINKER_LANGUAGE CXX)
 
-add_library (Limes::limes_vecops ALIAS limes_vecops)
+oranges_export_alias_target (limes_vecops Limes)
 
 target_link_libraries (Limes INTERFACE Limes::limes_vecops)
 

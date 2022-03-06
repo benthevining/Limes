@@ -13,8 +13,8 @@ target_sources (
 	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mathHelpers.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Fraction.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Fraction_impl.h>
-			$<INSTALL_INTERFACE:include/mathHelpers.h>
-			$<INSTALL_INTERFACE:include/Fraction.h>
-			$<INSTALL_INTERFACE:include/Fraction_impl.h>)
+			$<INSTALL_INTERFACE:include/limes_core/mathHelpers.h>
+			$<INSTALL_INTERFACE:include/limes_core/Fraction.h>
+			$<INSTALL_INTERFACE:include/limes_core/Fraction_impl.h>)
 
 target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

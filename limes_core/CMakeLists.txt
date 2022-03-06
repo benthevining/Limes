@@ -16,10 +16,10 @@ target_link_libraries (limes_core PUBLIC Limes::limes_vecops Oranges::OrangesDef
 										 Oranges::OrangesUnityBuild)
 
 target_sources (limes_core PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_core.h>
-								  $<INSTALL_INTERFACE:include/limes_core.h>)
+								  $<INSTALL_INTERFACE:include/limes_core/limes_core.h>)
 
 target_include_directories (limes_core INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-												 $<INSTALL_INTERFACE:include>)
+												 $<INSTALL_INTERFACE:include/limes_core>)
 
 add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/data_structures"
 				  "${CMAKE_CURRENT_BINARY_DIR}/limes_core/data_structures")
@@ -31,7 +31,7 @@ add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/text" "${CMAKE_CURRENT_BINARY_DIR}/
 
 lemons_sort_target_sources (limes_core ${CMAKE_CURRENT_LIST_DIR})
 
-add_library (Limes::limes_core ALIAS limes_core)
+oranges_export_alias_target (limes_core Limes)
 
 target_link_libraries (Limes INTERFACE Limes::limes_core)
 

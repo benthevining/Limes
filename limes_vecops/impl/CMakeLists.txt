@@ -11,4 +11,4 @@
 include ("${CMAKE_CURRENT_LIST_DIR}/SelectImpl.cmake")
 
 target_sources (limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback_impl.h>
-									   $<INSTALL_INTERFACE:install/fallback_impl.h>)
+									   $<INSTALL_INTERFACE:include/limes_vecops/fallback_impl.h>)

@@ -12,6 +12,12 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
+add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/../../Oranges" "${CMAKE_CURRENT_BINARY_DIR}/Oranges")
+
+list (APPEND CMAKE_MODULE_PATH "${ORANGES_CMAKE_MODULE_PATH}")
+
+return ()
+
 if(DEFINED ENV{CPM_SOURCE_CACHE})
 	set (FETCHCONTENT_BASE_DIR "$ENV{CPM_SOURCE_CACHE}" CACHE PATH "FetchContent dependency cache")
 else()

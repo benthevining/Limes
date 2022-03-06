@@ -23,12 +23,12 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Octatonic.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/WholeTone.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/WholeTone.h>
-			$<INSTALL_INTERFACE:include/Scale.h>
-			$<INSTALL_INTERFACE:include/Chromatic.h>
-			$<INSTALL_INTERFACE:include/KeySignature.h>
-			$<INSTALL_INTERFACE:includeKeySignature_impl.h>
-			$<INSTALL_INTERFACE:include/Mode.h>
-			$<INSTALL_INTERFACE:include/Octatonic.h>
-			$<INSTALL_INTERFACE:include/WholeTone.h>)
+			$<INSTALL_INTERFACE:include/limes_music/Scale.h>
+			$<INSTALL_INTERFACE:include/limes_music/Chromatic.h>
+			$<INSTALL_INTERFACE:include/limes_music/KeySignature.h>
+			$<INSTALL_INTERFACE:include/limes_music/KeySignature_impl.h>
+			$<INSTALL_INTERFACE:include/limes_music/Mode.h>
+			$<INSTALL_INTERFACE:include/limes_music/Octatonic.h>
+			$<INSTALL_INTERFACE:include/limes_music/WholeTone.h>)
 
-target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)
+target_include_directories (limes_music PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

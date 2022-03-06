@@ -7,11 +7,15 @@ SHELL = /bin/sh
 
 #
 
+CACHE = Cache
+BUILDS = Builds
 CONFIGS = Debug Release
 
 CMAKE = cmake
 PRECOMMIT = pre-commit
 RM = rm -rf
+SUDO = sudo
+GIT = git
 
 ifeq ($(OS),Windows_NT)
 	NUM_CORES = $(NUMBER_OF_PROCESSORS)
@@ -26,7 +30,7 @@ else
 	export CXX=g++-10
 endif
 
-CACHE = Cache
+# TO DO: CPACK_GENERATOR
 
 #
 
@@ -38,7 +42,9 @@ override cmake_configure_preset = echo "Configuring $(1) preset..."; cd $(LIMES_
 
 override cmake_build_preset = echo "Building $(1) preset..."; cd $(LIMES_ROOT) && $(CMAKE) --build --preset $(1)
 
-override cmake_install_configuration = echo "Installing $(1) configuration..."; cd $(LIMES_ROOT) && sudo $(CMAKE) --install Builds/$(1) --config $(1) --strip --verbose
+override cmake_install_configuration = echo "Installing $(1) configuration..."; cd $(LIMES_ROOT) && $(SUDO) $(CMAKE) --install $(BUILDS)/$(1) --config $(1) --strip --verbose
+
+override cpack_create_installer = @cd $(ORANGES_ROOT) && $(CPACK) -G "$(CPACK_GENERATOR)" -C $(1) --verbose
 
 #
 
@@ -57,7 +63,7 @@ install: build ## Runs CMake install
 	@$(foreach config,$(CONFIGS),$(call cmake_install_configuration,$(config));)
 
 pack: install ## Creates a CPack installer
-	@cd $(ORANGES_ROOT) && $(CPACK) -G "" -C Release --verbose
+	@$(foreach config,$(CONFIGS),$(call cpack_create_installer,$(config));)
 
 #
 
@@ -73,7 +79,7 @@ SCRIPTS_DIR = $(LIMES_ROOT)/scripts
 
 clean:  ## Cleans the Lemons source tree
 	@echo "Cleaning..."
-	@$(RM) $(LIMES_ROOT)/Builds
+	@$(RM) $(LIMES_ROOT)/$(BUILDS)
 	@$(PRECOMMIT) gc
 
 
@@ -89,7 +95,7 @@ init:  ## Initializes the Lemons workspace and installs all dependencies
 
 
 pc:  ## Runs all pre-commit hooks over all files
-	@cd $(LIMES_ROOT) && git add . && $(PRECOMMIT) run --all-files
+	@cd $(LIMES_ROOT) && $(GIT) add . && $(PRECOMMIT) run --all-files
 
 #
 

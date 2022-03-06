@@ -14,9 +14,9 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_vector.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/scalar_vector.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/owned_vector.h>
-			$<INSTALL_INTERFACE:include/vector.h>
-			$<INSTALL_INTERFACE:include/basic_vector.h>
-			$<INSTALL_INTERFACE:include/scalar_vector.h>
-			$<INSTALL_INTERFACE:include/owned_vector.h>)
+			$<INSTALL_INTERFACE:include/limes_core/vector.h>
+			$<INSTALL_INTERFACE:include/limes_core/basic_vector.h>
+			$<INSTALL_INTERFACE:include/limes_core/scalar_vector.h>
+			$<INSTALL_INTERFACE:include/limes_core/owned_vector.h>)
 
 target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

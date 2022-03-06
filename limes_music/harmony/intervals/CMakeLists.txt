@@ -17,10 +17,10 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/CompoundInterval.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/CompoundInterval_impl.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/MicrotonalInterval.h>
-			$<INSTALL_INTERFACE:include/Interval.h>
-			$<INSTALL_INTERFACE:include/Interval_impl.h>
-			$<INSTALL_INTERFACE:include/CompoundInterval.h>
-			$<INSTALL_INTERFACE:include/CompoundInterval_impl.h>
-			$<INSTALL_INTERFACE:include/MicrotonalInterval.h>)
+			$<INSTALL_INTERFACE:include/limes_music/Interval.h>
+			$<INSTALL_INTERFACE:include/limes_music/Interval_impl.h>
+			$<INSTALL_INTERFACE:include/limes_music/CompoundInterval.h>
+			$<INSTALL_INTERFACE:include/limes_music/CompoundInterval_impl.h>
+			$<INSTALL_INTERFACE:include/limes_music/MicrotonalInterval.h>)
 
-target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)
+target_include_directories (limes_music PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

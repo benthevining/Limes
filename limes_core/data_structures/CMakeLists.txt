@@ -18,9 +18,9 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Version.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/LinkedListModel.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/LinkedListModel_impl.h>
-			$<INSTALL_INTERFACE:include/Dimensions.h>
-			$<INSTALL_INTERFACE:include/Version.h>
-			$<INSTALL_INTERFACE:include/LinkedListModel.h>
-			$<INSTALL_INTERFACE:include/LinkedListModel_impl.h>)
+			$<INSTALL_INTERFACE:include/limes_core/Dimensions.h>
+			$<INSTALL_INTERFACE:include/limes_core/Version.h>
+			$<INSTALL_INTERFACE:include/limes_core/LinkedListModel.h>
+			$<INSTALL_INTERFACE:include/limes_core/LinkedListModel_impl.h>)
 
 target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)
