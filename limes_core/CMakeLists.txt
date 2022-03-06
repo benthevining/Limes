@@ -41,4 +41,12 @@ oranges_export_alias_target (limes_core Limes)
 
 target_link_libraries (Limes INTERFACE Limes::limes_core)
 
-oranges_install_targets (TARGETS limes_core EXPORT LimesTargets REL_PATH Limes/limes_core)
+oranges_install_targets (
+	TARGETS
+	limes_core
+	EXPORT
+	LimesTargets
+	REL_PATH
+	Limes/limes_core
+	COMPONENT_PREFIX
+	limes_core)

@@ -38,4 +38,12 @@ oranges_export_alias_target (limes_vecops Limes)
 
 target_link_libraries (Limes INTERFACE Limes::limes_vecops)
 
-oranges_install_targets (TARGETS limes_vecops EXPORT LimesTargets REL_PATH Limes/limes_vecops)
+oranges_install_targets (
+	TARGETS
+	limes_vecops
+	EXPORT
+	LimesTargets
+	REL_PATH
+	Limes/limes_vecops
+	COMPONENT_PREFIX
+	limes_vecops)

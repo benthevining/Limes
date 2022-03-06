@@ -38,4 +38,12 @@ oranges_export_alias_target (limes_audio Limes)
 
 target_link_libraries (Limes INTERFACE Limes::limes_audio)
 
-oranges_install_targets (TARGETS limes_audio EXPORT LimesTargets REL_PATH Limes/limes_audio)
+oranges_install_targets (
+	TARGETS
+	limes_audio
+	EXPORT
+	LimesTargets
+	REL_PATH
+	Limes/limes_audio
+	COMPONENT_PREFIX
+	limes_audio)
