@@ -51,6 +51,10 @@ oranges_install_targets (
 
 #
 
+include ("${CMAKE_CURRENT_LIST_DIR}/scripts/BuildLimesDocs.cmake")
+
+#
+
 include (CMakePackageConfigHelpers)
 
 write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_VERSION}"

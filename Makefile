@@ -21,12 +21,12 @@ help:  ## Print this message
 #
 
 config: ## Configure cmake
-	@cd $(LIMES_ROOT) && $(call cmake_configure_preset,$(CONFIG))
+	@cd $(LIMES_ROOT) && $(call cmake_default_configure)
 
 build: config ## Builds the libraries
-	@cd $(LIMES_ROOT) $(call cmake_build_preset,$(CONFIG))
+	@cd $(LIMES_ROOT) && $(call cmake_default_build)
 
-install: build ## Runs CMake install
+install: build docs ## Runs CMake install
 	@cd $(LIMES_ROOT) && $(call cmake_install)
 
 pack: install ## Creates a CPack installer
@@ -42,12 +42,17 @@ build_ios: config_ios ## Run iOS build [Mac only]
 
 #
 
+docs: config ## Builds the documentation
+	@cd $(LIMES_ROOT) && $(call cmake_default_build) --target LimesDoxygen
+
+#
+
 uninstall: ## Runs uninstall script [only works if project has been installed and was top-level project in configure]
 	@$(call run_uninstall)
 
 clean:  ## Cleans the source tree
 	@echo "Cleaning..."
-	@cd $(LIMES_ROOT) && $(call run_clean)
+	@cd $(LIMES_ROOT) && $(call run_clean,doc man)
 
 
 wipe: clean ## Wipes the persistent cache of fetched dependencies and ccache artifacts

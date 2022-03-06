@@ -1,0 +1,201 @@
+#---------------------------------------------------------------------------
+# Project related configuration options
+#---------------------------------------------------------------------------
+
+PROJECT_NAME		   = Limes
+
+PROJECT_BRIEF		  = "C++ static libraries"
+
+PROJECT_LOGO		   =
+
+OUTPUT_LANGUAGE		= English
+
+INLINE_INHERITED_MEMB  = YES
+
+FULL_PATH_NAMES		= NO
+
+JAVADOC_AUTOBRIEF	  = YES
+
+EXTENSION_MAPPING	  = txt=md
+
+TOC_INCLUDE_HEADINGS   = 0
+
+BUILTIN_STL_SUPPORT	= YES
+
+GROUP_NESTED_COMPOUNDS = YES
+
+SUBGROUPING			= YES
+
+#---------------------------------------------------------------------------
+# Build related configuration options
+#---------------------------------------------------------------------------
+
+EXTRACT_ALL			= YES
+
+EXTRACT_PRIV_VIRTUAL   = YES
+
+EXTRACT_STATIC		 = YES
+
+EXTRACT_LOCAL_CLASSES  = NO
+
+HIDE_UNDOC_CLASSES	 = NO
+
+HIDE_FRIEND_COMPOUNDS  = YES
+
+HIDE_IN_BODY_DOCS	  = YES
+
+CASE_SENSE_NAMES	   = NO
+
+HIDE_SCOPE_NAMES	   = NO
+
+SHOW_INCLUDE_FILES	 = NO
+
+INLINE_INFO			= NO
+
+SORT_BRIEF_DOCS		= YES
+
+SORT_MEMBERS_CTORS_1ST = YES
+
+SORT_GROUP_NAMES	   = YES
+
+GENERATE_TESTLIST	  = NO
+
+LAYOUT_FILE			=
+
+#---------------------------------------------------------------------------
+# Configuration options related to warning and progress messages
+#---------------------------------------------------------------------------
+
+QUIET				  = YES
+
+WARN_IF_DOC_ERROR	  = YES
+
+WARN_NO_PARAMDOC	   = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to the input files
+#---------------------------------------------------------------------------
+
+INPUT				  = limes_audio limes_core limes_music limes_vecops
+
+FILE_PATTERNS		  = *.h
+
+RECURSIVE			  = YES
+
+EXCLUDE_SYMLINKS	   = YES
+
+IMAGE_PATH			 =
+
+USE_MDFILE_AS_MAINPAGE =
+
+#---------------------------------------------------------------------------
+# Configuration options related to source browsing
+#---------------------------------------------------------------------------
+
+REFERENCED_BY_RELATION = YES
+
+REFERENCES_RELATION	= YES
+
+VERBATIM_HEADERS	   = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to the HTML output
+#---------------------------------------------------------------------------
+
+GENERATE_HTML = YES
+
+HTML_OUTPUT			= doc
+
+HTML_EXTRA_STYLESHEET  =
+
+HTML_COLORSTYLE_HUE	= 250
+
+HTML_COLORSTYLE_SAT	= 175
+
+HTML_COLORSTYLE_GAMMA  = 90
+
+HTML_TIMESTAMP		 = YES
+
+HTML_DYNAMIC_SECTIONS  = YES
+
+HTML_INDEX_NUM_ENTRIES = 32
+
+GENERATE_DOCSET		= NO
+
+ENUM_VALUES_PER_LINE   = 4
+
+EXT_LINKS_IN_WINDOW	= YES
+
+FORMULA_FONTSIZE	   = 10
+
+FORMULA_TRANSPARENT	= YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to the man page output
+#---------------------------------------------------------------------------
+
+GENERATE_MAN           = YES
+
+MAN_OUTPUT             = man
+
+MAN_EXTENSION          = .3
+
+MAN_LINKS              = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to the LaTeX output
+#---------------------------------------------------------------------------
+
+GENERATE_LATEX		 = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to the preprocessor
+#---------------------------------------------------------------------------
+
+MACRO_EXPANSION		= NO
+
+SEARCH_INCLUDES		= YES
+
+PREDEFINED			 = WIN32=1 DOXYGEN=1
+
+SKIP_FUNCTION_MACROS   = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to external references
+#---------------------------------------------------------------------------
+
+TAGFILES			   =
+
+GENERATE_TAGFILE	   = doc/limes.tag
+
+EXTERNAL_GROUPS		= NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to the dot tool
+#---------------------------------------------------------------------------
+
+HAVE_DOT			   = YES
+
+DOT_FONTSIZE		   = 10
+
+COLLABORATION_GRAPH	= NO
+
+GROUP_GRAPHS		   = NO
+
+TEMPLATE_RELATIONS	 = YES
+
+INCLUDE_GRAPH		  = NO
+
+INCLUDED_BY_GRAPH	  = NO
+
+GRAPHICAL_HIERARCHY	= NO
+
+DIRECTORY_GRAPH		= NO
+
+DOT_IMAGE_FORMAT	   = svg
+
+INTERACTIVE_SVG		= YES
+
+DOT_GRAPH_MAX_NODES	= 100
+
+DOT_TRANSPARENT		= YES

@@ -9,12 +9,14 @@
 # This file is also being managed automatically by the gitown tool.
 .clang-format benthevining
 .clang-tidy benthevining
+.cmake-format.json benthevining
 .github/CODEOWNERS benthevining
 .github/CODE_OF_CONDUCT.md benthevining
 .github/FUNDING.yml benthevining
 .github/ISSUE_TEMPLATE/bug_report.md benthevining
 .github/ISSUE_TEMPLATE/config.yml benthevining
 .github/ISSUE_TEMPLATE/feature_request.md benthevining
+.github/dependabot.yml benthevining
 .github/workflows/test_and_release.yml benthevining
 .gitownrc benthevining
 .style.yapf benthevining
@@ -22,6 +24,7 @@ CMakeLists.txt benthevining
 CMakePresets.json benthevining
 Makefile benthevining
 README.md benthevining
+ector.h benthevining
 limes_audio/CMakeLists.txt benthevining
 limes_audio/limes_audio.h benthevining
 limes_audio/psola/CMakeLists.txt benthevining
@@ -43,9 +46,12 @@ limes_core/data_structures/LinkedListModel_impl.h benthevining
 limes_core/data_structures/Version.h benthevining
 limes_core/data_structures/vectors/owned_vector.h benthevining
 limes_core/data_structures/vectors/scalar_vector.h benthevining
+limes_core/data_structures/vectors/vector.h benthevining
 limes_core/math/Fraction_impl.h benthevining
 limes_core/math/mathHelpers.h benthevining
+limes_core/misc/Algorithm.h benthevining
 limes_core/misc/CMakeLists.txt benthevining
+limes_core/misc/Functions.h benthevining
 limes_core/misc/TypeTraits.h benthevining
 limes_core/misc/languages.cpp benthevining
 limes_core/text/CMakeLists.txt benthevining
@@ -93,4 +99,5 @@ package.json benthevining
 scripts/FindOranges.cmake benthevining
 scripts/LimesConfig.cmake benthevining
 scripts/alphabetize_codeowners.py benthevining
+scripts/util.make benthevining
 util/PresetBases.json benthevining
