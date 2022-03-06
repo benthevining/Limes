@@ -16,8 +16,8 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/oscillator.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_oscillators.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_oscillators.h>
-			$<INSTALL_INTERFACE:include/limes_audio/SampleStream.h>
-			$<INSTALL_INTERFACE:include/limes_audio/oscillator.h>
-			$<INSTALL_INTERFACE:include/limes_audio/basic_oscillators.h>)
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_audio/SampleStream.h>
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_audio/oscillator.h>
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_audio/basic_oscillators.h>)
 
 target_include_directories (limes_audio PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

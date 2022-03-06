@@ -16,10 +16,10 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/StaticObjects.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Functions.h>
-			$<INSTALL_INTERFACE:include/limes_core/Algorithm.h>
-			$<INSTALL_INTERFACE:include/limes_core/TypeTraits.h>
-			$<INSTALL_INTERFACE:include/limes_core/languages.h>
-			$<INSTALL_INTERFACE:include/limes_core/StaticObjects.h>
-			$<INSTALL_INTERFACE:include/limes_core/Functions.h>)
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/Algorithm.h>
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/TypeTraits.h>
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/languages.h>
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/StaticObjects.h>
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/Functions.h>)
 
 target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

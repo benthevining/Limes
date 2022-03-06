@@ -20,9 +20,9 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Chord.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Chord.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchUtils.h>
-			$<INSTALL_INTERFACE:include/limes_music/PitchClass.h>
-			$<INSTALL_INTERFACE:include/limes_music/Pitch.h>
-			$<INSTALL_INTERFACE:include/limes_music/Chord.h>
-			$<INSTALL_INTERFACE:include/limes_music/PitchUtils.h>)
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_music/PitchClass.h>
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_music/Pitch.h>
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_music/Chord.h>
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_music/PitchUtils.h>)
 
 target_include_directories (limes_music PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

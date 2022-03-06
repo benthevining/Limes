@@ -12,6 +12,6 @@ target_sources (
 	limes_audio
 	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PeakFinder.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PeakFinder.cpp>
-			$<INSTALL_INTERFACE:include/limes_audio/PeakFinder.h>)
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_audio/PeakFinder.h>)
 
 target_include_directories (limes_audio PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)

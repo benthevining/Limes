@@ -46,7 +46,7 @@ oranges_install_targets (
 	EXPORT
 	LimesTargets
 	REL_PATH
-	"${LIMES_INSTALL_DEST}"
+	Limes
 	OPTIONAL)
 
 #

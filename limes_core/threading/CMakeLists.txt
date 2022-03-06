@@ -15,8 +15,8 @@ target_sources (
 	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeTypeTraits.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ThreadSafeObject.h>
-			$<INSTALL_INTERFACE:include/limes_core/RealtimeTypeTraits.h>
-			$<INSTALL_INTERFACE:include/limes_core/RealtimeSafeObject.h>
-			$<INSTALL_INTERFACE:include/limes_core/ThreadSafeObject.h>)
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/RealtimeTypeTraits.h>
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/RealtimeSafeObject.h>
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/ThreadSafeObject.h>)
 
 target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)
