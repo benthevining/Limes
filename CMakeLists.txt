@@ -46,7 +46,7 @@ write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_
 
 configure_package_config_file (
 	"${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake" "LimesConfig.cmake"
-	INSTALL_DESTINATION lib/cmake/Limes PATH_VARS "" INSTALL_PREFIX "")
+	INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" PATH_VARS "" INSTALL_PREFIX "")
 
 install (EXPORT LimesTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST}"
 		 EXPORT_LINK_INTERFACE_LIBRARIES)
