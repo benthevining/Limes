@@ -6,4 +6,4 @@
 [![CodeQL](https://github.com/benthevining/Limes/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/benthevining/Limes/actions/workflows/codeql-analysis.yml)
 [![semantic-release: conventionalcommits](https://img.shields.io/badge/semantic--release-conventionalcommits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
-A collection of C++ static libraries with zero dependencies.
+A collection of standalone C++ static libraries.
