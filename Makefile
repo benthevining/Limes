@@ -13,7 +13,7 @@ CONFIGS = Debug Release
 
 CMAKE = cmake
 PRECOMMIT = pre-commit
-RM = rm -rf
+RM = $(CMAKE) -E rm -rf
 SUDO = sudo
 GIT = git
 
@@ -43,6 +43,8 @@ override cmake_configure_preset = echo "Configuring $(1) preset..."; cd $(LIMES_
 override cmake_build_preset = echo "Building $(1) preset..."; cd $(LIMES_ROOT) && $(CMAKE) --build --preset $(1)
 
 override cmake_install_configuration = echo "Installing $(1) configuration..."; cd $(LIMES_ROOT) && $(SUDO) $(CMAKE) --install $(BUILDS)/$(1) --config $(1) --strip --verbose
+
+override cmake_uninstall_configuration = echo "Uninstalling $(1) configuration..."; cd $(LIMES_ROOT) && $(CMAKE) -P $(BUILDS)/$(1)/uninstall.cmake
 
 override cpack_create_installer = @cd $(ORANGES_ROOT) && $(CPACK) -G "$(CPACK_GENERATOR)" -C $(1) --verbose
 
@@ -76,6 +78,9 @@ build_ios: config_ios ## Run iOS build [Mac only]
 #
 
 SCRIPTS_DIR = $(LIMES_ROOT)/scripts
+
+uninstall: ## Runs uninstall script [only works if project has been installed and was top-level project in configure]
+	@$(foreach config,$(CONFIGS),$(call cmake_uninstall_configuration,$(config));)
 
 clean:  ## Cleans the Lemons source tree
 	@echo "Cleaning..."

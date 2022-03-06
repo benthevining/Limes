@@ -48,8 +48,8 @@ if(intel_platform)
 
 	find_package (IPP MODULE)
 
-	if(TARGET Intel::IPP)
-		target_link_libraries (limes_vecops INTERFACE Intel::IPP)
+	if(TARGET Intel::IntelIPP)
+		target_link_libraries (limes_vecops INTERFACE Intel::IntelIPP)
 
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_IPP=1)
 
