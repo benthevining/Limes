@@ -52,7 +52,7 @@ uninstall: ## Runs uninstall script [only works if project has been installed an
 
 clean:  ## Cleans the source tree
 	@echo "Cleaning..."
-	@cd $(LIMES_ROOT) && $(call run_clean,doc man)
+	@cd $(LIMES_ROOT) && $(call run_clean)
 
 
 wipe: clean ## Wipes the persistent cache of fetched dependencies and ccache artifacts

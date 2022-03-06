@@ -12,6 +12,7 @@ GIT ?= git
 
 # directory aliases
 BUILDS ?= Builds
+DOCS ?= doc
 CACHE ?= Cache
 
 ifeq ($(OS),Windows_NT)
@@ -34,7 +35,7 @@ override precommit_init = $(PRECOMMIT) install --install-hooks --overwrite && $(
 
 override run_precommit = $(GIT) add . && $(PRECOMMIT) run --all-files
 
-override run_clean = $(RM) $(BUILDS) $(1); $(PRECOMMIT) gc
+override run_clean = $(RM) $(BUILDS) $(DOCS); $(PRECOMMIT) gc
 
 override run_wipe_cache = $(RM) $(CACHE); $(PRECOMMIT) clean
 

@@ -76,7 +76,7 @@ WARN_NO_PARAMDOC	   = NO
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
 
-INPUT				  = limes_audio limes_core limes_music limes_vecops
+INPUT				  = libs
 
 FILE_PATTERNS		  = *.h
 
@@ -104,7 +104,7 @@ VERBATIM_HEADERS	   = NO
 
 GENERATE_HTML = YES
 
-HTML_OUTPUT			= doc
+HTML_OUTPUT			= doc/html
 
 HTML_EXTRA_STYLESHEET  =
 
@@ -136,7 +136,7 @@ FORMULA_TRANSPARENT	= YES
 
 GENERATE_MAN           = YES
 
-MAN_OUTPUT             = man
+MAN_OUTPUT             = doc
 
 MAN_EXTENSION          = .3
 

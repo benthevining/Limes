@@ -29,29 +29,13 @@ find_package (Oranges REQUIRED)
 
 #
 
-add_library (Limes INTERFACE)
-
-include (LemonsCmakeDevTools)
-
-add_subdirectory (limes_vecops)
-add_subdirectory (limes_core)
-add_subdirectory (limes_audio)
-add_subdirectory (limes_music)
-
-oranges_export_alias_target (Limes Limes)
-
-oranges_install_targets (
-	TARGETS
-	Limes
-	EXPORT
-	LimesTargets
-	REL_PATH
-	Limes
-	OPTIONAL)
+add_subdirectory (libs)
 
 #
 
-include ("${CMAKE_CURRENT_LIST_DIR}/scripts/BuildLimesDocs.cmake")
+include (OrangesCreateDefaultDocsTarget)
+
+oranges_create_default_docs_target (TARGET LimesDoxygen PROJECT Limes)
 
 #
 
