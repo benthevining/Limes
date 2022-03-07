@@ -18,9 +18,15 @@ include $(LIMES_ROOT)/scripts/util.make
 help:  ## Print this message
 	@$(call print_help)
 
+.PHONY: $(shell grep -E '^[a-zA-Z_-]+:.*?\#\# .*$$' $(THIS_MAKEFILE) | sed 's/:.*/\ /' | tr '\n' ' ')
+
 #
 
-config: ## Configure cmake
+.PHONY: query_cmake_file_api
+query_cmake_file_api:
+	@$(call cmake_query_file_api,$(LIMES_ROOT))
+
+config: query_cmake_file_api ## Configure cmake
 	@cd $(LIMES_ROOT) && $(call cmake_default_configure)
 
 build: config ## Builds the libraries
@@ -42,12 +48,15 @@ build_ios: config_ios ## Run iOS build [Mac only]
 
 #
 
+deps_graph: config ## Generates a PNG image of the CMake dependency graph [requires graphviz's dot tool]
+	@cd $(LIMES_ROOT) && $(call cmake_default_build) --target DependencyGraph
+
 docs: config ## Builds the documentation
 	@cd $(LIMES_ROOT) && $(call cmake_default_build) --target LimesDoxygen
 
 #
 
-uninstall: ## Runs uninstall script [only works if project has been installed and was top-level project in configure]
+uninstall: ## Runs uninstall script [only works if project has been installed]
 	@$(call run_uninstall)
 
 clean:  ## Cleans the source tree
@@ -55,7 +64,7 @@ clean:  ## Cleans the source tree
 	@cd $(LIMES_ROOT) && $(call run_clean)
 
 
-wipe: clean ## Wipes the persistent cache of fetched dependencies and ccache artifacts
+wipe: uninstall clean ## Wipes the persistent cache of fetched dependencies and ccache artifacts
 	@echo "Wiping cache..."
 	@cd $(LIMES_ROOT) && $(call run_wipe_cache)
 
@@ -66,7 +75,3 @@ init:  ## Initializes the workspace and installs all dependencies
 
 pc:  ## Runs all pre-commit hooks over all files
 	@cd $(LIMES_ROOT) && $(call run_precommit)
-
-#
-
-.PHONY: $(shell grep -E '^[a-zA-Z_-]+:.*?\#\# .*$$' $(THIS_MAKEFILE) | sed 's/:.*/\ /' | tr '\n' ' ')

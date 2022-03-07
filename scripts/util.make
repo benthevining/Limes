@@ -15,6 +15,8 @@ BUILDS ?= Builds
 DOCS ?= doc
 CACHE ?= Cache
 
+DEPS_GRAPH ?= deps_graph
+
 ifeq ($(OS),Windows_NT)
 	CMAKE_GENERATOR ?= Visual Studio 17 2022
 else ifeq ($(shell uname -s),Darwin)
@@ -35,15 +37,19 @@ override precommit_init = $(PRECOMMIT) install --install-hooks --overwrite && $(
 
 override run_precommit = $(GIT) add . && $(PRECOMMIT) run --all-files
 
-override run_clean = $(RM) $(BUILDS) $(DOCS); $(PRECOMMIT) gc
+override run_clean = $(RM) $(BUILDS) $(DOCS) $(DEPS_GRAPH).dot; $(PRECOMMIT) gc
 
 override run_wipe_cache = $(RM) $(CACHE); $(PRECOMMIT) clean
 
 override run_uninstall = $(CMAKE) -P $(BUILDS)/uninstall.cmake
 
+#
+
+override cmake_query_file_api = $(CMAKE) -D ORANGES_PROJECT_ROOT=$(1) -P $(1)/scripts/cmake_file_api/query_cmake_file_api.cmake
+
 override cmake_configure_preset = $(CMAKE) --preset $(1) -G "$(CMAKE_GENERATOR)"
 
-override cmake_default_configure = $(CMAKE) -B $(BUILDS) -G "$(CMAKE_GENERATOR)" -D CMAKE_BUILD_TYPE=$(CONFIG)
+override cmake_default_configure = $(CMAKE) -B $(BUILDS) -G "$(CMAKE_GENERATOR)" -D CMAKE_BUILD_TYPE=$(CONFIG) --graphviz=$(DOCS)/$(DEPS_GRAPH).dot
 
 override cmake_build_preset = $(CMAKE) --build --preset $(1)
 

@@ -28,25 +28,40 @@ ector.h benthevining
 hevining
 ing
 libs/limes_audio/streams/oscillator.cpp benthevining
+libs/limes_audio/streams/oscillator.h benthevining
 libs/limes_audio/util/CMakeLists.txt benthevining
 libs/limes_audio/util/Misc.h benthevining
+libs/limes_audio/util/MonoStereoConverter.cpp benthevining
 libs/limes_core/data_structures/Dimensions.cpp benthevining
+libs/limes_core/data_structures/Dimensions.h benthevining
+libs/limes_core/data_structures/LinkedListModel.h benthevining
 libs/limes_core/data_structures/Version.h benthevining
+libs/limes_core/data_structures/vectors/CMakeLists.txt benthevining
+libs/limes_core/data_structures/vectors/basic_vector.h benthevining
 libs/limes_core/data_structures/vectors/scalar_vector.h benthevining
+libs/limes_core/data_structures/vectors/vector.h benthevining
 libs/limes_core/limes_core.h benthevining
 libs/limes_core/math/mathHelpers.h benthevining
 libs/limes_core/misc/CMakeLists.txt benthevining
+libs/limes_core/misc/TypeTraits.h benthevining
 libs/limes_core/threading/RealtimeSafeObject.h benthevining
 libs/limes_core/threading/RealtimeSafeObject/NonrealtimeMutatableObject.h benthevining
 libs/limes_core/threading/RealtimeSafeObject/RealtimeMutatableObject.h benthevining
+libs/limes_core/threading/RealtimeSafeObject/RealtimeSafeObject_impl.h benthevining
 libs/limes_music/harmony/CMakeLists.txt benthevining
+libs/limes_music/harmony/Chord.cpp benthevining
 libs/limes_music/harmony/intervals/CompoundInterval_impl.h benthevining
 libs/limes_music/harmony/intervals/MicrotonalInterval.h benthevining
 libs/limes_music/harmony/scales/Chromatic.h benthevining
 libs/limes_music/harmony/scales/Mode.cpp benthevining
+libs/limes_music/harmony/scales/Mode.h benthevining
 libs/limes_music/harmony/scales/Octatonic.h benthevining
+libs/limes_music/harmony/scales/Scale.h benthevining
+libs/limes_music/rhythm/TimeSignature.h benthevining
 libs/limes_vecops/impl/check_mipp.cpp benthevining
+libs/limes_vecops/impl/ipp.h benthevining
 libs/limes_vecops/impl/vdsp.h benthevining
+libs/limes_vecops/limes_vecops.h benthevining
 limes_audio/CMakeLists.txt benthevining
 limes_audio/limes_audio.h benthevining
 limes_audio/psola/CMakeLists.txt benthevining
@@ -118,9 +133,11 @@ limes_vecops/util/CMakeLists.txt benthevining
 limes_vecops/util/ConfigVecops.cmake benthevining
 limes_vecops/util/Constants.h benthevining
 limes_vecops/util/Platform.h benthevining
+ng
 package.json benthevining
 scripts/FindOranges.cmake benthevining
 scripts/LimesConfig.cmake benthevining
 scripts/alphabetize_codeowners.py benthevining
 scripts/util.make benthevining
 util/PresetBases.json benthevining
+xt benthevining

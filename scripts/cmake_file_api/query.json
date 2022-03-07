@@ -1,0 +1,13 @@
+{
+  "client": {
+    "build_tree_root": "@ORANGES_BUILD_ROOT@",
+    "project_cache": "@ORANGES_CACHE_ROOT@",
+    "project_root": "@ORANGES_PROJECT_ROOT@"
+  },
+  "requests": [
+    {
+      "kind": "toolchains",
+      "version": 1
+    }
+  ]
+}

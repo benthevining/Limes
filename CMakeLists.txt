@@ -14,6 +14,9 @@ set (LIMES_INSTALL_DEST lib/cmake/Limes
 
 mark_as_advanced (FORCE LIMES_INSTALL_DEST)
 
+set (CMAKE_INSTALL_DEFAULT_COMPONENT_NAME Limes)
+set (CMAKE_FOLDER Limes)
+
 if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU")
 	if("${CMAKE_CXX_COMPILER_VERSION}" VERSION_LESS 10.0.0)
 		message (
@@ -33,9 +36,9 @@ add_subdirectory (libs)
 
 #
 
-include (OrangesCreateDefaultDocsTarget)
+include (OrangesDocsBuildConfig)
 
-oranges_create_default_docs_target (TARGET LimesDoxygen PROJECT Limes)
+oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs)
 
 #
 

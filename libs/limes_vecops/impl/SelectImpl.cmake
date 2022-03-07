@@ -48,7 +48,7 @@ string (REGEX REPLACE ".*LIMES_INTEL_PLATFORM ([a-zA-Z0-9_-]*).*" "\\1" intel_pl
 
 if(intel_platform)
 
-	find_package (IPP MODULE)
+	find_package (IPP MODULE COMPONENTS CORE S VM)
 
 	if(TARGET Intel::IntelIPP)
 		target_link_libraries (limes_vecops INTERFACE Intel::IntelIPP)
@@ -68,31 +68,21 @@ endif()
 
 #
 
-# See if any of MIPP's supported architectures are supported on this platform
+find_package (MIPP MODULE)
 
-try_compile (compile_result "${CMAKE_CURRENT_BINARY_DIR}/try_compile"
-			 "${CMAKE_CURRENT_LIST_DIR}/check_mipp.cpp" OUTPUT_VARIABLE compile_output)
+if(TARGET aff3ct::MIPP)
+	target_link_libraries (limes_vecops INTERFACE aff3ct::MIPP)
 
-string (REGEX REPLACE ".*LIMES_USE_MIPP ([a-zA-Z0-9_-]*).*" "\\1" use_mipp "${compile_output}")
+	target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_MIPP=1)
 
-if(use_mipp)
+	target_sources (
+		limes_vecops
+		INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mipp.h>
+				  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/mipp.h>)
 
-	find_package (MIPP MODULE)
+	message (VERBOSE "limes_vecops -- using MIPP")
 
-	if(TARGET aff3ct::MIPP)
-		target_link_libraries (limes_vecops INTERFACE aff3ct::MIPP)
-
-		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_MIPP=1)
-
-		target_sources (
-			limes_vecops
-			INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mipp.h>
-					  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/mipp.h>)
-
-		message (VERBOSE "limes_vecops -- using MIPP")
-
-		return ()
-	endif()
+	return ()
 endif()
 
 #
