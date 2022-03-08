@@ -57,11 +57,6 @@ install (EXPORT LimesTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST
 install (FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
 			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION "${LIMES_INSTALL_DEST}")
 
-include (OrangesGeneratePkgConfig)
-
-if(PROJECT_IS_TOP_LEVEL)
-	include (OrangesUninstallTarget)
-	include (LemonsDefaultCPackSettings)
-endif()
+include (OrangesDefaultInstallSettings)
 
 export (PACKAGE Limes)
