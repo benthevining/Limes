@@ -35,6 +35,4 @@ oranges_install_targets (
 	LimesTargets
 	REL_PATH
 	Limes
-	OPTIONAL
-	REL_PATH
-	Limes)
+	OPTIONAL)
