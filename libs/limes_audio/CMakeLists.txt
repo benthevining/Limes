@@ -18,10 +18,15 @@ set_target_properties (limes_audio PROPERTIES VERSION "${PROJECT_VERSION}"
 target_link_libraries (limes_audio PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget
 										   Oranges::OrangesUnityBuild)
 
-target_sources (
+oranges_add_target_headers (
+	TARGET
 	limes_audio
-	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_audio.h>
-		   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_audio/limes_audio.h>)
+	SCOPE
+	PUBLIC
+	REL_PATH
+	Limes/limes_audio
+	FILES
+	limes_audio.h)
 
 target_include_directories (
 	limes_audio INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>

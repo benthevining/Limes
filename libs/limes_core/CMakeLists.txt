@@ -18,10 +18,15 @@ set_target_properties (limes_core PROPERTIES VERSION "${PROJECT_VERSION}"
 target_link_libraries (limes_core PUBLIC Limes::limes_vecops Oranges::OrangesDefaultTarget
 										 Oranges::OrangesUnityBuild)
 
-target_sources (
+oranges_add_target_headers (
+	TARGET
 	limes_core
-	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_core.h>
-		   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/limes_core.h>)
+	SCOPE
+	PUBLIC
+	REL_PATH
+	Limes/limes_core
+	FILES
+	limes_core.h)
 
 target_include_directories (
 	limes_core INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>

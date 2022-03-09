@@ -18,10 +18,15 @@ set_target_properties (limes_music PROPERTIES VERSION "${PROJECT_VERSION}"
 target_link_libraries (limes_music PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild
 										   Limes::limes_core)
 
-target_sources (
+oranges_add_target_headers (
+	TARGET
 	limes_music
-	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_music.h>
-		   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_music/limes_music.h>)
+	SCOPE
+	PUBLIC
+	REL_PATH
+	Limes/limes_music
+	FILES
+	limes_music.h)
 
 target_include_directories (
 	limes_music INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>

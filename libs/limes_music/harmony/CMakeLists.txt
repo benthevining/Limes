@@ -14,15 +14,18 @@ add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/scales")
 target_sources (
 	limes_music
 	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchClass.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchClass.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Pitch.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Pitch.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Chord.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Chord.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchUtils.h>
-			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_music/PitchClass.h>
-			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_music/Pitch.h>
-			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_music/Chord.h>
-			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_music/PitchUtils.h>)
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Chord.cpp>)
 
-target_include_directories (limes_music PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)
+oranges_add_target_headers (
+	TARGET
+	limes_music
+	SCOPE
+	PRIVATE
+	REL_PATH
+	Limes/limes_music
+	FILES
+	PitchClass.h
+	Pitch.h
+	Chord.h
+	PitchUtils.h)

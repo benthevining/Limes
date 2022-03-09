@@ -21,7 +21,9 @@ project (
 
 enable_testing ()
 
-set (LIMES_INSTALL_DEST share/cmake/Limes
+include (GNUInstallDirs)
+
+set (LIMES_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/Limes"
 	 CACHE STRING "Directory below INSTALL_PREFIX where Limes will be installed to")
 
 mark_as_advanced (FORCE LIMES_INSTALL_DEST)

@@ -20,8 +20,15 @@ add_subdirectory (limes_core)
 add_subdirectory (limes_audio)
 add_subdirectory (limes_music)
 
-target_sources (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes.h>
-								$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/Limes.h>)
+oranges_add_target_headers (
+	TARGET
+	Limes
+	SCOPE
+	INTERFACE
+	REL_PATH
+	Limes
+	FILES
+	limes.h)
 
 target_include_directories (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
 											$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes>)

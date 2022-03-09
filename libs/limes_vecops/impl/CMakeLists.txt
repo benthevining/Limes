@@ -14,3 +14,9 @@ target_sources (
 	limes_vecops
 	INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback_impl.h>
 			  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/fallback_impl.h>)
+
+install (
+	FILES "${CMAKE_CURRENT_LIST_DIR}/fallback_impl.h" "${CMAKE_CURRENT_LIST_DIR}/fallback.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/ipp.h" "${CMAKE_CURRENT_LIST_DIR}/vdsp.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/mipp.h"
+	DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops")

@@ -8,18 +8,18 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_core
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Algorithm.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TypeTraits.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/StaticObjects.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Functions.h>
-			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/Algorithm.h>
-			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/TypeTraits.h>
-			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/languages.h>
-			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/StaticObjects.h>
-			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core/Functions.h>)
+target_sources (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.cpp>)
 
-target_include_directories (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>)
+oranges_add_target_headers (
+	TARGET
+	limes_core
+	SCOPE
+	PRIVATE
+	REL_PATH
+	Limes/limes_core
+	FILES
+	Algorithm.h
+	TypeTraits.h
+	languages.h
+	StaticObjects.h
+	Functions.h)

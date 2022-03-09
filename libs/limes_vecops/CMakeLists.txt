@@ -18,10 +18,15 @@ set_target_properties (limes_vecops PROPERTIES VERSION "${PROJECT_VERSION}"
 target_link_libraries (limes_vecops INTERFACE Oranges::OrangesDefaultTarget
 											  Oranges::OrangesUnityBuild)
 
-target_sources (
+oranges_add_target_headers (
+	TARGET
 	limes_vecops
-	INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h>
-			  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/limes_vecops.h>)
+	SCOPE
+	INTERFACE
+	REL_PATH
+	Limes/limes_vecops
+	FILES
+	limes_vecops.h)
 
 target_include_directories (
 	limes_vecops INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>

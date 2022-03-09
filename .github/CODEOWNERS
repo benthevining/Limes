@@ -27,6 +27,7 @@ README.md benthevining
 ector.h benthevining
 hevining
 ing
+libs/limes_audio/psola/CMakeLists.txt benthevining
 libs/limes_audio/streams/oscillator.cpp benthevining
 libs/limes_audio/streams/oscillator.h benthevining
 libs/limes_audio/util/CMakeLists.txt benthevining
@@ -51,14 +52,18 @@ libs/limes_core/threading/RealtimeSafeObject/RealtimeSafeObject_impl.h benthevin
 libs/limes_music/harmony/CMakeLists.txt benthevining
 libs/limes_music/harmony/Chord.cpp benthevining
 libs/limes_music/harmony/Chord.h benthevining
+libs/limes_music/harmony/intervals/CMakeLists.txt benthevining
 libs/limes_music/harmony/intervals/CompoundInterval_impl.h benthevining
 libs/limes_music/harmony/intervals/MicrotonalInterval.h benthevining
+libs/limes_music/harmony/scales/CMakeLists.txt benthevining
 libs/limes_music/harmony/scales/Chromatic.h benthevining
 libs/limes_music/harmony/scales/Mode.cpp benthevining
 libs/limes_music/harmony/scales/Mode.h benthevining
 libs/limes_music/harmony/scales/Octatonic.h benthevining
 libs/limes_music/harmony/scales/Scale.h benthevining
+libs/limes_music/rhythm/CMakeLists.txt benthevining
 libs/limes_music/rhythm/TimeSignature.h benthevining
+libs/limes_vecops/impl/CMakeLists.txt benthevining
 libs/limes_vecops/impl/SelectImpl.cmake benthevining
 libs/limes_vecops/impl/check_mipp.cpp benthevining
 libs/limes_vecops/impl/ipp.h benthevining

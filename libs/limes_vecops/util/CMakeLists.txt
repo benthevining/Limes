@@ -8,9 +8,13 @@
 #
 # ======================================================================================
 
-target_sources (
+oranges_add_target_headers (
+	TARGET
 	limes_vecops
-	INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Constants.h>
-			  $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Platform.h>
-			  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/Constants.h>
-			  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/Platform.h>)
+	SCOPE
+	INTERFACE
+	REL_PATH
+	Limes/limes_vecops
+	FILES
+	Constants.h
+	Platform.h)
