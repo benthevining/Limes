@@ -12,11 +12,11 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-include (CMakeFindDependencyMacro)
-
 @PACKAGE_INIT@
 
-# find_dependency ()
+include (CMakeFindDependencyMacro)
+
+find_dependency (Oranges REQUIRED)
 
 include ("@LIMES_INSTALL_DEST@/LimesTargets.cmake")
 

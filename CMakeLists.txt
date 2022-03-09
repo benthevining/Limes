@@ -1,3 +1,13 @@
+# ======================================================================================
+#  __    ____  __  __  ____  ___
+# (  )  (_  _)(  \/  )( ___)/ __)
+#  )(__  _)(_  )    (  )__) \__ \
+# (____)(____)(_/\/\_)(____)(___/
+#
+#  This file is part of the Limes open source library and is licensed under the terms of the GNU Public License.
+#
+# ======================================================================================
+
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
@@ -9,7 +19,9 @@ project (
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"
 	LANGUAGES CXX)
 
-set (LIMES_INSTALL_DEST lib/cmake/Limes
+enable_testing ()
+
+set (LIMES_INSTALL_DEST share/cmake/Limes
 	 CACHE STRING "Directory below INSTALL_PREFIX where Limes will be installed to")
 
 mark_as_advanced (FORCE LIMES_INSTALL_DEST)
@@ -47,9 +59,8 @@ include (CMakePackageConfigHelpers)
 write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_VERSION}"
 								  COMPATIBILITY SameMajorVersion)
 
-configure_package_config_file (
-	"${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake" "LimesConfig.cmake"
-	INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" PATH_VARS "" INSTALL_PREFIX "")
+configure_package_config_file ("${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake"
+							   "LimesConfig.cmake" INSTALL_DESTINATION "${LIMES_INSTALL_DEST}")
 
 install (EXPORT LimesTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST}"
 		 EXPORT_LINK_INTERFACE_LIBRARIES)

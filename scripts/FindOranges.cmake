@@ -23,12 +23,7 @@ if(EXISTS "${oranges_parallel_dir}")
 	return ()
 endif()
 
-if(DEFINED ENV{CPM_SOURCE_CACHE})
-	set (FETCHCONTENT_BASE_DIR "$ENV{CPM_SOURCE_CACHE}" CACHE PATH "FetchContent dependency cache")
-else()
-	set (FETCHCONTENT_BASE_DIR "${CMAKE_SOURCE_DIR}/Cache" CACHE PATH
-																 "FetchContent dependency cache")
-endif()
+set (FETCHCONTENT_BASE_DIR "${CMAKE_SOURCE_DIR}/Cache" CACHE PATH "FetchContent dependency cache")
 
 mark_as_advanced (FORCE FETCHCONTENT_BASE_DIR)
 
