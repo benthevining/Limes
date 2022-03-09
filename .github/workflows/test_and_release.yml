@@ -35,8 +35,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: Cache
-          key: ${{ runner.os }}.tests.${{ hashFiles('**/') }}
-          restore-keys: ${{ runner.os }}.tests.
+          key: ${{ runner.os }}.test.${{ hashFiles('**/') }}
+          restore-keys: ${{ runner.os }}.test.
 
       - name: Install dependencies
         if: runner.os == 'Linux'
