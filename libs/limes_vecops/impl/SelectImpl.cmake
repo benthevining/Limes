@@ -47,42 +47,57 @@ string (REGEX REPLACE ".*LIMES_INTEL_PLATFORM ([a-zA-Z0-9_-]*).*" "\\1" intel_pl
 					  "${compile_output}")
 
 if(intel_platform)
+	option (LIMES_IGNORE_IPP "Ignore Intel IPP for vecops" OFF)
 
-	find_package (IPP MODULE COMPONENTS CORE S VM)
+	mark_as_advanced (FORCE LIMES_IGNORE_IPP)
 
-	if(TARGET Intel::IntelIPP)
-		target_link_libraries (limes_vecops INTERFACE Intel::IntelIPP)
+	if(LIMES_IGNORE_IPP)
+		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_IPP=0)
+	else()
+		find_package (IPP MODULE QUIET COMPONENTS CORE S VM)
 
-		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_IPP=1)
+		if(TARGET Intel::IntelIPP)
+			target_link_libraries (limes_vecops INTERFACE Intel::IntelIPP)
 
-		target_sources (
-			limes_vecops
-			INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ipp.h>
-					  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/ipp.h>)
+			target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_IPP=1)
 
-		message (VERBOSE "limes_vecops -- using IPP")
+			target_sources (
+				limes_vecops
+				INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ipp.h>
+						  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/ipp.h>)
 
-		return ()
+			message (VERBOSE "limes_vecops -- using IPP")
+
+			return ()
+		endif()
 	endif()
 endif()
 
 #
 
-find_package (MIPP MODULE)
+option (LIMES_IGNORE_MIPP "Ignore MIPP for vecops" OFF)
 
-if(TARGET aff3ct::MIPP)
-	target_link_libraries (limes_vecops INTERFACE aff3ct::MIPP)
+mark_as_advanced (FORCE LIMES_IGNORE_MIPP)
 
-	target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_MIPP=1)
+if(LIMES_IGNORE_MIPP)
+	target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_MIPP=0)
+else()
+	find_package (MIPP MODULE QUIET)
 
-	target_sources (
-		limes_vecops
-		INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mipp.h>
-				  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/mipp.h>)
+	if(TARGET aff3ct::MIPP)
+		target_link_libraries (limes_vecops INTERFACE aff3ct::MIPP)
 
-	message (VERBOSE "limes_vecops -- using MIPP")
+		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_MIPP=1)
 
-	return ()
+		target_sources (
+			limes_vecops
+			INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mipp.h>
+					  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/mipp.h>)
+
+		message (VERBOSE "limes_vecops -- using MIPP")
+
+		return ()
+	endif()
 endif()
 
 #
