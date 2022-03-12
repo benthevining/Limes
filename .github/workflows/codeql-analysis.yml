@@ -41,8 +41,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: Cache
-          key: ${{ runner.os }}.codeql.${{ hashFiles('**/') }}
-          restore-keys: ${{ runner.os }}.codeql.
+          key: ${{ runner.os }}.codeql_analysis.${{ hashFiles('**/') }}
+          restore-keys: ${{ runner.os }}.codeql_analysis.
 
       - name: Run build
         run: make build

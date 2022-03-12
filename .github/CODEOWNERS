@@ -10,6 +10,7 @@
 .clang-format benthevining
 .clang-tidy benthevining
 .cmake-format.json benthevining
+.gitattributes benthevining
 .github/CODEOWNERS benthevining
 .github/CODE_OF_CONDUCT.md benthevining
 .github/FUNDING.yml benthevining
@@ -19,6 +20,7 @@
 .github/dependabot.yml benthevining
 .github/workflows/test_and_release.yml benthevining
 .gitownrc benthevining
+.pre-commit-config.yaml benthevining
 .style.yapf benthevining
 CMakeLists.txt benthevining
 CMakePresets.json benthevining
@@ -28,6 +30,7 @@ ector.h benthevining
 hevining
 ing
 libs/limes_audio/psola/CMakeLists.txt benthevining
+libs/limes_audio/streams/basic_oscillators.h benthevining
 libs/limes_audio/streams/oscillator.cpp benthevining
 libs/limes_audio/streams/oscillator.h benthevining
 libs/limes_audio/util/CMakeLists.txt benthevining
@@ -36,6 +39,7 @@ libs/limes_audio/util/MonoStereoConverter.cpp benthevining
 libs/limes_core/data_structures/Dimensions.cpp benthevining
 libs/limes_core/data_structures/Dimensions.h benthevining
 libs/limes_core/data_structures/LinkedListModel.h benthevining
+libs/limes_core/data_structures/Version.cpp benthevining
 libs/limes_core/data_structures/Version.h benthevining
 libs/limes_core/data_structures/vectors/CMakeLists.txt benthevining
 libs/limes_core/data_structures/vectors/basic_vector.h benthevining
@@ -61,6 +65,7 @@ libs/limes_music/harmony/scales/Mode.cpp benthevining
 libs/limes_music/harmony/scales/Mode.h benthevining
 libs/limes_music/harmony/scales/Octatonic.h benthevining
 libs/limes_music/harmony/scales/Scale.h benthevining
+libs/limes_music/harmony/scales/WholeTone.cpp benthevining
 libs/limes_music/rhythm/CMakeLists.txt benthevining
 libs/limes_music/rhythm/TimeSignature.h benthevining
 libs/limes_vecops/impl/CMakeLists.txt benthevining
@@ -69,6 +74,7 @@ libs/limes_vecops/impl/check_mipp.cpp benthevining
 libs/limes_vecops/impl/ipp.h benthevining
 libs/limes_vecops/impl/vdsp.h benthevining
 libs/limes_vecops/limes_vecops.h benthevining
+libs/limes_vecops/util/Constants.h benthevining
 limes_audio/CMakeLists.txt benthevining
 limes_audio/limes_audio.h benthevining
 limes_audio/psola/CMakeLists.txt benthevining
@@ -147,4 +153,5 @@ scripts/LimesConfig.cmake benthevining
 scripts/alphabetize_codeowners.py benthevining
 scripts/util.make benthevining
 util/PresetBases.json benthevining
+util/deps_graph.png benthevining
 xt benthevining

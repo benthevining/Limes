@@ -40,7 +40,7 @@ if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU")
 	endif()
 endif()
 
-list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/scripts")
+list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 find_package (Oranges REQUIRED)
 

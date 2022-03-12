@@ -20,6 +20,20 @@ add_subdirectory (limes_core)
 add_subdirectory (limes_audio)
 add_subdirectory (limes_music)
 
+include (LimesConfigVersionHeader)
+
+limes_config_version_header (
+	NAMESPACE
+	limes
+	FUNCTION_NAME
+	getLimesVersion
+	TARGET
+	Limes
+	SCOPE
+	INTERFACE
+	REL_PATH
+	Limes/generated)
+
 oranges_add_target_headers (
 	TARGET
 	Limes
