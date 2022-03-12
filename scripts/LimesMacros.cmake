@@ -10,24 +10,14 @@
 
 include_guard (GLOBAL)
 
-cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
-@PACKAGE_INIT@
+if((NOT LIMES_ROOT_DIR) OR NOT IS_DIRECTORY "${LIMES_ROOT_DIR}")
+	message (FATAL_ERROR "Limes root directory ${LIMES_ROOT_DIR} not specified or does not exist!")
+endif()
 
-set_and_check (LIMES_ROOT_DIR "@PACKAGE_LIMES_ROOT_DIR@")
+list (APPEND CMAKE_MODULE_PATH "${LIMES_ROOT_DIR}/cmake")
 
-include ("${CMAKE_CURRENT_LIST_DIR}/LimesMacros.cmake")
+list (REMOVE_DUPLICATES CMAKE_MODULE_PATH)
 
-#
-
-include (CMakeFindDependencyMacro)
-
-find_dependency (Oranges REQUIRED)
-
-#
-
-include ("${CMAKE_CURRENT_LIST_DIR}/LimesTargets.cmake")
-
-#
-
-check_required_components ("@PROJECT_NAME@")
+set (LIMES_CMAKE_MODULE_PATH "${LIMES_ROOT_DIR}/cmake" CACHE INTERNAL "")

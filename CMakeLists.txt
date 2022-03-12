@@ -40,7 +40,12 @@ if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU")
 	endif()
 endif()
 
-list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
+set (CPM_Limes_SOURCE "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
+set (Limes_DIR "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
+
+set (LIMES_ROOT_DIR "${CMAKE_CURRENT_LIST_DIR}")
+
+include ("${CMAKE_CURRENT_LIST_DIR}/scripts/LimesMacros.cmake")
 
 find_package (Oranges REQUIRED)
 
@@ -61,8 +66,9 @@ include (CMakePackageConfigHelpers)
 write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_VERSION}"
 								  COMPATIBILITY SameMajorVersion)
 
-configure_package_config_file ("${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake"
-							   "LimesConfig.cmake" INSTALL_DESTINATION "${LIMES_INSTALL_DEST}")
+configure_package_config_file (
+	"${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake" "LimesConfig.cmake"
+	INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" PATH_VARS LIMES_ROOT_DIR)
 
 install (EXPORT LimesTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST}"
 		 EXPORT_LINK_INTERFACE_LIBRARIES)

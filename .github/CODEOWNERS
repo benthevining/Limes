@@ -49,6 +49,7 @@ libs/limes_core/data_structures/vectors/vector.h benthevining
 libs/limes_core/limes_core.h benthevining
 libs/limes_core/math/mathHelpers.h benthevining
 libs/limes_core/misc/CMakeLists.txt benthevining
+libs/limes_core/misc/StaticObjects.h benthevining
 libs/limes_core/misc/TypeTraits.h benthevining
 libs/limes_core/threading/RealtimeSafeObject.h benthevining
 libs/limes_core/threading/RealtimeSafeObject/NonrealtimeMutatableObject.h benthevining
@@ -65,6 +66,7 @@ libs/limes_music/harmony/scales/Chromatic.h benthevining
 libs/limes_music/harmony/scales/Mode.cpp benthevining
 libs/limes_music/harmony/scales/Mode.h benthevining
 libs/limes_music/harmony/scales/Octatonic.h benthevining
+libs/limes_music/harmony/scales/Scale.cpp benthevining
 libs/limes_music/harmony/scales/Scale.h benthevining
 libs/limes_music/harmony/scales/WholeTone.cpp benthevining
 libs/limes_music/rhythm/CMakeLists.txt benthevining
@@ -76,6 +78,7 @@ libs/limes_vecops/impl/ipp.h benthevining
 libs/limes_vecops/impl/vdsp.h benthevining
 libs/limes_vecops/limes_vecops.h benthevining
 libs/limes_vecops/util/Constants.h benthevining
+libs/limes_vecops/util/Platform.h benthevining
 limes_audio/CMakeLists.txt benthevining
 limes_audio/limes_audio.h benthevining
 limes_audio/psola/CMakeLists.txt benthevining
@@ -155,4 +158,5 @@ scripts/alphabetize_codeowners.py benthevining
 scripts/util.make benthevining
 util/PresetBases.json benthevining
 util/deps_graph.png benthevining
+util/limes_header.txt benthevining
 xt benthevining
