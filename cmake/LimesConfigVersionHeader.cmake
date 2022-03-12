@@ -34,10 +34,17 @@ function(limes_config_version_header)
 		REL_PATH
 		INSTALL_COMPONENT)
 
-	cmake_parse_arguments (LIMES_ARG "" "${oneValueArgs}" "" ${ARGN})
+	cmake_parse_arguments (LIMES_ARG "NO_INSTALL" "${oneValueArgs}" "" ${ARGN})
 
 	lemons_require_function_arguments (LIMES_ARG NAMESPACE FUNCTION_NAME)
 	lemons_check_for_unparsed_args (LIMES_ARG)
+
+	if(LIMES_ARG_NO_INSTALL AND LIMES_ARG_INSTALL_COMPONENT)
+		message (
+			WARNING
+				"Arguments NO_INSTALL and INSTALL_COMPONENT cannot both be specified in call to ${CMAKE_CURRENT_FUNCTION}!"
+			)
+	endif()
 
 	if(NOT LIMES_ARG_MAJOR)
 		set (LIMES_ARG_MAJOR "${PROJECT_VERSION_MAJOR}")
@@ -99,16 +106,18 @@ function(limes_config_version_header)
 			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}>)
 	endif()
 
-	if(NOT LIMES_ARG_INSTALL_COMPONENT)
-		if(LIMES_ARG_TARGET)
-			set (LIMES_ARG_INSTALL_COMPONENT "${LIMES_ARG_TARGET}")
-		else()
-			set (LIMES_ARG_INSTALL_COMPONENT "${PROJECT_NAME}")
+	if(NOT LIMES_ARG_NO_INSTALL)
+		if(NOT LIMES_ARG_INSTALL_COMPONENT)
+			if(LIMES_ARG_TARGET)
+				set (LIMES_ARG_INSTALL_COMPONENT "${LIMES_ARG_TARGET}")
+			else()
+				set (LIMES_ARG_INSTALL_COMPONENT "${PROJECT_NAME}")
+			endif()
 		endif()
-	endif()
 
-	install (FILES "${output_header}"
-			 DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}"
-			 COMPONENT "${LIMES_ARG_INSTALL_COMPONENT}")
+		install (FILES "${output_header}"
+				 DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}"
+				 COMPONENT "${LIMES_ARG_INSTALL_COMPONENT}")
+	endif()
 
 endfunction()

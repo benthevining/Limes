@@ -17,3 +17,5 @@
 #include <limes_core.h>
 #include <limes_music.h>
 #include <limes_audio.h>
+
+#include <LimesVersion.h>

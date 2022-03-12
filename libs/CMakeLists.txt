@@ -23,6 +23,8 @@ add_subdirectory (limes_music)
 include (LimesConfigVersionHeader)
 
 limes_config_version_header (
+	FILENAME
+	LimesVersion.h
 	NAMESPACE
 	limes
 	FUNCTION_NAME
