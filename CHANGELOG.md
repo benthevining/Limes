@@ -1,5 +1,12 @@
 # Limes changelog
 
+### [1.7.1](http://github.com/benthevining/Limes/compare/v1.7.0...v1.7.1) (2022-03-12)
+
+
+### Bug Fixes
+
+* added a LimesMacros.cmake file for installing the CMake modules ([055d2e9](http://github.com/benthevining/Limes/commit/055d2e929a112cd23988d3b96b46a2ecc968f9cb))
+
 ## [1.7.0](http://github.com/benthevining/Limes/compare/v1.6.0...v1.7.0) (2022-03-12)
 
 
