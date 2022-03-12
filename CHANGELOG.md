@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [1.7.0](http://github.com/benthevining/Limes/compare/v1.6.0...v1.7.0) (2022-03-12)
+
+
+### Features
+
+* added CMake function to generate Version header ([d8f7d47](http://github.com/benthevining/Limes/commit/d8f7d47cad5a5ba28629de924bb872141197a192))
+
 ## [1.6.0](http://github.com/benthevining/Limes/compare/v1.5.0...v1.6.0) (2022-03-06)
 
 
