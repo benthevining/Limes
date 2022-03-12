@@ -130,11 +130,6 @@ repos:
     rev: 0.14.0
     hooks:
       - id: check-github-workflows
-      - id: check-jsonschema
-      # yamllint disable rule:line-length
-        args: [--schemafile, "http://cmake.org/cmake/help/latest/_downloads/3e2d73bff478d88a7de0de736ba5e361/schema.json"]
-        files: CMakePresets.json
-      # yamllint enable
 
   # Markdown
   - repo: https://github.com/igorshubovych/markdownlint-cli
