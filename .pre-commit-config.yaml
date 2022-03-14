@@ -100,13 +100,13 @@ repos:
 
   # text and typos
   - repo: https://github.com/sirosen/texthooks
-    rev: 0.2.2
+    rev: 0.3.1
     hooks:
       - id: fix-ligatures
       - id: fix-smartquotes
       - id: forbid-bidi-controls
   - repo: https://github.com/crate-ci/typos
-    rev: typos-v0.8.6
+    rev: v1.5.0
     hooks:
       - id: typos
         args: [--write-changes]
@@ -140,7 +140,7 @@ repos:
 
   # Python
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.31.0
+    rev: v2.31.1
     hooks:
       - id: pyupgrade
   - repo: https://github.com/myint/autoflake
