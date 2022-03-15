@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "conventional-changelog-conventionalcommits": "^4.6.3",
     "semantic-release": "^19.0.2"
@@ -102,10 +103,18 @@
         }
       ],
       [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "bumpversion --allow-dirty --no-commit --no-tag --new-version \"${nextRelease.version}\" patch"
+        }
+      ],
+      [
         "@semantic-release/git",
         {
           "assets": [
-            "CHANGELOG.md"
+            "CHANGELOG.md",
+            ".bumpversion.cfg",
+            "CMakeLists.txt"
           ]
         }
       ],
