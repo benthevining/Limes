@@ -50,6 +50,7 @@ libs/limes_core/data_structures/vectors/vector.h benthevining
 libs/limes_core/limes_core.h benthevining
 libs/limes_core/math/mathHelpers.h benthevining
 libs/limes_core/misc/CMakeLists.txt benthevining
+libs/limes_core/misc/Functions.h benthevining
 libs/limes_core/misc/StaticObjects.h benthevining
 libs/limes_core/misc/TypeTraits.h benthevining
 libs/limes_core/threading/RealtimeSafeObject.h benthevining
@@ -59,6 +60,7 @@ libs/limes_core/threading/RealtimeSafeObject/RealtimeSafeObject_impl.h benthevin
 libs/limes_music/harmony/CMakeLists.txt benthevining
 libs/limes_music/harmony/Chord.cpp benthevining
 libs/limes_music/harmony/Chord.h benthevining
+libs/limes_music/harmony/PitchUtils.h benthevining
 libs/limes_music/harmony/intervals/CMakeLists.txt benthevining
 libs/limes_music/harmony/intervals/CompoundInterval_impl.h benthevining
 libs/limes_music/harmony/intervals/MicrotonalInterval.h benthevining
@@ -66,6 +68,7 @@ libs/limes_music/harmony/scales/CMakeLists.txt benthevining
 libs/limes_music/harmony/scales/Chromatic.h benthevining
 libs/limes_music/harmony/scales/Mode.cpp benthevining
 libs/limes_music/harmony/scales/Mode.h benthevining
+libs/limes_music/harmony/scales/Octatonic.cpp benthevining
 libs/limes_music/harmony/scales/Octatonic.h benthevining
 libs/limes_music/harmony/scales/Scale.cpp benthevining
 libs/limes_music/harmony/scales/Scale.h benthevining
@@ -75,6 +78,7 @@ libs/limes_music/rhythm/TimeSignature.h benthevining
 libs/limes_vecops/impl/CMakeLists.txt benthevining
 libs/limes_vecops/impl/SelectImpl.cmake benthevining
 libs/limes_vecops/impl/check_mipp.cpp benthevining
+libs/limes_vecops/impl/fallback.h benthevining
 libs/limes_vecops/impl/ipp.h benthevining
 libs/limes_vecops/impl/vdsp.h benthevining
 libs/limes_vecops/limes_vecops.h benthevining
@@ -156,6 +160,7 @@ package.json benthevining
 scripts/FindOranges.cmake benthevining
 scripts/LimesConfig.cmake benthevining
 scripts/alphabetize_codeowners.py benthevining
+scripts/cmake_file_api/query_cmake_file_api.cmake benthevining
 scripts/util.make benthevining
 util/PresetBases.json benthevining
 util/deps_graph.png benthevining
