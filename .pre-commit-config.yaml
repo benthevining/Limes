@@ -33,6 +33,11 @@ repos:
         language: python
         files: .github/CODEOWNERS
 
+  - repo: https://github.com/andreoliwa/nitpick
+    rev: v0.31.0
+    hooks:
+      - id: nitpick
+
   # C++ code formatting & linting
   - repo: https://github.com/pocc/pre-commit-hooks
     rev: v1.3.5
