@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [1.8.0](http://github.com/benthevining/Limes/compare/v1.7.1...v1.8.0) (2022-03-15)
+
+
+### Features
+
+* updating version in CMakeLists.txt with semantic release ([4f7c2af](http://github.com/benthevining/Limes/commit/4f7c2af633b460d519ac9da495fe2f8185834f32))
+
 ### [1.7.1](http://github.com/benthevining/Limes/compare/v1.7.0...v1.7.1) (2022-03-12)
 
 
