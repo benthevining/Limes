@@ -1,11 +1,6 @@
 [MESSAGES CONTROL]
 
-disable=
-	bad-indentation,
-	invalid-name,
-	line-too-long,
-	missing-docstring,
-	unspecified-encoding
+disable = bad-indentation, invalid-name, line-too-long, missing-docstring, unspecified-encoding
 
 
 [DESIGN]
