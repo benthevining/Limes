@@ -12,16 +12,22 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
+macro(_find_oranges_cleanup)
+	list (APPEND CMAKE_MODULE_PATH "${ORANGES_CMAKE_MODULE_PATH}")
+	unset (oranges_parallel_dir)
+endmacro()
+
+cmake_language (DEFER CALL _find_oranges_cleanup)
+
 set (oranges_parallel_dir "${CMAKE_CURRENT_LIST_DIR}/../../Oranges")
 
 if(EXISTS "${oranges_parallel_dir}")
-	add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/../../Oranges"
-					  "${CMAKE_CURRENT_BINARY_DIR}/Oranges")
-
-	list (APPEND CMAKE_MODULE_PATH "${ORANGES_CMAKE_MODULE_PATH}")
+	add_subdirectory ("${oranges_parallel_dir}" "${CMAKE_CURRENT_BINARY_DIR}/Oranges")
 
 	return ()
 endif()
+
+unset (oranges_parallel_dir)
 
 set (FETCHCONTENT_BASE_DIR "${CMAKE_SOURCE_DIR}/Cache" CACHE PATH "FetchContent dependency cache")
 
@@ -33,5 +39,3 @@ FetchContent_Declare (Oranges GIT_REPOSITORY https://github.com/benthevining/Ora
 					  GIT_TAG origin/main)
 
 FetchContent_MakeAvailable (Oranges)
-
-list (APPEND CMAKE_MODULE_PATH "${ORANGES_CMAKE_MODULE_PATH}")

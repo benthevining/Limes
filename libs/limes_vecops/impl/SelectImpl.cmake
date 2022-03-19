@@ -68,6 +68,8 @@ if(intel_platform)
 
 			message (VERBOSE "limes_vecops -- using IPP")
 
+			set (LIMES_VECOPS_USING_IPP TRUE)
+
 			return ()
 		endif()
 	endif()
@@ -95,6 +97,8 @@ else()
 					  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/mipp.h>)
 
 		message (VERBOSE "limes_vecops -- using MIPP")
+
+		set (LIMES_VECOPS_USING_MIPP TRUE)
 
 		return ()
 	endif()

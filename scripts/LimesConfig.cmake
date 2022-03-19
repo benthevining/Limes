@@ -22,7 +22,15 @@ include ("${CMAKE_CURRENT_LIST_DIR}/LimesMacros.cmake")
 
 include (CMakeFindDependencyMacro)
 
-find_dependency (Oranges REQUIRED)
+find_dependency (Oranges)
+
+if("@LIMES_VECOPS_USING_IPP@") # LIMES_VECOPS_USING_IPP
+	find_dependency (IPP)
+endif()
+
+if("@LIMES_VECOPS_USING_MIPP@") # LIMES_VECOPS_USING_MIPP
+	find_dependency (MIPP)
+endif()
 
 #
 
