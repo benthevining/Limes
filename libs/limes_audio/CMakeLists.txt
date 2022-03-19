@@ -8,8 +8,6 @@
 #
 # ======================================================================================
 
-include (LemonsDefaultProjectSettings)
-
 add_library (limes_audio STATIC)
 
 set_target_properties (limes_audio PROPERTIES VERSION "${PROJECT_VERSION}"

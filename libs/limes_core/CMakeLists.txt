@@ -8,8 +8,6 @@
 #
 # ======================================================================================
 
-include (LemonsDefaultProjectSettings)
-
 add_library (limes_core STATIC)
 
 set_target_properties (limes_core PROPERTIES VERSION "${PROJECT_VERSION}"

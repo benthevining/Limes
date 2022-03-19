@@ -13,8 +13,6 @@ add_library (Limes INTERFACE)
 set_target_properties (Limes PROPERTIES VERSION "${PROJECT_VERSION}" SOVERSION
 																	 "${PROJECT_VERSION_MAJOR}")
 
-include (LemonsCmakeDevTools)
-
 add_subdirectory (limes_vecops)
 add_subdirectory (limes_core)
 add_subdirectory (limes_audio)

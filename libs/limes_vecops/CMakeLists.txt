@@ -8,8 +8,6 @@
 #
 # ======================================================================================
 
-include (LemonsDefaultProjectSettings)
-
 add_library (limes_vecops INTERFACE)
 
 set_target_properties (limes_vecops PROPERTIES VERSION "${PROJECT_VERSION}"

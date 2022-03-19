@@ -8,8 +8,6 @@
 #
 # ======================================================================================
 
-include (LemonsDefaultProjectSettings)
-
 add_library (limes_music STATIC)
 
 set_target_properties (limes_music PROPERTIES VERSION "${PROJECT_VERSION}"
