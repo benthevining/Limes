@@ -56,6 +56,8 @@ configure_package_config_file (
 install (EXPORT LimesTargets NAMESPACE Limes:: DESTINATION "${Limes_INSTALL_DEST}"
 		 EXPORT_LINK_INTERFACE_LIBRARIES)
 
+export (EXPORT LimesTargets NAMESPACE Limes:: FILE LimesTargets.cmake)
+
 install (FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
 			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION "${Limes_INSTALL_DEST}")
 
