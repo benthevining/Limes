@@ -66,12 +66,6 @@ function(limes_config_version_header)
 		endif()
 	endif()
 
-	set (output_dir "${CMAKE_CURRENT_BINARY_DIR}")
-
-	set (output_header "${output_dir}/${LIMES_ARG_FILENAME}")
-
-	configure_file ("${limes_header_input}" "${output_header}" @ONLY NEWLINE_STYLE UNIX)
-
 	if(NOT LIMES_ARG_REL_PATH)
 		if(LIMES_ARG_TARGET)
 			set (LIMES_ARG_REL_PATH "${LIMES_ARG_TARGET}/generated")
@@ -79,6 +73,11 @@ function(limes_config_version_header)
 			set (LIMES_ARG_REL_PATH generated)
 		endif()
 	endif()
+
+	set (output_dir "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${LIMES_ARG_REL_PATH}")
+	set (output_header "${output_dir}/${LIMES_ARG_FILENAME}")
+
+	configure_file ("${limes_header_input}" "${output_header}" @ONLY NEWLINE_STYLE UNIX)
 
 	if(LIMES_ARG_TARGET)
 		if(NOT TARGET ${LIMES_ARG_TARGET})
@@ -109,7 +108,7 @@ function(limes_config_version_header)
 	if(NOT LIMES_ARG_NO_INSTALL)
 		if(NOT LIMES_ARG_INSTALL_COMPONENT)
 			if(LIMES_ARG_TARGET)
-				set (LIMES_ARG_INSTALL_COMPONENT "${LIMES_ARG_TARGET}")
+				set (LIMES_ARG_INSTALL_COMPONENT "${PROJECT_NAME}.${LIMES_ARG_TARGET}")
 			else()
 				set (LIMES_ARG_INSTALL_COMPONENT "${PROJECT_NAME}")
 			endif()

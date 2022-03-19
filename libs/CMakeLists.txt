@@ -40,12 +40,9 @@ oranges_add_target_headers (
 	SCOPE
 	INTERFACE
 	REL_PATH
-	Limes
+	Limes/generated
 	FILES
 	limes.h)
-
-target_include_directories (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-											$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes>)
 
 oranges_export_alias_target (Limes Limes)
 

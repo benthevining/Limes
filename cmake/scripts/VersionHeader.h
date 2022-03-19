@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include <limes_core>
+#include <limes_core.h>
 
 namespace @LIMES_ARG_NAMESPACE@
 {

@@ -42,6 +42,8 @@ include (OrangesDefaultProjectSettings)
 
 add_subdirectory (libs)
 
+include (OrangesDefaultInstallSettings)
+
 oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs)
 
 #
