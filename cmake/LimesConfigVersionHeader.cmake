@@ -103,6 +103,8 @@ function(limes_config_version_header)
 		target_include_directories (
 			"${LIMES_ARG_TARGET}" "${LIMES_ARG_SCOPE}" $<BUILD_INTERFACE:${output_dir}>
 			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}>)
+
+		target_link_libraries ("${LIMES_ARG_TARGET}" "${LIMES_ARG_SCOPE}" Limes::limes_core)
 	endif()
 
 	if(NOT LIMES_ARG_NO_INSTALL)
@@ -120,3 +122,20 @@ function(limes_config_version_header)
 	endif()
 
 endfunction()
+
+#
+
+add_library (limesVersionHeaderTest STATIC EXCLUDE_FROM_ALL
+			 "${CMAKE_CURRENT_LIST_DIR}/scripts/version_header_test.cpp")
+
+target_link_libraries (limesVersionHeaderTest PRIVATE Limes::Limes)
+
+add_test (NAME Limes.versionHeader COMMAND "${CMAKE_COMMAND}" --build "${CMAKE_BINARY_DIR}"
+										   --target limesVersionHeaderTest)
+
+set_tests_properties (
+	Limes.versionHeader
+	PROPERTIES
+		PASS_REGULAR_EXPRESSION
+		"major: ${PROJECT_VERSION_MAJOR}; minor: ${PROJECT_VERSION_MINOR}; patch: ${PROJECT_VERSION_PATCH}"
+	)

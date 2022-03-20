@@ -40,7 +40,7 @@ oranges_add_target_headers (
 	SCOPE
 	INTERFACE
 	REL_PATH
-	Limes/generated
+	Limes
 	FILES
 	limes.h)
 

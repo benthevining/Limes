@@ -55,6 +55,8 @@ override cmake_build_preset = $(CMAKE) --build --preset $(1)
 
 override cmake_default_build = $(CMAKE) --build $(BUILDS) --config $(CONFIG)
 
+override run_default_ctest_target = $(CMAKE)
+
 override cmake_install = $(SUDO) $(CMAKE) --install $(BUILDS) --config $(CONFIG) --strip --verbose
 
 override cpack_create_installer = $(CMAKE) --build $(BUILDS) --target package

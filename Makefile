@@ -32,7 +32,10 @@ config: query_cmake_file_api ## Configure cmake
 build: config ## Builds the libraries
 	@cd $(LIMES_ROOT) && $(call cmake_default_build)
 
-install: build docs ## Runs CMake install
+test: build ## Runs the tests
+	@cd $(LIMES_ROOT) && $(call run_default_ctest_target)
+
+install: test docs ## Runs CMake install
 	@cd $(LIMES_ROOT) && $(call cmake_install)
 
 pack: install ## Creates a CPack installer
