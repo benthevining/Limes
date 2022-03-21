@@ -13,7 +13,7 @@
 
 #include "PitchDetector.h"
 
-namespace lemons::dsp::psola
+namespace limes::dsp::psola
 {
 
 template <Sample SampleType>
@@ -270,4 +270,4 @@ void PitchDetector<SampleType>::getCurrentLegalPeriodRange (int& min, int& max) 
 template class PitchDetector<float>;
 template class PitchDetector<double>;
 
-}  // namespace lemons::dsp::psola
+}  // namespace limes::dsp::psola

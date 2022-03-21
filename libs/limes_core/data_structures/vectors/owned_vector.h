@@ -17,7 +17,7 @@
 #include <functional>
 #include <limes_export.h>
 
-namespace lemons
+namespace limes
 {
 
 template <typename ElementType, class Allocator = std::allocator<ElementType>>
@@ -216,4 +216,4 @@ private:
 	ObjectCreationFunction createObject;
 };
 
-}  // namespace lemons
+}  // namespace limes

@@ -15,7 +15,7 @@
 #include "../data_structures/vectors/vector.h"
 #include <limes_export.h>
 
-namespace lemons
+namespace limes
 {
 
 class LIMES_EXPORT TextTable final
@@ -74,4 +74,4 @@ private:
 	bool newRow { true };
 };
 
-}  // namespace lemons
+}  // namespace limes

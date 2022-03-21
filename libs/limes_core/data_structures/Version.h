@@ -15,31 +15,7 @@
 
 #include <limes_export.h>
 
-#ifndef LEMONS_VERSION_MAJOR
-#	define LEMONS_VERSION_MAJOR 0
-#endif
-
-#ifndef LEMONS_VERSION_MINOR
-#	define LEMONS_VERSION_MINOR 0
-#endif
-
-#ifndef LEMONS_VERSION_PATCH
-#	define LEMONS_VERSION_PATCH 1
-#endif
-
-#ifndef LEMONS_PROJECT_VERSION_MAJOR
-#	define LEMONS_PROJECT_VERSION_MAJOR 0
-#endif
-
-#ifndef LEMONS_PROJECT_VERSION_MINOR
-#	define LEMONS_PROJECT_VERSION_MINOR 0
-#endif
-
-#ifndef LEMONS_PROJECT_VERSION_PATCH
-#	define LEMONS_PROJECT_VERSION_PATCH 1
-#endif
-
-namespace lemons
+namespace limes
 {
 
 /** @ingroup lemons_core
@@ -183,19 +159,6 @@ struct LIMES_EXPORT Version final
 	//	 */
 	//	[[nodiscard]] static Version fromString (const String& string);
 
-	/** Returns a Version object representing the version of Juce this module was compiled with. */
-	//	[[nodiscard]] constexpr static Version juceVersion()
-	//	{
-	//		return Version { JUCE_MAJOR_VERSION, JUCE_MINOR_VERSION, JUCE_BUILDNUMBER };
-	//	}
-
-	/** Returns a Version object representing the version of Lemons this module was compiled with. */
-	[[nodiscard]] constexpr static Version lemonsVersion()
-	{
-		return Version { 0, 0, 1 };
-		//        return Version { LEMONS_VERSION_MAJOR, LEMONS_VERSION_MINOR, LEMONS_VERSION_PATCH };
-	}
-
 	/** Returns a Version object representing the version of the current project that this module was compiled as a part of.
 		Note that this will only be correct if you use the Lemons repo's CMake configuration scripts, or manually define the macros LEMONS_PROJECT_VERSION_MAJOR, LEMONS_PROJECT_VERSION_MINOR, and LEMONS_PROJECT_VERSION_PATCH.
 	*/
@@ -210,4 +173,4 @@ private:
 	int major { 0 }, minor { 0 }, patch { 1 };
 };
 
-}  // namespace lemons
+}  // namespace limes

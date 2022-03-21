@@ -14,7 +14,7 @@
 
 #include <limes_export.h>
 
-namespace lemons::music
+namespace limes::music
 {
 
 class LIMES_EXPORT MicrotonalInterval final
@@ -99,4 +99,4 @@ LIMES_EXPORT constexpr Pitch operator- (const Pitch& pitch, const MicrotonalInte
 	return Pitch { pitch.getMidiPitch() - interval.getSemitones() };
 }
 
-}  // namespace lemons::music
+}  // namespace limes::music

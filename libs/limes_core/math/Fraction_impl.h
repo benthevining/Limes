@@ -16,7 +16,7 @@
 
 #include <limes_vecops.h>
 
-namespace lemons::math
+namespace limes::math
 {
 
 template <Scalar ValueType>
@@ -194,4 +194,4 @@ constexpr Fraction<ValueType> Fraction<ValueType>::getReciprocal() const noexcep
 	return Fraction { denominator, numerator };
 }
 
-}  // namespace lemons::math
+}  // namespace limes::math

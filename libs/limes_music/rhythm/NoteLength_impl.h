@@ -13,7 +13,7 @@
 #pragma once
 #include <limes_core.h>
 
-namespace lemons::music
+namespace limes::music
 {
 
 constexpr NoteLength::NoteLength (int numBeats, NoteDuration kind, int dots, bool isGraceNote)
@@ -176,4 +176,4 @@ constexpr void NoteLength::tieToNotes (NoteLength* noteBefore, NoteLength* noteA
 	tie.replaceConnections (before, after);
 }
 
-}  // namespace lemons::music
+}  // namespace limes::music

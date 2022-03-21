@@ -12,13 +12,13 @@
 
 #pragma once
 
-static_assert (lemons::vecops::isUsingIPP());
-
 #include <ipps.h>
 #include <limits>
 
-namespace lemons::vecops
+namespace limes::vecops
 {
+
+static_assert (isUsingIPP());
 
 template <bool Value>
 using ConditionalType = std::conditional_t<Value, std::true_type, std::false_type>;
@@ -914,4 +914,4 @@ void applyHanning (DataType* const dest, const DataType* const data, SizeType si
 
 }  // namespace window
 
-}  // namespace lemons::vecops
+}  // namespace limes::vecops

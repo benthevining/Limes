@@ -14,7 +14,7 @@
 
 #include <limes_export.h>
 
-namespace lemons::music
+namespace limes::music
 {
 
 struct LIMES_EXPORT NoteDuration final
@@ -56,7 +56,7 @@ private:
 	int duration { 4 };
 };
 
-}  // namespace lemons::music
+}  // namespace limes::music
 
 
 #include "NoteDuration_impl.h"

@@ -12,7 +12,7 @@
 
 #include "WholeTone.h"
 
-namespace lemons::music::scales
+namespace limes::music::scales
 {
 
 bool WholeTone::operator== (const WholeTone& other) const
@@ -59,4 +59,4 @@ int WholeTone::notesPerOctave() const noexcept
 //	return WholeTone { pc };
 // }
 
-}  // namespace lemons::music::scales
+}  // namespace limes::music::scales

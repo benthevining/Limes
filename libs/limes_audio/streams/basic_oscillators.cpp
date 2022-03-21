@@ -15,7 +15,7 @@
 #include <limes_vecops.h>
 #include <cmath>
 
-namespace lemons::dsp::osc
+namespace limes::dsp::osc
 {
 
 template <Sample SampleType>
@@ -178,4 +178,4 @@ SampleType Triangle<SampleType>::getFrequency() const noexcept
 template struct Triangle<float>;
 template struct Triangle<double>;
 
-}  // namespace lemons::dsp::osc
+}  // namespace limes::dsp::osc

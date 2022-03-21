@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-namespace lemons::music
+namespace limes::music
 {
 
 // String PitchClass::getAsString (bool asSharps, bool useUnicodeAccidentals, bool useNaturalSymbol) const noexcept
@@ -102,4 +102,4 @@ namespace lemons::music
 //{
 // }
 
-}  // namespace lemons::music
+}  // namespace limes::music

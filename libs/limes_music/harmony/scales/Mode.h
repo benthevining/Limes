@@ -16,7 +16,7 @@
 #include "KeySignature.h"
 #include <limes_export.h>
 
-namespace lemons::music::scales
+namespace limes::music::scales
 {
 
 /** Represents a modal scale.
@@ -108,4 +108,4 @@ private:
 	PitchClass rootPitchClass { 0 };
 };
 
-}  // namespace lemons::music::scales
+}  // namespace limes::music::scales

@@ -14,7 +14,7 @@
 
 #include <limes_export.h>
 
-namespace lemons::threads::detail
+namespace limes::threads::detail
 {
 
 template <typename ObjectType>
@@ -31,4 +31,4 @@ struct LIMES_EXPORT ObjectBase
 	virtual void							release_read() = 0;
 };
 
-}  // namespace lemons::threads::detail
+}  // namespace limes::threads::detail

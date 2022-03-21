@@ -17,7 +17,7 @@
 #include "RealtimeSafeObject/AtomicObjectHolder.h"
 #include <limes_export.h>
 
-namespace lemons::threads
+namespace limes::threads
 {
 
 namespace detail
@@ -56,4 +56,4 @@ using ThreadedObject = std::conditional_t<(NumThreads > 2),
 										  std::conditional_t<RealtimeSafe, RealtimeSafeObject<ObjectType, RealtimeMutatable>,
 															 ThreadSafeObject<ObjectType, 2>>>;
 
-}  // namespace lemons::threads
+}  // namespace limes::threads

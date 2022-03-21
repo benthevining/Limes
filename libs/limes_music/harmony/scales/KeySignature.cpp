@@ -13,7 +13,7 @@
 #include "KeySignature.h"
 #include <limes_core.h>
 
-namespace lemons::music::scales
+namespace limes::music::scales
 {
 
 // KeySignature KeySignature::fromStringDescription (const String& description)
@@ -198,4 +198,4 @@ bool KeySignature::isDominantKeyOf (const KeySignature& other) const noexcept
 	return getPitchClassOfRoot() == dominant;
 }
 
-}  // namespace lemons::music::scales
+}  // namespace limes::music::scales

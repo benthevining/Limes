@@ -12,7 +12,7 @@
 
 #include "Scale.h"
 
-namespace lemons::music::scales
+namespace limes::music::scales
 {
 
 bool Scale::operator== (const Scale& other) const
@@ -140,4 +140,4 @@ PitchClass Scale::getPitchClassOfScaleDegree (int scaleDegree) const noexcept
 //	return getPitchClassOfScaleDegree (scaleDegree).getAsString();
 // }
 
-}  // namespace lemons::music::scales
+}  // namespace limes::music::scales

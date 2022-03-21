@@ -13,7 +13,7 @@
 #pragma once
 #include <limes_export.h>
 
-namespace lemons
+namespace limes
 {
 
 template <typename ObjectType>
@@ -101,7 +101,7 @@ private:
 	std::reference_wrapper<ObjectType> thisNode;
 };
 
-}  // namespace lemons
+}  // namespace limes
 
 
 #include "LinkedListModel_impl.h"

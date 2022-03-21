@@ -15,7 +15,7 @@
 #include <limes_core.h>
 #include <limes_export.h>
 
-namespace lemons::dsp
+namespace limes::dsp
 {
 
 template <typename T>
@@ -37,4 +37,4 @@ LIMES_EXPORT [[nodiscard]] static inline SampleType midiVelocityToGain (SampleTy
 						SampleType (0), SampleType (1));
 }
 
-}  // namespace lemons::dsp
+}  // namespace limes::dsp

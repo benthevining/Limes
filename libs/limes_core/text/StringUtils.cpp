@@ -12,7 +12,7 @@
 
 #include <cstring>
 
-namespace lemons::cstring
+namespace limes::cstring
 {
 
 bool areSame (const char* string1, const char* string2)
@@ -25,4 +25,4 @@ int length (const char* string)
 	return static_cast<int> (std::strlen (string));
 }
 
-}  // namespace lemons::cstring
+}  // namespace limes::cstring

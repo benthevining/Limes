@@ -35,6 +35,7 @@ hevining
 ing
 libs/CMakeLists.txt benthevining
 libs/limes_audio/psola/CMakeLists.txt benthevining
+libs/limes_audio/psola/PeakFinder.h benthevining
 libs/limes_audio/streams/basic_oscillators.h benthevining
 libs/limes_audio/streams/oscillator.cpp benthevining
 libs/limes_audio/streams/oscillator.h benthevining
@@ -74,8 +75,10 @@ libs/limes_music/harmony/Pitch.h benthevining
 libs/limes_music/harmony/PitchUtils.h benthevining
 libs/limes_music/harmony/intervals/CMakeLists.txt benthevining
 libs/limes_music/harmony/intervals/CompoundInterval_impl.h benthevining
+libs/limes_music/harmony/intervals/Interval.cpp benthevining
 libs/limes_music/harmony/intervals/MicrotonalInterval.h benthevining
 libs/limes_music/harmony/scales/CMakeLists.txt benthevining
+libs/limes_music/harmony/scales/Chromatic.cpp benthevining
 libs/limes_music/harmony/scales/Chromatic.h benthevining
 libs/limes_music/harmony/scales/Mode.cpp benthevining
 libs/limes_music/harmony/scales/Mode.h benthevining
@@ -85,6 +88,7 @@ libs/limes_music/harmony/scales/Scale.cpp benthevining
 libs/limes_music/harmony/scales/Scale.h benthevining
 libs/limes_music/harmony/scales/WholeTone.cpp benthevining
 libs/limes_music/rhythm/CMakeLists.txt benthevining
+libs/limes_music/rhythm/NoteLength.cpp benthevining
 libs/limes_music/rhythm/NoteLength_impl.h benthevining
 libs/limes_music/rhythm/TimeSignature.h benthevining
 libs/limes_vecops/impl/CMakeLists.txt benthevining

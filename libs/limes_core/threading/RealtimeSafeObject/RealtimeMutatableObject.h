@@ -17,7 +17,7 @@
 #include <mutex>
 #include <limes_export.h>
 
-namespace lemons::threads::detail
+namespace limes::threads::detail
 {
 
 template <typename ObjectType>
@@ -123,4 +123,4 @@ private:
 	std::mutex nonRealtimeLock;
 };
 
-}  // namespace lemons::threads::detail
+}  // namespace limes::threads::detail

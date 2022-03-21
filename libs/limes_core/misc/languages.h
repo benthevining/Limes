@@ -15,7 +15,7 @@
 #include "../data_structures/vectors/vector.h"
 #include <limes_export.h>
 
-namespace lemons::locale
+namespace limes::locale
 {
 
 /** @defgroup lemons_locale Localization
@@ -78,4 +78,4 @@ LIMES_EXPORT [[nodiscard]] StringVector getLanguageNamesForCountry (const std::s
 LIMES_EXPORT [[nodiscard]] StringVector getLanguageCodesForCountry (const std::string& countryCode, bool asISO639_2 = true);
 
 
-}  // namespace lemons::locale
+}  // namespace limes::locale

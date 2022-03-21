@@ -15,7 +15,7 @@
 #include "mathHelpers.h"
 #include <limes_export.h>
 
-namespace lemons::math
+namespace limes::math
 {
 
 template <Scalar ValueType = int>
@@ -74,7 +74,7 @@ struct LIMES_EXPORT Fraction final
 	ValueType numerator, denominator;
 };
 
-}  // namespace lemons::math
+}  // namespace limes::math
 
 
 #include "Fraction_impl.h"

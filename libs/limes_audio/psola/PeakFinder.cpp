@@ -12,7 +12,7 @@
 
 #include "PeakFinder.h"
 
-namespace lemons::dsp::psola
+namespace limes::dsp::psola
 {
 
 template <Sample SampleType>
@@ -349,4 +349,4 @@ void PeakFinder<SampleType>::sortSampleIndicesForPeakSearching (int startSample,
 template class PeakFinder<float>;
 template class PeakFinder<double>;
 
-}  // namespace lemons::dsp::psola
+}  // namespace limes::dsp::psola

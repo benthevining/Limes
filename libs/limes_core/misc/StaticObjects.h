@@ -15,7 +15,7 @@
 #include <memory>
 #include <limes_export.h>
 
-namespace lemons
+namespace limes
 {
 
 template <auto Data>
@@ -35,4 +35,4 @@ LIMES_EXPORT ObjectType& getStaticObject (Args&& args)
 	return *ptr;  // cppcheck-suppress nullPointerRedundantCheck
 }
 
-}  // namespace lemons
+}  // namespace limes

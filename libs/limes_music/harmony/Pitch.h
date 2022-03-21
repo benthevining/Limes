@@ -16,7 +16,7 @@
 #include "PitchUtils.h"
 #include <limes_export.h>
 
-namespace lemons::music
+namespace limes::music
 {
 
 /** This class is a simple wrapper around a MIDI pitch, with some convenient functions for representing it certain ways.
@@ -132,4 +132,4 @@ private:
 	double midiPitch { 60. };
 };
 
-}  // namespace lemons::music
+}  // namespace limes::music

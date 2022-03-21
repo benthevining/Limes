@@ -15,7 +15,7 @@
 #include "Interval.h"
 #include <limes_export.h>
 
-namespace lemons::music
+namespace limes::music
 {
 
 /** A class for representing intervals larger than an octave.
@@ -108,7 +108,7 @@ private:
 };
 
 
-}  // namespace lemons::music
+}  // namespace limes::music
 
 
 #include "CompoundInterval_impl.h"

@@ -16,7 +16,7 @@
 #include "../util/Misc.h"
 #include <limes_export.h>
 
-namespace lemons::dsp
+namespace limes::dsp
 {
 
 /** Base class for any object that can output a stream of audio samples, with no audio or MIDI input.
@@ -47,4 +47,4 @@ private:
 	const std::function<SampleType()> sampleFunc;
 };
 
-}  // namespace lemons::dsp
+}  // namespace limes::dsp

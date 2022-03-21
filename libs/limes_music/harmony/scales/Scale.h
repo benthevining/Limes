@@ -15,7 +15,7 @@
 #include "../intervals/Interval.h"
 #include <limes_export.h>
 
-namespace lemons::music::scales
+namespace limes::music::scales
 {
 
 /** A base class for any kind of scale.
@@ -96,4 +96,4 @@ struct LIMES_EXPORT Scale
 	//	[[nodiscard]] virtual String getScaleDegreeAsString (int scaleDegree) const noexcept;
 };
 
-}  // namespace lemons::music::scales
+}  // namespace limes::music::scales

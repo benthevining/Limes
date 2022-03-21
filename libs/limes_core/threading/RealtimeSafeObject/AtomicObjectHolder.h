@@ -14,7 +14,7 @@
 
 #include <limes_export.h>
 
-namespace lemons::threads::detail
+namespace limes::threads::detail
 {
 
 template <typename ObjectType, bool RealtimeMutatable>
@@ -59,4 +59,4 @@ private:
 	ThreadSafeObject<ObjectType, 2> storage;
 };
 
-}  // namespace lemons::threads::detail
+}  // namespace limes::threads::detail

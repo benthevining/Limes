@@ -14,11 +14,11 @@
 
 #include <limes_export.h>
 
-namespace lemons::cstring
+namespace limes::cstring
 {
 
 LIMES_EXPORT [[nodiscard]] bool areSame (const char* string1, const char* string2);
 
 LIMES_EXPORT [[nodiscard]] int length (const char* string);
 
-}  // namespace lemons::cstring
+}  // namespace limes::cstring

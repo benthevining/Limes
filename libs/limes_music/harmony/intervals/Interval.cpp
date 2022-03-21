@@ -13,7 +13,7 @@
 #include "Interval.h"
 #include <limes_core.h>
 
-namespace lemons::music
+namespace limes::music
 {
 
 Interval Interval::fromNumSemitones (int semitones) noexcept
@@ -766,4 +766,4 @@ Pitch operator- (const Pitch& pitch, const Interval& interval) noexcept
 	return Pitch { pitch.getRoundedMidiPitch() - interval.getNumSemitones() };
 }
 
-}  // namespace lemons::music
+}  // namespace limes::music

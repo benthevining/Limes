@@ -17,7 +17,7 @@
 #include "../util/Misc.h"
 #include <limes_export.h>
 
-namespace lemons::dsp::osc
+namespace limes::dsp::osc
 {
 
 template <Sample T>
@@ -147,4 +147,4 @@ private:
 	SampleType		   freq { 0 };
 };
 
-}  // namespace lemons::dsp::osc
+}  // namespace limes::dsp::osc

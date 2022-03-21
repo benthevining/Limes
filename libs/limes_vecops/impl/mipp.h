@@ -12,13 +12,13 @@
 
 #pragma once
 
-static_assert (lemons::vecops::isUsingMIPP());
-
 #include <mipp.h>
 #include <limits>
 
-namespace lemons::vecops
+namespace limes::vecops
 {
+
+static_assert (isUsingMIPP());
 
 namespace detail
 {
@@ -1124,4 +1124,4 @@ void applyHanning (DataType* const dest, const DataType* const data, SizeType si
 
 }  // namespace window
 
-}  // namespace lemons::vecops
+}  // namespace limes::vecops

@@ -16,7 +16,7 @@
 #include <limes_export.h>
 #include "../util/Misc.h"
 
-namespace lemons::dsp::psola
+namespace limes::dsp::psola
 {
 
 /** @defgroup lemons_psola lemons_psola
@@ -82,4 +82,4 @@ private:
 	static constexpr auto numPeaksToTest = 15, defaultFinalHandfulSize = 5;
 };
 
-}  // namespace lemons::dsp::psola
+}  // namespace limes::dsp::psola

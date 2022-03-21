@@ -12,7 +12,7 @@
 
 #include "SampleStream.h"
 
-namespace lemons::dsp
+namespace limes::dsp
 {
 
 template <Sample SampleType>
@@ -44,4 +44,4 @@ void SampleStream<SampleType>::skipSamples (int numToSkip) const
 template struct SampleStream<float>;
 template struct SampleStream<double>;
 
-}  // namespace lemons::dsp
+}  // namespace limes::dsp

@@ -17,7 +17,7 @@
 #include "Misc.h"
 #include <limes_export.h>
 
-namespace lemons::dsp
+namespace limes::dsp
 {
 
 /** @defgroup lemons_stereo_conversion Mono/stereo conversion
@@ -79,4 +79,4 @@ private:
 };
 
 
-}  // namespace lemons::dsp
+}  // namespace limes::dsp

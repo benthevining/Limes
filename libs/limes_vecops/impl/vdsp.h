@@ -12,14 +12,14 @@
 
 #pragma once
 
-static_assert (lemons::vecops::isUsingVDSP());
-
 #include <Accelerate/Accelerate.h>
 #include <limits>
 #include <cmath>
 
-namespace lemons::vecops
+namespace limes::vecops
 {
+
+static_assert (isUsingVDSP());
 
 template <bool Value>
 using ConditionalType = std::conditional_t<Value, std::true_type, std::false_type>;
@@ -742,4 +742,4 @@ void applyHanning (DataType* const dest, const DataType* const data, SizeType si
 
 }  // namespace window
 
-}  // namespace lemons::vecops
+}  // namespace limes::vecops

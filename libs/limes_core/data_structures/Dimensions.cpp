@@ -13,7 +13,7 @@
 
 #include "Dimensions.h"
 
-namespace lemons
+namespace limes
 {
 
 Dimensions& Dimensions::operator= (const Dimensions& other)
@@ -82,4 +82,4 @@ bool Dimensions::hasSameAspectRatioAs (const Dimensions& other) const noexcept
 //	return Dimensions { arr[0].getIntValue(), arr[1].getIntValue() };
 // }
 
-}  // namespace lemons
+}  // namespace limes

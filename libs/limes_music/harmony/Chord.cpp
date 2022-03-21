@@ -12,7 +12,7 @@
 
 #include "Chord.h"
 
-namespace lemons::music
+namespace limes::music
 {
 
 Chord::Chord (const std::initializer_list<int>& midiNotes)
@@ -110,4 +110,4 @@ Chord Chord::applyInterval (const Interval& interval, bool above)
 	return newChord;
 }
 
-}  // namespace lemons::music
+}  // namespace limes::music

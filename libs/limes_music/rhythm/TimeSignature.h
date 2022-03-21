@@ -14,7 +14,7 @@
 
 #include <limes_export.h>
 
-namespace lemons::music
+namespace limes::music
 {
 
 struct LIMES_EXPORT TimeSignature final
@@ -36,4 +36,4 @@ public:
 private:
 };
 
-}  // namespace lemons::music
+}  // namespace limes::music

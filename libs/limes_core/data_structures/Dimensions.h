@@ -16,7 +16,7 @@
 #include <atomic>
 #include <limes_export.h>
 
-namespace lemons
+namespace limes
 {
 
 
@@ -76,4 +76,4 @@ private:
 	std::atomic<int> width { 0 }, height { 0 };
 };
 
-}  // namespace lemons
+}  // namespace limes

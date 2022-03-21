@@ -13,7 +13,7 @@
 #include "TextTable.h"
 #include "../misc/Algorithm.h"
 
-namespace lemons
+namespace limes
 {
 
 std::string TextTable::Row::toString (const std::string&	columnSeparator,
@@ -131,4 +131,4 @@ std::string TextTable::toString (const std::string& rowPrefix,
 	return result;
 }
 
-}  // namespace lemons
+}  // namespace limes

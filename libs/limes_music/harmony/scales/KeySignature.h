@@ -15,7 +15,7 @@
 #include "Scale.h"
 #include <limes_export.h>
 
-namespace lemons::music::scales
+namespace limes::music::scales
 {
 
 /** This class represents any traditional Western key signature (eg, major, natural minor, harmonic minor).
@@ -175,7 +175,7 @@ private:
 	Type type { Type::Major };
 };
 
-}  // namespace lemons::music::scales
+}  // namespace limes::music::scales
 
 
 #include "KeySignature_impl.h"

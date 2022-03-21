@@ -12,10 +12,10 @@
 
 #pragma once
 
-static_assert (lemons::vecops::isUsingFallback());
-
-namespace lemons::vecops
+namespace limes::vecops
 {
+
+static_assert (isUsingFallback());
 
 template <Scalar DataType, Integral SizeType>
 void fill (DataType* const data, SizeType size, DataType constantToFill)
@@ -438,4 +438,4 @@ void applyHanning (DataType* const dest, const DataType* const data, SizeType si
 
 }  // namespace window
 
-}  // namespace lemons::vecops
+}  // namespace limes::vecops

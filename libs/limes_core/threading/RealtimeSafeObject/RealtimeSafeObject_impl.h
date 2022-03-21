@@ -12,7 +12,7 @@
 
 #pragma once
 
-namespace lemons::threads
+namespace limes::threads
 {
 
 template <typename ObjectType, bool RealtimeMutatable>
@@ -144,4 +144,4 @@ ThreadedObjectReader<ObjectType> RealtimeSafeObject<ObjectType, RealtimeMutatabl
 	return nonRealtime_read();
 }
 
-}  // namespace lemons::threads
+}  // namespace limes::threads

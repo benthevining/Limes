@@ -15,7 +15,7 @@
 #include <array>
 #include <limes_export.h>
 
-namespace lemons::threads
+namespace limes::threads
 {
 
 
@@ -131,4 +131,4 @@ private:
 	std::array<ObjectType, totalNumThreads> copies;
 };
 
-}  // namespace lemons::threads
+}  // namespace limes::threads

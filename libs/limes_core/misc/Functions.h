@@ -15,7 +15,7 @@
 #include <type_traits>
 #include <limes_export.h>
 
-namespace lemons
+namespace limes
 {
 
 template <class Function>
@@ -41,4 +41,4 @@ LIMES_EXPORT bool call_once (Function&& func, std::invoke_result_t<Function>* re
 	return true;
 }
 
-}  // namespace lemons
+}  // namespace limes

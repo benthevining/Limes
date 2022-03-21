@@ -16,7 +16,7 @@
 #include <limes_vecops.h>
 #include <limes_export.h>
 
-namespace lemons::math
+namespace limes::math
 {
 
 template <typename T>
@@ -183,4 +183,4 @@ LIMES_EXPORT [[nodiscard]] inline T freqToMidi (T freqHz) noexcept
 
 ///@}
 
-}  // namespace lemons::math
+}  // namespace limes::math

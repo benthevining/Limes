@@ -13,7 +13,7 @@
 #pragma once
 #include <limes_core.h>
 
-namespace lemons::music
+namespace limes::music
 {
 
 constexpr bool Interval::isValidQualityForKind (Quality quality, int kind) noexcept
@@ -238,4 +238,4 @@ constexpr Interval& Interval::operator--() noexcept
 	}
 }
 
-}  // namespace lemons::music
+}  // namespace limes::music

@@ -12,7 +12,7 @@
 
 #include "CompoundInterval.h"
 
-namespace lemons::music
+namespace limes::music
 {
 
 CompoundInterval::CompoundInterval (int octaves, const Interval& simpleInterval) noexcept
@@ -96,4 +96,4 @@ int CompoundInterval::getNumSemitones() const noexcept
 	return interval.getNumSemitones() + (numOctaves * semitonesInOctave);
 }
 
-}  // namespace lemons::music
+}  // namespace limes::music

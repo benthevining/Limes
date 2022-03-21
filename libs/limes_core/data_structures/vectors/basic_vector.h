@@ -18,7 +18,7 @@
 #include <initializer_list>
 #include <limes_export.h>
 
-namespace lemons
+namespace limes
 {
 
 template <typename ElementType, class Allocator = std::allocator<ElementType>>
@@ -344,4 +344,4 @@ protected:
 	using size_type = typename vector_type::size_type;
 };
 
-}  // namespace lemons
+}  // namespace limes

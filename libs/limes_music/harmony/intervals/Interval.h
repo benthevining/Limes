@@ -17,7 +17,7 @@
 #include <vector>
 #include <limes_export.h>
 
-namespace lemons::music
+namespace limes::music
 {
 
 /** A class that represents a musical interval between two pitches.
@@ -208,7 +208,7 @@ LIMES_EXPORT Pitch operator+ (const Pitch& pitch, const Interval& interval) noex
 /** Subtracts an interval from the given pitch and returns a new pitch object at the resulting pitch. */
 LIMES_EXPORT Pitch operator- (const Pitch& pitch, const Interval& interval) noexcept;
 
-}  // namespace lemons::music
+}  // namespace limes::music
 
 
 #include "Interval_impl.h"

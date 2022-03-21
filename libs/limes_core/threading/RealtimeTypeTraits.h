@@ -18,7 +18,7 @@
 #include <unordered_set>
 #include <limes_export.h>
 
-namespace lemons::threads
+namespace limes::threads
 {
 
 namespace detail
@@ -120,4 +120,4 @@ concept RealtimeMoveSafe = is_realtime_move_safe<T>::value;
 template <typename T>
 concept RealtimeSafe = RealtimeCopySafe<T> && RealtimeMoveSafe<T>;
 
-}  // namespace lemons::threads
+}  // namespace limes::threads

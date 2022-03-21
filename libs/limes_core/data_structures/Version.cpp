@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-namespace lemons
+namespace limes
 {
 
 // String Version::toString() const noexcept
@@ -27,4 +27,4 @@ namespace lemons
 //	return Version { arr[0].getIntValue(), arr[1].getIntValue(), arr[2].getIntValue() };
 // }
 
-}  // namespace lemons
+}  // namespace limes

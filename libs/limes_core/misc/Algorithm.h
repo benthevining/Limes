@@ -15,7 +15,7 @@
 #include <algorithm>
 #include <limes_export.h>
 
-namespace lemons::alg
+namespace limes::alg
 {
 
 template <typename T>
@@ -200,4 +200,4 @@ LIMES_EXPORT constexpr OutputContainerType createFromTransform (const InputConta
 	return output;
 }
 
-}  // namespace lemons::alg
+}  // namespace limes::alg

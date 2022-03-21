@@ -13,7 +13,7 @@
 #include "Pitch.h"
 #include <limes_core.h>
 
-namespace lemons::music
+namespace limes::music
 {
 
 // Pitch::Pitch (const String& pitchString) noexcept
@@ -71,4 +71,4 @@ bool Pitch::isMicrotone() const noexcept
 	return std::floor (midiPitch) != midiPitch;
 }
 
-}  // namespace lemons::music
+}  // namespace limes::music

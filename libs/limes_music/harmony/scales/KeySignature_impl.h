@@ -13,7 +13,7 @@
 #pragma once
 #include <limes_core.h>
 
-namespace lemons::music::scales
+namespace limes::music::scales
 {
 
 constexpr KeySignature::KeySignature (Type typeToUse, bool isSharps, int rootNote) noexcept
@@ -187,4 +187,4 @@ constexpr KeySignature::Type KeySignature::getKeyType() const noexcept
 	return type;
 }
 
-}  // namespace lemons::music::scales
+}  // namespace limes::music::scales

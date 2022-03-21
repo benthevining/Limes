@@ -13,7 +13,7 @@
 #include "Mode.h"
 #include <limes_core.h>
 
-namespace lemons::music::scales
+namespace limes::music::scales
 {
 
 vector<int> Mode::getIntervalsAsSemitones() const
@@ -149,4 +149,4 @@ KeySignature Mode::getKeySignature() const noexcept
 	return KeySignature { getNumSharps(), true, KeySignature::Type::Major };
 }
 
-}  // namespace lemons::music::scales
+}  // namespace limes::music::scales

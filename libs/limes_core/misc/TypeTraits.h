@@ -43,7 +43,7 @@
 #define LEMONS_MUST_INHERIT_FROM(classToTest, requiredBaseClass) \
 	std::enable_if_t<std::is_base_of<requiredBaseClass, classToTest>::value>* = nullptr
 
-namespace lemons
+namespace limes
 {
 
 /** @ingroup lemons_core
@@ -120,7 +120,7 @@ LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const ObjectType* c
 }
 
 
-}  // namespace lemons
+}  // namespace limes
 
 /** @ingroup lemons_core
 	Use this macro inside a template declaration to ensure that classToTest is a specialization of the required template.

@@ -14,7 +14,7 @@
 
 #include <limes_core.h>
 
-namespace lemons::music
+namespace limes::music
 {
 
 constexpr NoteDuration::NoteDuration (int kind)
@@ -104,4 +104,4 @@ constexpr double NoteDuration::getRatioToOtherDuration (const NoteDuration& othe
 	return static_cast<double> (other.duration) / static_cast<double> (duration);
 }
 
-}  // namespace lemons::music
+}  // namespace limes::music

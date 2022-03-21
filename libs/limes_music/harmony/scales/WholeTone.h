@@ -15,7 +15,7 @@
 #include "Scale.h"
 #include <limes_export.h>
 
-namespace lemons::music::scales
+namespace limes::music::scales
 {
 
 /** A class that represents a whole tone scale.
@@ -80,4 +80,4 @@ private:
 	PitchClass startingPitchClass { 0 };
 };
 
-}  // namespace lemons::music::scales
+}  // namespace limes::music::scales

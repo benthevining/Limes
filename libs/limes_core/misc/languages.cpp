@@ -17,7 +17,7 @@
 #include "Algorithm.h"
 #include <limes_vecops.h>
 
-namespace lemons::locale
+namespace limes::locale
 {
 
 struct LanguageData final
@@ -587,4 +587,4 @@ StringVector getLanguageCodesForCountry (const std::string& countryCode, bool as
 	return getLanguages().getLanguageCodesForCountryCode (countryCode, asISO639_2);
 }
 
-}  // namespace lemons::locale
+}  // namespace limes::locale

@@ -15,7 +15,7 @@
 #include "scales/Scale.h"
 #include <limes_export.h>
 
-namespace lemons::music
+namespace limes::music
 {
 
 class LIMES_EXPORT Chord final
@@ -69,4 +69,4 @@ private:
 	vector<Pitch> pitches;
 };
 
-}  // namespace lemons::music
+}  // namespace limes::music

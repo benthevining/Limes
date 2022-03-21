@@ -18,7 +18,7 @@
 #include <numeric>
 #include <limits>
 
-namespace lemons::vecops::fb
+namespace limes::vecops::fb
 {
 
 template <Scalar DataType, Integral SizeType>
@@ -595,4 +595,4 @@ inline void applyHanning (DataType* const dest, const DataType* const data, Size
 
 }  // namespace window
 
-}  // namespace lemons::vecops::fb
+}  // namespace limes::vecops::fb

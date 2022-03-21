@@ -12,7 +12,7 @@
 
 #include "NoteLength.h"
 
-namespace lemons::music
+namespace limes::music
 {
 
 double NoteLength::getNumNotesOfDurationForWholeTie (const NoteDuration& destDuration) const noexcept
@@ -37,4 +37,4 @@ math::Fraction<int> NoteLength::getRelativeValueForWholeTie() const noexcept
 	return frac.reduce();
 }
 
-}  // namespace lemons::music
+}  // namespace limes::music

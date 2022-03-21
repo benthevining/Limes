@@ -17,7 +17,7 @@
 #include "Misc.h"
 #include <limes_export.h>
 
-namespace lemons::dsp::psola
+namespace limes::dsp::psola
 {
 
 /** @ingroup lemons_psola_analysis
@@ -125,4 +125,4 @@ private:
 	vector<SampleType> yinDataStorage;
 };
 
-}  // namespace lemons::dsp::psola
+}  // namespace limes::dsp::psola

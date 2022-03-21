@@ -17,7 +17,7 @@
 #include "Misc.h"
 #include <limes_export.h>
 
-namespace lemons::dsp::windowing
+namespace limes::dsp::windowing
 {
 
 template <Sample ValueType>
@@ -113,4 +113,4 @@ LIMES_EXPORT void applyWindowAndCopy (const ValueType* const inputSamples, Value
 		outputSamples[i] = inputSamples[i] * func (numSamples, i);
 }
 
-}  // namespace lemons::dsp::windowing
+}  // namespace limes::dsp::windowing

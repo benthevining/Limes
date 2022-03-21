@@ -17,7 +17,7 @@
 #include <limes_vecops.h>
 #include <limes_export.h>
 
-namespace lemons
+namespace limes
 {
 
 template <typename ElementType, class Allocator = std::allocator<ElementType>>
@@ -214,4 +214,4 @@ private:
 	}
 };
 
-}  // namespace lemons
+}  // namespace limes

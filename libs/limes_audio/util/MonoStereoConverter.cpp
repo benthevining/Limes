@@ -14,7 +14,7 @@
 #include "MonoStereoConverter.h"
 #include <limes_vecops.h>
 
-namespace lemons::dsp
+namespace limes::dsp
 {
 
 template <Sample SampleType>
@@ -80,4 +80,4 @@ void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleType* con
 template class MonoStereoConverter<float>;
 template class MonoStereoConverter<double>;
 
-}  // namespace lemons::dsp
+}  // namespace limes::dsp

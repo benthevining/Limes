@@ -14,7 +14,7 @@
 
 #include <limes_vecops.h>
 
-namespace lemons
+namespace limes
 {
 
 
@@ -313,4 +313,4 @@ constexpr typename LinkedListModel<ObjectType>::Iterator::reference LinkedListMo
 	return currentNode->getObject();
 }
 
-}  // namespace lemons
+}  // namespace limes

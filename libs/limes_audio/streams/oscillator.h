@@ -16,7 +16,7 @@
 #include "../util/Misc.h"
 #include <limes_export.h>
 
-namespace lemons::dsp
+namespace limes::dsp
 {
 
 /** Base class for any kind of oscillator.
@@ -61,4 +61,4 @@ struct LIMES_EXPORT Oscillator : public SampleStream<SampleType>
 	};
 };
 
-}  // namespace lemons::dsp
+}  // namespace limes::dsp

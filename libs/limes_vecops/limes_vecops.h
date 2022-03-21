@@ -64,7 +64,7 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 #endif
 
 
-namespace lemons::vecops
+namespace limes::vecops
 {
 
 template <typename T>
@@ -371,7 +371,7 @@ static_assert (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingFallback
 		return "Fallback";
 }
 
-}  // namespace lemons::vecops
+}  // namespace limes::vecops
 
 #include "impl/fallback_impl.h"
 

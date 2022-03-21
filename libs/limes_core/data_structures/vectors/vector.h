@@ -16,7 +16,7 @@
 #include "scalar_vector.h"
 #include <string>
 
-namespace lemons
+namespace limes
 {
 
 template <typename ObjectType, class Allocator = std::allocator<ObjectType>>
@@ -29,4 +29,4 @@ using StringVector = vector<std::string>;
 template <typename ObjectType>
 using Matrix = vector<vector<ObjectType>>;
 
-}  // namespace lemons
+}  // namespace limes

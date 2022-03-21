@@ -12,7 +12,7 @@
 
 #include "Chromatic.h"
 
-namespace lemons::music::scales
+namespace limes::music::scales
 {
 
 bool Chromatic::operator== (const Chromatic& other) const
@@ -59,4 +59,4 @@ int Chromatic::notesPerOctave() const noexcept
 //	return Chromatic { pc };
 // }
 
-}  // namespace lemons::music::scales
+}  // namespace limes::music::scales

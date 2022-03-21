@@ -14,7 +14,7 @@
 
 #include <type_traits>
 
-namespace lemons
+namespace limes
 {
 
 template <typename T>
@@ -25,7 +25,7 @@ concept Scalar = std::is_scalar_v<T>;
 #if __has_include(<numbers>)
 #	include <numbers>
 
-namespace lemons::constants
+namespace limes::constants
 {
 
 template <Scalar T>
@@ -35,7 +35,7 @@ static constexpr T pi = std::numbers::pi_v<T>;
 
 #else
 
-namespace lemons::constants
+namespace limes::constants
 {
 
 template <Scalar T>
@@ -45,7 +45,7 @@ static constexpr T pi = static_cast<T> (3.1415916);
 
 #endif
 
-namespace lemons::constants
+namespace limes::constants
 {
 
 template <Scalar T>
@@ -54,4 +54,4 @@ static constexpr T two_pi = pi<T>* T (2.);
 template <Scalar T>
 static constexpr T blackman_alpha = T (0.16);
 
-}  // namespace lemons::constants
+}  // namespace limes::constants

@@ -12,7 +12,7 @@
 
 #include "Octatonic.h"
 
-namespace lemons::music::scales
+namespace limes::music::scales
 {
 
 bool Octatonic::operator== (const Octatonic& other) const
@@ -76,4 +76,4 @@ int Octatonic::notesPerOctave() const noexcept
 //	return Octatonic { pc, halfWhole };
 // }
 
-}  // namespace lemons::music::scales
+}  // namespace limes::music::scales

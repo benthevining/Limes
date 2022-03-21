@@ -15,7 +15,7 @@
 #include "NoteDuration.h"
 #include <limes_export.h>
 
-namespace lemons::music
+namespace limes::music
 {
 
 struct LIMES_EXPORT NoteLength final
@@ -77,7 +77,7 @@ private:
 	LinkedListModel<NoteLength> tie { *this };
 };
 
-}  // namespace lemons::music
+}  // namespace limes::music
 
 
 #include "NoteLength_impl.h"
