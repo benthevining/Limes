@@ -13,6 +13,7 @@
 #pragma once
 
 #include <array>
+#include <limes_export.h>
 
 namespace lemons::music
 {
@@ -20,7 +21,7 @@ namespace lemons::music
 /** A struct that represents a pitch class.
 	This class is agnostic to enharmonic spellings; thus, C-sharp and D-flat are considered the same pitch class.
  */
-struct PitchClass final
+struct LIMES_EXPORT PitchClass final
 {
 	/** Creates a pitch class from an integer, where 0 is C, 1 is C#/Db, and 11 is B.
 	 */

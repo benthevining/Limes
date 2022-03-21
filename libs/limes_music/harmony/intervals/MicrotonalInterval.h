@@ -12,10 +12,12 @@
 
 #pragma once
 
+#include <limes_export.h>
+
 namespace lemons::music
 {
 
-class MicrotonalInterval final
+class LIMES_EXPORT MicrotonalInterval final
 {
 public:
 
@@ -86,13 +88,13 @@ private:
 
 
 /** Adds an interval to the given pitch and returns a new pitch object at the resulting pitch. */
-constexpr Pitch operator+ (const Pitch& pitch, const MicrotonalInterval& interval) noexcept
+LIMES_EXPORT constexpr Pitch operator+ (const Pitch& pitch, const MicrotonalInterval& interval) noexcept
 {
 	return Pitch { pitch.getMidiPitch() + interval.getSemitones() };
 }
 
 /** Subtracts an interval from the given pitch and returns a new pitch object at the resulting pitch. */
-constexpr Pitch operator- (const Pitch& pitch, const MicrotonalInterval& interval) noexcept
+LIMES_EXPORT constexpr Pitch operator- (const Pitch& pitch, const MicrotonalInterval& interval) noexcept
 {
 	return Pitch { pitch.getMidiPitch() - interval.getSemitones() };
 }

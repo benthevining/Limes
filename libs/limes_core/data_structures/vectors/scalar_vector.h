@@ -15,12 +15,13 @@
 #include "basic_vector.h"
 #include "../../math/mathHelpers.h"
 #include <limes_vecops.h>
+#include <limes_export.h>
 
 namespace lemons
 {
 
 template <typename ElementType, class Allocator = std::allocator<ElementType>>
-class scalar_vector final : public basic_vector<ElementType, Allocator>
+class LIMES_EXPORT scalar_vector final : public basic_vector<ElementType, Allocator>
 {
 public:
 

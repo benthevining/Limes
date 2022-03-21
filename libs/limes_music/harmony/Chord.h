@@ -13,11 +13,12 @@
 #pragma once
 
 #include "scales/Scale.h"
+#include <limes_export.h>
 
 namespace lemons::music
 {
 
-class Chord final
+class LIMES_EXPORT Chord final
 {
 public:
 

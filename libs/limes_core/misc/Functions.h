@@ -13,12 +13,13 @@
 #pragma once
 
 #include <type_traits>
+#include <limes_export.h>
 
 namespace lemons
 {
 
 template <class Function>
-bool call_once (Function&& func, std::invoke_result_t<Function>* result = nullptr)
+LIMES_EXPORT bool call_once (Function&& func, std::invoke_result_t<Function>* result = nullptr)
 {
 	static bool called = false;
 

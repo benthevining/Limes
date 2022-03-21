@@ -8,6 +8,14 @@
 #
 # ======================================================================================
 
+include_guard (GLOBAL)
+
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
+include (OrangesDefaultTarget)
+include (OrangesUnityBuild)
+include (OrangesExportHeader)
+
 add_library (limes_core STATIC)
 
 set_target_properties (limes_core PROPERTIES VERSION "${PROJECT_VERSION}"
@@ -15,6 +23,16 @@ set_target_properties (limes_core PROPERTIES VERSION "${PROJECT_VERSION}"
 
 target_link_libraries (limes_core PUBLIC Limes::limes_vecops Oranges::OrangesDefaultTarget
 										 Oranges::OrangesUnityBuild)
+
+oranges_generate_export_header (
+	TARGET
+	limes_core
+	BASE_NAME
+	limes
+	HEADER
+	limes_export.h
+	REL_PATH
+	Limes/limes_core)
 
 oranges_add_target_headers (
 	TARGET

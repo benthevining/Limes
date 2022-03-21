@@ -13,6 +13,7 @@
 #pragma once
 
 #include "Scale.h"
+#include <limes_export.h>
 
 namespace lemons::music::scales
 {
@@ -20,7 +21,7 @@ namespace lemons::music::scales
 /** A class that represents a whole tone scale.
 	Whole tone scale objects only differ from one another by their starting pitch.
  */
-class WholeTone final : public Scale
+class LIMES_EXPORT WholeTone final : public Scale
 {
 public:
 

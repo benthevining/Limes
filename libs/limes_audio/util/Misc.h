@@ -13,6 +13,7 @@
 #pragma once
 
 #include <limes_core.h>
+#include <limes_export.h>
 
 namespace lemons::dsp
 {
@@ -21,11 +22,11 @@ template <typename T>
 concept Sample = std::is_same_v<T, float> || std::is_same_v<T, double>;
 
 template <Sample SampleType>
-static constexpr SampleType default_Q = 0.70710678118655f;
+LIMES_EXPORT static constexpr SampleType default_Q = 0.70710678118655f;
 
 
 template <Sample SampleType>
-[[nodiscard]] static inline SampleType midiVelocityToGain (SampleType velocity, float sensitivity = 1.f)
+LIMES_EXPORT [[nodiscard]] static inline SampleType midiVelocityToGain (SampleType velocity, float sensitivity = 1.f)
 {
 	LIMES_ASSERT (sensitivity >= 0.f && sensitivity <= 1.f);
 	LIMES_ASSERT (velocity >= 0 && velocity <= 1);

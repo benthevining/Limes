@@ -12,11 +12,13 @@
 
 #pragma once
 
+#include <limes_export.h>
+
 namespace lemons::threads::detail
 {
 
 template <typename ObjectType, bool RealtimeMutatable>
-struct AtomicObjectBase : public ObjectBase<ObjectType>
+struct LIMES_EXPORT AtomicObjectBase : public ObjectBase<ObjectType>
 {
 	static_assert (std::atomic<ObjectType>::is_always_lock_free, "Atomic must be lock-free!");
 	static_assert (is_realtime_copy_safe<ObjectType>::value, "ObjectType must be realtime copy safe!");

@@ -8,13 +8,17 @@
 #
 # ======================================================================================
 
+include_guard (GLOBAL)
+
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
 add_library (Limes INTERFACE)
 
 set_target_properties (Limes PROPERTIES VERSION "${PROJECT_VERSION}" SOVERSION
 																	 "${PROJECT_VERSION_MAJOR}")
 
-add_subdirectory (limes_vecops)
 add_subdirectory (limes_core)
+add_subdirectory (limes_vecops)
 add_subdirectory (limes_audio)
 add_subdirectory (limes_music)
 

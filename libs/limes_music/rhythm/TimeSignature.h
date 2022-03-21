@@ -12,10 +12,12 @@
 
 #pragma once
 
+#include <limes_export.h>
+
 namespace lemons::music
 {
 
-struct TimeSignature final
+struct LIMES_EXPORT TimeSignature final
 {
 public:
 

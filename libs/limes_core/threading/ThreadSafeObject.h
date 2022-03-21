@@ -13,13 +13,14 @@
 #pragma once
 #include <atomic>
 #include <array>
+#include <limes_export.h>
 
 namespace lemons::threads
 {
 
 
 template <typename ObjectType>
-struct ThreadedObjectWriter
+struct LIMES_EXPORT ThreadedObjectWriter
 {
 	virtual ~ThreadedObjectWriter();
 
@@ -38,7 +39,7 @@ protected:
 };
 
 template <typename ObjectType>
-struct ThreadedObjectReader
+struct LIMES_EXPORT ThreadedObjectReader
 {
 	virtual ~ThreadedObjectReader() = default;
 
@@ -58,7 +59,7 @@ protected:
 
 
 template <typename ObjectType, size_t totalNumThreads = 2>
-class ThreadSafeObject final
+class LIMES_EXPORT ThreadSafeObject final
 {
 public:
 

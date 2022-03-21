@@ -15,6 +15,7 @@
 
 #include "oscillator.h"
 #include "../util/Misc.h"
+#include <limes_export.h>
 
 namespace lemons::dsp::osc
 {
@@ -38,7 +39,7 @@ using Oscillator = dsp::Oscillator<T>;
 	@see Oscillator, Phase
  */
 template <Sample SampleType>
-struct Sine final : public Oscillator<SampleType>
+struct LIMES_EXPORT Sine final : public Oscillator<SampleType>
 {
 	/** Constructs a default sine oscillator. */
 	explicit Sine();
@@ -65,7 +66,7 @@ private:
 	@see SuperSaw, Oscillator, Phase
  */
 template <Sample SampleType>
-struct Saw final : public Oscillator<SampleType>
+struct LIMES_EXPORT Saw final : public Oscillator<SampleType>
 {
 	/** Constructs a default sawtooth oscillator. */
 	explicit Saw();
@@ -96,7 +97,7 @@ struct Triangle;
 	@see Oscillator, Phase
  */
 template <Sample SampleType>
-struct Square final : public Oscillator<SampleType>
+struct LIMES_EXPORT Square final : public Oscillator<SampleType>
 {
 	/** Consructs a default square wave oscillator. */
 	explicit Square();
@@ -125,7 +126,7 @@ private:
 	@see Square, Oscillator, Phase
  */
 template <Sample SampleType>
-struct Triangle final : public Oscillator<SampleType>
+struct LIMES_EXPORT Triangle final : public Oscillator<SampleType>
 {
 	/** Constructs a default triangle wave. */
 	explicit Triangle();

@@ -15,12 +15,13 @@
 #include <limes_vecops.h>
 #include "ObjectBase.h"
 #include <mutex>
+#include <limes_export.h>
 
 namespace lemons::threads::detail
 {
 
 template <typename ObjectType>
-class RealtimeMutatableObject : public ObjectBase<ObjectType>
+class LIMES_EXPORT RealtimeMutatableObject : public ObjectBase<ObjectType>
 {
 public:
 

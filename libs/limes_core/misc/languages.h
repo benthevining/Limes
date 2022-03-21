@@ -13,6 +13,7 @@
 #pragma once
 
 #include "../data_structures/vectors/vector.h"
+#include <limes_export.h>
 
 namespace lemons::locale
 {
@@ -33,7 +34,7 @@ namespace lemons::locale
 	@param asISO639_2 When true, the returned language code will be a 3-character ISO639-2 code. When false, the returned language code will be a 2-character ISO639-1 code. Note that not all known languages have ISO639-1 codes, as some languages were added to the ISO639-2 extension of the standard.
 	@see languageCodeToName()
  */
-[[nodiscard]] std::string languageNameToCode (const std::string& name, bool asISO639_2 = true);
+LIMES_EXPORT [[nodiscard]] std::string languageNameToCode (const std::string& name, bool asISO639_2 = true);
 
 
 /** @ingroup lemons_iso_language_codes
@@ -42,7 +43,7 @@ namespace lemons::locale
 	If the language cannot be identified in the list of known languages, an empty string will be returned.
 	@see languageNameToCode()
  */
-[[nodiscard]] std::string languageCodeToName (const std::string& languageCode);
+LIMES_EXPORT [[nodiscard]] std::string languageCodeToName (const std::string& languageCode);
 
 
 /** @defgroup lemons_iso_country_codes ISO country codes
@@ -56,7 +57,7 @@ namespace lemons::locale
 	@param language The language name or language code. When interpreting this argument as a language code, a 2-character string will be interpreted as an ISO639-1 code; if it is 3 characters long, it will be interpreted as an ISO639-2 code. Other lengths of passed strings are invalid and will cause this method to return an empty string.
 	@param languageName If true, the 'language' argument is interpreted as the name of the language; if false, it is interpreted as an ISO language code.
  */
-[[nodiscard]] StringVector getCountryCodesForLanguage (const std::string& language, bool languageName = true);
+LIMES_EXPORT [[nodiscard]] StringVector getCountryCodesForLanguage (const std::string& language, bool languageName = true);
 
 
 /** @ingroup lemons_iso_country_codes
@@ -65,7 +66,7 @@ namespace lemons::locale
 	@attention This feature is mainly intended for generating translation files, not for selecting an appropriate language at runtime; I recommend choosing the language based on the user's display language settings, which can be obtained using juce::SystemStats::getDisplayLanguage().
 	@see getLanguageCodesForCountry()
  */
-[[nodiscard]] StringVector getLanguageNamesForCountry (const std::string& countryCode);
+LIMES_EXPORT [[nodiscard]] StringVector getLanguageNamesForCountry (const std::string& countryCode);
 
 
 /** @ingroup lemons_iso_country_codes
@@ -74,7 +75,7 @@ namespace lemons::locale
 	@attention This feature is mainly intended for generating translation files, not for selecting an appropriate language at runtime; I recommend choosing the language based on the user's display language settings, which can be obtained using juce::SystemStats::getDisplayLanguage().
 	@see getLanguageNamesForCountry()
  */
-[[nodiscard]] StringVector getLanguageCodesForCountry (const std::string& countryCode, bool asISO639_2 = true);
+LIMES_EXPORT [[nodiscard]] StringVector getLanguageCodesForCountry (const std::string& countryCode, bool asISO639_2 = true);
 
 
 }  // namespace lemons::locale

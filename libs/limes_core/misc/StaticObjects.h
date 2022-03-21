@@ -13,18 +13,19 @@
 #pragma once
 
 #include <memory>
+#include <limes_export.h>
 
 namespace lemons
 {
 
 template <auto Data>
-constexpr const auto& make_static() noexcept
+LIMES_EXPORT constexpr const auto& make_static() noexcept
 {
 	return Data;
 }
 
 template <typename ObjectType, typename... Args>
-ObjectType& getStaticObject (Args&& args)
+LIMES_EXPORT ObjectType& getStaticObject (Args&& args)
 {
 	static std::unique_ptr<ObjectType> ptr;
 

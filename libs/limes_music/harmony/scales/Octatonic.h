@@ -13,6 +13,7 @@
 #pragma once
 
 #include "Scale.h"
+#include <limes_export.h>
 
 namespace lemons::music::scales
 {
@@ -20,7 +21,7 @@ namespace lemons::music::scales
 /** Represents an octatonic scale.
 	Octatonic scales are scales that alternate between whole and half steps; thus there are two variations -- one starting with a whole step, and one starting with a half step.
  */
-class Octatonic final : public Scale
+class LIMES_EXPORT Octatonic final : public Scale
 {
 public:
 

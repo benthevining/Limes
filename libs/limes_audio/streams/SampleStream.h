@@ -14,6 +14,7 @@
 
 #include <functional>
 #include "../util/Misc.h"
+#include <limes_export.h>
 
 namespace lemons::dsp
 {
@@ -22,7 +23,7 @@ namespace lemons::dsp
 	The constructor takes a lambda that must produce the next sample value when called with no arguments.
  */
 template <Sample SampleType>
-struct SampleStream
+struct LIMES_EXPORT SampleStream
 {
 public:
 

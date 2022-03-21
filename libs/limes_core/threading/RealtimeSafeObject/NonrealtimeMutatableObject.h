@@ -15,12 +15,13 @@
 #include <limes_vecops.h>
 #include <cassert>
 #include <memory>
+#include <limes_export.h>
 
 namespace lemons::threads::detail
 {
 
 template <typename ObjectType>
-class NonRealtimeMutatableObject : public ObjectBase<ObjectType>
+class LIMES_EXPORT NonRealtimeMutatableObject : public ObjectBase<ObjectType>
 {
 public:
 

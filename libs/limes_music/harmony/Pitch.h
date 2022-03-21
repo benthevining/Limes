@@ -14,13 +14,14 @@
 
 #include "PitchClass.h"
 #include "PitchUtils.h"
+#include <limes_export.h>
 
 namespace lemons::music
 {
 
 /** This class is a simple wrapper around a MIDI pitch, with some convenient functions for representing it certain ways.
  */
-class Pitch final
+class LIMES_EXPORT Pitch final
 {
 public:
 

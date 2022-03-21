@@ -18,6 +18,7 @@
 #include <vector>
 #include <list>
 #include <limes_vecops.h>
+#include <limes_export.h>
 
 #if ! LIMES_WINDOWS
 #	include <cxxabi.h>
@@ -58,7 +59,7 @@ namespace lemons
 	evaluates to a compile-time false value.
  */
 template <class T, template <class...> class Template>
-struct is_specialization final : std::false_type
+struct LIMES_EXPORT is_specialization final : std::false_type
 {
 };
 
@@ -75,7 +76,7 @@ struct is_specialization final : std::false_type
  evaluates to a compile-time false value.
  */
 template <template <class...> class Template, class... Args>
-struct is_specialization<Template<Args...>, Template> final : std::true_type
+struct LIMES_EXPORT is_specialization<Template<Args...>, Template> final : std::true_type
 {
 };
 
@@ -83,7 +84,7 @@ static_assert (is_specialization<std::vector<int>, std::vector>(), "is_specializ
 static_assert (! is_specialization<std::vector<int>, std::list>(), "is_specialization test");
 
 template <typename ObjectType>
-[[nodiscard]] std::string getDemangledTypeName (const ObjectType& object)
+LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const ObjectType& object)
 {
 #if LIMES_WINDOWS
 	const auto res = String (typeid (object).name());
@@ -110,7 +111,7 @@ template <typename ObjectType>
 }
 
 template <typename ObjectType>
-[[nodiscard]] std::string getDemangledTypeName (const ObjectType* c)
+LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const ObjectType* c)
 {
 	if (c != nullptr)
 		return getDemangledName (*c) + " pointer";

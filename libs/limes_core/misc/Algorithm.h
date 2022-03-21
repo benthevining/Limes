@@ -13,6 +13,7 @@
 #pragma once
 
 #include <algorithm>
+#include <limes_export.h>
 
 namespace lemons::alg
 {
@@ -26,25 +27,25 @@ concept Container = requires (T a)
 
 
 template <Container ContainerType, class T>
-constexpr void fill (ContainerType& container, const T& toFillWith)
+LIMES_EXPORT constexpr void fill (ContainerType& container, const T& toFillWith)
 {
 	std::fill (container.begin(), container.end(), toFillWith);
 }
 
 template <Container ContainerType, class T>
-[[nodiscard]] constexpr bool contains (const ContainerType& container, const T& value)
+LIMES_EXPORT [[nodiscard]] constexpr bool contains (const ContainerType& container, const T& value)
 {
 	return std::find (container.begin(), container.end(), value) != container.end();
 }
 
 template <Container ContainerType, class UnaryPredicate>
-[[nodiscard]] constexpr bool contains_if (const ContainerType& container, UnaryPredicate&& p)
+LIMES_EXPORT [[nodiscard]] constexpr bool contains_if (const ContainerType& container, UnaryPredicate&& p)
 {
 	return std::find_if (container.begin(), container.end(), std::move (p)) != container.end();
 }
 
 template <Container ContainerType, class T, class UnaryPredicate>
-[[nodiscard]] constexpr T& contains_or (const ContainerType& container, T& defaultValue, UnaryPredicate&& p)
+LIMES_EXPORT [[nodiscard]] constexpr T& contains_or (const ContainerType& container, T& defaultValue, UnaryPredicate&& p)
 {
 	const auto res = std::find_if (container.begin(), container.end(), std::move (p));
 
@@ -55,7 +56,7 @@ template <Container ContainerType, class T, class UnaryPredicate>
 }
 
 template <Container ContainerType, class T, class UnaryPredicate>
-[[nodiscard]] constexpr const T& contains_or (const ContainerType& container, const T& defaultValue, UnaryPredicate&& p)
+LIMES_EXPORT [[nodiscard]] constexpr const T& contains_or (const ContainerType& container, const T& defaultValue, UnaryPredicate&& p)
 {
 	const auto res = std::find_if (container.begin(), container.end(), std::move (p));
 
@@ -66,7 +67,7 @@ template <Container ContainerType, class T, class UnaryPredicate>
 }
 
 template <Container ContainerType, class UnaryPredicate>
-[[nodiscard]] constexpr auto contains_or_default (const ContainerType& container, UnaryPredicate&& p)
+LIMES_EXPORT [[nodiscard]] constexpr auto contains_or_default (const ContainerType& container, UnaryPredicate&& p)
 {
 	using T = typename std::decay<decltype (*container.begin())>::type;
 
@@ -82,7 +83,7 @@ template <Container ContainerType, class UnaryPredicate>
 }
 
 template <Container ContainerType, class UnaryPredicate>
-[[nodiscard]] constexpr auto* contains_or_null (const ContainerType& container, UnaryPredicate&& p)
+LIMES_EXPORT [[nodiscard]] constexpr auto* contains_or_null (const ContainerType& container, UnaryPredicate&& p)
 {
 	const auto res = std::find_if (container.begin(), container.end(), std::move (p));
 
@@ -96,7 +97,7 @@ template <Container ContainerType, class UnaryPredicate>
 }
 
 template <Container ContainerType, class UnaryPredicate>
-[[nodiscard]] constexpr auto* find_if (const ContainerType& container, UnaryPredicate&& p)
+LIMES_EXPORT [[nodiscard]] constexpr auto* find_if (const ContainerType& container, UnaryPredicate&& p)
 {
 	const auto res = std::find_if (container.begin(), container.end(), std::move (p));
 
@@ -110,13 +111,13 @@ template <Container ContainerType, class UnaryPredicate>
 }
 
 template <Container ContainerType, class UnaryPredicate>
-[[nodiscard]] constexpr int num_of (const ContainerType& container, UnaryPredicate&& p)
+LIMES_EXPORT [[nodiscard]] constexpr int num_of (const ContainerType& container, UnaryPredicate&& p)
 {
 	return static_cast<int> (std::count_if (container.begin(), container.end(), std::move (p)));
 }
 
 template <Container ContainerType>
-[[nodiscard]] constexpr int size (const ContainerType& container)
+LIMES_EXPORT [[nodiscard]] constexpr int size (const ContainerType& container)
 {
 	using ElementType = decltype (*container.begin());
 
@@ -125,25 +126,25 @@ template <Container ContainerType>
 }
 
 template <Container ContainerType, typename ElementType>
-constexpr void remove (ContainerType& container, const ElementType& object)
+LIMES_EXPORT constexpr void remove (ContainerType& container, const ElementType& object)
 {
 	container.erase (std::remove (container.begin(), container.end(), object));
 }
 
 template <Container ContainerType>
-constexpr void removeDuplicates (ContainerType& container)
+LIMES_EXPORT constexpr void removeDuplicates (ContainerType& container)
 {
 	container.erase (std::unique (container.begin(), container.end()), container.end());
 }
 
 template <Container ContainerType>
-constexpr void reverse (ContainerType& container)
+LIMES_EXPORT constexpr void reverse (ContainerType& container)
 {
 	std::reverse (container.begin(), container.end());
 }
 
 template <Container ContainerType>
-constexpr void sort (ContainerType& container, bool forward = true)
+LIMES_EXPORT constexpr void sort (ContainerType& container, bool forward = true)
 {
 	std::sort (container.begin(), container.end());
 
@@ -152,7 +153,7 @@ constexpr void sort (ContainerType& container, bool forward = true)
 }
 
 template <Container ContainerType, class Comparison>
-constexpr void sort (ContainerType& container, Comparison&& predicate, bool forward = true)
+LIMES_EXPORT constexpr void sort (ContainerType& container, Comparison&& predicate, bool forward = true)
 {
 	std::sort (container.begin(), container.end(), std::move (predicate));
 
@@ -161,7 +162,7 @@ constexpr void sort (ContainerType& container, Comparison&& predicate, bool forw
 }
 
 template <Container Container1, Container Container2, class Callable>
-constexpr void call_both (const Container1& container1, const Container2& container2, Callable&& callable)
+LIMES_EXPORT constexpr void call_both (const Container1& container1, const Container2& container2, Callable&& callable)
 {
 	for (auto first = container1.begin(), second = container2.begin();
 		 first != container1.end() && second != container2.end();
@@ -172,25 +173,25 @@ constexpr void call_both (const Container1& container1, const Container2& contai
 }
 
 template <Container ContainerType>
-constexpr auto max_value (const ContainerType& container)
+LIMES_EXPORT constexpr auto max_value (const ContainerType& container)
 {
 	return *std::max_element (container.begin(), container.end());
 }
 
 template <Container ContainerType>
-constexpr auto min_value (const ContainerType& container)
+LIMES_EXPORT constexpr auto min_value (const ContainerType& container)
 {
 	return *std::min_element (container.begin(), container.end());
 }
 
 template <Container InputContainer, Container OutputContainer, class UnaryOp>
-constexpr void transform (const InputContainer& input, OutputContainer& output, UnaryOp&& func)
+LIMES_EXPORT constexpr void transform (const InputContainer& input, OutputContainer& output, UnaryOp&& func)
 {
 	std::transform (input.begin(), input.end(), output.begin(), std::move (func));
 }
 
 template <Container OutputContainerType, Container InputContainer, class UnaryOp>
-constexpr OutputContainerType createFromTransform (const InputContainer& input, UnaryOp&& func)
+LIMES_EXPORT constexpr OutputContainerType createFromTransform (const InputContainer& input, UnaryOp&& func)
 {
 	OutputContainerType output;
 

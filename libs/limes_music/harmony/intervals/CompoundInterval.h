@@ -13,6 +13,7 @@
 #pragma once
 
 #include "Interval.h"
+#include <limes_export.h>
 
 namespace lemons::music
 {
@@ -21,7 +22,7 @@ namespace lemons::music
 	Internally, the interval is represented as a number of octaves and an Interval object.
 	This class is capable of representing intervals smaller than an octave, but if you know your interval is going to be smaller than an octave, prefer to use the Interval class directly.
  */
-class CompoundInterval final : public Interval
+class LIMES_EXPORT CompoundInterval final : public Interval
 {
 public:
 

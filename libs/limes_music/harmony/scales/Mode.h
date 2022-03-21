@@ -14,13 +14,14 @@
 
 #include "Scale.h"
 #include "KeySignature.h"
+#include <limes_export.h>
 
 namespace lemons::music::scales
 {
 
 /** Represents a modal scale.
  */
-class Mode final : public Scale
+class LIMES_EXPORT Mode final : public Scale
 {
 public:
 

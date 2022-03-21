@@ -13,6 +13,7 @@
 #pragma once
 
 #include "Scale.h"
+#include <limes_export.h>
 
 namespace lemons::music::scales
 {
@@ -20,7 +21,7 @@ namespace lemons::music::scales
 /** This class represents any traditional Western key signature (eg, major, natural minor, harmonic minor).
 	Theoretical keys (those containing more than 7 sharps or flats) are currently not supported.
  */
-class KeySignature final : public Scale
+class LIMES_EXPORT KeySignature final : public Scale
 {
 public:
 

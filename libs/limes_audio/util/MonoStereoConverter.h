@@ -15,6 +15,7 @@
 
 #include <limes_core.h>
 #include "Misc.h"
+#include <limes_export.h>
 
 namespace lemons::dsp
 {
@@ -26,8 +27,7 @@ namespace lemons::dsp
 
 /** @ingroup lemons_stereo_conversion
 	An enum used to describe how a MonoStereoConverter will convert stereo signals to mono. */
-enum class StereoReductionMode
-{
+LIMES_EXPORT enum class StereoReductionMode {
 	/** In this mode, a MonoStereoConverter will output only the left channel of a stereo signal as its mono reduction. */
 	leftOnly,
 
@@ -42,7 +42,7 @@ enum class StereoReductionMode
 	A utility class for converting mono signals to stereo, or stereo signals to mono.
  */
 template <Sample SampleType>
-class MonoStereoConverter final
+class LIMES_EXPORT MonoStereoConverter final
 {
 public:
 

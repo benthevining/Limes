@@ -11,12 +11,13 @@
  */
 
 #pragma once
+#include <limes_export.h>
 
 namespace lemons
 {
 
 template <typename ObjectType>
-struct LinkedListModel final
+struct LIMES_EXPORT LinkedListModel final
 {
 public:
 

@@ -12,11 +12,13 @@
 
 #pragma once
 
+#include <limes_export.h>
+
 namespace lemons::cstring
 {
 
-[[nodiscard]] bool areSame (const char* string1, const char* string2);
+LIMES_EXPORT [[nodiscard]] bool areSame (const char* string1, const char* string2);
 
-[[nodiscard]] int length (const char* string);
+LIMES_EXPORT [[nodiscard]] int length (const char* string);
 
 }  // namespace lemons::cstring

@@ -13,11 +13,12 @@
 #pragma once
 
 #include "../data_structures/vectors/vector.h"
+#include <limes_export.h>
 
 namespace lemons
 {
 
-class TextTable final
+class LIMES_EXPORT TextTable final
 {
 public:
 

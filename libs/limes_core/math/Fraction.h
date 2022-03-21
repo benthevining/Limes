@@ -13,12 +13,13 @@
 #pragma once
 
 #include "mathHelpers.h"
+#include <limes_export.h>
 
 namespace lemons::math
 {
 
 template <Scalar ValueType = int>
-struct Fraction final
+struct LIMES_EXPORT Fraction final
 {
 	explicit constexpr Fraction (ValueType num, ValueType denom) noexcept;
 

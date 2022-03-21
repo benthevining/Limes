@@ -38,4 +38,8 @@ include ("${CMAKE_CURRENT_LIST_DIR}/LimesTargets.cmake")
 
 #
 
+set (Limes_INCLUDED TRUE)
+
+#
+
 check_required_components ("@PROJECT_NAME@")

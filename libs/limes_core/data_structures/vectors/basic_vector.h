@@ -16,12 +16,13 @@
 #include "../../misc/Algorithm.h"
 #include <vector>
 #include <initializer_list>
+#include <limes_export.h>
 
 namespace lemons
 {
 
 template <typename ElementType, class Allocator = std::allocator<ElementType>>
-class basic_vector
+class LIMES_EXPORT basic_vector
 {
 	using vector_type = std::vector<ElementType, Allocator>;
 

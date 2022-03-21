@@ -15,6 +15,7 @@
 #include "../Pitch.h"
 #include <limes_core.h>
 #include <vector>
+#include <limes_export.h>
 
 namespace lemons::music
 {
@@ -23,7 +24,7 @@ namespace lemons::music
 	This class is meant for intervals that are an octave or smaller, and that can be expressed as a whole number of semitones.
 	To represent intervals larger than an octave, use the CompoundInterval class.
  */
-class Interval
+class LIMES_EXPORT Interval
 {
 public:
 
@@ -202,10 +203,10 @@ private:
 
 
 /** Adds an interval to the given pitch and returns a new pitch object at the resulting pitch. */
-Pitch operator+ (const Pitch& pitch, const Interval& interval) noexcept;
+LIMES_EXPORT Pitch operator+ (const Pitch& pitch, const Interval& interval) noexcept;
 
 /** Subtracts an interval from the given pitch and returns a new pitch object at the resulting pitch. */
-Pitch operator- (const Pitch& pitch, const Interval& interval) noexcept;
+LIMES_EXPORT Pitch operator- (const Pitch& pitch, const Interval& interval) noexcept;
 
 }  // namespace lemons::music
 

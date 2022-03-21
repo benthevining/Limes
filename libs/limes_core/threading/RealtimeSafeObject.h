@@ -15,6 +15,7 @@
 #include "RealtimeSafeObject/RealtimeMutatableObject.h"
 #include "RealtimeSafeObject/NonrealtimeMutatableObject.h"
 #include "RealtimeSafeObject/AtomicObjectHolder.h"
+#include <limes_export.h>
 
 namespace lemons::threads
 {
@@ -30,9 +31,9 @@ using RealtimeSafeObjectBase = std::conditional_t<RealtimeMutatable,
 
 
 template <typename ObjectType, bool RealtimeMutatable>
-class RealtimeSafeObject final : public std::conditional_t<std::atomic<ObjectType>::is_always_lock_free,
-														   detail::AtomicObjectBase<ObjectType, RealtimeMutatable>,
-														   detail::RealtimeSafeObjectBase<ObjectType, RealtimeMutatable>>
+class LIMES_EXPORT RealtimeSafeObject final : public std::conditional_t<std::atomic<ObjectType>::is_always_lock_free,
+																		detail::AtomicObjectBase<ObjectType, RealtimeMutatable>,
+																		detail::RealtimeSafeObjectBase<ObjectType, RealtimeMutatable>>
 {
 public:
 

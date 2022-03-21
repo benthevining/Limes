@@ -14,6 +14,7 @@
 #pragma once
 
 #include <atomic>
+#include <limes_export.h>
 
 namespace lemons
 {
@@ -21,7 +22,7 @@ namespace lemons
 
 /** @ingroup lemons_core
 	A simple struct that represents the dimensions of a GUI. */
-struct Dimensions final
+struct LIMES_EXPORT Dimensions final
 {
 	/** Creates an invalid Dimensions object. */
 	constexpr explicit Dimensions() = default;

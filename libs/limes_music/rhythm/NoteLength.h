@@ -13,11 +13,12 @@
 #pragma once
 
 #include "NoteDuration.h"
+#include <limes_export.h>
 
 namespace lemons::music
 {
 
-struct NoteLength final
+struct LIMES_EXPORT NoteLength final
 {
 public:
 

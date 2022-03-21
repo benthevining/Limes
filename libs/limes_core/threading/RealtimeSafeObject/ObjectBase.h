@@ -12,11 +12,13 @@
 
 #pragma once
 
+#include <limes_export.h>
+
 namespace lemons::threads::detail
 {
 
 template <typename ObjectType>
-struct ObjectBase
+struct LIMES_EXPORT ObjectBase
 {
 	virtual ~ObjectBase() = default;
 

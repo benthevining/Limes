@@ -13,6 +13,7 @@
 #pragma once
 
 #include <limes_core.h>
+#include <limes_export.h>
 #include "../util/Misc.h"
 
 namespace lemons::dsp::psola
@@ -34,7 +35,7 @@ namespace lemons::dsp::psola
 	@see Analyzer
  */
 template <Sample SampleType>
-class PeakFinder final
+class LIMES_EXPORT PeakFinder final
 {
 public:
 

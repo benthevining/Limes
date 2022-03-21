@@ -13,6 +13,7 @@
 #pragma once
 
 #include "../intervals/Interval.h"
+#include <limes_export.h>
 
 namespace lemons::music::scales
 {
@@ -20,7 +21,7 @@ namespace lemons::music::scales
 /** A base class for any kind of scale.
 	This class is intended for scales that are symmetrical in any octave, and are symmetrical whether ascending or descending.
  */
-struct Scale
+struct LIMES_EXPORT Scale
 {
 	/** Default constructor. */
 	constexpr Scale() = default;

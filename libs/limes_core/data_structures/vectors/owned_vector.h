@@ -15,12 +15,13 @@
 #include "vector.h"
 #include <memory>
 #include <functional>
+#include <limes_export.h>
 
 namespace lemons
 {
 
 template <typename ElementType, class Allocator = std::allocator<ElementType>>
-class owned_vector final : public vector<std::unique_ptr<ElementType>, Allocator>
+class LIMES_EXPORT owned_vector final : public vector<std::unique_ptr<ElementType>, Allocator>
 {
 	using vector_type = vector<std::unique_ptr<ElementType>, Allocator>;
 

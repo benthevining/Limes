@@ -8,8 +8,9 @@
 #
 # ======================================================================================
 
-include (OrangesDefaultTarget)
-include (OrangesUnityBuild)
+include_guard (GLOBAL)
+
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 add_library (limes_vecops INTERFACE)
 

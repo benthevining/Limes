@@ -13,6 +13,7 @@
 #pragma once
 
 #include "Scale.h"
+#include <limes_export.h>
 
 namespace lemons::music::scales
 {
@@ -20,7 +21,7 @@ namespace lemons::music::scales
 /** A class representing a chromatic scale.
 	Chromatic scale objects only differ from one another by their starting pitch.
  */
-class Chromatic final : public Scale
+class LIMES_EXPORT Chromatic final : public Scale
 {
 public:
 

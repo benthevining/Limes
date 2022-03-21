@@ -13,6 +13,8 @@
 
 #pragma once
 
+#include <limes_export.h>
+
 #ifndef LEMONS_VERSION_MAJOR
 #	define LEMONS_VERSION_MAJOR 0
 #endif
@@ -43,7 +45,7 @@ namespace lemons
 /** @ingroup lemons_core
 	A class that represents a version of something, with major, minor, and patch numbers.
  */
-struct Version final
+struct LIMES_EXPORT Version final
 {
 	/** Creates a default Version object with the value 0.0.1. */
 	constexpr explicit Version() noexcept = default;

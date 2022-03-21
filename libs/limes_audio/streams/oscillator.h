@@ -14,6 +14,7 @@
 
 #include "SampleStream.h"
 #include "../util/Misc.h"
+#include <limes_export.h>
 
 namespace lemons::dsp
 {
@@ -22,7 +23,7 @@ namespace lemons::dsp
 	Oscillators process only a single channel of samples at a time.
  */
 template <Sample SampleType>
-struct Oscillator : public SampleStream<SampleType>
+struct LIMES_EXPORT Oscillator : public SampleStream<SampleType>
 {
 	/** You should provide the Oscillator constructor with a lambda for producing the next sample, identical to the SampleStream constructor. */
 	using SampleStream<SampleType>::SampleStream;
