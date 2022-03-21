@@ -14,7 +14,8 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
-include (OrangesExportHeader)
+include (OrangesGenerateExportHeader)
+include (OrangesGeneratePlatformHeader)
 
 add_library (limes_core STATIC)
 
@@ -31,6 +32,16 @@ oranges_generate_export_header (
 	limes
 	HEADER
 	limes_export.h
+	REL_PATH
+	Limes/limes_core)
+
+oranges_generate_platform_header (
+	TARGET
+	limes_core
+	BASE_NAME
+	limes
+	HEADER
+	limes_platform.h
 	REL_PATH
 	Limes/limes_core)
 
