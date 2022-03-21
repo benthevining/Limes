@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [1.10.0](http://github.com/benthevining/Limes/compare/v1.9.0...v1.10.0) (2022-03-21)
+
+
+### Features
+
+* added export macro to all headers ([4e59dea](http://github.com/benthevining/Limes/commit/4e59deaba07d579f7ae664114822dfde6319d84b))
+
 ## [1.9.0](http://github.com/benthevining/Limes/compare/v1.8.0...v1.9.0) (2022-03-21)
 
 
