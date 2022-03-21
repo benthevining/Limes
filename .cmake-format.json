@@ -32,12 +32,11 @@
   "lint": {
     "argument_var_pattern": ".*",
     "disabled_codes": [
+      "C0111",
       "C0301",
       "C0307",
-      "E1120",
       "E1126",
-      "R0915",
-      "W0106"
+      "R0915"
     ],
     "function_pattern": ".*",
     "global_var_pattern": ".*",
@@ -46,7 +45,7 @@
     "local_var_pattern": ".*",
     "macro_pattern": ".*",
     "max_arguments": 5,
-    "max_branches": 13,
+    "max_branches": 20,
     "max_conditionals_custom_parser": 2,
     "max_localvars": 15,
     "max_returns": 6,

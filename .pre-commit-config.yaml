@@ -121,8 +121,7 @@ repos:
     hooks:
       - id: cmake-format
         args: [--in-place]
-    # - id: cmake-lint
-    #   exclude: util/cmake/modules/integrations/scripts/run_clang_format.cmake
+      - id: cmake-lint
 
   # YAML
   - repo: https://github.com/adrienverge/yamllint
