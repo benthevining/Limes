@@ -27,16 +27,16 @@ query_cmake_file_api:
 	@$(call cmake_query_file_api,$(LIMES_ROOT))
 
 config: query_cmake_file_api ## Configure cmake
-	@cd $(LIMES_ROOT) && $(call cmake_default_configure)
+	@cd $(LIMES_ROOT) && $(CMAKE) --preset default
 
 build: config ## Builds the libraries
-	@cd $(LIMES_ROOT) && $(call cmake_default_build)
+	@cd $(LIMES_ROOT) && $(CMAKE) --build --preset default
 
 test: build ## Runs the tests
-	@cd $(LIMES_ROOT) && $(call run_default_ctest_target)
+	@cd $(LIMES_ROOT) && ctest --preset default
 
 install: test docs ## Runs CMake install
-	@cd $(LIMES_ROOT) && $(call cmake_install)
+	@cd $(LIMES_ROOT) && $(SUDO) $(CMAKE) --install $(BUILDS)
 
 pack: install ## Creates a CPack installer
 	@cd $(LIMES_ROOT) && $(call cpack_create_installer)
@@ -52,10 +52,10 @@ build_ios: config_ios ## Run iOS build [Mac only]
 #
 
 deps_graph: config ## Generates a PNG image of the CMake dependency graph [requires graphviz's dot tool]
-	@cd $(LIMES_ROOT) && $(call cmake_default_build) --target DependencyGraph
+	@cd $(LIMES_ROOT) && $(CMAKE) --build --preset deps_graph
 
 docs: config ## Builds the documentation
-	@cd $(LIMES_ROOT) && $(call cmake_default_build) --target LimesDoxygen
+	@cd $(LIMES_ROOT) && $(CMAKE) --build --preset docs
 
 #
 

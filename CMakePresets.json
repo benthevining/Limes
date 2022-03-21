@@ -1,147 +1,59 @@
 {
-  "version": 3,
+  "buildPresets": [
+    {
+      "cleanFirst": true,
+      "configurePreset": "default",
+      "name": "default"
+    },
+    {
+      "configurePreset": "default",
+      "name": "deps_graph",
+      "targets": "DependencyGraph"
+    },
+    {
+      "configurePreset": "default",
+      "name": "docs",
+      "targets": [
+        "OrangesDoxygen",
+        "DependencyGraph"
+      ]
+    }
+  ],
   "cmakeMinimumRequired": {
     "major": 3,
-    "minor": 21
+    "minor": 21,
+    "patch": 0
   },
   "configurePresets": [
     {
-      "name": "base",
-      "hidden": true,
-      "binaryDir": "${sourceDir}/Builds/${presetName}",
-      "installDir": "lib/cmake/Limes",
-      "environment": {
-        "CMAKE_CONFIGURATION_TYPES": "Debug;Release"
-      },
+      "binaryDir": "${sourceDir}/Builds",
+      "name": "default",
       "warnings": {
-        "dev": true,
         "deprecated": true,
-        "uninitialized": true,
-        "unusedCli": false,
-        "systemVars": false
-      },
-      "debug": {
-        "output": true
-      }
-    },
-    {
-      "name": "config_base",
-      "inherits": "base",
-      "hidden": true,
-      "environment": {
-        "CMAKE_BUILD_TYPE": "${presetName}"
-      }
-    },
-    {
-      "name": "ios_base",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Darwin"
-      },
-      "inherits": "base",
-      "hidden": true,
-      "generator": "Xcode",
-      "cacheVariables": {
-        "CMAKE_SYSTEM_NAME": "iOS",
-        "CMAKE_OSX_DEPLOYMENT_TARGET": "9.3"
-      }
-    },
-    {
-      "name": "Debug",
-      "inherits": "config_base"
-    },
-    {
-      "name": "Release",
-      "inherits": "config_base"
-    },
-    {
-      "name": "ios_simulator",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Darwin"
-      },
-      "inherits": "ios_base",
-      "toolchainFile": "${sourceDir}/toolchains/ios_simulator.cmake"
-    },
-    {
-      "name": "ios",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Darwin"
-      },
-      "inherits": "ios_base",
-      "toolchainFile": "${sourceDir}/toolchains/ios.cmake",
-      "cacheVariables": {
-        "CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY": "\"iPhone Developer\""
+        "dev": true,
+        "unusedCli": false
       }
     }
   ],
-  "buildPresets": [
+  "testPresets": [
     {
-      "name": "base",
-      "hidden": true,
-      "configurePreset": "base",
-      "cleanFirst": true,
-      "jobs": 4,
-      "verbose": true
-    },
-    {
-      "name": "config_base",
-      "inherits": "base",
-      "hidden": true,
-      "configurePreset": "config_base",
-      "configuration": "${presetName}"
-    },
-    {
-      "name": "ios_base",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Darwin"
+      "configurePreset": "default",
+      "execution": {
+        "noTestsAction": "error"
       },
-      "inherits": "base",
-      "hidden": true,
-      "configurePreset": "ios_base",
-      "nativeToolOptions": [
-        "-allowProvisioningUpdates"
-      ]
-    },
-    {
-      "name": "Debug",
-      "inherits": "config_base",
-      "configurePreset": "${presetName}"
-    },
-    {
-      "name": "Release",
-      "inherits": "config_base",
-      "configurePreset": "${presetName}"
-    },
-    {
-      "name": "ios_simulator",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Darwin"
+      "filter": {
+        "include": {
+          "name": "Oranges."
+        }
       },
-      "inherits": "ios_base",
-      "configurePreset": "${presetName}",
-      "nativeToolOptions": [
-        "-sdk",
-        "iphonesimulator"
-      ]
-    },
-    {
-      "name": "ios",
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Darwin"
-      },
-      "inherits": "ios_base",
-      "configurePreset": "${presetName}"
+      "name": "default",
+      "output": {
+        "outputLogFile": "${sourceDir}/Builds/test_log.log",
+        "outputOnFailure": true,
+        "shortProgress": true,
+        "verbosity": "verbose"
+      }
     }
-  ]
+  ],
+  "version": 3
 }
