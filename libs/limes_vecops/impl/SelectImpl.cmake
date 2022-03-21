@@ -14,12 +14,16 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 #
 
+option (LIMES_IGNORE_VDSP "Ignore vDSP for vecops" OFF)
+option (LIMES_IGNORE_IPP "Ignore Intel IPP for vecops" OFF)
+option (LIMES_IGNORE_MIPP "Ignore MIPP for vecops" OFF)
+
+mark_as_advanced (FORCE LIMES_IGNORE_VDSP LIMES_IGNORE_IPP)
+
+#
+
 # Apple - default to using vDSP first
 if(APPLE)
-	option (LIMES_IGNORE_VDSP "Ignore vDSP for vecops" OFF)
-
-	mark_as_advanced (FORCE LIMES_IGNORE_VDSP)
-
 	if(LIMES_IGNORE_VDSP)
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_VDSP=0)
 	else()
@@ -47,10 +51,6 @@ string (REGEX REPLACE ".*LIMES_INTEL_PLATFORM ([a-zA-Z0-9_-]*).*" "\\1" intel_pl
 					  "${compile_output}")
 
 if(intel_platform)
-	option (LIMES_IGNORE_IPP "Ignore Intel IPP for vecops" OFF)
-
-	mark_as_advanced (FORCE LIMES_IGNORE_IPP)
-
 	if(LIMES_IGNORE_IPP)
 		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_IPP=0)
 	else()
@@ -76,10 +76,6 @@ if(intel_platform)
 endif()
 
 #
-
-option (LIMES_IGNORE_MIPP "Ignore MIPP for vecops" OFF)
-
-mark_as_advanced (FORCE LIMES_IGNORE_MIPP)
 
 if(LIMES_IGNORE_MIPP)
 	target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_MIPP=0)

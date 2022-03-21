@@ -53,14 +53,14 @@ write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_
 
 configure_package_config_file (
 	"${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake" "LimesConfig.cmake"
-	INSTALL_DESTINATION "${Limes_INSTALL_DEST}" PATH_VARS LIMES_ROOT_DIR)
+	INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" PATH_VARS LIMES_ROOT_DIR)
 
-install (EXPORT LimesTargets NAMESPACE Limes:: DESTINATION "${Limes_INSTALL_DEST}"
+install (EXPORT LimesTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST}"
 		 EXPORT_LINK_INTERFACE_LIBRARIES)
 
 export (EXPORT LimesTargets NAMESPACE Limes:: FILE LimesTargets.cmake)
 
 install (FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
-			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION "${Limes_INSTALL_DEST}")
+			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION "${LIMES_INSTALL_DEST}")
 
 export (PACKAGE Limes)
