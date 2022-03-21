@@ -1,5 +1,20 @@
 # Limes changelog
 
+## [1.9.0](http://github.com/benthevining/Limes/compare/v1.8.0...v1.9.0) (2022-03-21)
+
+
+### Features
+
+* added a version header test ([3aac255](http://github.com/benthevining/Limes/commit/3aac25522d25014e4b27ed0df30f504ed8bcd3bf))
+
+
+### Bug Fixes
+
+* finding vecops dependencies in LimesConfig.cmake ([003465c](http://github.com/benthevining/Limes/commit/003465c45ff7324a8fd745db29e19bf65fd0cc2b))
+* fixed MIPP integration ([4938277](http://github.com/benthevining/Limes/commit/4938277fea97d1a5188d57bc56842281b81bcac7))
+* fixing includes in libs' CMakeLists ([e50bae1](http://github.com/benthevining/Limes/commit/e50bae18143fd2346bd3a3dc63e7bc81d75a57b4))
+* fixing Oranges find module ([a2aae11](http://github.com/benthevining/Limes/commit/a2aae1199b205d74fd120006486c8a403456f3a9))
+
 ## [1.8.0](http://github.com/benthevining/Limes/compare/v1.7.1...v1.8.0) (2022-03-15)
 
 
