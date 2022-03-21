@@ -1,5 +1,16 @@
 # Limes changelog
 
+## [2.0.0](http://github.com/benthevining/Limes/compare/v1.10.0...v2.0.0) (2022-03-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* changed all code to be within limes:: namespace
+
+Precommit-Verified: 9d371ba72e720a572e6d1d8144e71014265b56b7693adb8d9fdb6cb796074b28
+
+* changed to limes namespace ([05d9481](http://github.com/benthevining/Limes/commit/05d9481ea3eb2055253039d4bec28c2949370449))
+
 ## [1.10.0](http://github.com/benthevining/Limes/compare/v1.9.0...v1.10.0) (2022-03-21)
 
 
