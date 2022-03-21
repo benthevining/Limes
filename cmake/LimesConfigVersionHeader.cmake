@@ -38,6 +38,7 @@ function(limes_config_version_header)
 
 	lemons_require_function_arguments (LIMES_ARG NAMESPACE FUNCTION_NAME)
 	lemons_check_for_unparsed_args (LIMES_ARG)
+	oranges_assert_target_argument_is_target (LIMES_ARG)
 
 	if(LIMES_ARG_NO_INSTALL AND LIMES_ARG_INSTALL_COMPONENT)
 		message (
