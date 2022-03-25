@@ -49,8 +49,13 @@ oranges_install_targets (
 	TARGETS
 	limes_vecops
 	EXPORT
-	LimesTargets
+	LimesVecopsTargets
 	REL_PATH
 	Limes/limes_vecops
 	COMPONENT_PREFIX
 	limes_vecops)
+
+install (EXPORT LimesVecopsTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST}"
+		 EXPORT_LINK_INTERFACE_LIBRARIES)
+
+export (EXPORT LimesVecopsTargets NAMESPACE Limes:: FILE LimesVecopsTargets.cmake)

@@ -77,8 +77,13 @@ oranges_install_targets (
 	TARGETS
 	limes_core
 	EXPORT
-	LimesTargets
+	LimesCoreTargets
 	REL_PATH
 	Limes/limes_core
 	COMPONENT_PREFIX
 	limes_core)
+
+install (EXPORT LimesCoreTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST}"
+		 EXPORT_LINK_INTERFACE_LIBRARIES)
+
+export (EXPORT LimesCoreTargets NAMESPACE Limes:: FILE LimesCoreTargets.cmake)

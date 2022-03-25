@@ -22,19 +22,47 @@ include ("${CMAKE_CURRENT_LIST_DIR}/LimesMacros.cmake")
 
 include (CMakeFindDependencyMacro)
 
-find_dependency (Oranges)
+if(NOT Oranges_FOUND)
+	find_dependency (Oranges)
+endif()
 
 if("@LIMES_VECOPS_USING_IPP@") # LIMES_VECOPS_USING_IPP
-	find_dependency (IPP)
+	if(NOT IPP_FOUND)
+		find_dependency (IPP)
+	endif()
 endif()
 
 if("@LIMES_VECOPS_USING_MIPP@") # LIMES_VECOPS_USING_MIPP
-	find_dependency (MIPP)
+	if(NOT MIPP_FOUND)
+		find_dependency (MIPP)
+	endif()
 endif()
 
 #
 
 include ("${CMAKE_CURRENT_LIST_DIR}/LimesTargets.cmake")
+
+if(NOT Oranges_FIND_COMPONENTS)
+	set (Oranges_FIND_COMPONENTS Audio Core Music Vecops)
+elseif(All IN_LIST Oranges_FIND_COMPONENTS)
+	set (Oranges_FIND_COMPONENTS Audio Core Music Vecops)
+endif()
+
+if(Audio IN_LIST Oranges_FIND_COMPONENTS)
+	include ("${CMAKE_CURRENT_LIST_DIR}/LimesAudioTargets.cmake")
+endif()
+
+if(Core IN_LIST Oranges_FIND_COMPONENTS)
+	include ("${CMAKE_CURRENT_LIST_DIR}/LimesCoreTargets.cmake")
+endif()
+
+if(Music IN_LIST Oranges_FIND_COMPONENTS)
+	include ("${CMAKE_CURRENT_LIST_DIR}/LimesMusicTargets.cmake")
+endif()
+
+if(Vecops IN_LIST Oranges_FIND_COMPONENTS)
+	include ("${CMAKE_CURRENT_LIST_DIR}/LimesVecopsTargets.cmake")
+endif()
 
 #
 

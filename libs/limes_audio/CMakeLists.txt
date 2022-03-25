@@ -45,8 +45,13 @@ oranges_install_targets (
 	TARGETS
 	limes_audio
 	EXPORT
-	LimesTargets
+	LimesAudioTargets
 	REL_PATH
 	Limes/limes_audio
 	COMPONENT_PREFIX
 	limes_audio)
+
+install (EXPORT LimesAudioTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST}"
+		 EXPORT_LINK_INTERFACE_LIBRARIES)
+
+export (EXPORT LimesAudioTargets NAMESPACE Limes:: FILE LimesAudioTargets.cmake)

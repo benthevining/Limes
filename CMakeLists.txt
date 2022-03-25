@@ -36,6 +36,8 @@ include ("${CMAKE_CURRENT_LIST_DIR}/scripts/LimesMacros.cmake")
 
 find_package (Oranges REQUIRED)
 
+set (Limes_DEPS_GRAPH_OUTPUT_TO_SOURCE util)
+
 include (OrangesDefaultProjectSettings)
 
 #
@@ -51,14 +53,14 @@ oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs)
 write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_VERSION}"
 								  COMPATIBILITY SameMajorVersion)
 
-configure_package_config_file (
-	"${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake" "LimesConfig.cmake"
-	INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" PATH_VARS LIMES_ROOT_DIR)
-
 install (EXPORT LimesTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST}"
 		 EXPORT_LINK_INTERFACE_LIBRARIES)
 
 export (EXPORT LimesTargets NAMESPACE Limes:: FILE LimesTargets.cmake)
+
+configure_package_config_file (
+	"${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake" "LimesConfig.cmake"
+	INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" PATH_VARS LIMES_ROOT_DIR)
 
 install (FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
 			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION "${LIMES_INSTALL_DEST}")
