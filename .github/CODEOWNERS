@@ -21,6 +21,7 @@
 .github/workflows/codeql-analysis.yml benthevining
 .github/workflows/test_and_release.yml benthevining
 .gitignore benthevining
+.gitlint benthevining
 .gitownrc benthevining
 .nitpick.toml benthevining
 .pre-commit-config.yaml benthevining
@@ -78,6 +79,7 @@ libs/limes_music/harmony/Pitch.cpp benthevining
 libs/limes_music/harmony/Pitch.h benthevining
 libs/limes_music/harmony/PitchUtils.h benthevining
 libs/limes_music/harmony/intervals/CMakeLists.txt benthevining
+libs/limes_music/harmony/intervals/CompoundInterval.h benthevining
 libs/limes_music/harmony/intervals/CompoundInterval_impl.h benthevining
 libs/limes_music/harmony/intervals/Interval.cpp benthevining
 libs/limes_music/harmony/intervals/MicrotonalInterval.h benthevining
