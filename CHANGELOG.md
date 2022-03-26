@@ -1,5 +1,12 @@
 # Limes changelog
 
+### [2.0.1](http://github.com/benthevining/Limes/compare/v2.0.0...v2.0.1) (2022-03-26)
+
+
+### Bug Fixes
+
+* fixing makefile script ([2325ee7](http://github.com/benthevining/Limes/commit/2325ee713c965b054b90646272a2428d804fdd23))
+
 ## [2.0.0](http://github.com/benthevining/Limes/compare/v1.10.0...v2.0.0) (2022-03-21)
 
 
