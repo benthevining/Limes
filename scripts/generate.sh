@@ -10,8 +10,8 @@
 #
 # ======================================================================================
 
-BASEDIR=$(dirname "$0")
-LIMES_ROOT="$BASEDIR/.."
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
+LIMES_ROOT="$SCRIPT_DIR/.."
 CACHE_DIR="$LIMES_ROOT/Cache"
 
 CMAKE_SCRIPT="$CACHE_DIR/generate_makefile.cmake"

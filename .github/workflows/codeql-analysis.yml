@@ -44,6 +44,9 @@ jobs:
           key: ${{ runner.os }}.codeql_analysis.${{ hashFiles('**/') }}
           restore-keys: ${{ runner.os }}.codeql_analysis.
 
+      - name: Generate Makefile
+        run: scripts/generate.sh
+
       - name: Run build
         run: make build
 

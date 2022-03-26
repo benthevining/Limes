@@ -18,6 +18,7 @@
 .github/ISSUE_TEMPLATE/config.yml benthevining
 .github/ISSUE_TEMPLATE/feature_request.md benthevining
 .github/dependabot.yml benthevining
+.github/workflows/codeql-analysis.yml benthevining
 .github/workflows/test_and_release.yml benthevining
 .gitignore benthevining
 .gitownrc benthevining
@@ -61,6 +62,7 @@ libs/limes_core/misc/CMakeLists.txt benthevining
 libs/limes_core/misc/Functions.h benthevining
 libs/limes_core/misc/StaticObjects.h benthevining
 libs/limes_core/misc/TypeTraits.h benthevining
+libs/limes_core/text/StringUtils.cpp benthevining
 libs/limes_core/text/TextTable.h benthevining
 libs/limes_core/threading/CMakeLists.txt benthevining
 libs/limes_core/threading/RealtimeSafeObject.h benthevining
