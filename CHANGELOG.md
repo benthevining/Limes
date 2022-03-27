@@ -1,5 +1,12 @@
 # Limes changelog
 
+### [2.0.2](http://github.com/benthevining/Limes/compare/v2.0.1...v2.0.2) (2022-03-27)
+
+
+### Bug Fixes
+
+* fixed cppcheck precommit hook ([4680a0e](http://github.com/benthevining/Limes/commit/4680a0eb740106ffad384b74e424f3cef0caee1c))
+
 ### [2.0.1](http://github.com/benthevining/Limes/compare/v2.0.0...v2.0.1) (2022-03-26)
 
 
