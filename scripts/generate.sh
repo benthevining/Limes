@@ -39,7 +39,7 @@ Flags:
 	-h|--help : print this message and exit
 
 Arguments:
-	-c|--cache : pass the directory to cache files in as an argument
+	-c : pass the directory to cache files in as an argument
 
 Environment variables:
 	MAKEFILE_CACHE : the directory to cache files in
@@ -57,11 +57,11 @@ for arg in "$@"; do
 	esac
 done
 
-while getopts c:cache: flag
+while getopts c: flag
 do
 	case "${flag}" in
 		c) CACHE_DIR="${OPTARG}";;
-		cache) CACHE_DIR="${OPTARG}";;
+		*) echo "Invalid option ${OPTARG} specified";;
 	esac
 done
 
