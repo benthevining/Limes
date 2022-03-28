@@ -34,7 +34,7 @@ repos:
         files: .github/CODEOWNERS
 
   - repo: https://github.com/andreoliwa/nitpick
-    rev: v0.31.0
+    rev: v0.32.0
     hooks:
       - id: nitpick
 
@@ -130,7 +130,7 @@ repos:
     hooks:
       - id: yamllint
   - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.14.0
+    rev: 0.14.1
     hooks:
       - id: check-github-workflows
 
@@ -168,7 +168,7 @@ repos:
       - id: yapf
         args: [-i]
   - repo: https://github.com/PyCQA/pylint
-    rev: v2.12.2
+    rev: v2.13.2
     hooks:
       - id: pylint
 
