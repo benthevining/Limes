@@ -25,15 +25,17 @@ concept Container = requires (T a)
 	{ a.end() };
 };
 
+template <Container ContainerType>
+using ElementType = std::remove_reference_t<decltype (*std::begin (std::declval<ContainerType&>()))>;
 
-template <Container ContainerType, class T>
-LIMES_EXPORT constexpr void fill (ContainerType& container, const T& toFillWith)
+template <Container ContainerType>
+LIMES_EXPORT constexpr void fill (ContainerType& container, const ElementType<ContainerType>& toFillWith)
 {
 	std::fill (container.begin(), container.end(), toFillWith);
 }
 
-template <Container ContainerType, class T>
-LIMES_EXPORT [[nodiscard]] constexpr bool contains (const ContainerType& container, const T& value)
+template <Container ContainerType>
+LIMES_EXPORT [[nodiscard]] constexpr bool contains (const ContainerType& container, const ElementType<ContainerType>& value)
 {
 	return std::find (container.begin(), container.end(), value) != container.end();
 }
@@ -44,8 +46,8 @@ LIMES_EXPORT [[nodiscard]] constexpr bool contains_if (const ContainerType& cont
 	return std::find_if (container.begin(), container.end(), std::move (p)) != container.end();
 }
 
-template <Container ContainerType, class T, class UnaryPredicate>
-LIMES_EXPORT [[nodiscard]] constexpr T& contains_or (const ContainerType& container, T& defaultValue, UnaryPredicate&& p)
+template <Container ContainerType, class UnaryPredicate>
+LIMES_EXPORT [[nodiscard]] constexpr ElementType<ContainerType>& contains_or (const ContainerType& container, ElementType<ContainerType>& defaultValue, UnaryPredicate&& p)
 {
 	const auto res = std::find_if (container.begin(), container.end(), std::move (p));
 
@@ -55,8 +57,8 @@ LIMES_EXPORT [[nodiscard]] constexpr T& contains_or (const ContainerType& contai
 	return *res;
 }
 
-template <Container ContainerType, class T, class UnaryPredicate>
-LIMES_EXPORT [[nodiscard]] constexpr const T& contains_or (const ContainerType& container, const T& defaultValue, UnaryPredicate&& p)
+template <Container ContainerType, class UnaryPredicate>
+LIMES_EXPORT [[nodiscard]] constexpr const ElementType<ContainerType>& contains_or (const ContainerType& container, const ElementType<ContainerType>& defaultValue, UnaryPredicate&& p)
 {
 	const auto res = std::find_if (container.begin(), container.end(), std::move (p));
 
@@ -69,10 +71,10 @@ LIMES_EXPORT [[nodiscard]] constexpr const T& contains_or (const ContainerType& 
 template <Container ContainerType, class UnaryPredicate>
 LIMES_EXPORT [[nodiscard]] constexpr auto contains_or_default (const ContainerType& container, UnaryPredicate&& p)
 {
-	using T = typename std::decay<decltype (*container.begin())>::type;
+	using T = ElementType<ContainerType>;
 
 	static_assert (std::is_default_constructible_v<T>,
-				   "T must be default constructible!");
+				   "Element type must be default constructible!");
 
 	const auto res = std::find_if (container.begin(), container.end(), std::move (p));
 
@@ -119,14 +121,14 @@ LIMES_EXPORT [[nodiscard]] constexpr int num_of (const ContainerType& container,
 template <Container ContainerType>
 LIMES_EXPORT [[nodiscard]] constexpr int size (const ContainerType& container)
 {
-	using ElementType = decltype (*container.begin());
+	using T = ElementType<ContainerType>;
 
-	return num_of (container, [] (const ElementType&)
+	return num_of (container, [] (const T&)
 				   { return true; });
 }
 
-template <Container ContainerType, typename ElementType>
-LIMES_EXPORT constexpr void remove (ContainerType& container, const ElementType& object)
+template <Container ContainerType>
+LIMES_EXPORT constexpr void remove (ContainerType& container, const ElementType<ContainerType>& object)
 {
 	container.erase (std::remove (container.begin(), container.end(), object));
 }
