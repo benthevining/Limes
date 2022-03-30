@@ -1,5 +1,12 @@
 # Limes changelog
 
+### [2.0.3](http://github.com/benthevining/Limes/compare/v2.0.2...v2.0.3) (2022-03-30)
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([1b261ba](http://github.com/benthevining/Limes/commit/1b261ba68a418aee32165e6e59eb97d793badfd1))
+
 ### [2.0.2](http://github.com/benthevining/Limes/compare/v2.0.1...v2.0.2) (2022-03-27)
 
 
