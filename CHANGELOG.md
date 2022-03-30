@@ -1,5 +1,12 @@
 # Limes changelog
 
+### [2.0.4](http://github.com/benthevining/Limes/compare/v2.0.3...v2.0.4) (2022-03-30)
+
+
+### Bug Fixes
+
+* added changelog to excluded files for typos hook ([fe1392b](http://github.com/benthevining/Limes/commit/fe1392be0b4d0349adabfb75afcd4469d063fddb))
+
 ### [2.0.3](http://github.com/benthevining/Limes/compare/v2.0.2...v2.0.3) (2022-03-30)
 
 
