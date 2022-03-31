@@ -12,7 +12,7 @@
  */
 
 #include "Dimensions.h"
-#include <limes_vecops.h>
+#include <limes_vecops.h>  // for LIMES_ASSERT
 
 namespace limes
 {

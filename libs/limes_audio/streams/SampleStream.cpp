@@ -31,7 +31,7 @@ template <Sample SampleType>
 void SampleStream<SampleType>::getSamples (SampleType* const output, int numSamples) const
 {
 	for (auto i = 0; i < numSamples; ++i)
-		output[i] = sampleFunc();
+		output[i] = sampleFunc();  // NOLINT
 }
 
 template <Sample SampleType>

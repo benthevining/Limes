@@ -12,7 +12,11 @@
 
 #pragma once
 
+#include "ObjectBase.h"
+#include "../RealtimeTypeTraits.h"
+#include "../ThreadSafeObject.h"
 #include <limes_export.h>
+#include <atomic>
 
 namespace limes::threads::detail
 {
@@ -20,6 +24,12 @@ namespace limes::threads::detail
 template <typename ObjectType, bool RealtimeMutatable>
 struct LIMES_EXPORT AtomicObjectBase : public ObjectBase<ObjectType>
 {
+	template <typename... Args>
+	explicit AtomicObjectBase (Args&&... args)
+		: storage (std::forward<Args> (args)...)
+	{
+	}
+
 	static_assert (std::atomic<ObjectType>::is_always_lock_free, "Atomic must be lock-free!");
 	static_assert (is_realtime_copy_safe<ObjectType>::value, "ObjectType must be realtime copy safe!");
 

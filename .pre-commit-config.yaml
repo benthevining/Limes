@@ -1,4 +1,6 @@
 ---
+# yamllint disable rule:line-length
+
 default_language_version:
   python: python3
 
@@ -33,6 +35,14 @@ repos:
         language: python
         files: .github/CODEOWNERS
 
+      # create build directory for linters, to read CompileCommands.json
+      - id: run-cmake
+        name: Run CMake
+        entry: cmake -B Builds -G 'Unix Makefiles' -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+        language: system
+        always_run: true
+        pass_filenames: false
+
   - repo: https://github.com/andreoliwa/nitpick
     rev: v0.32.0
     hooks:
@@ -46,7 +56,6 @@ repos:
         args: [--no-diff, --style=file, -i]
         additional_dependencies: [clang-format]
         exclude: cmake/
-      # yamllint disable rule:line-length
       - id: cppcheck
         args: [--quiet, --inline-suppr, --std=c++20, --language=c++,
                --enable=warning, --enable=style, --enable=performance, --enable=portability,
@@ -56,7 +65,10 @@ repos:
       - id: cpplint
         args: [--verbose=0, "--filter=-whitespace,-legal,-build,-runtime/references,-readability/braces,-readability/todo"]
         additional_dependencies: [cpplint]
-      # yamllint enable
+      # - id: clang-tidy
+      #   args: [-p=Builds]
+      # - id: include-what-you-use
+      #   args: [-Xiwyu, --update_comments, -Xiwyu, --cxx17ns]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
@@ -183,3 +195,5 @@ ci:
   skip: [cppcheck, gitown]
   autofix_commit_msg: 'style: pre-commit autofixes [skip ci]'
   autoupdate_commit_msg: 'chore: pre-commit autoupdate [skip ci]'
+
+# yamllint enable

@@ -13,7 +13,7 @@
 
 #pragma once
 
-#include <limes_export.h>
+#include <limes_export.h>  // for LIMES_EXPORT
 
 namespace limes
 {
@@ -33,14 +33,19 @@ struct LIMES_EXPORT Dimensions final
 	}
 
 	/** Copy constructor. */
-	Dimensions (const Dimensions& other) = default;
+	Dimensions (const Dimensions&) = default;
+
+	Dimensions (Dimensions&&) = default;
 
 	/** Assignment operator. */
 	Dimensions& operator= (const Dimensions&) = default;
+	Dimensions& operator= (Dimensions&&) = default;
 
 	Dimensions& setWidth (int newWidth);
 
 	Dimensions& setHeight (int newHeight);
+
+	~Dimensions() = default;
 
 	/** Returns true if the passed Dimensions object is equal to this one. */
 	[[nodiscard]] bool operator== (const Dimensions& other) const noexcept;
@@ -69,7 +74,7 @@ struct LIMES_EXPORT Dimensions final
 	//	[[nodiscard]] static Dimensions fromString (const String& string);
 
 	/** Returns a Dimensions object representing the size 1060 x 640. */
-	[[nodiscard]] static constexpr Dimensions getDefault() { return Dimensions { 1060, 640 }; }
+	[[nodiscard]] static constexpr Dimensions getDefault() { return Dimensions { 1060, 640 }; }	 // NOLINT
 
 private:
 

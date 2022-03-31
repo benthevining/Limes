@@ -59,16 +59,16 @@ public:
 	[[nodiscard]] StereoReductionMode getStereoReductionMode() const noexcept;
 
 	/** Converts a stereo signal to mono. */
-	void convertStereoToMono (const SampleType* const leftIn,
-							  const SampleType* const rightIn,
-							  SampleType* const		  monoOut,
-							  int					  numSamples);
+	void convertStereoToMono (const SampleType* leftIn,
+							  const SampleType* rightIn,
+							  SampleType*		monoOut,
+							  int				numSamples);
 
 	/** Converts a mono signal to stereo. */
-	void convertMonoToStereo (const SampleType* const monoIn,
-							  SampleType* const		  leftOut,
-							  SampleType* const		  rightOut,
-							  int					  numSamples);
+	void convertMonoToStereo (const SampleType* monoIn,
+							  SampleType*		leftOut,
+							  SampleType*		rightOut,
+							  int				numSamples);
 
 
 private:

@@ -37,7 +37,7 @@ public:
 	[[nodiscard]] SampleType getSample() const;
 
 	/** Returns a stream of samples. */
-	void getSamples (SampleType* const output, int numSamples) const;
+	void getSamples (SampleType* output, int numSamples) const;
 
 	/** Skips a number of samples in the stream. */
 	void skipSamples (int numToSkip) const;

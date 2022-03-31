@@ -12,8 +12,8 @@
 
 #pragma once
 
+#include "Fraction.h"
 #include <numeric>
-
 #include <limes_vecops.h>
 
 namespace limes::math
@@ -177,15 +177,7 @@ constexpr bool Fraction<ValueType>::isNegative() const noexcept
 	if constexpr (std::is_unsigned<ValueType>::value)
 		return false;
 	else
-	{
-		if (! (numerator < 0 || denominator < 0))
-			return false;
-
-		if (numerator < 0 && denominator < 0)
-			return false;
-
-		return true;
-	}
+		return numerator < 0 || denominator < 0;
 }
 
 template <Scalar ValueType>

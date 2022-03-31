@@ -14,6 +14,7 @@
 
 #include <limes_vecops.h>
 #include "ObjectBase.h"
+#include "../RealtimeTypeTraits.h"
 #include <mutex>
 #include <limes_export.h>
 
@@ -41,6 +42,14 @@ public:
 
 		nonRealtimeLock.unlock();
 	}
+
+	RealtimeMutatableObject (const RealtimeMutatableObject&) = delete;
+
+	RealtimeMutatableObject (RealtimeMutatableObject&& other) = delete;
+
+	RealtimeMutatableObject& operator= (const RealtimeMutatableObject&) = delete;
+
+	RealtimeMutatableObject& operator= (RealtimeMutatableObject&&) = delete;
 
 	[[nodiscard]] bool isUsingAtomic() const noexcept final { return false; }
 
@@ -70,7 +79,7 @@ public:
 		// there is new data so flip the indices around atomically ensuring we are not inside realtimeAssign
 		if ((current & BIT::NEW_DATA) != 0)
 		{
-			int newValue;
+			int newValue;  // NOLINT
 
 			do
 			{

@@ -12,20 +12,17 @@
 
 #pragma once
 #include <limes_core.h>
+#include <limes_vecops.h>
+#include "NoteLength.h"
 
 namespace limes::music
 {
 
-constexpr NoteLength::NoteLength (int numBeats, NoteDuration kind, int dots, bool isGraceNote)
+constexpr NoteLength::NoteLength (int numBeats, NoteDuration kind, int dots, bool isGraceNote)	// NOLINT
 	: duration (kind), num (numBeats), numDots (dots), grace (isGraceNote)
 {
 	if (grace)
 		LIMES_ASSERT (duration.getDuration() >= 8);
-}
-
-constexpr NoteLength::NoteLength (const NoteLength& other) noexcept
-	: duration (other.duration), num (other.num), numDots (other.numDots), grace (other.grace), tie (other.tie)
-{
 }
 
 constexpr bool NoteLength::operator== (const NoteLength& other) const noexcept

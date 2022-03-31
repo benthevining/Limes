@@ -24,7 +24,7 @@ public:
 
 	constexpr explicit NoteLength (int numBeats, NoteDuration kind, int dots = 0, bool isGraceNote = false);
 
-	constexpr NoteLength (const NoteLength& other) noexcept;
+	NoteLength (const NoteLength&) = default;
 
 	[[nodiscard]] constexpr bool operator== (const NoteLength& other) const noexcept;
 

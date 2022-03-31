@@ -57,6 +57,12 @@ public:
 		return *this;
 	}
 
+	Octatonic (Octatonic&&) = default;
+
+	~Octatonic() final = default;
+
+	Octatonic& operator= (Octatonic&&) = default;
+
 	/** Creates an octatonic scale object from a string description of one.
 		@see getStringDescription()
 	 */
