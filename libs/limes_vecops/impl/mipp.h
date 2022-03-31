@@ -14,6 +14,7 @@
 
 #include <mipp.h>
 #include <limits>
+#include "../limes_vecops.h"
 
 namespace limes::vecops
 {

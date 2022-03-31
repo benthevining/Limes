@@ -12,6 +12,9 @@
 
 #pragma once
 
+#include "../ThreadSafeObject.h"
+#include "../RealtimeSafeObject.h"
+
 namespace limes::threads
 {
 

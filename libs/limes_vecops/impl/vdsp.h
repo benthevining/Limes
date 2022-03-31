@@ -15,6 +15,7 @@
 #include <Accelerate/Accelerate.h>
 #include <limits>
 #include <cmath>
+#include "../limes_vecops.h"
 
 namespace limes::vecops
 {

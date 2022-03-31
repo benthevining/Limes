@@ -13,6 +13,7 @@
 #pragma once
 
 #include <limes_core.h>
+#include "NoteDuration.h"
 
 namespace limes::music
 {

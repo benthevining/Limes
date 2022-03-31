@@ -12,6 +12,8 @@
 
 #pragma once
 
+#include "../limes_vecops.h"
+
 namespace limes::vecops
 {
 

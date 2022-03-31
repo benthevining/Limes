@@ -74,6 +74,7 @@ libs/limes_core/threading/RealtimeSafeObject/AtomicObjectHolder.h benthevining
 libs/limes_core/threading/RealtimeSafeObject/NonrealtimeMutatableObject.h benthevining
 libs/limes_core/threading/RealtimeSafeObject/RealtimeMutatableObject.h benthevining
 libs/limes_core/threading/RealtimeSafeObject/RealtimeSafeObject_impl.h benthevining
+libs/limes_core/threading/ThreadSafeObject.h benthevining
 libs/limes_music/CMakeLists.txt benthevining
 libs/limes_music/harmony/CMakeLists.txt benthevining
 libs/limes_music/harmony/Chord.cpp benthevining
@@ -98,6 +99,7 @@ libs/limes_music/harmony/scales/Scale.h benthevining
 libs/limes_music/harmony/scales/WholeTone.cpp benthevining
 libs/limes_music/rhythm/CMakeLists.txt benthevining
 libs/limes_music/rhythm/NoteDuration.h benthevining
+libs/limes_music/rhythm/NoteDuration_impl.h benthevining
 libs/limes_music/rhythm/NoteLength.cpp benthevining
 libs/limes_music/rhythm/NoteLength.h benthevining
 libs/limes_music/rhythm/NoteLength_impl.h benthevining

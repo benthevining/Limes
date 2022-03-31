@@ -48,13 +48,11 @@ LIMES_EXPORT [[nodiscard]] constexpr T negate (T val) noexcept
 {
 	if constexpr (std::is_unsigned<T>::value)
 		return val;
-	else
-	{
-		if (val < T (0))
-			return -val;
 
-		return val;
-	}
+	if (val < T (0))
+		return -val;
+
+	return val;
 }
 
 
@@ -63,8 +61,8 @@ LIMES_EXPORT [[nodiscard]] constexpr int round (T val) noexcept
 {
 	if constexpr (std::is_integral_v<T>)
 		return static_cast<int> (val);
-	else
-		return (val >= T (0)) ? static_cast<int> (val + 0.5) : static_cast<int> (val - 0.5);
+
+	return (val >= T (0)) ? static_cast<int> (val + 0.5) : static_cast<int> (val - 0.5);
 }
 
 
@@ -133,8 +131,8 @@ LIMES_EXPORT [[nodiscard]] inline PeriodType freqFromPeriod (double samplerate, 
 
 	if constexpr (std::is_same_v<PeriodType, int>)
 		return round (val);
-	else
-		return static_cast<PeriodType> (val);
+
+	return static_cast<PeriodType> (val);
 }
 
 
@@ -165,8 +163,8 @@ LIMES_EXPORT [[nodiscard]] inline T midiToFreq (T midiNote) noexcept
 
 	if constexpr (std::is_same_v<T, int>)
 		return round (val);
-	else
-		return static_cast<T> (val);
+
+	return static_cast<T> (val);
 }
 
 /** Converts a frequency in Hz to a MIDI note. */
@@ -177,8 +175,8 @@ LIMES_EXPORT [[nodiscard]] inline T freqToMidi (T freqHz) noexcept
 
 	if constexpr (std::is_same_v<T, int>)
 		return round (val);
-	else
-		return static_cast<T> (val);
+
+	return static_cast<T> (val);
 }
 
 ///@}

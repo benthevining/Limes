@@ -65,6 +65,10 @@ repos:
       - id: cpplint
         args: [--verbose=0, "--filter=-whitespace,-legal,-build,-runtime/references,-readability/braces,-readability/todo"]
         additional_dependencies: [cpplint]
+      # - id: oclint
+      #   args: [--enable-clang-static-analyzer, --enable-global-analysis, -p=Builds, --report-type=text, -o=Builds/oclint_report.txt,
+      #          --disable-rule=ShortVariableName, --disable-rule=LongVariableName, --disable-rule=UnusedMethodParameter, --disable-rule=LongLine, --disable-rule=AvoidPrivateStaticMembers,
+      #          --extra-arg=-DLIMES_VECOPS_USE_VDSP=0, --extra-arg=-DLIMES_VECOPS_USE_IPP=0, --extra-arg=-DLIMES_VECOPS_USE_MIPP=0]
       # - id: clang-tidy
       #   args: [-p=Builds]
       # - id: include-what-you-use
@@ -192,7 +196,7 @@ repos:
         always_run: true
 
 ci:
-  skip: [cppcheck, gitown]
+  skip: [cppcheck, gitown, run-cmake, oclint]
   autofix_commit_msg: 'style: pre-commit autofixes [skip ci]'
   autoupdate_commit_msg: 'chore: pre-commit autoupdate [skip ci]'
 
