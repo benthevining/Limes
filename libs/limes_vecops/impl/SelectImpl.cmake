@@ -34,6 +34,8 @@ if(APPLE)
 			INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/vdsp.h>
 					  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/vdsp.h>)
 
+		target_link_libraries (limes_vecops INTERFACE "-framework vDSP")
+
 		message (VERBOSE "limes_vecops -- using vDSP")
 
 		return ()

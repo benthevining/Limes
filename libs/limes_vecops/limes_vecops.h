@@ -167,35 +167,42 @@ template <Scalar DataType, Integral SizeType>
 void square (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void square (DataType* const dest, const DataType* const data, SizeType size);
+void squareAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
 void squareRoot (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void squareRoot (DataType* const dest, const DataType* const data, SizeType size);
+void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+/*-----  Sorting and ordering functions  -----*/
 
 template <Scalar DataType, Integral SizeType>
 void reverse (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void reverse (DataType* const dest, const DataType* const data, SizeType size);
+void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
 void sort (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void sort (DataType* const dest, const DataType* const data, SizeType size);
+void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
 void sortReverse (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void sortReverse (DataType* const dest, const DataType* const data, SizeType size);
+void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void interleave (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples);
+
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void deinterleave (DataType* const * const output, const DataType* const interleavedData, SizeType1 numChannels, SizeType2 numSamples);
 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -205,21 +212,21 @@ template <Scalar DataType, Integral SizeType>
 void abs (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void abs (DataType* const dest, const DataType* const data, SizeType size);
+void absAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 
 template <Scalar DataType, Integral SizeType>
 void negate (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void negate (DataType* const dest, const DataType* const data, SizeType size);
+void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 
 template <Scalar DataType, Integral SizeType>
 void clip (DataType* const dataAndDest, SizeType size, DataType lowClip = -1, DataType hiClip = 1);
 
 template <Scalar DataType, Integral SizeType>
-void clip (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip = -1, DataType hiClip = 1);
+void clipAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip = -1, DataType hiClip = 1);
 
 
 template <Scalar DataType, Integral SizeType>
@@ -278,6 +285,21 @@ template <Scalar DataType, Integral SizeType>
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples);
+
+
+template <Scalar DataType, Integral SizeType>
+DataType rms (const DataType* const data, SizeType size);
+
+
+template <Scalar DataType, Integral SizeType>
+[[nodiscard]] int countZeroCrossings (const DataType* const data, SizeType size);
+
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+
 template <Scalar DataType, Integral SizeType>
 void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue);
 
@@ -285,7 +307,7 @@ template <Scalar DataType, Integral SizeType>
 void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue);
 
 template <Scalar DataType, Integral SizeType>
-void applyRamp (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue);
+void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue);
 
 
 namespace window
@@ -298,7 +320,7 @@ template <Scalar DataType, Integral SizeType>
 void applyBlackman (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void applyBlackman (DataType* const dest, const DataType* const data, SizeType size);
+void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
 void generateHamm (DataType* const output, SizeType size);
@@ -307,7 +329,7 @@ template <Scalar DataType, Integral SizeType>
 void applyHamm (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void applyHamm (DataType* const dest, const DataType* const data, SizeType size);
+void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
 void generateHanning (DataType* const output, SizeType size);
@@ -316,7 +338,7 @@ template <Scalar DataType, Integral SizeType>
 void applyHanning (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void applyHanning (DataType* const dest, const DataType* const data, SizeType size);
+void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 }  // namespace window
 
@@ -359,7 +381,7 @@ void applyHanning (DataType* const dest, const DataType* const data, SizeType si
 static_assert (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingFallback());
 
 
-[[nodiscard]] static inline std::string getImplementationName()
+[[nodiscard]] static constexpr const char* const getImplementationName()
 {
 	if constexpr (isUsingVDSP())
 		return "Apple vDSP";

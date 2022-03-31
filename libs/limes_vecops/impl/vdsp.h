@@ -56,7 +56,7 @@ void clear (DataType* const data, SizeType size)
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vclrD (data, vDSP_Stride (1), vDSP_Length (size));
 	else
-		fb::clear (data, size);
+		fill (data, size, DataType (0));
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -293,18 +293,23 @@ void divideAndCopy (DataType* const dest, const DataType* const origData, SizeTy
 template <Scalar DataType, Integral SizeType>
 void square (DataType* const dataAndDest, SizeType size)
 {
-	square (dataAndDest, dataAndDest, size);
+	if constexpr (is_float_type<DataType>())
+		vDSP_vsq (dataAndDest, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_vsqD (dataAndDest, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
+	else
+		fb::square (dataAndDest, dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void square (DataType* const dest, const DataType* const data, SizeType size)
+void squareAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
 		vDSP_vsq (data, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vsqD (data, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-		fb::square (dest, data, size);
+		fb::squareAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -314,9 +319,9 @@ void squareRoot (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void squareRoot (DataType* const dest, const DataType* const data, SizeType size)
+void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::squareRoot (dest, data, size);
+	fb::squareRootAndCopy (dest, data, size);
 }
 
 
@@ -335,7 +340,7 @@ void reverse (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void reverse (DataType* const dest, const DataType* const data, SizeType size)
+void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	copy (dest, data, size);
 	reverse (dest, size);
@@ -353,7 +358,7 @@ void sort (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void sort (DataType* const dest, const DataType* const data, SizeType size)
+void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	copy (dest, data, size);
 	sort (dest, size);
@@ -367,10 +372,22 @@ void sortReverse (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void sortReverse (DataType* const dest, const DataType* const data, SizeType size)
+void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	sort (dest, data, size);
+	sortAndCopy (dest, data, size);
 	reverse (dest, size);
+}
+
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void interleave (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	fb::interleave (output, origData, numChannels, numSamples);
+}
+
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void deinterleave (DataType* const * const output, const DataType* const interleavedData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	fb::deinterleave (output, interleavedData, numChannels, numSamples);
 }
 
 
@@ -380,11 +397,18 @@ void sortReverse (DataType* const dest, const DataType* const data, SizeType siz
 template <Scalar DataType, Integral SizeType>
 void abs (DataType* const dataAndDest, SizeType size)
 {
-	abs (dataAndDest, dataAndDest, size);
+	if constexpr (is_float_type<DataType>())
+		vDSP_vabs (dataAndDest, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_vabsD (dataAndDest, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_signed_32_bit_type<DataType>())
+		vDSP_vabsi (dataAndDest, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
+	else
+		fb::abs (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void abs (DataType* const dest, const DataType* const data, SizeType size)
+void absAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
 		vDSP_vabs (data, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
@@ -393,43 +417,53 @@ void abs (DataType* const dest, const DataType* const data, SizeType size)
 	else if constexpr (is_signed_32_bit_type<DataType>())
 		vDSP_vabsi (data, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-		fb::abs (dest, data, size);
+		fb::absAndCopy (dest, data, size);
 }
 
 
 template <Scalar DataType, Integral SizeType>
 void negate (DataType* const dataAndDest, SizeType size)
 {
-	negate (dataAndDest, dataAndDest, size);
+	if constexpr (is_float_type<DataType>())
+		vDSP_vneg (dataAndDest, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_vnegD (dataAndDest, vDSP_Stride (1), dataAndDest, vDSP_Stride (1), vDSP_Length (size));
+	else
+		multiply (dataAndDest, size, DataType (-1));
 }
 
 template <Scalar DataType, Integral SizeType>
-void negate (DataType* const dest, const DataType* const data, SizeType size)
+void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
 		vDSP_vneg (data, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vnegD (data, vDSP_Stride (1), dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-		fb::negate (dest, data, size);
+		multiplyAndCopy (dest, data, size, DataType (-1));
 }
 
 
 template <Scalar DataType, Integral SizeType>
 void clip (DataType* const dataAndDest, SizeType size, DataType lowClip, DataType hiClip)
 {
-	clip (dataAndDest, dataAndDest, size, lowClip, hiClip);
+	if constexpr (is_float_type<DataType>())
+		vDSP_vclip (dataAndDest, vDSP_Stride (1), &lowClip, &hiClip, dataAndDest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_vclipD (dataAndDest, vDSP_Stride (1), &lowClip, &hiClip, dataAndDest, vDSP_Stride (1), vDSP_Length (size));
+	else
+		fb::clip (dataAndDest, size, lowClip, hiClip);
 }
 
 template <Scalar DataType, Integral SizeType>
-void clip (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip, DataType hiClip)
+void clipAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip, DataType hiClip)
 {
 	if constexpr (is_float_type<DataType>())
 		vDSP_vclip (data, vDSP_Stride (1), &lowClip, &hiClip, dest, vDSP_Stride (1), vDSP_Length (size));
 	else if constexpr (is_double_type<DataType>())
 		vDSP_vclipD (data, vDSP_Stride (1), &lowClip, &hiClip, dest, vDSP_Stride (1), vDSP_Length (size));
 	else
-		fb::clip (dest, data, size, lowClip, hiClip);
+		fb::clipAndCopy (dest, data, size, lowClip, hiClip);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -595,13 +629,21 @@ void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, I
 template <Scalar DataType, Integral SizeType>
 DataType range (const DataType* const data, SizeType size)
 {
-	return fb::range (data, size);
+	DataType minVal, maxVal;
+
+	minMax (data, size, minVal, maxVal);
+
+	return maxVal - minVal;
 }
 
 template <Scalar DataType, Integral SizeType>
 DataType rangeAbs (const DataType* const data, SizeType size)
 {
-	return fb::rangeAbs (data, size);
+	DataType minVal, maxVal;
+
+	minMaxAbs (data, size, minVal, maxVal);
+
+	return maxVal - minVal;
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -638,6 +680,42 @@ DataType mean (const DataType* const data, SizeType size)
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	clear (output, numSamples);
+
+	for (int c = 0; c < static_cast<int> (numChannels); ++c)
+		add (output, numSamples, origData[c]);
+
+	multiply (output, numSamples, DataType (1.0) / static_cast<DataType> (numChannels));
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType rms (const DataType* const data, SizeType size)
+{
+	return fb::rms (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+int countZeroCrossings (const DataType* const data, SizeType size)
+{
+	vDSP_Length lastFoundIdx, numCrossings;
+
+	if constexpr (is_float_type<DataType>())
+		vDSP_nzcros (data, vDSP_Stride (1), vDSP_Length (size), &lastFoundIdx, &numCrossings, vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_nzcrosD (data, vDSP_Stride (1), vDSP_Length (size), &lastFoundIdx, &numCrossings, vDSP_Length (size));
+	else
+		return fb::countZeroCrossings (data, size);
+
+	return static_cast<int> (numCrossings);
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+
 template <Scalar DataType, Integral SizeType>
 void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue)
 {
@@ -658,7 +736,7 @@ void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue,
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyRamp (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
+void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
 {
 	generateRamp (dest, size, startValue, endValue);
 	multiply (dest, size, data);
@@ -686,7 +764,7 @@ void applyBlackman (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyBlackman (DataType* const dest, const DataType* const data, SizeType size)
+void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	generateBlackman (dest, size);
 	multiply (dest, size, data);
@@ -710,7 +788,7 @@ void applyHamm (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyHamm (DataType* const dest, const DataType* const data, SizeType size)
+void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	generateHamm (dest, size);
 	multiply (dest, size, data);
@@ -734,7 +812,7 @@ void applyHanning (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyHanning (DataType* const dest, const DataType* const data, SizeType size)
+void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	generateHanning (dest, size);
 	multiply (dest, size, data);

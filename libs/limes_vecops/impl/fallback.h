@@ -163,9 +163,9 @@ void square (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void square (DataType* const dest, const DataType* const data, SizeType size)
+void squareAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::square (dest, data, size);
+	fb::squareAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -175,9 +175,9 @@ void squareRoot (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void squareRoot (DataType* const dest, const DataType* const data, SizeType size)
+void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::squareRoot (dest, data, size);
+	fb::squareRootAndCopy (dest, data, size);
 }
 
 
@@ -191,9 +191,9 @@ void reverse (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void reverse (DataType* const dest, const DataType* const data, SizeType size)
+void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::reverse (dest, data, size);
+	fb::reverseAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -203,9 +203,9 @@ void sort (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void sort (DataType* const dest, const DataType* const data, SizeType size)
+void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::sort (dest, data, size);
+	fb::sortAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -215,9 +215,21 @@ void sortReverse (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void sortReverse (DataType* const dest, const DataType* const data, SizeType size)
+void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::sortReverse (dest, data, size);
+	fb::sortReverseAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void interleave (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	fb::interleave (output, origData, numChannels, numSamples);
+}
+
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void deinterleave (DataType* const * const output, const DataType* const interleavedData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	fb::deinterleave (output, interleavedData, numChannels, numSamples);
 }
 
 
@@ -231,9 +243,9 @@ void abs (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void abs (DataType* const dest, const DataType* const data, SizeType size)
+void absAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::abs (dest, data, size);
+	fb::absAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -243,9 +255,9 @@ void negate (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void negate (DataType* const dest, const DataType* const data, SizeType size)
+void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::negate (dest, data, size);
+	fb::negateAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -255,9 +267,9 @@ void clip (DataType* const dataAndDest, SizeType size, DataType lowClip, DataTyp
 }
 
 template <Scalar DataType, Integral SizeType>
-void clip (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip, DataType hiClip)
+void clipAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip, DataType hiClip)
 {
-	fb::clip (dest, data, size, lowClip, hiClip);
+	fb::clipAndCopy (dest, data, size, lowClip, hiClip);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -360,6 +372,28 @@ DataType mean (const DataType* const data, SizeType size)
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	fb::mix (output, origData, numChannels, numSamples);
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType rms (const DataType* const data, SizeType size)
+{
+	return fb::rms (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+int countZeroCrossings (const DataType* const data, SizeType size)
+{
+	return fb::countZeroCrossings (data, size);
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+
 template <Scalar DataType, Integral SizeType>
 void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue)
 {
@@ -373,9 +407,9 @@ void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue,
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyRamp (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
+void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
 {
-	fb::applyRamp (dest, data, size, startValue, endValue);
+	fb::applyRampAndCopy (dest, data, size, startValue, endValue);
 }
 
 
@@ -395,9 +429,9 @@ void applyBlackman (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyBlackman (DataType* const dest, const DataType* const data, SizeType size)
+void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::window::applyBlackman (dest, data, size);
+	fb::window::applyBlackmanAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -413,9 +447,9 @@ void applyHamm (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyHamm (DataType* const dest, const DataType* const data, SizeType size)
+void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::window::applyHamm (dest, data, size);
+	fb::window::applyHammAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -431,9 +465,9 @@ void applyHanning (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyHanning (DataType* const dest, const DataType* const data, SizeType size)
+void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::window::applyHanning (dest, data, size);
+	fb::window::applyHanningAndCopy (dest, data, size);
 }
 
 }  // namespace window

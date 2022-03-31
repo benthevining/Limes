@@ -12,6 +12,10 @@
 
 #include "TextTable.h"
 #include "../misc/Algorithm.h"
+#include "../data_structures/vectors/basic_vector.h"
+#include "../data_structures/vectors/scalar_vector.h"
+#include "../data_structures/vectors/vector.h"
+
 
 namespace limes
 {

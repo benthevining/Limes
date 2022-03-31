@@ -12,47 +12,43 @@
  */
 
 #include "Dimensions.h"
+#include <limes_vecops.h>
 
 namespace limes
 {
 
-Dimensions& Dimensions::operator= (const Dimensions& other)
+Dimensions& Dimensions::setWidth (int newWidth)
 {
-	width.store (other.width.load());
-	height.store (other.height.load());
+	LIMES_ASSERT (newWidth > 0);
+	width = newWidth;
 	return *this;
 }
 
-Dimensions::Dimensions (const Dimensions& other)
+Dimensions& Dimensions::setHeight (int newHeight)
 {
-	width.store (other.width.load());
-	height.store (other.height.load());
-}
-
-void Dimensions::set (int newWidth, int newHeight)
-{
-	width.store (newWidth);
-	height.store (newHeight);
+	LIMES_ASSERT (newHeight > 0);
+	height = newHeight;
+	return *this;
 }
 
 bool Dimensions::operator== (const Dimensions& other) const noexcept
 {
-	return width.load() == other.width.load() && height.load() == other.height.load();
+	return width == other.width && height == other.height;
 }
 
 bool Dimensions::isValid() const noexcept
 {
-	return width.load() > 0 && height.load() > 0;
+	return width > 0 && height > 0;
 }
 
 int Dimensions::getWidth() const noexcept
 {
-	return width.load();
+	return width;
 }
 
 int Dimensions::getHeight() const noexcept
 {
-	return height.load();
+	return height;
 }
 
 double Dimensions::getAspectRatio() const noexcept
@@ -60,7 +56,7 @@ double Dimensions::getAspectRatio() const noexcept
 	if (! isValid())
 		return 0.;
 
-	return static_cast<double> (width.load()) / static_cast<double> (height.load());
+	return static_cast<double> (width) / static_cast<double> (height);
 }
 
 bool Dimensions::hasSameAspectRatioAs (const Dimensions& other) const noexcept

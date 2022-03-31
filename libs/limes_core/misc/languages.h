@@ -12,8 +12,10 @@
 
 #pragma once
 
-#include "../data_structures/vectors/vector.h"
-#include <limes_export.h>
+#include <limes_export.h>						// for LIMES_EXPORT
+#include <string>								// for string
+#include "../data_structures/vectors/vector.h"	// for StringVector
+
 
 namespace limes::locale
 {

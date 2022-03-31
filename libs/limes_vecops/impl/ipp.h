@@ -64,7 +64,7 @@ void clear (DataType* const data, SizeType size)
 	else if constexpr (is_signed_int<DataType>())
 		ippsZero_32s (data, static_cast<int> (size));
 	else
-		fb::clear (data, size);
+		fill (data, size, DataType (0));
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -325,14 +325,14 @@ void square (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void square (DataType* const dest, const DataType* const data, SizeType size)
+void squareAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
 		ippsSqr_32f (data, dest, static_cast<int> (size));
 	else if constexpr (is_double_type<DataType>())
 		ippsSqr_64f (data, dest, static_cast<int> (size));
 	else
-		fb::square (dest, data, size);
+		fb::squareAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -347,14 +347,14 @@ void squareRoot (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void squareRoot (DataType* const dest, const DataType* const data, SizeType size)
+void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
 		ippsSqrt_32f (data, dest, static_cast<int> (size));
 	else if constexpr (is_double_type<DataType>())
 		ippsSqrt_64f (data, dest, static_cast<int> (size));
 	else
-		fb::squareRoot (dest, data, size);
+		fb::squareRootAndCopy (dest, data, size);
 }
 
 
@@ -373,14 +373,17 @@ void reverse (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void reverse (DataType* const dest, const DataType* const data, SizeType size)
+void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
 		ippsFlip_32f (data, dest, static_cast<int> (size));
 	else if constexpr (is_double_type<DataType>())
 		ippsFlip_64f (data, dest, static_cast<int> (size));
 	else
-		fb::reverse (dest, data, size);
+	{
+		copy (dest, data, size);
+		reverse (dest, size);
+	}
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -397,7 +400,7 @@ void sort (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void sort (DataType* const dest, const DataType* const data, SizeType size)
+void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	copy (dest, data, size);
 	sort (dest, size);
@@ -413,14 +416,29 @@ void sortReverse (DataType* const dataAndDest, SizeType size)
 	else if constexpr (is_signed_int<DataType>())
 		ippsSortDescend_32s_I (dataAndDest, static_cast<int> (size));
 	else
-		fb::sortReverse (dataAndDest, size);
+	{
+		sort (dataAndDest, size);
+		reverse (dataAndDest, size);
+	}
 }
 
 template <Scalar DataType, Integral SizeType>
-void sortReverse (DataType* const dest, const DataType* const data, SizeType size)
+void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	copy (dest, data, size);
-	sortReverse (dest, size);
+	sortAndCopy (dest, data, size);
+	reverse (dest, size);
+}
+
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void interleave (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	fb::interleave (output, origData, numChannels, numSamples);
+}
+
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void deinterleave (DataType* const * const output, const DataType* const interleavedData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	fb::deinterleave (output, interleavedData, numChannels, numSamples);
 }
 
 
@@ -438,11 +456,12 @@ void abs (DataType* const dataAndDest, SizeType size)
 		ippsAbs_32s_I (dataAndDest, static_cast<int> (size));
 	else
 	{
+		fb::abs (dataAndDest, size);
 	}
 }
 
 template <Scalar DataType, Integral SizeType>
-void abs (DataType* const dest, const DataType* const data, SizeType size)
+void absAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
 		ippsAbs_32f (data, dest, static_cast<int> (size));
@@ -451,7 +470,7 @@ void abs (DataType* const dest, const DataType* const data, SizeType size)
 	else if constexpr (is_signed_int<DataType>())
 		ippsAbs_32s (data, dest, static_cast<int> (size));
 	else
-		fb::abs (dest, data, size);
+		fb::absAndCopy (dest, data, size);
 }
 
 
@@ -462,7 +481,7 @@ void negate (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void negate (DataType* const dest, const DataType* const data, SizeType size)
+void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	multiplyAndCopy (dest, data, size, DataType (-1));
 }
@@ -493,7 +512,7 @@ void clip (DataType* const dataAndDest, SizeType size, DataType lowClip, DataTyp
 }
 
 template <Scalar DataType, Integral SizeType>
-void clip (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip, DataType hiClip)
+void clipAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip, DataType hiClip)
 {
 	if constexpr (is_float_type<DataType>())
 	{
@@ -512,7 +531,7 @@ void clip (DataType* const dest, const DataType* const data, SizeType size, Data
 	}
 	else
 	{
-		fb::clip (dest, data, size, lowClip, hiClip);
+		fb::clipAndCopy (dest, data, size, lowClip, hiClip);
 	}
 }
 
@@ -720,13 +739,21 @@ void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, I
 template <Scalar DataType, Integral SizeType>
 DataType range (const DataType* const data, SizeType size)
 {
-	return fb::range (data, size);
+	DataType minVal, maxVal;
+
+	minMax (data, size, minVal, maxVal);
+
+	return maxVal - minVal;
 }
 
 template <Scalar DataType, Integral SizeType>
 DataType rangeAbs (const DataType* const data, SizeType size)
 {
-	return fb::rangeAbs (data, size);
+	DataType minVal, maxVal;
+
+	minMaxAbs (data, size, minVal, maxVal);
+
+	return maxVal - minVal;
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -767,6 +794,41 @@ DataType mean (const DataType* const data, SizeType size)
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	clear (output, numSamples);
+
+	for (int c = 0; c < static_cast<int> (numChannels); ++c)
+		add (output, numSamples, origData[c]);
+
+	multiply (output, numSamples, DataType (1.0) / static_cast<DataType> (numChannels));
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType rms (const DataType* const data, SizeType size)
+{
+	return fb::rms (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+int countZeroCrossings (const DataType* const data, SizeType size)
+{
+	float numZeroCrossings;
+
+	if constexpr (is_float_type<DataType>())
+	{
+		ippsZeroCrossing_32f (data, static_cast<int> (size), &numZeroCrossings, ippZCR);
+		return static_cast<int> (numZeroCrossings);
+	}
+	else
+		return fb::countZeroCrossings (data, size);
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+
 template <Scalar DataType, Integral SizeType>
 void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue)
 {
@@ -780,9 +842,10 @@ void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue,
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyRamp (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
+void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
 {
-	fb::applyRamp (dest, data, size, startValue, endValue);
+	generateRamp (dest, size, startValue, endValue);
+	multiply (dest, size, data);
 }
 
 
@@ -820,14 +883,17 @@ void applyBlackman (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyBlackman (DataType* const dest, const DataType* const data, SizeType size)
+void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
 		ippsWinBlackman_32f (data, dest, static_cast<int> (size), constants::blackman_alpha<DataType>);
 	else if constexpr (is_double_type<DataType>())
 		ippsWinBlackman_64f (data, dest, static_cast<int> (size), constants::blackman_alpha<DataType>);
 	else
-		fb::window::applyBlackman (dest, data, size);
+	{
+		generateBlackman (dest, size);
+		multiply (dest, size, data);
+	}
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -861,14 +927,17 @@ void applyHamm (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyHamm (DataType* const dest, const DataType* const data, SizeType size)
+void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
 		ippsWinHamming_32f (data, dest, static_cast<int> (size));
 	else if constexpr (is_double_type<DataType>())
 		ippsWinHamming_64f (data, dest, static_cast<int> (size));
 	else
-		fb::window::generateHamm (dest, data, size);
+	{
+		generateHamm (dest, size);
+		multiply (dest, size, data);
+	}
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -902,14 +971,17 @@ void applyHanning (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyHanning (DataType* const dest, const DataType* const data, SizeType size)
+void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
 		ippsWinHann_32f (data, dest, static_cast<int> (size));
 	else if constexpr (is_double_type<DataType>())
 		ippsWinHann_64f (data, dest, static_cast<int> (size));
 	else
-		fb::window::applyHanning (dest, data, size);
+	{
+		generateHanning (dest, size);
+		multiply (dest, size, data);
+	}
 }
 
 }  // namespace window

@@ -459,7 +459,7 @@ void square (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void square (DataType* const dest, const DataType* const data, SizeType size)
+void squareAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
 
@@ -495,7 +495,7 @@ void squareRoot (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void squareRoot (DataType* const dest, const DataType* const data, SizeType size)
+void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
 
@@ -523,9 +523,10 @@ void reverse (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void reverse (DataType* const dest, const DataType* const data, SizeType size)
+void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::reverse (dest, data, size);
+	copy (dest, data, size);
+	reverse (dest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -535,21 +536,37 @@ void sort (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void sort (DataType* const dest, const DataType* const data, SizeType size)
+void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::sort (dest, data, size);
+	copy (dest, data, size);
+	sort (dest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void sortReverse (DataType* const dataAndDest, SizeType size)
 {
-	fb::sortReverse (dataAndDest, size);
+	sort (dataAndDest, size);
+	reverse (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void sortReverse (DataType* const dest, const DataType* const data, SizeType size)
+void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::sortReverse (dest, data, size);
+	sortAndCopy (dest, data, size);
+	reverse (dest, size);
+}
+
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void interleave (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	// TO DO: MIPP does provide interleave/deinterleave operations, but it's a bit complex to wrap my head around how to implement it properly...
+	fb::interleave (output, origData, numChannels, numSamples);
+}
+
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void deinterleave (DataType* const * const output, const DataType* const interleavedData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	fb::deinterleave (output, interleavedData, numChannels, numSamples);
 }
 
 
@@ -575,7 +592,7 @@ void abs (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void abs (DataType* const dest, const DataType* const data, SizeType size)
+void absAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
 
@@ -616,7 +633,7 @@ void negate (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void negate (DataType* const dest, const DataType* const data, SizeType size)
+void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
 
@@ -666,7 +683,7 @@ void clip (DataType* const dataAndDest, SizeType size, DataType lowClip, DataTyp
 }
 
 template <Scalar DataType, Integral SizeType>
-void clip (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip, DataType hiClip)
+void clipAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip, DataType hiClip)
 {
 	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
 
@@ -946,6 +963,84 @@ DataType mean (const DataType* const data, SizeType size)
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	const auto multiplier = DataType (1.0) / static_cast<DataType> (numChannels);
+
+	const auto vecLoopSize = detail::getVecLoopSize<DataType> (numSamples);
+
+	mipp::Reg<DataType> dataRegister, channelRegister;
+
+	const auto zeroReg		 = mipp::set1<DataType> (0);
+	const auto multiplierReg = mipp::set1<DataType> (multiplier);
+
+	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	{
+		zeroReg.store (&output[i]);
+
+		for (int c = 0; c < static_cast<int> (numChannels); ++c)
+		{
+			dataRegister.load (&output[i]);
+			channelRegister.load (&origData[c][i]);
+
+			dataRegister += channelRegister;
+
+			dataRegister.store (&output[i]);
+		}
+
+		// dataRegister.load (&output[i]);
+		dataRegister *= multiplierReg;
+		dataRegister.store (&output[i]);
+	}
+
+	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (numSamples); ++i)
+	{
+		output[i] = 0;
+
+		for (int c = 0; c < static_cast<int> (numChannels); ++c)
+			output[i] += origData[c][i];
+
+		output[i] *= multiplier;
+	}
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType rms (const DataType* const data, SizeType size)
+{
+	if (size == 0) return 0;
+
+	DataType result { 0 };
+
+	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
+
+	mipp::Reg<DataType> dataRegister;
+
+	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	{
+		dataRegister.load (&data[i]);
+		dataRegister = dataRegister * dataRegister;
+		result += (mipp::sum (dataRegister));
+	}
+
+	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+		result += (data[i] * data[i]);
+
+	result /= static_cast<DataType> (size);
+
+	return std::sqrt (result);
+}
+
+template <Scalar DataType, Integral SizeType>
+int countZeroCrossings (const DataType* const data, SizeType size)
+{
+	return fb::countZeroCrossings (data, size);
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+
 template <Scalar DataType, Integral SizeType>
 void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue)
 {
@@ -959,9 +1054,10 @@ void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue,
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyRamp (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
+void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
 {
-	fb::applyRamp (dest, data, size, startValue, endValue);
+	generateRamp (dest, size, startValue, endValue);
+	multiply (dest, size, data);
 }
 
 
@@ -1029,7 +1125,7 @@ void applyBlackman (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyBlackman (DataType* const dest, const DataType* const data, SizeType size)
+void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	generateBlackman (dest, size);
 	multiply (dest, size, data);
@@ -1075,7 +1171,7 @@ void applyHamm (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyHamm (DataType* const dest, const DataType* const data, SizeType size)
+void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	generateHamm (dest, size);
 	multiply (dest, size, data);
@@ -1116,7 +1212,7 @@ void applyHanning (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyHanning (DataType* const dest, const DataType* const data, SizeType size)
+void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	generateHanning (dest, size);
 	multiply (dest, size, data);

@@ -10,12 +10,13 @@
  * ======================================================================================
  */
 
-#include <cassert>
-#include <string>
-#include <vector>
 #include "languages.h"
+#include <string_view>
+#include "../data_structures/vectors/basic_vector.h"
+#include "../data_structures/vectors/vector.h"
 #include "Algorithm.h"
 #include <limes_vecops.h>
+
 
 namespace limes::locale
 {
@@ -29,7 +30,7 @@ struct LanguageData final
 
 	explicit LanguageData (const std::string_view& name,
 						   const std::string_view& ISO_639_1, const std::string_view& ISO_639_2,
-						   const StringVector& countries = {})
+						   const StringVector& countries = {})	// NOLINT
 		: languageName (name), ISO639_1 (ISO_639_1), ISO639_2 (ISO_639_2), countryCodes (countries)
 	{
 		LIMES_ASSERT (ISO639_1.empty() || ISO639_1.length() == 2);
@@ -145,8 +146,7 @@ struct KnownLanguages final
 		languages.emplace_back ("Efik", "", "efi", StringVector { "NG" });
 		languages.emplace_back ("Ekajuk", "", "eka", StringVector { "NG" });
 		languages.emplace_back ("English", "en", "eng",
-								StringVector { "AS", "AI", "AG", "AU", "AZ", "BS", "BH", "BB", "BZ", "BJ", "BM", "BQ", "BW", "IO", "BN", "BI", "CM", "CA", "KY", "CX", "CC", "CO", "CK", "CU", "CW", "DM", "ER", "SZ", "FK", "FJ", "FI", "GM", "GH", "GI", "GD", "GU", "GG", "GW", "GN"
-																																																																				   "GY",
+								StringVector { "AS", "AI", "AG", "AU", "AZ", "BS", "BH", "BB", "BZ", "BJ", "BM", "BQ", "BW", "IO", "BN", "BI", "CM", "CA", "KY", "CX", "CC", "CO", "CK", "CU", "CW", "DM", "ER", "SZ", "FK", "FJ", "FI", "GM", "GH", "GI", "GD", "GU", "GG", "GW", "GN", "GY",
 											   "HK", "IN", "ID", "IQ", "IE", "JM", "KE", "KI", "LS", "LR", "MW", "MY", "MV", "MT", "MH", "MU", "FM", "NA", "NR", "NL", "NZ", "NI", "NG", "NU", "NF", "MP", "PK", "PW", "PG", "PH", "PN", "PR", "QA", "RU", "RW", "KN", "LC", "VC", "WS", "SC", "SL", "SG", "SX", "SB", "SO", "ZA", "GS", "SS", "LK", "SD", "SR", "TZ", "TH", "TL", "TK", "TO", "TT", "TC", "TV", "UG", "GB", "US", "VU", "VE", "VG", "VI", "ZM", "ZW" });
 		languages.emplace_back ("Erzya", "", "myv", StringVector { "RU" });
 		languages.emplace_back ("Esperanto", "eo", "epo");

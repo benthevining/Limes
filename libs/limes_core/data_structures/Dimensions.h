@@ -13,7 +13,6 @@
 
 #pragma once
 
-#include <atomic>
 #include <limes_export.h>
 
 namespace limes
@@ -34,13 +33,14 @@ struct LIMES_EXPORT Dimensions final
 	}
 
 	/** Copy constructor. */
-	Dimensions (const Dimensions& other);
+	Dimensions (const Dimensions& other) = default;
 
 	/** Assignment operator. */
-	Dimensions& operator= (const Dimensions& other);
+	Dimensions& operator= (const Dimensions&) = default;
 
-	/** Changes the dimensions. */
-	void set (int newWidth, int newHeight);
+	Dimensions& setWidth (int newWidth);
+
+	Dimensions& setHeight (int newHeight);
 
 	/** Returns true if the passed Dimensions object is equal to this one. */
 	[[nodiscard]] bool operator== (const Dimensions& other) const noexcept;
@@ -73,7 +73,7 @@ struct LIMES_EXPORT Dimensions final
 
 private:
 
-	std::atomic<int> width { 0 }, height { 0 };
+	int width { 0 }, height { 0 };
 };
 
 }  // namespace limes

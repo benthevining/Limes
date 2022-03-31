@@ -190,7 +190,7 @@ inline void square (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-inline void square (DataType* const dest, const DataType* const data, SizeType size)
+inline void squareAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
 		dest[i] = (data[i] * data[i]);
@@ -204,7 +204,7 @@ inline void squareRoot (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-inline void squareRoot (DataType* const dest, const DataType* const data, SizeType size)
+inline void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
 		dest[i] = static_cast<DataType> (std::sqrt (data[i]));
@@ -221,7 +221,7 @@ inline void reverse (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-inline void reverse (DataType* const dest, const DataType* const data, SizeType size)
+inline void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	copy (dest, data, size);
 	reverse (dest, size);
@@ -234,7 +234,7 @@ inline void sort (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-inline void sort (DataType* const dest, const DataType* const data, SizeType size)
+inline void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	copy (dest, data, size);
 	sort (dest, size);
@@ -248,10 +248,70 @@ inline void sortReverse (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-inline void sortReverse (DataType* const dest, const DataType* const data, SizeType size)
+inline void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	copy (dest, data, size);
 	sortReverse (dest, size);
+}
+
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+inline void interleave (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	int idx = 0;
+
+	switch (numChannels)
+	{
+		case 2 :
+		{
+			// common case, may be vectorized by compiler if hardcoded
+			for (int i = 0; i < static_cast<int> (numSamples); ++i)
+				for (int j = 0; j < 2; ++j)
+					output[idx++] = origData[j][i];
+
+			return;
+		}
+		case 1 :
+		{
+			copy (output, origData[0], numSamples);
+			return;
+		}
+		default :
+		{
+			for (int i = 0; i < static_cast<int> (numSamples); ++i)
+				for (int j = 0; j < static_cast<int> (numChannels); ++j)
+					output[idx++] = origData[j][i];
+		}
+	}
+}
+
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+inline void deinterleave (DataType* const * const output, const DataType* const interleavedData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	int idx = 0;
+
+	switch (numChannels)
+	{
+		case 2 :
+		{
+			// common case, may be vectorized by compiler if hardcoded
+			for (int i = 0; i < static_cast<int> (numSamples); ++i)
+				for (int j = 0; j < 2; ++j)
+					output[j][i] = interleavedData[idx++];
+
+			return;
+		}
+		case 1 :
+		{
+			copy (output[0], interleavedData, numSamples);
+			return;
+		}
+		default :
+		{
+			for (int i = 0; i < static_cast<int> (numSamples); ++i)
+				for (int j = 0; j < static_cast<int> (numChannels); ++j)
+					output[j][i] = interleavedData[idx++];
+		}
+	}
 }
 
 
@@ -266,7 +326,7 @@ inline void abs (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-inline void abs (DataType* const dest, const DataType* const data, SizeType size)
+inline void absAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
 		dest[i] = std::abs (data[i]);
@@ -280,7 +340,7 @@ inline void negate (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-inline void negate (DataType* const dest, const DataType* const data, SizeType size)
+inline void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
 		dest[i] = -data[i];
@@ -299,7 +359,7 @@ inline void clip (DataType* const dataAndDest, SizeType size, DataType lowClip, 
 }
 
 template <Scalar DataType, Integral SizeType>
-inline void clip (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip, DataType hiClip)
+inline void clipAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip, DataType hiClip)
 {
 	for (auto i = SizeType (0); i < size; ++i)
 	{
@@ -466,6 +526,59 @@ template <Scalar DataType, Integral SizeType>
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+
+template <Scalar DataType, Integral SizeType1, Integral SizeType2>
+inline void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
+{
+	clear (output, numSamples);
+
+	for (int c = 0; c < static_cast<int> (numChannels); ++c)
+		add (output, numSamples, origData[c]);
+
+	multiply (output, numSamples, DataType (1.0) / static_cast<DataType> (numChannels));
+}
+
+
+template <Scalar DataType, Integral SizeType>
+[[nodiscard]] inline DataType rms (const DataType* const data, SizeType size)
+{
+	DataType t = DataType (0);
+
+	if (size == 0) return t;
+
+	for (int i = 0; i < static_cast<int> (size); ++i)
+		t += (data[i] * data[i]);
+
+	t /= static_cast<DataType> (size);
+
+	return std::sqrt (t);
+}
+
+
+template <Scalar DataType, Integral SizeType>
+[[nodiscard]] inline int countZeroCrossings (const DataType* const data, SizeType size)
+{
+	int numCrossings { 0 };
+
+	auto sign = data[0] > DataType (0);
+
+	for (auto i = 1; i < static_cast<int> (size); ++i)
+	{
+		const auto currSign = data[i] > DataType (0);
+
+		if (currSign != sign)
+		{
+			sign = currSign;
+			++numCrossings;
+		}
+	}
+
+	return numCrossings;
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
 template <Scalar DataType, Integral SizeType>
 inline void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue)
 {
@@ -485,7 +598,7 @@ inline void applyRamp (DataType* const dataAndDest, SizeType size, DataType star
 }
 
 template <Scalar DataType, Integral SizeType>
-inline void applyRamp (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
+inline void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
 {
 	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
 
@@ -545,7 +658,7 @@ inline void applyBlackman (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-inline void applyBlackman (DataType* const dest, const DataType* const data, SizeType size)
+inline void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
 		dest[i] = data[i] * detail::getBlackmanSample<DataType> (size, i);
@@ -566,7 +679,7 @@ inline void applyHamm (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-inline void applyHamm (DataType* const dest, const DataType* const data, SizeType size)
+inline void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
 		dest[i] = data[i] * detail::getHammSample<DataType> (size, i);
@@ -587,7 +700,7 @@ inline void applyHanning (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-inline void applyHanning (DataType* const dest, const DataType* const data, SizeType size)
+inline void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
 		dest[i] = data[i] * detail::getHanningSample<DataType> (size, i);
