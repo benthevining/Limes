@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [2.1.0](http://github.com/benthevining/Limes/compare/v2.0.4...v2.1.0) (2022-04-01)
+
+
+### Features
+
+* added an FFT wrapper to the vecops lib ([10ea3ab](http://github.com/benthevining/Limes/commit/10ea3ab4d6829df618868974223a2e59855d3263))
+
 ### [2.0.4](http://github.com/benthevining/Limes/compare/v2.0.3...v2.0.4) (2022-03-30)
 
 
