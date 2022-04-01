@@ -406,3 +406,5 @@ static_assert (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingFallback
 #else
 #	include "impl/fallback.h"
 #endif
+
+#include "fft/fft.h"

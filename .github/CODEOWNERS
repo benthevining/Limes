@@ -90,6 +90,7 @@ libs/limes_music/harmony/intervals/MicrotonalInterval.h benthevining
 libs/limes_music/harmony/scales/CMakeLists.txt benthevining
 libs/limes_music/harmony/scales/Chromatic.cpp benthevining
 libs/limes_music/harmony/scales/Chromatic.h benthevining
+libs/limes_music/harmony/scales/KeySignature.h benthevining
 libs/limes_music/harmony/scales/Mode.cpp benthevining
 libs/limes_music/harmony/scales/Mode.h benthevining
 libs/limes_music/harmony/scales/Octatonic.cpp benthevining
@@ -193,8 +194,10 @@ scripts/LimesConfig.cmake benthevining
 scripts/alphabetize_codeowners.py benthevining
 scripts/cmake_file_api/query.json benthevining
 scripts/cmake_file_api/query_cmake_file_api.cmake benthevining
+scripts/generate.sh benthevining
 scripts/util.make benthevining
 util/PresetBases.json benthevining
 util/deps_graph.png benthevining
 util/limes_header.txt benthevining
+util/workspace_dependencies.json benthevining
 xt benthevining

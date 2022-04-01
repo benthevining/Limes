@@ -12,8 +12,8 @@ include ("${CMAKE_CURRENT_LIST_DIR}/SelectImpl.cmake")
 
 target_sources (
 	limes_vecops
-	INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback_impl.h>
-			  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/fallback_impl.h>)
+	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback_impl.h>
+		   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/fallback_impl.h>)
 
 install (
 	FILES "${CMAKE_CURRENT_LIST_DIR}/fallback_impl.h" "${CMAKE_CURRENT_LIST_DIR}/fallback.h"

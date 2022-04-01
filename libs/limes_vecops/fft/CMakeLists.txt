@@ -8,13 +8,10 @@
 #
 # ======================================================================================
 
-oranges_add_target_headers (
-	TARGET
-	limes_vecops
-	SCOPE
-	PUBLIC
-	REL_PATH
-	Limes/limes_vecops
-	FILES
-	Constants.h
-	Platform.h)
+target_sources (
+	limes_vecops PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fft.h>
+						$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/fft.h>
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fft.cpp>)
+
+install (FILES "${CMAKE_CURRENT_LIST_DIR}/fft.h"
+		 DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops")
