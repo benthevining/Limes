@@ -729,12 +729,15 @@ private:
 
 	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) final
 	{
-		transformF (realIn, realOut, imagOut);
-
 		if constexpr (std::is_same_v<SampleType, float>)
 		{
+			transformF (realIn, m_c, m_d);
 			// v_convert (realOut, m_c, m_half + 1);
 			// v_convert (imagOut, m_d, m_half + 1);
+		}
+		else
+		{
+			transformF (realIn, realOut, imagOut);
 		}
 	}
 
@@ -771,9 +774,12 @@ private:
 		{
 			// v_convert (m_a, realIn, m_half + 1);
 			// v_convert (m_b, imagIn, m_half + 1);
+			transformI (m_a, m_b, realOut);
 		}
-
-		transformI (realIn, imagIn, realOut);
+		else
+		{
+			transformI (realIn, imagIn, realOut);
+		}
 	}
 
 	void inverseInterleaved (const SampleType* complexIn, SampleType* realOut) final
