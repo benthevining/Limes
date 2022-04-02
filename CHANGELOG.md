@@ -1,5 +1,19 @@
 # Limes changelog
 
+## [2.2.0](http://github.com/benthevining/Limes/compare/v2.1.0...v2.2.0) (2022-04-02)
+
+
+### Features
+
+* added a fallback FFT implementation ([61f8a36](http://github.com/benthevining/Limes/commit/61f8a366693f44211bedc2db88930410434e4724))
+
+
+### Bug Fixes
+
+* bug fixes in FFT impl ([9d3e66d](http://github.com/benthevining/Limes/commit/9d3e66d075902373c434163c377cdcbcd1bae558))
+* FFT fixes ([ca71dfd](http://github.com/benthevining/Limes/commit/ca71dfdcb6a485af5e4744f0d8d34ace5b1334e3))
+* FFT fixes ([0b680d6](http://github.com/benthevining/Limes/commit/0b680d65e5686fcc261cd039b83db609f3b07d27))
+
 ## [2.1.0](http://github.com/benthevining/Limes/compare/v2.0.4...v2.1.0) (2022-04-01)
 
 
