@@ -841,13 +841,13 @@ private:
 
 	void makeTables()
 	{
-		int i, j, k, m;
+		int j, k, m;
 
 		int n = m_half;
 
 		const auto bits = [h = m_half]
 		{
-			for (i = 0;; ++i)
+			for (int i = 0;; ++i)
 				if (h & (1 << i))
 					return i;
 
@@ -855,7 +855,7 @@ private:
 			return 0;
 		}();
 
-		for (i = 0; i < n; ++i)
+		for (int i = 0; i < n; ++i)
 		{
 			m = i;
 			for (j = k = 0; j < bits; ++j)
@@ -868,7 +868,7 @@ private:
 
 		// sin and cos tables for complex fft
 		int ix = 0;
-		for (i = 2; i <= m_maxTabledBlock; i <<= 1)
+		for (int i = 2; i <= m_maxTabledBlock; i <<= 1)
 		{
 			double phase   = 2.0 * M_PI / double (i);
 			m_sincos[ix++] = sin (phase);
@@ -879,7 +879,7 @@ private:
 
 		// sin and cos tables for real-complex transform
 		ix = 0;
-		for (i = 0; i < n / 2; ++i)
+		for (int i = 0; i < n / 2; ++i)
 		{
 			double phase	 = M_PI * (double (i + 1) / double (m_half) + 0.5);
 			m_sincos_r[ix++] = sin (phase);
@@ -1033,7 +1033,7 @@ private:
 		}
 	}
 
-	const int m_half { fft_size / 2 };
+	const int m_half { this->fft_size / 2 };
 	const int m_blockTableSize { 16 };
 	const int m_maxTabledBlock { 1 << m_blockTableSize };
 	int*	  m_table;
