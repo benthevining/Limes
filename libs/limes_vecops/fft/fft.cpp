@@ -10,6 +10,10 @@
  * ======================================================================================
  */
 
+#ifndef LIMES_VECOPS_USE_FFTW
+#	define LIMES_VECOPS_USE_FFTW 0
+#endif
+
 #include <cmath>
 #include <iostream>
 #include <map>
@@ -17,6 +21,22 @@
 #include <cstdlib>
 #include <vector>
 #include "fft.h"
+
+#if LIMES_VECOPS_USE_FFTW
+#	include <fftw3.h>
+
+#	ifndef FFTW_SINGLE_ONLY
+#		define FFTW_SINGLE_ONLY 0
+#	endif
+
+#	ifndef FFTW_DOUBLE_ONLY
+#		define FFTW_DOUBLE_ONLY 0
+#	endif
+
+#	if (FFTW_SINGLE_ONLY && FFTW_DOUBLE_ONLY)
+#		error FFTW_SINGLE_ONLY and FFTW_DOUBLE_ONLY cannot both be defined to 1!
+#	endif
+#endif
 
 namespace limes::vecops
 {
@@ -72,10 +92,12 @@ protected:
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark vDSP FFT
+
 #if LIMES_VECOPS_USE_VDSP
 
 template <Scalar SampleType>
-void vDSP_nyq (SampleType* real, SampleType* imag, int fft_size)
+inline void vDSP_nyq (SampleType* real, SampleType* imag, int fft_size)
 {
 	// for ifft input in packed form, pack the DC and Nyquist bins
 	const int hs = fft_size / 2;
@@ -86,7 +108,7 @@ void vDSP_nyq (SampleType* real, SampleType* imag, int fft_size)
 }
 
 template <Scalar SampleType>
-void vDSP_denyq (SampleType* real, SampleType* imag, int fft_size)
+inline void vDSP_denyq (SampleType* real, SampleType* imag, int fft_size)
 {
 	// for fft result in packed form, unpack the DC and Nyquist bins
 	const int hs = fft_size / 2;
@@ -97,32 +119,32 @@ void vDSP_denyq (SampleType* real, SampleType* imag, int fft_size)
 }
 
 template <Scalar SampleType>
-void vDSP_packComplex (const SampleType* const re, const SampleType* const im,
-					   SampleType* realPacked, SampleType* imagPacked, int fft_size)
+inline void vDSP_packComplex (const SampleType* const re, const SampleType* const im,
+							  SampleType* realPacked, SampleType* imagPacked, int fft_size)
 {
-	// if (re != nullptr)
-	// 	v_copy (realPacked, re, fft_size / 2 + 1);
-	// else
-	// 	v_zero (realPacked, fft_size / 2 + 1);
+	const auto num = fft_size / 2 + 1;
 
-	// if (im != nullptr)
-	// 	v_copy (imagPacked, im, fft_size / 2 + 1);
-	// else
-	// 	v_zero (imagPacked, fft_size / 2 + 1);
+	if (re == nullptr)
+		vecops::clear (realPacked, num);
+	else
+		vecops::copy (realPacked, re, num);
+
+	if (im == nullptr)
+		vecops::clear (imagPacked, num);
+	else
+		vecops::copy (imagPacked, im, num);
 
 	vDSP_nyq (realPacked, imagPacked, fft_size);
 }
 
 template <Scalar SampleType>
-void vDSP_unpackComplex (SampleType* const cplx,
-						 SampleType*	   packedReal,
-						 SampleType*	   packedImag,
-						 int			   fft_size)
+inline void vDSP_unpackComplex (SampleType* const cplx,
+								SampleType*		  packedReal,
+								SampleType*		  packedImag,
+								int				  fft_size)
 {
 	// vDSP forward FFTs are scaled 2x (for some reason)
-	const int hs1 = fft_size / 2 + 1;
-
-	for (int i = 0; i < hs1; ++i)
+	for (int i = 0; i < fft_size / 2 + 1; ++i)
 	{
 		cplx[i * 2]		= packedReal[i] * SampleType (0.5);
 		cplx[i * 2 + 1] = packedImag[i] * SampleType (0.5);
@@ -206,6 +228,7 @@ private:
 		const int hs1 = fft_size / 2 + 1;
 		vDSP_zvmags (&m_packed, 1, m_spare, 1, hs1);
 		vvsqrtf (m_spare2, m_spare, &hs1);
+
 		// vDSP forward FFTs are scaled 2x (for some reason)
 		constexpr float two = 2.f;
 		vDSP_vsdiv (m_spare2, 1, &two, magOut, 1, hs1);
@@ -222,7 +245,9 @@ private:
 	void inverseInterleaved (const float* complexIn, float* realOut) final
 	{
 		float* f[2] = { m_packed.realp, m_packed.imagp };
-		// v_deinterleave (f, complexIn, 2, fft_size / 2 + 1);
+
+		vecops::deinterleave (f, complexIn, 2, fft_size / 2 + 1);
+
 		vDSP_nyq (m_packed.realp, m_packed.imagp, fft_size);
 		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
 		unpackReal (realOut);
@@ -249,8 +274,11 @@ private:
 	void inverseCepstral (const float* magIn, float* cepOut) final
 	{
 		const int hs1 = fft_size / 2 + 1;
-		// v_copy (m_spare, magIn, hs1);
+
+		vecops::copy (m_spare, magIn, hs1);
+
 		for (int i = 0; i < hs1; ++i) m_spare[i] += 0.000001f;
+
 		vvlogf (m_spare2, m_spare, &hs1);
 		inverse (m_spare2, 0, cepOut);
 	}
@@ -356,6 +384,7 @@ private:
 		const int hs1 = fft_size / 2 + 1;
 		vDSP_zvmagsD (&m_packed, 1, m_spare, 1, hs1);
 		vvsqrt (m_spare2, m_spare, &hs1);
+
 		// vDSP forward FFTs are scaled 2x (for some reason)
 		constexpr double two = 2.;
 		vDSP_vsdivD (m_spare2, 1, &two, magOut, 1, hs1);
@@ -371,7 +400,9 @@ private:
 	void inverseInterleaved (const double* complexIn, double* realOut) final
 	{
 		double* f[2] = { m_packed.realp, m_packed.imagp };
-		// v_deinterleave (f, complexIn, 2, fft_size / 2 + 1);
+
+		vecops::deinterleave (f, complexIn, 2, fft_size / 2 + 1);
+
 		vDSP_nyq (m_packed.realp, m_packed.imagp, fft_size);
 		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
 		unpackReal (realOut);
@@ -398,8 +429,11 @@ private:
 	void inverseCepstral (const double* magIn, double* cepOut) final
 	{
 		const int hs1 = fft_size / 2 + 1;
-		// v_copy (m_spare, magIn, hs1);
+
+		vecops::copy (m_spare, magIn, hs1);
+
 		for (int i = 0; i < hs1; ++i) m_spare[i] += 0.000001;
+
 		vvlog (m_spare2, m_spare, &hs1);
 		inverse (m_spare2, 0, cepOut);
 	}
@@ -432,10 +466,12 @@ private:
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark IPP FFT
+
 #if LIMES_VECOPS_USE_IPP
 
 template <Scalar SampleType>
-void ipp_pack (const SampleType* re, const SampleType* im, int fft_size, SampleType* m_packed)
+inline void ipp_pack (const SampleType* re, const SampleType* im, int fft_size, SampleType* m_packed)
 {
 	const int hs = fft_size / 2;
 
@@ -468,7 +504,7 @@ void ipp_pack (const SampleType* re, const SampleType* im, int fft_size, SampleT
 }
 
 template <Scalar SampleType>
-void ipp_unpack (SampleType* re, SampleType* im, int fft_size, SampleType* m_packed)
+inline void ipp_unpack (SampleType* re, SampleType* im, int fft_size, SampleType* m_packed)
 {
 	const int hs = fft_size / 2;
 
@@ -673,8 +709,8 @@ private:
 		ippsCopy_64f (magIn, m_spare, hs1);
 		ippsAddC_64f_I (0.000001, m_spare, hs1);
 		ippsLn_64f_I (m_spare, hs1);
-		ipp_pack (m_spare, nullptr, fft_size, m_packed)
-			ippsFFTInv_CCSToR_64f (m_packed, cepOut, m_spec, m_buf);
+		ipp_pack (m_spare, nullptr, fft_size, m_packed);
+		ippsFFTInv_CCSToR_64f (m_packed, cepOut, m_spec, m_buf);
 	}
 
 	IppsFFTSpec_R_64f* m_spec;
@@ -687,6 +723,462 @@ private:
 #endif /* LIMES_VECOPS_USE_IPP */
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark FFTW FFT
+
+#if LIMES_VECOPS_USE_FFTW
+
+#	if FFTW_DOUBLE_ONLY
+#		define fft_float_type		  double
+#		define fftwf_complex		  fftw_complex
+#		define fftwf_plan			  fftw_plan
+#		define fftwf_plan_dft_r2c_1d fftw_plan_dft_r2c_1d
+#		define fftwf_plan_dft_c2r_1d fftw_plan_dft_c2r_1d
+#		define fftwf_destroy_plan	  fftw_destroy_plan
+#		define fftwf_malloc		  fftw_malloc
+#		define fftwf_free			  fftw_free
+#		define fftwf_execute		  fftw_execute
+#		define fftwf_cleanup		  fftw_cleanup
+#		define atan2f				  atan2
+#		define sqrtf				  sqrt
+#		define cosf				  cos
+#		define sinf				  sin
+#	else
+#		define fft_float_type float
+#	endif /* FFTW_DOUBLE_ONLY */
+
+#	if FFTW_SINGLE_ONLY
+#		define fft_double_type		 float
+#		define fftw_complex		 fftwf_complex
+#		define fftw_plan			 fftwf_plan
+#		define fftw_plan_dft_r2c_1d fftwf_plan_dft_r2c_1d
+#		define fftw_plan_dft_c2r_1d fftwf_plan_dft_c2r_1d
+#		define fftw_destroy_plan	 fftwf_destroy_plan
+#		define fftw_malloc			 fftwf_malloc
+#		define fftw_free			 fftwf_free
+#		define fftw_execute		 fftwf_execute
+#		define fftw_cleanup		 fftwf_cleanup
+#		define atan2				 atan2f
+#		define sqrt				 sqrtf
+#		define cos					 cosf
+#		define sin					 sinf
+#	else
+#		define fft_double_type double
+#	endif /* FFTW_SINGLE_ONLY */
+
+
+template <Scalar SampleType, typename ComplexType>
+inline void fftw_pack (const SampleType* re, const SampleType* im,
+					   ComplexType* m_packed, int fft_size)
+{
+	const int hs = fft_size / 2;
+
+	for (int i = 0; i <= hs; ++i)
+		m_packed[i][0] = re[i];
+
+	if (im == nullptr)
+		for (int i = 0; i <= hs; ++i)
+			m_packed[i][1] = SampleType (0);
+	else
+		for (int i = 0; i <= hs; ++i)
+			m_packed[i][1] = im[i];
+}
+
+template <Scalar SampleType, typename ComplexType>
+inline void fftw_unpack (SampleType* re, SampleType* im,
+						 ComplexType* m_packed, int fft_size)
+{
+	const int hs = fft_size / 2;
+
+	for (int i = 0; i <= hs; ++i)
+		re[i] = m_packed[i][0];
+
+	if (im != nullptr)
+		for (int i = 0; i <= hs; ++i)
+			im[i] = m_packed[i][1];
+}
+
+
+class FFTW_FloatFFT final : public FFT<float>::FFTImpl
+{
+public:
+
+	FFTW_FloatFFT (int size)
+		: FFT<float>::FFTImpl (size)
+	{
+		m_fbuf	  = reinterpret_cast<fft_float_type*> (fftw_malloc (fft_size * sizeof (fft_float_type)));
+		m_fpacked = reinterpret_cast<fftwf_complex*> (fftw_malloc ((fft_size / 2 + 1) * sizeof (fftwf_complex)));
+
+		m_fplanf = fftwf_plan_dft_r2c_1d (fft_size, m_fbuf, m_fpacked, FFTW_ESTIMATE);
+		m_fplani = fftwf_plan_dft_c2r_1d (fft_size, m_fpacked, m_fbuf, FFTW_ESTIMATE);
+
+		++m_extantf;
+	}
+
+	~FFTW_FloatFFT()
+	{
+		if (m_fplanf)
+		{
+			fftwf_destroy_plan (m_fplanf);
+			fftwf_destroy_plan (m_fplani);
+			fftwf_free (m_fbuf);
+			fftwf_free (m_fpacked);
+		}
+
+		if (--m_extantf <= 0)
+			fftwf_cleanup();
+	}
+
+private:
+
+	void forward (const float* realIn, float* realOut, float* imagOut) final
+	{
+		fft_float_type* const fbuf = m_fbuf;
+
+#	if ! FFTW_DOUBLE_ONLY
+		if (realIn != fbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				fbuf[i] = realIn[i];
+
+		fftwf_execute (m_fplanf);
+
+		fftw_unpack (realOut, imagOut, m_fpacked, fft_size);
+	}
+
+	void forwardInterleaved (const float* realIn, float* complexOut) final
+	{
+		fft_float_type* const fbuf = m_fbuf;
+
+#	if ! FFTW_DOUBLE_ONLY
+		if (realIn != fbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				fbuf[i] = realIn[i];
+
+		fftwf_execute (m_fplanf);
+		// v_convert(complexOut, (const fft_float_type *)m_fpacked, fft_size + 2);
+	}
+
+	void forwardPolar (const float* realIn, float* magOut, float* phaseOut) final
+	{
+		fft_float_type* const fbuf = m_fbuf;
+
+#	if ! FFTW_DOUBLE_ONLY
+		if (realIn != fbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				fbuf[i] = realIn[i];
+
+		fftwf_execute (m_fplanf);
+
+		// v_cartesian_interleaved_to_polar
+		//     (magOut, phaseOut, (const fft_float_type *)m_fpacked, fft_size/2+1);
+	}
+
+	void forwardMagnitude (const float* realIn, float* magOut) final
+	{
+		fft_float_type* const fbuf = m_fbuf;
+
+#	if ! FFTW_DOUBLE_ONLY
+		if (realIn != fbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				fbuf[i] = realIn[i];
+
+		fftwf_execute (m_fplanf);
+
+		// v_cartesian_interleaved_to_magnitudes
+		//     (magOut, (const fft_float_type *)m_fpacked, fft_size/2+1);
+	}
+
+	void inverse (const float* realIn, const float* imagIn, float* realOut) final
+	{
+		fftw_pack (realIn, imagIn, m_fpacked, fft_size);
+
+		fftwf_execute (m_fplani);
+
+		fft_float_type* const fbuf = m_fbuf;
+
+#	if ! FFTW_DOUBLE_ONLY
+		if (realOut != fbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				realOut[i] = fbuf[i];
+	}
+
+	void inverseInterleaved (const float* complexIn, float* realOut) final
+	{
+		// v_convert ((fft_float_type*) m_fpacked, complexIn, fft_size + 2);
+		fftwf_execute (m_fplani);
+
+		fft_float_type* const fbuf = m_fbuf;
+
+#	if ! FFTW_DOUBLE_ONLY
+		if (realOut != fbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				realOut[i] = fbuf[i];
+	}
+
+	void inversePolar (const float* magIn, const float* phaseIn, float* realOut) final
+	{
+		// v_polar_to_cartesian_interleaved
+		//           ((fft_float_type *)m_fpacked, magIn, phaseIn, fft_size/2+1);
+
+		fftwf_execute (m_fplani);
+
+		fft_float_type* const fbuf = m_fbuf;
+
+#	if ! FFTW_DOUBLE_ONLY
+		if (realOut != fbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				realOut[i] = fbuf[i];
+	}
+
+	void inverseCepstral (const float* magIn, float* cepOut) final
+	{
+		const int			 hs		 = fft_size / 2;
+		fftwf_complex* const fpacked = m_fpacked;
+
+		for (int i = 0; i <= hs; ++i)
+		{
+			fpacked[i][0] = logf (magIn[i] + 0.000001f);
+			fpacked[i][1] = 0.f;
+		}
+
+		fftwf_execute (m_fplani);
+
+		fft_float_type* const fbuf = m_fbuf;
+
+#	if ! FFTW_DOUBLE_ONLY
+		if (cepOut != fbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				cepOut[i] = fbuf[i];
+	}
+
+	fftwf_plan m_fplanf;
+	fftwf_plan m_fplani;
+
+	fft_float_type* m_fbuf;
+
+	fftwf_complex* m_fpacked;
+
+	static int m_extantf;
+};
+
+int FFTW_FloatFFT::m_extantf = 0;
+
+
+class FFTW_DoubleFFT final : public FFT<double>::FFTImpl
+{
+public:
+
+	FFTW_DoubleFFT (int size)
+		: FFT<double>::FFTImpl (size)
+	{
+		m_dbuf	  = reinterpret_cast<fft_double_type*> (fftw_malloc (fft_size * sizeof (fft_double_type)));
+		m_dpacked = reinterpret_cast<fftw_complex*> (fftw_malloc ((fft_size / 2 + 1) * sizeof (fftw_complex)));
+
+		m_dplanf = fftw_plan_dft_r2c_1d (fft_size, m_dbuf, m_dpacked, FFTW_ESTIMATE);
+		m_dplani = fftw_plan_dft_c2r_1d (fft_size, m_dpacked, m_dbuf, FFTW_ESTIMATE);
+
+		++m_extantd;
+	}
+
+	~FFTW_DoubleFFT()
+	{
+		fftw_destroy_plan (m_dplanf);
+		fftw_destroy_plan (m_dplani);
+		fftw_free (m_dbuf);
+		fftw_free (m_dpacked);
+
+		if (--m_extantd <= 0)
+			fftw_cleanup();
+	}
+
+private:
+
+	void forward (const double* realIn, double* realOut, double* imagOut) final
+	{
+		fft_double_type* const dbuf = m_dbuf;
+
+#	if ! FFTW_SINGLE_ONLY
+		if (realIn != dbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				dbuf[i] = realIn[i];
+
+		fftw_execute (m_dplanf);
+
+		fftw_unpack (realOut, imagOut, m_dpacked, fft_size);
+	}
+
+	void forwardInterleaved (const double* realIn, double* complexOut) final
+	{
+		fft_double_type* const dbuf = m_dbuf;
+
+#	if ! FFTW_SINGLE_ONLY
+		if (realIn != dbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				dbuf[i] = realIn[i];
+
+		fftw_execute (m_dplanf);
+		// v_convert(complexOut, (const fft_double_type *)m_dpacked, fft_size + 2);
+	}
+
+	void forwardPolar (const double* realIn, double* magOut, double* phaseOut) final
+	{
+		fft_double_type* const dbuf = m_dbuf;
+
+#	if ! FFTW_SINGLE_ONLY
+		if (realIn != dbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				dbuf[i] = realIn[i];
+
+		fftw_execute (m_dplanf);
+
+		// v_cartesian_interleaved_to_polar
+		//     (magOut, phaseOut, (const fft_double_type *)m_dpacked, fft_size/2+1);
+	}
+
+	void forwardMagnitude (const double* realIn, double* magOut) final
+	{
+		fft_double_type* const dbuf = m_dbuf;
+
+#	if ! FFTW_SINGLE_ONLY
+		if (realIn != m_dbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				dbuf[i] = realIn[i];
+
+		fftw_execute (m_dplanf);
+
+		// v_cartesian_interleaved_to_magnitudes
+		//     (magOut, (const fft_double_type *)m_dpacked, fft_size/2+1);
+	}
+
+	void inverse (const double* realIn, const double* imagIn, double* realOut) final
+	{
+		fftw_pack (realIn, imagIn, m_dpacked, fft_size);
+
+		fftw_execute (m_dplani);
+
+		fft_double_type* const dbuf = m_dbuf;
+
+#	if ! FFTW_SINGLE_ONLY
+		if (realOut != dbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				realOut[i] = dbuf[i];
+	}
+
+	void inverseInterleaved (const double* complexIn, double* realOut) final
+	{
+		// v_convert ((fft_double_type*) m_dpacked, complexIn, fft_size + 2);
+		fftw_execute (m_dplani);
+
+		fft_double_type* const dbuf = m_dbuf;
+
+#	if ! FFTW_SINGLE_ONLY
+		if (realOut != dbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				realOut[i] = dbuf[i];
+	}
+
+	void inversePolar (const double* magIn, const double* phaseIn, double* realOut) final
+	{
+		// v_polar_to_cartesian_interleaved
+		//           ((fft_double_type *)m_dpacked, magIn, phaseIn, fft_size/2+1);
+
+		fftw_execute (m_dplani);
+
+		fft_double_type* const dbuf = m_dbuf;
+
+#	if ! FFTW_SINGLE_ONLY
+		if (realOut != dbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				realOut[i] = dbuf[i];
+	}
+
+	void inverseCepstral (const double* magIn, double* cepOut) final
+	{
+		fft_double_type* const BQ_R__ dbuf	  = m_dbuf;
+		fftw_complex* const BQ_R__	  dpacked = m_dpacked;
+
+		for (int i = 0; i <= hs; ++i)
+			dpacked[i][0] = log (magIn[i] + 0.000001);
+
+		for (int i = 0; i <= hs; ++i)
+			dpacked[i][1] = 0.;
+
+		fftw_execute (m_dplani);
+
+#	if ! FFTW_SINGLE_ONLY
+		if (cepOut != dbuf)
+#	endif
+			for (int i = 0; i < fft_size; ++i)
+				cepOut[i] = dbuf[i];
+	}
+
+	fftw_plan m_dplanf;
+	fftw_plan m_dplani;
+
+	fft_double_type* m_dbuf;
+
+	fftw_complex* m_dpacked;
+
+	static int m_extantd;
+};
+
+int FFTW_DoubleFFT::m_extantd = 0;
+
+
+#	undef fft_float_type
+#	undef fft_double_type
+
+#	if FFTW_DOUBLE_ONLY
+#		undef fftwf_complex
+#		undef fftwf_plan
+#		undef fftwf_plan_dft_r2c_1d
+#		undef fftwf_plan_dft_c2r_1d
+#		undef fftwf_destroy_plan
+#		undef fftwf_malloc
+#		undef fftwf_free
+#		undef fftwf_execute
+#		undef atan2f
+#		undef sqrtf
+#		undef cosf
+#		undef sinf
+#	endif /* FFTW_DOUBLE_ONLY */
+
+#	if FFTW_SINGLE_ONLY
+#		undef fftw_complex
+#		undef fftw_plan
+#		undef fftw_plan_dft_r2c_1d
+#		undef fftw_plan_dft_c2r_1d
+#		undef fftw_destroy_plan
+#		undef fftw_malloc
+#		undef fftw_free
+#		undef fftw_execute
+#		undef atan2
+#		undef sqrt
+#		undef cos
+#		undef sin
+#	endif /* FFTW_SINGLE_ONLY */
+
+
+#endif /* LIMES_VECOPS_USE_FFTW */
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Fallback FFT
 
 template <Scalar SampleType>
 class FallbackFFT final : public FFT<SampleType>::FFTImpl
@@ -747,7 +1239,7 @@ private:
 
 		if constexpr (std::is_same_v<SampleType, double>)
 		{
-			// v_interleave (complexOut, m_c_and_d, 2, m_half + 1);
+			vecops::interleave (complexOut, m_c_and_d, 2, m_half + 1);
 		}
 		else
 		{
@@ -786,7 +1278,7 @@ private:
 	{
 		if constexpr (std::is_same_v<SampleType, double>)
 		{
-			// v_deinterleave (m_a_and_b, complexIn, 2, m_half + 1);
+			vecops::deinterleave (m_a_and_b, complexIn, 2, m_half + 1);
 		}
 		else
 		{
@@ -1041,7 +1533,12 @@ private:
 template <Scalar SampleType>
 FFT<SampleType>::FFT (int size)
 {
-#if LIMES_VECOPS_USE_VDSP
+#if LIMES_VECOPS_USE_FFTW
+	if constexpr (std::is_same_v<SampleType, float>)
+		pimpl = std::make_unique<FFTW_FloatFFT> (size);
+	else
+		pimpl = std::make_unique<FFTW_DoubleFFT> (size);
+#elif LIMES_VECOPS_USE_VDSP
 	if constexpr (std::is_same_v<SampleType, float>)
 		pimpl = std::make_unique<vDSP_FloatFFT> (size);
 	else
