@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [2.3.0](http://github.com/benthevining/Limes/compare/v2.2.0...v2.3.0) (2022-04-02)
+
+
+### Features
+
+* added an FFTW implementation to FFT wrapper ([9797618](http://github.com/benthevining/Limes/commit/979761812241c38e9d0bfe7e27a6086b15269cf8))
+
 ## [2.2.0](http://github.com/benthevining/Limes/compare/v2.1.0...v2.2.0) (2022-04-02)
 
 
