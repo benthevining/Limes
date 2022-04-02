@@ -839,9 +839,11 @@ private:
 		// sin and cos tables for complex fft
 		int ix = 0;
 
+		constexpr double pi = 3.14157;
+
 		for (int i = 2; i <= m_maxTabledBlock; i <<= 1)
 		{
-			double phase   = 2.0 * M_PI / double (i);
+			double phase   = 2.0 * pi / double (i);
 			m_sincos[ix++] = sin (phase);
 			m_sincos[ix++] = sin (2.0 * phase);
 			m_sincos[ix++] = cos (phase);
@@ -853,7 +855,7 @@ private:
 
 		for (int i = 0; i < m_half / 2; ++i)
 		{
-			double phase	 = M_PI * (double (i + 1) / double (m_half) + 0.5);
+			double phase	 = pi * (double (i + 1) / double (m_half) + 0.5);
 			m_sincos_r[ix++] = sin (phase);
 			m_sincos_r[ix++] = cos (phase);
 		}
@@ -861,7 +863,7 @@ private:
 
 	// Uses m_a and m_b internally; does not touch m_c or m_d
 	void transformF (const SampleType* ri,
-					 SampleType* ro, SampleType* io)
+					 double* ro, double* io)
 	{
 		for (int i = 0; i < m_half; ++i)
 		{
@@ -897,7 +899,7 @@ private:
 	}
 
 	// Uses m_c and m_d internally; does not touch m_a or m_b
-	void transformI (const SampleType* ri, const SampleType* ii,
+	void transformI (const double* ri, const double* ii,
 					 SampleType* ro)
 	{
 		m_vr[0] = ri[0] + ri[m_half];
@@ -932,8 +934,8 @@ private:
 		}
 	}
 
-	void transformComplex (const SampleType* ri, const SampleType* ii,
-						   SampleType* ro, SampleType* io,
+	void transformComplex (const double* ri, const double* ii,
+						   double* ro, double* io,
 						   bool inverse)
 	{
 		// Following Don Cross's 1998 implementation, described by its author as public domain.
@@ -960,8 +962,11 @@ private:
 				cm1 = m_sincos[ix++];
 				cm2 = m_sincos[ix++];
 			}
-			else {
-				double phase = 2.0 * M_PI / double (blockSize);
+			else
+			{
+				constexpr double pi = 3.14157;
+
+				double phase = 2.0 * pi / double (blockSize);
 				sm1			 = ifactor * sin (phase);
 				sm2			 = ifactor * sin (2.0 * phase);
 				cm1			 = cos (phase);
