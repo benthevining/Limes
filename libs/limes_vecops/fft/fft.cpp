@@ -74,6 +74,62 @@ protected:
 
 #if LIMES_VECOPS_USE_VDSP
 
+template <Scalar SampleType>
+void vDSP_nyq (SampleType* real, SampleType* imag, int fft_size)
+{
+	// for ifft input in packed form, pack the DC and Nyquist bins
+	const int hs = fft_size / 2;
+
+	imag[0]	 = real[hs];
+	real[hs] = SampleType (0);
+	imag[hs] = SampleType (0);
+}
+
+template <Scalar SampleType>
+void vDSP_denyq (SampleType* real, SampleType* imag, int fft_size)
+{
+	// for fft result in packed form, unpack the DC and Nyquist bins
+	const int hs = fft_size / 2;
+
+	real[hs] = imag[0];
+	imag[hs] = SampleType (0);
+	imag[0]	 = SampleType (0);
+}
+
+template <Scalar SampleType>
+void vDSP_packComplex (const SampleType* const re, const SampleType* const im,
+					   SampleType* realPacked, SampleType* imagPacked, int fft_size)
+{
+	// if (re != nullptr)
+	// 	v_copy (realPacked, re, fft_size / 2 + 1);
+	// else
+	// 	v_zero (realPacked, fft_size / 2 + 1);
+
+	// if (im != nullptr)
+	// 	v_copy (imagPacked, im, fft_size / 2 + 1);
+	// else
+	// 	v_zero (imagPacked, fft_size / 2 + 1);
+
+	vDSP_nyq (realPacked, imagPacked, fft_size);
+}
+
+template <Scalar SampleType>
+void vDSP_unpackComplex (SampleType* const cplx,
+						 SampleType*	   packedReal,
+						 SampleType*	   packedImag,
+						 int			   fft_size)
+{
+	// vDSP forward FFTs are scaled 2x (for some reason)
+	const int hs1 = fft_size / 2 + 1;
+
+	for (int i = 0; i < hs1; ++i)
+	{
+		cplx[i * 2]		= packedReal[i] * SampleType (0.5);
+		cplx[i * 2 + 1] = packedImag[i] * SampleType (0.5);
+	}
+}
+
+
 class vDSP_FloatFFT final : public FFT<float>::FFTImpl
 {
 public:
@@ -108,7 +164,7 @@ private:
 	{
 		packReal (realIn);
 		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-		fdenyq();
+		vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
 		unpackComplex (realOut, imagOut);
 	}
 
@@ -116,8 +172,12 @@ private:
 	{
 		packReal (realIn);
 		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-		fdenyq();
-		unpackComplex (complexOut);
+		vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
+
+		vDSP_unpackComplex (complexOut,
+							m_packed.realp,
+							m_packed.imagp,
+							fft_size);
 	}
 
 	void forwardPolar (const float* realIn, float* magOut, float* phaseOut) final
@@ -125,10 +185,15 @@ private:
 		const int hs1 = fft_size / 2 + 1;
 		packReal (realIn);
 		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-		fdenyq();
+		vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
+
 		// vDSP forward FFTs are scaled 2x (for some reason)
-		for (int i = 0; i < hs1; ++i) m_packed.realp[i] *= 0.5f;
-		for (int i = 0; i < hs1; ++i) m_packed.imagp[i] *= 0.5f;
+		for (int i = 0; i < hs1; ++i)
+		{
+			m_packed.realp[i] *= 0.5f;
+			m_packed.imagp[i] *= 0.5f;
+		}
+
 		// v_cartesian_to_polar(magOut, phaseOut,
 		//                      m_packed.realp, m_packed.imagp, hs1);
 	}
@@ -137,7 +202,7 @@ private:
 	{
 		packReal (realIn);
 		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-		fdenyq();
+		vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
 		const int hs1 = fft_size / 2 + 1;
 		vDSP_zvmags (&m_packed, 1, m_spare, 1, hs1);
 		vvsqrtf (m_spare2, m_spare, &hs1);
@@ -148,7 +213,8 @@ private:
 
 	void inverse (const float* realIn, const float* imagIn, float* realOut) final
 	{
-		packComplex (realIn, imagIn);
+		vDSP_packComplex (realIn, imagIn, m_packed.realp, m_packed.imagp, fft_size);
+
 		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
 		unpackReal (realOut);
 	}
@@ -157,7 +223,7 @@ private:
 	{
 		float* f[2] = { m_packed.realp, m_packed.imagp };
 		// v_deinterleave (f, complexIn, 2, fft_size / 2 + 1);
-		fnyq();
+		vDSP_nyq (m_packed.realp, m_packed.imagp, fft_size);
 		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
 		unpackReal (realOut);
 	}
@@ -168,9 +234,14 @@ private:
 		vvsincosf (m_packed.imagp, m_packed.realp, phaseIn, &hs1);
 		float* const rp = m_packed.realp;
 		float* const ip = m_packed.imagp;
-		for (int i = 0; i < hs1; ++i) rp[i] *= magIn[i];
-		for (int i = 0; i < hs1; ++i) ip[i] *= magIn[i];
-		fnyq();
+
+		for (int i = 0; i < hs1; ++i)
+		{
+			rp[i] *= magIn[i];
+			ip[i] *= magIn[i];
+		}
+
+		vDSP_nyq (m_packed.realp, m_packed.imagp, fft_size);
 		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
 		unpackReal (realOut);
 	}
@@ -189,21 +260,6 @@ private:
 		vDSP_ctoz (reinterpret_cast<const DSPComplex* const> (re), 2, &m_packed, 1, fft_size / 2);
 	}
 
-	void packComplex (const float* const re, const float* const im)
-	{
-		// if (re)
-		// 	v_copy (m_packed.realp, re, fft_size / 2 + 1);
-		// else
-		// 	v_zero (m_packed.realp, fft_size / 2 + 1);
-
-		// if (im)
-		// 	v_copy (m_packed.imagp, im, fft_size / 2 + 1);
-		// else
-		// 	v_zero (m_packed.imagp, fft_size / 2 + 1);
-
-		fnyq();
-	}
-
 	void unpackReal (float* const re)
 	{
 		vDSP_ztoc (&m_packed, 1, reinterpret_cast<DSPComplex* const> (re), 2, fft_size / 2);
@@ -215,35 +271,6 @@ private:
 		constexpr float two = 2.f;
 		vDSP_vsdiv (m_packed.realp, 1, &two, re, 1, fft_size / 2 + 1);
 		vDSP_vsdiv (m_packed.imagp, 1, &two, im, 1, fft_size / 2 + 1);
-	}
-
-	void unpackComplex (float* const cplx)
-	{
-		// vDSP forward FFTs are scaled 2x (for some reason)
-		const int hs1 = fft_size / 2 + 1;
-		for (int i = 0; i < hs1; ++i)
-		{
-			cplx[i * 2]		= m_packed.realp[i] * 0.5f;
-			cplx[i * 2 + 1] = m_packed.imagp[i] * 0.5f;
-		}
-	}
-
-	void fdenyq()
-	{
-		// for fft result in packed form, unpack the DC and Nyquist bins
-		const int hs	   = fft_size / 2;
-		m_packed.realp[hs] = m_packed.imagp[0];
-		m_packed.imagp[hs] = 0.f;
-		m_packed.imagp[0]  = 0.f;
-	}
-
-	void fnyq()
-	{
-		// for ifft input in packed form, pack the DC and Nyquist bins
-		const int hs	   = fft_size / 2;
-		m_packed.imagp[0]  = m_packed.realp[hs];
-		m_packed.realp[hs] = 0.f;
-		m_packed.imagp[hs] = 0.f;
 	}
 
 	FFTSetup		m_spec;
@@ -287,7 +314,7 @@ private:
 	{
 		packReal (realIn);
 		vDSP_fft_zriptD (m_spec, &m_packed, vDSP_Stride (1), &m_buf, vDSP_Length (m_order), FFT_FORWARD);
-		ddenyq();
+		vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
 		unpackComplex (realOut, imagOut);
 	}
 
@@ -295,8 +322,12 @@ private:
 	{
 		packReal (realIn);
 		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-		ddenyq();
-		unpackComplex (complexOut);
+		vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
+
+		vDSP_unpackComplex (complexOut,
+							m_packed.realp,
+							m_packed.imagp,
+							fft_size);
 	}
 
 	void forwardPolar (const double* realIn, double* magOut, double* phaseOut) final
@@ -304,10 +335,15 @@ private:
 		const int hs1 = fft_size / 2 + 1;
 		packReal (realIn);
 		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-		ddenyq();
+		vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
+
 		// vDSP forward FFTs are scaled 2x (for some reason)
-		for (int i = 0; i < hs1; ++i) m_packed.realp[i] *= 0.5;
-		for (int i = 0; i < hs1; ++i) m_packed.imagp[i] *= 0.5;
+		for (int i = 0; i < hs1; ++i)
+		{
+			m_packed.realp[i] *= 0.5;
+			m_packed.imagp[i] *= 0.5;
+		}
+
 		// v_cartesian_to_polar(magOut, phaseOut,
 		//                      m_packed.realp, m_packed.imagp, hs1);
 	}
@@ -316,7 +352,7 @@ private:
 	{
 		packReal (realIn);
 		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-		ddenyq();
+		vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
 		const int hs1 = fft_size / 2 + 1;
 		vDSP_zvmagsD (&m_packed, 1, m_spare, 1, hs1);
 		vvsqrt (m_spare2, m_spare, &hs1);
@@ -327,7 +363,7 @@ private:
 
 	void inverse (const double* realIn, const double* imagIn, double* realOut) final
 	{
-		packComplex (realIn, imagIn);
+		vDSP_packComplex (realIn, imagIn, m_packed.realp, m_packed.imagp, fft_size);
 		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
 		unpackReal (realOut);
 	}
@@ -336,7 +372,7 @@ private:
 	{
 		double* f[2] = { m_packed.realp, m_packed.imagp };
 		// v_deinterleave (f, complexIn, 2, fft_size / 2 + 1);
-		dnyq();
+		vDSP_nyq (m_packed.realp, m_packed.imagp, fft_size);
 		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
 		unpackReal (realOut);
 	}
@@ -347,9 +383,14 @@ private:
 		vvsincos (m_packed.imagp, m_packed.realp, phaseIn, &hs1);
 		double* const rp = m_packed.realp;
 		double* const ip = m_packed.imagp;
-		for (int i = 0; i < hs1; ++i) rp[i] *= magIn[i];
-		for (int i = 0; i < hs1; ++i) ip[i] *= magIn[i];
-		dnyq();
+
+		for (int i = 0; i < hs1; ++i)
+		{
+			rp[i] *= magIn[i];
+			ip[i] *= magIn[i];
+		}
+
+		vDSP_nyq (m_packed.realp, m_packed.imagp, fft_size);
 		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
 		unpackReal (realOut);
 	}
@@ -368,21 +409,6 @@ private:
 		vDSP_ctozD (reinterpret_cast<const DSPDoubleComplex* const> (re), 2, &m_packed, 1, fft_size / 2);
 	}
 
-	void packComplex (const double* const re, const double* const im)
-	{
-		// if (re)
-		// 	v_copy (m_packed.realp, re, fft_size / 2 + 1);
-		// else
-		// 	v_zero (m_packed.realp, fft_size / 2 + 1);
-
-		// if (im)
-		// 	v_copy (m_packed.imagp, im, fft_size / 2 + 1);
-		// else
-		// 	v_zero (m_packed.imagp, fft_size / 2 + 1);
-
-		dnyq();
-	}
-
 	void unpackReal (double* const re)
 	{
 		vDSP_ztocD (&m_packed, 1, reinterpret_cast<DSPDoubleComplex* const> (re), 2, fft_size / 2);
@@ -394,35 +420,6 @@ private:
 		constexpr double two = 2.;
 		vDSP_vsdivD (m_packed.realp, 1, &two, re, 1, fft_size / 2 + 1);
 		vDSP_vsdivD (m_packed.imagp, 1, &two, im, 1, fft_size / 2 + 1);
-	}
-
-	void unpackComplex (double* const cplx)
-	{
-		// vDSP forward FFTs are scaled 2x (for some reason)
-		const int hs1 = fft_size / 2 + 1;
-		for (int i = 0; i < hs1; ++i)
-		{
-			cplx[i * 2]		= m_packed.realp[i] * 0.5f;
-			cplx[i * 2 + 1] = m_packed.imagp[i] * 0.5f;
-		}
-	}
-
-	void ddenyq()
-	{
-		// for fft result in packed form, unpack the DC and Nyquist bins
-		const int hs	   = fft_size / 2;
-		m_packed.realp[hs] = m_packed.imagp[0];
-		m_packed.imagp[hs] = 0.;
-		m_packed.imagp[0]  = 0.;
-	}
-
-	void dnyq()
-	{
-		// for ifft input in packed form, pack the DC and Nyquist bins
-		const int hs	   = fft_size / 2;
-		m_packed.imagp[0]  = m_packed.realp[hs];
-		m_packed.realp[hs] = 0.;
-		m_packed.imagp[hs] = 0.;
 	}
 
 	FFTSetupD			  m_spec;
@@ -437,6 +434,65 @@ private:
 
 #if LIMES_VECOPS_USE_IPP
 
+template <Scalar SampleType>
+void ipp_pack (const SampleType* re, const SampleType* im, int fft_size, SampleType* m_packed)
+{
+	const int hs = fft_size / 2;
+
+	int index = 0;
+
+	for (int i = 0; i <= hs; ++i)
+	{
+		m_packed[index++] = re[i];
+		index++;
+	}
+
+	index = 0;
+
+	if (im == nullptr)
+	{
+		for (int i = 0; i <= hs; ++i)
+		{
+			index++;
+			m_packed[index++] = 0.;
+		}
+	}
+	else
+	{
+		for (int i = 0; i <= hs; ++i)
+		{
+			index++;
+			m_packed[index++] = im[i];
+		}
+	}
+}
+
+template <Scalar SampleType>
+void ipp_unpack (SampleType* re, SampleType* im, int fft_size, SampleType* m_packed)
+{
+	const int hs = fft_size / 2;
+
+	int index = 0;
+
+	if (im != nullptr)
+	{
+		for (int i = 0; i <= hs; ++i)
+		{
+			index++;
+			im[i] = m_packed[index++];
+		}
+	}
+
+	index = 0;
+
+	for (int i = 0; i <= hs; ++i)
+	{
+		re[i] = m_packed[index++];
+		index++;
+	}
+}
+
+
 class IPP_FloatFFT final : public FFT<float>::FFTImpl
 {
 public:
@@ -445,16 +501,20 @@ public:
 		: FFT<float>::FFTImpl (size)
 	{
 		int specSize, specBufferSize, bufferSize;
+
 		ippsFFTGetSize_R_32f (m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
 							  &specSize, &specBufferSize, &bufferSize);
+
 		m_specbuf  = ippsMalloc_8u (specSize);
 		Ipp8u* tmp = ippsMalloc_8u (specBufferSize);
 		m_buf	   = ippsMalloc_8u (bufferSize);
 		m_packed   = ippsMalloc_32f (fft_size + 2);
 		m_spare	   = ippsMalloc_32f (fft_size / 2 + 1);
+
 		ippsFFTInit_R_32f (&m_spec,
 						   m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
 						   m_specbuf, tmp);
+
 		ippsFree (tmp);
 	}
 
@@ -471,7 +531,7 @@ private:
 	void forward (const float* realIn, float* realOut, float* imagOut) final
 	{
 		ippsFFTFwd_RToCCS_32f (realIn, m_packed, m_spec, m_buf);
-		unpackFloat (realOut, imagOut);
+		ipp_unpack (realOut, imagOut, fft_size, m_packed);
 	}
 
 	void forwardInterleaved (const float* realIn, float* complexOut) final
@@ -482,20 +542,20 @@ private:
 	void forwardPolar (const float* realIn, float* magOut, float* phaseOut) final
 	{
 		ippsFFTFwd_RToCCS_32f (realIn, m_packed, m_spec, m_buf);
-		unpackFloat (m_packed, m_spare);
+		ipp_unpack (m_packed, m_spare, fft_size, m_packed);
 		ippsCartToPolar_32f (m_packed, m_spare, magOut, phaseOut, fft_size / 2 + 1);
 	}
 
 	void forwardMagnitude (const float* realIn, float* magOut) final
 	{
 		ippsFFTFwd_RToCCS_32f (realIn, m_packed, m_spec, m_buf);
-		unpackFloat (m_packed, m_spare);
+		ipp_unpack (m_packed, m_spare, fft_size, m_packed);
 		ippsMagnitude_32f (m_packed, m_spare, magOut, fft_size / 2 + 1);
 	}
 
 	void inverse (const float* realIn, const float* imagIn, float* realOut) final
 	{
-		packFloat (realIn, imagIn);
+		ipp_pack (realIn, imagIn, fft_size, m_packed);
 		ippsFFTInv_CCSToR_32f (m_packed, realOut, m_spec, m_buf);
 	}
 
@@ -507,7 +567,7 @@ private:
 	void inversePolar (const float* magIn, const float* phaseIn, float* realOut) final
 	{
 		ippsPolarToCart_32f (magIn, phaseIn, realOut, m_spare, fft_size / 2 + 1);
-		packFloat (realOut, m_spare);  // to m_packed
+		ipp_pack (realOut, m_spare, fft_size, m_packed);
 		ippsFFTInv_CCSToR_32f (m_packed, realOut, m_spec, m_buf);
 	}
 
@@ -517,55 +577,8 @@ private:
 		ippsCopy_32f (magIn, m_spare, hs1);
 		ippsAddC_32f_I (0.000001f, m_spare, hs1);
 		ippsLn_32f_I (m_spare, hs1);
-		packFloat (m_spare, nullptr);
+		ipp_pack (m_spare, nullptr, fft_size, m_packed);
 		ippsFFTInv_CCSToR_32f (m_packed, cepOut, m_spec, m_buf);
-	}
-
-	void packFloat (const float* re, const float* im)
-	{
-		int		  index = 0;
-		const int hs	= fft_size / 2;
-		for (int i = 0; i <= hs; ++i)
-		{
-			m_packed[index++] = re[i];
-			index++;
-		}
-		index = 0;
-		if (im)
-		{
-			for (int i = 0; i <= hs; ++i)
-			{
-				index++;
-				m_packed[index++] = im[i];
-			}
-		}
-		else {
-			for (int i = 0; i <= hs; ++i)
-			{
-				index++;
-				m_packed[index++] = 0.f;
-			}
-		}
-	}
-
-	void unpackFloat (float* re, float* im)	 // re may be equal to m_fpacked
-	{
-		int		  index = 0;
-		const int hs	= fft_size / 2;
-		if (im)
-		{
-			for (int i = 0; i <= hs; ++i)
-			{
-				index++;
-				im[i] = m_packed[index++];
-			}
-		}
-		index = 0;
-		for (int i = 0; i <= hs; ++i)
-		{
-			re[i] = m_packed[index++];
-			index++;
-		}
 	}
 
 	IppsFFTSpec_R_32f* m_spec;
@@ -584,16 +597,20 @@ public:
 		: FFT<double>::FFTImpl (size)
 	{
 		int specSize, specBufferSize, bufferSize;
+
 		ippsFFTGetSize_R_64f (m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
 							  &specSize, &specBufferSize, &bufferSize);
+
 		m_specbuf  = ippsMalloc_8u (specSize);
 		Ipp8u* tmp = ippsMalloc_8u (specBufferSize);
 		m_buf	   = ippsMalloc_8u (bufferSize);
 		m_packed   = ippsMalloc_64f (fft_size + 2);
 		m_spare	   = ippsMalloc_64f (fft_size / 2 + 1);
+
 		ippsFFTInit_R_64f (&m_spec,
 						   m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
 						   m_specbuf, tmp);
+
 		ippsFree (tmp);
 	}
 
@@ -610,7 +627,7 @@ private:
 	void forward (const double* realIn, double* realOut, double* imagOut) final
 	{
 		ippsFFTFwd_RToCCS_64f (realIn, m_packed, m_spec, m_buf);
-		unpackDouble (realOut, imagOut);
+		ipp_unpack (realOut, imagOut, fft_size, m_packed);
 	}
 
 	void forwardInterleaved (const double* realIn, double* complexOut) final
@@ -621,20 +638,20 @@ private:
 	void forwardPolar (const double* realIn, double* magOut, double* phaseOut) final
 	{
 		ippsFFTFwd_RToCCS_64f (realIn, m_packed, m_spec, m_buf);
-		unpackDouble (m_packed, m_spare);
+		ipp_unpack (m_packed, m_spare, fft_size, m_packed);
 		ippsCartToPolar_64f (m_packed, m_spare, magOut, phaseOut, fft_size / 2 + 1);
 	}
 
 	void forwardMagnitude (const double* realIn, double* magOut) final
 	{
 		ippsFFTFwd_RToCCS_64f (realIn, m_packed, m_spec, m_buf);
-		unpackDouble (m_packed, m_spare);
+		ipp_unpack (m_packed, m_spare, fft_size, m_packed);
 		ippsMagnitude_64f (m_packed, m_spare, magOut, fft_size / 2 + 1);
 	}
 
 	void inverse (const double* realIn, const double* imagIn, double* realOut) final
 	{
-		packDouble (realIn, imagIn);
+		ipp_pack (realIn, imagIn, fft_size, m_packed);
 		ippsFFTInv_CCSToR_64f (m_packed, realOut, m_spec, m_buf);
 	}
 
@@ -646,7 +663,7 @@ private:
 	void inversePolar (const double* magIn, const double* phaseIn, double* realOut) final
 	{
 		ippsPolarToCart_64f (magIn, phaseIn, realOut, m_spare, fft_size / 2 + 1);
-		packDouble (realOut, m_spare);	// to m_packed
+		ipp_pack (realOut, m_spare, fft_size, m_packed);
 		ippsFFTInv_CCSToR_64f (m_packed, realOut, m_spec, m_buf);
 	}
 
@@ -656,55 +673,8 @@ private:
 		ippsCopy_64f (magIn, m_spare, hs1);
 		ippsAddC_64f_I (0.000001, m_spare, hs1);
 		ippsLn_64f_I (m_spare, hs1);
-		packDouble (m_spare, nullptr);
-		ippsFFTInv_CCSToR_64f (m_packed, cepOut, m_spec, m_buf);
-	}
-
-	void packDouble (const double* re, const double* im)
-	{
-		int		  index = 0;
-		const int hs	= fft_size / 2;
-		for (int i = 0; i <= hs; ++i)
-		{
-			m_packed[index++] = re[i];
-			index++;
-		}
-		index = 0;
-		if (im)
-		{
-			for (int i = 0; i <= hs; ++i)
-			{
-				index++;
-				m_packed[index++] = im[i];
-			}
-		}
-		else {
-			for (int i = 0; i <= hs; ++i)
-			{
-				index++;
-				m_packed[index++] = 0.;
-			}
-		}
-	}
-
-	void unpackDouble (double* re, double* im)	// re may be equal to m_dpacked
-	{
-		int		  index = 0;
-		const int hs	= fft_size / 2;
-		if (im)
-		{
-			for (int i = 0; i <= hs; ++i)
-			{
-				index++;
-				im[i] = m_packed[index++];
-			}
-		}
-		index = 0;
-		for (int i = 0; i <= hs; ++i)
-		{
-			re[i] = m_packed[index++];
-			index++;
-		}
+		ipp_pack (m_spare, nullptr, fft_size, m_packed)
+			ippsFFTInv_CCSToR_64f (m_packed, cepOut, m_spec, m_buf);
 	}
 
 	IppsFFTSpec_R_64f* m_spec;
@@ -843,8 +813,6 @@ private:
 	{
 		int j, k, m;
 
-		int n = m_half;
-
 		const auto bits = [h = m_half]
 		{
 			for (int i = 0;; ++i)
@@ -855,19 +823,22 @@ private:
 			return 0;
 		}();
 
-		for (int i = 0; i < n; ++i)
+		for (int i = 0; i < m_half; ++i)
 		{
 			m = i;
+
 			for (j = k = 0; j < bits; ++j)
 			{
 				k = (k << 1) | (m & 1);
 				m >>= 1;
 			}
+
 			m_table[i] = k;
 		}
 
 		// sin and cos tables for complex fft
 		int ix = 0;
+
 		for (int i = 2; i <= m_maxTabledBlock; i <<= 1)
 		{
 			double phase   = 2.0 * M_PI / double (i);
@@ -879,7 +850,8 @@ private:
 
 		// sin and cos tables for real-complex transform
 		ix = 0;
-		for (int i = 0; i < n / 2; ++i)
+
+		for (int i = 0; i < m_half / 2; ++i)
 		{
 			double phase	 = M_PI * (double (i + 1) / double (m_half) + 0.5);
 			m_sincos_r[ix++] = sin (phase);
@@ -889,9 +861,8 @@ private:
 
 	// Uses m_a and m_b internally; does not touch m_c or m_d
 	void transformF (const SampleType* ri,
-					 double* ro, double* io)
+					 SampleType* ro, SampleType* io)
 	{
-		int halfhalf = m_half / 2;
 		for (int i = 0; i < m_half; ++i)
 		{
 			m_a[i] = ri[i * 2];
@@ -899,21 +870,25 @@ private:
 		}
 
 		transformComplex (m_a, m_b, m_vr, m_vi, false);
+
 		ro[0]	   = m_vr[0] + m_vi[0];
 		ro[m_half] = m_vr[0] - m_vi[0];
 		io[0] = io[m_half] = 0.0;
-		int ix			   = 0;
-		for (int i = 0; i < halfhalf; ++i)
+
+		int ix = 0;
+
+		for (int i = 0; i < m_half / 2; ++i)
 		{
-			double s	   = -m_sincos_r[ix++];
-			double c	   = m_sincos_r[ix++];
-			int	   k	   = i + 1;
-			double r0	   = m_vr[k];
-			double i0	   = m_vi[k];
-			double r1	   = m_vr[m_half - k];
-			double i1	   = -m_vi[m_half - k];
-			double tw_r	   = (r0 - r1) * c - (i0 - i1) * s;
-			double tw_i	   = (r0 - r1) * s + (i0 - i1) * c;
+			double s	= -m_sincos_r[ix++];
+			double c	= m_sincos_r[ix++];
+			int	   k	= i + 1;
+			double r0	= m_vr[k];
+			double i0	= m_vi[k];
+			double r1	= m_vr[m_half - k];
+			double i1	= -m_vi[m_half - k];
+			double tw_r = (r0 - r1) * c - (i0 - i1) * s;
+			double tw_i = (r0 - r1) * s + (i0 - i1) * c;
+
 			ro[k]		   = (r0 + r1 + tw_r) * 0.5;
 			ro[m_half - k] = (r0 + r1 - tw_r) * 0.5;
 			io[k]		   = (i0 + i1 + tw_i) * 0.5;
@@ -922,30 +897,34 @@ private:
 	}
 
 	// Uses m_c and m_d internally; does not touch m_a or m_b
-	void transformI (const double* ri, const double* ii,
+	void transformI (const SampleType* ri, const SampleType* ii,
 					 SampleType* ro)
 	{
-		int halfhalf = m_half / 2;
-		m_vr[0]		 = ri[0] + ri[m_half];
-		m_vi[0]		 = ri[0] - ri[m_half];
-		int ix		 = 0;
-		for (int i = 0; i < halfhalf; ++i)
+		m_vr[0] = ri[0] + ri[m_half];
+		m_vi[0] = ri[0] - ri[m_half];
+
+		int ix = 0;
+
+		for (int i = 0; i < m_half / 2; ++i)
 		{
-			double s		 = m_sincos_r[ix++];
-			double c		 = m_sincos_r[ix++];
-			int	   k		 = i + 1;
-			double r0		 = ri[k];
-			double r1		 = ri[m_half - k];
-			double i0		 = ii[k];
-			double i1		 = -ii[m_half - k];
-			double tw_r		 = (r0 - r1) * c - (i0 - i1) * s;
-			double tw_i		 = (r0 - r1) * s + (i0 - i1) * c;
+			double s	= m_sincos_r[ix++];
+			double c	= m_sincos_r[ix++];
+			int	   k	= i + 1;
+			double r0	= ri[k];
+			double r1	= ri[m_half - k];
+			double i0	= ii[k];
+			double i1	= -ii[m_half - k];
+			double tw_r = (r0 - r1) * c - (i0 - i1) * s;
+			double tw_i = (r0 - r1) * s + (i0 - i1) * c;
+
 			m_vr[k]			 = (r0 + r1 + tw_r);
 			m_vr[m_half - k] = (r0 + r1 - tw_r);
 			m_vi[k]			 = (i0 + i1 + tw_i);
 			m_vi[m_half - k] = (tw_i - i0 - i1);
 		}
+
 		transformComplex (m_vr, m_vi, m_c, m_d, true);
+
 		for (int i = 0; i < m_half; ++i)
 		{
 			ro[i * 2]	  = m_c[i];
@@ -953,16 +932,13 @@ private:
 		}
 	}
 
-	void transformComplex (const double* ri, const double* ii,
-						   double* ro, double* io,
+	void transformComplex (const SampleType* ri, const SampleType* ii,
+						   SampleType* ro, SampleType* io,
 						   bool inverse)
 	{
 		// Following Don Cross's 1998 implementation, described by its author as public domain.
 
-		// Because we are at heart a real-complex fft only, and we know that:
-		const int n = m_half;
-
-		for (int i = 0; i < n; ++i)
+		for (int i = 0; i < m_half; ++i)
 		{
 			int j = m_table[i];
 			ro[j] = ri[i];
@@ -973,7 +949,7 @@ private:
 		int	   blockEnd = 1;
 		double ifactor	= (inverse ? -1.0 : 1.0);
 
-		for (int blockSize = 2; blockSize <= n; blockSize <<= 1)
+		for (int blockSize = 2; blockSize <= m_half; blockSize <<= 1)
 		{
 			double sm1, sm2, cm1, cm2;
 
@@ -995,7 +971,7 @@ private:
 			double w = 2 * cm1;
 			double ar[3], ai[3];
 
-			for (int i = 0; i < n; i += blockSize)
+			for (int i = 0; i < m_half; i += blockSize)
 			{
 				ar[2] = cm2;
 				ar[1] = cm1;
