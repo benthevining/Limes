@@ -70,6 +70,7 @@ namespace limes::vecops
 template <typename T>
 concept Integral = Scalar<T> && std::is_integral_v<T>;
 
+#pragma mark Basic functions
 
 template <Scalar DataType, Integral SizeType>
 void fill (DataType* const data, SizeType size, DataType constantToFill);
@@ -99,6 +100,7 @@ static void convert (DataType1* const dest, const DataType2* const source, SizeT
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Arithmetic functions
 
 /*-----  ADDITION  -----*/
 
@@ -178,7 +180,7 @@ void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeTy
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-/*-----  Sorting and ordering functions  -----*/
+#pragma mark Sorting and ordering functions
 
 template <Scalar DataType, Integral SizeType>
 void reverse (DataType* const dataAndDest, SizeType size);
@@ -207,6 +209,7 @@ void deinterleave (DataType* const * const output, const DataType* const interle
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Statistical functions
 
 template <Scalar DataType, Integral SizeType>
 void abs (DataType* const dataAndDest, SizeType size);
@@ -309,6 +312,7 @@ void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue,
 template <Scalar DataType, Integral SizeType>
 void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue);
 
+#pragma mark Windowing functions
 
 namespace window
 {

@@ -21,6 +21,8 @@
 namespace limes::vecops::fb
 {
 
+#pragma mark Basic functions
+
 template <Scalar DataType, Integral SizeType>
 inline void fill (DataType* const data, SizeType size, DataType constantToFill)
 {
@@ -54,6 +56,7 @@ inline void swap (DataType* const vecA, DataType* const vecB, SizeType size)
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Arithmetic functions
 
 /*-----  ADDITION  -----*/
 
@@ -213,6 +216,7 @@ inline void squareRootAndCopy (DataType* const dest, const DataType* const data,
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Sorting and ordering functions
 
 template <Scalar DataType, Integral SizeType>
 inline void reverse (DataType* const dataAndDest, SizeType size)
@@ -317,6 +321,7 @@ inline void deinterleave (DataType* const * const output, const DataType* const 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Statistical functions
 
 template <Scalar DataType, Integral SizeType>
 inline void abs (DataType* const dataAndDest, SizeType size)
@@ -606,6 +611,7 @@ inline void applyRampAndCopy (DataType* const dest, const DataType* const data, 
 		dest[i] = data[i] * (startValue + (increment * static_cast<DataType> (i)));
 }
 
+#pragma mark Windowing functions
 
 namespace window
 {

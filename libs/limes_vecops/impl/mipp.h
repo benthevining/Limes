@@ -32,6 +32,8 @@ template <Scalar DataType, Integral SizeType>
 
 }  // namespace detail
 
+#pragma mark Basic functions
+
 template <Scalar DataType, Integral SizeType>
 void fill (DataType* const data, SizeType size, DataType constantToFill)
 {
@@ -97,6 +99,7 @@ void swap (DataType* const vecA, DataType* const vecB, SizeType size)
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Arithmetic functions
 
 /*-----  ADDITION  -----*/
 
@@ -516,6 +519,7 @@ void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeTy
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Sorting and ordering functions
 
 template <Scalar DataType, Integral SizeType>
 void reverse (DataType* const dataAndDest, SizeType size)
@@ -573,6 +577,7 @@ void deinterleave (DataType* const * const output, const DataType* const interle
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Statistical functions
 
 template <Scalar DataType, Integral SizeType>
 void abs (DataType* const dataAndDest, SizeType size)
@@ -1061,6 +1066,7 @@ void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeTyp
 	multiply (dest, size, data);
 }
 
+#pragma mark Windowing functions
 
 namespace window
 {

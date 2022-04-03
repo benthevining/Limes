@@ -35,6 +35,7 @@ using is_double_type = ConditionalType<std::is_same_v<DataType, double>>;
 template <typename DataType>
 using is_signed_32_bit_type = ConditionalType<std::is_integral_v<DataType> && std::is_signed_v<DataType> && std::numeric_limits<DataType>::digits == 32>;
 
+#pragma mark Basic functions
 
 template <Scalar DataType, Integral SizeType>
 void fill (DataType* const data, SizeType size, DataType constantToFill)
@@ -93,6 +94,7 @@ template <>
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Arithmetic functions
 
 /*-----  ADDITION  -----*/
 
@@ -328,6 +330,7 @@ void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeTy
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Sorting and ordering functions
 
 template <Scalar DataType, Integral SizeType>
 void reverse (DataType* const dataAndDest, SizeType size)
@@ -394,6 +397,7 @@ void deinterleave (DataType* const * const output, const DataType* const interle
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Statistical functions
 
 template <Scalar DataType, Integral SizeType>
 void abs (DataType* const dataAndDest, SizeType size)
@@ -743,6 +747,7 @@ void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeTyp
 	multiply (dest, size, data);
 }
 
+#pragma mark Windowing functions
 
 namespace window
 {
