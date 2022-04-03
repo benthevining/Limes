@@ -37,6 +37,14 @@ add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/impl")
 add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/util")
 add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/fft")
 
+find_package (FFTW MODULE QUIET)
+
+if(TARGET FFTW::FFTW)
+	message (DEBUG " -- limes_vecops - using FFTW for FFT")
+	target_link_libraries (limes_vecops PUBLIC FFTW::FFTW)
+	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_FFTW=1)
+endif()
+
 lemons_sort_target_sources (limes_vecops "${CMAKE_CURRENT_LIST_DIR}")
 
 set_target_properties (limes_vecops PROPERTIES LINKER_LANGUAGE CXX)

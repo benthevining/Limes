@@ -25,16 +25,16 @@ mark_as_advanced (FORCE LIMES_IGNORE_VDSP LIMES_IGNORE_IPP)
 # Apple - default to using vDSP first
 if(APPLE)
 	if(LIMES_IGNORE_VDSP)
-		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_VDSP=0)
+		target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_VDSP=0)
 	else()
-		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_VDSP=1)
+		target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_VDSP=1)
 
 		target_sources (
 			limes_vecops
-			INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/vdsp.h>
-					  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/vdsp.h>)
+			PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/vdsp.h>
+				   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/vdsp.h>)
 
-		target_link_libraries (limes_vecops INTERFACE "-framework vDSP")
+		target_link_libraries (limes_vecops PUBLIC "-framework vDSP")
 
 		message (VERBOSE "limes_vecops -- using vDSP")
 
@@ -54,19 +54,19 @@ string (REGEX REPLACE ".*LIMES_INTEL_PLATFORM ([a-zA-Z0-9_-]*).*" "\\1" intel_pl
 
 if(intel_platform)
 	if(LIMES_IGNORE_IPP)
-		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_IPP=0)
+		target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_IPP=0)
 	else()
 		find_package (IPP MODULE QUIET COMPONENTS CORE S VM)
 
 		if(TARGET Intel::IntelIPP)
-			target_link_libraries (limes_vecops INTERFACE Intel::IntelIPP)
+			target_link_libraries (limes_vecops PUBLIC Intel::IntelIPP)
 
-			target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_IPP=1)
+			target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_IPP=1)
 
 			target_sources (
 				limes_vecops
-				INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ipp.h>
-						  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/ipp.h>)
+				PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ipp.h>
+					   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/ipp.h>)
 
 			message (VERBOSE "limes_vecops -- using IPP")
 
@@ -80,19 +80,19 @@ endif()
 #
 
 if(LIMES_IGNORE_MIPP)
-	target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_MIPP=0)
+	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_MIPP=0)
 else()
 	find_package (MIPP MODULE QUIET)
 
 	if(TARGET aff3ct::MIPP)
-		target_link_libraries (limes_vecops INTERFACE aff3ct::MIPP)
+		target_link_libraries (limes_vecops PUBLIC aff3ct::MIPP)
 
-		target_compile_definitions (limes_vecops INTERFACE LIMES_VECOPS_USE_MIPP=1)
+		target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_MIPP=1)
 
 		target_sources (
 			limes_vecops
-			INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mipp.h>
-					  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/mipp.h>)
+			PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mipp.h>
+				   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/mipp.h>)
 
 		message (VERBOSE "limes_vecops -- using MIPP")
 
@@ -108,7 +108,7 @@ endif()
 
 target_sources (
 	limes_vecops
-	INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback.h>
-			  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/fallback.h>)
+	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback.h>
+		   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/fallback.h>)
 
 message (VERBOSE "limes_vecops -- using fallback implementation")
