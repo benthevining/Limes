@@ -8,16 +8,24 @@
 #
 # ======================================================================================
 
-oranges_add_target_headers (
-	TARGET
+target_sources (
 	limes_core
-	SCOPE
-	PRIVATE
-	REL_PATH
-	Limes/limes_core
-	FILES
-	ObjectBase.h
-	AtomicObjectHolder.h
-	NonrealtimeMutatableObject.h
-	RealtimeMutatableObject.h
-	RealtimeSafeObject_impl.h)
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ObjectBase.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/AtomicObjectHolder.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NonrealtimeMutatableObject.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeMutatableObject.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject_impl.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/ObjectBase.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/AtomicObjectHolder.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/NonrealtimeMutatableObject.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/RealtimeMutatableObject.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/RealtimeSafeObject_impl.h>)
+
+install (
+	FILES "${CMAKE_CURRENT_LIST_DIR}/ObjectBase.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/AtomicObjectHolder.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/NonrealtimeMutatableObject.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/RealtimeMutatableObject.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject_impl.h"
+	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+	COMPONENT limes_core_dev)

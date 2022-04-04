@@ -8,15 +8,18 @@
 #
 # ======================================================================================
 
-oranges_add_target_headers (
-	TARGET
+target_sources (
 	limes_core
-	SCOPE
-	PRIVATE
-	REL_PATH
-	Limes/limes_core
-	FILES
-	vector.h
-	basic_vector.h
-	scalar_vector.h
-	owned_vector.h)
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/vector.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_vector.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/scalar_vector.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/owned_vector.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/vector.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/basic_vector.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/scalar_vector.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/owned_vector.h>)
+
+install (
+	FILES "${CMAKE_CURRENT_LIST_DIR}/vector.h" "${CMAKE_CURRENT_LIST_DIR}/basic_vector.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/scalar_vector.h" "${CMAKE_CURRENT_LIST_DIR}/owned_vector.h"
+	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}" COMPONENT limes_core_dev)

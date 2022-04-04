@@ -8,14 +8,11 @@
 #
 # ======================================================================================
 
-target_sources (limes_audio PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PeakFinder.cpp>)
-
-oranges_add_target_headers (
-	TARGET
+target_sources (
 	limes_audio
-	SCOPE
-	PRIVATE
-	REL_PATH
-	Limes/limes_audio
-	FILES
-	PeakFinder.h)
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PeakFinder.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PeakFinder.h>
+			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/PeakFinder.h>)
+
+install (FILES "${CMAKE_CURRENT_LIST_DIR}/PeakFinder.h"
+		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}" COMPONENT limes_audio_dev)

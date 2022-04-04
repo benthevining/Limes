@@ -8,16 +8,14 @@
 #
 # ======================================================================================
 
-target_sources (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/StringUtils.cpp>
-								   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TextTable.cpp>)
-
-oranges_add_target_headers (
-	TARGET
+target_sources (
 	limes_core
-	SCOPE
-	PRIVATE
-	REL_PATH
-	Limes/limes_core
-	FILES
-	StringUtils.h
-	TextTable.h)
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/StringUtils.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TextTable.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/StringUtils.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TextTable.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/StringUtils.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/TextTable.h>)
+
+install (FILES "${CMAKE_CURRENT_LIST_DIR}/StringUtils.h" "${CMAKE_CURRENT_LIST_DIR}/TextTable.h"
+		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}" COMPONENT limes_core_dev)

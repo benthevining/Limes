@@ -8,9 +8,42 @@
 #
 # ======================================================================================
 
+#[=======================================================================[.rst:
+
+limes_vecops
+-------------------------
+
+A vector operations library wrapping various platform and vendor specific high-performance APIs.
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- LIMES_IGNORE_VDSP
+- LIMES_IGNORE_IPP
+- LIMES_IGNORE_MIPP
+
+Targets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- Limes::limes_vecops
+
+Install components
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- limes_vecops_dev
+- limes_vecops_runtime
+
+Install component groups
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- limes_vecops
+
+#]=======================================================================]
+
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
+include (OrangesDefaultTarget)
+include (OrangesUnityBuild)
+include (CPackComponent)
+include (GNUInstallDirs)
 
 add_library (limes_vecops STATIC)
 
@@ -19,62 +52,54 @@ set_target_properties (limes_vecops PROPERTIES VERSION "${PROJECT_VERSION}"
 
 target_link_libraries (limes_vecops PUBLIC Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
 
-oranges_add_target_headers (
-	TARGET
-	limes_vecops
-	SCOPE
-	PUBLIC
-	REL_PATH
-	Limes/limes_vecops
-	FILES
-	limes_vecops.h
-	INSTALL_COMPONENT
-	limes_vecops_Development)
+set (LIMES_VECOPS_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_vecops" CACHE INTERNAL "")
+
+target_sources (
+	limes_vecops PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h>
+						$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/limes_vecops.h>)
+
+install (FILES "${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h"
+		 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
 
 target_include_directories (
 	limes_vecops PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-						$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops>)
+						$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}>)
 
-add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/impl")
-add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/util")
-add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/fft")
-
-find_package (FFTW MODULE QUIET)
-
-if(TARGET FFTW::FFTW)
-	message (DEBUG " -- limes_vecops - using FFTW for FFT")
-	target_link_libraries (limes_vecops PUBLIC FFTW::FFTW)
-	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_FFTW=1)
-endif()
+add_subdirectory (impl)
+add_subdirectory (util)
+add_subdirectory (fft)
 
 lemons_sort_target_sources (limes_vecops "${CMAKE_CURRENT_LIST_DIR}")
 
-set_target_properties (limes_vecops PROPERTIES LINKER_LANGUAGE CXX)
-
-oranges_export_alias_target (limes_vecops Limes)
-
-target_link_libraries (Limes INTERFACE Limes::limes_vecops)
-
-oranges_install_targets (
-	TARGETS
-	limes_vecops
-	EXPORT
-	LimesVecopsTargets
-	REL_PATH
-	Limes/limes_vecops
-	COMPONENT_PREFIX
-	limes_vecops
-	COMPONENT_GROUP
-	limes_vecops)
+install (
+	TARGETS limes_vecops
+	EXPORT LimesVecopsTargets
+	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_vecops_runtime
+			NAMELINK_COMPONENT limes_vecops_dev
+	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_vecops_dev
+	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_vecops_runtime
+	INCLUDES
+	DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}")
 
 install (
 	EXPORT LimesVecopsTargets
 	NAMESPACE Limes::
 	DESTINATION "${LIMES_INSTALL_DEST}"
 	EXPORT_LINK_INTERFACE_LIBRARIES
-	COMPONENT limes_vecops_Development)
+	COMPONENT limes_vecops_runtime)
 
 export (EXPORT LimesVecopsTargets NAMESPACE Limes:: FILE LimesVecopsTargets.cmake)
 
-cpack_add_component_group (limes_vecops DISPLAY_NAME "Limes vecops library"
-						   DESCRIPTION "All components of the Limes vector operations library")
+cpack_add_component (limes_vecops_runtime GROUP limes_vecops)
+
+cpack_add_component (limes_vecops_dev GROUP limes_vecops DEPENDS limes_vecops_runtime)
+
+cpack_add_component_group (
+	limes_vecops DISPLAY_NAME "Limes vecops library"
+	DESCRIPTION "All components of the Limes vector operations library" PARENT_GROUP limes)
+
+if(NOT TARGET Limes::limes_vecops)
+	add_library (Limes::limes_vecops ALIAS limes_vecops)
+endif()
+
+target_link_libraries (Limes INTERFACE Limes::limes_vecops)

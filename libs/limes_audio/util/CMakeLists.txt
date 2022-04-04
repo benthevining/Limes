@@ -9,18 +9,18 @@
 # ======================================================================================
 
 target_sources (
-	limes_audio PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchDetector.cpp>
-						$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/MonoStereoConverter.cpp>)
-
-oranges_add_target_headers (
-	TARGET
 	limes_audio
-	SCOPE
-	PRIVATE
-	REL_PATH
-	Limes/limes_audio
-	FILES
-	Windowing.h
-	PitchDetector.h
-	MonoStereoConverter.h
-	Misc.h)
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchDetector.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/MonoStereoConverter.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Windowing.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchDetector.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/MonoStereoConverter.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Misc.h>
+			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/Windowing.h>
+			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/PitchDetector.h>
+			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/MonoStereoConverter.h>
+			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/Misc.h>)
+
+install (FILES "${CMAKE_CURRENT_LIST_DIR}/Windowing.h" "${CMAKE_CURRENT_LIST_DIR}/PitchDetector.h"
+			   "${CMAKE_CURRENT_LIST_DIR}/MonoStereoConverter.h" "${CMAKE_CURRENT_LIST_DIR}/Misc.h"
+		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}" COMPONENT limes_audio_dev)

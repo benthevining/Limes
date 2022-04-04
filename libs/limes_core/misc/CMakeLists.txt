@@ -8,18 +8,23 @@
 #
 # ======================================================================================
 
-target_sources (limes_core PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.cpp>)
-
-oranges_add_target_headers (
-	TARGET
+target_sources (
 	limes_core
-	SCOPE
-	PRIVATE
-	REL_PATH
-	Limes/limes_core
-	FILES
-	Algorithm.h
-	TypeTraits.h
-	languages.h
-	StaticObjects.h
-	Functions.h)
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Algorithm.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TypeTraits.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/StaticObjects.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Functions.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/Algorithm.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/TypeTraits.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/languages.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/StaticObjects.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/Functions.h>)
+
+install (
+	FILES "${CMAKE_CURRENT_LIST_DIR}/Algorithm.h" "${CMAKE_CURRENT_LIST_DIR}/TypeTraits.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/languages.h" "${CMAKE_CURRENT_LIST_DIR}/StaticObjects.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/Functions.h"
+	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+	COMPONENT limes_core_dev)

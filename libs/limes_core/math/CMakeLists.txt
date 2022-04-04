@@ -8,14 +8,15 @@
 #
 # ======================================================================================
 
-oranges_add_target_headers (
-	TARGET
+target_sources (
 	limes_core
-	SCOPE
-	PRIVATE
-	REL_PATH
-	Limes/limes_core
-	FILES
-	mathHelpers.h
-	Fraction.h
-	Fraction_impl.h)
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mathHelpers.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Fraction.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Fraction_impl.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/mathHelpers.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/Fraction.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/Fraction_impl.h>)
+
+install (FILES "${CMAKE_CURRENT_LIST_DIR}/mathHelpers.h" "${CMAKE_CURRENT_LIST_DIR}/Fraction.h"
+			   "${CMAKE_CURRENT_LIST_DIR}/Fraction_impl.h"
+		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}" COMPONENT limes_core_dev)

@@ -8,6 +8,28 @@
 #
 # ======================================================================================
 
+#[=======================================================================[.rst:
+
+limes_core
+-------------------------
+
+The Limes core library of utilities.
+
+Targets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- Limes::limes_core
+
+Install components
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- limes_core_dev
+- limes_core_runtime
+
+Install component groups
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- limes_core
+
+#]=======================================================================]
+
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
@@ -16,14 +38,16 @@ include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 include (OrangesGenerateExportHeader)
 include (OrangesGeneratePlatformHeader)
+include (CPackComponent)
+include (GNUInstallDirs)
 
 add_library (limes_core STATIC)
 
 set_target_properties (limes_core PROPERTIES VERSION "${PROJECT_VERSION}"
 											 SOVERSION "${PROJECT_VERSION_MAJOR}")
 
-target_link_libraries (limes_core PUBLIC Limes::limes_vecops Oranges::OrangesDefaultTarget
-										 Oranges::OrangesUnityBuild)
+target_link_libraries (limes_core PUBLIC Limes::limes_vecops PRIVATE Oranges::OrangesDefaultTarget
+																	 Oranges::OrangesUnityBuild)
 
 oranges_generate_export_header (
 	TARGET
@@ -45,45 +69,56 @@ oranges_generate_platform_header (
 	REL_PATH
 	Limes/limes_core)
 
-oranges_add_target_headers (
-	TARGET
-	limes_core
-	SCOPE
-	PUBLIC
-	REL_PATH
-	Limes/limes_core
-	FILES
-	limes_core.h)
+set (LIMES_CORE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_core" CACHE INTERNAL "")
+
+target_sources (
+	limes_core PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_core.h>
+					  $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/limes_core.h>)
+
+install (FILES "${CMAKE_CURRENT_LIST_DIR}/limes_core.h"
+		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}" COMPONENT limes_core_dev)
 
 target_include_directories (
-	limes_core INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-						 $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_core>)
+	limes_core PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
+					  $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}>)
 
-add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/data_structures"
-				  "${CMAKE_CURRENT_BINARY_DIR}/limes_core/data_structures")
-add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/math" "${CMAKE_CURRENT_BINARY_DIR}/limes_core/math")
-add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/misc" "${CMAKE_CURRENT_BINARY_DIR}/limes_core/misc")
-add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/threading"
-				  "${CMAKE_CURRENT_BINARY_DIR}/limes_core/threading")
-add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/text" "${CMAKE_CURRENT_BINARY_DIR}/limes_core/text")
+add_subdirectory (data_structures)
+add_subdirectory (math)
+add_subdirectory (misc)
+add_subdirectory (threading)
+add_subdirectory (text)
 
 lemons_sort_target_sources (limes_core "${CMAKE_CURRENT_LIST_DIR}")
 
-oranges_export_alias_target (limes_core Limes)
+install (
+	TARGETS limes_core
+	EXPORT LimesCoreTargets
+	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_core_runtime
+			NAMELINK_COMPONENT limes_core_dev
+	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_core_dev
+	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_core_runtime
+	INCLUDES
+	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}")
 
-target_link_libraries (Limes INTERFACE Limes::limes_core)
-
-oranges_install_targets (
-	TARGETS
-	limes_core
-	EXPORT
-	LimesCoreTargets
-	REL_PATH
-	Limes/limes_core
-	COMPONENT_PREFIX
-	limes_core)
-
-install (EXPORT LimesCoreTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST}"
-		 EXPORT_LINK_INTERFACE_LIBRARIES)
+install (
+	EXPORT LimesCoreTargets
+	NAMESPACE Limes::
+	DESTINATION "${LIMES_INSTALL_DEST}"
+	EXPORT_LINK_INTERFACE_LIBRARIES
+	COMPONENT limes_core_runtime)
 
 export (EXPORT LimesCoreTargets NAMESPACE Limes:: FILE LimesCoreTargets.cmake)
+
+cpack_add_component (limes_core_runtime GROUP limes_core)
+
+cpack_add_component (limes_core_dev GROUP limes_core DEPENDS limes_core_runtime)
+
+cpack_add_component_group (
+	limes_core DISPLAY_NAME "Limes core library"
+	DESCRIPTION "All components of the Limes core utilities library" PARENT_GROUP limes)
+
+if(NOT TARGET Limes::limes_core)
+	add_library (Limes::limes_core ALIAS limes_core)
+endif()
+
+target_link_libraries (Limes INTERFACE Limes::limes_core)

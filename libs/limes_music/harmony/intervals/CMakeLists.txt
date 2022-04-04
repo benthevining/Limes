@@ -9,19 +9,25 @@
 # ======================================================================================
 
 target_sources (
-	limes_music PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Interval.cpp>
-						$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/CompoundInterval.cpp>)
-
-oranges_add_target_headers (
-	TARGET
 	limes_music
-	SCOPE
-	PRIVATE
-	REL_PATH
-	Limes/limes_music
-	FILES
-	Interval.h
-	Interval_impl.h
-	CompoundInterval.h
-	CompoundInterval_impl.h
-	MicrotonalInterval.h)
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Interval.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/CompoundInterval.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Interval.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Interval_impl.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/CompoundInterval.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/CompoundInterval_impl.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/MicrotonalInterval.h>
+			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/Interval.h>
+			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/Interval_impl.h>
+			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/CompoundInterval.h>
+			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/CompoundInterval_impl.h>
+			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/MicrotonalInterval.h>)
+
+install (
+	FILES "${CMAKE_CURRENT_LIST_DIR}/Interval.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/Interval_impl.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/CompoundInterval.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/CompoundInterval_impl.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/MicrotonalInterval.h"
+	DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
+	COMPONENT limes_music_dev)

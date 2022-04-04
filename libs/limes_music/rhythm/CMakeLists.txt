@@ -8,18 +8,23 @@
 #
 # ======================================================================================
 
-target_sources (limes_music PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NoteLength.cpp>)
-
-oranges_add_target_headers (
-	TARGET
+target_sources (
 	limes_music
-	SCOPE
-	PRIVATE
-	REL_PATH
-	Limes/limes_music
-	FILES
-	NoteDuration.h
-	NoteDuration_impl.h
-	NoteLength.h
-	NoteLength_impl.h
-	TimeSignature.h)
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NoteLength.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NoteDuration.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NoteDuration_impl.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NoteLength.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NoteLength_impl.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TimeSignature.h>
+			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/NoteDuration.h>
+			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/NoteDuration_impl.h>
+			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/NoteLength.h>
+			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/NoteLength_impl.h>
+			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/TimeSignature.h>)
+
+install (
+	FILES "CMAKE_CURRENT_LIST_DIR}/NoteDuration.h" "${CMAKE_CURRENT_LIST_DIR}/NoteDuration_impl.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/NoteLength.h" "${CMAKE_CURRENT_LIST_DIR}/NoteLength_impl.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/TimeSignature.h"
+	DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
+	COMPONENT limes_music_dev)

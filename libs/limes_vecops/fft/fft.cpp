@@ -10,8 +10,16 @@
  * ======================================================================================
  */
 
+#ifndef FFTW_HEADER_NAME
+#	define FFTW_HEADER_NAME fftw3.h
+#endif
+
 #ifndef LIMES_VECOPS_USE_FFTW
-#	define LIMES_VECOPS_USE_FFTW 0
+#	if __has_include(<FFTW_HEADER_NAME>)
+#		define LIMES_VECOPS_USE_FFTW 1
+#	else
+#		define LIMES_VECOPS_USE_FFTW 0
+#	endif
 #endif
 
 #include <cmath>
@@ -23,7 +31,7 @@
 #include "fft.h"
 
 #if LIMES_VECOPS_USE_FFTW
-#	include <fftw3.h>
+#	include <FFTW_HEADER_NAME>
 
 #	ifndef FFTW_SINGLE_ONLY
 #		define FFTW_SINGLE_ONLY 0

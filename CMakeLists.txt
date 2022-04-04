@@ -8,6 +8,55 @@
 #
 # ======================================================================================
 
+#[=======================================================================[.rst:
+
+Limes
+-------------------------
+
+The Limes library.
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- LIMES_IGNORE_VDSP
+- LIMES_IGNORE_IPP
+- LIMES_IGNORE_MIPP
+
+Required packages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- Oranges
+
+Targets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- Limes::limes_core
+- Limes::limes_vecops
+- Limes::limes_music
+- Limes::limes_audio
+- Limes::Limes
+
+Install components
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- limes_vecops_dev
+- limes_vecops_runtime
+- limes_music_dev
+- limes_music_runtime
+- limes_core_dev
+- limes_core_runtime
+- limes_audio_dev
+- limes_audio_runtime
+- limes_dev
+- limes_runtime
+- limes_docs
+
+Install component groups
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- limes_vecops
+- limes_music
+- limes_core
+- limes_audio
+- limes
+
+#]=======================================================================]
+
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
@@ -39,31 +88,21 @@ find_package (Oranges REQUIRED)
 set (Limes_DEPS_GRAPH_OUTPUT_TO_SOURCE util)
 
 include (OrangesDefaultProjectSettings)
-
-#
-
 include (OrangesDefaultInstallSettings)
+
+unset (Limes_DEPS_GRAPH_OUTPUT_TO_SOURCE)
 
 add_subdirectory (libs)
 
-oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs INSTALL_COMPONENT LimesDocs)
+oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs INSTALL_COMPONENT limes_docs)
 
-cpack_add_component (LimesDocs DISPLAY_NAME "Limes documentation"
-					 DESCRIPTION "Install Limes documentation" GROUP Limes)
+cpack_add_component (limes_docs DISPLAY_NAME "Limes documentation"
+					 DESCRIPTION "Install the Limes documentation" GROUP limes)
 
 #
 
 write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_VERSION}"
 								  COMPATIBILITY SameMajorVersion)
-
-install (
-	EXPORT LimesTargets
-	NAMESPACE Limes::
-	DESTINATION "${LIMES_INSTALL_DEST}"
-	EXPORT_LINK_INTERFACE_LIBRARIES
-	COMPONENT LimesLibs)
-
-export (EXPORT LimesTargets NAMESPACE Limes:: FILE LimesTargets.cmake)
 
 configure_package_config_file (
 	"${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake" "LimesConfig.cmake"
@@ -71,16 +110,23 @@ configure_package_config_file (
 
 install (FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
 			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION "${LIMES_INSTALL_DEST}"
-		 COMPONENT LimesLibs)
+		 COMPONENT limes_dev)
 
 export (PACKAGE Limes)
 
-cpack_add_component (LimesLibs DISPLAY_NAME "Limes static libraries"
-					 DESCRIPTION "Install the Limes C++ static libraries" GROUP Limes)
+include (CPackComponent)
+
+cpack_add_component (limes_runtime GROUP limes DEPENDS limes_vecops_runtime limes_music_runtime
+													   limes_core_runtime limes_audio_runtime)
+
+cpack_add_component (limes_dev GROUP limes DEPENDS limes_runtime limes_vecops_dev limes_music_dev
+												   limes_core_dev limes_audio_dev)
 
 cpack_add_component_group (
-	Limes
-	DISPLAY_NAME Limes
-	DESCRIPTION "Install all components of the Limes library"
-	EXPANDED BOLD_TITLE
+	limes
+	DISPLAY_NAME "Limes library"
+	DESCRIPTION "All components of the Limes library"
+	BOLD_TITLE
 	PARENT_GROUP Citrus)
+
+unset (LIMES_ROOT_DIR)

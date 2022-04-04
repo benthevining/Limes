@@ -8,16 +8,20 @@
 #
 # ======================================================================================
 
-add_subdirectory ("${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject")
+add_subdirectory (RealtimeSafeObject)
 
-oranges_add_target_headers (
-	TARGET
+target_sources (
 	limes_core
-	SCOPE
-	PRIVATE
-	REL_PATH
-	Limes/limes_core
-	FILES
-	RealtimeTypeTraits.h
-	RealtimeSafeObject.h
-	ThreadSafeObject.h)
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeTypeTraits.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ThreadSafeObject.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/RealtimeTypeTraits.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/RealtimeSafeObject.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/ThreadSafeObject.h>)
+
+install (
+	FILES "${CMAKE_CURRENT_LIST_DIR}/RealtimeTypeTraits.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/ThreadSafeObject.h"
+	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+	COMPONENT limes_core_dev)

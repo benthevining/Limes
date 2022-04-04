@@ -8,11 +8,19 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_vecops PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fft.h>
-						$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops/fft.h>
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fft.cpp>)
+find_package (FFTW MODULE QUIET)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/fft.h"
-		 DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops"
-		 COMPONENT limes_vecops_Development)
+if(TARGET FFTW::FFTW)
+	message (DEBUG " -- limes_vecops - using FFTW for FFT")
+	target_link_libraries (limes_vecops PRIVATE FFTW::FFTW)
+	target_compile_definitions (limes_vecops PRIVATE LIMES_VECOPS_USE_FFTW=1)
+endif()
+
+target_sources (
+	limes_vecops
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fft.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fft.cpp>
+			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft.h>)
+
+install (FILES "${CMAKE_CURRENT_LIST_DIR}/fft.h" DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
+		 COMPONENT limes_vecops_dev)
