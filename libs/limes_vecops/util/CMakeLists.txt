@@ -17,4 +17,6 @@ oranges_add_target_headers (
 	Limes/limes_vecops
 	FILES
 	Constants.h
-	Platform.h)
+	Platform.h
+	INSTALL_COMPONENT
+	limes_vecops_Development)

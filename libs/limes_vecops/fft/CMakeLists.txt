@@ -14,4 +14,5 @@ target_sources (
 	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fft.cpp>)
 
 install (FILES "${CMAKE_CURRENT_LIST_DIR}/fft.h"
-		 DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops")
+		 DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/Limes/limes_vecops"
+		 COMPONENT limes_vecops_Development)

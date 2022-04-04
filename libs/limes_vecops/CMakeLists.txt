@@ -27,7 +27,9 @@ oranges_add_target_headers (
 	REL_PATH
 	Limes/limes_vecops
 	FILES
-	limes_vecops.h)
+	limes_vecops.h
+	INSTALL_COMPONENT
+	limes_vecops_Development)
 
 target_include_directories (
 	limes_vecops PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
@@ -61,9 +63,18 @@ oranges_install_targets (
 	REL_PATH
 	Limes/limes_vecops
 	COMPONENT_PREFIX
+	limes_vecops
+	COMPONENT_GROUP
 	limes_vecops)
 
-install (EXPORT LimesVecopsTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST}"
-		 EXPORT_LINK_INTERFACE_LIBRARIES)
+install (
+	EXPORT LimesVecopsTargets
+	NAMESPACE Limes::
+	DESTINATION "${LIMES_INSTALL_DEST}"
+	EXPORT_LINK_INTERFACE_LIBRARIES
+	COMPONENT limes_vecops_Development)
 
 export (EXPORT LimesVecopsTargets NAMESPACE Limes:: FILE LimesVecopsTargets.cmake)
+
+cpack_add_component_group (limes_vecops DISPLAY_NAME "Limes vecops library"
+						   DESCRIPTION "All components of the Limes vector operations library")

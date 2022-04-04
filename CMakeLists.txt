@@ -42,19 +42,26 @@ include (OrangesDefaultProjectSettings)
 
 #
 
-add_subdirectory (libs)
-
 include (OrangesDefaultInstallSettings)
 
-oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs)
+add_subdirectory (libs)
+
+oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs INSTALL_COMPONENT LimesDocs)
+
+cpack_add_component (LimesDocs DISPLAY_NAME "Limes documentation"
+					 DESCRIPTION "Install Limes documentation" GROUP Limes)
 
 #
 
 write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_VERSION}"
 								  COMPATIBILITY SameMajorVersion)
 
-install (EXPORT LimesTargets NAMESPACE Limes:: DESTINATION "${LIMES_INSTALL_DEST}"
-		 EXPORT_LINK_INTERFACE_LIBRARIES)
+install (
+	EXPORT LimesTargets
+	NAMESPACE Limes::
+	DESTINATION "${LIMES_INSTALL_DEST}"
+	EXPORT_LINK_INTERFACE_LIBRARIES
+	COMPONENT LimesLibs)
 
 export (EXPORT LimesTargets NAMESPACE Limes:: FILE LimesTargets.cmake)
 
@@ -63,6 +70,17 @@ configure_package_config_file (
 	INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" PATH_VARS LIMES_ROOT_DIR)
 
 install (FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
-			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION "${LIMES_INSTALL_DEST}")
+			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION "${LIMES_INSTALL_DEST}"
+		 COMPONENT LimesLibs)
 
 export (PACKAGE Limes)
+
+cpack_add_component (LimesLibs DISPLAY_NAME "Limes static libraries"
+					 DESCRIPTION "Install the Limes C++ static libraries" GROUP Limes)
+
+cpack_add_component_group (
+	Limes
+	DISPLAY_NAME Limes
+	DESCRIPTION "Install all components of the Limes library"
+	EXPANDED BOLD_TITLE
+	PARENT_GROUP Citrus)
