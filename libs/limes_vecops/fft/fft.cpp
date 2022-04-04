@@ -200,26 +200,22 @@ private:
 		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
 		vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
 
-		vDSP_unpackComplex (complexOut,
-							m_packed.realp,
-							m_packed.imagp,
-							fft_size);
+		vDSP_unpackComplex (complexOut, m_packed.realp, m_packed.imagp, fft_size);
 	}
 
 	void forwardPolar (const float* realIn, float* magOut, float* phaseOut) final
 	{
-		const auto hs1 = fft_size / 2 + 1;
-
 		packReal (realIn);
 		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
 		vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
 
 		// vDSP forward FFTs are scaled 2x (for some reason)
-		for (auto i = 0; i < hs1; ++i)
-		{
-			m_packed.realp[i] *= 0.5f;
-			m_packed.imagp[i] *= 0.5f;
-		}
+
+		const auto	   hs1	= fft_size / 2 + 1;
+		constexpr auto half = 0.5f;
+
+		vDSP_vsmul (m_packed.realp, vDSP_Stride (1), &half, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
+		vDSP_vsmul (m_packed.imagp, vDSP_Stride (1), &half, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
 
 		// v_cartesian_to_polar(magOut, phaseOut,
 		//                      m_packed.realp, m_packed.imagp, hs1);
@@ -266,13 +262,8 @@ private:
 
 		vvsincosf (m_packed.imagp, m_packed.realp, phaseIn, &hs1);
 
-		for (auto i = 0; i < hs1; ++i)
-		{
-			const auto thisMag = magIn[i];
-
-			m_packed.realp[i] *= thisMag;
-			m_packed.imagp[i] *= thisMag;
-		}
+		vDSP_vsmul (m_packed.realp, vDSP_Stride (1), magIn, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
+		vDSP_vsmul (m_packed.imagp, vDSP_Stride (1), magIn, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
 
 		vDSP_nyq (m_packed.realp, m_packed.imagp, fft_size);
 		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
@@ -285,8 +276,7 @@ private:
 
 		vecops::copy (m_spare, magIn, hs1);
 
-		for (auto i = 0; i < hs1; ++i)
-			m_spare[i] += shiftAmount<float>;
+		vDSP_vsadd (m_spare, vDSP_Stride (1), &shiftAmount<float>, m_spare, vDSP_Stride (1), vDSP_Length (hs1));
 
 		vvlogf (m_spare2, m_spare, &hs1);
 		inverse (m_spare2, 0, cepOut);
@@ -363,26 +353,22 @@ private:
 		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
 		vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
 
-		vDSP_unpackComplex (complexOut,
-							m_packed.realp,
-							m_packed.imagp,
-							fft_size);
+		vDSP_unpackComplex (complexOut, m_packed.realp, m_packed.imagp, fft_size);
 	}
 
 	void forwardPolar (const double* realIn, double* magOut, double* phaseOut) final
 	{
-		const auto hs1 = fft_size / 2 + 1;
-
 		packReal (realIn);
 		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
 		vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
 
 		// vDSP forward FFTs are scaled 2x (for some reason)
-		for (auto i = 0; i < hs1; ++i)
-		{
-			m_packed.realp[i] *= 0.5;
-			m_packed.imagp[i] *= 0.5;
-		}
+
+		const auto	   hs1	= fft_size / 2 + 1;
+		constexpr auto half = 0.5;
+
+		vDSP_vsmulD (m_packed.realp, vDSP_Stride (1), &half, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
+		vDSP_vsmulD (m_packed.imagp, vDSP_Stride (1), &half, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
 
 		// v_cartesian_to_polar(magOut, phaseOut,
 		//                      m_packed.realp, m_packed.imagp, hs1);
@@ -428,13 +414,8 @@ private:
 
 		vvsincos (m_packed.imagp, m_packed.realp, phaseIn, &hs1);
 
-		for (auto i = 0; i < hs1; ++i)
-		{
-			const auto thisMag = magIn[i];
-
-			m_packed.realp[i] *= thisMag;
-			m_packed.imagp[i] *= thisMag;
-		}
+		vDSP_vsmulD (m_packed.realp, vDSP_Stride (1), magIn, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
+		vDSP_vsmulD (m_packed.imagp, vDSP_Stride (1), magIn, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
 
 		vDSP_nyq (m_packed.realp, m_packed.imagp, fft_size);
 		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
@@ -447,8 +428,7 @@ private:
 
 		vecops::copy (m_spare, magIn, hs1);
 
-		for (auto i = 0; i < hs1; ++i)
-			m_spare[i] += shiftAmount<double>;
+		vDSP_vsaddD (m_spare, vDSP_Stride (1), &shiftAmount<double>, m_spare, vDSP_Stride (1), vDSP_Length (hs1));
 
 		vvlog (m_spare2, m_spare, &hs1);
 		inverse (m_spare2, 0, cepOut);
@@ -624,7 +604,7 @@ private:
 		ippsCopy_32f (magIn, m_spare, hs1);
 		ippsAddC_32f_I (shiftAmount<float>, m_spare, hs1);
 		ippsLn_32f_I (m_spare, hs1);
-		ipp_pack (m_spare, nullptr, fft_size, m_packed);
+		ipp_pack<float> (m_spare, nullptr, fft_size, m_packed);
 		ippsFFTInv_CCSToR_32f (m_packed, cepOut, m_spec, m_buf);
 	}
 
@@ -721,7 +701,7 @@ private:
 		ippsCopy_64f (magIn, m_spare, hs1);
 		ippsAddC_64f_I (shiftAmount<double>, m_spare, hs1);
 		ippsLn_64f_I (m_spare, hs1);
-		ipp_pack (m_spare, nullptr, fft_size, m_packed);
+		ipp_pack<double> (m_spare, nullptr, fft_size, m_packed);
 		ippsFFTInv_CCSToR_64f (m_packed, cepOut, m_spec, m_buf);
 	}
 
@@ -848,8 +828,7 @@ private:
 #	if ! FFTW_DOUBLE_ONLY
 		if (realIn != m_fbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				m_fbuf[i] = realIn[i];
+			vecops::copy (m_fbuf, realIn, fft_size);
 
 		fftwf_execute (m_fplanf);
 
@@ -861,8 +840,7 @@ private:
 #	if ! FFTW_DOUBLE_ONLY
 		if (realIn != m_fbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				m_fbuf[i] = realIn[i];
+			vecops::copy (m_fbuf, realIn, fft_size);
 
 		fftwf_execute (m_fplanf);
 		// v_convert(complexOut, (const fft_float_type *)m_fpacked, fft_size + 2);
@@ -873,8 +851,7 @@ private:
 #	if ! FFTW_DOUBLE_ONLY
 		if (realIn != m_fbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				m_fbuf[i] = realIn[i];
+			vecops::copy (m_fbuf, realIn, fft_size);
 
 		fftwf_execute (m_fplanf);
 
@@ -887,8 +864,7 @@ private:
 #	if ! FFTW_DOUBLE_ONLY
 		if (realIn != m_fbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				m_fbuf[i] = realIn[i];
+			vecops::copy (m_fbuf, realIn, fft_size);
 
 		fftwf_execute (m_fplanf);
 
@@ -905,8 +881,7 @@ private:
 #	if ! FFTW_DOUBLE_ONLY
 		if (realOut != m_fbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				realOut[i] = m_fbuf[i];
+			vecops::copy (realOut, m_fbuf, fft_size);
 	}
 
 	void inverseInterleaved (const float* complexIn, float* realOut) final
@@ -917,8 +892,7 @@ private:
 #	if ! FFTW_DOUBLE_ONLY
 		if (realOut != m_fbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				realOut[i] = m_fbuf[i];
+			vecops::copy (realOut, m_fbuf, fft_size);
 	}
 
 	void inversePolar (const float* magIn, const float* phaseIn, float* realOut) final
@@ -931,8 +905,7 @@ private:
 #	if ! FFTW_DOUBLE_ONLY
 		if (realOut != m_fbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				realOut[i] = m_fbuf[i];
+			vecops::copy (realOut, m_fbuf, fft_size);
 	}
 
 	void inverseCepstral (const float* magIn, float* cepOut) final
@@ -950,8 +923,7 @@ private:
 #	if ! FFTW_DOUBLE_ONLY
 		if (cepOut != m_fbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				cepOut[i] = m_fbuf[i];
+			vecops::copy (cepOut, m_fbuf, fft_size);
 	}
 
 	fftwf_plan m_fplanf;
@@ -1001,8 +973,7 @@ private:
 #	if ! FFTW_SINGLE_ONLY
 		if (realIn != m_dbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				m_dbuf[i] = realIn[i];
+			vecops::copy (m_dbuf, realIn, fft_size);
 
 		fftw_execute (m_dplanf);
 
@@ -1014,8 +985,7 @@ private:
 #	if ! FFTW_SINGLE_ONLY
 		if (realIn != m_dbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				m_dbuf[i] = realIn[i];
+			vecops::copy (m_dbuf, realIn, fft_size);
 
 		fftw_execute (m_dplanf);
 		// v_convert(complexOut, (const fft_double_type *)m_dpacked, fft_size + 2);
@@ -1026,8 +996,7 @@ private:
 #	if ! FFTW_SINGLE_ONLY
 		if (realIn != m_dbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				m_dbuf[i] = realIn[i];
+			vecops::copy (m_dbuf, realIn, fft_size);
 
 		fftw_execute (m_dplanf);
 
@@ -1040,8 +1009,7 @@ private:
 #	if ! FFTW_SINGLE_ONLY
 		if (realIn != m_dbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				m_dbuf[i] = realIn[i];
+			vecops::copy (m_dbuf, realIn, fft_size);
 
 		fftw_execute (m_dplanf);
 
@@ -1058,8 +1026,7 @@ private:
 #	if ! FFTW_SINGLE_ONLY
 		if (realOut != m_dbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				realOut[i] = m_dbuf[i];
+			vecops::copy (realOut, m_dbuf, fft_size);
 	}
 
 	void inverseInterleaved (const double* complexIn, double* realOut) final
@@ -1070,8 +1037,7 @@ private:
 #	if ! FFTW_SINGLE_ONLY
 		if (realOut != m_dbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				realOut[i] = m_dbuf[i];
+			vecops::copy (realOut, m_dbuf, fft_size);
 	}
 
 	void inversePolar (const double* magIn, const double* phaseIn, double* realOut) final
@@ -1084,8 +1050,7 @@ private:
 #	if ! FFTW_SINGLE_ONLY
 		if (realOut != m_dbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				realOut[i] = m_dbuf[i];
+			vecops::copy (realOut, m_dbuf, fft_size);
 	}
 
 	void inverseCepstral (const double* magIn, double* cepOut) final
@@ -1101,8 +1066,7 @@ private:
 #	if ! FFTW_SINGLE_ONLY
 		if (cepOut != m_dbuf)
 #	endif
-			for (auto i = 0; i < fft_size; ++i)
-				cepOut[i] = m_dbuf[i];
+			vecops::copy (cepOut, m_dbuf, fft_size);
 	}
 
 	fftw_plan m_dplanf;
