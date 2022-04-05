@@ -92,6 +92,11 @@ include (OrangesDefaultInstallSettings)
 
 unset (Limes_DEPS_GRAPH_OUTPUT_TO_SOURCE)
 
+include (GNUInstallDirs)
+
+set (LIMES_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+	 CACHE STRING "Directory below INSTALL_PREFIX where ${PROJECT_NAME} will be installed to")
+
 add_subdirectory (libs)
 
 oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs INSTALL_COMPONENT limes_docs)
@@ -100,6 +105,8 @@ cpack_add_component (limes_docs DISPLAY_NAME "Limes documentation"
 					 DESCRIPTION "Install the Limes documentation" GROUP limes)
 
 #
+
+mark_as_advanced (FORCE LIMES_INSTALL_DEST)
 
 write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_VERSION}"
 								  COMPATIBILITY SameMajorVersion)
