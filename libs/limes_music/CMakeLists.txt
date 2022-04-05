@@ -99,9 +99,11 @@ oranges_create_pkgconfig_file (
 
 cpack_add_component (limes_music_base HIDDEN)
 
-cpack_add_component (limes_music_runtime GROUP limes_music DEPENDS limes_music_base)
+cpack_add_component (limes_music_runtime GROUP limes_music DEPENDS limes_music_base
+					 INSTALL_TYPES User)
 
-cpack_add_component (limes_music_dev GROUP limes_music DEPENDS limes_music_runtime)
+cpack_add_component (limes_music_dev GROUP limes_music DEPENDS limes_music_runtime
+					 INSTALL_TYPES Developer)
 
 cpack_add_component_group (
 	limes_music DISPLAY_NAME "Limes music library"

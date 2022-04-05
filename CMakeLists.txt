@@ -101,8 +101,12 @@ add_subdirectory (libs)
 
 oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs INSTALL_COMPONENT limes_docs)
 
-cpack_add_component (limes_docs DISPLAY_NAME "Limes documentation"
-					 DESCRIPTION "Install the Limes documentation" GROUP limes)
+cpack_add_component (
+	limes_docs
+	DISPLAY_NAME "Limes documentation"
+	DESCRIPTION "Install the Limes documentation"
+	GROUP limes
+	INSTALL_TYPES Developer)
 
 #
 
@@ -128,10 +132,11 @@ cpack_add_component (limes_base HIDDEN)
 
 cpack_add_component (
 	limes_runtime GROUP limes DEPENDS limes_base limes_vecops_runtime limes_music_runtime
-									  limes_core_runtime limes_audio_runtime)
+									  limes_core_runtime limes_audio_runtime INSTALL_TYPES User)
 
-cpack_add_component (limes_dev GROUP limes DEPENDS limes_runtime limes_vecops_dev limes_music_dev
-												   limes_core_dev limes_audio_dev)
+cpack_add_component (
+	limes_dev GROUP limes DEPENDS limes_runtime limes_vecops_dev limes_music_dev limes_core_dev
+								  limes_audio_dev INSTALL_TYPES Developer)
 
 cpack_add_component_group (
 	limes
@@ -139,6 +144,10 @@ cpack_add_component_group (
 	DESCRIPTION "All components of the Limes library"
 	BOLD_TITLE
 	PARENT_GROUP Citrus)
+
+cpack_add_install_type (User DISPLAY_NAME "End-user installation")
+
+cpack_add_install_type (Developer DISPLAY_NAME "Developer installation")
 
 export (PACKAGE Limes)
 

@@ -124,9 +124,10 @@ oranges_create_pkgconfig_file (
 
 cpack_add_component (limes_core_base HIDDEN)
 
-cpack_add_component (limes_core_runtime GROUP limes_core DEPENDS limes_core_base)
+cpack_add_component (limes_core_runtime GROUP limes_core DEPENDS limes_core_base INSTALL_TYPES User)
 
-cpack_add_component (limes_core_dev GROUP limes_core DEPENDS limes_core_runtime)
+cpack_add_component (limes_core_dev GROUP limes_core DEPENDS limes_core_runtime
+					 INSTALL_TYPES Developer)
 
 cpack_add_component_group (
 	limes_core DISPLAY_NAME "Limes core library"

@@ -100,9 +100,11 @@ oranges_create_pkgconfig_file (
 
 cpack_add_component (limes_audio_base HIDDEN)
 
-cpack_add_component (limes_audio_runtime GROUP limes_audio DEPENDS limes_audio_base)
+cpack_add_component (limes_audio_runtime GROUP limes_audio DEPENDS limes_audio_base
+					 INSTALL_TYPES User)
 
-cpack_add_component (limes_audio_dev GROUP limes_audio DEPENDS limes_audio_runtime)
+cpack_add_component (limes_audio_dev GROUP limes_audio DEPENDS limes_audio_runtime
+					 INSTALL_TYPES Developer)
 
 cpack_add_component_group (
 	limes_audio DISPLAY_NAME "Limes audio library"

@@ -105,9 +105,11 @@ oranges_create_pkgconfig_file (
 
 cpack_add_component (limes_vecops_base HIDDEN)
 
-cpack_add_component (limes_vecops_runtime GROUP limes_vecops DEPENDS limes_vecops_base)
+cpack_add_component (limes_vecops_runtime GROUP limes_vecops DEPENDS limes_vecops_base
+					 INSTALL_TYPES User)
 
-cpack_add_component (limes_vecops_dev GROUP limes_vecops DEPENDS limes_vecops_runtime)
+cpack_add_component (limes_vecops_dev GROUP limes_vecops DEPENDS limes_vecops_runtime
+					 INSTALL_TYPES Developer)
 
 cpack_add_component_group (
 	limes_vecops DISPLAY_NAME "Limes vecops library"
