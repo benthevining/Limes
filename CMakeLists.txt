@@ -70,15 +70,6 @@ project (
 
 enable_testing ()
 
-if("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU")
-	if("${CMAKE_CXX_COMPILER_VERSION}" VERSION_LESS 10.0.0)
-		message (
-			FATAL_ERROR
-				"This library requires C++ concepts, which are not supported on versions of GCC before 10. Your current version: ${CMAKE_CXX_COMPILER_VERSION}"
-			)
-	endif()
-endif()
-
 set (LIMES_ROOT_DIR "${CMAKE_CURRENT_LIST_DIR}")
 
 include ("${CMAKE_CURRENT_LIST_DIR}/scripts/LimesMacros.cmake")
@@ -88,11 +79,8 @@ find_package (Oranges REQUIRED)
 set (Limes_DEPS_GRAPH_OUTPUT_TO_SOURCE util)
 
 include (OrangesDefaultProjectSettings)
-include (OrangesDefaultInstallSettings)
 
 unset (Limes_DEPS_GRAPH_OUTPUT_TO_SOURCE)
-
-include (GNUInstallDirs)
 
 set (LIMES_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
 	 CACHE STRING "Directory below INSTALL_PREFIX where ${PROJECT_NAME} will be installed to")
@@ -125,8 +113,6 @@ install (
 		  "${CMAKE_CURRENT_LIST_DIR}/scripts/LimesMacros.cmake"
 	DESTINATION "${LIMES_INSTALL_DEST}"
 	COMPONENT limes_base)
-
-include (CPackComponent)
 
 cpack_add_component (limes_base HIDDEN)
 
