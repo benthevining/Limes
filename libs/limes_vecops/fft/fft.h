@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include <memory>
+#include <memory>  // for unique_ptr
 #include "../limes_vecops.h"
 
 namespace limes::vecops

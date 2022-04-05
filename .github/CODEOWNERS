@@ -38,6 +38,7 @@ hevining
 ing
 libs/CMakeLists.txt benthevining
 libs/limes_audio/CMakeLists.txt benthevining
+libs/limes_audio/limes_audio.h benthevining
 libs/limes_audio/psola/CMakeLists.txt benthevining
 libs/limes_audio/psola/PeakFinder.h benthevining
 libs/limes_audio/streams/CMakeLists.txt benthevining
@@ -48,6 +49,7 @@ libs/limes_audio/streams/oscillator.h benthevining
 libs/limes_audio/util/CMakeLists.txt benthevining
 libs/limes_audio/util/Misc.h benthevining
 libs/limes_audio/util/MonoStereoConverter.cpp benthevining
+libs/limes_audio/util/Windowing.h benthevining
 libs/limes_core/CMakeLists.txt benthevining
 libs/limes_core/data_structures/CMakeLists.txt benthevining
 libs/limes_core/data_structures/Dimensions.cpp benthevining

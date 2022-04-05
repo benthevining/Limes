@@ -10,25 +10,26 @@
  * ======================================================================================
  */
 
-#ifndef FFTW_HEADER_NAME
-#	define FFTW_HEADER_NAME fftw3.h
-#endif
-
-#ifndef LIMES_VECOPS_USE_FFTW
-#	if __has_include(<FFTW_HEADER_NAME>)
-#		define LIMES_VECOPS_USE_FFTW 1
-#	else
-#		define LIMES_VECOPS_USE_FFTW 0
-#	endif
-#endif
-
 #include <cmath>
+#include <type_traits>
 #include <iostream>
 #include <map>
 #include <cstdio>
 #include <cstdlib>
 #include <vector>
 #include "fft.h"
+
+#ifndef FFTW_HEADER_NAME
+#	define FFTW_HEADER_NAME fftw3.h  // NOLINT
+#endif
+
+#ifndef LIMES_VECOPS_USE_FFTW
+#	if __has_include(<FFTW_HEADER_NAME>)
+#		define LIMES_VECOPS_USE_FFTW 1	 // NOLINT
+#	else
+#		define LIMES_VECOPS_USE_FFTW 0	 // NOLINT
+#	endif
+#endif
 
 #if LIMES_VECOPS_USE_FFTW
 #	include <FFTW_HEADER_NAME>
@@ -68,7 +69,7 @@ class FFT<SampleType>::FFTImpl
 {
 public:
 
-	FFTImpl (int size)
+	explicit FFTImpl (int size)
 		: fft_size (size), m_order (orderFromFFTSize (size))
 	{
 	}
@@ -98,8 +99,8 @@ public:
 
 protected:
 
-	const int fft_size;
-	const int m_order;
+	const int fft_size;	 // NOLINT
+	const int m_order;	 // NOLINT
 };
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -158,8 +159,8 @@ inline void vDSP_unpackComplex (SampleType* const cplx,
 	// vDSP forward FFTs are scaled 2x (for some reason)
 	for (auto i = 0; i < fft_size / 2 + 1; ++i)
 	{
-		cplx[i * 2]		= packedReal[i] * SampleType (0.5);
-		cplx[i * 2 + 1] = packedImag[i] * SampleType (0.5);
+		cplx[static_cast<ptrdiff_t> (i * 2)]	 = packedReal[i] * SampleType (0.5);
+		cplx[static_cast<ptrdiff_t> (i * 2 + 1)] = packedImag[i] * SampleType (0.5);
 	}
 }
 
@@ -168,10 +169,9 @@ class vDSP_FloatFFT final : public FFT<float>::FFTImpl
 {
 public:
 
-	vDSP_FloatFFT (int size)
-		: FFT<float>::FFTImpl (size)
+	explicit vDSP_FloatFFT (int size)
+		: FFT<float>::FFTImpl (size), m_spec (vDSP_create_fftsetup (m_order, FFT_RADIX2))
 	{
-		m_spec = vDSP_create_fftsetup (m_order, FFT_RADIX2);
 		//!!! "If possible, tempBuffer->realp and tempBuffer->imagp should be 32-byte aligned for best performance."
 		// m_buf.realp	   = allocate<float> (fft_size);
 		// m_buf.imagp	   = allocate<float> (fft_size);
@@ -181,7 +181,7 @@ public:
 		// m_spare2	   = allocate<float> (fft_size + 2);
 	}
 
-	~vDSP_FloatFFT()
+	~vDSP_FloatFFT() final
 	{
 		vDSP_destroy_fftsetup (m_spec);
 		// deallocate (m_spare);
@@ -191,6 +191,14 @@ public:
 		// deallocate (m_packed.realp);
 		// deallocate (m_packed.imagp);
 	}
+
+	vDSP_FloatFFT (const vDSP_FloatFFT&) = delete;
+
+	vDSP_FloatFFT& operator= (const vDSP_FloatFFT&) = delete;
+
+	vDSP_FloatFFT (vDSP_FloatFFT&&) = delete;
+
+	vDSP_FloatFFT& operator= (vDSP_FloatFFT&&) = delete;
 
 private:
 
@@ -287,7 +295,7 @@ private:
 		vDSP_vsadd (m_spare, vDSP_Stride (1), &shiftAmount<float>, m_spare, vDSP_Stride (1), vDSP_Length (hs1));
 
 		vvlogf (m_spare2, m_spare, &hs1);
-		inverse (m_spare2, 0, cepOut);
+		inverse (m_spare2, nullptr, cepOut);
 	}
 
 	void packReal (const float* const re)
@@ -321,10 +329,9 @@ class vDSP_DoubleFFT final : public FFT<double>::FFTImpl
 {
 public:
 
-	vDSP_DoubleFFT (int size)
-		: FFT<double>::FFTImpl (size)
+	explicit vDSP_DoubleFFT (int size)
+		: FFT<double>::FFTImpl (size), m_spec (vDSP_create_fftsetupD (m_order, FFT_RADIX2))
 	{
-		m_spec = vDSP_create_fftsetupD (m_order, FFT_RADIX2);
 		//!!! "If possible, tempBuffer->realp and tempBuffer->imagp should be 32-byte aligned for best performance."
 		// m_buf.realp	   = allocate<double> (fft_size);
 		// m_buf.imagp	   = allocate<double> (fft_size);
@@ -334,7 +341,7 @@ public:
 		// m_spare2	   = allocate<double> (fft_size + 2);
 	}
 
-	~vDSP_DoubleFFT()
+	~vDSP_DoubleFFT() final
 	{
 		vDSP_destroy_fftsetupD (m_spec);
 		// deallocate (m_spare);
@@ -344,6 +351,14 @@ public:
 		// deallocate (m_packed.realp);
 		// deallocate (m_packed.imagp);
 	}
+
+	vDSP_DoubleFFT (const vDSP_DoubleFFT&) = delete;
+
+	vDSP_DoubleFFT& operator= (const vDSP_DoubleFFT&) = delete;
+
+	vDSP_DoubleFFT (vDSP_DoubleFFT&&) = delete;
+
+	vDSP_DoubleFFT& operator= (vDSP_DoubleFFT&&) = delete;
 
 private:
 
@@ -439,7 +454,7 @@ private:
 		vDSP_vsaddD (m_spare, vDSP_Stride (1), &shiftAmount<double>, m_spare, vDSP_Stride (1), vDSP_Length (hs1));
 
 		vvlog (m_spare2, m_spare, &hs1);
-		inverse (m_spare2, 0, cepOut);
+		inverse (m_spare2, nullptr, cepOut);
 	}
 
 	void packReal (const double* const re)
@@ -531,7 +546,7 @@ class IPP_FloatFFT final : public FFT<float>::FFTImpl
 {
 public:
 
-	IPP_FloatFFT (int size)
+	explicit IPP_FloatFFT (int size)
 		: FFT<float>::FFTImpl (size)
 	{
 		int specSize, specBufferSize, bufferSize;
@@ -552,13 +567,21 @@ public:
 		ippsFree (tmp);
 	}
 
-	~IPP_FloatFFT()
+	~IPP_FloatFFT() final
 	{
 		ippsFree (m_specbuf);
 		ippsFree (m_buf);
 		ippsFree (m_packed);
 		ippsFree (m_spare);
 	}
+
+	IPP_FloatFFT (const IPP_FloatFFT&) = delete;
+
+	IPP_FloatFFT& operator= (const IPP_FloatFFT&) = delete;
+
+	IPP_FloatFFT (IPP_FloatFFT&&) = delete;
+
+	IPP_FloatFFT& operator= (IPP_FloatFFT&&) = delete;
 
 private:
 
@@ -628,7 +651,7 @@ class IPP_DoubleFFT final : public FFT<double>::FFTImpl
 {
 public:
 
-	IPP_DoubleFFT (int size)
+	explicit IPP_DoubleFFT (int size)
 		: FFT<double>::FFTImpl (size)
 	{
 		int specSize, specBufferSize, bufferSize;
@@ -649,13 +672,21 @@ public:
 		ippsFree (tmp);
 	}
 
-	~IPP_DoubleFFT()
+	~IPP_DoubleFFT() final
 	{
 		ippsFree (m_specbuf);
 		ippsFree (m_buf);
 		ippsFree (m_packed);
 		ippsFree (m_spare);
 	}
+
+	IPP_DoubleFFT (const IPP_DoubleFFT&) = delete;
+
+	IPP_DoubleFFT& operator= (const IPP_DoubleFFT&) = delete;
+
+	IPP_DoubleFFT (IPP_DoubleFFT&&) = delete;
+
+	IPP_DoubleFFT& operator= (IPP_DoubleFFT&&) = delete;
 
 private:
 
@@ -803,19 +834,16 @@ class FFTW_FloatFFT final : public FFT<float>::FFTImpl
 {
 public:
 
-	FFTW_FloatFFT (int size)
-		: FFT<float>::FFTImpl (size)
+	explicit FFTW_FloatFFT (int size)
+		: FFT<float>::FFTImpl (size), m_fbuf (reinterpret_cast<fft_float_type*> (fftw_malloc (fft_size * sizeof (fft_float_type)))),
+		  m_fpacked (reinterpret_cast<fftwf_complex*> (fftw_malloc ((fft_size / 2 + 1) * sizeof (fftwf_complex)))),
+		  m_fplanf (fftwf_plan_dft_r2c_1d (fft_size, m_fbuf, m_fpacked, FFTW_ESTIMATE)),
+		  m_fplani (fftwf_plan_dft_c2r_1d (fft_size, m_fpacked, m_fbuf, FFTW_ESTIMATE))
 	{
-		m_fbuf	  = reinterpret_cast<fft_float_type*> (fftw_malloc (fft_size * sizeof (fft_float_type)));
-		m_fpacked = reinterpret_cast<fftwf_complex*> (fftw_malloc ((fft_size / 2 + 1) * sizeof (fftwf_complex)));
-
-		m_fplanf = fftwf_plan_dft_r2c_1d (fft_size, m_fbuf, m_fpacked, FFTW_ESTIMATE);
-		m_fplani = fftwf_plan_dft_c2r_1d (fft_size, m_fpacked, m_fbuf, FFTW_ESTIMATE);
-
 		++m_extantf;
 	}
 
-	~FFTW_FloatFFT()
+	~FFTW_FloatFFT() final
 	{
 		if (m_fplanf)
 		{
@@ -828,6 +856,14 @@ public:
 		if (--m_extantf <= 0)
 			fftwf_cleanup();
 	}
+
+	FFTW_FloatFFT (const FFTW_FloatFFT&) = delete;
+
+	FFTW_FloatFFT& operator= (const FFTW_FloatFFT&) = delete;
+
+	FFTW_FloatFFT (FFTW_FloatFFT&&) = delete;
+
+	FFTW_FloatFFT& operator= (FFTW_FloatFFT&&) = delete;
 
 private:
 
@@ -951,19 +987,17 @@ class FFTW_DoubleFFT final : public FFT<double>::FFTImpl
 {
 public:
 
-	FFTW_DoubleFFT (int size)
-		: FFT<double>::FFTImpl (size)
+	explicit FFTW_DoubleFFT (int size)
+		: FFT<double>::FFTImpl (size),
+		  m_dbuf (reinterpret_cast<fft_double_type*> (fftw_malloc (fft_size * sizeof (fft_double_type)))),
+		  m_dpacked (reinterpret_cast<fftw_complex*> (fftw_malloc ((fft_size / 2 + 1) * sizeof (fftw_complex)))),
+		  m_dplanf (fftw_plan_dft_r2c_1d (fft_size, m_dbuf, m_dpacked, FFTW_ESTIMATE)),
+		  m_dplani (fftw_plan_dft_c2r_1d (fft_size, m_dpacked, m_dbuf, FFTW_ESTIMATE))
 	{
-		m_dbuf	  = reinterpret_cast<fft_double_type*> (fftw_malloc (fft_size * sizeof (fft_double_type)));
-		m_dpacked = reinterpret_cast<fftw_complex*> (fftw_malloc ((fft_size / 2 + 1) * sizeof (fftw_complex)));
-
-		m_dplanf = fftw_plan_dft_r2c_1d (fft_size, m_dbuf, m_dpacked, FFTW_ESTIMATE);
-		m_dplani = fftw_plan_dft_c2r_1d (fft_size, m_dpacked, m_dbuf, FFTW_ESTIMATE);
-
 		++m_extantd;
 	}
 
-	~FFTW_DoubleFFT()
+	~FFTW_DoubleFFT() final
 	{
 		fftw_destroy_plan (m_dplanf);
 		fftw_destroy_plan (m_dplani);
@@ -973,6 +1007,14 @@ public:
 		if (--m_extantd <= 0)
 			fftw_cleanup();
 	}
+
+	FFTW_DoubleFFT (const FFTW_DoubleFFT&) = delete;
+
+	FFTW_DoubleFFT& operator= (const FFTW_DoubleFFT&) = delete;
+
+	FFTW_DoubleFFT (FFTW_DoubleFFT&&) = delete;
+
+	FFTW_DoubleFFT& operator= (FFTW_DoubleFFT&&) = delete;
 
 private:
 
@@ -1135,7 +1177,7 @@ class FallbackFFT final : public FFT<SampleType>::FFTImpl
 {
 public:
 
-	FallbackFFT (int size)
+	explicit FallbackFFT (int size)
 		: FFT<SampleType>::FFTImpl (size)
 	{
 		// m_table = allocate_and_zero<int>(m_half);
@@ -1154,7 +1196,7 @@ public:
 		makeTables();
 	}
 
-	~FallbackFFT()
+	~FallbackFFT() final
 	{
 		// deallocate(m_table);
 		//       deallocate(m_sincos);
@@ -1166,6 +1208,14 @@ public:
 		//       deallocate(m_c);
 		//       deallocate(m_d);
 	}
+
+	FallbackFFT (const FallbackFFT&) = delete;
+
+	FallbackFFT& operator= (const FallbackFFT&) = delete;
+
+	FallbackFFT (FallbackFFT&&) = delete;
+
+	FallbackFFT& operator= (FallbackFFT&&) = delete;
 
 private:
 
@@ -1193,8 +1243,8 @@ private:
 		}
 		else
 		{
-			for (auto i = 0; i <= m_half; ++i) complexOut[i * 2] = m_c[i];
-			for (auto i = 0; i <= m_half; ++i) complexOut[i * 2 + 1] = m_d[i];
+			for (auto i = 0; i <= m_half; ++i) complexOut[static_cast<ptrdiff_t> (i * 2)] = m_c[i];
+			for (auto i = 0; i <= m_half; ++i) complexOut[static_cast<ptrdiff_t> (i * 2 + 1)] = m_d[i];
 		}
 	}
 
@@ -1232,8 +1282,8 @@ private:
 		}
 		else
 		{
-			for (auto i = 0; i <= m_half; ++i) m_a[i] = complexIn[i * 2];
-			for (auto i = 0; i <= m_half; ++i) m_b[i] = complexIn[i * 2 + 1];
+			for (auto i = 0; i <= m_half; ++i) m_a[i] = complexIn[static_cast<ptrdiff_t> (i * 2)];
+			for (auto i = 0; i <= m_half; ++i) m_b[i] = complexIn[static_cast<ptrdiff_t> (i * 2 + 1)];
 		}
 
 		transformI (m_a, m_b, realOut);
@@ -1309,8 +1359,8 @@ private:
 	{
 		for (auto i = 0; i < m_half; ++i)
 		{
-			m_a[i] = ri[i * 2];
-			m_b[i] = ri[i * 2 + 1];
+			m_a[i] = ri[static_cast<ptrdiff_t> (i * 2)];
+			m_b[i] = ri[static_cast<ptrdiff_t> (i * 2 + 1)];
 		}
 
 		transformComplex (m_a, m_b, m_vr, m_vi, false);
@@ -1367,8 +1417,8 @@ private:
 
 		for (auto i = 0; i < m_half; ++i)
 		{
-			ro[i * 2]	  = m_c[i];
-			ro[i * 2 + 1] = m_d[i];
+			ro[static_cast<ptrdiff_t> (i * 2)]	   = m_c[i];
+			ro[static_cast<ptrdiff_t> (i * 2 + 1)] = m_d[i];
 		}
 	}
 
