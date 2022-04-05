@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [2.4.0](http://github.com/benthevining/Limes/compare/v2.3.0...v2.4.0) (2022-04-05)
+
+
+### Features
+
+* added install types ([ad23b8d](http://github.com/benthevining/Limes/commit/ad23b8d653573082857793bff3f7915a78d324a5))
+
 ## [2.3.0](http://github.com/benthevining/Limes/compare/v2.2.0...v2.3.0) (2022-04-02)
 
 
