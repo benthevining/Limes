@@ -108,16 +108,20 @@ configure_package_config_file (
 	"${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake" "LimesConfig.cmake"
 	INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" PATH_VARS LIMES_ROOT_DIR)
 
-install (FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
-			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION "${LIMES_INSTALL_DEST}"
-		 COMPONENT limes_dev)
-
-export (PACKAGE Limes)
+install (
+	FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
+		  "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake"
+		  "${CMAKE_CURRENT_LIST_DIR}/scripts/LimesMacros.cmake"
+	DESTINATION "${LIMES_INSTALL_DEST}"
+	COMPONENT limes_base)
 
 include (CPackComponent)
 
-cpack_add_component (limes_runtime GROUP limes DEPENDS limes_vecops_runtime limes_music_runtime
-													   limes_core_runtime limes_audio_runtime)
+cpack_add_component (limes_base HIDDEN)
+
+cpack_add_component (
+	limes_runtime GROUP limes DEPENDS limes_base limes_vecops_runtime limes_music_runtime
+									  limes_core_runtime limes_audio_runtime)
 
 cpack_add_component (limes_dev GROUP limes DEPENDS limes_runtime limes_vecops_dev limes_music_dev
 												   limes_core_dev limes_audio_dev)
@@ -128,5 +132,7 @@ cpack_add_component_group (
 	DESCRIPTION "All components of the Limes library"
 	BOLD_TITLE
 	PARENT_GROUP Citrus)
+
+export (PACKAGE Limes)
 
 unset (LIMES_ROOT_DIR)

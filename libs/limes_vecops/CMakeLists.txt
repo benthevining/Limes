@@ -42,6 +42,7 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
+include (OrangesGeneratePkgConfig)
 include (CPackComponent)
 include (GNUInstallDirs)
 
@@ -86,11 +87,25 @@ install (
 	NAMESPACE Limes::
 	DESTINATION "${LIMES_INSTALL_DEST}"
 	EXPORT_LINK_INTERFACE_LIBRARIES
-	COMPONENT limes_vecops_runtime)
+	COMPONENT limes_vecops_base)
 
-export (EXPORT LimesVecopsTargets NAMESPACE Limes:: FILE LimesVecopsTargets.cmake)
+oranges_create_pkgconfig_file (
+	TARGET
+	limes_vecops
+	INCLUDE_REL_PATH
+	"${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
+	DESCRIPTION
+	"Limes vector operations library"
+	URL
+	"${PROJECT_HOMEPAGE_URL}"
+	VERSION
+	"${PROJECT_VERSION}"
+	INSTALL_COMPONENT
+	limes_vecops_dev)
 
-cpack_add_component (limes_vecops_runtime GROUP limes_vecops)
+cpack_add_component (limes_vecops_base HIDDEN)
+
+cpack_add_component (limes_vecops_runtime GROUP limes_vecops DEPENDS limes_vecops_base)
 
 cpack_add_component (limes_vecops_dev GROUP limes_vecops DEPENDS limes_vecops_runtime)
 

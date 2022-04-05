@@ -36,6 +36,7 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
+include (OrangesGeneratePkgConfig)
 include (OrangesGenerateExportHeader)
 include (OrangesGeneratePlatformHeader)
 include (CPackComponent)
@@ -105,11 +106,25 @@ install (
 	NAMESPACE Limes::
 	DESTINATION "${LIMES_INSTALL_DEST}"
 	EXPORT_LINK_INTERFACE_LIBRARIES
-	COMPONENT limes_core_runtime)
+	COMPONENT limes_core_base)
 
-export (EXPORT LimesCoreTargets NAMESPACE Limes:: FILE LimesCoreTargets.cmake)
+oranges_create_pkgconfig_file (
+	TARGET
+	limes_core
+	INCLUDE_REL_PATH
+	"${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+	DESCRIPTION
+	"Limes core utilities library"
+	URL
+	"${PROJECT_HOMEPAGE_URL}"
+	VERSION
+	"${PROJECT_VERSION}"
+	INSTALL_COMPONENT
+	limes_core_dev)
 
-cpack_add_component (limes_core_runtime GROUP limes_core)
+cpack_add_component (limes_core_base HIDDEN)
+
+cpack_add_component (limes_core_runtime GROUP limes_core DEPENDS limes_core_base)
 
 cpack_add_component (limes_core_dev GROUP limes_core DEPENDS limes_core_runtime)
 

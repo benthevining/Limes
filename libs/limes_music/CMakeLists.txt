@@ -36,6 +36,7 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
+include (OrangesGeneratePkgConfig)
 include (CPackComponent)
 include (GNUInstallDirs)
 
@@ -80,11 +81,25 @@ install (
 	NAMESPACE Limes::
 	DESTINATION "${LIMES_INSTALL_DEST}"
 	EXPORT_LINK_INTERFACE_LIBRARIES
-	COMPONENT limes_music_runtime)
+	COMPONENT limes_music_base)
 
-export (EXPORT LimesMusicTargets NAMESPACE Limes:: FILE LimesMusicTargets.cmake)
+oranges_create_pkgconfig_file (
+	TARGET
+	limes_music
+	INCLUDE_REL_PATH
+	"${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
+	DESCRIPTION
+	"Limes music theory library"
+	URL
+	"${PROJECT_HOMEPAGE_URL}"
+	VERSION
+	"${PROJECT_VERSION}"
+	INSTALL_COMPONENT
+	limes_music_dev)
 
-cpack_add_component (limes_music_runtime GROUP limes_music)
+cpack_add_component (limes_music_base HIDDEN)
+
+cpack_add_component (limes_music_runtime GROUP limes_music DEPENDS limes_music_base)
 
 cpack_add_component (limes_music_dev GROUP limes_music DEPENDS limes_music_runtime)
 

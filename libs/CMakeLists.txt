@@ -34,6 +34,7 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
+include (OrangesGeneratePkgConfig)
 include (CPackComponent)
 include (GNUInstallDirs)
 
@@ -89,9 +90,21 @@ install (
 	NAMESPACE Limes::
 	DESTINATION "${LIMES_INSTALL_DEST}"
 	EXPORT_LINK_INTERFACE_LIBRARIES
-	COMPONENT limes_runtime)
+	COMPONENT limes_base)
 
-export (EXPORT LimesTargets NAMESPACE Limes:: FILE LimesAudioTargets.cmake)
+oranges_create_pkgconfig_file (
+	TARGET
+	Limes
+	INCLUDE_REL_PATH
+	"${LIMES_INSTALL_INCLUDE_DIR}"
+	DESCRIPTION
+	"Limes library"
+	URL
+	"${PROJECT_HOMEPAGE_URL}"
+	VERSION
+	"${PROJECT_VERSION}"
+	INSTALL_COMPONENT
+	limes_dev)
 
 if(NOT TARGET Limes::Limes)
 	add_library (Limes::Limes ALIAS Limes)
