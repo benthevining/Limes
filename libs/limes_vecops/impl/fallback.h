@@ -103,6 +103,18 @@ void subtractAndCopy (DataType* const dest, const DataType* const origData, Size
 	fb::subtractAndCopy (dest, origData, size, dataToSubtract);
 }
 
+template <Scalar DataType, Integral SizeType>
+void subtractInv (DataType* const data, SizeType size, DataType constantToSubtractFrom)
+{
+	fb::subtractInv (data, size, constantToSubtractFrom);
+}
+
+template <Scalar DataType, Integral SizeType>
+void subtractInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtractFrom)
+{
+	fb::subtractInvAndCopy (dest, origData, size, constantToSubtractFrom);
+}
+
 
 /*-----  MULTIPLICATION  -----*/
 
@@ -157,6 +169,18 @@ void divideAndCopy (DataType* const dest, const DataType* const origData, SizeTy
 	fb::divideAndCopy (dest, origData, size, dataToDivide);
 }
 
+template <Scalar DataType, Integral SizeType>
+void divideInv (DataType* const data, SizeType size, DataType constantToDivideFrom)
+{
+	fb::divideInv (data, size, constantToDivideFrom);
+}
+
+template <Scalar DataType, Integral SizeType>
+void divideInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivideFrom)
+{
+	fb::divideInvAndCopy (dest, origData, size, constantToDivideFrom);
+}
+
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -183,6 +207,18 @@ template <Scalar DataType, Integral SizeType>
 void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	fb::squareRootAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void invSquareRoot (DataType* const dataAndDest, SizeType size)
+{
+	fb::invSquareRoot (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::invSquareRootAndCopy (dest, data, size);
 }
 
 

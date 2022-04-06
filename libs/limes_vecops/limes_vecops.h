@@ -131,6 +131,12 @@ void subtractAndCopy (DataType* const dest, const DataType* const origData, Size
 template <Scalar DataType, Integral SizeType>
 void subtractAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToSubtract);
 
+template <Scalar DataType, Integral SizeType>
+void subtractInv (DataType* const data, SizeType size, DataType constantToSubtractFrom);
+
+template <Scalar DataType, Integral SizeType>
+void subtractInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtractFrom);
+
 
 /*-----  MULTIPLICATION  -----*/
 
@@ -161,6 +167,11 @@ void divideAndCopy (DataType* const dest, const DataType* const origData, SizeTy
 template <Scalar DataType, Integral SizeType>
 void divideAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToDivide);
 
+template <Scalar DataType, Integral SizeType>
+void divideInv (DataType* const data, SizeType size, DataType constantToDivideFrom);
+
+template <Scalar DataType, Integral SizeType>
+void divideInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivideFrom);
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -176,6 +187,12 @@ void squareRoot (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
 void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
+void invSquareRoot (DataType* const dataAndDest, SizeType size);
+
+template <Scalar DataType, Integral SizeType>
+void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -350,6 +367,16 @@ void applyHanningAndCopy (DataType* const dest, const DataType* const data, Size
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 
+template <Scalar DataType>
+struct Complex final
+{
+	DataType real, imag;
+};
+
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+
 [[nodiscard]] constexpr bool isUsingVDSP() noexcept
 {
 #if LIMES_VECOPS_USE_VDSP
@@ -402,13 +429,13 @@ static_assert (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingFallback
 #include "impl/fallback_impl.h"
 
 #if LIMES_VECOPS_USE_VDSP
-#	include "impl/vdsp.h"
+#	include "impl/vdsp.h"	// IWYU pragma: export
 #elif LIMES_VECOPS_USE_IPP
-#	include "impl/ipp.h"
+#	include "impl/ipp.h"  // IWYU pragma: export
 #elif LIMES_VECOPS_USE_MIPP
-#	include "impl/mipp.h"
+#	include "impl/mipp.h"	// IWYU pragma: export
 #else
-#	include "impl/fallback.h"
+#	include "impl/fallback.h"	// IWYU pragma: export
 #endif
 
 #include "fft/fft.h"

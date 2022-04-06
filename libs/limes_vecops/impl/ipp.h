@@ -206,6 +206,32 @@ void subtractAndCopy (DataType* const dest, const DataType* const origData, Size
 		fb::subtractAndCopy (dest, origData, size, dataToSubtract);
 }
 
+template <Scalar DataType, Integral SizeType>
+void subtractInv (DataType* const data, SizeType size, DataType constantToSubtractFrom)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsSubCRev_32f_I (constantToSubtractFrom, data, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsSubCRev_64f_I (constantToSubtractFrom, data, static_cast<int> (size));
+	else if constexpr (is_signed_int<DataType>())
+		ippsSubCRev_32s_I (constantToSubtractFrom, data, static_cast<int> (size), integer_scale_factor);
+	else
+		fb::subtractInv (data, size, constantToSubtractFrom);
+}
+
+template <Scalar DataType, Integral SizeType>
+void subtractInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtractFrom)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsSubCRev_32f (origData, constantToSubtractFrom, dest, size);
+	else if constexpr (is_double_type<DataType>())
+		ippsSubCRev_64f (origData, constantToSubtractFrom, dest, size);
+	else if constexpr (is_signed_int<DataType>())
+		ippsSubCRev_32s_Sfs (origData, constantToSubtractFrom, dest, size, integer_scale_factor);
+	else
+		fb::subtractInvAndCopy (dest, origData, size, constantToSubtractFrom);
+}
+
 
 /*-----  MULTIPLICATION  -----*/
 
@@ -312,6 +338,24 @@ void divideAndCopy (DataType* const dest, const DataType* const origData, SizeTy
 		fb::divideAndCopy (dest, origData, size, dataToDivide);
 }
 
+template <Scalar DataType, Integral SizeType>
+void divideInv (DataType* const data, SizeType size, DataType constantToDivideFrom)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsDivCRev_32f_I (constantToDivideFrom, data, static_cast<int> (size));
+	else
+		fb::divideInv (data, size, constantToDivideFrom);
+}
+
+template <Scalar DataType, Integral SizeType>
+void divideInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivideFrom)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsDivCRev_32f (origData, constantToDivideFrom, dest, size);
+	else
+		fb::divideInvAndCopy (dest, origData, size, constantToDivideFrom);
+}
+
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -358,6 +402,19 @@ void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeTy
 		ippsSqrt_64f (data, dest, static_cast<int> (size));
 	else
 		fb::squareRootAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void invSquareRoot (DataType* const dataAndDest, SizeType size)
+{
+	fb::invSquareRoot (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	squareRootAndCopy (dest, data, size);
+	divideInv (dest, size, DataType (1));
 }
 
 

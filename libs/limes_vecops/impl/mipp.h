@@ -270,6 +270,46 @@ void subtractAndCopy (DataType* const dest, const DataType* const origData, Size
 		dest[i] = origData[i] - dataToSubtract[i];
 }
 
+template <Scalar DataType, Integral SizeType>
+void subtractInv (DataType* const data, SizeType size, DataType constantToSubtractFrom)
+{
+	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
+
+	mipp::Reg<DataType> dataRegister;
+
+	const auto constant = mipp::set1<DataType> (constantToSubtractFrom);
+
+	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	{
+		dataRegister.load (&data[i]);
+		dataRegister = constant - dataRegister;
+		dataRegister.store (&data[i]);
+	}
+
+	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+		data[i] = constantToSubtractFrom - data[i];
+}
+
+template <Scalar DataType, Integral SizeType>
+void subtractInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtractFrom)
+{
+	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
+
+	mipp::Reg<DataType> dataRegister;
+
+	const auto constant = mipp::set1<DataType> (constantToSubtractFrom);
+
+	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	{
+		dataRegister.load (&origData[i]);
+		dataRegister = constant - dataRegister;
+		dataRegister.store (&dest[i]);
+	}
+
+	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+		dest[i] = constantToSubtractFrom - origData[i];
+}
+
 
 /*-----  MULTIPLICATION  -----*/
 
@@ -440,6 +480,50 @@ void divideAndCopy (DataType* const dest, const DataType* const origData, SizeTy
 		dest[i] = origData[i] / dataToDivide[i];
 }
 
+template <Scalar DataType, Integral SizeType>
+void divideInv (DataType* const data, SizeType size, DataType constantToDivideFrom)
+{
+	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
+
+	mipp::Reg<DataType> dataRegister;
+
+	const auto constant = mipp::set1<DataType> (constantToDivideFrom);
+
+	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	{
+		dataRegister.load (&data[i]);
+		dataRegister = constant / dataRegister;
+		dataRegister.store (&data[i]);
+	}
+
+	const auto numLeft = size - vecLoopSize;
+
+	if (numLeft > 0)
+		fb::divideInv (data + vecLoopSize, numLeft, constantToDivideFrom);
+}
+
+template <Scalar DataType, Integral SizeType>
+void divideInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivideFrom)
+{
+	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
+
+	mipp::Reg<DataType> dataRegister;
+
+	const auto constant = mipp::set1<DataType> (constantToDivideFrom);
+
+	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	{
+		dataRegister.load (&origData[i]);
+		dataRegister = constant / dataRegister;
+		dataRegister.store (&dest[i]);
+	}
+
+	const auto numLeft = size - vecLoopSize;
+
+	if (numLeft > 0)
+		fb::divideInvAndCopy (dest + vecLoopSize, origData + vecLoopSize, numLeft, constantToDivideFrom);
+}
+
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -514,6 +598,52 @@ void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeTy
 
 	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
 		dest[i] = static_cast<DataType> (std::sqrt (data[i]));
+}
+
+template <Scalar DataType, Integral SizeType>
+void invSquareRoot (DataType* const dataAndDest, SizeType size)
+{
+	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
+
+	mipp::Reg<DataType> dataRegister;
+
+	const auto constant = mipp::set1<DataType> (1);
+
+	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	{
+		dataRegister.load (&dataAndDest[i]);
+		dataRegister = mipp::sqrt (dataRegister);
+		dataRegister = constant / dataRegister;
+		dataRegister.store (&dataAndDest[i]);
+	}
+
+	const auto numLeft = size - vecLoopSize;
+
+	if (numLeft > 0)
+		fb::invSquareRoot (dataAndDest + vecLoopSize, numLeft);
+}
+
+template <Scalar DataType, Integral SizeType>
+void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
+
+	mipp::Reg<DataType> dataRegister;
+
+	const auto constant = mipp::set1<DataType> (1);
+
+	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	{
+		dataRegister.load (&data[i]);
+		dataRegister = mipp::sqrt (dataRegister);
+		dataRegister = constant / dataRegister;
+		dataRegister.store (&dest[i]);
+	}
+
+	const auto numLeft = size - vecLoopSize;
+
+	if (numLeft > 0)
+		fb::invSquareRootAndCopy (dest + vecLoopSize, data + vecLoopSize, numLeft);
 }
 
 

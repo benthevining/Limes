@@ -955,7 +955,7 @@ private:
 
 		for (auto i = 0; i <= hs; ++i)
 		{
-			m_fpacked[i][0] = logf (magIn[i] + shiftAmount<fft_float_type>);
+			m_fpacked[i][0] = std::logf (magIn[i] + shiftAmount<fft_float_type>);
 			m_fpacked[i][1] = 0.f;
 		}
 
@@ -1104,7 +1104,7 @@ private:
 	{
 		for (auto i = 0; i <= hs; ++i)
 		{
-			m_dpacked[i][0] = log (magIn[i] + shiftAmount<fft_double_type>);
+			m_dpacked[i][0] = std::log (magIn[i] + shiftAmount<fft_double_type>);
 			m_dpacked[i][1] = 0.;
 		}
 
@@ -1293,7 +1293,7 @@ private:
 	{
 		for (auto i = 0; i <= m_half; ++i)
 		{
-			m_a[i] = log (magIn[i] + shiftAmount<double>);
+			m_a[i] = std::log (magIn[i] + shiftAmount<double>);
 			m_b[i] = 0.;
 		}
 
@@ -1412,10 +1412,10 @@ private:
 
 					const auto phase = 2. * pi / double (blockSize);
 
-					vals.sm1 = ifactor * sin (phase);
-					vals.sm2 = ifactor * sin (2. * phase);
-					vals.cm1 = cos (phase);
-					vals.cm2 = cos (2. * phase);
+					vals.sm1 = ifactor * std::sin (phase);
+					vals.sm2 = ifactor * std::sin (2. * phase);
+					vals.cm1 = std::cos (phase);
+					vals.cm2 = std::cos (2. * phase);
 				}
 
 				return vals;
@@ -1490,18 +1490,18 @@ private:
 		for (auto i = 2, ix = 0; i <= m_maxTabledBlock; i <<= 1)
 		{
 			const auto phase = 2. * pi / double (i);
-			m_sincos[ix++]	 = sin (phase);
-			m_sincos[ix++]	 = sin (2. * phase);
-			m_sincos[ix++]	 = cos (phase);
-			m_sincos[ix++]	 = cos (2. * phase);
+			m_sincos[ix++]	 = std::sin (phase);
+			m_sincos[ix++]	 = std::sin (2. * phase);
+			m_sincos[ix++]	 = std::cos (phase);
+			m_sincos[ix++]	 = std::cos (2. * phase);
 		}
 
 		// sin and cos tables for real-complex transform
 		for (auto i = 0, ix = 0; i < m_half / 2; ++i)
 		{
 			const auto phase = pi * (double (i + 1) / double (m_half) + 0.5);
-			m_sincos_r[ix++] = sin (phase);
-			m_sincos_r[ix++] = cos (phase);
+			m_sincos_r[ix++] = std::sin (phase);
+			m_sincos_r[ix++] = std::cos (phase);
 		}
 	}
 

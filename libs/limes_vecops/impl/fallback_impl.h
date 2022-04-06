@@ -119,6 +119,20 @@ inline void subtractAndCopy (DataType* const dest, const DataType* const origDat
 		dest[i] = origData[i] - dataToSubtract[i];
 }
 
+template <Scalar DataType, Integral SizeType>
+inline void subtractInv (DataType* const data, SizeType size, DataType constantToSubtractFrom)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		data[i] = constantToSubtractFrom - data[i];
+}
+
+template <Scalar DataType, Integral SizeType>
+inline void subtractInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtractFrom)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = constantToSubtractFrom - origData[i];
+}
+
 
 /*-----  MULTIPLICATION  -----*/
 
@@ -181,6 +195,32 @@ inline void divideAndCopy (DataType* const dest, const DataType* const origData,
 		dest[i] = origData[i] / dataToDivide[i];
 }
 
+template <Scalar DataType, Integral SizeType>
+inline void divideInv (DataType* const data, SizeType size, DataType constantToDivideFrom)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+	{
+		const auto thisData = data[i];
+
+		if (thisData != DataType (0))
+			data[i] = constantToDivideFrom / thisData;
+	}
+}
+
+template <Scalar DataType, Integral SizeType>
+inline void divideInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivideFrom)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+	{
+		const auto thisData = origData[i];
+
+		if (thisData == DataType (0))
+			dest[i] = DataType (0);
+		else
+			dest[i] = constantToDivideFrom / thisData;
+	}
+}
+
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -211,6 +251,73 @@ inline void squareRootAndCopy (DataType* const dest, const DataType* const data,
 {
 	for (auto i = SizeType (0); i < size; ++i)
 		dest[i] = static_cast<DataType> (std::sqrt (data[i]));
+}
+
+
+// fast inverse square root from Quake 3
+inline float quake3_fast_inv_sqrt (float number)
+{
+	constexpr auto threehalfs = 1.5f;
+
+	const auto x2 = number * 0.5f;
+
+	// cppcheck-suppress invalidPointerCast
+	long i = *(long*) &number;		 // NOLINT
+	i	   = 0x5f3759df - (i >> 1);	 // what the fuck?
+
+	// cppcheck-suppress invalidPointerCast
+	float y = *(float*) &i;	 // NOLINT
+
+	y = y * (threehalfs - (x2 * y * y));  // 1st iteration
+
+	//	y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+
+	return y;
+}
+
+
+template <Scalar DataType, Integral SizeType>
+inline void invSquareRoot (DataType* const dataAndDest, SizeType size)
+{
+	if constexpr (std::is_same_v<DataType, float>)
+	{
+		for (auto i = SizeType (0); i < size; ++i)
+			dataAndDest[i] = quake3_fast_inv_sqrt (dataAndDest[i]);
+	}
+	else
+	{
+		for (auto i = SizeType (0); i < size; ++i)
+		{
+			const auto denom = static_cast<DataType> (std::sqrt (dataAndDest[i]));
+
+			if (denom == DataType (0))
+				dataAndDest[i] = DataType (0);
+			else
+				dataAndDest[i] = DataType (1) / denom;
+		}
+	}
+}
+
+template <Scalar DataType, Integral SizeType>
+inline void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	if constexpr (std::is_same_v<DataType, float>)
+	{
+		for (auto i = SizeType (0); i < size; ++i)
+			dest[i] = quake3_fast_inv_sqrt (data[i]);
+	}
+	else
+	{
+		for (auto i = SizeType (0); i < size; ++i)
+		{
+			const auto denom = static_cast<DataType> (std::sqrt (data[i]));
+
+			if (denom == DataType (0))
+				dest[i] = DataType (0);
+			else
+				dest[i] = DataType (1) / denom;
+		}
+	}
 }
 
 
