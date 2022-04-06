@@ -64,8 +64,6 @@ target_include_directories (
 add_subdirectory (harmony)
 add_subdirectory (rhythm)
 
-lemons_sort_target_sources (limes_music "${CMAKE_CURRENT_LIST_DIR}")
-
 install (
 	TARGETS limes_music
 	EXPORT LimesMusicTargets

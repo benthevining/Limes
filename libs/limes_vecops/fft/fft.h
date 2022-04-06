@@ -23,8 +23,6 @@ class FFT final
 {
 public:
 
-	class FFTImpl;
-
 	explicit FFT (int size);
 
 	[[nodiscard]] int getSize() const noexcept;
@@ -44,6 +42,8 @@ public:
 	void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut);
 
 	void inverseCepstral (const SampleType* magIn, SampleType* cepOut);
+
+	class FFTImpl;
 
 private:
 

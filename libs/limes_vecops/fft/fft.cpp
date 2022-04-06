@@ -10,14 +10,11 @@
  * ======================================================================================
  */
 
+#include "fft.h"
+#include <cstddef>
 #include <cmath>
 #include <type_traits>
-#include <iostream>
-#include <map>
-#include <cstdio>
-#include <cstdlib>
-#include <vector>
-#include "fft.h"
+#include "limes_vecops.h"
 
 #ifndef FFTW_HEADER_NAME
 #	define FFTW_HEADER_NAME fftw3.h  // NOLINT
@@ -53,7 +50,7 @@ namespace limes::vecops
 static inline int orderFromFFTSize (int size)
 {
 	for (int i = 0;; ++i)
-		if (size & (1 << i))
+		if ((size & (1 << i)) != 0)
 			return i;
 
 	// jassertfalse;
@@ -170,7 +167,7 @@ class vDSP_FloatFFT final : public FFT<float>::FFTImpl
 public:
 
 	explicit vDSP_FloatFFT (int size)
-		: FFT<float>::FFTImpl (size), m_spec (vDSP_create_fftsetup (m_order, FFT_RADIX2))
+		: FFT<float>::FFTImpl (size)
 	{
 		//!!! "If possible, tempBuffer->realp and tempBuffer->imagp should be 32-byte aligned for best performance."
 		// m_buf.realp	   = allocate<float> (fft_size);
@@ -263,7 +260,7 @@ private:
 
 	void inverseInterleaved (const float* complexIn, float* realOut) final
 	{
-		float* f[2] = { m_packed.realp, m_packed.imagp };
+		float* f[2] = { m_packed.realp, m_packed.imagp };  // NOLINT
 
 		vecops::deinterleave (f, complexIn, 2, fft_size / 2 + 1);
 
@@ -314,11 +311,11 @@ private:
 	{
 		// vDSP forward FFTs are scaled 2x (for some reason)
 		constexpr auto two = 2.f;
-		vDSP_vsdiv (m_packed.realp, 1, &two, re, 1, fft_size / 2 + 1);
-		vDSP_vsdiv (m_packed.imagp, 1, &two, im, 1, fft_size / 2 + 1);
+		vDSP_vsdiv (m_packed.realp, vDSP_Stride (1), &two, re, vDSP_Stride (1), vDSP_Length (fft_size / 2 + 1));
+		vDSP_vsdiv (m_packed.imagp, vDSP_Stride (1), &two, im, vDSP_Stride (1), vDSP_Length (fft_size / 2 + 1));
 	}
 
-	FFTSetup		m_spec;
+	FFTSetup		m_spec { vDSP_create_fftsetup (m_order, FFT_RADIX2) };
 	float*			m_spare;
 	float*			m_spare2;
 	DSPSplitComplex m_buf, m_packed;
@@ -330,7 +327,7 @@ class vDSP_DoubleFFT final : public FFT<double>::FFTImpl
 public:
 
 	explicit vDSP_DoubleFFT (int size)
-		: FFT<double>::FFTImpl (size), m_spec (vDSP_create_fftsetupD (m_order, FFT_RADIX2))
+		: FFT<double>::FFTImpl (size)
 	{
 		//!!! "If possible, tempBuffer->realp and tempBuffer->imagp should be 32-byte aligned for best performance."
 		// m_buf.realp	   = allocate<double> (fft_size);
@@ -422,7 +419,7 @@ private:
 
 	void inverseInterleaved (const double* complexIn, double* realOut) final
 	{
-		double* f[2] = { m_packed.realp, m_packed.imagp };
+		double* f[2] = { m_packed.realp, m_packed.imagp };	// NOLINT
 
 		vecops::deinterleave (f, complexIn, 2, fft_size / 2 + 1);
 
@@ -473,11 +470,11 @@ private:
 	{
 		// vDSP forward FFTs are scaled 2x (for some reason)
 		constexpr auto two = 2.;
-		vDSP_vsdivD (m_packed.realp, 1, &two, re, 1, fft_size / 2 + 1);
-		vDSP_vsdivD (m_packed.imagp, 1, &two, im, 1, fft_size / 2 + 1);
+		vDSP_vsdivD (m_packed.realp, vDSP_Stride (1), &two, re, vDSP_Stride (1), vDSP_Length (fft_size / 2 + 1));
+		vDSP_vsdivD (m_packed.imagp, vDSP_Stride (1), &two, im, vDSP_Stride (1), vDSP_Length (fft_size / 2 + 1));
 	}
 
-	FFTSetupD			  m_spec;
+	FFTSetupD			  m_spec { vDSP_create_fftsetupD (m_order, FFT_RADIX2) };
 	double*				  m_spare;
 	double*				  m_spare2;
 	DSPDoubleSplitComplex m_buf, m_packed;
@@ -1189,10 +1186,7 @@ public:
 		//       m_b = allocate_and_zero<double>(m_half + 1);
 		//       m_c = allocate_and_zero<double>(m_half + 1);
 		//       m_d = allocate_and_zero<double>(m_half + 1);
-		m_a_and_b[0] = m_a;
-		m_a_and_b[1] = m_b;
-		m_c_and_d[0] = m_c;
-		m_c_and_d[1] = m_d;
+
 		makeTables();
 	}
 
@@ -1306,53 +1300,6 @@ private:
 		transformI (m_a, m_b, cepOut);
 	}
 
-	void makeTables()
-	{
-		const auto bits = [h = m_half]
-		{
-			for (auto i = 0;; ++i)
-				if (h & (1 << i))
-					return i;
-
-			// jassertfalse;
-			return 0;
-		}();
-
-		for (auto i = 0; i < m_half; ++i)
-		{
-			auto m = i;
-			auto k = 0;
-
-			for (auto j = 0; j < bits; ++j)
-			{
-				k = (k << 1) | (m & 1);
-				m >>= 1;
-			}
-
-			m_table[i] = k;
-		}
-
-		constexpr auto pi = 3.14157;
-
-		// sin and cos tables for complex fft
-		for (auto i = 2, ix = 0; i <= m_maxTabledBlock; i <<= 1)
-		{
-			const auto phase = 2. * pi / double (i);
-			m_sincos[ix++]	 = sin (phase);
-			m_sincos[ix++]	 = sin (2. * phase);
-			m_sincos[ix++]	 = cos (phase);
-			m_sincos[ix++]	 = cos (2. * phase);
-		}
-
-		// sin and cos tables for real-complex transform
-		for (auto i = 0, ix = 0; i < m_half / 2; ++i)
-		{
-			const auto phase = pi * (double (i + 1) / double (m_half) + 0.5);
-			m_sincos_r[ix++] = sin (phase);
-			m_sincos_r[ix++] = cos (phase);
-		}
-	}
-
 	// Uses m_a and m_b internally; does not touch m_c or m_d
 	void transformF (const SampleType* ri,
 					 double* ro, double* io)
@@ -1437,39 +1384,52 @@ private:
 
 		const auto ifactor = (inverse ? -1. : 1.);
 
-		for (auto blockSize = 2, ix = 0, blockEnd = 1;
+		for (auto blockSize = 2, blockEnd = 1;
 			 blockSize <= m_half;
 			 blockSize <<= 1)
 		{
-			double sm1, sm2, cm1, cm2;
-
-			if (blockSize <= m_maxTabledBlock)
+			const auto values = [blockSize, ifactor, this]
 			{
-				sm1 = ifactor * m_sincos[ix++];
-				sm2 = ifactor * m_sincos[ix++];
-				cm1 = m_sincos[ix++];
-				cm2 = m_sincos[ix++];
-			}
-			else
-			{
-				constexpr double pi = 3.14157;
+				struct four_values final
+				{
+					double sm1, sm2, cm1, cm2;
+				};
 
-				const auto phase = 2.0 * pi / double (blockSize);
-				sm1				 = ifactor * sin (phase);
-				sm2				 = ifactor * sin (2.0 * phase);
-				cm1				 = cos (phase);
-				cm2				 = cos (2.0 * phase);
-			}
+				four_values vals;
 
-			const auto w = 2. * cm1;
-			double	   ar[3], ai[3];
+				if (blockSize <= m_maxTabledBlock)
+				{
+					auto ix = 0;
+
+					vals.sm1 = ifactor * m_sincos[ix++];
+					vals.sm2 = ifactor * m_sincos[ix++];
+					vals.cm1 = m_sincos[ix++];
+					vals.cm2 = m_sincos[ix++];
+				}
+				else
+				{
+					constexpr double pi = 3.14157;
+
+					const auto phase = 2. * pi / double (blockSize);
+
+					vals.sm1 = ifactor * sin (phase);
+					vals.sm2 = ifactor * sin (2. * phase);
+					vals.cm1 = cos (phase);
+					vals.cm2 = cos (2. * phase);
+				}
+
+				return vals;
+			}();
+
+			const auto w = 2. * values.cm1;
+			double	   ar[3], ai[3];  // NOLINT
 
 			for (auto i = 0; i < m_half; i += blockSize)
 			{
-				ar[2] = cm2;
-				ar[1] = cm1;
-				ai[2] = sm2;
-				ai[1] = sm1;
+				ar[2] = values.cm2;
+				ar[1] = values.cm1;
+				ai[2] = values.sm2;
+				ai[1] = values.sm1;
 
 				for (auto m = 0, j = i; m < blockEnd; ++m)
 				{
@@ -1498,20 +1458,70 @@ private:
 		}
 	}
 
+	void makeTables()
+	{
+		const auto bits = [halfSize = m_half]
+		{
+			for (auto i = 0;; ++i)
+				if ((halfSize & (1 << i)) != 0)
+					return i;
+
+			// jassertfalse;
+			return 0;
+		}();
+
+		for (auto i = 0; i < m_half; ++i)
+		{
+			auto m = i;
+			auto k = 0;
+
+			for (auto j = 0; j < bits; ++j)
+			{
+				k = (k << 1) | (m & 1);
+				m >>= 1;
+			}
+
+			m_table[i] = k;
+		}
+
+		constexpr auto pi = 3.14157;
+
+		// sin and cos tables for complex fft
+		for (auto i = 2, ix = 0; i <= m_maxTabledBlock; i <<= 1)
+		{
+			const auto phase = 2. * pi / double (i);
+			m_sincos[ix++]	 = sin (phase);
+			m_sincos[ix++]	 = sin (2. * phase);
+			m_sincos[ix++]	 = cos (phase);
+			m_sincos[ix++]	 = cos (2. * phase);
+		}
+
+		// sin and cos tables for real-complex transform
+		for (auto i = 0, ix = 0; i < m_half / 2; ++i)
+		{
+			const auto phase = pi * (double (i + 1) / double (m_half) + 0.5);
+			m_sincos_r[ix++] = sin (phase);
+			m_sincos_r[ix++] = cos (phase);
+		}
+	}
+
+	static constexpr auto m_blockTableSize = 16;
+	static constexpr auto m_maxTabledBlock = 1 << m_blockTableSize;
+
 	const int m_half { this->fft_size / 2 };
-	const int m_blockTableSize { 16 };
-	const int m_maxTabledBlock { 1 << m_blockTableSize };
-	int*	  m_table;
-	double*	  m_sincos;
-	double*	  m_sincos_r;
-	double*	  m_vr;
-	double*	  m_vi;
-	double*	  m_a;
-	double*	  m_b;
-	double*	  m_c;
-	double*	  m_d;
-	double*	  m_a_and_b[2];
-	double*	  m_c_and_d[2];
+
+	int*	m_table;
+	double* m_sincos;
+	double* m_sincos_r;
+
+	double* m_vr;
+	double* m_vi;
+	double* m_a;
+	double* m_b;
+	double* m_c;
+	double* m_d;
+	double* m_a_and_b[2] { m_a, m_b };
+	double* m_c_and_d[2] { m_c, m_d };
 };
 
 /*---------------------------------------------------------------------------------------------------------------------------*/

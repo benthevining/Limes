@@ -89,8 +89,6 @@ add_subdirectory (misc)
 add_subdirectory (threading)
 add_subdirectory (text)
 
-lemons_sort_target_sources (limes_core "${CMAKE_CURRENT_LIST_DIR}")
-
 install (
 	TARGETS limes_core
 	EXPORT LimesCoreTargets

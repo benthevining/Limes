@@ -43,13 +43,13 @@ LIMES_EXPORT [[nodiscard]] constexpr bool contains (const ContainerType& contain
 template <Container ContainerType, class UnaryPredicate>
 LIMES_EXPORT [[nodiscard]] constexpr bool contains_if (const ContainerType& container, UnaryPredicate&& p)
 {
-	return std::find_if (container.begin(), container.end(), std::move (p)) != container.end();
+	return std::find_if (container.begin(), container.end(), std::forward<UnaryPredicate> (p)) != container.end();
 }
 
 template <Container ContainerType, class UnaryPredicate>
 LIMES_EXPORT [[nodiscard]] constexpr ElementType<ContainerType>& contains_or (const ContainerType& container, ElementType<ContainerType>& defaultValue, UnaryPredicate&& p)
 {
-	const auto res = std::find_if (container.begin(), container.end(), std::move (p));
+	const auto res = std::find_if (container.begin(), container.end(), std::forward<UnaryPredicate> (p));
 
 	if (res == container.end())
 		return defaultValue;
@@ -60,7 +60,7 @@ LIMES_EXPORT [[nodiscard]] constexpr ElementType<ContainerType>& contains_or (co
 template <Container ContainerType, class UnaryPredicate>
 LIMES_EXPORT [[nodiscard]] constexpr const ElementType<ContainerType>& contains_or (const ContainerType& container, const ElementType<ContainerType>& defaultValue, UnaryPredicate&& p)
 {
-	const auto res = std::find_if (container.begin(), container.end(), std::move (p));
+	const auto res = std::find_if (container.begin(), container.end(), std::forward<UnaryPredicate> (p));
 
 	if (res == container.end())
 		return defaultValue;
@@ -76,7 +76,7 @@ LIMES_EXPORT [[nodiscard]] constexpr auto contains_or_default (const ContainerTy
 	static_assert (std::is_default_constructible_v<T>,
 				   "Element type must be default constructible!");
 
-	const auto res = std::find_if (container.begin(), container.end(), std::move (p));
+	const auto res = std::find_if (container.begin(), container.end(), std::forward<UnaryPredicate> (p));
 
 	if (res == container.end())
 		return T {};
@@ -87,7 +87,7 @@ LIMES_EXPORT [[nodiscard]] constexpr auto contains_or_default (const ContainerTy
 template <Container ContainerType, class UnaryPredicate>
 LIMES_EXPORT [[nodiscard]] constexpr auto* contains_or_null (const ContainerType& container, UnaryPredicate&& p)
 {
-	const auto res = std::find_if (container.begin(), container.end(), std::move (p));
+	const auto res = std::find_if (container.begin(), container.end(), std::forward<UnaryPredicate> (p));
 
 	if (res == container.end())
 	{
@@ -101,7 +101,7 @@ LIMES_EXPORT [[nodiscard]] constexpr auto* contains_or_null (const ContainerType
 template <Container ContainerType, class UnaryPredicate>
 LIMES_EXPORT [[nodiscard]] constexpr auto* find_if (const ContainerType& container, UnaryPredicate&& p)
 {
-	const auto res = std::find_if (container.begin(), container.end(), std::move (p));
+	const auto res = std::find_if (container.begin(), container.end(), std::forward<UnaryPredicate> (p));
 
 	if (res == container.end())
 	{
@@ -115,7 +115,7 @@ LIMES_EXPORT [[nodiscard]] constexpr auto* find_if (const ContainerType& contain
 template <Container ContainerType, class UnaryPredicate>
 LIMES_EXPORT [[nodiscard]] constexpr int num_of (const ContainerType& container, UnaryPredicate&& p)
 {
-	return static_cast<int> (std::count_if (container.begin(), container.end(), std::move (p)));
+	return static_cast<int> (std::count_if (container.begin(), container.end(), std::forward<UnaryPredicate> (p)));
 }
 
 template <Container ContainerType>
@@ -157,7 +157,7 @@ LIMES_EXPORT constexpr void sort (ContainerType& container, bool forward = true)
 template <Container ContainerType, class Comparison>
 LIMES_EXPORT constexpr void sort (ContainerType& container, Comparison&& predicate, bool forward = true)
 {
-	std::sort (container.begin(), container.end(), std::move (predicate));
+	std::sort (container.begin(), container.end(), std::forward<Comparison> (predicate));
 
 	if (! forward)
 		reverse (container);
@@ -189,7 +189,7 @@ LIMES_EXPORT constexpr auto min_value (const ContainerType& container)
 template <Container InputContainer, Container OutputContainer, class UnaryOp>
 LIMES_EXPORT constexpr void transform (const InputContainer& input, OutputContainer& output, UnaryOp&& func)
 {
-	std::transform (input.begin(), input.end(), output.begin(), std::move (func));
+	std::transform (input.begin(), input.end(), output.begin(), std::forward<UnaryOp> (func));
 }
 
 template <Container OutputContainerType, Container InputContainer, class UnaryOp>
@@ -197,7 +197,7 @@ LIMES_EXPORT constexpr OutputContainerType createFromTransform (const InputConta
 {
 	OutputContainerType output;
 
-	transform (input, output, std::move (func));
+	transform (input, output, std::forward<UnaryOp> (func));
 
 	return output;
 }

@@ -65,8 +65,6 @@ add_subdirectory (streams)
 add_subdirectory (util)
 add_subdirectory (psola)
 
-lemons_sort_target_sources (limes_audio "${CMAKE_CURRENT_LIST_DIR}")
-
 install (
 	TARGETS limes_audio
 	EXPORT LimesAudioTargets

@@ -70,8 +70,6 @@ add_subdirectory (impl)
 add_subdirectory (util)
 add_subdirectory (fft)
 
-lemons_sort_target_sources (limes_vecops "${CMAKE_CURRENT_LIST_DIR}")
-
 install (
 	TARGETS limes_vecops
 	EXPORT LimesVecopsTargets

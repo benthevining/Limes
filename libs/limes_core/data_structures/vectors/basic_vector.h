@@ -51,7 +51,7 @@ public:
 	template <typename OtherElementType, class UnaryOp>
 	explicit basic_vector (const basic_vector<OtherElementType>& otherVector, UnaryOp&& transform)
 	{
-		*this = otherVector.template transformElementsTo<ElementType> (std::move (transform));
+		*this = otherVector.template transformElementsTo<ElementType> (std::forward<UnaryOp> (transform));
 	}
 
 	basic_vector (const basic_vector&)	= default;
@@ -77,7 +77,7 @@ public:
 	template <typename UnaryFunction>
 	constexpr void for_each (UnaryFunction&& func) const
 	{
-		std::for_each (objects.begin(), objects.end(), std::move (func));
+		std::for_each (objects.begin(), objects.end(), std::forward<UnaryFunction> (func));
 	}
 
 	[[nodiscard]] constexpr bool contains (const ElementType& object) const
@@ -88,19 +88,19 @@ public:
 	template <class UnaryPredicate>
 	[[nodiscard]] constexpr bool contains_if (UnaryPredicate&& pred) const
 	{
-		return alg::contains_if (objects, std::move (pred));
+		return alg::contains_if (objects, std::forward<UnaryPredicate> (pred));
 	}
 
 	template <class UnaryPredicate>
 	[[nodiscard]] constexpr ElementType* find_if (UnaryPredicate&& pred) const
 	{
-		return alg::find_if (objects, std::move (pred));
+		return alg::find_if (objects, std::forward<UnaryPredicate> (pred));
 	}
 
 	template <class UnaryPredicate>
 	[[nodiscard]] constexpr int num_of (UnaryPredicate&& pred) const
 	{
-		return alg::num_of (objects, std::move (pred));
+		return alg::num_of (objects, std::forward<UnaryPredicate> (pred));
 	}
 
 	[[nodiscard]] constexpr int capacity() const noexcept
@@ -141,7 +141,7 @@ public:
 	template <class OtherContainer, class Callable>
 	void zip_with (const OtherContainer& other, Callable&& callable)
 	{
-		alg::call_both (objects, other, std::move (callable));
+		alg::call_both (objects, other, std::forward<Callable> (callable));
 	}
 
 	[[nodiscard]] constexpr ElementType max() const
@@ -301,19 +301,19 @@ public:
 	template <class OtherContainerType, class UnaryOp>
 	void transform (const OtherContainerType& otherContainer, UnaryOp&& transform)
 	{
-		alg::transform (otherContainer, objects, std::move (transform));
+		alg::transform (otherContainer, objects, std::forward<UnaryOp> (transform));
 	}
 
 	template <class OtherContainerType, class UnaryOp>
 	[[nodiscard]] OtherContainerType createFromTransform (UnaryOp&& transform) const
 	{
-		return alg::createFromTransform<OtherContainerType> (objects, std::move (transform));
+		return alg::createFromTransform<OtherContainerType> (objects, std::forward<UnaryOp> (transform));
 	}
 
 	template <typename OtherElementType, class UnaryOp>
 	[[nodiscard]] basic_vector<OtherElementType> transformElementsTo (UnaryOp&& transform) const
 	{
-		return createFromTransform<basic_vector<OtherElementType>> (std::move (transform));
+		return createFromTransform<basic_vector<OtherElementType>> (std::forward<UnaryOp> (transform));
 	}
 
 	template <class UnaryOp>
