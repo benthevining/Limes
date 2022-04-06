@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [2.5.0](http://github.com/benthevining/Limes/compare/v2.4.0...v2.5.0) (2022-04-06)
+
+
+### Features
+
+* added more vecops funcs ([bdd7b79](http://github.com/benthevining/Limes/commit/bdd7b79a8efd86ef90e2d39d70e5cb48f4d10727))
+
 ## [2.4.0](http://github.com/benthevining/Limes/compare/v2.3.0...v2.4.0) (2022-04-05)
 
 
