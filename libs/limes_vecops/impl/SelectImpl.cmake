@@ -8,6 +8,16 @@
 #
 # ======================================================================================
 
+#[[
+
+Implementations, in order of preference:
+- vDSP (Apple only)
+- IPP (Intel platforms only)
+- MIPP
+- Fallback
+
+]]
+
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
@@ -17,40 +27,61 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 option (LIMES_IGNORE_VDSP "Ignore vDSP for vecops" OFF)
 option (LIMES_IGNORE_IPP "Ignore Intel IPP for vecops" OFF)
 option (LIMES_IGNORE_MIPP "Ignore MIPP for vecops" OFF)
+option (LIMES_USE_VECOPS_FALLBACK "Use the vecops fallback implementation" OFF)
 
-mark_as_advanced (FORCE LIMES_IGNORE_VDSP LIMES_IGNORE_IPP)
+include (CMakeDependentOption)
 
-#
+cmake_dependent_option (LIMES_USE_IPP "Use IPP for vecops, if available" OFF "NOT LIMES_IGNORE_IPP"
+						OFF)
+cmake_dependent_option (LIMES_USE_MIPP "Use MIPP for vecops, if available" OFF
+						"NOT LIMES_IGNORE_MIPP" OFF)
 
-# Apple - default to using vDSP first
-if(APPLE)
-	if(LIMES_IGNORE_VDSP)
-		target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_VDSP=0)
-	else()
-		target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_VDSP=1)
+mark_as_advanced (FORCE LIMES_IGNORE_VDSP LIMES_IGNORE_IPP LIMES_USE_IPP LIMES_USE_MIPP
+				  LIMES_USE_VECOPS_FALLBACK)
 
-		target_sources (
-			limes_vecops PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/vdsp.h>
-								 $<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/vdsp.h>)
+include (OrangesCmakeDevTools)
 
-		install (FILES "${CMAKE_CURRENT_LIST_DIR}/vdsp.h"
-				 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
+at_most_one (more_than_one LIMES_USE_IPP LIMES_USE_MIPP LIMES_USE_VECOPS_FALLBACK)
 
-		target_link_libraries (limes_vecops PUBLIC "-framework vDSP")
-
-		message (VERBOSE "limes_vecops -- using vDSP")
-
-		return ()
-	endif()
+if(more_than_one)
+	message (
+		WARNING
+			"Defining more than one of LIMES_USE_IPP, LIMES_USE_MIPP, or LIMES_USE_VECOPS_FALLBACK to truthy values is non-deterministic behavior!"
+		)
 endif()
 
 #
 
-# Intel IPP
+# editorconfig-checker-disable
+if(APPLE
+   AND NOT LIMES_IGNORE_VDSP
+   AND NOT LIMES_USE_IPP
+   AND NOT LIMES_USE_MIPP
+   AND NOT LIMES_USE_VECOPS_FALLBACK)
+	# editorconfig-checker-enable
 
-if(LIMES_IGNORE_IPP)
-	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_IPP=0)
-else()
+	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_VDSP=1)
+
+	target_sources (
+		limes_vecops PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/vdsp.h>
+							 $<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/vdsp.h>)
+
+	install (FILES "${CMAKE_CURRENT_LIST_DIR}/vdsp.h"
+			 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
+
+	target_link_libraries (limes_vecops PUBLIC "-framework vDSP")
+
+	set_target_properties (limes_vecops PROPERTIES VECOPS_IMPLEMENTATION vDSP)
+
+	message (VERBOSE "limes_vecops -- using vDSP")
+
+	return ()
+endif()
+
+#
+
+if(NOT LIMES_IGNORE_IPP AND NOT LIMES_USE_MIPP AND NOT LIMES_USE_VECOPS_FALLBACK)
+
 	# check if we're on an Intel platform
 	try_compile (compile_result "${CMAKE_CURRENT_BINARY_DIR}/try_compile"
 				 "${CMAKE_CURRENT_LIST_DIR}/check_intel.cpp" OUTPUT_VARIABLE compile_output)
@@ -73,6 +104,8 @@ else()
 			install (FILES "${CMAKE_CURRENT_LIST_DIR}/ipp.h"
 					 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
 
+			set_target_properties (limes_vecops PROPERTIES VECOPS_IMPLEMENTATION IPP)
+
 			message (VERBOSE "limes_vecops -- using IPP")
 
 			set (LIMES_VECOPS_USING_IPP TRUE)
@@ -84,9 +117,7 @@ endif()
 
 #
 
-if(LIMES_IGNORE_MIPP)
-	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_MIPP=0)
-else()
+if(NOT LIMES_IGNORE_MIPP AND NOT LIMES_USE_VECOPS_FALLBACK)
 	find_package (MIPP MODULE QUIET)
 
 	if(TARGET aff3ct::MIPP)
@@ -100,6 +131,8 @@ else()
 
 		install (FILES "${CMAKE_CURRENT_LIST_DIR}/mipp.h"
 				 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
+
+		set_target_properties (limes_vecops PROPERTIES VECOPS_IMPLEMENTATION MIPP)
 
 		message (VERBOSE "limes_vecops -- using MIPP")
 
@@ -119,5 +152,7 @@ target_sources (
 
 install (FILES "${CMAKE_CURRENT_LIST_DIR}/fallback.h"
 		 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
+
+set_target_properties (limes_vecops PROPERTIES VECOPS_IMPLEMENTATION Fallback)
 
 message (VERBOSE "limes_vecops -- using fallback implementation")

@@ -8,12 +8,18 @@
 #
 # ======================================================================================
 
-find_package (FFTW MODULE QUIET)
+option (LIMES_IGNORE_FFTW "Ignore FFTW for limes_vecops" OFF)
 
-if(TARGET FFTW::FFTW)
-	message (DEBUG " -- limes_vecops - using FFTW for FFT")
-	target_link_libraries (limes_vecops PRIVATE FFTW::FFTW)
-	target_compile_definitions (limes_vecops PRIVATE LIMES_VECOPS_USE_FFTW=1)
+mark_as_advanced (FORCE LIMES_IGNORE_FFTW)
+
+if(NOT LIMES_IGNORE_FFTW)
+	find_package (FFTW MODULE QUIET)
+
+	if(TARGET FFTW::FFTW)
+		message (DEBUG " -- limes_vecops - using FFTW for FFT")
+		target_link_libraries (limes_vecops PRIVATE FFTW::FFTW)
+		target_compile_definitions (limes_vecops PRIVATE LIMES_VECOPS_USE_FFTW=1)
+	endif()
 endif()
 
 target_sources (

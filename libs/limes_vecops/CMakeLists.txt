@@ -20,10 +20,18 @@ Options
 - LIMES_IGNORE_VDSP
 - LIMES_IGNORE_IPP
 - LIMES_IGNORE_MIPP
+- LIMES_USE_IPP
+- LIMES_USE_MIPP
+- LIMES_USE_VECOPS_FALLBACK
+- LIMES_IGNORE_FFTW
 
 Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Limes::limes_vecops
+
+Target properties
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- VECOPS_IMPLEMENTATION : string name of the vecops implementation being used
 
 Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -38,13 +46,17 @@ Install component groups
 
 include_guard (GLOBAL)
 
-cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 include (OrangesGeneratePkgConfig)
 include (CPackComponent)
 include (GNUInstallDirs)
+
+define_property (
+	TARGET PROPERTY VECOPS_IMPLEMENTATION BRIEF_DOCS "Name of the vecops implementation"
+	FULL_DOCS "Name of the underlying vecops implementation library used by limes_vecops")
 
 add_library (limes_vecops STATIC)
 
