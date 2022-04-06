@@ -67,6 +67,12 @@ endif()
 #
 
 set (Limes_INCLUDED TRUE)
+set (Limes_FOUND TRUE)
+
+include (FeatureSummary)
+
+set_package_properties (Limes PROPERTIES URL "https://github.com/benthevining/Limes"
+						DESCRIPTION "C++ utilities")
 
 #
 

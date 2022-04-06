@@ -135,6 +135,10 @@ cpack_add_install_type (User DISPLAY_NAME "End-user installation")
 
 cpack_add_install_type (Developer DISPLAY_NAME "Developer installation")
 
+include (FeatureSummary)
+
+feature_summary (INCLUDE_QUIET_PACKAGES DEFAULT_DESCRIPTION WHAT ALL)
+
 export (PACKAGE Limes)
 
 unset (LIMES_ROOT_DIR)

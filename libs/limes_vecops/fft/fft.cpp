@@ -16,12 +16,8 @@
 #include <type_traits>
 #include "limes_vecops.h"
 
-#ifndef FFTW_HEADER_NAME
-#	define FFTW_HEADER_NAME fftw3.h  // NOLINT
-#endif
-
 #ifndef LIMES_VECOPS_USE_FFTW
-#	if __has_include(<FFTW_HEADER_NAME>)
+#	if __has_include(<fftw3.h>)
 #		define LIMES_VECOPS_USE_FFTW 1	 // NOLINT
 #	else
 #		define LIMES_VECOPS_USE_FFTW 0	 // NOLINT
@@ -29,7 +25,7 @@
 #endif
 
 #if LIMES_VECOPS_USE_FFTW
-#	include <FFTW_HEADER_NAME>
+#	include <fftw3.h>
 
 #	ifndef FFTW_SINGLE_ONLY
 #		define FFTW_SINGLE_ONLY 0
@@ -951,9 +947,7 @@ private:
 
 	void inverseCepstral (const float* magIn, float* cepOut) final
 	{
-		const auto hs = fft_size / 2;
-
-		for (auto i = 0; i <= hs; ++i)
+		for (auto i = 0; i <= fft_size / 2; ++i)
 		{
 			m_fpacked[i][0] = std::logf (magIn[i] + shiftAmount<fft_float_type>);
 			m_fpacked[i][1] = 0.f;
@@ -1102,7 +1096,7 @@ private:
 
 	void inverseCepstral (const double* magIn, double* cepOut) final
 	{
-		for (auto i = 0; i <= hs; ++i)
+		for (auto i = 0; i <= fft_size / 2; ++i)
 		{
 			m_dpacked[i][0] = std::log (magIn[i] + shiftAmount<fft_double_type>);
 			m_dpacked[i][1] = 0.;

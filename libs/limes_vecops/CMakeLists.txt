@@ -48,6 +48,8 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
+# CHECK TYPE SIZE
+
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 include (OrangesGeneratePkgConfig)

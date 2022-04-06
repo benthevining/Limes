@@ -12,6 +12,13 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
+include (FeatureSummary)
+
+set_package_properties (Oranges PROPERTIES URL "https://github.com/benthevining/Oranges"
+						DESCRIPTION "CMake modules and toolchains")
+
+set (Oranges_FOUND TRUE)
+
 set (oranges_parallel_dir "${CMAKE_CURRENT_LIST_DIR}/../../Oranges")
 
 if(EXISTS "${oranges_parallel_dir}")
