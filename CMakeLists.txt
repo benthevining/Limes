@@ -76,6 +76,10 @@ include ("${CMAKE_CURRENT_LIST_DIR}/scripts/LimesMacros.cmake")
 
 find_package (Oranges REQUIRED)
 
+include (FeatureSummary)
+
+set_package_properties (Oranges PROPERTIES TYPE REQUIRED PURPOSE "Required CMake modules")
+
 set (Limes_DEPS_GRAPH_OUTPUT_TO_SOURCE util)
 
 include (OrangesDefaultProjectSettings)
@@ -135,9 +139,10 @@ cpack_add_install_type (User DISPLAY_NAME "End-user installation")
 
 cpack_add_install_type (Developer DISPLAY_NAME "Developer installation")
 
-include (FeatureSummary)
+feature_summary (FILENAME "${CMAKE_BINARY_DIR}/package_features.txt" INCLUDE_QUIET_PACKAGES
+																	 DEFAULT_DESCRIPTION WHAT ALL)
 
-feature_summary (INCLUDE_QUIET_PACKAGES DEFAULT_DESCRIPTION WHAT ALL)
+feature_summary (INCLUDE_QUIET_PACKAGES DEFAULT_DESCRIPTION QUIET_ON_EMPTY WHAT ALL)
 
 export (PACKAGE Limes)
 

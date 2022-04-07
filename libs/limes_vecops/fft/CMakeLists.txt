@@ -12,6 +12,10 @@ option (LIMES_IGNORE_FFTW "Ignore FFTW for limes_vecops" OFF)
 
 mark_as_advanced (FORCE LIMES_IGNORE_FFTW)
 
+include (FeatureSummary)
+
+set_package_properties (FFTW PROPERTIES TYPE RECOMMENDED PURPOSE "FFT acceleration with FFTW")
+
 if(NOT LIMES_IGNORE_FFTW)
 	find_package (FFTW MODULE QUIET)
 
@@ -30,3 +34,5 @@ target_sources (
 
 install (FILES "${CMAKE_CURRENT_LIST_DIR}/fft.h" DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
 		 COMPONENT limes_vecops_dev)
+
+add_feature_info (FFTW "TARGET FFTW::FFTW" "Accelerated FFT using FFTW")

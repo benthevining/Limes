@@ -93,18 +93,12 @@ install (
 	COMPONENT limes_base)
 
 oranges_create_pkgconfig_file (
-	TARGET
-	Limes
-	INCLUDE_REL_PATH
-	"${LIMES_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION
-	"Limes library"
-	URL
-	"${PROJECT_HOMEPAGE_URL}"
-	VERSION
-	"${PROJECT_VERSION}"
-	INSTALL_COMPONENT
-	limes_dev)
+	TARGET Limes
+	INCLUDE_REL_PATH "${LIMES_INSTALL_INCLUDE_DIR}"
+	DESCRIPTION "Limes library"
+	URL "${PROJECT_HOMEPAGE_URL}"
+	VERSION "${PROJECT_VERSION}"
+	INSTALL_COMPONENT limes_dev)
 
 if(NOT TARGET Limes::Limes)
 	add_library (Limes::Limes ALIAS Limes)

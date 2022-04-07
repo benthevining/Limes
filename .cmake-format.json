@@ -71,7 +71,232 @@
     "per_command": {}
   },
   "parse": {
-    "additional_commands": {},
+    "additional_commands": {
+      "autotools_add_build_target": {
+        "kwargs": {
+          "COMMENT": 1,
+          "SOURCE_DIR": 1,
+          "TARGET": 1
+        }
+      },
+      "autotools_run_configure": {
+        "kwargs": {
+          "CXX_FLAGS": "+",
+          "C_FLAGS": "+",
+          "LD_FLAGS": "+",
+          "SOURCE_DIR": 1
+        },
+        "pargs": {
+          "flags": [
+            "STATIC",
+            "SHARED"
+          ]
+        }
+      },
+      "auval_add_plugin_test": {
+        "kwargs": {
+          "NAME": 1,
+          "REPEATS": 1,
+          "TARGET": 1
+        }
+      },
+      "codesign_sign_plugin_targets": {
+        "kwargs": {
+          "TARGET": 1
+        }
+      },
+      "codesign_sign_target": {
+        "kwargs": {
+          "TARGET": 1
+        }
+      },
+      "include_external_xcode_project": {
+        "kwargs": {
+          "COMMENT": 1,
+          "DIRECTORY": 1,
+          "EXTRA_ARGS": 1,
+          "SCHEME": 1,
+          "TARGET": 1
+        }
+      },
+      "lemons_make_path_absolute": {
+        "kwargs": {
+          "BASE_DIR": 1,
+          "VAR": 1
+        }
+      },
+      "lemons_subdir_list": {
+        "kwargs": {
+          "BASE_DIR": 1,
+          "DIR": 1,
+          "RESULT": 1
+        },
+        "pargs": {
+          "flags": [
+            "RECURSE",
+            "FILES",
+            "FULL_PATHS"
+          ]
+        }
+      },
+      "oranges_create_doxygen_target": {
+        "kwargs": {
+          "FILE_PATTERNS": "+",
+          "IMAGE_PATHS": "+",
+          "INPUT_PATHS": "+",
+          "INSTALL_COMPONENT": 1,
+          "LOGO": 1,
+          "MAIN_PAGE_MD_FILE": 1,
+          "OUTPUT_DIR": 1,
+          "TARGET": 1
+        },
+        "pargs": {
+          "flags": [
+            "NO_VERSION_DISPLAY",
+            "NO_INSTALL"
+          ]
+        }
+      },
+      "oranges_create_pkgconfig_file": {
+        "kwargs": {
+          "DESCRIPTION": 1,
+          "INCLUDE_REL_PATH": 1,
+          "INSTALL_COMPONENT": 1,
+          "INSTALL_DEST": 1,
+          "NAME": 1,
+          "OUTPUT_DIR": 1,
+          "REQUIRES": "+",
+          "TARGET": 1,
+          "URL": 1,
+          "VERSION": 1
+        },
+        "pargs": {
+          "flags": "NO_INSTALL"
+        }
+      },
+      "oranges_download_file": {
+        "kwargs": {
+          "COPY_TO": 1,
+          "EXPECTED_HASH": 1,
+          "FILENAME": 1,
+          "GITHUB_REPOSITORY": 1,
+          "GIT_BRANCH": 1,
+          "PACKAGE_NAME": 1,
+          "PASSWORD": 1,
+          "PATH_OUTPUT": 1,
+          "REPO_REL_PATH": 1,
+          "TIMEOUT": 1,
+          "URL": 1,
+          "USERNAME": 1
+        },
+        "pargs": {
+          "flags": [
+            "NO_CACHE",
+            "QUIET",
+            "NEVER_LOCAL"
+          ]
+        }
+      },
+      "oranges_fetch_repository": {
+        "kwargs": {
+          "BITBUCKET_REPOSITORY": 1,
+          "CMAKE_OPTIONS": "+",
+          "CMAKE_SUBDIR": 1,
+          "GITHUB_REPOSITORY": 1,
+          "GITLAB_REPOSITORY": 1,
+          "GIT_OPTIONS": "+",
+          "GIT_REPOSITORY": 1,
+          "GIT_STRATEGY": 1,
+          "GIT_TAG": 1,
+          "NAME": 1
+        },
+        "pargs": {
+          "flags": [
+            "NEVER_LOCAL",
+            "QUIET",
+            "DOWNLOAD_ONLY",
+            "EXCLUDE_FROM_ALL",
+            "FULL",
+            "NO_SUBMODULES",
+            "NO_RECURSE_SUBMODULES"
+          ]
+        }
+      },
+      "oranges_generate_export_header": {
+        "kwargs": {
+          "BASE_NAME": 1,
+          "HEADER": 1,
+          "INSTALL_COMPONENT": 1,
+          "REL_PATH": 1,
+          "TARGET": 1
+        }
+      },
+      "oranges_generate_platform_header": {
+        "kwargs": {
+          "BASE_NAME": 1,
+          "HEADER": 1,
+          "INSTALL_COMPONENT": 1,
+          "LANGUAGE": 1,
+          "REL_PATH": 1,
+          "TARGET": 1
+        },
+        "pargs": {
+          "flags": "INTERFACE"
+        }
+      },
+      "oranges_list_transform": {
+        "kwargs": {
+          "CALLBACK": 1,
+          "LIST": 1,
+          "OUTPUT": 1
+        }
+      },
+      "pluginval_add_all_plugin_tests": {
+        "kwargs": {
+          "BLOCKSIZES": "+",
+          "LEVEL": 1,
+          "LOG_DIR": 1,
+          "REPEATS": 1,
+          "SAMPLERATES": "+",
+          "TARGET": 1
+        },
+        "pargs": {
+          "flags": [
+            "NO_GUI",
+            "VERBOSE",
+            "RANDOMIZE"
+          ]
+        }
+      },
+      "pluginval_add_plugin_test": {
+        "kwargs": {
+          "BLOCKSIZES": "+",
+          "LEVEL": 1,
+          "LOG_DIR": 1,
+          "NAME": 1,
+          "REPEATS": 1,
+          "SAMPLERATES": "+",
+          "TARGET": 1
+        },
+        "pargs": {
+          "flags": [
+            "NO_GUI",
+            "VERBOSE",
+            "RANDOMIZE"
+          ]
+        }
+      },
+      "wraptool_configure_aax_plugin_signing": {
+        "kwargs": {
+          "ACCOUNT": 1,
+          "GUID": 1,
+          "KEYFILE": 1,
+          "KEYPASSWORD": 1,
+          "SIGNID": 1,
+          "TARGET": 1
+        }
+      }
+    },
     "override_spec": {},
     "proptags": [],
     "vartags": []

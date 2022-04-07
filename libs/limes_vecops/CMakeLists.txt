@@ -102,18 +102,12 @@ install (
 	COMPONENT limes_vecops_base)
 
 oranges_create_pkgconfig_file (
-	TARGET
-	limes_vecops
-	INCLUDE_REL_PATH
-	"${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION
-	"Limes vector operations library"
-	URL
-	"${PROJECT_HOMEPAGE_URL}"
-	VERSION
-	"${PROJECT_VERSION}"
-	INSTALL_COMPONENT
-	limes_vecops_dev)
+	TARGET limes_vecops
+	INCLUDE_REL_PATH "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
+	DESCRIPTION "Limes vector operations library"
+	URL "${PROJECT_HOMEPAGE_URL}"
+	VERSION "${PROJECT_VERSION}"
+	INSTALL_COMPONENT limes_vecops_dev)
 
 cpack_add_component (limes_vecops_base HIDDEN)
 

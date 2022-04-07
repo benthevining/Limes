@@ -83,18 +83,12 @@ install (
 	COMPONENT limes_audio_base)
 
 oranges_create_pkgconfig_file (
-	TARGET
-	limes_audio
-	INCLUDE_REL_PATH
-	"${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION
-	"Limes realtime audio utilities library"
-	URL
-	"${PROJECT_HOMEPAGE_URL}"
-	VERSION
-	"${PROJECT_VERSION}"
-	INSTALL_COMPONENT
-	limes_audio_dev)
+	TARGET limes_audio
+	INCLUDE_REL_PATH "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
+	DESCRIPTION "Limes realtime audio utilities library"
+	URL "${PROJECT_HOMEPAGE_URL}"
+	VERSION "${PROJECT_VERSION}"
+	INSTALL_COMPONENT limes_audio_dev)
 
 cpack_add_component (limes_audio_base HIDDEN)
 

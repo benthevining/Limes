@@ -82,18 +82,12 @@ install (
 	COMPONENT limes_music_base)
 
 oranges_create_pkgconfig_file (
-	TARGET
-	limes_music
-	INCLUDE_REL_PATH
-	"${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION
-	"Limes music theory library"
-	URL
-	"${PROJECT_HOMEPAGE_URL}"
-	VERSION
-	"${PROJECT_VERSION}"
-	INSTALL_COMPONENT
-	limes_music_dev)
+	TARGET limes_music
+	INCLUDE_REL_PATH "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
+	DESCRIPTION "Limes music theory library"
+	URL "${PROJECT_HOMEPAGE_URL}"
+	VERSION "${PROJECT_VERSION}"
+	INSTALL_COMPONENT limes_music_dev)
 
 cpack_add_component (limes_music_base HIDDEN)
 

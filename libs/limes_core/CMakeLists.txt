@@ -50,25 +50,11 @@ set_target_properties (limes_core PROPERTIES VERSION "${PROJECT_VERSION}"
 target_link_libraries (limes_core PUBLIC Limes::limes_vecops PRIVATE Oranges::OrangesDefaultTarget
 																	 Oranges::OrangesUnityBuild)
 
-oranges_generate_export_header (
-	TARGET
-	limes_core
-	BASE_NAME
-	limes
-	HEADER
-	limes_export.h
-	REL_PATH
-	Limes/limes_core)
+oranges_generate_export_header (TARGET limes_core BASE_NAME limes HEADER limes_export.h
+								REL_PATH Limes/limes_core)
 
-oranges_generate_platform_header (
-	TARGET
-	limes_core
-	BASE_NAME
-	limes
-	HEADER
-	limes_platform.h
-	REL_PATH
-	Limes/limes_core)
+oranges_generate_platform_header (TARGET limes_core BASE_NAME limes HEADER limes_platform.h
+								  REL_PATH Limes/limes_core)
 
 set (LIMES_CORE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_core" CACHE INTERNAL "")
 
@@ -107,18 +93,12 @@ install (
 	COMPONENT limes_core_base)
 
 oranges_create_pkgconfig_file (
-	TARGET
-	limes_core
-	INCLUDE_REL_PATH
-	"${LIMES_CORE_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION
-	"Limes core utilities library"
-	URL
-	"${PROJECT_HOMEPAGE_URL}"
-	VERSION
-	"${PROJECT_VERSION}"
-	INSTALL_COMPONENT
-	limes_core_dev)
+	TARGET limes_core
+	INCLUDE_REL_PATH "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+	DESCRIPTION "Limes core utilities library"
+	URL "${PROJECT_HOMEPAGE_URL}"
+	VERSION "${PROJECT_VERSION}"
+	INSTALL_COMPONENT limes_core_dev)
 
 cpack_add_component (limes_core_base HIDDEN)
 
