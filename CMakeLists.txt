@@ -74,7 +74,7 @@ set (LIMES_ROOT_DIR "${CMAKE_CURRENT_LIST_DIR}")
 
 include ("${CMAKE_CURRENT_LIST_DIR}/scripts/LimesMacros.cmake")
 
-find_package (Oranges REQUIRED)
+find_package (Oranges 2.9 REQUIRED)
 
 include (FeatureSummary)
 
