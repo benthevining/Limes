@@ -12,8 +12,17 @@
 
 #pragma once
 
-#include <memory>  // for unique_ptr
+#include <memory>		// for unique_ptr
+#include <string_view>	// for std::string, only needed if FFTW is used
 #include "../limes_vecops.h"
+
+#ifndef LIMES_VECOPS_USE_FFTW
+#	if __has_include(<fftw3.h>)
+#		define LIMES_VECOPS_USE_FFTW 1	 // NOLINT
+#	else
+#		define LIMES_VECOPS_USE_FFTW 0	 // NOLINT
+#	endif
+#endif
 
 namespace limes::vecops
 {
@@ -43,11 +52,60 @@ public:
 
 	void inverseCepstral (const SampleType* magIn, SampleType* cepOut);
 
+	[[nodiscard]] static constexpr bool isUsingFFTW() noexcept
+	{
+#if LIMES_VECOPS_USE_FFTW
+		return true;
+#else
+		return false;
+#endif
+	}
+
+	[[nodiscard]] static constexpr bool isUsingVDSP() noexcept
+	{
+		return vecops::isUsingVDSP() && ! isUsingFFTW();
+	}
+
+	[[nodiscard]] static constexpr bool isUsingIPP() noexcept
+	{
+		return vecops::isUsingIPP() && ! isUsingFFTW();
+	}
+
+	[[nodiscard]] static constexpr bool isUsingFallback() noexcept
+	{
+		return ! (isUsingFFTW() || isUsingVDSP() || isUsingIPP());
+	}
+
+	[[nodiscard]] static constexpr const char* const getImplementationName() noexcept
+	{
+		if constexpr (isUsingFFTW())
+			return "FFTW";
+		else if constexpr (isUsingVDSP())
+			return "Apple vDSP";
+		else if constexpr (isUsingIPP())
+			return "Intel IPP";
+		else
+			return "Fallback";
+	}
+
 	class FFTImpl;
 
 private:
 
 	std::unique_ptr<FFTImpl> pimpl;
 };
+
+#if LIMES_VECOPS_USE_FFTW
+namespace fftw
+{
+void setWisdomFileDir (std::string_view dirAbsPath);
+
+[[nodiscard]] std::string getWisdomFileDir();
+
+void enableWisdom (bool shouldUseWisdom);
+
+[[nodiscard]] bool isUsingWisdom();
+}  // namespace fftw
+#endif
 
 }  // namespace limes::vecops

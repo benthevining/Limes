@@ -14,15 +14,8 @@
 #include <cstddef>
 #include <cmath>
 #include <type_traits>
+#include <string_view>
 #include "limes_vecops.h"
-
-#ifndef LIMES_VECOPS_USE_FFTW
-#	if __has_include(<fftw3.h>)
-#		define LIMES_VECOPS_USE_FFTW 1	 // NOLINT
-#	else
-#		define LIMES_VECOPS_USE_FFTW 0	 // NOLINT
-#	endif
-#endif
 
 #if LIMES_VECOPS_USE_FFTW
 #	include <fftw3.h>
@@ -823,6 +816,102 @@ inline void fftw_unpack (SampleType* re, SampleType* im,
 }
 
 
+// this is the public interface for wisdom
+namespace fftw
+{
+static std::string widom_file_dir;	// NOLINT
+static std::mutex  wisdom_lock;
+static bool		   useWisdom { true };
+
+void setWisdomFileDir (std::string_view dirAbsPath)
+{
+	const std::lock_guard g { wisdom_lock };
+
+	widom_file_dir = dirAbsPath;
+}
+
+std::string getWisdomFileDir()
+{
+	const std::lock_guard g { wisdom_lock };
+
+	if (widom_file_dir.empty())
+	{
+		const auto* homeDir = std::getenv ("HOME");
+
+		if (homeDir != nullptr)
+			widom_file_dir = homeDir;
+	}
+
+	return widom_file_dir;
+}
+
+void enableWisdom (bool shouldUseWisdom)
+{
+	useWisdom = shouldUseWisdom;
+}
+
+bool isUsingWisdom()
+{
+	if (getWisdomFileDir().empty())
+		return false;
+
+	return useWisdom;
+}
+}  // namespace fftw
+
+[[nodiscard]] inline FILE* fftw_get_wisdom_file (bool isDouble, bool save)
+{
+#	if FFTW_SINGLE_ONLY
+	if (isDouble)
+		return nullptr;
+#	elif FFTW_DOUBLE_ONLY
+	if (! isDouble)
+		return nullptr;
+#	endif
+
+	if (! fftw::useWisdom)
+		return nullptr;
+
+	const auto fileDir = fftw::getWisdomFileDir();
+
+	if (fileDir.empty())
+		return nullptr;
+
+	const auto typeChar = isDouble ? 'd' : 'f';
+
+	char fn[256];
+	std::snprintf (fn, sizeof (fn), "%s/%s.%c", fileDir.c_str(), ".fftw_wisdom", typeChar);
+
+	return std::fopen (fn, save ? "wb" : "rb");
+}
+
+inline void fftw_load_wisdom (bool isDouble)
+{
+	if (auto* wisdomFile = fftw_get_wisdom_file (isDouble, false))
+	{
+		if (isDouble)
+			fftw_import_wisdom_from_file (wisdomFile);
+		else
+			fftwf_import_wisdom_from_file (wisdomFile);
+
+		std::fclose (wisdomFile);
+	}
+}
+
+inline void fftw_save_wisdom (bool isDouble)
+{
+	if (auto* wisdomFile = fftw_get_wisdom_file (isDouble, true))
+	{
+		if (isDouble)
+			fftw_export_wisdom_to_file (wisdomFile);
+		else
+			fftwf_export_wisdom_to_file (wisdomFile);
+
+		std::fclose (wisdomFile);
+	}
+}
+
+
 class FFTW_FloatFFT final : public FFT<float>::FFTImpl
 {
 public:
@@ -833,6 +922,9 @@ public:
 		  m_fplanf (fftwf_plan_dft_r2c_1d (fft_size, m_fbuf, m_fpacked, FFTW_ESTIMATE)),
 		  m_fplani (fftwf_plan_dft_c2r_1d (fft_size, m_fpacked, m_fbuf, FFTW_ESTIMATE))
 	{
+		if (m_extantf == 0)
+			fftw_load_wisdom (false);
+
 		++m_extantf;
 	}
 
@@ -846,8 +938,13 @@ public:
 			fftwf_free (m_fpacked);
 		}
 
-		if (--m_extantf <= 0)
+		--m_extantf;
+
+		if (m_extantf <= 0)
+		{
+			fftw_save_wisdom (false);
 			fftwf_cleanup();
+		}
 	}
 
 	FFTW_FloatFFT (const FFTW_FloatFFT&) = delete;
@@ -985,6 +1082,9 @@ public:
 		  m_dplanf (fftw_plan_dft_r2c_1d (fft_size, m_dbuf, m_dpacked, FFTW_ESTIMATE)),
 		  m_dplani (fftw_plan_dft_c2r_1d (fft_size, m_dpacked, m_dbuf, FFTW_ESTIMATE))
 	{
+		if (m_extantd == 0)
+			fftw_load_wisdom (true);
+
 		++m_extantd;
 	}
 
@@ -995,8 +1095,13 @@ public:
 		fftw_free (m_dbuf);
 		fftw_free (m_dpacked);
 
-		if (--m_extantd <= 0)
+		--m_extantd;
+
+		if (m_extantd <= 0)
+		{
+			fftw_save_wisdom (true);
 			fftw_cleanup();
+		}
 	}
 
 	FFTW_DoubleFFT (const FFTW_DoubleFFT&) = delete;

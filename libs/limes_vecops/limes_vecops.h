@@ -412,7 +412,7 @@ struct Complex final
 static_assert (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingFallback());
 
 
-[[nodiscard]] static constexpr const char* const getImplementationName()
+[[nodiscard]] static constexpr const char* const getImplementationName() noexcept
 {
 	if constexpr (isUsingVDSP())
 		return "Apple vDSP";
