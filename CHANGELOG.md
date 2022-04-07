@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [2.6.0](http://github.com/benthevining/Limes/compare/v2.5.0...v2.6.0) (2022-04-07)
+
+
+### Features
+
+* added FFTW wisdom integration ([ebabaa4](http://github.com/benthevining/Limes/commit/ebabaa4f809dd5f24c0a52672265d8925e19980e))
+
 ## [2.5.0](http://github.com/benthevining/Limes/compare/v2.4.0...v2.5.0) (2022-04-06)
 
 
