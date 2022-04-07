@@ -17,6 +17,7 @@
 #include <vector>
 #include <initializer_list>
 #include <limes_export.h>
+#include <limes_platform.h>
 
 namespace limes
 {

@@ -38,8 +38,8 @@ template <typename DataType>
 using is_unsigned_int = ConditionalType<std::is_integral_v<DataType> && ! std::is_signed_v<DataType> && std::numeric_limits<DataType>::digits == 32>;
 
 
-static constexpr auto integer_scale_factor = 0;
-static constexpr auto alg_hint_type		   = ippAlgHintFast;
+LIMES_NO_EXPORT static constexpr auto integer_scale_factor = 0;
+LIMES_NO_EXPORT static constexpr auto alg_hint_type		   = ippAlgHintFast;
 
 #pragma mark Basic functions
 

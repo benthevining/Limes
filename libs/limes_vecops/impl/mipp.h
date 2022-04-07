@@ -25,7 +25,7 @@ namespace detail
 {
 
 template <Scalar DataType, Integral SizeType>
-[[nodiscard]] constexpr int getVecLoopSize (SizeType size)
+LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE constexpr int getVecLoopSize (SizeType size)
 {
 	return static_cast<int> ((static_cast<decltype (mipp::N<DataType>())> (size) / mipp::N<DataType>()) * mipp::N<DataType>());
 }
@@ -1308,7 +1308,7 @@ namespace detail
 {
 
 template <Scalar ValueType, Integral SizeType>
-[[nodiscard]] inline ValueType ncos (SizeType order, SizeType i, SizeType size) noexcept
+LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE ValueType ncos (SizeType order, SizeType i, SizeType size) noexcept
 {
 	return std::cos (static_cast<ValueType> (order * i)
 					 * constants::pi<ValueType> / static_cast<ValueType> (size - 1));

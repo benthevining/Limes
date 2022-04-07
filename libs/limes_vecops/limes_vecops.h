@@ -12,11 +12,11 @@
 
 #pragma once
 
-#include "util/Platform.h"
 #include "util/Constants.h"
 #include <type_traits>
 #include <string>
-
+#include <limes_export.h>
+#include <limes_platform.h>
 
 static_assert (sizeof (float) == 4, "float is not 32-bits wide");
 static_assert (sizeof (double) == 8, "double is not 64-bits wide");
@@ -73,16 +73,16 @@ concept Integral = Scalar<T> && std::is_integral_v<T>;
 #pragma mark Basic functions
 
 template <Scalar DataType, Integral SizeType>
-void fill (DataType* const data, SizeType size, DataType constantToFill);
+LIMES_EXPORT void fill (DataType* const data, SizeType size, DataType constantToFill);
 
 template <Scalar DataType, Integral SizeType>
-void clear (DataType* const data, SizeType size);
+LIMES_EXPORT void clear (DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void copy (DataType* const dest, const DataType* const source, SizeType size);
+LIMES_EXPORT void copy (DataType* const dest, const DataType* const source, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void swap (DataType* const vecA, DataType* const vecB, SizeType size);
+LIMES_EXPORT void swap (DataType* const vecA, DataType* const vecB, SizeType size);
 
 
 template <Scalar DataType1, Scalar DataType2>
@@ -105,96 +105,96 @@ static void convert (DataType1* const dest, const DataType2* const source, SizeT
 /*-----  ADDITION  -----*/
 
 template <Scalar DataType, Integral SizeType>
-void add (DataType* const data, SizeType size, DataType constantToAdd);
+LIMES_EXPORT void add (DataType* const data, SizeType size, DataType constantToAdd);
 
 template <Scalar DataType, Integral SizeType>
-void add (DataType* const dataAndDest, SizeType size, const DataType* const dataToAdd);
+LIMES_EXPORT void add (DataType* const dataAndDest, SizeType size, const DataType* const dataToAdd);
 
 template <Scalar DataType, Integral SizeType>
-void addAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToAdd);
+LIMES_EXPORT void addAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToAdd);
 
 template <Scalar DataType, Integral SizeType>
-void addAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToAdd);
+LIMES_EXPORT void addAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToAdd);
 
 
 /*-----  SUBTRACTION  -----*/
 
 template <Scalar DataType, Integral SizeType>
-void subtract (DataType* const data, SizeType size, DataType constantToSubtract);
+LIMES_EXPORT void subtract (DataType* const data, SizeType size, DataType constantToSubtract);
 
 template <Scalar DataType, Integral SizeType>
-void subtract (DataType* const dataAndDest, SizeType size, const DataType* const dataToSubtract);
+LIMES_EXPORT void subtract (DataType* const dataAndDest, SizeType size, const DataType* const dataToSubtract);
 
 template <Scalar DataType, Integral SizeType>
-void subtractAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtract);
+LIMES_EXPORT void subtractAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtract);
 
 template <Scalar DataType, Integral SizeType>
-void subtractAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToSubtract);
+LIMES_EXPORT void subtractAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToSubtract);
 
 template <Scalar DataType, Integral SizeType>
-void subtractInv (DataType* const data, SizeType size, DataType constantToSubtractFrom);
+LIMES_EXPORT void subtractInv (DataType* const data, SizeType size, DataType constantToSubtractFrom);
 
 template <Scalar DataType, Integral SizeType>
-void subtractInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtractFrom);
+LIMES_EXPORT void subtractInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtractFrom);
 
 
 /*-----  MULTIPLICATION  -----*/
 
 template <Scalar DataType, Integral SizeType>
-void multiply (DataType* const data, SizeType size, DataType constantToMultiply);
+LIMES_EXPORT void multiply (DataType* const data, SizeType size, DataType constantToMultiply);
 
 template <Scalar DataType, Integral SizeType>
-void multiply (DataType* const dataAndDest, SizeType size, const DataType* const dataToMultiply);
+LIMES_EXPORT void multiply (DataType* const dataAndDest, SizeType size, const DataType* const dataToMultiply);
 
 template <Scalar DataType, Integral SizeType>
-void multiplyAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToMultiply);
+LIMES_EXPORT void multiplyAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToMultiply);
 
 template <Scalar DataType, Integral SizeType>
-void multiplyAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToMultiply);
+LIMES_EXPORT void multiplyAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToMultiply);
 
 template <Scalar DataType, Integral SizeType>
-[[nodiscard]] DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size);
+LIMES_EXPORT [[nodiscard]] DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size);
 
 /*-----  DIVISION  -----*/
 
 template <Scalar DataType, Integral SizeType>
-void divide (DataType* const data, SizeType size, DataType constantToDivide);
+LIMES_EXPORT void divide (DataType* const data, SizeType size, DataType constantToDivide);
 
 template <Scalar DataType, Integral SizeType>
-void divide (DataType* const dataAndDest, SizeType size, const DataType* const dataToDivide);
+LIMES_EXPORT void divide (DataType* const dataAndDest, SizeType size, const DataType* const dataToDivide);
 
 template <Scalar DataType, Integral SizeType>
-void divideAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivide);
+LIMES_EXPORT void divideAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivide);
 
 template <Scalar DataType, Integral SizeType>
-void divideAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToDivide);
+LIMES_EXPORT void divideAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToDivide);
 
 template <Scalar DataType, Integral SizeType>
-void divideInv (DataType* const data, SizeType size, DataType constantToDivideFrom);
+LIMES_EXPORT void divideInv (DataType* const data, SizeType size, DataType constantToDivideFrom);
 
 template <Scalar DataType, Integral SizeType>
-void divideInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivideFrom);
+LIMES_EXPORT void divideInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivideFrom);
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 
 template <Scalar DataType, Integral SizeType>
-void square (DataType* const dataAndDest, SizeType size);
+LIMES_EXPORT void square (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void squareAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+LIMES_EXPORT void squareAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void squareRoot (DataType* const dataAndDest, SizeType size);
+LIMES_EXPORT void squareRoot (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+LIMES_EXPORT void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void invSquareRoot (DataType* const dataAndDest, SizeType size);
+LIMES_EXPORT void invSquareRoot (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+LIMES_EXPORT void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -202,28 +202,28 @@ void invSquareRootAndCopy (DataType* const dest, const DataType* const data, Siz
 #pragma mark Sorting and ordering functions
 
 template <Scalar DataType, Integral SizeType>
-void reverse (DataType* const dataAndDest, SizeType size);
+LIMES_EXPORT void reverse (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+LIMES_EXPORT void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void sort (DataType* const dataAndDest, SizeType size);
+LIMES_EXPORT void sort (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+LIMES_EXPORT void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void sortReverse (DataType* const dataAndDest, SizeType size);
+LIMES_EXPORT void sortReverse (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+LIMES_EXPORT void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
-void interleave (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples);
+LIMES_EXPORT void interleave (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples);
 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
-void deinterleave (DataType* const * const output, const DataType* const interleavedData, SizeType1 numChannels, SizeType2 numSamples);
+LIMES_EXPORT void deinterleave (DataType* const * const output, const DataType* const interleavedData, SizeType1 numChannels, SizeType2 numSamples);
 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -231,105 +231,105 @@ void deinterleave (DataType* const * const output, const DataType* const interle
 #pragma mark Statistical functions
 
 template <Scalar DataType, Integral SizeType>
-void abs (DataType* const dataAndDest, SizeType size);
+LIMES_EXPORT void abs (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void absAndCopy (DataType* const dest, const DataType* const data, SizeType size);
-
-
-template <Scalar DataType, Integral SizeType>
-void negate (DataType* const dataAndDest, SizeType size);
-
-template <Scalar DataType, Integral SizeType>
-void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+LIMES_EXPORT void absAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 
 template <Scalar DataType, Integral SizeType>
-void clip (DataType* const dataAndDest, SizeType size, DataType lowClip = -1, DataType hiClip = 1);
+LIMES_EXPORT void negate (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void clipAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip = -1, DataType hiClip = 1);
+LIMES_EXPORT void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 
 template <Scalar DataType, Integral SizeType>
-[[nodiscard]] DataType max (const DataType* const data, SizeType size);
+LIMES_EXPORT void clip (DataType* const dataAndDest, SizeType size, DataType lowClip = -1, DataType hiClip = 1);
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void clipAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip = -1, DataType hiClip = 1);
+
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT [[nodiscard]] DataType max (const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
-void max (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex);
+LIMES_EXPORT void max (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex);
 
 template <Scalar DataType, Integral SizeType>
-[[nodiscard]] DataType maxAbs (const DataType* const data, SizeType size);
+LIMES_EXPORT [[nodiscard]] DataType maxAbs (const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
-void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex);
+LIMES_EXPORT void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex);
 
 
 template <Scalar DataType, Integral SizeType>
-[[nodiscard]] DataType min (const DataType* const data, SizeType size);
+LIMES_EXPORT [[nodiscard]] DataType min (const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
-void min (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex);
+LIMES_EXPORT void min (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex);
 
 template <Scalar DataType, Integral SizeType>
-[[nodiscard]] DataType minAbs (const DataType* const data, SizeType size);
+LIMES_EXPORT [[nodiscard]] DataType minAbs (const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
-void minAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex);
+LIMES_EXPORT void minAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex);
 
 
 template <Scalar DataType, Integral SizeType>
-void minMax (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue);
+LIMES_EXPORT void minMax (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue);
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
-void minMax (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex);
+LIMES_EXPORT void minMax (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex);
 
 template <Scalar DataType, Integral SizeType>
-void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue);
+LIMES_EXPORT void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue);
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
-void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex);
+LIMES_EXPORT void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex);
 
 
 template <Scalar DataType, Integral SizeType>
-[[nodiscard]] DataType range (const DataType* const data, SizeType size);
+LIMES_EXPORT [[nodiscard]] DataType range (const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-[[nodiscard]] DataType rangeAbs (const DataType* const data, SizeType size);
+LIMES_EXPORT [[nodiscard]] DataType rangeAbs (const DataType* const data, SizeType size);
 
 
 template <Scalar DataType, Integral SizeType>
-[[nodiscard]] DataType sum (const DataType* const data, SizeType size);
+LIMES_EXPORT [[nodiscard]] DataType sum (const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-[[nodiscard]] DataType mean (const DataType* const data, SizeType size);
+LIMES_EXPORT [[nodiscard]] DataType mean (const DataType* const data, SizeType size);
 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
-void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples);
+LIMES_EXPORT void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples);
 
 
 template <Scalar DataType, Integral SizeType>
-DataType rms (const DataType* const data, SizeType size);
+LIMES_EXPORT [[nodiscard]] DataType rms (const DataType* const data, SizeType size);
 
 
 template <Scalar DataType, Integral SizeType>
-[[nodiscard]] int countZeroCrossings (const DataType* const data, SizeType size);
+LIMES_EXPORT [[nodiscard]] int countZeroCrossings (const DataType* const data, SizeType size);
 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 
 template <Scalar DataType, Integral SizeType>
-void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue);
+LIMES_EXPORT void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue);
 
 template <Scalar DataType, Integral SizeType>
-void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue);
+LIMES_EXPORT void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue);
 
 template <Scalar DataType, Integral SizeType>
-void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue);
+LIMES_EXPORT void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue);
 
 #pragma mark Windowing functions
 
@@ -337,31 +337,31 @@ namespace window
 {
 
 template <Scalar DataType, Integral SizeType>
-void generateBlackman (DataType* const output, SizeType size);
+LIMES_EXPORT void generateBlackman (DataType* const output, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void applyBlackman (DataType* const dataAndDest, SizeType size);
+LIMES_EXPORT void applyBlackman (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+LIMES_EXPORT void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void generateHamm (DataType* const output, SizeType size);
+LIMES_EXPORT void generateHamm (DataType* const output, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void applyHamm (DataType* const dataAndDest, SizeType size);
+LIMES_EXPORT void applyHamm (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+LIMES_EXPORT void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void generateHanning (DataType* const output, SizeType size);
+LIMES_EXPORT void generateHanning (DataType* const output, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void applyHanning (DataType* const dataAndDest, SizeType size);
+LIMES_EXPORT void applyHanning (DataType* const dataAndDest, SizeType size);
 
 template <Scalar DataType, Integral SizeType>
-void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+LIMES_EXPORT void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 }  // namespace window
 
@@ -370,7 +370,7 @@ void applyHanningAndCopy (DataType* const dest, const DataType* const data, Size
 
 
 template <Scalar DataType>
-struct Complex final
+LIMES_EXPORT struct Complex final
 {
 	DataType real, imag;
 };
@@ -379,7 +379,7 @@ struct Complex final
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 
-[[nodiscard]] constexpr bool isUsingVDSP() noexcept
+LIMES_EXPORT [[nodiscard]] constexpr bool isUsingVDSP() noexcept
 {
 #if LIMES_VECOPS_USE_VDSP
 	return true;
@@ -388,7 +388,7 @@ struct Complex final
 #endif
 }
 
-[[nodiscard]] constexpr bool isUsingIPP() noexcept
+LIMES_EXPORT [[nodiscard]] constexpr bool isUsingIPP() noexcept
 {
 #if LIMES_VECOPS_USE_IPP
 	return true;
@@ -397,7 +397,7 @@ struct Complex final
 #endif
 }
 
-[[nodiscard]] constexpr bool isUsingMIPP() noexcept
+LIMES_EXPORT [[nodiscard]] constexpr bool isUsingMIPP() noexcept
 {
 #if LIMES_VECOPS_USE_MIPP
 	return true;
@@ -406,7 +406,7 @@ struct Complex final
 #endif
 }
 
-[[nodiscard]] constexpr bool isUsingFallback() noexcept
+LIMES_EXPORT [[nodiscard]] constexpr bool isUsingFallback() noexcept
 {
 	return ! (isUsingVDSP() || isUsingIPP() || isUsingMIPP());	// cppcheck-suppress knownConditionTrueFalse
 }
@@ -414,7 +414,7 @@ struct Complex final
 static_assert (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingFallback());
 
 
-[[nodiscard]] static constexpr const char* const getImplementationName() noexcept
+LIMES_EXPORT [[nodiscard]] static constexpr const char* const getImplementationName() noexcept
 {
 	if constexpr (isUsingVDSP())
 		return "Apple vDSP";

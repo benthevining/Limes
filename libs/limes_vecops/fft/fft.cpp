@@ -97,7 +97,7 @@ protected:
 #if LIMES_VECOPS_USE_VDSP && ! LIMES_VECOPS_USE_FFTW
 
 template <Scalar SampleType>
-inline void vDSP_nyq (SampleType* real, SampleType* imag, int fft_size)
+LIMES_FORCE_INLINE void vDSP_nyq (SampleType* real, SampleType* imag, int fft_size)
 {
 	// for ifft input in packed form, pack the DC and Nyquist bins
 	const auto hs = fft_size / 2;
@@ -108,7 +108,7 @@ inline void vDSP_nyq (SampleType* real, SampleType* imag, int fft_size)
 }
 
 template <Scalar SampleType>
-inline void vDSP_denyq (SampleType* real, SampleType* imag, int fft_size)
+LIMES_FORCE_INLINE void vDSP_denyq (SampleType* real, SampleType* imag, int fft_size)
 {
 	// for fft result in packed form, unpack the DC and Nyquist bins
 	const auto hs = fft_size / 2;
@@ -119,8 +119,8 @@ inline void vDSP_denyq (SampleType* real, SampleType* imag, int fft_size)
 }
 
 template <Scalar SampleType>
-inline void vDSP_packComplex (const SampleType* const re, const SampleType* const im,
-							  SampleType* realPacked, SampleType* imagPacked, int fft_size)
+LIMES_FORCE_INLINE void vDSP_packComplex (const SampleType* const re, const SampleType* const im,
+										  SampleType* realPacked, SampleType* imagPacked, int fft_size)
 {
 	const auto num = fft_size / 2 + 1;
 
@@ -138,10 +138,10 @@ inline void vDSP_packComplex (const SampleType* const re, const SampleType* cons
 }
 
 template <Scalar SampleType>
-inline void vDSP_unpackComplex (SampleType* const cplx,
-								SampleType*		  packedReal,
-								SampleType*		  packedImag,
-								int				  fft_size)
+LIMES_FORCE_INLINE void vDSP_unpackComplex (SampleType* const cplx,
+											SampleType*		  packedReal,
+											SampleType*		  packedImag,
+											int				  fft_size)
 {
 	// vDSP forward FFTs are scaled 2x (for some reason)
 	for (auto i = 0; i < fft_size / 2 + 1; ++i)
@@ -287,19 +287,19 @@ private:
 		inverse (m_spare2, nullptr, cepOut);
 	}
 
-	void packReal (const float* const re)
+	LIMES_FORCE_INLINE void packReal (const float* const re)
 	{
 		vDSP_ctoz (reinterpret_cast<const DSPComplex* const> (re),
 				   2, &m_packed, 1, fft_size / 2);
 	}
 
-	void unpackReal (float* const re)
+	LIMES_FORCE_INLINE void unpackReal (float* const re)
 	{
 		vDSP_ztoc (&m_packed, 1, reinterpret_cast<DSPComplex* const> (re),
 				   2, fft_size / 2);
 	}
 
-	void unpackComplex (float* const re, float* const im)
+	LIMES_FORCE_INLINE void unpackComplex (float* const re, float* const im)
 	{
 		// vDSP forward FFTs are scaled 2x (for some reason)
 		constexpr auto two = 2.f;
@@ -448,19 +448,19 @@ private:
 		inverse (m_spare2, nullptr, cepOut);
 	}
 
-	void packReal (const double* const re)
+	LIMES_FORCE_INLINE void packReal (const double* const re)
 	{
 		vDSP_ctozD (reinterpret_cast<const DSPDoubleComplex* const> (re),
 					2, &m_packed, 1, fft_size / 2);
 	}
 
-	void unpackReal (double* const re)
+	LIMES_FORCE_INLINE void unpackReal (double* const re)
 	{
 		vDSP_ztocD (&m_packed, 1, reinterpret_cast<DSPDoubleComplex* const> (re),
 					2, fft_size / 2);
 	}
 
-	void unpackComplex (double* const re, double* const im)
+	LIMES_FORCE_INLINE void unpackComplex (double* const re, double* const im)
 	{
 		// vDSP forward FFTs are scaled 2x (for some reason)
 		constexpr auto two = 2.;
@@ -483,7 +483,7 @@ private:
 #if LIMES_VECOPS_USE_IPP && ! LIMES_VECOPS_USE_FFTW
 
 template <Scalar SampleType>
-inline void ipp_pack (const SampleType* re, const SampleType* im, int fft_size, SampleType* m_packed)
+LIMES_FORCE_INLINE void ipp_pack (const SampleType* re, const SampleType* im, int fft_size, SampleType* m_packed)
 {
 	const auto hs = fft_size / 2;
 
@@ -512,7 +512,7 @@ inline void ipp_pack (const SampleType* re, const SampleType* im, int fft_size, 
 }
 
 template <Scalar SampleType>
-inline void ipp_unpack (SampleType* re, SampleType* im, int fft_size, SampleType* m_packed)
+LIMES_FORCE_INLINE void ipp_unpack (SampleType* re, SampleType* im, int fft_size, SampleType* m_packed)
 {
 	const auto hs = fft_size / 2;
 
@@ -794,8 +794,8 @@ private:
 
 
 template <Scalar SampleType, typename ComplexType>
-inline void fftw_pack (const SampleType* re, const SampleType* im,
-					   ComplexType* m_packed, int fft_size)
+LIMES_FORCE_INLINE void fftw_pack (const SampleType* re, const SampleType* im,
+								   ComplexType* m_packed, int fft_size)
 {
 	const auto hs = fft_size / 2;
 
@@ -811,8 +811,8 @@ inline void fftw_pack (const SampleType* re, const SampleType* im,
 }
 
 template <Scalar SampleType, typename ComplexType>
-inline void fftw_unpack (SampleType* re, SampleType* im,
-						 ComplexType* m_packed, int fft_size)
+LIMES_FORCE_INLINE void fftw_unpack (SampleType* re, SampleType* im,
+									 ComplexType* m_packed, int fft_size)
 {
 	const auto hs = fft_size / 2;
 
@@ -1413,8 +1413,8 @@ private:
 	}
 
 	// Uses m_a and m_b internally; does not touch m_c or m_d
-	void transformF (const SampleType* ri,
-					 double* ro, double* io)
+	LIMES_FORCE_INLINE void transformF (const SampleType* ri,
+										double* ro, double* io)
 	{
 		for (auto i = 0; i < m_half; ++i)
 		{
@@ -1448,8 +1448,8 @@ private:
 	}
 
 	// Uses m_c and m_d internally; does not touch m_a or m_b
-	void transformI (const double* ri, const double* ii,
-					 SampleType* ro)
+	LIMES_FORCE_INLINE void transformI (const double* ri, const double* ii,
+										SampleType* ro)
 	{
 		m_vr[0] = ri[0] + ri[m_half];
 		m_vi[0] = ri[0] - ri[m_half];
@@ -1481,9 +1481,9 @@ private:
 		}
 	}
 
-	void transformComplex (const double* ri, const double* ii,
-						   double* ro, double* io,
-						   bool inverse)
+	LIMES_FORCE_INLINE void transformComplex (const double* ri, const double* ii,
+											  double* ro, double* io,
+											  bool inverse)
 	{
 		// Following Don Cross's 1998 implementation, described by its author as public domain.
 
@@ -1570,7 +1570,7 @@ private:
 		}
 	}
 
-	void makeTables()
+	inline void makeTables()
 	{
 		const auto bits = [halfSize = m_half]
 		{

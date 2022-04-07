@@ -14,6 +14,7 @@
 
 #include <memory>		// for unique_ptr
 #include <string_view>	// for std::string, only needed if FFTW is used
+#include <limes_export.h>
 #include "../limes_vecops.h"
 
 #ifndef LIMES_VECOPS_USE_FFTW
@@ -28,7 +29,7 @@ namespace limes::vecops
 {
 
 template <Scalar SampleType>
-class FFT final
+class LIMES_EXPORT FFT final
 {
 public:
 
@@ -63,18 +64,20 @@ public:
 
 	[[nodiscard]] static constexpr bool isUsingVDSP() noexcept
 	{
-		return vecops::isUsingVDSP() && ! isUsingFFTW();
+		return vecops::isUsingVDSP() && ! isUsingFFTW();  // cppcheck-suppress knownConditionTrueFalse
 	}
 
 	[[nodiscard]] static constexpr bool isUsingIPP() noexcept
 	{
-		return vecops::isUsingIPP() && ! isUsingFFTW();
+		return vecops::isUsingIPP() && ! isUsingFFTW();	 // cppcheck-suppress knownConditionTrueFalse
 	}
 
 	[[nodiscard]] static constexpr bool isUsingFallback() noexcept
 	{
-		return ! (isUsingFFTW() || isUsingVDSP() || isUsingIPP());
+		return ! (isUsingFFTW() || isUsingVDSP() || isUsingIPP());	// cppcheck-suppress knownConditionTrueFalse
 	}
+
+	static_assert (isUsingFFTW() || isUsingVDSP() || isUsingIPP() || isUsingFallback());
 
 	[[nodiscard]] static constexpr const char* const getImplementationName() noexcept
 	{
@@ -88,7 +91,7 @@ public:
 			return "Fallback";
 	}
 
-	class FFTImpl;
+	LIMES_NO_EXPORT class FFTImpl;
 
 private:
 
@@ -98,13 +101,13 @@ private:
 #if LIMES_VECOPS_USE_FFTW
 namespace fftw
 {
-void setWisdomFileDir (std::string_view dirAbsPath);
+LIMES_EXPORT void setWisdomFileDir (std::string_view dirAbsPath);
 
-[[nodiscard]] std::string getWisdomFileDir();
+LIMES_EXPORT [[nodiscard]] std::string getWisdomFileDir();
 
-void enableWisdom (bool shouldUseWisdom);
+LIMES_EXPORT void enableWisdom (bool shouldUseWisdom);
 
-[[nodiscard]] bool isUsingWisdom();
+LIMES_EXPORT [[nodiscard]] bool isUsingWisdom();
 }  // namespace fftw
 #endif
 

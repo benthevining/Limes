@@ -9,11 +9,8 @@
 # ======================================================================================
 
 target_sources (
-	limes_vecops
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Constants.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Platform.h>
-			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/Constants.h>
-			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/Platform.h>)
+	limes_vecops PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Constants.h>
+						 $<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/Constants.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/Constants.h" "${CMAKE_CURRENT_LIST_DIR}/Platform.h"
+install (FILES "${CMAKE_CURRENT_LIST_DIR}/Constants.h"
 		 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
