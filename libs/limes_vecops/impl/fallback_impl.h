@@ -164,6 +164,17 @@ inline void multiplyAndCopy (DataType* const dest, const DataType* const origDat
 		dest[i] = origData[i] * dataToMultiply[i];
 }
 
+template <Scalar DataType, Integral SizeType>
+[[nodiscard]] inline DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size)
+{
+	DataType dotProd { 0 };
+
+	for (auto i = SizeType (0); i < size; ++i)
+		dotProd += (vecA[i] * vecB[i]);
+
+	return dotProd;
+}
+
 
 /*-----  DIVISION  -----*/
 
@@ -268,9 +279,9 @@ inline float quake3_fast_inv_sqrt (float number)
 	// cppcheck-suppress invalidPointerCast
 	float y = *(float*) &i;	 // NOLINT
 
-	y = y * (threehalfs - (x2 * y * y));  // 1st iteration
+	y *= (threehalfs - (x2 * y * y));  // 1st iteration
 
-	//	y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+	//	y  *= ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
 
 	return y;
 }

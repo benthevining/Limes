@@ -246,6 +246,21 @@ void multiplyAndCopy (DataType* const dest, const DataType* const origData, Size
 		fb::multiplyAndCopy (dest, origData, size, dataToMultiply);
 }
 
+template <Scalar DataType, Integral SizeType>
+DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size)
+{
+	DataType dotProd { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		vDSP_dotpr (vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), &dotProd, vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_dotprD (vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), &dotProd, vDSP_Length (size));
+	else
+		return fb::dotProduct (vecA, vecB, size);
+
+	return dotProd;
+}
+
 
 /*-----  DIVISION  -----*/
 
@@ -342,25 +357,45 @@ void squareAndCopy (DataType* const dest, const DataType* const data, SizeType s
 template <Scalar DataType, Integral SizeType>
 void squareRoot (DataType* const dataAndDest, SizeType size)
 {
-	fb::squareRoot (dataAndDest, size);
+	if constexpr (is_float_type<DataType>())
+		vvsqrtf (dataAndDest, dataAndDest, &size);
+	else if constexpr (is_double_type<DataType>())
+		vvsqrt (dataAndDest, dataAndDest, &size);
+	else
+		fb::squareRoot (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::squareRootAndCopy (dest, data, size);
+	if constexpr (is_float_type<DataType>())
+		vvsqrtf (dest, data, &size);
+	else if constexpr (is_double_type<DataType>())
+		vvsqrt (dest, data, &size);
+	else
+		fb::squareRootAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void invSquareRoot (DataType* const dataAndDest, SizeType size)
 {
-	fb::invSquareRoot (dataAndDest, size);
+	if constexpr (is_float_type<DataType>())
+		vvrsqrtf (dataAndDest, dataAndDest, &size);
+	else if constexpr (is_double_type<DataType>())
+		vvrsqrt (dataAndDest, dataAndDest, &size);
+	else
+		fb::invSquareRoot (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	fb::invSquareRootAndCopy (dest, data, size);
+	if constexpr (is_float_type<DataType>())
+		vvrsqrtf (dest, data, &size);
+	else if constexpr (is_double_type<DataType>())
+		vvrsqrt (dest, data, &size);
+	else
+		fb::invSquareRootAndCopy (dest, data, size);
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -734,7 +769,16 @@ void mix (DataType* const output, const DataType* const * const origData, SizeTy
 template <Scalar DataType, Integral SizeType>
 DataType rms (const DataType* const data, SizeType size)
 {
-	return fb::rms (data, size);
+	DataType rms_val { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		vDSP_rmsqv (data, vDSP_Stride (1), &rms_val, vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_rmsqvD (data, vDSP_Stride (1), &rms_val, vDSP_Length (size));
+	else
+		return fb::rms (data, size);
+
+	return rms_val;
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -772,14 +816,30 @@ void generateRamp (DataType* const output, SizeType size, DataType startValue, D
 template <Scalar DataType, Integral SizeType>
 void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue)
 {
-	fb::applyRamp (dataAndDest, size, startValue, endValue);
+	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vDSP_vrampmul (dataAndDest, vDSP_Stride (1), &startValue, &increment, dataAndDest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_vrampmulD (dataAndDest, vDSP_Stride (1), &startValue, &increment, dataAndDest, vDSP_Stride (1), vDSP_Length (size));
+	else
+		fb::applyRamp (dataAndDest, size, startValue, endValue);
 }
 
 template <Scalar DataType, Integral SizeType>
 void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
 {
-	generateRamp (dest, size, startValue, endValue);
-	multiply (dest, size, data);
+	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vDSP_vrampmul (data, vDSP_Stride (1), &startValue, &increment, dest, vDSP_Stride (1), vDSP_Length (size));
+	else if constexpr (is_double_type<DataType>())
+		vDSP_vrampmulD (data, vDSP_Stride (1), &startValue, &increment, dest, vDSP_Stride (1), vDSP_Length (size));
+	else
+	{
+		generateRamp (dest, size, startValue, endValue);
+		multiply (dest, size, data);
+	}
 }
 
 #pragma mark Windowing functions

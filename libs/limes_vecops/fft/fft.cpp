@@ -15,6 +15,7 @@
 #include <cmath>
 #include <type_traits>
 #include <string_view>
+#include <mutex>
 #include "limes_vecops.h"
 
 #if LIMES_VECOPS_USE_FFTW
@@ -93,7 +94,7 @@ protected:
 
 #pragma mark vDSP FFT
 
-#if LIMES_VECOPS_USE_VDSP
+#if LIMES_VECOPS_USE_VDSP && ! LIMES_VECOPS_USE_FFTW
 
 template <Scalar SampleType>
 inline void vDSP_nyq (SampleType* real, SampleType* imag, int fft_size)
@@ -158,6 +159,8 @@ public:
 	explicit vDSP_FloatFFT (int size)
 		: FFT<float>::FFTImpl (size)
 	{
+		static_assert (FFT<float>::isUsingVDSP());
+
 		//!!! "If possible, tempBuffer->realp and tempBuffer->imagp should be 32-byte aligned for best performance."
 		// m_buf.realp	   = allocate<float> (fft_size);
 		// m_buf.imagp	   = allocate<float> (fft_size);
@@ -318,6 +321,8 @@ public:
 	explicit vDSP_DoubleFFT (int size)
 		: FFT<double>::FFTImpl (size)
 	{
+		static_assert (FFT<double>::isUsingVDSP());
+
 		//!!! "If possible, tempBuffer->realp and tempBuffer->imagp should be 32-byte aligned for best performance."
 		// m_buf.realp	   = allocate<double> (fft_size);
 		// m_buf.imagp	   = allocate<double> (fft_size);
@@ -475,7 +480,7 @@ private:
 
 #pragma mark IPP FFT
 
-#if LIMES_VECOPS_USE_IPP
+#if LIMES_VECOPS_USE_IPP && ! LIMES_VECOPS_USE_FFTW
 
 template <Scalar SampleType>
 inline void ipp_pack (const SampleType* re, const SampleType* im, int fft_size, SampleType* m_packed)
@@ -535,6 +540,8 @@ public:
 	explicit IPP_FloatFFT (int size)
 		: FFT<float>::FFTImpl (size)
 	{
+		static_assert (FFT<float>::isUsingIPP());
+
 		int specSize, specBufferSize, bufferSize;
 
 		ippsFFTGetSize_R_32f (m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
@@ -640,6 +647,8 @@ public:
 	explicit IPP_DoubleFFT (int size)
 		: FFT<double>::FFTImpl (size)
 	{
+		static_assert (FFT<double>::isUsingIPP());
+
 		int specSize, specBufferSize, bufferSize;
 
 		ippsFFTGetSize_R_64f (m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
@@ -922,6 +931,8 @@ public:
 		  m_fplanf (fftwf_plan_dft_r2c_1d (fft_size, m_fbuf, m_fpacked, FFTW_ESTIMATE)),
 		  m_fplani (fftwf_plan_dft_c2r_1d (fft_size, m_fpacked, m_fbuf, FFTW_ESTIMATE))
 	{
+		static_assert (FFT<float>::isUsingFFTW());
+
 		if (m_extantf == 0)
 			fftw_load_wisdom (false);
 
@@ -1082,6 +1093,8 @@ public:
 		  m_dplanf (fftw_plan_dft_r2c_1d (fft_size, m_dbuf, m_dpacked, FFTW_ESTIMATE)),
 		  m_dplani (fftw_plan_dft_c2r_1d (fft_size, m_dpacked, m_dbuf, FFTW_ESTIMATE))
 	{
+		static_assert (FFT<double>::isUsingFFTW());
+
 		if (m_extantd == 0)
 			fftw_load_wisdom (true);
 

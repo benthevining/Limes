@@ -395,6 +395,31 @@ void multiplyAndCopy (DataType* const dest, const DataType* const origData, Size
 		dest[i] = origData[i] * dataToMultiply[i];
 }
 
+template <Scalar DataType, Integral SizeType>
+DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size)
+{
+	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
+
+	DataType dotProd { 0 };
+
+	mipp::Reg<DataType> dataA, dataB;
+
+	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	{
+		dataA.load (&vecA[i]);
+		dataB.load (&vecB[i]);
+
+		dataA *= dataB;
+
+		dotProd += mipp::sum (dataA);
+	}
+
+	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+		dotProd += (vecA[i] * vecB[i]);
+
+	return dotProd;
+}
+
 
 /*-----  DIVISION  -----*/
 
@@ -1180,20 +1205,98 @@ int countZeroCrossings (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue)
 {
-	fb::generateRamp (output, size, startValue, endValue);
+	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
+
+	const auto initial_incs = [increment]
+	{
+		DataType incs[mipp::N<DataType>()];
+
+		for (auto i = 0; i < mipp::N<DataType>(); ++i)
+			incs[i] = increment * static_cast<DataType> (i);
+	}();
+
+	auto incReg = mipp::set<DataType> (initial_incs);
+
+	const auto i_reg = mipp::set1 (static_cast<DataType> (mipp::N<DataType>()));
+
+	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
+
+	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	{
+		incReg.store (&output[i]);
+		incReg += i_reg;
+	}
+
+	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+		output[i] = (startValue + (increment * static_cast<DataType> (i)));
 }
 
 template <Scalar DataType, Integral SizeType>
 void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue)
 {
-	fb::applyRamp (dataAndDest, size, startValue, endValue);
+	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
+
+	const auto initial_incs = [increment]
+	{
+		DataType incs[mipp::N<DataType>()];
+
+		for (auto i = 0; i < mipp::N<DataType>(); ++i)
+			incs[i] = increment * static_cast<DataType> (i);
+	}();
+
+	auto incReg = mipp::set<DataType> (initial_incs);
+
+	const auto i_reg = mipp::set1 (static_cast<DataType> (mipp::N<DataType>()));
+
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
+
+	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	{
+		dataRegister.load (&dataAndDest[i]);
+		dataRegister *= incReg;
+		dataRegister.store (&dataAndDest[i]);
+
+		incReg += i_reg;
+	}
+
+	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+		dataAndDest[i] *= (startValue + (increment * static_cast<DataType> (i)));
 }
 
 template <Scalar DataType, Integral SizeType>
 void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
 {
-	generateRamp (dest, size, startValue, endValue);
-	multiply (dest, size, data);
+	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
+
+	const auto initial_incs = [increment]
+	{
+		DataType incs[mipp::N<DataType>()];
+
+		for (auto i = 0; i < mipp::N<DataType>(); ++i)
+			incs[i] = increment * static_cast<DataType> (i);
+	}();
+
+	auto incReg = mipp::set<DataType> (initial_incs);
+
+	const auto i_reg = mipp::set1 (static_cast<DataType> (mipp::N<DataType>()));
+
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
+
+	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	{
+		dataRegister.load (&data[i]);
+		dataRegister *= incReg;
+		dataRegister.store (&dest[i]);
+
+		incReg += i_reg;
+	}
+
+	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+		dest[i] = data[i] * (startValue + (increment * static_cast<DataType> (i)));
 }
 
 #pragma mark Windowing functions

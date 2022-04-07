@@ -152,6 +152,8 @@ void multiplyAndCopy (DataType* const dest, const DataType* const origData, Size
 template <Scalar DataType, Integral SizeType>
 void multiplyAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToMultiply);
 
+template <Scalar DataType, Integral SizeType>
+[[nodiscard]] DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size);
 
 /*-----  DIVISION  -----*/
 

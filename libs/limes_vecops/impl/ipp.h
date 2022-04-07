@@ -287,6 +287,23 @@ void multiplyAndCopy (DataType* const dest, const DataType* const origData, Size
 		fb::multiplyAndCopy (dest, origData, size, dataToMultiply);
 }
 
+template <Scalar DataType, Integral SizeType>
+DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size)
+{
+	DataType dotProd { 0 };
+
+	if constexpr (is_float_type<DataType>())
+		ippsDotProd_32f (vecA, vecB, static_cast<int> (size), &dotProd);
+	else if constexpr (is_double_type<DataType>())
+		ippsDotProd_64f (vecA, vecB, static_cast<int> (size), &dotProd);
+	else if constexpr (is_signed_int<DataType>())
+		ippsDotProd_32s_Sfs (vecA, vecB, static_cast<int> (size), &dotProd, integer_scale_factor);
+	else
+		return fb::dotProduct (vecA, vecB, size);
+
+	return dotProd;
+}
+
 
 /*-----  DIVISION  -----*/
 
@@ -876,15 +893,16 @@ DataType rms (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 int countZeroCrossings (const DataType* const data, SizeType size)
 {
-	float numZeroCrossings;
-
 	if constexpr (is_float_type<DataType>())
 	{
+		float numZeroCrossings;
 		ippsZeroCrossing_32f (data, static_cast<int> (size), &numZeroCrossings, ippZCR);
 		return static_cast<int> (numZeroCrossings);
 	}
 	else
+	{
 		return fb::countZeroCrossings (data, size);
+	}
 }
 
 
@@ -894,7 +912,18 @@ int countZeroCrossings (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue)
 {
-	fb::generateRamp (output, size, startValue, endValue);
+	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
+
+	if constexpr (is_float_type<DataType>())
+		ippsVectorSlope_32f (output, static_cast<int> (size), static_cast<DataType> (startValue), increment);
+	else if constexpr (is_double_type<DataType>())
+		ippsVectorSlope_64f (output, static_cast<int> (size), static_cast<DataType> (startValue), increment);
+	else if constexpr (is_signed_int<DataType>())
+		ippsVectorSlope_32s (output, static_cast<int> (size), static_cast<DataType> (startValue), increment);
+	else if constexpr (is_unsigned_int<DataType>())
+		ippsVectorSlope_32u (output, static_cast<int> (size), static_cast<DataType> (startValue), increment);
+	else
+		fb::generateRamp (output, size, startValue, endValue);
 }
 
 template <Scalar DataType, Integral SizeType>

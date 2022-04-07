@@ -142,6 +142,12 @@ void multiplyAndCopy (DataType* const dest, const DataType* const origData, Size
 	fb::multiplyAndCopy (dest, origData, size, dataToMultiply);
 }
 
+template <Scalar DataType, Integral SizeType>
+DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size)
+{
+	return fb::dotProduct (vecA, vecB, size)
+}
+
 
 /*-----  DIVISION  -----*/
 

@@ -54,6 +54,16 @@ endif()
 
 function(_limes_vecops_impl_set_properties)
 
+	target_sources (
+		limes_vecops
+		PRIVATE
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/${LIMES_VECOPS_IMPL_HEADER_NAME}>
+			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/${LIMES_VECOPS_IMPL_HEADER_NAME}>
+		)
+
+	install (FILES "${CMAKE_CURRENT_LIST_DIR}/${LIMES_VECOPS_IMPL_HEADER_NAME}"
+			 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
+
 	set_target_properties (limes_vecops PROPERTIES VECOPS_IMPLEMENTATION
 												   "${LIMES_VECOPS_IMPL_NAME}")
 
@@ -63,6 +73,7 @@ function(_limes_vecops_impl_set_properties)
 	message (VERBOSE "limes_vecops -- using ${LIMES_VECOPS_IMPL_NAME}")
 
 	unset (LIMES_VECOPS_IMPL_NAME)
+	unset (LIMES_VECOPS_IMPL_HEADER_NAME)
 
 endfunction()
 
@@ -80,15 +91,9 @@ if(APPLE
 
 	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_VDSP=1)
 
-	target_sources (
-		limes_vecops PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/vdsp.h>
-							 $<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/vdsp.h>)
+	target_link_libraries (limes_vecops PUBLIC "-framework vDSP" "-framework vForce")
 
-	install (FILES "${CMAKE_CURRENT_LIST_DIR}/vdsp.h"
-			 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
-
-	target_link_libraries (limes_vecops PUBLIC "-framework vDSP")
-
+	set (LIMES_VECOPS_IMPL_HEADER_NAME vdsp.h)
 	set (LIMES_VECOPS_IMPL_NAME vDSP)
 
 	return ()
@@ -124,17 +129,12 @@ if(NOT LIMES_IGNORE_IPP AND NOT LIMES_USE_MIPP AND NOT LIMES_USE_VECOPS_FALLBACK
 
 			target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_IPP=1)
 
-			target_sources (
-				limes_vecops PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ipp.h>
-									 $<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/ipp.h>)
-
-			install (FILES "${CMAKE_CURRENT_LIST_DIR}/ipp.h"
-					 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
-
+			set (LIMES_VECOPS_IMPL_HEADER_NAME ipp.h)
 			set (LIMES_VECOPS_IMPL_NAME IPP)
 			set (LIMES_VECOPS_USING_IPP TRUE)
 
 			return ()
+
 		elseif(LIMES_USE_IPP)
 			message (WARNING "Intel IPP could not be found!")
 		endif()
@@ -155,17 +155,12 @@ if(NOT LIMES_IGNORE_MIPP AND NOT LIMES_USE_VECOPS_FALLBACK)
 
 		target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_MIPP=1)
 
-		target_sources (
-			limes_vecops PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mipp.h>
-								 $<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/mipp.h>)
-
-		install (FILES "${CMAKE_CURRENT_LIST_DIR}/mipp.h"
-				 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
-
+		set (LIMES_VECOPS_IMPL_HEADER_NAME mipp.h)
 		set (LIMES_VECOPS_IMPL_NAME MIPP)
 		set (LIMES_VECOPS_USING_MIPP TRUE)
 
 		return ()
+
 	elseif(LIMES_USE_MIPP)
 		message (WARNING "MIPP could not be found!")
 	endif()
@@ -173,11 +168,5 @@ endif()
 
 #
 
-target_sources (
-	limes_vecops PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback.h>
-						 $<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fallback.h>)
-
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/fallback.h"
-		 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
-
+set (LIMES_VECOPS_IMPL_HEADER_NAME fallback.h)
 set (LIMES_VECOPS_IMPL_NAME Fallback)
