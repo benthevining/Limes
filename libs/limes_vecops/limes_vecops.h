@@ -18,6 +18,7 @@
 #include <limes_export.h>
 #include <limes_platform.h>
 
+// these should never fail, but just as a sanity check:
 static_assert (sizeof (float) == 4, "float is not 32-bits wide");
 static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 
@@ -440,4 +441,4 @@ LIMES_EXPORT [[nodiscard]] static constexpr const char* const getImplementationN
 #	include "impl/fallback.h"	// IWYU pragma: export
 #endif
 
-#include "fft/fft.h"
+#include "fft/limes_fft.h"

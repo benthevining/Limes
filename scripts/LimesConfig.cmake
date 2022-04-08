@@ -66,13 +66,15 @@ endif()
 
 #
 
-set (Limes_INCLUDED TRUE)
 set (Limes_FOUND TRUE)
 
 include (FeatureSummary)
+include (FindPackageMessage)
 
 set_package_properties (Limes PROPERTIES URL "https://github.com/benthevining/Limes"
 						DESCRIPTION "C++ utilities")
+
+find_package_message (Limes "Limes package found -- installed on system" "Limes (system install)")
 
 #
 

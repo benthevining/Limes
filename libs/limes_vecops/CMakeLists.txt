@@ -48,13 +48,10 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
-# CHECK TYPE SIZE
-
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 include (OrangesGeneratePkgConfig)
-include (OrangesGenerateExportHeader)
-include (OrangesGeneratePlatformHeader)
+include (OrangesGenerateStandardHeaders)
 include (CPackComponent)
 include (GNUInstallDirs)
 
@@ -69,19 +66,15 @@ set_target_properties (limes_vecops PROPERTIES VERSION "${PROJECT_VERSION}"
 
 target_link_libraries (limes_vecops PUBLIC Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
 
-oranges_generate_export_header (
+oranges_generate_standard_headers (
 	TARGET limes_vecops
 	BASE_NAME limes
-	HEADER limes_export.h
-	REL_PATH Limes/limes_vecops
-	INSTALL_COMPONENT limes_vecops_dev)
-
-oranges_generate_platform_header (
-	TARGET limes_vecops
-	BASE_NAME limes
-	HEADER limes_platform.h
-	REL_PATH Limes/limes_core
-	INSTALL_COMPONENT limes_vecops_dev)
+	HEADER limes_generated.h
+	BUILD_TYPE_HEADER limes_build_type.h
+	EXPORT_HEADER limes_export.h
+	PLATFORM_HEADER limes_platform.h
+	INSTALL_COMPONENT limes_vecops_dev
+	REL_PATH Limes/limes_vecops)
 
 set (LIMES_VECOPS_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_vecops" CACHE INTERNAL "")
 

@@ -12,6 +12,9 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
+#
+
+include (FindPackageMessage)
 include (FeatureSummary)
 
 set_package_properties (Oranges PROPERTIES URL "https://github.com/benthevining/Oranges"
@@ -25,6 +28,10 @@ if(EXISTS "${oranges_parallel_dir}")
 	add_subdirectory ("${oranges_parallel_dir}" "${CMAKE_CURRENT_BINARY_DIR}/Oranges")
 
 	list (APPEND CMAKE_MODULE_PATH "${ORANGES_CMAKE_MODULE_PATH}")
+
+	find_package_message (Oranges "Oranges package found -- local parallel directory"
+						  "Oranges (local)")
+
 	unset (oranges_parallel_dir)
 
 	return ()
@@ -44,4 +51,5 @@ FetchContent_Declare (Oranges GIT_REPOSITORY https://github.com/benthevining/Ora
 FetchContent_MakeAvailable (Oranges)
 
 list (APPEND CMAKE_MODULE_PATH "${ORANGES_CMAKE_MODULE_PATH}")
-unset (oranges_parallel_dir)
+
+find_package_message (Oranges "Oranges package found -- Sources downloaded" "Oranges (GitHub)")

@@ -79,6 +79,31 @@
           "TARGET": 1
         }
       },
+      "oranges_generate_build_type_header": {
+        "kwargs": {
+          "BASE_NAME": 1,
+          "HEADER": 1,
+          "INSTALL_COMPONENT": 1,
+          "REL_PATH": 1,
+          "TARGET": 1
+        },
+        "pargs": {
+          "flags": "INTERFACE"
+        }
+      },
+      "oranges_generate_standard_headers": {
+        "kwargs": {
+          "BASE_NAME": 1,
+          "BUILD_TYPE_HEADER": 1,
+          "EXPORT_HEADER": 1,
+          "FEATURE_TEST_LANGUAGE": 1,
+          "HEADER": 1,
+          "INSTALL_COMPONENT": 1,
+          "PLATFORM_HEADER": 1,
+          "REL_PATH": 1,
+          "TARGET": 1
+        }
+      },
       "autotools_run_configure": {
         "kwargs": {
           "CXX_FLAGS": "+",

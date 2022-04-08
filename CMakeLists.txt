@@ -55,11 +55,21 @@ Install component groups
 - limes_audio
 - limes
 
+find_package components
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- All
+- Core
+- Vecops
+- Audio
+- Music
+
 #]=======================================================================]
 
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
+set_property (GLOBAL PROPERTY DEBUG_CONFIGURATIONS Debug)
 
 project (
 	Limes
@@ -74,7 +84,7 @@ set (LIMES_ROOT_DIR "${CMAKE_CURRENT_LIST_DIR}")
 
 include ("${CMAKE_CURRENT_LIST_DIR}/scripts/LimesMacros.cmake")
 
-find_package (Oranges 2.9 REQUIRED)
+find_package (Oranges 2.10 REQUIRED)
 
 include (FeatureSummary)
 
@@ -86,8 +96,10 @@ include (OrangesDefaultProjectSettings)
 
 unset (Limes_DEPS_GRAPH_OUTPUT_TO_SOURCE)
 
-set (LIMES_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
-	 CACHE STRING "Directory below INSTALL_PREFIX where ${PROJECT_NAME} will be installed to")
+set (
+	LIMES_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+	CACHE STRING
+		  "Directory below INSTALL_PREFIX where the Limes CMake package files will be installed to")
 
 add_subdirectory (libs)
 

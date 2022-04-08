@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "fft.h"
+#include "limes_fft.h"
 #include <cstddef>
 #include <cmath>
 #include <type_traits>
@@ -19,7 +19,11 @@
 #include "limes_vecops.h"
 
 #if LIMES_VECOPS_USE_FFTW
-#	include <fftw3.h>
+#	ifndef FFTW_HEADER_NAME
+#		define FFTW_HEADER_NAME <fftw3.h>
+#	endif
+
+#	include FFTW_HEADER_NAME
 
 #	ifndef FFTW_SINGLE_ONLY
 #		define FFTW_SINGLE_ONLY 0
