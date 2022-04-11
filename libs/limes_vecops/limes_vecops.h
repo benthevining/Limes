@@ -68,9 +68,6 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 namespace limes::vecops
 {
 
-template <typename T>
-concept Integral = Scalar<T> && std::is_integral_v<T>;
-
 #pragma mark Basic functions
 
 template <Scalar DataType, Integral SizeType>
@@ -370,15 +367,32 @@ LIMES_EXPORT void applyHanningAndCopy (DataType* const dest, const DataType* con
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 
-template <Scalar DataType>
-LIMES_EXPORT struct Complex final
-{
-	DataType real, imag;
-};
+/* Only intended for float or double samples */
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+LIMES_EXPORT void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, const InputDataType* const mag, const InputDataType* const phase, SizeType size);
 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+LIMES_EXPORT void disableDenormalisedNumberSupport (bool shouldDisable = true) noexcept;
+
+LIMES_EXPORT [[nodiscard]] bool areDenormalsDisabled() noexcept;
+
+LIMES_EXPORT void enableFlushToZeroMode (bool shouldEnable = true) noexcept;
+
+class LIMES_EXPORT ScopedNoDenormals final
+{
+public:
+
+	ScopedNoDenormals() noexcept;
+	~ScopedNoDenormals() noexcept;
+
+private:
+
+	const intptr_t fpsr;
+};
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
 
 LIMES_EXPORT [[nodiscard]] constexpr bool isUsingVDSP() noexcept
 {

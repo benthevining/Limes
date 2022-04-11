@@ -17,6 +17,14 @@
 #include <algorithm>
 #include <numeric>
 #include <limits>
+#include <type_traits>
+#include <limes_export.h>
+#include <limes_platform.h>
+#include "../util/Constants.h"
+
+#if LIMES_VECOPS_USE_IPP
+#	include <ipps.h>
+#endif
 
 namespace limes::vecops::fb
 {
@@ -831,5 +839,55 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyHanningAndCopy (DataType* const des
 }
 
 }  // namespace window
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+namespace detail
+{
+
+template <Scalar T>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void phasor (T* const real, T* const imag, T phase);
+
+template <Scalar T>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void complex_element_multiply (Complex<T>& dest, const Complex<T>& src1, const Complex<T>& src2)
+{
+	const auto real = src1.re * src2.re - src1.im * src2.im;
+	const auto imag = src1.re * src2.im + src1.im * src2.re;
+
+	dest.re = real;
+	dest.im = imag;
+}
+
+template <Scalar T, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void complex_multiply (Complex<T>* const dataAndDest, const Complex<T>* const dataToMultiply, SizeType size)
+{
+#if LIMES_VECOPS_USE_IPP
+	if constexpr (std::is_same_v<T, float>)
+	{
+		ippsMul_32fc_I (static_cast<const Ipp32fc*> (dataToMultiply), static_cast<Ipp32fc*> (dataAndDest), static_cast<int> (size));
+		return;
+	}
+	else if constexpr (std::is_same_v<T, double>)
+	{
+		ippsMul_64fc_I (static_cast<const Ipp64fc*> (dataToMultiply), static_cast<Ipp64fc*> (dataAndDest), static_cast<int> (size));
+		return;
+	}
+#endif
+
+	for (auto i = SizeType (0); i < size; ++i)
+		complex_element_multiply (dataAndDest[i], dataAndDest[i], dataToMultiply[i]);
+}
+
+}  // namespace detail
+
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		detail::phasor<OutputDataType> (real[i], imag[i], phase[i]);
+
+	detail::complex_multiply (real, mag, size);
+	detail::complex_multiply (imag, mag, size);
+}
 
 }  // namespace limes::vecops::fb

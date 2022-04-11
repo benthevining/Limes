@@ -13,45 +13,47 @@
 #pragma once
 
 #include <type_traits>
+#include <limes_export.h>
 
-namespace limes
+namespace limes::vecops
 {
 
 template <typename T>
 concept Scalar = std::is_scalar_v<T>;
 
-}
+template <typename T>
+concept Integral = Scalar<T> && std::is_integral_v<T>;
 
-#if __has_include(<numbers>)
-#	include <numbers>
+template <Scalar DataType>
+LIMES_EXPORT struct Complex final
+{
+	DataType real, imag;
 
-namespace limes::constants
+	using Type = DataType;
+};
+
+namespace constants
 {
 
-template <Scalar T>
-static constexpr T pi = std::numbers::pi_v<T>;
-
-}
-
-#else
-
-namespace limes::constants
-{
+//#if __has_include(<numbers>)
+//#	include <numbers>
+//
+// template <Scalar T>
+// LIMES_EXPORT static constexpr T pi = std::numbers::pi_v<T>;
+//
+//#else
 
 template <Scalar T>
-static constexpr T pi = static_cast<T> (3.1415916);
+LIMES_EXPORT static constexpr T pi = static_cast<T> (3.1415916);
 
-}
-
-#endif
-
-namespace limes::constants
-{
+//#endif
 
 template <Scalar T>
-static constexpr T two_pi = pi<T>* T (2.);
+LIMES_EXPORT static constexpr T two_pi = pi<T>* T (2.);
 
 template <Scalar T>
-static constexpr T blackman_alpha = T (0.16);
+LIMES_EXPORT static constexpr T blackman_alpha = T (0.16);
 
-}  // namespace limes::constants
+}  // namespace constants
+
+}  // namespace limes::vecops

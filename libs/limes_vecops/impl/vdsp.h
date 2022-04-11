@@ -15,7 +15,8 @@
 #include <Accelerate/Accelerate.h>
 #include <limits>
 #include <cmath>
-#include "../limes_vecops.h"
+#include <limes_vecops.h>
+#include "fallback_impl.h"
 
 namespace limes::vecops
 {
@@ -920,5 +921,14 @@ void applyHanningAndCopy (DataType* const dest, const DataType* const data, Size
 }
 
 }  // namespace window
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+{
+	// NB. vDSP does provide the functions vDSP_polar and vDSP_polarD, but they expect the input & output vectors to be ordered pairs of coordinates...
+	fb::polarToCartesian (real, imag, mag, phase, size);
+}
 
 }  // namespace limes::vecops

@@ -14,7 +14,8 @@
 
 #include <ipps.h>
 #include <limits>
-#include "../limes_vecops.h"
+#include <limes_vecops.h>
+#include "fallback_impl.h"
 
 namespace limes::vecops
 {
@@ -1077,5 +1078,18 @@ void applyHanningAndCopy (DataType* const dest, const DataType* const data, Size
 }
 
 }  // namespace window
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+{
+	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
+		ippsPolarToCart_32f (mag, phase, real, imag, static_cast<int> (size));
+	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
+		ippsPolarToCart_64f (mag, phase, real, imag, static_cast<int> (size));
+	else
+		fb::polarToCartesian (real, imag, mag, phase, size);
+}
 
 }  // namespace limes::vecops

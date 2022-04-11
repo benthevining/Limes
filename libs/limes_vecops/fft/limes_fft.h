@@ -15,7 +15,7 @@
 #include <memory>		// for unique_ptr
 #include <string_view>	// for std::string, only needed if FFTW is used
 #include <limes_export.h>
-#include "../limes_vecops.h"
+#include <limes_vecops.h>
 
 #ifndef LIMES_VECOPS_USE_FFTW
 #	if __has_include(<fftw3.h>)
