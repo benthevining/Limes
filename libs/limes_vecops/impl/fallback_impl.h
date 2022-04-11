@@ -847,7 +847,7 @@ namespace detail
 {
 
 template <Scalar T>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void phasor (T* const real, T* const imag, T phase);
+LIMES_NO_EXPORT void phasor (T* const real, T* const imag, T phase);
 
 template <Scalar T>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void complex_element_multiply (math::Complex<T>& dest, const math::Complex<T>& src1, const math::Complex<T>& src2)

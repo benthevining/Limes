@@ -16,7 +16,8 @@
 #include <type_traits>
 #include <string_view>
 #include <mutex>
-#include "limes_vecops.h"
+#include <limes_vecops.h>
+#include <limes_core.h>
 
 #if LIMES_VECOPS_USE_FFTW
 #	ifndef FFTW_HEADER_NAME
@@ -1401,7 +1402,7 @@ private:
 
 	void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) final
 	{
-		// v_polar_to_cartesian (m_a, m_b, magIn, phaseIn, m_half + 1);
+		vecops::polarToCartesian (m_a, m_b, magIn, phaseIn, m_half + 1);
 		transformI (m_a, m_b, realOut);
 	}
 
@@ -1524,9 +1525,7 @@ private:
 				}
 				else
 				{
-					constexpr double pi = 3.14157;
-
-					const auto phase = 2. * pi / double (blockSize);
+					const auto phase = 2. * math::constants::pi<double> / double (blockSize);
 
 					vals.sm1 = ifactor * std::sin (phase);
 					vals.sm2 = ifactor * std::sin (2. * phase);
@@ -1600,12 +1599,10 @@ private:
 			m_table[i] = k;
 		}
 
-		constexpr auto pi = 3.14157;
-
 		// sin and cos tables for complex fft
 		for (auto i = 2, ix = 0; i <= m_maxTabledBlock; i <<= 1)
 		{
-			const auto phase = 2. * pi / double (i);
+			const auto phase = 2. * math::constants::pi<double> / double (i);
 			m_sincos[ix++]	 = std::sin (phase);
 			m_sincos[ix++]	 = std::sin (2. * phase);
 			m_sincos[ix++]	 = std::cos (phase);
@@ -1615,7 +1612,7 @@ private:
 		// sin and cos tables for real-complex transform
 		for (auto i = 0, ix = 0; i < m_half / 2; ++i)
 		{
-			const auto phase = pi * (double (i + 1) / double (m_half) + 0.5);
+			const auto phase = math::constants::pi<double> * (double (i + 1) / double (m_half) + 0.5);
 			m_sincos_r[ix++] = std::sin (phase);
 			m_sincos_r[ix++] = std::cos (phase);
 		}
