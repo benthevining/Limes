@@ -1305,31 +1305,19 @@ void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeTyp
 namespace window
 {
 
-namespace detail
-{
-
-template <Scalar ValueType, Integral SizeType>
-LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE ValueType ncos (SizeType order, SizeType i, SizeType size) noexcept
-{
-	return std::cos (static_cast<ValueType> (order * i)
-					 * constants::pi<ValueType> / static_cast<ValueType> (size - 1));
-}
-
-}  // namespace detail
-
 template <Scalar DataType, Integral SizeType>
 void generateBlackman (DataType* const output, SizeType size)
 {
 	const auto vecLoopSize = vecops::detail::getVecLoopSize<DataType> (size);
 
-	const auto pi_register		= mipp::set1<DataType> (constants::pi<DataType>);
+	const auto pi_register		= mipp::set1<DataType> (math::constants::pi<DataType>);
 	const auto size_register	= mipp::set1<DataType> (static_cast<DataType> (size - 1));
 	const auto order_2_register = mipp::set1<DataType> (DataType (2));
 	const auto order_4_register = mipp::set1<DataType> (DataType (4));
 	const auto pnt_5_register	= mipp::set1<DataType> (DataType (0.5));
-	const auto alpha_register	= mipp::set1<DataType> (constants::blackman_alpha<DataType>);
+	const auto alpha_register	= mipp::set1<DataType> (math::constants::blackman_alpha<DataType>);
 
-	const auto one_minus_alpha_register = mipp::set1<DataType> (DataType (1) - constants::blackman_alpha<DataType>);
+	const auto one_minus_alpha_register = mipp::set1<DataType> (DataType (1) - math::constants::blackman_alpha<DataType>);
 
 	mipp::Reg<DataType> i_register;
 
@@ -1352,10 +1340,10 @@ void generateBlackman (DataType* const output, SizeType size)
 
 	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
 	{
-		const auto cos2 = detail::ncos<DataType> (SizeType (2), i, size);
-		const auto cos4 = detail::ncos<DataType> (SizeType (4), i, size);
+		const auto cos2 = fb::window::detail::ncos<DataType> (SizeType (2), i, size);
+		const auto cos4 = fb::window::detail::ncos<DataType> (SizeType (4), i, size);
 
-		output[i] = static_cast<DataType> (0.5 * (1. - constants::blackman_alpha<DataType>) -0.5 * cos2 + 0.5 * constants::blackman_alpha<DataType> * cos4);
+		output[i] = static_cast<DataType> (0.5 * (1. - math::constants::blackman_alpha<DataType>) -0.5 * cos2 + 0.5 * math::constants::blackman_alpha<DataType> * cos4);
 	}
 }
 
@@ -1380,7 +1368,7 @@ void generateHamm (DataType* const output, SizeType size)
 	const auto pnt_54_register = mipp::set1<DataType> (DataType (0.54));
 	const auto pnt_46_register = mipp::set1<DataType> (DataType (0.46));
 	const auto order_register  = mipp::set1<DataType> (DataType (2));
-	const auto pi_register	   = mipp::set1<DataType> (constants::pi<DataType>);
+	const auto pi_register	   = mipp::set1<DataType> (math::constants::pi<DataType>);
 	const auto size_register   = mipp::set1<DataType> (static_cast<DataType> (size - 1));
 
 	mipp::Reg<DataType> i_register;
@@ -1402,7 +1390,7 @@ void generateHamm (DataType* const output, SizeType size)
 	}
 
 	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		output[i] = static_cast<DataType> (0.54 - 0.46 * detail::ncos<DataType> (SizeType (2), i, size));
+		output[i] = static_cast<DataType> (0.54 - 0.46 * fb::window::detail::ncos<DataType> (SizeType (2), i, size));
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -1424,7 +1412,7 @@ void generateHanning (DataType* const output, SizeType size)
 	const auto vecLoopSize = vecops::detail::getVecLoopSize<DataType> (size);
 
 	const auto order_register = mipp::set1<DataType> (DataType (2));
-	const auto pi_register	  = mipp::set1<DataType> (constants::pi<DataType>);
+	const auto pi_register	  = mipp::set1<DataType> (math::constants::pi<DataType>);
 	const auto size_register  = mipp::set1<DataType> (static_cast<DataType> (size - 1));
 	const auto pnt_5_register = mipp::set1<DataType> (0.5);
 
@@ -1443,7 +1431,7 @@ void generateHanning (DataType* const output, SizeType size)
 	}
 
 	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		output[i] = static_cast<DataType> (0.5 - 0.5 * detail::ncos<DataType> (SizeType (2), i, size));
+		output[i] = static_cast<DataType> (0.5 - 0.5 * fb::window::detail::ncos<DataType> (SizeType (2), i, size));
 }
 
 template <Scalar DataType, Integral SizeType>

@@ -12,10 +12,10 @@
 
 #pragma once
 
-#include <limes_export.h>						// for LIMES_EXPORT
-#include <cstring>								// for size_t
-#include <string>								// for string
-#include "../data_structures/vectors/vector.h"	// for StringVector, vector
+#include <limes_export.h>  // for LIMES_EXPORT
+#include <cstring>		   // for size_t
+#include <string>		   // for string
+#include <vector>
 
 namespace limes
 {
@@ -48,12 +48,12 @@ public:
 	/** Finds the total number of columns, by looking for the row with the greatest number of columns. */
 	[[nodiscard]] int getNumColumns() const noexcept;
 
-	/** Returns a StringArray with a string for each row.
+	/** Returns a vector with a string for each row.
 		The prefix and suffix will be appended to each row, and and the column separator will be placed between each column.
 	 */
-	[[nodiscard]] StringVector getRows (const std::string& rowPrefix,
-										const std::string& columnSeparator,
-										const std::string& rowSuffix) const;
+	[[nodiscard]] std::vector<std::string> getRows (const std::string& rowPrefix,
+													const std::string& columnSeparator,
+													const std::string& rowSuffix) const;
 
 	/** Returns a string containing all the rows in the table.
 	 */
@@ -65,13 +65,13 @@ private:
 
 	struct Row final
 	{
-		[[nodiscard]] std::string toString (const std::string&	  columnSeparator,
-											const vector<size_t>& widths) const;
+		[[nodiscard]] std::string toString (const std::string&		   columnSeparator,
+											const std::vector<size_t>& widths) const;
 
-		StringVector columns;
+		std::vector<std::string> columns;
 	};
 
-	vector<Row> rows;
+	std::vector<Row> rows;
 
 	bool newRow { true };
 };

@@ -14,7 +14,6 @@
 
 #include "Fraction.h"
 #include <numeric>
-#include <limes_vecops.h>
 
 namespace limes::math
 {

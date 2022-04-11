@@ -20,6 +20,10 @@ Options
 - LIMES_IGNORE_VDSP
 - LIMES_IGNORE_IPP
 - LIMES_IGNORE_MIPP
+- LIMES_USE_IPP
+- LIMES_USE_MIPP
+- LIMES_USE_VECOPS_FALLBACK
+- LIMES_IGNORE_FFTW
 
 Required packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

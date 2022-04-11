@@ -15,6 +15,10 @@ limes_audio
 
 The Limes library of utilities for working with realtime audio.
 
+Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- limes_data_structures
+
 Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Limes::limes_audio
@@ -45,8 +49,8 @@ add_library (limes_audio STATIC)
 set_target_properties (limes_audio PROPERTIES VERSION "${PROJECT_VERSION}"
 											  SOVERSION "${PROJECT_VERSION_MAJOR}")
 
-target_link_libraries (limes_audio PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget
-										   Oranges::OrangesUnityBuild)
+target_link_libraries (limes_audio PUBLIC Limes::limes_data_structures
+					   PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
 
 set (LIMES_AUDIO_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_audio" CACHE INTERNAL "")
 

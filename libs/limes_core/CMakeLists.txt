@@ -15,6 +15,10 @@ limes_core
 
 The Limes core library of utilities.
 
+Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+None
+
 Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Limes::limes_core
@@ -37,6 +41,7 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 include (OrangesGeneratePkgConfig)
+include (OrangesGenerateStandardHeaders)
 include (CPackComponent)
 include (GNUInstallDirs)
 
@@ -45,8 +50,17 @@ add_library (limes_core STATIC)
 set_target_properties (limes_core PROPERTIES VERSION "${PROJECT_VERSION}"
 											 SOVERSION "${PROJECT_VERSION_MAJOR}")
 
-target_link_libraries (limes_core PUBLIC Limes::limes_vecops PRIVATE Oranges::OrangesDefaultTarget
-																	 Oranges::OrangesUnityBuild)
+target_link_libraries (limes_core PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
+
+oranges_generate_standard_headers (
+	TARGET limes_core
+	BASE_NAME limes
+	HEADER limes_generated.h
+	BUILD_TYPE_HEADER limes_build_type.h
+	EXPORT_HEADER limes_export.h
+	PLATFORM_HEADER limes_platform.h
+	INSTALL_COMPONENT limes_core_dev
+	REL_PATH Limes/limes_core)
 
 set (LIMES_CORE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_core" CACHE INTERNAL "")
 
@@ -61,7 +75,6 @@ target_include_directories (
 	limes_core PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
 					  $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}>)
 
-add_subdirectory (data_structures)
 add_subdirectory (math)
 add_subdirectory (misc)
 add_subdirectory (threading)

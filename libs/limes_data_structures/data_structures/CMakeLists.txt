@@ -8,10 +8,8 @@
 #
 # ======================================================================================
 
-add_subdirectory (vectors)
-
 target_sources (
-	limes_core
+	limes_data_structures
 	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Dimensions.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Version.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Dimensions.h>
@@ -28,4 +26,4 @@ install (
 		  "${CMAKE_CURRENT_LIST_DIR}/LinkedListModel.h"
 		  "${CMAKE_CURRENT_LIST_DIR}/LinkedListModel_impl.h"
 	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
-	COMPONENT limes_core_dev)
+	COMPONENT limes_data_structures_dev)

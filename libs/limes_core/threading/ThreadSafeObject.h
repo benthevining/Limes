@@ -11,10 +11,10 @@
  */
 
 #pragma once
+
 #include <atomic>
 #include <array>
 #include <limes_export.h>
-#include <limes_vecops.h>
 
 namespace limes::threads
 {

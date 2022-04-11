@@ -12,16 +12,13 @@
 
 #include "TextTable.h"
 #include "../misc/Algorithm.h"
-#include "../data_structures/vectors/basic_vector.h"
-#include "../data_structures/vectors/scalar_vector.h"
-#include "../data_structures/vectors/vector.h"
 
 
 namespace limes
 {
 
-std::string TextTable::Row::toString (const std::string&	columnSeparator,
-									  const vector<size_t>& widths) const
+std::string TextTable::Row::toString (const std::string&		 columnSeparator,
+									  const std::vector<size_t>& widths) const
 {
 	std::string result;
 
@@ -34,7 +31,7 @@ std::string TextTable::Row::toString (const std::string&	columnSeparator,
 
 		std::string padded;
 
-		if (index < columns.numObjects())
+		if (index < columns.size())
 			padded = columns[index];
 
 		padded.resize (width, ' ');
@@ -69,13 +66,13 @@ TextTable& TextTable::operator++()
 
 void TextTable::addColumnToCurrentRow (const std::string& text)
 {
-	if (newRow || rows.isEmpty())
+	if (newRow || rows.empty())
 	{
 		newRow = false;
 		rows.emplace_back();
 	}
 
-	rows.last().columns.push_back (text);
+	rows.back().columns.push_back (text);
 }
 
 TextTable& TextTable::operator<< (const std::string& text)
@@ -86,7 +83,7 @@ TextTable& TextTable::operator<< (const std::string& text)
 
 int TextTable::getNumRows() const noexcept
 {
-	return static_cast<int> (rows.numObjects());
+	return static_cast<int> (rows.size());
 }
 
 int TextTable::getNumColumns() const noexcept
@@ -94,28 +91,28 @@ int TextTable::getNumColumns() const noexcept
 	int maxColumns = 0;
 
 	for (const auto& row : rows)
-		maxColumns = std::max (maxColumns, static_cast<int> (row.columns.numObjects()));
+		maxColumns = std::max (maxColumns, static_cast<int> (row.columns.size()));
 
 	return maxColumns;
 }
 
-StringVector TextTable::getRows (const std::string& rowPrefix,
-								 const std::string& columnSeparator,
-								 const std::string& rowSuffix) const
+std::vector<std::string> TextTable::getRows (const std::string& rowPrefix,
+											 const std::string& columnSeparator,
+											 const std::string& rowSuffix) const
 {
 	const auto widths = [this]
 	{
-		vector<size_t> widths_;
-		widths_.reserveAndZero (getNumColumns());
+		std::vector<size_t> widths_;
+		widths_.resize (getNumColumns());
 
 		for (const auto& row : rows)
-			for (auto i = 0; i < row.columns.numObjects(); ++i)
+			for (auto i = 0; i < row.columns.size(); ++i)
 				widths_[i] = std::max (widths_[i], static_cast<size_t> (row.columns[i].length()));
 
 		return widths_;
 	}();
 
-	StringVector outVec;
+	std::vector<std::string> outVec;
 
 	for (const auto& row : rows)
 		outVec.emplace_back (std::string (rowPrefix).append (row.toString (columnSeparator, widths)).append (rowSuffix));  // cppcheck-suppress useStlAlgorithm

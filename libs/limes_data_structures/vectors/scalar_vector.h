@@ -13,7 +13,7 @@
 #pragma once
 
 #include "basic_vector.h"
-#include "../../math/mathHelpers.h"
+#include <limes_core.h>
 #include <limes_vecops.h>
 #include <limes_export.h>
 

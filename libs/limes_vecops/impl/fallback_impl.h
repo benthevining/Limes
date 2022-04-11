@@ -20,7 +20,8 @@
 #include <type_traits>
 #include <limes_export.h>
 #include <limes_platform.h>
-#include "../util/Constants.h"
+#include <limes_core.h>
+#include <limes_vecops.h>
 
 #if LIMES_VECOPS_USE_IPP
 #	include <ipps.h>
@@ -749,7 +750,7 @@ template <Scalar ValueType, Integral SizeType>
 LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE ValueType ncos (SizeType order, SizeType i, SizeType size) noexcept
 {
 	return std::cos (static_cast<ValueType> (order * i)
-					 * constants::pi<ValueType> / static_cast<ValueType> (size - 1));
+					 * math::constants::pi<ValueType> / static_cast<ValueType> (size - 1));
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -758,7 +759,7 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType getBlackmanSample (Siz
 	const auto cos2 = ncos<DataType> (SizeType (2), i, size);
 	const auto cos4 = ncos<DataType> (SizeType (4), i, size);
 
-	return static_cast<DataType> (0.5 * (1. - constants::blackman_alpha<DataType>) -0.5 * cos2 + 0.5 * constants::blackman_alpha<DataType> * cos4);
+	return static_cast<DataType> (0.5 * (1. - math::constants::blackman_alpha<DataType>) -0.5 * cos2 + 0.5 * math::constants::blackman_alpha<DataType> * cos4);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -849,7 +850,7 @@ template <Scalar T>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void phasor (T* const real, T* const imag, T phase);
 
 template <Scalar T>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void complex_element_multiply (Complex<T>& dest, const Complex<T>& src1, const Complex<T>& src2)
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void complex_element_multiply (math::Complex<T>& dest, const math::Complex<T>& src1, const math::Complex<T>& src2)
 {
 	const auto real = src1.re * src2.re - src1.im * src2.im;
 	const auto imag = src1.re * src2.im + src1.im * src2.re;
@@ -859,7 +860,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void complex_element_multiply (Complex<T>& de
 }
 
 template <Scalar T, Integral SizeType>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void complex_multiply (Complex<T>* const dataAndDest, const Complex<T>* const dataToMultiply, SizeType size)
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void complex_multiply (math::Complex<T>* const dataAndDest, const math::Complex<T>* const dataToMultiply, SizeType size)
 {
 #if LIMES_VECOPS_USE_IPP
 	if constexpr (std::is_same_v<T, float>)

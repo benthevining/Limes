@@ -13,7 +13,7 @@
 #pragma once
 
 #include <limes_vecops.h>
-#include "../../misc/Algorithm.h"
+#include <limes_core.h>
 #include <vector>
 #include <initializer_list>
 #include <limes_export.h>

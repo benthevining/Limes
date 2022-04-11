@@ -951,12 +951,12 @@ void generateBlackman (DataType* const output, SizeType size)
 	if constexpr (is_float_type<DataType>())
 	{
 		fill (output, size, DataType (1));
-		ippsWinBlackman_32f_I (output, static_cast<int> (size), constants::blackman_alpha<DataType>);
+		ippsWinBlackman_32f_I (output, static_cast<int> (size), math::constants::blackman_alpha<DataType>);
 	}
 	else if constexpr (is_double_type<DataType>())
 	{
 		fill (output, size, DataType (1));
-		ippsWinBlackman_64f_I (output, static_cast<int> (size), constants::blackman_alpha<DataType>);
+		ippsWinBlackman_64f_I (output, static_cast<int> (size), math::constants::blackman_alpha<DataType>);
 	}
 	else
 	{
@@ -968,9 +968,9 @@ template <Scalar DataType, Integral SizeType>
 void applyBlackman (DataType* const dataAndDest, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
-		ippsWinBlackman_32f_I (dataAndDest, static_cast<int> (size), constants::blackman_alpha<DataType>);
+		ippsWinBlackman_32f_I (dataAndDest, static_cast<int> (size), math::constants::blackman_alpha<DataType>);
 	else if constexpr (is_double_type<DataType>())
-		ippsWinBlackman_64f_I (dataAndDest, static_cast<int> (size), constants::blackman_alpha<DataType>);
+		ippsWinBlackman_64f_I (dataAndDest, static_cast<int> (size), math::constants::blackman_alpha<DataType>);
 	else
 		fb::window::applyBlackman (dataAndDest, size);
 }
@@ -979,9 +979,9 @@ template <Scalar DataType, Integral SizeType>
 void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
 	if constexpr (is_float_type<DataType>())
-		ippsWinBlackman_32f (data, dest, static_cast<int> (size), constants::blackman_alpha<DataType>);
+		ippsWinBlackman_32f (data, dest, static_cast<int> (size), math::constants::blackman_alpha<DataType>);
 	else if constexpr (is_double_type<DataType>())
-		ippsWinBlackman_64f (data, dest, static_cast<int> (size), constants::blackman_alpha<DataType>);
+		ippsWinBlackman_64f (data, dest, static_cast<int> (size), math::constants::blackman_alpha<DataType>);
 	else
 	{
 		generateBlackman (dest, size);

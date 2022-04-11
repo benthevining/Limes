@@ -16,6 +16,7 @@
 #include <limes_core.h>
 #include "Misc.h"
 #include <limes_export.h>
+#include <limes_data_structures.h>
 
 namespace limes::dsp::psola
 {

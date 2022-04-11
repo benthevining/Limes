@@ -15,6 +15,10 @@ limes_music
 
 The Limes library of utilities for working with musical and music-theory related concepts.
 
+Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- limes_data_structures
+
 Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Limes::limes_music
@@ -45,8 +49,8 @@ add_library (limes_music STATIC)
 set_target_properties (limes_music PROPERTIES VERSION "${PROJECT_VERSION}"
 											  SOVERSION "${PROJECT_VERSION_MAJOR}")
 
-target_link_libraries (limes_music PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild
-										   Limes::limes_core)
+target_link_libraries (limes_music PUBLIC Limes::limes_data_structures
+					   PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
 
 set (LIMES_MUSIC_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_music" CACHE INTERNAL "")
 

@@ -43,7 +43,7 @@ template <Sample SampleType>
 template <Sample SampleType>
 Sine<SampleType>::Sine()
 	: Oscillator<SampleType> ([this]
-							  { return std::sin (phase.next (vecops::constants::two_pi<SampleType>)); })
+							  { return std::sin (phase.next (math::constants::two_pi<SampleType>)); })
 {
 	phase.resetPhase();
 }
@@ -57,7 +57,7 @@ void Sine<SampleType>::resetPhase()
 template <Sample SampleType>
 void Sine<SampleType>::setFrequency (SampleType frequency, SampleType sampleRate)
 {
-	phase.setFrequency (vecops::constants::two_pi<SampleType> * frequency, sampleRate);
+	phase.setFrequency (math::constants::two_pi<SampleType> * frequency, sampleRate);
 
 	freq = frequency;
 }

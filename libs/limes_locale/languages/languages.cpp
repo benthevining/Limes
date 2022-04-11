@@ -11,12 +11,11 @@
  */
 
 #include "languages.h"
-#include <string>									  // for basic_string
-#include <string_view>								  // for string_view
-#include "../data_structures/vectors/basic_vector.h"  // for basic_vector
-#include "../data_structures/vectors/vector.h"		  // for vector, StringVector
-#include "Algorithm.h"								  // for contains_or_default
-#include <limes_vecops.h>							  // for LIMES_ASSERT
+#include <string>		// for basic_string
+#include <string_view>	// for string_view
+#include <limes_core.h>
+#include <limes_vecops.h>  // for LIMES_ASSERT
+#include <limes_data_structures.h>
 
 
 namespace limes::locale

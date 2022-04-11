@@ -9,7 +9,7 @@
 # ======================================================================================
 
 target_sources (
-	limes_core
+	limes_data_structures
 	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/vector.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_vector.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/scalar_vector.h>
@@ -22,4 +22,4 @@ target_sources (
 install (
 	FILES "${CMAKE_CURRENT_LIST_DIR}/vector.h" "${CMAKE_CURRENT_LIST_DIR}/basic_vector.h"
 		  "${CMAKE_CURRENT_LIST_DIR}/scalar_vector.h" "${CMAKE_CURRENT_LIST_DIR}/owned_vector.h"
-	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}" COMPONENT limes_core_dev)
+	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}" COMPONENT limes_data_structures_dev)

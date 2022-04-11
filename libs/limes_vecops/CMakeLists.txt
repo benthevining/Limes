@@ -15,6 +15,10 @@ limes_vecops
 
 A vector operations library wrapping various platform and vendor specific high-performance APIs.
 
+Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- limes_core
+
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - LIMES_IGNORE_VDSP
@@ -51,7 +55,6 @@ cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 include (OrangesGeneratePkgConfig)
-include (OrangesGenerateStandardHeaders)
 include (CPackComponent)
 include (GNUInstallDirs)
 
@@ -64,17 +67,8 @@ add_library (limes_vecops STATIC)
 set_target_properties (limes_vecops PROPERTIES VERSION "${PROJECT_VERSION}"
 											   SOVERSION "${PROJECT_VERSION_MAJOR}")
 
-target_link_libraries (limes_vecops PUBLIC Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
-
-oranges_generate_standard_headers (
-	TARGET limes_vecops
-	BASE_NAME limes
-	HEADER limes_generated.h
-	BUILD_TYPE_HEADER limes_build_type.h
-	EXPORT_HEADER limes_export.h
-	PLATFORM_HEADER limes_platform.h
-	INSTALL_COMPONENT limes_vecops_dev
-	REL_PATH Limes/limes_vecops)
+target_link_libraries (limes_vecops PUBLIC Limes::limes_core PRIVATE Oranges::OrangesDefaultTarget
+																	 Oranges::OrangesUnityBuild)
 
 set (LIMES_VECOPS_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_vecops" CACHE INTERNAL "")
 
@@ -90,7 +84,6 @@ target_include_directories (
 						$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}>)
 
 add_subdirectory (impl)
-add_subdirectory (util)
 add_subdirectory (fft)
 
 install (

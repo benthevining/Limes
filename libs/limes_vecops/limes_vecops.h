@@ -12,11 +12,11 @@
 
 #pragma once
 
-#include "util/Constants.h"
 #include <type_traits>
 #include <string>
 #include <limes_export.h>
 #include <limes_platform.h>
+#include <limes_core.h>
 
 // these should never fail, but just as a sanity check:
 static_assert (sizeof (float) == 4, "float is not 32-bits wide");
@@ -67,6 +67,12 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 
 namespace limes::vecops
 {
+
+template <typename T>
+concept Scalar = std::is_scalar_v<T>;
+
+template <typename T>
+concept Integral = std::is_integral_v<T>;
 
 #pragma mark Basic functions
 

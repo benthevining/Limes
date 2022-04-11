@@ -12,7 +12,6 @@
 
 #pragma once
 
-#include <limes_vecops.h>
 #include <cassert>
 #include <memory>
 #include <limes_export.h>

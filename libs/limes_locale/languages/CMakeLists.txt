@@ -9,8 +9,10 @@
 # ======================================================================================
 
 target_sources (
-	limes_vecops PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Constants.h>
-						 $<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/Constants.h>)
+	limes_locale
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.h>
+			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/languages.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/Constants.h"
-		 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
+install (FILES "${CMAKE_CURRENT_LIST_DIR}/languages.h"
+		 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_locale_dev)

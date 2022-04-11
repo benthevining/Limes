@@ -17,7 +17,6 @@
 #include <string>
 #include <vector>
 #include <list>
-#include <limes_vecops.h>
 #include <limes_export.h>
 
 #if ! LIMES_WINDOWS

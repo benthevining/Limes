@@ -14,6 +14,7 @@
 
 #include "../intervals/Interval.h"
 #include <limes_export.h>
+#include <limes_data_structures.h>
 
 namespace limes::music::scales
 {
