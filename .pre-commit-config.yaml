@@ -75,7 +75,7 @@ repos:
       #   args: [-Xiwyu, --update_comments, -Xiwyu, --cxx17ns]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.2.0
     hooks:
       - id: check-json
       - id: check-yaml
@@ -126,7 +126,7 @@ repos:
       - id: fix-smartquotes
       - id: forbid-bidi-controls
   - repo: https://github.com/crate-ci/typos
-    rev: v1.5.0
+    rev: v1.6.0
     hooks:
       - id: typos
         args: [--write-changes]
@@ -159,7 +159,7 @@ repos:
 
   # Python
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.31.1
+    rev: v2.32.0
     hooks:
       - id: pyupgrade
   - repo: https://github.com/myint/autoflake
@@ -184,7 +184,7 @@ repos:
       - id: yapf
         args: [-i]
   - repo: https://github.com/PyCQA/pylint
-    rev: v2.13.4
+    rev: v2.13.5
     hooks:
       - id: pylint
 
