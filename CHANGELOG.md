@@ -1,5 +1,12 @@
 # Limes changelog
 
+### [3.0.1](http://github.com/benthevining/Limes/compare/v3.0.0...v3.0.1) (2022-04-12)
+
+
+### Bug Fixes
+
+* regex bug in FFT impl selection ([318f377](http://github.com/benthevining/Limes/commit/318f377915ab6148a58da20d10aadd7c963c6b39))
+
 ## [3.0.0](http://github.com/benthevining/Limes/compare/v2.7.0...v3.0.0) (2022-04-12)
 
 
