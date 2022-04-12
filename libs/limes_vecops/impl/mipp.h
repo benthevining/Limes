@@ -37,7 +37,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void perform (SizeType size, VecorizedOp&& ve
 {
 	const auto vecLoopSize = getVecLoopSize<DataType> (size);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	for (auto i = decltype (vecLoopSize) (0); i < vecLoopSize; i += mipp::N<DataType>())
 		vectorOp (i);
 
 	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)

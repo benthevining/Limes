@@ -29,6 +29,9 @@ namespace limes::vecops
 {
 
 template <Scalar SampleType>
+class LIMES_NO_EXPORT FFTImpl;
+
+template <Scalar SampleType>
 class LIMES_EXPORT FFT final
 {
 public:
@@ -91,11 +94,9 @@ public:
 			return "Fallback";
 	}
 
-	LIMES_NO_EXPORT class FFTImpl;
-
 private:
 
-	std::unique_ptr<FFTImpl> pimpl;
+	std::unique_ptr<FFTImpl<SampleType>> pimpl;
 };
 
 #if LIMES_VECOPS_USE_FFTW
