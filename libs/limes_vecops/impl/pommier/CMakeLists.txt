@@ -12,7 +12,9 @@ include (OrangesGeneratePlatformHeader)
 
 option (LIMES_IGNORE_POMMIER "Ignore the Pommier SIMD extensions" OFF)
 
-if(LIMES_IGNORE_POMMIER OR (NOT (ORANGES_ARM_NEON OR ORANGES_SSE)))
+if(LIMES_IGNORE_POMMIER OR (NOT (ORANGES_ARM_NEON OR ORANGES_SSE)) OR (MSVC AND NOT ORANGES_ARM_NEON
+																	  )) # MSVC doesn't compile MMX
+	# intrinsics used in sse_mathfun
 	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_POMMIER=0)
 	return ()
 endif()
