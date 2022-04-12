@@ -1,5 +1,33 @@
 # Limes changelog
 
+## [3.0.0](http://github.com/benthevining/Limes/compare/v2.7.0...v3.0.0) (2022-04-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* limes_core no longer depends on vecops; added new data structures and locale libs
+
+Precommit-Verified: bc90a2efb74cae7a1ba76094d4efd00b84fdb174d8c0ecb20f4683c3cc6807ae
+
+### Features
+
+* added cartesianToPolar function ([d3a3c9f](http://github.com/benthevining/Limes/commit/d3a3c9f261119cde333ef91853aa765e07f48ed9))
+* added more vecops funcs ([ebec5f1](http://github.com/benthevining/Limes/commit/ebec5f1be8981958e6d1d42d3bfa66a4fd3c15c4))
+* integrated the pommier NEON and SSE implementations of sincos for vecops ([21bd43a](http://github.com/benthevining/Limes/commit/21bd43aa64e979436fbd514dd3d2c941e6faf430))
+
+
+### Bug Fixes
+
+* fixed syntax error in floating point status register funcs ([8d2694c](http://github.com/benthevining/Limes/commit/8d2694c14e7cf84bffdd91e989eadf831c657db3))
+* fixing includes for SSE mathfun ([a486d5c](http://github.com/benthevining/Limes/commit/a486d5c9d2b13dfa7778fb00727968db7083d5f6))
+* fixing type mismatches in fft impl ([88d39e5](http://github.com/benthevining/Limes/commit/88d39e5d8fbf109d8a5906721092ccdf7d4644c6))
+* more SSE includes ([68f37dc](http://github.com/benthevining/Limes/commit/68f37dcdf2bd90eae27a943589b4c5a06a309676))
+* not using Pommier SSE if compiler is MSVC ([af98b91](http://github.com/benthevining/Limes/commit/af98b91c6e3b2220830c72ce089e8e136b7210a4))
+* type traits header ([2ab029a](http://github.com/benthevining/Limes/commit/2ab029a7f01b11779ae346a5cb674965d714a95c))
+
+
+* reorganizing libs dependencies ([c631c2c](http://github.com/benthevining/Limes/commit/c631c2cea0a8413909d98f493cef8917bf40df9d))
+
 ## [2.7.0](http://github.com/benthevining/Limes/compare/v2.6.0...v2.7.0) (2022-04-07)
 
 
