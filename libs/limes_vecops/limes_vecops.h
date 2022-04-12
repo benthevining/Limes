@@ -65,7 +65,7 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 #endif
 
 #ifndef LIMES_VECOPS_USE_POMMIER
-#	if (LIMES_ARM_NEON || LIMES_SSE)
+#	if LIMES_ARM_NEON || (LIMES_SSE && ! LIMES_MSVC)  // MSVC doesn't like to compile MMX intrinsics
 #		define LIMES_VECOPS_USE_POMMIER 1
 #	else
 #		define LIMES_VECOPS_USE_POMMIER 0

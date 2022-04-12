@@ -13,6 +13,7 @@
 #include "sse_mathfun.h"
 
 #include <mmintrin.h>
+#include <immintrin.h>
 
 namespace pommier
 {
