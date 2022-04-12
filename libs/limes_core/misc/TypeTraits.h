@@ -18,6 +18,7 @@
 #include <vector>
 #include <list>
 #include <limes_export.h>
+#include <limes_platform.h>
 
 #if ! LIMES_WINDOWS
 #	include <cxxabi.h>
