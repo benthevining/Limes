@@ -57,18 +57,18 @@ namespace pommier
 #if LIMES_MSVC
 #	define ALIGN16_BEG __declspec(align (16))
 #	define ALIGN16_END
-#else /* gcc or icc */
+#else
 #	define ALIGN16_BEG
 #	define ALIGN16_END __attribute__ ((aligned (16)))
 #endif
 
-using v4sf = __m128	 // vector of 4 float (sse1)
+using v4sf = __m128;  // vector of 4 float (sse1)
 
 #ifdef USE_SSE2
 #	include <emmintrin.h>
-	using v4si = __m128i;  // vector of 4 int (sse2)
+using v4si = __m128i;  // vector of 4 int (sse2)
 #else
-	using v2si = __m64;	 // vector of 2 int (mmx)
+using v2si = __m64;	 // vector of 2 int (mmx)
 #endif
 
 

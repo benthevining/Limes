@@ -12,6 +12,8 @@
 
 #include "sse_mathfun.h"
 
+#include <mmintrin.h>
+
 namespace pommier
 {
 
@@ -169,9 +171,6 @@ v4sf log_ps (v4sf x)
 
 	return x;
 }
-
-#undef COPY_XMM_TO_MM
-#undef COPY_MM_TO_XMM
 
 
 _PS_CONST (exp_hi, 88.3762626647949f);
@@ -672,5 +671,8 @@ void sincos_ps (v4sf x, v4sf* s, v4sf* c)
 	*s = _mm_xor_ps (xmm1, sign_bit_sin);
 	*c = _mm_xor_ps (xmm2, sign_bit_cos);
 }
+
+#undef COPY_XMM_TO_MM
+#undef COPY_MM_TO_XMM
 
 }  // namespace pommier

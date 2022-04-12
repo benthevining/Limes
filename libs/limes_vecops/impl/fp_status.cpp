@@ -13,6 +13,10 @@
 #include <limes_vecops.h>
 #include <limes_platform.h>
 
+#if LIMES_INTEL && LIMES_SSE
+#	include <xmmintrin.h>
+#endif
+
 namespace limes::vecops
 {
 
@@ -90,7 +94,7 @@ void enableFlushToZeroMode (bool shouldEnable) noexcept
 {
 #if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
 #	if LIMES_SSE
-	constexpr intptr_t mask = _MM_FLUSH_ZERO_MASK;
+	const intptr_t mask = _MM_FLUSH_ZERO_MASK;
 #	else
 	constexpr intptr_t mask = (1 << 24 /* FZ */);
 #	endif
