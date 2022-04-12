@@ -68,8 +68,10 @@ get_target_property (vecops_impl limes_vecops VECOPS_IMPLEMENTATION)
 
 if("${vecops_impl}" MATCHES vDSP)
 	set (LIMES_FFT_SOURCE_NAME vdsp_fft)
-elseif("${vecops_impl}" MATCHES IPP)
+elseif("${vecops_impl}" MATCHES IPP AND NOT ("${vecops_impl}" MATCHES MIPP)) # regex bugs abound
 	set (LIMES_FFT_SOURCE_NAME ipp_fft)
 else()
 	set (LIMES_FFT_SOURCE_NAME fallback_fft)
 endif()
+
+unset (vecops_impl)
