@@ -1081,67 +1081,67 @@ void applyHanningAndCopy (DataType* const dest, const DataType* const data, Size
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void polarToCartesian (DataType* const real, DataType* const imag, const DataType* const mag, const DataType* const phase, SizeType size)
 {
-	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
+	if constexpr (is_float_type<DataType>())
 		ippsPolarToCart_32f (mag, phase, real, imag, static_cast<int> (size));
-	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
+	else if constexpr (is_double_type<DataType>())
 		ippsPolarToCart_64f (mag, phase, real, imag, static_cast<int> (size));
 	else
 		fb::polarToCartesian (real, imag, mag, phase, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void polarToCartesianInterleaved (OutputDataType* const dest, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void polarToCartesianInterleaved (DataType* const dest, const DataType* const mag, const DataType* const phase, SizeType size)
 {
-	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
+	if constexpr (is_float_type<DataType>())
 		ippsPolarToCart_32fc (mag, phase, (Ipp32fc*) dest, static_cast<int> (size));  // NOLINT
-	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
+	else if constexpr (is_double_type<DataType>())
 		ippsPolarToCart_64fc (mag, phase, (Ipp64fc*) dest, static_cast<int> (size));  // NOLINT
 	else
 		fb::polarToCartesianInterleaved (dest, mag, phase, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void cartesianToPolar (DataType* const mag, DataType* const phase, const DataType* const real, const DataType* const imag, SizeType size)
 {
-	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
+	if constexpr (is_float_type<DataType>())
 		ippsCartToPolar_32f (real, imag, mag, phase, static_cast<int> (size));
-	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
+	else if constexpr (is_double_type<DataType>())
 		ippsCartToPolar_64f (real, imag, mag, phase, static_cast<int> (size));
 	else
 		fb::cartesianToPolar (mag, phase, real, imag, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void catesianInterleavedToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const src, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void catesianInterleavedToPolar (DataType* const mag, DataType* const phase, const DataType* const src, SizeType size)
 {
-	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
+	if constexpr (is_float_type<DataType>())
 		ippsCartToPolar_32fc ((const Ipp32fc*) src, mag, phase, size);
-	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
+	else if constexpr (is_double_type<DataType>())
 		ippsCartToPolar_64fc ((const Ipp64fc*) src, mag, phase, size);
 	else
 		fb::catesianInterleavedToPolar (mag, phase, src, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void cartesianToMagnitudes (OutputDataType* const mag, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void cartesianToMagnitudes (DataType* const mag, const DataType* const real, const DataType* const imag, SizeType size)
 {
-	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
+	if constexpr (is_float_type<DataType>())
 		ippsMagnitude_32f (real, imag, mag, static_cast<int> (size));
-	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
+	else if constexpr (is_double_type<DataType>())
 		ippsMagnitude_64f (real, imag, mag, static_cast<int> (size));
 	else
 		fb::cartesianToMagnitudes (mag, real, imag, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void cartesianInterleavedToMagnitudes (OutputDataType* const mag, const InputDataType* const src, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* const src, SizeType size)
 {
-	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
+	if constexpr (is_float_type<DataType>())
 		ippsMagnitude_32fc ((const Ipp32fc*) src, mag, size);
-	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
+	else if constexpr (is_double_type<DataType>())
 		ippsMagnitude_64fc ((const Ipp64fc*) src, mag, size);
 	else
 		fb::cartesianInterleavedToMagnitudes (mag, src, size);

@@ -31,6 +31,19 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE constexpr int getVecLoopSize (S
 	return static_cast<int> ((static_cast<decltype (mipp::N<DataType>())> (size) / mipp::N<DataType>()) * mipp::N<DataType>());
 }
 
+
+template <typename DataType, typename VecorizedOp, typename ScalarOp, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void perform (SizeType size, VecorizedOp&& vectorOp, ScalarOp&& scalarOp)
+{
+	const auto vecLoopSize = getVecLoopSize<DataType> (size);
+
+	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+		vectorOp (i);
+
+	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+		scalarOp (i);
+}
+
 }  // namespace detail
 
 #pragma mark Basic functions
@@ -38,15 +51,14 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE constexpr int getVecLoopSize (S
 template <Scalar DataType, Integral SizeType>
 void fill (DataType* const data, SizeType size, DataType constantToFill)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	const auto constant = mipp::set1<DataType> (constantToFill);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
-		mipp::store (data + i, constant);
-
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		data[i] = constantToFill;
+	detail::perform<DataType> (
+		size,
+		[data, &constant] (auto i)
+		{ mipp::store (data + i, constant); },
+		[data, constantToFill] (auto i)
+		{ data[i] = constantToFill; });
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -58,43 +70,42 @@ void clear (DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void copy (DataType* const dest, const DataType* const source, SizeType size)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> data;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
-	{
-		data.load (&source[i]);
-		data.store (&dest[i]);
-	}
-
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = source[i];
+	detail::perform<DataType> (
+		size,
+		[&data, dest, source] (auto i)
+		{ data.load (&source[i]);
+		data.store (&dest[i]); },
+		[dest, source] (auto i)
+		{ dest[i] = source[i]; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void swap (DataType* const vecA, DataType* const vecB, SizeType size)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataA, dataB;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataA, &dataB, vecA, vecB] (auto i)
 	{
 		dataA.load (&vecA[i]);
 		dataB.load (&vecB[i]);
 
 		dataA.store (&vecB[i]);
 		dataB.store (&vecA[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+	const auto scalarOp = [vecA, vecB] (auto i)
 	{
 		const auto elem_a = vecA[i];
 
 		vecA[i] = vecB[i];
 		vecB[i] = elem_a;
-	}
+	};
+
+	detail::perform<DataType> (size,
+							   std::move (vecOp),
+							   std::move (scalarOp));
 }
 
 
@@ -107,31 +118,28 @@ void swap (DataType* const vecA, DataType* const vecB, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void add (DataType* const data, SizeType size, DataType constantToAdd)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
+	const auto constant = mipp::set1<DataType> (constantToAdd);
 
 	mipp::Reg<DataType> dataRegister;
 
-	const auto constant = mipp::set1<DataType> (constantToAdd);
-
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &constant, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister += constant;
 		dataRegister.store (&data[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		data[i] += constantToAdd;
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [data, constantToAdd] (auto i)
+							   { data[i] += constantToAdd; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void add (DataType* const dataAndDest, SizeType size, const DataType* const dataToAdd)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataInOut, dataAdding;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataInOut, &dataAdding, dataAndDest, &dataToAdd] (auto i)
 	{
 		dataInOut.load (&dataAndDest[i]);
 		dataAdding.load (&dataToAdd[i]);
@@ -139,40 +147,38 @@ void add (DataType* const dataAndDest, SizeType size, const DataType* const data
 		dataInOut += dataAdding;
 
 		dataInOut.store (&dataAndDest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dataAndDest[i] += dataToAdd[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dataAndDest, dataToAdd] (auto i)
+							   { dataAndDest[i] += dataToAdd[i]; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void addAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToAdd)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto constant = mipp::set1<DataType> (constantToAdd);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &constant, origData, dest] (auto i)
 	{
 		dataRegister.load (&origData[i]);
 		dataRegister += constant;
 		dataRegister.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = origData[i] + constantToAdd;
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dest, origData, constantToAdd] (auto i)
+							   { dest[i] = origData[i] + constantToAdd; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void addAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToAdd)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataIn, dataAdding;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataIn, &dataAdding, origData, dataToAdd, dest] (auto i)
 	{
 		dataIn.load (&origData[i]);
 		dataAdding.load (&dataToAdd[i]);
@@ -180,10 +186,11 @@ void addAndCopy (DataType* const dest, const DataType* const origData, SizeType 
 		dataIn += dataAdding;
 
 		dataIn.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = origData[i] + dataToAdd[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dest, origData, dataToAdd] (auto i)
+							   { dest[i] = origData[i] + dataToAdd[i]; });
 }
 
 
@@ -192,31 +199,28 @@ void addAndCopy (DataType* const dest, const DataType* const origData, SizeType 
 template <Scalar DataType, Integral SizeType>
 void subtract (DataType* const data, SizeType size, DataType constantToSubtract)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto constant = mipp::set1<DataType> (constantToSubtract);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &constant, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister -= constant;
 		dataRegister.store (&data[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		data[i] -= constantToSubtract;
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [data, constantToSubtract] (auto i)
+							   { data[i] -= constantToSubtract; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void subtract (DataType* const dataAndDest, SizeType size, const DataType* const dataToSubtract)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataInOut, dataAdding;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataInOut, &dataAdding, dataAndDest, dataToSubtract] (auto i)
 	{
 		dataInOut.load (&dataAndDest[i]);
 		dataAdding.load (&dataToSubtract[i]);
@@ -224,40 +228,38 @@ void subtract (DataType* const dataAndDest, SizeType size, const DataType* const
 		dataInOut -= dataAdding;
 
 		dataInOut.store (&dataAndDest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dataAndDest[i] -= dataToSubtract[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dataAndDest, dataToSubtract] (auto i)
+							   { dataAndDest[i] -= dataToSubtract[i]; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void subtractAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtract)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto constant = mipp::set1<DataType> (constantToSubtract);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &constant, origData, dest] (auto i)
 	{
 		dataRegister.load (&origData[i]);
 		dataRegister -= constant;
 		dataRegister.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = origData[i] - constantToSubtract;
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dest, origData, constantToSubtract] (auto i)
+							   { dest[i] = origData[i] - constantToSubtract; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void subtractAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToSubtract)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataIn, dataAdding;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataIn, &dataAdding, origData, dest, dataToSubtract] (auto i)
 	{
 		dataIn.load (&origData[i]);
 		dataAdding.load (&dataToSubtract[i]);
@@ -265,50 +267,49 @@ void subtractAndCopy (DataType* const dest, const DataType* const origData, Size
 		dataIn -= dataAdding;
 
 		dataIn.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = origData[i] - dataToSubtract[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dest, origData, dataToSubtract] (auto i)
+							   { dest[i] = origData[i] - dataToSubtract[i]; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void subtractInv (DataType* const data, SizeType size, DataType constantToSubtractFrom)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto constant = mipp::set1<DataType> (constantToSubtractFrom);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &constant, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister = constant - dataRegister;
 		dataRegister.store (&data[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		data[i] = constantToSubtractFrom - data[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [data, constantToSubtractFrom] (auto i)
+							   { data[i] = constantToSubtractFrom - data[i]; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void subtractInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtractFrom)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto constant = mipp::set1<DataType> (constantToSubtractFrom);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &constant, origData, dest] (auto i)
 	{
 		dataRegister.load (&origData[i]);
 		dataRegister = constant - dataRegister;
 		dataRegister.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = constantToSubtractFrom - origData[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dest, origData, constantToSubtractFrom] (auto i)
+							   { dest[i] = constantToSubtractFrom - origData[i]; });
 }
 
 
@@ -317,31 +318,28 @@ void subtractInvAndCopy (DataType* const dest, const DataType* const origData, S
 template <Scalar DataType, Integral SizeType>
 void multiply (DataType* const data, SizeType size, DataType constantToMultiply)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto constant = mipp::set1<DataType> (constantToMultiply);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &constant, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister *= constant;
 		dataRegister.store (&data[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		data[i] *= constantToMultiply;
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [data, constantToMultiply] (auto i)
+							   { data[i] *= constantToMultiply; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void multiply (DataType* const dataAndDest, SizeType size, const DataType* const dataToMultiply)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataInOut, dataAdding;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataInOut, &dataAdding, dataAndDest, dataToMultiply] (auto i)
 	{
 		dataInOut.load (&dataAndDest[i]);
 		dataAdding.load (&dataToMultiply[i]);
@@ -349,40 +347,38 @@ void multiply (DataType* const dataAndDest, SizeType size, const DataType* const
 		dataInOut *= dataAdding;
 
 		dataInOut.store (&dataAndDest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dataAndDest[i] *= dataToMultiply[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dataAndDest, dataToMultiply] (auto i)
+							   { dataAndDest[i] *= dataToMultiply[i]; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void multiplyAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToMultiply)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto constant = mipp::set1<DataType> (constantToMultiply);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &constant, origData, dest] (auto i)
 	{
 		dataRegister.load (&origData[i]);
 		dataRegister *= constant;
 		dataRegister.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = origData[i] * constantToMultiply;
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dest, origData, constantToMultiply] (auto i)
+							   { dest[i] = origData[i] * constantToMultiply; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void multiplyAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToMultiply)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataIn, dataAdding;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataIn, &dataAdding, origData, dataToMultiply, dest] (auto i)
 	{
 		dataIn.load (&origData[i]);
 		dataAdding.load (&dataToMultiply[i]);
@@ -390,22 +386,21 @@ void multiplyAndCopy (DataType* const dest, const DataType* const origData, Size
 		dataIn *= dataAdding;
 
 		dataIn.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = origData[i] * dataToMultiply[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dest, origData, dataToMultiply] (auto i)
+							   { dest[i] = origData[i] * dataToMultiply[i]; });
 }
 
 template <Scalar DataType, Integral SizeType>
 DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	DataType dotProd { 0 };
 
 	mipp::Reg<DataType> dataA, dataB;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dotProd, &dataA, &dataB, vecA, vecB] (auto i)
 	{
 		dataA.load (&vecA[i]);
 		dataB.load (&vecB[i]);
@@ -413,10 +408,11 @@ DataType dotProduct (const DataType* const vecA, const DataType* const vecB, Siz
 		dataA *= dataB;
 
 		dotProd += mipp::sum (dataA);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dotProd += (vecA[i] * vecB[i]);
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [&dotProd, vecA, vecB] (auto i)
+							   { dotProd += (vecA[i] * vecB[i]); });
 
 	return dotProd;
 }
@@ -427,31 +423,28 @@ DataType dotProduct (const DataType* const vecA, const DataType* const vecB, Siz
 template <Scalar DataType, Integral SizeType>
 void divide (DataType* const data, SizeType size, DataType constantToDivide)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto constant = mipp::set1<DataType> (constantToDivide);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &constant, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister /= constant;
 		dataRegister.store (&data[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		data[i] /= constantToDivide;
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [data, constantToDivide] (auto i)
+							   { data[i] /= constantToDivide; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void divide (DataType* const dataAndDest, SizeType size, const DataType* const dataToDivide)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataInOut, dataAdding;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataInOut, &dataAdding, dataAndDest, dataToDivide] (auto i)
 	{
 		dataInOut.load (&dataAndDest[i]);
 		dataAdding.load (&dataToDivide[i]);
@@ -459,40 +452,38 @@ void divide (DataType* const dataAndDest, SizeType size, const DataType* const d
 		dataInOut /= dataAdding;
 
 		dataInOut.store (&dataAndDest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dataAndDest[i] /= dataToDivide[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dataAndDest, dataToDivide] (auto i)
+							   { dataAndDest[i] /= dataToDivide[i]; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void divideAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivide)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto constant = mipp::set1<DataType> (constantToDivide);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &constant, origData, dest] (auto i)
 	{
 		dataRegister.load (&origData[i]);
 		dataRegister /= constant;
 		dataRegister.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = origData[i] / constantToDivide;
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dest, origData, constantToDivide] (auto i)
+							   { dest[i] = origData[i] / constantToDivide; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void divideAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToDivide)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataIn, dataAdding;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataIn, &dataAdding, origData, dataToDivide, dest] (auto i)
 	{
 		dataIn.load (&origData[i]);
 		dataAdding.load (&dataToDivide[i]);
@@ -500,54 +491,65 @@ void divideAndCopy (DataType* const dest, const DataType* const origData, SizeTy
 		dataIn /= dataAdding;
 
 		dataIn.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = origData[i] / dataToDivide[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dest, origData, dataToDivide] (auto i)
+							   { dest[i] = origData[i] / dataToDivide[i]; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void divideInv (DataType* const data, SizeType size, DataType constantToDivideFrom)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto constant = mipp::set1<DataType> (constantToDivideFrom);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &constant, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister = constant / dataRegister;
 		dataRegister.store (&data[i]);
-	}
+	};
 
-	const auto numLeft = size - vecLoopSize;
+	const auto scalarOp = [data, constantToDivideFrom] (auto i)
+	{
+		const auto thisData = data[i];
 
-	if (numLeft > 0)
-		fb::divideInv (data + vecLoopSize, numLeft, constantToDivideFrom);
+		if (thisData == DataType (0))
+			data[i] = DataType (0);
+		else
+			data[i] = constantToDivideFrom / thisData;
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
 }
 
 template <Scalar DataType, Integral SizeType>
 void divideInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivideFrom)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto constant = mipp::set1<DataType> (constantToDivideFrom);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &constant, origData, dest] (auto i)
 	{
 		dataRegister.load (&origData[i]);
 		dataRegister = constant / dataRegister;
 		dataRegister.store (&dest[i]);
-	}
+	};
 
-	const auto numLeft = size - vecLoopSize;
+	const auto scalarOp = [origData, dest, constantToDivideFrom] (auto i)
+	{
+		const auto thisData = origData[i];
 
-	if (numLeft > 0)
-		fb::divideInvAndCopy (dest + vecLoopSize, origData + vecLoopSize, numLeft, constantToDivideFrom);
+		if (thisData == DataType (0))
+			dest[i] = DataType (0);
+		else
+			dest[i] = constantToDivideFrom / thisData;
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
 }
 
 
@@ -557,73 +559,69 @@ void divideInvAndCopy (DataType* const dest, const DataType* const origData, Siz
 template <Scalar DataType, Integral SizeType>
 void square (DataType* const dataAndDest, SizeType size)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> data;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&data, dataAndDest] (auto i)
 	{
 		data.load (&dataAndDest[i]);
 		data *= data;
 		data.store (&dataAndDest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dataAndDest[i] *= dataAndDest[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dataAndDest] (auto i)
+							   { dataAndDest[i] *= dataAndDest[i]; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void squareAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, data, dest] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister *= dataRegister;
 		dataRegister.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] *= data[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dest, data] (auto i)
+							   { dest[i] *= data[i]; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void squareRoot (DataType* const dataAndDest, SizeType size)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, dataAndDest] (auto i)
 	{
 		dataRegister.load (&dataAndDest[i]);
 		dataRegister = mipp::sqrt (dataRegister);
 		dataRegister.store (&dataAndDest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dataAndDest[i] = static_cast<DataType> (std::sqrt (dataAndDest[i]));
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dataAndDest] (auto i)
+							   { dataAndDest[i] = static_cast<DataType> (std::sqrt (dataAndDest[i])); });
 }
 
 template <Scalar DataType, Integral SizeType>
 void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, data, dest] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister = mipp::sqrt (dataRegister);
 		dataRegister.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = static_cast<DataType> (std::sqrt (data[i]));
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [data, dest] (auto i)
+							   { dest[i] = static_cast<DataType> (std::sqrt (data[i])); });
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -738,137 +736,135 @@ void deinterleave (DataType* const * const output, const DataType* const interle
 template <Scalar DataType, Integral SizeType>
 void abs (DataType* const dataAndDest, SizeType size)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, dataAndDest] (auto i)
 	{
 		dataRegister.load (&dataAndDest[i]);
 		dataRegister = mipp::abs (dataRegister);
 		dataRegister.store (&dataAndDest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dataAndDest[i] = std::abs (dataAndDest[i]);
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dataAndDest] (auto i)
+							   { dataAndDest[i] = std::abs (dataAndDest[i]); });
 }
 
 template <Scalar DataType, Integral SizeType>
 void absAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, data, dest] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister = mipp::abs (dataRegister);
 		dataRegister.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = std::abs (data[i]);
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dest, data] (auto i)
+							   { dest[i] = std::abs (data[i]); });
 }
 
 
 template <Scalar DataType, Integral SizeType>
 void negate (DataType* const dataAndDest, SizeType size)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto negationMask = mipp::set0<mipp::Msk<mipp::N<DataType>>>();
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &negationMask, dataAndDest] (auto i)
 	{
 		dataRegister.load (&dataAndDest[i]);
 
 		mipp::neg (dataRegister, negationMask);
 
 		dataRegister.store (&dataAndDest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dataAndDest[i] = -dataAndDest[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dataAndDest] (auto i)
+							   { dataAndDest[i] = -dataAndDest[i]; });
 }
 
 template <Scalar DataType, Integral SizeType>
 void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto negationMask = mipp::set0<mipp::Msk<mipp::N<DataType>>>();
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &negationMask, data, dest] (auto i)
 	{
 		dataRegister.load (&data[i]);
 
 		mipp::neg (dataRegister, negationMask);
 
 		dataRegister.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = -data[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dest, data] (auto i)
+							   { dest[i] = -data[i]; });
 }
 
 
 template <Scalar DataType, Integral SizeType>
 void clip (DataType* const dataAndDest, SizeType size, DataType lowClip, DataType hiClip)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto lowRegister	= mipp::set1<DataType> (lowClip);
 	const auto highRegister = mipp::set1<DataType> (hiClip);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &lowRegister, &highRegister, dataAndDest] (auto i)
 	{
 		dataRegister.load (&dataAndDest[i]);
 		dataRegister = mipp::max (dataRegister, highRegister);
 		dataRegister = mipp::min (dataRegister, lowRegister);
 		dataRegister.store (&dataAndDest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+	const auto scalarOp = [dataAndDest, lowClip, hiClip] (auto i)
 	{
 		const auto curr = dataAndDest[i];
 
 		dataAndDest[i] = std::max (curr, lowClip);
 		dataAndDest[i] = std::min (curr, hiClip);
-	}
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp),
+							   std::move (scalarOp));
 }
 
 template <Scalar DataType, Integral SizeType>
 void clipAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip, DataType hiClip)
 {
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
 	const auto lowRegister	= mipp::set1<DataType> (lowClip);
 	const auto highRegister = mipp::set1<DataType> (hiClip);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &lowRegister, &highRegister, data, dest] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister = mipp::max (dataRegister, highRegister);
 		dataRegister = mipp::min (dataRegister, lowRegister);
 		dataRegister.store (&dest[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+	const auto scalarOp = [data, dest, lowClip, hiClip] (auto i)
 	{
 		const auto curr = data[i];
 
 		dest[i] = std::max (curr, lowClip);
 		dest[i] = std::min (curr, hiClip);
-	}
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp),
+							   std::move (scalarOp));
 }
 
 
@@ -877,19 +873,18 @@ DataType max (const DataType* const data, SizeType size)
 {
 	DataType result { 0 };
 
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&result, &dataRegister, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 
 		result = std::max (result, mipp::hmax (dataRegister));
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		result = std::max (result, data[i]);
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [&result, data] (auto i)
+							   { result = std::max (result, data[i]); });
 
 	return result;
 }
@@ -905,20 +900,19 @@ DataType maxAbs (const DataType* const data, SizeType size)
 {
 	DataType result { 0 };
 
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&result, &dataRegister, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister = mipp::abs (dataRegister);
 
 		result = std::max (result, mipp::hmax (dataRegister));
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		result = std::max (result, std::abs (data[i]));
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [&result, data] (auto i)
+							   { result = std::max (result, std::abs (data[i])); });
 
 	return result;
 }
@@ -935,19 +929,18 @@ DataType min (const DataType* const data, SizeType size)
 {
 	DataType result { std::numeric_limits<DataType>::max() };
 
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&result, &dataRegister, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 
 		result = std::min (result, mipp::hmin (dataRegister));
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		result = std::min (result, data[i]);
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [&result, data] (auto i)
+							   { result = std::min (result, data[i]); });
 
 	return result;
 }
@@ -963,20 +956,19 @@ DataType minAbs (const DataType* const data, SizeType size)
 {
 	DataType result { std::numeric_limits<DataType>::max() };
 
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&result, &dataRegister, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister = mipp::abs (dataRegister);
 
 		result = std::min (result, mipp::hmin (dataRegister));
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		result = std::min (result, std::abs (data[i]));
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [&result, data] (auto i)
+							   { result = std::min (result, std::abs (data[i])); });
 
 	return result;
 }
@@ -994,25 +986,26 @@ void minMax (const DataType* const data, SizeType size, DataType& minValue, Data
 	maxValue = 0;
 	minValue = std::numeric_limits<DataType>::max();
 
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&maxValue, &minValue, &dataRegister, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 
 		maxValue = std::max (maxValue, mipp::hmax (dataRegister));
 		minValue = std::min (minValue, mipp::hmin (dataRegister));
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+	const auto scalarOp = [&maxValue, &minValue, data] (auto i)
 	{
 		const auto curr = data[i];
 
 		maxValue = std::max (maxValue, curr);
 		minValue = std::min (minValue, curr);
-	}
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp),
+							   std::move (scalarOp));
 }
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
@@ -1027,26 +1020,27 @@ void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, D
 	maxValue = 0;
 	minValue = std::numeric_limits<DataType>::max();
 
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&maxValue, &minValue, &dataRegister, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister = mipp::abs (dataRegister);
 
 		maxValue = std::max (maxValue, mipp::hmax (dataRegister));
 		minValue = std::min (minValue, mipp::hmin (dataRegister));
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+	const auto scalarOp = [&maxValue, &minValue, data] (auto i)
 	{
 		const auto curr = std::abs (data[i]);
 
 		maxValue = std::max (maxValue, curr);
 		minValue = std::min (minValue, curr);
-	}
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp),
+							   std::move (scalarOp));
 }
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
@@ -1082,19 +1076,18 @@ DataType sum (const DataType* const data, SizeType size)
 {
 	DataType result { 0 };
 
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&result, &dataRegister, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 
 		result += mipp::sum (dataRegister);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		result += data[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [&result, data] (auto i)
+							   { result += data[i]; });
 
 	return result;
 }
@@ -1104,19 +1097,18 @@ DataType mean (const DataType* const data, SizeType size)
 {
 	DataType result { 0 };
 
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&result, &dataRegister, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 
 		result *= mipp::hmul (dataRegister);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		result *= data[i];
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [&result, data] (auto i)
+							   { result *= data[i]; });
 
 	return result / static_cast<DataType> (size);
 }
@@ -1130,14 +1122,12 @@ void mix (DataType* const output, const DataType* const * const origData, SizeTy
 {
 	const auto multiplier = DataType (1.0) / static_cast<DataType> (numChannels);
 
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (numSamples);
-
 	mipp::Reg<DataType> dataRegister, channelRegister;
 
 	const auto zeroReg		 = mipp::set1<DataType> (0);
 	const auto multiplierReg = mipp::set1<DataType> (multiplier);
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &channelRegister, &zeroReg, &multiplierReg, multiplier, origData, output, numChannels] (auto i)
 	{
 		zeroReg.store (&output[i]);
 
@@ -1154,9 +1144,9 @@ void mix (DataType* const output, const DataType* const * const origData, SizeTy
 		// dataRegister.load (&output[i]);
 		dataRegister *= multiplierReg;
 		dataRegister.store (&output[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (numSamples); ++i)
+	const auto scalarOp = [output, origData, numChannels, multiplier] (auto i)
 	{
 		output[i] = 0;
 
@@ -1164,7 +1154,9 @@ void mix (DataType* const output, const DataType* const * const origData, SizeTy
 			output[i] += origData[c][i];
 
 		output[i] *= multiplier;
-	}
+	};
+
+	detail::perform<DataType> (numSamples, std::move (vecOp), std::move (scalarOp));
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -1174,19 +1166,18 @@ DataType rms (const DataType* const data, SizeType size)
 
 	DataType result { 0 };
 
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
 	mipp::Reg<DataType> dataRegister;
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&result, &dataRegister, data] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister = dataRegister * dataRegister;
 		result += (mipp::sum (dataRegister));
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		result += (data[i] * data[i]);
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [&result, data] (auto i)
+							   { result += (data[i] * data[i]); });
 
 	result /= static_cast<DataType> (size);
 
@@ -1220,16 +1211,15 @@ void generateRamp (DataType* const output, SizeType size, DataType startValue, D
 
 	const auto i_reg = mipp::set1 (static_cast<DataType> (mipp::N<DataType>()));
 
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&incReg, &i_reg, output] (auto i)
 	{
 		incReg.store (&output[i]);
 		incReg += i_reg;
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		output[i] = (startValue + (increment * static_cast<DataType> (i)));
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [output, startValue, increment] (auto i)
+							   { output[i] = (startValue + (increment * static_cast<DataType> (i))); });
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -1251,19 +1241,18 @@ void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue,
 
 	mipp::Reg<DataType> dataRegister;
 
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &incReg, &i_reg, dataAndDest] (auto i)
 	{
 		dataRegister.load (&dataAndDest[i]);
 		dataRegister *= incReg;
 		dataRegister.store (&dataAndDest[i]);
 
 		incReg += i_reg;
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dataAndDest[i] *= (startValue + (increment * static_cast<DataType> (i)));
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dataAndDest, startValue, increment] (auto i)
+							   { dataAndDest[i] *= (startValue + (increment * static_cast<DataType> (i))); });
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -1285,19 +1274,18 @@ void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeTyp
 
 	mipp::Reg<DataType> dataRegister;
 
-	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
-
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&dataRegister, &incReg, &i_reg, data, dest] (auto i)
 	{
 		dataRegister.load (&data[i]);
 		dataRegister *= incReg;
 		dataRegister.store (&dest[i]);
 
 		incReg += i_reg;
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
-		dest[i] = data[i] * (startValue + (increment * static_cast<DataType> (i)));
+	detail::perform<DataType> (size, std::move (vecOp),
+							   [dest, data, startValue, increment] (auto i)
+							   { dest[i] = data[i] * (startValue + (increment * static_cast<DataType> (i))); });
 }
 
 #pragma mark Windowing functions
@@ -1308,8 +1296,6 @@ namespace window
 template <Scalar DataType, Integral SizeType>
 void generateBlackman (DataType* const output, SizeType size)
 {
-	const auto vecLoopSize = vecops::detail::getVecLoopSize<DataType> (size);
-
 	const auto pi_register		= mipp::set1<DataType> (math::constants::pi<DataType>);
 	const auto size_register	= mipp::set1<DataType> (static_cast<DataType> (size - 1));
 	const auto order_2_register = mipp::set1<DataType> (DataType (2));
@@ -1321,12 +1307,12 @@ void generateBlackman (DataType* const output, SizeType size)
 
 	mipp::Reg<DataType> i_register;
 
-	auto reg_ncos = [&i_register, &pi_register, &size_register] (const mipp::Reg<DataType>& order)
+	const auto reg_ncos = [&i_register, &pi_register, &size_register] (const mipp::Reg<DataType>& order)
 	{
 		return mipp::cos (order * i_register) * pi_register / size_register;
 	};
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&, output] (auto i)
 	{
 		i_register = mipp::set1<DataType> (static_cast<DataType> (i));
 
@@ -1336,15 +1322,18 @@ void generateBlackman (DataType* const output, SizeType size)
 		i_register = pnt_5_register * one_minus_alpha_register - pnt_5_register * cos2 + pnt_5_register * alpha_register * cos4;
 
 		i_register.store (&output[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+	const auto scalarOp = [size, output] (auto i)
 	{
 		const auto cos2 = fb::window::detail::ncos<DataType> (SizeType (2), i, size);
 		const auto cos4 = fb::window::detail::ncos<DataType> (SizeType (4), i, size);
 
 		output[i] = static_cast<DataType> (0.5 * (1. - math::constants::blackman_alpha<DataType>) -0.5 * cos2 + 0.5 * math::constants::blackman_alpha<DataType> * cos4);
-	}
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp),
+							   std::move (scalarOp));
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -1363,8 +1352,6 @@ void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, Siz
 template <Scalar DataType, Integral SizeType>
 void generateHamm (DataType* const output, SizeType size)
 {
-	const auto vecLoopSize = vecops::detail::getVecLoopSize<DataType> (size);
-
 	const auto pnt_54_register = mipp::set1<DataType> (DataType (0.54));
 	const auto pnt_46_register = mipp::set1<DataType> (DataType (0.46));
 	const auto order_register  = mipp::set1<DataType> (DataType (2));
@@ -1373,12 +1360,12 @@ void generateHamm (DataType* const output, SizeType size)
 
 	mipp::Reg<DataType> i_register;
 
-	auto reg_ncos = [&order_register, &i_register, &pi_register, &size_register]
+	const auto reg_ncos = [&order_register, &i_register, &pi_register, &size_register]
 	{
 		return mipp::cos (order_register * i_register) * pi_register / size_register;
 	};
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&, output] (auto i)
 	{
 		i_register = mipp::set1<DataType> (static_cast<DataType> (i));
 
@@ -1387,10 +1374,15 @@ void generateHamm (DataType* const output, SizeType size)
 		i_register = pnt_54_register - pnt_46_register * i_register;
 
 		i_register.store (&output[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+	const auto scalarOp = [output, size] (auto i)
+	{
 		output[i] = static_cast<DataType> (0.54 - 0.46 * fb::window::detail::ncos<DataType> (SizeType (2), i, size));
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp),
+							   std::move (scalarOp));
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -1409,8 +1401,6 @@ void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeTyp
 template <Scalar DataType, Integral SizeType>
 void generateHanning (DataType* const output, SizeType size)
 {
-	const auto vecLoopSize = vecops::detail::getVecLoopSize<DataType> (size);
-
 	const auto order_register = mipp::set1<DataType> (DataType (2));
 	const auto pi_register	  = mipp::set1<DataType> (math::constants::pi<DataType>);
 	const auto size_register  = mipp::set1<DataType> (static_cast<DataType> (size - 1));
@@ -1423,15 +1413,20 @@ void generateHanning (DataType* const output, SizeType size)
 		return mipp::cos (order_register * i_register) * pi_register / size_register;
 	};
 
-	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
+	const auto vecOp = [&, output] (auto i)
 	{
 		i_register = mipp::set1<DataType> (static_cast<DataType> (i));
 		i_register = pnt_5_register - pnt_5_register * reg_ncos();	// cppcheck-suppress redundantAssignment
 		i_register.store (&output[i]);
-	}
+	};
 
-	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
+	const auto scalarOp = [output, size] (auto i)
+	{
 		output[i] = static_cast<DataType> (0.5 - 0.5 * fb::window::detail::ncos<DataType> (SizeType (2), i, size));
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp),
+							   std::move (scalarOp));
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -1451,38 +1446,38 @@ void applyHanningAndCopy (DataType* const dest, const DataType* const data, Size
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void polarToCartesian (DataType* const real, DataType* const imag, const DataType* const mag, const DataType* const phase, SizeType size)
 {
 	fb::polarToCartesian (real, imag, mag, phase, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void polarToCartesianInterleaved (OutputDataType* const dest, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void polarToCartesianInterleaved (DataType* const dest, const DataType* const mag, const DataType* const phase, SizeType size)
 {
 	fb::polarToCartesianInterleaved (dest, mag, phase, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void cartesianToPolar (DataType* const mag, DataType* const phase, const DataType* const real, const DataType* const imag, SizeType size)
 {
 	fb::cartesianToPolar (mag, phase, real, imag, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void catesianInterleavedToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const src, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void catesianInterleavedToPolar (DataType* const mag, DataType* const phase, const DataType* const src, SizeType size)
 {
 	fb::catesianInterleavedToPolar (mag, phase, src, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void cartesianToMagnitudes (OutputDataType* const mag, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void cartesianToMagnitudes (DataType* const mag, const DataType* const real, const DataType* const imag, SizeType size)
 {
 	fb::cartesianToMagnitudes (mag, real, imag, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void cartesianInterleavedToMagnitudes (OutputDataType* const mag, const InputDataType* const src, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* const src, SizeType size)
 {
 	fb::cartesianInterleavedToMagnitudes (mag, src, size);
 }

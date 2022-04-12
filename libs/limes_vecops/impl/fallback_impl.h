@@ -852,45 +852,15 @@ namespace detail
 {
 
 template <Scalar T>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void complex_element_multiply (math::Complex<T>& dest, const math::Complex<T>& src1, const math::Complex<T>& src2)
-{
-	const auto real = src1.re * src2.re - src1.im * src2.im;
-	const auto imag = src1.re * src2.im + src1.im * src2.re;
-
-	dest.re = real;
-	dest.im = imag;
-}
-
-template <Scalar T, Integral SizeType>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void complex_multiply (math::Complex<T>* const dataAndDest, const math::Complex<T>* const dataToMultiply, SizeType size)
-{
-#if LIMES_VECOPS_USE_IPP
-	if constexpr (std::is_same_v<T, float>)
-	{
-		ippsMul_32fc_I (static_cast<const Ipp32fc*> (dataToMultiply), static_cast<Ipp32fc*> (dataAndDest), static_cast<int> (size));
-		return;
-	}
-	else if constexpr (std::is_same_v<T, double>)
-	{
-		ippsMul_64fc_I (static_cast<const Ipp64fc*> (dataToMultiply), static_cast<Ipp64fc*> (dataAndDest), static_cast<int> (size));
-		return;
-	}
-#endif
-
-	for (auto i = SizeType (0); i < size; ++i)
-		complex_element_multiply (dataAndDest[i], dataAndDest[i], dataToMultiply[i]);
-}
-
-template <Scalar T>
 LIMES_NO_EXPORT void magphase (T* const mag, T* const phase, T real, T imag);
 
 }  // namespace detail
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesian (DataType* const real, DataType* const imag, const DataType* const mag, const DataType* const phase, SizeType size)
 {
 #if LIMES_VECOPS_USE_POMMIER
-	if constexpr (std::is_same_v<InputDataType, float> && std::is_same_v<OutputDataType, float>)
+	if constexpr (std::is_same_v<DataType, float>)
 	{
 		pommier::polarToCartesian (real, imag, mag, phase, static_cast<int> (size));
 		return;
@@ -898,28 +868,43 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesian (OutputDataType* const 
 #endif
 
 	for (auto i = SizeType (0); i < size; ++i)
-		vecops::detail::phasor<OutputDataType> (real + i, imag + i, phase[i]);
+		vecops::detail::phasor<DataType> (real + i, imag + i, phase[i]);
 
-	detail::complex_multiply<OutputDataType> (real, mag, size);
-	detail::complex_multiply<OutputDataType> (imag, mag, size);
+	const auto complex_element_multiply = [] (const DataType* const src, DataType* const dest)
+	{
+		const auto real = src[0] * src[0] - src[1] * src[1];
+		const auto imag = src[0] * src[1] + src[1] * src[0];
+
+		dest[0] = real;
+		dest[1] = imag;
+	};
+
+	for (auto i = SizeType (0); i + 1 < size; i += 2)
+	{
+		complex_element_multiply (real + i, mag + i);
+		complex_element_multiply (imag + i, mag + i);
+	}
+
+	vecops::multiply (real, size, mag);
+	vecops::multiply (imag, size, mag);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesianInterleaved (OutputDataType* const dest, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesianInterleaved (DataType* const dest, const DataType* const mag, const DataType* const phase, SizeType size)
 {
 #if LIMES_VECOPS_USE_POMMIER
-	if constexpr (std::is_same_v<InputDataType, float> && std::is_same_v<OutputDataType, float>)
+	if constexpr (std::is_same_v<DataType, float>)
 	{
 		pommier::polarToCartesianInterleaved (dest, mag, phase, size);
 		return;
 	}
 #endif
 
-	OutputDataType real, imag;
+	DataType real, imag;
 
 	for (auto i = SizeType (0); i < size; ++i)
 	{
-		::limes::vecops::detail::phasor<OutputDataType> (&real, &imag, phase[i]);
+		::limes::vecops::detail::phasor<DataType> (&real, &imag, phase[i]);
 
 		real *= mag[i];
 		imag *= mag[i];
@@ -931,37 +916,37 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesianInterleaved (OutputDataT
 	}
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianToPolar (DataType* const mag, DataType* const phase, const DataType* const real, const DataType* const imag, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
-		detail::magphase<OutputDataType> (mag + i, phase + i, real[i], imag[i]);
+		detail::magphase<DataType> (mag + i, phase + i, real[i], imag[i]);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void catesianInterleavedToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const src, SizeType size)
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void catesianInterleavedToPolar (DataType* const mag, DataType* const phase, const DataType* const src, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
 	{
 		const auto i2 = i * 2;
-		detail::magphase<OutputDataType> (mag + i, phase + i, src[i2], src[i2 + 1]);
+		detail::magphase<DataType> (mag + i, phase + i, src[i2], src[i2 + 1]);
 	}
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianToMagnitudes (OutputDataType* const mag, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianToMagnitudes (DataType* const mag, const DataType* const real, const DataType* const imag, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
-		mag[i] = static_cast<OutputDataType> (std::sqrt (real[i] * real[i] + imag[i] * imag[i]));
+		mag[i] = static_cast<DataType> (std::sqrt (real[i] * real[i] + imag[i] * imag[i]));
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianInterleavedToMagnitudes (OutputDataType* const mag, const InputDataType* const src, SizeType size)
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* const src, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
 	{
 		const auto i2 = i * 2;
-		mag[i]		  = static_cast<OutputDataType> (std::sqrt (src[i2] * src[i2] + src[i2 + 1] * src[i2 + 1]));
+		mag[i]		  = static_cast<DataType> (std::sqrt (src[i2] * src[i2] + src[i2 + 1] * src[i2 + 1]));
 	}
 }
 

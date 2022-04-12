@@ -525,38 +525,38 @@ void applyHanningAndCopy (DataType* const dest, const DataType* const data, Size
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void polarToCartesian (DataType* const real, DataType* const imag, const DataType* const mag, const DataType* const phase, SizeType size)
 {
 	fb::polarToCartesian (real, imag, mag, phase, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void polarToCartesianInterleaved (OutputDataType* const dest, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void polarToCartesianInterleaved (DataType* const dest, const DataType* const mag, const DataType* const phase, SizeType size)
 {
 	fb::polarToCartesianInterleaved (dest, mag, phase, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void cartesianToPolar (DataType* const mag, DataType* const phase, const DataType* const real, const DataType* const imag, SizeType size)
 {
 	fb::cartesianToPolar (mag, phase, real, imag, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void catesianInterleavedToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const src, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void catesianInterleavedToPolar (DataType* const mag, DataType* const phase, const DataType* const src, SizeType size)
 {
 	fb::catesianInterleavedToPolar (mag, phase, src, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void cartesianToMagnitudes (OutputDataType* const mag, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void cartesianToMagnitudes (DataType* const mag, const DataType* const real, const DataType* const imag, SizeType size)
 {
 	fb::cartesianToMagnitudes (mag, real, imag, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void cartesianInterleavedToMagnitudes (OutputDataType* const mag, const InputDataType* const src, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* const src, SizeType size)
 {
 	fb::cartesianInterleavedToMagnitudes (mag, src, size);
 }

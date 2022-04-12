@@ -382,23 +382,23 @@ LIMES_EXPORT void applyHanningAndCopy (DataType* const dest, const DataType* con
 #pragma mark Complex conversions
 
 /* Only intended for float or double samples */
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-LIMES_EXPORT void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, const InputDataType* const mag, const InputDataType* const phase, SizeType size);
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void polarToCartesian (DataType* const real, DataType* const imag, const DataType* const mag, const DataType* const phase, SizeType size);
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-LIMES_EXPORT void polarToCartesianInterleaved (OutputDataType* const dest, const InputDataType* const mag, const InputDataType* const phase, SizeType size);
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void polarToCartesianInterleaved (DataType* const dest, const DataType* const mag, const DataType* const phase, SizeType size);
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-LIMES_EXPORT void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size);
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void cartesianToPolar (DataType* const mag, DataType* const phase, const DataType* const real, const DataType* const imag, SizeType size);
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-LIMES_EXPORT void catesianInterleavedToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const src, SizeType size);
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void catesianInterleavedToPolar (DataType* const mag, DataType* const phase, const DataType* const src, SizeType size);
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-LIMES_EXPORT void cartesianToMagnitudes (OutputDataType* const mag, const InputDataType* const real, const InputDataType* const imag, SizeType size);
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void cartesianToMagnitudes (DataType* const mag, const DataType* const real, const DataType* const imag, SizeType size);
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-LIMES_EXPORT void cartesianInterleavedToMagnitudes (OutputDataType* const mag, const InputDataType* const src, SizeType size);
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* const src, SizeType size);
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 

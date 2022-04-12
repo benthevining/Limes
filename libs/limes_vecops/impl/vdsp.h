@@ -924,23 +924,23 @@ void applyHanningAndCopy (DataType* const dest, const DataType* const data, Size
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void polarToCartesian (DataType* const real, DataType* const imag, const DataType* const mag, const DataType* const phase, SizeType size)
 {
 	// NB. vDSP does provide the functions vDSP_polar and vDSP_polarD, but they expect the input & output vectors to be ordered pairs of coordinates...
 	fb::polarToCartesian (real, imag, mag, phase, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void polarToCartesianInterleaved (OutputDataType* const dest, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void polarToCartesianInterleaved (DataType* const dest, const DataType* const mag, const DataType* const phase, SizeType size)
 {
 	fb::polarToCartesianInterleaved (dest, mag, phase, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void cartesianToPolar (DataType* const mag, DataType* const phase, const DataType* const real, const DataType* const imag, SizeType size)
 {
-	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
+	if constexpr (is_float_type<DataType>())
 	{
 		DSPSplitComplex c;
 		c.realp = const_cast<float*> (real);
@@ -949,7 +949,7 @@ void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, c
 		vvsqrtf (mag, phase, &size);		  // using phase as the source
 		vvatan2f (phase, imag, real, &size);
 	}
-	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
+	else if constexpr (is_double_type<DataType>())
 	{
 		DSPDoubleSplitComplex c;
 		c.realp = const_cast<double*> (real);
@@ -964,20 +964,20 @@ void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, c
 	}
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void catesianInterleavedToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const src, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void catesianInterleavedToPolar (DataType* const mag, DataType* const phase, const DataType* const src, SizeType size)
 {
 	fb::catesianInterleavedToPolar (mag, phase, src, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void cartesianToMagnitudes (OutputDataType* const mag, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void cartesianToMagnitudes (DataType* const mag, const DataType* const real, const DataType* const imag, SizeType size)
 {
 	fb::cartesianToMagnitudes (mag, real, imag, size);
 }
 
-template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
-void cartesianInterleavedToMagnitudes (OutputDataType* const mag, const InputDataType* const src, SizeType size)
+template <Scalar DataType, Integral SizeType>
+void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* const src, SizeType size)
 {
 	fb::cartesianInterleavedToMagnitudes (mag, src, size);
 }
