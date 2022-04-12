@@ -1354,13 +1354,31 @@ private:
 	void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) final
 	{
 		transformF (realIn, m_c, m_d);
-		vecops::cartesianToPolar (magOut, phaseOut, m_c, m_d, m_half + 1);
+
+		if constexpr (std::is_same_v<SampleType, double>)
+		{
+			vecops::cartesianToPolar (magOut, phaseOut, m_c, m_d, m_half + 1);
+		}
+		else
+		{
+			vecops::cartesianToPolar (m_a, m_b, m_c, m_d, m_half + 1);
+			// convert m_a -> magOut, m_b -> phaseOut
+		}
 	}
 
 	void forwardMagnitude (const SampleType* realIn, SampleType* magOut) final
 	{
 		transformF (realIn, m_c, m_d);
-		vecops::cartesianToMagnitudes (magOut, m_c, m_d, m_half + 1);
+
+		if constexpr (std::is_same_v<SampleType, double>)
+		{
+			vecops::cartesianToMagnitudes (magOut, m_c, m_d, m_half + 1);
+		}
+		else
+		{
+			vecops::cartesianToMagnitudes (m_a, m_c, m_d, m_half + 1);
+			// convert m_a -> magOut
+		}
 	}
 
 	void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) final
@@ -1394,7 +1412,16 @@ private:
 
 	void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) final
 	{
-		vecops::polarToCartesian (m_a, m_b, magIn, phaseIn, m_half + 1);
+		if constexpr (std::is_same_v<SampleType, double>)
+		{
+			vecops::polarToCartesian (m_a, m_b, magIn, phaseIn, m_half + 1);
+		}
+		else
+		{
+			// convert magIn -> m_c, phaseIn -> m_d
+			vecops::polarToCartesian (m_a, m_b, m_c, m_d, m_half + 1);
+		}
+
 		transformI (m_a, m_b, realOut);
 	}
 

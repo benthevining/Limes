@@ -631,13 +631,10 @@ void invSquareRoot (DataType* const dataAndDest, SizeType size)
 
 	mipp::Reg<DataType> dataRegister;
 
-	const auto constant = mipp::set1<DataType> (1);
-
 	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
 	{
 		dataRegister.load (&dataAndDest[i]);
-		dataRegister = mipp::sqrt (dataRegister);
-		dataRegister = constant / dataRegister;
+		dataRegister = mipp::rsqrt (dataRegister);
 		dataRegister.store (&dataAndDest[i]);
 	}
 
@@ -654,13 +651,10 @@ void invSquareRootAndCopy (DataType* const dest, const DataType* const data, Siz
 
 	mipp::Reg<DataType> dataRegister;
 
-	const auto constant = mipp::set1<DataType> (1);
-
 	for (auto i = 0; i < vecLoopSize; i += mipp::N<DataType>())
 	{
 		dataRegister.load (&data[i]);
-		dataRegister = mipp::sqrt (dataRegister);
-		dataRegister = constant / dataRegister;
+		dataRegister = mipp::rsqrt (dataRegister);
 		dataRegister.store (&dest[i]);
 	}
 
@@ -822,8 +816,7 @@ void clip (DataType* const dataAndDest, SizeType size, DataType lowClip, DataTyp
 	const auto vecOp = [&dataRegister, &lowRegister, &highRegister, dataAndDest] (auto i)
 	{
 		dataRegister.load (&dataAndDest[i]);
-		dataRegister = mipp::max (dataRegister, highRegister);
-		dataRegister = mipp::min (dataRegister, lowRegister);
+		dataRegister = mipp::sat (dataRegister, lowRegister, highRegister);
 		dataRegister.store (&dataAndDest[i]);
 	};
 
@@ -850,8 +843,7 @@ void clipAndCopy (DataType* const dest, const DataType* const data, SizeType siz
 	const auto vecOp = [&dataRegister, &lowRegister, &highRegister, data, dest] (auto i)
 	{
 		dataRegister.load (&data[i]);
-		dataRegister = mipp::max (dataRegister, highRegister);
-		dataRegister = mipp::min (dataRegister, lowRegister);
+		dataRegister = mipp::sat (dataRegister, lowRegister, highRegister);
 		dataRegister.store (&dest[i]);
 	};
 

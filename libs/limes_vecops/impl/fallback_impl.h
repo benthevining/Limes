@@ -870,21 +870,6 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesian (DataType* const real, 
 	for (auto i = SizeType (0); i < size; ++i)
 		vecops::detail::phasor<DataType> (real + i, imag + i, phase[i]);
 
-	const auto complex_element_multiply = [] (const DataType* const src, DataType* const dest)
-	{
-		const auto real = src[0] * src[0] - src[1] * src[1];
-		const auto imag = src[0] * src[1] + src[1] * src[0];
-
-		dest[0] = real;
-		dest[1] = imag;
-	};
-
-	for (auto i = SizeType (0); i + 1 < size; i += 2)
-	{
-		complex_element_multiply (real + i, mag + i);
-		complex_element_multiply (imag + i, mag + i);
-	}
-
 	vecops::multiply (real, size, mag);
 	vecops::multiply (imag, size, mag);
 }
