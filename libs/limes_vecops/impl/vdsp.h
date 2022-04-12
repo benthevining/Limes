@@ -932,6 +932,12 @@ void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, c
 }
 
 template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+void polarToCartesianInterleaved (OutputDataType* const dest, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+{
+	fb::polarToCartesianInterleaved (dest, mag, phase, size);
+}
+
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
 void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size)
 {
 	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
@@ -959,9 +965,21 @@ void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, c
 }
 
 template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+void catesianInterleavedToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const src, SizeType size)
+{
+	fb::catesianInterleavedToPolar (mag, phase, src, size);
+}
+
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
 void cartesianToMagnitudes (OutputDataType* const mag, const InputDataType* const real, const InputDataType* const imag, SizeType size)
 {
 	fb::cartesianToMagnitudes (mag, real, imag, size);
+}
+
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+void cartesianInterleavedToMagnitudes (OutputDataType* const mag, const InputDataType* const src, SizeType size)
+{
+	fb::cartesianInterleavedToMagnitudes (mag, src, size);
 }
 
 }  // namespace limes::vecops

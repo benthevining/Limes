@@ -895,6 +895,25 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesian (OutputDataType* const 
 }
 
 template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesianInterleaved (OutputDataType* const dest, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+{
+	OutputDataType real, imag;
+
+	for (auto i = SizeType (0); i < size; ++i)
+	{
+		detail::phasor<OutputDataType> (&real, &imag, phase[i]);
+
+		real *= mag[i];
+		imag *= mag[i];
+
+		const auto i2 = i * 2;
+
+		dest[i2]	 = real;
+		dest[i2 + 1] = imag;
+	}
+}
+
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
@@ -902,10 +921,30 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianToPolar (OutputDataType* const 
 }
 
 template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void catesianInterleavedToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const src, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+	{
+		const auto i2 = i * 2;
+		detail::magphase<OutputDataType> (mag + i, phase + i, src[i2], src[i2 + 1]);
+	}
+}
+
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianToMagnitudes (OutputDataType* const mag, const InputDataType* const real, const InputDataType* const imag, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
 		mag[i] = static_cast<OutputDataType> (std::sqrt (real[i] * real[i] + imag[i] * imag[i]));
+}
+
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianInterleavedToMagnitudes (OutputDataType* const mag, const InputDataType* const src, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+	{
+		const auto i2 = i * 2;
+		mag[i]		  = static_cast<OutputDataType> (std::sqrt (src[i2] * src[i2] + src[i2 + 1] * src[i2 + 1]));
+	}
 }
 
 }  // namespace limes::vecops::fb

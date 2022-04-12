@@ -1093,6 +1093,17 @@ void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, c
 }
 
 template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+void polarToCartesianInterleaved (OutputDataType* const dest, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
+{
+	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
+		ippsPolarToCart_32fc (mag, phase, (Ipp32fc*) dst, count);  // NOLINT
+	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
+		ippsPolarToCart_64fc (mag, phase, (Ipp64fc*) dst, count);  // NOLINT
+	else
+		fb::polarToCartesianInterleaved (dest, mag, phase, size);
+}
+
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
 void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size)
 {
 	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
@@ -1104,6 +1115,17 @@ void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, c
 }
 
 template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+void catesianInterleavedToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const src, SizeType size)
+{
+	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
+		ippsCartToPolar_32fc ((const Ipp32fc*) src, mag, phase, size);
+	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
+		ippsCartToPolar_64fc ((const Ipp64fc*) src, mag, phase, size);
+	else
+		fb::catesianInterleavedToPolar (mag, phase, src, size);
+}
+
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
 void cartesianToMagnitudes (OutputDataType* const mag, const InputDataType* const real, const InputDataType* const imag, SizeType size)
 {
 	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
@@ -1112,6 +1134,17 @@ void cartesianToMagnitudes (OutputDataType* const mag, const InputDataType* cons
 		ippsMagnitude_64f (real, imag, mag, static_cast<int> (size));
 	else
 		fb::cartesianToMagnitudes (mag, real, imag, size);
+}
+
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+void cartesianInterleavedToMagnitudes (OutputDataType* const mag, const InputDataType* const src, SizeType size)
+{
+	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
+		ippsMagnitude_32fc ((const Ipp32fc*) src, mag, size);
+	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
+		ippsMagnitude_64fc ((const Ipp64fc*) src, mag, size);
+	else
+		fb::cartesianInterleavedToMagnitudes (mag, src, size);
 }
 
 }  // namespace limes::vecops

@@ -1003,8 +1003,7 @@ private:
 
 		fftwf_execute (m_fplanf);
 
-		// v_cartesian_interleaved_to_polar
-		//     (magOut, phaseOut, (const fft_float_type *)m_fpacked, fft_size/2+1);
+		vecops::catesianInterleavedToPolar (magOut, phaseOut, (const fft_float_type*) m_fpacked, fft_size / 2 + 1);
 	}
 
 	void forwardMagnitude (const float* realIn, float* magOut) final
@@ -1016,8 +1015,7 @@ private:
 
 		fftwf_execute (m_fplanf);
 
-		// v_cartesian_interleaved_to_magnitudes
-		//     (magOut, (const fft_float_type *)m_fpacked, fft_size/2+1);
+		vecops::cartesianInterleavedToMagnitudes (magOut, (const fft_float_type*) m_fpacked, fft_size / 2 + 1);
 	}
 
 	void inverse (const float* realIn, const float* imagIn, float* realOut) final
@@ -1045,8 +1043,7 @@ private:
 
 	void inversePolar (const float* magIn, const float* phaseIn, float* realOut) final
 	{
-		// v_polar_to_cartesian_interleaved
-		//           ((fft_float_type *)m_fpacked, magIn, phaseIn, fft_size/2+1);
+		vecops::polarToCartesianInterleaved ((fft_float_type*) m_fpacked, magIn, phaseIn, fft_size / 2 + 1);  // NOLINT
 
 		fftwf_execute (m_fplani);
 
@@ -1162,8 +1159,7 @@ private:
 
 		fftw_execute (m_dplanf);
 
-		// v_cartesian_interleaved_to_polar
-		//     (magOut, phaseOut, (const fft_double_type *)m_dpacked, fft_size/2+1);
+		vecops::catesianInterleavedToPolar (magOut, phaseOut, (const fft_double_type*) m_dpacked, fft_size / 2 + 1);
 	}
 
 	void forwardMagnitude (const double* realIn, double* magOut) final
@@ -1175,8 +1171,7 @@ private:
 
 		fftw_execute (m_dplanf);
 
-		// v_cartesian_interleaved_to_magnitudes
-		//     (magOut, (const fft_double_type *)m_dpacked, fft_size/2+1);
+		vecops::cartesianInterleavedToMagnitudes (magOut, (const fft_double_type*) m_dpacked, fft_size / 2 + 1);
 	}
 
 	void inverse (const double* realIn, const double* imagIn, double* realOut) final
@@ -1204,8 +1199,7 @@ private:
 
 	void inversePolar (const double* magIn, const double* phaseIn, double* realOut) final
 	{
-		// v_polar_to_cartesian_interleaved
-		//           ((fft_double_type *)m_dpacked, magIn, phaseIn, fft_size/2+1);
+		vecops::polarToCartesianInterleaved ((fft_double_type*) m_dpacked, magIn, phaseIn, fft_size / 2 + 1);  // NOLINT
 
 		fftw_execute (m_dplani);
 
