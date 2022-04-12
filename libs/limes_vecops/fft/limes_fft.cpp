@@ -227,8 +227,7 @@ private:
 		vDSP_vsmul (m_packed.realp, vDSP_Stride (1), &half, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
 		vDSP_vsmul (m_packed.imagp, vDSP_Stride (1), &half, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
 
-		// v_cartesian_to_polar(magOut, phaseOut,
-		//                      m_packed.realp, m_packed.imagp, hs1);
+		vecops::cartesianToPolar (magOut, phaseOut, m_packed.realp, m_packed.imagp, hs1);
 	}
 
 	void forwardMagnitude (const float* realIn, float* magOut) final
@@ -389,8 +388,7 @@ private:
 		vDSP_vsmulD (m_packed.realp, vDSP_Stride (1), &half, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
 		vDSP_vsmulD (m_packed.imagp, vDSP_Stride (1), &half, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
 
-		// v_cartesian_to_polar(magOut, phaseOut,
-		//                      m_packed.realp, m_packed.imagp, hs1);
+		vecops::cartesianToPolar (magOut, phaseOut, m_packed.realp, m_packed.imagp, hs1);
 	}
 
 	void forwardMagnitude (const double* realIn, double* magOut) final
@@ -1362,7 +1360,7 @@ private:
 	void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) final
 	{
 		transformF (realIn, m_c, m_d);
-		// v_cartesian_to_polar (magOut, phaseOut, m_c, m_d, m_half + 1);
+		vecops::cartesianToPolar (magOut, phaseOut, m_c, m_d, m_half + 1);
 	}
 
 	void forwardMagnitude (const SampleType* realIn, SampleType* magOut) final

@@ -377,6 +377,8 @@ LIMES_EXPORT void applyHanningAndCopy (DataType* const dest, const DataType* con
 template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
 LIMES_EXPORT void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, const InputDataType* const mag, const InputDataType* const phase, SizeType size);
 
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+LIMES_EXPORT void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size);
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 

@@ -66,7 +66,72 @@ void phasor (T* const real, T* const imag, T phase)
 #endif
 }
 
-void phasor (float* const, float* const, float);
-void phasor (double* const, double* const, double);
+template void phasor (float* const, float* const, float);
+template void phasor (double* const, double* const, double);
+
+
+template <Scalar DataType>
+LIMES_FORCE_INLINE DataType approximate_atan2 (DataType real, DataType imag)
+{
+	if (real == DataType (0.))
+	{
+		if (imag > DataType (0.))
+			return math::constants::half_pi<DataType>;
+
+		if (imag == DataType (0.))
+			return DataType (0.);
+
+		return -math::constants::half_pi<DataType>;
+	}
+
+	const auto z = imag / real;
+
+	const auto cond = [z]
+	{
+		if constexpr (std::is_same_v<DataType, float>)
+			return std::fabsf (z) < DataType (1.);
+		else
+			return std::fabs (z) < DataType (1.);
+	}();
+
+	if (cond)
+	{
+		const auto atan = z / (DataType (1.) + DataType (0.28) * z * z);
+
+		if (real < DataType (0.))
+		{
+			if (imag < DataType (1.))
+				return atan - math::constants::pi<DataType>;
+
+			return atan + math::constants::pi<DataType>;
+		}
+
+		return atan;
+	}
+
+	const auto atan = math::constants::half_pi<DataType> - z / (z * z + DataType (0.28));
+
+	if (imag < DataType (0.))
+		return atan - math::constants::pi<DataType>;
+
+	return atan;
+}
+
+
+template <Scalar T>
+void magphase (T* const mag, T* const phase, T real, T imag)
+{
+	static_assert (std::is_same_v<T, float> || std::is_same_v<T, double>);
+
+	*phase = approximate_atan2 (real, imag);
+
+	if constexpr (std::is_same_v<T, float>)
+		*mag = sqrtf (real * real + imag * imag);
+	else
+		*mag = std::sqrt (real * real + imag * imag);
+}
+
+template void magphase (float* const, float* const, float, float);
+template void magphase (double* const, double* const, double, double);
 
 }  // namespace limes::vecops::fb::detail

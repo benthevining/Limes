@@ -210,6 +210,9 @@ template <Scalar T>
 LIMES_EXPORT static constexpr T two_pi = pi<T>* T (2.);
 
 template <Scalar T>
+LIMES_EXPORT static constexpr T half_pi = pi<T> / T (2.);
+
+template <Scalar T>
 LIMES_EXPORT static constexpr T blackman_alpha = T (0.16);
 
 }  // namespace constants

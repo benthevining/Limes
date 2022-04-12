@@ -1092,4 +1092,15 @@ void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, c
 		fb::polarToCartesian (real, imag, mag, phase, size);
 }
 
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+{
+	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
+		ippsCartToPolar_32f (real, imag, mag, phase, static_cast<int> (size));
+	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
+		ippsCartToPolar_64f (real, imag, mag, phase, static_cast<int> (size));
+	else
+		fb::cartesianToPolar (mag, phase, real, imag, size);
+}
+
 }  // namespace limes::vecops

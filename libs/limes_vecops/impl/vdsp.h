@@ -931,4 +931,31 @@ void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, c
 	fb::polarToCartesian (real, imag, mag, phase, size);
 }
 
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+{
+	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
+	{
+		DSPSplitComplex c;
+		c.realp = const_cast<float*> (real);
+		c.imagp = const_cast<float*> (imag);
+		vDSP_zvmags (&c, 1, phase, 1, size);  // using phase as a temporary dest
+		vvsqrtf (mag, phase, &size);		  // using phase as the source
+		vvatan2f (phase, imag, real, &size);
+	}
+	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
+	{
+		DSPDoubleSplitComplex c;
+		c.realp = const_cast<double*> (real);
+		c.imagp = const_cast<double*> (imag);
+		vDSP_zvmagsD (&c, 1, phase, 1, size);  // using phase as a temporary dest
+		vvsqrt (mag, phase, &size);			   // using phase as the source
+		vvatan2 (phase, imag, real, &size);
+	}
+	else
+	{
+		fb::cartesianToPolar (mag, phase, real, imag, size);
+	}
+}
+
 }  // namespace limes::vecops

@@ -879,16 +879,26 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void complex_multiply (math::Complex<T>* cons
 		complex_element_multiply (dataAndDest[i], dataAndDest[i], dataToMultiply[i]);
 }
 
+template <Scalar T>
+LIMES_NO_EXPORT void magphase (T* const mag, T* const phase, T real, T imag);
+
 }  // namespace detail
 
 template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
 {
 	for (auto i = SizeType (0); i < size; ++i)
-		detail::phasor<OutputDataType> (real[i], imag[i], phase[i]);
+		detail::phasor<OutputDataType> (real + i, imag + i, phase[i]);
 
-	detail::complex_multiply (real, mag, size);
-	detail::complex_multiply (imag, mag, size);
+	detail::complex_multiply<OutputDataType> (real, mag, size);
+	detail::complex_multiply<OutputDataType> (imag, mag, size);
+}
+
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		detail::magphase<OutputDataType> (mag + i, phase + i, real[i], imag[i]);
 }
 
 }  // namespace limes::vecops::fb
