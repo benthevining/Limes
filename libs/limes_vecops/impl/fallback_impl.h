@@ -901,4 +901,11 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianToPolar (OutputDataType* const 
 		detail::magphase<OutputDataType> (mag + i, phase + i, real[i], imag[i]);
 }
 
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianToMagnitudes (OutputDataType* const mag, const InputDataType* const real, const InputDataType* const imag, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		mag[i] = static_cast<OutputDataType> (std::sqrt (real[i] * real[i] + imag[i] * imag[i]));
+}
+
 }  // namespace limes::vecops::fb

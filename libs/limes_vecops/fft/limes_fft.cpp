@@ -1366,7 +1366,7 @@ private:
 	void forwardMagnitude (const SampleType* realIn, SampleType* magOut) final
 	{
 		transformF (realIn, m_c, m_d);
-		// v_cartesian_to_magnitudes (magOut, m_c, m_d, m_half + 1);
+		vecops::cartesianToMagnitudes (magOut, m_c, m_d, m_half + 1);
 	}
 
 	void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) final

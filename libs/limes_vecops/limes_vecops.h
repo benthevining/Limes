@@ -380,6 +380,9 @@ LIMES_EXPORT void polarToCartesian (OutputDataType* const real, OutputDataType* 
 template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
 LIMES_EXPORT void cartesianToPolar (OutputDataType* const mag, OutputDataType* const phase, const InputDataType* const real, const InputDataType* const imag, SizeType size);
 
+template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
+LIMES_EXPORT void cartesianToMagnitudes (OutputDataType* const mag, const InputDataType* const real, const InputDataType* const imag, SizeType size);
+
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 LIMES_EXPORT void disableDenormalisedNumberSupport (bool shouldDisable = true) noexcept;

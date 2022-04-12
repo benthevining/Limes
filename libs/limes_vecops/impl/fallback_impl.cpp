@@ -89,7 +89,7 @@ LIMES_FORCE_INLINE DataType approximate_atan2 (DataType real, DataType imag)
 	const auto cond = [z]
 	{
 		if constexpr (std::is_same_v<DataType, float>)
-			return std::fabsf (z) < DataType (1.);
+			return fabsf (z) < DataType (1.);  // NB. a GCC bug prevents fabf from showing up in the std namespace
 		else
 			return std::fabs (z) < DataType (1.);
 	}();
