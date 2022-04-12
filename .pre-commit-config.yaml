@@ -61,10 +61,11 @@ repos:
                --enable=warning, --enable=style, --enable=performance, --enable=portability,
                --suppress=unmatchedSuppression, --suppress=missingIncludeSystem, --suppress=unusedStructMember, --suppress=unreadVariable, --suppress=preprocessorErrorDirective, --suppress=unknownMacro,
                -DLIMES_EXPORT=, -DLIMES_NO_EXPORT=]
-        exclude: cmake/
+        exclude: cmake|sse_mathfun
       - id: cpplint
         args: [--verbose=0, "--filter=-whitespace,-legal,-build,-runtime/references,-readability/braces,-readability/todo"]
         additional_dependencies: [cpplint]
+        exclude: sse_mathfun
       # - id: oclint
       #   args: [--enable-clang-static-analyzer, --enable-global-analysis, -p=Builds, --report-type=text, -o=Builds/oclint_report.txt,
       #          --disable-rule=ShortVariableName, --disable-rule=LongVariableName, --disable-rule=UnusedMethodParameter, --disable-rule=LongLine, --disable-rule=AvoidPrivateStaticMembers,

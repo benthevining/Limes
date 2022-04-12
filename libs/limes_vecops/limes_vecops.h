@@ -64,6 +64,13 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 #	endif
 #endif
 
+#ifndef LIMES_VECOPS_USE_POMMIER
+#	if (LIMES_ARM_NEON || LIMES_SSE)
+#		define LIMES_VECOPS_USE_POMMIER 1
+#	else
+#		define LIMES_VECOPS_USE_POMMIER 0
+#	endif
+#endif
 
 namespace limes::vecops
 {

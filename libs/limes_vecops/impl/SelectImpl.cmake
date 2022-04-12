@@ -104,13 +104,9 @@ endif()
 if(NOT LIMES_IGNORE_IPP AND NOT LIMES_USE_MIPP AND NOT LIMES_USE_VECOPS_FALLBACK)
 
 	# check if we're on an Intel platform
-	try_compile (compile_result "${CMAKE_CURRENT_BINARY_DIR}/try_compile"
-				 "${CMAKE_CURRENT_LIST_DIR}/check_intel.cpp" OUTPUT_VARIABLE compile_output)
+	include (OrangesGeneratePlatformHeader)
 
-	string (REGEX REPLACE ".*LIMES_INTEL_PLATFORM ([a-zA-Z0-9_-]*).*" "\\1" intel_platform
-						  "${compile_output}")
-
-	if(intel_platform OR LIMES_USE_IPP)
+	if(ORANGES_INTEL OR LIMES_USE_IPP)
 
 		find_package (IPP MODULE QUIET COMPONENTS CORE S VM)
 
@@ -118,7 +114,7 @@ if(NOT LIMES_IGNORE_IPP AND NOT LIMES_USE_MIPP AND NOT LIMES_USE_VECOPS_FALLBACK
 								PURPOSE "Intel's accelerated vector math library")
 
 		if(TARGET Intel::IntelIPP)
-			if(NOT intel_platform)
+			if(NOT ORANGES_INTEL)
 				message (
 					WARNING
 						"Enabling Intel IPP, but non-Intel platform detected. A different vecops backend is recommended"

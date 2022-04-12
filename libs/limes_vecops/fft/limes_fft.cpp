@@ -1517,12 +1517,13 @@ private:
 				}
 				else
 				{
-					const auto phase = 2. * math::constants::pi<double> / double (blockSize);
+					const auto phase	   = 2. * math::constants::pi<double> / double (blockSize);
+					const auto doublePhase = 2. * phase;
 
 					vals.sm1 = ifactor * std::sin (phase);
-					vals.sm2 = ifactor * std::sin (2. * phase);
+					vals.sm2 = ifactor * std::sin (doublePhase);
 					vals.cm1 = std::cos (phase);
-					vals.cm2 = std::cos (2. * phase);
+					vals.cm2 = std::cos (doublePhase);
 				}
 
 				return vals;

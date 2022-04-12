@@ -1096,9 +1096,9 @@ template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
 void polarToCartesianInterleaved (OutputDataType* const dest, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
 {
 	if constexpr (is_float_type<InputDataType>() && is_float_type<OutputDataType>())
-		ippsPolarToCart_32fc (mag, phase, (Ipp32fc*) dst, count);  // NOLINT
+		ippsPolarToCart_32fc (mag, phase, (Ipp32fc*) dest, static_cast<int> (size));  // NOLINT
 	else if constexpr (is_double_type<InputDataType>() && is_double_type<OutputDataType>())
-		ippsPolarToCart_64fc (mag, phase, (Ipp64fc*) dst, count);  // NOLINT
+		ippsPolarToCart_64fc (mag, phase, (Ipp64fc*) dest, static_cast<int> (size));  // NOLINT
 	else
 		fb::polarToCartesianInterleaved (dest, mag, phase, size);
 }

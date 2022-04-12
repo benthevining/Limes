@@ -10,10 +10,14 @@
  * ======================================================================================
  */
 
-#include "Platform.h"
+#pragma once
 
-#if LIMES_INTEL
-#	error LIMES_INTEL_PLATFORM 1
-#endif
+#include <limes_export.h>
 
-#error LIMES_INTEL_PLATFORM 0
+namespace limes::vecops::detail
+{
+
+template <typename T>
+LIMES_NO_EXPORT void phasor (T* const real, T* const imag, T phase);
+
+}

@@ -22,9 +22,14 @@
 #include <limes_platform.h>
 #include <limes_core.h>
 #include <limes_vecops.h>
+#include "phasor.h"
 
 #if LIMES_VECOPS_USE_IPP
 #	include <ipps.h>
+#endif
+
+#if LIMES_VECOPS_USE_POMMIER
+#	include "pommier/pommier_wrapper.h"
 #endif
 
 namespace limes::vecops::fb
@@ -847,9 +852,6 @@ namespace detail
 {
 
 template <Scalar T>
-LIMES_NO_EXPORT void phasor (T* const real, T* const imag, T phase);
-
-template <Scalar T>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void complex_element_multiply (math::Complex<T>& dest, const math::Complex<T>& src1, const math::Complex<T>& src2)
 {
 	const auto real = src1.re * src2.re - src1.im * src2.im;
@@ -887,8 +889,16 @@ LIMES_NO_EXPORT void magphase (T* const mag, T* const phase, T real, T imag);
 template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesian (OutputDataType* const real, OutputDataType* const imag, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
 {
+#if LIMES_VECOPS_USE_POMMIER
+	if constexpr (std::is_same_v<InputDataType, float> && std::is_same_v<OutputDataType, float>)
+	{
+		pommier::polarToCartesian (real, imag, mag, phase, static_cast<int> (size));
+		return;
+	}
+#endif
+
 	for (auto i = SizeType (0); i < size; ++i)
-		detail::phasor<OutputDataType> (real + i, imag + i, phase[i]);
+		vecops::detail::phasor<OutputDataType> (real + i, imag + i, phase[i]);
 
 	detail::complex_multiply<OutputDataType> (real, mag, size);
 	detail::complex_multiply<OutputDataType> (imag, mag, size);
@@ -897,11 +907,19 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesian (OutputDataType* const 
 template <Scalar InputDataType, Scalar OutputDataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesianInterleaved (OutputDataType* const dest, const InputDataType* const mag, const InputDataType* const phase, SizeType size)
 {
+#if LIMES_VECOPS_USE_POMMIER
+	if constexpr (std::is_same_v<InputDataType, float> && std::is_same_v<OutputDataType, float>)
+	{
+		pommier::polarToCartesianInterleaved (dest, mag, phase, size);
+		return;
+	}
+#endif
+
 	OutputDataType real, imag;
 
 	for (auto i = SizeType (0); i < size; ++i)
 	{
-		detail::phasor<OutputDataType> (&real, &imag, phase[i]);
+		::limes::vecops::detail::phasor<OutputDataType> (&real, &imag, phase[i]);
 
 		real *= mag[i];
 		imag *= mag[i];
