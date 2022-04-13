@@ -15,13 +15,15 @@ target_sources (
 	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeTypeTraits.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ThreadSafeObject.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Threading.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/RealtimeTypeTraits.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/RealtimeSafeObject.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/ThreadSafeObject.h>)
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/ThreadSafeObject.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/Threading.h>)
 
 install (
 	FILES "${CMAKE_CURRENT_LIST_DIR}/RealtimeTypeTraits.h"
 		  "${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/ThreadSafeObject.h"
+		  "${CMAKE_CURRENT_LIST_DIR}/ThreadSafeObject.h" "${CMAKE_CURRENT_LIST_DIR}/Threading.h"
 	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading"
 	COMPONENT limes_core_dev)

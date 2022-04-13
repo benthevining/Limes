@@ -27,6 +27,7 @@
 #include "math/mathHelpers.h"
 #include "math/Fraction.h"
 
+#include "threading/Threading.h"
 #include "threading/RealtimeTypeTraits.h"
 #include "threading/ThreadSafeObject.h"
 #include "threading/RealtimeSafeObject.h"

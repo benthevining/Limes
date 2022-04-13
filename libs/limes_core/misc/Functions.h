@@ -43,4 +43,47 @@ LIMES_EXPORT bool call_once (Function&& func, std::invoke_result_t<Function>* re
 	return true;
 }
 
+
+template <class Function>
+class LIMES_EXPORT CallDeferred final
+{
+public:
+
+	explicit CallDeferred (Function&& function)
+		: func (std::move (function))
+	{
+	}
+
+	~CallDeferred()
+	{
+		func();
+	}
+
+private:
+
+	const Function func;
+};
+
+
+template <class Function1, class Function2>
+class LIMES_EXPORT RAIICaller final
+{
+public:
+
+	explicit RAIICaller (Function1&& onConstruct, Function2&& onDestroy)
+		: deferredFunc (std::move (onDestroy))
+	{
+		onConstruct();
+	}
+
+	~RAIICaller()
+	{
+		deferredFunc();
+	}
+
+private:
+
+	const Function2 deferredFunc;
+};
+
 }  // namespace limes
