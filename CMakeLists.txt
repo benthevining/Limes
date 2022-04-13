@@ -78,7 +78,7 @@ set_property (GLOBAL PROPERTY DEBUG_CONFIGURATIONS Debug)
 
 project (
 	Limes
-	VERSION 3.0.1
+	VERSION 3.1.0
 	DESCRIPTION "C++ utilities and building blocks"
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"
 	LANGUAGES CXX)

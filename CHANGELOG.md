@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [3.1.0](http://github.com/benthevining/Limes/compare/v3.0.1...v3.1.0) (2022-04-13)
+
+
+### Features
+
+* added an IgnoreUnused function ([53adff4](http://github.com/benthevining/Limes/commit/53adff475d69e49c7d645fbff5b6d775d5da6e96))
+
 ### [3.0.1](http://github.com/benthevining/Limes/compare/v3.0.0...v3.0.1) (2022-04-12)
 
 
