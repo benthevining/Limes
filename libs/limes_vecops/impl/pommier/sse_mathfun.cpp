@@ -92,10 +92,6 @@ v4sf log_ps (v4sf x)
 	v2si mm0, mm1;
 #endif
 
-	v4sf one = *(v4sf*) _ps_1;
-
-	v4sf invalid_mask = _mm_cmple_ps (x, _mm_setzero_ps());
-
 	x = _mm_max_ps (x, *(v4sf*) _ps_min_norm_pos); /* cut off denormalized stuff */
 
 #ifndef USE_SSE2
@@ -122,6 +118,8 @@ v4sf log_ps (v4sf x)
 	v4sf e = _mm_cvtepi32_ps (emm0);
 #endif
 
+	const v4sf one = *(v4sf*) _ps_1;
+
 	e = _mm_add_ps (e, one);
 
 	/* part2:
@@ -130,13 +128,11 @@ v4sf log_ps (v4sf x)
 		 x = x + x - 1.0;
 	   } else { x = x - 1.0; }
 	*/
-	v4sf mask = _mm_cmplt_ps (x, *(v4sf*) _ps_cephes_SQRTHF);
-	v4sf tmp  = _mm_and_ps (x, mask);
-	x		  = _mm_sub_ps (x, one);
-	e		  = _mm_sub_ps (e, _mm_and_ps (one, mask));
-	x		  = _mm_add_ps (x, tmp);
-
-	v4sf z = _mm_mul_ps (x, x);
+	const v4sf mask = _mm_cmplt_ps (x, *(v4sf*) _ps_cephes_SQRTHF);
+	v4sf	   tmp	= _mm_and_ps (x, mask);
+	x				= _mm_sub_ps (x, one);
+	e				= _mm_sub_ps (e, _mm_and_ps (one, mask));
+	x				= _mm_add_ps (x, tmp);
 
 	v4sf y = *(v4sf*) _ps_cephes_log_p0;
 	y	   = _mm_mul_ps (y, x);
@@ -157,6 +153,8 @@ v4sf log_ps (v4sf x)
 	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_log_p8);
 	y	   = _mm_mul_ps (y, x);
 
+	const v4sf z = _mm_mul_ps (x, x);
+
 	y = _mm_mul_ps (y, z);
 
 	tmp = _mm_mul_ps (e, *(v4sf*) _ps_cephes_log_q1);
@@ -168,9 +166,10 @@ v4sf log_ps (v4sf x)
 	tmp = _mm_mul_ps (e, *(v4sf*) _ps_cephes_log_q2);
 	x	= _mm_add_ps (x, y);
 	x	= _mm_add_ps (x, tmp);
-	x	= _mm_or_ps (x, invalid_mask);	// negative arg will be NAN
 
-	return x;
+	const v4sf invalid_mask = _mm_cmple_ps (x, _mm_setzero_ps());
+
+	return _mm_or_ps (x, invalid_mask);	 // negative arg will be NAN
 }
 
 
@@ -199,8 +198,6 @@ v4sf exp_ps (v4sf x)
 	v2si mm0, mm1;
 #endif
 
-	v4sf one = *(v4sf*) _ps_1;
-
 	x = _mm_min_ps (x, *(v4sf*) _ps_exp_hi);
 	x = _mm_max_ps (x, *(v4sf*) _ps_exp_lo);
 
@@ -223,8 +220,11 @@ v4sf exp_ps (v4sf x)
 
 	/* if greater, subtract 1 */
 	v4sf mask = _mm_cmpgt_ps (tmp, fx);
-	mask	  = _mm_and_ps (mask, one);
-	fx		  = _mm_sub_ps (tmp, mask);
+
+	const v4sf one = *(v4sf*) _ps_1;
+
+	mask = _mm_and_ps (mask, one);
+	fx	 = _mm_sub_ps (tmp, mask);
 
 	tmp	   = _mm_mul_ps (fx, *(v4sf*) _ps_cephes_exp_C1);
 	v4sf z = _mm_mul_ps (fx, *(v4sf*) _ps_cephes_exp_C2);
@@ -268,8 +268,7 @@ v4sf exp_ps (v4sf x)
 	v4sf pow2n = _mm_castsi128_ps (emm0);
 #endif
 
-	y = _mm_mul_ps (y, pow2n);
-	return y;
+	return _mm_mul_ps (y, pow2n);
 }
 
 
@@ -289,7 +288,7 @@ _PS_CONST (cephes_FOPI, 1.27323954473516);	// 4 / M_PI
 
 v4sf sin_ps (v4sf x)
 {
-	v4sf xmm1, xmm2 = _mm_setzero_ps(), xmm3, sign_bit, y;
+	v4sf xmm1, xmm2 = _mm_setzero_ps(), xmm3, sign_bit = x, y;
 
 #ifdef USE_SSE2
 	v4si emm0, emm2;
@@ -297,26 +296,28 @@ v4sf sin_ps (v4sf x)
 	v2si mm0, mm1, mm2, mm3;
 #endif
 
-	sign_bit = x;
 	/* take the absolute value */
 	x = _mm_and_ps (x, *(v4sf*) _ps_inv_sign_mask);
+
 	/* extract the sign bit (upper one) */
 	sign_bit = _mm_and_ps (sign_bit, *(v4sf*) _ps_sign_mask);
 
 	/* scale by 4/Pi */
 	y = _mm_mul_ps (x, *(v4sf*) _ps_cephes_FOPI);
 
-	// printf("plop:"); print4(y);
 #ifdef USE_SSE2
 	/* store the integer part of y in mm0 */
 	emm2 = _mm_cvttps_epi32 (y);
+
 	/* j=(j+1) & (~1) (see the cephes sources) */
 	emm2 = _mm_add_epi32 (emm2, *(v4si*) _pi32_1);
 	emm2 = _mm_and_si128 (emm2, *(v4si*) _pi32_inv1);
 	y	 = _mm_cvtepi32_ps (emm2);
+
 	/* get the swap sign flag */
 	emm0 = _mm_and_si128 (emm2, *(v4si*) _pi32_4);
 	emm0 = _mm_slli_epi32 (emm0, 29);
+
 	/* get the polynom selection mask
 	   there is one polynom for 0 <= x <= Pi/4
 	   and another one for Pi/4<x<=Pi/2
@@ -334,17 +335,20 @@ v4sf sin_ps (v4sf x)
 	xmm2 = _mm_movehl_ps (xmm2, y);
 	mm2	 = _mm_cvttps_pi32 (y);
 	mm3	 = _mm_cvttps_pi32 (xmm2);
+
 	/* j=(j+1) & (~1) (see the cephes sources) */
 	mm2 = _mm_add_pi32 (mm2, *(v2si*) _pi32_1);
 	mm3 = _mm_add_pi32 (mm3, *(v2si*) _pi32_1);
 	mm2 = _mm_and_si64 (mm2, *(v2si*) _pi32_inv1);
 	mm3 = _mm_and_si64 (mm3, *(v2si*) _pi32_inv1);
 	y	= _mm_cvtpi32x2_ps (mm2, mm3);
+
 	/* get the swap sign flag */
 	mm0 = _mm_and_si64 (mm2, *(v2si*) _pi32_4);
 	mm1 = _mm_and_si64 (mm3, *(v2si*) _pi32_4);
 	mm0 = _mm_slli_pi32 (mm0, 29);
 	mm1 = _mm_slli_pi32 (mm1, 29);
+
 	/* get the polynom selection mask */
 	mm2 = _mm_and_si64 (mm2, *(v2si*) _pi32_2);
 	mm3 = _mm_and_si64 (mm3, *(v2si*) _pi32_2);
@@ -370,18 +374,21 @@ v4sf sin_ps (v4sf x)
 	x	 = _mm_add_ps (x, xmm3);
 
 	/* Evaluate the first polynom  (0 <= x <= Pi/4) */
-	y	   = *(v4sf*) _ps_coscof_p0;
-	v4sf z = _mm_mul_ps (x, x);
+	y = *(v4sf*) _ps_coscof_p0;
 
-	y		 = _mm_mul_ps (y, z);
-	y		 = _mm_add_ps (y, *(v4sf*) _ps_coscof_p1);
-	y		 = _mm_mul_ps (y, z);
-	y		 = _mm_add_ps (y, *(v4sf*) _ps_coscof_p2);
-	y		 = _mm_mul_ps (y, z);
-	y		 = _mm_mul_ps (y, z);
-	v4sf tmp = _mm_mul_ps (z, *(v4sf*) _ps_0p5);
-	y		 = _mm_sub_ps (y, tmp);
-	y		 = _mm_add_ps (y, *(v4sf*) _ps_1);
+	const v4sf z = _mm_mul_ps (x, x);
+
+	y = _mm_mul_ps (y, z);
+	y = _mm_add_ps (y, *(v4sf*) _ps_coscof_p1);
+	y = _mm_mul_ps (y, z);
+	y = _mm_add_ps (y, *(v4sf*) _ps_coscof_p2);
+	y = _mm_mul_ps (y, z);
+	y = _mm_mul_ps (y, z);
+
+	const v4sf tmp = _mm_mul_ps (z, *(v4sf*) _ps_0p5);
+
+	y = _mm_sub_ps (y, tmp);
+	y = _mm_add_ps (y, *(v4sf*) _ps_1);
 
 	/* Evaluate the second polynom  (Pi/4 <= x <= 0) */
 
@@ -399,10 +406,8 @@ v4sf sin_ps (v4sf x)
 	y2	 = _mm_and_ps (xmm3, y2);  //, xmm3);
 	y	 = _mm_andnot_ps (xmm3, y);
 	y	 = _mm_add_ps (y, y2);
-	/* update the sign */
-	y = _mm_xor_ps (y, sign_bit);
 
-	return y;
+	return _mm_xor_ps (y, sign_bit);
 }
 
 
@@ -425,6 +430,7 @@ v4sf cos_ps (v4sf x)
 #ifdef USE_SSE2
 	/* store the integer part of y in mm0 */
 	emm2 = _mm_cvttps_epi32 (y);
+
 	/* j=(j+1) & (~1) (see the cephes sources) */
 	emm2 = _mm_add_epi32 (emm2, *(v4si*) _pi32_1);
 	emm2 = _mm_and_si128 (emm2, *(v4si*) _pi32_inv1);
@@ -435,6 +441,7 @@ v4sf cos_ps (v4sf x)
 	/* get the swap sign flag */
 	emm0 = _mm_andnot_si128 (emm2, *(v4si*) _pi32_4);
 	emm0 = _mm_slli_epi32 (emm0, 29);
+
 	/* get the polynom selection mask */
 	emm2 = _mm_and_si128 (emm2, *(v4si*) _pi32_2);
 	emm2 = _mm_cmpeq_epi32 (emm2, _mm_setzero_si128());
@@ -491,18 +498,21 @@ v4sf cos_ps (v4sf x)
 	x	 = _mm_add_ps (x, xmm3);
 
 	/* Evaluate the first polynom  (0 <= x <= Pi/4) */
-	y	   = *(v4sf*) _ps_coscof_p0;
-	v4sf z = _mm_mul_ps (x, x);
+	y = *(v4sf*) _ps_coscof_p0;
 
-	y		 = _mm_mul_ps (y, z);
-	y		 = _mm_add_ps (y, *(v4sf*) _ps_coscof_p1);
-	y		 = _mm_mul_ps (y, z);
-	y		 = _mm_add_ps (y, *(v4sf*) _ps_coscof_p2);
-	y		 = _mm_mul_ps (y, z);
-	y		 = _mm_mul_ps (y, z);
-	v4sf tmp = _mm_mul_ps (z, *(v4sf*) _ps_0p5);
-	y		 = _mm_sub_ps (y, tmp);
-	y		 = _mm_add_ps (y, *(v4sf*) _ps_1);
+	const v4sf z = _mm_mul_ps (x, x);
+
+	y = _mm_mul_ps (y, z);
+	y = _mm_add_ps (y, *(v4sf*) _ps_coscof_p1);
+	y = _mm_mul_ps (y, z);
+	y = _mm_add_ps (y, *(v4sf*) _ps_coscof_p2);
+	y = _mm_mul_ps (y, z);
+	y = _mm_mul_ps (y, z);
+
+	const v4sf tmp = _mm_mul_ps (z, *(v4sf*) _ps_0p5);
+
+	y = _mm_sub_ps (y, tmp);
+	y = _mm_add_ps (y, *(v4sf*) _ps_1);
 
 	/* Evaluate the second polynom  (Pi/4 <= x <= 0) */
 
@@ -520,10 +530,8 @@ v4sf cos_ps (v4sf x)
 	y2	 = _mm_and_ps (xmm3, y2);  //, xmm3);
 	y	 = _mm_andnot_ps (xmm3, y);
 	y	 = _mm_add_ps (y, y2);
-	/* update the sign */
-	y = _mm_xor_ps (y, sign_bit);
 
-	return y;
+	return _mm_xor_ps (y, sign_bit);
 }
 
 
@@ -538,8 +546,10 @@ void sincos_ps (v4sf x, v4sf* s, v4sf* c)
 #endif
 
 	sign_bit_sin = x;
+
 	/* take the absolute value */
 	x = _mm_and_ps (x, *(v4sf*) _ps_inv_sign_mask);
+
 	/* extract the sign bit (upper one) */
 	sign_bit_sin = _mm_and_ps (sign_bit_sin, *(v4sf*) _ps_sign_mask);
 
@@ -634,18 +644,21 @@ void sincos_ps (v4sf x, v4sf* s, v4sf* c)
 	sign_bit_sin = _mm_xor_ps (sign_bit_sin, swap_sign_bit_sin);
 
 	/* Evaluate the first polynom  (0 <= x <= Pi/4) */
-	v4sf z = _mm_mul_ps (x, x);
-	y	   = *(v4sf*) _ps_coscof_p0;
+	const v4sf z = _mm_mul_ps (x, x);
 
-	y		 = _mm_mul_ps (y, z);
-	y		 = _mm_add_ps (y, *(v4sf*) _ps_coscof_p1);
-	y		 = _mm_mul_ps (y, z);
-	y		 = _mm_add_ps (y, *(v4sf*) _ps_coscof_p2);
-	y		 = _mm_mul_ps (y, z);
-	y		 = _mm_mul_ps (y, z);
-	v4sf tmp = _mm_mul_ps (z, *(v4sf*) _ps_0p5);
-	y		 = _mm_sub_ps (y, tmp);
-	y		 = _mm_add_ps (y, *(v4sf*) _ps_1);
+	y = *(v4sf*) _ps_coscof_p0;
+
+	y = _mm_mul_ps (y, z);
+	y = _mm_add_ps (y, *(v4sf*) _ps_coscof_p1);
+	y = _mm_mul_ps (y, z);
+	y = _mm_add_ps (y, *(v4sf*) _ps_coscof_p2);
+	y = _mm_mul_ps (y, z);
+	y = _mm_mul_ps (y, z);
+
+	const v4sf tmp = _mm_mul_ps (z, *(v4sf*) _ps_0p5);
+
+	y = _mm_sub_ps (y, tmp);
+	y = _mm_add_ps (y, *(v4sf*) _ps_1);
 
 	/* Evaluate the second polynom  (Pi/4 <= x <= 0) */
 

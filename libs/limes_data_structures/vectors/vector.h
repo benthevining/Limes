@@ -12,8 +12,8 @@
 
 #pragma once
 
-#include "basic_vector.h"
-#include "scalar_vector.h"
+#include "basic_vector.h"	// IWYU pragma: export
+#include "scalar_vector.h"	// IWYU pragma: export
 #include <string>
 
 namespace limes

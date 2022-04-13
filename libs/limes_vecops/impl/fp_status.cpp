@@ -56,7 +56,7 @@ inline void setFpStatusRegister (intptr_t fpsr) noexcept
 				 : "ri"(fpsr));
 
 #else
-	(void) fpsr;  // ignore unused variable
+	ignore_unused (fpsr);
 #endif
 }
 
@@ -71,7 +71,7 @@ void disableDenormalisedNumberSupport (bool shouldDisable) noexcept
 
 	setFpStatusRegister ((getFpStatusRegister() & (~mask)) | (shouldDisable ? mask : 0));
 #else
-	(void) shouldDisable;  // ignore unused variable
+	ignore_unused (shouldDisable);
 #endif
 }
 
@@ -101,7 +101,7 @@ void enableFlushToZeroMode (bool shouldEnable) noexcept
 
 	setFpStatusRegister ((getFpStatusRegister() & (~mask)) | (shouldEnable ? mask : 0));
 #else
-	(void) shouldEnable;  // ignore unused variable
+	ignore_unused (shouldEnable);
 #endif
 }
 

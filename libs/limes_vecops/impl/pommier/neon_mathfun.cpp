@@ -33,8 +33,7 @@ v4sf log_ps (v4sf x)
 
 	const v4sf one = vdupq_n_f32 (1);
 
-	x				  = vmaxq_f32 (x, vdupq_n_f32 (0)); /* force flush to zero on denormal values */
-	v4su invalid_mask = vcleq_f32 (x, vdupq_n_f32 (0));
+	x = vmaxq_f32 (x, vdupq_n_f32 (0)); /* force flush to zero on denormal values */
 
 	v4si ux = vreinterpretq_s32_f32 (x);
 
@@ -56,13 +55,11 @@ v4sf log_ps (v4sf x)
 		 x = x + x - 1.0;
 	   } else { x = x - 1.0; }
 	*/
-	v4su mask = vcltq_f32 (x, vdupq_n_f32 (c_cephes_SQRTHF));
-	v4sf tmp  = vreinterpretq_f32_u32 (vandq_u32 (vreinterpretq_u32_f32 (x), mask));
-	x		  = vsubq_f32 (x, one);
-	e		  = vsubq_f32 (e, vreinterpretq_f32_u32 (vandq_u32 (vreinterpretq_u32_f32 (one), mask)));
-	x		  = vaddq_f32 (x, tmp);
-
-	v4sf z = vmulq_f32 (x, x);
+	const v4su mask = vcltq_f32 (x, vdupq_n_f32 (c_cephes_SQRTHF));
+	v4sf	   tmp	= vreinterpretq_f32_u32 (vandq_u32 (vreinterpretq_u32_f32 (x), mask));
+	x				= vsubq_f32 (x, one);
+	e				= vsubq_f32 (e, vreinterpretq_f32_u32 (vandq_u32 (vreinterpretq_u32_f32 (one), mask)));
+	x				= vaddq_f32 (x, tmp);
 
 	v4sf y = vdupq_n_f32 (c_cephes_log_p0);
 	y	   = vmulq_f32 (y, x);
@@ -83,6 +80,8 @@ v4sf log_ps (v4sf x)
 	y	   = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p8));
 	y	   = vmulq_f32 (y, x);
 
+	const v4sf z = vmulq_f32 (x, x);
+
 	y = vmulq_f32 (y, z);
 
 	tmp = vmulq_f32 (e, vdupq_n_f32 (c_cephes_log_q1));
@@ -94,9 +93,10 @@ v4sf log_ps (v4sf x)
 	tmp = vmulq_f32 (e, vdupq_n_f32 (c_cephes_log_q2));
 	x	= vaddq_f32 (x, y);
 	x	= vaddq_f32 (x, tmp);
-	x	= vreinterpretq_f32_u32 (vorrq_u32 (vreinterpretq_u32_f32 (x), invalid_mask));	// negative arg will be NAN
 
-	return x;
+	const v4su invalid_mask = vcleq_f32 (x, vdupq_n_f32 (0));
+
+	return vreinterpretq_f32_u32 (vorrq_u32 (vreinterpretq_u32_f32 (x), invalid_mask));	 // negative arg will be NAN
 }
 
 v4sf exp_ps (v4sf x)
@@ -139,23 +139,33 @@ v4sf exp_ps (v4sf x)
 	x	   = vsubq_f32 (x, tmp);
 	x	   = vsubq_f32 (x, z);
 
-	v4sf y	= vld1q_dup_f32 (cephes_exp_p + 0);
-	v4sf c1 = vld1q_dup_f32 (cephes_exp_p + 1);
-	v4sf c2 = vld1q_dup_f32 (cephes_exp_p + 2);
-	v4sf c3 = vld1q_dup_f32 (cephes_exp_p + 3);
-	v4sf c4 = vld1q_dup_f32 (cephes_exp_p + 4);
-	v4sf c5 = vld1q_dup_f32 (cephes_exp_p + 5);
+	v4sf y = vld1q_dup_f32 (cephes_exp_p + 0);
 
 	y = vmulq_f32 (y, x);
 	z = vmulq_f32 (x, x);
+
+	const v4sf c1 = vld1q_dup_f32 (cephes_exp_p + 1);
+
 	y = vaddq_f32 (y, c1);
 	y = vmulq_f32 (y, x);
+
+	const v4sf c2 = vld1q_dup_f32 (cephes_exp_p + 2);
+
 	y = vaddq_f32 (y, c2);
 	y = vmulq_f32 (y, x);
+
+	const v4sf c3 = vld1q_dup_f32 (cephes_exp_p + 3);
+
 	y = vaddq_f32 (y, c3);
 	y = vmulq_f32 (y, x);
+
+	const v4sf c4 = vld1q_dup_f32 (cephes_exp_p + 4);
+
 	y = vaddq_f32 (y, c4);
 	y = vmulq_f32 (y, x);
+
+	const v4sf c5 = vld1q_dup_f32 (cephes_exp_p + 5);
+
 	y = vaddq_f32 (y, c5);
 
 	y = vmulq_f32 (y, z);
@@ -164,14 +174,13 @@ v4sf exp_ps (v4sf x)
 
 	/* build 2^n */
 	int32x4_t mm;
-	mm		   = vcvtq_s32_f32 (fx);
-	mm		   = vaddq_s32 (mm, vdupq_n_s32 (0x7f));
-	mm		   = vshlq_n_s32 (mm, 23);
-	v4sf pow2n = vreinterpretq_f32_s32 (mm);
+	mm = vcvtq_s32_f32 (fx);
+	mm = vaddq_s32 (mm, vdupq_n_s32 (0x7f));
+	mm = vshlq_n_s32 (mm, 23);
 
-	y = vmulq_f32 (y, pow2n);
+	const v4sf pow2n = vreinterpretq_f32_s32 (mm);
 
-	return y;
+	return vmulq_f32 (y, pow2n);
 }
 
 void sincos_ps (v4sf x, v4sf* ysin, v4sf* ycos)
@@ -205,14 +214,6 @@ void sincos_ps (v4sf x, v4sf* ysin, v4sf* ycos)
 	emm2 = vandq_u32 (emm2, vdupq_n_u32 (~1));
 	y	 = vcvtq_f32_u32 (emm2);
 
-	/* get the polynom selection mask
-	   there is one polynom for 0 <= x <= Pi/4
-	   and another one for Pi/4<x<=Pi/2
-
-	   Both branches will be computed.
-	*/
-	v4su poly_mask = vtstq_u32 (emm2, vdupq_n_u32 (2));
-
 	/* The magic pass: "Extended precision modular arithmetic"
 	   x = ((x - y * DP1) - y * DP2) - y * DP3; */
 	xmm1 = vmulq_n_f32 (y, c_minus_cephes_DP1);
@@ -227,7 +228,8 @@ void sincos_ps (v4sf x, v4sf* ysin, v4sf* ycos)
 
 	/* Evaluate the first polynom  (0 <= x <= Pi/4) in y1,
 	   and the second polynom      (Pi/4 <= x <= 0) in y2 */
-	v4sf z = vmulq_f32 (x, x);
+	const v4sf z = vmulq_f32 (x, x);
+
 	v4sf y1, y2;
 
 	y1 = vmulq_n_f32 (z, c_coscof_p0);
@@ -246,11 +248,20 @@ void sincos_ps (v4sf x, v4sf* ysin, v4sf* ycos)
 	y2 = vaddq_f32 (y2, x);
 	y1 = vaddq_f32 (y1, vdupq_n_f32 (1));
 
+	/* get the polynom selection mask
+	   there is one polynom for 0 <= x <= Pi/4
+	   and another one for Pi/4<x<=Pi/2
+
+	   Both branches will be computed.
+	*/
+	const v4su poly_mask = vtstq_u32 (emm2, vdupq_n_u32 (2));
+
 	/* select the correct result from the two polynoms */
 	v4sf ys = vbslq_f32 (poly_mask, y1, y2);
 	v4sf yc = vbslq_f32 (poly_mask, y2, y1);
-	*ysin	= vbslq_f32 (sign_mask_sin, vnegq_f32 (ys), ys);
-	*ycos	= vbslq_f32 (sign_mask_cos, yc, vnegq_f32 (yc));
+
+	*ysin = vbslq_f32 (sign_mask_sin, vnegq_f32 (ys), ys);
+	*ycos = vbslq_f32 (sign_mask_cos, yc, vnegq_f32 (yc));
 }
 
 v4sf sin_ps (v4sf x)

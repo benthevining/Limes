@@ -87,7 +87,7 @@ template <typename ObjectType>
 LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const ObjectType& object)
 {
 #if LIMES_WINDOWS
-	const auto res = String (typeid (object).name());
+	const auto res = std::string (typeid (object).name());
 
 	if (res.startsWith ("class "))
 		return res.substring (6);
@@ -98,6 +98,7 @@ LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const ObjectType& o
 	return res;
 #else
 	int status = 0;
+
 	if (auto* demangled = abi::__cxa_demangle (typeid (object).name(), nullptr, nullptr, &status))
 	{
 		const auto res = std::string (demangled);

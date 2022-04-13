@@ -26,21 +26,6 @@ concept Scalar = std::is_scalar_v<T>;
 template <typename T>
 concept Integral = std::is_integral_v<T>;
 
-template <Scalar DataType>
-LIMES_EXPORT struct Complex final
-{
-	Complex() = default;
-
-	Complex (DataType* data)  // cppcheck-suppress noExplicitConstructor
-		: real (data[0]), imag (data[1])
-	{
-	}
-
-	DataType real, imag;
-
-	using Type = DataType;
-};
-
 /** @addtogroup lemons_math Math
 	@ingroup lemons_core
 	Math utility functions.

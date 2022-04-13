@@ -19,17 +19,17 @@ namespace limes
 {
 
 template <auto Data>
-LIMES_EXPORT constexpr const auto& make_static() noexcept
+LIMES_EXPORT [[nodiscard]] constexpr const auto& make_static() noexcept
 {
 	return Data;
 }
 
 template <typename ObjectType, typename... Args>
-LIMES_EXPORT ObjectType& getStaticObject (Args&& args)
+LIMES_EXPORT [[nodiscard]] ObjectType& getStaticObject (Args&&... args)
 {
 	static std::unique_ptr<ObjectType> ptr;
 
-	if (ptr == nullptr)
+	if (ptr.get() == nullptr)
 		ptr = std::make_unique<ObjectType> (std::forward<Args> (args)...);
 
 	return *ptr;  // cppcheck-suppress nullPointerRedundantCheck

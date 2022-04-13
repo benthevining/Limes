@@ -16,6 +16,7 @@
 #include <limes_build_type.h>
 
 
+#include "misc/IgnoreUnused.h"
 #include "misc/TypeTraits.h"
 #include "misc/Algorithm.h"
 #include "misc/Version.h"

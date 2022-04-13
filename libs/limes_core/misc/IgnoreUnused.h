@@ -12,35 +12,14 @@
 
 #pragma once
 
-#include <type_traits>
 #include <limes_export.h>
 
 namespace limes
 {
 
-template <class Function>
-LIMES_EXPORT bool call_once (Function&& func, std::invoke_result_t<Function>* result = nullptr)
+template <typename... Args>
+LIMES_EXPORT void ignore_unused (Args&&...)
 {
-	static bool called = false;
-
-	if (called)
-		return false;
-
-	called = true;
-
-	if constexpr (std::is_void_v<std::invoke_result_t<Function>>)
-	{
-		func();
-	}
-	else
-	{
-		if (result == nullptr)
-			func();
-		else
-			*result = func();
-	}
-
-	return true;
 }
 
 }  // namespace limes
