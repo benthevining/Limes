@@ -1,5 +1,12 @@
 # Limes changelog
 
+### [3.1.1](http://github.com/benthevining/Limes/compare/v3.1.0...v3.1.1) (2022-04-13)
+
+
+### Bug Fixes
+
+* aligned alloc symbol for MSVC ([47c99eb](http://github.com/benthevining/Limes/commit/47c99eb8daa46c332fb411588c2418add919fc8b))
+
 ## [3.1.0](http://github.com/benthevining/Limes/compare/v3.0.1...v3.1.0) (2022-04-13)
 
 
