@@ -52,22 +52,6 @@ add_subdirectory (limes_locale)
 add_subdirectory (limes_audio)
 add_subdirectory (limes_music)
 
-include (LimesConfigVersionHeader)
-
-limes_config_version_header (
-	FILENAME
-	LimesVersion.h
-	NAMESPACE
-	limes
-	FUNCTION_NAME
-	getLimesVersion
-	TARGET
-	Limes
-	SCOPE
-	INTERFACE
-	REL_PATH
-	Limes/generated)
-
 target_sources (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes.h>
 								$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}/limes.h>)
 

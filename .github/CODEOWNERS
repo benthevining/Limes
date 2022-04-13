@@ -37,6 +37,7 @@ ector.h benthevining
 hevining
 ing
 libs/CMakeLists.txt benthevining
+libs/limes.h benthevining
 libs/limes_audio/CMakeLists.txt benthevining
 libs/limes_audio/limes_audio.h benthevining
 libs/limes_audio/psola/CMakeLists.txt benthevining
@@ -74,7 +75,9 @@ libs/limes_core/misc/CMakeLists.txt benthevining
 libs/limes_core/misc/Functions.h benthevining
 libs/limes_core/misc/StaticObjects.h benthevining
 libs/limes_core/misc/TypeTraits.h benthevining
+libs/limes_core/misc/Version.h benthevining
 libs/limes_core/misc/languages.cpp benthevining
+libs/limes_core/text/CMakeLists.txt benthevining
 libs/limes_core/text/StringUtils.cpp benthevining
 libs/limes_core/text/TextTable.h benthevining
 libs/limes_core/threading/CMakeLists.txt benthevining
@@ -96,6 +99,7 @@ libs/limes_data_structures/vectors/scalar_vector.h benthevining
 libs/limes_locale/CMakeLists.txt benthevining
 libs/limes_locale/languages/CMakeLists.txt benthevining
 libs/limes_locale/languages/languages.h benthevining
+libs/limes_locale/limes_locale.h benthevining
 libs/limes_music/CMakeLists.txt benthevining
 libs/limes_music/harmony/CMakeLists.txt benthevining
 libs/limes_music/harmony/Chord.cpp benthevining

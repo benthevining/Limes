@@ -34,18 +34,11 @@ function(limes_config_version_header)
 		REL_PATH
 		INSTALL_COMPONENT)
 
-	cmake_parse_arguments (LIMES_ARG "NO_INSTALL" "${oneValueArgs}" "" ${ARGN})
+	cmake_parse_arguments (LIMES_ARG "" "${oneValueArgs}" "" ${ARGN})
 
 	lemons_require_function_arguments (LIMES_ARG NAMESPACE FUNCTION_NAME)
 	lemons_check_for_unparsed_args (LIMES_ARG)
 	oranges_assert_target_argument_is_target (LIMES_ARG)
-
-	if(LIMES_ARG_NO_INSTALL AND LIMES_ARG_INSTALL_COMPONENT)
-		message (
-			WARNING
-				"Arguments NO_INSTALL and INSTALL_COMPONENT cannot both be specified in call to ${CMAKE_CURRENT_FUNCTION}!"
-			)
-	endif()
 
 	if(NOT LIMES_ARG_MAJOR)
 		set (LIMES_ARG_MAJOR "${PROJECT_VERSION_MAJOR}")
@@ -105,38 +98,22 @@ function(limes_config_version_header)
 			"${LIMES_ARG_TARGET}" "${LIMES_ARG_SCOPE}" $<BUILD_INTERFACE:${output_dir}>
 			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}>)
 
-		target_link_libraries ("${LIMES_ARG_TARGET}" "${LIMES_ARG_SCOPE}" Limes::limes_core)
-	endif()
-
-	if(NOT LIMES_ARG_NO_INSTALL)
-		if(NOT LIMES_ARG_INSTALL_COMPONENT)
-			if(LIMES_ARG_TARGET)
-				set (LIMES_ARG_INSTALL_COMPONENT "${PROJECT_NAME}.${LIMES_ARG_TARGET}")
-			else()
-				set (LIMES_ARG_INSTALL_COMPONENT "${PROJECT_NAME}")
-			endif()
+		# special case - limes_core can't link to itself
+		if(NOT "${LIMES_ARG_TARGET}" MATCHES limes_core)
+			target_link_libraries ("${LIMES_ARG_TARGET}" "${LIMES_ARG_SCOPE}" Limes::limes_core)
 		endif()
-
-		install (FILES "${output_header}"
-				 DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}"
-				 COMPONENT "${LIMES_ARG_INSTALL_COMPONENT}")
 	endif()
+
+	if(NOT LIMES_ARG_INSTALL_COMPONENT)
+		if(LIMES_ARG_TARGET)
+			set (LIMES_ARG_INSTALL_COMPONENT "${PROJECT_NAME}.${LIMES_ARG_TARGET}")
+		else()
+			set (LIMES_ARG_INSTALL_COMPONENT "${PROJECT_NAME}")
+		endif()
+	endif()
+
+	install (FILES "${output_header}"
+			 DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}"
+			 COMPONENT "${LIMES_ARG_INSTALL_COMPONENT}")
 
 endfunction()
-
-#
-
-add_library (limesVersionHeaderTest STATIC EXCLUDE_FROM_ALL
-			 "${CMAKE_CURRENT_LIST_DIR}/scripts/version_header_test.cpp")
-
-target_link_libraries (limesVersionHeaderTest PRIVATE Limes::Limes)
-
-add_test (NAME Limes.versionHeader COMMAND "${CMAKE_COMMAND}" --build "${CMAKE_BINARY_DIR}"
-										   --target limesVersionHeaderTest)
-
-set_tests_properties (
-	Limes.versionHeader
-	PROPERTIES
-		PASS_REGULAR_EXPRESSION
-		"major: ${PROJECT_VERSION_MAJOR}; minor: ${PROJECT_VERSION_MINOR}; patch: ${PROJECT_VERSION_PATCH}"
-	)

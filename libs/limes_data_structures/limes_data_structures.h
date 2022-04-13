@@ -12,12 +12,11 @@
 
 #pragma once
 
-#include <limes_core.h>
 #include <limes_vecops.h>
+
 
 #include "vectors/vector.h"
 #include "vectors/owned_vector.h"
 
 #include "data_structures/Dimensions.h"
-#include "data_structures/Version.h"
 #include "data_structures/LinkedListModel.h"

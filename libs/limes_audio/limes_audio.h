@@ -12,8 +12,7 @@
 
 #pragma once
 
-#include <limes_core.h>
-#include <limes_vecops.h>
+#include <limes_data_structures.h>
 
 
 #include "util/Windowing.h"

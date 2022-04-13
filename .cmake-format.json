@@ -79,6 +79,20 @@
           "TARGET": 1
         }
       },
+      "limes_config_version_header": {
+        "kwargs": {
+          "NAMESPACE": 1,
+          "FUNCTION_NAME": 1,
+          "MAJOR": 1,
+          "MINOR": 1,
+          "PATCH": 1,
+          "FILENAME": 1,
+          "TARGET": 1,
+          "SCOPE": 1,
+          "REL_PATH": 1,
+          "INSTALL_COMPONENT": 1
+        }
+      },
       "oranges_generate_build_type_header": {
         "kwargs": {
           "BASE_NAME": 1,

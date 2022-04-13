@@ -16,8 +16,8 @@
 
 namespace @LIMES_ARG_NAMESPACE@
 {
-	[[nodiscard]] constexpr limes::Version @LIMES_ARG_FUNCTION_NAME@() noexcept
+	[[nodiscard]] constexpr ::limes::Version @LIMES_ARG_FUNCTION_NAME@() noexcept
 	{
-		return limes::Version { @LIMES_ARG_MAJOR@, @LIMES_ARG_MINOR@, @LIMES_ARG_PATCH@ };
+		return ::limes::Version { @LIMES_ARG_MAJOR@, @LIMES_ARG_MINOR@, @LIMES_ARG_PATCH@ };
 	}
 }

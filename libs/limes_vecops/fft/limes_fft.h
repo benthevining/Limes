@@ -102,7 +102,7 @@ private:
 #if LIMES_VECOPS_USE_FFTW
 namespace fftw
 {
-LIMES_EXPORT void setWisdomFileDir (std::string_view dirAbsPath);
+LIMES_EXPORT void setWisdomFileDir (const std::string_view& dirAbsPath);
 
 LIMES_EXPORT [[nodiscard]] std::string getWisdomFileDir();
 

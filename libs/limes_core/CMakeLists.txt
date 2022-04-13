@@ -44,6 +44,7 @@ include (OrangesGeneratePkgConfig)
 include (OrangesGenerateStandardHeaders)
 include (CPackComponent)
 include (GNUInstallDirs)
+include (LimesConfigVersionHeader)
 
 add_library (limes_core STATIC)
 
@@ -54,12 +55,19 @@ target_link_libraries (limes_core PRIVATE Oranges::OrangesDefaultTarget Oranges:
 
 oranges_generate_standard_headers (
 	TARGET limes_core
-	BASE_NAME limes
-	HEADER limes_generated.h
+	BASE_NAME limes NO_AGGREGATE_HEADER
 	BUILD_TYPE_HEADER limes_build_type.h
 	EXPORT_HEADER limes_export.h
 	PLATFORM_HEADER limes_platform.h
 	INSTALL_COMPONENT limes_core_dev
+	REL_PATH Limes/limes_core)
+
+limes_config_version_header (
+	FILENAME limes_version.h
+	NAMESPACE limes
+	FUNCTION_NAME getLimesVersion
+	TARGET limes_core
+	SCOPE PUBLIC
 	REL_PATH Limes/limes_core)
 
 set (LIMES_CORE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_core" CACHE INTERNAL "")

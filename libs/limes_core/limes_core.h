@@ -12,8 +12,13 @@
 
 #pragma once
 
+#include <limes_platform.h>
+#include <limes_build_type.h>
+
+
 #include "misc/TypeTraits.h"
 #include "misc/Algorithm.h"
+#include "misc/Version.h"
 
 #include "text/StringUtils.h"
 #include "text/TextTable.h"
@@ -24,3 +29,5 @@
 #include "threading/RealtimeTypeTraits.h"
 #include "threading/ThreadSafeObject.h"
 #include "threading/RealtimeSafeObject.h"
+
+#include <limes_version.h>

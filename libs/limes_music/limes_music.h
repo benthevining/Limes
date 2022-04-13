@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include <limes_core.h>
+#include <limes_data_structures.h>
 
 
 #include "harmony/PitchUtils.h"

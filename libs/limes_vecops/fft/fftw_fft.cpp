@@ -82,7 +82,7 @@ static std::string widom_file_dir;	// NOLINT
 static std::mutex  wisdom_lock;
 static bool		   useWisdom { true };
 
-void setWisdomFileDir (std::string_view dirAbsPath)
+void setWisdomFileDir (const std::string_view& dirAbsPath)
 {
 	const std::lock_guard g { wisdom_lock };
 
