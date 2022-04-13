@@ -63,6 +63,13 @@ define_property (
 	TARGET PROPERTY VECOPS_IMPLEMENTATION BRIEF_DOCS "Name of the vecops implementation"
 	FULL_DOCS "Name of the underlying vecops implementation library used by limes_vecops")
 
+project (
+	LimesVecops
+	VERSION "${Limes_VERSION}"
+	DESCRIPTION "Limes vector operations library"
+	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}"
+	LANGUAGES CXX)
+
 add_library (limes_vecops STATIC)
 
 set_target_properties (limes_vecops PROPERTIES VERSION "${PROJECT_VERSION}"
@@ -107,7 +114,7 @@ install (
 oranges_create_pkgconfig_file (
 	TARGET limes_vecops
 	INCLUDE_REL_PATH "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION "Limes vector operations library"
+	DESCRIPTION "${PROJECT_DESCRIPTION}"
 	URL "${PROJECT_HOMEPAGE_URL}"
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_vecops_dev)
@@ -121,8 +128,8 @@ cpack_add_component (limes_vecops_dev GROUP limes_vecops DEPENDS limes_vecops_ru
 					 INSTALL_TYPES Developer)
 
 cpack_add_component_group (
-	limes_vecops DISPLAY_NAME "Limes vecops library"
-	DESCRIPTION "All components of the Limes vector operations library" PARENT_GROUP limes)
+	limes_vecops DISPLAY_NAME "${PROJECT_DESCRIPTION}"
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
 
 if(NOT TARGET Limes::limes_vecops)
 	add_library (Limes::limes_vecops ALIAS limes_vecops)

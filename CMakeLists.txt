@@ -63,10 +63,12 @@ Install component groups
 find_package components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - All
-- Core
-- Vecops
 - Audio
+- Core
+- DataStructures
+- Locale
 - Music
+- Vecops
 
 #]=======================================================================]
 

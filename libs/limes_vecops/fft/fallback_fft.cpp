@@ -11,6 +11,7 @@
  */
 
 #include "fallback_fft.h"
+#include <stdlib.h>
 
 namespace limes::vecops
 {
@@ -19,15 +20,33 @@ template <Scalar SampleType>
 FallbackFFT<SampleType>::FallbackFFT (int size)
 	: FFTImpl<SampleType> (size)
 {
-	// m_table = allocate_and_zero<int>(m_half);
-	//       m_sincos = allocate_and_zero<double>(m_blockTableSize * 4);
-	//       m_sincos_r = allocate_and_zero<double>(m_half);
-	//       m_vr = allocate_and_zero<double>(m_half);
-	//       m_vi = allocate_and_zero<double>(m_half);
-	//       m_a = allocate_and_zero<double>(m_half + 1);
-	//       m_b = allocate_and_zero<double>(m_half + 1);
-	//       m_c = allocate_and_zero<double>(m_half + 1);
-	//       m_d = allocate_and_zero<double>(m_half + 1);
+	m_table = static_cast<int*> (aligned_alloc (32, m_half * sizeof (int)));
+
+	for (auto i = 0; i < m_half; ++i)
+		m_table[i] = 0;
+
+	auto alloc_and_zero = [] (int numElements)
+	{
+		const auto bytes = numElements * sizeof (double);
+
+		auto* const ptr = static_cast<double*> (aligned_alloc (32, bytes));
+
+		for (auto i = 0; i < numElements; ++i)
+			ptr[i] = 0.;
+
+		return ptr;
+	};
+
+	m_vr	   = alloc_and_zero (m_half);
+	m_vi	   = alloc_and_zero (m_half);
+	m_sincos_r = alloc_and_zero (m_half);
+
+	m_a = alloc_and_zero (m_half + 1);
+	m_b = alloc_and_zero (m_half + 1);
+	m_c = alloc_and_zero (m_half + 1);
+	m_d = alloc_and_zero (m_half + 1);
+
+	m_sincos = alloc_and_zero (m_blockTableSize * 4);
 
 	makeTables();
 }
@@ -35,15 +54,15 @@ FallbackFFT<SampleType>::FallbackFFT (int size)
 template <Scalar SampleType>
 FallbackFFT<SampleType>::~FallbackFFT()
 {
-	// deallocate(m_table);
-	//       deallocate(m_sincos);
-	//       deallocate(m_sincos_r);
-	//       deallocate(m_vr);
-	//       deallocate(m_vi);
-	//       deallocate(m_a);
-	//       deallocate(m_b);
-	//       deallocate(m_c);
-	//       deallocate(m_d);
+	free (m_table);
+	free (m_sincos);
+	free (m_sincos_r);
+	free (m_vr);
+	free (m_vi);
+	free (m_a);
+	free (m_b);
+	free (m_c);
+	free (m_d);
 }
 
 template <Scalar SampleType>

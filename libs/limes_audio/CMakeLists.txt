@@ -44,6 +44,13 @@ include (OrangesGeneratePkgConfig)
 include (CPackComponent)
 include (GNUInstallDirs)
 
+project (
+	LimesAudio
+	VERSION "${Limes_VERSION}"
+	DESCRIPTION "Limes realtime audio library"
+	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}"
+	LANGUAGES CXX)
+
 add_library (limes_audio STATIC)
 
 set_target_properties (limes_audio PROPERTIES VERSION "${PROJECT_VERSION}"
@@ -89,7 +96,7 @@ install (
 oranges_create_pkgconfig_file (
 	TARGET limes_audio
 	INCLUDE_REL_PATH "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION "Limes realtime audio utilities library"
+	DESCRIPTION "${PROJECT_DESCRIPTION}"
 	URL "${PROJECT_HOMEPAGE_URL}"
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_audio_dev)
@@ -103,8 +110,8 @@ cpack_add_component (limes_audio_dev GROUP limes_audio DEPENDS limes_audio_runti
 					 INSTALL_TYPES Developer)
 
 cpack_add_component_group (
-	limes_audio DISPLAY_NAME "Limes audio library"
-	DESCRIPTION "All components of the Limes audio utilities library" PARENT_GROUP limes)
+	limes_audio DISPLAY_NAME "${PROJECT_DESCRIPTION}"
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
 
 if(NOT TARGET Limes::limes_audio)
 	add_library (Limes::limes_audio ALIAS limes_audio)

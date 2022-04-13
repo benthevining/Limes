@@ -118,6 +118,7 @@ repos:
                --comment-style=#,
                --detect-license-in-X-top-lines=16]
         types_or: [cmake, python, shell]
+        exclude: FindOranges.cmake
 
   # text and typos
   - repo: https://github.com/sirosen/texthooks

@@ -44,6 +44,13 @@ include (OrangesGeneratePkgConfig)
 include (CPackComponent)
 include (GNUInstallDirs)
 
+project (
+	LimesMusic
+	VERSION "${Limes_VERSION}"
+	DESCRIPTION "Limes music theory library"
+	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}"
+	LANGUAGES CXX)
+
 add_library (limes_music STATIC)
 
 set_target_properties (limes_music PROPERTIES VERSION "${PROJECT_VERSION}"
@@ -88,7 +95,7 @@ install (
 oranges_create_pkgconfig_file (
 	TARGET limes_music
 	INCLUDE_REL_PATH "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION "Limes music theory library"
+	DESCRIPTION "${PROJECT_DESCRIPTION}"
 	URL "${PROJECT_HOMEPAGE_URL}"
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_music_dev)
@@ -102,8 +109,8 @@ cpack_add_component (limes_music_dev GROUP limes_music DEPENDS limes_music_runti
 					 INSTALL_TYPES Developer)
 
 cpack_add_component_group (
-	limes_music DISPLAY_NAME "Limes music library"
-	DESCRIPTION "All components of the Limes music theory utilities library" PARENT_GROUP limes)
+	limes_music DISPLAY_NAME "${PROJECT_DESCRIPTION}"
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
 
 if(NOT TARGET Limes::limes_music)
 	add_library (Limes::limes_music ALIAS limes_music)

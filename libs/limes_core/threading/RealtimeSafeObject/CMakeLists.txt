@@ -10,16 +10,18 @@
 
 target_sources (
 	limes_core
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ObjectBase.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/AtomicObjectHolder.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NonrealtimeMutatableObject.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeMutatableObject.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject_impl.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/ObjectBase.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/AtomicObjectHolder.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/NonrealtimeMutatableObject.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/RealtimeMutatableObject.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/RealtimeSafeObject_impl.h>)
+	PRIVATE
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ObjectBase.h>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/AtomicObjectHolder.h>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NonrealtimeMutatableObject.h>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeMutatableObject.h>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject_impl.h>
+		$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/RealtimeSafeObject/ObjectBase.h>
+		$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/RealtimeSafeObject/AtomicObjectHolder.h>
+		$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/RealtimeSafeObject/NonrealtimeMutatableObject.h>
+		$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/RealtimeSafeObject/RealtimeMutatableObject.h>
+		$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/RealtimeSafeObject/RealtimeSafeObject_impl.h>
+	)
 
 install (
 	FILES "${CMAKE_CURRENT_LIST_DIR}/ObjectBase.h"
@@ -27,5 +29,5 @@ install (
 		  "${CMAKE_CURRENT_LIST_DIR}/NonrealtimeMutatableObject.h"
 		  "${CMAKE_CURRENT_LIST_DIR}/RealtimeMutatableObject.h"
 		  "${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject_impl.h"
-	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/RealtimeSafeObject"
 	COMPONENT limes_core_dev)

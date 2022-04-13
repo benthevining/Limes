@@ -11,6 +11,7 @@
  */
 
 #include "vdsp_fft.h"
+#include <stdlib.h>
 
 namespace limes::vecops
 {
@@ -84,12 +85,19 @@ vDSP_FFT<SampleType>::vDSP_FFT (int size)
 		m_spec = vDSP_create_fftsetupD (this->m_order, FFT_RADIX2);
 
 	//!!! "If possible, tempBuffer->realp and tempBuffer->imagp should be 32-byte aligned for best performance."
-	// m_buf.realp	   = allocate<float> (fft_size);
-	// m_buf.imagp	   = allocate<float> (fft_size);
-	// m_packed.realp = allocate<float> (fft_size / 2 + 1);
-	// m_packed.imagp = allocate<float> (fft_size / 2 + 1);
-	// m_spare		   = allocate<float> (fft_size + 2);
-	// m_spare2	   = allocate<float> (fft_size + 2);
+
+	const auto fft_size_bytes	   = this->fft_size * sizeof (SampleType);
+	const auto fft_half_size_bytes = (this->fft_size / 2 + 1) * sizeof (SampleType);
+	const auto spare_size_bytes	   = (this->fft_size + 2) * sizeof (SampleType);
+
+	m_buf.realp = static_cast<SampleType*> (aligned_alloc (32, fft_size_bytes));
+	m_buf.imagp = static_cast<SampleType*> (aligned_alloc (32, fft_size_bytes));
+
+	m_packed.realp = static_cast<SampleType*> (aligned_alloc (32, fft_half_size_bytes));
+	m_packed.imagp = static_cast<SampleType*> (aligned_alloc (32, fft_half_size_bytes));
+
+	m_spare	 = static_cast<SampleType*> (aligned_alloc (32, spare_size_bytes));
+	m_spare2 = static_cast<SampleType*> (aligned_alloc (32, spare_size_bytes));
 }
 
 template <Scalar SampleType>
@@ -100,12 +108,12 @@ vDSP_FFT<SampleType>::~vDSP_FFT()
 	else
 		vDSP_destroy_fftsetupD (m_spec);
 
-	// deallocate (m_spare);
-	// deallocate (m_spare2);
-	// deallocate (m_buf.realp);
-	// deallocate (m_buf.imagp);
-	// deallocate (m_packed.realp);
-	// deallocate (m_packed.imagp);
+	free (m_spare);
+	free (m_spare2);
+	free (m_buf.realp);
+	free (m_buf.imagp);
+	free (m_packed.realp);
+	free (m_packed.imagp);
 }
 
 template <Scalar SampleType>

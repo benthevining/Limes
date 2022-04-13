@@ -45,6 +45,7 @@ libs/limes_audio/psola/PeakFinder.cpp benthevining
 libs/limes_audio/psola/PeakFinder.h benthevining
 libs/limes_audio/streams/CMakeLists.txt benthevining
 libs/limes_audio/streams/SampleStream.cpp benthevining
+libs/limes_audio/streams/SampleStream.h benthevining
 libs/limes_audio/streams/basic_oscillators.cpp benthevining
 libs/limes_audio/streams/basic_oscillators.h benthevining
 libs/limes_audio/streams/oscillator.cpp benthevining
@@ -73,6 +74,7 @@ libs/limes_core/math/mathHelpers.h benthevining
 libs/limes_core/misc/Algorithm.h benthevining
 libs/limes_core/misc/CMakeLists.txt benthevining
 libs/limes_core/misc/Functions.h benthevining
+libs/limes_core/misc/IgnoreUnused.h benthevining
 libs/limes_core/misc/StaticObjects.h benthevining
 libs/limes_core/misc/TypeTraits.h benthevining
 libs/limes_core/misc/Version.h benthevining
@@ -136,8 +138,10 @@ libs/limes_music/rhythm/NoteLength_impl.h benthevining
 libs/limes_music/rhythm/TimeSignature.h benthevining
 libs/limes_vecops/CMakeLists.txt benthevining
 libs/limes_vecops/fft/CMakeLists.txt benthevining
+libs/limes_vecops/fft/fallback_fft.cpp benthevining
 libs/limes_vecops/fft/fft.cpp benthevining
 libs/limes_vecops/fft/limes_fft.cpp benthevining
+libs/limes_vecops/fft/vdsp_fft.cpp benthevining
 libs/limes_vecops/impl/CMakeLists.txt benthevining
 libs/limes_vecops/impl/SelectImpl.cmake benthevining
 libs/limes_vecops/impl/check_mipp.cpp benthevining

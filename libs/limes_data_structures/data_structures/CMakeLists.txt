@@ -10,15 +10,18 @@
 
 target_sources (
 	limes_data_structures
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Dimensions.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Dimensions.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/LinkedListModel.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/LinkedListModel_impl.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/Dimensions.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/LinkedListModel.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/LinkedListModel_impl.h>)
+	PRIVATE
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Dimensions.cpp>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Dimensions.h>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/LinkedListModel.h>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/LinkedListModel_impl.h>
+		$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/data_structures/Dimensions.h>
+		$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/data_structures/LinkedListModel.h>
+		$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/data_structures/LinkedListModel_impl.h>
+	)
 
 install (
 	FILES "${CMAKE_CURRENT_LIST_DIR}/Dimensions.h" "${CMAKE_CURRENT_LIST_DIR}/LinkedListModel.h"
 		  "${CMAKE_CURRENT_LIST_DIR}/LinkedListModel_impl.h"
-	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}" COMPONENT limes_data_structures_dev)
+	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/data_structures"
+	COMPONENT limes_data_structures_dev)

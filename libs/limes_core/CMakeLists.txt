@@ -46,6 +46,13 @@ include (CPackComponent)
 include (GNUInstallDirs)
 include (LimesConfigVersionHeader)
 
+project (
+	LimesCore
+	VERSION "${Limes_VERSION}"
+	DESCRIPTION "Limes core utilities library"
+	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}"
+	LANGUAGES CXX)
+
 add_library (limes_core STATIC)
 
 set_target_properties (limes_core PROPERTIES VERSION "${PROJECT_VERSION}"
@@ -60,7 +67,7 @@ oranges_generate_standard_headers (
 	EXPORT_HEADER limes_export.h
 	PLATFORM_HEADER limes_platform.h
 	INSTALL_COMPONENT limes_core_dev
-	REL_PATH Limes/limes_core)
+	REL_PATH limes_core)
 
 limes_config_version_header (
 	FILENAME limes_version.h
@@ -68,7 +75,7 @@ limes_config_version_header (
 	FUNCTION_NAME getLimesVersion
 	TARGET limes_core
 	SCOPE PUBLIC
-	REL_PATH Limes/limes_core)
+	REL_PATH limes_core)
 
 set (LIMES_CORE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_core" CACHE INTERNAL "")
 
@@ -108,7 +115,7 @@ install (
 oranges_create_pkgconfig_file (
 	TARGET limes_core
 	INCLUDE_REL_PATH "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION "Limes core utilities library"
+	DESCRIPTION "${PROJECT_DESCRIPTION}"
 	URL "${PROJECT_HOMEPAGE_URL}"
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_core_dev)
@@ -121,8 +128,8 @@ cpack_add_component (limes_core_dev GROUP limes_core DEPENDS limes_core_runtime
 					 INSTALL_TYPES Developer)
 
 cpack_add_component_group (
-	limes_core DISPLAY_NAME "Limes core library"
-	DESCRIPTION "All components of the Limes core utilities library" PARENT_GROUP limes)
+	limes_core DISPLAY_NAME "${PROJECT_DESCRIPTION}"
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
 
 if(NOT TARGET Limes::limes_core)
 	add_library (Limes::limes_core ALIAS limes_core)

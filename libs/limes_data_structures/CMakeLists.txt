@@ -44,6 +44,13 @@ include (OrangesGeneratePkgConfig)
 include (CPackComponent)
 include (GNUInstallDirs)
 
+project (
+	LimesDataStructures
+	VERSION "${Limes_VERSION}"
+	DESCRIPTION "Limes data structures library"
+	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}"
+	LANGUAGES CXX)
+
 add_library (limes_data_structures STATIC)
 
 set_target_properties (limes_data_structures PROPERTIES VERSION "${PROJECT_VERSION}"
@@ -92,7 +99,7 @@ install (
 oranges_create_pkgconfig_file (
 	TARGET limes_data_structures
 	INCLUDE_REL_PATH "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION "Limes data structures library"
+	DESCRIPTION "${PROJECT_DESCRIPTION}"
 	URL "${PROJECT_HOMEPAGE_URL}"
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_data_structures_dev)
@@ -106,8 +113,8 @@ cpack_add_component (limes_data_structures_dev GROUP limes_data_structures
 					 DEPENDS limes_data_structures_runtime INSTALL_TYPES Developer)
 
 cpack_add_component_group (
-	limes_data_structures DISPLAY_NAME "Limes data structures library"
-	DESCRIPTION "All components of the Limes data structures library" PARENT_GROUP limes)
+	limes_data_structures DISPLAY_NAME "${PROJECT_DESCRIPTION}"
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
 
 if(NOT TARGET Limes::limes_data_structures)
 	add_library (Limes::limes_data_structures ALIAS limes_data_structures)

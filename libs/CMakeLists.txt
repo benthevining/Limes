@@ -40,8 +40,8 @@ include (GNUInstallDirs)
 
 add_library (Limes INTERFACE)
 
-set_target_properties (Limes PROPERTIES VERSION "${PROJECT_VERSION}" SOVERSION
-																	 "${PROJECT_VERSION_MAJOR}")
+set_target_properties (Limes PROPERTIES VERSION "${Limes_VERSION}" SOVERSION
+																   "${Limes_VERSION_MAJOR}")
 
 set (LIMES_INSTALL_INCLUDE_DIR "${CMAKE_INSTALL_INCLUDEDIR}/Limes" CACHE INTERNAL "")
 
@@ -81,9 +81,9 @@ install (
 oranges_create_pkgconfig_file (
 	TARGET Limes
 	INCLUDE_REL_PATH "${LIMES_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION "Limes library"
-	URL "${PROJECT_HOMEPAGE_URL}"
-	VERSION "${PROJECT_VERSION}"
+	DESCRIPTION "${Limes_DESCRIPTION}"
+	URL "${Limes_HOMEPAGE_URL}"
+	VERSION "${Limes_VERSION}"
 	INSTALL_COMPONENT limes_dev)
 
 if(NOT TARGET Limes::Limes)

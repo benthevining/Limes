@@ -65,7 +65,12 @@ void clear (DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void copy (DataType* const dest, const DataType* const source, SizeType size)
 {
-	fb::copy (dest, source, size);
+	if constexpr (is_float_type<DataType>())
+		cblas_scopy (static_cast<int> (size), source, 1, dest, 1);
+	else if constexpr (is_double_type<DataType>())
+		cblas_dcopy (static_cast<int> (size), source, 1, dest, 1);
+	else
+		fb::copy (dest, source, size);
 }
 
 template <Scalar DataType, Integral SizeType>

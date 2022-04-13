@@ -42,27 +42,23 @@ endif()
 
 include ("${CMAKE_CURRENT_LIST_DIR}/LimesTargets.cmake")
 
-if(NOT Oranges_FIND_COMPONENTS)
-	set (Oranges_FIND_COMPONENTS Audio Core Music Vecops)
-elseif(All IN_LIST Oranges_FIND_COMPONENTS)
-	set (Oranges_FIND_COMPONENTS Audio Core Music Vecops)
+set (limes_components Audio Core Music Vecops DataStructures Locale)
+
+if(NOT Limes_FIND_COMPONENTS)
+	set (Limes_FIND_COMPONENTS ${limes_components})
+elseif(All IN_LIST Limes_FIND_COMPONENTS)
+	set (Limes_FIND_COMPONENTS ${limes_components})
 endif()
 
-if(Audio IN_LIST Oranges_FIND_COMPONENTS)
-	include ("${CMAKE_CURRENT_LIST_DIR}/LimesAudioTargets.cmake")
-endif()
+foreach(comp_name IN LISTS Limes_FIND_COMPONENTS)
+	if("${comp_name}" IN_LIST limes_components)
+		include ("${CMAKE_CURRENT_LIST_DIR}/Limes${comp_name}Targets.cmake")
+	else()
+		message (WARNING " -- Limes: unknown component ${comp_name} requested!")
+	endif()
+endforeach()
 
-if(Core IN_LIST Oranges_FIND_COMPONENTS)
-	include ("${CMAKE_CURRENT_LIST_DIR}/LimesCoreTargets.cmake")
-endif()
-
-if(Music IN_LIST Oranges_FIND_COMPONENTS)
-	include ("${CMAKE_CURRENT_LIST_DIR}/LimesMusicTargets.cmake")
-endif()
-
-if(Vecops IN_LIST Oranges_FIND_COMPONENTS)
-	include ("${CMAKE_CURRENT_LIST_DIR}/LimesVecopsTargets.cmake")
-endif()
+unset (limes_components)
 
 #
 
@@ -78,4 +74,4 @@ find_package_message (Limes "Limes package found -- installed on system" "Limes 
 
 #
 
-check_required_components ("@PROJECT_NAME@")
+check_required_components (Limes)
