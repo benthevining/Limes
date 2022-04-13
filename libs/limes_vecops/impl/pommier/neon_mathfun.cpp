@@ -12,6 +12,8 @@
 
 #include "neon_mathfun.h"
 
+#include <array>
+
 namespace pommier
 {
 
@@ -113,7 +115,7 @@ v4sf exp_ps (v4sf x)
 	static constexpr auto c_cephes_exp_p4 = 1.6666665459E-1;
 	static constexpr auto c_cephes_exp_p5 = 5.0000001201E-1;
 
-	static constexpr float32_t cephes_exp_p[6] = { c_cephes_exp_p0, c_cephes_exp_p1, c_cephes_exp_p2, c_cephes_exp_p3, c_cephes_exp_p4, c_cephes_exp_p5 };
+	static constexpr std::array<float32_t, 6> cephes_exp_p { c_cephes_exp_p0, c_cephes_exp_p1, c_cephes_exp_p2, c_cephes_exp_p3, c_cephes_exp_p4, c_cephes_exp_p5 };
 
 	v4sf tmp, fx;
 
@@ -139,32 +141,32 @@ v4sf exp_ps (v4sf x)
 	x	   = vsubq_f32 (x, tmp);
 	x	   = vsubq_f32 (x, z);
 
-	v4sf y = vld1q_dup_f32 (cephes_exp_p + 0);
+	v4sf y = vld1q_dup_f32 (cephes_exp_p[0]);
 
 	y = vmulq_f32 (y, x);
 	z = vmulq_f32 (x, x);
 
-	const v4sf c1 = vld1q_dup_f32 (cephes_exp_p + 1);
+	const v4sf c1 = vld1q_dup_f32 (cephes_exp_p[1]);
 
 	y = vaddq_f32 (y, c1);
 	y = vmulq_f32 (y, x);
 
-	const v4sf c2 = vld1q_dup_f32 (cephes_exp_p + 2);
+	const v4sf c2 = vld1q_dup_f32 (cephes_exp_p[2]);
 
 	y = vaddq_f32 (y, c2);
 	y = vmulq_f32 (y, x);
 
-	const v4sf c3 = vld1q_dup_f32 (cephes_exp_p + 3);
+	const v4sf c3 = vld1q_dup_f32 (cephes_exp_p[3]);
 
 	y = vaddq_f32 (y, c3);
 	y = vmulq_f32 (y, x);
 
-	const v4sf c4 = vld1q_dup_f32 (cephes_exp_p + 4);
+	const v4sf c4 = vld1q_dup_f32 (cephes_exp_p[4]);
 
 	y = vaddq_f32 (y, c4);
 	y = vmulq_f32 (y, x);
 
-	const v4sf c5 = vld1q_dup_f32 (cephes_exp_p + 5);
+	const v4sf c5 = vld1q_dup_f32 (cephes_exp_p[5]);
 
 	y = vaddq_f32 (y, c5);
 

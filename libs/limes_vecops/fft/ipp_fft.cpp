@@ -73,7 +73,7 @@ IPP_FFT<SampleType>::IPP_FFT (int size)
 {
 	static_assert (FFT<SampleType>::isUsingIPP());
 
-	int specSize, specBufferSize, bufferSize;
+	int specSize, specBufferSize, bufferSize;  // NOLINT
 
 	if constexpr (std::is_same_v<SampleType, float>)
 	{

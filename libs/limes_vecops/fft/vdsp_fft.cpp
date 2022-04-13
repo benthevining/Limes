@@ -17,7 +17,7 @@
 #if LIMES_MSVC
 #	include <malloc.h>
 #else
-#	include <stdlib.h>
+#	include <cstdlib>
 #endif
 
 namespace limes::vecops

@@ -16,7 +16,7 @@
 #if LIMES_MSVC
 #	include <malloc.h>
 #else
-#	include <stdlib.h>
+#	include <cstdlib>
 #endif
 
 namespace limes::vecops
@@ -119,8 +119,8 @@ void FallbackFFT<SampleType>::forwardInterleaved (const SampleType* realIn, Samp
 	}
 	else
 	{
-		for (auto i = 0; i <= m_half; ++i) complexOut[static_cast<ptrdiff_t> (i * 2)] = m_c[i];
-		for (auto i = 0; i <= m_half; ++i) complexOut[static_cast<ptrdiff_t> (i * 2 + 1)] = m_d[i];
+		for (auto i = 0; i <= m_half; ++i) complexOut[static_cast<ptrdiff_t> (i * 2)] = static_cast<SampleType> (m_c[i]);
+		for (auto i = 0; i <= m_half; ++i) complexOut[static_cast<ptrdiff_t> (i * 2 + 1)] = static_cast<SampleType> (m_d[i]);
 	}
 }
 
@@ -281,8 +281,8 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformI (const double* ri, c
 
 	for (auto i = 0; i < m_half; ++i)
 	{
-		ro[static_cast<ptrdiff_t> (i * 2)]	   = m_c[i];
-		ro[static_cast<ptrdiff_t> (i * 2 + 1)] = m_d[i];
+		ro[static_cast<ptrdiff_t> (i * 2)]	   = static_cast<SampleType> (m_c[i]);
+		ro[static_cast<ptrdiff_t> (i * 2 + 1)] = static_cast<SampleType> (m_d[i]);
 	}
 }
 
@@ -313,7 +313,7 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformComplex (const double*
 				double sm1, sm2, cm1, cm2;
 			};
 
-			four_values vals;
+			four_values vals {};
 
 			if (blockSize <= m_maxTabledBlock)
 			{

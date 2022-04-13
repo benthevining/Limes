@@ -16,6 +16,8 @@
 #	include "neon_mathfun.h"
 #elif LIMES_SSE
 #	include "sse_mathfun.h"
+#else
+#	error
 #endif
 
 #include "../phasor.h"
@@ -30,7 +32,7 @@ typedef union
 	int				i[4];
 	::pommier::v4sf v;
 } V4SF;
-#elif LIMES_SSE
+#else
 typedef ALIGN16_BEG union
 {
 	float			f[4];

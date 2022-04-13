@@ -21,7 +21,7 @@
 #include <limes_platform.h>
 
 #ifndef LACK_SINCOS
-#	define LACK_SINCOS 0
+#	define LACK_SINCOS 0  // NOLINT
 #endif
 
 namespace limes::vecops::detail

@@ -12,6 +12,8 @@
 
 #include "fftw_fft.h"
 
+#include <sstream>
+
 namespace limes::vecops
 {
 
@@ -78,9 +80,9 @@ LIMES_FORCE_INLINE void fftw_unpack (SampleType* re, SampleType* im,
 // this is the public interface for wisdom
 namespace fftw
 {
-static std::string widom_file_dir;	// NOLINT
-static std::mutex  wisdom_lock;
-static bool		   useWisdom { true };
+static std::string widom_file_dir;		// NOLINT
+static std::mutex  wisdom_lock;			// NOLINT
+static bool		   useWisdom { true };	// NOLINT
 
 void setWisdomFileDir (const std::string_view& dirAbsPath)
 {
@@ -138,10 +140,11 @@ bool isUsingWisdom()
 
 	const auto typeChar = isDouble ? 'd' : 'f';
 
-	char fn[256];
-	std::snprintf (fn, sizeof (fn), "%s/%s.%c", fileDir.c_str(), ".fftw_wisdom", typeChar);
+	std::stringstream file_name;
 
-	return std::fopen (fn, save ? "wb" : "rb");
+	file_name << fileDir << "/.fftw_wisdom." << typeChar;
+
+	return std::fopen (file_name.str().c_str(), save ? "wb" : "rb");
 }
 
 inline void fftw_load_wisdom (bool isDouble)
@@ -188,13 +191,10 @@ FFTW_FloatFFT::FFTW_FloatFFT (int size)
 
 FFTW_FloatFFT::~FFTW_FloatFFT()
 {
-	if (m_fplanf)
-	{
-		fftwf_destroy_plan (m_fplanf);
-		fftwf_destroy_plan (m_fplani);
-		fftwf_free (m_fbuf);
-		fftwf_free (m_fpacked);
-	}
+	fftwf_destroy_plan (m_fplanf);
+	fftwf_destroy_plan (m_fplani);
+	fftwf_free (m_fbuf);
+	fftwf_free (m_fpacked);
 
 	--m_extantf;
 
@@ -303,7 +303,7 @@ void FFTW_FloatFFT::inverseCepstral (const float* magIn, float* cepOut)
 		vecops::copy (cepOut, m_fbuf, fft_size);
 }
 
-int FFTW_FloatFFT::m_extantf = 0;
+int FFTW_FloatFFT::m_extantf = 0;  // NOLINT
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -436,7 +436,7 @@ void FFTW_DoubleFFT::inverseCepstral (const double* magIn, double* cepOut)
 		vecops::copy (cepOut, m_dbuf, fft_size);
 }
 
-int FFTW_DoubleFFT::m_extantd = 0;
+int FFTW_DoubleFFT::m_extantd = 0;	// NOLINT
 
 }  // namespace limes::vecops
 

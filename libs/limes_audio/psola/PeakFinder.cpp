@@ -177,7 +177,7 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* const inp
 		const auto distance = static_cast<SampleType> (std::abs (predictedPeak - index));
 		const auto weight	= SampleType (1) - (distance / static_cast<SampleType> (numSamples));
 
-		return std::abs (inputSamples[index]) * weight;
+		return std::abs (inputSamples[index]) * weight;	 // NOLINT
 	};
 
 	auto strongest	  = get_weighted_sample (starting);
@@ -205,11 +205,11 @@ template <Sample SampleType>
 int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* const inputSamples) const
 {
 	auto strongestPeakIndex = peakCandidates[0];
-	auto strongestPeak		= std::abs (inputSamples[strongestPeakIndex]);
+	auto strongestPeak		= std::abs (inputSamples[strongestPeakIndex]);	// NOLINT
 
 	for (const auto candidate : peakCandidates)
 	{
-		const auto current = std::abs (inputSamples[candidate]);
+		const auto current = std::abs (inputSamples[candidate]);  // NOLINT
 
 		if (current > strongestPeak)
 		{
@@ -242,7 +242,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const in
 
 	for (auto i = 0; i < finalHandfulSize; ++i)
 	{
-		int index, deltaValue;
+		int index, deltaValue;	// NOLINT
 
 		vecops::min (candidateDeltas.data(), candidateDeltas.numObjects(), deltaValue, index);
 
@@ -270,7 +270,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const in
 
 		const auto deltaWeight = SampleType (1) - (delta / static_cast<SampleType> (deltaRange));
 
-		return std::abs (inputSamples[sampleIndex]) * deltaWeight;
+		return std::abs (inputSamples[sampleIndex]) * deltaWeight;	// NOLINT
 	};
 
 	auto chosenPeak	   = finalHandful[0];
