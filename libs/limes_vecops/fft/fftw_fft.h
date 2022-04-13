@@ -32,48 +32,18 @@
 #	error FFTW_SINGLE_ONLY and FFTW_DOUBLE_ONLY cannot both be defined to 1!
 #endif
 
-/* All these symbols are undefined at the end of the fftw_fft.cpp file */
-#if FFTW_DOUBLE_ONLY
-#	define fft_float_type		  double
-#	define fftwf_complex		  fftw_complex
-#	define fftwf_plan			  fftw_plan
-#	define fftwf_plan_dft_r2c_1d fftw_plan_dft_r2c_1d
-#	define fftwf_plan_dft_c2r_1d fftw_plan_dft_c2r_1d
-#	define fftwf_destroy_plan	  fftw_destroy_plan
-#	define fftwf_malloc		  fftw_malloc
-#	define fftwf_free			  fftw_free
-#	define fftwf_execute		  fftw_execute
-#	define fftwf_cleanup		  fftw_cleanup
-#	define atan2f				  atan2
-#	define sqrtf				  sqrt
-#	define cosf				  cos
-#	define sinf				  sin
-#else
-#	define fft_float_type float
-#endif /* FFTW_DOUBLE_ONLY */
-
-#if FFTW_SINGLE_ONLY
-#	define fft_double_type		 float
-#	define fftw_complex		 fftwf_complex
-#	define fftw_plan			 fftwf_plan
-#	define fftw_plan_dft_r2c_1d fftwf_plan_dft_r2c_1d
-#	define fftw_plan_dft_c2r_1d fftwf_plan_dft_c2r_1d
-#	define fftw_destroy_plan	 fftwf_destroy_plan
-#	define fftw_malloc			 fftwf_malloc
-#	define fftw_free			 fftwf_free
-#	define fftw_execute		 fftwf_execute
-#	define fftw_cleanup		 fftwf_cleanup
-#	define atan2				 atan2f
-#	define sqrt				 sqrtf
-#	define cos					 cosf
-#	define sin					 sinf
-#else
-#	define fft_double_type double
-#endif /* FFTW_SINGLE_ONLY */
-
 
 namespace limes::vecops
 {
+
+using fft_float_type		  = std::conditional_t<FFTW_DOUBLE_ONLY, double, float>;
+using fftw_float_plan		  = std::conditional_t<FFTW_DOUBLE_ONLY, fftw_plan, fftwf_plan>;
+using fftw_float_complex_type = std::conditional_t<FFTW_DOUBLE_ONLY, fftw_complex, fftwf_complex>;
+
+using fft_double_type		   = std::conditional_t<FFTW_SINGLE_ONLY, float, double>;
+using fftw_double_plan		   = std::conditional_t<FFTW_SINGLE_ONLY, fftwf_plan, fftw_plan>;
+using fftw_double_complex_type = std::conditional_t<FFTW_SINGLE_ONLY, fftwf_complex, fftw_complex>;
+
 
 class LIMES_NO_EXPORT FFTW_FloatFFT final : public FFTImpl<float>
 {
@@ -109,12 +79,12 @@ private:
 
 	void inverseCepstral (const float* magIn, float* cepOut) final;
 
-	fftwf_plan m_fplanf;
-	fftwf_plan m_fplani;
+	fftw_float_plan m_fplanf;
+	fftw_float_plan m_fplani;
 
 	fft_float_type* m_fbuf;
 
-	fftwf_complex* m_fpacked;
+	fftw_float_complex_type* m_fpacked;
 
 	static int m_extantf;
 };
@@ -154,12 +124,12 @@ private:
 
 	void inverseCepstral (const double* magIn, double* cepOut) final;
 
-	fftw_plan m_dplanf;
-	fftw_plan m_dplani;
+	fftw_double_plan m_dplanf;
+	fftw_double_plan m_dplani;
 
 	fft_double_type* m_dbuf;
 
-	fftw_complex* m_dpacked;
+	fftw_double_complex_type* m_dpacked;
 
 	static int m_extantd;
 };

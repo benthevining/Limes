@@ -15,6 +15,33 @@
 namespace limes::vecops
 {
 
+#if FFTW_DOUBLE_ONLY
+#	define fftwf_plan_dft_r2c_1d fftw_plan_dft_r2c_1d
+#	define fftwf_plan_dft_c2r_1d fftw_plan_dft_c2r_1d
+#	define fftwf_destroy_plan	  fftw_destroy_plan
+#	define fftwf_malloc		  fftw_malloc
+#	define fftwf_free			  fftw_free
+#	define fftwf_execute		  fftw_execute
+#	define fftwf_cleanup		  fftw_cleanup
+#	define atan2f				  atan2
+#	define sqrtf				  sqrt
+#	define cosf				  cos
+#	define sinf				  sin
+#elif FFTW_SINGLE_ONLY
+#	define fftw_plan_dft_r2c_1d fftwf_plan_dft_r2c_1d
+#	define fftw_plan_dft_c2r_1d fftwf_plan_dft_c2r_1d
+#	define fftw_destroy_plan	 fftwf_destroy_plan
+#	define fftw_malloc			 fftwf_malloc
+#	define fftw_free			 fftwf_free
+#	define fftw_execute		 fftwf_execute
+#	define fftw_cleanup		 fftwf_cleanup
+#	define atan2				 atan2f
+#	define sqrt				 sqrtf
+#	define cos					 cosf
+#	define sin					 sinf
+#endif
+
+
 template <Scalar SampleType, typename ComplexType>
 LIMES_FORCE_INLINE void fftw_pack (const SampleType* re, const SampleType* im,
 								   ComplexType* m_packed, int fft_size)
@@ -147,7 +174,7 @@ inline void fftw_save_wisdom (bool isDouble)
 
 FFTW_FloatFFT::FFTW_FloatFFT (int size)
 	: FFTImpl<float> (size), m_fbuf (reinterpret_cast<fft_float_type*> (fftw_malloc (fft_size * sizeof (fft_float_type)))),
-	  m_fpacked (reinterpret_cast<fftwf_complex*> (fftw_malloc ((fft_size / 2 + 1) * sizeof (fftwf_complex)))),
+	  m_fpacked (reinterpret_cast<fftw_float_complex_type*> (fftw_malloc ((fft_size / 2 + 1) * sizeof (fftw_float_complex_type)))),
 	  m_fplanf (fftwf_plan_dft_r2c_1d (fft_size, m_fbuf, m_fpacked, FFTW_ESTIMATE)),
 	  m_fplani (fftwf_plan_dft_c2r_1d (fft_size, m_fpacked, m_fbuf, FFTW_ESTIMATE))
 {
@@ -283,7 +310,7 @@ int FFTW_FloatFFT::m_extantf = 0;
 FFTW_DoubleFFT::FFTW_DoubleFFT (int size)
 	: FFTImpl<double> (size),
 	  m_dbuf (reinterpret_cast<fft_double_type*> (fftw_malloc (fft_size * sizeof (fft_double_type)))),
-	  m_dpacked (reinterpret_cast<fftw_complex*> (fftw_malloc ((fft_size / 2 + 1) * sizeof (fftw_complex)))),
+	  m_dpacked (reinterpret_cast<fftw_double_complex_type*> (fftw_malloc ((fft_size / 2 + 1) * sizeof (fftw_double_complex_type)))),
 	  m_dplanf (fftw_plan_dft_r2c_1d (fft_size, m_dbuf, m_dpacked, FFTW_ESTIMATE)),
 	  m_dplani (fftw_plan_dft_c2r_1d (fft_size, m_dpacked, m_dbuf, FFTW_ESTIMATE))
 {
@@ -414,12 +441,7 @@ int FFTW_DoubleFFT::m_extantd = 0;
 }  // namespace limes::vecops
 
 
-#undef fft_float_type
-#undef fft_double_type
-
 #if FFTW_DOUBLE_ONLY
-#	undef fftwf_complex
-#	undef fftwf_plan
 #	undef fftwf_plan_dft_r2c_1d
 #	undef fftwf_plan_dft_c2r_1d
 #	undef fftwf_destroy_plan
@@ -430,11 +452,7 @@ int FFTW_DoubleFFT::m_extantd = 0;
 #	undef sqrtf
 #	undef cosf
 #	undef sinf
-#endif /* FFTW_DOUBLE_ONLY */
-
-#if FFTW_SINGLE_ONLY
-#	undef fftw_complex
-#	undef fftw_plan
+#elif FFTW_SINGLE_ONLY
 #	undef fftw_plan_dft_r2c_1d
 #	undef fftw_plan_dft_c2r_1d
 #	undef fftw_destroy_plan
@@ -445,4 +463,4 @@ int FFTW_DoubleFFT::m_extantd = 0;
 #	undef sqrt
 #	undef cos
 #	undef sin
-#endif /* FFTW_SINGLE_ONLY */
+#endif

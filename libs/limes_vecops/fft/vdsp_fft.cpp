@@ -72,10 +72,16 @@ LIMES_FORCE_INLINE void vDSP_unpackComplex (SampleType* const		cplx,
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-vDSP_FloatFFT::vDSP_FloatFFT (int size)
-	: FFTImpl<float> (size)
+template <Scalar SampleType>
+vDSP_FFT<SampleType>::vDSP_FFT (int size)
+	: FFTImpl<SampleType> (size)
 {
-	static_assert (FFT<float>::isUsingVDSP());
+	static_assert (FFT<SampleType>::isUsingVDSP());
+
+	if constexpr (std::is_same_v<SampleType, float>)
+		m_spec = vDSP_create_fftsetup (this->m_order, FFT_RADIX2);
+	else
+		m_spec = vDSP_create_fftsetupD (this->m_order, FFT_RADIX2);
 
 	//!!! "If possible, tempBuffer->realp and tempBuffer->imagp should be 32-byte aligned for best performance."
 	// m_buf.realp	   = allocate<float> (fft_size);
@@ -86,9 +92,14 @@ vDSP_FloatFFT::vDSP_FloatFFT (int size)
 	// m_spare2	   = allocate<float> (fft_size + 2);
 }
 
-vDSP_FloatFFT::~vDSP_FloatFFT()
+template <Scalar SampleType>
+vDSP_FFT<SampleType>::~vDSP_FFT()
 {
-	vDSP_destroy_fftsetup (m_spec);
+	if constexpr (std::is_same_v<SampleType, float>)
+		vDSP_destroy_fftsetup (m_spec);
+	else
+		vDSP_destroy_fftsetupD (m_spec);
+
 	// deallocate (m_spare);
 	// deallocate (m_spare2);
 	// deallocate (m_buf.realp);
@@ -97,260 +108,228 @@ vDSP_FloatFFT::~vDSP_FloatFFT()
 	// deallocate (m_packed.imagp);
 }
 
-void vDSP_FloatFFT::forward (const float* realIn, float* realOut, float* imagOut)
+template <Scalar SampleType>
+void vDSP_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut)
 {
 	packReal (realIn);
-	vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-	vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
+
+	if constexpr (std::is_same_v<SampleType, float>)
+		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, this->m_order, FFT_FORWARD);
+	else
+		vDSP_fft_zriptD (m_spec, &m_packed, vDSP_Stride (1), &m_buf, vDSP_Length (this->m_order), FFT_FORWARD);
+
+	vDSP_denyq (m_packed.realp, m_packed.imagp, this->fft_size);
+
 	unpackComplex (realOut, imagOut);
 }
 
-void vDSP_FloatFFT::forwardInterleaved (const float* realIn, float* complexOut)
+template <Scalar SampleType>
+void vDSP_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleType* complexOut)
 {
 	packReal (realIn);
-	vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-	vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
 
-	vDSP_unpackComplex (complexOut, m_packed.realp, m_packed.imagp, fft_size);
+	if constexpr (std::is_same_v<SampleType, float>)
+		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, this->m_order, FFT_FORWARD);
+	else
+		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, this->m_order, FFT_FORWARD);
+
+	vDSP_denyq (m_packed.realp, m_packed.imagp, this->fft_size);
+
+	vDSP_unpackComplex (complexOut, m_packed.realp, m_packed.imagp, this->fft_size);
 }
 
-void vDSP_FloatFFT::forwardPolar (const float* realIn, float* magOut, float* phaseOut)
+template <Scalar SampleType>
+void vDSP_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut)
 {
 	packReal (realIn);
-	vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-	vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
+
+	if constexpr (std::is_same_v<SampleType, float>)
+		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, this->m_order, FFT_FORWARD);
+	else
+		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, this->m_order, FFT_FORWARD);
+
+	vDSP_denyq (m_packed.realp, m_packed.imagp, this->fft_size);
 
 	// vDSP forward FFTs are scaled 2x (for some reason)
 
-	const auto	   hs1	= fft_size / 2 + 1;
-	constexpr auto half = 0.5f;
+	const auto	   hs1	= this->fft_size / 2 + 1;
+	constexpr auto half = SampleType (0.5);
 
-	vDSP_vsmul (m_packed.realp, vDSP_Stride (1), &half, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
-	vDSP_vsmul (m_packed.imagp, vDSP_Stride (1), &half, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
+	if constexpr (std::is_same_v<SampleType, float>)
+	{
+		vDSP_vsmul (m_packed.realp, vDSP_Stride (1), &half, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
+		vDSP_vsmul (m_packed.imagp, vDSP_Stride (1), &half, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
+	}
+	else
+	{
+		vDSP_vsmulD (m_packed.realp, vDSP_Stride (1), &half, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
+		vDSP_vsmulD (m_packed.imagp, vDSP_Stride (1), &half, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
+	}
 
 	vecops::cartesianToPolar (magOut, phaseOut, m_packed.realp, m_packed.imagp, hs1);
 }
 
-void vDSP_FloatFFT::forwardMagnitude (const float* realIn, float* magOut)
+template <Scalar SampleType>
+void vDSP_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType* magOut)
 {
 	packReal (realIn);
-	vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-	vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
 
-	const auto hs1 = fft_size / 2 + 1;
+	if constexpr (std::is_same_v<SampleType, float>)
+		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, this->m_order, FFT_FORWARD);
+	else
+		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, this->m_order, FFT_FORWARD);
 
-	vDSP_zvmags (&m_packed, 1, m_spare, 1, hs1);
-	vvsqrtf (m_spare2, m_spare, &hs1);
+	vDSP_denyq (m_packed.realp, m_packed.imagp, this->fft_size);
+
+	const auto hs1 = this->fft_size / 2 + 1;
+
+	constexpr auto two = SampleType (2.);
 
 	// vDSP forward FFTs are scaled 2x (for some reason)
-	constexpr auto two = 2.f;
-	vDSP_vsdiv (m_spare2, 1, &two, magOut, 1, hs1);
+	if constexpr (std::is_same_v<SampleType, float>)
+	{
+		vDSP_zvmags (&m_packed, 1, m_spare, 1, hs1);
+		vvsqrtf (m_spare2, m_spare, &hs1);
+		vDSP_vsdiv (m_spare2, 1, &two, magOut, 1, hs1);
+	}
+	else
+	{
+		vDSP_zvmagsD (&m_packed, 1, m_spare, 1, hs1);
+		vvsqrt (m_spare2, m_spare, &hs1);
+		vDSP_vsdivD (m_spare2, 1, &two, magOut, 1, hs1);
+	}
 }
 
-void vDSP_FloatFFT::inverse (const float* realIn, const float* imagIn, float* realOut)
+template <Scalar SampleType>
+void vDSP_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut)
 {
-	vDSP_packComplex (realIn, imagIn, m_packed.realp, m_packed.imagp, fft_size);
+	vDSP_packComplex (realIn, imagIn, m_packed.realp, m_packed.imagp, this->fft_size);
 
-	vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
+	if constexpr (std::is_same_v<SampleType, float>)
+		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, this->m_order, FFT_INVERSE);
+	else
+		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, this->m_order, FFT_INVERSE);
+
 	unpackReal (realOut);
 }
 
-void vDSP_FloatFFT::inverseInterleaved (const float* complexIn, float* realOut)
+template <Scalar SampleType>
+void vDSP_FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut)
 {
-	float* f[2] = { m_packed.realp, m_packed.imagp };  // NOLINT
+	SampleType* f[2] = { m_packed.realp, m_packed.imagp };	// NOLINT
 
-	vecops::deinterleave (f, complexIn, 2, fft_size / 2 + 1);
+	vecops::deinterleave (f, complexIn, 2, this->fft_size / 2 + 1);
 
-	vDSP_nyq (m_packed.realp, m_packed.imagp, fft_size);
-	vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
+	vDSP_nyq (m_packed.realp, m_packed.imagp, this->fft_size);
+
+	if constexpr (std::is_same_v<SampleType, float>)
+		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, this->m_order, FFT_INVERSE);
+	else
+		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, this->m_order, FFT_INVERSE);
+
 	unpackReal (realOut);
 }
 
-void vDSP_FloatFFT::inversePolar (const float* magIn, const float* phaseIn, float* realOut)
+template <Scalar SampleType>
+void vDSP_FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut)
 {
-	const auto hs1 = fft_size / 2 + 1;
+	const auto hs1 = this->fft_size / 2 + 1;
 
-	vvsincosf (m_packed.imagp, m_packed.realp, phaseIn, &hs1);
+	if constexpr (std::is_same_v<SampleType, float>)
+	{
+		vvsincosf (m_packed.imagp, m_packed.realp, phaseIn, &hs1);
 
-	vDSP_vsmul (m_packed.realp, vDSP_Stride (1), magIn, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
-	vDSP_vsmul (m_packed.imagp, vDSP_Stride (1), magIn, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
+		vDSP_vsmul (m_packed.realp, vDSP_Stride (1), magIn, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
+		vDSP_vsmul (m_packed.imagp, vDSP_Stride (1), magIn, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
+	}
+	else
+	{
+		vvsincos (m_packed.imagp, m_packed.realp, phaseIn, &hs1);
 
-	vDSP_nyq (m_packed.realp, m_packed.imagp, fft_size);
-	vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
+		vDSP_vsmulD (m_packed.realp, vDSP_Stride (1), magIn, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
+		vDSP_vsmulD (m_packed.imagp, vDSP_Stride (1), magIn, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
+	}
+
+	vDSP_nyq (m_packed.realp, m_packed.imagp, this->fft_size);
+
+	if constexpr (std::is_same_v<SampleType, float>)
+		vDSP_fft_zript (m_spec, &m_packed, 1, &m_buf, this->m_order, FFT_INVERSE);
+	else
+		vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, this->m_order, FFT_INVERSE);
+
 	unpackReal (realOut);
 }
 
-void vDSP_FloatFFT::inverseCepstral (const float* magIn, float* cepOut)
+template <Scalar SampleType>
+void vDSP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut)
 {
-	const auto hs1 = fft_size / 2 + 1;
+	const auto hs1 = this->fft_size / 2 + 1;
 
 	vecops::copy (m_spare, magIn, hs1);
 
-	vDSP_vsadd (m_spare, vDSP_Stride (1), &shiftAmount<float>, m_spare, vDSP_Stride (1), vDSP_Length (hs1));
+	if constexpr (std::is_same_v<SampleType, float>)
+	{
+		vDSP_vsadd (m_spare, vDSP_Stride (1), &shiftAmount<SampleType>, m_spare, vDSP_Stride (1), vDSP_Length (hs1));
+		vvlogf (m_spare2, m_spare, &hs1);
+	}
+	else
+	{
+		vDSP_vsaddD (m_spare, vDSP_Stride (1), &shiftAmount<double>, m_spare, vDSP_Stride (1), vDSP_Length (hs1));
+		vvlog (m_spare2, m_spare, &hs1);
+	}
 
-	vvlogf (m_spare2, m_spare, &hs1);
 	inverse (m_spare2, nullptr, cepOut);
 }
 
-LIMES_FORCE_INLINE void vDSP_FloatFFT::packReal (const float* const re)
+template <Scalar SampleType>
+LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::packReal (const SampleType* const re)
 {
-	vDSP_ctoz (reinterpret_cast<const DSPComplex* const> (re),
-			   2, &m_packed, 1, fft_size / 2);
+	if constexpr (std::is_same_v<SampleType, float>)
+	{
+		vDSP_ctoz (reinterpret_cast<const DSPComplexType* const> (re),
+				   2, &m_packed, 1, this->fft_size / 2);
+	}
+	else
+	{
+		vDSP_ctozD (reinterpret_cast<const DSPDoubleComplex* const> (re),
+					2, &m_packed, 1, this->fft_size / 2);
+	}
 }
 
-LIMES_FORCE_INLINE void vDSP_FloatFFT::unpackReal (float* const re)
+template <Scalar SampleType>
+LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::unpackReal (SampleType* const re)
 {
-	vDSP_ztoc (&m_packed, 1, reinterpret_cast<DSPComplex* const> (re),
-			   2, fft_size / 2);
+	if constexpr (std::is_same_v<SampleType, float>)
+	{
+		vDSP_ztoc (&m_packed, 1, reinterpret_cast<DSPComplexType* const> (re),
+				   2, this->fft_size / 2);
+	}
+	else
+	{
+		vDSP_ztocD (&m_packed, 1, reinterpret_cast<DSPDoubleComplex* const> (re),
+					2, this->fft_size / 2);
+	}
 }
 
-LIMES_FORCE_INLINE void vDSP_FloatFFT::unpackComplex (float* const re, float* const im)
-{
-	// vDSP forward FFTs are scaled 2x (for some reason)
-	constexpr auto two = 2.f;
-	vDSP_vsdiv (m_packed.realp, vDSP_Stride (1), &two, re, vDSP_Stride (1), vDSP_Length (fft_size / 2 + 1));
-	vDSP_vsdiv (m_packed.imagp, vDSP_Stride (1), &two, im, vDSP_Stride (1), vDSP_Length (fft_size / 2 + 1));
-}
-
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
-vDSP_DoubleFFT::vDSP_DoubleFFT (int size)
-	: FFTImpl<double> (size)
-{
-	static_assert (FFT<double>::isUsingVDSP());
-
-	//!!! "If possible, tempBuffer->realp and tempBuffer->imagp should be 32-byte aligned for best performance."
-	// m_buf.realp	   = allocate<double> (fft_size);
-	// m_buf.imagp	   = allocate<double> (fft_size);
-	// m_packed.realp = allocate<double> (fft_size / 2 + 1);
-	// m_packed.imagp = allocate<double> (fft_size / 2 + 1);
-	// m_spare		   = allocate<double> (fft_size + 2);
-	// m_spare2	   = allocate<double> (fft_size + 2);
-}
-
-vDSP_DoubleFFT::~vDSP_DoubleFFT()
-{
-	vDSP_destroy_fftsetupD (m_spec);
-	// deallocate (m_spare);
-	// deallocate (m_spare2);
-	// deallocate (m_buf.realp);
-	// deallocate (m_buf.imagp);
-	// deallocate (m_packed.realp);
-	// deallocate (m_packed.imagp);
-}
-
-void vDSP_DoubleFFT::forward (const double* realIn, double* realOut, double* imagOut)
-{
-	packReal (realIn);
-	vDSP_fft_zriptD (m_spec, &m_packed, vDSP_Stride (1), &m_buf, vDSP_Length (m_order), FFT_FORWARD);
-	vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
-	unpackComplex (realOut, imagOut);
-}
-
-void vDSP_DoubleFFT::forwardInterleaved (const double* realIn, double* complexOut)
-{
-	packReal (realIn);
-	vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-	vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
-
-	vDSP_unpackComplex (complexOut, m_packed.realp, m_packed.imagp, fft_size);
-}
-
-void vDSP_DoubleFFT::forwardPolar (const double* realIn, double* magOut, double* phaseOut)
-{
-	packReal (realIn);
-	vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-	vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
-
-	// vDSP forward FFTs are scaled 2x (for some reason)
-
-	const auto	   hs1	= fft_size / 2 + 1;
-	constexpr auto half = 0.5;
-
-	vDSP_vsmulD (m_packed.realp, vDSP_Stride (1), &half, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
-	vDSP_vsmulD (m_packed.imagp, vDSP_Stride (1), &half, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
-
-	vecops::cartesianToPolar (magOut, phaseOut, m_packed.realp, m_packed.imagp, hs1);
-}
-
-void vDSP_DoubleFFT::forwardMagnitude (const double* realIn, double* magOut)
-{
-	packReal (realIn);
-	vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_FORWARD);
-	vDSP_denyq (m_packed.realp, m_packed.imagp, fft_size);
-
-	const auto hs1 = fft_size / 2 + 1;
-
-	vDSP_zvmagsD (&m_packed, 1, m_spare, 1, hs1);
-	vvsqrt (m_spare2, m_spare, &hs1);
-
-	// vDSP forward FFTs are scaled 2x (for some reason)
-	constexpr auto two = 2.;
-	vDSP_vsdivD (m_spare2, 1, &two, magOut, 1, hs1);
-}
-
-void vDSP_DoubleFFT::inverse (const double* realIn, const double* imagIn, double* realOut)
-{
-	vDSP_packComplex (realIn, imagIn, m_packed.realp, m_packed.imagp, fft_size);
-	vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
-	unpackReal (realOut);
-}
-
-void vDSP_DoubleFFT::inverseInterleaved (const double* complexIn, double* realOut)
-{
-	double* f[2] = { m_packed.realp, m_packed.imagp };	// NOLINT
-
-	vecops::deinterleave (f, complexIn, 2, fft_size / 2 + 1);
-
-	vDSP_nyq (m_packed.realp, m_packed.imagp, fft_size);
-	vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
-	unpackReal (realOut);
-}
-
-void vDSP_DoubleFFT::inversePolar (const double* magIn, const double* phaseIn, double* realOut)
-{
-	const auto hs1 = fft_size / 2 + 1;
-
-	vvsincos (m_packed.imagp, m_packed.realp, phaseIn, &hs1);
-
-	vDSP_vsmulD (m_packed.realp, vDSP_Stride (1), magIn, m_packed.realp, vDSP_Stride (1), vDSP_Length (hs1));
-	vDSP_vsmulD (m_packed.imagp, vDSP_Stride (1), magIn, m_packed.imagp, vDSP_Stride (1), vDSP_Length (hs1));
-
-	vDSP_nyq (m_packed.realp, m_packed.imagp, fft_size);
-	vDSP_fft_zriptD (m_spec, &m_packed, 1, &m_buf, m_order, FFT_INVERSE);
-	unpackReal (realOut);
-}
-
-void vDSP_DoubleFFT::inverseCepstral (const double* magIn, double* cepOut)
-{
-	const auto hs1 = fft_size / 2 + 1;
-
-	vecops::copy (m_spare, magIn, hs1);
-
-	vDSP_vsaddD (m_spare, vDSP_Stride (1), &shiftAmount<double>, m_spare, vDSP_Stride (1), vDSP_Length (hs1));
-
-	vvlog (m_spare2, m_spare, &hs1);
-	inverse (m_spare2, nullptr, cepOut);
-}
-
-LIMES_FORCE_INLINE void vDSP_DoubleFFT::packReal (const double* const re)
-{
-	vDSP_ctozD (reinterpret_cast<const DSPDoubleComplex* const> (re),
-				2, &m_packed, 1, fft_size / 2);
-}
-
-LIMES_FORCE_INLINE void vDSP_DoubleFFT::unpackReal (double* const re)
-{
-	vDSP_ztocD (&m_packed, 1, reinterpret_cast<DSPDoubleComplex* const> (re),
-				2, fft_size / 2);
-}
-
-LIMES_FORCE_INLINE void vDSP_DoubleFFT::unpackComplex (double* const re, double* const im)
+template <Scalar SampleType>
+LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::unpackComplex (SampleType* const re, SampleType* const im)
 {
 	// vDSP forward FFTs are scaled 2x (for some reason)
-	constexpr auto two = 2.;
-	vDSP_vsdivD (m_packed.realp, vDSP_Stride (1), &two, re, vDSP_Stride (1), vDSP_Length (fft_size / 2 + 1));
-	vDSP_vsdivD (m_packed.imagp, vDSP_Stride (1), &two, im, vDSP_Stride (1), vDSP_Length (fft_size / 2 + 1));
+	constexpr auto two = SampleType (2.);
+
+	if constexpr (std::is_same_v<SampleType, float>)
+	{
+		vDSP_vsdiv (m_packed.realp, vDSP_Stride (1), &two, re, vDSP_Stride (1), vDSP_Length (this->fft_size / 2 + 1));
+		vDSP_vsdiv (m_packed.imagp, vDSP_Stride (1), &two, im, vDSP_Stride (1), vDSP_Length (this->fft_size / 2 + 1));
+	}
+	else
+	{
+		vDSP_vsdivD (m_packed.realp, vDSP_Stride (1), &two, re, vDSP_Stride (1), vDSP_Length (this->fft_size / 2 + 1));
+		vDSP_vsdivD (m_packed.imagp, vDSP_Stride (1), &two, im, vDSP_Stride (1), vDSP_Length (this->fft_size / 2 + 1));
+	}
 }
+
+template class vDSP_FFT<float>;
+template class vDSP_FFT<double>;
 
 }  // namespace limes::vecops

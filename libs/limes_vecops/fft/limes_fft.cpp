@@ -43,15 +43,9 @@ FFT<SampleType>::FFT (int size)
 	else
 		pimpl = std::make_unique<FFTW_DoubleFFT> (size);
 #elif LIMES_VECOPS_USE_VDSP
-	if constexpr (std::is_same_v<SampleType, float>)
-		pimpl = std::make_unique<vDSP_FloatFFT> (size);
-	else
-		pimpl = std::make_unique<vDSP_DoubleFFT> (size);
+	pimpl = std::make_unique<vDSP_FFT<SampleType>> (size);
 #elif LIMES_VECOPS_USE_IPP
-	if constexpr (std::is_same_v<SampleType, float>)
-		pimpl = std::make_unique<IPP_FloatFFT> (size);
-	else
-		pimpl = std::make_unique<IPP_DoubleFFT> (size);
+	pimpl = std::make_unique<IPP_FFT<SampleType>> (size);
 #else
 	pimpl = std::make_unique<FallbackFFT<SampleType>> (size);
 #endif

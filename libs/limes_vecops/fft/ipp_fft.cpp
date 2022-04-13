@@ -67,30 +67,53 @@ LIMES_FORCE_INLINE void ipp_unpack (SampleType* const re, SampleType* const im, 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-IPP_FloatFFT::IPP_FloatFFT (int size)
-	: FFTImpl<float> (size)
+template <Scalar SampleType>
+IPP_FFT<SampleType>::IPP_FFT (int size)
+	: FFTImpl<SampleType> (size)
 {
-	static_assert (FFT<float>::isUsingIPP());
+	static_assert (FFT<SampleType>::isUsingIPP());
 
 	int specSize, specBufferSize, bufferSize;
 
-	ippsFFTGetSize_R_32f (m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
-						  &specSize, &specBufferSize, &bufferSize);
+	if constexpr (std::is_same_v<SampleType, float>)
+	{
+		ippsFFTGetSize_R_32f (this->m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
+							  &specSize, &specBufferSize, &bufferSize);
 
-	m_specbuf  = ippsMalloc_8u (specSize);
-	Ipp8u* tmp = ippsMalloc_8u (specBufferSize);
-	m_buf	   = ippsMalloc_8u (bufferSize);
-	m_packed   = ippsMalloc_32f (fft_size + 2);
-	m_spare	   = ippsMalloc_32f (fft_size / 2 + 1);
+		m_packed = ippsMalloc_32f (this->fft_size + 2);
+		m_spare	 = ippsMalloc_32f (this->fft_size / 2 + 1);
 
-	ippsFFTInit_R_32f (&m_spec,
-					   m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
-					   m_specbuf, tmp);
+		Ipp8u* tmp = ippsMalloc_8u (specBufferSize);
 
-	ippsFree (tmp);
+		ippsFFTInit_R_32f (&m_spec,
+						   this->m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
+						   m_specbuf, tmp);
+
+		ippsFree (tmp);
+	}
+	else
+	{
+		ippsFFTGetSize_R_64f (this->m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
+							  &specSize, &specBufferSize, &bufferSize);
+
+		m_packed = ippsMalloc_64f (this->fft_size + 2);
+		m_spare	 = ippsMalloc_64f (this->fft_size / 2 + 1);
+
+		Ipp8u* tmp = ippsMalloc_8u (specBufferSize);
+
+		ippsFFTInit_R_64f (&m_spec,
+						   this->m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
+						   m_specbuf, tmp);
+
+		ippsFree (tmp);
+	}
+
+	m_specbuf = ippsMalloc_8u (specSize);
+	m_buf	  = ippsMalloc_8u (bufferSize);
 }
 
-IPP_FloatFFT::~IPP_FloatFFT()
+template <Scalar SampleType>
+IPP_FFT<SampleType>::~IPP_FFT()
 {
 	ippsFree (m_specbuf);
 	ippsFree (m_buf);
@@ -98,145 +121,118 @@ IPP_FloatFFT::~IPP_FloatFFT()
 	ippsFree (m_spare);
 }
 
-void IPP_FloatFFT::forward (const float* realIn, float* realOut, float* imagOut)
+template <Scalar SampleType>
+void IPP_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut)
 {
-	ippsFFTFwd_RToCCS_32f (realIn, m_packed, m_spec, m_buf);
-	ipp_unpack (realOut, imagOut, fft_size, m_packed);
+	if constexpr (std::is_same_v<SampleType, float>)
+		ippsFFTFwd_RToCCS_32f (realIn, m_packed, m_spec, m_buf);
+	else
+		ippsFFTFwd_RToCCS_64f (realIn, m_packed, m_spec, m_buf);
+
+	ipp_unpack (realOut, imagOut, this->fft_size, m_packed);
 }
 
-void IPP_FloatFFT::forwardInterleaved (const float* realIn, float* complexOut)
+template <Scalar SampleType>
+void IPP_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleType* complexOut)
 {
-	ippsFFTFwd_RToCCS_32f (realIn, complexOut, m_spec, m_buf);
+	if constexpr (std::is_same_v<SampleType, float>)
+		ippsFFTFwd_RToCCS_32f (realIn, complexOut, m_spec, m_buf);
+	else
+		ippsFFTFwd_RToCCS_64f (realIn, complexOut, m_spec, m_buf);
 }
 
-void IPP_FloatFFT::forwardPolar (const float* realIn, float* magOut, float* phaseOut)
+template <Scalar SampleType>
+void IPP_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut)
 {
-	ippsFFTFwd_RToCCS_32f (realIn, m_packed, m_spec, m_buf);
-	ipp_unpack (m_packed, m_spare, fft_size, m_packed);
-	ippsCartToPolar_32f (m_packed, m_spare, magOut, phaseOut, fft_size / 2 + 1);
+	if constexpr (std::is_same_v<SampleType, float>)
+		ippsFFTFwd_RToCCS_32f (realIn, m_packed, m_spec, m_buf);
+	else
+		ippsFFTFwd_RToCCS_64f (realIn, m_packed, m_spec, m_buf);
+
+	ipp_unpack (m_packed, m_spare, this->fft_size, m_packed);
+
+	if constexpr (std::is_same_v<SampleType, float>)
+		ippsCartToPolar_32f (m_packed, m_spare, magOut, phaseOut, this->fft_size / 2 + 1);
+	else
+		ippsCartToPolar_64f (m_packed, m_spare, magOut, phaseOut, this->fft_size / 2 + 1);
 }
 
-void IPP_FloatFFT::forwardMagnitude (const float* realIn, float* magOut)
+template <Scalar SampleType>
+void IPP_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType* magOut)
 {
-	ippsFFTFwd_RToCCS_32f (realIn, m_packed, m_spec, m_buf);
-	ipp_unpack (m_packed, m_spare, fft_size, m_packed);
-	ippsMagnitude_32f (m_packed, m_spare, magOut, fft_size / 2 + 1);
+	if constexpr (std::is_same_v<SampleType, float>)
+		ippsFFTFwd_RToCCS_32f (realIn, m_packed, m_spec, m_buf);
+	else
+		ippsFFTFwd_RToCCS_64f (realIn, m_packed, m_spec, m_buf);
+
+	ipp_unpack (m_packed, m_spare, this->fft_size, m_packed);
+
+	if constexpr (std::is_same_v<SampleType, float>)
+		ippsMagnitude_32f (m_packed, m_spare, magOut, this->fft_size / 2 + 1);
+	else
+		ippsMagnitude_64f (m_packed, m_spare, magOut, this->fft_size / 2 + 1);
 }
 
-void IPP_FloatFFT::inverse (const float* realIn, const float* imagIn, float* realOut)
+template <Scalar SampleType>
+void IPP_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut)
 {
-	ipp_pack (realIn, imagIn, fft_size, m_packed);
-	ippsFFTInv_CCSToR_32f (m_packed, realOut, m_spec, m_buf);
+	ipp_pack (realIn, imagIn, this->fft_size, m_packed);
+
+	if constexpr (std::is_same_v<SampleType, float>)
+		ippsFFTInv_CCSToR_32f (m_packed, realOut, m_spec, m_buf);
+	else
+		ippsFFTInv_CCSToR_64f (m_packed, realOut, m_spec, m_buf);
 }
 
-void IPP_FloatFFT::inverseInterleaved (const float* complexIn, float* realOut)
+template <Scalar SampleType>
+void IPP_FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut)
 {
-	ippsFFTInv_CCSToR_32f (complexIn, realOut, m_spec, m_buf);
+	if constexpr (std::is_same_v<SampleType, float>)
+		ippsFFTInv_CCSToR_32f (complexIn, realOut, m_spec, m_buf);
+	else
+		ippsFFTInv_CCSToR_64f (complexIn, realOut, m_spec, m_buf);
 }
 
-void IPP_FloatFFT::inversePolar (const float* magIn, const float* phaseIn, float* realOut)
+template <Scalar SampleType>
+void IPP_FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut)
 {
-	ippsPolarToCart_32f (magIn, phaseIn, realOut, m_spare, fft_size / 2 + 1);
-	ipp_pack (realOut, m_spare, fft_size, m_packed);
-	ippsFFTInv_CCSToR_32f (m_packed, realOut, m_spec, m_buf);
+	if constexpr (std::is_same_v<SampleType, float>)
+		ippsPolarToCart_32f (magIn, phaseIn, realOut, m_spare, this->fft_size / 2 + 1);
+	else
+		ippsPolarToCart_64f (magIn, phaseIn, realOut, m_spare, this->fft_size / 2 + 1);
+
+	ipp_pack (realOut, m_spare, this->fft_size, m_packed);
+
+	if constexpr (std::is_same_v<SampleType, float>)
+		ippsFFTInv_CCSToR_32f (m_packed, realOut, m_spec, m_buf);
+	else
+		ippsFFTInv_CCSToR_64f (m_packed, realOut, m_spec, m_buf);
 }
 
-void IPP_FloatFFT::inverseCepstral (const float* magIn, float* cepOut)
+template <Scalar SampleType>
+void IPP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut)
 {
-	const auto hs1 = fft_size / 2 + 1;
+	const auto hs1 = this->fft_size / 2 + 1;
 
-	ippsCopy_32f (magIn, m_spare, hs1);
-	ippsAddC_32f_I (shiftAmount<float>, m_spare, hs1);
-	ippsLn_32f_I (m_spare, hs1);
-	ipp_pack<float> (m_spare, nullptr, fft_size, m_packed);
-	ippsFFTInv_CCSToR_32f (m_packed, cepOut, m_spec, m_buf);
-}
+	if constexpr (std::is_same_v<SampleType, float>)
+	{
+		ippsCopy_32f (magIn, m_spare, hs1);
+		ippsAddC_32f_I (shiftAmount<SampleType>, m_spare, hs1);
+		ippsLn_32f_I (m_spare, hs1);
+	}
+	else
+	{
+		ippsCopy_64f (magIn, m_spare, hs1);
+		ippsAddC_64f_I (shiftAmount<double>, m_spare, hs1);
+		ippsLn_64f_I (m_spare, hs1);
+	}
 
-/*---------------------------------------------------------------------------------------------------------------------------*/
+	ipp_pack<SampleType> (m_spare, nullptr, this->fft_size, m_packed);
 
-IPP_DoubleFFT::IPP_DoubleFFT (int size)
-	: FFTImpl<double> (size)
-{
-	static_assert (FFT<double>::isUsingIPP());
-
-	int specSize, specBufferSize, bufferSize;
-
-	ippsFFTGetSize_R_64f (m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
-						  &specSize, &specBufferSize, &bufferSize);
-
-	m_specbuf  = ippsMalloc_8u (specSize);
-	Ipp8u* tmp = ippsMalloc_8u (specBufferSize);
-	m_buf	   = ippsMalloc_8u (bufferSize);
-	m_packed   = ippsMalloc_64f (fft_size + 2);
-	m_spare	   = ippsMalloc_64f (fft_size / 2 + 1);
-
-	ippsFFTInit_R_64f (&m_spec,
-					   m_order, IPP_FFT_NODIV_BY_ANY, ippAlgHintFast,
-					   m_specbuf, tmp);
-
-	ippsFree (tmp);
-}
-
-IPP_DoubleFFT::~IPP_DoubleFFT()
-{
-	ippsFree (m_specbuf);
-	ippsFree (m_buf);
-	ippsFree (m_packed);
-	ippsFree (m_spare);
-}
-
-void IPP_DoubleFFT::forward (const double* realIn, double* realOut, double* imagOut)
-{
-	ippsFFTFwd_RToCCS_64f (realIn, m_packed, m_spec, m_buf);
-	ipp_unpack (realOut, imagOut, fft_size, m_packed);
-}
-
-void IPP_DoubleFFT::forwardInterleaved (const double* realIn, double* complexOut)
-{
-	ippsFFTFwd_RToCCS_64f (realIn, complexOut, m_spec, m_buf);
-}
-
-void IPP_DoubleFFT::forwardPolar (const double* realIn, double* magOut, double* phaseOut)
-{
-	ippsFFTFwd_RToCCS_64f (realIn, m_packed, m_spec, m_buf);
-	ipp_unpack (m_packed, m_spare, fft_size, m_packed);
-	ippsCartToPolar_64f (m_packed, m_spare, magOut, phaseOut, fft_size / 2 + 1);
-}
-
-void IPP_DoubleFFT::forwardMagnitude (const double* realIn, double* magOut)
-{
-	ippsFFTFwd_RToCCS_64f (realIn, m_packed, m_spec, m_buf);
-	ipp_unpack (m_packed, m_spare, fft_size, m_packed);
-	ippsMagnitude_64f (m_packed, m_spare, magOut, fft_size / 2 + 1);
-}
-
-void IPP_DoubleFFT::inverse (const double* realIn, const double* imagIn, double* realOut)
-{
-	ipp_pack (realIn, imagIn, fft_size, m_packed);
-	ippsFFTInv_CCSToR_64f (m_packed, realOut, m_spec, m_buf);
-}
-
-void IPP_DoubleFFT::inverseInterleaved (const double* complexIn, double* realOut)
-{
-	ippsFFTInv_CCSToR_64f (complexIn, realOut, m_spec, m_buf);
-}
-
-void IPP_DoubleFFT::inversePolar (const double* magIn, const double* phaseIn, double* realOut)
-{
-	ippsPolarToCart_64f (magIn, phaseIn, realOut, m_spare, fft_size / 2 + 1);
-	ipp_pack (realOut, m_spare, fft_size, m_packed);
-	ippsFFTInv_CCSToR_64f (m_packed, realOut, m_spec, m_buf);
-}
-
-void IPP_DoubleFFT::inverseCepstral (const double* magIn, double* cepOut)
-{
-	const auto hs1 = fft_size / 2 + 1;
-
-	ippsCopy_64f (magIn, m_spare, hs1);
-	ippsAddC_64f_I (shiftAmount<double>, m_spare, hs1);
-	ippsLn_64f_I (m_spare, hs1);
-	ipp_pack<double> (m_spare, nullptr, fft_size, m_packed);
-	ippsFFTInv_CCSToR_64f (m_packed, cepOut, m_spec, m_buf);
+	if constexpr (std::is_same_v<SampleType, float>)
+		ippsFFTInv_CCSToR_32f (m_packed, cepOut, m_spec, m_buf);
+	else
+		ippsFFTInv_CCSToR_64f (m_packed, cepOut, m_spec, m_buf);
 }
 
 }  // namespace limes::vecops

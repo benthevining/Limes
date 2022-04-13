@@ -19,87 +19,48 @@
 namespace limes::vecops
 {
 
-class LIMES_NO_EXPORT IPP_FloatFFT final : public FFTImpl<float>
+template <Scalar SampleType>
+class LIMES_NO_EXPORT IPP_FFT final : public FFTImpl<SampleType>
 {
 public:
 
-	explicit IPP_FloatFFT (int size);
+	explicit IPP_FFT (int size);
 
-	~IPP_FloatFFT() final;
+	~IPP_FFT() final;
 
-	IPP_FloatFFT (const IPP_FloatFFT&) = delete;
+	IPP_FFT (const IPP_FFT&) = delete;
 
-	IPP_FloatFFT& operator= (const IPP_FloatFFT&) = delete;
+	IPP_FFT& operator= (const IPP_FFT&) = delete;
 
-	IPP_FloatFFT (IPP_FloatFFT&&) = delete;
+	IPP_FFT (IPP_FFT&&) = delete;
 
-	IPP_FloatFFT& operator= (IPP_FloatFFT&&) = delete;
-
-private:
-
-	void forward (const float* realIn, float* realOut, float* imagOut) final;
-
-	void forwardInterleaved (const float* realIn, float* complexOut) final;
-
-	void forwardPolar (const float* realIn, float* magOut, float* phaseOut) final;
-
-	void forwardMagnitude (const float* realIn, float* magOut) final;
-
-	void inverse (const float* realIn, const float* imagIn, float* realOut) final;
-
-	void inverseInterleaved (const float* complexIn, float* realOut) final;
-
-	void inversePolar (const float* magIn, const float* phaseIn, float* realOut) final;
-
-	void inverseCepstral (const float* magIn, float* cepOut) final;
-
-	IppsFFTSpec_R_32f* m_spec;
-	Ipp8u*			   m_specbuf;
-	Ipp8u*			   m_buf;
-	float*			   m_packed;
-	float*			   m_spare;
-};
-
-
-class LIMES_NO_EXPORT IPP_DoubleFFT final : public FFTImpl<double>
-{
-public:
-
-	explicit IPP_DoubleFFT (int size);
-
-	~IPP_DoubleFFT() final;
-
-	IPP_DoubleFFT (const IPP_DoubleFFT&) = delete;
-
-	IPP_DoubleFFT& operator= (const IPP_DoubleFFT&) = delete;
-
-	IPP_DoubleFFT (IPP_DoubleFFT&&) = delete;
-
-	IPP_DoubleFFT& operator= (IPP_DoubleFFT&&) = delete;
+	IPP_FFT& operator= (IPP_FFT&&) = delete;
 
 private:
 
-	void forward (const double* realIn, double* realOut, double* imagOut) final;
+	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) final;
 
-	void forwardInterleaved (const double* realIn, double* complexOut) final;
+	void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) final;
 
-	void forwardPolar (const double* realIn, double* magOut, double* phaseOut) final;
+	void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) final;
 
-	void forwardMagnitude (const double* realIn, double* magOut) final;
+	void forwardMagnitude (const SampleType* realIn, SampleType* magOut) final;
 
-	void inverse (const double* realIn, const double* imagIn, double* realOut) final;
+	void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) final;
 
-	void inverseInterleaved (const double* complexIn, double* realOut) final;
+	void inverseInterleaved (const SampleType* complexIn, SampleType* realOut) final;
 
-	void inversePolar (const double* magIn, const double* phaseIn, double* realOut) final;
+	void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) final;
 
-	void inverseCepstral (const double* magIn, double* cepOut) final;
+	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) final;
 
-	IppsFFTSpec_R_64f* m_spec;
-	Ipp8u*			   m_specbuf;
-	Ipp8u*			   m_buf;
-	double*			   m_packed;
-	double*			   m_spare;
+	using FFTSpecType = std::conditional_t<std::is_same_v<SampleType, float>, IppsFFTSpec_R_32f, IppsFFTSpec_R_64f>;
+
+	FFTSpecType* m_spec;
+	Ipp8u*		 m_specbuf;
+	Ipp8u*		 m_buf;
+	SampleType*	 m_packed;
+	SampleType*	 m_spare;
 };
 
 }  // namespace limes::vecops
