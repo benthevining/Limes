@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [3.2.0](http://github.com/benthevining/Limes/compare/v3.1.1...v3.2.0) (2022-04-13)
+
+
+### Features
+
+* added threading util funcs ([99a24de](http://github.com/benthevining/Limes/commit/99a24dead75e1044c4c7aa37b46ef247efbadb26))
+
 ### [3.1.1](http://github.com/benthevining/Limes/compare/v3.1.0...v3.1.1) (2022-04-13)
 
 
