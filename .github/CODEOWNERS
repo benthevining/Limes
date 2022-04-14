@@ -73,6 +73,7 @@ libs/limes_core/data_structures/vectors/scalar_vector.h benthevining
 libs/limes_core/data_structures/vectors/vector.h benthevining
 libs/limes_core/limes_core.h benthevining
 libs/limes_core/math/CMakeLists.txt benthevining
+libs/limes_core/math/Fraction.h benthevining
 libs/limes_core/math/Fraction_impl.h benthevining
 libs/limes_core/math/mathHelpers.h benthevining
 libs/limes_core/misc/Algorithm.h benthevining
@@ -96,6 +97,7 @@ libs/limes_core/threading/RealtimeSafeObject/RealtimeSafeObject_impl.h benthevin
 libs/limes_core/threading/ThreadSafeObject.h benthevining
 libs/limes_data_structures/data_structures/Dimensions.cpp benthevining
 libs/limes_data_structures/data_structures/Dimensions.h benthevining
+libs/limes_data_structures/data_structures/LinkedListModel.h benthevining
 libs/limes_data_structures/data_structures/LinkedListModel_impl.h benthevining
 libs/limes_data_structures/data_structures/Version.h benthevining
 libs/limes_data_structures/limes_data_structures.h benthevining
@@ -119,6 +121,7 @@ libs/limes_music/harmony/intervals/CMakeLists.txt benthevining
 libs/limes_music/harmony/intervals/CompoundInterval.h benthevining
 libs/limes_music/harmony/intervals/CompoundInterval_impl.h benthevining
 libs/limes_music/harmony/intervals/Interval.cpp benthevining
+libs/limes_music/harmony/intervals/Interval_impl.h benthevining
 libs/limes_music/harmony/intervals/MicrotonalInterval.h benthevining
 libs/limes_music/harmony/scales/CMakeLists.txt benthevining
 libs/limes_music/harmony/scales/Chromatic.cpp benthevining
@@ -165,6 +168,7 @@ libs/limes_vecops/impl/pommier/CMakeLists.txt benthevining
 libs/limes_vecops/impl/pommier/neon_mathfun.cpp benthevining
 libs/limes_vecops/impl/pommier/pommier_wrapper.cpp benthevining
 libs/limes_vecops/impl/pommier/sse_mathfun.cpp benthevining
+libs/limes_vecops/impl/pommier/sse_mathfun.h benthevining
 libs/limes_vecops/impl/vdsp.h benthevining
 libs/limes_vecops/limes_vecops.h benthevining
 libs/limes_vecops/util/CMakeLists.txt benthevining

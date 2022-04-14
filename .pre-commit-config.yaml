@@ -66,7 +66,6 @@ repos:
           - id: cpplint
             args: [--verbose=0, '--filter=-whitespace,-legal,-build,-runtime/references,-readability/braces,-readability/todo']
             additional_dependencies: [cpplint]
-            #exclude: sse_mathfun
       # - id: clang-tidy
       #   args: [-p=Builds]
 
@@ -138,7 +137,7 @@ repos:
       rev: 0.1.1
       hooks:
           - id: yamlfmt
-            args: [--width, '400']
+            args: [--width, '400', --preserve-quotes]
     - repo: https://github.com/adrienverge/yamllint
       rev: v1.26.3
       hooks:
@@ -147,6 +146,11 @@ repos:
       rev: 0.14.2
       hooks:
           - id: check-github-workflows
+          - id: check-jsonschema
+            name: Validate CMake presets
+            files: CMakePresets.json
+            types: [json]
+            args: [--schemafile, "https://cmake.org/cmake/help/latest/_downloads/3e2d73bff478d88a7de0de736ba5e361/schema.json"]
 
   # Markdown
     - repo: https://github.com/igorshubovych/markdownlint-cli
@@ -164,7 +168,7 @@ repos:
             exclude: LICENSE
 
 ci:
-    skip: [cppcheck, gitown, run-cmake]
+    skip: [cppcheck, gitown, check-jsonschema, run-cmake]
     autofix_commit_msg: 'style: pre-commit autofixes [skip ci]'
     autoupdate_commit_msg: 'chore: pre-commit autoupdate [skip ci]'
 

@@ -36,6 +36,8 @@ Targets
 - Limes::limes_vecops
 - Limes::limes_music
 - Limes::limes_audio
+- Limes::limes_data_structures
+- Limes::limes_locale
 - Limes::Limes
 
 Install components
@@ -48,6 +50,10 @@ Install components
 - limes_core_runtime
 - limes_audio_dev
 - limes_audio_runtime
+- limes_data_structures_dev
+- limes_data_structures_runtime
+- limes_locale_dev
+- limes_locale_runtime
 - limes_dev
 - limes_runtime
 - limes_docs
@@ -58,6 +64,8 @@ Install component groups
 - limes_music
 - limes_core
 - limes_audio
+- limes_data_structures
+- limes_locale
 - limes
 
 find_package components
