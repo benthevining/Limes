@@ -12,9 +12,10 @@
 
 #pragma once
 
-#include "NoteDuration.h"
-#include <limes_export.h>
-#include <limes_data_structures.h>
+#include <limes_export.h>			// for LIMES_EXPORT
+#include "NoteDuration.h"			// for NoteDuration
+#include <limes_data_structures.h>	// for LinkedListModel
+#include <limes_core.h>				// for Fraction
 
 namespace limes::music
 {

@@ -12,9 +12,16 @@
 
 #pragma once
 
-#include "../intervals/Interval.h"
-#include <limes_export.h>
-#include <limes_data_structures.h>
+#include <limes_export.h>			// for LIMES_EXPORT
+#include "../Pitch.h"				// for Pitch
+#include "../PitchClass.h"			// for PitchClass
+#include <limes_data_structures.h>	// for vector
+
+namespace limes::music
+{
+class Interval;
+}
+
 
 namespace limes::music::scales
 {

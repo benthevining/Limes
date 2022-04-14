@@ -14,8 +14,8 @@
 
 #include <limes_export.h>  // for LIMES_EXPORT
 #include <cstring>		   // for size_t
-#include <string>		   // for string
-#include <vector>
+#include <string>		   // for basic_string
+#include <vector>		   // for vector
 
 namespace limes
 {

@@ -12,6 +12,10 @@
  */
 
 #include "PitchDetector.h"
+#include <algorithm>				// for min, max
+#include <limes_platform.h>			// for LIMES_ASSERT
+#include <limes_core.h>				// for periodInSamples, freqFromPeriod, round
+#include <limes_data_structures.h>	// for vector, basic_vector
 
 namespace limes::dsp::psola
 {

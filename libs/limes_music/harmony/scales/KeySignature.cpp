@@ -11,7 +11,10 @@
  */
 
 #include "KeySignature.h"
-#include <limes_core.h>
+#include <limes_platform.h>			// for LIMES_ASSERT_FALSE
+#include "../PitchClass.h"			// for PitchClass
+#include <limes_data_structures.h>	// for vector
+
 
 namespace limes::music::scales
 {

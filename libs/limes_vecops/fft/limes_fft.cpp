@@ -10,16 +10,10 @@
  * ======================================================================================
  */
 
-#include <cstddef>
-#include <cmath>
-#include <type_traits>
-#include <string_view>
-#include <mutex>
-#include <limes_vecops.h>
-#include <limes_core.h>
-
 #include "limes_fft.h"
-#include "fft_common.h"
+#include <type_traits>	 // for is_same_v
+#include "fft_common.h"	 // for FFTImpl
+
 
 #if LIMES_VECOPS_USE_FFTW
 #	include "fftw_fft.h"

@@ -29,6 +29,9 @@ template <Container ContainerType>
 using ElementType = std::remove_reference_t<decltype (*std::begin (std::declval<ContainerType&>()))>;
 
 template <Container ContainerType>
+using IteratorType = decltype (std::begin (std::declval<ContainerType>()));
+
+template <Container ContainerType>
 LIMES_EXPORT constexpr void fill (ContainerType& container, const ElementType<ContainerType>& toFillWith)
 {
 	std::fill (container.begin(), container.end(), toFillWith);
@@ -175,13 +178,13 @@ LIMES_EXPORT constexpr void call_both (const Container1& container1, const Conta
 }
 
 template <Container ContainerType>
-LIMES_EXPORT constexpr auto max_value (const ContainerType& container)
+LIMES_EXPORT [[nodiscard]] constexpr auto max_value (const ContainerType& container)
 {
 	return *std::max_element (container.begin(), container.end());
 }
 
 template <Container ContainerType>
-LIMES_EXPORT constexpr auto min_value (const ContainerType& container)
+LIMES_EXPORT [[nodiscard]] constexpr auto min_value (const ContainerType& container)
 {
 	return *std::min_element (container.begin(), container.end());
 }
@@ -193,13 +196,44 @@ LIMES_EXPORT constexpr void transform (const InputContainer& input, OutputContai
 }
 
 template <Container OutputContainerType, Container InputContainer, class UnaryOp>
-LIMES_EXPORT constexpr OutputContainerType createFromTransform (const InputContainer& input, UnaryOp&& func)
+LIMES_EXPORT [[nodiscard]] constexpr OutputContainerType createFromTransform (const InputContainer& input, UnaryOp&& func)
 {
 	OutputContainerType output;
 
 	transform (input, output, std::forward<UnaryOp> (func));
 
 	return output;
+}
+
+
+template <Container ContainerType>
+LIMES_EXPORT [[nodiscard]] constexpr auto enumerate (ContainerType&& iterable)
+{
+	struct iterator final
+	{
+		size_t						i;
+		IteratorType<ContainerType> iter;
+
+		bool operator!= (const iterator& other) const { return iter != other.iter; }
+
+		void operator++()
+		{
+			++i;
+			++iter;
+		}
+
+		auto operator*() const { return std::tie (i, *iter); }
+	};
+
+	struct iterable_wrapper final
+	{
+		ContainerType iterable;
+
+		auto begin() { return iterator { 0, std::begin (iterable) }; }
+		auto end() { return iterator { 0, std::end (iterable) }; }
+	};
+
+	return iterable_wrapper { std::forward<ContainerType> (iterable) };
 }
 
 }  // namespace limes::alg

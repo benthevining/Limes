@@ -11,6 +11,9 @@
  */
 
 #include "Octatonic.h"
+#include "../PitchClass.h"			// for PitchClass
+#include <limes_data_structures.h>	// for vector
+
 
 namespace limes::music::scales
 {

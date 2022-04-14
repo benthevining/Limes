@@ -13,9 +13,17 @@
 
 #pragma once
 
-#include "oscillator.h"
-#include "../util/Misc.h"
-#include <limes_export.h>
+#include <functional>	   // for function
+#include <limes_export.h>  // for LIMES_EXPORT
+#include "oscillator.h"	   // for Oscillator<>::Phase, Oscillator
+#include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
+
+namespace limes::dsp::osc
+{
+template <Sample SampleType>
+struct Triangle;
+}
+
 
 namespace limes::dsp::osc
 {
@@ -87,9 +95,6 @@ private:
 };
 
 /*--------------------------------------------------------------------------------------------*/
-
-template <Sample SampleType>
-struct Triangle;
 
 
 /** @ingroup lemons_basic_oscillators

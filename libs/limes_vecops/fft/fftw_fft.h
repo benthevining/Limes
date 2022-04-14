@@ -10,8 +10,9 @@
  * ======================================================================================
  */
 
-#include "fft_common.h"
-#include <limes_export.h>
+#include <limes_export.h>  // for LIMES_NO_EXPORT
+#include <type_traits>	   // for conditional_t
+#include "fft_common.h"	   // for FFTImpl
 
 
 #ifndef FFTW_HEADER_NAME

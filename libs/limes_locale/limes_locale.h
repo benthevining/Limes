@@ -14,4 +14,8 @@
 
 #include <limes_data_structures.h>
 
+// IWYU pragma: begin_exports
+
 #include "languages/languages.h"
+
+// IWYU pragma: end_exports

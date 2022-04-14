@@ -11,7 +11,8 @@
  */
 
 #include <limes_vecops.h>
-#include <limes_platform.h>
+#include <limes_platform.h>	 // for LIMES_SSE, LIMES_ARM_NEON, LIMES_INTEL
+#include <stdint.h>			 // for intptr_t
 
 #if LIMES_INTEL && LIMES_SSE
 #	include <xmmintrin.h>

@@ -11,8 +11,18 @@
  */
 
 #include "fftw_fft.h"
+#include <mutex>			 // for lock_guard, mutex
+#include <cmath>			 // for log, logf
+#include <cstdio>			 // for fclose, fopen, FILE
+#include <cstdlib>			 // for getenv
+#include <sstream>			 // for char_traits, operator<<, string, basic_o...
+#include <string>			 // for basic_string
+#include <string_view>		 // for string_view
+#include "fft_common.h"		 // for FFTImpl, shiftAmount
+#include "limes_fft.h"		 // for FFT, enableWisdom, getWisdomFileDir, isU...
+#include <limes_vecops.h>	 // for copy, cartesianInterleavedToMagnitudes
+#include <limes_platform.h>	 // for LIMES_FORCE_INLINE
 
-#include <sstream>
 
 namespace limes::vecops
 {

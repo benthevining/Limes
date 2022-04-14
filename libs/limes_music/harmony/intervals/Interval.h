@@ -12,10 +12,11 @@
 
 #pragma once
 
-#include "../Pitch.h"
-#include <limes_core.h>
-#include <vector>
-#include <limes_export.h>
+#include <limes_export.h>  // for LIMES_EXPORT
+#include <vector>		   // for vector
+#include "../Pitch.h"	   // for Pitch
+#include <limes_core.h>	   // for Fraction
+
 
 namespace limes::music
 {
@@ -211,4 +212,4 @@ LIMES_EXPORT Pitch operator- (const Pitch& pitch, const Interval& interval) noex
 }  // namespace limes::music
 
 
-#include "Interval_impl.h"
+#include "Interval_impl.h"	// IWYU pragma: export

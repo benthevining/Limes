@@ -10,7 +10,9 @@
  * ======================================================================================
  */
 
-#include <limes_vecops.h>
+#include <limes_vecops.h>	 // for magphase
+#include <cmath>			 // for fabs, fabsf, sqrtf
+#include "limes_platform.h"	 // for LIMES_FORCE_INLINE
 
 namespace limes::vecops::fb::detail
 {

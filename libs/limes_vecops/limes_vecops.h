@@ -477,14 +477,16 @@ LIMES_EXPORT [[nodiscard]] static constexpr const char* const getImplementationN
 
 #include "impl/fallback_impl.h"
 
+// IWYU pragma: begin_exports
 #if LIMES_VECOPS_USE_VDSP
-#	include "impl/vdsp.h"	// IWYU pragma: export
+#	include "impl/vdsp.h"
 #elif LIMES_VECOPS_USE_IPP
-#	include "impl/ipp.h"  // IWYU pragma: export
+#	include "impl/ipp.h"
 #elif LIMES_VECOPS_USE_MIPP
-#	include "impl/mipp.h"	// IWYU pragma: export
+#	include "impl/mipp.h"
 #else
-#	include "impl/fallback.h"	// IWYU pragma: export
+#	include "impl/fallback.h"
 #endif
+// IWYU pragma: end_exports
 
 #include "fft/limes_fft.h"

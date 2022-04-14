@@ -11,6 +11,7 @@
  */
 
 #include "SampleStream.h"
+#include <utility>	// for move
 
 namespace limes::dsp
 {

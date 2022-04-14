@@ -11,6 +11,14 @@
  */
 
 #include "Chord.h"
+#include <algorithm>				// for all_of
+#include "PitchClass.h"				// for PitchClass
+#include "intervals/Interval.h"		// for Interval
+#include "scales/Scale.h"			// for Scale
+#include <limes_core.h>				// for transform
+#include "Pitch.h"					// for Pitch
+#include <limes_data_structures.h>	// for vector, basic_vector
+
 
 namespace limes::music
 {

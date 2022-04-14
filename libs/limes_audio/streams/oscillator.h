@@ -12,9 +12,9 @@
 
 #pragma once
 
-#include "SampleStream.h"
-#include "../util/Misc.h"
-#include <limes_export.h>
+#include <limes_export.h>  // for LIMES_EXPORT
+#include "SampleStream.h"  // for SampleStream
+#include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
 
 namespace limes::dsp
 {

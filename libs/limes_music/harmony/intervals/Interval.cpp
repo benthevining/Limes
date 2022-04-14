@@ -11,7 +11,11 @@
  */
 
 #include "Interval.h"
-#include <limes_core.h>
+#include "../Pitch.h"		// for Pitch
+#include "../PitchUtils.h"	// for semitonesInOctave
+#include "Interval_impl.h"	// for Interval::Interval, Int...
+#include <limes_core.h>		// for abs
+
 
 namespace limes::music
 {

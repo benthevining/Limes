@@ -11,7 +11,7 @@
  */
 
 #include "TextTable.h"
-#include "../misc/Algorithm.h"
+#include <algorithm>  // for max
 
 
 namespace limes

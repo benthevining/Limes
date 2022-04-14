@@ -10,6 +10,7 @@
  * ======================================================================================
  */
 
+#include <limes_platform.h>
 #include "phasor.h"
 #include <type_traits>
 #include <cmath>
@@ -17,8 +18,6 @@
 #if LIMES_VECOPS_USE_VDSP
 #	include <Accelerate/Accelerate.h>
 #endif
-
-#include <limes_platform.h>
 
 #ifndef LACK_SINCOS
 #	define LACK_SINCOS 0  // NOLINT

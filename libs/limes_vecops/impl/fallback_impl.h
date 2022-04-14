@@ -12,17 +12,14 @@
 
 #pragma once
 
-#include <cstring>	// for memset, memcpy
-#include <cmath>
-#include <algorithm>
-#include <numeric>
-#include <limits>
-#include <type_traits>
-#include <limes_export.h>
-#include <limes_platform.h>
-#include <limes_core.h>
-#include <limes_vecops.h>
-#include "phasor.h"
+#include <algorithm>		 // for max, max_element, min, min_element, minmax_element, reverse, sort, distance
+#include <limes_export.h>	 // for LIMES_NO_EXPORT
+#include <limes_platform.h>	 // for LIMES_FORCE_INLINE
+#include <cmath>			 // for sqrt, cos, abs
+#include <cstring>			 // for memset, memcpy, size_t
+#include <limits>			 // for numeric_limits
+#include <numeric>			 // for accumulate
+#include "phasor.h"			 // for phasor
 
 #if LIMES_VECOPS_USE_IPP
 #	include <ipps.h>

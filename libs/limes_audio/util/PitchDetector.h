@@ -13,10 +13,9 @@
 
 #pragma once
 
-#include <limes_core.h>
-#include "Misc.h"
-#include <limes_export.h>
-#include <limes_data_structures.h>
+#include <limes_export.h>			// for LIMES_EXPORT
+#include <limes_data_structures.h>	// for vector
+#include "Misc.h"					// for concept Sample - IWYU pragma: keep
 
 namespace limes::dsp::psola
 {

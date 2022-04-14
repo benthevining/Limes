@@ -12,6 +12,7 @@
 
 #pragma once
 
+#include <atomic>
 #include <type_traits>
 #include <limes_export.h>
 
@@ -21,7 +22,7 @@ namespace limes
 template <class Function>
 LIMES_EXPORT bool call_once (Function&& func, std::invoke_result_t<Function>* result = nullptr)
 {
-	static bool called = false;
+	static std::atomic<bool> called = false;
 
 	if (called)
 		return false;

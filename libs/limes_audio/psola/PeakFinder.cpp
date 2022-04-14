@@ -11,6 +11,14 @@
  */
 
 #include "PeakFinder.h"
+#include <algorithm>				// for min, max
+#include <cmath>					// for abs
+#include <limits>					// for numeric_limits
+#include <limes_vecops.h>			// for min, range
+#include <limes_platform.h>			// for LIMES_ASSERT
+#include <limes_core.h>				// for round, numberIsEven
+#include <limes_data_structures.h>	// for vector, basic_vector, scalar_vector
+
 
 namespace limes::dsp::psola
 {

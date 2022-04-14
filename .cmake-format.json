@@ -79,45 +79,6 @@
           "TARGET": 1
         }
       },
-      "limes_config_version_header": {
-        "kwargs": {
-          "NAMESPACE": 1,
-          "FUNCTION_NAME": 1,
-          "MAJOR": 1,
-          "MINOR": 1,
-          "PATCH": 1,
-          "FILENAME": 1,
-          "TARGET": 1,
-          "SCOPE": 1,
-          "REL_PATH": 1,
-          "INSTALL_COMPONENT": 1
-        }
-      },
-      "oranges_generate_build_type_header": {
-        "kwargs": {
-          "BASE_NAME": 1,
-          "HEADER": 1,
-          "INSTALL_COMPONENT": 1,
-          "REL_PATH": 1,
-          "TARGET": 1
-        },
-        "pargs": {
-          "flags": "INTERFACE"
-        }
-      },
-      "oranges_generate_standard_headers": {
-        "kwargs": {
-          "BASE_NAME": 1,
-          "BUILD_TYPE_HEADER": 1,
-          "EXPORT_HEADER": 1,
-          "FEATURE_TEST_LANGUAGE": 1,
-          "HEADER": 1,
-          "INSTALL_COMPONENT": 1,
-          "PLATFORM_HEADER": 1,
-          "REL_PATH": 1,
-          "TARGET": 1
-        }
-      },
       "autotools_run_configure": {
         "kwargs": {
           "CXX_FLAGS": "+",
@@ -176,6 +137,20 @@
             "FILES",
             "FULL_PATHS"
           ]
+        }
+      },
+      "limes_config_version_header": {
+        "kwargs": {
+          "FILENAME": 1,
+          "FUNCTION_NAME": 1,
+          "INSTALL_COMPONENT": 1,
+          "MAJOR": 1,
+          "MINOR": 1,
+          "NAMESPACE": 1,
+          "PATCH": 1,
+          "REL_PATH": 1,
+          "SCOPE": 1,
+          "TARGET": 1
         }
       },
       "oranges_create_doxygen_target": {
@@ -261,6 +236,18 @@
           ]
         }
       },
+      "oranges_generate_build_type_header": {
+        "kwargs": {
+          "BASE_NAME": 1,
+          "HEADER": 1,
+          "INSTALL_COMPONENT": 1,
+          "REL_PATH": 1,
+          "TARGET": 1
+        },
+        "pargs": {
+          "flags": "INTERFACE"
+        }
+      },
       "oranges_generate_export_header": {
         "kwargs": {
           "BASE_NAME": 1,
@@ -281,6 +268,19 @@
         },
         "pargs": {
           "flags": "INTERFACE"
+        }
+      },
+      "oranges_generate_standard_headers": {
+        "kwargs": {
+          "BASE_NAME": 1,
+          "BUILD_TYPE_HEADER": 1,
+          "EXPORT_HEADER": 1,
+          "FEATURE_TEST_LANGUAGE": 1,
+          "HEADER": 1,
+          "INSTALL_COMPONENT": 1,
+          "PLATFORM_HEADER": 1,
+          "REL_PATH": 1,
+          "TARGET": 1
         }
       },
       "oranges_list_transform": {

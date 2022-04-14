@@ -98,18 +98,38 @@ LIMES_EXPORT [[nodiscard]] constexpr bool isPowerOf2 (Integer val) noexcept
 
 
 /** Returns true if the number is divisible by the divisor with no remainder. */
-LIMES_EXPORT [[nodiscard]] constexpr bool isDivisibleBy (int number, int divisor) noexcept
+template <Integral Integer>
+LIMES_EXPORT [[nodiscard]] constexpr bool isDivisibleBy (Integer number, Integer divisor) noexcept
 {
 	return number % divisor == 0;
 }
 
 
 /** Returns true if the number is evenly divisible by 2. */
-LIMES_EXPORT [[nodiscard]] constexpr bool numberIsEven (int number) noexcept
+template <Integral Integer>
+LIMES_EXPORT [[nodiscard]] constexpr bool numberIsEven (Integer number) noexcept
 {
-	return isDivisibleBy (number, 2);
+	return isDivisibleBy (number, Integer (2));
 }
 
+template <Integral Integer>
+LIMES_EXPORT [[nodiscard]] constexpr bool isPrime (Integer number) noexcept
+{
+	if (number <= 1)
+		return false;
+
+	if (number == 2 || number == 3)
+		return true;
+
+	if ((number % 2) == 0 || number % 3 == 0)
+		return false;
+
+	for (auto i = Integer (5); (i * i) <= (number); i = (i + 6))
+		if ((number % i) == 0 || (number % (i + 2) == 0))
+			return false;
+
+	return true;
+}
 
 /** Returns the period in samples of a frequency at the specified samplerate. */
 template <Scalar FreqType>

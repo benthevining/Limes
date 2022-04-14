@@ -12,7 +12,9 @@
  */
 
 #include "MonoStereoConverter.h"
-#include <limes_vecops.h>
+#include <limes_vecops.h>	 // for copy
+#include <limes_platform.h>	 // for LIMES_ASSERT, LIMES_ASSERT_FALSE
+
 
 namespace limes::dsp
 {

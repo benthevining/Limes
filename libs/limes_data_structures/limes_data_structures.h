@@ -14,9 +14,12 @@
 
 #include <limes_vecops.h>
 
+// IWYU pragma: begin_exports
 
 #include "vectors/vector.h"
 #include "vectors/owned_vector.h"
 
 #include "data_structures/Dimensions.h"
 #include "data_structures/LinkedListModel.h"
+
+// IWYU pragma: end_exports

@@ -11,7 +11,11 @@
  */
 
 #include "Pitch.h"
-#include <limes_core.h>
+#include <cmath>		 // for floor
+#include "PitchClass.h"	 // for PitchClass
+#include "PitchUtils.h"	 // for octaveNumberOfMidiNote
+#include <limes_core.h>	 // for round, midiToFreq
+
 
 namespace limes::music
 {

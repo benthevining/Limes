@@ -1,205 +1,171 @@
 ---
+# editorconfig-checker-disable
 # yamllint disable rule:line-length
 
 default_language_version:
-  python: python3
+    python: python3
 
 repos:
 
   # precommit configuration meta-checks
-  - repo: meta
-    hooks:
-      - id: check-hooks-apply
-      - id: check-useless-excludes
+    - repo: meta
+      hooks:
+          - id: check-hooks-apply
+            always_run: true
+          - id: check-useless-excludes
+            always_run: true
 
   # git
-  - repo: https://github.com/jorisroovers/gitlint
-    rev: v0.17.0
-    hooks:
-      - id: gitlint
-  - repo: https://github.com/milin/gitown
-    rev: v0.1.7
-    hooks:
-      - id: gitown
-        args: [--codeowners_filename=.github/CODEOWNERS]
-  - repo: https://github.com/mattlqx/pre-commit-sign
-    rev: v1.1.3
-    hooks:
-      - id: sign-commit
+    - repo: https://github.com/jorisroovers/gitlint
+      rev: v0.17.0
+      hooks:
+          - id: gitlint
+            always_run: true
+    - repo: https://github.com/milin/gitown
+      rev: v0.1.7
+      hooks:
+          - id: gitown
+            args: [--codeowners_filename=.github/CODEOWNERS]
+    - repo: https://github.com/mattlqx/pre-commit-sign
+      rev: v1.1.3
+      hooks:
+          - id: sign-commit
 
-  - repo: local
-    hooks:
-      - id: sort-codeowners
-        name: alphabetize codeowners
-        entry: scripts/alphabetize_codeowners.py
-        language: python
-        files: .github/CODEOWNERS
+    - repo: local
+      hooks:
+          - id: sort-codeowners
+            name: alphabetize codeowners
+            entry: scripts/alphabetize_codeowners.py
+            language: python
+            files: .github/CODEOWNERS
 
       # create build directory for linters, to read CompileCommands.json
-      - id: run-cmake
-        name: Run CMake
-        entry: cmake -B Builds -G 'Unix Makefiles' -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-        language: system
-        always_run: true
-        pass_filenames: false
+          - id: run-cmake
+            name: Run CMake
+            entry: cmake -B Builds -G 'Unix Makefiles' -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+            language: system
+            always_run: true
+            pass_filenames: false
 
-  - repo: https://github.com/andreoliwa/nitpick
-    rev: v0.32.0
-    hooks:
-      - id: nitpick
+    - repo: https://github.com/andreoliwa/nitpick
+      rev: v0.32.0
+      hooks:
+          - id: nitpick
 
   # C++ code formatting & linting
-  - repo: https://github.com/pocc/pre-commit-hooks
-    rev: v1.3.5
-    hooks:
-      - id: clang-format
-        args: [--no-diff, --style=file, -i]
-        additional_dependencies: [clang-format]
-        exclude: cmake/
-      - id: cppcheck
-        args: [--quiet, --inline-suppr, --std=c++20, --language=c++,
-               --enable=warning, --enable=style, --enable=performance, --enable=portability,
-               --suppress=unmatchedSuppression, --suppress=missingIncludeSystem, --suppress=unusedStructMember, --suppress=unreadVariable, --suppress=preprocessorErrorDirective, --suppress=unknownMacro,
-               -DLIMES_EXPORT=, -DLIMES_NO_EXPORT=]
-        exclude: cmake|sse_mathfun|fallback_fft.cpp
-      - id: cpplint
-        args: [--verbose=0, "--filter=-whitespace,-legal,-build,-runtime/references,-readability/braces,-readability/todo"]
-        additional_dependencies: [cpplint]
-        exclude: sse_mathfun
-      # - id: oclint
-      #   args: [--enable-clang-static-analyzer, --enable-global-analysis, -p=Builds, --report-type=text, -o=Builds/oclint_report.txt,
-      #          --disable-rule=ShortVariableName, --disable-rule=LongVariableName, --disable-rule=UnusedMethodParameter, --disable-rule=LongLine, --disable-rule=AvoidPrivateStaticMembers,
-      #          --extra-arg=-DLIMES_VECOPS_USE_VDSP=0, --extra-arg=-DLIMES_VECOPS_USE_IPP=0, --extra-arg=-DLIMES_VECOPS_USE_MIPP=0]
+    - repo: https://github.com/pocc/pre-commit-hooks
+      rev: v1.3.5
+      hooks:
+          - id: clang-format
+            args: [--no-diff, --style=file, -i]
+            additional_dependencies: [clang-format]
+            exclude: cmake/
+          - id: cppcheck
+            args: [--quiet, --inline-suppr, --std=c++20, --language=c++, --enable=warning, --enable=style, --enable=performance, --enable=portability, --suppress=unmatchedSuppression, --suppress=missingIncludeSystem, --suppress=unusedStructMember, --suppress=unreadVariable, --suppress=preprocessorErrorDirective, --suppress=unknownMacro, -DLIMES_EXPORT=, -DLIMES_NO_EXPORT=]
+            exclude: cmake
+          - id: cpplint
+            args: [--verbose=0, '--filter=-whitespace,-legal,-build,-runtime/references,-readability/braces,-readability/todo']
+            additional_dependencies: [cpplint]
+            #exclude: sse_mathfun
       # - id: clang-tidy
       #   args: [-p=Builds]
-      # - id: include-what-you-use
-      #   args: [-Xiwyu, --update_comments, -Xiwyu, --cxx17ns]
 
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.2.0
-    hooks:
-      - id: check-json
-      - id: check-yaml
-      - id: pretty-format-json
-        args: [--autofix, --no-sort-keys]
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.2.0
+      hooks:
+          - id: check-json
+          - id: check-yaml
+          - id: pretty-format-json
+            args: [--autofix]
 
       # general
-      - id: check-case-conflict
-      - id: check-merge-conflict
-      - id: end-of-file-fixer
-        exclude_types: [cmake]
-      - id: fix-byte-order-marker
-      - id: mixed-line-ending
-        args: [--fix=lf]
-      - id: trailing-whitespace
+          - id: check-case-conflict
+          - id: check-merge-conflict
+          - id: end-of-file-fixer
+            exclude_types: [cmake]
+          - id: fix-byte-order-marker
+          - id: mixed-line-ending
+            args: [--fix=lf]
+          - id: trailing-whitespace
 
       # shell scripts
-      - id: check-executables-have-shebangs
+          - id: check-executables-have-shebangs
 
       # Python
-      - id: check-ast
-      - id: check-builtin-literals
-      - id: debug-statements
-      - id: fix-encoding-pragma
+          - id: check-ast
+          - id: check-builtin-literals
+          - id: debug-statements
+          - id: fix-encoding-pragma
 
   # license header
-  - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.1.13
-    hooks:
-      - id: insert-license
-        name: "Insert license header in C++ source files"
-        args: [--license-filepath=util/limes_header.txt,
-               '--comment-style=/*| *| */',
-               --detect-license-in-X-top-lines=16]
-        types_or: [c, c++, objective-c]
-      - id: insert-license
-        name: "Insert license header in CMake, Python, and shell files"
-        args: [--license-filepath=util/limes_header.txt,
-               --comment-style=#,
-               --detect-license-in-X-top-lines=16]
-        types_or: [cmake, python, shell]
-        exclude: FindOranges.cmake
+    - repo: https://github.com/Lucas-C/pre-commit-hooks
+      rev: v1.1.13
+      hooks:
+          - id: insert-license
+            name: Insert license header in C++ source files
+            args: [--license-filepath=util/limes_header.txt, --comment-style=/*| *| */, --detect-license-in-X-top-lines=16]
+            types_or: [c, c++, objective-c]
+          - id: insert-license
+            name: Insert license header in CMake, Python, and shell files
+            args: [--license-filepath=util/limes_header.txt, --comment-style=#, --detect-license-in-X-top-lines=16]
+            types_or: [cmake, python, shell]
+            exclude: FindOranges.cmake
 
   # text and typos
-  - repo: https://github.com/sirosen/texthooks
-    rev: 0.3.1
-    hooks:
-      - id: fix-ligatures
-      - id: fix-smartquotes
-      - id: forbid-bidi-controls
-  - repo: https://github.com/crate-ci/typos
-    rev: v1.6.0
-    hooks:
-      - id: typos
-        args: [--write-changes]
-        exclude: languages.cpp|CHANGELOG.md
+    - repo: https://github.com/sirosen/texthooks
+      rev: 0.3.1
+      hooks:
+          - id: fix-ligatures
+          - id: fix-smartquotes
+          - id: forbid-bidi-controls
+    - repo: https://github.com/crate-ci/typos
+      rev: v1.6.0
+      hooks:
+          - id: typos
+            args: [--write-changes]
+            exclude: languages.cpp|CHANGELOG.md
 
   # CMake
-  - repo: https://github.com/cheshirekow/cmake-format-precommit
-    rev: v0.6.13
-    hooks:
-      - id: cmake-format
-        args: [--in-place]
-      - id: cmake-lint
+    - repo: https://github.com/cheshirekow/cmake-format-precommit
+      rev: v0.6.13
+      hooks:
+          - id: cmake-format
+            args: [--in-place]
+          - id: cmake-lint
 
   # YAML
-  - repo: https://github.com/adrienverge/yamllint
-    rev: v1.26.3
-    hooks:
-      - id: yamllint
-  - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.14.2
-    hooks:
-      - id: check-github-workflows
+    - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+      rev: 0.1.1
+      hooks:
+          - id: yamlfmt
+            args: [--width, '400']
+    - repo: https://github.com/adrienverge/yamllint
+      rev: v1.26.3
+      hooks:
+          - id: yamllint
+    - repo: https://github.com/sirosen/check-jsonschema
+      rev: 0.14.2
+      hooks:
+          - id: check-github-workflows
 
   # Markdown
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.31.1
-    hooks:
-      - id: markdownlint-fix
-        exclude: CHANGELOG.md
-
-  # Python
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v2.32.0
-    hooks:
-      - id: pyupgrade
-  - repo: https://github.com/myint/autoflake
-    rev: v1.4
-    hooks:
-      - id: autoflake
-  - repo: https://github.com/MarcoGorelli/absolufy-imports
-    rev: v0.3.1
-    hooks:
-      - id: absolufy-imports
-  - repo: https://github.com/PyCQA/isort
-    rev: 5.10.1
-    hooks:
-      - id: isort
-  - repo: https://github.com/asottile/dead
-    rev: v1.4.0
-    hooks:
-      - id: dead
-  - repo: https://github.com/pre-commit/mirrors-yapf
-    rev: v0.32.0
-    hooks:
-      - id: yapf
-        args: [-i]
-  - repo: https://github.com/PyCQA/pylint
-    rev: v2.13.5
-    hooks:
-      - id: pylint
+    - repo: https://github.com/igorshubovych/markdownlint-cli
+      rev: v0.31.1
+      hooks:
+          - id: markdownlint-fix
+            exclude: CHANGELOG.md
 
   # check editorconfig rules
-  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 2.4.0
-    hooks:
-      - id: editorconfig-checker
-        always_run: true
+    - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+      rev: 2.4.0
+      hooks:
+          - id: editorconfig-checker
+            always_run: true
+            exclude: LICENSE
 
 ci:
-  skip: [cppcheck, gitown, run-cmake, oclint]
-  autofix_commit_msg: 'style: pre-commit autofixes [skip ci]'
-  autoupdate_commit_msg: 'chore: pre-commit autoupdate [skip ci]'
+    skip: [cppcheck, gitown, run-cmake]
+    autofix_commit_msg: 'style: pre-commit autofixes [skip ci]'
+    autoupdate_commit_msg: 'chore: pre-commit autoupdate [skip ci]'
 
 # yamllint enable

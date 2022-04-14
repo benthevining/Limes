@@ -7,6 +7,7 @@
 # Order is important. The last matching pattern has the most precedence.
 # These owners will be the default owners for everything in the repo.
 # This file is also being managed automatically by the gitown tool.
+.bumpversion.cfg benthevining
 .clang-format benthevining
 .clang-tidy benthevining
 .cmake-format.json benthevining
@@ -23,6 +24,7 @@
 .gitignore benthevining
 .gitlint benthevining
 .gitownrc benthevining
+.markdownlint.json benthevining
 .nitpick.toml benthevining
 .pre-commit-config.yaml benthevining
 .style.yapf benthevining
@@ -35,6 +37,7 @@ cmake/FindOranges.cmake benthevining
 cmake/LimesConfigVersionHeader.cmake benthevining
 cpp benthevining
 ector.h benthevining
+g
 hevining
 ing
 libs/CMakeLists.txt benthevining
@@ -102,6 +105,7 @@ libs/limes_data_structures/vectors/owned_vector.h benthevining
 libs/limes_data_structures/vectors/scalar_vector.h benthevining
 libs/limes_locale/CMakeLists.txt benthevining
 libs/limes_locale/languages/CMakeLists.txt benthevining
+libs/limes_locale/languages/languages.cpp benthevining
 libs/limes_locale/languages/languages.h benthevining
 libs/limes_locale/limes_locale.h benthevining
 libs/limes_music/CMakeLists.txt benthevining
@@ -145,6 +149,7 @@ libs/limes_vecops/fft/fft.cpp benthevining
 libs/limes_vecops/fft/fftw_fft.cpp benthevining
 libs/limes_vecops/fft/ipp_fft.cpp benthevining
 libs/limes_vecops/fft/limes_fft.cpp benthevining
+libs/limes_vecops/fft/limes_fft.h benthevining
 libs/limes_vecops/fft/vdsp_fft.cpp benthevining
 libs/limes_vecops/fft/vdsp_fft.h benthevining
 libs/limes_vecops/impl/CMakeLists.txt benthevining

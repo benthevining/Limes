@@ -12,9 +12,10 @@
 
 #pragma once
 
+// IWYU pragma: begin_exports
+
 #include <limes_platform.h>
 #include <limes_build_type.h>
-
 
 #include "misc/IgnoreUnused.h"
 #include "misc/TypeTraits.h"
@@ -33,3 +34,5 @@
 #include "threading/RealtimeSafeObject.h"
 
 #include <limes_version.h>
+
+// IWYU pragma: end_exports

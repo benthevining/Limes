@@ -12,9 +12,9 @@
 
 #pragma once
 
-#include <functional>
-#include "../util/Misc.h"
-#include <limes_export.h>
+#include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
+#include <functional>	   // for function
+#include <limes_export.h>  // for LIMES_EXPORT
 
 namespace limes::dsp
 {

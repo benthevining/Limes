@@ -12,10 +12,16 @@
 
 #pragma once
 
-#include <memory>		// for unique_ptr
-#include <string_view>	// for std::string, only needed if FFTW is used
-#include <limes_export.h>
-#include <limes_vecops.h>
+#include <memory>		   // for unique_ptr
+#include <limes_export.h>  // for LIMES_EXPORT, LIMES_NO_EXPORT
+#include <string_view>	   // for string_view
+#include <limes_vecops.h>  // for concept Scalar
+
+namespace limes::vecops
+{
+template <Scalar SampleType>
+class FFTImpl;
+}
 
 #ifndef LIMES_VECOPS_USE_FFTW
 #	if __has_include(<fftw3.h>)
@@ -27,9 +33,6 @@
 
 namespace limes::vecops
 {
-
-template <Scalar SampleType>
-class LIMES_NO_EXPORT FFTImpl;
 
 template <Scalar SampleType>
 class LIMES_EXPORT FFT final

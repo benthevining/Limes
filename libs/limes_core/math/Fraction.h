@@ -77,4 +77,4 @@ struct LIMES_EXPORT Fraction final
 }  // namespace limes::math
 
 
-#include "Fraction_impl.h"
+#include "Fraction_impl.h"	// IWYU pragma: export

@@ -12,8 +12,15 @@
 
 #pragma once
 
-#include "Interval.h"
-#include <limes_export.h>
+#include <limes_export.h>  // for LIMES_EXPORT
+#include <vector>		   // for vector
+#include "Interval.h"	   // for Interval, Interval::Quality
+
+namespace limes::music
+{
+class Pitch;
+}
+
 
 namespace limes::music
 {
@@ -111,4 +118,4 @@ private:
 }  // namespace limes::music
 
 
-#include "CompoundInterval_impl.h"
+#include "CompoundInterval_impl.h"	// IWYU pragma: export

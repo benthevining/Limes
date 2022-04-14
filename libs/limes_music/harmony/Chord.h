@@ -12,8 +12,22 @@
 
 #pragma once
 
-#include "scales/Scale.h"
-#include <limes_export.h>
+#include <limes_export.h>			// for LIMES_EXPORT
+#include <initializer_list>			// for initializer_list
+#include "Pitch.h"					// for Pitch
+#include <limes_data_structures.h>	// for vector
+
+namespace limes::music
+{
+class Interval;
+struct PitchClass;
+
+namespace scales
+{
+struct Scale;
+}
+}  // namespace limes::music
+
 
 namespace limes::music
 {

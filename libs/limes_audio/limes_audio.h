@@ -14,6 +14,7 @@
 
 #include <limes_data_structures.h>
 
+// IWYU pragma: begin_exports
 
 #include "util/Windowing.h"
 #include "util/PitchDetector.h"
@@ -24,3 +25,5 @@
 #include "streams/basic_oscillators.h"
 
 #include "psola/PeakFinder.h"
+
+// IWYU pragma: end_exports

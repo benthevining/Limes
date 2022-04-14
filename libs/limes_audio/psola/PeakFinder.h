@@ -12,10 +12,11 @@
 
 #pragma once
 
-#include <limes_core.h>
-#include <limes_export.h>
-#include <limes_data_structures.h>
-#include "../util/Misc.h"
+#include <limes_export.h>			// for LIMES_EXPORT
+#include <array>					// for array
+#include <limes_data_structures.h>	// for vector
+#include "../util/Misc.h"			// for concept Sample - IWYU pragma: keep
+
 
 namespace limes::dsp::psola
 {

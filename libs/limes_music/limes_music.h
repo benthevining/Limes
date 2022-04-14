@@ -14,6 +14,7 @@
 
 #include <limes_data_structures.h>
 
+// IWYU pragma: begin_exports
 
 #include "harmony/PitchUtils.h"
 #include "harmony/PitchClass.h"
@@ -35,3 +36,5 @@
 #include "rhythm/NoteDuration.h"
 #include "rhythm/NoteLength.h"
 #include "rhythm/TimeSignature.h"
+
+// IWYU pragma: end_exports

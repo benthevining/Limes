@@ -37,8 +37,7 @@ v4sf log_ps (v4sf x)
 
 	x = vmaxq_f32 (x, vdupq_n_f32 (0)); /* force flush to zero on denormal values */
 
-	v4si ux = vreinterpretq_s32_f32 (x);
-
+	v4si ux	  = vreinterpretq_s32_f32 (x);
 	v4si emm0 = vshrq_n_s32 (ux, 23);
 
 	/* keep only the fractional part */
@@ -64,23 +63,24 @@ v4sf log_ps (v4sf x)
 	x				= vaddq_f32 (x, tmp);
 
 	v4sf y = vdupq_n_f32 (c_cephes_log_p0);
-	y	   = vmulq_f32 (y, x);
-	y	   = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p1));
-	y	   = vmulq_f32 (y, x);
-	y	   = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p2));
-	y	   = vmulq_f32 (y, x);
-	y	   = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p3));
-	y	   = vmulq_f32 (y, x);
-	y	   = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p4));
-	y	   = vmulq_f32 (y, x);
-	y	   = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p5));
-	y	   = vmulq_f32 (y, x);
-	y	   = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p6));
-	y	   = vmulq_f32 (y, x);
-	y	   = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p7));
-	y	   = vmulq_f32 (y, x);
-	y	   = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p8));
-	y	   = vmulq_f32 (y, x);
+
+	y = vmulq_f32 (y, x);
+	y = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p1));
+	y = vmulq_f32 (y, x);
+	y = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p2));
+	y = vmulq_f32 (y, x);
+	y = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p3));
+	y = vmulq_f32 (y, x);
+	y = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p4));
+	y = vmulq_f32 (y, x);
+	y = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p5));
+	y = vmulq_f32 (y, x);
+	y = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p6));
+	y = vmulq_f32 (y, x);
+	y = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p7));
+	y = vmulq_f32 (y, x);
+	y = vaddq_f32 (y, vdupq_n_f32 (c_cephes_log_p8));
+	y = vmulq_f32 (y, x);
 
 	const v4sf z = vmulq_f32 (x, x);
 
@@ -204,7 +204,8 @@ void sincos_ps (v4sf x, v4sf* ysin, v4sf* ycos)
 
 	v4su sign_mask_sin, sign_mask_cos;
 	sign_mask_sin = vcltq_f32 (x, vdupq_n_f32 (0));
-	x			  = vabsq_f32 (x);
+
+	x = vabsq_f32 (x);
 
 	/* scale by 4/Pi */
 	y = vmulq_f32 (x, vdupq_n_f32 (c_cephes_FOPI));

@@ -11,7 +11,7 @@
  */
 
 #include "oscillator.h"
-#include <limes_core.h>
+#include <limes_platform.h>	 // for LIMES_ASSERT
 
 namespace limes::dsp
 {

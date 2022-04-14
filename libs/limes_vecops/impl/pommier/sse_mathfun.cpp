@@ -92,7 +92,7 @@ v4sf log_ps (v4sf x)
 	v2si mm0, mm1;
 #endif
 
-	x = _mm_max_ps (x, *(v4sf*) _ps_min_norm_pos); /* cut off denormalized stuff */
+	x = _mm_max_ps (x, *reinterpret_cast<v4sf*> (_ps_min_norm_pos)); /* cut off denormalized stuff */
 
 #ifndef USE_SSE2
 	/* part 1: x = frexpf(x, &e); */
@@ -104,21 +104,21 @@ v4sf log_ps (v4sf x)
 #endif
 
 	/* keep only the fractional part */
-	x = _mm_and_ps (x, *(v4sf*) _ps_inv_mant_mask);
-	x = _mm_or_ps (x, *(v4sf*) _ps_0p5);
+	x = _mm_and_ps (x, *reinterpret_cast<v4sf*> (_ps_inv_mant_mask));
+	x = _mm_or_ps (x, *reinterpret_cast<v4sf*> (_ps_0p5));
 
 #ifndef USE_SSE2
 	/* now e=mm0:mm1 contain the really base-2 exponent */
-	mm0	   = _mm_sub_pi32 (mm0, *(v2si*) _pi32_0x7f);
-	mm1	   = _mm_sub_pi32 (mm1, *(v2si*) _pi32_0x7f);
+	mm0	   = _mm_sub_pi32 (mm0, *reinterpret_cast<v2si*> (_pi32_0x7f));
+	mm1	   = _mm_sub_pi32 (mm1, *reinterpret_cast<v2si*> (_pi32_0x7f));
 	v4sf e = _mm_cvtpi32x2_ps (mm0, mm1);
 	_mm_empty(); /* bye bye mmx */
 #else
-	emm0   = _mm_sub_epi32 (emm0, *(v4si*) _pi32_0x7f);
+	emm0   = _mm_sub_epi32 (emm0, *reinterpret_cast<v4si*> (_pi32_0x7f));
 	v4sf e = _mm_cvtepi32_ps (emm0);
 #endif
 
-	const v4sf one = *(v4sf*) _ps_1;
+	const v4sf one = *reinterpret_cast<v4sf*> (_ps_1);
 
 	e = _mm_add_ps (e, one);
 
@@ -128,42 +128,44 @@ v4sf log_ps (v4sf x)
 		 x = x + x - 1.0;
 	   } else { x = x - 1.0; }
 	*/
-	const v4sf mask = _mm_cmplt_ps (x, *(v4sf*) _ps_cephes_SQRTHF);
-	v4sf	   tmp	= _mm_and_ps (x, mask);
-	x				= _mm_sub_ps (x, one);
-	e				= _mm_sub_ps (e, _mm_and_ps (one, mask));
-	x				= _mm_add_ps (x, tmp);
+	const v4sf mask = _mm_cmplt_ps (x, *reinterpret_cast<v4sf*> (_ps_cephes_SQRTHF));
 
-	v4sf y = *(v4sf*) _ps_cephes_log_p0;
-	y	   = _mm_mul_ps (y, x);
-	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_log_p1);
-	y	   = _mm_mul_ps (y, x);
-	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_log_p2);
-	y	   = _mm_mul_ps (y, x);
-	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_log_p3);
-	y	   = _mm_mul_ps (y, x);
-	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_log_p4);
-	y	   = _mm_mul_ps (y, x);
-	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_log_p5);
-	y	   = _mm_mul_ps (y, x);
-	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_log_p6);
-	y	   = _mm_mul_ps (y, x);
-	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_log_p7);
-	y	   = _mm_mul_ps (y, x);
-	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_log_p8);
-	y	   = _mm_mul_ps (y, x);
+	v4sf tmp = _mm_and_ps (x, mask);
+	x		 = _mm_sub_ps (x, one);
+	e		 = _mm_sub_ps (e, _mm_and_ps (one, mask));
+	x		 = _mm_add_ps (x, tmp);
+
+	v4sf y = *reinterpret_cast<v4sf*> (_ps_cephes_log_p0);
+
+	y = _mm_mul_ps (y, x);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_cephes_log_p1));
+	y = _mm_mul_ps (y, x);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_cephes_log_p2));
+	y = _mm_mul_ps (y, x);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_cephes_log_p3));
+	y = _mm_mul_ps (y, x);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_cephes_log_p4));
+	y = _mm_mul_ps (y, x);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_cephes_log_p5));
+	y = _mm_mul_ps (y, x);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_cephes_log_p6));
+	y = _mm_mul_ps (y, x);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_cephes_log_p7));
+	y = _mm_mul_ps (y, x);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_cephes_log_p8));
+	y = _mm_mul_ps (y, x);
 
 	const v4sf z = _mm_mul_ps (x, x);
 
 	y = _mm_mul_ps (y, z);
 
-	tmp = _mm_mul_ps (e, *(v4sf*) _ps_cephes_log_q1);
+	tmp = _mm_mul_ps (e, *reinterpret_cast<v4sf*> (_ps_cephes_log_q1));
 	y	= _mm_add_ps (y, tmp);
 
-	tmp = _mm_mul_ps (z, *(v4sf*) _ps_0p5);
+	tmp = _mm_mul_ps (z, *reinterpret_cast<v4sf*> (_ps_0p5));
 	y	= _mm_sub_ps (y, tmp);
 
-	tmp = _mm_mul_ps (e, *(v4sf*) _ps_cephes_log_q2);
+	tmp = _mm_mul_ps (e, *reinterpret_cast<v4sf*> (_ps_cephes_log_q2));
 	x	= _mm_add_ps (x, y);
 	x	= _mm_add_ps (x, tmp);
 
@@ -198,12 +200,12 @@ v4sf exp_ps (v4sf x)
 	v2si mm0, mm1;
 #endif
 
-	x = _mm_min_ps (x, *(v4sf*) _ps_exp_hi);
-	x = _mm_max_ps (x, *(v4sf*) _ps_exp_lo);
+	x = _mm_min_ps (x, *reinterpret_cast<v4sf*> (_ps_exp_hi));
+	x = _mm_max_ps (x, *reinterpret_cast<v4sf*> (_ps_exp_lo));
 
 	/* express exp(x) as exp(g + n*log(2)) */
-	fx = _mm_mul_ps (x, *(v4sf*) _ps_cephes_LOG2EF);
-	fx = _mm_add_ps (fx, *(v4sf*) _ps_0p5);
+	fx = _mm_mul_ps (x, *reinterpret_cast<v4sf*> (_ps_cephes_LOG2EF));
+	fx = _mm_add_ps (fx, *reinterpret_cast<v4sf*> (_ps_0p5));
 
 	/* how to perform a floorf with SSE: just below */
 #ifndef USE_SSE2
@@ -221,40 +223,41 @@ v4sf exp_ps (v4sf x)
 	/* if greater, subtract 1 */
 	v4sf mask = _mm_cmpgt_ps (tmp, fx);
 
-	const v4sf one = *(v4sf*) _ps_1;
+	const v4sf one = *reinterpret_cast<v4sf*> (_ps_1);
 
 	mask = _mm_and_ps (mask, one);
 	fx	 = _mm_sub_ps (tmp, mask);
 
-	tmp	   = _mm_mul_ps (fx, *(v4sf*) _ps_cephes_exp_C1);
-	v4sf z = _mm_mul_ps (fx, *(v4sf*) _ps_cephes_exp_C2);
+	tmp	   = _mm_mul_ps (fx, *reinterpret_cast<v4sf*> (_ps_cephes_exp_C1));
+	v4sf z = _mm_mul_ps (fx, *reinterpret_cast<v4sf*> (_ps_cephes_exp_C2));
 	x	   = _mm_sub_ps (x, tmp);
 	x	   = _mm_sub_ps (x, z);
 
 	z = _mm_mul_ps (x, x);
 
-	v4sf y = *(v4sf*) _ps_cephes_exp_p0;
-	y	   = _mm_mul_ps (y, x);
-	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_exp_p1);
-	y	   = _mm_mul_ps (y, x);
-	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_exp_p2);
-	y	   = _mm_mul_ps (y, x);
-	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_exp_p3);
-	y	   = _mm_mul_ps (y, x);
-	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_exp_p4);
-	y	   = _mm_mul_ps (y, x);
-	y	   = _mm_add_ps (y, *(v4sf*) _ps_cephes_exp_p5);
-	y	   = _mm_mul_ps (y, z);
-	y	   = _mm_add_ps (y, x);
-	y	   = _mm_add_ps (y, one);
+	v4sf y = *reinterpret_cast<v4sf*> (_ps_cephes_exp_p0);
+
+	y = _mm_mul_ps (y, x);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_cephes_exp_p1));
+	y = _mm_mul_ps (y, x);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_cephes_exp_p2));
+	y = _mm_mul_ps (y, x);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_cephes_exp_p3));
+	y = _mm_mul_ps (y, x);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_cephes_exp_p4));
+	y = _mm_mul_ps (y, x);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_cephes_exp_p5));
+	y = _mm_mul_ps (y, z);
+	y = _mm_add_ps (y, x);
+	y = _mm_add_ps (y, one);
 
 	/* build 2^n */
 #ifndef USE_SSE2
 	z	= _mm_movehl_ps (z, fx);
 	mm0 = _mm_cvttps_pi32 (fx);
 	mm1 = _mm_cvttps_pi32 (z);
-	mm0 = _mm_add_pi32 (mm0, *(v2si*) _pi32_0x7f);
-	mm1 = _mm_add_pi32 (mm1, *(v2si*) _pi32_0x7f);
+	mm0 = _mm_add_pi32 (mm0, *reinterpret_cast<v2si*> (_pi32_0x7f));
+	mm1 = _mm_add_pi32 (mm1, *reinterpret_cast<v2si*> (_pi32_0x7f));
 	mm0 = _mm_slli_pi32 (mm0, 23);
 	mm1 = _mm_slli_pi32 (mm1, 23);
 
@@ -263,7 +266,7 @@ v4sf exp_ps (v4sf x)
 	_mm_empty();
 #else
 	emm0	   = _mm_cvttps_epi32 (fx);
-	emm0	   = _mm_add_epi32 (emm0, *(v4si*) _pi32_0x7f);
+	emm0	   = _mm_add_epi32 (emm0, *reinterpret_cast<v4si*> (_pi32_0x7f));
 	emm0	   = _mm_slli_epi32 (emm0, 23);
 	v4sf pow2n = _mm_castsi128_ps (emm0);
 #endif
@@ -297,25 +300,25 @@ v4sf sin_ps (v4sf x)
 #endif
 
 	/* take the absolute value */
-	x = _mm_and_ps (x, *(v4sf*) _ps_inv_sign_mask);
+	x = _mm_and_ps (x, *reinterpret_cast<v4sf*> (_ps_inv_sign_mask));
 
 	/* extract the sign bit (upper one) */
-	sign_bit = _mm_and_ps (sign_bit, *(v4sf*) _ps_sign_mask);
+	sign_bit = _mm_and_ps (sign_bit, *reinterpret_cast<v4sf*> (_ps_sign_mask));
 
 	/* scale by 4/Pi */
-	y = _mm_mul_ps (x, *(v4sf*) _ps_cephes_FOPI);
+	y = _mm_mul_ps (x, *reinterpret_cast<v4sf*> (_ps_cephes_FOPI));
 
 #ifdef USE_SSE2
 	/* store the integer part of y in mm0 */
 	emm2 = _mm_cvttps_epi32 (y);
 
 	/* j=(j+1) & (~1) (see the cephes sources) */
-	emm2 = _mm_add_epi32 (emm2, *(v4si*) _pi32_1);
-	emm2 = _mm_and_si128 (emm2, *(v4si*) _pi32_inv1);
+	emm2 = _mm_add_epi32 (emm2, *reinterpret_cast<v4si*> (_pi32_1));
+	emm2 = _mm_and_si128 (emm2, *reinterpret_cast<v4si*> (_pi32_inv1));
 	y	 = _mm_cvtepi32_ps (emm2);
 
 	/* get the swap sign flag */
-	emm0 = _mm_and_si128 (emm2, *(v4si*) _pi32_4);
+	emm0 = _mm_and_si128 (emm2, *reinterpret_cast<v4si*> (_pi32_4));
 	emm0 = _mm_slli_epi32 (emm0, 29);
 
 	/* get the polynom selection mask
@@ -324,7 +327,7 @@ v4sf sin_ps (v4sf x)
 
 	   Both branches will be computed.
 	*/
-	emm2 = _mm_and_si128 (emm2, *(v4si*) _pi32_2);
+	emm2 = _mm_and_si128 (emm2, *reinterpret_cast<v4si*> (_pi32_2));
 	emm2 = _mm_cmpeq_epi32 (emm2, _mm_setzero_si128());
 
 	v4sf swap_sign_bit = _mm_castsi128_ps (emm0);
@@ -337,35 +340,37 @@ v4sf sin_ps (v4sf x)
 	mm3	 = _mm_cvttps_pi32 (xmm2);
 
 	/* j=(j+1) & (~1) (see the cephes sources) */
-	mm2 = _mm_add_pi32 (mm2, *(v2si*) _pi32_1);
-	mm3 = _mm_add_pi32 (mm3, *(v2si*) _pi32_1);
-	mm2 = _mm_and_si64 (mm2, *(v2si*) _pi32_inv1);
-	mm3 = _mm_and_si64 (mm3, *(v2si*) _pi32_inv1);
+	mm2 = _mm_add_pi32 (mm2, *reinterpret_cast<v2si*> (_pi32_1));
+	mm3 = _mm_add_pi32 (mm3, *reinterpret_cast<v2si*> (_pi32_1));
+	mm2 = _mm_and_si64 (mm2, *reinterpret_cast<v2si*> (_pi32_inv1));
+	mm3 = _mm_and_si64 (mm3, *reinterpret_cast<v2si*> (_pi32_inv1));
 	y	= _mm_cvtpi32x2_ps (mm2, mm3);
 
 	/* get the swap sign flag */
-	mm0 = _mm_and_si64 (mm2, *(v2si*) _pi32_4);
-	mm1 = _mm_and_si64 (mm3, *(v2si*) _pi32_4);
+	mm0 = _mm_and_si64 (mm2, *reinterpret_cast<v2si*> (_pi32_4));
+	mm1 = _mm_and_si64 (mm3, *reinterpret_cast<v2si*> (_pi32_4));
 	mm0 = _mm_slli_pi32 (mm0, 29);
 	mm1 = _mm_slli_pi32 (mm1, 29);
 
 	/* get the polynom selection mask */
-	mm2 = _mm_and_si64 (mm2, *(v2si*) _pi32_2);
-	mm3 = _mm_and_si64 (mm3, *(v2si*) _pi32_2);
+	mm2 = _mm_and_si64 (mm2, *reinterpret_cast<v2si*> (_pi32_2));
+	mm3 = _mm_and_si64 (mm3, *reinterpret_cast<v2si*> (_pi32_2));
 	mm2 = _mm_cmpeq_pi32 (mm2, _mm_setzero_si64());
 	mm3 = _mm_cmpeq_pi32 (mm3, _mm_setzero_si64());
+
 	v4sf swap_sign_bit, poly_mask;
 	COPY_MM_TO_XMM (mm0, mm1, swap_sign_bit);
 	COPY_MM_TO_XMM (mm2, mm3, poly_mask);
+
 	sign_bit = _mm_xor_ps (sign_bit, swap_sign_bit);
 	_mm_empty(); /* good-bye mmx */
 #endif
 
 	/* The magic pass: "Extended precision modular arithmetic"
 	   x = ((x - y * DP1) - y * DP2) - y * DP3; */
-	xmm1 = *(v4sf*) _ps_minus_cephes_DP1;
-	xmm2 = *(v4sf*) _ps_minus_cephes_DP2;
-	xmm3 = *(v4sf*) _ps_minus_cephes_DP3;
+	xmm1 = *reinterpret_cast<v4sf*> (_ps_minus_cephes_DP1);
+	xmm2 = *reinterpret_cast<v4sf*> (_ps_minus_cephes_DP2);
+	xmm3 = *reinterpret_cast<v4sf*> (_ps_minus_cephes_DP3);
 	xmm1 = _mm_mul_ps (y, xmm1);
 	xmm2 = _mm_mul_ps (y, xmm2);
 	xmm3 = _mm_mul_ps (y, xmm3);
@@ -374,32 +379,33 @@ v4sf sin_ps (v4sf x)
 	x	 = _mm_add_ps (x, xmm3);
 
 	/* Evaluate the first polynom  (0 <= x <= Pi/4) */
-	y = *(v4sf*) _ps_coscof_p0;
+	y = *reinterpret_cast<v4sf*> (_ps_coscof_p0);
 
 	const v4sf z = _mm_mul_ps (x, x);
 
 	y = _mm_mul_ps (y, z);
-	y = _mm_add_ps (y, *(v4sf*) _ps_coscof_p1);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_coscof_p1));
 	y = _mm_mul_ps (y, z);
-	y = _mm_add_ps (y, *(v4sf*) _ps_coscof_p2);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_coscof_p2));
 	y = _mm_mul_ps (y, z);
 	y = _mm_mul_ps (y, z);
 
-	const v4sf tmp = _mm_mul_ps (z, *(v4sf*) _ps_0p5);
+	const v4sf tmp = _mm_mul_ps (z, *reinterpret_cast<v4sf*> (_ps_0p5));
 
 	y = _mm_sub_ps (y, tmp);
-	y = _mm_add_ps (y, *(v4sf*) _ps_1);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_1));
 
 	/* Evaluate the second polynom  (Pi/4 <= x <= 0) */
 
-	v4sf y2 = *(v4sf*) _ps_sincof_p0;
-	y2		= _mm_mul_ps (y2, z);
-	y2		= _mm_add_ps (y2, *(v4sf*) _ps_sincof_p1);
-	y2		= _mm_mul_ps (y2, z);
-	y2		= _mm_add_ps (y2, *(v4sf*) _ps_sincof_p2);
-	y2		= _mm_mul_ps (y2, z);
-	y2		= _mm_mul_ps (y2, x);
-	y2		= _mm_add_ps (y2, x);
+	v4sf y2 = *reinterpret_cast<v4sf*> (_ps_sincof_p0);
+
+	y2 = _mm_mul_ps (y2, z);
+	y2 = _mm_add_ps (y2, *reinterpret_cast<v4sf*> (_ps_sincof_p1));
+	y2 = _mm_mul_ps (y2, z);
+	y2 = _mm_add_ps (y2, *reinterpret_cast<v4sf*> (_ps_sincof_p2));
+	y2 = _mm_mul_ps (y2, z);
+	y2 = _mm_mul_ps (y2, x);
+	y2 = _mm_add_ps (y2, x);
 
 	/* select the correct result from the two polynoms */
 	xmm3 = poly_mask;
@@ -422,28 +428,28 @@ v4sf cos_ps (v4sf x)
 #endif
 
 	/* take the absolute value */
-	x = _mm_and_ps (x, *(v4sf*) _ps_inv_sign_mask);
+	x = _mm_and_ps (x, *reinterpret_cast<v4sf*> (_ps_inv_sign_mask));
 
 	/* scale by 4/Pi */
-	y = _mm_mul_ps (x, *(v4sf*) _ps_cephes_FOPI);
+	y = _mm_mul_ps (x, *(reinterpret_cast<v4sf*> (_ps_cephes_FOPI)));
 
 #ifdef USE_SSE2
 	/* store the integer part of y in mm0 */
 	emm2 = _mm_cvttps_epi32 (y);
 
 	/* j=(j+1) & (~1) (see the cephes sources) */
-	emm2 = _mm_add_epi32 (emm2, *(v4si*) _pi32_1);
-	emm2 = _mm_and_si128 (emm2, *(v4si*) _pi32_inv1);
+	emm2 = _mm_add_epi32 (emm2, *reinterpret_cast<v4si*> (_pi32_1));
+	emm2 = _mm_and_si128 (emm2, *reinterpret_cast<v4si*> (_pi32_inv1));
 	y	 = _mm_cvtepi32_ps (emm2);
 
-	emm2 = _mm_sub_epi32 (emm2, *(v4si*) _pi32_2);
+	emm2 = _mm_sub_epi32 (emm2, *reinterpret_cast<v4si*> (_pi32_2));
 
 	/* get the swap sign flag */
-	emm0 = _mm_andnot_si128 (emm2, *(v4si*) _pi32_4);
+	emm0 = _mm_andnot_si128 (emm2, *reinterpret_cast<v4si*> (_pi32_4));
 	emm0 = _mm_slli_epi32 (emm0, 29);
 
 	/* get the polynom selection mask */
-	emm2 = _mm_and_si128 (emm2, *(v4si*) _pi32_2);
+	emm2 = _mm_and_si128 (emm2, *reinterpret_cast<v4si*> (_pi32_2));
 	emm2 = _mm_cmpeq_epi32 (emm2, _mm_setzero_si128());
 
 	v4sf sign_bit  = _mm_castsi128_ps (emm0);
@@ -455,26 +461,26 @@ v4sf cos_ps (v4sf x)
 	mm3	 = _mm_cvttps_pi32 (xmm2);
 
 	/* j=(j+1) & (~1) (see the cephes sources) */
-	mm2 = _mm_add_pi32 (mm2, *(v2si*) _pi32_1);
-	mm3 = _mm_add_pi32 (mm3, *(v2si*) _pi32_1);
-	mm2 = _mm_and_si64 (mm2, *(v2si*) _pi32_inv1);
-	mm3 = _mm_and_si64 (mm3, *(v2si*) _pi32_inv1);
+	mm2 = _mm_add_pi32 (mm2, *reinterpret_cast<v2si*> (_pi32_1));
+	mm3 = _mm_add_pi32 (mm3, *reinterpret_cast<v2si*> (_pi32_1));
+	mm2 = _mm_and_si64 (mm2, *reinterpret_cast<v2si*> (_pi32_inv1));
+	mm3 = _mm_and_si64 (mm3, *reinterpret_cast<v2si*> (_pi32_inv1));
 
 	y = _mm_cvtpi32x2_ps (mm2, mm3);
 
-	mm2 = _mm_sub_pi32 (mm2, *(v2si*) _pi32_2);
-	mm3 = _mm_sub_pi32 (mm3, *(v2si*) _pi32_2);
+	mm2 = _mm_sub_pi32 (mm2, *reinterpret_cast<v2si*> (_pi32_2));
+	mm3 = _mm_sub_pi32 (mm3, *reinterpret_cast<v2si*> (_pi32_2));
 
 	/* get the swap sign flag in mm0:mm1 and the
 	   polynom selection mask in mm2:mm3 */
 
-	mm0 = _mm_andnot_si64 (mm2, *(v2si*) _pi32_4);
-	mm1 = _mm_andnot_si64 (mm3, *(v2si*) _pi32_4);
+	mm0 = _mm_andnot_si64 (mm2, *reinterpret_cast<v2si*> (_pi32_4));
+	mm1 = _mm_andnot_si64 (mm3, *reinterpret_cast<v2si*> (_pi32_4));
 	mm0 = _mm_slli_pi32 (mm0, 29);
 	mm1 = _mm_slli_pi32 (mm1, 29);
 
-	mm2 = _mm_and_si64 (mm2, *(v2si*) _pi32_2);
-	mm3 = _mm_and_si64 (mm3, *(v2si*) _pi32_2);
+	mm2 = _mm_and_si64 (mm2, *reinterpret_cast<v2si*> (_pi32_2));
+	mm3 = _mm_and_si64 (mm3, *reinterpret_cast<v2si*> (_pi32_2));
 
 	mm2 = _mm_cmpeq_pi32 (mm2, _mm_setzero_si64());
 	mm3 = _mm_cmpeq_pi32 (mm3, _mm_setzero_si64());
@@ -487,9 +493,9 @@ v4sf cos_ps (v4sf x)
 
 	/* The magic pass: "Extended precision modular arithmetic"
 	   x = ((x - y * DP1) - y * DP2) - y * DP3; */
-	xmm1 = *(v4sf*) _ps_minus_cephes_DP1;
-	xmm2 = *(v4sf*) _ps_minus_cephes_DP2;
-	xmm3 = *(v4sf*) _ps_minus_cephes_DP3;
+	xmm1 = *reinterpret_cast<v4sf*> (_ps_minus_cephes_DP1);
+	xmm2 = *reinterpret_cast<v4sf*> (_ps_minus_cephes_DP2);
+	xmm3 = *reinterpret_cast<v4sf*> (_ps_minus_cephes_DP3);
 	xmm1 = _mm_mul_ps (y, xmm1);
 	xmm2 = _mm_mul_ps (y, xmm2);
 	xmm3 = _mm_mul_ps (y, xmm3);
@@ -498,29 +504,29 @@ v4sf cos_ps (v4sf x)
 	x	 = _mm_add_ps (x, xmm3);
 
 	/* Evaluate the first polynom  (0 <= x <= Pi/4) */
-	y = *(v4sf*) _ps_coscof_p0;
+	y = *reinterpret_cast<v4sf*> (_ps_coscof_p0);
 
 	const v4sf z = _mm_mul_ps (x, x);
 
 	y = _mm_mul_ps (y, z);
-	y = _mm_add_ps (y, *(v4sf*) _ps_coscof_p1);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_coscof_p1));
 	y = _mm_mul_ps (y, z);
-	y = _mm_add_ps (y, *(v4sf*) _ps_coscof_p2);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_coscof_p2));
 	y = _mm_mul_ps (y, z);
 	y = _mm_mul_ps (y, z);
 
-	const v4sf tmp = _mm_mul_ps (z, *(v4sf*) _ps_0p5);
+	const v4sf tmp = _mm_mul_ps (z, *reinterpret_cast<v4sf*> (_ps_0p5));
 
 	y = _mm_sub_ps (y, tmp);
-	y = _mm_add_ps (y, *(v4sf*) _ps_1);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_1));
 
 	/* Evaluate the second polynom  (Pi/4 <= x <= 0) */
 
-	v4sf y2 = *(v4sf*) _ps_sincof_p0;
+	v4sf y2 = *reinterpret_cast<v4sf*> (_ps_sincof_p0);
 	y2		= _mm_mul_ps (y2, z);
-	y2		= _mm_add_ps (y2, *(v4sf*) _ps_sincof_p1);
+	y2		= _mm_add_ps (y2, *reinterpret_cast<v4sf*> (_ps_sincof_p1));
 	y2		= _mm_mul_ps (y2, z);
-	y2		= _mm_add_ps (y2, *(v4sf*) _ps_sincof_p2);
+	y2		= _mm_add_ps (y2, *reinterpret_cast<v4sf*> (_ps_sincof_p2));
 	y2		= _mm_mul_ps (y2, z);
 	y2		= _mm_mul_ps (y2, x);
 	y2		= _mm_add_ps (y2, x);
@@ -548,32 +554,32 @@ void sincos_ps (v4sf x, v4sf* s, v4sf* c)
 	sign_bit_sin = x;
 
 	/* take the absolute value */
-	x = _mm_and_ps (x, *(v4sf*) _ps_inv_sign_mask);
+	x = _mm_and_ps (x, *reinterpret_cast<v4sf*> (_ps_inv_sign_mask));
 
 	/* extract the sign bit (upper one) */
-	sign_bit_sin = _mm_and_ps (sign_bit_sin, *(v4sf*) _ps_sign_mask);
+	sign_bit_sin = _mm_and_ps (sign_bit_sin, *reinterpret_cast<v4sf*> (_ps_sign_mask));
 
 	/* scale by 4/Pi */
-	y = _mm_mul_ps (x, *(v4sf*) _ps_cephes_FOPI);
+	y = _mm_mul_ps (x, *reinterpret_cast<v4sf*> (_ps_cephes_FOPI));
 
 #ifdef USE_SSE2
 	/* store the integer part of y in emm2 */
 	emm2 = _mm_cvttps_epi32 (y);
 
 	/* j=(j+1) & (~1) (see the cephes sources) */
-	emm2 = _mm_add_epi32 (emm2, *(v4si*) _pi32_1);
-	emm2 = _mm_and_si128 (emm2, *(v4si*) _pi32_inv1);
+	emm2 = _mm_add_epi32 (emm2, *reinterpret_cast<v4si*> (_pi32_1));
+	emm2 = _mm_and_si128 (emm2, *reinterpret_cast<v4si*> (_pi32_inv1));
 	y	 = _mm_cvtepi32_ps (emm2);
 
 	emm4 = emm2;
 
 	/* get the swap sign flag for the sine */
-	emm0				   = _mm_and_si128 (emm2, *(v4si*) _pi32_4);
+	emm0				   = _mm_and_si128 (emm2, *reinterpret_cast<v4si*> (_pi32_4));
 	emm0				   = _mm_slli_epi32 (emm0, 29);
 	v4sf swap_sign_bit_sin = _mm_castsi128_ps (emm0);
 
 	/* get the polynom selection mask for the sine*/
-	emm2		   = _mm_and_si128 (emm2, *(v4si*) _pi32_2);
+	emm2		   = _mm_and_si128 (emm2, *reinterpret_cast<v4si*> (_pi32_2));
 	emm2		   = _mm_cmpeq_epi32 (emm2, _mm_setzero_si128());
 	v4sf poly_mask = _mm_castsi128_ps (emm2);
 #else
@@ -583,10 +589,10 @@ void sincos_ps (v4sf x, v4sf* s, v4sf* c)
 	mm3	 = _mm_cvttps_pi32 (xmm3);
 
 	/* j=(j+1) & (~1) (see the cephes sources) */
-	mm2 = _mm_add_pi32 (mm2, *(v2si*) _pi32_1);
-	mm3 = _mm_add_pi32 (mm3, *(v2si*) _pi32_1);
-	mm2 = _mm_and_si64 (mm2, *(v2si*) _pi32_inv1);
-	mm3 = _mm_and_si64 (mm3, *(v2si*) _pi32_inv1);
+	mm2 = _mm_add_pi32 (mm2, *reinterpret_cast<v2si*> (_pi32_1));
+	mm3 = _mm_add_pi32 (mm3, *reinterpret_cast<v2si*> (_pi32_1));
+	mm2 = _mm_and_si64 (mm2, *reinterpret_cast<v2si*> (_pi32_inv1));
+	mm3 = _mm_and_si64 (mm3, *reinterpret_cast<v2si*> (_pi32_inv1));
 
 	y = _mm_cvtpi32x2_ps (mm2, mm3);
 
@@ -594,8 +600,8 @@ void sincos_ps (v4sf x, v4sf* s, v4sf* c)
 	mm5 = mm3;
 
 	/* get the swap sign flag for the sine */
-	mm0 = _mm_and_si64 (mm2, *(v2si*) _pi32_4);
-	mm1 = _mm_and_si64 (mm3, *(v2si*) _pi32_4);
+	mm0 = _mm_and_si64 (mm2, *reinterpret_cast<v2si*> (_pi32_4));
+	mm1 = _mm_and_si64 (mm3, *reinterpret_cast<v2si*> (_pi32_4));
 	mm0 = _mm_slli_pi32 (mm0, 29);
 	mm1 = _mm_slli_pi32 (mm1, 29);
 	v4sf swap_sign_bit_sin;
@@ -603,8 +609,8 @@ void sincos_ps (v4sf x, v4sf* s, v4sf* c)
 
 	/* get the polynom selection mask for the sine */
 
-	mm2 = _mm_and_si64 (mm2, *(v2si*) _pi32_2);
-	mm3 = _mm_and_si64 (mm3, *(v2si*) _pi32_2);
+	mm2 = _mm_and_si64 (mm2, *reinterpret_cast<v2si*> (_pi32_2));
+	mm3 = _mm_and_si64 (mm3, *reinterpret_cast<v2si*> (_pi32_2));
 	mm2 = _mm_cmpeq_pi32 (mm2, _mm_setzero_si64());
 	mm3 = _mm_cmpeq_pi32 (mm3, _mm_setzero_si64());
 	v4sf poly_mask;
@@ -613,9 +619,9 @@ void sincos_ps (v4sf x, v4sf* s, v4sf* c)
 
 	/* The magic pass: "Extended precision modular arithmetic"
 	   x = ((x - y * DP1) - y * DP2) - y * DP3; */
-	xmm1 = *(v4sf*) _ps_minus_cephes_DP1;
-	xmm2 = *(v4sf*) _ps_minus_cephes_DP2;
-	xmm3 = *(v4sf*) _ps_minus_cephes_DP3;
+	xmm1 = *reinterpret_cast<v4sf*> (_ps_minus_cephes_DP1);
+	xmm2 = *reinterpret_cast<v4sf*> (_ps_minus_cephes_DP2);
+	xmm3 = *reinterpret_cast<v4sf*> (_ps_minus_cephes_DP3);
 	xmm1 = _mm_mul_ps (y, xmm1);
 	xmm2 = _mm_mul_ps (y, xmm2);
 	xmm3 = _mm_mul_ps (y, xmm3);
@@ -624,16 +630,16 @@ void sincos_ps (v4sf x, v4sf* s, v4sf* c)
 	x	 = _mm_add_ps (x, xmm3);
 
 #ifdef USE_SSE2
-	emm4			  = _mm_sub_epi32 (emm4, *(v4si*) _pi32_2);
-	emm4			  = _mm_andnot_si128 (emm4, *(v4si*) _pi32_4);
+	emm4			  = _mm_sub_epi32 (emm4, *reinterpret_cast<v4si*> (_pi32_2));
+	emm4			  = _mm_andnot_si128 (emm4, *reinterpret_cast<v4si*> (_pi32_4));
 	emm4			  = _mm_slli_epi32 (emm4, 29);
 	v4sf sign_bit_cos = _mm_castsi128_ps (emm4);
 #else
 	/* get the sign flag for the cosine */
-	mm4 = _mm_sub_pi32 (mm4, *(v2si*) _pi32_2);
-	mm5 = _mm_sub_pi32 (mm5, *(v2si*) _pi32_2);
-	mm4 = _mm_andnot_si64 (mm4, *(v2si*) _pi32_4);
-	mm5 = _mm_andnot_si64 (mm5, *(v2si*) _pi32_4);
+	mm4 = _mm_sub_pi32 (mm4, *reinterpret_cast<v2si*> (_pi32_2));
+	mm5 = _mm_sub_pi32 (mm5, *reinterpret_cast<v2si*> (_pi32_2));
+	mm4 = _mm_andnot_si64 (mm4, *reinterpret_cast<v2si*> (_pi32_4));
+	mm5 = _mm_andnot_si64 (mm5, *reinterpret_cast<v2si*> (_pi32_4));
 	mm4 = _mm_slli_pi32 (mm4, 29);
 	mm5 = _mm_slli_pi32 (mm5, 29);
 	v4sf sign_bit_cos;
@@ -646,30 +652,31 @@ void sincos_ps (v4sf x, v4sf* s, v4sf* c)
 	/* Evaluate the first polynom  (0 <= x <= Pi/4) */
 	const v4sf z = _mm_mul_ps (x, x);
 
-	y = *(v4sf*) _ps_coscof_p0;
+	y = *reinterpret_cast<v4sf*> (_ps_coscof_p0);
 
 	y = _mm_mul_ps (y, z);
-	y = _mm_add_ps (y, *(v4sf*) _ps_coscof_p1);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_coscof_p1));
 	y = _mm_mul_ps (y, z);
-	y = _mm_add_ps (y, *(v4sf*) _ps_coscof_p2);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_coscof_p2));
 	y = _mm_mul_ps (y, z);
 	y = _mm_mul_ps (y, z);
 
-	const v4sf tmp = _mm_mul_ps (z, *(v4sf*) _ps_0p5);
+	const v4sf tmp = _mm_mul_ps (z, *reinterpret_cast<v4sf*> (_ps_0p5));
 
 	y = _mm_sub_ps (y, tmp);
-	y = _mm_add_ps (y, *(v4sf*) _ps_1);
+	y = _mm_add_ps (y, *reinterpret_cast<v4sf*> (_ps_1));
 
 	/* Evaluate the second polynom  (Pi/4 <= x <= 0) */
 
-	v4sf y2 = *(v4sf*) _ps_sincof_p0;
-	y2		= _mm_mul_ps (y2, z);
-	y2		= _mm_add_ps (y2, *(v4sf*) _ps_sincof_p1);
-	y2		= _mm_mul_ps (y2, z);
-	y2		= _mm_add_ps (y2, *(v4sf*) _ps_sincof_p2);
-	y2		= _mm_mul_ps (y2, z);
-	y2		= _mm_mul_ps (y2, x);
-	y2		= _mm_add_ps (y2, x);
+	v4sf y2 = *reinterpret_cast<v4sf*> (_ps_sincof_p0);
+
+	y2 = _mm_mul_ps (y2, z);
+	y2 = _mm_add_ps (y2, *reinterpret_cast<v4sf*> (_ps_sincof_p1));
+	y2 = _mm_mul_ps (y2, z);
+	y2 = _mm_add_ps (y2, *reinterpret_cast<v4sf*> (_ps_sincof_p2));
+	y2 = _mm_mul_ps (y2, z);
+	y2 = _mm_mul_ps (y2, x);
+	y2 = _mm_add_ps (y2, x);
 
 	/* select the correct result from the two polynoms */
 	xmm3	   = poly_mask;

@@ -11,6 +11,12 @@
  */
 
 #include "Scale.h"
+#include "../PitchUtils.h"			// for lowestNoteOfMidiOctave
+#include "../intervals/Interval.h"	// for Interval
+#include "../Pitch.h"				// for Pitch
+#include "../PitchClass.h"			// for PitchClass
+#include <limes_data_structures.h>	// for vector, scalar_vector, basic_vector
+
 
 namespace limes::music::scales
 {
