@@ -20,11 +20,6 @@ jobs:
             contents: read
             security-events: write
 
-        strategy:
-            fail-fast: false
-            matrix:
-                language: [cpp]
-
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
@@ -32,23 +27,23 @@ jobs:
             - name: Initialize CodeQL
               uses: github/codeql-action/init@v1
               with:
-                  languages: ${{ matrix.language }}
+                  languages: cpp
 
             - name: Install dependencies
-              run: sudo apt-get install ninja-build
+              uses: seanmiddleditch/gha-setup-ninja@v3
 
             - name: Set up cache
               uses: actions/cache@v3
               with:
                   path: Cache
-                  key: ${{ runner.os }}.codeql_analysis.${{ hashFiles('**/') }}
-                  restore-keys: ${{ runner.os }}.codeql_analysis.
+                  key: codeql_analysis.${{ hashFiles('**/') }}
+                  restore-keys: codeql_analysis.
 
-            - name: Generate Makefile
-              run: scripts/generate.sh
+            - name: Run CMake
+              run: cmake --preset default -G Ninja
 
             - name: Run build
-              run: make build
+              run: cmake --build --preset default
 
             - name: Perform CodeQL Analysis
               uses: github/codeql-action/analyze@v1

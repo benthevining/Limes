@@ -6,6 +6,8 @@ on:
     push:
         branches:
             - main
+    schedule:
+        - cron: 0 0 * * 1
 
 defaults:
     run:
@@ -15,14 +17,20 @@ jobs:
 
     Build:
 
-        name: ${{ matrix.os }} build
+        name: ${{ matrix.os }} ${{ matrix.cmake_generator }} build
+        if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         runs-on: ${{ matrix.os }}
         timeout-minutes: 120
         strategy:
             fail-fast: false
             matrix:
                 os: [windows-latest, ubuntu-latest, macos-latest]
-        if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+                cmake_generator: [Ninja]
+                include:
+                    - os: windows-latest
+                      cmake_generator: Visual Studio 17 2022
+                    - os: macos-latest
+                      cmake_generator: Xcode
 
         steps:
             - name: Checkout code
@@ -39,14 +47,14 @@ jobs:
                   restore-keys: ${{ runner.os }}.test.
 
             - name: Install dependencies
-              if: runner.os == 'Linux'
-              run: sudo apt-get install ninja-build
+              if: ${{ matrix.cmake_generator }} == 'Ninja'
+              uses: seanmiddleditch/gha-setup-ninja@v3
 
-            - name: Generate Makefile
-              run: scripts/generate.sh
+            - name: Run CMake
+              run: cmake --preset default -G '${{ matrix.cmake_generator }}'
 
-            - name: Build
-              run: make build
+            - name: Run build
+              run: cmake --build --preset default
 
 
     Release:
