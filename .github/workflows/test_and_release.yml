@@ -47,13 +47,13 @@ jobs:
                   restore-keys: ${{ runner.os }}.${{ matrix.cmake_generator }}.test. # yamllint disable-line
 
             - name: Install dependencies
-              if: ${{ matrix.cmake_generator }} == 'Ninja'
+              if: ${{ matrix.cmake_generator == 'Ninja' }}
               uses: seanmiddleditch/gha-setup-ninja@v3
 
             - name: Set compiler
-              if: ${{ matrix.cmake_generator }} == 'Ninja'
+              if: ${{ matrix.cmake_generator }} == 'Ninja' }}
               run: |
-                  echo "CC=$gcc-10" >> $GITHUB_ENV \
+                  echo "CC=gcc-10" >> $GITHUB_ENV \
                   echo "CXX=g++-10" >> $GITHUB_ENV
 
             - name: Run CMake

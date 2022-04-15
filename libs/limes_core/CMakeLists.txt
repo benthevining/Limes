@@ -60,6 +60,9 @@ set_target_properties (limes_core PROPERTIES VERSION "${PROJECT_VERSION}"
 
 target_link_libraries (limes_core PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
 
+# Limes requires concepts
+target_compile_options (limes_core PUBLIC $<$<CXX_COMPILER_ID:GNU>:-fconcepts>)
+
 oranges_generate_standard_headers (
 	TARGET limes_core
 	BASE_NAME limes NO_AGGREGATE_HEADER
