@@ -1,6 +1,8 @@
 ---
 name: Create release
 
+# yamllint disable rule:line-length
+
 on:
     workflow_dispatch:
     push:
@@ -17,7 +19,7 @@ jobs:
 
     Build:
 
-        name: ${{ matrix.os }} - ${{ matrix.cmake_generator }} - ${{ matrix.compiler }} # yamllint disable-line
+        name: ${{ matrix.os }} - ${{ matrix.cmake_generator }} - ${{ matrix.compiler }}
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         runs-on: ${{ matrix.os }}
         timeout-minutes: 120
@@ -46,26 +48,25 @@ jobs:
               uses: actions/cache@v3
               with:
                   path: Cache
-                  key: ${{ runner.os }}.${{ matrix.cmake_generator }}.test.${{ hashFiles('**/') }} # yamllint disable-line
-                  restore-keys: ${{ runner.os }}.${{ matrix.cmake_generator }}.test. # yamllint disable-line
+                  key: ${{ runner.os }}.${{ matrix.cmake_generator }}.${{ matrix.compiler }}.test.${{ hashFiles('**/') }}
+                  restore-keys: ${{ runner.os }}.${{ matrix.cmake_generator }}.${{ matrix.compiler }}.test.
 
             - name: Install dependencies
               if: ${{ matrix.cmake_generator == 'Ninja' }}
               uses: seanmiddleditch/gha-setup-ninja@v3
 
-            - name: Set compiler
-              if: ${{ matrix.cmake_generator == 'Ninja' && matrix.compiler == 'GCC' }} # yamllint disable-line
+            - name: Run CMake
+              if: ${{ matrix.compiler == 'GCC' }}
               run: |
-                  echo "CC=gcc-10" >> $GITHUB_ENV \
-                  echo "CXX=g++-10" >> $GITHUB_ENV
-
-            - name: Set compiler
-              if: ${{ matrix.cmake_generator == 'Ninja' && matrix.compiler == 'clang' }} # yamllint disable-line
-              run: |
-                  echo "CC=clang" >> $GITHUB_ENV \
-                  echo "CXX=clang++" >> $GITHUB_ENV
+                  CC=gcc-10 CXX=g++-10 cmake --preset default -G '${{ matrix.cmake_generator }}' -D CMAKE_C_COMPILER=gcc-10 -D CMAKE_CXX_COMPILER=g++-10
 
             - name: Run CMake
+              if: ${{ matrix.compiler == 'clang' }}
+              run: |
+                  CC=clang CXX=clang++ cmake --preset default -G '${{ matrix.cmake_generator }}' -D CMAKE_C_COMPILER=clang -D CMAKE_CXX_COMPILER=clang++
+
+            - name: Run CMake
+              if: ${{ matrix.compiler != 'GCC' && matrix.compiler != 'clang' }}
               run: cmake --preset default -G '${{ matrix.cmake_generator }}'
 
             - name: Run build
