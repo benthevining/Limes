@@ -36,6 +36,10 @@ jobs:
                     - os: macos-latest
                       cmake_generator: Xcode
                       compiler: AppleClang
+                exclude:
+                    - os: windows-latest
+                      cmake_generator: Ninja
+                      compiler: GCC
 
         steps:
             - name: Checkout code
@@ -55,20 +59,20 @@ jobs:
               if: ${{ matrix.cmake_generator == 'Ninja' }}
               uses: seanmiddleditch/gha-setup-ninja@v3
 
-            - name: Set up MinGW
-              if: ${{ runner.os == 'Windows' && matrix.compiler == 'GCC' }}
-              uses: egor-tensin/setup-mingw@v2
-              id: setup_MinGW
+            # - name: Set up MinGW
+            #   if: ${{ runner.os == 'Windows' && matrix.compiler == 'GCC' }}
+            #   uses: egor-tensin/setup-mingw@v2
+            #   id: setup_MinGW
 
             - name: Run CMake (GCC)
               if: ${{ matrix.compiler == 'GCC' && runner.os != 'Windows' }}
               run: |
                   CC=gcc-10 CXX=g++-10 cmake --preset default -G '${{ matrix.cmake_generator }}' -D CMAKE_C_COMPILER=gcc-10 -D CMAKE_CXX_COMPILER=g++-10
 
-            - name: Run CMake (GCC/Windows)
-              if: ${{ matrix.compiler == 'GCC' && runner.os == 'Windows' }}
-              run: |
-                  CC='${{ steps.setup_MinGW.outputs.gcc }}' CXX='${{ steps.setup_MinGW.outputs.gxx }}' cmake --preset default -G '${{ matrix.cmake_generator }}' -D CMAKE_C_COMPILER='${{ steps.setup_MinGW.outputs.gcc }}' -D CMAKE_CXX_COMPILER='${{ steps.setup_MinGW.outputs.gxx }}'
+            # - name: Run CMake (GCC/Windows)
+            #   if: ${{ matrix.compiler == 'GCC' && runner.os == 'Windows' }}
+            #   run: |
+            #       CC='${{ steps.setup_MinGW.outputs.gcc }}' CXX='${{ steps.setup_MinGW.outputs.gxx }}' cmake --preset default -G '${{ matrix.cmake_generator }}' -D CMAKE_C_COMPILER='${{ steps.setup_MinGW.outputs.gcc }}' -D CMAKE_CXX_COMPILER='${{ steps.setup_MinGW.outputs.gxx }}'
 
             - name: Run CMake (clang)
               if: ${{ matrix.compiler == 'clang' }}

@@ -32,6 +32,10 @@ You can run `cmake --install` and then call `find_package (Limes)` from your con
 If your project depends on Limes, I recommend copying the `FindLimes` script from the `scripts/` directory into your project's source tree (and adding its location to the `CMAKE_MODULE_PATH` before calling `find_package (Limes)`), so that if your project is built on a system where Limes hasn't been installed, it can still be fetched at configure-time.
 See the `FindLimes` file for more documentation on what it does.
 
+## Compiling Limes
+
+Limes makes use of C++20, notably concepts. Limes has been tested on Mac, Windows, and Linux with Clang, GCC, and MSVC.
+
 ## CMake information
 
 ### Options
