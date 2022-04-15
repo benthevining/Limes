@@ -54,13 +54,13 @@ jobs:
               uses: seanmiddleditch/gha-setup-ninja@v3
 
             - name: Set compiler
-              if: ${{ matrix.cmake_generator == 'Ninja' && matrix.compiler == GCC }} # yamllint disable-line
+              if: ${{ matrix.cmake_generator == 'Ninja' && matrix.compiler == 'GCC' }} # yamllint disable-line
               run: |
                   echo "CC=gcc-10" >> $GITHUB_ENV \
                   echo "CXX=g++-10" >> $GITHUB_ENV
 
             - name: Set compiler
-              if: ${{ matrix.cmake_generator == 'Ninja' && matrix.compiler == clang }} # yamllint disable-line
+              if: ${{ matrix.cmake_generator == 'Ninja' && matrix.compiler == 'clang' }} # yamllint disable-line
               run: |
                   echo "CC=clang" >> $GITHUB_ENV \
                   echo "CXX=clang++" >> $GITHUB_ENV
