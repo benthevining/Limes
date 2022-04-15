@@ -90,23 +90,23 @@ jobs:
               run: cmake --build --preset default --config Release
 
             - name: Install debug
-              run: cmake --install Builds --config Debug --prefix ${GITHUB_WORKSPACE}/deploy/debug
+              run: cmake --install Builds --config Debug --prefix $GITHUB_WORKSPACE/deploy/debug
 
             - name: Install release
-              run: cmake --install Builds --config Release --prefix ${GITHUB_WORKSPACE}/deploy/release
+              run: cmake --install Builds --config Release --prefix $GITHUB_WORKSPACE/deploy/release
 
             - name: Upload debug artefacts
               uses: actions/upload-artifact@v3
               with:
                   name: ${{ matrix.os }}.${{ matrix.compiler }}.debug
-                  path: ${GITHUB_WORKSPACE}/deploy/debug
+                  path: $GITHUB_WORKSPACE/deploy/debug
                   if-no-files-found: error
 
             - name: Upload release artefacts
               uses: actions/upload-artifact@v3
               with:
                   name: ${{ matrix.os }}.${{ matrix.compiler }}.release
-                  path: ${GITHUB_WORKSPACE}/deploy/release
+                  path: $GITHUB_WORKSPACE/deploy/release
                   if-no-files-found: error
 
 
