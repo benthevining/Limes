@@ -19,7 +19,7 @@ jobs:
 
     Build:
 
-        name: ${{ matrix.os }} - ${{ matrix.cmake_generator }} - ${{ matrix.compiler }}
+        name: ${{ matrix.os }} - ${{ matrix.compiler }} - ${{ matrix.cmake_generator }}
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         runs-on: ${{ matrix.os }}
         timeout-minutes: 120
@@ -27,7 +27,7 @@ jobs:
             fail-fast: false
             matrix:
                 os: [windows-latest, ubuntu-latest, macos-latest]
-                cmake_generator: [Ninja]
+                cmake_generator: [Ninja Multi-Config]
                 compiler: [GCC, clang]
                 include:
                     - os: windows-latest
@@ -38,7 +38,7 @@ jobs:
                       compiler: AppleClang
                 exclude:
                     - os: windows-latest
-                      cmake_generator: Ninja
+                      cmake_generator: Ninja Multi-Config
                       compiler: GCC
 
         steps:
@@ -56,7 +56,7 @@ jobs:
                   restore-keys: ${{ runner.os }}.${{ matrix.cmake_generator }}.${{ matrix.compiler }}.test.
 
             - name: Install Ninja
-              if: ${{ matrix.cmake_generator == 'Ninja' }}
+              if: ${{ matrix.cmake_generator == 'Ninja Multi-Config' }}
               uses: seanmiddleditch/gha-setup-ninja@v3
 
             # - name: Set up MinGW
@@ -83,8 +83,31 @@ jobs:
               if: ${{ matrix.compiler != 'GCC' && matrix.compiler != 'clang' }}
               run: cmake --preset default -G '${{ matrix.cmake_generator }}'
 
-            - name: Run build
-              run: cmake --build --preset default
+            - name: Run debug build
+              run: cmake --build --preset default --config Debug
+
+            - name: Run release build
+              run: cmake --build --preset default --config Release
+
+            - name: Install debug
+              run: cmake --install Builds --config Debug --prefix ${GITHUB_WORKSPACE}/deploy/debug
+
+            - name: Install release
+              run: cmake --install Builds --config Release --prefix ${GITHUB_WORKSPACE}/deploy/release
+
+            - name: Upload debug artefacts
+              uses: actions/upload-artifact@v3
+              with:
+                  name: ${{ matrix.os }}.${{ matrix.compiler }}.debug
+                  path: ${GITHUB_WORKSPACE}/deploy/debug
+                  if-no-files-found: error
+
+            - name: Upload release artefacts
+              uses: actions/upload-artifact@v3
+              with:
+                  name: ${{ matrix.os }}.${{ matrix.compiler }}.release
+                  path: ${GITHUB_WORKSPACE}/deploy/release
+                  if-no-files-found: error
 
 
     Release:

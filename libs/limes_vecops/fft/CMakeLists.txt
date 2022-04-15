@@ -31,7 +31,8 @@ install (FILES "${CMAKE_CURRENT_LIST_DIR}/limes_fft.h"
 
 function(_limes_fft_end_callback)
 
-	add_feature_info (FFTW "TARGET FFTW::FFTW" "Accelerated FFT using FFTW")
+	add_feature_info (FFTW "TARGET FFTW::FFTW AND NOT LIMES_IGNORE_FFTW"
+					  "Accelerated FFT using FFTW")
 
 	target_sources (
 		limes_vecops
@@ -60,6 +61,8 @@ if(NOT LIMES_IGNORE_FFTW)
 		target_compile_definitions (limes_vecops PRIVATE LIMES_VECOPS_USE_FFTW=1)
 
 		set (LIMES_FFT_SOURCE_NAME fftw_fft)
+
+		set (LIMES_VECOPS_USING_FFTW ON CACHE INTERNAL "")
 
 		return ()
 	endif()

@@ -38,6 +38,12 @@ if("@LIMES_VECOPS_USING_MIPP@") # LIMES_VECOPS_USING_MIPP
 	endif()
 endif()
 
+if("@LIMES_VECOPS_USING_FFTW@") # LIMES_VECOPS_USING_FFTW
+	if(NOT FFTW_FOUND)
+		find_dependency (FFTW)
+	endif()
+endif()
+
 #
 
 include ("${CMAKE_CURRENT_LIST_DIR}/LimesTargets.cmake")
