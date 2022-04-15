@@ -90,23 +90,25 @@ jobs:
               run: cmake --build --preset default --config Release
 
             - name: Install debug
-              run: cmake --install Builds --config Debug --prefix ${{ github.workspace }}/deploy/debug
+              run: cmake --install Builds --config Debug --prefix '${{ github.workspace }}/deploy/debug'
 
             - name: Install release
-              run: cmake --install Builds --config Release --prefix ${{ github.workspace }}/deploy/release
+              run: cmake --install Builds --config Release --prefix '${{ github.workspace }}/deploy/release'
 
             - name: Upload debug artefacts
+              if: ${{ ! (runner.os == 'macOS' && matrix.compiler == 'clang') }}
               uses: actions/upload-artifact@v3
               with:
                   name: ${{ matrix.os }}.${{ matrix.compiler }}.debug
-                  path: ${{ github.workspace }}/deploy/debug
+                  path: '${{ github.workspace }}/deploy/debug'
                   if-no-files-found: error
 
             - name: Upload release artefacts
+              if: ${{ ! (runner.os == 'macOS' && matrix.compiler == 'clang') }}
               uses: actions/upload-artifact@v3
               with:
                   name: ${{ matrix.os }}.${{ matrix.compiler }}.release
-                  path: ${{ github.workspace }}/deploy/release
+                  path: '${{ github.workspace }}/deploy/release'
                   if-no-files-found: error
 
 
