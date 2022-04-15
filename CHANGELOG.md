@@ -1,5 +1,12 @@
 # Limes changelog
 
+### [3.2.1](http://github.com/benthevining/Limes/compare/v3.2.0...v3.2.1) (2022-04-15)
+
+
+### Bug Fixes
+
+* checking for MSVC or Windows before using aligned_alloc ([d48a0f4](http://github.com/benthevining/Limes/commit/d48a0f4b7545e4cfc70c032af739d46f5895502d))
+
 ## [3.2.0](http://github.com/benthevining/Limes/compare/v3.1.1...v3.2.0) (2022-04-13)
 
 
