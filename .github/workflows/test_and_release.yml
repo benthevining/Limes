@@ -68,7 +68,7 @@ jobs:
             - name: Run CMake (GCC/Windows)
               if: ${{ matrix.compiler == 'GCC' && runner.os == 'Windows' }}
               run: |
-                  CC=${{ setup_MinGW.outputs.gcc }} CXX=${{ setup_MinGW.outputs.gxx }} cmake --preset default -G '${{ matrix.cmake_generator }}' -D CMAKE_C_COMPILER=${{ setup_MinGW.outputs.gcc }} -D CMAKE_CXX_COMPILER=${{ setup_MinGW.outputs.gxx }}
+                  CC=${{ steps.setup_MinGW.outputs.gcc }} CXX=${{ steps.setup_MinGW.outputs.gxx }} cmake --preset default -G '${{ matrix.cmake_generator }}' -D CMAKE_C_COMPILER=${{ steps.setup_MinGW.outputs.gcc }} -D CMAKE_CXX_COMPILER=${{ steps.setup_MinGW.outputs.gxx }}
 
             - name: Run CMake (clang)
               if: ${{ matrix.compiler == 'clang' }}
