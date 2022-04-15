@@ -3,47 +3,59 @@
     {
       "cleanFirst": true,
       "configurePreset": "default",
-      "name": "default"
-    },
-    {
-      "configurePreset": "default",
+      "displayName": "Build the dependency graph image",
       "name": "deps_graph",
       "targets": "DependencyGraph"
     },
     {
+      "cleanFirst": true,
+      "configuration": "Debug",
       "configurePreset": "default",
-      "name": "docs",
-      "targets": [
-        "OrangesDoxygen",
-        "DependencyGraph"
-      ]
+      "displayName": "The default build",
+      "name": "default"
+    },
+    {
+      "displayName": "Maintainer build",
+      "inherits": "default",
+      "name": "maintainer",
+      "verbose": true
     }
   ],
   "cmakeMinimumRequired": {
     "major": 3,
-    "minor": 21,
+    "minor": 22,
     "patch": 0
   },
   "configurePresets": [
     {
       "binaryDir": "${sourceDir}/Builds",
+      "displayName": "The default CMake configuration",
       "name": "default",
+      "warnings": {
+        "unusedCli": false
+      }
+    },
+    {
+      "binaryDir": "${sourceDir}/Builds",
+      "displayName": "CMake configuration for development of Limes",
+      "name": "maintainer",
       "warnings": {
         "deprecated": true,
         "dev": true,
-        "unusedCli": false
+        "uninitialized": true
       }
     }
   ],
   "testPresets": [
     {
+      "configuration": "Debug",
       "configurePreset": "default",
       "execution": {
         "noTestsAction": "error"
       },
       "filter": {
         "include": {
-          "name": "Oranges."
+          "name": "Limes."
         }
       },
       "name": "default",

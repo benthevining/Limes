@@ -43,12 +43,18 @@ jobs:
               uses: actions/cache@v3
               with:
                   path: Cache
-                  key: ${{ runner.os }}.test.${{ hashFiles('**/') }}
-                  restore-keys: ${{ runner.os }}.test.
+                  key: ${{ runner.os }}.${{ matrix.cmake_generator }}.test.${{ hashFiles('**/') }} # yamllint disable-line
+                  restore-keys: ${{ runner.os }}.${{ matrix.cmake_generator }}.test. # yamllint disable-line
 
             - name: Install dependencies
               if: ${{ matrix.cmake_generator }} == 'Ninja'
               uses: seanmiddleditch/gha-setup-ninja@v3
+
+            - name: Set compiler
+              if: ${{ matrix.cmake_generator }} == 'Ninja'
+              run: |
+                  echo "CC=$gcc-10" >> $GITHUB_ENV \
+                  echo "CXX=g++-10" >> $GITHUB_ENV
 
             - name: Run CMake
               run: cmake --preset default -G '${{ matrix.cmake_generator }}'
