@@ -14,7 +14,7 @@
 #include <limes_platform.h>
 
 // we'll probably never compile Apple vDSP with MSVC, but you never know.... ¯\_(ツ)_/¯
-#if LIMES_MSVC
+#if LIMES_MSVC || LIMES_WINDOWS
 #	include <malloc.h>
 #else
 #	include <cstdlib>
@@ -99,7 +99,7 @@ vDSP_FFT<SampleType>::vDSP_FFT (int size)
 
 	static constexpr auto alignment = size_t (32);
 
-#if LIMES_MSVC
+#if LIMES_MSVC || LIMES_WINDOWS
 	m_buf.realp = static_cast<SampleType*> (_aligned_malloc (fft_size_bytes, alignment));
 	m_buf.imagp = static_cast<SampleType*> (_aligned_malloc (fft_size_bytes, alignment));
 
@@ -128,7 +128,7 @@ vDSP_FFT<SampleType>::~vDSP_FFT()
 	else
 		vDSP_destroy_fftsetupD (m_spec);
 
-#if LIMES_MSVC
+#if LIMES_MSVC || LIMES_WINDOWS
 	_aligned_free (m_spare);
 	_aligned_free (m_spare2);
 	_aligned_free (m_buf.realp);

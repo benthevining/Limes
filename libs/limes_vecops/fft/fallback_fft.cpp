@@ -13,7 +13,7 @@
 #include "fallback_fft.h"
 #include <limes_platform.h>
 
-#if LIMES_MSVC
+#if LIMES_MSVC || LIMES_WINDOWS
 #	include <malloc.h>
 #else
 #	include <cstdlib>
@@ -28,7 +28,7 @@ FallbackFFT<SampleType>::FallbackFFT (int size)
 {
 	static constexpr auto alignment = size_t (32);
 
-#if LIMES_MSVC
+#if LIMES_MSVC || LIMES_WINDOWS
 	m_table = static_cast<int*> (_aligned_malloc (m_half * sizeof (int), alignment));
 #else
 	m_table = static_cast<int*> (std::aligned_alloc (alignment, m_half * sizeof (int)));
@@ -41,7 +41,7 @@ FallbackFFT<SampleType>::FallbackFFT (int size)
 	{
 		const auto bytes = numElements * sizeof (double);
 
-#if LIMES_MSVC
+#if LIMES_MSVC || LIMES_WINDOWS
 		auto* const ptr = static_cast<double*> (_aligned_malloc (bytes, alignment));
 #else
 		auto* const ptr = static_cast<double*> (std::aligned_alloc (alignment, bytes));
@@ -70,7 +70,7 @@ FallbackFFT<SampleType>::FallbackFFT (int size)
 template <Scalar SampleType>
 FallbackFFT<SampleType>::~FallbackFFT()
 {
-#if LIMES_MSVC
+#if LIMES_MSVC || LIMES_WINDOWS
 	_aligned_free (m_table);
 	_aligned_free (m_sincos);
 	_aligned_free (m_sincos_r);
