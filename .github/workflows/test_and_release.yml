@@ -17,7 +17,7 @@ jobs:
 
     Build:
 
-        name: ${{ matrix.os }} ${{ matrix.cmake_generator }} build
+        name: ${{ matrix.os }} - ${{ matrix.cmake_generator }} - ${{ matrix.compiler }} # yamllint disable-line
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         runs-on: ${{ matrix.os }}
         timeout-minutes: 120
@@ -26,11 +26,14 @@ jobs:
             matrix:
                 os: [windows-latest, ubuntu-latest, macos-latest]
                 cmake_generator: [Ninja]
+                compiler: [GCC, clang]
                 include:
                     - os: windows-latest
                       cmake_generator: Visual Studio 17 2022
+                      compiler: MSVC
                     - os: macos-latest
                       cmake_generator: Xcode
+                      compiler: AppleClang
 
         steps:
             - name: Checkout code
@@ -51,10 +54,16 @@ jobs:
               uses: seanmiddleditch/gha-setup-ninja@v3
 
             - name: Set compiler
-              if: ${{ matrix.cmake_generator }} == 'Ninja' }}
+              if: ${{ matrix.cmake_generator == 'Ninja' && matrix.compiler == GCC }} # yamllint disable-line
               run: |
                   echo "CC=gcc-10" >> $GITHUB_ENV \
                   echo "CXX=g++-10" >> $GITHUB_ENV
+
+            - name: Set compiler
+              if: ${{ matrix.cmake_generator == 'Ninja' && matrix.compiler == clang }} # yamllint disable-line
+              run: |
+                  echo "CC=clang" >> $GITHUB_ENV \
+                  echo "CXX=clang++" >> $GITHUB_ENV
 
             - name: Run CMake
               run: cmake --preset default -G '${{ matrix.cmake_generator }}'
