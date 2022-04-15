@@ -51,21 +51,31 @@ jobs:
                   key: ${{ runner.os }}.${{ matrix.cmake_generator }}.${{ matrix.compiler }}.test.${{ hashFiles('**/') }}
                   restore-keys: ${{ runner.os }}.${{ matrix.cmake_generator }}.${{ matrix.compiler }}.test.
 
-            - name: Install dependencies
+            - name: Install Ninja
               if: ${{ matrix.cmake_generator == 'Ninja' }}
               uses: seanmiddleditch/gha-setup-ninja@v3
 
-            - name: Run CMake
-              if: ${{ matrix.compiler == 'GCC' }}
+            - name: Set up MinGW
+              if: ${{ runner.os == 'Windows' && matrix.compiler == 'GCC' }}
+              uses: egor-tensin/setup-mingw@v2
+
+            - name: Run CMake (GCC)
+              if: ${{ matrix.compiler == 'GCC' && runner.os != 'Windows' }}
+              id: setup_MinGW
               run: |
                   CC=gcc-10 CXX=g++-10 cmake --preset default -G '${{ matrix.cmake_generator }}' -D CMAKE_C_COMPILER=gcc-10 -D CMAKE_CXX_COMPILER=g++-10
 
-            - name: Run CMake
+            - name: Run CMake (GCC/Windows)
+              if: ${{ matrix.compiler == 'GCC' && runner.os == 'Windows' }}
+              run: |
+                  CC=${{ setup_MinGW.outputs.gcc }} CXX=${{ setup_MinGW.outputs.gxx }} cmake --preset default -G '${{ matrix.cmake_generator }}' -D CMAKE_C_COMPILER=${{ setup_MinGW.outputs.gcc }} -D CMAKE_CXX_COMPILER=${{ setup_MinGW.outputs.gxx }}
+
+            - name: Run CMake (clang)
               if: ${{ matrix.compiler == 'clang' }}
               run: |
                   CC=clang CXX=clang++ cmake --preset default -G '${{ matrix.cmake_generator }}' -D CMAKE_C_COMPILER=clang -D CMAKE_CXX_COMPILER=clang++
 
-            - name: Run CMake
+            - name: Run CMake (other)
               if: ${{ matrix.compiler != 'GCC' && matrix.compiler != 'clang' }}
               run: cmake --preset default -G '${{ matrix.cmake_generator }}'
 
