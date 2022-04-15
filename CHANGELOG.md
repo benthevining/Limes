@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [3.3.0](http://github.com/benthevining/Limes/compare/v3.2.1...v3.3.0) (2022-04-15)
+
+
+### Features
+
+* including binaries in releases ([4a58ac4](http://github.com/benthevining/Limes/commit/4a58ac4fa06b169ba8c4add624faa8868d9b37bf))
+
 ### [3.2.1](http://github.com/benthevining/Limes/compare/v3.2.0...v3.2.1) (2022-04-15)
 
 
