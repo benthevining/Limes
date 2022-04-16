@@ -1,5 +1,18 @@
 # Limes changelog
 
+## [3.5.0](http://github.com/benthevining/Limes/compare/v3.4.0...v3.5.0) (2022-04-16)
+
+
+### Features
+
+* added AbstractFIFO and CircularBuffer classes ([8a7778b](http://github.com/benthevining/Limes/commit/8a7778b675367becf0a3e69a70b2c1a6eec33b2c))
+* added some MIDI helper classes ([f0720c2](http://github.com/benthevining/Limes/commit/f0720c2b8c35a90fe057001f21283745c0ff6cca))
+
+
+### Bug Fixes
+
+* updating package.json ([e3a5020](http://github.com/benthevining/Limes/commit/e3a5020c42625071167acff7c1a1062aa6af2b9a))
+
 ## [3.4.0](http://github.com/benthevining/Limes/compare/v3.3.1...v3.4.0) (2022-04-16)
 
 
