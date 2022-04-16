@@ -19,7 +19,7 @@ int maxNumThreads (int defaultVal) noexcept
 #if LIMES_LINUX
 	cpu_set_t cpuset;
 
-	if ((sched_getaffinity (0, sizeof (cpuset)), &cpuset) == 0)
+	if ((sched_getaffinity (0, sizeof (cpuset), &cpuset) == 0))
 	{
 		const auto count = CPU_COUNT (&cpuset);
 
