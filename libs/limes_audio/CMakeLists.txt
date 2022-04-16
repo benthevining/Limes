@@ -74,6 +74,8 @@ target_include_directories (
 
 add_subdirectory (streams)
 add_subdirectory (util)
+add_subdirectory (midi)
+add_subdirectory (filters)
 add_subdirectory (psola)
 
 install (

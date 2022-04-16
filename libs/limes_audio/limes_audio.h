@@ -19,10 +19,16 @@
 #include "util/Windowing.h"
 #include "util/PitchDetector.h"
 #include "util/MonoStereoConverter.h"
+#include "util/CircularBuffer.h"
+
+#include "midi/VelocityMapper.h"
+#include "midi/PitchbendMapper.h"
 
 #include "streams/SampleStream.h"
 #include "streams/oscillator.h"
 #include "streams/basic_oscillators.h"
+
+#include "filters/Filter.h"
 
 #include "psola/PeakFinder.h"
 

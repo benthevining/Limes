@@ -57,6 +57,7 @@ libs/limes_audio/streams/oscillator.h benthevining
 libs/limes_audio/util/CMakeLists.txt benthevining
 libs/limes_audio/util/Misc.h benthevining
 libs/limes_audio/util/MonoStereoConverter.cpp benthevining
+libs/limes_audio/util/PitchDetector.cpp benthevining
 libs/limes_audio/util/Windowing.h benthevining
 libs/limes_core/CMakeLists.txt benthevining
 libs/limes_core/data_structures/CMakeLists.txt benthevining
@@ -98,7 +99,9 @@ libs/limes_core/threading/RealtimeSafeObject/RealtimeMutatableObject.h benthevin
 libs/limes_core/threading/RealtimeSafeObject/RealtimeSafeObject_impl.h benthevining
 libs/limes_core/threading/ThreadSafeObject.h benthevining
 libs/limes_core/threading/Threading.cpp benthevining
+libs/limes_data_structures/CMakeLists.txt benthevining
 libs/limes_data_structures/README.md benthevining
+libs/limes_data_structures/data_structures/AbstractFIFO.cpp benthevining
 libs/limes_data_structures/data_structures/CMakeLists.txt benthevining
 libs/limes_data_structures/data_structures/Dimensions.cpp benthevining
 libs/limes_data_structures/data_structures/Dimensions.h benthevining
@@ -156,6 +159,7 @@ libs/limes_vecops/fft/CMakeLists.txt benthevining
 libs/limes_vecops/fft/fallback_fft.cpp benthevining
 libs/limes_vecops/fft/fft.cpp benthevining
 libs/limes_vecops/fft/fftw_fft.cpp benthevining
+libs/limes_vecops/fft/fftw_fft.h benthevining
 libs/limes_vecops/fft/ipp_fft.cpp benthevining
 libs/limes_vecops/fft/limes_fft.cpp benthevining
 libs/limes_vecops/fft/limes_fft.h benthevining
@@ -256,6 +260,7 @@ ng
 package.json benthevining
 scripts/FindOranges.cmake benthevining
 scripts/LimesConfig.cmake benthevining
+scripts/LimesMacros.cmake benthevining
 scripts/alphabetize_codeowners.py benthevining
 scripts/cmake_file_api/query.json benthevining
 scripts/cmake_file_api/query_cmake_file_api.cmake benthevining

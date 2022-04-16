@@ -22,7 +22,7 @@ template <typename T>
 concept Sample = std::is_same_v<T, float> || std::is_same_v<T, double>;
 
 template <Sample SampleType>
-LIMES_EXPORT static constexpr SampleType default_Q = 0.70710678118655f;
+LIMES_EXPORT static constexpr SampleType inverseRootTwo = 0.70710678118655f;
 
 
 template <Sample SampleType>
