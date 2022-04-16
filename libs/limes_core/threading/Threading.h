@@ -25,6 +25,18 @@ LIMES_EXPORT inline void callInBackground (Function&& function, Args&&... args)
 	worker.detach();
 }
 
+template <class Function, class Callback>
+LIMES_EXPORT inline void callInBackgroundWithCallback (Function&& functionToCall, Callback&& callback)
+{
+	auto func = [call = std::move (functionToCall), cb = std::move (callback)]
+	{
+		call();
+		cb();
+	};
+
+	callInBackground (std::move (func));
+}
+
 template <class Function, typename... Args>
 LIMES_EXPORT inline void callAndBlock (Function&& function, Args&&... args)
 {
@@ -32,14 +44,6 @@ LIMES_EXPORT inline void callAndBlock (Function&& function, Args&&... args)
 	worker.join();
 }
 
-LIMES_EXPORT [[nodiscard]] inline int maxNumThreads (int defaultVal = 4)
-{
-	const auto ret = std::thread::hardware_concurrency();
-
-	if (ret > 0)
-		return static_cast<int> (ret);
-
-	return defaultVal;
-}
+LIMES_EXPORT [[nodiscard]] int maxNumThreads (int defaultVal = 4) noexcept;
 
 }  // namespace limes::threads

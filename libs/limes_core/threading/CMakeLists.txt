@@ -12,7 +12,8 @@ add_subdirectory (RealtimeSafeObject)
 
 target_sources (
 	limes_core
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeTypeTraits.h>
+	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Threading.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeTypeTraits.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ThreadSafeObject.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Threading.h>
