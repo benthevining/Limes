@@ -1,4 +1,8 @@
 {
+  "author": {
+    "email": "ben.the.vining@gmail.com",
+    "name": "Ben Vining"
+  },
   "dependencies": {
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/exec": "6.0.3",
@@ -6,6 +10,15 @@
     "conventional-changelog-conventionalcommits": "4.6.3",
     "semantic-release": "19.0.2"
   },
+  "description": "C++ utility libraries",
+  "homepage": "https://github.com/benthevining/Limes",
+  "keywords": [
+    "C++",
+    "libraries",
+    "utility"
+  ],
+  "license": "GPL3",
+  "name": "Limes",
   "release": {
     "branches": [
       "main"
@@ -125,15 +138,13 @@
             {
               "label": "Changelog",
               "path": "CHANGELOG.md"
-            },
-            {
-              "label": "Binaries",
-              "path": "deploy"
             }
           ]
         }
       ]
     ],
     "repositoryUrl": "http://github.com/benthevining/Limes.git"
-  }
+  },
+  "repository": "http://github.com/benthevining/Limes",
+  "version": "3.3.1"
 }
