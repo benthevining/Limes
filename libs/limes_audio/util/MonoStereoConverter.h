@@ -46,6 +46,8 @@ class LIMES_EXPORT MonoStereoConverter final
 {
 public:
 
+	using SampleVector = scalar_vector<SampleType>;
+
 	/** Default constructor. */
 	MonoStereoConverter() = default;
 
@@ -64,18 +66,26 @@ public:
 							  SampleType*		monoOut,
 							  int				numSamples);
 
+	void convertStereoToMono (const SampleVector& leftIn,
+							  const SampleVector& rightIn,
+							  SampleVector&		  monoOut);
+
 	/** Converts a mono signal to stereo. */
 	void convertMonoToStereo (const SampleType* monoIn,
 							  SampleType*		leftOut,
 							  SampleType*		rightOut,
 							  int				numSamples);
 
+	void convertMonoToStereo (const SampleVector& monoIn,
+							  SampleVector&		  leftOut,
+							  SampleVector&		  rightOut);
+
 
 private:
 
 	StereoReductionMode toMonoMode { StereoReductionMode::leftOnly };
 
-	vector<SampleType> monoStorage;
+	SampleVector monoStorage;
 };
 
 

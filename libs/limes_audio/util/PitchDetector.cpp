@@ -28,6 +28,12 @@ PitchDetector<SampleType>::PitchDetector (int minFreqHz, float confidenceThresho
 }
 
 template <Sample SampleType>
+float PitchDetector<SampleType>::detectPitch (const SampleVector& inputAudio)
+{
+	return detectPitch (inputAudio.data(), inputAudio.numObjects());
+}
+
+template <Sample SampleType>
 float PitchDetector<SampleType>::detectPitch (const SampleType* const inputAudio, int numSamples)
 {
 	const auto period = detectPeriod (inputAudio, numSamples);
@@ -36,6 +42,12 @@ float PitchDetector<SampleType>::detectPitch (const SampleType* const inputAudio
 		return math::freqFromPeriod (samplerate, period);
 
 	return 0.f;
+}
+
+template <Sample SampleType>
+float PitchDetector<SampleType>::detectPeriod (const SampleVector& inputAudio)
+{
+	return detectPeriod (inputAudio.data(), inputAudio.numObjects());
 }
 
 template <Sample SampleType>

@@ -38,6 +38,15 @@ void MonoStereoConverter<SampleType>::setStereoReductionMode (StereoReductionMod
 	toMonoMode = newmode;
 }
 
+template <Sample SampleType>
+void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleVector& leftIn,
+														   const SampleVector& rightIn,
+														   SampleVector&	   monoOut)
+{
+	LIMES_ASSERT (leftIn.numObjects() == rightIn.numObjects() == monoOut.numObjects());
+
+	convertStereoToMono (leftIn.data(), rightIn.data(), monoOut.data(), monoOut.numObjects());
+}
 
 template <Sample SampleType>
 void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* const leftIn,
@@ -67,6 +76,16 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* con
 		}
 		default : LIMES_ASSERT_FALSE;
 	}
+}
+
+template <Sample SampleType>
+void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleVector& monoIn,
+														   SampleVector&	   leftOut,
+														   SampleVector&	   rightOut)
+{
+	LIMES_ASSERT (monoIn.numObjects() == leftOut.numObjects() == rightOut.numObjects());
+
+	convertMonoToStereo (monoIn.data(), leftOut.data(), rightOut.data(), monoIn.numObjects());
 }
 
 template <Sample SampleType>

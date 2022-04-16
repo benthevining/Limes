@@ -15,6 +15,7 @@
 #include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
 #include <functional>	   // for function
 #include <limes_export.h>  // for LIMES_EXPORT
+#include <limes_data_structures.h>
 
 namespace limes::dsp
 {
@@ -27,6 +28,8 @@ struct LIMES_EXPORT SampleStream
 {
 public:
 
+	using SampleVector = scalar_vector<SampleType>;
+
 	/** Creates a sample stream with a specified lambda function for producing the next sample. */
 	explicit SampleStream (std::function<SampleType()>&& sampleFuncToUse);
 
@@ -38,6 +41,8 @@ public:
 
 	/** Returns a stream of samples. */
 	void getSamples (SampleType* output, int numSamples) const;
+
+	void getSamples (SampleVector& output);
 
 	/** Skips a number of samples in the stream. */
 	void skipSamples (int numToSkip) const;

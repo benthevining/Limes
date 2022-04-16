@@ -36,6 +36,12 @@ void SampleStream<SampleType>::getSamples (SampleType* const output, int numSamp
 }
 
 template <Sample SampleType>
+void SampleStream<SampleType>::getSamples (SampleVector& output)
+{
+	getSamples (output.data(), output.numObjects());
+}
+
+template <Sample SampleType>
 void SampleStream<SampleType>::skipSamples (int numToSkip) const
 {
 	for (auto i = 0; i < numToSkip; ++i)

@@ -72,6 +72,8 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 #	endif
 #endif
 
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
 namespace limes::vecops
 {
 

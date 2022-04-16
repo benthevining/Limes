@@ -75,7 +75,7 @@ private:
 
 	[[nodiscard]] int chooseIdealPeakCandidate (const SampleType* const inputSamples, int deltaTarget1, int deltaTarget2);
 
-	vector<int> peakIndices, peakSearchingOrder, peakCandidates, finalHandful, candidateDeltas, finalHandfulDeltas;
+	scalar_vector<int> peakIndices, peakSearchingOrder, peakCandidates, finalHandful, candidateDeltas, finalHandfulDeltas;
 
 	const std::array<vector<int>*, 6> arrays { &peakIndices, &peakSearchingOrder, &peakCandidates, &finalHandful, &candidateDeltas, &finalHandfulDeltas };
 

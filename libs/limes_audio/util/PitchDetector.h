@@ -28,6 +28,8 @@ class LIMES_EXPORT PitchDetector final
 {
 public:
 
+	using SampleVector = scalar_vector<SampleType>;
+
 	/** Creates a pitch detector with an initial minimum detectable frequency and confidence threshold.
 		The latency of the algorithm is determined by 2 * the period of the minimum frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
 		@param minFreqHz The minimum frequency that this pitch detector will be able to detect.
@@ -47,11 +49,15 @@ public:
 	*/
 	[[nodiscard]] float detectPitch (const SampleType* const inputAudio, int numSamples);
 
+	[[nodiscard]] float detectPitch (const SampleVector& inputAudio);
+
 
 	/** Detects the period, in samples, for a frame of audio.
 		@return The period, in samples, of the fundamental frequency for this frame of audio, or 0.f if the frame is unpitched.
 	*/
 	[[nodiscard]] float detectPeriod (const SampleType* const inputAudio, int numSamples);
+
+	[[nodiscard]] float detectPeriod (const SampleVector& inputAudio);
 
 	///@}
 
@@ -122,7 +128,7 @@ private:
 
 	SampleType confidenceThresh { 0.15 };
 
-	vector<SampleType> yinDataStorage;
+	SampleVector yinDataStorage;
 };
 
 }  // namespace limes::dsp::psola

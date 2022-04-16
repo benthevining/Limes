@@ -24,7 +24,7 @@ int maxNumThreads (int defaultVal) noexcept
 		const auto count = CPU_COUNT (&cpuset);
 
 		if (count > 0)
-			return count;
+			return static_cast<int> (count);
 	}
 #endif
 

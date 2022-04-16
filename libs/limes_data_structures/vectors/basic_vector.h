@@ -25,12 +25,10 @@ namespace limes
 template <typename ElementType, class Allocator = std::allocator<ElementType>>
 class LIMES_EXPORT basic_vector
 {
-	using vector_type = std::vector<ElementType, Allocator>;
-
 public:
 
-	using ObjectType = ElementType;
-
+	using ObjectType	 = ElementType;
+	using vector_type	 = std::vector<ElementType, Allocator>;
 	using iterator		 = typename vector_type::iterator;
 	using const_iterator = typename vector_type::const_iterator;
 
