@@ -1,5 +1,12 @@
 # Limes changelog
 
+### [3.3.1](http://github.com/benthevining/Limes/compare/v3.3.0...v3.3.1) (2022-04-16)
+
+
+### Bug Fixes
+
+* added a timeout to semantic release step ([e943eac](http://github.com/benthevining/Limes/commit/e943eace245ef461c1c1f9b72673067a34c93cd9))
+
 ## [3.3.0](http://github.com/benthevining/Limes/compare/v3.2.1...v3.3.0) (2022-04-15)
 
 
