@@ -1,5 +1,17 @@
 # Limes changelog
 
+## [3.4.0](http://github.com/benthevining/Limes/compare/v3.3.1...v3.4.0) (2022-04-16)
+
+
+### Features
+
+* added more threading util funcs ([d35e6f9](http://github.com/benthevining/Limes/commit/d35e6f9404f7a88c7473ebeeb3318b867476dd50))
+
+
+### Bug Fixes
+
+* typo in sched_getaffinity call ([34e0b24](http://github.com/benthevining/Limes/commit/34e0b247d1e06670659bd9922176a4ff02ce2266))
+
 ### [3.3.1](http://github.com/benthevining/Limes/compare/v3.3.0...v3.3.1) (2022-04-16)
 
 
