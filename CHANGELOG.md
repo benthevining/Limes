@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [3.6.0](http://github.com/benthevining/Limes/compare/v3.5.0...v3.6.0) (2022-04-17)
+
+
+### Features
+
+* added a DetunableModel for oscillators ([44b9fed](http://github.com/benthevining/Limes/commit/44b9fede0ff2ef15a3501e8075ed1a0b66f3eafc))
+
 ## [3.5.0](http://github.com/benthevining/Limes/compare/v3.4.0...v3.5.0) (2022-04-16)
 
 
