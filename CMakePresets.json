@@ -36,14 +36,24 @@
       }
     },
     {
-      "binaryDir": "${sourceDir}/Builds",
       "displayName": "CMake configuration for development of Limes",
+      "inherits": "default",
       "name": "maintainer",
       "warnings": {
         "deprecated": true,
         "dev": true,
         "uninitialized": true
       }
+    },
+    {
+      "cacheVariables": {
+        "LIMES_IGNORE_FFTW": "ON",
+        "LIMES_IGNORE_POMMIER": "ON",
+        "LIMES_USE_VECOPS_FALLBACK": "ON"
+      },
+      "displayName": "Uses the fallback implementations of vecops functions and FFT",
+      "inherits": "default",
+      "name": "fallbacks"
     }
   ],
   "testPresets": [

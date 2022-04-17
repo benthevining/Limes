@@ -6,11 +6,21 @@
 (____)(____)(_/\/\_)(____)(___/
 ```
 
+![GitHub top language](https://img.shields.io/github/languages/top/benthevining/Limes)
 [![Create release](https://github.com/benthevining/Limes/actions/workflows/test_and_release.yml/badge.svg)](https://github.com/benthevining/Limes/actions/workflows/test_and_release.yml)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/benthevining/Limes/main.svg)](https://results.pre-commit.ci/latest/github/benthevining/Limes/main)
 [![CodeFactor](https://www.codefactor.io/repository/github/benthevining/limes/badge)](https://www.codefactor.io/repository/github/benthevining/limes)
 [![CodeQL](https://github.com/benthevining/Limes/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/benthevining/Limes/actions/workflows/codeql-analysis.yml)
 [![semantic-release: conventionalcommits](https://img.shields.io/badge/semantic--release-conventionalcommits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+![License](https://img.shields.io/github/license/benthevining/Limes)
+![GitHub repo size](https://img.shields.io/github/repo-size/benthevining/Limes)
+![Lines of code](https://img.shields.io/tokei/lines/github/benthevining/Limes)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/benthevining/Limes)
+![GitHub Release Date](https://img.shields.io/github/release-date/benthevining/Limes)
+![GitHub release](https://img.shields.io/github/v/release/benthevining/Limes)
+![GitHub Sponsors](https://img.shields.io/github/sponsors/benthevining?style=social)
+![GitHub Repo stars](https://img.shields.io/github/stars/benthevining/Limes?style=social)
+![GitHub followers](https://img.shields.io/github/followers/benthevining?style=social)
 
 A collection of standalone C++ static libraries.
 
