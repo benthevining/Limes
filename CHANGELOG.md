@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [3.7.0](http://github.com/benthevining/Limes/compare/v3.6.0...v3.7.0) (2022-04-17)
+
+
+### Features
+
+* added a generic FIFO class ([51c4595](http://github.com/benthevining/Limes/commit/51c45955cb84c6eeeda611519b06e3aa2ca9b9af))
+
 ## [3.6.0](http://github.com/benthevining/Limes/compare/v3.5.0...v3.6.0) (2022-04-17)
 
 
