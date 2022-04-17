@@ -26,7 +26,9 @@
 
 #include "streams/SampleStream.h"
 #include "streams/oscillator.h"
-#include "streams/basic_oscillators.h"
+
+#include "oscillators/basic_oscillators.h"
+#include "oscillators/DetunableModel.h"
 
 #include "filters/Filter.h"
 

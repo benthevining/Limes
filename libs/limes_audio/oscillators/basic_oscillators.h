@@ -13,10 +13,10 @@
 
 #pragma once
 
-#include <functional>	   // for function
-#include <limes_export.h>  // for LIMES_EXPORT
-#include "oscillator.h"	   // for Oscillator<>::Phase, Oscillator
-#include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
+#include <functional>				// for function
+#include <limes_export.h>			// for LIMES_EXPORT
+#include "../streams/oscillator.h"	// for Oscillator<>::Phase, Oscillator
+#include "../util/Misc.h"			// for concept Sample - IWYU pragma: keep
 
 namespace limes::dsp::osc
 {

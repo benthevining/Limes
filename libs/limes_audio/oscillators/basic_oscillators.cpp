@@ -11,10 +11,10 @@
  */
 
 #include "basic_oscillators.h"
-#include <cmath>			 // for sin, fmod
-#include <limes_platform.h>	 // for LIMES_ASSERT
-#include <limes_core.h>		 // for two_pi
-#include "oscillator.h"		 // for Oscillator<>::Phase
+#include <cmath>					// for sin, fmod
+#include <limes_platform.h>			// for LIMES_ASSERT
+#include <limes_core.h>				// for two_pi
+#include "../streams/oscillator.h"	// for Oscillator<>::Phase
 
 
 namespace limes::dsp::osc

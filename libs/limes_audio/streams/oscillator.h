@@ -39,7 +39,7 @@ struct LIMES_EXPORT Oscillator : public SampleStream<SampleType>
 
 	/** Represents the phase of an oscillator.
 	 */
-	struct Phase final
+	struct LIMES_EXPORT Phase final
 	{
 		Phase() = default;
 

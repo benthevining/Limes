@@ -12,14 +12,10 @@ target_sources (
 	limes_audio
 	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/SampleStream.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/oscillator.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_oscillators.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/SampleStream.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/oscillator.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_oscillators.h>
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/streams/SampleStream.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/streams/oscillator.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/streams/basic_oscillators.h>)
+			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/streams/oscillator.h>)
 
 install (FILES "${CMAKE_CURRENT_LIST_DIR}/SampleStream.h" "${CMAKE_CURRENT_LIST_DIR}/oscillator.h"
-			   "${CMAKE_CURRENT_LIST_DIR}/basic_oscillators.h"
 		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/streams" COMPONENT limes_audio_dev)

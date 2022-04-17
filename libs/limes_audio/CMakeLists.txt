@@ -73,6 +73,7 @@ target_include_directories (
 					   $<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}>)
 
 add_subdirectory (streams)
+add_subdirectory (oscillators)
 add_subdirectory (util)
 add_subdirectory (midi)
 add_subdirectory (filters)
