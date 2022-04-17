@@ -21,6 +21,7 @@ Limes consists of the following libraries:
 * [limes_core](libs/limes_core/README.md), the core library of utilities
 * [limes_data_structures](libs/limes_data_structures/README.md), some basic data structures
 * [limes_audio](libs/limes_audio/README.md), for realtime audio and DSP
+* [limes_midi](libs/limes_midi/README.md), for basic MIDI support utilities
 * [limes_locale](libs/limes_locale/README.md), for locale and internationalization
 * [limes_music](libs/limes_music/README.md), for music-theory related concepts
 * [limes_vecops](libs/limes_vecops/README.md), for SIMD-accelerated vector operations
@@ -56,6 +57,7 @@ Limes creates the following CMake targets:
 * Limes::limes_vecops
 * Limes::limes_music
 * Limes::limes_audio
+* Limes::limes_midi
 * Limes::limes_data_structures
 * Limes::limes_locale
 
@@ -73,6 +75,8 @@ Limes creates the following CPack install components:
 * limes_core_runtime
 * limes_audio_dev
 * limes_audio_runtime
+* limes_midi_dev
+* limes_midi_runtime
 * limes_data_structures_dev
 * limes_data_structures_runtime
 * limes_locale_dev
@@ -87,6 +91,7 @@ Limes also creates the following CPack install component groups:
 * limes_music
 * limes_core
 * limes_audio
+* limes_midi
 * limes_data_structures
 * limes_locale
 * limes (aggregate of all Limes components)
@@ -97,13 +102,14 @@ When you call `find_package (Limes)`, you can pass the following component names
 
 * All
 * Audio
+* MIDI
 * Core
 * DataStructures
 * Locale
 * Music
 * Vecops
 
-If no component names are specified, Limes will default to finding everything.
+If no component names are specified, Limes will default to importing everything.
 
 ## Dependency graph
 

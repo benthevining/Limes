@@ -49,6 +49,7 @@ add_subdirectory (limes_core)
 add_subdirectory (limes_vecops)
 add_subdirectory (limes_data_structures)
 add_subdirectory (limes_locale)
+add_subdirectory (limes_midi)
 add_subdirectory (limes_audio)
 add_subdirectory (limes_music)
 

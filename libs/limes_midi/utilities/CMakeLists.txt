@@ -9,14 +9,14 @@
 # ======================================================================================
 
 target_sources (
-	limes_audio
+	limes_midi
 	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/VelocityMapper.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/VelocityMapper.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchbendMapper.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchbendMapper.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/midi/VelocityMapper.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/midi/PitchbendMapper.h>)
+			$<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities/VelocityMapper.h>
+			$<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities/PitchbendMapper.h>)
 
 install (FILES "${CMAKE_CURRENT_LIST_DIR}/VelocityMapper.h"
 			   "${CMAKE_CURRENT_LIST_DIR}/PitchbendMapper.h"
-		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/midi" COMPONENT limes_audio_dev)
+		 DESTINATION "${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities" COMPONENT limes_midi_dev)

@@ -12,23 +12,11 @@
 
 #pragma once
 
-#include <limes_data_structures.h>
-
 // IWYU pragma: begin_exports
 
-#include "util/Windowing.h"
-#include "util/PitchDetector.h"
-#include "util/MonoStereoConverter.h"
-#include "util/CircularBuffer.h"
+#include "utilities/VelocityMapper.h"
+#include "utilities/PitchbendMapper.h"
 
-#include "streams/SampleStream.h"
-#include "streams/oscillator.h"
-
-#include "oscillators/basic_oscillators.h"
-#include "oscillators/DetunableModel.h"
-
-#include "filters/Filter.h"
-
-#include "psola/PeakFinder.h"
+//#include "tuning/mts_client.h"
 
 // IWYU pragma: end_exports

@@ -14,7 +14,7 @@
 #include <limes_core.h>
 #include <limes_platform.h>
 
-namespace limes::dsp
+namespace limes::midi
 {
 
 void VelocityMapper::setSensitivity (float newSensitivity)
@@ -53,4 +53,4 @@ int VelocityMapper::getIntSensitivity() const noexcept
 {
 	return math::round (sensitivity * 100.f);
 }
-}  // namespace limes::dsp
+}  // namespace limes::midi

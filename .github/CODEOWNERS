@@ -99,6 +99,7 @@ libs/limes_core/threading/RealtimeSafeObject/NonrealtimeMutatableObject.h benthe
 libs/limes_core/threading/RealtimeSafeObject/ObjectBase.h benthevining
 libs/limes_core/threading/RealtimeSafeObject/RealtimeMutatableObject.h benthevining
 libs/limes_core/threading/RealtimeSafeObject/RealtimeSafeObject_impl.h benthevining
+libs/limes_core/threading/RealtimeTypeTraits.h benthevining
 libs/limes_core/threading/ThreadSafeObject.h benthevining
 libs/limes_core/threading/Threading.cpp benthevining
 libs/limes_data_structures/CMakeLists.txt benthevining
@@ -120,6 +121,10 @@ libs/limes_locale/languages/CMakeLists.txt benthevining
 libs/limes_locale/languages/languages.cpp benthevining
 libs/limes_locale/languages/languages.h benthevining
 libs/limes_locale/limes_locale.h benthevining
+libs/limes_midi/utilities/CMakeLists.txt benthevining
+libs/limes_midi/utilities/PitchbendMapper.h benthevining
+libs/limes_midi/utilities/VelocityMapper.cpp benthevining
+libs/limes_midi/utilities/VelocityMapper.h benthevining
 libs/limes_music/CMakeLists.txt benthevining
 libs/limes_music/harmony/CMakeLists.txt benthevining
 libs/limes_music/harmony/Chord.cpp benthevining
@@ -163,6 +168,7 @@ libs/limes_vecops/fft/fft.cpp benthevining
 libs/limes_vecops/fft/fftw_fft.cpp benthevining
 libs/limes_vecops/fft/fftw_fft.h benthevining
 libs/limes_vecops/fft/ipp_fft.cpp benthevining
+libs/limes_vecops/fft/ipp_fft.h benthevining
 libs/limes_vecops/fft/limes_fft.cpp benthevining
 libs/limes_vecops/fft/limes_fft.h benthevining
 libs/limes_vecops/fft/vdsp_fft.cpp benthevining

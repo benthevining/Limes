@@ -22,9 +22,7 @@ include ("${CMAKE_CURRENT_LIST_DIR}/LimesMacros.cmake")
 
 include (CMakeFindDependencyMacro)
 
-if(NOT Oranges_FOUND)
-	find_dependency (Oranges)
-endif()
+find_dependency (Oranges)
 
 if("@LIMES_VECOPS_USING_IPP@") # LIMES_VECOPS_USING_IPP
 	if(NOT IPP_FOUND)
@@ -48,12 +46,24 @@ endif()
 
 include ("${CMAKE_CURRENT_LIST_DIR}/LimesTargets.cmake")
 
-set (limes_components Audio Core Music Vecops DataStructures Locale)
+set (
+	limes_components
+	Audio
+	MIDI
+	Core
+	Music
+	Vecops
+	DataStructures
+	Locale)
 
 if(NOT Limes_FIND_COMPONENTS)
 	set (Limes_FIND_COMPONENTS ${limes_components})
 elseif(All IN_LIST Limes_FIND_COMPONENTS)
 	set (Limes_FIND_COMPONENTS ${limes_components})
+endif()
+
+if(MIDI IN_LIST Limes_FIND_COMPONENTS)
+	find_dependency (MTS-ESP)
 endif()
 
 foreach(comp_name IN LISTS Limes_FIND_COMPONENTS)

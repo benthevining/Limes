@@ -14,7 +14,7 @@
 
 #include <limes_export.h>
 
-namespace limes::dsp
+namespace limes::midi
 {
 
 class LIMES_EXPORT PitchbendMapper final
@@ -42,4 +42,4 @@ private:
 	int lastReceivedPitchbend { 64 };
 };
 
-}  // namespace limes::dsp
+}  // namespace limes::midi

@@ -14,7 +14,7 @@
 
 #include <limes_export.h>
 
-namespace limes::dsp
+namespace limes::midi
 {
 
 class LIMES_EXPORT VelocityMapper final
@@ -35,4 +35,4 @@ private:
 	float sensitivity { 1.f };
 };
 
-}  // namespace limes::dsp
+}  // namespace limes::midi

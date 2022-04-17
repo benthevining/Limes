@@ -127,7 +127,8 @@
           "assets": [
             "CHANGELOG.md",
             ".bumpversion.cfg",
-            "CMakeLists.txt"
+            "CMakeLists.txt",
+            "package.json"
           ]
         }
       ],
@@ -146,5 +147,5 @@
     "repositoryUrl": "http://github.com/benthevining/Limes.git"
   },
   "repository": "http://github.com/benthevining/Limes",
-  "version": "3.4.0"
+  "version": "3.5.0"
 }

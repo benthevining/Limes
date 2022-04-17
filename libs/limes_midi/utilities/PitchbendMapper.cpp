@@ -14,7 +14,7 @@
 
 #include <limes_platform.h>
 
-namespace limes::dsp
+namespace limes::midi
 {
 
 void PitchbendMapper::setRange (float newStUp, float newStDown) noexcept
@@ -56,4 +56,4 @@ float PitchbendMapper::getAdjustedMidiPitch (float inputMidiPitch) const
 							   - rangeDown);
 }
 
-}  // namespace limes::dsp
+}  // namespace limes::midi
