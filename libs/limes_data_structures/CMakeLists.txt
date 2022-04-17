@@ -77,6 +77,7 @@ target_include_directories (
 								 $<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}>)
 
 add_subdirectory (vectors)
+add_subdirectory (fifo)
 add_subdirectory (data_structures)
 
 install (

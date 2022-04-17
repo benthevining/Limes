@@ -21,6 +21,8 @@
 
 #include "data_structures/Dimensions.h"
 #include "data_structures/LinkedListModel.h"
-#include "data_structures/AbstractFIFO.h"
+
+#include "fifo/AbstractFIFO.h"
+#include "fifo/FIFO.h"
 
 // IWYU pragma: end_exports
