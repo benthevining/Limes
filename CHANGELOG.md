@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [3.8.0](http://github.com/benthevining/Limes/compare/v3.7.0...v3.8.0) (2022-04-17)
+
+
+### Features
+
+* added a ReferenceCountedObject class ([6a1d8c5](http://github.com/benthevining/Limes/commit/6a1d8c51b13980878bb24c62f35b96fdea127d0b))
+
 ## [3.7.0](http://github.com/benthevining/Limes/compare/v3.6.0...v3.7.0) (2022-04-17)
 
 
