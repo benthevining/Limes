@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [3.12.0](http://github.com/benthevining/Limes/compare/v3.11.0...v3.12.0) (2022-04-18)
+
+
+### Features
+
+* added white noise & Perlin noise generator classes ([fc19d5f](http://github.com/benthevining/Limes/commit/fc19d5f7720d8e18281d4eb8650951da8da3bb19))
+
 ## [3.11.0](http://github.com/benthevining/Limes/compare/v3.10.0...v3.11.0) (2022-04-18)
 
 
