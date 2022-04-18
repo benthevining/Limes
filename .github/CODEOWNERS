@@ -11,6 +11,7 @@
 .clang-format benthevining
 .clang-tidy benthevining
 .cmake-format.json benthevining
+.editorconfig benthevining
 .gitattributes benthevining
 .github/CODEOWNERS benthevining
 .github/CODE_OF_CONDUCT.md benthevining
@@ -142,6 +143,7 @@ libs/limes_midi/utilities/PitchbendMapper.h benthevining
 libs/limes_midi/utilities/VelocityMapper.cpp benthevining
 libs/limes_midi/utilities/VelocityMapper.h benthevining
 libs/limes_music/CMakeLists.txt benthevining
+libs/limes_music/README.md benthevining
 libs/limes_music/harmony/CMakeLists.txt benthevining
 libs/limes_music/harmony/Chord.cpp benthevining
 libs/limes_music/harmony/Chord.h benthevining
