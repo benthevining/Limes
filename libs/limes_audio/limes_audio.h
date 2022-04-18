@@ -29,7 +29,6 @@
 
 #include "filters/Filter.h"
 
-#include "psola/PeakFinder.h"
 #include "psola/analyzer.h"
 #include "psola/shifter.h"
 

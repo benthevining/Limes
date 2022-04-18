@@ -1393,10 +1393,11 @@ void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeTyp
 template <Scalar DataType, Integral SizeType>
 void generateHanning (DataType* const output, SizeType size)
 {
-	const auto order_register = mipp::set1<DataType> (DataType (2));
-	const auto pi_register	  = mipp::set1<DataType> (math::constants::pi<DataType>);
-	const auto size_register  = mipp::set1<DataType> (static_cast<DataType> (size - 1));
-	const auto pnt_5_register = mipp::set1<DataType> (0.5);
+	// NB. MIPP had compiler errors when declaring these as 'auto', for some reason......
+	const mipp::Reg<DataType> order_register = mipp::set1<DataType> (DataType (2));
+	const mipp::Reg<DataType> pi_register	 = mipp::set1<DataType> (math::constants::pi<DataType>);
+	const mipp::Reg<DataType> size_register	 = mipp::set1<DataType> (static_cast<DataType> (size - 1));
+	const mipp::Reg<DataType> pnt_5_register = mipp::set1<DataType> (0.5);
 
 	mipp::Reg<DataType> i_register;
 
