@@ -43,6 +43,7 @@ ing
 libs/CMakeLists.txt benthevining
 libs/limes.h benthevining
 libs/limes_audio/CMakeLists.txt benthevining
+libs/limes_audio/README.md benthevining
 libs/limes_audio/filters/CMakeLists.txt benthevining
 libs/limes_audio/filters/Filter.cpp benthevining
 libs/limes_audio/limes_audio.h benthevining
@@ -53,6 +54,7 @@ libs/limes_audio/psola/PeakFinder.h benthevining
 libs/limes_audio/streams/CMakeLists.txt benthevining
 libs/limes_audio/streams/SampleStream.cpp benthevining
 libs/limes_audio/streams/SampleStream.h benthevining
+libs/limes_audio/streams/WhiteNoiseGenerator.cpp benthevining
 libs/limes_audio/streams/WhiteNoiseGenerator.h benthevining
 libs/limes_audio/streams/basic_oscillators.cpp benthevining
 libs/limes_audio/streams/basic_oscillators.h benthevining

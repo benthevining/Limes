@@ -171,8 +171,7 @@ repos:
       rev: 2.4.0
       hooks:
           - id: editorconfig-checker
-            always_run: true
-            exclude: LICENSE
+            exclude: LICENSE|CITATION.cff
             exclude_types: [proto]
 
 ci:

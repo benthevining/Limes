@@ -116,6 +116,8 @@ set (
 	CACHE STRING
 		  "Directory below INSTALL_PREFIX where the Limes CMake package files will be installed to")
 
+mark_as_advanced (FORCE LIMES_INSTALL_DEST)
+
 add_subdirectory (libs)
 
 oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs INSTALL_COMPONENT limes_docs)
@@ -128,8 +130,6 @@ cpack_add_component (
 	INSTALL_TYPES Developer)
 
 #
-
-mark_as_advanced (FORCE LIMES_INSTALL_DEST)
 
 write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_VERSION}"
 								  COMPATIBILITY SameMajorVersion)
@@ -169,7 +169,9 @@ cpack_add_install_type (Developer DISPLAY_NAME "Developer installation")
 feature_summary (FILENAME "${CMAKE_BINARY_DIR}/package_features.txt" INCLUDE_QUIET_PACKAGES
 																	 DEFAULT_DESCRIPTION WHAT ALL)
 
-feature_summary (INCLUDE_QUIET_PACKAGES DEFAULT_DESCRIPTION QUIET_ON_EMPTY WHAT ALL)
+if(PROJECT_IS_TOP_LEVEL)
+	feature_summary (INCLUDE_QUIET_PACKAGES DEFAULT_DESCRIPTION QUIET_ON_EMPTY WHAT ALL)
+endif()
 
 export (PACKAGE Limes)
 
