@@ -132,11 +132,6 @@ public:
 		alg::sort (objects, forward);
 	}
 
-	virtual void fill (const ElementType& fillWith)
-	{
-		alg::fill (objects, fillWith);
-	}
-
 	template <class OtherContainer, class Callable>
 	void zip_with (const OtherContainer& other, Callable&& callable)
 	{

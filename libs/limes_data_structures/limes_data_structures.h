@@ -20,7 +20,9 @@
 #include "vectors/owned_vector.h"
 
 #include "data_structures/Dimensions.h"
-#include "data_structures/LinkedListModel.h"
+
+#include "linked_list/LinkedListModel.h"
+#include "linked_list/LinkedList.h"
 
 #include "fifo/AbstractFIFO.h"
 #include "fifo/FIFO.h"

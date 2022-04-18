@@ -47,7 +47,7 @@ public:
 		return *this;
 	}
 
-	void fill (const ElementType& fillWith) final
+	void fill (const ElementType& fillWith)
 	{
 		vecops::fill (this->objects.data(), this->numObjects(), fillWith);
 	}

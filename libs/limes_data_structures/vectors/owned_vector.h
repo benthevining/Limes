@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include "vector.h"
+#include "basic_vector.h"
 #include <memory>
 #include <functional>
 #include <limes_export.h>
@@ -20,12 +20,10 @@
 namespace limes
 {
 
-template <typename ElementType, class Allocator = std::allocator<ElementType>>
-class LIMES_EXPORT owned_vector final : public vector<std::unique_ptr<ElementType>, Allocator>
+template <typename ElementType, class Allocator = std::allocator<std::unique_ptr<ElementType>>>
+class LIMES_EXPORT owned_vector final : public basic_vector<std::unique_ptr<ElementType>, Allocator>
 {
-	using vector_type = vector<std::unique_ptr<ElementType>, Allocator>;
-
-	static_assert (std::is_base_of_v<vector_type, owned_vector<ElementType>>, "");
+	using vector_type = basic_vector<std::unique_ptr<ElementType>, Allocator>;
 
 public:
 
@@ -35,7 +33,6 @@ public:
 	 - contains_if
 	 - find_if
 	 - num_of
-	 - fill
 	 - clearAndInit
 	 - first() and last()
 	 - reserveAndInit
@@ -67,7 +64,7 @@ public:
 	}
 
 	template <bool is_const>
-	struct iterator_base final
+	struct LIMES_EXPORT iterator_base final
 	{
 	public:
 
@@ -137,23 +134,23 @@ public:
 		return const_iterator { this->objects.end() };
 	}
 
-	auto resize (int newNumObjects, bool allowDeallocating = true)
+	int resize (int newNumObjects, bool allowDeallocating = true)
 	{
 		return resize_impl (newNumObjects, allowDeallocating, [this]
-							{ append(); });
+							{ return createObject(); });
 	}
 
 	template <typename... Args>
-	auto resize (int newNumObjects, bool allowDeallocating, Args&&... args)
+	int resize (int newNumObjects, bool allowDeallocating, Args&&... args)
 	{
 		return resize_impl (newNumObjects, allowDeallocating,
 							[this, ... args = std::forward<Args> (args)]
-							{ append (std::forward<Args> (args)...); });
+							{ return new OwnedObjectType (std::forward<Args> (args)...); });
 	}
 
 	ElementType& append()
 	{
-		this->objects.emplace_back (std::make_unique<ElementType> (createObject()));
+		this->objects.emplace_back (std::make_unique<ElementType> (*createObject()));
 
 		return *this->last();
 	}
@@ -163,6 +160,12 @@ public:
 	{
 		this->objects.emplace_back (std::make_unique<ElementType> (std::forward<Args> (args)...));
 
+		return *this->last();
+	}
+
+	ElementType& append (ElementType&& newObject)
+	{
+		this->objects.emplace_back (std::make_unique<ElementType> (std::forward<ElementType> (newObject)));
 		return *this->last();
 	}
 
@@ -194,7 +197,7 @@ private:
 			auto numCreated = 0;
 
 			for (auto i = this->numObjects(); i < newNumObjects; ++i, ++numCreated)
-				append (addObject());
+				append (*addObject());
 
 			if (numCreated > 0)
 				return numCreated;

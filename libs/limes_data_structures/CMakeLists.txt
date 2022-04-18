@@ -78,6 +78,7 @@ target_include_directories (
 
 add_subdirectory (vectors)
 add_subdirectory (fifo)
+add_subdirectory (linked_list)
 add_subdirectory (data_structures)
 
 install (
