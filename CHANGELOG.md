@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [3.11.0](http://github.com/benthevining/Limes/compare/v3.10.0...v3.11.0) (2022-04-18)
+
+
+### Features
+
+* added a random number generator class ([9d3bde4](http://github.com/benthevining/Limes/commit/9d3bde43e6e83ddc8b5e2c73c372ad2e2e0d90f7))
+
 ## [3.10.0](http://github.com/benthevining/Limes/compare/v3.9.0...v3.10.0) (2022-04-18)
 
 
