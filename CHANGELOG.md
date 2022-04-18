@@ -1,5 +1,17 @@
 # Limes changelog
 
+## [3.10.0](http://github.com/benthevining/Limes/compare/v3.9.0...v3.10.0) (2022-04-18)
+
+
+### Features
+
+* moved PSOLA classes into Limes ([6447506](http://github.com/benthevining/Limes/commit/64475064c0734b6d6ec0b5ed0729079fbae90672))
+
+
+### Bug Fixes
+
+* fixing MIPP compiler errors ([6459d9f](http://github.com/benthevining/Limes/commit/6459d9f7efaad73e06dc6dc7745112a6256f0626))
+
 ## [3.9.0](http://github.com/benthevining/Limes/compare/v3.8.0...v3.9.0) (2022-04-18)
 
 
