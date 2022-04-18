@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [3.9.0](http://github.com/benthevining/Limes/compare/v3.8.0...v3.9.0) (2022-04-18)
+
+
+### Features
+
+* added a SharedObject class ([5b02949](http://github.com/benthevining/Limes/commit/5b0294993e1ff1be39499f2a3f8fe0c030c5a981))
+
 ## [3.8.0](http://github.com/benthevining/Limes/compare/v3.7.0...v3.8.0) (2022-04-17)
 
 
