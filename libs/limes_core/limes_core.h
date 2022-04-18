@@ -21,7 +21,11 @@
 #include "misc/TypeTraits.h"
 #include "misc/Algorithm.h"
 #include "misc/Version.h"
-#include "misc/ReferenceCountedObject.h"
+#include "misc/Functions.h"
+
+#include "memory/ReferenceCountedObject.h"
+#include "memory/SharedObject.h"
+#include "memory/StaticObjects.h"
 
 #include "text/StringUtils.h"
 #include "text/TextTable.h"

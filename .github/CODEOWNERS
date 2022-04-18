@@ -43,6 +43,7 @@ ing
 libs/CMakeLists.txt benthevining
 libs/limes.h benthevining
 libs/limes_audio/CMakeLists.txt benthevining
+libs/limes_audio/filters/CMakeLists.txt benthevining
 libs/limes_audio/filters/Filter.cpp benthevining
 libs/limes_audio/limes_audio.h benthevining
 libs/limes_audio/oscillators/basic_oscillators.h benthevining
@@ -79,6 +80,8 @@ libs/limes_core/math/CMakeLists.txt benthevining
 libs/limes_core/math/Fraction.h benthevining
 libs/limes_core/math/Fraction_impl.h benthevining
 libs/limes_core/math/mathHelpers.h benthevining
+libs/limes_core/memory/ReferenceCountedObject.cpp benthevining
+libs/limes_core/memory/StaticObjects.h benthevining
 libs/limes_core/misc/Algorithm.h benthevining
 libs/limes_core/misc/CMakeLists.txt benthevining
 libs/limes_core/misc/Functions.h benthevining
@@ -134,6 +137,7 @@ libs/limes_music/harmony/Chord.cpp benthevining
 libs/limes_music/harmony/Chord.h benthevining
 libs/limes_music/harmony/Pitch.cpp benthevining
 libs/limes_music/harmony/Pitch.h benthevining
+libs/limes_music/harmony/PitchClass.cpp benthevining
 libs/limes_music/harmony/PitchUtils.h benthevining
 libs/limes_music/harmony/intervals/CMakeLists.txt benthevining
 libs/limes_music/harmony/intervals/CompoundInterval.h benthevining

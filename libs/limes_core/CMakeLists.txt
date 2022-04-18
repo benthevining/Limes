@@ -95,6 +95,7 @@ target_include_directories (
 
 add_subdirectory (math)
 add_subdirectory (misc)
+add_subdirectory (memory)
 add_subdirectory (threading)
 add_subdirectory (text)
 

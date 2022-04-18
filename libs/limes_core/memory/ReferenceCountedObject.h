@@ -14,8 +14,8 @@
 
 #include <limes_export.h>
 #include <atomic>
-#include <utility>		 // for std::swap
-#include "TypeTraits.h"	 // for LIMES_MUST_INHERIT_FROM
+#include <utility>				 // for std::swap
+#include "../misc/TypeTraits.h"	 // for LIMES_MUST_INHERIT_FROM
 
 namespace limes
 {
