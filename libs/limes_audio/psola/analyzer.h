@@ -139,7 +139,7 @@ private:
 
 	double samplerate { 0. };
 
-	// juce::Random random;
+	math::Random random;
 
 	vector<Shifter<SampleType>*> shifters;
 };

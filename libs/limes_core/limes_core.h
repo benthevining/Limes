@@ -32,6 +32,7 @@
 
 #include "math/mathHelpers.h"
 #include "math/Fraction.h"
+#include "math/Random.h"
 
 #include "threading/Threading.h"
 #include "threading/RealtimeTypeTraits.h"
