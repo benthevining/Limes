@@ -53,6 +53,7 @@ libs/limes_audio/psola/PeakFinder.h benthevining
 libs/limes_audio/streams/CMakeLists.txt benthevining
 libs/limes_audio/streams/SampleStream.cpp benthevining
 libs/limes_audio/streams/SampleStream.h benthevining
+libs/limes_audio/streams/WhiteNoiseGenerator.h benthevining
 libs/limes_audio/streams/basic_oscillators.cpp benthevining
 libs/limes_audio/streams/basic_oscillators.h benthevining
 libs/limes_audio/streams/oscillator.cpp benthevining
@@ -60,6 +61,7 @@ libs/limes_audio/streams/oscillator.h benthevining
 libs/limes_audio/util/CMakeLists.txt benthevining
 libs/limes_audio/util/Misc.h benthevining
 libs/limes_audio/util/MonoStereoConverter.cpp benthevining
+libs/limes_audio/util/PerlinNoise.cpp benthevining
 libs/limes_audio/util/PitchDetector.cpp benthevining
 libs/limes_audio/util/PitchDetector.h benthevining
 libs/limes_audio/util/Windowing.h benthevining

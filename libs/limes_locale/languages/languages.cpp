@@ -16,39 +16,35 @@
 #include <limes_platform.h>			// for LIMES_ASSERT
 #include <limes_core.h>				// for contains_or_default, contains
 #include <limes_data_structures.h>	// for vector, StringVector, basic_vector
+#include "../countries/countries.h"
 
 namespace limes::locale
 {
 
-struct LanguageData final
+Language::Language (const std::string_view& name,
+					const std::string_view& ISO_639_1, const std::string_view& ISO_639_2,
+					const StringVector& countries,
+					bool				rightToLeft)
+	: languageName (name), ISO639_1 (ISO_639_1), ISO639_2 (ISO_639_2), countryCodes (countries), isRightToLeft (rightToLeft)
 {
-	LanguageData()
-		: languageName (UNKNOWN)
-	{
-	}
+	LIMES_ASSERT (ISO639_1.empty() || ISO639_1.length() == 2);
+	LIMES_ASSERT (ISO639_2.length() == 3);
+}
 
-	explicit LanguageData (const std::string_view& name,
-						   const std::string_view& ISO_639_1, const std::string_view& ISO_639_2,
-						   const StringVector& countries = {})	// NOLINT
-		: languageName (name), ISO639_1 (ISO_639_1), ISO639_2 (ISO_639_2), countryCodes (countries)
-	{
-		LIMES_ASSERT (ISO639_1.empty() || ISO639_1.length() == 2);
-		LIMES_ASSERT (ISO639_2.length() == 3);
-	}
+bool Language::isForCountry (const std::string_view& countryCode) const
+{
+	return alg::contains (countryCodes, std::string { countryCode });
+}
 
-	[[nodiscard]] bool isValid() const
-	{
-		return languageName != UNKNOWN && (! ISO639_1.empty() || ! ISO639_2.empty());
-	}
+vector<Country> Language::getCountries() const
+{
+	vector<Country> countries;
 
-	std::string languageName, ISO639_1, ISO639_2;
+	for (const auto& code : countryCodes)
+		countries.emplace_back (getCountryByCode (code));  // cppcheck-suppress useStlAlgorithm
 
-	StringVector countryCodes;
-
-private:
-
-	static constexpr auto UNKNOWN = "Unknown_language_";
-};
+	return countries;
+}
 
 
 /** Note that ISO639-2/B codes are used instead of ISO639-2/T codes.
@@ -73,7 +69,8 @@ struct KnownLanguages final
 		languages.emplace_back ("Amharic", "am", "amh", StringVector { "ET" });
 		languages.emplace_back ("Angika", "", "anp", StringVector { "IN", "NP" });
 		languages.emplace_back ("Arabic", "ar", "ara",
-								StringVector { "DZ", "BH", "BJ", "TD", "KM", "DJ", "EG", "ER", "GM", "GN", "GW", "ID", "IR", "IL", "JO", "KW", "LB", "LY", "ML", "MR", "MA", "NE", "OM", "PS", "PH", "QA", "SA", "SN", "SO", "ZA", "SD", "SY", "TJ", "TZ", "TN", "AE", "UZ", "VE", "EH", "YE" });
+								StringVector { "DZ", "BH", "BJ", "TD", "KM", "DJ", "EG", "ER", "GM", "GN", "GW", "ID", "IR", "IL", "JO", "KW", "LB", "LY", "ML", "MR", "MA", "NE", "OM", "PS", "PH", "QA", "SA", "SN", "SO", "ZA", "SD", "SY", "TJ", "TZ", "TN", "AE", "UZ", "VE", "EH", "YE" },
+								true);
 		languages.emplace_back ("Aragonese", "an", "arg", StringVector { "ES" });
 		languages.emplace_back ("Arapaho", "", "arp", StringVector { "US" });
 		languages.emplace_back ("Arawak", "", "arw", StringVector { "SR", "VE", "GY" });
@@ -135,7 +132,7 @@ struct KnownLanguages final
 		languages.emplace_back ("Dargwa", "", "dar", StringVector { "RU" });
 		languages.emplace_back ("Delaware", "", "del", StringVector { "CA", "US" });
 		languages.emplace_back ("Dinka", "", "din", StringVector { "SS" });
-		languages.emplace_back ("Divehi", "dv", "div", StringVector { "MV" });
+		languages.emplace_back ("Divehi", "dv", "div", StringVector { "MV" }, true);
 		languages.emplace_back ("Dogri", "", "doi", StringVector { "IN" });
 		languages.emplace_back ("Dogrib", "", "dgr", StringVector { "CA" });
 		languages.emplace_back ("Duala", "", "dua", StringVector { "CM" });
@@ -162,7 +159,7 @@ struct KnownLanguages final
 		languages.emplace_back ("French", "fr", "fre",
 								StringVector { "DZ", "BE", "BJ", "BF", "BI", "CM", "CA", "CF", "TD", "KM", "CD", "CG", "CI", "DJ", "GQ", "FR", "PF", "GM", "GN", "GY", "HT", "VA", "LA", "LB", "LU", "MG", "ML", "MR", "MU", "MC", "MA", "NC", "NE", "RU", "RW", "BL", "MF", "SN", "SC", "SR", "CH", "TG", "TN", "VU", "WF", "EH" });
 		languages.emplace_back ("Friulian", "", "fur", StringVector { "IT" });
-		languages.emplace_back ("Fulah", "ff", "ful", StringVector { "BJ", "CM", "GM", "GN", "ML", "NE", "NG" });
+		languages.emplace_back ("Fulah", "ff", "ful", StringVector { "BJ", "CM", "GM", "GN", "ML", "NE", "NG" }, true);
 		languages.emplace_back ("Ga", "", "gaa", StringVector { "GH" });
 		languages.emplace_back ("Carib", "", "car", StringVector { "SR", "VE", "GY" });
 		languages.emplace_back ("Galician", "gl", "glg", StringVector { "ES" });
@@ -184,7 +181,7 @@ struct KnownLanguages final
 		languages.emplace_back ("Haitian", "ht", "hat", StringVector { "CU", "HT" });
 		languages.emplace_back ("Hausa", "ha", "hau", StringVector { "BJ", "NE", "NG" });
 		languages.emplace_back ("Hawaiian", "", "haw", StringVector { "US" });
-		languages.emplace_back ("Hebrew", "he", "heb", StringVector { "IL", "ZA", "UA" });
+		languages.emplace_back ("Hebrew", "he", "heb", StringVector { "IL", "ZA", "UA" }, true);
 		languages.emplace_back ("Herero", "hz", "her", StringVector { "NA" });
 		languages.emplace_back ("Hiligaynon", "", "hil", StringVector { "PH" });
 		languages.emplace_back ("Hindi", "hi", "hin", StringVector { "IN", "ZA" });
@@ -241,7 +238,7 @@ struct KnownLanguages final
 		languages.emplace_back ("Kosraean", "", "kos", StringVector { "FM" });
 		languages.emplace_back ("Kpelle", "", "kpe", StringVector { "GN" });
 		languages.emplace_back ("Kumyk", "", "kum");
-		languages.emplace_back ("Kurdish", "ku", "kur", StringVector { "IR", "TM" });
+		languages.emplace_back ("Kurdish", "ku", "kur", StringVector { "IR", "TM" }, true);
 		languages.emplace_back ("Kurukh", "", "kru", StringVector { "IN" });
 		languages.emplace_back ("Kutenai", "", "kut");
 		languages.emplace_back ("Kuanyama", "kj", "kua", StringVector { "NA" });
@@ -331,9 +328,9 @@ struct KnownLanguages final
 		languages.emplace_back ("Papiamento", "", "pap", StringVector { "NL", "CW", "AW" });
 		languages.emplace_back ("Palauan", "", "pau", StringVector { "PW" });
 		languages.emplace_back ("Pali", "pi", "pli");
-		languages.emplace_back ("Persian", "fa", "per", StringVector { "IR" });
+		languages.emplace_back ("Persian", "fa", "per", StringVector { "IR" }, true);
 		languages.emplace_back ("Polish", "pl", "pol", StringVector { "BY", "CZ", "PL", "RO", "UA" });
-		languages.emplace_back ("Pashto", "ps", "pus", StringVector { "AF", "PK" });
+		languages.emplace_back ("Pashto", "ps", "pus", StringVector { "AF", "PK" }, true);
 		languages.emplace_back ("Pohnpeian", "", "pon", StringVector { "FM" });
 		languages.emplace_back ("Portuguese", "pt", "por",
 								StringVector { "AO", "BR", "CV", "CO", "GQ", "GY", "MO", "MZ", "PT", "ST", "ZA", "SR", "TL", "UY", "VE" });
@@ -418,7 +415,7 @@ struct KnownLanguages final
 		languages.emplace_back ("Umbundu", "", "umb", StringVector { "AO" });
 		languages.emplace_back ("Uighur", "ug", "uig", StringVector { "CN", "KZ", "KG", "UZ" });
 		languages.emplace_back ("Ukrainian", "uk", "ukr", StringVector { "BY", "CZ", "KZ", "MD", "RO", "RU", "TJ", "TM", "UA", "UZ" });
-		languages.emplace_back ("Urdu", "ur", "urd", StringVector { "IN", "PK", "ZA" });
+		languages.emplace_back ("Urdu", "ur", "urd", StringVector { "IN", "PK", "ZA" }, true);
 		languages.emplace_back ("Uzbek", "uz", "uzb", StringVector { "KZ", "KG", "TJ", "TM", "UZ" });
 		languages.emplace_back ("Vai", "", "vai");
 		languages.emplace_back ("Votic", "", "vot");
@@ -427,7 +424,7 @@ struct KnownLanguages final
 		languages.emplace_back ("Volapük", "vo", "vol");
 		languages.emplace_back ("Walloon", "wa", "wln");
 		languages.emplace_back ("Welsh", "cy", "wel", StringVector { "AR", "GB" });
-		languages.emplace_back ("Wolof", "wo", "wol", StringVector { "GM", "MR", "SN" });
+		languages.emplace_back ("Wolof", "wo", "wol", StringVector { "GM", "MR", "SN" }, true);
 		languages.emplace_back ("Wolaitta", "", "wal", StringVector { "ET" });
 		languages.emplace_back ("Washo", "", "was");
 		languages.emplace_back ("Kalmyk", "", "xal");
@@ -446,144 +443,91 @@ struct KnownLanguages final
 		languages.emplace_back ("Zaza", "", "zza");
 	}
 
-	[[nodiscard]] LanguageData getDataForLanguageName (const std::string& name) const
+	[[nodiscard]] Language getLanguageByName (const std::string_view& name) const
 	{
 		LIMES_ASSERT (! name.empty());
 
 		return alg::contains_or_default (languages,
-										 [&name] (const LanguageData& lang)
+										 [&name] (const Language& lang)
 										 { return lang.languageName == name; });
 	}
 
-	[[nodiscard]] LanguageData getDataForISO639_1 (const std::string& code) const
+	[[nodiscard]] Language getFromISO639_1 (const std::string_view& code) const
 	{
 		LIMES_ASSERT (code.size() == 2);
 
 		return alg::contains_or_default (languages,
-										 [&code] (const LanguageData& lang)
+										 [&code] (const Language& lang)
 										 { return lang.ISO639_1 == code; });
 	}
 
-	[[nodiscard]] LanguageData getDataForISO639_2 (const std::string& code) const
+	[[nodiscard]] Language getFromISO639_2 (const std::string_view& code) const
 	{
 		LIMES_ASSERT (code.size() == 3);
 
 		return alg::contains_or_default (languages,
-										 [&code] (const LanguageData& lang)
+										 [&code] (const Language& lang)
 										 { return lang.ISO639_2 == code; });
 	}
 
-	[[nodiscard]] StringVector getLanguageNamesForCountryCode (const std::string& code) const
+	[[nodiscard]] vector<Language> getLanguagesForCountryCode (const std::string& code) const
 	{
 		LIMES_ASSERT (code.size() == 2);
 
-		StringVector langs;
+		vector<Language> langs;
 
 		for (const auto& lang : languages)
 			if (alg::contains (lang.countryCodes, code))
-				langs.push_back (lang.languageName);
+				langs.push_back (lang);
 
 		return langs;
 	}
 
-	[[nodiscard]] StringVector getLanguageCodesForCountryCode (const std::string& code, bool asISO639_2) const
+	[[nodiscard]] vector<Language> getAll() const
 	{
-		LIMES_ASSERT (code.size() == 2);
-
-		StringVector langs;
-
-		for (const auto& lang : languages)
-		{
-			if (alg::contains (lang.countryCodes, code))
-			{
-				if (asISO639_2)
-					langs.push_back (lang.ISO639_2);
-				else
-					langs.push_back (lang.ISO639_1);
-			}
-		}
-
-		return langs;
+		return languages;
 	}
 
 private:
 
-	vector<LanguageData> languages;
+	vector<Language> languages;
 };
 
 
+static const KnownLanguages known_languages;
+
 static const KnownLanguages& getLanguages()
 {
-	static const KnownLanguages languages;
-
-	return languages;
+	return known_languages;
 }
 
 
-std::string languageNameToCode (const std::string& name, bool asISO639_2)
+Language getLanguageForCode (const std::string_view& ISOlanguageCode)
 {
-	const auto data = getLanguages().getDataForLanguageName (name);
+	if (ISOlanguageCode.length() == 2)
+		return getLanguages().getFromISO639_1 (ISOlanguageCode);
 
-	if (! data.isValid())
-		return {};
+	if (ISOlanguageCode.length() == 3)
+		return getLanguages().getFromISO639_2 (ISOlanguageCode);
 
-	if (asISO639_2)
-		return data.ISO639_2;
+	LIMES_ASSERT_FALSE;
 
-	return data.ISO639_1;
+	return {};
 }
 
-std::string languageCodeToName (const std::string& languageCode)
+Language getLanguage (const std::string_view& languageName)
 {
-	const auto data = [languageCode]() -> LanguageData
-	{
-		if (languageCode.length() == 2)
-			return getLanguages().getDataForISO639_1 (languageCode);
-
-		if (languageCode.length() == 3)
-			return getLanguages().getDataForISO639_2 (languageCode);
-
-		return {};
-	}();
-
-	if (! data.isValid())
-		return {};
-
-	return data.languageName;
+	return getLanguages().getLanguageByName (languageName);
 }
 
-StringVector getCountryCodesForLanguage (const std::string& language, bool languageName)
+vector<Language> getLanguagesForCountry (const std::string_view& countryCode)
 {
-	const auto language_name = [languageName, language]
-	{
-		if (languageName)
-			return language;
-
-		return languageCodeToName (language);
-	}();
-
-	const auto data = getLanguages().getDataForLanguageName (language_name);
-
-	if (! data.isValid())
-		return {};
-
-	return data.countryCodes;
+	return getLanguages().getLanguagesForCountryCode (std::string { countryCode });
 }
 
-StringVector getLanguageNamesForCountryCode (const std::string& countryCode)
+vector<Language> getAllKnownLanguages()
 {
-	if (countryCode.length() != 2)
-		return {};
-
-	return getLanguages().getLanguageNamesForCountryCode (countryCode);
-}
-
-StringVector getLanguageCodesForCountry (const std::string& countryCode, bool asISO639_2)
-{
-	if (countryCode.length() != 2)
-		return {};
-
-	return getLanguages().getLanguageCodesForCountryCode (countryCode, asISO639_2);
+	return getLanguages().getAll();
 }
 
 }  // namespace limes::locale

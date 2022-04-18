@@ -159,6 +159,13 @@ repos:
           - id: markdownlint-fix
             exclude: CHANGELOG.md
 
+  # protobuf
+    - repo: https://github.com/yoheimuta/protolint
+      rev: v0.37.1
+      hooks:
+          - id: protolint
+            args: [-fix]
+
   # check editorconfig rules
     - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
       rev: 2.4.0
@@ -166,6 +173,7 @@ repos:
           - id: editorconfig-checker
             always_run: true
             exclude: LICENSE
+            exclude_types: [proto]
 
 ci:
     skip: [cppcheck, gitown, check-jsonschema, run-cmake]

@@ -73,6 +73,7 @@ target_include_directories (
 						$<INSTALL_INTERFACE:${LIMES_LOCALE_INSTALL_INCLUDE_DIR}>)
 
 add_subdirectory (languages)
+add_subdirectory (countries)
 
 install (
 	TARGETS limes_locale
