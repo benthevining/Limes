@@ -178,6 +178,7 @@ libs/limes_vecops/CMakeLists.txt benthevining
 libs/limes_vecops/fft/CMakeLists.txt benthevining
 libs/limes_vecops/fft/fallback_fft.cpp benthevining
 libs/limes_vecops/fft/fft.cpp benthevining
+libs/limes_vecops/fft/fft_common.h benthevining
 libs/limes_vecops/fft/fftw_fft.cpp benthevining
 libs/limes_vecops/fft/fftw_fft.h benthevining
 libs/limes_vecops/fft/ipp_fft.cpp benthevining

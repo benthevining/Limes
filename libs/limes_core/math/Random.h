@@ -28,6 +28,8 @@ public:
 
 	Random();
 
+	Random (const Random& other) noexcept;
+
 	[[nodiscard]] int nextInt() noexcept;
 
 	[[nodiscard]] int nextInt (int maxValue) noexcept;
@@ -63,7 +65,9 @@ public:
 
 	void setSeedRandomly();
 
-	static Random& getSystemRandom() noexcept;
+	[[nodiscard]] Random fork() noexcept;
+
+	[[nodiscard]] static Random& getSystemRandom() noexcept;
 
 private:
 

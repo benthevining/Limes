@@ -12,26 +12,28 @@
 
 #pragma once
 
+#include <limes_export.h>
+#include <cstdint>
 #include <limes_data_structures.h>
+#include "Misc.h"
 
-// IWYU pragma: begin_exports
+namespace limes::dsp
+{
 
-#include "util/Windowing.h"
-#include "util/PitchDetector.h"
-#include "util/MonoStereoConverter.h"
-#include "util/CircularBuffer.h"
-#include "util/PerlinNoise.h"
+template <Sample SampleType>
+class LIMES_EXPORT PerlinNoise final
+{
+public:
 
-#include "streams/SampleStream.h"
-#include "streams/oscillator.h"
-#include "streams/WhiteNoiseGenerator.h"
+	PerlinNoise();
 
-#include "oscillators/basic_oscillators.h"
-#include "oscillators/DetunableModel.h"
+	explicit PerlinNoise (int64_t randomSeed);
 
-#include "filters/Filter.h"
+	[[nodiscard]] SampleType getNextSample (SampleType x, SampleType y = 0, SampleType z = 0);
 
-#include "psola/analyzer.h"
-#include "psola/shifter.h"
+private:
 
-// IWYU pragma: end_exports
+	scalar_vector<int> state;
+};
+
+}  // namespace limes::dsp

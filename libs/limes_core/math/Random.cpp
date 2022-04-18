@@ -33,6 +33,11 @@ Random::Random()
 	setSeedRandomly();
 }
 
+Random::Random (const Random& other) noexcept
+	: seed (other.seed.load())
+{
+}
+
 void Random::setSeed (int64_t newSeed) noexcept
 {
 	if (this == &getSystemRandom())
@@ -103,5 +108,9 @@ double Random::nextDouble() noexcept
 	return result;
 }
 
+Random Random::fork() noexcept
+{
+	return Random { static_cast<int64_t> (nextInt()) };
+}
 
 }  // namespace limes::math
