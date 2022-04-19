@@ -45,7 +45,7 @@ See the `FindLimes` file for more documentation on what it does.
 
 ## Compiling Limes
 
-Limes makes use of C++20, notably concepts. Limes has been tested on Mac, Windows, and Linux with Clang, GCC, and MSVC.
+Limes makes use of C++20, notably concepts. Limes has been tested on Mac, Windows, and Linux with Clang, GCC, and MSVC. Limes is also tested crosscompiled for iOS.
 
 ## CMake information
 

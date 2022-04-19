@@ -54,6 +54,17 @@
       "displayName": "Uses the fallback implementations of vecops functions and FFT",
       "inherits": "default",
       "name": "fallbacks"
+    },
+    {
+      "cacheVariables": {
+        "CMAKE_SYSTEM_NAME": "iOS",
+        "CMAKE_XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH": "NO",
+        "CMAKE_XCODE_EFFECTIVE_PLATFORMS": "-iphoneos",
+        "IOS_PLATFORM_LOCATION": "iPhoneOS.platform"
+      },
+      "displayName": "Configure cross-compiling for iOS",
+      "inherits": "default",
+      "name": "iOS"
     }
   ],
   "testPresets": [
