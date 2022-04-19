@@ -1,5 +1,16 @@
 # Limes changelog
 
+## [4.0.0](http://github.com/benthevining/Limes/compare/v3.12.0...v4.0.0) (2022-04-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* all code is now within a versioned inline namespace, defined by the LIMES_BEGIN_NAMESPACE macro. This is to prevent ABI breakage in the future.
+
+Precommit-Verified: f85584fee4fdc3614452498cf157680ad0926659570a1c6a140d8e351148a19a
+
+* placing all code within an inline namespace for ABI protection ([1d26f61](http://github.com/benthevining/Limes/commit/1d26f617889bca232ea4a78a994f1c7a90fcd2b4))
+
 ## [3.12.0](http://github.com/benthevining/Limes/compare/v3.11.0...v3.12.0) (2022-04-18)
 
 
