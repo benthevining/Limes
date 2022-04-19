@@ -19,6 +19,10 @@
 #	include <xmmintrin.h>
 #endif
 
+#if LIMES_APPLE
+#	include <TargetConditionals.h>
+#endif
+
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
@@ -31,9 +35,14 @@ namespace vecops
 #if LIMES_INTEL && LIMES_SSE
 	return static_cast<intptr_t> (_mm_getcsr());
 
-#elif defined(__arm64__) || defined(__aarch64__)
+#elif (defined(__arm64__) || defined(__aarch64__))
+#	if TARGET_OS_WATCH
+	asm volatile("mrs %w0, fpcr"
+				 : "=r"(fpsr));
+#	else
 	asm volatile("mrs %0, fpcr"
 				 : "=r"(fpsr));
+#	endif
 
 #elif LIMES_ARM_NEON
 	asm volatile("vmrs %0, fpscr"
@@ -49,10 +58,16 @@ inline void setFpStatusRegister (intptr_t fpsr) noexcept
 #if LIMES_INTEL && LIMES_SSE
 	_mm_setcsr (static_cast<uint32_t> (fpsr));
 
-#elif defined(__arm64__) || defined(__aarch64__)
+#elif (defined(__arm64__) || defined(__aarch64__))
+#	if TARGET_OS_WATCH
+	asm volatile("msr fpcr, %w0"
+				 :
+				 : "ri"(fpsr));
+#	else
 	asm volatile("msr fpcr, %0"
 				 :
 				 : "ri"(fpsr));
+#	endif
 
 #elif LIMES_ARM_NEON
 	asm volatile("vmsr fpscr, %0"

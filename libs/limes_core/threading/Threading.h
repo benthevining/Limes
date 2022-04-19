@@ -24,26 +24,14 @@ namespace threads
 template <class Function, typename... Args>
 LIMES_EXPORT inline void callInBackground (Function&& function, Args&&... args)
 {
-	std::thread worker (std::move (function), std::forward<Args> (args)...);
+	std::thread worker (std::forward (function), std::forward<Args> (args)...);
 	worker.detach();
-}
-
-template <class Function, class Callback>
-LIMES_EXPORT inline void callInBackgroundWithCallback (Function&& functionToCall, Callback&& callback)
-{
-	auto func = [call = std::move (functionToCall), cb = std::move (callback)]
-	{
-		call();
-		cb();
-	};
-
-	callInBackground (std::move (func));
 }
 
 template <class Function, typename... Args>
 LIMES_EXPORT inline void callAndBlock (Function&& function, Args&&... args)
 {
-	std::thread worker (std::move (function), std::forward<Args> (args)...);
+	std::thread worker (std::forward (function), std::forward<Args> (args)...);
 	worker.join();
 }
 

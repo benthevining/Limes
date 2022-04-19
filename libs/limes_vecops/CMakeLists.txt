@@ -78,6 +78,10 @@ set_target_properties (limes_vecops PROPERTIES VERSION "${PROJECT_VERSION}"
 target_link_libraries (limes_vecops PUBLIC Limes::limes_core PRIVATE Oranges::OrangesDefaultTarget
 																	 Oranges::OrangesUnityBuild)
 
+if(CMAKE_SYSTEM_NAME STREQUAL "watchOS")
+	target_compile_options (limes_vecops PRIVATE -fgnu-inline-asm)
+endif()
+
 set (LIMES_VECOPS_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_vecops" CACHE INTERNAL "")
 
 target_sources (
