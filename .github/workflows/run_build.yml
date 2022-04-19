@@ -1,0 +1,77 @@
+---
+name: Run build
+
+# yamllint disable rule:line-length
+
+on:
+    workflow_call:
+        inputs:
+            cmake_preset:
+                required: true
+                type: string
+            build_preset:
+                required: false
+                type: string
+                default: 'default'
+            id_key:
+                required: true
+                type: string
+            os:
+                required: true
+                type: string
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+
+    run_build:
+
+        name: ${{ inputs.id_key }} build
+        runs-on: ${{ inputs.os }}
+        timeout-minutes: 120
+
+        steps:
+
+            - name: Checkout code
+              uses: actions/checkout@v3
+              with:
+                  submodules: recursive
+                  fetch-depth: 1
+
+            - name: Set up cache
+              uses: actions/cache@v3
+              with:
+                  path: Cache
+                  key: ${{ runner.os }}.${{ inputs.id_key }}.test.${{ hashFiles('**/') }}
+                  restore-keys: ${{ runner.os }}.${{ inputs.id_key }}.test.
+
+            - name: Run CMake
+              run: cmake --preset ${{ inputs.cmake_preset }}
+
+            - name: Run debug build
+              run: cmake --build --preset ${{ inputs.build_preset }} --config Debug
+
+            - name: Run release build
+              run: cmake --build --preset ${{ inputs.build_preset }} --config Release
+
+            - name: Install debug
+              run: cmake --install Builds --config Debug --prefix '${{ github.workspace }}/deploy/debug'
+
+            - name: Install release
+              run: cmake --install Builds --config Release --prefix '${{ github.workspace }}/deploy/release'
+
+            - name: Upload debug artefacts
+              uses: actions/upload-artifact@v3
+              with:
+                  name: ${{ inputs.id_key }}.debug
+                  path: '${{ github.workspace }}/deploy/debug'
+                  if-no-files-found: error
+
+            - name: Upload release artefacts
+              uses: actions/upload-artifact@v3
+              with:
+                  name: ${{ inputs.id_key }}.release
+                  path: '${{ github.workspace }}/deploy/release'
+                  if-no-files-found: error

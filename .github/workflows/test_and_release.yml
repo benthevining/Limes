@@ -114,159 +114,30 @@ jobs:
 
 
     Build_iOS:
-
-        name: iOS build
+        uses: ./.github/workflows/run_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
-        runs-on: macos-latest
-        timeout-minutes: 120
-
-        steps:
-
-            - name: Checkout code
-              uses: actions/checkout@v3
-              with:
-                  submodules: recursive
-                  fetch-depth: 1
-
-            - name: Set up cache
-              uses: actions/cache@v3
-              with:
-                  path: Cache
-                  key: ${{ runner.os }}.ios.test.${{ hashFiles('**/') }}
-                  restore-keys: ${{ runner.os }}.ios.test.
-
-            - name: Run CMake
-              run: cmake --preset iOS -G Xcode
-
-            - name: Run debug build
-              run: cmake --build --preset default --config Debug
-
-            - name: Run release build
-              run: cmake --build --preset default --config Release
-
-            - name: Install debug
-              run: cmake --install Builds --config Debug --prefix '${{ github.workspace }}/deploy/debug'
-
-            - name: Install release
-              run: cmake --install Builds --config Release --prefix '${{ github.workspace }}/deploy/release'
-
-            - name: Upload debug artefacts
-              uses: actions/upload-artifact@v3
-              with:
-                  name: iOS.debug
-                  path: '${{ github.workspace }}/deploy/debug'
-                  if-no-files-found: error
-
-            - name: Upload release artefacts
-              uses: actions/upload-artifact@v3
-              with:
-                  name: iOS.release
-                  path: '${{ github.workspace }}/deploy/release'
-                  if-no-files-found: error
+        with:
+            cmake_preset: iOS
+            id_key: iOS
+            os: macos-latest
 
 
     Build_tvOS:
-
-        name: tvOS build
+        uses: ./.github/workflows/run_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
-        runs-on: macos-latest
-        timeout-minutes: 120
-
-        steps:
-
-            - name: Checkout code
-              uses: actions/checkout@v3
-              with:
-                  submodules: recursive
-                  fetch-depth: 1
-
-            - name: Set up cache
-              uses: actions/cache@v3
-              with:
-                  path: Cache
-                  key: ${{ runner.os }}.tvos.test.${{ hashFiles('**/') }}
-                  restore-keys: ${{ runner.os }}.tvos.test.
-
-            - name: Run CMake
-              run: cmake --preset tvOS -G Xcode
-
-            - name: Run debug build
-              run: cmake --build --preset default --config Debug
-
-            - name: Run release build
-              run: cmake --build --preset default --config Release
-
-            - name: Install debug
-              run: cmake --install Builds --config Debug --prefix '${{ github.workspace }}/deploy/debug'
-
-            - name: Install release
-              run: cmake --install Builds --config Release --prefix '${{ github.workspace }}/deploy/release'
-
-            - name: Upload debug artefacts
-              uses: actions/upload-artifact@v3
-              with:
-                  name: tvOS.debug
-                  path: '${{ github.workspace }}/deploy/debug'
-                  if-no-files-found: error
-
-            - name: Upload release artefacts
-              uses: actions/upload-artifact@v3
-              with:
-                  name: tvOS.release
-                  path: '${{ github.workspace }}/deploy/release'
-                  if-no-files-found: error
+        with:
+            cmake_preset: tvOS
+            id_key: tvOS
+            os: macos-latest
 
 
     Build_watchOS:
-
-        name: watchOS build
+        uses: ./.github/workflows/run_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
-        runs-on: macos-latest
-        timeout-minutes: 120
-
-        steps:
-
-            - name: Checkout code
-              uses: actions/checkout@v3
-              with:
-                  submodules: recursive
-                  fetch-depth: 1
-
-            - name: Set up cache
-              uses: actions/cache@v3
-              with:
-                  path: Cache
-                  key: ${{ runner.os }}.tvos.test.${{ hashFiles('**/') }}
-                  restore-keys: ${{ runner.os }}.tvos.test.
-
-            - name: Run CMake
-              run: cmake --preset watchOS -G Xcode
-
-            - name: Run debug build
-              run: cmake --build --preset default --config Debug
-
-            - name: Run release build
-              run: cmake --build --preset default --config Release
-
-            - name: Install debug
-              run: cmake --install Builds --config Debug --prefix '${{ github.workspace }}/deploy/debug'
-
-            - name: Install release
-              run: cmake --install Builds --config Release --prefix '${{ github.workspace }}/deploy/release'
-
-            - name: Upload debug artefacts
-              uses: actions/upload-artifact@v3
-              with:
-                  name: watchOS.debug
-                  path: '${{ github.workspace }}/deploy/debug'
-                  if-no-files-found: error
-
-            - name: Upload release artefacts
-              uses: actions/upload-artifact@v3
-              with:
-                  name: watchOS.release
-                  path: '${{ github.workspace }}/deploy/release'
-                  if-no-files-found: error
+        with:
+            cmake_preset: watchOS
+            id_key: watchOS
+            os: macos-latest
 
 
     Release:

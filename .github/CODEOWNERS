@@ -56,6 +56,7 @@ libs/limes_audio/psola/CMakeLists.txt benthevining
 libs/limes_audio/psola/PeakFinder.cpp benthevining
 libs/limes_audio/psola/PeakFinder.h benthevining
 libs/limes_audio/psola/shifter.cpp benthevining
+libs/limes_audio/psola/shifter.h benthevining
 libs/limes_audio/streams/CMakeLists.txt benthevining
 libs/limes_audio/streams/SampleStream.cpp benthevining
 libs/limes_audio/streams/SampleStream.h benthevining
@@ -90,6 +91,7 @@ libs/limes_core/limes_core.h benthevining
 libs/limes_core/math/CMakeLists.txt benthevining
 libs/limes_core/math/Fraction.h benthevining
 libs/limes_core/math/Fraction_impl.h benthevining
+libs/limes_core/math/Random.cpp benthevining
 libs/limes_core/math/Random.h benthevining
 libs/limes_core/math/mathHelpers.h benthevining
 libs/limes_core/memory/CMakeLists.txt benthevining
@@ -105,6 +107,7 @@ libs/limes_core/misc/TypeTraits.h benthevining
 libs/limes_core/misc/Version.cpp benthevining
 libs/limes_core/misc/Version.h benthevining
 libs/limes_core/misc/languages.cpp benthevining
+libs/limes_core/misc/version.proto benthevining
 libs/limes_core/text/CMakeLists.txt benthevining
 libs/limes_core/text/StringUtils.cpp benthevining
 libs/limes_core/text/StringUtils.h benthevining
