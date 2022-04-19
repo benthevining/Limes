@@ -16,8 +16,11 @@
 #include "Coeffecients.h"
 #include "../util/Misc.h"
 #include <limes_data_structures.h>
+#include <limes_namespace.h>
 
-namespace limes::dsp::filters
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp::filters
 {
 
 /** A basic IIR filter with coefficients that can be reassigned during realtime playback.
@@ -56,4 +59,6 @@ private:
 	int			 order = 0;
 };
 
-}  // namespace limes::dsp::filters
+}  // namespace dsp::filters
+
+LIMES_END_NAMESPACE

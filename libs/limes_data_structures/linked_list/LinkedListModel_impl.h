@@ -13,10 +13,9 @@
 #pragma once
 
 #include <limes_vecops.h>
+#include <limes_namespace.h>
 
-namespace limes
-{
-
+LIMES_BEGIN_NAMESPACE
 
 template <typename ObjectType>
 LinkedListModel<ObjectType>::~LinkedListModel()
@@ -313,4 +312,4 @@ constexpr typename LinkedListModel<ObjectType>::Iterator::reference LinkedListMo
 	return currentNode->getObject();
 }
 
-}  // namespace limes
+LIMES_END_NAMESPACE

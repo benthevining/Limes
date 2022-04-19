@@ -16,8 +16,11 @@
 #include <limes_export.h>			// for LIMES_EXPORT
 #include <limes_data_structures.h>	// for vector
 #include "Misc.h"					// for concept Sample - IWYU pragma: keep
+#include <limes_namespace.h>
 
-namespace limes::dsp::psola
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp::psola
 {
 
 /** @ingroup lemons_psola_analysis
@@ -131,4 +134,6 @@ private:
 	SampleVector yinDataStorage;
 };
 
-}  // namespace limes::dsp::psola
+}  // namespace dsp::psola
+
+LIMES_END_NAMESPACE

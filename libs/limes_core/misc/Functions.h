@@ -15,9 +15,9 @@
 #include <atomic>
 #include <type_traits>
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 template <class Function>
 LIMES_EXPORT bool call_once (Function&& func, std::invoke_result_t<Function>* result = nullptr)
@@ -87,4 +87,4 @@ private:
 	const Function2 deferredFunc;
 };
 
-}  // namespace limes
+LIMES_END_NAMESPACE

@@ -18,9 +18,9 @@
 #include <initializer_list>
 #include <limes_export.h>
 #include <limes_platform.h>
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 template <typename ElementType, class Allocator = std::allocator<ElementType>>
 class LIMES_EXPORT basic_vector
@@ -338,4 +338,4 @@ protected:
 	using size_type = typename vector_type::size_type;
 };
 
-}  // namespace limes
+LIMES_END_NAMESPACE

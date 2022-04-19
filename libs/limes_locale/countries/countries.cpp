@@ -13,8 +13,11 @@
 #include "countries.h"
 #include "../languages/languages.h"
 #include <limes_platform.h>
+#include <limes_namespace.h>
 
-namespace limes::locale
+LIMES_BEGIN_NAMESPACE
+
+namespace locale
 {
 
 vector<Language> Country::getLanguages() const
@@ -81,4 +84,6 @@ vector<Country> getAllCountries()
 	return getCountries().getAll();
 }
 
-}  // namespace limes::locale
+}  // namespace locale
+
+LIMES_END_NAMESPACE

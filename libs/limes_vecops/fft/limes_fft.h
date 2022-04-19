@@ -16,12 +16,7 @@
 #include <limes_export.h>  // for LIMES_EXPORT, LIMES_NO_EXPORT
 #include <string_view>	   // for string_view
 #include <limes_vecops.h>  // for concept Scalar
-
-namespace limes::vecops
-{
-template <Scalar SampleType>
-class FFTImpl;
-}
+#include <limes_namespace.h>
 
 #ifndef LIMES_VECOPS_USE_FFTW
 #	if __has_include(<fftw3.h>)
@@ -31,8 +26,13 @@ class FFTImpl;
 #	endif
 #endif
 
-namespace limes::vecops
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops
 {
+
+template <Scalar SampleType>
+class FFTImpl;
 
 template <Scalar SampleType>
 class LIMES_EXPORT FFT final
@@ -115,4 +115,6 @@ LIMES_EXPORT [[nodiscard]] bool isUsingWisdom();
 }  // namespace fftw
 #endif
 
-}  // namespace limes::vecops
+}  // namespace vecops
+
+LIMES_END_NAMESPACE

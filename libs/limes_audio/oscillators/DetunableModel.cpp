@@ -13,11 +13,14 @@
 #include "DetunableModel.h"
 #include <limes_platform.h>
 #include <limes_core.h>
+#include <limes_namespace.h>
 
-namespace limes::dsp::osc
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp::osc
 {
 
-DetunableModel::DetunableModel (int initialNumVoices)
+DetunableModel::DetunableModel (int initialNumVoices)  // cppcheck-suppress uninitMemberVar
 	: numVoices (initialNumVoices)
 {
 	LIMES_ASSERT (numVoices > 0);
@@ -81,4 +84,6 @@ void DetunableModel::applyFrequencies (std::function<void (float)>&& func) const
 		func (frequencies[i]);
 }
 
-}  // namespace limes::dsp::osc
+}  // namespace dsp::osc
+
+LIMES_END_NAMESPACE

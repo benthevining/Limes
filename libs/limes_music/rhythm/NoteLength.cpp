@@ -16,9 +16,11 @@
 #include <limes_core.h>				// for Fraction::operator+=, Fraction::...
 #include "NoteDuration.h"			// for NoteDuration
 #include <limes_data_structures.h>	// for LinkedListModel
+#include <limes_namespace.h>
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::music
+namespace music
 {
 
 double NoteLength::getNumNotesOfDurationForWholeTie (const NoteDuration& destDuration) const noexcept
@@ -43,4 +45,6 @@ math::Fraction<int> NoteLength::getRelativeValueForWholeTie() const noexcept
 	return frac.reduce();
 }
 
-}  // namespace limes::music
+}  // namespace music
+
+LIMES_END_NAMESPACE

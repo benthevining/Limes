@@ -22,9 +22,11 @@
 #include "limes_fft.h"		 // for FFT, enableWisdom, getWisdomFileDir, isU...
 #include <limes_vecops.h>	 // for copy, cartesianInterleavedToMagnitudes
 #include <limes_platform.h>	 // for LIMES_FORCE_INLINE
+#include <limes_namespace.h>
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::vecops
+namespace vecops
 {
 
 #if FFTW_DOUBLE_ONLY
@@ -448,8 +450,9 @@ void FFTW_DoubleFFT::inverseCepstral (const double* magIn, double* cepOut)
 
 int FFTW_DoubleFFT::m_extantd = 0;	// NOLINT
 
-}  // namespace limes::vecops
+}  // namespace vecops
 
+LIMES_END_NAMESPACE
 
 #if FFTW_DOUBLE_ONLY
 #	undef fftwf_plan_dft_r2c_1d

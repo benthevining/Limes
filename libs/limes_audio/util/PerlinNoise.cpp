@@ -14,8 +14,11 @@
 #include <cmath>
 #include <limes_core.h>
 #include <algorithm>
+#include <limes_namespace.h>
 
-namespace limes::dsp
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp
 {
 
 template <Sample SampleType>
@@ -163,4 +166,6 @@ SampleType PerlinNoise<SampleType>::getNextSample (SampleType x, SampleType y, S
 template class PerlinNoise<float>;
 template class PerlinNoise<double>;
 
-}  // namespace limes::dsp
+}  // namespace dsp
+
+LIMES_END_NAMESPACE

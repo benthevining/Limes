@@ -12,12 +12,15 @@
 
 #pragma once
 
+#include <limes_namespace.h>
 #include <cmath>
 #include <type_traits>
 #include <limes_export.h>
 #include <limes_platform.h>
 
-namespace limes::math
+LIMES_BEGIN_NAMESPACE
+
+namespace math
 {
 
 template <typename T>
@@ -229,4 +232,6 @@ LIMES_EXPORT static constexpr T blackman_alpha = T (0.16);
 
 }  // namespace constants
 
-}  // namespace limes::math
+}  // namespace math
+
+LIMES_END_NAMESPACE

@@ -16,8 +16,11 @@
 #include <string>					// for string
 #include <limes_data_structures.h>	// for StringVector
 #include <limes_platform.h>
+#include <limes_namespace.h>
 
-namespace limes::locale
+LIMES_BEGIN_NAMESPACE
+
+namespace locale
 {
 
 struct Country;
@@ -52,4 +55,6 @@ struct LIMES_EXPORT Language final
 
 [[nodiscard]] LIMES_EXPORT vector<Language> getAllKnownLanguages();
 
-}  // namespace limes::locale
+}  // namespace locale
+
+LIMES_END_NAMESPACE

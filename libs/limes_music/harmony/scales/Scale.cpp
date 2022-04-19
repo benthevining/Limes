@@ -16,9 +16,11 @@
 #include "../Pitch.h"				// for Pitch
 #include "../PitchClass.h"			// for PitchClass
 #include <limes_data_structures.h>	// for vector, scalar_vector, basic_vector
+#include <limes_namespace.h>
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::music::scales
+namespace music::scales
 {
 
 bool Scale::operator== (const Scale& other) const
@@ -146,4 +148,6 @@ PitchClass Scale::getPitchClassOfScaleDegree (int scaleDegree) const noexcept
 //	return getPitchClassOfScaleDegree (scaleDegree).getAsString();
 // }
 
-}  // namespace limes::music::scales
+}  // namespace music::scales
+
+LIMES_END_NAMESPACE

@@ -16,9 +16,9 @@
 #include <limes_platform.h>
 #include "ReferenceCountedObject.h"
 #include <type_traits>
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 template <typename SuperType>
 struct LIMES_EXPORT SharedObject : public ReferenceCountedObject
@@ -92,4 +92,4 @@ protected:
 	typename OwnedObjectType::Ptr data;
 };
 
-}  // namespace limes
+LIMES_END_NAMESPACE

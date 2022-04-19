@@ -11,8 +11,11 @@
  */
 
 #include "Filter.h"
+#include <limes_namespace.h>
 
-namespace limes::dsp::filters
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp::filters
 {
 
 template <Sample SampleType>
@@ -196,4 +199,6 @@ void Filter<SampleType>::process (SampleVector& buffer)
 template class Filter<float>;
 template class Filter<double>;
 
-}  // namespace limes::dsp::filters
+}  // namespace dsp::filters
+
+LIMES_END_NAMESPACE

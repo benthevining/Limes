@@ -11,8 +11,11 @@
  */
 
 #include "ipp_fft.h"
+#include <limes_namespace.h>
 
-namespace limes::vecops
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops
 {
 
 template <Scalar SampleType>
@@ -235,4 +238,6 @@ void IPP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* 
 		ippsFFTInv_CCSToR_64f (m_packed, cepOut, m_spec, m_buf);
 }
 
-}  // namespace limes::vecops
+}  // namespace vecops
+
+LIMES_END_NAMESPACE

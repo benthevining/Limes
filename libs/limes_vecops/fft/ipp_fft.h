@@ -14,9 +14,11 @@
 
 #include "fft_common.h"
 #include <limes_export.h>
+#include <limes_namespace.h>
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::vecops
+namespace vecops
 {
 
 template <Scalar SampleType>
@@ -63,4 +65,6 @@ private:
 	SampleType*	 m_spare;
 };
 
-}  // namespace limes::vecops
+}  // namespace vecops
+
+LIMES_END_NAMESPACE

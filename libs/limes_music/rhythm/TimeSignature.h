@@ -13,8 +13,11 @@
 #pragma once
 
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes::music
+LIMES_BEGIN_NAMESPACE
+
+namespace music
 {
 
 struct LIMES_EXPORT TimeSignature final
@@ -36,4 +39,6 @@ public:
 private:
 };
 
-}  // namespace limes::music
+}  // namespace music
+
+LIMES_END_NAMESPACE

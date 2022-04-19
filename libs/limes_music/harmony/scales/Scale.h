@@ -16,14 +16,17 @@
 #include "../Pitch.h"				// for Pitch
 #include "../PitchClass.h"			// for PitchClass
 #include <limes_data_structures.h>	// for vector
+#include <limes_namespace.h>
 
-namespace limes::music
+LIMES_BEGIN_NAMESPACE
+
+namespace music
 {
 class Interval;
 }
 
 
-namespace limes::music::scales
+namespace music::scales
 {
 
 /** A base class for any kind of scale.
@@ -104,4 +107,6 @@ struct LIMES_EXPORT Scale
 	//	[[nodiscard]] virtual String getScaleDegreeAsString (int scaleDegree) const noexcept;
 };
 
-}  // namespace limes::music::scales
+}  // namespace music::scales
+
+LIMES_END_NAMESPACE

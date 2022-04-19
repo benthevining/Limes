@@ -13,9 +13,11 @@
 #include "WholeTone.h"
 #include "../PitchClass.h"			// for PitchClass
 #include <limes_data_structures.h>	// for vector
+#include <limes_namespace.h>
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::music::scales
+namespace music::scales
 {
 
 bool WholeTone::operator== (const WholeTone& other) const
@@ -62,4 +64,6 @@ int WholeTone::notesPerOctave() const noexcept
 //	return WholeTone { pc };
 // }
 
-}  // namespace limes::music::scales
+}  // namespace music::scales
+
+LIMES_END_NAMESPACE

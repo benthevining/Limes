@@ -16,9 +16,11 @@
 #include "Scale.h"					// for Scale
 #include "../PitchClass.h"			// for PitchClass
 #include <limes_data_structures.h>	// for vector
+#include <limes_namespace.h>
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::music::scales
+namespace music::scales
 {
 
 /** A class that represents a whole tone scale.
@@ -83,4 +85,6 @@ private:
 	PitchClass startingPitchClass { 0 };
 };
 
-}  // namespace limes::music::scales
+}  // namespace music::scales
+
+LIMES_END_NAMESPACE

@@ -15,8 +15,11 @@
 #include <cassert>
 #include <memory>
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes::threads::detail
+LIMES_BEGIN_NAMESPACE
+
+namespace threads::detail
 {
 
 template <typename ObjectType>
@@ -94,4 +97,6 @@ private:
 	std::mutex nonRealtimeLock;
 };
 
-}  // namespace limes::threads::detail
+}  // namespace threads::detail
+
+LIMES_END_NAMESPACE

@@ -12,8 +12,11 @@
 
 #pragma once
 #include <limes_core.h>
+#include <limes_namespace.h>
 
-namespace limes::music
+LIMES_BEGIN_NAMESPACE
+
+namespace music
 {
 
 constexpr CompoundInterval::CompoundInterval (int kindToUse, Interval::Quality qualityToUse) noexcept
@@ -85,4 +88,6 @@ constexpr bool CompoundInterval::hasSameSimpleInterval (const CompoundInterval& 
 	return interval == other.interval;
 }
 
-}  // namespace limes::music
+}  // namespace music
+
+LIMES_END_NAMESPACE

@@ -83,10 +83,14 @@ limes_config_version_header (
 set (LIMES_CORE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_core" CACHE INTERNAL "")
 
 target_sources (
-	limes_core PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_core.h>
-					  $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/limes_core.h>)
+	limes_core
+	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_core.h>
+		   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_namespace.h>
+		   $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/limes_core.h>
+		   $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/limes_namespace.h>)
 
 install (FILES "${CMAKE_CURRENT_LIST_DIR}/limes_core.h"
+			   "${CMAKE_CURRENT_LIST_DIR}/limes_namespace.h"
 		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}" COMPONENT limes_core_dev)
 
 target_include_directories (

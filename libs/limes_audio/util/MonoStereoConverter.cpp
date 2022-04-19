@@ -14,9 +14,11 @@
 #include "MonoStereoConverter.h"
 #include <limes_vecops.h>	 // for copy
 #include <limes_platform.h>	 // for LIMES_ASSERT, LIMES_ASSERT_FALSE
+#include <limes_namespace.h>
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::dsp
+namespace dsp
 {
 
 template <Sample SampleType>
@@ -101,4 +103,6 @@ void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleType* con
 template class MonoStereoConverter<float>;
 template class MonoStereoConverter<double>;
 
-}  // namespace limes::dsp
+}  // namespace dsp
+
+LIMES_END_NAMESPACE

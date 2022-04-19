@@ -14,8 +14,11 @@
 #include <limes_core.h>
 #include <limes_vecops.h>
 #include "NoteLength.h"
+#include <limes_namespace.h>
 
-namespace limes::music
+LIMES_BEGIN_NAMESPACE
+
+namespace music
 {
 
 constexpr NoteLength::NoteLength (int numBeats, NoteDuration kind, int dots, bool isGraceNote)	// NOLINT
@@ -173,4 +176,6 @@ constexpr void NoteLength::tieToNotes (NoteLength* noteBefore, NoteLength* noteA
 	tie.replaceConnections (before, after);
 }
 
-}  // namespace limes::music
+}  // namespace music
+
+LIMES_END_NAMESPACE

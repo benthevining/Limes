@@ -14,8 +14,11 @@
 
 #include "../util/Misc.h"
 #include <limes_data_structures.h>
+#include <limes_namespace.h>
 
-namespace limes::dsp::filters
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp::filters
 {
 
 /** A filter coefficients class, with lots of methods for creating various filter topologies.
@@ -103,4 +106,6 @@ public:
 	Storage coefficients;
 };
 
-}  // namespace limes::dsp::filters
+}  // namespace dsp::filters
+
+LIMES_END_NAMESPACE

@@ -13,12 +13,15 @@
 #include <limes_vecops.h>
 #include <limes_platform.h>	 // for LIMES_SSE, LIMES_ARM_NEON, LIMES_INTEL
 #include <stdint.h>			 // for intptr_t
+#include <limes_namespace.h>
 
 #if LIMES_INTEL && LIMES_SSE
 #	include <xmmintrin.h>
 #endif
 
-namespace limes::vecops
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops
 {
 
 [[nodiscard]] inline intptr_t getFpStatusRegister() noexcept
@@ -129,4 +132,6 @@ ScopedNoDenormals::~ScopedNoDenormals() noexcept
 #endif
 }
 
-}  // namespace limes::vecops
+}  // namespace vecops
+
+LIMES_END_NAMESPACE

@@ -15,9 +15,11 @@
 #include "../PitchUtils.h"	// for semitonesInOctave
 #include "Interval_impl.h"	// for Interval::Interval, Int...
 #include <limes_core.h>		// for abs
+#include <limes_namespace.h>
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::music
+namespace music
 {
 
 Interval Interval::fromNumSemitones (int semitones) noexcept
@@ -770,4 +772,6 @@ Pitch operator- (const Pitch& pitch, const Interval& interval) noexcept
 	return Pitch { pitch.getRoundedMidiPitch() - interval.getNumSemitones() };
 }
 
-}  // namespace limes::music
+}  // namespace music
+
+LIMES_END_NAMESPACE

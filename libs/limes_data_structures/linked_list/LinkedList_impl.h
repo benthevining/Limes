@@ -14,9 +14,9 @@
 
 #include <limes_platform.h>
 #include <utility>	// for std::forward
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 template <typename ObjectType>
 template <typename... Args>
@@ -122,4 +122,4 @@ void LinkedList<ObjectType>::removeNode (const Node& node)
 	nodes.removeObject (&node);
 }
 
-}  // namespace limes
+LIMES_END_NAMESPACE

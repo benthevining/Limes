@@ -13,8 +13,11 @@
 #include "analyzer.h"
 #include "shifter.h"
 #include <limes_platform.h>
+#include <limes_namespace.h>
 
-namespace limes::dsp::psola
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp::psola
 {
 
 template <Sample SampleType>
@@ -427,4 +430,6 @@ void Analyzer<SampleType>::Grain::clearGrain()
 template class Analyzer<float>;
 template class Analyzer<double>;
 
-}  // namespace limes::dsp::psola
+}  // namespace dsp::psola
+
+LIMES_END_NAMESPACE

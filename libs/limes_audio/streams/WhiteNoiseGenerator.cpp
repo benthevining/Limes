@@ -11,8 +11,11 @@
  */
 
 #include "WhiteNoiseGenerator.h"
+#include <limes_namespace.h>
 
-namespace limes::dsp
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp
 {
 
 template <Sample SampleType>
@@ -47,4 +50,6 @@ SampleType WhiteNoiseGenerator<SampleType>::getNextSampleValue() noexcept
 template struct WhiteNoiseGenerator<float>;
 template struct WhiteNoiseGenerator<double>;
 
-}  // namespace limes::dsp
+}  // namespace dsp
+
+LIMES_END_NAMESPACE

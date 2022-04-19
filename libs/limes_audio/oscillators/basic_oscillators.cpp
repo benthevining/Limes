@@ -15,9 +15,11 @@
 #include <limes_platform.h>			// for LIMES_ASSERT
 #include <limes_core.h>				// for two_pi
 #include "../streams/oscillator.h"	// for Oscillator<>::Phase
+#include <limes_namespace.h>
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::dsp::osc
+namespace dsp::osc
 {
 
 template <Sample SampleType>
@@ -180,4 +182,6 @@ SampleType Triangle<SampleType>::getFrequency() const noexcept
 template struct Triangle<float>;
 template struct Triangle<double>;
 
-}  // namespace limes::dsp::osc
+}  // namespace dsp::osc
+
+LIMES_END_NAMESPACE

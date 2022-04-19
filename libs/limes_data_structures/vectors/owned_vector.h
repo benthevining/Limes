@@ -16,9 +16,9 @@
 #include <memory>
 #include <functional>
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 template <typename ElementType, class Allocator = std::allocator<std::unique_ptr<ElementType>>>
 class LIMES_EXPORT owned_vector final : public basic_vector<std::unique_ptr<ElementType>, Allocator>
@@ -219,4 +219,4 @@ private:
 	ObjectCreationFunction createObject;
 };
 
-}  // namespace limes
+LIMES_END_NAMESPACE

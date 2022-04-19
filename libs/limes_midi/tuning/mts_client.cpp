@@ -11,8 +11,11 @@
  */
 
 #include "mts_client.h"
+#include <limes_namespace.h>
 
-namespace limes::midi
+LIMES_BEGIN_NAMESPACE
+
+namespace midi
 {
 
 float midiToFrequency (int midiNote, int midiChannel) const
@@ -65,4 +68,6 @@ std::string MtsClient::getScaleName() const
 // }
 
 
-}  // namespace limes::midi
+}  // namespace midi
+
+LIMES_END_NAMESPACE

@@ -13,6 +13,12 @@
 #include "Threading.h"
 #include <limes_platform.h>
 #include <thread>
+#include <limes_namespace.h>
+
+LIMES_BEGIN_NAMESPACE
+
+namespace threads
+{
 
 int maxNumThreads (int defaultVal) noexcept
 {
@@ -35,3 +41,7 @@ int maxNumThreads (int defaultVal) noexcept
 
 	return defaultVal;
 }
+
+}  // namespace threads
+
+LIMES_END_NAMESPACE

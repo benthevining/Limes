@@ -17,8 +17,11 @@
 #include <cassert>
 #include <limes_core.h>
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes::music
+LIMES_BEGIN_NAMESPACE
+
+namespace music
 {
 
 LIMES_EXPORT constexpr auto semitonesInOctave = 12;
@@ -53,4 +56,6 @@ LIMES_EXPORT constexpr std::array<PitchClass, 7> getFlatsOrder() noexcept
 	return { PitchClass { 10 }, PitchClass { 3 }, PitchClass { 8 }, PitchClass { 1 }, PitchClass { 6 }, PitchClass { 11 }, PitchClass { 4 } };
 }
 
-}  // namespace limes::music
+}  // namespace music
+
+LIMES_END_NAMESPACE

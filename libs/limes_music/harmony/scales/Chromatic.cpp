@@ -14,8 +14,11 @@
 #include "../PitchUtils.h"			// for semitonesInOctave
 #include "../PitchClass.h"			// for PitchClass
 #include <limes_data_structures.h>	// for vector
+#include <limes_namespace.h>
 
-namespace limes::music::scales
+LIMES_BEGIN_NAMESPACE
+
+namespace music::scales
 {
 
 bool Chromatic::operator== (const Chromatic& other) const
@@ -62,4 +65,6 @@ int Chromatic::notesPerOctave() const noexcept
 //	return Chromatic { pc };
 // }
 
-}  // namespace limes::music::scales
+}  // namespace music::scales
+
+LIMES_END_NAMESPACE

@@ -13,8 +13,11 @@
 #include "Coeffecients.h"
 #include <limes_platform.h>
 #include <limes_core.h>
+#include <limes_namespace.h>
 
-namespace limes::dsp::filters
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp::filters
 {
 
 template <Sample Sampletype>
@@ -318,4 +321,6 @@ const Sampletype* Coeffecients<Sampletype>::getRawCoefficients() const noexcept
 template class Coeffecients<float>;
 template class Coeffecients<double>;
 
-}  // namespace limes::dsp::filters
+}  // namespace dsp::filters
+
+LIMES_END_NAMESPACE

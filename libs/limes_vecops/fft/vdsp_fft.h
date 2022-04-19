@@ -15,8 +15,11 @@
 #include "fft_common.h"
 #include <limes_export.h>
 #include <type_traits>
+#include <limes_namespace.h>
 
-namespace limes::vecops
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops
 {
 
 template <Scalar SampleType>
@@ -72,4 +75,6 @@ private:
 	DSPSplitComplexType m_buf, m_packed;
 };
 
-}  // namespace limes::vecops
+}  // namespace vecops
+
+LIMES_END_NAMESPACE

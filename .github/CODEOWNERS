@@ -48,6 +48,8 @@ libs/limes_audio/README.md benthevining
 libs/limes_audio/filters/CMakeLists.txt benthevining
 libs/limes_audio/filters/Filter.cpp benthevining
 libs/limes_audio/limes_audio.h benthevining
+libs/limes_audio/oscillators/DetunableModel.h benthevining
+libs/limes_audio/oscillators/basic_oscillators.cpp benthevining
 libs/limes_audio/oscillators/basic_oscillators.h benthevining
 libs/limes_audio/psola/CMakeLists.txt benthevining
 libs/limes_audio/psola/PeakFinder.cpp benthevining
@@ -132,6 +134,8 @@ libs/limes_data_structures/vectors/basic_vector.h benthevining
 libs/limes_data_structures/vectors/owned_vector.h benthevining
 libs/limes_data_structures/vectors/scalar_vector.h benthevining
 libs/limes_locale/CMakeLists.txt benthevining
+libs/limes_locale/countries/countries.cpp benthevining
+libs/limes_locale/countries/countries.h benthevining
 libs/limes_locale/languages/CMakeLists.txt benthevining
 libs/limes_locale/languages/languages.cpp benthevining
 libs/limes_locale/languages/languages.h benthevining

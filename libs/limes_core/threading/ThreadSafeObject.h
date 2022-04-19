@@ -15,8 +15,11 @@
 #include <atomic>
 #include <array>
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes::threads
+LIMES_BEGIN_NAMESPACE
+
+namespace threads
 {
 
 
@@ -132,4 +135,6 @@ private:
 	std::array<ObjectType, totalNumThreads> copies;
 };
 
-}  // namespace limes::threads
+}  // namespace threads
+
+LIMES_END_NAMESPACE

@@ -13,13 +13,13 @@
 #pragma once
 
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 template <typename... Args>
 LIMES_EXPORT void ignore_unused (Args&&...)
 {
 }
 
-}  // namespace limes
+LIMES_END_NAMESPACE

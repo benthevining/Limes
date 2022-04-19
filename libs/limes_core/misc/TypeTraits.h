@@ -1,4 +1,3 @@
-
 /*
  * ======================================================================================
  *  __    ____  __  __  ____  ___
@@ -19,6 +18,7 @@
 #include <list>
 #include <limes_export.h>
 #include <limes_platform.h>
+#include <limes_namespace.h>
 
 #if ! LIMES_WINDOWS
 #	include <cxxabi.h>
@@ -43,8 +43,8 @@
 #define LIMES_MUST_INHERIT_FROM(classToTest, requiredBaseClass) \
 	std::enable_if_t<std::is_base_of<requiredBaseClass, classToTest>::value>* = nullptr
 
-namespace limes
-{
+
+LIMES_BEGIN_NAMESPACE
 
 /** @ingroup lemons_core
 	Utility struct that evaluates to std::true_type if the given class specializes the given template, and false otherwise.
@@ -83,6 +83,20 @@ struct LIMES_EXPORT is_specialization<Template<Args...>, Template> final : std::
 static_assert (is_specialization<std::vector<int>, std::vector>(), "is_specialization test");
 static_assert (! is_specialization<std::vector<int>, std::list>(), "is_specialization test");
 
+/** @ingroup lemons_core
+	Use this macro inside a template declaration to ensure that classToTest is a specialization of the required template.
+	For example:
+	@code
+	template < class VectorType, LIMES_MUST_BE_SPECIALIZATION(VectorType, std::vector) >
+	class SomeClass { };
+	@endcode
+	With the above code, instantiating @code SomeClass< std::vector<int> > @endcode will succeed, and attempting to instantiate @code SomeClass< std::list<int> >; @endcode will throw a compile-time error. \n
+	Note that the first argument to this macro should be a fully-specialized type, and the second argument to this macro must be an unspecialized template!
+ */
+#define LIMES_MUST_BE_SPECIALIZATION(classToTest, requiredTemplate) \
+	std::enable_if_t<lemons::is_specialization<classToTest, requiredTemplate>::value>* = nullptr
+
+
 template <typename ObjectType>
 LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const ObjectType& object)
 {
@@ -120,18 +134,4 @@ LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const ObjectType* c
 	return "nullptr";
 }
 
-
-}  // namespace limes
-
-/** @ingroup lemons_core
-	Use this macro inside a template declaration to ensure that classToTest is a specialization of the required template.
-	For example:
-	@code
-	template < class VectorType, LIMES_MUST_BE_SPECIALIZATION(VectorType, std::vector) >
-	class SomeClass { };
-	@endcode
-	With the above code, instantiating @code SomeClass< std::vector<int> > @endcode will succeed, and attempting to instantiate @code SomeClass< std::list<int> >; @endcode will throw a compile-time error. \n
-	Note that the first argument to this macro should be a fully-specialized type, and the second argument to this macro must be an unspecialized template!
- */
-#define LIMES_MUST_BE_SPECIALIZATION(classToTest, requiredTemplate) \
-	std::enable_if_t<lemons::is_specialization<classToTest, requiredTemplate>::value>* = nullptr
+LIMES_END_NAMESPACE

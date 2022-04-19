@@ -13,8 +13,11 @@
 #pragma once
 
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes::music
+LIMES_BEGIN_NAMESPACE
+
+namespace music
 {
 
 struct LIMES_EXPORT NoteDuration final
@@ -56,7 +59,8 @@ private:
 	int duration { 4 };
 };
 
-}  // namespace limes::music
+}  // namespace music
 
+LIMES_END_NAMESPACE
 
 #include "NoteDuration_impl.h"

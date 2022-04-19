@@ -10,8 +10,9 @@
  * ======================================================================================
  */
 
-namespace limes
-{
+#include <limes_namespace.h>
+
+LIMES_BEGIN_NAMESPACE
 
 // String Version::toString() const noexcept
 //{
@@ -27,4 +28,4 @@ namespace limes
 //	return Version { arr[0].getIntValue(), arr[1].getIntValue(), arr[2].getIntValue() };
 // }
 
-}  // namespace limes
+LIMES_END_NAMESPACE

@@ -15,8 +15,11 @@
 #include <limes_export.h>  // for LIMES_EXPORT
 #include "SampleStream.h"  // for SampleStream
 #include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
+#include <limes_namespace.h>
 
-namespace limes::dsp
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp
 {
 
 /** Base class for any kind of oscillator.
@@ -61,4 +64,6 @@ struct LIMES_EXPORT Oscillator : public SampleStream<SampleType>
 	};
 };
 
-}  // namespace limes::dsp
+}  // namespace dsp
+
+LIMES_END_NAMESPACE

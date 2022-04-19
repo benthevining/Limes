@@ -16,9 +16,11 @@
 #include <array>					// for array
 #include <limes_data_structures.h>	// for vector
 #include "../util/Misc.h"			// for concept Sample - IWYU pragma: keep
+#include <limes_namespace.h>
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::dsp::psola
+namespace dsp::psola
 {
 
 /** @defgroup lemons_psola lemons_psola
@@ -37,7 +39,7 @@ namespace limes::dsp::psola
 	@see Analyzer
  */
 template <Sample SampleType>
-class LIMES_EXPORT PeakFinder final
+class LIMES_NO_EXPORT PeakFinder final
 {
 public:
 
@@ -84,4 +86,6 @@ private:
 	static constexpr auto numPeaksToTest = 15, defaultFinalHandfulSize = 5;
 };
 
-}  // namespace limes::dsp::psola
+}  // namespace dsp::psola
+
+LIMES_END_NAMESPACE

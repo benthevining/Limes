@@ -12,10 +12,13 @@
 
 #pragma once
 
+#include <limes_namespace.h>
 #include "mathHelpers.h"
 #include <limes_export.h>
 
-namespace limes::math
+LIMES_BEGIN_NAMESPACE
+
+namespace math
 {
 
 template <Scalar ValueType = int>
@@ -74,7 +77,8 @@ struct LIMES_EXPORT Fraction final
 	ValueType numerator, denominator;
 };
 
-}  // namespace limes::math
+}  // namespace math
 
+LIMES_END_NAMESPACE
 
 #include "Fraction_impl.h"	// IWYU pragma: export

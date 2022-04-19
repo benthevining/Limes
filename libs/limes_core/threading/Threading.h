@@ -14,8 +14,11 @@
 
 #include <thread>
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes::threads
+LIMES_BEGIN_NAMESPACE
+
+namespace threads
 {
 
 template <class Function, typename... Args>
@@ -46,4 +49,6 @@ LIMES_EXPORT inline void callAndBlock (Function&& function, Args&&... args)
 
 LIMES_EXPORT [[nodiscard]] int maxNumThreads (int defaultVal = 4) noexcept;
 
-}  // namespace limes::threads
+}  // namespace threads
+
+LIMES_END_NAMESPACE

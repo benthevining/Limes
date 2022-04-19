@@ -15,8 +15,11 @@
 #include <libMTSClient.h>
 #include <memory>
 #include <string>
+#include <limes_namespace.h>
 
-namespace limes::midi
+LIMES_BEGIN_NAMESPACE
+
+namespace midi
 {
 
 class LIMES_EXPORT MtsClient final
@@ -62,4 +65,6 @@ private:
 		client { MTS_RegisterClient() };
 };
 
-}  // namespace limes::midi
+}  // namespace midi
+
+LIMES_END_NAMESPACE

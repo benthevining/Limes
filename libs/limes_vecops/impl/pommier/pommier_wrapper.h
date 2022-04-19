@@ -23,12 +23,17 @@
 #endif
 
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes::vecops::pommier
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops::pommier
 {
 
 LIMES_NO_EXPORT void polarToCartesian (float* const real, float* const imag, const float* const mag, const float* const phase, int size);
 
 LIMES_NO_EXPORT void polarToCartesianInterleaved (float* const dest, const float* const mag, const float* const phase, int size);
 
-}  // namespace limes::vecops::pommier
+}  // namespace vecops::pommier
+
+LIMES_END_NAMESPACE

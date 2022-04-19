@@ -16,8 +16,11 @@
 #include "RealtimeSafeObject/NonrealtimeMutatableObject.h"
 #include "RealtimeSafeObject/AtomicObjectHolder.h"
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes::threads
+LIMES_BEGIN_NAMESPACE
+
+namespace threads
 {
 
 namespace detail
@@ -56,4 +59,6 @@ using ThreadedObject = std::conditional_t<(NumThreads > 2),
 										  std::conditional_t<RealtimeSafe, RealtimeSafeObject<ObjectType, RealtimeMutatable>,
 															 ThreadSafeObject<ObjectType, 2>>>;
 
-}  // namespace limes::threads
+}  // namespace threads
+
+LIMES_END_NAMESPACE

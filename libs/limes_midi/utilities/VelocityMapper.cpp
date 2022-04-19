@@ -13,8 +13,11 @@
 #include "VelocityMapper.h"
 #include <limes_core.h>
 #include <limes_platform.h>
+#include <limes_namespace.h>
 
-namespace limes::midi
+LIMES_BEGIN_NAMESPACE
+
+namespace midi
 {
 
 void VelocityMapper::setSensitivity (float newSensitivity)
@@ -53,4 +56,6 @@ int VelocityMapper::getIntSensitivity() const noexcept
 {
 	return math::round (sensitivity * 100.f);
 }
-}  // namespace limes::midi
+}  // namespace midi
+
+LIMES_END_NAMESPACE

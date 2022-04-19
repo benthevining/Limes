@@ -16,9 +16,9 @@
 #include <limes_core.h>
 #include <limes_vecops.h>
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 template <typename ElementType, class Allocator = std::allocator<ElementType>>
 class LIMES_EXPORT scalar_vector final : public basic_vector<ElementType, Allocator>
@@ -214,4 +214,4 @@ private:
 	}
 };
 
-}  // namespace limes
+LIMES_END_NAMESPACE

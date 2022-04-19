@@ -16,9 +16,9 @@
 #include <atomic>
 #include <utility>				 // for std::swap
 #include "../misc/TypeTraits.h"	 // for LIMES_MUST_INHERIT_FROM
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 class LIMES_EXPORT ReferenceCountedObject
 {
@@ -265,4 +265,4 @@ LIMES_EXPORT bool operator!= (const Type* object1, const ReferenceCountedObjectP
 }
 
 
-}  // namespace limes
+LIMES_END_NAMESPACE

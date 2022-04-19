@@ -12,10 +12,13 @@
 
 #pragma once
 
+#include <limes_namespace.h>
 #include "Fraction.h"
 #include <numeric>
 
-namespace limes::math
+LIMES_BEGIN_NAMESPACE
+
+namespace math
 {
 
 template <Scalar ValueType>
@@ -185,4 +188,6 @@ constexpr Fraction<ValueType> Fraction<ValueType>::getReciprocal() const noexcep
 	return Fraction { denominator, numerator };
 }
 
-}  // namespace limes::math
+}  // namespace math
+
+LIMES_END_NAMESPACE

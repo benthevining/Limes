@@ -18,9 +18,12 @@
 #include <limes_platform.h>			// for LIMES_ASSERT
 #include <limes_core.h>				// for round, numberIsEven
 #include <limes_data_structures.h>	// for vector, basic_vector, scalar_vector
+#include <limes_namespace.h>
+
+LIMES_BEGIN_NAMESPACE
 
 
-namespace limes::dsp::psola
+namespace dsp::psola
 {
 
 template <Sample SampleType>
@@ -357,4 +360,6 @@ void PeakFinder<SampleType>::sortSampleIndicesForPeakSearching (int startSample,
 template class PeakFinder<float>;
 template class PeakFinder<double>;
 
-}  // namespace limes::dsp::psola
+}  // namespace dsp::psola
+
+LIMES_END_NAMESPACE

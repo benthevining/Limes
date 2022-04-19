@@ -14,8 +14,11 @@
 
 #include <limes_vecops.h>
 #include "fallback_impl.h"
+#include <limes_namespace.h>
 
-namespace limes::vecops
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops
 {
 
 #pragma mark Basic functions
@@ -562,4 +565,6 @@ void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* cons
 }
 
 
-}  // namespace limes::vecops
+}  // namespace vecops
+
+LIMES_END_NAMESPACE

@@ -14,8 +14,11 @@
 
 #include "../ThreadSafeObject.h"
 #include "../RealtimeSafeObject.h"
+#include <limes_namespace.h>
 
-namespace limes::threads
+LIMES_BEGIN_NAMESPACE
+
+namespace threads
 {
 
 template <typename ObjectType, bool RealtimeMutatable>
@@ -147,4 +150,6 @@ ThreadedObjectReader<ObjectType> RealtimeSafeObject<ObjectType, RealtimeMutatabl
 	return nonRealtime_read();
 }
 
-}  // namespace limes::threads
+}  // namespace threads
+
+LIMES_END_NAMESPACE

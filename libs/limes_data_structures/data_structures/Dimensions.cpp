@@ -13,9 +13,9 @@
 
 #include "Dimensions.h"
 #include <limes_platform.h>
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 Dimensions& Dimensions::setWidth (int newWidth)
 {
@@ -78,4 +78,4 @@ bool Dimensions::hasSameAspectRatioAs (const Dimensions& other) const noexcept
 //	return Dimensions { arr[0].getIntValue(), arr[1].getIntValue() };
 // }
 
-}  // namespace limes
+LIMES_END_NAMESPACE

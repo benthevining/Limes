@@ -12,8 +12,12 @@
 
 #include "oscillator.h"
 #include <limes_platform.h>	 // for LIMES_ASSERT
+#include "../util/Misc.h"
+#include <limes_namespace.h>
 
-namespace limes::dsp
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp
 {
 
 template <Sample SampleType>
@@ -51,4 +55,6 @@ SampleType Oscillator<SampleType>::Phase::getIncrement() const noexcept
 template struct Oscillator<float>;
 template struct Oscillator<double>;
 
-}  // namespace limes::dsp
+}  // namespace dsp
+
+LIMES_END_NAMESPACE

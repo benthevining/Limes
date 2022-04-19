@@ -13,7 +13,7 @@
 #include "limes_fft.h"
 #include <type_traits>	 // for is_same_v
 #include "fft_common.h"	 // for FFTImpl
-
+#include <limes_namespace.h>
 
 #if LIMES_VECOPS_USE_FFTW
 #	include "fftw_fft.h"
@@ -25,7 +25,9 @@
 #	include "fallback_fft.h"
 #endif
 
-namespace limes::vecops
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops
 {
 
 template <Scalar SampleType>
@@ -102,4 +104,6 @@ void FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepO
 template class FFT<float>;
 template class FFT<double>;
 
-}  // namespace limes::vecops
+}  // namespace vecops
+
+LIMES_END_NAMESPACE

@@ -14,9 +14,11 @@
 #include <limes_platform.h>			// for LIMES_ASSERT_FALSE
 #include "../PitchClass.h"			// for PitchClass
 #include <limes_data_structures.h>	// for vector
+#include <limes_namespace.h>
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::music::scales
+namespace music::scales
 {
 
 // KeySignature KeySignature::fromStringDescription (const String& description)
@@ -201,4 +203,6 @@ bool KeySignature::isDominantKeyOf (const KeySignature& other) const noexcept
 	return getPitchClassOfRoot() == dominant;
 }
 
-}  // namespace limes::music::scales
+}  // namespace music::scales
+
+LIMES_END_NAMESPACE

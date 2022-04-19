@@ -14,9 +14,9 @@
 
 #include <limes_export.h>
 #include "../vectors/owned_vector.h"
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 template <typename ObjectType>
 class LIMES_EXPORT LinkedList final
@@ -64,6 +64,6 @@ private:
 	owned_vector<Node> nodes;
 };
 
-}  // namespace limes
+LIMES_END_NAMESPACE
 
 #include "LinkedList_impl.h"  // IWYU pragma: export

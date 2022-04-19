@@ -14,9 +14,9 @@
 
 #include <atomic>
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 class LIMES_EXPORT AbstractFIFO final
 {
@@ -87,4 +87,4 @@ private:
 	std::atomic<int> validStart { 0 }, validEnd { 0 };
 };
 
-}  // namespace limes
+LIMES_END_NAMESPACE

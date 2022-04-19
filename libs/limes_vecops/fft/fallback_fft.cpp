@@ -19,7 +19,11 @@
 #	include <cstdlib>
 #endif
 
-namespace limes::vecops
+#include <limes_namespace.h>
+
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops
 {
 
 template <Scalar SampleType>
@@ -424,4 +428,6 @@ inline void FallbackFFT<SampleType>::makeTables()
 template class FallbackFFT<float>;
 template class FallbackFFT<double>;
 
-}  // namespace limes::vecops
+}  // namespace vecops
+
+LIMES_END_NAMESPACE

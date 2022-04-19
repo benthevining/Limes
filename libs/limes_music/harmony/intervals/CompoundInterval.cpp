@@ -16,8 +16,11 @@
 #include "../PitchUtils.h"	// for semitonesInOctave
 #include "Interval.h"		// for Interval, Interval::Qua...
 #include <limes_core.h>		// for abs
+#include <limes_namespace.h>
 
-namespace limes::music
+LIMES_BEGIN_NAMESPACE
+
+namespace music
 {
 
 CompoundInterval::CompoundInterval (int octaves, const Interval& simpleInterval) noexcept
@@ -101,4 +104,6 @@ int CompoundInterval::getNumSemitones() const noexcept
 	return interval.getNumSemitones() + (numOctaves * semitonesInOctave);
 }
 
-}  // namespace limes::music
+}  // namespace music
+
+LIMES_END_NAMESPACE

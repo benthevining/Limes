@@ -14,8 +14,11 @@
 
 #include <limes_core.h>
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes::dsp
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp
 {
 
 template <typename T>
@@ -24,4 +27,6 @@ concept Sample = std::is_same_v<T, float> || std::is_same_v<T, double>;
 template <Sample SampleType>
 LIMES_EXPORT static constexpr SampleType inverseRootTwo = 0.70710678118655f;
 
-}  // namespace limes::dsp
+}  // namespace dsp
+
+LIMES_END_NAMESPACE

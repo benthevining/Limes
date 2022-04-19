@@ -16,8 +16,11 @@
 #include <cstdint>
 #include <limes_data_structures.h>
 #include "Misc.h"
+#include <limes_namespace.h>
 
-namespace limes::dsp
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp
 {
 
 template <Sample SampleType>
@@ -36,4 +39,6 @@ private:
 	scalar_vector<int> state;
 };
 
-}  // namespace limes::dsp
+}  // namespace dsp
+
+LIMES_END_NAMESPACE

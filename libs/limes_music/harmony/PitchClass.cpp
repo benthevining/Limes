@@ -10,7 +10,11 @@
  * ======================================================================================
  */
 
-namespace limes::music
+#include <limes_namespace.h>
+
+LIMES_BEGIN_NAMESPACE
+
+namespace music
 {
 
 // String PitchClass::getAsString (bool asSharps, bool useUnicodeAccidentals, bool useNaturalSymbol) const noexcept
@@ -102,4 +106,6 @@ namespace limes::music
 //{
 // }
 
-}  // namespace limes::music
+}  // namespace music
+
+LIMES_END_NAMESPACE

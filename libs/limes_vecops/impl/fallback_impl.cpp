@@ -13,8 +13,11 @@
 #include <limes_vecops.h>	 // for magphase
 #include <cmath>			 // for fabs, fabsf, sqrtf
 #include "limes_platform.h"	 // for LIMES_FORCE_INLINE
+#include <limes_namespace.h>
 
-namespace limes::vecops::fb::detail
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops::fb::detail
 {
 
 template <Scalar DataType>
@@ -81,4 +84,6 @@ void magphase (T* const mag, T* const phase, T real, T imag)
 template void magphase (float* const, float* const, float, float);
 template void magphase (double* const, double* const, double, double);
 
-}  // namespace limes::vecops::fb::detail
+}  // namespace vecops::fb::detail
+
+LIMES_END_NAMESPACE

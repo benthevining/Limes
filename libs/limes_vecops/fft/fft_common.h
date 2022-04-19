@@ -14,8 +14,11 @@
 
 #include <limes_export.h>
 #include <limes_vecops.h>
+#include <limes_namespace.h>
 
-namespace limes::vecops
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops
 {
 
 LIMES_NO_EXPORT [[nodiscard]] static inline int orderFromFFTSize (int size)
@@ -71,4 +74,6 @@ protected:
 	const int m_order;	 // NOLINT
 };
 
-}  // namespace limes::vecops
+}  // namespace vecops
+
+LIMES_END_NAMESPACE

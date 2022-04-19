@@ -17,8 +17,11 @@
 #include <limes_core.h>
 #include "SampleStream.h"
 #include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
+#include <limes_namespace.h>
 
-namespace limes::dsp
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp
 {
 
 template <Sample SampleType>
@@ -39,4 +42,6 @@ private:
 	math::Random random;
 };
 
-}  // namespace limes::dsp
+}  // namespace dsp
+
+LIMES_END_NAMESPACE

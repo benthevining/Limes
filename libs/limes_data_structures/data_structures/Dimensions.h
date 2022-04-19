@@ -14,10 +14,9 @@
 #pragma once
 
 #include <limes_export.h>  // for LIMES_EXPORT
+#include <limes_namespace.h>
 
-namespace limes
-{
-
+LIMES_BEGIN_NAMESPACE
 
 /** @ingroup lemons_core
 	A simple struct that represents the dimensions of a GUI. */
@@ -81,4 +80,4 @@ private:
 	int width { 0 }, height { 0 };
 };
 
-}  // namespace limes
+LIMES_END_NAMESPACE

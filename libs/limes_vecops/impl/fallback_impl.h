@@ -20,6 +20,7 @@
 #include <limits>			 // for numeric_limits
 #include <numeric>			 // for accumulate
 #include "phasor.h"			 // for phasor
+#include <limes_namespace.h>
 
 #if LIMES_VECOPS_USE_IPP
 #	include <ipps.h>
@@ -29,7 +30,9 @@
 #	include "pommier/pommier_wrapper.h"
 #endif
 
-namespace limes::vecops::fb
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops::fb
 {
 
 #pragma mark Basic functions
@@ -932,4 +935,6 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianInterleavedToMagnitudes (DataTy
 	}
 }
 
-}  // namespace limes::vecops::fb
+}  // namespace vecops::fb
+
+LIMES_END_NAMESPACE

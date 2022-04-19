@@ -12,9 +12,9 @@
 
 #include "ReferenceCountedObject.h"
 #include <limes_platform.h>
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 ReferenceCountedObject::~ReferenceCountedObject()
 {
@@ -60,4 +60,4 @@ int ReferenceCountedObject::getRefCount() const noexcept
 	return refCount.load();
 }
 
-}  // namespace limes
+LIMES_END_NAMESPACE

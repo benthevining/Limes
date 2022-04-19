@@ -16,8 +16,11 @@
 #include <initializer_list>			// for initializer_list
 #include "Pitch.h"					// for Pitch
 #include <limes_data_structures.h>	// for vector
+#include <limes_namespace.h>
 
-namespace limes::music
+LIMES_BEGIN_NAMESPACE
+
+namespace music
 {
 class Interval;
 struct PitchClass;
@@ -26,10 +29,10 @@ namespace scales
 {
 struct Scale;
 }
-}  // namespace limes::music
+}  // namespace music
 
 
-namespace limes::music
+namespace music
 {
 
 class LIMES_EXPORT Chord final
@@ -83,4 +86,6 @@ private:
 	vector<Pitch> pitches;
 };
 
-}  // namespace limes::music
+}  // namespace music
+
+LIMES_END_NAMESPACE

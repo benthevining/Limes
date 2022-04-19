@@ -14,8 +14,11 @@
 
 #include <limes_export.h>
 #include <limes_data_structures.h>
+#include <limes_namespace.h>
 
-namespace limes::dsp::osc
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp::osc
 {
 
 class LIMES_EXPORT DetunableModel final
@@ -49,4 +52,6 @@ private:
 	scalar_vector<float> frequencies;
 };
 
-}  // namespace limes::dsp::osc
+}  // namespace dsp::osc
+
+LIMES_END_NAMESPACE

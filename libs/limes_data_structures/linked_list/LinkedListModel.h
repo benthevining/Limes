@@ -12,9 +12,9 @@
 
 #pragma once
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 template <typename ObjectType>
 struct LIMES_EXPORT LinkedListModel final
@@ -101,7 +101,7 @@ private:
 	std::reference_wrapper<ObjectType> thisNode;
 };
 
-}  // namespace limes
+LIMES_END_NAMESPACE
 
 
 #include "LinkedListModel_impl.h"

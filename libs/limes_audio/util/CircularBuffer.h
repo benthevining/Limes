@@ -15,8 +15,11 @@
 #include <limes_data_structures.h>
 #include <limes_export.h>
 #include "Misc.h"
+#include <limes_namespace.h>
 
-namespace limes::dsp
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp
 {
 
 template <Sample SampleType>
@@ -70,4 +73,6 @@ private:
 	SampleVector storage;
 };
 
-}  // namespace limes::dsp
+}  // namespace dsp
+
+LIMES_END_NAMESPACE

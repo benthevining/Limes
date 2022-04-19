@@ -14,6 +14,7 @@
 #include "phasor.h"
 #include <type_traits>
 #include <cmath>
+#include <limes_namespace.h>
 
 #if LIMES_VECOPS_USE_VDSP
 #	include <Accelerate/Accelerate.h>
@@ -23,7 +24,9 @@
 #	define LACK_SINCOS 0  // NOLINT
 #endif
 
-namespace limes::vecops::detail
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops::detail
 {
 
 template <typename T>
@@ -72,4 +75,6 @@ void phasor (T* const real, T* const imag, T phase)
 template void phasor (float* const, float* const, float);
 template void phasor (double* const, double* const, double);
 
-}  // namespace limes::vecops::detail
+}  // namespace vecops::detail
+
+LIMES_END_NAMESPACE

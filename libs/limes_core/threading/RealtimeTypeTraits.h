@@ -17,8 +17,11 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes::threads
+LIMES_BEGIN_NAMESPACE
+
+namespace threads
 {
 
 namespace detail
@@ -120,4 +123,6 @@ concept RealtimeMoveSafe = is_realtime_move_safe<T>::value;
 template <typename T>
 concept RealtimeSafe = RealtimeCopySafe<T> && RealtimeMoveSafe<T>;
 
-}  // namespace limes::threads
+}  // namespace threads
+
+LIMES_END_NAMESPACE

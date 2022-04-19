@@ -12,18 +12,13 @@
 
 #pragma once
 
-#include <limes_export.h>
-#include <limes_namespace.h>
+#define LIMES_BEGIN_NAMESPACE \
+	namespace limes           \
+	{                         \
+	inline namespace v3_12_0  \
+	{
 
-LIMES_BEGIN_NAMESPACE
 
-namespace cstring
-{
-
-LIMES_EXPORT [[nodiscard]] bool areSame (const char* string1, const char* string2);
-
-LIMES_EXPORT [[nodiscard]] int length (const char* string);
-
-}  // namespace cstring
-
-LIMES_END_NAMESPACE
+#define LIMES_END_NAMESPACE \
+	}                       \
+	}

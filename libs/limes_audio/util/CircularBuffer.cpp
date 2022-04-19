@@ -13,8 +13,11 @@
 #include "CircularBuffer.h"
 #include <limes_platform.h>
 #include <limes_vecops.h>
+#include <limes_namespace.h>
 
-namespace limes::dsp
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp
 {
 
 template <Sample SampleType>
@@ -127,4 +130,6 @@ void CircularBuffer<SampleType>::clear()
 template class CircularBuffer<float>;
 template class CircularBuffer<double>;
 
-}  // namespace limes::dsp
+}  // namespace dsp
+
+LIMES_END_NAMESPACE

@@ -11,8 +11,11 @@
  */
 
 #include <cstring>	// for strcmp, strlen
+#include <limes_namespace.h>
 
-namespace limes::cstring
+LIMES_BEGIN_NAMESPACE
+
+namespace cstring
 {
 
 bool areSame (const char* string1, const char* string2)
@@ -25,4 +28,6 @@ int length (const char* string)
 	return static_cast<int> (std::strlen (string));
 }
 
-}  // namespace limes::cstring
+}  // namespace cstring
+
+LIMES_END_NAMESPACE

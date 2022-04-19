@@ -16,8 +16,11 @@
 #include <limes_platform.h>			// for LIMES_ASSERT
 #include <limes_core.h>				// for periodInSamples, freqFromPeriod, round
 #include <limes_data_structures.h>	// for vector, basic_vector
+#include <limes_namespace.h>
 
-namespace limes::dsp::psola
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp::psola
 {
 
 template <Sample SampleType>
@@ -286,4 +289,6 @@ void PitchDetector<SampleType>::getCurrentLegalPeriodRange (int& min, int& max) 
 template class PitchDetector<float>;
 template class PitchDetector<double>;
 
-}  // namespace limes::dsp::psola
+}  // namespace dsp::psola
+
+LIMES_END_NAMESPACE

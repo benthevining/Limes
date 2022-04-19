@@ -13,8 +13,11 @@
 #include "shifter.h"
 #include <limes_platform.h>
 #include <limes_core.h>
+#include <limes_namespace.h>
 
-namespace limes::dsp::psola
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp::psola
 {
 
 template <Sample SampleType>
@@ -192,4 +195,6 @@ bool Shifter<SampleType>::Grain::isActive() const noexcept
 template class Shifter<float>;
 template class Shifter<double>;
 
-}  // namespace limes::dsp::psola
+}  // namespace dsp::psola
+
+LIMES_END_NAMESPACE

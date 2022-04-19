@@ -12,12 +12,15 @@
 
 #pragma once
 
+#include <limes_namespace.h>
 #include <limes_export.h>
 #include <cstdint>
 #include <type_traits>
 #include <atomic>
 
-namespace limes::math
+LIMES_BEGIN_NAMESPACE
+
+namespace math
 {
 
 class LIMES_EXPORT Random final
@@ -74,4 +77,6 @@ private:
 	std::atomic<int64_t> seed;
 };
 
-}  // namespace limes::math
+}  // namespace math
+
+LIMES_END_NAMESPACE

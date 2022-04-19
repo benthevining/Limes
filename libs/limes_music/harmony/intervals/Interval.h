@@ -16,9 +16,11 @@
 #include <vector>		   // for vector
 #include "../Pitch.h"	   // for Pitch
 #include <limes_core.h>	   // for Fraction
+#include <limes_namespace.h>
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::music
+namespace music
 {
 
 /** A class that represents a musical interval between two pitches.
@@ -209,7 +211,8 @@ LIMES_EXPORT Pitch operator+ (const Pitch& pitch, const Interval& interval) noex
 /** Subtracts an interval from the given pitch and returns a new pitch object at the resulting pitch. */
 LIMES_EXPORT Pitch operator- (const Pitch& pitch, const Interval& interval) noexcept;
 
-}  // namespace limes::music
+}  // namespace music
 
+LIMES_END_NAMESPACE
 
 #include "Interval_impl.h"	// IWYU pragma: export

@@ -17,6 +17,7 @@
 #include <limes_export.h>
 #include <limes_platform.h>
 #include <limes_core.h>
+#include <limes_namespace.h>
 
 // these should never fail, but just as a sanity check:
 static_assert (sizeof (float) == 4, "float is not 32-bits wide");
@@ -74,7 +75,9 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-namespace limes::vecops
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops
 {
 
 template <typename T>
@@ -475,7 +478,9 @@ LIMES_EXPORT [[nodiscard]] static constexpr const char* const getImplementationN
 		return "Fallback";
 }
 
-}  // namespace limes::vecops
+}  // namespace vecops
+
+LIMES_END_NAMESPACE
 
 #include "impl/fallback_impl.h"
 

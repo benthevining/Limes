@@ -16,9 +16,9 @@
 #include <limes_platform.h>
 #include "AbstractFIFO.h"
 #include "../vectors/vector.h"
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 template <typename ObjectType>
 class LIMES_EXPORT FIFO final
@@ -133,4 +133,4 @@ private:
 	AbstractFIFO model;
 };
 
-}  // namespace limes
+LIMES_END_NAMESPACE

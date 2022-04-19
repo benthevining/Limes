@@ -14,9 +14,9 @@
 #pragma once
 
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 /** @ingroup lemons_core
 	A class that represents a version of something, with major, minor, and patch numbers.
@@ -173,4 +173,4 @@ private:
 	int major { 0 }, minor { 0 }, patch { 1 };
 };
 
-}  // namespace limes
+LIMES_END_NAMESPACE

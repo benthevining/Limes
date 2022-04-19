@@ -13,9 +13,9 @@
 #include <limes_platform.h>
 #include <algorithm>
 #include "AbstractFIFO.h"
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 AbstractFIFO::AbstractFIFO (int initialSize)
 	: bufferSize (initialSize)
@@ -187,4 +187,4 @@ AbstractFIFO::ScopedWrite::~ScopedWrite() noexcept
 	fifoModel.finishedWrite (numObjects);
 }
 
-}  // namespace limes
+LIMES_END_NAMESPACE

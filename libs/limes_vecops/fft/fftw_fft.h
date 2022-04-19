@@ -13,7 +13,7 @@
 #include <limes_export.h>  // for LIMES_NO_EXPORT
 #include <type_traits>	   // for conditional_t
 #include "fft_common.h"	   // for FFTImpl
-
+#include <limes_namespace.h>
 
 #ifndef FFTW_HEADER_NAME
 #	define FFTW_HEADER_NAME <fftw3.h>
@@ -33,8 +33,9 @@
 #	error FFTW_SINGLE_ONLY and FFTW_DOUBLE_ONLY cannot both be defined to 1!
 #endif
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::vecops
+namespace vecops
 {
 
 using fft_float_type		  = std::conditional_t<FFTW_DOUBLE_ONLY, double, float>;
@@ -135,4 +136,6 @@ private:
 	static int m_extantd;
 };
 
-}  // namespace limes::vecops
+}  // namespace vecops
+
+LIMES_END_NAMESPACE

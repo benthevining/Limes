@@ -17,8 +17,11 @@
 #include <limes_core.h>				// for contains_or_default, contains
 #include <limes_data_structures.h>	// for vector, StringVector, basic_vector
 #include "../countries/countries.h"
+#include <limes_namespace.h>
 
-namespace limes::locale
+LIMES_BEGIN_NAMESPACE
+
+namespace locale
 {
 
 Language::Language (const std::string_view& name,
@@ -530,4 +533,6 @@ vector<Language> getAllKnownLanguages()
 	return getLanguages().getAll();
 }
 
-}  // namespace limes::locale
+}  // namespace locale
+
+LIMES_END_NAMESPACE

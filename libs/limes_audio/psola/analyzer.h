@@ -18,8 +18,11 @@
 #include "../util/PitchDetector.h"
 #include "PeakFinder.h"
 #include "../util/Misc.h"
+#include <limes_namespace.h>
 
-namespace limes::dsp::psola
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp::psola
 {
 
 template <Sample SampleType>
@@ -144,4 +147,6 @@ private:
 	vector<Shifter<SampleType>*> shifters;
 };
 
-}  // namespace limes::dsp::psola
+}  // namespace dsp::psola
+
+LIMES_END_NAMESPACE

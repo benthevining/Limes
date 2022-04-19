@@ -16,8 +16,11 @@
 #include "Scale.h"					// for Scale
 #include "../PitchClass.h"			// for PitchClass
 #include <limes_data_structures.h>	// for vector
+#include <limes_namespace.h>
 
-namespace limes::music::scales
+LIMES_BEGIN_NAMESPACE
+
+namespace music::scales
 {
 
 /** This class represents any traditional Western key signature (eg, major, natural minor, harmonic minor).
@@ -177,7 +180,8 @@ private:
 	Type type { Type::Major };
 };
 
-}  // namespace limes::music::scales
+}  // namespace music::scales
 
+LIMES_END_NAMESPACE
 
 #include "KeySignature_impl.h"

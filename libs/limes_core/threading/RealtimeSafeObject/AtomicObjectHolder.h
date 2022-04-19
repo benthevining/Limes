@@ -17,8 +17,11 @@
 #include "../ThreadSafeObject.h"
 #include <limes_export.h>
 #include <atomic>
+#include <limes_namespace.h>
 
-namespace limes::threads::detail
+LIMES_BEGIN_NAMESPACE
+
+namespace threads::detail
 {
 
 template <typename ObjectType, bool RealtimeMutatable>
@@ -69,4 +72,6 @@ private:
 	ThreadSafeObject<ObjectType, 2> storage;
 };
 
-}  // namespace limes::threads::detail
+}  // namespace threads::detail
+
+LIMES_END_NAMESPACE

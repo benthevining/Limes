@@ -14,9 +14,9 @@
 
 #include <memory>
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 template <auto Data>
 LIMES_EXPORT [[nodiscard]] constexpr const auto& make_static() noexcept
@@ -35,4 +35,4 @@ LIMES_EXPORT [[nodiscard]] ObjectType& getStaticObject (Args&&... args)
 	return *ptr;  // cppcheck-suppress nullPointerRedundantCheck
 }
 
-}  // namespace limes
+LIMES_END_NAMESPACE

@@ -12,6 +12,7 @@
 
 #include "vdsp_fft.h"
 #include <limes_platform.h>
+#include <limes_namespace.h>
 
 // we'll probably never compile Apple vDSP with MSVC, but you never know.... ¯\_(ツ)_/¯
 #if LIMES_MSVC || LIMES_WINDOWS
@@ -20,7 +21,9 @@
 #	include <cstdlib>
 #endif
 
-namespace limes::vecops
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops
 {
 
 template <Scalar SampleType>
@@ -369,4 +372,6 @@ LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::unpackComplex (SampleType* const r
 template class vDSP_FFT<float>;
 template class vDSP_FFT<double>;
 
-}  // namespace limes::vecops
+}  // namespace vecops
+
+LIMES_END_NAMESPACE

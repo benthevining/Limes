@@ -12,8 +12,11 @@
 
 #include "SampleStream.h"
 #include <utility>	// for move
+#include <limes_namespace.h>
 
-namespace limes::dsp
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp
 {
 
 template <Sample SampleType>
@@ -51,4 +54,6 @@ void SampleStream<SampleType>::skipSamples (int numToSkip) const
 template struct SampleStream<float>;
 template struct SampleStream<double>;
 
-}  // namespace limes::dsp
+}  // namespace dsp
+
+LIMES_END_NAMESPACE

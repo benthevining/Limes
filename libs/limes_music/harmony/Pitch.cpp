@@ -11,13 +11,15 @@
  */
 
 #include "Pitch.h"
+#include <limes_namespace.h>
 #include <cmath>		 // for floor
 #include "PitchClass.h"	 // for PitchClass
 #include "PitchUtils.h"	 // for octaveNumberOfMidiNote
 #include <limes_core.h>	 // for round, midiToFreq
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::music
+namespace music
 {
 
 // Pitch::Pitch (const String& pitchString) noexcept
@@ -75,4 +77,6 @@ bool Pitch::isMicrotone() const noexcept
 	return std::floor (midiPitch) != midiPitch;
 }
 
-}  // namespace limes::music
+}  // namespace music
+
+LIMES_END_NAMESPACE

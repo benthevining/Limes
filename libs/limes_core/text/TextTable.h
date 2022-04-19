@@ -16,9 +16,9 @@
 #include <cstring>		   // for size_t
 #include <string>		   // for basic_string
 #include <vector>		   // for vector
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 class LIMES_EXPORT TextTable final
 {
@@ -76,4 +76,4 @@ private:
 	bool newRow { true };
 };
 
-}  // namespace limes
+LIMES_END_NAMESPACE

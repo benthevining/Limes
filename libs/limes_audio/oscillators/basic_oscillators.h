@@ -17,16 +17,15 @@
 #include <limes_export.h>			// for LIMES_EXPORT
 #include "../streams/oscillator.h"	// for Oscillator<>::Phase, Oscillator
 #include "../util/Misc.h"			// for concept Sample - IWYU pragma: keep
+#include <limes_namespace.h>
 
-namespace limes::dsp::osc
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp::osc
 {
+
 template <Sample SampleType>
 struct Triangle;
-}
-
-
-namespace limes::dsp::osc
-{
 
 template <Sample T>
 using Oscillator = dsp::Oscillator<T>;
@@ -152,4 +151,6 @@ private:
 	SampleType		   freq { 0 };
 };
 
-}  // namespace limes::dsp::osc
+}  // namespace dsp::osc
+
+LIMES_END_NAMESPACE

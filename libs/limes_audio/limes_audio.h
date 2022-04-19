@@ -16,7 +16,6 @@
 
 // IWYU pragma: begin_exports
 
-#include "util/Windowing.h"
 #include "util/PitchDetector.h"
 #include "util/MonoStereoConverter.h"
 #include "util/CircularBuffer.h"

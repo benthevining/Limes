@@ -14,8 +14,11 @@
 
 #include <array>
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes::music
+LIMES_BEGIN_NAMESPACE
+
+namespace music
 {
 
 /** A struct that represents a pitch class.
@@ -107,4 +110,6 @@ private:
 	int pitchClass { 0 };
 };
 
-}  // namespace limes::music
+}  // namespace music
+
+LIMES_END_NAMESPACE

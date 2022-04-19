@@ -15,9 +15,9 @@
 #include "basic_vector.h"	// IWYU pragma: export
 #include "scalar_vector.h"	// IWYU pragma: export
 #include <string>
+#include <limes_namespace.h>
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 template <typename ObjectType, class Allocator = std::allocator<ObjectType>>
 using vector = std::conditional_t<std::is_scalar_v<ObjectType> && ! std::is_pointer_v<ObjectType>,
@@ -29,4 +29,4 @@ using StringVector = vector<std::string>;
 template <typename ObjectType>
 using Matrix = vector<vector<ObjectType>>;
 
-}  // namespace limes
+LIMES_END_NAMESPACE

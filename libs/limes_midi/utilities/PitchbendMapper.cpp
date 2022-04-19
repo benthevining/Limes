@@ -13,8 +13,11 @@
 #include "PitchbendMapper.h"
 
 #include <limes_platform.h>
+#include <limes_namespace.h>
 
-namespace limes::midi
+LIMES_BEGIN_NAMESPACE
+
+namespace midi
 {
 
 void PitchbendMapper::setRange (float newStUp, float newStDown) noexcept
@@ -56,4 +59,6 @@ float PitchbendMapper::getAdjustedMidiPitch (float inputMidiPitch) const
 							   - rangeDown);
 }
 
-}  // namespace limes::midi
+}  // namespace midi
+
+LIMES_END_NAMESPACE

@@ -13,11 +13,16 @@
 #pragma once
 
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes::vecops::detail
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops::detail
 {
 
 template <typename T>
 LIMES_NO_EXPORT void phasor (T* const real, T* const imag, T phase);
 
 }
+
+LIMES_END_NAMESPACE

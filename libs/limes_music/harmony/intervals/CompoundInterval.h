@@ -15,14 +15,17 @@
 #include <limes_export.h>  // for LIMES_EXPORT
 #include <vector>		   // for vector
 #include "Interval.h"	   // for Interval, Interval::Quality
+#include <limes_namespace.h>
 
-namespace limes::music
+LIMES_BEGIN_NAMESPACE
+
+namespace music
 {
 class Pitch;
 }
 
 
-namespace limes::music
+namespace music
 {
 
 /** A class for representing intervals larger than an octave.
@@ -115,7 +118,8 @@ private:
 };
 
 
-}  // namespace limes::music
+}  // namespace music
 
+LIMES_END_NAMESPACE
 
 #include "CompoundInterval_impl.h"	// IWYU pragma: export

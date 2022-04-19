@@ -13,8 +13,11 @@
 #pragma once
 
 #include <limes_export.h>
+#include <limes_namespace.h>
 
-namespace limes::midi
+LIMES_BEGIN_NAMESPACE
+
+namespace midi
 {
 
 class LIMES_EXPORT VelocityMapper final
@@ -35,4 +38,6 @@ private:
 	float sensitivity { 1.f };
 };
 
-}  // namespace limes::midi
+}  // namespace midi
+
+LIMES_END_NAMESPACE

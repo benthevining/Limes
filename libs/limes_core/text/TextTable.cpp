@@ -12,10 +12,10 @@
 
 #include "TextTable.h"
 #include <algorithm>  // for max
+#include <limes_namespace.h>
 
 
-namespace limes
-{
+LIMES_BEGIN_NAMESPACE
 
 std::string TextTable::Row::toString (const std::string&		 columnSeparator,
 									  const std::vector<size_t>& widths) const
@@ -132,4 +132,4 @@ std::string TextTable::toString (const std::string& rowPrefix,
 	return result;
 }
 
-}  // namespace limes
+LIMES_END_NAMESPACE

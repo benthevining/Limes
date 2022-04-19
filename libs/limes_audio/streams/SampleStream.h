@@ -16,8 +16,11 @@
 #include <functional>	   // for function
 #include <limes_export.h>  // for LIMES_EXPORT
 #include <limes_data_structures.h>
+#include <limes_namespace.h>
 
-namespace limes::dsp
+LIMES_BEGIN_NAMESPACE
+
+namespace dsp
 {
 
 /** Base class for any object that can output a stream of audio samples, with no audio or MIDI input.
@@ -52,4 +55,6 @@ private:
 	const std::function<SampleType()> sampleFunc;
 };
 
-}  // namespace limes::dsp
+}  // namespace dsp
+
+LIMES_END_NAMESPACE

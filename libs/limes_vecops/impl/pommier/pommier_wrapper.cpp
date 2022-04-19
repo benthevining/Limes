@@ -21,8 +21,11 @@
 #endif
 
 #include "../phasor.h"
+#include <limes_namespace.h>
 
-namespace limes::vecops::pommier
+LIMES_BEGIN_NAMESPACE
+
+namespace vecops::pommier
 {
 
 #if LIMES_ARM_NEON
@@ -106,4 +109,6 @@ void polarToCartesianInterleaved_pommier (float* const dest, const float* const 
 	}
 }
 
-}  // namespace limes::vecops::pommier
+}  // namespace vecops::pommier
+
+LIMES_END_NAMESPACE

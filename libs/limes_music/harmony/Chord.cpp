@@ -18,9 +18,11 @@
 #include <limes_core.h>				// for transform
 #include "Pitch.h"					// for Pitch
 #include <limes_data_structures.h>	// for vector, basic_vector
+#include <limes_namespace.h>
 
+LIMES_BEGIN_NAMESPACE
 
-namespace limes::music
+namespace music
 {
 
 Chord::Chord (const std::initializer_list<int>& midiNotes)
@@ -118,4 +120,6 @@ Chord Chord::applyInterval (const Interval& interval, bool above)
 	return newChord;
 }
 
-}  // namespace limes::music
+}  // namespace music
+
+LIMES_END_NAMESPACE

@@ -11,11 +11,14 @@
  */
 
 #include "Random.h"
+#include <limes_namespace.h>
 #include <limes_platform.h>
 #include <atomic>
 #include <limits>
 
-namespace limes::math
+LIMES_BEGIN_NAMESPACE
+
+namespace math
 {
 
 static std::atomic<int64_t> globalSeed { 0 };
@@ -113,4 +116,6 @@ Random Random::fork() noexcept
 	return Random { static_cast<int64_t> (nextInt()) };
 }
 
-}  // namespace limes::math
+}  // namespace math
+
+LIMES_END_NAMESPACE
