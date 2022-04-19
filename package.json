@@ -118,7 +118,7 @@
       [
         "@semantic-release/exec",
         {
-          "prepareCmd": "bumpversion --allow-dirty --no-commit --no-tag --new-version \"${nextRelease.version}\" patch"
+          "prepareCmd": "bumpversion --allow-dirty --new-version \"${nextRelease.version}\" patch"
         }
       ],
       [
@@ -129,7 +129,8 @@
             ".bumpversion.cfg",
             "CMakeLists.txt",
             "package.json",
-            "CITATION.cff"
+            "CITATION.cff",
+            "libs/limes_core/limes_namespace.h"
           ]
         }
       ],
