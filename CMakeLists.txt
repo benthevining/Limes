@@ -97,7 +97,7 @@ enable_testing ()
 
 set (LIMES_ROOT_DIR "${CMAKE_CURRENT_LIST_DIR}")
 
-include ("${CMAKE_CURRENT_LIST_DIR}/scripts/LimesMacros.cmake")
+include ("${CMAKE_CURRENT_LIST_DIR}/cmake/LimesMacros.cmake")
 
 find_package (Oranges 2.10 REQUIRED)
 
@@ -135,13 +135,13 @@ write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_
 								  COMPATIBILITY SameMajorVersion)
 
 configure_package_config_file (
-	"${CMAKE_CURRENT_LIST_DIR}/scripts/LimesConfig.cmake" "LimesConfig.cmake"
+	"${CMAKE_CURRENT_LIST_DIR}/cmake/LimesConfig.cmake" "LimesConfig.cmake"
 	INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" PATH_VARS LIMES_ROOT_DIR)
 
 install (
 	FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
 		  "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake"
-		  "${CMAKE_CURRENT_LIST_DIR}/scripts/LimesMacros.cmake"
+		  "${CMAKE_CURRENT_LIST_DIR}/cmake/LimesMacros.cmake"
 	DESTINATION "${LIMES_INSTALL_DEST}"
 	COMPONENT limes_base)
 
