@@ -131,10 +131,10 @@ jobs:
             - name: Install dependencies
               run: pip install --upgrade bumpversion
 
-            - name: Download artefacts
-              uses: actions/download-artifact@v3
-              with:
-                  path: '${{ github.workspace }}/deploy'
+            # - name: Download artefacts
+            #   uses: actions/download-artifact@v3
+            #   with:
+            #       path: '${{ github.workspace }}/deploy'
 
             - name: Run semantic release
               env:
