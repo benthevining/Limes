@@ -18,7 +18,7 @@ defaults:
 jobs:
 
     BuildWindowsClang:
-        uses: ./.github/workflows/run_toolchain_build.yml
+        uses: ./.github/workflows/run_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         with:
             os: windows-latest
@@ -28,17 +28,16 @@ jobs:
 
 
     BuildWindowsMSVC:
-        uses: ./.github/workflows/run_toolchain_build.yml
+        uses: ./.github/workflows/run_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         with:
             os: windows-latest
-            c_compiler: MSVC
-            cxx_compiler: MSVC
+            cmake_generator: Visual Studio 17 2022
             id_key: WindowsMSVC
 
 
     BuildLinuxClang:
-        uses: ./.github/workflows/run_toolchain_build.yml
+        uses: ./.github/workflows/run_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         with:
             os: ubuntu-latest
@@ -48,7 +47,7 @@ jobs:
 
 
     BuildLinuxGCC:
-        uses: ./.github/workflows/run_toolchain_build.yml
+        uses: ./.github/workflows/run_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         with:
             os: ubuntu-latest
@@ -58,7 +57,7 @@ jobs:
 
 
     BuildMacGCC:
-        uses: ./.github/workflows/run_toolchain_build.yml
+        uses: ./.github/workflows/run_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         with:
             os: macos-latest
@@ -68,39 +67,40 @@ jobs:
 
 
     BuildMacXcode:
-        uses: ./.github/workflows/run_toolchain_build.yml
+        uses: ./.github/workflows/run_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         with:
             os: macos-latest
-            c_compiler: AppleClang
-            cxx_compiler: AppleClang
             cmake_generator: Xcode
             id_key: MacXcodeClang
 
 
     Build_iOS:
-        uses: ./.github/workflows/run_simple_build.yml
+        uses: ./.github/workflows/run_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         with:
             cmake_preset: iOS
+            cmake_generator: Xcode
             id_key: iOS
             os: macos-latest
 
 
     Build_tvOS:
-        uses: ./.github/workflows/run_simple_build.yml
+        uses: ./.github/workflows/run_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         with:
             cmake_preset: tvOS
+            cmake_generator: Xcode
             id_key: tvOS
             os: macos-latest
 
 
     Build_watchOS:
-        uses: ./.github/workflows/run_simple_build.yml
+        uses: ./.github/workflows/run_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         with:
             cmake_preset: watchOS
+            cmake_generator: Xcode
             id_key: watchOS
             os: macos-latest
 

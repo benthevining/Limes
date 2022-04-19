@@ -6,17 +6,30 @@ name: Run build
 on:
     workflow_call:
         inputs:
-            cmake_preset:
+            c_compiler:
+                required: false
+                type: string
+                default: ''
+            cxx_compiler:
+                required: false
+                type: string
+                default: ''
+            cmake_generator:
+                required: false
+                type: string
+                default: 'Ninja Multi-Config'
+            os:
                 required: true
                 type: string
+            cmake_preset:
+                required: false
+                type: string
+                default: 'default'
             build_preset:
                 required: false
                 type: string
                 default: 'default'
             id_key:
-                required: true
-                type: string
-            os:
                 required: true
                 type: string
 
@@ -47,8 +60,18 @@ jobs:
                   key: ${{ runner.os }}.${{ inputs.id_key }}.test.${{ hashFiles('**/') }}
                   restore-keys: ${{ runner.os }}.${{ inputs.id_key }}.test.
 
+            - name: Install Ninja
+              if: ${{ inputs.cmake_generator == 'Ninja Multi-Config' || inputs.cmake_generator == 'Ninja' }}
+              uses: seanmiddleditch/gha-setup-ninja@v3
+
             - name: Run CMake
-              run: cmake --preset ${{ inputs.cmake_preset }}
+              if: ${{ inputs.c_compiler != '' && inputs.cxx_compiler != '' }}
+              run: |
+                  CC=${{ inputs.c_compiler }} CXX=${{ inputs.cxx_compiler }} cmake --preset ${{ inputs.cmake_preset }} -G '${{ inputs.cmake_generator }}' -D CMAKE_C_COMPILER=${{ inputs.c_compiler }} -D CMAKE_CXX_COMPILER=${{ inputs.cxx_compiler }}
+
+            - name: Run CMake
+              if: ${{ inputs.c_compiler == '' || inputs.cxx_compiler == '' }}
+              run: cmake --preset ${{ inputs.cmake_preset }} -G '${{ inputs.cmake_generator }}'
 
             - name: Run debug build
               run: cmake --build --preset ${{ inputs.build_preset }} --config Debug
