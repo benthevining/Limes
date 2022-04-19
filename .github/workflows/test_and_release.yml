@@ -17,104 +17,69 @@ defaults:
 
 jobs:
 
-    Build:
-
-        name: ${{ matrix.os }} - ${{ matrix.compiler }} - ${{ matrix.cmake_generator }}
+    BuildWindowsClang:
+        uses: ./.github/workflows/run_toolchain_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
-        runs-on: ${{ matrix.os }}
-        timeout-minutes: 120
-        strategy:
-            fail-fast: false
-            matrix:
-                os: [windows-latest, ubuntu-latest, macos-latest]
-                cmake_generator: [Ninja Multi-Config]
-                compiler: [GCC, clang]
-                include:
-                    - os: windows-latest
-                      cmake_generator: Visual Studio 17 2022
-                      compiler: MSVC
-                    - os: macos-latest
-                      cmake_generator: Xcode
-                      compiler: AppleClang
-                exclude:
-                    - os: windows-latest
-                      cmake_generator: Ninja Multi-Config
-                      compiler: GCC
+        with:
+            os: windows-latest
+            c_compiler: clang
+            cxx_compiler: clang++
+            id_key: WindowsClang
 
-        steps:
 
-            - name: Checkout code
-              uses: actions/checkout@v3
-              with:
-                  submodules: recursive
-                  fetch-depth: 1
+    BuildWindowsMSVC:
+        uses: ./.github/workflows/run_toolchain_build.yml
+        if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+        with:
+            os: windows-latest
+            c_compiler: MSVC
+            cxx_compiler: MSVC
+            id_key: WindowsMSVC
 
-            - name: Set up cache
-              uses: actions/cache@v3
-              with:
-                  path: Cache
-                  key: ${{ runner.os }}.${{ matrix.cmake_generator }}.${{ matrix.compiler }}.test.${{ hashFiles('**/') }}
-                  restore-keys: ${{ runner.os }}.${{ matrix.cmake_generator }}.${{ matrix.compiler }}.test.
 
-            - name: Install Ninja
-              if: ${{ matrix.cmake_generator == 'Ninja Multi-Config' }}
-              uses: seanmiddleditch/gha-setup-ninja@v3
+    BuildLinuxClang:
+        uses: ./.github/workflows/run_toolchain_build.yml
+        if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+        with:
+            os: ubuntu-latest
+            c_compiler: clang
+            cxx_compiler: clang++
+            id_key: LinuxClang
 
-            # - name: Set up MinGW
-            #   if: ${{ runner.os == 'Windows' && matrix.compiler == 'GCC' }}
-            #   uses: egor-tensin/setup-mingw@v2
-            #   id: setup_MinGW
 
-            - name: Run CMake (GCC)
-              if: ${{ matrix.compiler == 'GCC' && runner.os != 'Windows' }}
-              run: |
-                  CC=gcc-10 CXX=g++-10 cmake --preset default -G '${{ matrix.cmake_generator }}' -D CMAKE_C_COMPILER=gcc-10 -D CMAKE_CXX_COMPILER=g++-10
+    BuildLinuxGCC:
+        uses: ./.github/workflows/run_toolchain_build.yml
+        if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+        with:
+            os: ubuntu-latest
+            c_compiler: gcc-10
+            cxx_compiler: g++-10
+            id_key: LinuxGCC
 
-            # - name: Run CMake (GCC/Windows)
-            #   if: ${{ matrix.compiler == 'GCC' && runner.os == 'Windows' }}
-            #   run: |
-            #       CC='${{ steps.setup_MinGW.outputs.gcc }}' CXX='${{ steps.setup_MinGW.outputs.gxx }}' cmake --preset default -G '${{ matrix.cmake_generator }}' -D CMAKE_C_COMPILER='${{ steps.setup_MinGW.outputs.gcc }}' -D CMAKE_CXX_COMPILER='${{ steps.setup_MinGW.outputs.gxx }}'
 
-            - name: Run CMake (clang)
-              if: ${{ matrix.compiler == 'clang' }}
-              run: |
-                  CC=clang CXX=clang++ cmake --preset default -G '${{ matrix.cmake_generator }}' -D CMAKE_C_COMPILER=clang -D CMAKE_CXX_COMPILER=clang++
+    BuildMacGCC:
+        uses: ./.github/workflows/run_toolchain_build.yml
+        if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+        with:
+            os: macos-latest
+            c_compiler: gcc-10
+            cxx_compiler: g++-10
+            id_key: MacGCC
 
-            - name: Run CMake (other)
-              if: ${{ matrix.compiler != 'GCC' && matrix.compiler != 'clang' }}
-              run: cmake --preset default -G '${{ matrix.cmake_generator }}'
 
-            - name: Run debug build
-              run: cmake --build --preset default --config Debug
-
-            - name: Run release build
-              run: cmake --build --preset default --config Release
-
-            - name: Install debug
-              run: cmake --install Builds --config Debug --prefix '${{ github.workspace }}/deploy/debug'
-
-            - name: Install release
-              run: cmake --install Builds --config Release --prefix '${{ github.workspace }}/deploy/release'
-
-            - name: Upload debug artefacts
-              if: ${{ ! (runner.os == 'macOS' && matrix.compiler == 'clang') }}
-              uses: actions/upload-artifact@v3
-              with:
-                  name: ${{ matrix.os }}.${{ matrix.compiler }}.debug
-                  path: '${{ github.workspace }}/deploy/debug'
-                  if-no-files-found: error
-
-            - name: Upload release artefacts
-              if: ${{ ! (runner.os == 'macOS' && matrix.compiler == 'clang') }}
-              uses: actions/upload-artifact@v3
-              with:
-                  name: ${{ matrix.os }}.${{ matrix.compiler }}.release
-                  path: '${{ github.workspace }}/deploy/release'
-                  if-no-files-found: error
+    BuildMacXcode:
+        uses: ./.github/workflows/run_toolchain_build.yml
+        if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+        with:
+            os: macos-latest
+            c_compiler: AppleClang
+            cxx_compiler: AppleClang
+            cmake_generator: Xcode
+            id_key: MacXcodeClang
 
 
     Build_iOS:
-        uses: ./.github/workflows/run_build.yml
+        uses: ./.github/workflows/run_simple_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         with:
             cmake_preset: iOS
@@ -123,7 +88,7 @@ jobs:
 
 
     Build_tvOS:
-        uses: ./.github/workflows/run_build.yml
+        uses: ./.github/workflows/run_simple_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         with:
             cmake_preset: tvOS
@@ -132,7 +97,7 @@ jobs:
 
 
     Build_watchOS:
-        uses: ./.github/workflows/run_build.yml
+        uses: ./.github/workflows/run_simple_build.yml
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         with:
             cmake_preset: watchOS
@@ -144,7 +109,7 @@ jobs:
 
         name: Create release
         runs-on: ubuntu-latest
-        needs: [Build, Build_iOS, Build_tvOS, Build_watchOS]
+        needs: [BuildWindowsClang, BuildWindowsMSVC, BuildLinuxClang, BuildLinuxGCC, BuildMacGCC, BuildMacXcode, Build_iOS, Build_tvOS, Build_watchOS]
         timeout-minutes: 20
 
         steps:

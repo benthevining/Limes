@@ -1,0 +1,93 @@
+---
+name: Run toolchain build
+
+# yamllint disable rule:line-length
+
+on:
+    workflow_call:
+        inputs:
+            c_compiler:
+                required: true
+                type: string
+            cxx_compiler:
+                required: true
+                type: string
+            cmake_generator:
+                required: false
+                type: string
+                default: 'Ninja Multi-Config'
+            os:
+                required: true
+                type: string
+            cmake_preset:
+                required: false
+                type: string
+                default: 'default'
+            build_preset:
+                required: false
+                type: string
+                default: 'default'
+            id_key:
+                required: true
+                type: string
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+
+    run_toolchain_build:
+
+        name: ${{ inputs.id_key }} build
+        runs-on: ${{ inputs.os }}
+        timeout-minutes: 120
+
+        steps:
+
+            - name: Checkout code
+              uses: actions/checkout@v3
+              with:
+                  submodules: recursive
+                  fetch-depth: 1
+
+            - name: Set up cache
+              uses: actions/cache@v3
+              with:
+                  path: Cache
+                  key: ${{ runner.os }}.${{ inputs.id_key }}.test.${{ hashFiles('**/') }}
+                  restore-keys: ${{ runner.os }}.${{ inputs.id_key }}.test.
+
+            - name: Install Ninja
+              if: ${{ inputs.cmake_generator == 'Ninja Multi-Config' || inputs.cmake_generator == 'Ninja' }}
+              uses: seanmiddleditch/gha-setup-ninja@v3
+
+            - name: Run CMake
+              run: |
+                  CC=${{ inputs.c_compiler }} CXX=${{ inputs.cxx_compiler }} cmake --preset ${{ inputs.cmake_preset }} -G '${{ inputs.cmake_generator }}' -D CMAKE_C_COMPILER=${{ inputs.c_compiler }} -D CMAKE_CXX_COMPILER=${{ inputs.cxx_compiler }}
+
+            - name: Run debug build
+              run: cmake --build --preset ${{ inputs.build_preset }} --config Debug
+
+            - name: Run release build
+              run: cmake --build --preset ${{ inputs.build_preset }} --config Release
+
+            - name: Install debug
+              run: cmake --install Builds --config Debug --prefix '${{ github.workspace }}/deploy/debug'
+
+            - name: Install release
+              run: cmake --install Builds --config Release --prefix '${{ github.workspace }}/deploy/release'
+
+            - name: Upload debug artefacts
+              uses: actions/upload-artifact@v3
+              with:
+                  name: ${{ inputs.id_key }}.debug
+                  path: '${{ github.workspace }}/deploy/debug'
+                  if-no-files-found: error
+
+            - name: Upload release artefacts
+              uses: actions/upload-artifact@v3
+              with:
+                  name: ${{ inputs.id_key }}.release
+                  path: '${{ github.workspace }}/deploy/release'
+                  if-no-files-found: error
