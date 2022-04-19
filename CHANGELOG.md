@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [4.1.0](http://github.com/benthevining/Limes/compare/v4.0.0...v4.1.0) (2022-04-19)
+
+
+### Features
+
+* added CMake presets for crosscompiling to tvOS, watchOS ([1e58fce](http://github.com/benthevining/Limes/commit/1e58fcef32b100323ef91a615812d5bc3ce20b76))
+
 ## [4.0.0](http://github.com/benthevining/Limes/compare/v3.12.0...v4.0.0) (2022-04-19)
 
 
