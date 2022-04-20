@@ -89,11 +89,11 @@ if(APPLE
    AND NOT LIMES_USE_VECOPS_FALLBACK)
 	# editorconfig-checker-enable
 
-	find_package (Accelerate MODULE COMPONENTS vDSP vForce BLAS)
+	# find_package (Accelerate MODULE COMPONENTS vDSP vForce BLAS)
 
 	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_VDSP=1)
 
-	target_link_libraries (limes_vecops PUBLIC Apple::Accelerate)
+	# target_link_libraries (limes_vecops PUBLIC Apple::Accelerate)
 
 	set (LIMES_VECOPS_IMPL_HEADER_NAME vdsp.h)
 	set (LIMES_VECOPS_IMPL_NAME vDSP)

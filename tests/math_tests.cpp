@@ -11,17 +11,12 @@
  */
 
 #include <limes_core.h>
-
+#include <tests_config.h>
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/catch_approx.hpp>
 
 
-static constexpr auto test_reps = 10;
-
-static constexpr auto test_samplerates = { 44100., 96000. };
-
-
-TEST_CASE ("MIDI/frequency conversion")
+TEST_CASE ("MIDI/frequency conversion", "[core][math]")
 {
 	using namespace limes::math;
 
@@ -29,7 +24,7 @@ TEST_CASE ("MIDI/frequency conversion")
 
 	SECTION ("MIDI to frequency")
 	{
-		for (auto i = 0; i < test_reps; ++i)
+		for (auto i = 0; i < limes::tests::test_reps; ++i)
 		{
 			const auto midi = static_cast<double> (rand.nextInt (128));
 			const auto freq = midiToFreq (midi);
@@ -40,7 +35,7 @@ TEST_CASE ("MIDI/frequency conversion")
 
 	SECTION ("Frequency to MIDI")
 	{
-		for (auto i = 0; i < test_reps; ++i)
+		for (auto i = 0; i < limes::tests::test_reps; ++i)
 		{
 			const auto freq = static_cast<double> (rand.nextInt (80, 4500));
 			const auto midi = freqToMidi (freq);
@@ -70,15 +65,15 @@ TEST_CASE ("MIDI/frequency conversion")
 	}
 }
 
-TEST_CASE ("Period/frequency conversion")
+TEST_CASE ("Period/frequency conversion", "[core][math]")
 {
 	using namespace limes::math;
 
 	auto& rand = Random::getSystemRandom();
 
-	for (const auto samplerate : test_samplerates)
+	for (const auto samplerate : limes::tests::test_samplerates)
 	{
-		for (auto i = 0; i < test_reps; ++i)
+		for (auto i = 0; i < limes::tests::test_reps; ++i)
 		{
 			const auto period  = static_cast<double> (rand.nextInt (1, 450));
 			const auto estFreq = freqFromPeriod (samplerate, period);
@@ -88,7 +83,7 @@ TEST_CASE ("Period/frequency conversion")
 	}
 }
 
-TEST_CASE ("Samples/ms conversion")
+TEST_CASE ("Samples/ms conversion", "[core][math]")
 {
 	using namespace limes::math;
 
@@ -96,7 +91,7 @@ TEST_CASE ("Samples/ms conversion")
 
 	SECTION ("Samples to ms")
 	{
-		for (const auto samplerate : test_samplerates)
+		for (const auto samplerate : limes::tests::test_samplerates)
 		{
 			const auto samples = rand.nextInt (1024);
 			const auto estMs   = sampsToMs (samplerate, samples);
@@ -107,7 +102,7 @@ TEST_CASE ("Samples/ms conversion")
 
 	SECTION ("Ms to samples")
 	{
-		for (const auto samplerate : test_samplerates)
+		for (const auto samplerate : limes::tests::test_samplerates)
 		{
 			const auto ms		  = rand.nextDouble();
 			const auto estSamples = msToSamps (samplerate, ms);

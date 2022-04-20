@@ -79,14 +79,38 @@ inline void setFpStatusRegister (intptr_t fpsr) noexcept
 #endif
 }
 
-void disableDenormalisedNumberSupport (bool shouldDisable) noexcept
+[[nodiscard]] constexpr intptr_t getDenormalsMask() noexcept
 {
 #if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
 #	if LIMES_SSE
-	constexpr intptr_t mask = 0x8040;
+	return 0x8040;
 #	else
-	constexpr intptr_t mask = (1 << 24);
+	return (1 << 24);
 #	endif
+#else
+	LIMES_ASSERT_FALSE;
+	return 0;
+#endif
+}
+
+[[nodiscard]] constexpr intptr_t getFlushToZeroMask() noexcept
+{
+#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
+#	if LIMES_SSE
+	return _MM_FLUSH_ZERO_MASK;
+#	else
+	return (1 << 24 /* FZ */);
+#	endif
+#else
+	LIMES_ASSERT_FALSE;
+	return 0;
+#endif
+}
+
+void disableDenormalisedNumberSupport (bool shouldDisable) noexcept
+{
+#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
+	const auto mask = getDenormalsMask();
 
 	setFpStatusRegister ((getFpStatusRegister() & (~mask)) | (shouldDisable ? mask : 0));
 #else
@@ -97,11 +121,7 @@ void disableDenormalisedNumberSupport (bool shouldDisable) noexcept
 bool areDenormalsDisabled() noexcept
 {
 #if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
-#	if LIMES_SSE
-	constexpr intptr_t mask = 0x8040;
-#	else
-	constexpr intptr_t mask = (1 << 24);
-#	endif
+	const auto mask = getDenormalsMask();
 
 	return ((getFpStatusRegister() & mask) == mask);
 #else
@@ -112,15 +132,22 @@ bool areDenormalsDisabled() noexcept
 void enableFlushToZeroMode (bool shouldEnable) noexcept
 {
 #if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
-#	if LIMES_SSE
-	const intptr_t mask = _MM_FLUSH_ZERO_MASK;
-#	else
-	constexpr intptr_t mask = (1 << 24 /* FZ */);
-#	endif
+	const auto mask = getFlushToZeroMask();
 
 	setFpStatusRegister ((getFpStatusRegister() & (~mask)) | (shouldEnable ? mask : 0));
 #else
 	ignore_unused (shouldEnable);
+#endif
+}
+
+bool isFlushToZeroEnabled() noexcept
+{
+#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
+	const auto mask = getFlushToZeroMask();
+
+	return ((getFpStatusRegister() & mask) == mask);
+#else
+	return false;
 #endif
 }
 
@@ -130,17 +157,27 @@ ScopedNoDenormals::ScopedNoDenormals() noexcept
 	: fpsr (getFpStatusRegister())
 {
 #if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
-#	if LIMES_SSE
-	constexpr intptr_t mask = 0x8040;
-#	else
-	constexpr intptr_t mask = (1 << 24 /* FZ */);
-#	endif
-
-	setFpStatusRegister (fpsr | mask);
+	setFpStatusRegister (fpsr | getDenormalsMask());
 #endif
 }
 
 ScopedNoDenormals::~ScopedNoDenormals() noexcept
+{
+#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
+	setFpStatusRegister (fpsr);
+#endif
+}
+
+
+ScopedFlushToZero::ScopedFlushToZero() noexcept
+	: fpsr (getFpStatusRegister())
+{
+#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
+	setFpStatusRegister (fpsr | getFlushToZeroMask());
+#endif
+}
+
+ScopedFlushToZero::~ScopedFlushToZero() noexcept
 {
 #if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
 	setFpStatusRegister (fpsr);

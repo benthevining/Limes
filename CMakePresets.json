@@ -11,6 +11,7 @@
       "configuration": "Debug",
       "configurePreset": "default",
       "displayName": "The default build",
+      "jobs": 4,
       "name": "default"
     },
     {
@@ -38,7 +39,7 @@
       "cacheVariables": {
         "LIMES_BUILD_TESTS": "ON"
       },
-      "displayName": "CMake configuration for development of Limes",
+      "displayName": "CMake configuration for development of Limes (builds tests)",
       "inherits": "default",
       "name": "maintainer",
       "warnings": {
@@ -97,6 +98,7 @@
       "configuration": "Debug",
       "configurePreset": "default",
       "execution": {
+        "jobs": 4,
         "noTestsAction": "error"
       },
       "filter": {

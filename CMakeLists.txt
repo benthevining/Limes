@@ -92,13 +92,11 @@ project (
 	VERSION 4.1.0
 	DESCRIPTION "C++ utilities and building blocks"
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"
-	LANGUAGES CXX)
+	LANGUAGES CXX ASM)
 
 enable_testing ()
 
-set (LIMES_ROOT_DIR "${CMAKE_CURRENT_LIST_DIR}")
-
-include ("${CMAKE_CURRENT_LIST_DIR}/cmake/LimesMacros.cmake")
+list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 find_package (Oranges 2.10 REQUIRED)
 
@@ -137,14 +135,11 @@ write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_
 
 configure_package_config_file (
 	"${CMAKE_CURRENT_LIST_DIR}/cmake/LimesConfig.cmake" "LimesConfig.cmake"
-	INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" PATH_VARS LIMES_ROOT_DIR)
+	INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" NO_SET_AND_CHECK_MACRO)
 
-install (
-	FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
-		  "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake"
-		  "${CMAKE_CURRENT_LIST_DIR}/cmake/LimesMacros.cmake"
-	DESTINATION "${LIMES_INSTALL_DEST}"
-	COMPONENT limes_base)
+install (FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
+			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION "${LIMES_INSTALL_DEST}"
+		 COMPONENT limes_base)
 
 cpack_add_component (limes_base HIDDEN)
 
@@ -167,16 +162,21 @@ cpack_add_install_type (User DISPLAY_NAME "End-user installation")
 
 cpack_add_install_type (Developer DISPLAY_NAME "Developer installation")
 
-feature_summary (FILENAME "${CMAKE_BINARY_DIR}/package_features.txt" INCLUDE_QUIET_PACKAGES
-																	 DEFAULT_DESCRIPTION WHAT ALL)
+feature_summary (
+	FILENAME "${CMAKE_BINARY_DIR}/package_features.txt"
+	INCLUDE_QUIET_PACKAGES
+	WHAT ALL
+	DESCRIPTION
+		"This version of Limes was compiled with the following features and third party libraries:")
+
+install (FILES "${CMAKE_BINARY_DIR}/package_features.txt" DESTINATION "${LIMES_INSTALL_DEST}"
+		 CONFIGURATIONS Debug COMPONENT limes_base)
 
 if(PROJECT_IS_TOP_LEVEL)
 	feature_summary (INCLUDE_QUIET_PACKAGES DEFAULT_DESCRIPTION QUIET_ON_EMPTY WHAT ALL)
 endif()
 
 export (PACKAGE Limes)
-
-unset (LIMES_ROOT_DIR)
 
 option (LIMES_BUILD_TESTS "Build the Limes unit tests" OFF)
 

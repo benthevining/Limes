@@ -5,6 +5,7 @@
       "configuration": "Debug",
       "configurePreset": "tests",
       "displayName": "Build the tests",
+      "jobs": 4,
       "name": "tests",
       "targets": "LimesTests",
       "verbose": true
@@ -33,6 +34,7 @@
       "configuration": "Debug",
       "configurePreset": "tests",
       "execution": {
+        "jobs": 4,
         "noTestsAction": "error"
       },
       "filter": {

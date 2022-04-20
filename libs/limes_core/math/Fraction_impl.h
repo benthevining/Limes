@@ -15,6 +15,7 @@
 #include <limes_namespace.h>
 #include "Fraction.h"
 #include <numeric>
+#include <algorithm>
 
 LIMES_BEGIN_NAMESPACE
 

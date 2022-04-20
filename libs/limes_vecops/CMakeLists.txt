@@ -68,7 +68,7 @@ project (
 	VERSION "${Limes_VERSION}"
 	DESCRIPTION "Limes vector operations library"
 	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}"
-	LANGUAGES CXX)
+	LANGUAGES CXX ASM)
 
 add_library (limes_vecops STATIC)
 
@@ -135,8 +135,6 @@ cpack_add_component_group (
 	limes_vecops DISPLAY_NAME "${PROJECT_DESCRIPTION}"
 	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
 
-if(NOT TARGET Limes::limes_vecops)
-	add_library (Limes::limes_vecops ALIAS limes_vecops)
-endif()
+add_library (Limes::limes_vecops ALIAS limes_vecops)
 
 target_link_libraries (Limes INTERFACE Limes::limes_vecops)

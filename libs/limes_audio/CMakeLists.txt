@@ -115,8 +115,6 @@ cpack_add_component_group (
 	limes_audio DISPLAY_NAME "${PROJECT_DESCRIPTION}"
 	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
 
-if(NOT TARGET Limes::limes_audio)
-	add_library (Limes::limes_audio ALIAS limes_audio)
-endif()
+add_library (Limes::limes_audio ALIAS limes_audio)
 
 target_link_libraries (Limes INTERFACE Limes::limes_audio)

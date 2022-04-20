@@ -107,12 +107,6 @@ LIMES_EXPORT [[nodiscard]] constexpr bool isDivisibleBy (Integer number, Integer
 	return number % divisor == 0;
 }
 
-static_assert (isDivisibleBy (9, 3), "isDivisibleBy test");
-static_assert (isDivisibleBy (15, 5), "isDivisibleBy test");
-static_assert (isDivisibleBy (32, 8), "isDivisibleBy test");
-static_assert (! isDivisibleBy (8, 7), "isDivisibleBy test");
-static_assert (! isDivisibleBy (9, 2), "isDivisibleBy test");
-
 
 /** Returns true if the number is evenly divisible by 2. */
 template <Integral Integer>
@@ -121,10 +115,6 @@ LIMES_EXPORT [[nodiscard]] constexpr bool numberIsEven (Integer number) noexcept
 	return isDivisibleBy (number, Integer (2));
 }
 
-static_assert (numberIsEven (16), "numberIsEven test");
-static_assert (numberIsEven (126), "numberIsEven test");
-static_assert (! numberIsEven (3), "numberIsEven test");
-static_assert (! numberIsEven (521), "numberIsEven test");
 
 template <Integral Integer>
 LIMES_EXPORT [[nodiscard]] constexpr bool isPrime (Integer number) noexcept
@@ -147,7 +137,7 @@ LIMES_EXPORT [[nodiscard]] constexpr bool isPrime (Integer number) noexcept
 
 /** Returns the period in samples of a frequency at the specified samplerate. */
 template <Scalar FreqType>
-LIMES_EXPORT [[nodiscard]] inline int periodInSamples (double samplerate, FreqType freqHz) noexcept
+LIMES_EXPORT [[nodiscard]] constexpr int periodInSamples (double samplerate, FreqType freqHz) noexcept
 {
 	LIMES_ASSERT (freqHz > FreqType (0.));
 
@@ -158,7 +148,7 @@ LIMES_EXPORT [[nodiscard]] inline int periodInSamples (double samplerate, FreqTy
 
 /** Returns the frequency in Hz with a given period in samples at the specified samplerate. */
 template <Scalar PeriodType>
-LIMES_EXPORT [[nodiscard]] inline PeriodType freqFromPeriod (double samplerate, PeriodType period) noexcept
+LIMES_EXPORT [[nodiscard]] constexpr PeriodType freqFromPeriod (double samplerate, PeriodType period) noexcept
 {
 	LIMES_ASSERT (period > PeriodType (0.));
 
@@ -183,7 +173,7 @@ LIMES_EXPORT [[nodiscard]] constexpr double sampsToMs (double samplerate, int nu
 
 /** Converts a number of milliseconds to the closest integer number of samples at the specified samplerate. */
 template <Scalar msType>
-LIMES_EXPORT [[nodiscard]] inline int msToSamps (double samplerate, msType ms) noexcept
+LIMES_EXPORT [[nodiscard]] constexpr int msToSamps (double samplerate, msType ms) noexcept
 {
 	const auto val = samplerate / 1000. * static_cast<double> (ms);
 

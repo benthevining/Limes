@@ -12,12 +12,10 @@
 
 #include <limes_music.h>
 #include <limes_core.h>
-
+#include <tests_config.h>
 #include <catch2/catch_test_macros.hpp>
 
-static constexpr auto test_reps = 10;
-
-TEST_CASE ("Interval tests")
+TEST_CASE ("Interval tests", "[music][harmony]")
 {
 	using namespace limes::music;
 
@@ -100,7 +98,7 @@ TEST_CASE ("Interval tests")
 		{
 			REQUIRE (Interval::fromNumSemitones (semitones) == expected);
 
-			for (auto i = 0; i < test_reps; ++i)
+			for (auto i = 0; i < limes::tests::test_reps; ++i)
 			{
 				const auto startingNote = rand.nextInt (semitones, 127 - semitones);
 

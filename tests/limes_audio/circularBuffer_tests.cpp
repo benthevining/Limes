@@ -12,22 +12,18 @@
 
 #include <limes_audio.h>
 #include <limes_data_structures.h>
+#include <tests_config.h>
 #include "audio_test_utils.h"
-
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/catch_approx.hpp>
 
-static constexpr auto test_blocksizes = { 512, 967, 2042 };
-
-TEST_CASE ("Circular buffer")
+TEMPLATE_TEST_CASE ("Circular buffer", "[audio]", float, double)
 {
-	using FloatType = float;
+	limes::vector<TestType> origStorage, circOutput;
 
-	limes::vector<FloatType> origStorage, circOutput;
+	limes::dsp::CircularBuffer<TestType> circularBuffer;
 
-	limes::dsp::CircularBuffer<FloatType> circularBuffer;
-
-	limes::dsp::WhiteNoiseGenerator<FloatType> noise;
+	limes::dsp::WhiteNoiseGenerator<TestType> noise;
 
 	auto resizeAllBuffers = [&circularBuffer, &origStorage, &circOutput] (int newSize)
 	{
@@ -36,7 +32,7 @@ TEST_CASE ("Circular buffer")
 		circOutput.reserveAndZero (newSize);
 	};
 
-	for (const auto numSamples : test_blocksizes)
+	for (const auto numSamples : limes::tests::test_blocksizes)
 	{
 		DYNAMIC_SECTION ("Blocksize: " << numSamples)
 		{
@@ -57,7 +53,7 @@ TEST_CASE ("Circular buffer")
 			// expect (allSamplesAreValid (circOutput));
 			// expect (noSamplesAreClipping (circOutput));
 
-			REQUIRE (limes::tests::allSamplesAreEqual<FloatType> (circOutput, origStorage));
+			REQUIRE (limes::tests::allSamplesAreEqual<TestType> (circOutput, origStorage));
 
 			const auto halfNumSamples = numSamples / 2;
 

@@ -111,8 +111,6 @@ cpack_add_component_group (
 	limes_midi DISPLAY_NAME "${PROJECT_DESCRIPTION}"
 	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
 
-if(NOT TARGET Limes::limes_midi)
-	add_library (Limes::limes_midi ALIAS limes_midi)
-endif()
+add_library (Limes::limes_midi ALIAS limes_midi)
 
 target_link_libraries (Limes INTERFACE Limes::limes_midi)

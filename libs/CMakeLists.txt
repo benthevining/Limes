@@ -86,6 +86,4 @@ oranges_create_pkgconfig_file (
 	VERSION "${Limes_VERSION}"
 	INSTALL_COMPONENT limes_dev)
 
-if(NOT TARGET Limes::Limes)
-	add_library (Limes::Limes ALIAS Limes)
-endif()
+add_library (Limes::Limes ALIAS Limes)

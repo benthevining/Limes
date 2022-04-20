@@ -415,12 +415,28 @@ LIMES_EXPORT [[nodiscard]] bool areDenormalsDisabled() noexcept;
 
 LIMES_EXPORT void enableFlushToZeroMode (bool shouldEnable = true) noexcept;
 
+LIMES_EXPORT [[nodiscard]] bool isFlushToZeroEnabled() noexcept;
+
+
 class LIMES_EXPORT ScopedNoDenormals final
 {
 public:
 
 	ScopedNoDenormals() noexcept;
 	~ScopedNoDenormals() noexcept;
+
+private:
+
+	const intptr_t fpsr;
+};
+
+
+class LIMES_EXPORT ScopedFlushToZero final
+{
+public:
+
+	ScopedFlushToZero() noexcept;
+	~ScopedFlushToZero() noexcept;
 
 private:
 

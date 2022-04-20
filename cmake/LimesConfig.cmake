@@ -8,15 +8,28 @@
 #
 # ======================================================================================
 
+#[[
+
+Package configuration file for Limes, version @Limes_VERSION@.
+
+The following components may be specified in calls to find_package:
+- All
+- Audio
+- Core
+- DataStructures
+- Locale
+- Music
+- Vecops
+
+]]
+
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 @PACKAGE_INIT@
 
-set_and_check (LIMES_ROOT_DIR "@PACKAGE_LIMES_ROOT_DIR@")
-
-include ("${CMAKE_CURRENT_LIST_DIR}/LimesMacros.cmake")
+list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 #
 
@@ -25,26 +38,18 @@ include (CMakeFindDependencyMacro)
 find_dependency (Oranges)
 
 if("@LIMES_VECOPS_USING_IPP@") # LIMES_VECOPS_USING_IPP
-	if(NOT IPP_FOUND)
-		find_dependency (IPP)
-	endif()
+	find_dependency (IPP)
 endif()
 
 if("@LIMES_VECOPS_USING_MIPP@") # LIMES_VECOPS_USING_MIPP
-	if(NOT MIPP_FOUND)
-		find_dependency (MIPP)
-	endif()
+	find_dependency (MIPP)
 endif()
 
 if("@LIMES_VECOPS_USING_FFTW@") # LIMES_VECOPS_USING_FFTW
-	if(NOT FFTW_FOUND)
-		find_dependency (FFTW)
-	endif()
+	find_dependency (FFTW)
 endif()
 
 #
-
-include ("${CMAKE_CURRENT_LIST_DIR}/LimesTargets.cmake")
 
 set (
 	limes_components
@@ -67,12 +72,15 @@ endif()
 foreach(comp_name IN LISTS Limes_FIND_COMPONENTS)
 	if("${comp_name}" IN_LIST limes_components)
 		include ("${CMAKE_CURRENT_LIST_DIR}/Limes${comp_name}Targets.cmake")
+		set (Limes_${comp_name}_FOUND TRUE)
 	else()
 		message (WARNING " -- Limes: unknown component ${comp_name} requested!")
 	endif()
 endforeach()
 
 unset (limes_components)
+
+include ("${CMAKE_CURRENT_LIST_DIR}/LimesTargets.cmake")
 
 #
 
@@ -84,7 +92,8 @@ include (FindPackageMessage)
 set_package_properties (Limes PROPERTIES URL "https://github.com/benthevining/Limes"
 						DESCRIPTION "C++ utilities")
 
-find_package_message (Limes "Limes package found -- installed on system" "Limes (system install)")
+find_package_message (Limes "Limes package found -- installed on system"
+					  "Limes (system install) [${Limes_FIND_COMPONENTS}]")
 
 #
 

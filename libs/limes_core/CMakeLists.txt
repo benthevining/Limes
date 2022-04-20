@@ -138,8 +138,6 @@ cpack_add_component_group (
 	limes_core DISPLAY_NAME "${PROJECT_DESCRIPTION}"
 	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
 
-if(NOT TARGET Limes::limes_core)
-	add_library (Limes::limes_core ALIAS limes_core)
-endif()
+add_library (Limes::limes_core ALIAS limes_core)
 
 target_link_libraries (Limes INTERFACE Limes::limes_core)
