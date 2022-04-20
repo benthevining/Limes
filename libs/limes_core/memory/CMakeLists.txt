@@ -18,7 +18,5 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/SharedObject.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/StaticObjects.h>)
 
-install (
-	FILES "${CMAKE_CURRENT_LIST_DIR}/ReferenceCountedObject.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/SharedObject.h" "${CMAKE_CURRENT_LIST_DIR}/StaticObjects.h"
-	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory" COMPONENT limes_core_dev)
+install (FILES ReferenceCountedObject.h SharedObject.h StaticObjects.h
+		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory" COMPONENT limes_core_dev)

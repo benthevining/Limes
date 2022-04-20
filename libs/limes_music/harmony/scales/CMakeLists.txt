@@ -33,12 +33,12 @@ target_sources (
 		$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/scales/WholeTone.h>)
 
 install (
-	FILES "${CMAKE_CURRENT_LIST_DIR}/Scale.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/Chromatic.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/KeySignature.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/KeySignature_impl.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/Mode.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/Octatonic.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/WholeTone.h"
+	FILES Scale.h
+		  Chromatic.h
+		  KeySignature.h
+		  KeySignature_impl.h
+		  Mode.h
+		  Octatonic.h
+		  WholeTone.h
 	DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/scales"
 	COMPONENT limes_music_dev)

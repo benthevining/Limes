@@ -17,5 +17,5 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/filters/Coeffecients.h>
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/filters/Filter.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/Coeffecients.h" "${CMAKE_CURRENT_LIST_DIR}/Filter.h"
-		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/filters" COMPONENT limes_audio_dev)
+install (FILES Coeffecients.h Filter.h DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/filters"
+		 COMPONENT limes_audio_dev)

@@ -25,6 +25,5 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/Chord.h>
 			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/PitchUtils.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/PitchClass.h" "${CMAKE_CURRENT_LIST_DIR}/Pitch.h"
-			   "${CMAKE_CURRENT_LIST_DIR}/Chord.h" "${CMAKE_CURRENT_LIST_DIR}/PitchUtils.h"
+install (FILES PitchClass.h Pitch.h Chord.h PitchUtils.h
 		 DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony" COMPONENT limes_music_dev)

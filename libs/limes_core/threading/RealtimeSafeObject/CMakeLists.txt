@@ -24,10 +24,7 @@ target_sources (
 	)
 
 install (
-	FILES "${CMAKE_CURRENT_LIST_DIR}/ObjectBase.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/AtomicObjectHolder.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/NonrealtimeMutatableObject.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/RealtimeMutatableObject.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject_impl.h"
+	FILES ObjectBase.h AtomicObjectHolder.h NonrealtimeMutatableObject.h RealtimeMutatableObject.h
+		  RealtimeSafeObject_impl.h
 	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/RealtimeSafeObject"
 	COMPONENT limes_core_dev)

@@ -8,11 +8,6 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_locale
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.h>
-			$<INSTALL_INTERFACE:${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/languages/languages.h>)
+target_sources (LimesTests PRIVATE audio_test_utils.h circularBuffer_tests.cpp)
 
-install (FILES languages.h DESTINATION "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/languages"
-		 COMPONENT limes_locale_dev)
+target_include_directories (LimesTests PRIVATE "${CMAKE_CURRENT_LIST_DIR}")

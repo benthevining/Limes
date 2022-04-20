@@ -20,7 +20,7 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/fallback_impl.h>
 			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/phasor.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/fallback_impl.h" "${CMAKE_CURRENT_LIST_DIR}/phasor.h"
-		 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl" COMPONENT limes_vecops_dev)
+install (FILES fallback_impl.h phasor.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl"
+		 COMPONENT limes_vecops_dev)
 
 add_subdirectory (pommier)

@@ -17,6 +17,5 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities/VelocityMapper.h>
 			$<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities/PitchbendMapper.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/VelocityMapper.h"
-			   "${CMAKE_CURRENT_LIST_DIR}/PitchbendMapper.h"
+install (FILES VelocityMapper.h PitchbendMapper.h
 		 DESTINATION "${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities" COMPONENT limes_midi_dev)

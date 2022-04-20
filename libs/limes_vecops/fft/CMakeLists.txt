@@ -24,8 +24,8 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_fft.cpp>
 			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/limes_fft.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/limes_fft.h"
-		 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft" COMPONENT limes_vecops_dev)
+install (FILES limes_fft.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft"
+		 COMPONENT limes_vecops_dev)
 
 #
 
@@ -41,10 +41,8 @@ function(_limes_fft_end_callback)
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/${LIMES_FFT_SOURCE_NAME}.h>
 			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/${LIMES_FFT_SOURCE_NAME}.h>)
 
-	install (FILES "${CMAKE_CURRENT_LIST_DIR}/${LIMES_FFT_SOURCE_NAME}.h"
+	install (FILES "${LIMES_FFT_SOURCE_NAME}.h"
 			 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft" COMPONENT limes_vecops_dev)
-
-	unset (LIMES_FFT_SOURCE_NAME)
 
 endfunction()
 
@@ -72,7 +70,7 @@ get_target_property (vecops_impl limes_vecops VECOPS_IMPLEMENTATION)
 
 if("${vecops_impl}" MATCHES vDSP)
 	set (LIMES_FFT_SOURCE_NAME vdsp_fft)
-elseif("${vecops_impl}" MATCHES IPP AND NOT ("${vecops_impl}" MATCHES MIPP)) # regex bugs abound
+elseif("${vecops_impl}" STREQUAL IPP)
 	set (LIMES_FFT_SOURCE_NAME ipp_fft)
 else()
 	set (LIMES_FFT_SOURCE_NAME fallback_fft)

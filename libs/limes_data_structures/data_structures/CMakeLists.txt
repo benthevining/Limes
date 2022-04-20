@@ -16,6 +16,6 @@ target_sources (
 		$<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/data_structures/Dimensions.h>
 	)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/Dimensions.h"
+install (FILES Dimensions.h
 		 DESTINATION "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/data_structures"
 		 COMPONENT limes_data_structures_dev)

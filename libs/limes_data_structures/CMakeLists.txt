@@ -68,8 +68,7 @@ target_sources (
 		   $<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/limes_data_structures.h>
 	)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/limes_data_structures.h"
-		 DESTINATION "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}"
+install (FILES limes_data_structures.h DESTINATION "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}"
 		 COMPONENT limes_data_structures_dev)
 
 target_include_directories (

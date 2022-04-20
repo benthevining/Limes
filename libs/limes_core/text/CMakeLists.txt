@@ -17,5 +17,5 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/text/StringUtils.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/text/TextTable.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/StringUtils.h" "${CMAKE_CURRENT_LIST_DIR}/TextTable.h"
-		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/text" COMPONENT limes_core_dev)
+install (FILES StringUtils.h TextTable.h DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/text"
+		 COMPONENT limes_core_dev)

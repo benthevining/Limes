@@ -22,9 +22,5 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/rhythm/NoteLength_impl.h>
 			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/rhythm/TimeSignature.h>)
 
-install (
-	FILES "${CMAKE_CURRENT_LIST_DIR}/NoteDuration.h" "${CMAKE_CURRENT_LIST_DIR}/NoteDuration_impl.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/NoteLength.h" "${CMAKE_CURRENT_LIST_DIR}/NoteLength_impl.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/TimeSignature.h"
-	DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/rhythm"
-	COMPONENT limes_music_dev)
+install (FILES NoteDuration.h NoteDuration_impl.h NoteLength.h NoteLength_impl.h TimeSignature.h
+		 DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/rhythm" COMPONENT limes_music_dev)

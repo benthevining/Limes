@@ -65,8 +65,8 @@ target_sources (
 	limes_locale PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_locale.h>
 						$<INSTALL_INTERFACE:${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/limes_locale.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/limes_locale.h"
-		 DESTINATION "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}" COMPONENT limes_locale_dev)
+install (FILES limes_locale.h DESTINATION "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}"
+		 COMPONENT limes_locale_dev)
 
 target_include_directories (
 	limes_locale PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>

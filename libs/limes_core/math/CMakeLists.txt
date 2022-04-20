@@ -20,6 +20,5 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/math/Fraction_impl.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/math/Random.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/mathHelpers.h" "${CMAKE_CURRENT_LIST_DIR}/Fraction.h"
-			   "${CMAKE_CURRENT_LIST_DIR}/Fraction_impl.h" "${CMAKE_CURRENT_LIST_DIR}/Random.h"
+install (FILES mathHelpers.h Fraction.h Fraction_impl.h Random.h
 		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/math" COMPONENT limes_core_dev)

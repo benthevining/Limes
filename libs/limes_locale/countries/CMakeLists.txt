@@ -14,5 +14,5 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/countries.h>
 			$<INSTALL_INTERFACE:${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/countries/countries.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/countries.h"
-		 DESTINATION "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/countries" COMPONENT limes_locale_dev)
+install (FILES countries.h DESTINATION "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/countries"
+		 COMPONENT limes_locale_dev)

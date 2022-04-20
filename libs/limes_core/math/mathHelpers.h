@@ -107,6 +107,12 @@ LIMES_EXPORT [[nodiscard]] constexpr bool isDivisibleBy (Integer number, Integer
 	return number % divisor == 0;
 }
 
+static_assert (isDivisibleBy (9, 3), "isDivisibleBy test");
+static_assert (isDivisibleBy (15, 5), "isDivisibleBy test");
+static_assert (isDivisibleBy (32, 8), "isDivisibleBy test");
+static_assert (! isDivisibleBy (8, 7), "isDivisibleBy test");
+static_assert (! isDivisibleBy (9, 2), "isDivisibleBy test");
+
 
 /** Returns true if the number is evenly divisible by 2. */
 template <Integral Integer>
@@ -114,6 +120,11 @@ LIMES_EXPORT [[nodiscard]] constexpr bool numberIsEven (Integer number) noexcept
 {
 	return isDivisibleBy (number, Integer (2));
 }
+
+static_assert (numberIsEven (16), "numberIsEven test");
+static_assert (numberIsEven (126), "numberIsEven test");
+static_assert (! numberIsEven (3), "numberIsEven test");
+static_assert (! numberIsEven (521), "numberIsEven test");
 
 template <Integral Integer>
 LIMES_EXPORT [[nodiscard]] constexpr bool isPrime (Integer number) noexcept

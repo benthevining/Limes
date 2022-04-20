@@ -65,8 +65,8 @@ target_sources (
 	limes_music PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_music.h>
 					   $<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/limes_music.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/limes_music.h"
-		 DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}" COMPONENT limes_music_dev)
+install (FILES limes_music.h DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
+		 COMPONENT limes_music_dev)
 
 target_include_directories (
 	limes_music PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>

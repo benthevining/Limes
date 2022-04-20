@@ -25,6 +25,7 @@ Options
 - LIMES_USE_VECOPS_FALLBACK
 - LIMES_IGNORE_POMMIER
 - LIMES_IGNORE_FFTW
+- LIMES_BUILD_TESTS
 
 Required packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -176,3 +177,9 @@ endif()
 export (PACKAGE Limes)
 
 unset (LIMES_ROOT_DIR)
+
+option (LIMES_BUILD_TESTS "Build the Limes unit tests" OFF)
+
+if(LIMES_BUILD_TESTS)
+	add_subdirectory (tests)
+endif()

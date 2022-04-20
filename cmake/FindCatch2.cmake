@@ -8,11 +8,15 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_locale
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.h>
-			$<INSTALL_INTERFACE:${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/languages/languages.h>)
+include_guard (GLOBAL)
 
-install (FILES languages.h DESTINATION "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/languages"
-		 COMPONENT limes_locale_dev)
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
+include (FetchContent)
+
+FetchContent_Declare (Catch2 GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+					  GIT_TAG origin/devel)
+
+FetchContent_MakeAvailable (Catch2)
+
+set (Catch2_FOUND TRUE)

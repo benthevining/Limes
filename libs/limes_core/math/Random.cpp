@@ -15,6 +15,7 @@
 #include <limes_platform.h>
 #include <atomic>
 #include <limits>
+#include <cmath>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -76,12 +77,12 @@ int Random::nextInt() noexcept
 int Random::nextInt (int maxValue) noexcept
 {
 	LIMES_ASSERT (maxValue > 0);
-	return static_cast<int> ((static_cast<uint64_t> (nextInt()) * static_cast<uint64_t> (maxValue)) >> 32);
+	return static_cast<int> ((static_cast<unsigned int> (nextInt()) * static_cast<uint64_t> (maxValue)) >> 32);
 }
 
 int Random::nextInt (int minValue, int maxValue) noexcept
 {
-	return minValue + nextInt (maxValue - minValue);
+	return minValue + nextInt (std::abs (maxValue - minValue));
 }
 
 bool Random::nextBool() noexcept

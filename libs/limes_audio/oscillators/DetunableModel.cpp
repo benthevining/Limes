@@ -29,6 +29,8 @@ DetunableModel::DetunableModel (int initialNumVoices)  // cppcheck-suppress unin
 
 void DetunableModel::setFrequency (float frequency)
 {
+	LIMES_ASSERT (numVoices > 0);
+
 	const auto spreadSemitones = static_cast<float> (totalSpreadCents) * 0.01f;
 	const auto increment	   = spreadSemitones / static_cast<float> (numVoices);
 	const auto centerPitch	   = math::freqToMidi (frequency);

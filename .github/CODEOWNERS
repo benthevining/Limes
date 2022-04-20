@@ -137,6 +137,7 @@ libs/limes_data_structures/data_structures/Dimensions.h benthevining
 libs/limes_data_structures/data_structures/LinkedListModel.h benthevining
 libs/limes_data_structures/data_structures/LinkedListModel_impl.h benthevining
 libs/limes_data_structures/data_structures/Version.h benthevining
+libs/limes_data_structures/fifo/CMakeLists.txt benthevining
 libs/limes_data_structures/limes_data_structures.h benthevining
 libs/limes_data_structures/linked_list/LinkedListModel_impl.h benthevining
 libs/limes_data_structures/vectors/CMakeLists.txt benthevining
@@ -150,6 +151,8 @@ libs/limes_locale/languages/CMakeLists.txt benthevining
 libs/limes_locale/languages/languages.cpp benthevining
 libs/limes_locale/languages/languages.h benthevining
 libs/limes_locale/limes_locale.h benthevining
+libs/limes_midi/CMakeLists.txt benthevining
+libs/limes_midi/README.md benthevining
 libs/limes_midi/limes_midi.h benthevining
 libs/limes_midi/tuning/CMakeLists.txt benthevining
 libs/limes_midi/utilities/CMakeLists.txt benthevining
@@ -197,6 +200,7 @@ libs/limes_music/rhythm/NoteLength.h benthevining
 libs/limes_music/rhythm/NoteLength_impl.h benthevining
 libs/limes_music/rhythm/TimeSignature.h benthevining
 libs/limes_vecops/CMakeLists.txt benthevining
+libs/limes_vecops/README.md benthevining
 libs/limes_vecops/fft/CMakeLists.txt benthevining
 libs/limes_vecops/fft/fallback_fft.cpp benthevining
 libs/limes_vecops/fft/fft.cpp benthevining

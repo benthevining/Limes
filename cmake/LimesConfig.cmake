@@ -62,9 +62,7 @@ elseif(All IN_LIST Limes_FIND_COMPONENTS)
 	set (Limes_FIND_COMPONENTS ${limes_components})
 endif()
 
-if(MIDI IN_LIST Limes_FIND_COMPONENTS)
-	find_dependency (MTS-ESP)
-endif()
+# if(MIDI IN_LIST Limes_FIND_COMPONENTS) find_dependency (MTS-ESP) endif()
 
 foreach(comp_name IN LISTS Limes_FIND_COMPONENTS)
 	if("${comp_name}" IN_LIST limes_components)

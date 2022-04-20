@@ -65,8 +65,8 @@ target_sources (
 	limes_audio PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_audio.h>
 					   $<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/limes_audio.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/limes_audio.h"
-		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}" COMPONENT limes_audio_dev)
+install (FILES limes_audio.h DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
+		 COMPONENT limes_audio_dev)
 
 target_include_directories (
 	limes_audio PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>

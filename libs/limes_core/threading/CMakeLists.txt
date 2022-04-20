@@ -22,9 +22,5 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/ThreadSafeObject.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/Threading.h>)
 
-install (
-	FILES "${CMAKE_CURRENT_LIST_DIR}/RealtimeTypeTraits.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/ThreadSafeObject.h" "${CMAKE_CURRENT_LIST_DIR}/Threading.h"
-	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading"
-	COMPONENT limes_core_dev)
+install (FILES RealtimeTypeTraits.h RealtimeSafeObject.h ThreadSafeObject.h Threading.h
+		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading" COMPONENT limes_core_dev)

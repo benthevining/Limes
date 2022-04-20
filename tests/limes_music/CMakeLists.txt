@@ -8,11 +8,5 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_locale
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.h>
-			$<INSTALL_INTERFACE:${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/languages/languages.h>)
-
-install (FILES languages.h DESTINATION "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/languages"
-		 COMPONENT limes_locale_dev)
+target_sources (LimesTests PRIVATE interval_tests.cpp compoundInterval_tests.cpp
+								   pitchClass_tests.cpp)

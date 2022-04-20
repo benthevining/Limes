@@ -56,8 +56,7 @@ add_subdirectory (limes_music)
 target_sources (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes.h>
 								$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}/limes.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/limes.h" DESTINATION "${LIMES_INSTALL_INCLUDE_DIR}"
-		 COMPONENT limes_dev)
+install (FILES limes.h DESTINATION "${LIMES_INSTALL_INCLUDE_DIR}" COMPONENT limes_dev)
 
 target_include_directories (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
 											$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}>)

@@ -20,6 +20,5 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/psola/analyzer.h>
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/psola/shifter.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/PeakFinder.h" "${CMAKE_CURRENT_LIST_DIR}/analyzer.h"
-			   "${CMAKE_CURRENT_LIST_DIR}/shifter.h"
+install (FILES PeakFinder.h analyzer.h shifter.h
 		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/psola" COMPONENT limes_audio_dev)

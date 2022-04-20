@@ -20,6 +20,5 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/streams/oscillator.h>
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/streams/WhiteNoiseGenerator.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/SampleStream.h" "${CMAKE_CURRENT_LIST_DIR}/oscillator.h"
-			   "${CMAKE_CURRENT_LIST_DIR}/WhiteNoiseGenerator.h"
+install (FILES SampleStream.h oscillator.h WhiteNoiseGenerator.h
 		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/streams" COMPONENT limes_audio_dev)

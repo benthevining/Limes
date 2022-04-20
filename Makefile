@@ -64,7 +64,7 @@ init:  ## Initializes the workspace and installs all dependencies
 #
 
 $(BUILDS):
-	@cd $(LIMES_ROOT) && $(CMAKE) --preset default
+	@cd $(LIMES_ROOT) && $(CMAKE) --preset maintainer
 
 .PHONY: config
 config: $(BUILDS) ## configure CMake
@@ -73,7 +73,7 @@ config: $(BUILDS) ## configure CMake
 
 .PHONY: build
 build: config ## runs CMake build
-	@cd $(LIMES_ROOT) && $(CMAKE) --build --preset default --config $(CONFIG)
+	@cd $(LIMES_ROOT) && $(CMAKE) --build --preset maintainer --config $(CONFIG)
 
 #
 
@@ -116,7 +116,7 @@ uninstall: ## Runs uninstall script
 .PHONY: clean
 clean: ## Cleans the source tree
 	@echo "Cleaning..."
-	@cd $(LIMES_ROOT) && $(RM) $(BUILDS) $(DOCS) $(DEPS_GRAPH).dot; $(PRECOMMIT) gc
+	@cd $(LIMES_ROOT) && $(RM) $(BUILDS) $(DOCS) $(DEPS_GRAPH).dot tests/$(BUILDS); $(PRECOMMIT) gc
 
 .PHONY: wipe
 wipe: ## Wipes the cache of downloaded dependencies

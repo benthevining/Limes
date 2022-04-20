@@ -1,9 +1,8 @@
 {
   "buildPresets": [
     {
-      "cleanFirst": true,
-      "configurePreset": "default",
       "displayName": "Build the dependency graph image",
+      "inherits": "default",
       "name": "deps_graph",
       "targets": "DependencyGraph"
     },
@@ -36,6 +35,9 @@
       }
     },
     {
+      "cacheVariables": {
+        "LIMES_BUILD_TESTS": "ON"
+      },
       "displayName": "CMake configuration for development of Limes",
       "inherits": "default",
       "name": "maintainer",

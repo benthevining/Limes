@@ -25,9 +25,5 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/util/CircularBuffer.h>
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/util/PerlinNoise.h>)
 
-install (
-	FILES "${CMAKE_CURRENT_LIST_DIR}/PitchDetector.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/MonoStereoConverter.h" "${CMAKE_CURRENT_LIST_DIR}/Misc.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/CircularBuffer.h" "${CMAKE_CURRENT_LIST_DIR}/PerlinNoise.h"
-	DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/util"
-	COMPONENT limes_audio_dev)
+install (FILES PitchDetector.h MonoStereoConverter.h Misc.h CircularBuffer.h PerlinNoise.h
+		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/util" COMPONENT limes_audio_dev)

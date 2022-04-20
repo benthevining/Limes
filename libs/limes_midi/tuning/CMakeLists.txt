@@ -18,5 +18,5 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mts_client.h>
 			$<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/tuning/mts_client.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/mts_client.h"
-		 DESTINATION "${LIMES_MIDI_INSTALL_INCLUDE_DIR}/tuning" COMPONENT limes_midi_dev)
+install (FILES mts_client.h DESTINATION "${LIMES_MIDI_INSTALL_INCLUDE_DIR}/tuning"
+		 COMPONENT limes_midi_dev)

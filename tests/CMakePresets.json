@@ -1,0 +1,53 @@
+{
+  "buildPresets": [
+    {
+      "cleanFirst": true,
+      "configuration": "Debug",
+      "configurePreset": "tests",
+      "displayName": "Build the tests",
+      "name": "tests",
+      "targets": "LimesTests",
+      "verbose": true
+    }
+  ],
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 22,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "binaryDir": "${sourceDir}/Builds",
+      "displayName": "Configure for building the tests",
+      "name": "tests",
+      "warnings": {
+        "deprecated": true,
+        "dev": true,
+        "uninitialized": true,
+        "unusedCli": false
+      }
+    }
+  ],
+  "testPresets": [
+    {
+      "configuration": "Debug",
+      "configurePreset": "tests",
+      "execution": {
+        "noTestsAction": "error"
+      },
+      "filter": {
+        "include": {
+          "name": "Limes."
+        }
+      },
+      "name": "default",
+      "output": {
+        "outputLogFile": "${sourceDir}/Builds/test_log.log",
+        "outputOnFailure": true,
+        "shortProgress": true,
+        "verbosity": "verbose"
+      }
+    }
+  ],
+  "version": 3
+}

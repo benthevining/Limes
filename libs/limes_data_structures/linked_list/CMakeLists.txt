@@ -21,9 +21,6 @@ target_sources (
 		$<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/linked_list/LinkedList_impl.h>
 	)
 
-install (
-	FILES "${CMAKE_CURRENT_LIST_DIR}/LinkedListModel.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/LinkedListModel_impl.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/LinkedList.h" "${CMAKE_CURRENT_LIST_DIR}/LinkedList_impl.h"
-	DESTINATION "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/linked_list"
-	COMPONENT limes_data_structures_dev)
+install (FILES LinkedListModel.h LinkedListModel_impl.h LinkedList.h LinkedList_impl.h
+		 DESTINATION "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/linked_list"
+		 COMPONENT limes_data_structures_dev)

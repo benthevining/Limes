@@ -78,7 +78,7 @@ set_target_properties (limes_vecops PROPERTIES VERSION "${PROJECT_VERSION}"
 target_link_libraries (limes_vecops PUBLIC Limes::limes_core PRIVATE Oranges::OrangesDefaultTarget
 																	 Oranges::OrangesUnityBuild)
 
-if(CMAKE_SYSTEM_NAME STREQUAL "watchOS")
+if(CMAKE_SYSTEM_NAME STREQUAL watchOS)
 	target_compile_options (limes_vecops PRIVATE -fgnu-inline-asm)
 endif()
 
@@ -88,8 +88,8 @@ target_sources (
 	limes_vecops PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h>
 						$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/limes_vecops.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h"
-		 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" COMPONENT limes_vecops_dev)
+install (FILES limes_vecops.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
+		 COMPONENT limes_vecops_dev)
 
 target_include_directories (
 	limes_vecops PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>

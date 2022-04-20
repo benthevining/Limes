@@ -26,10 +26,5 @@ target_sources (
 	)
 
 install (
-	FILES "${CMAKE_CURRENT_LIST_DIR}/Interval.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/Interval_impl.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/CompoundInterval.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/CompoundInterval_impl.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/MicrotonalInterval.h"
-	DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/intervals"
-	COMPONENT limes_music_dev)
+	FILES Interval.h Interval_impl.h CompoundInterval.h CompoundInterval_impl.h MicrotonalInterval.h
+	DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/intervals" COMPONENT limes_music_dev)

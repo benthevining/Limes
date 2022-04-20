@@ -22,9 +22,5 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/Functions.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/IgnoreUnused.h>)
 
-install (
-	FILES "${CMAKE_CURRENT_LIST_DIR}/Algorithm.h" "${CMAKE_CURRENT_LIST_DIR}/TypeTraits.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/Version.h" "${CMAKE_CURRENT_LIST_DIR}/Functions.h"
-		  "${CMAKE_CURRENT_LIST_DIR}/IgnoreUnused.h"
-	DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc"
-	COMPONENT limes_core_dev)
+install (FILES Algorithm.h TypeTraits.h Version.h Functions.h IgnoreUnused.h
+		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc" COMPONENT limes_core_dev)

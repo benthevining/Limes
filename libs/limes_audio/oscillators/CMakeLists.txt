@@ -17,6 +17,5 @@ target_sources (
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/oscillators/basic_oscillators.h>
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/oscillators/DetunableModel.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/basic_oscillators.h"
-			   "${CMAKE_CURRENT_LIST_DIR}/DetunableModel.h"
+install (FILES basic_oscillators.h DetunableModel.h
 		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/oscillators" COMPONENT limes_audio_dev)

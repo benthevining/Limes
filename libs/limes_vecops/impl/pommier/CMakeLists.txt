@@ -25,8 +25,8 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/pommier_wrapper.h>
 			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier/pommier_wrapper.h>)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/pommier_wrapper.h"
-		 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier" COMPONENT limes_vecops_dev)
+install (FILES pommier_wrapper.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier"
+		 COMPONENT limes_vecops_dev)
 
 target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_POMMIER=1)
 
@@ -39,8 +39,7 @@ if(ORANGES_ARM_NEON)
 				$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier/neon_mathfun.h>
 		)
 
-	install (FILES "${CMAKE_CURRENT_LIST_DIR}/neon_mathfun.h"
-			 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier"
+	install (FILES neon_mathfun.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier"
 			 COMPONENT limes_vecops_dev)
 
 elseif(ORANGES_SSE)
@@ -51,8 +50,7 @@ elseif(ORANGES_SSE)
 				$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/sse_mathfun.h>
 				$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier/sse_mathfun.h>)
 
-	install (FILES "${CMAKE_CURRENT_LIST_DIR}/sse_mathfun.h"
-			 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier"
+	install (FILES sse_mathfun.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier"
 			 COMPONENT limes_vecops_dev)
 
 endif()

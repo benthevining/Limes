@@ -47,6 +47,8 @@ See the `FindLimes` file for more documentation on what it does.
 
 Limes makes use of C++20, notably concepts. Limes has been tested on Mac, Windows, and Linux with Clang, GCC, and MSVC. Limes is also tested crosscompiled for iOS, tvOS and watchOS.
 
+To build the Limes unit tests, pass `-D LIMES_BUILD_TESTS=ON` to the CMake configuration. This option defaults to off.
+
 ## CMake information
 
 ### Options
