@@ -82,6 +82,9 @@ if(CMAKE_SYSTEM_NAME STREQUAL watchOS)
 	target_compile_options (limes_vecops PRIVATE -fgnu-inline-asm)
 endif()
 
+# fixes a bug present when compiling vDSP with GCC
+target_compile_options (limes_vecops INTERFACE $<$<CXX_COMPILER_ID:GNU>:-flax-vector-conversions>)
+
 set (LIMES_VECOPS_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_vecops" CACHE INTERNAL "")
 
 target_sources (
