@@ -97,6 +97,26 @@ static_assert (! is_specialization<std::vector<int>, std::list>(), "is_specializ
 	std::enable_if_t<lemons::is_specialization<classToTest, requiredTemplate>::value>* = nullptr
 
 
+template <class Derived, class Base>
+struct LIMES_EXPORT covariance_check final : std::is_base_of<Base, Derived>
+{
+};
+
+template <template <class...> class T, class... Ds, class... Bs>
+struct LIMES_EXPORT covariance_check<T<Ds...>, T<Bs...>> final : std::conjunction<covariance_check<Ds, Bs>...>
+{
+};
+
+template <class Derived, class Base>
+concept covariant_subtype_of = covariance_check<Derived, Base>::value;
+
+
+template <typename Test, typename... Types>
+struct LIMES_EXPORT is_one_of final : std::disjunction<std::is_same<Test, Types>...>
+{
+};
+
+
 template <typename ObjectType>
 LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const ObjectType& object)
 {

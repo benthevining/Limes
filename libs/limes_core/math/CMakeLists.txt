@@ -8,6 +8,8 @@
 #
 # ======================================================================================
 
+add_subdirectory (geometry)
+
 target_sources (
 	limes_core
 	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mathHelpers.h>

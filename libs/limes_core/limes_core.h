@@ -17,11 +17,15 @@
 #include <limes_platform.h>
 #include <limes_build_type.h>
 
+#include "misc/preprocessor.h"
 #include "misc/IgnoreUnused.h"
 #include "misc/TypeTraits.h"
 #include "misc/Algorithm.h"
 #include "misc/Version.h"
 #include "misc/Functions.h"
+
+#include "time/time_utils.h"
+#include "time/build_date.h"
 
 #include "memory/ReferenceCountedObject.h"
 #include "memory/SharedObject.h"
@@ -33,6 +37,9 @@
 #include "math/mathHelpers.h"
 #include "math/Fraction.h"
 #include "math/Random.h"
+#include "math/geometry/area.h"
+#include "math/geometry/perimeter.h"
+#include "math/geometry/volume.h"
 
 #include "threading/Threading.h"
 #include "threading/RealtimeTypeTraits.h"

@@ -135,6 +135,15 @@ LIMES_EXPORT [[nodiscard]] constexpr bool isPrime (Integer number) noexcept
 	return true;
 }
 
+template <Integral T>
+LIMES_EXPORT [[nodiscard]] constexpr T factorial (T number) noexcept
+{
+	if (number == 0)
+		return 1;
+
+	return number * factorial (number - T (1));
+}
+
 /** Returns the period in samples of a frequency at the specified samplerate. */
 template <Scalar FreqType>
 LIMES_EXPORT [[nodiscard]] constexpr int periodInSamples (double samplerate, FreqType freqHz) noexcept

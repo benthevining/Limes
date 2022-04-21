@@ -16,11 +16,13 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TypeTraits.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Functions.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/IgnoreUnused.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/preprocessor.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/Version.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/Algorithm.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/TypeTraits.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/Functions.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/IgnoreUnused.h>)
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/IgnoreUnused.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/preprocessor.h>)
 
-install (FILES Algorithm.h TypeTraits.h Version.h Functions.h IgnoreUnused.h
+install (FILES Algorithm.h TypeTraits.h Version.h Functions.h IgnoreUnused.h preprocessor.h
 		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc" COMPONENT limes_core_dev)

@@ -98,7 +98,7 @@ enable_testing ()
 
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
-find_package (Oranges 2.10 REQUIRED)
+find_package (Oranges 2.17 REQUIRED)
 
 include (FeatureSummary)
 
@@ -118,6 +118,12 @@ set (
 mark_as_advanced (FORCE LIMES_INSTALL_DEST)
 
 add_subdirectory (libs)
+
+option (LIMES_BUILD_TESTS "Build the Limes unit tests" OFF)
+
+if(LIMES_BUILD_TESTS)
+	add_subdirectory (tests)
+endif()
 
 oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs INSTALL_COMPONENT limes_docs)
 
@@ -177,9 +183,3 @@ if(PROJECT_IS_TOP_LEVEL)
 endif()
 
 export (PACKAGE Limes)
-
-option (LIMES_BUILD_TESTS "Build the Limes unit tests" OFF)
-
-if(LIMES_BUILD_TESTS)
-	add_subdirectory (tests)
-endif()

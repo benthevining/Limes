@@ -17,6 +17,7 @@
 #include <cstdint>
 #include <type_traits>
 #include <atomic>
+#include "../misc/TypeTraits.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -48,7 +49,7 @@ public:
 	template <typename T>
 	[[nodiscard]] T next() noexcept
 	{
-		static_assert (std::is_same_v<T, int> || std::is_same_v<T, float> || std::is_same_v<T, double> || std::is_same_v<T, bool>);
+		static_assert (is_one_of<T, int, float, double, bool>::value);
 
 		if constexpr (std::is_same_v<T, int>)
 			return nextInt();

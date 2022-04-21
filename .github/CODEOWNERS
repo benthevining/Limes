@@ -321,8 +321,10 @@ scripts/generate.sh benthevining
 scripts/util.make benthevining
 tests/CMakeLists.txt benthevining
 tests/CMakePresets.json benthevining
+tests/limes_music/CMakeLists.txt benthevining
 tests/limes_music/interval_tests.cpp benthevining
 tests/math_tests.cpp benthevining
+tests/tests_config.h benthevining
 util/PresetBases.json benthevining
 util/deps_graph.png benthevining
 util/limes_header.txt benthevining

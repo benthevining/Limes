@@ -88,7 +88,6 @@ inline void setFpStatusRegister (intptr_t fpsr) noexcept
 	return (1 << 24);
 #	endif
 #else
-	LIMES_ASSERT_FALSE;
 	return 0;
 #endif
 }
@@ -102,7 +101,6 @@ inline void setFpStatusRegister (intptr_t fpsr) noexcept
 	return (1 << 24 /* FZ */);
 #	endif
 #else
-	LIMES_ASSERT_FALSE;
 	return 0;
 #endif
 }

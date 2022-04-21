@@ -16,6 +16,7 @@
 #include <type_traits>
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include <functional>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -31,14 +32,14 @@ LIMES_EXPORT bool call_once (Function&& func, std::invoke_result_t<Function>* re
 
 	if constexpr (std::is_void_v<std::invoke_result_t<Function>>)
 	{
-		func();
+		std::invoke (func);
 	}
 	else
 	{
 		if (result == nullptr)
-			func();
+			std::invoke (func);
 		else
-			*result = func();
+			*result = std::invoke (func);
 	}
 
 	return true;
@@ -50,14 +51,14 @@ class LIMES_EXPORT CallDeferred final
 {
 public:
 
-	explicit CallDeferred (Function&& function)
+	constexpr explicit CallDeferred (Function&& function)
 		: func (std::move (function))
 	{
 	}
 
 	~CallDeferred()
 	{
-		func();
+		std::invoke (func);
 	}
 
 private:
@@ -71,20 +72,40 @@ class LIMES_EXPORT RAIICaller final
 {
 public:
 
-	explicit RAIICaller (Function1&& onConstruct, Function2&& onDestroy)
+	constexpr explicit RAIICaller (Function1&& onConstruct, Function2&& onDestroy)
 		: deferredFunc (std::move (onDestroy))
 	{
-		onConstruct();
+		std::invoke (onConstruct);
 	}
 
 	~RAIICaller()
 	{
-		deferredFunc();
+		std::invoke (deferredFunc);
 	}
 
 private:
 
 	const Function2 deferredFunc;
 };
+
+
+constexpr decltype (auto) curry (auto f, auto... ps)
+{
+	if constexpr (requires { std::invoke (f, ps...); })
+	{
+		return std::invoke (f, ps...);
+	}
+	else {
+		return [f, ps...] (auto... qs) -> decltype (auto)
+		{ return curry (f, ps..., qs...); };
+	}
+}
+
+
+template <typename... Param>
+consteval decltype (auto) consteval_invoke (Param&&... param)
+{
+	return std::invoke (std::forward<Param> (param)...);
+}
 
 LIMES_END_NAMESPACE

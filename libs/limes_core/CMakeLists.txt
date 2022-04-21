@@ -70,7 +70,7 @@ oranges_generate_standard_headers (
 	EXPORT_HEADER limes_export.h
 	PLATFORM_HEADER limes_platform.h
 	INSTALL_COMPONENT limes_core_dev
-	REL_PATH limes_core)
+	REL_PATH Limes/limes_core)
 
 limes_config_version_header (
 	FILENAME limes_version.h
@@ -78,7 +78,7 @@ limes_config_version_header (
 	FUNCTION_NAME getLimesVersion
 	TARGET limes_core
 	SCOPE PUBLIC
-	REL_PATH limes_core)
+	REL_PATH Limes/limes_core)
 
 set (LIMES_CORE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_core" CACHE INTERNAL "")
 
@@ -97,6 +97,7 @@ target_include_directories (
 					  $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}>)
 
 add_subdirectory (math)
+add_subdirectory (time)
 add_subdirectory (misc)
 add_subdirectory (memory)
 add_subdirectory (threading)

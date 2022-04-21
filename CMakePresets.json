@@ -7,6 +7,12 @@
       "targets": "DependencyGraph"
     },
     {
+      "displayName": "Build the Doxygen documentation",
+      "inherits": "default",
+      "name": "docs",
+      "targets": "LimesDoxygen"
+    },
+    {
       "cleanFirst": true,
       "configuration": "Debug",
       "configurePreset": "default",
