@@ -55,18 +55,18 @@ public:
 		return ! (*this == other);
 	}
 
-	[[nodiscard]] T* allocate (std::size_t num) const
+	[[nodiscard]] T* allocate (std::size_t num)
 	{
 		return static_cast<T*> (pool.allocate (num * sizeof (T)));
 	}
 
 	template <typename U>
-	[[nodiscard]] T* allocate (size_t num, const U*) const
+	[[nodiscard]] T* allocate (size_t num, const U*)
 	{
 		return allocate (num);
 	}
 
-	void deallocate (T* const ptr, std::size_t num) const
+	void deallocate (T* const ptr, std::size_t num)
 	{
 		pool.deallocate (static_cast<void*> (ptr), num * sizeof (T));
 	}
