@@ -83,7 +83,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL watchOS)
 endif()
 
 # fixes a bug present when compiling vDSP with GCC
-target_compile_options (limes_vecops INTERFACE $<$<CXX_COMPILER_ID:GNU>:-flax-vector-conversions>)
+target_compile_options (limes_vecops PUBLIC $<$<CXX_COMPILER_ID:GNU>:-flax-vector-conversions>)
 
 set (LIMES_VECOPS_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_vecops" CACHE INTERNAL "")
 
