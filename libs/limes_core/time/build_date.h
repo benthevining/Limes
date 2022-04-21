@@ -24,16 +24,14 @@ namespace time
 
 LIMES_EXPORT [[nodiscard]] consteval int build_year() noexcept
 {
-	const char* year = __DATE__;
+	const char* date = __DATE__;
 
-	for (auto nbSpaces = 0; nbSpaces < 2; ++year)
-		if (*year == ' ')
-			++nbSpaces;
+	date += 7;
 
 	auto result = 0;
 
 	for (auto i = 0, mult = 1000; i < 4; ++i, mult /= 10)
-		result += (year[i] - '0') * mult;
+		result += (date[i] - '0') * mult;
 
 	return result;
 }
@@ -54,7 +52,7 @@ LIMES_EXPORT [[nodiscard]] consteval int build_month() noexcept
 			return i + 1;
 	}
 
-	return 0;  // will be caught by the static_assert() check on month value
+	return 0;
 }
 
 LIMES_EXPORT [[nodiscard]] constexpr auto build_month_str (bool shortName = true) noexcept
@@ -64,13 +62,16 @@ LIMES_EXPORT [[nodiscard]] constexpr auto build_month_str (bool shortName = true
 
 LIMES_EXPORT [[nodiscard]] consteval int build_day() noexcept
 {
-	const char* year = __DATE__;
+	const char* date = __DATE__;
 
-	for (auto nbSpaces = 0; nbSpaces < 1; ++year)
-		if (*year == ' ')
-			++nbSpaces;
+	date += 4;
 
-	return (year[0] - '0') * 10 + (year[1] - '0');
+	auto result = 0;
+
+	if (*date != ' ')
+		result += ((date[0] - '0') * 10);
+
+	return result + (date[1] - '0');
 }
 
 LIMES_EXPORT [[nodiscard]] consteval int build_hour() noexcept
@@ -82,24 +83,16 @@ LIMES_EXPORT [[nodiscard]] consteval int build_hour() noexcept
 
 LIMES_EXPORT [[nodiscard]] consteval int build_minute() noexcept
 {
-	const char* time = __TIME__;
+	constexpr const char time[] = __TIME__;
 
-	for (auto numColons = 0; numColons < 2; ++time)
-		if (*time == ':')
-			++numColons;
-
-	return (time[0] - '0') * 10 + (time[1] - '0');
+	return (time[3] - '0') * 10 + (time[4] - '0');
 }
 
 LIMES_EXPORT [[nodiscard]] consteval int build_second() noexcept
 {
-	const char* time = __TIME__;
+	constexpr const char time[] = __TIME__;
 
-	for (auto numColons = 0; numColons < 4; ++time)
-		if (*time == ':')
-			++numColons;
-
-	return (time[0] - '0') * 10 + (time[1] - '0');
+	return (time[6] - '0') * 10 + (time[7] - '0');
 }
 
 
@@ -112,7 +105,7 @@ LIMES_EXPORT [[nodiscard]] consteval int build_second() noexcept
 /// Example:
 ///     TODO_BEFORE(01, 2019, "refactor to use std::optional<> once we compile in C++17 mode");
 #define TODO_BEFORE(month, year, msg)                                                                                                                                      \
-	LIMES_BLOCK_WITH_FORCED_SEMICOLON (static_assert (year >= 2022 && year <= 2025 && month > 0 && month <= 12,                                                            \
+	LIMES_BLOCK_WITH_FORCED_SEMICOLON (static_assert (year >= build_year() && year <= build_year() + 3 && month > 0 && month <= 12,                                        \
 													  "Invalid date constraint in TODO_BEFORE macro!");                                                                    \
 									   static_assert (::limes::time::build_year() < year || (::limes::time::build_year() == year && ::limes::time::build_month() < month), \
 													  "expired TODO: " msg);)
