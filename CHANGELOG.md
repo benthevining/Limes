@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [4.3.0](http://github.com/benthevining/Limes/compare/v4.2.0...v4.3.0) (2022-04-21)
+
+
+### Features
+
+* added aligned allocation helpers ([f232cb2](http://github.com/benthevining/Limes/commit/f232cb29f9542d1178c269d9421e1da5a555e699))
+
 ## [4.2.0](http://github.com/benthevining/Limes/compare/v4.1.0...v4.2.0) (2022-04-21)
 
 
