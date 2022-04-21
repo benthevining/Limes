@@ -96,7 +96,7 @@ private:
 };
 
 
-template <typename T, size_t Alignment = 32>
+template <typename T, std::size_t Alignment = 32>
 class LIMES_EXPORT AlignedAllocator final
 {
 public:
@@ -124,12 +124,12 @@ public:
 
 	AlignedAllocator& operator= (AlignedAllocator&&) = delete;
 
-	bool operator== (const AlignedAllocator& other) const
+	bool operator== (const AlignedAllocator& other) const noexcept
 	{
 		return Alignment == other.getAlignment();
 	}
 
-	bool operator!= (const AlignedAllocator& other) const
+	bool operator!= (const AlignedAllocator& other) const noexcept
 	{
 		return ! (*this == other);
 	}

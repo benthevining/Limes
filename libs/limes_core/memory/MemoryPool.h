@@ -15,7 +15,8 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 #include <type_traits>
-#include <cstdint>
+#include <cstddef>
+#include <vector>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -23,11 +24,25 @@ class LIMES_EXPORT MemoryPool final
 {
 public:
 
-	explicit MemoryPool (size_t storageSizeBytes);
+	explicit MemoryPool (std::size_t storageSizeBytes, std::size_t chunkSize = 32);
+
+	template <typename ObjectType>
+	explicit MemoryPool (std::size_t desiredCapacity)
+		: MemoryPool (desiredCapacity * sizeof (ObjectType), sizeof (ObjectType))
+	{
+	}
 
 	~MemoryPool();
 
-	[[nodiscard]] size_t getTotalSize() const noexcept;
+	MemoryPool (const MemoryPool&) = delete;
+
+	MemoryPool (MemoryPool&&) = delete;
+
+	MemoryPool& operator= (const MemoryPool&) = delete;
+
+	MemoryPool& operator= (MemoryPool&&) = delete;
+
+	[[nodiscard]] std::size_t getTotalSize() const noexcept;
 
 	template <typename ObjectType>
 	[[nodiscard]] int getTotalCapacity() const noexcept
@@ -35,7 +50,7 @@ public:
 		return static_cast<int> (getTotalSize() / sizeof (ObjectType));
 	}
 
-	[[nodiscard]] size_t getRemainingSpace() const noexcept;
+	[[nodiscard]] std::size_t getRemainingSpace() const noexcept;
 
 	template <typename ObjectType>
 	[[nodiscard]] int getRemainingCapacity() const noexcept
@@ -43,16 +58,16 @@ public:
 		return static_cast<int> (getRemainingSpace() / sizeof (ObjectType));
 	}
 
-	[[nodiscard]] void* allocate (size_t numBytesToAllocate, size_t alignmentBytes = 32);
+	[[nodiscard]] void* allocate (std::size_t numBytesToAllocate);
 
 	template <typename ObjectType>
-	[[nodiscard]] void* allocate (size_t alignmentBytes = alignof (ObjectType))
+	[[nodiscard]] void* allocate()
 	{
-		return allocate (sizeof (ObjectType), alignmentBytes);
+		return allocate (sizeof (ObjectType));
 	}
 
 	template <typename ObjectType, typename... Args>
-	[[nodiscard]] ObjectType* construct (Args&&... constructorArgs) const
+	[[nodiscard]] ObjectType* construct (Args&&... constructorArgs)
 	{
 		using Type = typename std::remove_cv<ObjectType>::type;
 
@@ -63,7 +78,7 @@ public:
 	}
 
 	template <typename ObjectType, typename... Args>
-	[[nodiscard]] ObjectType& constructOrBust (Args&&... constructorArgs) const
+	[[nodiscard]] ObjectType& constructOrBust (Args&&... constructorArgs)
 	{
 		using Type = typename std::remove_cv<ObjectType>::type;
 
@@ -73,21 +88,18 @@ public:
 		return *new Type (std::forward<Args> (constructorArgs)...);
 	}
 
-	void deallocate (void* ptr, size_t numBytes);
+	void deallocate (void* ptr, std::size_t numBytes);
 
 	template <typename ObjectType>
 	void deallocate (ObjectType* const object)
 	{
-		if (object != nullptr)
-			deallocate (static_cast<void*> (&object), sizeof (object));
+		deallocate (static_cast<void*> (&object), sizeof (object));
 	}
 
 	template <typename ObjectType>
 	void destruct (ObjectType& object)
 	{
-		if (owns (object))
-			deallocate (&object);
-
+		deallocate (&object);
 		object.~ObjectType();
 	}
 
@@ -99,15 +111,25 @@ public:
 		return contains (static_cast<void*> (&object));
 	}
 
+	[[nodiscard]] const void* const getMemoryRootLocation() const noexcept;
+
 private:
 
-	[[nodiscard]] size_t getCurrentPosition() const noexcept;
+	struct Chunk final
+	{
+		explicit Chunk (char* const ptr);
 
-	const size_t sizeBytes;
+		char* const location;
 
-	char* memory;
+		bool isAvailable { true };
+	};
 
-	char* marker = nullptr;
+	std::vector<Chunk> chunks;
+
+	const std::size_t totalSizeBytes;
+	const std::size_t chunkSizeBytes;
+
+	char* const memory;
 };
 
 LIMES_END_NAMESPACE

@@ -149,7 +149,7 @@ void Filter<SampleType>::processDefault (SampleType* buffer, int numSamples)
 			state[j] = (input * coeffs[j + 1])
 					 - (output * coeffs[order + j + 1]) + state[j + 1];
 
-		state[order - 1] = (input * coeffs[order]) - (output * coeffs[order * 2]);
+		state[order - 1] = (input * coeffs[order]) - (output * coeffs[static_cast<ptrdiff_t> (order * 2)]);
 	}
 
 	for (auto& e : state)

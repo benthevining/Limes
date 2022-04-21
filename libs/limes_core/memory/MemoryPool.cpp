@@ -13,12 +13,26 @@
 #include "MemoryPool.h"
 #include <limes_namespace.h>
 #include <limes_platform.h>
+#include <cstdlib>
+#include <cstddef>
+#include "../misc/Algorithm.h"
 
 LIMES_BEGIN_NAMESPACE
 
-MemoryPool::MemoryPool (size_t storageSizeBytes)
-	: sizeBytes (storageSizeBytes), memory (static_cast<char*> (malloc (storageSizeBytes))), marker (memory)
+MemoryPool::MemoryPool (std::size_t storageSizeBytes, std::size_t chunkSize)
+	: totalSizeBytes (storageSizeBytes), chunkSizeBytes (chunkSize), memory (static_cast<char*> (malloc (storageSizeBytes)))
 {
+	const auto totalNumChunks = static_cast<int> (std::ceil (static_cast<float> (totalSizeBytes) / static_cast<float> (chunkSizeBytes)));
+
+	chunks.reserve (totalNumChunks);
+
+	auto* location = memory;
+
+	for (auto i = 0; i < totalNumChunks; ++i)
+	{
+		chunks.emplace_back (location);
+		location += chunkSizeBytes;
+	}
 }
 
 MemoryPool::~MemoryPool()
@@ -26,73 +40,93 @@ MemoryPool::~MemoryPool()
 	free (memory);
 }
 
-size_t MemoryPool::getCurrentPosition() const noexcept
+std::size_t MemoryPool::getTotalSize() const noexcept
 {
-	return reinterpret_cast<size_t> (marker);
+	return totalSizeBytes;
 }
 
-size_t MemoryPool::getTotalSize() const noexcept
+std::size_t MemoryPool::getRemainingSpace() const noexcept
 {
-	return sizeBytes;
+	const auto availableChunks = alg::num_of (chunks, [] (const Chunk& c)
+											  { return c.isAvailable; });
+
+	return availableChunks * chunkSizeBytes;
 }
 
-size_t MemoryPool::getRemainingSpace() const noexcept
+void* MemoryPool::allocate (std::size_t numBytesToAllocate)
 {
-	return sizeBytes - getCurrentPosition();
-}
+	const auto numChunks = static_cast<int> (std::ceil (static_cast<float> (numBytesToAllocate) / static_cast<float> (chunkSizeBytes)));
 
-void* MemoryPool::allocate (size_t numBytesToAllocate, size_t alignmentBytes)
-{
-	LIMES_ASSERT (marker != nullptr);
-
-	if (numBytesToAllocate > getRemainingSpace())
-		return nullptr;
-
-	const auto allocationSize = [numBytesToAllocate, alignmentBytes]() -> size_t
+	// find first occurrence of numChunks consecutive chunks that are all available
+	const auto startingChunkIdx = [numChunks, this]
 	{
-		const auto remainder = static_cast<size_t> (numBytesToAllocate % alignmentBytes);
+		for (auto firstChunkIdx = 0; firstChunkIdx + numChunks < chunks.size(); ++firstChunkIdx)
+		{
+			const auto thisChunkWorks = [numChunks, firstChunkIdx, this]
+			{
+				for (auto i = 0; i < numChunks; ++i)
+					if (! chunks[firstChunkIdx + i].isAvailable)
+						return false;
 
-		if (remainder != 0)
-			return numBytesToAllocate + (alignmentBytes - remainder);
+				return true;
+			}();
 
-		return numBytesToAllocate;
+			if (thisChunkWorks)
+				return firstChunkIdx;
+		}
+
+		return -1;
 	}();
 
-	const auto pos = getCurrentPosition() + allocationSize - reinterpret_cast<size_t> (memory);
+	if (startingChunkIdx == -1)
+		return nullptr;
 
-	if (pos > 0 && pos < sizeBytes)
+	for (auto i = 0; i < numChunks; ++i)
 	{
-		auto* const newAddress = static_cast<void*> (marker);
-		marker += allocationSize;
-		return newAddress;
+		LIMES_ASSERT (chunks[startingChunkIdx + i].isAvailable);
+		chunks[startingChunkIdx + i].isAvailable = false;
 	}
 
-	LIMES_ASSERT_FALSE;
-	return nullptr;
+	return static_cast<void*> (chunks[startingChunkIdx].location);
 }
 
-void MemoryPool::deallocate (void* ptr, size_t numBytes)
+void MemoryPool::deallocate (void* ptr, std::size_t numBytes)
 {
-	LIMES_ASSERT (contains (ptr));
+	if (ptr == nullptr)
+		return;
 
-	// if the freed memory is at the end of the pool, and the marker is anywhere within the freed memory block,
-	// move the marker backwards to the beginning of the freed block
+	if (! contains (ptr))
+		return;
 
-	const auto ptr_pos = reinterpret_cast<size_t> (ptr);
+	const auto byteDistance = reinterpret_cast<intptr_t> (ptr) - reinterpret_cast<intptr_t> (memory);
 
-	if ((ptr_pos + numBytes) == reinterpret_cast<size_t> (memory) + sizeBytes)
+	const auto startChunkIdx = static_cast<int> (std::ceil (static_cast<float> (byteDistance) / static_cast<float> (chunkSizeBytes)));
+
+	LIMES_ASSERT (chunks[startChunkIdx].location == static_cast<char*> (ptr));
+
+	const auto numChunks = static_cast<int> (numBytes * chunkSizeBytes);
+
+	for (auto i = 0; i < numChunks; ++i)
 	{
-		const auto mark_pos = getCurrentPosition();
-
-		if (mark_pos >= ptr_pos && mark_pos <= ptr_pos + numBytes)
-			marker = static_cast<char*> (ptr);
+		LIMES_ASSERT (! chunks[startChunkIdx + i].isAvailable);
+		chunks[startChunkIdx + i].isAvailable = true;
 	}
 }
 
 bool MemoryPool::contains (void* ptr) const noexcept
 {
-	const auto mem_start = reinterpret_cast<size_t> (memory);
-	return reinterpret_cast<size_t> (ptr) >= mem_start && reinterpret_cast<size_t> (ptr) < mem_start + sizeBytes;
+	const auto mem_start = reinterpret_cast<std::size_t> (memory);
+	return reinterpret_cast<std::size_t> (ptr) >= mem_start && reinterpret_cast<std::size_t> (ptr) < mem_start + totalSizeBytes;
+}
+
+const void* const MemoryPool::getMemoryRootLocation() const noexcept
+{
+	return static_cast<void*> (memory);
+}
+
+MemoryPool::Chunk::Chunk (char* const ptr)
+	: location (ptr)
+{
 }
 
 LIMES_END_NAMESPACE

@@ -32,6 +32,7 @@
 #include "memory/StaticObjects.h"
 #include "memory/alignment.h"
 #include "memory/MemoryPool.h"
+#include "memory/MemoryPoolAllocator.h"
 
 #include "text/StringUtils.h"
 #include "text/TextTable.h"

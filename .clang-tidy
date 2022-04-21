@@ -8,6 +8,8 @@ Checks: >
     clang-analyzer-*,
     concurrency-*,
     cppcoreguidelines-*,
+    -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+    -cppcoreguidelines-pro-bounds-pointer-arithmetic,
     modernize-*,
     -modernize-use-trailing-return-type,
     performance-*,

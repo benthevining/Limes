@@ -17,11 +17,14 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/alignment.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/MemoryPool.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/MemoryPool.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/MemoryPoolAllocator.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/ReferenceCountedObject.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/SharedObject.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/StaticObjects.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/alignment.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/MemoryPool.h>)
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/MemoryPool.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/MemoryPoolAllocator.h>)
 
 install (FILES ReferenceCountedObject.h SharedObject.h StaticObjects.h alignment.h MemoryPool.h
-		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory" COMPONENT limes_core_dev)
+			   MemoryPoolAllocator.h DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory"
+		 COMPONENT limes_core_dev)
