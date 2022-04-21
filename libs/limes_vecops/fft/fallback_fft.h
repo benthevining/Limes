@@ -13,6 +13,7 @@
 #include "fft_common.h"
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -25,8 +26,6 @@ class LIMES_NO_EXPORT FallbackFFT final : public FFTImpl<SampleType>
 public:
 
 	explicit FallbackFFT (int size);
-
-	~FallbackFFT() final;
 
 	FallbackFFT (const FallbackFFT&) = delete;
 
@@ -73,16 +72,10 @@ private:
 
 	const int m_half { this->fft_size / 2 };
 
-	int*	m_table;
-	double* m_sincos;
-	double* m_sincos_r;
+	aligned_pointer<int> m_table;
 
-	double* m_vr;
-	double* m_vi;
-	double* m_a;
-	double* m_b;
-	double* m_c;
-	double* m_d;
+	aligned_pointer<double> m_sincos, m_sincos_r, m_vr, m_vi, m_a, m_b, m_c, m_d;
+
 	double* m_a_and_b[2] { m_a, m_b };
 	double* m_c_and_d[2] { m_c, m_d };
 };

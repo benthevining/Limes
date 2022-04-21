@@ -30,6 +30,7 @@
 #include "memory/ReferenceCountedObject.h"
 #include "memory/SharedObject.h"
 #include "memory/StaticObjects.h"
+#include "memory/alignment.h"
 
 #include "text/StringUtils.h"
 #include "text/TextTable.h"

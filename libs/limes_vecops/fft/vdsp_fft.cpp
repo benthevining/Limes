@@ -13,13 +13,7 @@
 #include "vdsp_fft.h"
 #include <limes_platform.h>
 #include <limes_namespace.h>
-
-// we'll probably never compile Apple vDSP with MSVC, but you never know.... ¯\_(ツ)_/¯
-#if LIMES_MSVC || LIMES_WINDOWS
-#	include <malloc.h>
-#else
-#	include <cstdlib>
-#endif
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -83,9 +77,11 @@ LIMES_FORCE_INLINE void vDSP_unpackComplex (SampleType* const		cplx,
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+static constexpr auto vDSPalignment = std::size_t (32);
+
 template <Scalar SampleType>
 vDSP_FFT<SampleType>::vDSP_FFT (int size)
-	: FFTImpl<SampleType> (size)
+	: FFTImpl<SampleType> (size), m_spare (this->fft_size + 2, vDSPalignment, SampleType (0)), m_spare2 (this->fft_size + 2, vDSPalignment, SampleType (0))
 {
 	static_assert (FFT<SampleType>::isUsingVDSP());
 
@@ -94,33 +90,11 @@ vDSP_FFT<SampleType>::vDSP_FFT (int size)
 	else
 		m_spec = vDSP_create_fftsetupD (this->m_order, FFT_RADIX2);
 
-	//!!! "If possible, tempBuffer->realp and tempBuffer->imagp should be 32-byte aligned for best performance."
+	m_buf.realp = allocate_aligned<SampleType> (this->fft_size, vDSPalignment, SampleType (0));
+	m_buf.imagp = allocate_aligned<SampleType> (this->fft_size, vDSPalignment, SampleType (0));
 
-	const auto fft_size_bytes	   = this->fft_size * sizeof (SampleType);
-	const auto fft_half_size_bytes = (this->fft_size / 2 + 1) * sizeof (SampleType);
-	const auto spare_size_bytes	   = (this->fft_size + 2) * sizeof (SampleType);
-
-	static constexpr auto alignment = size_t (32);
-
-#if LIMES_MSVC || LIMES_WINDOWS
-	m_buf.realp = static_cast<SampleType*> (_aligned_malloc (fft_size_bytes, alignment));
-	m_buf.imagp = static_cast<SampleType*> (_aligned_malloc (fft_size_bytes, alignment));
-
-	m_packed.realp = static_cast<SampleType*> (_aligned_malloc (fft_half_size_bytes, alignment));
-	m_packed.imagp = static_cast<SampleType*> (_aligned_malloc (fft_half_size_bytes, alignment));
-
-	m_spare	 = static_cast<SampleType*> (_aligned_malloc (spare_size_bytes, alignment));
-	m_spare2 = static_cast<SampleType*> (_aligned_malloc (spare_size_bytes, alignment));
-#else
-	m_buf.realp = static_cast<SampleType*> (std::aligned_alloc (alignment, fft_size_bytes));
-	m_buf.imagp = static_cast<SampleType*> (std::aligned_alloc (alignment, fft_size_bytes));
-
-	m_packed.realp = static_cast<SampleType*> (std::aligned_alloc (alignment, fft_half_size_bytes));
-	m_packed.imagp = static_cast<SampleType*> (std::aligned_alloc (alignment, fft_half_size_bytes));
-
-	m_spare	 = static_cast<SampleType*> (std::aligned_alloc (alignment, spare_size_bytes));
-	m_spare2 = static_cast<SampleType*> (std::aligned_alloc (alignment, spare_size_bytes));
-#endif
+	m_packed.realp = allocate_aligned<SampleType> (this->fft_size / 2 + 1, vDSPalignment, SampleType (0));
+	m_packed.imagp = allocate_aligned<SampleType> (this->fft_size / 2 + 1, vDSPalignment, SampleType (0));
 }
 
 template <Scalar SampleType>
@@ -131,21 +105,10 @@ vDSP_FFT<SampleType>::~vDSP_FFT()
 	else
 		vDSP_destroy_fftsetupD (m_spec);
 
-#if LIMES_MSVC || LIMES_WINDOWS
-	_aligned_free (m_spare);
-	_aligned_free (m_spare2);
-	_aligned_free (m_buf.realp);
-	_aligned_free (m_buf.imagp);
-	_aligned_free (m_packed.realp);
-	_aligned_free (m_packed.imagp);
-#else
-	free (m_spare);
-	free (m_spare2);
-	free (m_buf.realp);
-	free (m_buf.imagp);
-	free (m_packed.realp);
-	free (m_packed.imagp);
-#endif
+	deallocate_aligned (m_buf.realp);
+	deallocate_aligned (m_buf.imagp);
+	deallocate_aligned (m_packed.realp);
+	deallocate_aligned (m_packed.imagp);
 }
 
 template <Scalar SampleType>
@@ -305,7 +268,7 @@ void vDSP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType*
 {
 	const auto hs1 = this->fft_size / 2 + 1;
 
-	vecops::copy (m_spare, magIn, hs1);
+	vecops::copy (m_spare.get(), magIn, hs1);
 
 	if constexpr (std::is_same_v<SampleType, float>)
 	{

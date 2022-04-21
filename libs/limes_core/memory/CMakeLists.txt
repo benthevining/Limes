@@ -14,9 +14,11 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ReferenceCountedObject.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/SharedObject.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/StaticObjects.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/alignment.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/ReferenceCountedObject.h>
 			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/SharedObject.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/StaticObjects.h>)
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/StaticObjects.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory/alignment.h>)
 
-install (FILES ReferenceCountedObject.h SharedObject.h StaticObjects.h
+install (FILES ReferenceCountedObject.h SharedObject.h StaticObjects.h alignment.h
 		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/memory" COMPONENT limes_core_dev)

@@ -12,89 +12,70 @@
 
 #include "fallback_fft.h"
 #include <limes_platform.h>
-
-#if LIMES_MSVC || LIMES_WINDOWS
-#	include <malloc.h>
-#else
-#	include <cstdlib>
-#endif
-
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
 {
 
+static constexpr auto FFTalignment = std::size_t (32);
+
 template <Scalar SampleType>
 FallbackFFT<SampleType>::FallbackFFT (int size)
-	: FFTImpl<SampleType> (size)
+	: FFTImpl<SampleType> (size),
+	  m_table (m_half, FFTalignment, 0),
+	  m_sincos (m_blockTableSize * 4, FFTalignment, SampleType (0)),
+	  m_sincos_r (m_half, FFTalignment, SampleType (0)),
+	  m_vr (m_half, FFTalignment, SampleType (0)),
+	  m_vi (m_half, FFTalignment, SampleType (0)),
+	  m_a (m_half + 1, FFTalignment, SampleType (0)),
+	  m_b (m_half + 1, FFTalignment, SampleType (0)),
+	  m_c (m_half + 1, FFTalignment, SampleType (0)),
+	  m_d (m_half + 1, FFTalignment, SampleType (0))
 {
-	static constexpr auto alignment = size_t (32);
+	const auto bits = [halfSize = m_half]
+	{
+		for (auto i = 0;; ++i)
+			if ((halfSize & (1 << i)) != 0)
+				return i;
 
-#if LIMES_MSVC || LIMES_WINDOWS
-	m_table = static_cast<int*> (_aligned_malloc (m_half * sizeof (int), alignment));
-#else
-	m_table = static_cast<int*> (std::aligned_alloc (alignment, m_half * sizeof (int)));
-#endif
+		LIMES_ASSERT_FALSE;
+		return 0;
+	}();
 
 	for (auto i = 0; i < m_half; ++i)
-		m_table[i] = 0;
-
-	auto alloc_and_zero = [] (int numElements)
 	{
-		const auto bytes = numElements * sizeof (double);
+		auto m = i;
+		auto k = 0;
 
-#if LIMES_MSVC || LIMES_WINDOWS
-		auto* const ptr = static_cast<double*> (_aligned_malloc (bytes, alignment));
-#else
-		auto* const ptr = static_cast<double*> (std::aligned_alloc (alignment, bytes));
-#endif
+		for (auto j = 0; j < bits; ++j)
+		{
+			k = (k << 1) | (m & 1);
+			m >>= 1;
+		}
 
-		for (auto i = 0; i < numElements; ++i)
-			ptr[i] = 0.;
+		m_table[i] = k;
+	}
 
-		return ptr;
-	};
+	// sin and cos tables for complex fft
+	for (auto i = 2, ix = 0; i <= m_maxTabledBlock; i <<= 1)
+	{
+		const auto phase = 2. * math::constants::pi<double> / double (i);
+		m_sincos[ix++]	 = std::sin (phase);
+		m_sincos[ix++]	 = std::sin (2. * phase);
+		m_sincos[ix++]	 = std::cos (phase);
+		m_sincos[ix++]	 = std::cos (2. * phase);
+	}
 
-	m_vr	   = alloc_and_zero (m_half);
-	m_vi	   = alloc_and_zero (m_half);
-	m_sincos_r = alloc_and_zero (m_half);
-
-	m_a = alloc_and_zero (m_half + 1);
-	m_b = alloc_and_zero (m_half + 1);
-	m_c = alloc_and_zero (m_half + 1);
-	m_d = alloc_and_zero (m_half + 1);
-
-	m_sincos = alloc_and_zero (m_blockTableSize * 4);
-
-	makeTables();
-}
-
-template <Scalar SampleType>
-FallbackFFT<SampleType>::~FallbackFFT()
-{
-#if LIMES_MSVC || LIMES_WINDOWS
-	_aligned_free (m_table);
-	_aligned_free (m_sincos);
-	_aligned_free (m_sincos_r);
-	_aligned_free (m_vr);
-	_aligned_free (m_vi);
-	_aligned_free (m_a);
-	_aligned_free (m_b);
-	_aligned_free (m_c);
-	_aligned_free (m_d);
-#else
-	free (m_table);
-	free (m_sincos);
-	free (m_sincos_r);
-	free (m_vr);
-	free (m_vi);
-	free (m_a);
-	free (m_b);
-	free (m_c);
-	free (m_d);
-#endif
+	// sin and cos tables for real-complex transform
+	for (auto i = 0, ix = 0; i < m_half / 2; ++i)
+	{
+		const auto phase = math::constants::pi<double> * (double (i + 1) / double (m_half) + 0.5);
+		m_sincos_r[ix++] = std::sin (phase);
+		m_sincos_r[ix++] = std::cos (phase);
+	}
 }
 
 template <Scalar SampleType>
@@ -135,11 +116,11 @@ void FallbackFFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType
 
 	if constexpr (std::is_same_v<SampleType, double>)
 	{
-		vecops::cartesianToPolar (magOut, phaseOut, m_c, m_d, m_half + 1);
+		vecops::cartesianToPolar (magOut, phaseOut, m_c.get(), m_d.get(), m_half + 1);
 	}
 	else
 	{
-		vecops::cartesianToPolar (m_a, m_b, m_c, m_d, m_half + 1);
+		vecops::cartesianToPolar (m_a.get(), m_b.get(), m_c.get(), m_d.get(), m_half + 1);
 		// convert m_a -> magOut, m_b -> phaseOut
 	}
 }
@@ -151,11 +132,11 @@ void FallbackFFT<SampleType>::forwardMagnitude (const SampleType* realIn, Sample
 
 	if constexpr (std::is_same_v<SampleType, double>)
 	{
-		vecops::cartesianToMagnitudes (magOut, m_c, m_d, m_half + 1);
+		vecops::cartesianToMagnitudes (magOut, m_c.get(), m_d.get(), m_half + 1);
 	}
 	else
 	{
-		vecops::cartesianToMagnitudes (m_a, m_c, m_d, m_half + 1);
+		vecops::cartesianToMagnitudes (m_a.get(), m_c.get(), m_d.get(), m_half + 1);
 		// convert m_a -> magOut
 	}
 }
@@ -196,12 +177,12 @@ void FallbackFFT<SampleType>::inversePolar (const SampleType* magIn, const Sampl
 {
 	if constexpr (std::is_same_v<SampleType, double>)
 	{
-		vecops::polarToCartesian (m_a, m_b, magIn, phaseIn, m_half + 1);
+		vecops::polarToCartesian (m_a.get(), m_b.get(), magIn, phaseIn, m_half + 1);
 	}
 	else
 	{
 		// convert magIn -> m_c, phaseIn -> m_d
-		vecops::polarToCartesian (m_a, m_b, m_c, m_d, m_half + 1);
+		vecops::polarToCartesian (m_a.get(), m_b.get(), m_c.get(), m_d.get(), m_half + 1);
 	}
 
 	transformI (m_a, m_b, realOut);
@@ -376,52 +357,6 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformComplex (const double*
 		}
 
 		blockEnd = blockSize;
-	}
-}
-
-template <Scalar SampleType>
-inline void FallbackFFT<SampleType>::makeTables()
-{
-	const auto bits = [halfSize = m_half]
-	{
-		for (auto i = 0;; ++i)
-			if ((halfSize & (1 << i)) != 0)
-				return i;
-
-		// jassertfalse;
-		return 0;
-	}();
-
-	for (auto i = 0; i < m_half; ++i)
-	{
-		auto m = i;
-		auto k = 0;
-
-		for (auto j = 0; j < bits; ++j)
-		{
-			k = (k << 1) | (m & 1);
-			m >>= 1;
-		}
-
-		m_table[i] = k;
-	}
-
-	// sin and cos tables for complex fft
-	for (auto i = 2, ix = 0; i <= m_maxTabledBlock; i <<= 1)
-	{
-		const auto phase = 2. * math::constants::pi<double> / double (i);
-		m_sincos[ix++]	 = std::sin (phase);
-		m_sincos[ix++]	 = std::sin (2. * phase);
-		m_sincos[ix++]	 = std::cos (phase);
-		m_sincos[ix++]	 = std::cos (2. * phase);
-	}
-
-	// sin and cos tables for real-complex transform
-	for (auto i = 0, ix = 0; i < m_half / 2; ++i)
-	{
-		const auto phase = math::constants::pi<double> * (double (i + 1) / double (m_half) + 0.5);
-		m_sincos_r[ix++] = std::sin (phase);
-		m_sincos_r[ix++] = std::cos (phase);
 	}
 }
 

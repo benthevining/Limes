@@ -16,6 +16,7 @@
 #include <limes_export.h>
 #include <type_traits>
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -69,9 +70,10 @@ private:
 
 	using DSPComplexType = std::conditional_t<std::is_same_v<SampleType, float>, DSPComplex, DSPDoubleComplex>;
 
-	FFTSetupType		m_spec;
-	SampleType*			m_spare;
-	SampleType*			m_spare2;
+	FFTSetupType m_spec;
+
+	aligned_pointer<SampleType> m_spare, m_spare2;
+
 	DSPSplitComplexType m_buf, m_packed;
 };
 
