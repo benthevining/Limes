@@ -1,5 +1,17 @@
 # Limes changelog
 
+## [4.4.0](http://github.com/benthevining/Limes/compare/v4.3.0...v4.4.0) (2022-04-21)
+
+
+### Features
+
+* added a basic arena-style allocator ([0ac4b21](http://github.com/benthevining/Limes/commit/0ac4b216859d262b2eeb70164a643ea96d8a163f))
+
+
+### Bug Fixes
+
+* const correctness bug in memory pool allocator ([4bbe2d2](http://github.com/benthevining/Limes/commit/4bbe2d224874684256c1babc699bc62dd8358b72))
+
 ## [4.3.0](http://github.com/benthevining/Limes/compare/v4.2.0...v4.3.0) (2022-04-21)
 
 
