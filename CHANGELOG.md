@@ -1,5 +1,19 @@
 # Limes changelog
 
+## [4.2.0](http://github.com/benthevining/Limes/compare/v4.1.0...v4.2.0) (2022-04-21)
+
+
+### Features
+
+* added utilities for getting info about the build time & date, and some geometry functions ([3b766fb](http://github.com/benthevining/Limes/commit/3b766fb42b7c190200883afa6b5dc7601a3d3ae4))
+
+
+### Bug Fixes
+
+* added missing floating point flags for GCC ([4562829](http://github.com/benthevining/Limes/commit/456282952c2394456344c1b64da2c334a8489908))
+* consteval bug in build date functions ([6bda524](http://github.com/benthevining/Limes/commit/6bda524316429ad15ce8a7707e3b9eacfc8fe813))
+* GCC floating point flags for vecops ([4802ef4](http://github.com/benthevining/Limes/commit/4802ef4ec8e8e864f016ecd0cc9fba700fcc27ad))
+
 ## [4.1.0](http://github.com/benthevining/Limes/compare/v4.0.0...v4.1.0) (2022-04-19)
 
 
