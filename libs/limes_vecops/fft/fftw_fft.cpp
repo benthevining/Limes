@@ -23,6 +23,7 @@
 #include <limes_vecops.h>	 // for copy, cartesianInterleavedToMagnitudes
 #include <limes_platform.h>	 // for LIMES_FORCE_INLINE
 #include <limes_namespace.h>
+#include <filesystem>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -92,18 +93,22 @@ LIMES_FORCE_INLINE void fftw_unpack (SampleType* re, SampleType* im,
 // this is the public interface for wisdom
 namespace fftw
 {
-static std::string widom_file_dir;		// NOLINT
-static std::mutex  wisdom_lock;			// NOLINT
-static bool		   useWisdom { true };	// NOLINT
+static std::filesystem::path widom_file_dir;	  // NOLINT
+static std::mutex			 wisdom_lock;		  // NOLINT
+static bool					 useWisdom { true };  // NOLINT
 
-void setWisdomFileDir (const std::string_view& dirAbsPath)
+bool setWisdomFileDir (const std::filesystem::path& dirAbsPath)
 {
 	const std::lock_guard g { wisdom_lock };
 
+	if (dirAbsPath.empty() || ! dirAbsPath.is_absolute())
+		return false;
+
 	widom_file_dir = dirAbsPath;
+	return true;
 }
 
-std::string getWisdomFileDir()
+std::filesystem::path getWisdomFileDir()
 {
 	const std::lock_guard g { wisdom_lock };
 

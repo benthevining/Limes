@@ -17,6 +17,7 @@
 #include <string_view>	   // for string_view
 #include <limes_vecops.h>  // for concept Scalar
 #include <limes_namespace.h>
+#include <filesystem>
 
 #ifndef LIMES_VECOPS_USE_FFTW
 #	if __has_include(<fftw3.h>)
@@ -105,9 +106,9 @@ private:
 #if LIMES_VECOPS_USE_FFTW
 namespace fftw
 {
-LIMES_EXPORT void setWisdomFileDir (const std::string_view& dirAbsPath);
+LIMES_EXPORT bool setWisdomFileDir (const std::filesystem::path& dirAbsPath);
 
-LIMES_EXPORT [[nodiscard]] std::string getWisdomFileDir();
+LIMES_EXPORT [[nodiscard]] std::filesystem::path getWisdomFileDir();
 
 LIMES_EXPORT void enableWisdom (bool shouldUseWisdom);
 
