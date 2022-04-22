@@ -15,13 +15,20 @@
 #include <limes_platform.h>
 #include <cstdlib>
 #include <cstddef>
+#include "../math/mathHelpers.h"
 #include "../misc/Algorithm.h"
 
 LIMES_BEGIN_NAMESPACE
 
 MemoryPool::MemoryPool (std::size_t storageSizeBytes, std::size_t chunkSize)
-	: totalSizeBytes (storageSizeBytes), chunkSizeBytes (chunkSize), memory (static_cast<char*> (malloc (storageSizeBytes)))
+	: totalSizeBytes (storageSizeBytes),
+	  chunkSizeBytes (chunkSize),
+	  memory (static_cast<std::byte*> (malloc (storageSizeBytes)))
 {
+	LIMES_ASSERT (memory != nullptr);
+	LIMES_ASSERT (totalSizeBytes >= chunkSizeBytes);
+	LIMES_ASSERT (math::isDivisibleBy (totalSizeBytes, chunkSizeBytes));
+
 	const auto totalNumChunks = static_cast<int> (std::ceil (static_cast<float> (totalSizeBytes) / static_cast<float> (chunkSizeBytes)));
 
 	chunks.reserve (totalNumChunks);
@@ -57,28 +64,41 @@ void* MemoryPool::allocate (std::size_t numBytesToAllocate)
 {
 	const auto numChunks = static_cast<int> (std::ceil (static_cast<float> (numBytesToAllocate) / static_cast<float> (chunkSizeBytes)));
 
+	if (numChunks < 1)
+		return nullptr;
+
+	static constexpr auto NO_START_FOUND = -1;
+
 	// find first occurrence of numChunks consecutive chunks that are all available
 	const auto startingChunkIdx = [numChunks, this]
 	{
-		for (auto firstChunkIdx = 0; firstChunkIdx + numChunks < chunks.size(); ++firstChunkIdx)
+		for (auto firstChunkIdx = 0;
+			 firstChunkIdx + numChunks < chunks.size();
+			 ++firstChunkIdx)  // NB need to KEEP this increment here, even though firstChunkIdx is also advanced down below
 		{
-			const auto thisChunkWorks = [numChunks, firstChunkIdx, this]
+			static constexpr auto CHUNK_WORKS = -1;
+
+			const auto chunkThatsNotAvail = [numChunks, firstChunkIdx, this]
 			{
 				for (auto i = 0; i < numChunks; ++i)
 					if (! chunks[firstChunkIdx + i].isAvailable)
-						return false;
+						return i;
 
-				return true;
+				return CHUNK_WORKS;
 			}();
 
-			if (thisChunkWorks)
+			if (chunkThatsNotAvail == CHUNK_WORKS)
 				return firstChunkIdx;
+
+			// avoid unnecessary re-checking of chunks we already
+			// know are unavailable on the next loop iteration
+			firstChunkIdx += chunkThatsNotAvail;
 		}
 
-		return -1;
+		return NO_START_FOUND;
 	}();
 
-	if (startingChunkIdx == -1)
+	if (startingChunkIdx == NO_START_FOUND)
 		return nullptr;
 
 	for (auto i = 0; i < numChunks; ++i)
@@ -100,11 +120,16 @@ void MemoryPool::deallocate (void* ptr, std::size_t numBytes)
 
 	const auto byteDistance = reinterpret_cast<intptr_t> (ptr) - reinterpret_cast<intptr_t> (memory);
 
+	LIMES_ASSERT (byteDistance >= 0);
+
 	const auto startChunkIdx = static_cast<int> (std::ceil (static_cast<float> (byteDistance) / static_cast<float> (chunkSizeBytes)));
 
-	LIMES_ASSERT (chunks[startChunkIdx].location == static_cast<char*> (ptr));
+	LIMES_ASSERT (startChunkIdx >= 0);
+	LIMES_ASSERT (chunks[startChunkIdx].location == static_cast<std::byte*> (ptr));
 
-	const auto numChunks = static_cast<int> (numBytes * chunkSizeBytes);
+	const auto numChunks = static_cast<int> (std::ceil (static_cast<float> (numBytes) / static_cast<float> (chunkSizeBytes)));
+
+	LIMES_ASSERT (numChunks > 0);
 
 	for (auto i = 0; i < numChunks; ++i)
 	{
@@ -124,7 +149,7 @@ const void* const MemoryPool::getMemoryRootLocation() const noexcept
 	return static_cast<void*> (memory);
 }
 
-MemoryPool::Chunk::Chunk (char* const ptr)
+MemoryPool::Chunk::Chunk (std::byte* const ptr)
 	: location (ptr)
 {
 }

@@ -31,8 +31,11 @@
 #include "memory/SharedObject.h"
 #include "memory/StaticObjects.h"
 #include "memory/alignment.h"
+#include "memory/AlignedAllocator.h"
 #include "memory/MemoryPool.h"
 #include "memory/MemoryPoolAllocator.h"
+#include "memory/stack_allocator.h"
+#include "memory/OptionalObject.h"
 
 #include "text/StringUtils.h"
 #include "text/TextTable.h"

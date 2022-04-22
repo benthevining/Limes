@@ -102,6 +102,8 @@ libs/limes_core/math/geometry/CMakeLists.txt benthevining
 libs/limes_core/math/mathHelpers.h benthevining
 libs/limes_core/math/math_staticAsserts.cpp benthevining
 libs/limes_core/memory/CMakeLists.txt benthevining
+libs/limes_core/memory/MemoryPool.cpp benthevining
+libs/limes_core/memory/MemoryPool.h benthevining
 libs/limes_core/memory/MemoryPoolAllocator.h benthevining
 libs/limes_core/memory/ReferenceCountedObject.cpp benthevining
 libs/limes_core/memory/ReferenceCountedObject.h benthevining
@@ -144,6 +146,7 @@ libs/limes_data_structures/data_structures/Dimensions.h benthevining
 libs/limes_data_structures/data_structures/LinkedListModel.h benthevining
 libs/limes_data_structures/data_structures/LinkedListModel_impl.h benthevining
 libs/limes_data_structures/data_structures/Version.h benthevining
+libs/limes_data_structures/data_structures/dimensions.proto benthevining
 libs/limes_data_structures/fifo/AbstractFIFO.cpp benthevining
 libs/limes_data_structures/fifo/CMakeLists.txt benthevining
 libs/limes_data_structures/limes_data_structures.h benthevining
