@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [4.5.0](http://github.com/benthevining/Limes/compare/v4.4.0...v4.5.0) (2022-04-22)
+
+
+### Features
+
+* added stack allocator, optional object classes ([82374a6](http://github.com/benthevining/Limes/commit/82374a6918525d1320107032ece547cb11453841))
+
 ## [4.4.0](http://github.com/benthevining/Limes/compare/v4.3.0...v4.4.0) (2022-04-21)
 
 
