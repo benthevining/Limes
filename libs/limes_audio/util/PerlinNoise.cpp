@@ -28,12 +28,6 @@ template <Sample SampleType>
 }
 
 template <Sample SampleType>
-[[nodiscard]] static inline SampleType lerp (SampleType t, SampleType a, SampleType b)
-{
-	return a + t * (b - a);
-}
-
-template <Sample SampleType>
 [[nodiscard]] static inline SampleType grad (int hash, SampleType x, SampleType y, SampleType z)
 {
 	const auto h = hash & 15;
@@ -137,27 +131,27 @@ SampleType PerlinNoise<SampleType>::getNextSample (SampleType x, SampleType y, S
 	const auto idxBA = state[idxB] + Z;
 	const auto idxBB = state[idxB + 1] + Z;
 
-	const auto lerp1 = lerp (u,
-							 grad (state[idxAB + 1], x, y - 1, z - 1),
-							 grad (state[idxBB + 1], x - 1, y - 1, z - 1));
+	const auto lerp1 = std::lerp (grad (state[idxAB + 1], x, y - 1, z - 1),
+								  grad (state[idxBB + 1], x - 1, y - 1, z - 1),
+								  u);
 
-	const auto lerp2 = lerp (u,
-							 grad (state[idxAA + 1], x, y, z - 1),
-							 grad (state[idxBA + 1], x - 1, y, z - 1));
+	const auto lerp2 = std::lerp (grad (state[idxAA + 1], x, y, z - 1),
+								  grad (state[idxBA + 1], x - 1, y, z - 1),
+								  u);
 
-	const auto lerp3 = lerp (u,
-							 grad (state[idxAB], x, y - 1, z),
-							 grad (state[idxBB], x - 1, y - 1, z));
+	const auto lerp3 = std::lerp (grad (state[idxAB], x, y - 1, z),
+								  grad (state[idxBB], x - 1, y - 1, z),
+								  u);
 
-	const auto lerp4 = lerp (u,
-							 grad (state[idxAA], x, y, z),
-							 grad (state[idxBA], x - 1, y, z));
+	const auto lerp4 = std::lerp (grad (state[idxAA], x, y, z),
+								  grad (state[idxBA], x - 1, y, z),
+								  u);
 
 	const auto v = fade (y);
 
-	const auto res = lerp (fade (z),
-						   lerp (v, lerp4, lerp3),
-						   lerp (v, lerp2, lerp1));
+	const auto res = std::lerp (std::lerp (v, lerp4, lerp3),
+								std::lerp (v, lerp2, lerp1),
+								fade (z));
 
 	return (res + SampleType (1.)) / SampleType (2.);
 }

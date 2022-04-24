@@ -13,6 +13,7 @@
 #pragma once
 
 #include <limes_platform.h>
+#include <utility>
 
 #if LIMES_MSVC
 #	define LIMES_BLOCK_WITH_FORCED_SEMICOLON(statement)         \
@@ -36,3 +37,10 @@
 #define LIMES_CONCATENATE_HELPER(a, b) a##b
 
 #define LIMES_CONCATENATE(item1, item2) LIMES_CONCATENATE_HELPER (item1, item2)
+
+
+#if __cpp_lib_unreachable
+#	define LIMES_UNREACHABLE ::std::unreachable();
+#else
+#	define LIMES_UNREACHABLE LIMES_ASSERT_FALSE;
+#endif

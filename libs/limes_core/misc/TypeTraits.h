@@ -13,6 +13,7 @@
 #pragma once
 
 #include <type_traits>
+#include <typeinfo>
 #include <string>
 #include <vector>
 #include <list>

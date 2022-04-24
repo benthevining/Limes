@@ -37,6 +37,11 @@
 #include "memory/stack_allocator.h"
 #include "memory/OptionalObject.h"
 
+#include "files/FilesystemEntry.h"
+#include "files/file.h"
+#include "files/directory.h"
+#include "files/sym_link.h"
+
 #include "text/StringUtils.h"
 #include "text/TextTable.h"
 

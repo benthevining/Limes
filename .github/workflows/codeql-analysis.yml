@@ -1,6 +1,8 @@
 ---
 name: CodeQL
 
+# yamllint disable rule:line-length
+
 on:
     push:
         branches: [main]
@@ -41,7 +43,7 @@ jobs:
                   restore-keys: codeql_analysis.
 
             - name: Run CMake
-              run: cmake --preset default -G Ninja
+              run: CC=gcc-10 CXX=g++-10 cmake --preset default -G Ninja -D CMAKE_C_COMPILER=gcc-10 -D CMAKE_CXX_COMPILER=g++-10
 
             - name: Run build
               run: cmake --build --preset default

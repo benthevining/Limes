@@ -14,7 +14,7 @@
 #include <limes_data_structures.h>
 #include <tests_config.h>
 #include "audio_test_utils.h"
-#include <catch2/catch_test_macros.hpp>
+#include <catch2/catch_template_test_macros.hpp>
 #include <catch2/catch_approx.hpp>
 
 TEMPLATE_TEST_CASE ("Circular buffer", "[audio]", float, double)

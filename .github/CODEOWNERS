@@ -72,8 +72,10 @@ libs/limes_audio/streams/basic_oscillators.h benthevining
 libs/limes_audio/streams/oscillator.cpp benthevining
 libs/limes_audio/streams/oscillator.h benthevining
 libs/limes_audio/util/CMakeLists.txt benthevining
+libs/limes_audio/util/CircularBuffer.cpp benthevining
 libs/limes_audio/util/Misc.h benthevining
 libs/limes_audio/util/MonoStereoConverter.cpp benthevining
+libs/limes_audio/util/MonoStereoConverter.h benthevining
 libs/limes_audio/util/PerlinNoise.cpp benthevining
 libs/limes_audio/util/PitchDetector.cpp benthevining
 libs/limes_audio/util/PitchDetector.h benthevining
@@ -98,9 +100,12 @@ libs/limes_core/math/Fraction.h benthevining
 libs/limes_core/math/Fraction_impl.h benthevining
 libs/limes_core/math/Random.cpp benthevining
 libs/limes_core/math/Random.h benthevining
+libs/limes_core/math/fraction_staticAsserts.cpp benthevining
 libs/limes_core/math/geometry/CMakeLists.txt benthevining
+libs/limes_core/math/geometry/perimeter.h benthevining
 libs/limes_core/math/mathHelpers.h benthevining
 libs/limes_core/math/math_staticAsserts.cpp benthevining
+libs/limes_core/memory/AlignedAllocator.h benthevining
 libs/limes_core/memory/CMakeLists.txt benthevining
 libs/limes_core/memory/MemoryPool.cpp benthevining
 libs/limes_core/memory/MemoryPool.h benthevining
@@ -119,6 +124,7 @@ libs/limes_core/misc/TypeTraits.h benthevining
 libs/limes_core/misc/Version.cpp benthevining
 libs/limes_core/misc/Version.h benthevining
 libs/limes_core/misc/languages.cpp benthevining
+libs/limes_core/misc/preprocessor.h benthevining
 libs/limes_core/misc/version.proto benthevining
 libs/limes_core/text/CMakeLists.txt benthevining
 libs/limes_core/text/StringUtils.cpp benthevining
@@ -136,6 +142,7 @@ libs/limes_core/threading/RealtimeSafeObject/RealtimeSafeObject_impl.h benthevin
 libs/limes_core/threading/RealtimeTypeTraits.h benthevining
 libs/limes_core/threading/ThreadSafeObject.h benthevining
 libs/limes_core/threading/Threading.cpp benthevining
+libs/limes_core/threading/Threading.h benthevining
 libs/limes_core/time/build_date.h benthevining
 libs/limes_data_structures/CMakeLists.txt benthevining
 libs/limes_data_structures/README.md benthevining
@@ -157,6 +164,7 @@ libs/limes_data_structures/vectors/owned_vector.h benthevining
 libs/limes_data_structures/vectors/scalar_vector.h benthevining
 libs/limes_data_structures/vectors/vector.h benthevining
 libs/limes_locale/CMakeLists.txt benthevining
+libs/limes_locale/countries/CMakeLists.txt benthevining
 libs/limes_locale/countries/countries.cpp benthevining
 libs/limes_locale/countries/countries.h benthevining
 libs/limes_locale/languages/CMakeLists.txt benthevining

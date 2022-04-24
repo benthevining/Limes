@@ -15,6 +15,7 @@
 #include <limes_vecops.h>	 // for copy
 #include <limes_platform.h>	 // for LIMES_ASSERT, LIMES_ASSERT_FALSE
 #include <limes_namespace.h>
+#include <utility>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -76,7 +77,7 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* con
 			monoStorage.copyTo (monoOut, numSamples);
 			return;
 		}
-		default : LIMES_ASSERT_FALSE;
+		default : LIMES_UNREACHABLE;
 	}
 }
 

@@ -99,6 +99,7 @@ target_include_directories (
 add_subdirectory (math)
 add_subdirectory (time)
 add_subdirectory (misc)
+add_subdirectory (files)
 add_subdirectory (memory)
 add_subdirectory (threading)
 add_subdirectory (text)

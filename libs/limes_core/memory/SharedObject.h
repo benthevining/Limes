@@ -23,7 +23,8 @@ LIMES_BEGIN_NAMESPACE
 template <typename SuperType>
 struct LIMES_EXPORT SharedObject : public ReferenceCountedObject
 {
-	SharedObject() = default;
+	SharedObject()	= default;
+	~SharedObject() = default;
 
 	using Ptr = ReferenceCountedObjectPtr<SuperType>;
 
