@@ -129,7 +129,7 @@ repos:
       rev: v0.6.13
       hooks:
           - id: cmake-format
-            args: [--in-place]
+            args: [--in-place, --config-files, .cmake-format.json, util/oranges_cmake_commands.json, util/limes_cmake_commands.json]
           - id: cmake-lint
 
   # YAML

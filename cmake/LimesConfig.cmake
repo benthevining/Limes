@@ -20,6 +20,7 @@ The following components may be specified in calls to find_package:
 - Locale
 - Music
 - Vecops
+- BinaryBuilder
 
 ]]
 
@@ -59,7 +60,8 @@ set (
 	Music
 	Vecops
 	DataStructures
-	Locale)
+	Locale
+	BinaryBuilder)
 
 if(NOT Limes_FIND_COMPONENTS)
 	set (Limes_FIND_COMPONENTS ${limes_components})

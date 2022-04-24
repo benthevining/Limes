@@ -25,6 +25,12 @@
       "inherits": "default",
       "name": "maintainer",
       "verbose": true
+    },
+    {
+      "displayName": "Builds the BinaryBuilder",
+      "inherits": "default",
+      "name": "BinaryBuilder",
+      "targets": "BinaryBuilder"
     }
   ],
   "cmakeMinimumRequired": {

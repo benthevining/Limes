@@ -39,6 +39,7 @@ Targets
 - Limes::limes_audio
 - Limes::limes_data_structures
 - Limes::limes_locale
+- Limes::BinaryBuilder
 - Limes::Limes
 
 Install components
@@ -58,6 +59,8 @@ Install components
 - limes_dev
 - limes_runtime
 - limes_docs
+- limes_binary_builder_dev
+- limes_binary_builder_runtime
 
 Install component groups
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -67,6 +70,7 @@ Install component groups
 - limes_audio
 - limes_data_structures
 - limes_locale
+- limes_binary_builder
 - limes
 
 find_package components
@@ -78,6 +82,7 @@ find_package components
 - Locale
 - Music
 - Vecops
+- BinaryBuilder
 
 #]=======================================================================]
 
@@ -118,6 +123,7 @@ set (
 mark_as_advanced (FORCE LIMES_INSTALL_DEST)
 
 add_subdirectory (libs)
+add_subdirectory (binary_builder)
 
 option (LIMES_BUILD_TESTS "Build the Limes unit tests" OFF)
 
@@ -135,6 +141,10 @@ cpack_add_component (
 	INSTALL_TYPES Developer)
 
 #
+
+install (FILES "${CMAKE_CURRENT_LIST_DIR}/cmake/LimesConfigVersionHeader.cmake"
+			   "${CMAKE_CURRENT_LIST_DIR}/cmake/scripts/VersionHeader.h" COMPONENT limes_dev
+		 DESTINATION "${LIMES_INSTALL_DEST}/cmake")
 
 write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_VERSION}"
 								  COMPATIBILITY SameMajorVersion)

@@ -36,6 +36,8 @@ Limes consists of the following libraries:
 * [limes_music](libs/limes_music/README.md), for music-theory related concepts
 * [limes_vecops](libs/limes_vecops/README.md), for SIMD-accelerated vector operations
 
+Limes also provides a command-line BinaryBuilder tool, which can be used to embed binary resource files into generated C++ source files. There is also a CMake interface, see `cmake/LimesBinaryBuilder.cmake`
+
 ## Using Limes
 
 You can run `cmake --install` and then call `find_package (Limes)` from your consuming project, and everything should just work out of the box.
@@ -72,8 +74,9 @@ Limes creates the following CMake targets:
 * Limes::limes_midi
 * Limes::limes_data_structures
 * Limes::limes_locale
+- Limes::BinaryBuilder
 
-All of these are static library targets. Additionally, there is a `Limes::Limes` interface library target that links to all of the above targets.
+All of these are static library targets. Additionally, there is a `Limes::Limes` interface library target that links to all of the library targets (but not the BinaryBuilder).
 
 ### Install components
 
@@ -96,6 +99,8 @@ Limes creates the following CPack install components:
 * limes_dev (aggregate of all other dev components)
 * limes_runtime (aggregate of all other runtime components)
 * limes_docs
+* limes_binary_builder_dev
+* limes_binary_builder_runtime
 
 Limes also creates the following CPack install component groups:
 
@@ -106,6 +111,7 @@ Limes also creates the following CPack install component groups:
 * limes_midi
 * limes_data_structures
 * limes_locale
+* limes_binary_builder
 * limes (aggregate of all Limes components)
 
 ### find_package components
@@ -120,6 +126,7 @@ When you call `find_package (Limes)`, you can pass the following component names
 * Locale
 * Music
 * Vecops
+* BinaryBuilder
 
 If no component names are specified, Limes will default to importing everything.
 
