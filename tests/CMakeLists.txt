@@ -25,7 +25,11 @@ if(PROJECT_IS_TOP_LEVEL)
 	find_package (Limes "${PROJECT_VERSION}" EXACT REQUIRED CONFIG)
 
 	list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../cmake")
+
+	include (OrangesDefaultProjectSettings)
 endif()
+
+include (OrangesDefaultTarget)
 
 find_package (Catch2 3 REQUIRED)
 

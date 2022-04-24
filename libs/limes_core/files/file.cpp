@@ -97,12 +97,12 @@ bool File::appendText (const std::string& text) const
 
 bool File::overwriteWithText (const std::vector<std::string>& text) const
 {
-	overwriteWithText (linesToSingleString (text));
+	return overwriteWithText (linesToSingleString (text));
 }
 
 bool File::appendText (const std::vector<std::string>& text) const
 {
-	appendText (linesToSingleString (text));
+	return appendText (linesToSingleString (text));
 }
 
 std::string File::loadAsString() const
