@@ -35,6 +35,7 @@ CMakeLists.txt benthevining
 CMakePresets.json benthevining
 Makefile benthevining
 README.md benthevining
+binary_builder/CMakeLists.txt benthevining
 cmake/FindOranges.cmake benthevining
 cmake/LimesConfig.cmake benthevining
 cmake/LimesConfigVersionHeader.cmake benthevining

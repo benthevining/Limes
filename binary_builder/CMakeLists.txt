@@ -18,6 +18,10 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
+if(CMAKE_CROSSCOMPILING)
+	return()
+endif()
+
 project (
 	LimesBinaryBuilder
 	VERSION 4.5.0
@@ -31,7 +35,8 @@ enable_testing ()
 add_executable (BinaryBuilder main.cpp)
 
 set_target_properties (BinaryBuilder PROPERTIES VERSION "${PROJECT_VERSION}"
-												SOVERSION "${PROJECT_VERSION_MAJOR}")
+												SOVERSION "${PROJECT_VERSION_MAJOR}"
+												MACOSX_BUNDLE OFF)
 
 target_link_libraries (BinaryBuilder PRIVATE Oranges::OrangesDefaultTarget
 											 Oranges::OrangesUnityBuild)

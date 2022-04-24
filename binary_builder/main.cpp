@@ -244,7 +244,7 @@ void generateHeaderFile (const Options& options)
 
 void generateBodyFile (const Options& options)
 {
-	auto convertFileDataToCppSource = [] (const std::string& fileName, const std::string& fileId, std::ostream& stream)
+	auto convertFileDataToCppSource = [] (const std::filesystem::path& fileName, const std::string& fileId, std::ostream& stream)
 	{
 		assert (std::filesystem::is_regular_file (fileName));
 
@@ -252,7 +252,7 @@ void generateBodyFile (const Options& options)
 
 		if (! inputFile)
 		{
-			throw std::runtime_error { std::string ("Failed to open file ") + fileName };
+			throw std::runtime_error { std::string ("Failed to open file ") + fileName.string() };
 		}
 
 		// save formatting flags of the given stream
