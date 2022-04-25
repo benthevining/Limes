@@ -65,8 +65,6 @@ private:
 											  double* ro, double* io,
 											  bool inverse);
 
-	inline void makeTables();
-
 	static constexpr auto m_blockTableSize = 16;
 	static constexpr auto m_maxTabledBlock = 1 << m_blockTableSize;
 

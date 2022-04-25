@@ -22,7 +22,7 @@ std::string TextTable::Row::toString (const std::string&		 columnSeparator,
 {
 	std::string result;
 
-	auto index = 0;
+	std::vector<std::string>::size_type index = 0;
 
 	for (const auto width : widths)
 	{
@@ -103,10 +103,12 @@ std::vector<std::string> TextTable::getRows (const std::string& rowPrefix,
 	const auto widths = [this]
 	{
 		std::vector<size_t> widths_;
-		widths_.resize (getNumColumns());
+		widths_.resize (static_cast<std::vector<size_t>::size_type> (getNumColumns()));
 
 		for (const auto& row : rows)
-			for (auto i = 0; i < row.columns.size(); ++i)
+			for (std::vector<std::string>::size_type i = 0;
+				 i < row.columns.size();
+				 ++i)
 				widths_[i] = std::max (widths_[i], static_cast<size_t> (row.columns[i].length()));
 
 		return widths_;

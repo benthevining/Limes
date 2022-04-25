@@ -141,3 +141,9 @@ cpack_add_component_group (
 add_library (Limes::limes_vecops ALIAS limes_vecops)
 
 target_link_libraries (Limes INTERFACE Limes::limes_vecops)
+
+if(Limes_IS_TOP_LEVEL)
+	include (OrangesDefaultWarnings)
+
+	target_link_libraries (limes_vecops PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>)
+endif()

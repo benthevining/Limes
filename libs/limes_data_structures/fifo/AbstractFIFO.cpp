@@ -165,7 +165,7 @@ AbstractFIFO::ScopedWrite AbstractFIFO::write (int num)
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 AbstractFIFO::ScopedRead::ScopedRead (AbstractFIFO& fifo, int num)
-	: fifoModel (fifo), numObjects (num)
+	: numObjects (num), fifoModel (fifo)
 {
 	fifoModel.prepareToRead (num, startIndex1, blockSize1, startIndex2, blockSize2);
 }
@@ -177,7 +177,7 @@ AbstractFIFO::ScopedRead::~ScopedRead() noexcept
 
 
 AbstractFIFO::ScopedWrite::ScopedWrite (AbstractFIFO& fifo, int num)
-	: fifoModel (fifo), numObjects (num)
+	: numObjects (num), fifoModel (fifo)
 {
 	fifoModel.prepareToWrite (num, startIndex1, blockSize1, startIndex2, blockSize2);
 }

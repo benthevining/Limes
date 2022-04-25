@@ -42,7 +42,15 @@ repos:
       # create build directory for linters, to read CompileCommands.json
           - id: run-cmake
             name: Run CMake
-            entry: cmake -B Builds -G 'Unix Makefiles' -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+            entry: cmake --preset default -G 'Unix Makefiles' -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+            language: system
+            always_run: true
+            pass_filenames: false
+
+      # update dependency graph
+          - id: generate-deps-graph
+            name: Update deps graph
+            entry: cmake --build --preset deps_graph
             language: system
             always_run: true
             pass_filenames: false
@@ -174,7 +182,7 @@ repos:
             exclude: LICENSE
 
 ci:
-    skip: [cppcheck, gitown, check-jsonschema, run-cmake]
+    skip: [cppcheck, gitown, check-jsonschema, run-cmake, generate-deps-graph]
     autofix_commit_msg: 'style: pre-commit autofixes [skip ci]'
     autoupdate_commit_msg: 'chore: pre-commit autoupdate [skip ci]'
 

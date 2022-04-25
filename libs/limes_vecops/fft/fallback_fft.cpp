@@ -20,20 +20,20 @@ LIMES_BEGIN_NAMESPACE
 namespace vecops
 {
 
-static constexpr auto FFTalignment = std::size_t (32);
+static constexpr std::size_t FFTalignment = 32UL;
 
 template <Scalar SampleType>
 FallbackFFT<SampleType>::FallbackFFT (int size)
 	: FFTImpl<SampleType> (size),
-	  m_table (m_half, FFTalignment, 0),
+	  m_table (static_cast<std::size_t> (m_half), FFTalignment, 0),
 	  m_sincos (m_blockTableSize * 4, FFTalignment, SampleType (0)),
-	  m_sincos_r (m_half, FFTalignment, SampleType (0)),
-	  m_vr (m_half, FFTalignment, SampleType (0)),
-	  m_vi (m_half, FFTalignment, SampleType (0)),
-	  m_a (m_half + 1, FFTalignment, SampleType (0)),
-	  m_b (m_half + 1, FFTalignment, SampleType (0)),
-	  m_c (m_half + 1, FFTalignment, SampleType (0)),
-	  m_d (m_half + 1, FFTalignment, SampleType (0))
+	  m_sincos_r (static_cast<std::size_t> (m_half), FFTalignment, SampleType (0)),
+	  m_vr (static_cast<std::size_t> (m_half), FFTalignment, SampleType (0)),
+	  m_vi (static_cast<std::size_t> (m_half), FFTalignment, SampleType (0)),
+	  m_a (static_cast<std::size_t> (m_half) + 1, FFTalignment, SampleType (0)),
+	  m_b (static_cast<std::size_t> (m_half) + 1, FFTalignment, SampleType (0)),
+	  m_c (static_cast<std::size_t> (m_half) + 1, FFTalignment, SampleType (0)),
+	  m_d (static_cast<std::size_t> (m_half) + 1, FFTalignment, SampleType (0))
 {
 	const auto bits = [halfSize = m_half]
 	{
@@ -56,23 +56,24 @@ FallbackFFT<SampleType>::FallbackFFT (int size)
 			m >>= 1;
 		}
 
-		m_table[i] = k;
+		m_table[static_cast<std::size_t> (i)] = k;
 	}
 
 	// sin and cos tables for complex fft
-	for (auto i = 2, ix = 0; i <= m_maxTabledBlock; i <<= 1)
+	for (std::size_t i = 2, ix = 0; i <= m_maxTabledBlock; i <<= 1)
 	{
-		const auto phase = 2. * math::constants::pi<double> / double (i);
-		m_sincos[ix++]	 = std::sin (phase);
-		m_sincos[ix++]	 = std::sin (2. * phase);
-		m_sincos[ix++]	 = std::cos (phase);
-		m_sincos[ix++]	 = std::cos (2. * phase);
+		const auto phase = 2. * math::constants::pi<double> / static_cast<double> (i);
+
+		m_sincos[ix++] = std::sin (phase);
+		m_sincos[ix++] = std::sin (2. * phase);
+		m_sincos[ix++] = std::cos (phase);
+		m_sincos[ix++] = std::cos (2. * phase);
 	}
 
 	// sin and cos tables for real-complex transform
-	for (auto i = 0, ix = 0; i < m_half / 2; ++i)
+	for (std::size_t i = 0, ix = 0; i < static_cast<std::size_t> (m_half / 2); ++i)
 	{
-		const auto phase = math::constants::pi<double> * (double (i + 1) / double (m_half) + 0.5);
+		const auto phase = math::constants::pi<double> * (static_cast<double> (i + 1) / static_cast<double> (m_half) + 0.5);
 		m_sincos_r[ix++] = std::sin (phase);
 		m_sincos_r[ix++] = std::cos (phase);
 	}
@@ -104,8 +105,11 @@ void FallbackFFT<SampleType>::forwardInterleaved (const SampleType* realIn, Samp
 	}
 	else
 	{
-		for (auto i = 0; i <= m_half; ++i) complexOut[static_cast<ptrdiff_t> (i * 2)] = static_cast<SampleType> (m_c[i]);
-		for (auto i = 0; i <= m_half; ++i) complexOut[static_cast<ptrdiff_t> (i * 2 + 1)] = static_cast<SampleType> (m_d[i]);
+		for (std::size_t i = 0; i <= static_cast<std::size_t> (m_half); ++i)
+			complexOut[i * 2] = static_cast<SampleType> (m_c[i]);
+
+		for (std::size_t i = 0; i <= static_cast<std::size_t> (m_half); ++i)
+			complexOut[i * 2 + 1] = static_cast<SampleType> (m_d[i]);
 	}
 }
 
@@ -165,8 +169,11 @@ void FallbackFFT<SampleType>::inverseInterleaved (const SampleType* complexIn, S
 	}
 	else
 	{
-		for (auto i = 0; i <= m_half; ++i) m_a[i] = complexIn[static_cast<ptrdiff_t> (i * 2)];
-		for (auto i = 0; i <= m_half; ++i) m_b[i] = complexIn[static_cast<ptrdiff_t> (i * 2 + 1)];
+		for (std::size_t i = 0; i <= static_cast<std::size_t> (m_half); ++i)
+			m_a[i] = complexIn[i * 2];
+
+		for (std::size_t i = 0; i <= static_cast<std::size_t> (m_half); ++i)
+			m_b[i] = complexIn[i * 2 + 1];
 	}
 
 	transformI (m_a, m_b, realOut);
@@ -191,7 +198,7 @@ void FallbackFFT<SampleType>::inversePolar (const SampleType* magIn, const Sampl
 template <Scalar SampleType>
 void FallbackFFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut)
 {
-	for (auto i = 0; i <= m_half; ++i)
+	for (std::size_t i = 0; i <= static_cast<std::size_t> (m_half); ++i)
 	{
 		m_a[i] = std::log (magIn[i] + shiftAmount<double>);
 		m_b[i] = 0.;
@@ -205,10 +212,12 @@ template <Scalar SampleType>
 LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformF (const SampleType* ri,
 															 double* ro, double* io)
 {
-	for (auto i = 0; i < m_half; ++i)
+	const auto half_size = static_cast<std::size_t> (m_half);
+
+	for (std::size_t i = 0; i < half_size; ++i)
 	{
-		m_a[i] = ri[static_cast<ptrdiff_t> (i * 2)];
-		m_b[i] = ri[static_cast<ptrdiff_t> (i * 2 + 1)];
+		m_a[i] = ri[i * 2];
+		m_b[i] = ri[i * 2 + 1];
 	}
 
 	transformComplex (m_a, m_b, m_vr, m_vi, false);
@@ -217,22 +226,22 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformF (const SampleType* r
 	ro[m_half] = m_vr[0] - m_vi[0];
 	io[0] = io[m_half] = 0.0;
 
-	for (auto i = 0, ix = 0; i < m_half / 2; ++i)
+	for (std::size_t i = 0, ix = 0; i < half_size / 2; ++i)
 	{
 		const auto s	= -m_sincos_r[ix++];
 		const auto c	= m_sincos_r[ix++];
 		const auto k	= i + 1;
 		const auto r0	= m_vr[k];
 		const auto i0	= m_vi[k];
-		const auto r1	= m_vr[m_half - k];
-		const auto i1	= -m_vi[m_half - k];
+		const auto r1	= m_vr[half_size - k];
+		const auto i1	= -m_vi[half_size - k];
 		const auto tw_r = (r0 - r1) * c - (i0 - i1) * s;
 		const auto tw_i = (r0 - r1) * s + (i0 - i1) * c;
 
-		ro[k]		   = (r0 + r1 + tw_r) * 0.5;
-		ro[m_half - k] = (r0 + r1 - tw_r) * 0.5;
-		io[k]		   = (i0 + i1 + tw_i) * 0.5;
-		io[m_half - k] = (tw_i - i0 - i1) * 0.5;
+		ro[k]			  = (r0 + r1 + tw_r) * 0.5;
+		ro[half_size - k] = (r0 + r1 - tw_r) * 0.5;
+		io[k]			  = (i0 + i1 + tw_i) * 0.5;
+		io[half_size - k] = (tw_i - i0 - i1) * 0.5;
 	}
 }
 
@@ -244,30 +253,32 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformI (const double* ri, c
 	m_vr[0] = ri[0] + ri[m_half];
 	m_vi[0] = ri[0] - ri[m_half];
 
-	for (auto i = 0, ix = 0; i < m_half / 2; ++i)
+	const auto half_size = static_cast<std::size_t> (m_half);
+
+	for (std::size_t i = 0, ix = 0; i < half_size / 2; ++i)
 	{
 		const auto s	= m_sincos_r[ix++];
 		const auto c	= m_sincos_r[ix++];
 		const auto k	= i + 1;
 		const auto r0	= ri[k];
-		const auto r1	= ri[m_half - k];
+		const auto r1	= ri[half_size - k];
 		const auto i0	= ii[k];
-		const auto i1	= -ii[m_half - k];
+		const auto i1	= -ii[half_size - k];
 		const auto tw_r = (r0 - r1) * c - (i0 - i1) * s;
 		const auto tw_i = (r0 - r1) * s + (i0 - i1) * c;
 
-		m_vr[k]			 = (r0 + r1 + tw_r);
-		m_vr[m_half - k] = (r0 + r1 - tw_r);
-		m_vi[k]			 = (i0 + i1 + tw_i);
-		m_vi[m_half - k] = (tw_i - i0 - i1);
+		m_vr[k]				= (r0 + r1 + tw_r);
+		m_vr[half_size - k] = (r0 + r1 - tw_r);
+		m_vi[k]				= (i0 + i1 + tw_i);
+		m_vi[half_size - k] = (tw_i - i0 - i1);
 	}
 
 	transformComplex (m_vr, m_vi, m_c, m_d, true);
 
-	for (auto i = 0; i < m_half; ++i)
+	for (std::size_t i = 0; i < half_size; ++i)
 	{
-		ro[static_cast<ptrdiff_t> (i * 2)]	   = static_cast<SampleType> (m_c[i]);
-		ro[static_cast<ptrdiff_t> (i * 2 + 1)] = static_cast<SampleType> (m_d[i]);
+		ro[i * 2]	  = static_cast<SampleType> (m_c[i]);
+		ro[i * 2 + 1] = static_cast<SampleType> (m_d[i]);
 	}
 }
 
@@ -278,11 +289,14 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformComplex (const double*
 {
 	// Following Don Cross's 1998 implementation, described by its author as public domain.
 
-	for (auto i = 0; i < m_half; ++i)
+	const auto half_size = static_cast<std::size_t> (m_half);
+
+	for (std::size_t i = 0; i < half_size; ++i)
 	{
-		const auto j = m_table[i];
-		ro[j]		 = ri[i];
-		io[j]		 = ii[i];
+		const auto j = static_cast<std::size_t> (m_table[i]);
+
+		ro[j] = ri[i];
+		io[j] = ii[i];
 	}
 
 	const auto ifactor = (inverse ? -1. : 1.);
@@ -302,7 +316,7 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformComplex (const double*
 
 			if (blockSize <= m_maxTabledBlock)
 			{
-				auto ix = 0;
+				std::size_t ix = 0;
 
 				vals.sm1 = ifactor * m_sincos[ix++];
 				vals.sm2 = ifactor * m_sincos[ix++];

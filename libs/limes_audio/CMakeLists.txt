@@ -118,3 +118,9 @@ cpack_add_component_group (
 add_library (Limes::limes_audio ALIAS limes_audio)
 
 target_link_libraries (Limes INTERFACE Limes::limes_audio)
+
+if(Limes_IS_TOP_LEVEL)
+	include (OrangesDefaultWarnings)
+
+	target_link_libraries (limes_audio PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>)
+endif()

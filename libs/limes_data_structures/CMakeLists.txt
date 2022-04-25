@@ -120,3 +120,9 @@ cpack_add_component_group (
 add_library (Limes::limes_data_structures ALIAS limes_data_structures)
 
 target_link_libraries (Limes INTERFACE Limes::limes_data_structures)
+
+if(Limes_IS_TOP_LEVEL)
+	include (OrangesDefaultWarnings)
+
+	target_link_libraries (limes_data_structures PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>)
+endif()

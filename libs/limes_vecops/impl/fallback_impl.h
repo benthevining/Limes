@@ -280,18 +280,19 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void squareRootAndCopy (DataType* const dest,
 
 
 // fast inverse square root from Quake 3
-LIMES_NO_EXPORT LIMES_FORCE_INLINE float quake3_fast_inv_sqrt (float number)
+LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE float quake3_fast_inv_sqrt (float number)
 {
-	constexpr auto threehalfs = 1.5f;
-
 	const auto x2 = number * 0.5f;
 
 	// cppcheck-suppress invalidPointerCast
-	long i = *(long*) &number;		 // NOLINT
-	i	   = 0x5f3759df - (i >> 1);	 // what the fuck?
+	long i = *(long*) &number;	// NOLINT
+
+	i = 0x5f3759df - (i >> 1);	// what the fuck?
 
 	// cppcheck-suppress invalidPointerCast
 	float y = *(float*) &i;	 // NOLINT
+
+	constexpr auto threehalfs = 1.5f;
 
 	y *= (threehalfs - (x2 * y * y));  // 1st iteration
 

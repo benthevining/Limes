@@ -143,3 +143,9 @@ cpack_add_component_group (
 add_library (Limes::limes_core ALIAS limes_core)
 
 target_link_libraries (Limes INTERFACE Limes::limes_core)
+
+if(Limes_IS_TOP_LEVEL)
+	include (OrangesDefaultWarnings)
+
+	target_link_libraries (limes_core PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>)
+endif()

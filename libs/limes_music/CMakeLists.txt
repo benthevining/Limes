@@ -115,3 +115,9 @@ cpack_add_component_group (
 add_library (Limes::limes_music ALIAS limes_music)
 
 target_link_libraries (Limes INTERFACE Limes::limes_music)
+
+if(Limes_IS_TOP_LEVEL)
+	include (OrangesDefaultWarnings)
+
+	target_link_libraries (limes_music PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>)
+endif()

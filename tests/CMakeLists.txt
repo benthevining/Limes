@@ -30,6 +30,7 @@ if(PROJECT_IS_TOP_LEVEL)
 endif()
 
 include (OrangesDefaultTarget)
+include (OrangesDefaultWarnings)
 
 find_package (Catch2 3 REQUIRED)
 
@@ -37,8 +38,8 @@ add_executable (LimesTests math_tests.cpp tests_config.h)
 
 target_include_directories (LimesTests PRIVATE "${CMAKE_CURRENT_LIST_DIR}")
 
-target_link_libraries (LimesTests PRIVATE Limes::Limes Oranges::OrangesDefaultTarget
-										  Catch2::Catch2WithMain)
+target_link_libraries (LimesTests PRIVATE Limes::Limes Catch2::Catch2WithMain
+										  Oranges::OrangesDefaultTarget Oranges::OrangesDefaultWarnings)
 
 add_subdirectory (limes_music)
 add_subdirectory (limes_audio)

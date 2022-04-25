@@ -193,10 +193,11 @@ inline void fftw_save_wisdom (bool isDouble)
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 FFTW_FloatFFT::FFTW_FloatFFT (int size)
-	: FFTImpl<float> (size), m_fbuf (reinterpret_cast<fft_float_type*> (fftw_malloc (fft_size * sizeof (fft_float_type)))),
-	  m_fpacked (reinterpret_cast<fftw_float_complex_type*> (fftw_malloc ((fft_size / 2 + 1) * sizeof (fftw_float_complex_type)))),
+	: FFTImpl<float> (size),
 	  m_fplanf (fftwf_plan_dft_r2c_1d (fft_size, m_fbuf, m_fpacked, FFTW_ESTIMATE)),
-	  m_fplani (fftwf_plan_dft_c2r_1d (fft_size, m_fpacked, m_fbuf, FFTW_ESTIMATE))
+	  m_fplani (fftwf_plan_dft_c2r_1d (fft_size, m_fpacked, m_fbuf, FFTW_ESTIMATE)),
+	  m_fbuf (reinterpret_cast<fft_float_type*> (fftw_malloc (static_cast<size_t> (fft_size) * sizeof (fft_float_type)))),
+	  m_fpacked (reinterpret_cast<fftw_float_complex_type*> (fftw_malloc ((static_cast<size_t> (fft_size) / 2 + 1) * sizeof (fftw_float_complex_type))))
 {
 	static_assert (FFT<float>::isUsingFFTW());
 
@@ -326,10 +327,10 @@ int FFTW_FloatFFT::m_extantf = 0;  // NOLINT
 
 FFTW_DoubleFFT::FFTW_DoubleFFT (int size)
 	: FFTImpl<double> (size),
-	  m_dbuf (reinterpret_cast<fft_double_type*> (fftw_malloc (fft_size * sizeof (fft_double_type)))),
-	  m_dpacked (reinterpret_cast<fftw_double_complex_type*> (fftw_malloc ((fft_size / 2 + 1) * sizeof (fftw_double_complex_type)))),
 	  m_dplanf (fftw_plan_dft_r2c_1d (fft_size, m_dbuf, m_dpacked, FFTW_ESTIMATE)),
-	  m_dplani (fftw_plan_dft_c2r_1d (fft_size, m_dpacked, m_dbuf, FFTW_ESTIMATE))
+	  m_dplani (fftw_plan_dft_c2r_1d (fft_size, m_dpacked, m_dbuf, FFTW_ESTIMATE)),
+	  m_dbuf (reinterpret_cast<fft_double_type*> (fftw_malloc (static_cast<size_t> (fft_size) * sizeof (fft_double_type)))),
+	  m_dpacked (reinterpret_cast<fftw_double_complex_type*> (fftw_malloc ((static_cast<size_t> (fft_size) / 2 + 1) * sizeof (fftw_double_complex_type))))
 {
 	static_assert (FFT<double>::isUsingFFTW());
 
