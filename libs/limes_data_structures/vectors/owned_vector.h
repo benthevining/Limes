@@ -85,23 +85,23 @@ public:
 		{
 		}
 
-		[[nodiscard]] iterator_base& operator++() noexcept
+		iterator_base& operator++() noexcept
 		{
 			++it;
 			return *this;
 		}
 
-		[[nodiscard]] bool operator== (const iterator_base& other) const noexcept
+		bool operator== (const iterator_base& other) const noexcept
 		{
 			return it == other.it;
 		}
 
-		[[nodiscard]] bool operator!= (const iterator_base& other) const noexcept
+		bool operator!= (const iterator_base& other) const noexcept
 		{
 			return it != other.it;
 		}
 
-		[[nodiscard]] reference operator*() const noexcept
+		reference operator*() const noexcept
 		{
 			return *(*it);
 		}

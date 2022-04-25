@@ -95,7 +95,7 @@ static_assert (! is_specialization<std::vector<int>, std::list>(), "is_specializ
 	Note that the first argument to this macro should be a fully-specialized type, and the second argument to this macro must be an unspecialized template!
  */
 #define LIMES_MUST_BE_SPECIALIZATION(classToTest, requiredTemplate) \
-	std::enable_if_t<lemons::is_specialization<classToTest, requiredTemplate>::value>* = nullptr
+	std::enable_if_t<::limes::is_specialization<classToTest, requiredTemplate>::value>* = nullptr
 
 
 template <class Derived, class Base>

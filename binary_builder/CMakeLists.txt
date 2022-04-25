@@ -38,6 +38,10 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
+if("${PROJECT_NAME}" STREQUAL LimesBinaryBuilder)
+	return()
+endif()
+
 include (CPackComponent)
 
 install (FILES "${CMAKE_CURRENT_LIST_DIR}/../cmake/LimesBinaryBuilder.cmake"
@@ -65,7 +69,7 @@ if(CMAKE_CROSSCOMPILING)
 	unset (ENV{CC})
 	unset (ENV{CXX})
 
-	set (binary_dir "${CMAKE_CURRENT_BINARY_DIR}/BinaryBuilder")
+	set (binary_dir "${CMAKE_CURRENT_BINARY_DIR}/subbuild")
 
 	if(CMAKE_BUILD_TYPE)
 		set (build_config "${CMAKE_BUILD_TYPE}")
@@ -115,9 +119,10 @@ project (
 	LANGUAGES CXX)
 
 if (PROJECT_IS_TOP_LEVEL)
-	list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../cmake")
+	set (LIMES_PATH "${CMAKE_CURRENT_LIST_DIR}/..")
 
-	find_package (Limes "${PROJECT_VERSION}" REQUIRED)
+	list (APPEND CMAKE_MODULE_PATH "${LIMES_PATH}/cmake")
+
 	find_package (Oranges 2.17 REQUIRED)
 
 	include (OrangesDefaultProjectSettings)
@@ -126,6 +131,10 @@ if (PROJECT_IS_TOP_LEVEL)
 	LIMES_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
 	CACHE STRING
 		  "Directory below INSTALL_PREFIX where the Limes CMake package files will be installed to")
+
+	set (Limes_VERSION "${PROJECT_VERSION}")
+
+	add_subdirectory ("${LIMES_PATH}/libs" "${CMAKE_CURRENT_BINARY_DIR}/LimesLibs")
 endif()
 
 include (OrangesDefaultTarget)
