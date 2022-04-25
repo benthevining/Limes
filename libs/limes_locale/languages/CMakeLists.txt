@@ -16,3 +16,5 @@ target_sources (
 
 install (FILES languages.h DESTINATION "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/languages"
 		 COMPONENT limes_locale_dev)
+
+set (languages_files languages/languages.h languages/languages.cpp PARENT_SCOPE)

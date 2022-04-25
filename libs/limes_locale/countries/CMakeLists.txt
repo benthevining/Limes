@@ -16,3 +16,5 @@ target_sources (
 
 install (FILES countries.h DESTINATION "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/countries"
 		 COMPONENT limes_locale_dev)
+
+set (countries_files countries/countries.h countries/countries.cpp PARENT_SCOPE)

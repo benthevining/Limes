@@ -68,8 +68,7 @@ function(limes_config_version_header)
 		endif()
 	endif()
 
-	set (output_dir "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${LIMES_ARG_REL_PATH}")
-	set (output_header "${output_dir}/${LIMES_ARG_FILENAME}")
+	set (output_header "${CMAKE_CURRENT_BINARY_DIR}/${LIMES_ARG_FILENAME}")
 
 	configure_file ("${limes_header_input}" "${output_header}" @ONLY NEWLINE_STYLE UNIX)
 
@@ -95,7 +94,8 @@ function(limes_config_version_header)
 			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}>)
 
 		target_include_directories (
-			"${LIMES_ARG_TARGET}" "${LIMES_ARG_SCOPE}" $<BUILD_INTERFACE:${output_dir}>
+			"${LIMES_ARG_TARGET}" "${LIMES_ARG_SCOPE}"
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
 			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}>)
 
 		# special case - limes_core can't link to itself

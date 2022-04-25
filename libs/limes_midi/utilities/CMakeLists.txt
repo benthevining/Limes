@@ -10,12 +10,21 @@
 
 target_sources (
 	limes_midi
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/VelocityMapper.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/VelocityMapper.h>
+	PRIVATE # cmake-format: sortable
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchbendMapper.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchbendMapper.h>
-			$<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities/VelocityMapper.h>
-			$<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities/PitchbendMapper.h>)
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/VelocityMapper.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/VelocityMapper.h>
+			$<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities/PitchbendMapper.h>
+			$<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities/VelocityMapper.h>)
 
-install (FILES VelocityMapper.h PitchbendMapper.h
+install (FILES # cmake-format: sortable
+			   PitchbendMapper.h VelocityMapper.h
 		 DESTINATION "${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities" COMPONENT limes_midi_dev)
+
+set (
+	utilities_files
+	# cmake-format: sortable
+	utilities/PitchbendMapper.cpp utilities/PitchbendMapper.h utilities/VelocityMapper.cpp
+	utilities/VelocityMapper.h
+	PARENT_SCOPE)

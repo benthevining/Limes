@@ -75,6 +75,10 @@ target_include_directories (
 add_subdirectory (utilities)
 # add_subdirectory (tuning)
 
+source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES limes_midi.h ${utilities_files})
+
+unset (utilities_files)
+
 install (
 	TARGETS limes_midi
 	EXPORT LimesMIDITargets
@@ -120,4 +124,3 @@ if(Limes_IS_TOP_LEVEL)
 
 	target_link_libraries (limes_midi PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>)
 endif()
-

@@ -30,6 +30,10 @@ Options
 - LIMES_IGNORE_POMMIER
 - LIMES_IGNORE_FFTW
 
+Cache variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- LIMES_VECOPS_BACKEND=<vDSP|IPP|MIPP|Fallback>
+
 Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Limes::limes_vecops
@@ -98,8 +102,13 @@ target_include_directories (
 	limes_vecops PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
 						$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}>)
 
-add_subdirectory (impl)
+add_subdirectory (impl) # NB - this must be first!
 add_subdirectory (fft)
+
+source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES limes_vecops.h ${impl_files} ${fft_files})
+
+unset (impl_files)
+unset (fft_files)
 
 install (
 	TARGETS limes_vecops

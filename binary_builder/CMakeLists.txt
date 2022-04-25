@@ -38,10 +38,6 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-if("${PROJECT_NAME}" STREQUAL LimesBinaryBuilder)
-	return()
-endif()
-
 include (CPackComponent)
 
 install (FILES "${CMAKE_CURRENT_LIST_DIR}/../cmake/LimesBinaryBuilder.cmake"
@@ -49,7 +45,8 @@ install (FILES "${CMAKE_CURRENT_LIST_DIR}/../cmake/LimesBinaryBuilder.cmake"
 
 cpack_add_component (limes_binary_builder_base HIDDEN)
 
-cpack_add_component (limes_binary_builder_runtime GROUP limes_binary_builder DEPENDS limes_binary_builder_base INSTALL_TYPES User)
+cpack_add_component (limes_binary_builder_runtime GROUP limes_binary_builder
+					 DEPENDS limes_binary_builder_base INSTALL_TYPES User)
 
 cpack_add_component (limes_binary_builder_dev GROUP limes_binary_builder
 					 DEPENDS limes_binary_builder_runtime INSTALL_TYPES Developer)
@@ -77,22 +74,16 @@ if(CMAKE_CROSSCOMPILING)
 		set (build_config Debug)
 	endif()
 
-	execute_process (COMMAND "${CMAKE_COMMAND}"
-		-B "${binary_dir}"
-		-S "${CMAKE_CURRENT_LIST_DIR}"
-		-G "${CMAKE_GENERATOR}"
-		-D "CMAKE_SYSTEM_NAME=${CMAKE_HOST_SYSTEM_NAME}"
-		-D "CMAKE_CROSSCOMPILING=OFF"
-		-D "CMAKE_MAKE_PROGRAM=${CMAKE_MAKE_PROGRAM}"
-		-D "CMAKE_BUILD_TYPE=${build_config}"
-		-D "CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}"
-		COMMAND_ERROR_IS_FATAL ANY)
+	execute_process (
+		COMMAND
+			"${CMAKE_COMMAND}" -B "${binary_dir}" -S "${CMAKE_CURRENT_LIST_DIR}" -G
+			"${CMAKE_GENERATOR}" -D "CMAKE_SYSTEM_NAME=${CMAKE_HOST_SYSTEM_NAME}" -D
+			"CMAKE_CROSSCOMPILING=OFF" -D "CMAKE_MAKE_PROGRAM=${CMAKE_MAKE_PROGRAM}" -D
+			"CMAKE_BUILD_TYPE=${build_config}" -D "CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}"
+			COMMAND_ERROR_IS_FATAL ANY)
 
-	execute_process (COMMAND "${CMAKE_COMMAND}"
-		--build "${binary_dir}"
-		--target BinaryBuilder
-		--config "${build_config}"
-		COMMAND_ERROR_IS_FATAL ANY)
+	execute_process (COMMAND "${CMAKE_COMMAND}" --build "${binary_dir}" --target BinaryBuilder
+							 --config "${build_config}" COMMAND_ERROR_IS_FATAL ANY)
 
 	include ("${binary_dir}/LimesBinaryBuilder.cmake")
 
@@ -102,12 +93,13 @@ if(CMAKE_CROSSCOMPILING)
 
 	get_target_property (imported_location Limes::BinaryBuilder IMPORTED_LOCATION_${build_config})
 
-	install (PROGRAMS "${imported_location}" DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_binary_builder_runtime)
+	install (PROGRAMS "${imported_location}" DESTINATION "${CMAKE_INSTALL_BINDIR}"
+			 COMPONENT limes_binary_builder_runtime)
 
 	unset (binary_dir)
 	unset (build_config)
 
-	return()
+	return ()
 endif()
 
 project (
@@ -118,7 +110,7 @@ project (
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"
 	LANGUAGES CXX)
 
-if (PROJECT_IS_TOP_LEVEL)
+if(PROJECT_IS_TOP_LEVEL)
 	set (LIMES_PATH "${CMAKE_CURRENT_LIST_DIR}/..")
 
 	list (APPEND CMAKE_MODULE_PATH "${LIMES_PATH}/cmake")
@@ -128,9 +120,12 @@ if (PROJECT_IS_TOP_LEVEL)
 	include (OrangesDefaultProjectSettings)
 
 	set (
-	LIMES_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
-	CACHE STRING
-		  "Directory below INSTALL_PREFIX where the Limes CMake package files will be installed to")
+		LIMES_INSTALL_DEST
+		"${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+		CACHE
+			STRING
+			"Directory below INSTALL_PREFIX where the Limes CMake package files will be installed to"
+		)
 
 	set (Limes_VERSION "${PROJECT_VERSION}")
 
@@ -144,17 +139,16 @@ enable_testing ()
 
 add_executable (BinaryBuilder main.cpp)
 
-set_target_properties (BinaryBuilder PROPERTIES VERSION "${PROJECT_VERSION}"
-												SOVERSION "${PROJECT_VERSION_MAJOR}"
-												MACOSX_BUNDLE OFF)
+set_target_properties (
+	BinaryBuilder PROPERTIES VERSION "${PROJECT_VERSION}" SOVERSION "${PROJECT_VERSION_MAJOR}"
+							 MACOSX_BUNDLE OFF)
 
-target_link_libraries (BinaryBuilder PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
+target_link_libraries (BinaryBuilder PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget
+											 Oranges::OrangesUnityBuild)
 
 add_executable (Limes::BinaryBuilder ALIAS BinaryBuilder)
 
-export (TARGETS BinaryBuilder
-		NAMESPACE Limes::
-		FILE "${CMAKE_BINARY_DIR}/LimesBinaryBuilder.cmake")
+export (TARGETS BinaryBuilder NAMESPACE Limes:: FILE "${CMAKE_BINARY_DIR}/LimesBinaryBuilder.cmake")
 
 install (
 	TARGETS BinaryBuilder

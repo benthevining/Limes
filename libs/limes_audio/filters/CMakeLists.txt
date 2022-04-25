@@ -10,12 +10,20 @@
 
 target_sources (
 	limes_audio
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Coeffecients.cpp>
+	PRIVATE # cmake-format: sortable
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Coeffecients.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Coeffecients.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Filter.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Filter.h>
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/filters/Coeffecients.h>
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/filters/Filter.h>)
 
-install (FILES Coeffecients.h Filter.h DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/filters"
+install (FILES # cmake-format: sortable
+			   Coeffecients.h Filter.h DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/filters"
 		 COMPONENT limes_audio_dev)
+
+set (
+	filters_files
+	# cmake-format: sortable
+	filters/Coeffecients.cpp filters/Coeffecients.h filters/Filter.cpp filters/Filter.h
+	PARENT_SCOPE)

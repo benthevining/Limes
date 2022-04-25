@@ -12,11 +12,12 @@ include ("${CMAKE_CURRENT_LIST_DIR}/SelectImpl.cmake")
 
 target_sources (
 	limes_vecops
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fp_status.cpp>
+	PRIVATE # cmake-format: sortable
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback_impl.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback_impl.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fp_status.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/phasor.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/phasor.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback_impl.h>
 			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/fallback_impl.h>
 			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/phasor.h>)
 
@@ -24,3 +25,18 @@ install (FILES fallback_impl.h phasor.h DESTINATION "${LIMES_VECOPS_INSTALL_INCL
 		 COMPONENT limes_vecops_dev)
 
 add_subdirectory (pommier)
+
+set (
+	impl_files
+	# cmake-format: sortable
+	${pommier_files}
+	impl/fallback.h
+	impl/fallback_impl.cpp
+	impl/fallback_impl.h
+	impl/fp_status.cpp
+	impl/ipp.h
+	impl/mipp.h
+	impl/phasor.cpp
+	impl/phasor.h
+	impl/vdsp.h
+	PARENT_SCOPE)

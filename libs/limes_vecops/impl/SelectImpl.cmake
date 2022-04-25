@@ -41,6 +41,24 @@ cmake_dependent_option (LIMES_USE_MIPP "Use MIPP for vecops, if available" OFF
 mark_as_advanced (FORCE LIMES_IGNORE_VDSP LIMES_IGNORE_IPP LIMES_USE_IPP LIMES_USE_MIPP
 				  LIMES_USE_VECOPS_FALLBACK)
 
+if(LIMES_VECOPS_BACKEND)
+	if("${LIMES_VECOPS_BACKEND}" MATCHES vDSP)
+		set (LIMES_IGNORE_VDSP OFF)
+		set (LIMES_USE_IPP OFF)
+		set (LIMES_USE_MIPP OFF)
+	elseif("${LIMES_VECOPS_BACKEND}" STREQUAL IPP OR "${LIMES_VECOPS_BACKEND}" STREQUAL ipp)
+		set (LIMES_IGNORE_IPP OFF)
+		set (LIMES_USE_IPP ON)
+	elseif("${LIMES_VECOPS_BACKEND}" MATCHES MIPP)
+		set (LIMES_IGNORE_MIPP OFF)
+		set (LIMES_USE_MIPP ON)
+	elseif("${LIMES_VECOPS_BACKEND}" MATCHES Fallback)
+		set (LIMES_USE_VECOPS_FALLBACK ON)
+	else()
+		message (WARNING "Unknown vecops backend requested: ${LIMES_VECOPS_BACKEND}")
+	endif()
+endif()
+
 at_most_one (more_than_one LIMES_USE_IPP LIMES_USE_MIPP LIMES_USE_VECOPS_FALLBACK)
 
 if(more_than_one)
@@ -49,6 +67,8 @@ if(more_than_one)
 			"Defining more than one of LIMES_USE_IPP, LIMES_USE_MIPP, or LIMES_USE_VECOPS_FALLBACK to truthy values is non-deterministic behavior!"
 		)
 endif()
+
+unset (more_than_one)
 
 #
 
@@ -71,6 +91,13 @@ function(_limes_vecops_impl_set_properties)
 					  "Using the ${LIMES_VECOPS_IMPL_NAME} backend for the vecops library")
 
 	message (VERBOSE "limes_vecops -- using ${LIMES_VECOPS_IMPL_NAME}")
+
+	set (LIMES_VECOPS_BACKEND "${LIMES_VECOPS_IMPL_NAME}"
+		 CACHE STRING "Backend being used for the vector operations library" FORCE)
+
+	mark_as_advanced (FORCE LIMES_VECOPS_BACKEND)
+
+	set_property (CACHE LIMES_VECOPS_BACKEND PROPERTY STRINGS "vDSP;IPP;MIPP;Fallback")
 
 	unset (LIMES_VECOPS_IMPL_NAME)
 	unset (LIMES_VECOPS_IMPL_HEADER_NAME)

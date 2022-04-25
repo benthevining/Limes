@@ -72,8 +72,14 @@ target_include_directories (
 	limes_locale PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
 						$<INSTALL_INTERFACE:${LIMES_LOCALE_INSTALL_INCLUDE_DIR}>)
 
-add_subdirectory (languages)
 add_subdirectory (countries)
+add_subdirectory (languages)
+
+source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES limes_locale.h ${countries_files}
+													 ${languages_files})
+
+unset (countries_files)
+unset (languages_files)
 
 install (
 	TARGETS limes_locale

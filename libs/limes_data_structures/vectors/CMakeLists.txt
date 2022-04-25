@@ -11,15 +11,24 @@
 target_sources (
 	limes_data_structures
 	PRIVATE
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/vector.h>
+		# cmake-format: sortable
 		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_vector.h>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/scalar_vector.h>
 		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/owned_vector.h>
-		$<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/vectors/vector.h>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/scalar_vector.h>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/vector.h>
 		$<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/vectors/basic_vector.h>
+		$<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/vectors/owned_vector.h>
 		$<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/vectors/scalar_vector.h>
-		$<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/vectors/owned_vector.h>)
+		$<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/vectors/vector.h>)
 
-install (FILES vector.h basic_vector.h scalar_vector.h owned_vector.h
-		 DESTINATION "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/vectors"
-		 COMPONENT limes_data_structures_dev)
+install (
+	FILES # cmake-format: sortable
+		  basic_vector.h owned_vector.h scalar_vector.h vector.h
+	DESTINATION "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/vectors"
+	COMPONENT limes_data_structures_dev)
+
+set (
+	vectors_files
+	# cmake-format: sortable
+	vectors/basic_vector.h vectors/owned_vector.h vectors/scalar_vector.h vectors/vector.h
+	PARENT_SCOPE)

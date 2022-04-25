@@ -72,11 +72,21 @@ target_include_directories (
 	limes_audio PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
 					   $<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}>)
 
-add_subdirectory (streams)
-add_subdirectory (oscillators)
-add_subdirectory (util)
 add_subdirectory (filters)
+add_subdirectory (oscillators)
 add_subdirectory (psola)
+add_subdirectory (streams)
+add_subdirectory (util)
+
+source_group (
+	TREE "${CMAKE_CURRENT_LIST_DIR}" FILES limes_audio.h ${filters_files} ${oscillators_files}
+										   ${psola_files} ${streams_files} ${util_files})
+
+unset (filters_files)
+unset (oscillators_files)
+unset (psola_files)
+unset (streams_files)
+unset (util_files)
 
 install (
 	TARGETS limes_audio

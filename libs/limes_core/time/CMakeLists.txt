@@ -10,10 +10,15 @@
 
 target_sources (
 	limes_core
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/time_utils.h>
+	PRIVATE # cmake-format: sortable
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/build_date.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/time/time_utils.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/time/build_date.h>)
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/time_utils.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/time/build_date.h>
+			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/time/time_utils.h>)
 
-install (FILES time_utils.h build_date.h DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/time"
+install (FILES # cmake-format: sortable
+			   build_date.h time_utils.h DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/time"
 		 COMPONENT limes_core_dev)
+
+set (time_files # cmake-format: sortable
+				time/build_date.h time/time_utils.h PARENT_SCOPE)

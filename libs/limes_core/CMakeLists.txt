@@ -65,12 +65,13 @@ target_compile_options (limes_core PUBLIC $<$<CXX_COMPILER_ID:GNU>:-fconcepts>)
 
 oranges_generate_standard_headers (
 	TARGET limes_core
-	BASE_NAME limes NO_AGGREGATE_HEADER
+	BASE_NAME limes
+	NO_AGGREGATE_HEADER
 	BUILD_TYPE_HEADER limes_build_type.h
 	EXPORT_HEADER limes_export.h
 	PLATFORM_HEADER limes_platform.h
 	INSTALL_COMPONENT limes_core_dev
-	REL_PATH Limes/limes_core)
+	REL_PATH Limes/limes_core SOURCE_GROUP_NAME Generated)
 
 limes_config_version_header (
 	FILENAME limes_version.h
@@ -80,11 +81,15 @@ limes_config_version_header (
 	SCOPE PUBLIC
 	REL_PATH Limes/limes_core)
 
+source_group (TREE "${CMAKE_CURRENT_BINARY_DIR}" FILES "${CMAKE_CURRENT_BINARY_DIR}/limes_version.h"
+			  PREFIX Generated)
+
 set (LIMES_CORE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_core" CACHE INTERNAL "")
 
 target_sources (
 	limes_core
-	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_core.h>
+	PUBLIC # cmake-format: sortable
+		   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_core.h>
 		   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_namespace.h>
 		   $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/limes_core.h>
 		   $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/limes_namespace.h>)
@@ -96,13 +101,33 @@ target_include_directories (
 	limes_core PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
 					  $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}>)
 
-add_subdirectory (math)
-add_subdirectory (time)
-add_subdirectory (misc)
 add_subdirectory (files)
+add_subdirectory (math)
 add_subdirectory (memory)
-add_subdirectory (threading)
+add_subdirectory (misc)
 add_subdirectory (text)
+add_subdirectory (threading)
+add_subdirectory (time)
+
+source_group (
+	TREE "${CMAKE_CURRENT_LIST_DIR}"
+	FILES limes_core.h
+		  limes_namespace.h
+		  ${files_files}
+		  ${math_files}
+		  ${memory_files}
+		  ${misc_files}
+		  ${text_files}
+		  ${threading_files}
+		  ${time_files})
+
+unset (files_files)
+unset (math_files)
+unset (memory_files)
+unset (misc_files)
+unset (text_files)
+unset (threading_files)
+unset (time_files)
 
 install (
 	TARGETS limes_core

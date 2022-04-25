@@ -75,10 +75,19 @@ target_include_directories (
 	limes_data_structures PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
 								 $<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}>)
 
-add_subdirectory (vectors)
+add_subdirectory (data_structures)
 add_subdirectory (fifo)
 add_subdirectory (linked_list)
-add_subdirectory (data_structures)
+add_subdirectory (vectors)
+
+source_group (
+	TREE "${CMAKE_CURRENT_LIST_DIR}" FILES limes_data_structures.h ${data_structures_files}
+										   ${fifo_files} ${linked_list_files} ${vectors_files})
+
+unset (data_structures_files)
+unset (fifo_files)
+unset (linked_list_files)
+unset (vectors_files)
 
 install (
 	TARGETS limes_data_structures
@@ -124,5 +133,6 @@ target_link_libraries (Limes INTERFACE Limes::limes_data_structures)
 if(Limes_IS_TOP_LEVEL)
 	include (OrangesDefaultWarnings)
 
-	target_link_libraries (limes_data_structures PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>)
+	target_link_libraries (limes_data_structures
+						   PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>)
 endif()

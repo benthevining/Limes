@@ -36,7 +36,7 @@ void CircularBuffer<SampleType>::storeSamples (const SampleVector& samples)
 template <Sample SampleType>
 void CircularBuffer<SampleType>::storeSamples (const SampleType* const samples, int numSamples)
 {
-	LIMES_ASSERT (storage.numObjects() == fifo.getCapacity());
+	LIMES_ASSERT (storage.numObjects() >= fifo.getCapacity());
 
 	const auto scopedWrite = fifo.write (numSamples);
 
@@ -65,7 +65,7 @@ void CircularBuffer<SampleType>::getSamples (SampleVector& output)
 template <Sample SampleType>
 void CircularBuffer<SampleType>::getSamples (SampleType* const output, int numSamples)
 {
-	LIMES_ASSERT (storage.numObjects() == fifo.getCapacity());
+	LIMES_ASSERT (storage.numObjects() >= fifo.getCapacity());
 
 	const auto scopedRead = fifo.read (numSamples);
 
@@ -94,8 +94,6 @@ void CircularBuffer<SampleType>::resize (int newSize)
 {
 	LIMES_ASSERT (newSize > 0);
 
-	clear();
-
 	// NB. avoids edge cases when attempting to store the full capacity's worth of samples
 	newSize += 1;
 
@@ -103,20 +101,20 @@ void CircularBuffer<SampleType>::resize (int newSize)
 
 	fifo.setCapacity (newSize);
 
-	LIMES_ASSERT (storage.numObjects() == fifo.getCapacity());
+	LIMES_ASSERT (storage.numObjects() >= fifo.getCapacity());
 }
 
 template <Sample SampleType>
 int CircularBuffer<SampleType>::getCapacity() const noexcept
 {
-	LIMES_ASSERT (storage.numObjects() == fifo.getCapacity());
-	return storage.numObjects() - 1;
+	LIMES_ASSERT (storage.numObjects() >= fifo.getCapacity());
+	return fifo.getCapacity() - 1;
 }
 
 template <Sample SampleType>
 int CircularBuffer<SampleType>::getNumStoredSamples() const noexcept
 {
-	LIMES_ASSERT (storage.numObjects() == fifo.getCapacity());
+	LIMES_ASSERT (storage.numObjects() >= fifo.getCapacity());
 	return fifo.getNumStoredObjects();
 }
 

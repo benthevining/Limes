@@ -20,12 +20,32 @@ set_package_properties (FFTW PROPERTIES TYPE RECOMMENDED PURPOSE "FFT accelerati
 
 target_sources (
 	limes_vecops
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_fft.h>
+	PRIVATE # cmake-format: sortable
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fft_common.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_fft.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_fft.h>
+			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/fft_common.h>
 			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/limes_fft.h>)
 
-install (FILES limes_fft.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft"
+install (FILES # cmake-format: sortable
+			   fft_common.h limes_fft.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft"
 		 COMPONENT limes_vecops_dev)
+
+set (
+	fft_files
+	# cmake-format: sortable
+	fft/fallback_fft.cpp
+	fft/fallback_fft.h
+	fft/fft_common.h
+	fft/fftw_fft.cpp
+	fft/fftw_fft.h
+	fft/ipp_fft.cpp
+	fft/ipp_fft.h
+	fft/limes_fft.cpp
+	fft/limes_fft.h
+	fft/vdsp_fft.cpp
+	fft/vdsp_fft.h
+	PARENT_SCOPE)
 
 #
 

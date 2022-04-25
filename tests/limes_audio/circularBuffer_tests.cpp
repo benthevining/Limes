@@ -88,7 +88,7 @@ TEMPLATE_TEST_CASE ("Circular buffer", "[audio]", float, double)
 
 				circularBuffer.resize (halfNumSamples);
 
-				REQUIRE (circularBuffer.getCapacity() == halfNumSamples);
+				REQUIRE (circularBuffer.getCapacity() >= halfNumSamples);
 				REQUIRE (circularBuffer.getNumStoredSamples() == 0);
 			}
 		}

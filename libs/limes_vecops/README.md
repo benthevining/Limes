@@ -56,3 +56,13 @@ The following CMake options are available to give you more control over which ba
 * LIMES_USE_VECOPS_FALLBACK
 * LIMES_IGNORE_POMMIER
 * LIMES_IGNORE_FFTW
+
+You can also pass the name of your desired backend as a cache variable, for example:
+```
+cmake -B Builds -D LIMES_VECOPS_BACKEND=Fallback
+```
+The following values for the `LIMES_VECOPS_BACKEND` are accepted:
+* vDSP
+* IPP
+* MIPP
+* Fallback

@@ -16,6 +16,7 @@
 #include "scalar_vector.h"	// IWYU pragma: export
 #include <string>
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -28,5 +29,8 @@ using StringVector = vector<std::string>;
 
 template <typename ObjectType>
 using Matrix = vector<vector<ObjectType>>;
+
+template <typename ObjectType, size_t N>
+using StackVector = vector<ObjectType, StackAllocator<ObjectType, N>>;
 
 LIMES_END_NAMESPACE

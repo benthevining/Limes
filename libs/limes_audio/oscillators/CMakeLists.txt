@@ -10,12 +10,21 @@
 
 target_sources (
 	limes_audio
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_oscillators.cpp>
+	PRIVATE # cmake-format: sortable
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_oscillators.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_oscillators.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/DetunableModel.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/DetunableModel.h>
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/oscillators/basic_oscillators.h>
 			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/oscillators/DetunableModel.h>)
 
-install (FILES basic_oscillators.h DetunableModel.h
+install (FILES # cmake-format: sortable
+			   basic_oscillators.h DetunableModel.h
 		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/oscillators" COMPONENT limes_audio_dev)
+
+set (
+	oscillators_files
+	# cmake-format: sortable
+	oscillators/basic_oscillators.cpp oscillators/basic_oscillators.h oscillators/DetunableModel.cpp
+	oscillators/DetunableModel.h
+	PARENT_SCOPE)

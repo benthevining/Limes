@@ -75,6 +75,11 @@ target_include_directories (
 add_subdirectory (harmony)
 add_subdirectory (rhythm)
 
+source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES limes_music.h ${harmony_files} ${rhythm_files})
+
+unset (harmony_files)
+unset (rhythm_files)
+
 install (
 	TARGETS limes_music
 	EXPORT LimesMusicTargets

@@ -26,6 +26,12 @@ Options
 - LIMES_IGNORE_POMMIER
 - LIMES_IGNORE_FFTW
 - LIMES_BUILD_TESTS
+- LIMES_BUILD_DOCS
+
+Cache variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- LIMES_VECOPS_BACKEND=<vDSP|IPP|MIPP|Fallback>
+- LIMES_INSTALL_DEST - Directory below INSTALL_PREFIX where the Limes CMake package files will be installed to
 
 Required packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -99,6 +105,14 @@ project (
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"
 	LANGUAGES CXX ASM)
 
+option (LIMES_BUILD_TESTS "Build the Limes unit tests" OFF)
+option (LIMES_BUILD_DOCS "Build the Limes documentation" OFF)
+
+set (
+	LIMES_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+	CACHE STRING
+		  "Directory below INSTALL_PREFIX where the Limes CMake package files will be installed to")
+
 enable_testing ()
 
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
@@ -115,30 +129,26 @@ include (OrangesDefaultProjectSettings)
 
 unset (Limes_DEPS_GRAPH_OUTPUT_TO_SOURCE)
 
-set (
-	LIMES_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
-	CACHE STRING
-		  "Directory below INSTALL_PREFIX where the Limes CMake package files will be installed to")
-
 mark_as_advanced (FORCE LIMES_INSTALL_DEST)
 
 add_subdirectory (libs)
-add_subdirectory (binary_builder)
-
-option (LIMES_BUILD_TESTS "Build the Limes unit tests" OFF)
+# add_subdirectory (binary_builder)
 
 if(LIMES_BUILD_TESTS)
 	add_subdirectory (tests)
 endif()
 
-oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs INSTALL_COMPONENT limes_docs)
+if(LIMES_BUILD_DOCS)
+	oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs
+								   INSTALL_COMPONENT limes_docs)
 
-cpack_add_component (
-	limes_docs
-	DISPLAY_NAME "Limes documentation"
-	DESCRIPTION "Install the Limes documentation"
-	GROUP limes
-	INSTALL_TYPES Developer)
+	cpack_add_component (
+		limes_docs
+		DISPLAY_NAME "Limes documentation"
+		DESCRIPTION "Install the Limes documentation"
+		GROUP limes
+		INSTALL_TYPES Developer)
+endif()
 
 #
 
@@ -160,12 +170,19 @@ install (FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
 cpack_add_component (limes_base HIDDEN)
 
 cpack_add_component (
-	limes_runtime GROUP limes DEPENDS limes_base limes_vecops_runtime limes_music_runtime
-									  limes_core_runtime limes_audio_runtime INSTALL_TYPES User)
+	limes_runtime
+	GROUP limes
+	DEPENDS # cmake-format: sortable
+			limes_base limes_vecops_runtime limes_music_runtime limes_core_runtime
+			limes_audio_runtime
+	INSTALL_TYPES User)
 
 cpack_add_component (
-	limes_dev GROUP limes DEPENDS limes_runtime limes_vecops_dev limes_music_dev limes_core_dev
-								  limes_audio_dev INSTALL_TYPES Developer)
+	limes_dev
+	GROUP limes
+	DEPENDS # cmake-format: sortable
+			limes_runtime limes_vecops_dev limes_music_dev limes_core_dev limes_audio_dev
+	INSTALL_TYPES Developer)
 
 cpack_add_component_group (
 	limes

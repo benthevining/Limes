@@ -8,5 +8,6 @@
 #
 # ======================================================================================
 
-target_sources (LimesTests PRIVATE interval_tests.cpp compoundInterval_tests.cpp
-								   pitchClass_tests.cpp)
+target_sources (
+	LimesTests PRIVATE # cmake-format: sortable
+					   compoundInterval_tests.cpp interval_tests.cpp pitchClass_tests.cpp)

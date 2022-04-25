@@ -8,6 +8,13 @@
 #
 # ======================================================================================
 
+set (
+	pommier_files
+	# cmake-format: sortable
+	impl/pommier/neon_mathfun.cpp impl/pommier/neon_mathfun.h impl/pommier/pommier_wrapper.cpp
+	impl/pommier/pommier_wrapper.h impl/pommier/sse_mathfun.cpp impl/pommier/sse_mathfun.h
+	PARENT_SCOPE)
+
 include (OrangesGeneratePlatformHeader)
 
 option (LIMES_IGNORE_POMMIER "Ignore the Pommier SIMD extensions" OFF)
