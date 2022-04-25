@@ -19,19 +19,20 @@
 #include <string>
 #include <filesystem>
 #include <cassert>
+#include <limes_core.h>
 
 namespace binary_builder
 {
 
-using Path = std::filesystem::path;
+using namespace limes::files;
 
 struct Options final
 {
 	// list of files to embed
-	std::vector<Path> inputFiles;
+	std::vector<File> inputFiles;
 
 	// output directory for generated files
-	Path outputDir;
+	Directory outputDir;
 
 	// output file names
 	std::string headerFileName;
@@ -44,7 +45,7 @@ struct Options final
 static constexpr char s_defaultOutputBase[] = "BinaryData";
 
 // Display help message
-void displayUsage()
+inline void displayUsage()
 {
 	std::cout << "Limes BinaryBuilder: generates C++ source code which embed several external (binary) files.\n";
 	std::cout << "Supported options:\n";
@@ -60,7 +61,7 @@ void displayUsage()
 	std::cout << "			  Default is empty (no namespace).\n";
 }
 
-Options parseCommandLine (int argc, char** argv)
+inline Options parseCommandLine (int argc, char** argv)
 {
 	auto parseNamedArgument = [] (const std::string& argName, const std::string& argValue, Options& options)
 	{
@@ -69,11 +70,13 @@ Options parseCommandLine (int argc, char** argv)
 
 		if (argName == "-d")
 		{
-			if (! std::filesystem::is_directory (argValue))
-				if (! std::filesystem::create_directory (argValue))
+			Directory dir { argValue };
+
+			if (! dir.exists())
+				if (! dir.createIfDoesntExist())
 					throw std::runtime_error { "Invalid output directory: " + argValue };
 
-			options.outputDir = argValue;
+			options.outputDir = dir;
 		}
 		else if (argName == "-o")
 		{
@@ -92,20 +95,29 @@ Options parseCommandLine (int argc, char** argv)
 
 	auto parsePositionalArgument = [] (const std::string& value, Options& options)
 	{
-		if (std::filesystem::is_directory (value))
+		std::function<void (const FilesystemEntry& entry)> processEntry = [&options, &processEntry] (const FilesystemEntry& entry)
 		{
-			for (const auto& path : std::filesystem::recursive_directory_iterator { value })
-				if (std::filesystem::is_regular_file (path))
-					options.inputFiles.emplace_back (path.path().generic_string());
-		}
-		else if (std::filesystem::is_regular_file (value))
-		{
-			options.inputFiles.emplace_back (value);
-		}
-		else
-		{
-			throw std::runtime_error { "Can't find file or directory named " + value };
-		}
+			if (entry.isDirectory())
+			{
+				entry.getDirectoryObject()->iterateFiles ([&options] (const File& f)
+														  { options.inputFiles.emplace_back (f); },
+														  true);
+			}
+			else if (entry.isFile())
+			{
+				options.inputFiles.emplace_back (entry.getAbsolutePath());
+			}
+			else if (entry.isSymLink())
+			{
+				processEntry (entry.getSymLinkObject()->follow (true));
+			}
+			else
+			{
+				throw std::runtime_error { "Can't find file or directory named " + entry.getAbsolutePath().string() };
+			}
+		};
+
+		processEntry (FilesystemEntry { value });
 	};
 
 	//
@@ -154,14 +166,14 @@ Options parseCommandLine (int argc, char** argv)
 	return options;
 }
 
-void generateHeaderFile (const Options& options)
+inline void generateHeaderFile (const Options& options)
 {
 	const auto fileName = [&options]() -> Path
 	{
-		if (options.outputDir.empty())
+		if (! options.outputDir.isValid())
 			return options.headerFileName;
 
-		return options.outputDir / options.headerFileName;
+		return options.outputDir.getAbsolutePath() / options.headerFileName;
 	}();
 
 	std::cout << "Generating " << fileName.generic_string() << "...\n";
@@ -216,7 +228,7 @@ void generateHeaderFile (const Options& options)
 			return begin() + fileInfoListSize;
 		}
 
-		[[nodiscard]] const size_t size() const
+		[[nodiscard]] const std::size_t size() const
 		{
 			return fileInfoListSize;
 		}
@@ -242,25 +254,24 @@ void generateHeaderFile (const Options& options)
 	}
 }
 
-void generateBodyFile (const Options& options)
+inline void generateBodyFile (const Options& options)
 {
-	auto convertFileDataToCppSource = [] (const std::filesystem::path& fileName, const std::string& fileId, std::ostream& stream)
+	auto convertFileDataToCppSource = [] (const File& fileName, const std::string& fileId, std::ostream& stream)
 	{
-		assert (std::filesystem::is_regular_file (fileName));
+		assert (fileName.isFile() && fileName.exists());
 
-		std::ifstream inputFile { fileName, std::ios_base::in | std::ios_base::binary };
+		std::ifstream inputFile { fileName.getAbsolutePath(), std::ios_base::in | std::ios_base::binary };
 
 		if (! inputFile)
 		{
-			throw std::runtime_error { std::string ("Failed to open file ") + fileName.string() };
+			throw std::runtime_error { std::string ("Failed to open file ") + fileName.getAbsolutePath().string() };
 		}
 
-		// save formatting flags of the given stream
-		std::ios::fmtflags flags (stream.flags());
+		limes::ScopedStreamFlags flags { stream };
 
-		const auto fileLen = static_cast<unsigned int> (std::filesystem::file_size (fileName));
+		const auto fileLen = static_cast<unsigned int> (fileName.sizeInBytes());
 
-		stream << "\tconst char * " << fileId << "_name = \"" << fileName << "\";\n";
+		stream << "\tconst char * " << fileId << "_name = \"" << fileName.getFilename() << "\";\n";
 		stream << "\tconst unsigned int " << fileId << "_data_size = " << fileLen << ";\n";
 		stream << "\tconst unsigned char " << fileId << "_data[" << fileId << "_data_size] = {";
 
@@ -269,9 +280,7 @@ void generateBodyFile (const Options& options)
 		while (inputFile.get (c))
 		{
 			if (char_count % 20 == 0)
-			{
 				stream << "\n\t\t";
-			}
 
 			++char_count;
 
@@ -281,19 +290,16 @@ void generateBodyFile (const Options& options)
 		assert (char_count == fileLen);
 
 		stream << "\n\t};\n";
-
-		// restore save formatting flags
-		stream.flags (flags);
 	};
 
 	//
 
 	const auto fileName = [&options]() -> Path
 	{
-		if (options.outputDir.empty())
+		if (! options.outputDir.isValid())
 			return options.cppFileName;
 
-		return options.outputDir / options.cppFileName;
+		return options.outputDir.getAbsolutePath() / options.cppFileName;
 	}();
 
 	std::cout << "Generating " << fileName.generic_string() << "...\n";
@@ -313,7 +319,7 @@ void generateBodyFile (const Options& options)
 		{
 			const std::string fileId = "file" + std::to_string (fileIds.size());
 
-			std::cout << "  " << path << "\n";
+			std::cout << "  " << path.getAbsolutePath().string() << "\n";
 			convertFileDataToCppSource (path, fileId, stream);
 			fileIds.emplace_back (fileId);
 		}

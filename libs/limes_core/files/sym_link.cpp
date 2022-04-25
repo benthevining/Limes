@@ -12,6 +12,7 @@
 
 #include "sym_link.h"
 #include <exception>
+#include "../misc/Functions.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -24,29 +25,29 @@ SymLink::SymLink (const Path& symLinkPath, const FilesystemEntry& linkTarget)
 	create (getAbsolutePath(), linkTarget);
 }
 
-bool SymLink::create (const Path& linkPath, const FilesystemEntry& target)
+bool SymLink::create (const Path& linkPath, const FilesystemEntry& target) noexcept
 {
 	if (! target.exists())
 		return false;
 
-	try
-	{
-		const auto targetPath = target.getAbsolutePath();
+	return try_call ([&target, &linkPath]
+					 {
+			const auto targetPath = target.getAbsolutePath();
 
-		if (target.isDirectory())
-			std::filesystem::create_directory_symlink (targetPath, linkPath);
-		else
-			std::filesystem::create_symlink (targetPath, linkPath);
-	}
-	catch (const std::exception&)
-	{
-		return false;
-	}
-
-	return true;
+			if (target.isDirectory())
+				std::filesystem::create_directory_symlink (targetPath, linkPath);
+			else
+				std::filesystem::create_symlink (targetPath, linkPath); });
 }
 
-FilesystemEntry SymLink::follow (bool recurse) const
+bool SymLink::create (const Path& linkPath, const Path& target) noexcept
+{
+	FilesystemEntry targetEntry { target };
+
+	return create (linkPath, targetEntry);
+}
+
+FilesystemEntry SymLink::follow (bool recurse) const noexcept
 {
 	try
 	{
@@ -76,7 +77,7 @@ bool SymLink::references (const FilesystemEntry& entry) const
 
 bool SymLink::referencesSameLocationAs (const SymLink& other) const
 {
-	return follow() == other.follow();
+	return follow (true) == other.follow (true);
 }
 
 }  // namespace files

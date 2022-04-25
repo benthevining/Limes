@@ -42,6 +42,7 @@ function(limes_add_binary_data_files)
 		set (LIMES_ARG_NAMESPACE BinaryData)
 	endif()
 
+	# TO DO
 	set (cpp_output "${LIMES_ARG_OUTPUT_DIR}/${LIMES_ARG_BASE_NAME}.cpp")
 	set (h_output "${LIMES_ARG_OUTPUT_DIR}/${LIMES_ARG_BASE_NAME}.h")
 

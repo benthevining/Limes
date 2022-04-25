@@ -17,6 +17,7 @@
 #include <algorithm>
 #include <exception>
 #include <sstream>
+#include "../misc/Functions.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -41,48 +42,41 @@ bool File::hasFileExtension (const std::string& extension) const
 	return getFileExtension() == extension;
 }
 
-bool File::overwriteWithData (const char* const data, std::size_t numBytes) const
+bool File::overwriteWithData (const char* const data, std::size_t numBytes) const noexcept
 {
 	return write_data (data, numBytes, true);
 }
 
-bool File::appendData (const char* const data, std::size_t numBytes) const
+bool File::appendData (const char* const data, std::size_t numBytes) const noexcept
 {
 	return write_data (data, numBytes, false);
 }
 
-bool File::write_data (const char* const data, std::size_t numBytes, bool overwrite) const
+bool File::write_data (const char* const data, std::size_t numBytes, bool overwrite) const noexcept
 {
 	if (numBytes == 0)
 		return false;
 
-	try
-	{
-		const auto mode = overwrite ? std::ios::trunc : std::ios::app;
+	return try_call ([data, numBytes, overwrite, p = getAbsolutePath()]
+					 {
+			const auto mode = overwrite ? std::ios::trunc : std::ios::app;
 
-		std::basic_ofstream<char> stream { getAbsolutePath().c_str(), mode };
+			std::basic_ofstream<char> stream { p.c_str(), mode };
 
-		stream.write (data, static_cast<std::streamsize> (numBytes));
-	}
-	catch (const std::exception&)
-	{
-		return false;
-	}
-
-	return true;
+			stream.write (data, static_cast<std::streamsize> (numBytes)); });
 }
 
-bool File::overwriteWithText (const std::string& text) const
+bool File::overwriteWithText (const std::string& text) const noexcept
 {
 	return overwriteWithData (text.data(), text.size());
 }
 
-bool File::appendText (const std::string& text) const
+bool File::appendText (const std::string& text) const noexcept
 {
 	return appendData (text.data(), text.size());
 }
 
-[[nodiscard]] static inline std::string linesToSingleString (const std::vector<std::string>& lines)
+[[nodiscard]] static inline std::string linesToSingleString (const std::vector<std::string>& lines) noexcept
 {
 	std::string combined;
 
@@ -95,17 +89,17 @@ bool File::appendText (const std::string& text) const
 	return combined;
 }
 
-bool File::overwriteWithText (const std::vector<std::string>& text) const
+bool File::overwriteWithText (const std::vector<std::string>& text) const noexcept
 {
 	return overwriteWithText (linesToSingleString (text));
 }
 
-bool File::appendText (const std::vector<std::string>& text) const
+bool File::appendText (const std::vector<std::string>& text) const noexcept
 {
 	return appendText (linesToSingleString (text));
 }
 
-std::string File::loadAsString() const
+std::string File::loadAsString() const noexcept
 {
 	try
 	{

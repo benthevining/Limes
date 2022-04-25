@@ -95,6 +95,8 @@ libs/limes_core/data_structures/vectors/basic_vector.h benthevining
 libs/limes_core/data_structures/vectors/owned_vector.h benthevining
 libs/limes_core/data_structures/vectors/scalar_vector.h benthevining
 libs/limes_core/data_structures/vectors/vector.h benthevining
+libs/limes_core/files/file.cpp benthevining
+libs/limes_core/files/file.h benthevining
 libs/limes_core/limes_core.h benthevining
 libs/limes_core/math/CMakeLists.txt benthevining
 libs/limes_core/math/Fraction.h benthevining
@@ -103,6 +105,7 @@ libs/limes_core/math/Random.cpp benthevining
 libs/limes_core/math/Random.h benthevining
 libs/limes_core/math/fraction_staticAsserts.cpp benthevining
 libs/limes_core/math/geometry/CMakeLists.txt benthevining
+libs/limes_core/math/geometry/area.h benthevining
 libs/limes_core/math/geometry/perimeter.h benthevining
 libs/limes_core/math/mathHelpers.h benthevining
 libs/limes_core/math/math_staticAsserts.cpp benthevining

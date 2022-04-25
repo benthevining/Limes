@@ -20,7 +20,7 @@ LIMES_BEGIN_NAMESPACE
 namespace files
 {
 
-Directory::Path Directory::getRelativePath (const Path& inputPath) const
+Path Directory::getRelativePath (const Path& inputPath) const
 {
 	return std::filesystem::relative (inputPath, getAbsolutePath());
 }
@@ -55,7 +55,7 @@ using IteratorType = std::conditional_t<Recursive,
 										std::filesystem::directory_iterator>;
 
 template <bool Recursive>
-[[nodiscard]] inline std::vector<FilesystemEntry> getAllDirChildren (const FilesystemEntry::Path& path)
+[[nodiscard]] inline std::vector<FilesystemEntry> getAllDirChildren (const Path& path)
 {
 	std::vector<FilesystemEntry> entries;
 
@@ -66,7 +66,7 @@ template <bool Recursive>
 }
 
 template <bool Recursive>
-[[nodiscard]] inline std::vector<Directory> getDirChildDirectories (const FilesystemEntry::Path& path)
+[[nodiscard]] inline std::vector<Directory> getDirChildDirectories (const Path& path)
 {
 	std::vector<Directory> entries;
 
@@ -78,7 +78,7 @@ template <bool Recursive>
 }
 
 template <bool Recursive>
-[[nodiscard]] inline std::vector<File> getDirChildFiles (const FilesystemEntry::Path& path)
+[[nodiscard]] inline std::vector<File> getDirChildFiles (const Path& path)
 {
 	std::vector<File> entries;
 
@@ -90,7 +90,7 @@ template <bool Recursive>
 }
 
 template <bool Recursive>
-[[nodiscard]] inline std::vector<SymLink> getDirChildSymLinks (const FilesystemEntry::Path& path)
+[[nodiscard]] inline std::vector<SymLink> getDirChildSymLinks (const Path& path)
 {
 	std::vector<SymLink> entries;
 

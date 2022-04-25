@@ -29,13 +29,14 @@ public:
 
 	SymLink (const Path& symLinkPath, const FilesystemEntry& linkTarget);
 
-	[[nodiscard]] FilesystemEntry follow (bool recurse = true) const;
+	[[nodiscard]] FilesystemEntry follow (bool recurse = true) const noexcept;
 
 	[[nodiscard]] bool references (const FilesystemEntry& entry) const;
 
 	[[nodiscard]] bool referencesSameLocationAs (const SymLink& other) const;
 
-	static bool create (const Path& linkPath, const FilesystemEntry& target);
+	static bool create (const Path& linkPath, const FilesystemEntry& target) noexcept;
+	static bool create (const Path& linkPath, const Path& target) noexcept;
 };
 
 }  // namespace files

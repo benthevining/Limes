@@ -23,6 +23,7 @@
 #include "misc/Algorithm.h"
 #include "misc/Version.h"
 #include "misc/Functions.h"
+#include "misc/streams.h"
 
 #include "time/time_utils.h"
 #include "time/build_date.h"

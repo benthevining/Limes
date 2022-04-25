@@ -18,6 +18,7 @@
 #include "directory.h"
 #include "file.h"
 #include "sym_link.h"
+#include "../misc/Functions.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -62,12 +63,12 @@ bool FilesystemEntry::operator!= (const FilesystemEntry& other) const noexcept
 	return ! (*this == other);
 }
 
-FilesystemEntry::Path FilesystemEntry::getPath() const noexcept
+Path FilesystemEntry::getPath() const noexcept
 {
 	return path;
 }
 
-FilesystemEntry::Path FilesystemEntry::getAbsolutePath() const noexcept
+Path FilesystemEntry::getAbsolutePath() const noexcept
 {
 	return std::filesystem::absolute (path);
 }
@@ -158,18 +159,20 @@ bool FilesystemEntry::isRelativePath() const noexcept
 
 bool FilesystemEntry::createIfDoesntExist() const
 {
-	if (exists() || ! isValid())
+	if (! isValid())
 		return false;
 
 	if (isSymLink())
 	{
 		const auto abs_path = getAbsolutePath();
 
-		SymLink::create (abs_path,
-						 FilesystemEntry { std::filesystem::read_symlink (abs_path) });
+		SymLink::create (abs_path, std::filesystem::read_symlink (abs_path));
 
 		return exists();
 	}
+
+	if (exists())
+		return false;
 
 	if (isDirectory())
 		return std::filesystem::create_directories (path);
@@ -191,9 +194,6 @@ bool FilesystemEntry::deleteIfExists() const
 
 void FilesystemEntry::touch() const
 {
-	if (! exists())
-		return;
-
 	std::ofstream output (getAbsolutePath());
 }
 
@@ -205,17 +205,10 @@ std::uintmax_t FilesystemEntry::sizeInBytes() const
 	return std::filesystem::file_size (path);
 }
 
-bool FilesystemEntry::setPermissions (Permissions permissions, PermOptions options) const
+bool FilesystemEntry::setPermissions (Permissions permissions, PermOptions options) const noexcept
 {
-	try
-	{
-		std::filesystem::permissions (getAbsolutePath(), permissions, options);
-		return true;
-	}
-	catch (const std::exception&)
-	{
-		return false;
-	}
+	return try_call ([p = getAbsolutePath(), permissions, options]
+					 { std::filesystem::permissions (p, permissions, options); });
 }
 
 FilesystemEntry::Permissions FilesystemEntry::getPermissions() const
@@ -225,9 +218,7 @@ FilesystemEntry::Permissions FilesystemEntry::getPermissions() const
 
 bool FilesystemEntry::isHidden() const
 {
-	const auto filename = getAbsolutePath().stem().string();
-
-	return filename.starts_with ('.');
+	return getAbsolutePath().stem().string().starts_with ('.');
 }
 
 FilesystemEntry::TimeType FilesystemEntry::getLastModificationTime() const noexcept
@@ -235,10 +226,38 @@ FilesystemEntry::TimeType FilesystemEntry::getLastModificationTime() const noexc
 	return std::filesystem::last_write_time (path);
 }
 
-void FilesystemEntry::rename (const Path& newPath)
+bool FilesystemEntry::rename (const Path& newPath) noexcept
 {
-	std::filesystem::rename (path, newPath);
-	path = newPath;
+	return try_call ([this, newPath]
+					 { std::filesystem::rename (path, newPath);
+		path = newPath; });
+}
+
+bool FilesystemEntry::rename (const std::string& newFilenameWithinDirectory)
+{
+	return rename (getAbsolutePath().replace_filename (newFilenameWithinDirectory));
+}
+
+bool FilesystemEntry::copyTo (const Path& dest, CopyOptions options) const noexcept
+{
+	return try_call ([p = getAbsolutePath(), dest, options]
+					 { std::filesystem::copy (p, dest, options); });
+}
+
+bool FilesystemEntry::copyTo (const FilesystemEntry& dest, CopyOptions options) const noexcept
+{
+	return copyTo (dest.getAbsolutePath(), options);
+}
+
+bool FilesystemEntry::copyFrom (const Path& source, CopyOptions options) const noexcept
+{
+	return try_call ([p = getAbsolutePath(), source, options]
+					 { std::filesystem::copy (source, p, options); });
+}
+
+bool FilesystemEntry::copyFrom (const FilesystemEntry& source, CopyOptions options) const noexcept
+{
+	return copyFrom (source.getAbsolutePath(), options);
 }
 
 }  // namespace files

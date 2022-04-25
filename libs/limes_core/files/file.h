@@ -36,25 +36,25 @@ public:
 
 	[[nodiscard]] bool hasFileExtension (const std::string& extension) const;
 
-	bool overwriteWithData (const char* const data, std::size_t numBytes) const;
+	bool overwriteWithData (const char* const data, std::size_t numBytes) const noexcept;
 
-	bool appendData (const char* const data, std::size_t numBytes) const;
+	bool appendData (const char* const data, std::size_t numBytes) const noexcept;
 
-	bool overwriteWithText (const std::string& text) const;
+	bool overwriteWithText (const std::string& text) const noexcept;
 
-	bool appendText (const std::string& text) const;
+	bool appendText (const std::string& text) const noexcept;
 
-	bool overwriteWithText (const std::vector<std::string>& text) const;
+	bool overwriteWithText (const std::vector<std::string>& text) const noexcept;
 
-	bool appendText (const std::vector<std::string>& text) const;
+	bool appendText (const std::vector<std::string>& text) const noexcept;
 
-	[[nodiscard]] std::string loadAsString() const;
+	[[nodiscard]] std::string loadAsString() const noexcept;
 
 	[[nodiscard]] std::vector<std::string> loadAsLines() const;
 
 private:
 
-	[[nodiscard]] bool write_data (const char* const data, std::size_t numBytes, bool overwrite) const;
+	[[nodiscard]] bool write_data (const char* const data, std::size_t numBytes, bool overwrite) const noexcept;
 };
 
 /*-------------------------------------------------------------------------------------------------------------------------*/

@@ -8,11 +8,31 @@
 #
 # ======================================================================================
 
-#[[
-TO DO:
-- in generated cpp, export symbol / header
-- in CMake module, check if passed outfilenames end in .h
-]]
+#[=======================================================================[.rst:
+
+LimesBinaryBuilder
+-------------------------
+
+A command line utility to embed binary resource files into generated C++ source code.
+
+Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- limes_core
+
+Targets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- Limes::BinaryBuilder
+
+Install components
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- limes_binary_builder_dev
+- limes_binary_builder_runtime
+
+Install component groups
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- limes_binary_builder
+
+#]=======================================================================]
 
 include_guard (GLOBAL)
 
@@ -20,7 +40,15 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 include (CPackComponent)
 
-cpack_add_component (limes_binary_builder_runtime GROUP limes_binary_builder INSTALL_TYPES User)
+install (FILES "${CMAKE_CURRENT_LIST_DIR}/../cmake/LimesBinaryBuilder.cmake"
+		 COMPONENT limes_binary_builder_dev DESTINATION "${LIMES_INSTALL_DEST}/cmake")
+
+cpack_add_component (limes_binary_builder_base HIDDEN)
+
+cpack_add_component (limes_binary_builder_runtime GROUP limes_binary_builder DEPENDS limes_binary_builder_base INSTALL_TYPES User)
+
+cpack_add_component (limes_binary_builder_dev GROUP limes_binary_builder
+					 DEPENDS limes_binary_builder_runtime INSTALL_TYPES Developer)
 
 cpack_add_component_group (
 	limes_binary_builder
@@ -39,40 +67,41 @@ if(CMAKE_CROSSCOMPILING)
 
 	set (binary_dir "${CMAKE_CURRENT_BINARY_DIR}/BinaryBuilder")
 
+	if(CMAKE_BUILD_TYPE)
+		set (build_config "${CMAKE_BUILD_TYPE}")
+	else()
+		set (build_config Debug)
+	endif()
+
 	execute_process (COMMAND "${CMAKE_COMMAND}"
 		-B "${binary_dir}"
 		-S "${CMAKE_CURRENT_LIST_DIR}"
 		-G "${CMAKE_GENERATOR}"
-		"-DCMAKE_SYSTEM_NAME=${CMAKE_HOST_SYSTEM_NAME}"
-		"-DCMAKE_CROSSCOMPILING=OFF"
-		"-DCMAKE_MAKE_PROGRAM=${CMAKE_MAKE_PROGRAM}"
-		"-DCMAKE_BUILD_TYPE=Debug"
-		"-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}"
-		RESULT_VARIABLE result)
-
-	if(result)
-		message (FATAL_ERROR "Configuring BinaryBuilder failed!")
-	endif()
+		-D "CMAKE_SYSTEM_NAME=${CMAKE_HOST_SYSTEM_NAME}"
+		-D "CMAKE_CROSSCOMPILING=OFF"
+		-D "CMAKE_MAKE_PROGRAM=${CMAKE_MAKE_PROGRAM}"
+		-D "CMAKE_BUILD_TYPE=${build_config}"
+		-D "CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}"
+		COMMAND_ERROR_IS_FATAL ANY)
 
 	execute_process (COMMAND "${CMAKE_COMMAND}"
 		--build "${binary_dir}"
 		--target BinaryBuilder
-		--config Debug
-		RESULT_VARIABLE result)
-
-	if(result)
-		message (FATAL_ERROR "Building BinaryBuilder failed!")
-	endif()
+		--config "${build_config}"
+		COMMAND_ERROR_IS_FATAL ANY)
 
 	include ("${binary_dir}/LimesBinaryBuilder.cmake")
 
 	include (GNUInstallDirs)
 
-	get_target_property (imported_location Limes::BinaryBuilder IMPORTED_LOCATION_DEBUG)
+	string (TOUPPER "${build_config}" build_config)
+
+	get_target_property (imported_location Limes::BinaryBuilder IMPORTED_LOCATION_${build_config})
 
 	install (PROGRAMS "${imported_location}" DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_binary_builder_runtime)
 
 	unset (binary_dir)
+	unset (build_config)
 
 	return()
 endif()
@@ -87,11 +116,9 @@ project (
 
 if (PROJECT_IS_TOP_LEVEL)
 	list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../cmake")
+
+	find_package (Limes "${PROJECT_VERSION}" REQUIRED)
 	find_package (Oranges 2.17 REQUIRED)
-
-	include (FeatureSummary)
-
-	set_package_properties (Oranges PROPERTIES TYPE REQUIRED PURPOSE "Required CMake modules")
 
 	include (OrangesDefaultProjectSettings)
 
@@ -112,8 +139,7 @@ set_target_properties (BinaryBuilder PROPERTIES VERSION "${PROJECT_VERSION}"
 												SOVERSION "${PROJECT_VERSION_MAJOR}"
 												MACOSX_BUNDLE OFF)
 
-target_link_libraries (BinaryBuilder PRIVATE Oranges::OrangesDefaultTarget
-											 Oranges::OrangesUnityBuild)
+target_link_libraries (BinaryBuilder PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
 
 add_executable (Limes::BinaryBuilder ALIAS BinaryBuilder)
 
@@ -137,11 +163,3 @@ install (
 	DESTINATION "${LIMES_INSTALL_DEST}"
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_binary_builder_base)
-
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/../cmake/LimesBinaryBuilder.cmake"
-		 COMPONENT limes_binary_builder_dev DESTINATION "${LIMES_INSTALL_DEST}/cmake")
-
-cpack_add_component (limes_binary_builder_base HIDDEN)
-
-cpack_add_component (limes_binary_builder_dev GROUP limes_binary_builder
-					 DEPENDS limes_binary_builder_runtime INSTALL_TYPES Developer)

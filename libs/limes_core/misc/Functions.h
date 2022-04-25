@@ -17,6 +17,7 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include <functional>
+#include <exception>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -103,9 +104,24 @@ constexpr decltype (auto) curry (auto f, auto... ps)
 
 
 template <typename... Param>
-consteval decltype (auto) consteval_invoke (Param&&... param)
+LIMES_EXPORT consteval decltype (auto) consteval_invoke (Param&&... param)
 {
 	return std::invoke (std::forward<Param> (param)...);
+}
+
+
+template <typename Function, typename... Args>
+LIMES_EXPORT inline bool try_call (Function&& func, Args&&... args) noexcept
+{
+	try
+	{
+		func (std::forward<Args> (args)...);
+		return true;
+	}
+	catch (const std::exception&)
+	{
+		return false;
+	}
 }
 
 LIMES_END_NAMESPACE
