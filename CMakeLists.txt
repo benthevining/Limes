@@ -106,7 +106,7 @@ mark_as_advanced (CMAKE_FIND_PACKAGE_PREFER_CONFIG)
 
 project (
 	Limes
-	VERSION 4.5.0
+	VERSION 4.6.0
 	DESCRIPTION "C++ utilities and building blocks"
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"
 	LANGUAGES CXX ASM)

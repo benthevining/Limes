@@ -104,7 +104,7 @@ endif()
 
 project (
 	LimesBinaryBuilder
-	VERSION 4.5.0
+	VERSION 4.6.0
 	DESCRIPTION
 		"Command-line utility to generate C++ source code with embedded binary resource files"
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"

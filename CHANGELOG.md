@@ -1,5 +1,21 @@
 # Limes changelog
 
+## [4.6.0](http://github.com/benthevining/Limes/compare/v4.5.0...v4.6.0) (2022-04-26)
+
+
+### Features
+
+* added a BinaryBuilder tool ([7d2484a](http://github.com/benthevining/Limes/commit/7d2484a13dc8db3d2c2060ad8575160358503aef))
+* added a filesystem library wrapping std::filesystem ([1c1025d](http://github.com/benthevining/Limes/commit/1c1025d7b593e2042d7fc82ceb16ee35fd14bdb4))
+
+
+### Bug Fixes
+
+* cmake missing includes ([a669b8b](http://github.com/benthevining/Limes/commit/a669b8b09862ff3279033e585085e64ca7930e31))
+* IPO bug with clang ([dfba652](http://github.com/benthevining/Limes/commit/dfba65254c8357d1fd414c905f57b3e209a3d36f))
+* type safety in BinaryBuilder ([c34cdb0](http://github.com/benthevining/Limes/commit/c34cdb0fbf17c8757e282e73e304d4aa3a36d028))
+* when cross compiling, building BinaryBuilder for host system, not target system ([11084e0](http://github.com/benthevining/Limes/commit/11084e0c082aa63b5ada9c6df22420f00f97c643))
+
 ## [4.5.0](http://github.com/benthevining/Limes/compare/v4.4.0...v4.5.0) (2022-04-22)
 
 
