@@ -57,6 +57,11 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
+if(TARGET Limes::limes_vecops)
+	message (WARNING "Target Limes::limes_vecops already exists!")
+	return ()
+endif()
+
 define_property (
 	TARGET PROPERTY VECOPS_IMPLEMENTATION BRIEF_DOCS "Name of the vecops implementation"
 	FULL_DOCS "Name of the underlying vecops implementation library used by limes_vecops")

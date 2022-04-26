@@ -38,6 +38,11 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
+if(TARGET Limes::limes_core)
+	message (WARNING "Target Limes::limes_core already exists!")
+	return ()
+endif()
+
 project (
 	LimesCore
 	VERSION "${Limes_VERSION}"

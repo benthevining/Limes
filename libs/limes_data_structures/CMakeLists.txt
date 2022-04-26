@@ -38,6 +38,11 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
+if(TARGET Limes::limes_data_structures)
+	message (WARNING "Target Limes::limes_data_structures already exists!")
+	return ()
+endif()
+
 project (
 	LimesDataStructures
 	VERSION "${Limes_VERSION}"
