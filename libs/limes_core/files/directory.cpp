@@ -210,6 +210,11 @@ Directory Directory::getTempFileDirectory()
 	return Directory { std::filesystem::temp_directory_path() };
 }
 
+void Directory::setAsWorkingDirectory() const
+{
+	setCurrentWorkingDirectory (*this);
+}
+
 }  // namespace files
 
 LIMES_END_NAMESPACE

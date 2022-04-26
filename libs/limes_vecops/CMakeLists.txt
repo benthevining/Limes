@@ -123,7 +123,7 @@ endif()
 # fixes a bug present when compiling vDSP with GCC
 target_compile_options (limes_vecops PUBLIC $<$<CXX_COMPILER_ID:GNU>:-flax-vector-conversions>)
 
-set (LIMES_VECOPS_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_vecops" CACHE INTERNAL "")
+set (LIMES_VECOPS_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_vecops")
 
 target_sources (
 	limes_vecops PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h>
@@ -188,7 +188,7 @@ cpack_add_component (limes_vecops_dev GROUP limes_vecops DEPENDS limes_vecops_ru
 
 cpack_add_component_group (
 	limes_vecops DISPLAY_NAME "${PROJECT_DESCRIPTION}"
-	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_vecops ALIAS limes_vecops)
 

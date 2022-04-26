@@ -62,11 +62,15 @@ Install components
 - limes_data_structures_runtime
 - limes_locale_dev
 - limes_locale_runtime
-- limes_dev
-- limes_runtime
+- limes_libs_dev
+- limes_libs_runtime
 - limes_docs
 - limes_binary_builder_dev
 - limes_binary_builder_runtime
+- limes_programs_dev
+- limes_programs_runtime
+- limes_dev
+- limes_runtime
 
 Install component groups
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -76,19 +80,23 @@ Install component groups
 - limes_audio
 - limes_data_structures
 - limes_locale
+- limes_libs
 - limes_binary_builder
+- limes_programs
 - limes
 
 find_package components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- All
 - Audio
 - Core
 - DataStructures
 - Locale
 - Music
 - Vecops
+- Libs
 - BinaryBuilder
+- Programs
+- All
 
 #]=======================================================================]
 
@@ -126,11 +134,14 @@ set_package_properties (Oranges PROPERTIES TYPE REQUIRED PURPOSE "Required CMake
 #
 
 if(PROJECT_IS_TOP_LEVEL)
-	set_property (GLOBAL PROPERTY DEBUG_CONFIGURATIONS Debug)
-	set_property (GLOBAL PROPERTY USE_FOLDERS YES)
-	set_property (GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "Targets")
-	set_property (GLOBAL PROPERTY REPORT_UNDEFINED_PROPERTIES
-								  "${CMAKE_BINARY_DIR}/undefined_properties.log")
+	# cmake-format: off
+	set_property (
+		GLOBAL PROPERTY
+			DEBUG_CONFIGURATIONS Debug
+			USE_FOLDERS YES
+			PREDEFINED_TARGETS_FOLDER Targets
+			REPORT_UNDEFINED_PROPERTIES "${CMAKE_BINARY_DIR}/undefined_properties.log")
+	# cmake-format: on
 
 	set (CMAKE_EXPORT_COMPILE_COMMANDS ON)
 	set (CMAKE_FIND_PACKAGE_SORT_ORDER NATURAL)
@@ -164,7 +175,7 @@ mark_as_advanced (FORCE LIMES_INSTALL_DEST)
 #
 
 add_subdirectory (libs)
-# add_subdirectory (binary_builder)
+# add_subdirectory (programs)
 
 if(LIMES_BUILD_TESTS)
 	add_subdirectory (tests)

@@ -38,9 +38,17 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
+project (
+	LimesBinaryBuilder
+	VERSION "${LimesPrograms_VERSION}"
+	DESCRIPTION
+		"Command-line utility to generate C++ source code with embedded binary resource files"
+	HOMEPAGE_URL "${LimesPrograms_HOMEPAGE_URL}"
+	LANGUAGES CXX)
+
 include (CPackComponent)
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/../cmake/LimesBinaryBuilder.cmake"
+install (FILES "${CMAKE_CURRENT_LIST_DIR}/../../cmake/LimesBinaryBuilder.cmake"
 		 COMPONENT limes_binary_builder_dev DESTINATION "${LIMES_INSTALL_DEST}/cmake")
 
 cpack_add_component (limes_binary_builder_base HIDDEN)
@@ -51,71 +59,29 @@ cpack_add_component (limes_binary_builder_runtime GROUP limes_binary_builder
 cpack_add_component (limes_binary_builder_dev GROUP limes_binary_builder
 					 DEPENDS limes_binary_builder_runtime INSTALL_TYPES Developer)
 
-cpack_add_component_group (
-	limes_binary_builder
-	DISPLAY_NAME "Limes binary builder"
-	DESCRIPTION "${PROJECT_DESCRIPTION}"
-	BOLD_TITLE
-	PARENT_GROUP limes)
+cpack_add_component_group (limes_binary_builder DISPLAY_NAME "Limes binary builder"
+						   DESCRIPTION "${PROJECT_DESCRIPTION}" PARENT_GROUP limes_programs)
 
 if(CMAKE_CROSSCOMPILING)
 
-	# we need to build the BinaryBuilder for the HOST system, not the TARGET system
-
-	unset (ENV{ASM})
-	unset (ENV{CC})
-	unset (ENV{CXX})
-
-	set (binary_dir "${CMAKE_CURRENT_BINARY_DIR}/subbuild")
-
-	if(CMAKE_BUILD_TYPE)
-		set (build_config "${CMAKE_BUILD_TYPE}")
-	else()
-		set (build_config Debug)
-	endif()
-
-	execute_process (
-		COMMAND
-			"${CMAKE_COMMAND}" -B "${binary_dir}" -S "${CMAKE_CURRENT_LIST_DIR}" -G
-			"${CMAKE_GENERATOR}" -D "CMAKE_SYSTEM_NAME=${CMAKE_HOST_SYSTEM_NAME}" -D
-			"CMAKE_CROSSCOMPILING=OFF" -D "CMAKE_MAKE_PROGRAM=${CMAKE_MAKE_PROGRAM}" -D
-			"CMAKE_BUILD_TYPE=${build_config}" -D "CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}"
-			COMMAND_ERROR_IS_FATAL ANY)
-
-	execute_process (COMMAND "${CMAKE_COMMAND}" --build "${binary_dir}" --target BinaryBuilder
-							 --config "${build_config}" COMMAND_ERROR_IS_FATAL ANY)
-
-	include ("${binary_dir}/LimesBinaryBuilder.cmake")
+	include ("${LIMES_BINARY_DIR}/LimesBinaryBuilder.cmake")
 
 	include (GNUInstallDirs)
 
-	string (TOUPPER "${build_config}" build_config)
-
-	get_target_property (imported_location Limes::BinaryBuilder IMPORTED_LOCATION_${build_config})
+	get_target_property (imported_location Limes::BinaryBuilder
+						 IMPORTED_LOCATION_${LIMES_BUILD_CONFIG})
 
 	install (PROGRAMS "${imported_location}" DESTINATION "${CMAKE_INSTALL_BINDIR}"
 			 COMPONENT limes_binary_builder_runtime)
 
-	unset (binary_dir)
-	unset (build_config)
-
 	return ()
 endif()
 
-project (
-	LimesBinaryBuilder
-	VERSION 4.6.0
-	DESCRIPTION
-		"Command-line utility to generate C++ source code with embedded binary resource files"
-	HOMEPAGE_URL "www.github.com/benthevining/Limes"
-	LANGUAGES CXX)
+add_executable (BinaryBuilder)
 
-include (OrangesDefaultTarget)
-include (OrangesUnityBuild)
-
-enable_testing ()
-
-add_executable (BinaryBuilder main.cpp)
+target_sources (
+	BinaryBuilder PRIVATE # cmake-format: sortable
+						  commandLine.cpp commandLine.h generator.cpp generator.h main.cpp)
 
 set_target_properties (
 	BinaryBuilder
@@ -123,8 +89,11 @@ set_target_properties (
 			   SOVERSION "${PROJECT_VERSION_MAJOR}"
 			   MACOSX_BUNDLE OFF
 			   LABELS "Limes;Utility"
-			   FOLDER Limes
+			   FOLDER Limes/programs
 			   EchoString "Building the Limes BinaryBuilder...")
+
+include (OrangesDefaultTarget)
+include (OrangesUnityBuild)
 
 target_link_libraries (BinaryBuilder PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget
 											 Oranges::OrangesUnityBuild)

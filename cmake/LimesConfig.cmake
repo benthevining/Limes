@@ -13,7 +13,6 @@
 Package configuration file for Limes, version @Limes_VERSION@.
 
 The following components may be specified in calls to find_package:
-- All
 - Audio
 - Core
 - DataStructures
@@ -21,10 +20,11 @@ The following components may be specified in calls to find_package:
 - Music
 - Vecops
 - BinaryBuilder
+- All
+- Libs
+- Programs
 
 ]]
-
-include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
@@ -38,38 +38,53 @@ include (CMakeFindDependencyMacro)
 
 find_dependency (Oranges)
 
-if("@LIMES_VECOPS_USING_IPP@") # LIMES_VECOPS_USING_IPP
-	find_dependency (IPP)
-endif()
-
-if("@LIMES_VECOPS_USING_MIPP@") # LIMES_VECOPS_USING_MIPP
-	find_dependency (MIPP)
-endif()
-
-if("@LIMES_VECOPS_USING_FFTW@") # LIMES_VECOPS_USING_FFTW
-	find_dependency (FFTW)
-endif()
-
 #
 
 set (
-	limes_components
+	limes_libs
+	# cmake-format: sortable
 	Audio
-	MIDI
 	Core
-	Music
-	Vecops
 	DataStructures
 	Locale
-	BinaryBuilder)
+	MIDI
+	Music
+	Vecops)
+
+set (limes_programs # cmake-format: sortable
+					BinaryBuilder)
 
 if(NOT Limes_FIND_COMPONENTS)
-	set (Limes_FIND_COMPONENTS ${limes_components})
+	set (Limes_FIND_COMPONENTS ${limes_libs} ${limes_programs})
 elseif(All IN_LIST Limes_FIND_COMPONENTS)
-	set (Limes_FIND_COMPONENTS ${limes_components})
+	set (Limes_FIND_COMPONENTS ${limes_libs} ${limes_programs})
+else()
+	if(Libs IN_LIST Limes_FIND_COMPONENTS)
+		list (APPEND Limes_FIND_COMPONENTS ${limes_libs})
+		list (REMOVE_DUPLICATES Limes_FIND_COMPONENTS)
+		list (REMOVE_ITEM Limes_FIND_COMPONENTS Libs)
+	elseif(Programs IN_LIST Limes_FIND_COMPONENTS)
+		list (APPEND Limes_FIND_COMPONENTS ${limes_programs})
+		list (REMOVE_DUPLICATES Limes_FIND_COMPONENTS)
+		list (REMOVE_ITEM Limes_FIND_COMPONENTS Programs)
+	endif()
+endif()
+
+if(Vecops IN_LIST Limes_FIND_COMPONENTS)
+	if("@LIMES_VECOPS_USING_IPP@") # LIMES_VECOPS_USING_IPP
+		find_dependency (IPP)
+	elseif("@LIMES_VECOPS_USING_MIPP@") # LIMES_VECOPS_USING_MIPP
+		find_dependency (MIPP)
+	endif()
+
+	if("@LIMES_VECOPS_USING_FFTW@") # LIMES_VECOPS_USING_FFTW
+		find_dependency (FFTW)
+	endif()
 endif()
 
 # if(MIDI IN_LIST Limes_FIND_COMPONENTS) find_dependency (MTS-ESP) endif()
+
+include ("${CMAKE_CURRENT_LIST_DIR}/LimesTargets.cmake")
 
 foreach(comp_name IN LISTS Limes_FIND_COMPONENTS)
 	if("${comp_name}" IN_LIST limes_components)
@@ -80,9 +95,34 @@ foreach(comp_name IN LISTS Limes_FIND_COMPONENTS)
 	endif()
 endforeach()
 
-unset (limes_components)
+#
 
-include ("${CMAKE_CURRENT_LIST_DIR}/LimesTargets.cmake")
+set (Limes_Libs_FOUND TRUE)
+
+foreach(lib_name IN LISTS limes_libs)
+	if(NOT Limes_${lib_name}_FOUND)
+		set (Limes_Libs_FOUND FALSE)
+		break ()
+	endif()
+endforeach()
+
+set (Limes_Programs_FOUND TRUE)
+
+foreach(program_name IN LISTS limes_programs)
+	if(NOT Limes_${program_name}_FOUND)
+		set (Limes_Programs_FOUND FALSE)
+		break ()
+	endif()
+endforeach()
+
+if(Limes_Libs_FOUND AND Limes_Programs_FOUND)
+	set (Limes_All_FOUND TRUE)
+else()
+	set (Limes_All_FOUND FALSE)
+endif()
+
+unset (limes_libs)
+unset (limes_programs)
 
 #
 

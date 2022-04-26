@@ -8,6 +8,8 @@
 #
 # ======================================================================================
 
+set_source_files_properties (Scale.h Scale.cpp TARGET_DIRECTORY limes_music PROPERTIES ABSTRACT ON)
+
 include (OrangesSourceFileUtils)
 
 oranges_add_source_files (

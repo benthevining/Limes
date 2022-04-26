@@ -197,6 +197,15 @@ void FilesystemEntry::touch() const
 	std::ofstream output (getAbsolutePath());
 }
 
+bool FilesystemEntry::touch_noCreate() const
+{
+	if (! exists())
+		return false;
+
+	touch();
+	return true;
+}
+
 std::uintmax_t FilesystemEntry::sizeInBytes() const
 {
 	if (! exists())

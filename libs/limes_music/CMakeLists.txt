@@ -66,7 +66,7 @@ include (OrangesUnityBuild)
 target_link_libraries (limes_music PUBLIC Limes::limes_data_structures
 					   PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
 
-set (LIMES_MUSIC_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_music" CACHE INTERNAL "")
+set (LIMES_MUSIC_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_music")
 
 target_sources (
 	limes_music PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_music.h>
@@ -131,7 +131,7 @@ cpack_add_component (limes_music_dev GROUP limes_music DEPENDS limes_music_runti
 
 cpack_add_component_group (
 	limes_music DISPLAY_NAME "${PROJECT_DESCRIPTION}"
-	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_music ALIAS limes_music)
 

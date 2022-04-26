@@ -96,11 +96,15 @@ Limes creates the following CPack install components:
 * limes_data_structures_runtime
 * limes_locale_dev
 * limes_locale_runtime
-* limes_dev (aggregate of all other dev components)
-* limes_runtime (aggregate of all other runtime components)
+* limes_libs_dev
+* limes_libs_runtime
 * limes_docs
 * limes_binary_builder_dev
 * limes_binary_builder_runtime
+* limes_programs_dev
+* limes_programs_runtime
+* limes_dev (aggregate of all other dev components)
+* limes_runtime (aggregate of all other runtime components)
 
 Limes also creates the following CPack install component groups:
 
@@ -111,7 +115,9 @@ Limes also creates the following CPack install component groups:
 * limes_midi
 * limes_data_structures
 * limes_locale
+* limes_libs
 * limes_binary_builder
+* limes_programs
 * limes (aggregate of all Limes components)
 
 ### find_package components
@@ -119,6 +125,8 @@ Limes also creates the following CPack install component groups:
 When you call `find_package (Limes)`, you can pass the following component names:
 
 * All
+* Libs
+* Programs
 * Audio
 * MIDI
 * Core

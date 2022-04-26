@@ -18,7 +18,7 @@ BinaryBuilder [-d <outputDirectory> -o <fileBaseName> -ns <nameSpace>] <inputFil
 
 ## Dependencies
 
-* [limes_core](../libs/limes_core/README.md)
+* [limes_core](../../libs/limes_core/README.md)
 
 ## Targets
 

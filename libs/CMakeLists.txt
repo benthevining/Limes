@@ -21,18 +21,25 @@ Targets
 
 Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_dev
-- limes_runtime
+- limes_libs_dev
+- limes_libs_runtime
 
 Install component groups
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes
+- limes_libs
 
 #]=======================================================================]
 
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+
+project (
+	LimesLibraries
+	VERSION "${Limes_VERSION}"
+	DESCRIPTION "C++ utility libraries"
+	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}"
+	LANGUAGES CXX ASM)
 
 add_library (Limes INTERFACE)
 
@@ -41,7 +48,7 @@ set_target_properties (
 
 include (GNUInstallDirs)
 
-set (LIMES_INSTALL_INCLUDE_DIR "${CMAKE_INSTALL_INCLUDEDIR}/Limes" CACHE INTERNAL "")
+set (LIMES_INSTALL_INCLUDE_DIR "${CMAKE_INSTALL_INCLUDEDIR}/Limes")
 
 add_subdirectory (limes_core)
 add_subdirectory (limes_vecops)
@@ -54,7 +61,7 @@ add_subdirectory (limes_music)
 target_sources (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes.h>
 								$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}/limes.h>)
 
-install (FILES limes.h DESTINATION "${LIMES_INSTALL_INCLUDE_DIR}" COMPONENT limes_dev)
+install (FILES limes.h DESTINATION "${LIMES_INSTALL_INCLUDE_DIR}" COMPONENT limes_libs_dev)
 
 target_include_directories (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
 											$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}>)
@@ -62,10 +69,10 @@ target_include_directories (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LI
 install (
 	TARGETS Limes
 	EXPORT LimesTargets
-	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_runtime
-			NAMELINK_COMPONENT limes_dev
-	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_dev
-	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_runtime
+	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_libs_runtime
+			NAMELINK_COMPONENT limes_libs_dev
+	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_libs_dev
+	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_libs_runtime
 	INCLUDES
 	DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
 
@@ -74,7 +81,7 @@ install (
 	NAMESPACE Limes::
 	DESTINATION "${LIMES_INSTALL_DEST}"
 	EXPORT_LINK_INTERFACE_LIBRARIES
-	COMPONENT limes_base)
+	COMPONENT limes_libs_base)
 
 include (OrangesGeneratePkgConfig)
 
@@ -84,6 +91,32 @@ oranges_create_pkgconfig_file (
 	DESCRIPTION "${Limes_DESCRIPTION}"
 	URL "${Limes_HOMEPAGE_URL}"
 	VERSION "${Limes_VERSION}"
-	INSTALL_COMPONENT limes_dev)
+	INSTALL_COMPONENT limes_libs_dev)
+
+include (CPackComponent)
+
+cpack_add_component (limes_libs_base HIDDEN)
+
+cpack_add_component (
+	limes_libs_runtime
+	GROUP limes_libs
+	DEPENDS # cmake-format: sortable
+			limes_libs_base limes_vecops_runtime limes_music_runtime limes_core_runtime
+			limes_audio_runtime
+	INSTALL_TYPES User)
+
+cpack_add_component (
+	limes_libs_dev
+	GROUP limes_libs
+	DEPENDS # cmake-format: sortable
+			limes_libs_runtime limes_vecops_dev limes_music_dev limes_core_dev limes_audio_dev
+	INSTALL_TYPES Developer)
+
+cpack_add_component_group (
+	limes_libs
+	DISPLAY_NAME "Limes libraries"
+	DESCRIPTION "All components of the Limes libraries"
+	BOLD_TITLE
+	PARENT_GROUP limes)
 
 add_library (Limes::Limes ALIAS Limes)

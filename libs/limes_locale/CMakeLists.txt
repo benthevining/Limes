@@ -66,7 +66,7 @@ include (OrangesUnityBuild)
 target_link_libraries (limes_locale PUBLIC Limes::limes_data_structures
 					   PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
 
-set (LIMES_LOCALE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_locale" CACHE INTERNAL "")
+set (LIMES_LOCALE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_locale")
 
 target_sources (
 	limes_locale PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_locale.h>
@@ -131,7 +131,7 @@ cpack_add_component (limes_locale_dev GROUP limes_locale DEPENDS limes_locale_ru
 
 cpack_add_component_group (
 	limes_locale DISPLAY_NAME "${PROJECT_DESCRIPTION}"
-	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_locale ALIAS limes_locale)
 

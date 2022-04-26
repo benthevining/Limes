@@ -8,6 +8,8 @@
 #
 # ======================================================================================
 
+set_source_files_properties (ObjectBase.h TARGET_DIRECTORY limes_core PROPERTIES ABSTRACT ON)
+
 include (OrangesSourceFileUtils)
 
 oranges_add_source_files (

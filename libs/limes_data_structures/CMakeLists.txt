@@ -66,8 +66,7 @@ include (OrangesUnityBuild)
 target_link_libraries (limes_data_structures PUBLIC Limes::limes_vecops
 					   PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
 
-set (LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_data_structures"
-	 CACHE INTERNAL "")
+set (LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_data_structures")
 
 target_sources (
 	limes_data_structures
@@ -137,7 +136,7 @@ cpack_add_component (limes_data_structures_dev GROUP limes_data_structures
 
 cpack_add_component_group (
 	limes_data_structures DISPLAY_NAME "${PROJECT_DESCRIPTION}"
-	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_data_structures ALIAS limes_data_structures)
 

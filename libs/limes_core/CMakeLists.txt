@@ -62,11 +62,10 @@ set_target_properties (
 
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
+include (CXXConcepts)
 
-target_link_libraries (limes_core PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
-
-# Limes requires concepts
-target_compile_options (limes_core PUBLIC $<$<CXX_COMPILER_ID:GNU>:-fconcepts>)
+target_link_libraries (limes_core PUBLIC Oranges::CXXConcepts PRIVATE Oranges::OrangesDefaultTarget
+																	  Oranges::OrangesUnityBuild)
 
 include (OrangesGenerateStandardHeaders)
 
@@ -95,7 +94,7 @@ source_group (TREE "${CMAKE_CURRENT_BINARY_DIR}" FILES "${CMAKE_CURRENT_BINARY_D
 
 #
 
-set (LIMES_CORE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_core" CACHE INTERNAL "")
+set (LIMES_CORE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_core")
 
 target_sources (
 	limes_core
@@ -180,7 +179,7 @@ cpack_add_component (limes_core_dev GROUP limes_core DEPENDS limes_core_runtime
 
 cpack_add_component_group (
 	limes_core DISPLAY_NAME "${PROJECT_DESCRIPTION}"
-	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_core ALIAS limes_core)
 

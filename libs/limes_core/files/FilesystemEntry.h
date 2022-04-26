@@ -85,6 +85,7 @@ public:
 	bool deleteIfExists() const;
 
 	void touch() const;
+	bool touch_noCreate() const;
 
 	[[nodiscard]] std::uintmax_t sizeInBytes() const;
 

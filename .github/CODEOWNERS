@@ -95,6 +95,9 @@ libs/limes_core/data_structures/vectors/basic_vector.h benthevining
 libs/limes_core/data_structures/vectors/owned_vector.h benthevining
 libs/limes_core/data_structures/vectors/scalar_vector.h benthevining
 libs/limes_core/data_structures/vectors/vector.h benthevining
+libs/limes_core/files/FilesystemEntry.cpp benthevining
+libs/limes_core/files/FilesystemEntry.h benthevining
+libs/limes_core/files/directory.h benthevining
 libs/limes_core/files/file.cpp benthevining
 libs/limes_core/files/file.h benthevining
 libs/limes_core/limes_core.h benthevining
@@ -162,6 +165,7 @@ libs/limes_data_structures/data_structures/dimensions.proto benthevining
 libs/limes_data_structures/fifo/AbstractFIFO.cpp benthevining
 libs/limes_data_structures/fifo/CMakeLists.txt benthevining
 libs/limes_data_structures/limes_data_structures.h benthevining
+libs/limes_data_structures/linked_list/LinkedList.h benthevining
 libs/limes_data_structures/linked_list/LinkedListModel_impl.h benthevining
 libs/limes_data_structures/vectors/CMakeLists.txt benthevining
 libs/limes_data_structures/vectors/basic_vector.h benthevining
@@ -333,6 +337,7 @@ limes_vecops/util/Constants.h benthevining
 limes_vecops/util/Platform.h benthevining
 ng
 package.json benthevining
+programs/binary_builder/generator.cpp benthevining
 scripts/FindLimes.cmake benthevining
 scripts/FindOranges.cmake benthevining
 scripts/LimesConfig.cmake benthevining
@@ -350,6 +355,7 @@ tests/math_tests.cpp benthevining
 tests/tests_config.h benthevining
 util/PresetBases.json benthevining
 util/deps_graph.png benthevining
+util/limes_cmake_commands.json benthevining
 util/limes_header.txt benthevining
 util/oranges_cmake_commands.json benthevining
 util/workspace_dependencies.json benthevining

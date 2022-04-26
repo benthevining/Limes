@@ -66,7 +66,7 @@ include (OrangesUnityBuild)
 target_link_libraries (limes_midi PUBLIC Limes::limes_core PRIVATE Oranges::OrangesDefaultTarget
 																   Oranges::OrangesUnityBuild)
 
-set (LIMES_MIDI_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_midi" CACHE INTERNAL "")
+set (LIMES_MIDI_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_midi")
 
 target_sources (
 	limes_midi PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_midi.h>
@@ -130,7 +130,7 @@ cpack_add_component (limes_midi_dev GROUP limes_midi DEPENDS limes_midi_runtime
 
 cpack_add_component_group (
 	limes_midi DISPLAY_NAME "${PROJECT_DESCRIPTION}"
-	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes)
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_midi ALIAS limes_midi)
 

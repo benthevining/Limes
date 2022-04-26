@@ -14,6 +14,10 @@ set_package_properties (FFTW PROPERTIES TYPE RECOMMENDED PURPOSE "FFT accelerati
 
 #
 
+set_source_files_properties (fft_common.h TARGET_DIRECTORY limes_vecops PROPERTIES ABSTRACT ON)
+
+#
+
 target_sources (
 	limes_vecops
 	PRIVATE # cmake-format: sortable

@@ -69,6 +69,8 @@ public:
 	static void setCurrentWorkingDirectory (const Directory& directory);
 
 	[[nodiscard]] static Directory getTempFileDirectory();
+
+	void setAsWorkingDirectory() const;
 };
 
 }  // namespace files

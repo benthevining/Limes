@@ -10,163 +10,19 @@
  * ======================================================================================
  */
 
-#include <cstdlib>
+#include "generator.h"
+#include "commandLine.h"
 #include <iostream>
-#include <sstream>
 #include <fstream>
 #include <exception>
 #include <vector>
 #include <string>
-#include <filesystem>
-#include <cassert>
 #include <limes_core.h>
 
 namespace binary_builder
 {
 
-using namespace limes::files;
-
-struct Options final
-{
-	// list of files to embed
-	std::vector<File> inputFiles;
-
-	// output directory for generated files
-	Directory outputDir;
-
-	// output file names
-	std::string headerFileName;
-	std::string cppFileName;
-
-	// C++ namespace to use (if any)
-	std::string namespaceName;
-};
-
-static constexpr char s_defaultOutputBase[] = "BinaryData";
-
-// Display help message
-inline void displayUsage()
-{
-	std::cout << "Limes BinaryBuilder: generates C++ source code which embed several external (binary) files.\n";
-	std::cout << "Supported options:\n";
-	std::cout << " <input>	: path to an input file or directory to embed in C++ code.\n";
-	std::cout << "			  If it's a directory, its content will be recursively iterated.\n";
-	std::cout << "			  Note: several inputs can be passed on the command line.\n";
-	std::cout << " -h		    : this help message.\n";
-	std::cout << " -d <path>  : directory where to save the generated files.\n";
-	std::cout << " -o <name>  : base name to be used for the generated .h/.cpp files.\n";
-	std::cout << "			  => '-o generated' will produce 'generated.h' and 'generated.cpp' files.\n";
-	std::cout << "			  Default value is '" << s_defaultOutputBase << "'.\n";
-	std::cout << " -ns <name> : name of the namespace to be used in generated code (recommended).\n";
-	std::cout << "			  Default is empty (no namespace).\n";
-}
-
-inline Options parseCommandLine (int argc, char** argv)
-{
-	auto parseNamedArgument = [] (const std::string& argName, const std::string& argValue, Options& options)
-	{
-		assert (argName.front() == '-');
-		assert (! argValue.empty());
-
-		if (argName == "-d")
-		{
-			Directory dir { argValue };
-
-			if (! dir.exists())
-				if (! dir.createIfDoesntExist())
-					throw std::runtime_error { "Invalid output directory: " + argValue };
-
-			options.outputDir = dir;
-		}
-		else if (argName == "-o")
-		{
-			options.headerFileName = argValue + ".h";
-			options.cppFileName	   = argValue + ".cpp";
-		}
-		else if (argName == "-ns")
-		{
-			options.namespaceName = argValue;
-		}
-		else
-		{
-			throw std::runtime_error { "Invalid option name: " + argName };
-		}
-	};
-
-	auto parsePositionalArgument = [] (const std::string& value, Options& options)
-	{
-		std::function<void (const FilesystemEntry& entry)> processEntry = [&options, &processEntry] (const FilesystemEntry& entry)
-		{
-			if (entry.isDirectory())
-			{
-				entry.getDirectoryObject()->iterateFiles ([&options] (const File& f)
-														  { options.inputFiles.emplace_back (f); },
-														  true);
-			}
-			else if (entry.isFile())
-			{
-				options.inputFiles.emplace_back (entry.getAbsolutePath());
-			}
-			else if (entry.isSymLink())
-			{
-				processEntry (entry.getSymLinkObject()->follow (true));
-			}
-			else
-			{
-				throw std::runtime_error { "Can't find file or directory named " + entry.getAbsolutePath().string() };
-			}
-		};
-
-		processEntry (FilesystemEntry { value });
-	};
-
-	//
-
-	Options options;
-
-	if (argc == 1)
-	{
-		displayUsage();
-		std::exit (EXIT_SUCCESS);
-	}
-
-	for (auto i = 1; i < argc; ++i)
-	{
-		const std::string arg { argv[i] };
-
-		if (arg.front() == '-')
-		{
-			if (arg == "-h")
-			{
-				displayUsage();
-				std::exit (EXIT_SUCCESS);
-			}
-			else if (i == argc - 1)
-			{
-				throw std::runtime_error { "Missing value for option " + arg };
-			}
-			else
-			{
-				parseNamedArgument (arg, argv[i + 1], options);
-				i += 1;
-			}
-		}
-		else
-		{
-			parsePositionalArgument (arg, options);
-		}
-	}
-
-	if (options.cppFileName.empty() || options.headerFileName.empty())
-	{
-		options.headerFileName = std::string { s_defaultOutputBase } + ".h";
-		options.cppFileName	   = std::string { s_defaultOutputBase } + ".cpp";
-	}
-
-	return options;
-}
-
-inline void generateHeaderFile (const Options& options)
+void generateHeaderFile (const Options& options)
 {
 	const auto fileName = [&options]() -> Path
 	{
@@ -254,11 +110,12 @@ inline void generateHeaderFile (const Options& options)
 	}
 }
 
-inline void generateBodyFile (const Options& options)
+
+void generateBodyFile (const Options& options)
 {
 	auto convertFileDataToCppSource = [] (const File& fileName, const std::string& fileId, std::ostream& stream)
 	{
-		assert (fileName.isFile() && fileName.exists());
+		LIMES_ASSERT (fileName.isFile() && fileName.exists());
 
 		std::ifstream inputFile { fileName.getAbsolutePath(), std::ios_base::in | std::ios_base::binary };
 
@@ -287,7 +144,7 @@ inline void generateBodyFile (const Options& options)
 			stream << "0x" << std::hex << (static_cast<int> (c) & 0xFF) << ",";
 		}
 
-		assert (char_count == fileLen);
+		LIMES_ASSERT (char_count == fileLen);
 
 		stream << "\n\t};\n";
 	};
@@ -354,26 +211,3 @@ inline void generateBodyFile (const Options& options)
 }
 
 }  // namespace binary_builder
-
-int main (int argc, char** argv)
-{
-	try
-	{
-		const auto options = binary_builder::parseCommandLine (argc, argv);
-
-		if (options.inputFiles.empty())
-			std::cerr << "Warning: no input file to process, will generate empty C++ output!\n";
-		else
-			std::cout << "Ready to process " << options.inputFiles.size() << " file(s).\n";
-
-		binary_builder::generateHeaderFile (options);
-		binary_builder::generateBodyFile (options);
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << "Error: " << e.what() << std::endl;
-		return EXIT_FAILURE;
-	}
-
-	return EXIT_SUCCESS;
-}
