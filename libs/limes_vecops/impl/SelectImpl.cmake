@@ -24,22 +24,8 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 #
 
-include (CMakeDependentOption)
 include (OrangesCmakeDevTools)
 include (FeatureSummary)
-
-option (LIMES_IGNORE_VDSP "Ignore vDSP for vecops" OFF)
-option (LIMES_IGNORE_IPP "Ignore Intel IPP for vecops" OFF)
-option (LIMES_IGNORE_MIPP "Ignore MIPP for vecops" OFF)
-option (LIMES_USE_VECOPS_FALLBACK "Use the vecops fallback implementation" OFF)
-
-cmake_dependent_option (LIMES_USE_IPP "Use IPP for vecops, if available" OFF "NOT LIMES_IGNORE_IPP"
-						OFF)
-cmake_dependent_option (LIMES_USE_MIPP "Use MIPP for vecops, if available" OFF
-						"NOT LIMES_IGNORE_MIPP" OFF)
-
-mark_as_advanced (FORCE LIMES_IGNORE_VDSP LIMES_IGNORE_IPP LIMES_USE_IPP LIMES_USE_MIPP
-				  LIMES_USE_VECOPS_FALLBACK)
 
 if(LIMES_VECOPS_BACKEND)
 	if("${LIMES_VECOPS_BACKEND}" MATCHES vDSP)

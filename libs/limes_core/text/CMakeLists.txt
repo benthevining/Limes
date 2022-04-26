@@ -8,20 +8,14 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_core
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/StringUtils.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/StringUtils.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TextTable.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TextTable.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/text/StringUtils.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/text/TextTable.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES # cmake-format: sortable
-			   StringUtils.h TextTable.h DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/text"
-		 COMPONENT limes_core_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME text
+	TARGET limes_core
+	INSTALL_COMPONENT limes_core_dev
+	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  StringUtils.cpp StringUtils.h TextTable.cpp TextTable.h)
 
-set (text_files # cmake-format: sortable
-				text/StringUtils.cpp text/StringUtils.h text/TextTable.cpp text/TextTable.h
-	 PARENT_SCOPE)
+set (text_files ${text_files} PARENT_SCOPE)

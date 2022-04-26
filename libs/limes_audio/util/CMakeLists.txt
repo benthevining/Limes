@@ -8,38 +8,22 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_audio
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/CircularBuffer.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/CircularBuffer.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Misc.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/MonoStereoConverter.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/MonoStereoConverter.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PerlinNoise.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PerlinNoise.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchDetector.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchDetector.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/util/CircularBuffer.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/util/Misc.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/util/MonoStereoConverter.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/util/PerlinNoise.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/util/PitchDetector.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES # cmake-format: sortable
-			   CircularBuffer.h Misc.h MonoStereoConverter.h PerlinNoise.h PitchDetector.h
-		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/util" COMPONENT limes_audio_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME util
+	TARGET limes_audio
+	INSTALL_COMPONENT limes_audio_dev
+	INSTALL_DIR "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  CircularBuffer.cpp
+		  CircularBuffer.h
+		  Misc.h
+		  MonoStereoConverter.cpp
+		  MonoStereoConverter.h
+		  PerlinNoise.cpp
+		  PerlinNoise.h
+		  PitchDetector.cpp
+		  PitchDetector.h)
 
-set (
-	util_files
-	# cmake-format: sortable
-	util/CircularBuffer.cpp
-	util/CircularBuffer.h
-	util/Misc.h
-	util/MonoStereoConverter.cpp
-	util/MonoStereoConverter.h
-	util/PerlinNoise.cpp
-	util/PerlinNoise.h
-	util/PitchDetector.cpp
-	util/PitchDetector.h
-	PARENT_SCOPE)
+set (util_files ${util_files} PARENT_SCOPE)

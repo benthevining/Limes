@@ -38,14 +38,6 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-include (OrangesDefaultTarget)
-include (OrangesUnityBuild)
-include (OrangesGeneratePkgConfig)
-include (OrangesGenerateStandardHeaders)
-include (CPackComponent)
-include (GNUInstallDirs)
-include (LimesConfigVersionHeader)
-
 project (
 	LimesCore
 	VERSION "${Limes_VERSION}"
@@ -55,13 +47,23 @@ project (
 
 add_library (limes_core STATIC)
 
-set_target_properties (limes_core PROPERTIES VERSION "${PROJECT_VERSION}"
-											 SOVERSION "${PROJECT_VERSION_MAJOR}")
+set_target_properties (
+	limes_core
+	PROPERTIES VERSION "${PROJECT_VERSION}"
+			   SOVERSION "${PROJECT_VERSION_MAJOR}"
+			   LABELS Limes
+			   FOLDER Limes/libs
+			   EchoString "Building the limes_core library...")
+
+include (OrangesDefaultTarget)
+include (OrangesUnityBuild)
 
 target_link_libraries (limes_core PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
 
 # Limes requires concepts
 target_compile_options (limes_core PUBLIC $<$<CXX_COMPILER_ID:GNU>:-fconcepts>)
+
+include (OrangesGenerateStandardHeaders)
 
 oranges_generate_standard_headers (
 	TARGET limes_core
@@ -73,6 +75,8 @@ oranges_generate_standard_headers (
 	INSTALL_COMPONENT limes_core_dev
 	REL_PATH Limes/limes_core SOURCE_GROUP_NAME Generated)
 
+include (LimesConfigVersionHeader)
+
 limes_config_version_header (
 	FILENAME limes_version.h
 	NAMESPACE limes
@@ -83,6 +87,8 @@ limes_config_version_header (
 
 source_group (TREE "${CMAKE_CURRENT_BINARY_DIR}" FILES "${CMAKE_CURRENT_BINARY_DIR}/limes_version.h"
 			  PREFIX Generated)
+
+#
 
 set (LIMES_CORE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_core" CACHE INTERNAL "")
 
@@ -109,25 +115,27 @@ add_subdirectory (text)
 add_subdirectory (threading)
 add_subdirectory (time)
 
-source_group (
-	TREE "${CMAKE_CURRENT_LIST_DIR}"
-	FILES limes_core.h
-		  limes_namespace.h
-		  ${files_files}
-		  ${math_files}
-		  ${memory_files}
-		  ${misc_files}
-		  ${text_files}
-		  ${threading_files}
-		  ${time_files})
+set (
+	limes_core_sources
+	limes_core.h
+	limes_namespace.h
+	${files_files}
+	${math_files}
+	${memory_files}
+	${misc_files}
+	${text_files}
+	${threading_files}
+	${time_files})
 
-unset (files_files)
-unset (math_files)
-unset (memory_files)
-unset (misc_files)
-unset (text_files)
-unset (threading_files)
-unset (time_files)
+source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${limes_core_sources})
+
+list (TRANSFORM limes_core_sources
+	  PREPEND "${CMAKE_INSTALL_PREFIX}/${LIMES_CORE_INSTALL_INCLUDE_DIR}/")
+
+source_group (TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+			  FILES ${limes_core_sources})
+
+#
 
 install (
 	TARGETS limes_core
@@ -146,6 +154,8 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_core_base)
 
+include (OrangesGeneratePkgConfig)
+
 oranges_create_pkgconfig_file (
 	TARGET limes_core
 	INCLUDE_REL_PATH "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
@@ -153,6 +163,8 @@ oranges_create_pkgconfig_file (
 	URL "${PROJECT_HOMEPAGE_URL}"
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_core_dev)
+
+include (CPackComponent)
 
 cpack_add_component (limes_core_base HIDDEN)
 

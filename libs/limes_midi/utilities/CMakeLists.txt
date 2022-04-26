@@ -8,23 +8,14 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_midi
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchbendMapper.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PitchbendMapper.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/VelocityMapper.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/VelocityMapper.h>
-			$<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities/PitchbendMapper.h>
-			$<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities/VelocityMapper.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES # cmake-format: sortable
-			   PitchbendMapper.h VelocityMapper.h
-		 DESTINATION "${LIMES_MIDI_INSTALL_INCLUDE_DIR}/utilities" COMPONENT limes_midi_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME utilities
+	TARGET limes_midi
+	INSTALL_COMPONENT limes_midi_dev
+	INSTALL_DIR "${LIMES_MIDI_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  PitchbendMapper.cpp PitchbendMapper.h VelocityMapper.cpp VelocityMapper.h)
 
-set (
-	utilities_files
-	# cmake-format: sortable
-	utilities/PitchbendMapper.cpp utilities/PitchbendMapper.h utilities/VelocityMapper.cpp
-	utilities/VelocityMapper.h
-	PARENT_SCOPE)
+set (utilities_files ${utilities_files} PARENT_SCOPE)

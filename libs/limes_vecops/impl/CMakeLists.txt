@@ -30,13 +30,16 @@ set (
 	impl_files
 	# cmake-format: sortable
 	${pommier_files}
-	impl/fallback.h
-	impl/fallback_impl.cpp
-	impl/fallback_impl.h
-	impl/fp_status.cpp
-	impl/ipp.h
-	impl/mipp.h
-	impl/phasor.cpp
-	impl/phasor.h
-	impl/vdsp.h
-	PARENT_SCOPE)
+	fallback.h
+	fallback_impl.cpp
+	fallback_impl.h
+	fp_status.cpp
+	ipp.h
+	mipp.h
+	phasor.cpp
+	phasor.h
+	vdsp.h)
+
+list (TRANSFORM impl_files PREPEND impl/)
+
+set (impl_files ${impl_files} PARENT_SCOPE)

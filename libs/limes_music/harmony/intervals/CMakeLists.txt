@@ -8,37 +8,20 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_music
-	PRIVATE
-		# cmake-format: sortable
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/CompoundInterval.cpp>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/CompoundInterval.h>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/CompoundInterval_impl.h>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Interval.cpp>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Interval.h>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Interval_impl.h>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/MicrotonalInterval.h>
-		$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/intervals/CompoundInterval.h>
-		$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/intervals/CompoundInterval_impl.h>
-		$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/intervals/Interval.h>
-		$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/intervals/Interval_impl.h>
-		$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/intervals/MicrotonalInterval.h>
-	)
+include (OrangesSourceFileUtils)
 
-install (
+oranges_add_source_files (
+	DIRECTORY_NAME "harmony/intervals"
+	TARGET limes_music
+	INSTALL_COMPONENT limes_music_dev
+	INSTALL_DIR "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  CompoundInterval.h CompoundInterval_impl.h Interval.h Interval_impl.h MicrotonalInterval.h
-	DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/intervals" COMPONENT limes_music_dev)
+		  CompoundInterval.cpp
+		  CompoundInterval.h
+		  CompoundInterval_impl.h
+		  Interval.cpp
+		  Interval.h
+		  Interval_impl.h
+		  MicrotonalInterval.h)
 
-set (
-	intervals_files
-	# cmake-format: sortable
-	harmony/intervals/CompoundInterval.cpp
-	harmony/intervals/CompoundInterval.h
-	harmony/intervals/CompoundInterval_impl.h
-	harmony/intervals/Interval.cpp
-	harmony/intervals/Interval.h
-	harmony/intervals/Interval_impl.h
-	harmony/intervals/MicrotonalInterval.h
-	PARENT_SCOPE)
+set (intervals_files ${harmony/intervals_files} PARENT_SCOPE)

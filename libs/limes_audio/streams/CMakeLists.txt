@@ -8,26 +8,15 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_audio
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/oscillator.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/oscillator.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/SampleStream.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/SampleStream.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/WhiteNoiseGenerator.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/WhiteNoiseGenerator.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/streams/oscillator.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/streams/SampleStream.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/streams/WhiteNoiseGenerator.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES # cmake-format: sortable
-			   oscillator.h SampleStream.h WhiteNoiseGenerator.h
-		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/streams" COMPONENT limes_audio_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME streams
+	TARGET limes_audio
+	INSTALL_COMPONENT limes_audio_dev
+	INSTALL_DIR "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  oscillator.cpp oscillator.h SampleStream.cpp SampleStream.h WhiteNoiseGenerator.cpp
+		  WhiteNoiseGenerator.h)
 
-set (
-	streams_files
-	# cmake-format: sortable
-	streams/oscillator.cpp streams/oscillator.h streams/SampleStream.cpp streams/SampleStream.h
-	streams/WhiteNoiseGenerator.cpp streams/WhiteNoiseGenerator.h
-	PARENT_SCOPE)
+set (streams_files ${streams_files} PARENT_SCOPE)

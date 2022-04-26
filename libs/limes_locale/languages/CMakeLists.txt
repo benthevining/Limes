@@ -8,13 +8,14 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_locale
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/languages.h>
-			$<INSTALL_INTERFACE:${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/languages/languages.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES languages.h DESTINATION "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/languages"
-		 COMPONENT limes_locale_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME languages
+	TARGET limes_locale
+	INSTALL_COMPONENT limes_locale_dev
+	INSTALL_DIR "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  languages.h languages.cpp)
 
-set (languages_files languages/languages.h languages/languages.cpp PARENT_SCOPE)
+set (languages_files ${languages_files} PARENT_SCOPE)

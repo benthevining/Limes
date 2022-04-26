@@ -8,22 +8,14 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_audio
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Coeffecients.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Coeffecients.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Filter.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Filter.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/filters/Coeffecients.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/filters/Filter.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES # cmake-format: sortable
-			   Coeffecients.h Filter.h DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/filters"
-		 COMPONENT limes_audio_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME filters
+	TARGET limes_audio
+	INSTALL_COMPONENT limes_audio_dev
+	INSTALL_DIR "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  Coeffecients.cpp Coeffecients.h Filter.cpp Filter.h)
 
-set (
-	filters_files
-	# cmake-format: sortable
-	filters/Coeffecients.cpp filters/Coeffecients.h filters/Filter.cpp filters/Filter.h
-	PARENT_SCOPE)
+set (filters_files ${filters_files} PARENT_SCOPE)

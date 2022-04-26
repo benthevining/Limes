@@ -38,12 +38,6 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-include (OrangesDefaultTarget)
-include (OrangesUnityBuild)
-include (OrangesGeneratePkgConfig)
-include (CPackComponent)
-include (GNUInstallDirs)
-
 project (
 	LimesAudio
 	VERSION "${Limes_VERSION}"
@@ -53,8 +47,16 @@ project (
 
 add_library (limes_audio STATIC)
 
-set_target_properties (limes_audio PROPERTIES VERSION "${PROJECT_VERSION}"
-											  SOVERSION "${PROJECT_VERSION_MAJOR}")
+set_target_properties (
+	limes_audio
+	PROPERTIES VERSION "${PROJECT_VERSION}"
+			   SOVERSION "${PROJECT_VERSION_MAJOR}"
+			   LABELS Limes
+			   FOLDER Limes/libs
+			   EchoString "Building the limes_audio library...")
+
+include (OrangesDefaultTarget)
+include (OrangesUnityBuild)
 
 target_link_libraries (limes_audio PUBLIC Limes::limes_data_structures
 					   PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
@@ -78,15 +80,16 @@ add_subdirectory (psola)
 add_subdirectory (streams)
 add_subdirectory (util)
 
-source_group (
-	TREE "${CMAKE_CURRENT_LIST_DIR}" FILES limes_audio.h ${filters_files} ${oscillators_files}
-										   ${psola_files} ${streams_files} ${util_files})
+set (limes_audio_sources limes_audio.h ${filters_files} ${oscillators_files} ${psola_files}
+						 ${streams_files} ${util_files})
 
-unset (filters_files)
-unset (oscillators_files)
-unset (psola_files)
-unset (streams_files)
-unset (util_files)
+source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${limes_audio_sources})
+
+list (TRANSFORM limes_audio_sources
+	  PREPEND "${CMAKE_INSTALL_PREFIX}/${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/")
+
+source_group (TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
+			  FILES ${limes_audio_sources})
 
 install (
 	TARGETS limes_audio
@@ -105,6 +108,8 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_audio_base)
 
+include (OrangesGeneratePkgConfig)
+
 oranges_create_pkgconfig_file (
 	TARGET limes_audio
 	INCLUDE_REL_PATH "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
@@ -112,6 +117,8 @@ oranges_create_pkgconfig_file (
 	URL "${PROJECT_HOMEPAGE_URL}"
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_audio_dev)
+
+include (CPackComponent)
 
 cpack_add_component (limes_audio_base HIDDEN)
 

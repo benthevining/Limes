@@ -8,35 +8,21 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_core
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/directory.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/directory.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/file.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/file.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/FilesystemEntry.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/FilesystemEntry.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/sym_link.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/sym_link.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/files/directory.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/files/file.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/files/FilesystemEntry.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/files/sym_link.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES # cmake-format: sortable
-			   directory.h file.h FilesystemEntry.h sym_link.h
-		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/files" COMPONENT limes_core_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME files
+	TARGET limes_core
+	INSTALL_COMPONENT limes_core_dev
+	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  directory.cpp
+		  directory.h
+		  file.cpp
+		  file.h
+		  FilesystemEntry.cpp
+		  FilesystemEntry.h
+		  sym_link.cpp
+		  sym_link.h)
 
-set (
-	files_files
-	# cmake-format: sortable
-	files/directory.cpp
-	files/directory.h
-	files/file.cpp
-	files/file.h
-	files/FilesystemEntry.cpp
-	files/FilesystemEntry.h
-	files/sym_link.cpp
-	files/sym_link.h
-	PARENT_SCOPE)
+set (files_files ${files_files} PARENT_SCOPE)

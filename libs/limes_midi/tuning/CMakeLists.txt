@@ -12,11 +12,14 @@ find_package (MTS-ESP REQUIRED COMPONENTS Client)
 
 target_link_libraries (limes_midi PUBLIC ODDSound::MTSClient)
 
-target_sources (
-	limes_midi
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mts_client.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/mts_client.h>
-			$<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/tuning/mts_client.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES mts_client.h DESTINATION "${LIMES_MIDI_INSTALL_INCLUDE_DIR}/tuning"
-		 COMPONENT limes_midi_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME tuning
+	TARGET limes_midi
+	INSTALL_COMPONENT limes_midi_dev
+	INSTALL_DIR "${LIMES_MIDI_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  mts_client.cpp mts_client.h)
+
+set (tuning_files ${tuning_files} PARENT_SCOPE)

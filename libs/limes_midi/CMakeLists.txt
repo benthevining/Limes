@@ -38,12 +38,6 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-include (OrangesDefaultTarget)
-include (OrangesUnityBuild)
-include (OrangesGeneratePkgConfig)
-include (CPackComponent)
-include (GNUInstallDirs)
-
 project (
 	LimesMIDI
 	VERSION "${Limes_VERSION}"
@@ -53,8 +47,16 @@ project (
 
 add_library (limes_midi STATIC)
 
-set_target_properties (limes_midi PROPERTIES VERSION "${PROJECT_VERSION}"
-											 SOVERSION "${PROJECT_VERSION_MAJOR}")
+set_target_properties (
+	limes_midi
+	PROPERTIES VERSION "${PROJECT_VERSION}"
+			   SOVERSION "${PROJECT_VERSION_MAJOR}"
+			   LABELS Limes
+			   FOLDER Limes/libs
+			   EchoString "Building the limes_midi library...")
+
+include (OrangesDefaultTarget)
+include (OrangesUnityBuild)
 
 target_link_libraries (limes_midi PUBLIC Limes::limes_core PRIVATE Oranges::OrangesDefaultTarget
 																   Oranges::OrangesUnityBuild)
@@ -75,9 +77,15 @@ target_include_directories (
 add_subdirectory (utilities)
 # add_subdirectory (tuning)
 
-source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES limes_midi.h ${utilities_files})
+set (limes_midi_sources limes_midi.h ${utilities_files} ${tuning_files})
 
-unset (utilities_files)
+source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${limes_midi_sources})
+
+list (TRANSFORM limes_midi_sources
+	  PREPEND "${CMAKE_INSTALL_PREFIX}/${LIMES_MIDI_INSTALL_INCLUDE_DIR}/")
+
+source_group (TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_MIDI_INSTALL_INCLUDE_DIR}"
+			  FILES ${limes_midi_sources})
 
 install (
 	TARGETS limes_midi
@@ -96,6 +104,8 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_midi_base)
 
+include (OrangesGeneratePkgConfig)
+
 oranges_create_pkgconfig_file (
 	TARGET limes_midi
 	INCLUDE_REL_PATH "${LIMES_MIDI_INSTALL_INCLUDE_DIR}"
@@ -103,6 +113,8 @@ oranges_create_pkgconfig_file (
 	URL "${PROJECT_HOMEPAGE_URL}"
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_midi_dev)
+
+include (CPackComponent)
 
 cpack_add_component (limes_midi_base HIDDEN)
 

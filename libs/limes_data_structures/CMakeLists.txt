@@ -38,12 +38,6 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-include (OrangesDefaultTarget)
-include (OrangesUnityBuild)
-include (OrangesGeneratePkgConfig)
-include (CPackComponent)
-include (GNUInstallDirs)
-
 project (
 	LimesDataStructures
 	VERSION "${Limes_VERSION}"
@@ -53,8 +47,16 @@ project (
 
 add_library (limes_data_structures STATIC)
 
-set_target_properties (limes_data_structures PROPERTIES VERSION "${PROJECT_VERSION}"
-														SOVERSION "${PROJECT_VERSION_MAJOR}")
+set_target_properties (
+	limes_data_structures
+	PROPERTIES VERSION "${PROJECT_VERSION}"
+			   SOVERSION "${PROJECT_VERSION_MAJOR}"
+			   LABELS Limes
+			   FOLDER Limes/libs
+			   EchoString "Building the limes_data_structures library...")
+
+include (OrangesDefaultTarget)
+include (OrangesUnityBuild)
 
 target_link_libraries (limes_data_structures PUBLIC Limes::limes_vecops
 					   PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
@@ -80,14 +82,16 @@ add_subdirectory (fifo)
 add_subdirectory (linked_list)
 add_subdirectory (vectors)
 
-source_group (
-	TREE "${CMAKE_CURRENT_LIST_DIR}" FILES limes_data_structures.h ${data_structures_files}
-										   ${fifo_files} ${linked_list_files} ${vectors_files})
+set (limes_data_structures_sources limes_data_structures.h ${data_structures_files} ${fifo_files}
+								   ${linked_list_files} ${vectors_files})
 
-unset (data_structures_files)
-unset (fifo_files)
-unset (linked_list_files)
-unset (vectors_files)
+source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${limes_data_structures_sources})
+
+list (TRANSFORM limes_data_structures_sources
+	  PREPEND "${CMAKE_INSTALL_PREFIX}/${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/")
+
+source_group (TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}"
+			  FILES ${limes_data_structures_sources})
 
 install (
 	TARGETS limes_data_structures
@@ -106,6 +110,8 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_data_structures_base)
 
+include (OrangesGeneratePkgConfig)
+
 oranges_create_pkgconfig_file (
 	TARGET limes_data_structures
 	INCLUDE_REL_PATH "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}"
@@ -113,6 +119,8 @@ oranges_create_pkgconfig_file (
 	URL "${PROJECT_HOMEPAGE_URL}"
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_data_structures_dev)
+
+include (CPackComponent)
 
 cpack_add_component (limes_data_structures_base HIDDEN)
 

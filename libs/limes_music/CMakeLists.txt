@@ -38,12 +38,6 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-include (OrangesDefaultTarget)
-include (OrangesUnityBuild)
-include (OrangesGeneratePkgConfig)
-include (CPackComponent)
-include (GNUInstallDirs)
-
 project (
 	LimesMusic
 	VERSION "${Limes_VERSION}"
@@ -53,8 +47,16 @@ project (
 
 add_library (limes_music STATIC)
 
-set_target_properties (limes_music PROPERTIES VERSION "${PROJECT_VERSION}"
-											  SOVERSION "${PROJECT_VERSION_MAJOR}")
+set_target_properties (
+	limes_music
+	PROPERTIES VERSION "${PROJECT_VERSION}"
+			   SOVERSION "${PROJECT_VERSION_MAJOR}"
+			   LABELS Limes
+			   FOLDER Limes/libs
+			   EchoString "Building the limes_music library...")
+
+include (OrangesDefaultTarget)
+include (OrangesUnityBuild)
 
 target_link_libraries (limes_music PUBLIC Limes::limes_data_structures
 					   PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
@@ -75,10 +77,15 @@ target_include_directories (
 add_subdirectory (harmony)
 add_subdirectory (rhythm)
 
-source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES limes_music.h ${harmony_files} ${rhythm_files})
+set (limes_music_sources limes_music.h ${harmony_files} ${rhythm_files})
 
-unset (harmony_files)
-unset (rhythm_files)
+source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${limes_music_sources})
+
+list (TRANSFORM limes_music_sources
+	  PREPEND "${CMAKE_INSTALL_PREFIX}/${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/")
+
+source_group (TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
+			  FILES ${limes_music_sources})
 
 install (
 	TARGETS limes_music
@@ -97,6 +104,8 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_music_base)
 
+include (OrangesGeneratePkgConfig)
+
 oranges_create_pkgconfig_file (
 	TARGET limes_music
 	INCLUDE_REL_PATH "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
@@ -104,6 +113,8 @@ oranges_create_pkgconfig_file (
 	URL "${PROJECT_HOMEPAGE_URL}"
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_music_dev)
+
+include (CPackComponent)
 
 cpack_add_component (limes_music_base HIDDEN)
 

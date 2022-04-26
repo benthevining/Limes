@@ -38,12 +38,6 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
-include (OrangesDefaultTarget)
-include (OrangesUnityBuild)
-include (OrangesGeneratePkgConfig)
-include (CPackComponent)
-include (GNUInstallDirs)
-
 project (
 	LimesLocale
 	VERSION "${Limes_VERSION}"
@@ -53,8 +47,16 @@ project (
 
 add_library (limes_locale STATIC)
 
-set_target_properties (limes_locale PROPERTIES VERSION "${PROJECT_VERSION}"
-											   SOVERSION "${PROJECT_VERSION_MAJOR}")
+set_target_properties (
+	limes_locale
+	PROPERTIES VERSION "${PROJECT_VERSION}"
+			   SOVERSION "${PROJECT_VERSION_MAJOR}"
+			   LABELS Limes
+			   FOLDER Limes/libs
+			   EchoString "Building the limes_locale library...")
+
+include (OrangesDefaultTarget)
+include (OrangesUnityBuild)
 
 target_link_libraries (limes_locale PUBLIC Limes::limes_data_structures
 					   PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
@@ -75,11 +77,15 @@ target_include_directories (
 add_subdirectory (countries)
 add_subdirectory (languages)
 
-source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES limes_locale.h ${countries_files}
-													 ${languages_files})
+set (limes_locale_sources limes_locale.h ${countries_files} ${languages_files})
 
-unset (countries_files)
-unset (languages_files)
+source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${limes_locale_sources})
+
+list (TRANSFORM limes_locale_sources
+	  PREPEND "${CMAKE_INSTALL_PREFIX}/${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/")
+
+source_group (TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_LOCALE_INSTALL_INCLUDE_DIR}"
+			  FILES ${limes_locale_sources})
 
 install (
 	TARGETS limes_locale
@@ -98,6 +104,8 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_locale_base)
 
+include (OrangesGeneratePkgConfig)
+
 oranges_create_pkgconfig_file (
 	TARGET limes_locale
 	INCLUDE_REL_PATH "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}"
@@ -105,6 +113,8 @@ oranges_create_pkgconfig_file (
 	URL "${PROJECT_HOMEPAGE_URL}"
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_locale_dev)
+
+include (CPackComponent)
 
 cpack_add_component (limes_locale_base HIDDEN)
 

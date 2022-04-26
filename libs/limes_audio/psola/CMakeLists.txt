@@ -8,26 +8,14 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_audio
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/analyzer.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/analyzer.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PeakFinder.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/PeakFinder.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/shifter.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/shifter.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/psola/analyzer.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/psola/PeakFinder.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/psola/shifter.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES # cmake-format: sortable
-			   analyzer.h PeakFinder.h shifter.h
-		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/psola" COMPONENT limes_audio_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME psola
+	TARGET limes_audio
+	INSTALL_COMPONENT limes_audio_dev
+	INSTALL_DIR "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  analyzer.cpp analyzer.h PeakFinder.cpp PeakFinder.h shifter.cpp shifter.h)
 
-set (
-	psola_files
-	# cmake-format: sortable
-	psola/analyzer.cpp psola/analyzer.h psola/PeakFinder.cpp psola/PeakFinder.h psola/shifter.cpp
-	psola/shifter.h
-	PARENT_SCOPE)
+set (psola_files ${psola_files} PARENT_SCOPE)

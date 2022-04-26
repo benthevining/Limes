@@ -110,28 +110,6 @@ project (
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"
 	LANGUAGES CXX)
 
-if(PROJECT_IS_TOP_LEVEL)
-	set (LIMES_PATH "${CMAKE_CURRENT_LIST_DIR}/..")
-
-	list (APPEND CMAKE_MODULE_PATH "${LIMES_PATH}/cmake")
-
-	find_package (Oranges 2.17 REQUIRED)
-
-	include (OrangesDefaultProjectSettings)
-
-	set (
-		LIMES_INSTALL_DEST
-		"${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
-		CACHE
-			STRING
-			"Directory below INSTALL_PREFIX where the Limes CMake package files will be installed to"
-		)
-
-	set (Limes_VERSION "${PROJECT_VERSION}")
-
-	add_subdirectory ("${LIMES_PATH}/libs" "${CMAKE_CURRENT_BINARY_DIR}/LimesLibs")
-endif()
-
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 
@@ -140,8 +118,13 @@ enable_testing ()
 add_executable (BinaryBuilder main.cpp)
 
 set_target_properties (
-	BinaryBuilder PROPERTIES VERSION "${PROJECT_VERSION}" SOVERSION "${PROJECT_VERSION_MAJOR}"
-							 MACOSX_BUNDLE OFF)
+	BinaryBuilder
+	PROPERTIES VERSION "${PROJECT_VERSION}"
+			   SOVERSION "${PROJECT_VERSION_MAJOR}"
+			   MACOSX_BUNDLE OFF
+			   LABELS "Limes;Utility"
+			   FOLDER Limes
+			   EchoString "Building the Limes BinaryBuilder...")
 
 target_link_libraries (BinaryBuilder PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget
 											 Oranges::OrangesUnityBuild)

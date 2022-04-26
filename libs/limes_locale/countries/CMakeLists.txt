@@ -8,13 +8,14 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_locale
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/countries.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/countries.h>
-			$<INSTALL_INTERFACE:${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/countries/countries.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES countries.h DESTINATION "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}/countries"
-		 COMPONENT limes_locale_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME countries
+	TARGET limes_locale
+	INSTALL_COMPONENT limes_locale_dev
+	INSTALL_DIR "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  countries.h countries.cpp)
 
-set (countries_files countries/countries.h countries/countries.cpp PARENT_SCOPE)
+set (countries_files ${countries_files} PARENT_SCOPE)

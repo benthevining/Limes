@@ -8,23 +8,14 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_audio
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_oscillators.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/basic_oscillators.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/DetunableModel.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/DetunableModel.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/oscillators/basic_oscillators.h>
-			$<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/oscillators/DetunableModel.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES # cmake-format: sortable
-			   basic_oscillators.h DetunableModel.h
-		 DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/oscillators" COMPONENT limes_audio_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME oscillators
+	TARGET limes_audio
+	INSTALL_COMPONENT limes_audio_dev
+	INSTALL_DIR "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  basic_oscillators.cpp basic_oscillators.h DetunableModel.cpp DetunableModel.h)
 
-set (
-	oscillators_files
-	# cmake-format: sortable
-	oscillators/basic_oscillators.cpp oscillators/basic_oscillators.h oscillators/DetunableModel.cpp
-	oscillators/DetunableModel.h
-	PARENT_SCOPE)
+set (oscillators_files ${oscillators_files} PARENT_SCOPE)

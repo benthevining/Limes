@@ -8,38 +8,21 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_core
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Algorithm.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Functions.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/IgnoreUnused.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/preprocessor.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/streams.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TypeTraits.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Version.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Version.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/Algorithm.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/Functions.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/IgnoreUnused.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/preprocessor.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/streams.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/TypeTraits.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc/Version.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES # cmake-format: sortable
-			   Algorithm.h Functions.h IgnoreUnused.h preprocessor.h TypeTraits.h Version.h
-		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/misc" COMPONENT limes_core_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME misc
+	TARGET limes_core
+	INSTALL_COMPONENT limes_core_dev
+	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  Algorithm.h
+		  Functions.h
+		  IgnoreUnused.h
+		  preprocessor.h
+		  streams.h
+		  TypeTraits.h
+		  Version.cpp
+		  Version.h)
 
-set (
-	misc_files
-	# cmake-format: sortable
-	misc/Algorithm.h
-	misc/Functions.h
-	misc/IgnoreUnused.h
-	misc/preprocessor.h
-	misc/streams.h
-	misc/TypeTraits.h
-	misc/Version.cpp
-	misc/Version.h
-	PARENT_SCOPE)
+set (misc_files ${misc_files} PARENT_SCOPE)

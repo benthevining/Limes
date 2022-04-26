@@ -11,13 +11,14 @@
 set (
 	pommier_files
 	# cmake-format: sortable
-	impl/pommier/neon_mathfun.cpp impl/pommier/neon_mathfun.h impl/pommier/pommier_wrapper.cpp
-	impl/pommier/pommier_wrapper.h impl/pommier/sse_mathfun.cpp impl/pommier/sse_mathfun.h
-	PARENT_SCOPE)
+	neon_mathfun.cpp neon_mathfun.h pommier_wrapper.cpp pommier_wrapper.h sse_mathfun.cpp
+	sse_mathfun.h)
+
+list (TRANSFORM pommier_files PREPEND pommier/)
+
+set (pommier_files ${pommier_files} PARENT_SCOPE)
 
 include (OrangesGeneratePlatformHeader)
-
-option (LIMES_IGNORE_POMMIER "Ignore the Pommier SIMD extensions" OFF)
 
 if(LIMES_IGNORE_POMMIER OR (NOT (ORANGES_ARM_NEON OR ORANGES_SSE)) OR (MSVC AND NOT ORANGES_ARM_NEON
 																	  )) # MSVC doesn't compile MMX

@@ -8,28 +8,15 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_music
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NoteDuration.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NoteDuration_impl.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NoteLength.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NoteLength.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/NoteLength_impl.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/TimeSignature.h>
-			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/rhythm/NoteDuration.h>
-			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/rhythm/NoteDuration_impl.h>
-			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/rhythm/NoteLength.h>
-			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/rhythm/NoteLength_impl.h>
-			$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/rhythm/TimeSignature.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES # cmake-format: sortable
-			   NoteDuration.h NoteDuration_impl.h NoteLength.h NoteLength_impl.h TimeSignature.h
-		 DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/rhythm" COMPONENT limes_music_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME rhythm
+	TARGET limes_music
+	INSTALL_COMPONENT limes_music_dev
+	INSTALL_DIR "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  NoteDuration.h NoteDuration_impl.h NoteLength.cpp NoteLength.h NoteLength_impl.h
+		  TimeSignature.h)
 
-set (
-	rhythm_files
-	# cmake-format: sortable
-	rhythm/NoteDuration.h rhythm/NoteDuration_impl.h rhythm/NoteLength.cpp rhythm/NoteLength.h
-	rhythm/NoteLength_impl.h rhythm/TimeSignature.h
-	PARENT_SCOPE)
+set (rhythm_files ${rhythm_files} PARENT_SCOPE)

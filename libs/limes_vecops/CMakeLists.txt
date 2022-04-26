@@ -57,15 +57,36 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
-include (OrangesDefaultTarget)
-include (OrangesUnityBuild)
-include (OrangesGeneratePkgConfig)
-include (CPackComponent)
-include (GNUInstallDirs)
-
 define_property (
 	TARGET PROPERTY VECOPS_IMPLEMENTATION BRIEF_DOCS "Name of the vecops implementation"
 	FULL_DOCS "Name of the underlying vecops implementation library used by limes_vecops")
+
+option (LIMES_IGNORE_VDSP "Ignore vDSP for vecops" OFF)
+option (LIMES_IGNORE_IPP "Ignore Intel IPP for vecops" OFF)
+option (LIMES_IGNORE_MIPP "Ignore MIPP for vecops" OFF)
+option (LIMES_IGNORE_POMMIER "Ignore the Pommier SIMD extensions" OFF)
+option (LIMES_IGNORE_FFTW "Ignore FFTW for limes_vecops" OFF)
+option (LIMES_USE_VECOPS_FALLBACK "Use the vecops fallback implementation" OFF)
+
+include (CMakeDependentOption)
+
+cmake_dependent_option (LIMES_USE_IPP "Use IPP for vecops, if available" OFF "NOT LIMES_IGNORE_IPP"
+						OFF)
+cmake_dependent_option (LIMES_USE_MIPP "Use MIPP for vecops, if available" OFF
+						"NOT LIMES_IGNORE_MIPP" OFF)
+
+mark_as_advanced (
+	FORCE
+	LIMES_IGNORE_VDSP
+	LIMES_IGNORE_IPP
+	LIMES_IGNORE_MIPP
+	LIMES_IGNORE_POMMIER
+	LIMES_IGNORE_FFTW
+	LIMES_USE_VECOPS_FALLBACK
+	LIMES_USE_IPP
+	LIMES_USE_MIPP)
+
+#
 
 project (
 	LimesVecops
@@ -76,8 +97,16 @@ project (
 
 add_library (limes_vecops STATIC)
 
-set_target_properties (limes_vecops PROPERTIES VERSION "${PROJECT_VERSION}"
-											   SOVERSION "${PROJECT_VERSION_MAJOR}")
+set_target_properties (
+	limes_vecops
+	PROPERTIES VERSION "${PROJECT_VERSION}"
+			   SOVERSION "${PROJECT_VERSION_MAJOR}"
+			   LABELS Limes
+			   FOLDER Limes/libs
+			   EchoString "Building the limes_vecops library...")
+
+include (OrangesDefaultTarget)
+include (OrangesUnityBuild)
 
 target_link_libraries (limes_vecops PUBLIC Limes::limes_core PRIVATE Oranges::OrangesDefaultTarget
 																	 Oranges::OrangesUnityBuild)
@@ -105,10 +134,15 @@ target_include_directories (
 add_subdirectory (impl) # NB - this must be first!
 add_subdirectory (fft)
 
-source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES limes_vecops.h ${impl_files} ${fft_files})
+set (limes_vecops_sources limes_vecops.h ${impl_files} ${fft_files})
 
-unset (impl_files)
-unset (fft_files)
+source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${limes_vecops_sources})
+
+list (TRANSFORM limes_vecops_sources
+	  PREPEND "${CMAKE_INSTALL_PREFIX}/${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/")
+
+source_group (TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
+			  FILES ${limes_vecops_sources})
 
 install (
 	TARGETS limes_vecops
@@ -127,6 +161,8 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_vecops_base)
 
+include (OrangesGeneratePkgConfig)
+
 oranges_create_pkgconfig_file (
 	TARGET limes_vecops
 	INCLUDE_REL_PATH "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
@@ -134,6 +170,8 @@ oranges_create_pkgconfig_file (
 	URL "${PROJECT_HOMEPAGE_URL}"
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_vecops_dev)
+
+include (CPackComponent)
 
 cpack_add_component (limes_vecops_base HIDDEN)
 

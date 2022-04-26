@@ -8,17 +8,14 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_core
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/build_date.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/time_utils.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/time/build_date.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/time/time_utils.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES # cmake-format: sortable
-			   build_date.h time_utils.h DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/time"
-		 COMPONENT limes_core_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME time
+	TARGET limes_core
+	INSTALL_COMPONENT limes_core_dev
+	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  build_date.h time_utils.h)
 
-set (time_files # cmake-format: sortable
-				time/build_date.h time/time_utils.h PARENT_SCOPE)
+set (time_files ${time_files} PARENT_SCOPE)

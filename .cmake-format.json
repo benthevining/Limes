@@ -184,6 +184,15 @@
           "TARGET": 1
         }
       },
+      "oranges_add_source_files": {
+        "kwargs": {
+          "DIRECTORY_NAME": 1,
+          "FILES": "+",
+          "INSTALL_COMPONENT": 1,
+          "INSTALL_DIR": 1,
+          "TARGET": 1
+        }
+      },
       "oranges_create_doxygen_target": {
         "kwargs": {
           "FILE_PATTERNS": "+",

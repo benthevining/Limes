@@ -8,20 +8,14 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_core
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/area.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/perimeter.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/volume.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/math/geometry/area.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/math/geometry/perimeter.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/math/geometry/volume.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES # cmake-format: sortable
-			   area.h perimeter.h volume.h
-		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/math/geometry" COMPONENT limes_core_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME "math/geometry"
+	TARGET limes_core
+	INSTALL_COMPONENT limes_core_dev
+	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  area.h perimeter.h volume.h)
 
-set (geometry_files # cmake-format: sortable
-					math/geometry/area.h math/geometry/perimeter.h math/geometry/volume.h
-	 PARENT_SCOPE)
+set (geometry_files ${math/geometry_files} PARENT_SCOPE)

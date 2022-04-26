@@ -8,57 +8,26 @@
 #
 # ======================================================================================
 
-target_sources (
-	limes_music
-	PRIVATE
-		# cmake-format: sortable
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Chromatic.cpp>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Chromatic.h>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/KeySignature.cpp>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/KeySignature.h>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/KeySignature_impl.h>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Mode.cpp>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Mode.h>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Octatonic.cpp>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Octatonic.h>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Scale.cpp>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Scale.h>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/WholeTone.cpp>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/WholeTone.h>
-		$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/scales/Chromatic.h>
-		$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/scales/KeySignature.h>
-		$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/scales/KeySignature_impl.h>
-		$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/scales/Mode.h>
-		$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/scales/Octatonic.h>
-		$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/scales/Scale.h>
-		$<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/scales/WholeTone.h>)
+include (OrangesSourceFileUtils)
 
-install (
+oranges_add_source_files (
+	DIRECTORY_NAME "harmony/scales"
+	TARGET limes_music
+	INSTALL_COMPONENT limes_music_dev
+	INSTALL_DIR "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
+		  Chromatic.cpp
 		  Chromatic.h
+		  KeySignature.cpp
 		  KeySignature.h
 		  KeySignature_impl.h
+		  Mode.cpp
 		  Mode.h
+		  Octatonic.cpp
 		  Octatonic.h
+		  Scale.cpp
 		  Scale.h
-		  WholeTone.h
-	DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/harmony/scales"
-	COMPONENT limes_music_dev)
+		  WholeTone.cpp
+		  WholeTone.h)
 
-set (
-	scales_files
-	# cmake-format: sortable
-	harmony/scales/Chromatic.cpp
-	harmony/scales/Chromatic.h
-	harmony/scales/KeySignature.cpp
-	harmony/scales/KeySignature.h
-	harmony/scales/KeySignature_impl.h
-	harmony/scales/Mode.cpp
-	harmony/scales/Mode.h
-	harmony/scales/Octatonic.cpp
-	harmony/scales/Octatonic.h
-	harmony/scales/Scale.cpp
-	harmony/scales/Scale.h
-	harmony/scales/WholeTone.cpp
-	harmony/scales/WholeTone.h
-	PARENT_SCOPE)
+set (scales_files ${harmony/scales_files} PARENT_SCOPE)

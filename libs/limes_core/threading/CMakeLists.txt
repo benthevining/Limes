@@ -10,26 +10,14 @@
 
 add_subdirectory (RealtimeSafeObject)
 
-target_sources (
-	limes_core
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeSafeObject.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/RealtimeTypeTraits.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Threading.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Threading.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/ThreadSafeObject.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/RealtimeSafeObject.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/RealtimeTypeTraits.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/Threading.h>
-			$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading/ThreadSafeObject.h>)
+include (OrangesSourceFileUtils)
 
-install (FILES # cmake-format: sortable
-			   RealtimeSafeObject.h RealtimeTypeTraits.h Threading.h ThreadSafeObject.h
-		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}/threading" COMPONENT limes_core_dev)
+oranges_add_source_files (
+	DIRECTORY_NAME threading
+	TARGET limes_core
+	INSTALL_COMPONENT limes_core_dev
+	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  RealtimeSafeObject.h RealtimeTypeTraits.h Threading.cpp Threading.h ThreadSafeObject.h)
 
-set (
-	threading_files
-	# cmake-format: sortable
-	${rtso_files} threading/RealtimeSafeObject.h threading/RealtimeTypeTraits.h
-	threading/Threading.cpp threading/Threading.h threading/ThreadSafeObject.h
-	PARENT_SCOPE)
+set (threading_files ${threading_files} ${rtso_files} PARENT_SCOPE)

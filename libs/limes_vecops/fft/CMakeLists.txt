@@ -8,10 +8,6 @@
 #
 # ======================================================================================
 
-option (LIMES_IGNORE_FFTW "Ignore FFTW for limes_vecops" OFF)
-
-mark_as_advanced (FORCE LIMES_IGNORE_FFTW)
-
 include (FeatureSummary)
 
 set_package_properties (FFTW PROPERTIES TYPE RECOMMENDED PURPOSE "FFT acceleration with FFTW")
@@ -34,18 +30,21 @@ install (FILES # cmake-format: sortable
 set (
 	fft_files
 	# cmake-format: sortable
-	fft/fallback_fft.cpp
-	fft/fallback_fft.h
-	fft/fft_common.h
-	fft/fftw_fft.cpp
-	fft/fftw_fft.h
-	fft/ipp_fft.cpp
-	fft/ipp_fft.h
-	fft/limes_fft.cpp
-	fft/limes_fft.h
-	fft/vdsp_fft.cpp
-	fft/vdsp_fft.h
-	PARENT_SCOPE)
+	fallback_fft.cpp
+	fallback_fft.h
+	fft_common.h
+	fftw_fft.cpp
+	fftw_fft.h
+	ipp_fft.cpp
+	ipp_fft.h
+	limes_fft.cpp
+	limes_fft.h
+	vdsp_fft.cpp
+	vdsp_fft.h)
+
+list (TRANSFORM fft_files PREPEND fft/)
+
+set (fft_files ${fft_files} PARENT_SCOPE)
 
 #
 

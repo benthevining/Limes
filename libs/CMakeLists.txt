@@ -34,14 +34,12 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-include (OrangesGeneratePkgConfig)
-include (CPackComponent)
-include (GNUInstallDirs)
-
 add_library (Limes INTERFACE)
 
-set_target_properties (Limes PROPERTIES VERSION "${Limes_VERSION}" SOVERSION
-																   "${Limes_VERSION_MAJOR}")
+set_target_properties (
+	Limes PROPERTIES VERSION "${Limes_VERSION}" SOVERSION "${Limes_VERSION_MAJOR}" LABELS Limes)
+
+include (GNUInstallDirs)
 
 set (LIMES_INSTALL_INCLUDE_DIR "${CMAKE_INSTALL_INCLUDEDIR}/Limes" CACHE INTERNAL "")
 
@@ -77,6 +75,8 @@ install (
 	DESTINATION "${LIMES_INSTALL_DEST}"
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_base)
+
+include (OrangesGeneratePkgConfig)
 
 oranges_create_pkgconfig_file (
 	TARGET Limes
