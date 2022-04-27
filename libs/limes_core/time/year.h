@@ -18,6 +18,7 @@
 #include "build_date.h"
 #include <chrono>
 #include <ctime>
+#include "../math/mathHelpers.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -66,7 +67,7 @@ public:
 
 private:
 
-	std::chrono::year year;
+	int year { 0 };
 };
 
 /*-------------------------------------------------------------------------------------------------------------------------------*/
@@ -95,7 +96,13 @@ consteval Year Year::getCompilationYear() noexcept
 
 constexpr bool Year::isLeap() const noexcept
 {
-	return year.is_leap();
+	if (math::isDivisibleBy (year, 400))
+		return true;
+
+	if (math::isDivisibleBy (year, 4) && ! math::isDivisibleBy (year, 100))
+		return true;
+
+	return false;
 }
 
 constexpr int Year::getNumDays() const noexcept
@@ -108,12 +115,12 @@ constexpr int Year::getNumDays() const noexcept
 
 constexpr bool Year::isBC() const noexcept
 {
-	return getYear() < 0;
+	return year < 0;
 }
 
 constexpr int Year::getYear() const noexcept
 {
-	return (int) year;	// NOLINT
+	return year;
 }
 
 constexpr Year& Year::operator++() noexcept
@@ -130,44 +137,44 @@ constexpr Year& Year::operator--() noexcept
 
 constexpr Year Year::operator+ (int numYearsToAdd) const noexcept
 {
-	return Year { getYear() + numYearsToAdd };
+	return Year { year + numYearsToAdd };
 }
 
 constexpr Year Year::operator- (int numYearsToSubtract) const noexcept
 {
-	return Year { getYear() - numYearsToSubtract };
+	return Year { year - numYearsToSubtract };
 }
 
 constexpr Year& Year::operator+= (int numYearsToAdd) noexcept
 {
-	year += std::chrono::years (numYearsToAdd);
+	year += numYearsToAdd;
 	return *this;
 }
 
 constexpr Year& Year::operator-= (int numYearsToSubtract) noexcept
 {
-	year -= std::chrono::years (numYearsToSubtract);
+	year -= numYearsToSubtract;
 	return *this;
 }
 
 constexpr bool Year::operator> (const Year& other) const noexcept
 {
-	return getYear() > other.getYear();
+	return year > other.year;
 }
 
 constexpr bool Year::operator< (const Year& other) const noexcept
 {
-	return getYear() < other.getYear();
+	return year < other.year;
 }
 
 constexpr bool Year::operator== (const Year& other) const noexcept
 {
-	return getYear() == other.getYear();
+	return year == other.year;
 }
 
 constexpr bool Year::operator!= (const Year& other) const noexcept
 {
-	return getYear() != other.getYear();
+	return year != other.year;
 }
 
 }  // namespace time

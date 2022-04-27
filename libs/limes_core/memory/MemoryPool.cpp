@@ -137,7 +137,6 @@ void MemoryPool::deallocate (void* ptr, std::size_t numBytes) noexcept
 
 	const auto startChunkIdx = static_cast<std::vector<Chunk>::size_type> (std::ceil (static_cast<float> (byteDistance) / static_cast<float> (chunkSizeBytes)));
 
-	LIMES_ASSERT (startChunkIdx >= 0);
 	LIMES_ASSERT (chunks[startChunkIdx].location == static_cast<std::byte*> (ptr));
 
 	const auto numChunks = static_cast<int> (std::ceil (static_cast<float> (numBytes) / static_cast<float> (chunkSizeBytes)));
