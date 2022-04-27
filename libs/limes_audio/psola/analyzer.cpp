@@ -92,7 +92,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* const inputAudio, int
 		int min, max;
 		pitchDetector.getCurrentLegalPeriodRange (min, max);
 
-		return static_cast<float> (random.nextInt (min, max));
+		return static_cast<float> (random.next (min, max));
 	}();
 
 	LIMES_ASSERT (currentPeriod > 0.f && currentPeriod <= numSamples / 2);

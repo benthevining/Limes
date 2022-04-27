@@ -57,9 +57,8 @@ source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${tests_sources})
 add_executable (Limes::LimesTests ALIAS LimesTests)
 
 foreach(tag IN ITEMS core audio music data_structures)
-	add_test (NAME "Limes.${tag}"
-			  COMMAND Limes::LimesTests "[${tag}]" --success --warn NoAssertions --order rand
-					  --colour-mode ansi --verbosity high)
+	add_test (NAME "Limes.${tag}" COMMAND Limes::LimesTests "[${tag}]" --warn NoAssertions --order
+										  rand --colour-mode ansi --verbosity high)
 
 	set_tests_properties ("Limes.${tag}" PROPERTIES LABELS "Limes;UnitTests")
 endforeach()

@@ -17,8 +17,11 @@
 #include <cstdint>
 #include <type_traits>
 #include <atomic>
+#include <random>
+#include <limits>
 #include "../misc/preprocessor.h"
 #include "../misc/TypeTraits.h"
+#include "mathHelpers.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -29,59 +32,54 @@ class LIMES_EXPORT Random final
 {
 public:
 
-	explicit Random (int64_t seedValue) noexcept;
+	using EngineType = std::minstd_rand;
+
+	using ValueType = EngineType::result_type;
+
+	explicit Random (ValueType seedValue);
+
+	template <Scalar T>
+	explicit Random (T seedValue);
 
 	Random();
 
-	Random (const Random& other) noexcept;
-	Random (Random&& other);
+	LIMES_DEFAULT_MOVABLE (Random);
+	LIMES_DEFAULT_COPYABLE (Random);
 
-	[[nodiscard]] int nextInt() noexcept;
+	[[nodiscard]] ValueType nextValue();
 
-	[[nodiscard]] int nextInt (int maxValue) noexcept;
+	[[nodiscard]] bool nextBool();
 
-	[[nodiscard]] int nextInt (int minValue, int maxValue) noexcept;
+	template <Scalar T>
+	[[nodiscard]] T next (T min = std::numeric_limits<T>::min(),
+						  T max = std::numeric_limits<T>::max());
 
-	[[nodiscard]] float nextFloat() noexcept;
+	void setSeed (ValueType newSeed);
 
-	[[nodiscard]] double nextDouble() noexcept;
+	[[nodiscard]] Random fork();
 
-	[[nodiscard]] bool nextBool() noexcept;
-
-	template <typename T>
-	[[nodiscard]] T next() noexcept
-	{
-		static_assert (is_one_of<T, int, float, double, bool>::value);
-
-		if constexpr (std::is_same_v<T, int>)
-			return nextInt();
-		else if constexpr (std::is_same_v<T, float>)
-			return nextFloat();
-		else if constexpr (std::is_same_v<T, double>)
-			return nextDouble();
-		else if constexpr (std::is_same_v<T, bool>)
-			return nextBool();
-		else
-		{
-			LIMES_UNREACHABLE;
-			return T {};
-		}
-	}
-
-	void setSeed (int64_t newSeed) noexcept;
-
-	[[nodiscard]] int64_t getSeed() const noexcept;
-
-	void setSeedRandomly();
-
-	[[nodiscard]] Random fork() noexcept;
-
-	[[nodiscard]] static Random& getSystemRandom() noexcept;
+	[[nodiscard]] static Random& getSystem() noexcept;
 
 private:
 
-	std::atomic<int64_t> seed;
+	EngineType engine;
 };
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+template <Scalar T>
+Random::Random (T seedValue)
+	: Random (static_cast<ValueType> (seedValue))
+{
+}
+
+template <Scalar T>
+T Random::next (T min, T max)
+{
+	return map (static_cast<T> (nextValue()),
+				static_cast<T> (EngineType::min()), static_cast<T> (EngineType::max()),
+				min, max);
+}
 
 }  // namespace math
 

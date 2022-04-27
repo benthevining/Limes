@@ -27,7 +27,7 @@ TEST_CASE ("Abstract FIFO", "[data_structures]")
 
 	auto writer_thread = [&fifo, &writerN, &writerRandom, &buffer]
 	{
-		const auto num = writerRandom.nextInt (2000) + 1;
+		const auto num = writerRandom.next (1, 2000);
 
 		const auto writer = fifo.write (num);
 
@@ -38,7 +38,7 @@ TEST_CASE ("Abstract FIFO", "[data_structures]")
 					  || (writer.startIndex2 >= 0 && writer.startIndex2 < fifo.getCapacity()));
 
 		writer.for_each ([&buffer, &writerN] (int index)
-						 { buffer[index] = writerN++; });
+						 { buffer[static_cast<std::array<int, array_size>::size_type> (index)] = writerN++; });
 	};
 
 	const limes::threads::ScopedLoopingThread writer { std::move (writer_thread) };
@@ -47,7 +47,7 @@ TEST_CASE ("Abstract FIFO", "[data_structures]")
 
 	for (auto count = 100000, n = 0; --count >= 0;)
 	{
-		const auto num = random.nextInt (6000) + 1;
+		const auto num = random.next (1, 6000);
 
 		const auto reader = fifo.read (num);
 
@@ -61,7 +61,7 @@ TEST_CASE ("Abstract FIFO", "[data_structures]")
 		bool failed = false;
 
 		reader.for_each ([&failed, &buffer, &n] (int index)
-						 { failed = (buffer[index] != n++) || failed; });
+						 { failed = (buffer[static_cast<std::array<int, array_size>::size_type> (index)] != n++) || failed; });
 
 		REQUIRE (! failed);
 	}

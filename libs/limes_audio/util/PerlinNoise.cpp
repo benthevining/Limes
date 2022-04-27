@@ -98,7 +98,7 @@ PerlinNoise<SampleType>::PerlinNoise (int64_t randomSeed)
 
 	for (auto i = state.numObjects() - 1; i >= 1; --i)
 	{
-		const auto j = r.nextInt (i + 1);
+		const auto j = r.next (0, i + 1);
 
 		std::swap (state[i], state[j]);
 	}

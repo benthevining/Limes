@@ -92,7 +92,7 @@ TEST_CASE ("Interval tests", "[music][harmony]")
 
 	SECTION ("From number of semitones")
 	{
-		auto& rand = limes::math::Random::getSystemRandom();
+		auto& rand = limes::math::Random::getSystem();
 
 		auto test_from_semitones = [&rand] (int semitones, const Interval& expected)
 		{
@@ -100,7 +100,7 @@ TEST_CASE ("Interval tests", "[music][harmony]")
 
 			for (auto i = 0; i < limes::tests::test_reps; ++i)
 			{
-				const auto startingNote = rand.nextInt (semitones, 127 - semitones);
+				const auto startingNote = rand.next (semitones, 127 - semitones);
 
 				REQUIRE (Interval::fromPitches (startingNote, startingNote + semitones) == expected);
 			}

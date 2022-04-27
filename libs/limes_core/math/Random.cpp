@@ -22,104 +22,57 @@ LIMES_BEGIN_NAMESPACE
 namespace math
 {
 
-static std::atomic<int64_t> globalSeed { 0 };
-
-static Random sysRand;
-
-Random::Random (int64_t seedValue) noexcept
-	: seed (seedValue)
+Random::Random (ValueType seedValue)
+	: engine (seedValue)
 {
 }
+
+static std::random_device random_device_seed;
 
 Random::Random()
-	: seed (1)
-{
-	setSeedRandomly();
-}
-
-Random::Random (const Random& other) noexcept
-	: seed (other.seed.load())
+	: Random (random_device_seed())
 {
 }
 
-Random::Random (Random&& other)
-	: seed (other.seed.load())
+void Random::setSeed (ValueType newSeed)
 {
-}
-
-void Random::setSeed (int64_t newSeed) noexcept
-{
-	if (this == &getSystemRandom())
+	if (this == &getSystem())
 	{
 		LIMES_ASSERT_FALSE;
 		return;
 	}
 
-	seed.store (newSeed);
+	engine.seed (newSeed);
 }
 
-void Random::setSeedRandomly()
-{
-	const auto ptrValue = static_cast<int64_t> (reinterpret_cast<std::intptr_t> (this));
+static Random sysRand;
 
-	seed ^= (static_cast<int64_t> (nextInt()) ^ (globalSeed ^ ptrValue));
-
-	globalSeed ^= seed;
-}
-
-Random& Random::getSystemRandom() noexcept
+Random& Random::getSystem() noexcept
 {
 	return sysRand;
 }
 
-int Random::nextInt() noexcept
+Random::ValueType Random::nextValue()
 {
-	seed.store (static_cast<int64_t> (((static_cast<uint64_t> (seed) * 0x5deece66dLL) + 11) & 0xffffffffffffLL));
-
-	return static_cast<int> (seed.load() >> 16);
+	return engine();
 }
 
-int Random::nextInt (int maxValue) noexcept
+bool Random::nextBool()
 {
-	LIMES_ASSERT (maxValue > 0);
-	return static_cast<int> ((static_cast<unsigned int> (nextInt()) * static_cast<uint64_t> (maxValue)) >> 32);
+	constexpr auto halfRange = EngineType::max() - EngineType::min();
+
+	return nextValue() > halfRange;
 }
 
-int Random::nextInt (int minValue, int maxValue) noexcept
+template <>
+bool Random::next (bool, bool)
 {
-	return minValue + nextInt (std::abs (maxValue - minValue));
+	return nextBool();
 }
 
-bool Random::nextBool() noexcept
+Random Random::fork()
 {
-	return (nextInt() & 0x40000000) != 0;
-}
-
-float Random::nextFloat() noexcept
-{
-	const auto result = static_cast<float> (static_cast<uint32_t> (nextInt()))
-					  / (static_cast<float> (std::numeric_limits<uint32_t>::max()) + 1.f);
-
-	if (result == 1.f)
-		return 1.f - std::numeric_limits<float>::epsilon();
-
-	return result;
-}
-
-double Random::nextDouble() noexcept
-{
-	const auto result = static_cast<double> (static_cast<uint32_t> (nextInt()))
-					  / (static_cast<double> (std::numeric_limits<uint32_t>::max()) + 1.);
-
-	if (result == 1.)
-		return 1. - std::numeric_limits<double>::epsilon();
-
-	return result;
-}
-
-Random Random::fork() noexcept
-{
-	return Random { static_cast<int64_t> (nextInt()) };
+	return Random { nextValue() };
 }
 
 }  // namespace math

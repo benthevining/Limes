@@ -42,6 +42,7 @@ cmake/LimesConfigVersionHeader.cmake benthevining
 cmake/LimesMacros.cmake benthevining
 cmake/scripts/VersionHeader.h benthevining
 cpp benthevining
+cpp benthevining
 ector.h benthevining
 g
 hevining
@@ -351,6 +352,7 @@ scripts/generate.sh benthevining
 scripts/util.make benthevining
 tests/CMakeLists.txt benthevining
 tests/CMakePresets.json benthevining
+tests/limes_core/random_tests.cpp benthevining
 tests/limes_music/CMakeLists.txt benthevining
 tests/limes_music/interval_tests.cpp benthevining
 tests/math_tests.cpp benthevining
