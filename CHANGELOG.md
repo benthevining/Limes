@@ -1,5 +1,18 @@
 # Limes changelog
 
+## [4.7.0](http://github.com/benthevining/Limes/compare/v4.6.0...v4.7.0) (2022-04-27)
+
+
+### Features
+
+* added some time helper classes ([aee485a](http://github.com/benthevining/Limes/commit/aee485a17a34e6fa67eaf6b7035f2ddfc538a8a5))
+* including prebuilt binaries in releases ([d6f541b](http://github.com/benthevining/Limes/commit/d6f541ba4dac39e834271d6fc42d25961e6dfc80))
+
+
+### Bug Fixes
+
+* not using std::chrono::year class bc it's missing on Linux (and Mac GCC) ([4042215](http://github.com/benthevining/Limes/commit/404221531e69e513979eeea26588e4f066768351))
+
 ## [4.6.0](http://github.com/benthevining/Limes/compare/v4.5.0...v4.6.0) (2022-04-26)
 
 
