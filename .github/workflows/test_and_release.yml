@@ -72,7 +72,7 @@ jobs:
         with:
             os: macos-latest
             cmake_generator: Xcode
-            id_key: MacXcodeClang
+            id_key: MacXcode
 
 
     Build_iOS:
@@ -131,10 +131,55 @@ jobs:
             - name: Install dependencies
               run: pip install --upgrade bumpversion
 
-            # - name: Download artefacts
-            #   uses: actions/download-artifact@v3
-            #   with:
-            #       path: '${{ github.workspace }}/deploy'
+            - name: Download artefacts
+              uses: actions/download-artifact@v3
+              with:
+                  path: '${{ github.workspace }}/stage'
+
+            - name: Zip WindowsClang
+              run: |
+                  cmake -E copy_directory '${{ github.workspace }}/stage/WindowsClang.debug' '${{ github.workspace }}/stage/WindowsClang.release' '${{ github.workspace }}/deploy/WindowsClang' \
+                  cmake -E tar cvz WindowsClang.zip '${{ github.workspace }}/deploy/WindowsClang'
+
+            - name: Zip WindowsMSVC
+              run: |
+                  cmake -E copy_directory '${{ github.workspace }}/stage/WindowsMSVC.debug' '${{ github.workspace }}/stage/WindowsMSVC.release' '${{ github.workspace }}/deploy/WindowsMSVC' \
+                  cmake -E tar cvz WindowsMSVC.zip '${{ github.workspace }}/deploy/WindowsMSVC'
+
+            - name: Zip LinuxClang
+              run: |
+                  cmake -E copy_directory '${{ github.workspace }}/stage/LinuxClang.debug' '${{ github.workspace }}/stage/LinuxClang.release' '${{ github.workspace }}/deploy/LinuxClang' \
+                  cmake -E tar cvz LinuxClang.zip '${{ github.workspace }}/deploy/LinuxClang'
+
+            - name: Zip LinuxGCC
+              run: |
+                  cmake -E copy_directory '${{ github.workspace }}/stage/LinuxGCC.debug' '${{ github.workspace }}/stage/LinuxGCC.release' '${{ github.workspace }}/deploy/LinuxGCC' \
+                  cmake -E tar cvz LinuxGCC.zip '${{ github.workspace }}/deploy/LinuxGCC'
+
+            - name: Zip MacGCC
+              run: |
+                  cmake -E copy_directory '${{ github.workspace }}/stage/MacGCC.debug' '${{ github.workspace }}/stage/MacGCC.release' '${{ github.workspace }}/deploy/MacGCC' \
+                  cmake -E tar cvz MacGCC.zip '${{ github.workspace }}/deploy/MacGCC'
+
+            - name: Zip MacXcode
+              run: |
+                  cmake -E copy_directory '${{ github.workspace }}/stage/MacXcode.debug' '${{ github.workspace }}/stage/MacXcode.release' '${{ github.workspace }}/deploy/MacXcode' \
+                  cmake -E tar cvz MacXcode.zip '${{ github.workspace }}/deploy/MacXcode'
+
+            - name: Zip iOS
+              run: |
+                  cmake -E copy_directory '${{ github.workspace }}/stage/iOS.debug' '${{ github.workspace }}/stage/iOS.release' '${{ github.workspace }}/deploy/iOS' \
+                  cmake -E tar cvz iOS.zip '${{ github.workspace }}/deploy/iOS'
+
+            - name: Zip tvOS
+              run: |
+                  cmake -E copy_directory '${{ github.workspace }}/stage/tvOS.debug' '${{ github.workspace }}/stage/tvOS.release' '${{ github.workspace }}/deploy/tvOS' \
+                  cmake -E tar cvz tvOS.zip '${{ github.workspace }}/deploy/tvOS'
+
+            - name: Zip watchOS
+              run: |
+                  cmake -E copy_directory '${{ github.workspace }}/stage/watchOS.debug' '${{ github.workspace }}/stage/watchOS.release' '${{ github.workspace }}/deploy/watchOS' \
+                  cmake -E tar cvz watchOS.zip '${{ github.workspace }}/deploy/watchOS'
 
             - name: Run semantic release
               env:

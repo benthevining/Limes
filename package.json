@@ -143,6 +143,51 @@
             {
               "label": "Changelog",
               "path": "CHANGELOG.md"
+            },
+            {
+              "label": "Prebuilt binary (Windows, clang)",
+              "name": "WindowsClang.zip",
+              "path": "WindowsClang.zip"
+            },
+            {
+              "label": "Prebuilt binary (Windows, MSVC)",
+              "name": "WindowsMSVC.zip",
+              "path": "WindowsMSVC.zip"
+            },
+            {
+              "label": "Prebuilt binary (Linux, clang)",
+              "name": "LinuxClang.zip",
+              "path": "LinuxClang.zip"
+            },
+            {
+              "label": "Prebuilt binary (Linux, gcc)",
+              "name": "LinuxGCC.zip",
+              "path": "LinuxGCC.zip"
+            },
+            {
+              "label": "Prebuilt binary (Mac, gcc)",
+              "name": "MacGCC.zip",
+              "path": "MacGCC.zip"
+            },
+            {
+              "label": "Prebuilt binary (Mac, Appleclang)",
+              "name": "MacXcode.zip",
+              "path": "MacXcode.zip"
+            },
+            {
+              "label": "Prebuilt binary (iOS)",
+              "name": "iOS.zip",
+              "path": "iOS.zip"
+            },
+            {
+              "label": "Prebuilt binary (tvOS)",
+              "name": "tvOS.zip",
+              "path": "tvOS.zip"
+            },
+            {
+              "label": "Prebuilt binary (watchOS)",
+              "name": "watchOS.zip",
+              "path": "watchOS.zip"
             }
           ]
         }
