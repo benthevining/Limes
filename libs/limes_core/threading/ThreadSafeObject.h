@@ -16,6 +16,7 @@
 #include <array>
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include "../misc/preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -33,6 +34,9 @@ struct LIMES_EXPORT ThreadedObjectWriter
 	ObjectType* operator->() const noexcept { return &object; }
 
 	ObjectType& object;
+
+	LIMES_NON_COPYABLE (ThreadedObjectWriter);
+	LIMES_NON_MOVABLE (ThreadedObjectWriter);
 
 protected:
 
@@ -53,6 +57,9 @@ struct LIMES_EXPORT ThreadedObjectReader
 
 	const ObjectType& object;
 
+	LIMES_NON_COPYABLE (ThreadedObjectReader);
+	LIMES_NON_MOVABLE (ThreadedObjectReader);
+
 protected:
 
 	explicit ThreadedObjectReader (const ObjectType& objectToReference)
@@ -68,6 +75,11 @@ class LIMES_EXPORT ThreadSafeObject final
 public:
 
 	static_assert (totalNumThreads > 0, "");
+
+	ThreadSafeObject() = default;
+
+	LIMES_NON_COPYABLE (ThreadSafeObject);
+	LIMES_NON_MOVABLE (ThreadSafeObject);
 
 	[[nodiscard]] const ObjectType& acquire_read (size_t threadIdx)
 	{

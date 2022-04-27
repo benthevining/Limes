@@ -14,6 +14,7 @@
 
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include "../../misc/preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -32,6 +33,9 @@ struct LIMES_EXPORT ObjectBase
 
 	[[nodiscard]] virtual const ObjectType& acquire_read() = 0;
 	virtual void							release_read() = 0;
+
+	LIMES_NON_COPYABLE (ObjectBase);
+	LIMES_NON_MOVABLE (ObjectBase);
 };
 
 }  // namespace threads::detail

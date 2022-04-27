@@ -18,6 +18,7 @@
 #include <string>
 #include <cstdint>
 #include <memory>
+#include "../misc/preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -47,11 +48,8 @@ public:
 
 	virtual ~FilesystemEntry() = default;
 
-	FilesystemEntry (const FilesystemEntry&) = default;
-	FilesystemEntry (FilesystemEntry&&)		 = default;
-
-	FilesystemEntry& operator= (const FilesystemEntry&) = default;
-	FilesystemEntry& operator= (FilesystemEntry&&) = default;
+	LIMES_DEFAULT_COPYABLE (FilesystemEntry);
+	LIMES_DEFAULT_MOVABLE (FilesystemEntry);
 
 	FilesystemEntry& operator= (const Path& newPath);
 

@@ -18,6 +18,7 @@
 #include <limes_vecops.h>  // for concept Scalar
 #include <limes_namespace.h>
 #include <filesystem>
+#include <limes_core.h>
 
 #ifndef LIMES_VECOPS_USE_FFTW
 #	if __has_include(<fftw3.h>)
@@ -32,6 +33,47 @@ LIMES_BEGIN_NAMESPACE
 namespace vecops
 {
 
+namespace fft
+{
+[[nodiscard]] consteval bool isUsingFFTW() noexcept
+{
+#if LIMES_VECOPS_USE_FFTW
+	return true;
+#else
+	return false;
+#endif
+}
+
+[[nodiscard]] consteval bool isUsingVDSP() noexcept
+{
+	return vecops::isUsingVDSP() && ! isUsingFFTW();  // cppcheck-suppress knownConditionTrueFalse
+}
+
+[[nodiscard]] consteval bool isUsingIPP() noexcept
+{
+	return vecops::isUsingIPP() && ! isUsingFFTW();	 // cppcheck-suppress knownConditionTrueFalse
+}
+
+[[nodiscard]] consteval bool isUsingFallback() noexcept
+{
+	return ! (isUsingFFTW() || isUsingVDSP() || isUsingIPP());	// cppcheck-suppress knownConditionTrueFalse
+}
+
+static_assert (isUsingFFTW() || isUsingVDSP() || isUsingIPP() || isUsingFallback());
+
+[[nodiscard]] static consteval const char* const getImplementationName() noexcept
+{
+	if constexpr (isUsingFFTW())
+		return "FFTW";
+	else if constexpr (isUsingVDSP())
+		return "Apple vDSP";
+	else if constexpr (isUsingIPP())
+		return "Intel IPP";
+	else
+		return "Fallback";
+}
+}  // namespace fft
+
 template <Scalar SampleType>
 class FFTImpl;
 
@@ -41,6 +83,9 @@ class LIMES_EXPORT FFT final
 public:
 
 	explicit FFT (int size);
+
+	LIMES_NON_COPYABLE (FFT);
+	LIMES_DEFAULT_MOVABLE (FFT);
 
 	[[nodiscard]] int getSize() const noexcept;
 
@@ -60,50 +105,12 @@ public:
 
 	void inverseCepstral (const SampleType* magIn, SampleType* cepOut);
 
-	[[nodiscard]] static constexpr bool isUsingFFTW() noexcept
-	{
-#if LIMES_VECOPS_USE_FFTW
-		return true;
-#else
-		return false;
-#endif
-	}
-
-	[[nodiscard]] static constexpr bool isUsingVDSP() noexcept
-	{
-		return vecops::isUsingVDSP() && ! isUsingFFTW();  // cppcheck-suppress knownConditionTrueFalse
-	}
-
-	[[nodiscard]] static constexpr bool isUsingIPP() noexcept
-	{
-		return vecops::isUsingIPP() && ! isUsingFFTW();	 // cppcheck-suppress knownConditionTrueFalse
-	}
-
-	[[nodiscard]] static constexpr bool isUsingFallback() noexcept
-	{
-		return ! (isUsingFFTW() || isUsingVDSP() || isUsingIPP());	// cppcheck-suppress knownConditionTrueFalse
-	}
-
-	static_assert (isUsingFFTW() || isUsingVDSP() || isUsingIPP() || isUsingFallback());
-
-	[[nodiscard]] static constexpr const char* const getImplementationName() noexcept
-	{
-		if constexpr (isUsingFFTW())
-			return "FFTW";
-		else if constexpr (isUsingVDSP())
-			return "Apple vDSP";
-		else if constexpr (isUsingIPP())
-			return "Intel IPP";
-		else
-			return "Fallback";
-	}
-
 private:
 
 	std::unique_ptr<FFTImpl<SampleType>> pimpl;
 };
 
-#if LIMES_VECOPS_USE_FFTW
+/* These functions always exist, but simply do nothing when the FFTW backend is not being used. */
 namespace fftw
 {
 LIMES_EXPORT bool setWisdomFileDir (const std::filesystem::path& dirAbsPath);
@@ -114,7 +121,6 @@ LIMES_EXPORT void enableWisdom (bool shouldUseWisdom);
 
 LIMES_EXPORT [[nodiscard]] bool isUsingWisdom();
 }  // namespace fftw
-#endif
 
 }  // namespace vecops
 

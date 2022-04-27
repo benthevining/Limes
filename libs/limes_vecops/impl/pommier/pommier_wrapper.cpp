@@ -29,19 +29,23 @@ namespace vecops::pommier
 {
 
 #if LIMES_ARM_NEON
+
 typedef union
 {
 	float			f[4];
 	int				i[4];
 	::pommier::v4sf v;
 } V4SF;
+
 #else
+
 typedef ALIGN16_BEG union
 {
 	float			f[4];
 	int				i[4];
 	::pommier::v4sf v;
 } ALIGN16_END V4SF;
+
 #endif
 
 void polarToCartesian_pommier (float* const real, float* const imag, const float* const mag, const float* const phase, int size)

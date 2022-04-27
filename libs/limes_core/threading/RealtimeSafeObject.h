@@ -15,6 +15,7 @@
 #include "RealtimeSafeObject/RealtimeMutatableObject.h"
 #include "RealtimeSafeObject/NonrealtimeMutatableObject.h"
 #include "RealtimeSafeObject/AtomicObjectHolder.h"
+#include "../misc/preprocessor.h"
 #include <limes_export.h>
 #include <limes_namespace.h>
 
@@ -42,6 +43,8 @@ public:
 
 	static_assert (std::is_base_of_v<detail::ObjectBase<ObjectType>, RealtimeSafeObject<ObjectType, RealtimeMutatable>>, "");
 
+	LIMES_NON_COPYABLE (RealtimeSafeObject);
+	LIMES_NON_MOVABLE (RealtimeSafeObject);
 
 	[[nodiscard]] ThreadedObjectWriter<ObjectType> write();
 
@@ -51,13 +54,6 @@ public:
 
 	[[nodiscard]] ThreadedObjectReader<ObjectType> read (bool isRealtimeThread);
 };
-
-
-template <typename ObjectType, size_t NumThreads = 2, bool RealtimeSafe = true, bool RealtimeMutatable = false>
-using ThreadedObject = std::conditional_t<(NumThreads > 2),
-										  ThreadSafeObject<ObjectType, NumThreads>,
-										  std::conditional_t<RealtimeSafe, RealtimeSafeObject<ObjectType, RealtimeMutatable>,
-															 ThreadSafeObject<ObjectType, 2>>>;
 
 }  // namespace threads
 

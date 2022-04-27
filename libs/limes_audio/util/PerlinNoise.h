@@ -17,6 +17,7 @@
 #include <limes_data_structures.h>
 #include "Misc.h"
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -31,6 +32,9 @@ public:
 	PerlinNoise();
 
 	explicit PerlinNoise (int64_t randomSeed);
+
+	LIMES_DEFAULT_MOVABLE (PerlinNoise);
+	LIMES_DEFAULT_COPYABLE (PerlinNoise);
 
 	[[nodiscard]] SampleType getNextSample (SampleType x, SampleType y = 0, SampleType z = 0);
 

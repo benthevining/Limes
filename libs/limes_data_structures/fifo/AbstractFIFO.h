@@ -15,6 +15,7 @@
 #include <atomic>
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -23,6 +24,9 @@ class LIMES_EXPORT AbstractFIFO final
 public:
 
 	explicit AbstractFIFO (int initialSize);
+
+	LIMES_NON_COPYABLE (AbstractFIFO);
+	LIMES_NON_MOVABLE (AbstractFIFO);
 
 	[[nodiscard]] int getCapacity() const noexcept;
 
@@ -50,7 +54,17 @@ public:
 
 		~ScopedRead() noexcept;
 
+		LIMES_NON_COPYABLE (ScopedRead);
+		LIMES_NON_MOVABLE (ScopedRead);
+
 		int startIndex1, blockSize1, startIndex2, blockSize2;
+
+		template <class Function>
+		void for_each (Function&& func) const
+		{
+			for (auto i = startIndex1, e = startIndex1 + blockSize1; i != e; ++i) func (i);
+			for (auto i = startIndex2, e = startIndex2 + blockSize2; i != e; ++i) func (i);
+		}
 
 	private:
 
@@ -67,7 +81,17 @@ public:
 
 		~ScopedWrite() noexcept;
 
+		LIMES_NON_COPYABLE (ScopedWrite);
+		LIMES_NON_MOVABLE (ScopedWrite);
+
 		int startIndex1, blockSize1, startIndex2, blockSize2;
+
+		template <class Function>
+		void for_each (Function&& func) const
+		{
+			for (auto i = startIndex1, e = startIndex1 + blockSize1; i != e; ++i) func (i);
+			for (auto i = startIndex2, e = startIndex2 + blockSize2; i != e; ++i) func (i);
+		}
 
 	private:
 

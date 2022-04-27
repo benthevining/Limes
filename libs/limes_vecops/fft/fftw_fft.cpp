@@ -11,19 +11,12 @@
  */
 
 #include "fftw_fft.h"
-#include <mutex>			 // for lock_guard, mutex
 #include <cmath>			 // for log, logf
-#include <cstdio>			 // for fclose, fopen, FILE
-#include <cstdlib>			 // for getenv
-#include <sstream>			 // for char_traits, operator<<, string, basic_o...
-#include <string>			 // for basic_string
-#include <string_view>		 // for string_view
 #include "fft_common.h"		 // for FFTImpl, shiftAmount
 #include "limes_fft.h"		 // for FFT, enableWisdom, getWisdomFileDir, isU...
 #include <limes_vecops.h>	 // for copy, cartesianInterleavedToMagnitudes
 #include <limes_platform.h>	 // for LIMES_FORCE_INLINE
 #include <limes_namespace.h>
-#include <filesystem>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -88,373 +81,197 @@ LIMES_FORCE_INLINE void fftw_unpack (SampleType* re, SampleType* im,
 			im[i] = m_packed[i][1];
 }
 
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
-// this is the public interface for wisdom
-namespace fftw
-{
-static std::filesystem::path widom_file_dir;	  // NOLINT
-static std::mutex			 wisdom_lock;		  // NOLINT
-static bool					 useWisdom { true };  // NOLINT
-
-bool setWisdomFileDir (const std::filesystem::path& dirAbsPath)
-{
-	const std::lock_guard g { wisdom_lock };
-
-	if (dirAbsPath.empty() || ! dirAbsPath.is_absolute())
-		return false;
-
-	widom_file_dir = dirAbsPath;
-	return true;
-}
-
-std::filesystem::path getWisdomFileDir()
-{
-	const std::lock_guard g { wisdom_lock };
-
-	if (widom_file_dir.empty())
-	{
-		const auto* homeDir = std::getenv ("HOME");
-
-		if (homeDir != nullptr)
-			widom_file_dir = homeDir;
-	}
-
-	return widom_file_dir;
-}
-
-void enableWisdom (bool shouldUseWisdom)
-{
-	useWisdom = shouldUseWisdom;
-}
-
-bool isUsingWisdom()
-{
-	if (getWisdomFileDir().empty())
-		return false;
-
-	return useWisdom;
-}
-}  // namespace fftw
-
-[[nodiscard]] inline FILE* fftw_get_wisdom_file (bool isDouble, bool save)
-{
-#if FFTW_SINGLE_ONLY
-	if (isDouble)
-		return nullptr;
-#elif FFTW_DOUBLE_ONLY
-	if (! isDouble)
-		return nullptr;
-#endif
-
-	if (! fftw::useWisdom)
-		return nullptr;
-
-	const auto fileDir = fftw::getWisdomFileDir();
-
-	if (fileDir.empty())
-		return nullptr;
-
-	const auto typeChar = isDouble ? 'd' : 'f';
-
-	std::stringstream file_name;
-
-	file_name << fileDir << "/.fftw_wisdom." << typeChar;
-
-	return std::fopen (file_name.str().c_str(), save ? "wb" : "rb");
-}
-
-inline void fftw_load_wisdom (bool isDouble)
-{
-	if (auto* wisdomFile = fftw_get_wisdom_file (isDouble, false))
-	{
-		if (isDouble)
-			fftw_import_wisdom_from_file (wisdomFile);
-		else
-			fftwf_import_wisdom_from_file (wisdomFile);
-
-		std::fclose (wisdomFile);
-	}
-}
-
-inline void fftw_save_wisdom (bool isDouble)
-{
-	if (auto* wisdomFile = fftw_get_wisdom_file (isDouble, true))
-	{
-		if (isDouble)
-			fftw_export_wisdom_to_file (wisdomFile);
-		else
-			fftwf_export_wisdom_to_file (wisdomFile);
-
-		std::fclose (wisdomFile);
-	}
-}
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-FFTW_FloatFFT::FFTW_FloatFFT (int size)
+template <>
+FFTW_FFT<float>::FFTW_FFT (int size)
 	: FFTImpl<float> (size),
-	  m_fplanf (fftwf_plan_dft_r2c_1d (fft_size, m_fbuf, m_fpacked, FFTW_ESTIMATE)),
-	  m_fplani (fftwf_plan_dft_c2r_1d (fft_size, m_fpacked, m_fbuf, FFTW_ESTIMATE)),
-	  m_fbuf (reinterpret_cast<fft_float_type*> (fftw_malloc (static_cast<size_t> (fft_size) * sizeof (fft_float_type)))),
-	  m_fpacked (reinterpret_cast<fftw_float_complex_type*> (fftw_malloc ((static_cast<size_t> (fft_size) / 2 + 1) * sizeof (fftw_float_complex_type))))
+	  m_planf (fftwf_plan_dft_r2c_1d (fft_size, m_buf, m_packed, FFTW_ESTIMATE)),
+	  m_plani (fftwf_plan_dft_c2r_1d (fft_size, m_packed, m_buf, FFTW_ESTIMATE)),
+	  m_buf (reinterpret_cast<fft_float_type*> (fftw_malloc (static_cast<size_t> (fft_size) * sizeof (fft_float_type)))),
+	  m_packed (reinterpret_cast<fftw_float_complex_type*> (fftw_malloc ((static_cast<size_t> (fft_size) / 2 + 1) * sizeof (fftw_float_complex_type))))
 {
-	static_assert (FFT<float>::isUsingFFTW());
-
-	if (m_extantf == 0)
-		fftw_load_wisdom (false);
-
-	++m_extantf;
+	init();
 }
 
-FFTW_FloatFFT::~FFTW_FloatFFT()
-{
-	fftwf_destroy_plan (m_fplanf);
-	fftwf_destroy_plan (m_fplani);
-	fftwf_free (m_fbuf);
-	fftwf_free (m_fpacked);
-
-	--m_extantf;
-
-	if (m_extantf <= 0)
-	{
-		fftw_save_wisdom (false);
-		fftwf_cleanup();
-	}
-}
-
-void FFTW_FloatFFT::forward (const float* realIn, float* realOut, float* imagOut)
-{
-#if ! FFTW_DOUBLE_ONLY
-	if (realIn != m_fbuf)
-#endif
-		vecops::copy (m_fbuf, realIn, fft_size);
-
-	fftwf_execute (m_fplanf);
-
-	fftw_unpack (realOut, imagOut, m_fpacked, fft_size);
-}
-
-void FFTW_FloatFFT::forwardInterleaved (const float* realIn, float* complexOut)
-{
-#if ! FFTW_DOUBLE_ONLY
-	if (realIn != m_fbuf)
-#endif
-		vecops::copy (m_fbuf, realIn, fft_size);
-
-	fftwf_execute (m_fplanf);
-	// v_convert(complexOut, (const fft_float_type *)m_fpacked, fft_size + 2);
-}
-
-void FFTW_FloatFFT::forwardPolar (const float* realIn, float* magOut, float* phaseOut)
-{
-#if ! FFTW_DOUBLE_ONLY
-	if (realIn != m_fbuf)
-#endif
-		vecops::copy (m_fbuf, realIn, fft_size);
-
-	fftwf_execute (m_fplanf);
-
-	vecops::catesianInterleavedToPolar (magOut, phaseOut, (const fft_float_type*) m_fpacked, fft_size / 2 + 1);
-}
-
-void FFTW_FloatFFT::forwardMagnitude (const float* realIn, float* magOut)
-{
-#if ! FFTW_DOUBLE_ONLY
-	if (realIn != m_fbuf)
-#endif
-		vecops::copy (m_fbuf, realIn, fft_size);
-
-	fftwf_execute (m_fplanf);
-
-	vecops::cartesianInterleavedToMagnitudes (magOut, (const fft_float_type*) m_fpacked, fft_size / 2 + 1);
-}
-
-void FFTW_FloatFFT::inverse (const float* realIn, const float* imagIn, float* realOut)
-{
-	fftw_pack (realIn, imagIn, m_fpacked, fft_size);
-
-	fftwf_execute (m_fplani);
-
-#if ! FFTW_DOUBLE_ONLY
-	if (realOut != m_fbuf)
-#endif
-		vecops::copy (realOut, m_fbuf, fft_size);
-}
-
-void FFTW_FloatFFT::inverseInterleaved (const float* complexIn, float* realOut)
-{
-	// v_convert ((fft_float_type*) m_fpacked, complexIn, fft_size + 2);
-	fftwf_execute (m_fplani);
-
-#if ! FFTW_DOUBLE_ONLY
-	if (realOut != m_fbuf)
-#endif
-		vecops::copy (realOut, m_fbuf, fft_size);
-}
-
-void FFTW_FloatFFT::inversePolar (const float* magIn, const float* phaseIn, float* realOut)
-{
-	vecops::polarToCartesianInterleaved ((fft_float_type*) m_fpacked, magIn, phaseIn, fft_size / 2 + 1);  // NOLINT
-
-	fftwf_execute (m_fplani);
-
-#if ! FFTW_DOUBLE_ONLY
-	if (realOut != m_fbuf)
-#endif
-		vecops::copy (realOut, m_fbuf, fft_size);
-}
-
-void FFTW_FloatFFT::inverseCepstral (const float* magIn, float* cepOut)
-{
-	for (auto i = 0; i <= fft_size / 2; ++i)
-	{
-		m_fpacked[i][0] = std::logf (magIn[i] + shiftAmount<fft_float_type>);
-		m_fpacked[i][1] = 0.f;
-	}
-
-	fftwf_execute (m_fplani);
-
-#if ! FFTW_DOUBLE_ONLY
-	if (cepOut != m_fbuf)
-#endif
-		vecops::copy (cepOut, m_fbuf, fft_size);
-}
-
-int FFTW_FloatFFT::m_extantf = 0;  // NOLINT
-
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
-FFTW_DoubleFFT::FFTW_DoubleFFT (int size)
+template <>
+FFTW_FFT<double>::FFTW_FFT (int size)
 	: FFTImpl<double> (size),
-	  m_dplanf (fftw_plan_dft_r2c_1d (fft_size, m_dbuf, m_dpacked, FFTW_ESTIMATE)),
-	  m_dplani (fftw_plan_dft_c2r_1d (fft_size, m_dpacked, m_dbuf, FFTW_ESTIMATE)),
-	  m_dbuf (reinterpret_cast<fft_double_type*> (fftw_malloc (static_cast<size_t> (fft_size) * sizeof (fft_double_type)))),
-	  m_dpacked (reinterpret_cast<fftw_double_complex_type*> (fftw_malloc ((static_cast<size_t> (fft_size) / 2 + 1) * sizeof (fftw_double_complex_type))))
+	  m_planf (fftw_plan_dft_r2c_1d (fft_size, m_buf, m_packed, FFTW_ESTIMATE)),
+	  m_plani (fftw_plan_dft_c2r_1d (fft_size, m_packed, m_buf, FFTW_ESTIMATE)),
+	  m_buf (reinterpret_cast<fft_double_type*> (fftw_malloc (static_cast<size_t> (fft_size) * sizeof (fft_double_type)))),
+	  m_packed (reinterpret_cast<fftw_double_complex_type*> (fftw_malloc ((static_cast<size_t> (fft_size) / 2 + 1) * sizeof (fftw_double_complex_type))))
 {
-	static_assert (FFT<double>::isUsingFFTW());
-
-	if (m_extantd == 0)
-		fftw_load_wisdom (true);
-
-	++m_extantd;
+	init();
 }
 
-FFTW_DoubleFFT::~FFTW_DoubleFFT()
+template <Scalar SampleType>
+void FFTW_FFT<SampleType>::init()
 {
-	fftw_destroy_plan (m_dplanf);
-	fftw_destroy_plan (m_dplani);
-	fftw_free (m_dbuf);
-	fftw_free (m_dpacked);
+	static_assert (fft::isUsingFFTW());
 
-	--m_extantd;
+	if (m_extant == 0)
+		fftw_load_wisdom<std::is_same_v<SampleType, double>>();
 
-	if (m_extantd <= 0)
+	++m_extant;
+}
+
+template <Scalar SampleType>
+FFTW_FFT<SampleType>::~FFTW_FFT()
+{
+	if constexpr (std::is_same_v<SampleType, float>)
 	{
-		fftw_save_wisdom (true);
-		fftw_cleanup();
+		fftwf_destroy_plan (m_planf);
+		fftwf_destroy_plan (m_plani);
+		fftwf_free (m_buf);
+		fftwf_free (m_packed);
+	}
+	else
+	{
+		fftw_destroy_plan (m_planf);
+		fftw_destroy_plan (m_plani);
+		fftw_free (m_buf);
+		fftw_free (m_packed);
+	}
+
+	--m_extant;
+
+	if (m_extant <= 0)
+	{
+		fftw_save_wisdom<std::is_same_v<SampleType, double>>();
+
+		if constexpr (std::is_same_v<SampleType, float>)
+			fftwf_cleanup();
+		else
+			fftw_cleanup();
 	}
 }
 
-void FFTW_DoubleFFT::forward (const double* realIn, double* realOut, double* imagOut)
+template <Scalar SampleType>
+void FFTW_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut)
 {
-#if ! FFTW_SINGLE_ONLY
-	if (realIn != m_dbuf)
-#endif
-		vecops::copy (m_dbuf, realIn, fft_size);
+	if (realIn != m_buf)
+		vecops::copy (m_buf, realIn, this->fft_size);
 
-	fftw_execute (m_dplanf);
+	if constexpr (std::is_same_v<SampleType, float>)
+		fftwf_execute (m_planf);
+	else
+		fftw_execute (m_planf);
 
-	fftw_unpack (realOut, imagOut, m_dpacked, fft_size);
+	fftw_unpack (realOut, imagOut, m_packed, this->fft_size);
 }
 
-void FFTW_DoubleFFT::forwardInterleaved (const double* realIn, double* complexOut)
+template <Scalar SampleType>
+void FFTW_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleType* complexOut)
 {
-#if ! FFTW_SINGLE_ONLY
-	if (realIn != m_dbuf)
-#endif
-		vecops::copy (m_dbuf, realIn, fft_size);
+	if (realIn != m_buf)
+		vecops::copy (m_buf, realIn, this->fft_size);
 
-	fftw_execute (m_dplanf);
-	// v_convert(complexOut, (const fft_double_type *)m_dpacked, fft_size + 2);
+	if constexpr (std::is_same_v<SampleType, float>)
+		fftwf_execute (m_planf);
+	else
+		fftw_execute (m_planf);
+
+	// v_convert(complexOut, (const float_type *)m_fpacked, fft_size + 2);
 }
 
-void FFTW_DoubleFFT::forwardPolar (const double* realIn, double* magOut, double* phaseOut)
+template <Scalar SampleType>
+void FFTW_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut)
 {
-#if ! FFTW_SINGLE_ONLY
-	if (realIn != m_dbuf)
-#endif
-		vecops::copy (m_dbuf, realIn, fft_size);
+	if (realIn != m_buf)
+		vecops::copy (m_buf, realIn, this->fft_size);
 
-	fftw_execute (m_dplanf);
+	if constexpr (std::is_same_v<SampleType, float>)
+		fftwf_execute (m_planf);
+	else
+		fftw_execute (m_planf);
 
-	vecops::catesianInterleavedToPolar (magOut, phaseOut, (const fft_double_type*) m_dpacked, fft_size / 2 + 1);
+	vecops::catesianInterleavedToPolar (magOut, phaseOut, (const float_type*) m_packed, this->fft_size / 2 + 1);
 }
 
-void FFTW_DoubleFFT::forwardMagnitude (const double* realIn, double* magOut)
+template <Scalar SampleType>
+void FFTW_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType* magOut)
 {
-#if ! FFTW_SINGLE_ONLY
-	if (realIn != m_dbuf)
-#endif
-		vecops::copy (m_dbuf, realIn, fft_size);
+	if (realIn != m_buf)
+		vecops::copy (m_buf, realIn, this->fft_size);
 
-	fftw_execute (m_dplanf);
+	if constexpr (std::is_same_v<SampleType, float>)
+		fftwf_execute (m_planf);
+	else
+		fftw_execute (m_planf);
 
-	vecops::cartesianInterleavedToMagnitudes (magOut, (const fft_double_type*) m_dpacked, fft_size / 2 + 1);
+	vecops::cartesianInterleavedToMagnitudes (magOut, (const float_type*) m_packed, this->fft_size / 2 + 1);
 }
 
-void FFTW_DoubleFFT::inverse (const double* realIn, const double* imagIn, double* realOut)
+template <Scalar SampleType>
+void FFTW_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut)
 {
-	fftw_pack (realIn, imagIn, m_dpacked, fft_size);
+	fftw_pack (realIn, imagIn, m_packed, this->fft_size);
 
-	fftw_execute (m_dplani);
+	if constexpr (std::is_same_v<SampleType, float>)
+		fftwf_execute (m_plani);
+	else
+		fftw_execute (m_plani);
 
-#if ! FFTW_SINGLE_ONLY
-	if (realOut != m_dbuf)
-#endif
-		vecops::copy (realOut, m_dbuf, fft_size);
+	if (realOut != m_buf)
+		vecops::copy (realOut, m_buf, this->fft_size);
 }
 
-void FFTW_DoubleFFT::inverseInterleaved (const double* complexIn, double* realOut)
+template <Scalar SampleType>
+void FFTW_FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut)
 {
-	// v_convert ((fft_double_type*) m_dpacked, complexIn, fft_size + 2);
-	fftw_execute (m_dplani);
+	// v_convert ((float_type*) m_packed, complexIn, fft_size + 2);
 
-#if ! FFTW_SINGLE_ONLY
-	if (realOut != m_dbuf)
-#endif
-		vecops::copy (realOut, m_dbuf, fft_size);
+	if constexpr (std::is_same_v<SampleType, float>)
+		fftwf_execute (m_plani);
+	else
+		fftw_execute (m_plani);
+
+	if (realOut != m_buf)
+		vecops::copy (realOut, m_buf, this->fft_size);
 }
 
-void FFTW_DoubleFFT::inversePolar (const double* magIn, const double* phaseIn, double* realOut)
+template <Scalar SampleType>
+void FFTW_FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut)
 {
-	vecops::polarToCartesianInterleaved ((fft_double_type*) m_dpacked, magIn, phaseIn, fft_size / 2 + 1);  // NOLINT
+	vecops::polarToCartesianInterleaved ((float_type*) m_packed, magIn, phaseIn, this->fft_size / 2 + 1);  // NOLINT
 
-	fftw_execute (m_dplani);
+	if constexpr (std::is_same_v<SampleType, float>)
+		fftwf_execute (m_plani);
+	else
+		fftw_execute (m_plani);
 
-#if ! FFTW_SINGLE_ONLY
-	if (realOut != m_dbuf)
-#endif
-		vecops::copy (realOut, m_dbuf, fft_size);
+	if (realOut != m_buf)
+		vecops::copy (realOut, m_buf, this->fft_size);
 }
 
-void FFTW_DoubleFFT::inverseCepstral (const double* magIn, double* cepOut)
+template <Scalar SampleType>
+void FFTW_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut)
 {
-	for (auto i = 0; i <= fft_size / 2; ++i)
+	for (auto i = 0; i <= this->fft_size / 2; ++i)
 	{
-		m_dpacked[i][0] = std::log (magIn[i] + shiftAmount<fft_double_type>);
-		m_dpacked[i][1] = 0.;
+		m_packed[i][0] = std::log (magIn[i] + shiftAmount<float_type>);
+		m_packed[i][1] = SampleType (0.);
 	}
 
-	fftw_execute (m_dplani);
+	if constexpr (std::is_same_v<SampleType, float>)
+		fftwf_execute (m_plani);
+	else
+		fftw_execute (m_plani);
 
-#if ! FFTW_SINGLE_ONLY
-	if (cepOut != m_dbuf)
-#endif
-		vecops::copy (cepOut, m_dbuf, fft_size);
+	if (cepOut != m_buf)
+		vecops::copy (cepOut, m_buf, this->fft_size);
 }
 
-int FFTW_DoubleFFT::m_extantd = 0;	// NOLINT
+template <>
+int FFTW_FFT<float>::m_extant = 0;	// NOLINT
+
+template <>
+int FFTW_FFT<double>::m_extant = 0;	 // NOLINT
+
+template class FFTW_FFT<float>;
+template class FFTW_FFT<double>;
 
 }  // namespace vecops
 

@@ -11,8 +11,6 @@
  */
 
 #include "limes_fft.h"
-#include <type_traits>	 // for is_same_v
-#include "fft_common.h"	 // for FFTImpl
 #include <limes_namespace.h>
 
 #if LIMES_VECOPS_USE_FFTW
@@ -34,10 +32,7 @@ template <Scalar SampleType>
 FFT<SampleType>::FFT (int size)
 {
 #if LIMES_VECOPS_USE_FFTW
-	if constexpr (std::is_same_v<SampleType, float>)
-		pimpl = std::make_unique<FFTW_FloatFFT> (size);
-	else
-		pimpl = std::make_unique<FFTW_DoubleFFT> (size);
+	pimpl = std::make_unique<FFTW_FFT<SampleType>> (size);
 #elif LIMES_VECOPS_USE_VDSP
 	pimpl = std::make_unique<vDSP_FFT<SampleType>> (size);
 #elif LIMES_VECOPS_USE_IPP

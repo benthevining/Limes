@@ -30,22 +30,6 @@ constexpr LinkedListModel<ObjectType>::LinkedListModel (ObjectType& objectForThi
 }
 
 template <typename ObjectType>
-constexpr LinkedListModel<ObjectType>::LinkedListModel (const LinkedListModel& other) noexcept
-	: before (other.before), after (other.after), thisNode (other.thisNode)
-{
-}
-
-template <typename ObjectType>
-constexpr LinkedListModel<ObjectType>& LinkedListModel<ObjectType>::operator= (const LinkedListModel& other) noexcept
-{
-	before	 = other.before;
-	after	 = other.after;
-	thisNode = other.thisNode;
-
-	return *this;
-}
-
-template <typename ObjectType>
 constexpr ObjectType& LinkedListModel<ObjectType>::getObject() const noexcept
 {
 	return thisNode.get();

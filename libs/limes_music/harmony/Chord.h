@@ -17,6 +17,7 @@
 #include "Pitch.h"					// for Pitch
 #include <limes_data_structures.h>	// for vector
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -43,11 +44,8 @@ public:
 
 	explicit Chord (const std::initializer_list<Pitch>& midiNotes);
 
-	Chord (const Chord& other) = default;
-
-	Chord (Chord&& other) = default;
-
-	Chord& operator= (const Chord& other) = default;
+	LIMES_DEFAULT_MOVABLE (Chord);
+	LIMES_DEFAULT_COPYABLE (Chord);
 
 	[[nodiscard]] int getNumPitches() const;
 

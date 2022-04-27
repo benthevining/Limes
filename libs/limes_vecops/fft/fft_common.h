@@ -15,21 +15,12 @@
 #include <limes_export.h>
 #include <limes_vecops.h>
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
 {
-
-LIMES_NO_EXPORT [[nodiscard]] static inline int orderFromFFTSize (int size)
-{
-	for (int i = 0;; ++i)
-		if ((size & (1 << i)) != 0)
-			return i;
-
-	// jassertfalse;
-	return 0;
-}
 
 template <Scalar SampleType>
 LIMES_NO_EXPORT constexpr SampleType shiftAmount = SampleType (0.000001);
@@ -72,6 +63,18 @@ protected:
 
 	const int fft_size;	 // NOLINT
 	const int m_order;	 // NOLINT
+
+private:
+
+	[[nodiscard]] static inline int orderFromFFTSize (int size)
+	{
+		for (int i = 0;; ++i)
+			if ((size & (1 << i)) != 0)
+				return i;
+
+		LIMES_UNREACHABLE;
+		return 0;
+	}
 };
 
 }  // namespace vecops

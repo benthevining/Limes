@@ -19,62 +19,10 @@ namespace vecops
 {
 
 template <Scalar SampleType>
-LIMES_FORCE_INLINE void ipp_pack (const SampleType* re, const SampleType* im, int fft_size, SampleType* m_packed)
-{
-	const auto hs = fft_size / 2;
-
-	for (auto i = 0, index = 0; i <= hs; ++i)
-	{
-		m_packed[index++] = re[i];
-		index++;
-	}
-
-	if (im == nullptr)
-	{
-		for (auto i = 0, index = 0; i <= hs; ++i)
-		{
-			index++;
-			m_packed[index++] = 0.;
-		}
-	}
-	else
-	{
-		for (auto i = 0, index = 0; i <= hs; ++i)
-		{
-			index++;
-			m_packed[index++] = im[i];
-		}
-	}
-}
-
-template <Scalar SampleType>
-LIMES_FORCE_INLINE void ipp_unpack (SampleType* const re, SampleType* const im, int fft_size, const SampleType* const m_packed)
-{
-	const auto hs = fft_size / 2;
-
-	if (im != nullptr)
-	{
-		for (auto i = 0, index = 0; i <= hs; ++i)
-		{
-			index++;
-			im[i] = m_packed[index++];
-		}
-	}
-
-	for (auto i = 0, index = 0; i <= hs; ++i)
-	{
-		re[i] = m_packed[index++];
-		index++;
-	}
-}
-
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
-template <Scalar SampleType>
 IPP_FFT<SampleType>::IPP_FFT (int size)
 	: FFTImpl<SampleType> (size)
 {
-	static_assert (FFT<SampleType>::isUsingIPP());
+	static_assert (fft::isUsingIPP());
 
 	int specSize, specBufferSize, bufferSize;  // NOLINT
 
@@ -132,7 +80,7 @@ void IPP_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut
 	else
 		ippsFFTFwd_RToCCS_64f (realIn, m_packed, m_spec, m_buf);
 
-	ipp_unpack (realOut, imagOut, this->fft_size, m_packed);
+	ipp_unpack (realOut, imagOut);
 }
 
 template <Scalar SampleType>
@@ -152,7 +100,7 @@ void IPP_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* ma
 	else
 		ippsFFTFwd_RToCCS_64f (realIn, m_packed, m_spec, m_buf);
 
-	ipp_unpack (m_packed, m_spare, this->fft_size, m_packed);
+	ipp_unpack (m_packed, m_spare);
 
 	if constexpr (std::is_same_v<SampleType, float>)
 		ippsCartToPolar_32f (m_packed, m_spare, magOut, phaseOut, this->fft_size / 2 + 1);
@@ -168,7 +116,7 @@ void IPP_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType
 	else
 		ippsFFTFwd_RToCCS_64f (realIn, m_packed, m_spec, m_buf);
 
-	ipp_unpack (m_packed, m_spare, this->fft_size, m_packed);
+	ipp_unpack (m_packed, m_spare);
 
 	if constexpr (std::is_same_v<SampleType, float>)
 		ippsMagnitude_32f (m_packed, m_spare, magOut, this->fft_size / 2 + 1);
@@ -179,7 +127,7 @@ void IPP_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType
 template <Scalar SampleType>
 void IPP_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut)
 {
-	ipp_pack (realIn, imagIn, this->fft_size, m_packed);
+	ipp_pack (realIn, imagIn);
 
 	if constexpr (std::is_same_v<SampleType, float>)
 		ippsFFTInv_CCSToR_32f (m_packed, realOut, m_spec, m_buf);
@@ -204,7 +152,7 @@ void IPP_FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleTyp
 	else
 		ippsPolarToCart_64f (magIn, phaseIn, realOut, m_spare, this->fft_size / 2 + 1);
 
-	ipp_pack (realOut, m_spare, this->fft_size, m_packed);
+	ipp_pack (realOut, m_spare);
 
 	if constexpr (std::is_same_v<SampleType, float>)
 		ippsFFTInv_CCSToR_32f (m_packed, realOut, m_spec, m_buf);
@@ -230,12 +178,62 @@ void IPP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* 
 		ippsLn_64f_I (m_spare, hs1);
 	}
 
-	ipp_pack<SampleType> (m_spare, nullptr, this->fft_size, m_packed);
+	ipp_pack (m_spare, nullptr);
 
 	if constexpr (std::is_same_v<SampleType, float>)
 		ippsFFTInv_CCSToR_32f (m_packed, cepOut, m_spec, m_buf);
 	else
 		ippsFFTInv_CCSToR_64f (m_packed, cepOut, m_spec, m_buf);
+}
+
+template <Scalar SampleType>
+LIMES_FORCE_INLINE void IPP_FFT<SampleType>::ipp_pack (const SampleType* re, const SampleType* im)
+{
+	const auto hs = this->fft_size / 2;
+
+	for (auto i = 0, index = 0; i <= hs; ++i)
+	{
+		m_packed[index++] = re[i];
+		index++;
+	}
+
+	if (im == nullptr)
+	{
+		for (auto i = 0, index = 0; i <= hs; ++i)
+		{
+			index++;
+			m_packed[index++] = 0.;
+		}
+	}
+	else
+	{
+		for (auto i = 0, index = 0; i <= hs; ++i)
+		{
+			index++;
+			m_packed[index++] = im[i];
+		}
+	}
+}
+
+template <Scalar SampleType>
+LIMES_FORCE_INLINE void IPP_FFT<SampleType>::ipp_unpack (SampleType* const re, SampleType* const im) const
+{
+	const auto hs = this->fft_size / 2;
+
+	if (im != nullptr)
+	{
+		for (auto i = 0, index = 0; i <= hs; ++i)
+		{
+			index++;
+			im[i] = m_packed[index++];
+		}
+	}
+
+	for (auto i = 0, index = 0; i <= hs; ++i)
+	{
+		re[i] = m_packed[index++];
+		index++;
+	}
 }
 
 }  // namespace vecops

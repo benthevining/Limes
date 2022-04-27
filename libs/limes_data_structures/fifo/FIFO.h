@@ -17,6 +17,7 @@
 #include "AbstractFIFO.h"
 #include "../vectors/vector.h"
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -30,6 +31,9 @@ public:
 	{
 		storage.reserve (initialSize);
 	}
+
+	LIMES_NON_COPYABLE (FIFO);
+	LIMES_NON_MOVABLE (FIFO);
 
 	[[nodiscard]] int getCapacity() const noexcept
 	{

@@ -17,6 +17,7 @@
 #include "../PitchClass.h"			// for PitchClass
 #include <limes_data_structures.h>	// for vector
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 

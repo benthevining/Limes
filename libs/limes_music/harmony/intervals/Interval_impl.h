@@ -62,18 +62,6 @@ constexpr Interval::Interval() noexcept
 {
 }
 
-constexpr Interval::Interval (const Interval& other) noexcept
-	: Interval (other.kind, other.quality)
-{
-}
-
-constexpr Interval& Interval::operator= (const Interval& other) noexcept
-{
-	kind	= other.kind;
-	quality = other.quality;
-	return *this;
-}
-
 constexpr bool Interval::operator== (const Interval& other) const noexcept
 {
 	return kind == other.kind && quality == other.quality;

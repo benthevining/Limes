@@ -14,6 +14,7 @@
 
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -29,18 +30,8 @@ public:
 	{
 	}
 
-	/** Copy constructor. */
-	constexpr MicrotonalInterval (const MicrotonalInterval& other)
-		: semitones (other.semitones)
-	{
-	}
-
-	/** Assignment operator. */
-	constexpr MicrotonalInterval& operator= (const MicrotonalInterval& other)
-	{
-		semitones = other.semitones;
-		return *this;
-	}
+	LIMES_CONSTEXPR_COPYABLE (MicrotonalInterval);
+	LIMES_CONSTEXPR_MOVABLE (MicrotonalInterval);
 
 	[[nodiscard]] constexpr bool operator== (const MicrotonalInterval& other)
 	{

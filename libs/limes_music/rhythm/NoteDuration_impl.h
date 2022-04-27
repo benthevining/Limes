@@ -27,18 +27,6 @@ constexpr NoteDuration::NoteDuration (int kind)
 	LIMES_ASSERT (duration > 0 && (duration == 1 || math::isPowerOf2 (duration)));
 }
 
-constexpr NoteDuration::NoteDuration (const NoteDuration& other) noexcept
-	: duration (other.duration)
-{
-}
-
-constexpr NoteDuration& NoteDuration::operator= (const NoteDuration& other) noexcept
-{
-	duration = other.duration;
-
-	return *this;
-}
-
 constexpr bool NoteDuration::operator== (const NoteDuration& other) const noexcept
 {
 	return duration == other.duration;

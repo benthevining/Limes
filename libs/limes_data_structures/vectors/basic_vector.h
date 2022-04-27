@@ -53,18 +53,14 @@ public:
 		*this = otherVector.template transformElementsTo<ElementType> (std::forward<UnaryOp> (transform));
 	}
 
-	basic_vector (const basic_vector&)	= default;
-	basic_vector (basic_vector&& other) = default;
+	LIMES_DEFAULT_MOVABLE (basic_vector);
+	LIMES_DEFAULT_COPYABLE (basic_vector);
 
 	basic_vector& operator= (std::initializer_list<ElementType> objs)
 	{
 		objects = objs;
 		return *this;
 	}
-
-	basic_vector& operator= (const basic_vector& other) = default;
-
-	basic_vector& operator= (basic_vector&& other) = default;
 
 	template <class AllocatorType>
 	basic_vector& operator= (const std::vector<ElementType, AllocatorType>& otherVector)

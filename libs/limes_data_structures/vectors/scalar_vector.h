@@ -29,6 +29,9 @@ public:
 
 	using basic_vector<ElementType, Allocator>::basic_vector;
 
+	LIMES_DEFAULT_MOVABLE (scalar_vector);
+	LIMES_DEFAULT_COPYABLE (scalar_vector);
+
 	scalar_vector& reserveAndZero (int newSize)
 	{
 		this->reserveAndInit (newSize, 0);

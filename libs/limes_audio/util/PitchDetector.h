@@ -17,6 +17,7 @@
 #include <limes_data_structures.h>	// for vector
 #include "Misc.h"					// for concept Sample - IWYU pragma: keep
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -40,6 +41,9 @@ public:
 		@see getLatencySamples(), setConfidenceThresh(), setMinHz()
 	*/
 	explicit PitchDetector (int minFreqHz = 60, float confidenceThreshold = 0.15f);
+
+	LIMES_DEFAULT_MOVABLE (PitchDetector);
+	LIMES_DEFAULT_COPYABLE (PitchDetector);
 
 	/** @name Pitch detection
 	 */
@@ -116,10 +120,8 @@ private:
 
 	[[nodiscard]] inline float parabolicInterpolation (int periodEstimate) const;
 
-	bool		   operator== (const PitchDetector& other) const = delete;
-	bool		   operator!= (const PitchDetector& other) const = delete;
-	PitchDetector& operator= (const PitchDetector& other) const = delete;
-	PitchDetector (const PitchDetector& other)					= delete;
+	bool operator== (const PitchDetector& other) const = delete;
+	bool operator!= (const PitchDetector& other) const = delete;
 
 	int minHz { 60 };
 

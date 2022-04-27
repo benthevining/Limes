@@ -40,18 +40,6 @@ constexpr CompoundInterval::CompoundInterval (int kindToUse, Interval::Quality q
 		interval = Interval { intervalKind, qualityToUse };
 }
 
-constexpr CompoundInterval::CompoundInterval (const CompoundInterval& other) noexcept
-	: Interval(), interval (other.interval), numOctaves (other.numOctaves)
-{
-}
-
-constexpr CompoundInterval& CompoundInterval::operator= (const CompoundInterval& other) noexcept
-{
-	interval   = other.interval;
-	numOctaves = other.numOctaves;
-	return *this;
-}
-
 constexpr bool CompoundInterval::operator== (const CompoundInterval& other) const noexcept
 {
 	return numOctaves == other.numOctaves && interval == other.interval;

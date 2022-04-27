@@ -22,6 +22,7 @@ target_sources (
 	limes_vecops
 	PRIVATE # cmake-format: sortable
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fft_common.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fftw_wisdom.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_fft.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_fft.h>
 			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/fft_common.h>
@@ -39,6 +40,7 @@ set (
 	fft_common.h
 	fftw_fft.cpp
 	fftw_fft.h
+	fftw_wisdom.cpp
 	ipp_fft.cpp
 	ipp_fft.h
 	limes_fft.cpp

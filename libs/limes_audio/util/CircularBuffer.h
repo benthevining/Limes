@@ -16,6 +16,7 @@
 #include <limes_export.h>
 #include "Misc.h"
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -31,6 +32,9 @@ public:
 
 	/** Creates a CircularBuffer with an initial size. */
 	explicit CircularBuffer (int initialCapacity = 512);
+
+	LIMES_NON_COPYABLE (CircularBuffer);
+	LIMES_NON_MOVABLE (CircularBuffer);
 
 	/** Stores samples in the buffer.
 		If the buffer's capacity isn't big enough to hold all the passed samples, an assertion will be thrown.

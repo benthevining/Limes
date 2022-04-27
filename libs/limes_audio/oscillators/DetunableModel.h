@@ -15,6 +15,7 @@
 #include <limes_export.h>
 #include <limes_data_structures.h>
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -26,6 +27,9 @@ class LIMES_EXPORT DetunableModel final
 public:
 
 	explicit DetunableModel (int initialNumVoices);
+
+	LIMES_DEFAULT_MOVABLE (DetunableModel);
+	LIMES_DEFAULT_COPYABLE (DetunableModel);
 
 	void setFrequency (float frequency);
 

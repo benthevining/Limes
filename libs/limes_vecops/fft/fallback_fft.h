@@ -27,13 +27,8 @@ public:
 
 	explicit FallbackFFT (int size);
 
-	FallbackFFT (const FallbackFFT&) = delete;
-
-	FallbackFFT& operator= (const FallbackFFT&) = delete;
-
-	FallbackFFT (FallbackFFT&&) = delete;
-
-	FallbackFFT& operator= (FallbackFFT&&) = delete;
+	LIMES_NON_COPYABLE (FallbackFFT);
+	LIMES_DEFAULT_MOVABLE (FallbackFFT);
 
 private:
 
@@ -55,14 +50,14 @@ private:
 
 	// Uses m_a and m_b internally; does not touch m_c or m_d
 	LIMES_FORCE_INLINE void transformF (const SampleType* ri,
-										double* ro, double* io);
+										SampleType* ro, SampleType* io);
 
 	// Uses m_c and m_d internally; does not touch m_a or m_b
-	LIMES_FORCE_INLINE void transformI (const double* ri, const double* ii,
+	LIMES_FORCE_INLINE void transformI (const SampleType* ri, const SampleType* ii,
 										SampleType* ro);
 
-	LIMES_FORCE_INLINE void transformComplex (const double* ri, const double* ii,
-											  double* ro, double* io,
+	LIMES_FORCE_INLINE void transformComplex (const SampleType* ri, const SampleType* ii,
+											  SampleType* ro, SampleType* io,
 											  bool inverse);
 
 	static constexpr auto m_blockTableSize = 16;
@@ -72,10 +67,10 @@ private:
 
 	aligned_pointer<int> m_table;
 
-	aligned_pointer<double> m_sincos, m_sincos_r, m_vr, m_vi, m_a, m_b, m_c, m_d;
+	aligned_pointer<SampleType> m_sincos, m_sincos_r, m_vr, m_vi, m_a, m_b, m_c, m_d;
 
-	double* m_a_and_b[2] { m_a, m_b };
-	double* m_c_and_d[2] { m_c, m_d };
+	SampleType* m_a_and_b[2] { m_a, m_b };
+	SampleType* m_c_and_d[2] { m_c, m_d };
 };
 
 }  // namespace vecops

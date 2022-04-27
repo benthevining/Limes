@@ -16,6 +16,7 @@
 #include <cstdlib>
 #include <cstddef>
 #include <limits>
+#include <exception>
 #include "../math/mathHelpers.h"
 #include "../misc/Algorithm.h"
 
@@ -26,7 +27,9 @@ MemoryPool::MemoryPool (std::size_t storageSizeBytes, std::size_t chunkSize)
 	  chunkSizeBytes (chunkSize),
 	  memory (static_cast<std::byte*> (malloc (storageSizeBytes)))
 {
-	LIMES_ASSERT (memory != nullptr);
+	if (memory == nullptr)
+		throw std::runtime_error ("Failed to allocate a memory pool");
+
 	LIMES_ASSERT (totalSizeBytes >= chunkSizeBytes);
 	LIMES_ASSERT (math::isDivisibleBy (totalSizeBytes, chunkSizeBytes));
 
@@ -45,7 +48,14 @@ MemoryPool::MemoryPool (std::size_t storageSizeBytes, std::size_t chunkSize)
 
 MemoryPool::~MemoryPool()
 {
-	free (memory);
+	try
+	{
+		free (memory);
+	}
+	catch (const std::exception&)
+	{
+		return;
+	}
 }
 
 std::size_t MemoryPool::getTotalSize() const noexcept
@@ -61,7 +71,7 @@ std::size_t MemoryPool::getRemainingSpace() const noexcept
 	return static_cast<std::size_t> (availableChunks) * chunkSizeBytes;
 }
 
-void* MemoryPool::allocate (std::size_t numBytesToAllocate)
+void* MemoryPool::allocate (std::size_t numBytesToAllocate) noexcept
 {
 	const auto numChunks = static_cast<int> (std::ceil (static_cast<float> (numBytesToAllocate) / static_cast<float> (chunkSizeBytes)));
 
@@ -113,7 +123,7 @@ void* MemoryPool::allocate (std::size_t numBytesToAllocate)
 	return static_cast<void*> (chunks[startingChunkIdx].location);
 }
 
-void MemoryPool::deallocate (void* ptr, std::size_t numBytes)
+void MemoryPool::deallocate (void* ptr, std::size_t numBytes) noexcept
 {
 	if (ptr == nullptr)
 		return;
@@ -152,7 +162,7 @@ const void* const MemoryPool::getMemoryRootLocation() const noexcept
 	return static_cast<void*> (memory);
 }
 
-MemoryPool::Chunk::Chunk (std::byte* const ptr)
+MemoryPool::Chunk::Chunk (std::byte* const ptr) noexcept
 	: location (ptr)
 {
 }

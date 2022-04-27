@@ -32,8 +32,6 @@ namespace vecops::detail
 template <typename T>
 void phasor (T* const real, T* const imag, T phase)
 {
-	static_assert (std::is_same_v<T, float> || std::is_same_v<T, double>);
-
 #if LIMES_VECOPS_USE_VDSP
 	constexpr int one = 1;
 

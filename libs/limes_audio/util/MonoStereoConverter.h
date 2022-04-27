@@ -51,9 +51,6 @@ public:
 
 	using SampleVector = scalar_vector<SampleType>;
 
-	/** Default constructor. */
-	MonoStereoConverter() = default;
-
 	/** Prepares the converter to process a new maximum blocksize. */
 	void prepare (int blocksize);
 

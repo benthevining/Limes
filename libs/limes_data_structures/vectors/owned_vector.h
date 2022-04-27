@@ -17,6 +17,7 @@
 #include <functional>
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -53,6 +54,9 @@ public:
 		resize (initNumObjects);
 	}
 
+	LIMES_DEFAULT_MOVABLE (owned_vector);
+	LIMES_NON_COPYABLE (owned_vector);
+
 	[[nodiscard]] ElementType& operator[] (int index)
 	{
 		return *(this->objects[static_cast<size_type> (index)]);
@@ -84,6 +88,9 @@ public:
 			: it (it_in)
 		{
 		}
+
+		LIMES_DEFAULT_MOVABLE (iterator_base);
+		LIMES_DEFAULT_COPYABLE (iterator_base);
 
 		iterator_base& operator++() noexcept
 		{

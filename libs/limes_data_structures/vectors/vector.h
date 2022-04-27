@@ -33,4 +33,7 @@ using Matrix = vector<vector<ObjectType>>;
 template <typename ObjectType, size_t N>
 using StackVector = vector<ObjectType, StackAllocator<ObjectType, N>>;
 
+template <typename ObjectType, size_t Capacity>
+using PoolVector = vector<ObjectType, MemoryPoolAllocator<ObjectType, Capacity>>;
+
 LIMES_END_NAMESPACE

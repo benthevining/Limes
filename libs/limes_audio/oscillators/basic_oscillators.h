@@ -18,6 +18,7 @@
 #include "../streams/oscillator.h"	// for Oscillator<>::Phase, Oscillator
 #include "../util/Misc.h"			// for concept Sample - IWYU pragma: keep
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -51,6 +52,9 @@ struct LIMES_EXPORT Sine final : public Oscillator<SampleType>
 	/** Constructs a default sine oscillator. */
 	explicit Sine();
 
+	LIMES_DEFAULT_MOVABLE (Sine);
+	LIMES_DEFAULT_COPYABLE (Sine);
+
 	/** Resets the sine wave's phase. */
 	void resetPhase() final;
 
@@ -77,6 +81,9 @@ struct LIMES_EXPORT Saw final : public Oscillator<SampleType>
 {
 	/** Constructs a default sawtooth oscillator. */
 	explicit Saw();
+
+	LIMES_DEFAULT_MOVABLE (Saw);
+	LIMES_DEFAULT_COPYABLE (Saw);
 
 	/** Resets the sawtooth wave's phase. */
 	void resetPhase();
@@ -106,6 +113,9 @@ struct LIMES_EXPORT Square final : public Oscillator<SampleType>
 	/** Consructs a default square wave oscillator. */
 	explicit Square();
 
+	LIMES_DEFAULT_MOVABLE (Square);
+	LIMES_DEFAULT_COPYABLE (Square);
+
 	/** Resets the square wave's phase. */
 	void resetPhase() final;
 
@@ -134,6 +144,9 @@ struct LIMES_EXPORT Triangle final : public Oscillator<SampleType>
 {
 	/** Constructs a default triangle wave. */
 	explicit Triangle();
+
+	LIMES_DEFAULT_MOVABLE (Triangle);
+	LIMES_DEFAULT_COPYABLE (Triangle);
 
 	/** Resets the triangle wave's phase. */
 	void resetPhase() final;

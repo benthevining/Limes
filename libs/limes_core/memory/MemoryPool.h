@@ -18,6 +18,8 @@
 #include <cstddef>
 #include <vector>
 #include <memory>
+#include <exception>
+#include "../misc/preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -32,13 +34,8 @@ public:
 
 	~MemoryPool();
 
-	MemoryPool (const MemoryPool&) = delete;
-
-	MemoryPool (MemoryPool&&) = delete;
-
-	MemoryPool& operator= (const MemoryPool&) = delete;
-
-	MemoryPool& operator= (MemoryPool&&) = delete;
+	LIMES_NON_COPYABLE (MemoryPool);
+	LIMES_NON_MOVABLE (MemoryPool);
 
 	[[nodiscard]] std::size_t getTotalSize() const noexcept;
 
@@ -50,24 +47,24 @@ public:
 	template <typename ObjectType>
 	[[nodiscard]] int getRemainingCapacity() const noexcept;
 
-	[[nodiscard]] void* allocate (std::size_t numBytesToAllocate);
+	[[nodiscard]] void* allocate (std::size_t numBytesToAllocate) noexcept;
 
 	template <typename ObjectType>
-	[[nodiscard]] ObjectType* allocate();
+	[[nodiscard]] ObjectType* allocate() noexcept;
 
 	template <typename ObjectType, typename... Args>
-	[[nodiscard]] ObjectType* construct (Args&&... constructorArgs);
+	[[nodiscard]] ObjectType* construct (Args&&... constructorArgs) noexcept;
 
 	template <typename ObjectType, typename... Args>
 	[[nodiscard]] ObjectType& constructOrBust (Args&&... constructorArgs);
 
-	void deallocate (void* ptr, std::size_t numBytes);
+	void deallocate (void* ptr, std::size_t numBytes) noexcept;
 
 	template <typename ObjectType>
-	void deallocate (ObjectType* const object);
+	void deallocate (ObjectType* const object) noexcept;
 
 	template <typename ObjectType>
-	void destruct (ObjectType& object);
+	void destruct (ObjectType& object) noexcept;
 
 	[[nodiscard]] bool contains (void* ptr) const noexcept;
 
@@ -80,7 +77,7 @@ private:
 
 	struct Chunk final
 	{
-		explicit Chunk (std::byte* const ptr);
+		explicit Chunk (std::byte* const ptr) noexcept;
 
 		std::byte* const location;
 
@@ -108,6 +105,10 @@ public:
 	explicit MemoryPoolPointer (MemoryPool& pool, Args&&... constructorArgs);
 
 	~MemoryPoolPointer();
+
+	LIMES_NON_COPYABLE (MemoryPoolPointer);
+
+	LIMES_DEFAULT_MOVABLE (MemoryPoolPointer);
 
 	[[nodiscard]] ObjectType* get() const noexcept { return object; }
 
@@ -151,20 +152,27 @@ int MemoryPool::getRemainingCapacity() const noexcept
 }
 
 template <typename ObjectType>
-ObjectType* MemoryPool::allocate()
+ObjectType* MemoryPool::allocate() noexcept
 {
 	return static_cast<ObjectType*> (allocate (sizeof (ObjectType)));
 }
 
 template <typename ObjectType, typename... Args>
-ObjectType* MemoryPool::construct (Args&&... constructorArgs)
+ObjectType* MemoryPool::construct (Args&&... constructorArgs) noexcept
 {
-	using Type = typename std::remove_cv<ObjectType>::type;
+	try
+	{
+		using Type = typename std::remove_cv<ObjectType>::type;
 
-	if (auto* address = allocate<Type>())
-		return std::construct_at (address, std::forward<Args> (constructorArgs)...);
+		if (auto* address = allocate<Type>())
+			return std::construct_at (address, std::forward<Args> (constructorArgs)...);
 
-	return nullptr;
+		return nullptr;
+	}
+	catch (const std::exception&)
+	{
+		return nullptr;
+	}
 }
 
 template <typename ObjectType, typename... Args>
@@ -179,17 +187,24 @@ ObjectType& MemoryPool::constructOrBust (Args&&... constructorArgs)
 }
 
 template <typename ObjectType>
-void MemoryPool::deallocate (ObjectType* const object)
+void MemoryPool::deallocate (ObjectType* const object) noexcept
 {
 	deallocate (static_cast<void*> (&object), sizeof (object));
 }
 
 template <typename ObjectType>
-void MemoryPool::destruct (ObjectType& object)
+void MemoryPool::destruct (ObjectType& object) noexcept
 {
-	const auto* address = std::addressof (object);
-	deallocate (address);
-	std::destroy_at (address);
+	try
+	{
+		const auto* address = std::addressof (object);
+		deallocate (address);
+		std::destroy_at (address);
+	}
+	catch (std::exception&)
+	{
+		return;
+	}
 }
 
 template <typename ObjectType>

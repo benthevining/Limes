@@ -16,6 +16,7 @@
 #include <vector>		   // for vector
 #include "Interval.h"	   // for Interval, Interval::Quality
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -50,18 +51,15 @@ public:
 	 */
 	explicit CompoundInterval (int numSemitones) noexcept;
 
+	LIMES_CONSTEXPR_MOVABLE (CompoundInterval);
+	LIMES_CONSTEXPR_COPYABLE (CompoundInterval);
+
 	/** Returns a compound interval object representing the distance between two MIDI notes.
 	 */
 	[[nodiscard]] static CompoundInterval fromPitches (int midiPitch1, int midiPitch2) noexcept;
 
 	/** Returns a compound interval object representing the distance between two pitch objects. */
 	[[nodiscard]] static CompoundInterval fromPitches (const Pitch& pitch1, const Pitch& pitch2) noexcept;
-
-	/** Copy constructor. */
-	constexpr CompoundInterval (const CompoundInterval& other) noexcept;
-
-	/** Assignment operator. */
-	constexpr CompoundInterval& operator= (const CompoundInterval& other) noexcept;
 
 	/** Returns true if the two compound intervals are exactly equal; that is, have the same number of octaves, and their simple interval components are exactly equal in kind and quality. */
 	[[nodiscard]] constexpr bool operator== (const CompoundInterval& other) const noexcept;

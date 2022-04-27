@@ -16,6 +16,7 @@
 #include "PitchUtils.h"
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -41,23 +42,13 @@ public:
 	{
 	}
 
+	LIMES_CONSTEXPR_MOVABLE (Pitch);
+	LIMES_CONSTEXPR_COPYABLE (Pitch);
+
 	/** Creates a pitch object from a string representation of a pitch, for example "C4".
 		@see stringToPitch()
 	 */
 	//	explicit Pitch (const String& pitchString) noexcept;
-
-	/** Copy constructor. */
-	constexpr Pitch (const Pitch& other) noexcept
-		: midiPitch (other.midiPitch)
-	{
-	}
-
-	/** Assignment operator. */
-	constexpr Pitch& operator= (const Pitch& other) noexcept
-	{
-		midiPitch = other.midiPitch;
-		return *this;
-	}
 
 	/** Returns true if the two pitch objects are exactly equal. */
 	[[nodiscard]] constexpr bool operator== (const Pitch& other) const noexcept

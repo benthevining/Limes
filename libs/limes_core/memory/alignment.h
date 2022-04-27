@@ -16,6 +16,8 @@
 #include <limes_export.h>
 #include <limes_platform.h>
 #include <cstdlib>
+#include <exception>
+#include "../misc/preprocessor.h"
 
 #if LIMES_MSVC || LIMES_WINDOWS
 #	include <malloc.h>
@@ -25,38 +27,52 @@
 LIMES_BEGIN_NAMESPACE
 
 template <typename T, typename... Args>
-LIMES_EXPORT [[nodiscard]] T* allocate_aligned (std::size_t count = 1, std::size_t alignment = 32, Args&&... args)
+LIMES_EXPORT [[nodiscard]] T* allocate_aligned (std::size_t count = 1, std::size_t alignment = 32, Args&&... args) noexcept
 {
-	const auto sizeBytes = count * sizeof (T);
+	try
+	{
+		const auto sizeBytes = count * sizeof (T);
 
 #if LIMES_MSVC || LIMES_WINDOWS
-	auto* const ptr = _aligned_malloc (sizeBytes, alignment);
+		auto* const ptr = _aligned_malloc (sizeBytes, alignment);
 #else
-	auto* const ptr = std::aligned_alloc (alignment, sizeBytes);
+		auto* const ptr = std::aligned_alloc (alignment, sizeBytes);
 #endif
 
-	if (ptr == nullptr)
+		if (ptr == nullptr)
+			return nullptr;
+
+		auto* const typed_ptr = static_cast<T*> (ptr);
+
+		for (size_t i = 0; i < count; ++i)
+			new (typed_ptr + i) T (std::forward<Args> (args)...);
+
+		return typed_ptr;
+	}
+	catch (const std::exception&)
+	{
 		return nullptr;
-
-	auto* const typed_ptr = static_cast<T*> (ptr);
-
-	for (size_t i = 0; i < count; ++i)
-		new (typed_ptr + i) T (std::forward<Args> (args)...);
-
-	return typed_ptr;
+	}
 }
 
 template <typename T>
-LIMES_EXPORT void deallocate_aligned (T* ptr)
+LIMES_EXPORT void deallocate_aligned (T* ptr) noexcept
 {
-	if (ptr == nullptr)
-		return;
+	try
+	{
+		if (ptr == nullptr)
+			return;
 
 #if LIMES_MSVC || LIMES_WINDOWS
-	_aligned_free (ptr);
+		_aligned_free (ptr);
 #else
-	free (ptr);
+		free (ptr);
 #endif
+	}
+	catch (const std::exception&)
+	{
+		return;
+	}
 }
 
 
@@ -71,13 +87,18 @@ public:
 	explicit aligned_pointer (std::size_t count = 1, std::size_t alignment = 32, Args&&... args)
 		: ptr (allocate_aligned<T> (count, alignment, std::forward<Args> (args)...))
 	{
-		LIMES_ASSERT (ptr != nullptr);
+		if (ptr == nullptr)
+			throw std::runtime_error ("Failed aligned memory allocation");
 	}
 
 	~aligned_pointer()
 	{
 		deallocate_aligned (ptr);
 	}
+
+	LIMES_NON_COPYABLE (aligned_pointer);
+
+	LIMES_DEFAULT_MOVABLE (aligned_pointer);
 
 	[[nodiscard]] T* get() const noexcept { return ptr; }
 

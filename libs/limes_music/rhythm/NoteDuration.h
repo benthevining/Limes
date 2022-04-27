@@ -14,6 +14,7 @@
 
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -30,9 +31,8 @@ public:
 
 	constexpr explicit NoteDuration (int kind);
 
-	constexpr NoteDuration (const NoteDuration& other) noexcept;
-
-	constexpr NoteDuration& operator= (const NoteDuration& other) noexcept;
+	LIMES_CONSTEXPR_MOVABLE (NoteDuration);
+	LIMES_CONSTEXPR_COPYABLE (NoteDuration);
 
 	[[nodiscard]] constexpr bool operator== (const NoteDuration& other) const noexcept;
 

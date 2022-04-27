@@ -15,6 +15,7 @@
 
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include "preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -31,6 +32,9 @@ struct LIMES_EXPORT Version final
 		: major (maj), minor (min), patch (p)
 	{
 	}
+
+	LIMES_CONSTEXPR_MOVABLE (Version);
+	LIMES_CONSTEXPR_COPYABLE (Version);
 
 	/** Returns true if this version is the same as the other one. */
 	[[nodiscard]] constexpr bool operator== (const Version& other) const noexcept

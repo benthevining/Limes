@@ -15,6 +15,7 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 #include <ios>
+#include "preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -31,6 +32,9 @@ public:
 	{
 		stream.flags (flags);
 	}
+
+	LIMES_NON_COPYABLE (ScopedStreamFlags);
+	LIMES_NON_MOVABLE (ScopedStreamFlags);
 
 private:
 

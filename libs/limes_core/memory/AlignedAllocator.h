@@ -15,6 +15,7 @@
 #include "alignment.h"
 #include <limes_namespace.h>
 #include <limes_export.h>
+#include "../misc/preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -33,18 +34,13 @@ public:
 
 	AlignedAllocator() = default;
 
-	AlignedAllocator (const AlignedAllocator&) = default;
-
-	AlignedAllocator (AlignedAllocator&&) = default;
+	LIMES_DEFAULT_COPYABLE (AlignedAllocator);
+	LIMES_DEFAULT_MOVABLE (AlignedAllocator);
 
 	template <typename OtherType>
 	AlignedAllocator (const AlignedAllocator<OtherType>&)
 	{
 	}
-
-	AlignedAllocator& operator= (const AlignedAllocator&) = delete;
-
-	AlignedAllocator& operator= (AlignedAllocator&&) = delete;
 
 	bool operator== (const AlignedAllocator& other) const noexcept
 	{
@@ -56,7 +52,7 @@ public:
 		return ! (*this == other);
 	}
 
-	[[nodiscard]] T* allocate (std::size_t num) const
+	[[nodiscard]] T* allocate (std::size_t num) const noexcept
 	{
 		if (num == 0)
 			return nullptr;
@@ -68,22 +64,22 @@ public:
 	}
 
 	template <typename U>
-	[[nodiscard]] T* allocate (size_t num, const U*) const
+	[[nodiscard]] T* allocate (size_t num, const U*) const noexcept
 	{
 		return allocate (num);
 	}
 
-	void deallocate (T* const ptr, std::size_t) const
+	void deallocate (T* const ptr, std::size_t) const noexcept
 	{
 		deallocate_aligned (ptr);
 	}
 
-	[[nodiscard]] T* address (T& r) const
+	[[nodiscard]] T* address (T& r) const noexcept
 	{
 		return &r;
 	}
 
-	[[nodiscard]] const T* address (const T& s) const
+	[[nodiscard]] const T* address (const T& s) const noexcept
 	{
 		return &s;
 	}
@@ -117,7 +113,7 @@ public:
 		ptr->~T();
 	}
 
-	[[nodiscard]] size_t getAlignment() const noexcept
+	[[nodiscard]] consteval size_t getAlignment() const noexcept
 	{
 		return Alignment;
 	}

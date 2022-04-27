@@ -51,6 +51,7 @@ libs/limes.h benthevining
 libs/limes_audio/CMakeLists.txt benthevining
 libs/limes_audio/README.md benthevining
 libs/limes_audio/filters/CMakeLists.txt benthevining
+libs/limes_audio/filters/Coeffecients.h benthevining
 libs/limes_audio/filters/Filter.cpp benthevining
 libs/limes_audio/limes_audio.h benthevining
 libs/limes_audio/oscillators/DetunableModel.h benthevining
@@ -252,6 +253,7 @@ libs/limes_vecops/impl/fallback_impl.h benthevining
 libs/limes_vecops/impl/fp_status.cpp benthevining
 libs/limes_vecops/impl/ipp.h benthevining
 libs/limes_vecops/impl/mipp.h benthevining
+libs/limes_vecops/impl/phasor.cpp benthevining
 libs/limes_vecops/impl/phasor.h benthevining
 libs/limes_vecops/impl/pommier/CMakeLists.txt benthevining
 libs/limes_vecops/impl/pommier/neon_mathfun.cpp benthevining

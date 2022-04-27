@@ -18,6 +18,7 @@
 #include <limes_namespace.h>
 #include <functional>
 #include <exception>
+#include "preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -62,6 +63,9 @@ public:
 		std::invoke (func);
 	}
 
+	LIMES_NON_COPYABLE (CallDeferred);
+	LIMES_NON_MOVABLE (CallDeferred);
+
 private:
 
 	const Function func;
@@ -83,6 +87,9 @@ public:
 	{
 		std::invoke (deferredFunc);
 	}
+
+	LIMES_NON_COPYABLE (RAIICaller);
+	LIMES_NON_MOVABLE (RAIICaller);
 
 private:
 

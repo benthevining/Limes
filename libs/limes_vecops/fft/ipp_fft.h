@@ -30,13 +30,8 @@ public:
 
 	~IPP_FFT() final;
 
-	IPP_FFT (const IPP_FFT&) = delete;
-
-	IPP_FFT& operator= (const IPP_FFT&) = delete;
-
-	IPP_FFT (IPP_FFT&&) = delete;
-
-	IPP_FFT& operator= (IPP_FFT&&) = delete;
+	LIMES_NON_COPYABLE (IPP_FFT);
+	LIMES_DEFAULT_MOVABLE (IPP_FFT);
 
 private:
 
@@ -56,7 +51,13 @@ private:
 
 	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) final;
 
-	using FFTSpecType = std::conditional_t<std::is_same_v<SampleType, float>, IppsFFTSpec_R_32f, IppsFFTSpec_R_64f>;
+	LIMES_FORCE_INLINE void ipp_pack (const SampleType* re, const SampleType* im);
+
+	LIMES_FORCE_INLINE void ipp_unpack (SampleType* const re, SampleType* const im) const;
+
+	using FFTSpecType = std::conditional_t<std::is_same_v<SampleType, float>,
+										   IppsFFTSpec_R_32f,
+										   IppsFFTSpec_R_64f>;
 
 	FFTSpecType* m_spec;
 	Ipp8u*		 m_specbuf;

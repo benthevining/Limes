@@ -14,6 +14,7 @@
 #include <type_traits>	   // for conditional_t
 #include "fft_common.h"	   // for FFTImpl
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 #ifndef FFTW_HEADER_NAME
 #	define FFTW_HEADER_NAME <fftw3.h>
@@ -38,102 +39,72 @@ LIMES_BEGIN_NAMESPACE
 namespace vecops
 {
 
-using fft_float_type		  = std::conditional_t<FFTW_DOUBLE_ONLY, double, float>;
-using fftw_float_plan		  = std::conditional_t<FFTW_DOUBLE_ONLY, fftw_plan, fftwf_plan>;
-using fftw_float_complex_type = std::conditional_t<FFTW_DOUBLE_ONLY, fftw_complex, fftwf_complex>;
+template <bool IsDouble>
+LIMES_NO_EXPORT void fftw_save_wisdom();
 
-using fft_double_type		   = std::conditional_t<FFTW_SINGLE_ONLY, float, double>;
-using fftw_double_plan		   = std::conditional_t<FFTW_SINGLE_ONLY, fftwf_plan, fftw_plan>;
-using fftw_double_complex_type = std::conditional_t<FFTW_SINGLE_ONLY, fftwf_complex, fftw_complex>;
+template <bool IsDouble>
+LIMES_NO_EXPORT void fftw_load_wisdom();
 
 
-class LIMES_NO_EXPORT FFTW_FloatFFT final : public FFTImpl<float>
+template <Scalar SampleType>
+class LIMES_NO_EXPORT FFTW_FFT final : public FFTImpl<SampleType>
 {
 public:
 
-	explicit FFTW_FloatFFT (int size);
+	explicit FFTW_FFT (int size);
 
-	~FFTW_FloatFFT() final;
+	~FFTW_FFT() final;
 
-	FFTW_FloatFFT (const FFTW_FloatFFT&) = delete;
-
-	FFTW_FloatFFT& operator= (const FFTW_FloatFFT&) = delete;
-
-	FFTW_FloatFFT (FFTW_FloatFFT&&) = delete;
-
-	FFTW_FloatFFT& operator= (FFTW_FloatFFT&&) = delete;
+	LIMES_NON_COPYABLE (FFTW_FFT);
+	LIMES_DEFAULT_MOVABLE (FFTW_FFT);
 
 private:
 
-	void forward (const float* realIn, float* realOut, float* imagOut) final;
+	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) final;
 
-	void forwardInterleaved (const float* realIn, float* complexOut) final;
+	void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) final;
 
-	void forwardPolar (const float* realIn, float* magOut, float* phaseOut) final;
+	void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) final;
 
-	void forwardMagnitude (const float* realIn, float* magOut) final;
+	void forwardMagnitude (const SampleType* realIn, SampleType* magOut) final;
 
-	void inverse (const float* realIn, const float* imagIn, float* realOut) final;
+	void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) final;
 
-	void inverseInterleaved (const float* complexIn, float* realOut) final;
+	void inverseInterleaved (const SampleType* complexIn, SampleType* realOut) final;
 
-	void inversePolar (const float* magIn, const float* phaseIn, float* realOut) final;
+	void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) final;
 
-	void inverseCepstral (const float* magIn, float* cepOut) final;
+	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) final;
 
-	fftw_float_plan m_fplanf;
-	fftw_float_plan m_fplani;
+	void init();
 
-	fft_float_type* m_fbuf;
+	using fft_float_type		  = std::conditional_t<FFTW_DOUBLE_ONLY, double, float>;
+	using fftw_float_plan		  = std::conditional_t<FFTW_DOUBLE_ONLY, fftw_plan, fftwf_plan>;
+	using fftw_float_complex_type = std::conditional_t<FFTW_DOUBLE_ONLY, fftw_complex, fftwf_complex>;
 
-	fftw_float_complex_type* m_fpacked;
+	using fft_double_type		   = std::conditional_t<FFTW_SINGLE_ONLY, float, double>;
+	using fftw_double_plan		   = std::conditional_t<FFTW_SINGLE_ONLY, fftwf_plan, fftw_plan>;
+	using fftw_double_complex_type = std::conditional_t<FFTW_SINGLE_ONLY, fftwf_complex, fftw_complex>;
 
-	static int m_extantf;
-};
+	using plan_type = std::conditional_t<std::is_same_v<SampleType, float>,
+										 fftw_float_plan,
+										 fftw_double_plan>;
 
+	using float_type = std::conditional_t<std::is_same_v<SampleType, float>,
+										  fft_float_type,
+										  fft_double_type>;
 
-class LIMES_NO_EXPORT FFTW_DoubleFFT final : public FFTImpl<double>
-{
-public:
+	using complex_type = std::conditional_t<std::is_same_v<SampleType, float>,
+											fftw_float_complex_type,
+											fftw_double_complex_type>;
 
-	explicit FFTW_DoubleFFT (int size);
+	plan_type m_planf, m_plani;
 
-	~FFTW_DoubleFFT() final;
+	float_type* m_buf;
 
-	FFTW_DoubleFFT (const FFTW_DoubleFFT&) = delete;
+	complex_type* m_packed;
 
-	FFTW_DoubleFFT& operator= (const FFTW_DoubleFFT&) = delete;
-
-	FFTW_DoubleFFT (FFTW_DoubleFFT&&) = delete;
-
-	FFTW_DoubleFFT& operator= (FFTW_DoubleFFT&&) = delete;
-
-private:
-
-	void forward (const double* realIn, double* realOut, double* imagOut) final;
-
-	void forwardInterleaved (const double* realIn, double* complexOut) final;
-
-	void forwardPolar (const double* realIn, double* magOut, double* phaseOut) final;
-
-	void forwardMagnitude (const double* realIn, double* magOut) final;
-
-	void inverse (const double* realIn, const double* imagIn, double* realOut) final;
-
-	void inverseInterleaved (const double* complexIn, double* realOut) final;
-
-	void inversePolar (const double* magIn, const double* phaseIn, double* realOut) final;
-
-	void inverseCepstral (const double* magIn, double* cepOut) final;
-
-	fftw_double_plan m_dplanf;
-	fftw_double_plan m_dplani;
-
-	fft_double_type* m_dbuf;
-
-	fftw_double_complex_type* m_dpacked;
-
-	static int m_extantd;
+	static int m_extant;
 };
 
 }  // namespace vecops

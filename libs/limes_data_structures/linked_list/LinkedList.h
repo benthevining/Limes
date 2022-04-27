@@ -15,6 +15,7 @@
 #include <limes_export.h>
 #include "../vectors/owned_vector.h"
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -28,9 +29,17 @@ public:
 		template <typename... Args>
 		explicit Node (Args&&... args);
 
+		LIMES_DEFAULT_MOVABLE (Node);
+		LIMES_DEFAULT_COPYABLE (Node);
+
 		ObjectType			  object;
 		LinkedListModel<Node> listNode { *this };
 	};
+
+	LinkedList() = default;
+
+	LIMES_DEFAULT_MOVABLE (LinkedList);
+	LIMES_DEFAULT_COPYABLE (LinkedList);
 
 	[[nodiscard]] Node* getFirstNodeInChain() const noexcept;
 	[[nodiscard]] Node* getLastNodeInChain() const noexcept;

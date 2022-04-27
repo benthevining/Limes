@@ -16,6 +16,7 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 #include <cstdlib>
+#include "../misc/preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -37,13 +38,8 @@ public:
 	{
 	}
 
-	MemoryPoolAllocator (const MemoryPoolAllocator&) = delete;
-
-	MemoryPoolAllocator (MemoryPoolAllocator&&) = delete;
-
-	MemoryPoolAllocator& operator= (const MemoryPoolAllocator&) = delete;
-
-	MemoryPoolAllocator& operator= (MemoryPoolAllocator&&) = delete;
+	LIMES_NON_COPYABLE (MemoryPoolAllocator);
+	LIMES_NON_MOVABLE (MemoryPoolAllocator);
 
 	bool operator== (const MemoryPoolAllocator& other) const noexcept
 	{
@@ -55,33 +51,33 @@ public:
 		return ! (*this == other);
 	}
 
-	[[nodiscard]] T* allocate (std::size_t num)
+	[[nodiscard]] T* allocate (std::size_t num) noexcept
 	{
 		return static_cast<T*> (pool.allocate (num * sizeof (T)));
 	}
 
 	template <typename U>
-	[[nodiscard]] T* allocate (size_t num, const U*)
+	[[nodiscard]] T* allocate (size_t num, const U*) noexcept
 	{
 		return allocate (num);
 	}
 
-	void deallocate (T* const ptr, std::size_t num)
+	void deallocate (T* const ptr, std::size_t num) noexcept
 	{
 		pool.deallocate (static_cast<void*> (ptr), num * sizeof (T));
 	}
 
-	[[nodiscard]] T* address (T& r) const
+	[[nodiscard]] T* address (T& r) const noexcept
 	{
 		return &r;
 	}
 
-	[[nodiscard]] const T* address (const T& s) const
+	[[nodiscard]] const T* address (const T& s) const noexcept
 	{
 		return &s;
 	}
 
-	[[nodiscard]] std::size_t max_size() const
+	[[nodiscard]] std::size_t max_size() const noexcept
 	{
 		return pool.getTotalSize();
 	}

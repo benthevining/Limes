@@ -32,13 +32,8 @@ public:
 
 	~vDSP_FFT() final;
 
-	vDSP_FFT (const vDSP_FFT&) = delete;
-
-	vDSP_FFT& operator= (const vDSP_FFT&) = delete;
-
-	vDSP_FFT (vDSP_FFT&&) = delete;
-
-	vDSP_FFT& operator= (vDSP_FFT&&) = delete;
+	LIMES_NON_COPYABLE (vDSP_FFT);
+	LIMES_DEFAULT_MOVABLE (vDSP_FFT);
 
 private:
 
@@ -64,11 +59,21 @@ private:
 
 	LIMES_FORCE_INLINE void unpackComplex (SampleType* const re, SampleType* const im);
 
-	using FFTSetupType = std::conditional_t<std::is_same_v<SampleType, float>, FFTSetup, FFTSetupD>;
+	LIMES_FORCE_INLINE void vDSP_nyq (SampleType* real, SampleType* imag) const;
 
-	using DSPSplitComplexType = std::conditional_t<std::is_same_v<SampleType, float>, DSPSplitComplex, DSPDoubleSplitComplex>;
+	LIMES_FORCE_INLINE void vDSP_denyq (SampleType* real, SampleType* imag) const;
 
-	using DSPComplexType = std::conditional_t<std::is_same_v<SampleType, float>, DSPComplex, DSPDoubleComplex>;
+	using FFTSetupType = std::conditional_t<std::is_same_v<SampleType, float>,
+											FFTSetup,
+											FFTSetupD>;
+
+	using DSPSplitComplexType = std::conditional_t<std::is_same_v<SampleType, float>,
+												   DSPSplitComplex,
+												   DSPDoubleSplitComplex>;
+
+	using DSPComplexType = std::conditional_t<std::is_same_v<SampleType, float>,
+											  DSPComplex,
+											  DSPDoubleComplex>;
 
 	FFTSetupType m_spec;
 

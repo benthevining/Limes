@@ -33,6 +33,9 @@ public:
 
 	virtual ~Interval() = default;
 
+	LIMES_CONSTEXPR_MOVABLE (Interval);
+	LIMES_CONSTEXPR_COPYABLE (Interval);
+
 	/** Describes the quality of the interval.
 		Note that not all possible quality values are valid for every possible interval type; a "major fifth" or a "perfect third" do not exist.
 		@see isValidQualityForKind()
@@ -67,12 +70,6 @@ public:
 
 	/** Creates an interval from the distance between two MIDI pitches. */
 	[[nodiscard]] static Interval fromPitches (int midiPitch1, int midiPitch2) noexcept;
-
-	/** Copy constructor. */
-	constexpr Interval (const Interval& other) noexcept;
-
-	/** Assignment operator. */
-	constexpr Interval& operator= (const Interval& other) noexcept;
 
 	/** Creates an interval from a string description of one.
 		The passed string can be a long or short description, eg, "Major second" or "M2", etc.

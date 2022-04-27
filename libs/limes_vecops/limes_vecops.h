@@ -447,7 +447,7 @@ private:
 
 #pragma mark Implementation kind checking
 
-LIMES_EXPORT [[nodiscard]] constexpr bool isUsingVDSP() noexcept
+LIMES_EXPORT [[nodiscard]] consteval bool isUsingVDSP() noexcept
 {
 #if LIMES_VECOPS_USE_VDSP
 	return true;
@@ -456,7 +456,7 @@ LIMES_EXPORT [[nodiscard]] constexpr bool isUsingVDSP() noexcept
 #endif
 }
 
-LIMES_EXPORT [[nodiscard]] constexpr bool isUsingIPP() noexcept
+LIMES_EXPORT [[nodiscard]] consteval bool isUsingIPP() noexcept
 {
 #if LIMES_VECOPS_USE_IPP
 	return true;
@@ -465,7 +465,7 @@ LIMES_EXPORT [[nodiscard]] constexpr bool isUsingIPP() noexcept
 #endif
 }
 
-LIMES_EXPORT [[nodiscard]] constexpr bool isUsingMIPP() noexcept
+LIMES_EXPORT [[nodiscard]] consteval bool isUsingMIPP() noexcept
 {
 #if LIMES_VECOPS_USE_MIPP
 	return true;
@@ -474,7 +474,7 @@ LIMES_EXPORT [[nodiscard]] constexpr bool isUsingMIPP() noexcept
 #endif
 }
 
-LIMES_EXPORT [[nodiscard]] constexpr bool isUsingFallback() noexcept
+LIMES_EXPORT [[nodiscard]] consteval bool isUsingFallback() noexcept
 {
 	return ! (isUsingVDSP() || isUsingIPP() || isUsingMIPP());	// cppcheck-suppress knownConditionTrueFalse
 }
@@ -482,7 +482,7 @@ LIMES_EXPORT [[nodiscard]] constexpr bool isUsingFallback() noexcept
 static_assert (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingFallback());
 
 
-LIMES_EXPORT [[nodiscard]] static constexpr const char* const getImplementationName() noexcept
+LIMES_EXPORT [[nodiscard]] static consteval const char* const getImplementationName() noexcept
 {
 	if constexpr (isUsingVDSP())
 		return "Apple vDSP";
@@ -492,6 +492,15 @@ LIMES_EXPORT [[nodiscard]] static constexpr const char* const getImplementationN
 		return "MIPP";
 	else
 		return "Fallback";
+}
+
+LIMES_EXPORT [[nodiscard]] consteval bool isUsingPommierExtensions() noexcept
+{
+#if LIMES_VECOPS_USE_POMMIER
+	return true;
+#else
+	return false;
+#endif
 }
 
 }  // namespace vecops

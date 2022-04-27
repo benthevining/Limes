@@ -35,6 +35,8 @@ FallbackFFT<SampleType>::FallbackFFT (int size)
 	  m_c (static_cast<std::size_t> (m_half) + 1, FFTalignment, SampleType (0)),
 	  m_d (static_cast<std::size_t> (m_half) + 1, FFTalignment, SampleType (0))
 {
+	static_assert (fft::isUsingFallback());
+
 	const auto bits = [halfSize = m_half]
 	{
 		for (auto i = 0;; ++i)
@@ -62,18 +64,19 @@ FallbackFFT<SampleType>::FallbackFFT (int size)
 	// sin and cos tables for complex fft
 	for (std::size_t i = 2, ix = 0; i <= m_maxTabledBlock; i <<= 1)
 	{
-		const auto phase = 2. * math::constants::pi<double> / static_cast<double> (i);
+		const auto phase	   = SampleType (2.) * math::constants::pi<SampleType> / static_cast<SampleType> (i);
+		const auto doublePhase = phase * SampleType (2.);
 
 		m_sincos[ix++] = std::sin (phase);
-		m_sincos[ix++] = std::sin (2. * phase);
+		m_sincos[ix++] = std::sin (doublePhase);
 		m_sincos[ix++] = std::cos (phase);
-		m_sincos[ix++] = std::cos (2. * phase);
+		m_sincos[ix++] = std::cos (doublePhase);
 	}
 
 	// sin and cos tables for real-complex transform
 	for (std::size_t i = 0, ix = 0; i < static_cast<std::size_t> (m_half / 2); ++i)
 	{
-		const auto phase = math::constants::pi<double> * (static_cast<double> (i + 1) / static_cast<double> (m_half) + 0.5);
+		const auto phase = math::constants::pi<SampleType> * (static_cast<SampleType> (i + 1) / static_cast<SampleType> (m_half) + SampleType (0.5));
 		m_sincos_r[ix++] = std::sin (phase);
 		m_sincos_r[ix++] = std::cos (phase);
 	}
@@ -82,16 +85,7 @@ FallbackFFT<SampleType>::FallbackFFT (int size)
 template <Scalar SampleType>
 void FallbackFFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut)
 {
-	if constexpr (std::is_same_v<SampleType, float>)
-	{
-		transformF (realIn, m_c, m_d);
-		// v_convert (realOut, m_c, m_half + 1);
-		// v_convert (imagOut, m_d, m_half + 1);
-	}
-	else
-	{
-		transformF (realIn, realOut, imagOut);
-	}
+	transformF (realIn, realOut, imagOut);
 }
 
 template <Scalar SampleType>
@@ -99,18 +93,7 @@ void FallbackFFT<SampleType>::forwardInterleaved (const SampleType* realIn, Samp
 {
 	transformF (realIn, m_c, m_d);
 
-	if constexpr (std::is_same_v<SampleType, double>)
-	{
-		vecops::interleave (complexOut, m_c_and_d, 2, m_half + 1);
-	}
-	else
-	{
-		for (std::size_t i = 0; i <= static_cast<std::size_t> (m_half); ++i)
-			complexOut[i * 2] = static_cast<SampleType> (m_c[i]);
-
-		for (std::size_t i = 0; i <= static_cast<std::size_t> (m_half); ++i)
-			complexOut[i * 2 + 1] = static_cast<SampleType> (m_d[i]);
-	}
+	vecops::interleave (complexOut, m_c_and_d, 2, m_half + 1);
 }
 
 template <Scalar SampleType>
@@ -118,15 +101,7 @@ void FallbackFFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType
 {
 	transformF (realIn, m_c, m_d);
 
-	if constexpr (std::is_same_v<SampleType, double>)
-	{
-		vecops::cartesianToPolar (magOut, phaseOut, m_c.get(), m_d.get(), m_half + 1);
-	}
-	else
-	{
-		vecops::cartesianToPolar (m_a.get(), m_b.get(), m_c.get(), m_d.get(), m_half + 1);
-		// convert m_a -> magOut, m_b -> phaseOut
-	}
+	vecops::cartesianToPolar (magOut, phaseOut, m_c.get(), m_d.get(), m_half + 1);
 }
 
 template <Scalar SampleType>
@@ -134,47 +109,19 @@ void FallbackFFT<SampleType>::forwardMagnitude (const SampleType* realIn, Sample
 {
 	transformF (realIn, m_c, m_d);
 
-	if constexpr (std::is_same_v<SampleType, double>)
-	{
-		vecops::cartesianToMagnitudes (magOut, m_c.get(), m_d.get(), m_half + 1);
-	}
-	else
-	{
-		vecops::cartesianToMagnitudes (m_a.get(), m_c.get(), m_d.get(), m_half + 1);
-		// convert m_a -> magOut
-	}
+	vecops::cartesianToMagnitudes (magOut, m_c.get(), m_d.get(), m_half + 1);
 }
 
 template <Scalar SampleType>
 void FallbackFFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut)
 {
-	if constexpr (std::is_same_v<SampleType, float>)
-	{
-		// v_convert (m_a, realIn, m_half + 1);
-		// v_convert (m_b, imagIn, m_half + 1);
-		transformI (m_a, m_b, realOut);
-	}
-	else
-	{
-		transformI (realIn, imagIn, realOut);
-	}
+	transformI (realIn, imagIn, realOut);
 }
 
 template <Scalar SampleType>
 void FallbackFFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut)
 {
-	if constexpr (std::is_same_v<SampleType, double>)
-	{
-		vecops::deinterleave (m_a_and_b, complexIn, 2, m_half + 1);
-	}
-	else
-	{
-		for (std::size_t i = 0; i <= static_cast<std::size_t> (m_half); ++i)
-			m_a[i] = complexIn[i * 2];
-
-		for (std::size_t i = 0; i <= static_cast<std::size_t> (m_half); ++i)
-			m_b[i] = complexIn[i * 2 + 1];
-	}
+	vecops::deinterleave (m_a_and_b, complexIn, 2, m_half + 1);
 
 	transformI (m_a, m_b, realOut);
 }
@@ -182,15 +129,7 @@ void FallbackFFT<SampleType>::inverseInterleaved (const SampleType* complexIn, S
 template <Scalar SampleType>
 void FallbackFFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut)
 {
-	if constexpr (std::is_same_v<SampleType, double>)
-	{
-		vecops::polarToCartesian (m_a.get(), m_b.get(), magIn, phaseIn, m_half + 1);
-	}
-	else
-	{
-		// convert magIn -> m_c, phaseIn -> m_d
-		vecops::polarToCartesian (m_a.get(), m_b.get(), m_c.get(), m_d.get(), m_half + 1);
-	}
+	vecops::polarToCartesian (m_a.get(), m_b.get(), magIn, phaseIn, m_half + 1);
 
 	transformI (m_a, m_b, realOut);
 }
@@ -201,7 +140,7 @@ void FallbackFFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleTy
 	for (std::size_t i = 0; i <= static_cast<std::size_t> (m_half); ++i)
 	{
 		m_a[i] = std::log (magIn[i] + shiftAmount<double>);
-		m_b[i] = 0.;
+		m_b[i] = SampleType (0.);
 	}
 
 	transformI (m_a, m_b, cepOut);
@@ -210,21 +149,23 @@ void FallbackFFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleTy
 // Uses m_a and m_b internally; does not touch m_c or m_d
 template <Scalar SampleType>
 LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformF (const SampleType* ri,
-															 double* ro, double* io)
+															 SampleType* ro, SampleType* io)
 {
 	const auto half_size = static_cast<std::size_t> (m_half);
 
-	for (std::size_t i = 0; i < half_size; ++i)
+	for (std::size_t i = half_size;
+		 i < static_cast<std::size_t> (this->fft_size);
+		 ++i)
 	{
-		m_a[i] = ri[i * 2];
-		m_b[i] = ri[i * 2 + 1];
+		m_a[i] = ri[i];
+		m_b[i] = ri[i + 1];
 	}
 
 	transformComplex (m_a, m_b, m_vr, m_vi, false);
 
 	ro[0]	   = m_vr[0] + m_vi[0];
 	ro[m_half] = m_vr[0] - m_vi[0];
-	io[0] = io[m_half] = 0.0;
+	io[0] = io[m_half] = SampleType (0.);
 
 	for (std::size_t i = 0, ix = 0; i < half_size / 2; ++i)
 	{
@@ -238,16 +179,16 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformF (const SampleType* r
 		const auto tw_r = (r0 - r1) * c - (i0 - i1) * s;
 		const auto tw_i = (r0 - r1) * s + (i0 - i1) * c;
 
-		ro[k]			  = (r0 + r1 + tw_r) * 0.5;
-		ro[half_size - k] = (r0 + r1 - tw_r) * 0.5;
-		io[k]			  = (i0 + i1 + tw_i) * 0.5;
-		io[half_size - k] = (tw_i - i0 - i1) * 0.5;
+		ro[k]			  = (r0 + r1 + tw_r) * SampleType (0.5);
+		ro[half_size - k] = (r0 + r1 - tw_r) * SampleType (0.5);
+		io[k]			  = (i0 + i1 + tw_i) * SampleType (0.5);
+		io[half_size - k] = (tw_i - i0 - i1) * SampleType (0.5);
 	}
 }
 
 // Uses m_c and m_d internally; does not touch m_a or m_b
 template <Scalar SampleType>
-LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformI (const double* ri, const double* ii,
+LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformI (const SampleType* ri, const SampleType* ii,
 															 SampleType* ro)
 {
 	m_vr[0] = ri[0] + ri[m_half];
@@ -275,16 +216,18 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformI (const double* ri, c
 
 	transformComplex (m_vr, m_vi, m_c, m_d, true);
 
-	for (std::size_t i = 0; i < half_size; ++i)
+	for (std::size_t i = half_size;
+		 i < static_cast<std::size_t> (this->fft_size);
+		 ++i)
 	{
-		ro[i * 2]	  = static_cast<SampleType> (m_c[i]);
-		ro[i * 2 + 1] = static_cast<SampleType> (m_d[i]);
+		ro[i]	  = m_c[i];
+		ro[i + 1] = m_d[i];
 	}
 }
 
 template <Scalar SampleType>
-LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformComplex (const double* ri, const double* ii,
-																   double* ro, double* io,
+LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformComplex (const SampleType* ri, const SampleType* ii,
+																   SampleType* ro, SampleType* io,
 																   bool inverse)
 {
 	// Following Don Cross's 1998 implementation, described by its author as public domain.
@@ -299,7 +242,7 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformComplex (const double*
 		io[j] = ii[i];
 	}
 
-	const auto ifactor = (inverse ? -1. : 1.);
+	const auto ifactor = (inverse ? SampleType (-1.) : SampleType (1.));
 
 	for (auto blockSize = 2, blockEnd = 1;
 		 blockSize <= m_half;
@@ -309,7 +252,7 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformComplex (const double*
 		{
 			struct four_values final
 			{
-				double sm1, sm2, cm1, cm2;
+				SampleType sm1, sm2, cm1, cm2;
 			};
 
 			four_values vals {};
@@ -325,8 +268,8 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformComplex (const double*
 			}
 			else
 			{
-				const auto phase	   = 2. * math::constants::pi<double> / double (blockSize);
-				const auto doublePhase = 2. * phase;
+				const auto phase	   = SampleType (2.) * math::constants::pi<SampleType> / SampleType (blockSize);
+				const auto doublePhase = SampleType (2.) * phase;
 
 				vals.sm1 = ifactor * std::sin (phase);
 				vals.sm2 = ifactor * std::sin (doublePhase);
@@ -337,8 +280,8 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformComplex (const double*
 			return vals;
 		}();
 
-		const auto w = 2. * values.cm1;
-		double	   ar[3], ai[3];  // NOLINT
+		const auto w = SampleType (2.) * values.cm1;
+		SampleType ar[3], ai[3];  // NOLINT
 
 		for (auto i = 0; i < m_half; i += blockSize)
 		{

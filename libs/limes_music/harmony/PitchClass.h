@@ -15,6 +15,7 @@
 #include <array>
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -33,25 +34,15 @@ struct LIMES_EXPORT PitchClass final
 	{
 	}
 
+	LIMES_CONSTEXPR_MOVABLE (PitchClass);
+	LIMES_CONSTEXPR_COPYABLE (PitchClass);
+
 	/** Creates a pitch class from a string description of one.
 		The string should be in the format 'A#', 'Bb', etc. You can also use the Unicode sharp, flat, and natural symbols in the passed string.
 		If the passed string is in the wrong format, or it can't be parsed correctly for some reason, an assertion will be thrown.
 		@see getAsString()
 	 */
 	//	explicit PitchClass (const String& stringDescription) noexcept;
-
-	/** Copy constructor. */
-	constexpr PitchClass (const PitchClass& other) noexcept
-		: pitchClass (other.pitchClass)
-	{
-	}
-
-	/** Assignment operator. */
-	constexpr PitchClass& operator= (const PitchClass& other) noexcept
-	{
-		pitchClass = other.pitchClass;
-		return *this;
-	}
 
 	/** Returns true if the two pitch classes are equal. */
 	[[nodiscard]] constexpr bool operator== (const PitchClass& other) const noexcept

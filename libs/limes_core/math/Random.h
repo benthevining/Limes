@@ -17,6 +17,7 @@
 #include <cstdint>
 #include <type_traits>
 #include <atomic>
+#include "../misc/preprocessor.h"
 #include "../misc/TypeTraits.h"
 
 LIMES_BEGIN_NAMESPACE
@@ -33,6 +34,7 @@ public:
 	Random();
 
 	Random (const Random& other) noexcept;
+	Random (Random&& other);
 
 	[[nodiscard]] int nextInt() noexcept;
 
@@ -60,7 +62,10 @@ public:
 		else if constexpr (std::is_same_v<T, bool>)
 			return nextBool();
 		else
+		{
+			LIMES_UNREACHABLE;
 			return T {};
+		}
 	}
 
 	void setSeed (int64_t newSeed) noexcept;

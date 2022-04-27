@@ -46,7 +46,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void fill (DataType* const data, SizeType siz
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void clear (DataType* const data, SizeType size)
 {
-	std::memset (data, 0, static_cast<size_t> (size) * sizeof (DataType));
+	fill (data, size, DataType (0));
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -401,8 +401,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void interleave (DataType* const output, cons
 		case 2 :
 		{
 			// common case, may be vectorized by compiler if hardcoded
-			for (int i = 0; i < static_cast<int> (numSamples); ++i)
-				for (int j = 0; j < 2; ++j)
+			for (auto i = 0; i < static_cast<int> (numSamples); ++i)
+				for (auto j = 0; j < 2; ++j)
 					output[idx++] = origData[j][i];
 
 			return;
@@ -414,8 +414,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void interleave (DataType* const output, cons
 		}
 		default :
 		{
-			for (int i = 0; i < static_cast<int> (numSamples); ++i)
-				for (int j = 0; j < static_cast<int> (numChannels); ++j)
+			for (auto i = 0; i < static_cast<int> (numSamples); ++i)
+				for (auto j = 0; j < static_cast<int> (numChannels); ++j)
 					output[idx++] = origData[j][i];
 		}
 	}
@@ -431,8 +431,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void deinterleave (DataType* const * const ou
 		case 2 :
 		{
 			// common case, may be vectorized by compiler if hardcoded
-			for (int i = 0; i < static_cast<int> (numSamples); ++i)
-				for (int j = 0; j < 2; ++j)
+			for (auto i = 0; i < static_cast<int> (numSamples); ++i)
+				for (auto j = 0; j < 2; ++j)
 					output[j][i] = interleavedData[idx++];
 
 			return;
@@ -444,8 +444,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void deinterleave (DataType* const * const ou
 		}
 		default :
 		{
-			for (int i = 0; i < static_cast<int> (numSamples); ++i)
-				for (int j = 0; j < static_cast<int> (numChannels); ++j)
+			for (auto i = 0; i < static_cast<int> (numSamples); ++i)
+				for (auto j = 0; j < static_cast<int> (numChannels); ++j)
 					output[j][i] = interleavedData[idx++];
 		}
 	}
@@ -668,12 +668,15 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType mean (const DataType* 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
 {
-	clear (output, numSamples);
+	copy (output, origData[0], numSamples);
 
-	for (int c = 0; c < static_cast<int> (numChannels); ++c)
+	if (numChannels == 1)
+		return;
+
+	for (auto c = 1; c < static_cast<int> (numChannels); ++c)
 		add (output, numSamples, origData[c]);
 
-	multiply (output, numSamples, DataType (1.0) / static_cast<DataType> (numChannels));
+	multiply (output, numSamples, DataType (1.) / static_cast<DataType> (numChannels));
 }
 
 
@@ -684,7 +687,7 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType rms (const DataType* c
 
 	if (size == 0) return t;
 
-	for (int i = 0; i < static_cast<int> (size); ++i)
+	for (auto i = 0; i < static_cast<int> (size); ++i)
 		t += (data[i] * data[i]);
 
 	t /= static_cast<DataType> (size);
@@ -696,7 +699,7 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType rms (const DataType* c
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE int countZeroCrossings (const DataType* const data, SizeType size)
 {
-	int numCrossings { 0 };
+	auto numCrossings = 0;
 
 	auto sign = data[0] > DataType (0);
 
@@ -890,7 +893,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesianInterleaved (DataType* c
 
 	for (auto i = SizeType (0); i < size; ++i)
 	{
-		::limes::vecops::detail::phasor<DataType> (&real, &imag, phase[i]);
+		vecops::detail::phasor<DataType> (&real, &imag, phase[i]);
 
 		real *= mag[i];
 		imag *= mag[i];

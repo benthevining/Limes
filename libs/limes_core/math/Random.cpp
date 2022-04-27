@@ -42,6 +42,11 @@ Random::Random (const Random& other) noexcept
 {
 }
 
+Random::Random (Random&& other)
+	: seed (other.seed.load())
+{
+}
+
 void Random::setSeed (int64_t newSeed) noexcept
 {
 	if (this == &getSystemRandom())

@@ -46,6 +46,9 @@ public:
 	*/
 	explicit Analyzer (int minFreqHz = 60);
 
+	LIMES_NON_COPYABLE (Analyzer);
+	LIMES_DEFAULT_MOVABLE (Analyzer);
+
 	/**
 		Analyzes a frame of audio. This must be called before Shifter::getSamples(), and should be called consistently.
 		The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to getLatencySamples().

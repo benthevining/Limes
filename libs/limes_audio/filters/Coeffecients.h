@@ -15,6 +15,7 @@
 #include "../util/Misc.h"
 #include <limes_data_structures.h>
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -94,13 +95,16 @@ public:
 	{
 		Storage();
 
-		scalar_vector<Sampletype> coefficients;
+		LIMES_DEFAULT_MOVABLE (Storage);
+		LIMES_DEFAULT_COPYABLE (Storage);
 
 		scalar_vector<Sampletype>* operator->() noexcept;
 
 		const scalar_vector<Sampletype>* operator->() const noexcept;
 
 		Storage& operator= (std::initializer_list<Sampletype> list);
+
+		scalar_vector<Sampletype> coefficients;
 	};
 
 	Storage coefficients;

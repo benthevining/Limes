@@ -15,6 +15,7 @@
 
 #include <limes_export.h>  // for LIMES_EXPORT
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -31,14 +32,8 @@ struct LIMES_EXPORT Dimensions final
 	{
 	}
 
-	/** Copy constructor. */
-	Dimensions (const Dimensions&) = default;
-
-	Dimensions (Dimensions&&) = default;
-
-	/** Assignment operator. */
-	Dimensions& operator= (const Dimensions&) = default;
-	Dimensions& operator= (Dimensions&&) = default;
+	LIMES_DEFAULT_MOVABLE (Dimensions);
+	LIMES_DEFAULT_COPYABLE (Dimensions);
 
 	Dimensions& setWidth (int newWidth);
 

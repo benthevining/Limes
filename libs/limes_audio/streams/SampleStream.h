@@ -17,6 +17,7 @@
 #include <limes_export.h>  // for LIMES_EXPORT
 #include <limes_data_structures.h>
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -39,6 +40,9 @@ public:
 	/** Destructor. */
 	virtual ~SampleStream() = default;
 
+	LIMES_DEFAULT_MOVABLE (SampleStream);
+	LIMES_DEFAULT_COPYABLE (SampleStream);
+
 	/** Returns the next output sample from the stream. */
 	[[nodiscard]] SampleType getSample() const;
 
@@ -52,7 +56,7 @@ public:
 
 private:
 
-	const std::function<SampleType()> sampleFunc;
+	std::function<SampleType()> sampleFunc;
 };
 
 }  // namespace dsp

@@ -39,7 +39,7 @@ LIMES_FORCE_INLINE DataType approximate_atan2 (DataType real, DataType imag)
 	const auto cond = [z]
 	{
 		if constexpr (std::is_same_v<DataType, float>)
-			return fabsf (z) < DataType (1.);  // NB. a GCC bug prevents fabf from showing up in the std namespace
+			return fabsf (z) < DataType (1.);  // NB. a GCC bug prevents fabsf from showing up in the std namespace
 		else
 			return std::fabs (z) < DataType (1.);
 	}();
@@ -67,12 +67,9 @@ LIMES_FORCE_INLINE DataType approximate_atan2 (DataType real, DataType imag)
 	return atan;
 }
 
-
 template <Scalar T>
 void magphase (T* const mag, T* const phase, T real, T imag)
 {
-	static_assert (std::is_same_v<T, float> || std::is_same_v<T, double>);
-
 	*phase = approximate_atan2 (real, imag);
 
 	if constexpr (std::is_same_v<T, float>)

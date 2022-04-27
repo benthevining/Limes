@@ -27,9 +27,8 @@ public:
 										LinkedListModel* objectBeforeThisNode = nullptr,
 										LinkedListModel* objectAfterThisNode  = nullptr);
 
-	constexpr LinkedListModel (const LinkedListModel& other) noexcept;
-
-	constexpr LinkedListModel& operator= (const LinkedListModel& other) noexcept;
+	LIMES_CONSTEXPR_MOVABLE (LinkedListModel);
+	LIMES_CONSTEXPR_COPYABLE (LinkedListModel);
 
 	constexpr void removeBeforeConnection() noexcept;
 	constexpr void removeAfterConnection() noexcept;

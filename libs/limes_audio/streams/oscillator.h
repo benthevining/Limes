@@ -44,8 +44,6 @@ struct LIMES_EXPORT Oscillator : public SampleStream<SampleType>
 	 */
 	struct LIMES_EXPORT Phase final
 	{
-		Phase() = default;
-
 		/** Resets the phase, */
 		void resetPhase() noexcept;
 

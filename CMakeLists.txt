@@ -249,13 +249,13 @@ cpack_add_install_type (Developer DISPLAY_NAME "Developer installation")
 #
 
 feature_summary (
-	FILENAME "${CMAKE_BINARY_DIR}/package_features.txt"
+	FILENAME "${PROJECT_BINARY_DIR}/package_features.txt"
 	INCLUDE_QUIET_PACKAGES
 	WHAT ALL
 	DESCRIPTION
 		"This version of Limes was compiled with the following features and third party libraries:")
 
-install (FILES "${CMAKE_BINARY_DIR}/package_features.txt" DESTINATION "${LIMES_INSTALL_DEST}"
+install (FILES "${PROJECT_BINARY_DIR}/package_features.txt" DESTINATION "${LIMES_INSTALL_DEST}"
 		 CONFIGURATIONS Debug COMPONENT limes_base)
 
 if(PROJECT_IS_TOP_LEVEL)

@@ -18,6 +18,7 @@
 #include "analyzer.h"
 #include "../util/Misc.h"
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -44,6 +45,9 @@ public:
 
 	/** Destructor. */
 	virtual ~Shifter();
+
+	LIMES_DEFAULT_MOVABLE (Shifter);
+	LIMES_DEFAULT_COPYABLE (Shifter);
 
 	/** Sets the pitch, in Hz, of the shifter's output.
 		Note that before calling this, you must set the samplerate of the algorithm using Analyzer::setSamplerate()!
@@ -82,6 +86,11 @@ private:
 	struct Grain final
 	{
 		using AnalysisGrain = typename Analyzer<SampleType>::Grain;
+
+		Grain() = default;
+
+		LIMES_DEFAULT_COPYABLE (Grain);
+		LIMES_DEFAULT_MOVABLE (Grain);
 
 		~Grain();
 

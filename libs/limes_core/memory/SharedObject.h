@@ -17,6 +17,7 @@
 #include "ReferenceCountedObject.h"
 #include <type_traits>
 #include <limes_namespace.h>
+#include "../misc/preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -47,15 +48,8 @@ public:
 	{
 	}
 
-	SharedObjectOwner (const SharedObjectOwner& other)
-		: data (other.data)
-	{
-	}
-
-	SharedObjectOwner (SharedObjectOwner&& other)
-		: data (std::move (other.data))
-	{
-	}
+	LIMES_DEFAULT_COPYABLE (SharedObjectOwner);
+	LIMES_DEFAULT_MOVABLE (SharedObjectOwner);
 
 	[[nodiscard]] int getReferenceCount() const noexcept
 	{
