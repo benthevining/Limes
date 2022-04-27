@@ -15,7 +15,6 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include "../misc/preprocessor.h"
-#include "time_utils.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -53,11 +52,6 @@ LIMES_EXPORT [[nodiscard]] consteval int build_month() noexcept
 	}
 
 	return 0;
-}
-
-LIMES_EXPORT [[nodiscard]] constexpr auto build_month_str (bool shortName = true) noexcept
-{
-	return getMonthString (build_month(), shortName);
 }
 
 LIMES_EXPORT [[nodiscard]] consteval int build_day() noexcept

@@ -25,8 +25,11 @@
 #include "misc/Functions.h"
 #include "misc/streams.h"
 
-#include "time/time_utils.h"
 #include "time/build_date.h"
+#include "time/year.h"
+#include "time/month.h"
+#include "time/weekday.h"
+#include "time/date.h"
 
 #include "memory/ReferenceCountedObject.h"
 #include "memory/SharedObject.h"
