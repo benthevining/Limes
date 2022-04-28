@@ -10,27 +10,33 @@
 
 include (FeatureSummary)
 
-set_package_properties (FFTW PROPERTIES TYPE RECOMMENDED PURPOSE "FFT acceleration with FFTW")
+set_package_properties (FFTW PROPERTIES TYPE RECOMMENDED
+						PURPOSE "FFT acceleration with FFTW")
 
 #
 
-set_source_files_properties (fft_common.h TARGET_DIRECTORY limes_vecops PROPERTIES ABSTRACT ON)
+set_source_files_properties (fft_common.h TARGET_DIRECTORY limes_vecops
+							 PROPERTIES ABSTRACT ON)
 
 #
 
 target_sources (
 	limes_vecops
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fft_common.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fftw_wisdom.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_fft.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_fft.h>
-			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/fft_common.h>
-			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/limes_fft.h>)
+	PRIVATE
+		# cmake-format: sortable
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fft_common.h>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fftw_wisdom.cpp>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_fft.cpp>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_fft.h>
+		$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/fft_common.h>
+		$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/limes_fft.h>
+	)
 
-install (FILES # cmake-format: sortable
-			   fft_common.h limes_fft.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft"
-		 COMPONENT limes_vecops_dev)
+install (
+	FILES # cmake-format: sortable
+		  fft_common.h limes_fft.h
+	DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft"
+	COMPONENT limes_vecops_dev)
 
 set (
 	fft_files
@@ -54,7 +60,8 @@ set (fft_files ${fft_files} PARENT_SCOPE)
 
 #
 
-function(_limes_fft_end_callback)
+# cmake-lint: disable=C0103
+function (_limes_fft_end_callback)
 
 	add_feature_info (FFTW "TARGET FFTW::FFTW AND NOT LIMES_IGNORE_FFTW"
 					  "Accelerated FFT using FFTW")
@@ -64,41 +71,53 @@ function(_limes_fft_end_callback)
 		PRIVATE
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/${LIMES_FFT_SOURCE_NAME}.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/${LIMES_FFT_SOURCE_NAME}.h>
-			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/${LIMES_FFT_SOURCE_NAME}.h>)
+			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/${LIMES_FFT_SOURCE_NAME}.h>
+		)
 
 	install (FILES "${LIMES_FFT_SOURCE_NAME}.h"
-			 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft" COMPONENT limes_vecops_dev)
+			 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft"
+			 COMPONENT limes_vecops_dev)
 
-endfunction()
+	set_property (GLOBAL PROPERTY LIMES_FFT_IMPLEMENTATION
+								  "${LIMES_VECOPS_IMPL_NAME}")
+
+endfunction ()
 
 cmake_language (DEFER CALL _limes_fft_end_callback)
 
 #
 
-if(NOT LIMES_IGNORE_FFTW)
+if (NOT LIMES_IGNORE_FFTW)
 	find_package (FFTW MODULE QUIET)
 
-	if(TARGET FFTW::FFTW)
+	if (TARGET FFTW::FFTW)
 		message (DEBUG " -- limes_vecops - using FFTW for FFT")
 		target_link_libraries (limes_vecops PRIVATE FFTW::FFTW)
-		target_compile_definitions (limes_vecops PRIVATE LIMES_VECOPS_USE_FFTW=1)
+
+		target_compile_definitions (limes_vecops
+									PRIVATE LIMES_VECOPS_USE_FFTW=1)
 
 		set (LIMES_FFT_SOURCE_NAME fftw_fft)
 
 		set (LIMES_VECOPS_USING_FFTW ON CACHE INTERNAL "")
 
+		set (LIMES_VECOPS_IMPL_NAME FFTW)
+
 		return ()
-	endif()
-endif()
+	endif ()
+endif ()
 
-get_target_property (vecops_impl limes_vecops VECOPS_IMPLEMENTATION)
+get_property (vecops_impl GLOBAL PROPERTY LIMES_VECOPS_IMPLEMENTATION)
 
-if("${vecops_impl}" MATCHES vDSP)
+if ("${vecops_impl}" MATCHES vDSP)
 	set (LIMES_FFT_SOURCE_NAME vdsp_fft)
-elseif("${vecops_impl}" STREQUAL IPP)
+	set (LIMES_VECOPS_IMPL_NAME vDSP)
+elseif ("${vecops_impl}" STREQUAL IPP)
 	set (LIMES_FFT_SOURCE_NAME ipp_fft)
-else()
+	set (LIMES_VECOPS_IMPL_NAME IPP)
+else ()
 	set (LIMES_FFT_SOURCE_NAME fallback_fft)
-endif()
+	set (LIMES_VECOPS_IMPL_NAME Fallback)
+endif ()
 
 unset (vecops_impl)

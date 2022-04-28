@@ -36,7 +36,7 @@ list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 include (CMakeFindDependencyMacro)
 
-find_dependency (Oranges)
+find_dependency (Oranges 2.22)
 
 #
 
@@ -54,72 +54,72 @@ set (
 set (limes_programs # cmake-format: sortable
 					BinaryBuilder)
 
-if(NOT Limes_FIND_COMPONENTS)
+if (NOT Limes_FIND_COMPONENTS)
 	set (Limes_FIND_COMPONENTS ${limes_libs} ${limes_programs})
-elseif(All IN_LIST Limes_FIND_COMPONENTS)
+elseif (All IN_LIST Limes_FIND_COMPONENTS)
 	set (Limes_FIND_COMPONENTS ${limes_libs} ${limes_programs})
-else()
-	if(Libs IN_LIST Limes_FIND_COMPONENTS)
+else ()
+	if (Libs IN_LIST Limes_FIND_COMPONENTS)
 		list (APPEND Limes_FIND_COMPONENTS ${limes_libs})
 		list (REMOVE_DUPLICATES Limes_FIND_COMPONENTS)
 		list (REMOVE_ITEM Limes_FIND_COMPONENTS Libs)
-	elseif(Programs IN_LIST Limes_FIND_COMPONENTS)
+	elseif (Programs IN_LIST Limes_FIND_COMPONENTS)
 		list (APPEND Limes_FIND_COMPONENTS ${limes_programs})
 		list (REMOVE_DUPLICATES Limes_FIND_COMPONENTS)
 		list (REMOVE_ITEM Limes_FIND_COMPONENTS Programs)
-	endif()
-endif()
+	endif ()
+endif ()
 
-if(Vecops IN_LIST Limes_FIND_COMPONENTS)
-	if("@LIMES_VECOPS_USING_IPP@") # LIMES_VECOPS_USING_IPP
+if (Vecops IN_LIST Limes_FIND_COMPONENTS)
+	if ("@LIMES_VECOPS_USING_IPP@") # LIMES_VECOPS_USING_IPP
 		find_dependency (IPP)
-	elseif("@LIMES_VECOPS_USING_MIPP@") # LIMES_VECOPS_USING_MIPP
+	elseif ("@LIMES_VECOPS_USING_MIPP@") # LIMES_VECOPS_USING_MIPP
 		find_dependency (MIPP)
-	endif()
+	endif ()
 
-	if("@LIMES_VECOPS_USING_FFTW@") # LIMES_VECOPS_USING_FFTW
+	if ("@LIMES_VECOPS_USING_FFTW@") # LIMES_VECOPS_USING_FFTW
 		find_dependency (FFTW)
-	endif()
-endif()
+	endif ()
+endif ()
 
 # if(MIDI IN_LIST Limes_FIND_COMPONENTS) find_dependency (MTS-ESP) endif()
 
 include ("${CMAKE_CURRENT_LIST_DIR}/LimesTargets.cmake")
 
-foreach(comp_name IN LISTS Limes_FIND_COMPONENTS)
-	if("${comp_name}" IN_LIST limes_components)
+foreach (comp_name IN LISTS Limes_FIND_COMPONENTS)
+	if ("${comp_name}" IN_LIST limes_components)
 		include ("${CMAKE_CURRENT_LIST_DIR}/Limes${comp_name}Targets.cmake")
 		set (Limes_${comp_name}_FOUND TRUE)
-	else()
+	else ()
 		message (WARNING " -- Limes: unknown component ${comp_name} requested!")
-	endif()
-endforeach()
+	endif ()
+endforeach ()
 
 #
 
 set (Limes_Libs_FOUND TRUE)
 
-foreach(lib_name IN LISTS limes_libs)
-	if(NOT Limes_${lib_name}_FOUND)
+foreach (lib_name IN LISTS limes_libs)
+	if (NOT Limes_${lib_name}_FOUND)
 		set (Limes_Libs_FOUND FALSE)
 		break ()
-	endif()
-endforeach()
+	endif ()
+endforeach ()
 
 set (Limes_Programs_FOUND TRUE)
 
-foreach(program_name IN LISTS limes_programs)
-	if(NOT Limes_${program_name}_FOUND)
+foreach (program_name IN LISTS limes_programs)
+	if (NOT Limes_${program_name}_FOUND)
 		set (Limes_Programs_FOUND FALSE)
 		break ()
-	endif()
-endforeach()
+	endif ()
+endforeach ()
 
-if(Limes_Libs_FOUND AND Limes_Programs_FOUND)
+if (Limes_Libs_FOUND AND Limes_Programs_FOUND)
 	set (Limes_All_FOUND TRUE)
-else()
+else ()
 	set (Limes_All_FOUND FALSE)
-endif()
+endif ()
 
 unset (limes_libs)
 unset (limes_programs)
@@ -131,8 +131,9 @@ set (Limes_FOUND TRUE)
 include (FeatureSummary)
 include (FindPackageMessage)
 
-set_package_properties (Limes PROPERTIES URL "https://github.com/benthevining/Limes"
-						DESCRIPTION "C++ utilities")
+set_package_properties (
+	Limes PROPERTIES URL "https://github.com/benthevining/Limes"
+	DESCRIPTION "C++ utilities")
 
 find_package_message (Limes "Limes package found -- installed on system"
 					  "Limes (system install) [${Limes_FIND_COMPONENTS}]")

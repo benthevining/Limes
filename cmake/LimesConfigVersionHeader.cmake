@@ -15,11 +15,12 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 include (OrangesCmakeDevTools)
 include (GNUInstallDirs)
 
-set (limes_header_input "${CMAKE_CURRENT_LIST_DIR}/scripts/VersionHeader.h" CACHE INTERNAL "")
+set (limes_header_input "${CMAKE_CURRENT_LIST_DIR}/scripts/VersionHeader.h"
+	 CACHE INTERNAL "")
 
 #
 
-function(limes_config_version_header)
+function (limes_config_version_header)
 
 	set (
 		oneValueArgs
@@ -40,80 +41,87 @@ function(limes_config_version_header)
 	lemons_check_for_unparsed_args (LIMES_ARG)
 	oranges_assert_target_argument_is_target (LIMES_ARG)
 
-	if(NOT LIMES_ARG_MAJOR)
+	if (NOT LIMES_ARG_MAJOR)
 		set (LIMES_ARG_MAJOR "${PROJECT_VERSION_MAJOR}")
-	endif()
+	endif ()
 
-	if(NOT LIMES_ARG_MINOR)
+	if (NOT LIMES_ARG_MINOR)
 		set (LIMES_ARG_MINOR "${PROJECT_VERSION_MINOR}")
-	endif()
+	endif ()
 
-	if(NOT LIMES_ARG_PATCH)
+	if (NOT LIMES_ARG_PATCH)
 		set (LIMES_ARG_PATCH "${PROJECT_VERSION_PATCH}")
-	endif()
+	endif ()
 
-	if(NOT LIMES_ARG_FILENAME)
-		if(LIMES_ARG_TARGET)
+	if (NOT LIMES_ARG_FILENAME)
+		if (LIMES_ARG_TARGET)
 			set (LIMES_ARG_FILENAME "${LIMES_ARG_TARGET}Version.h")
-		else()
+		else ()
 			set (LIMES_ARG_FILENAME "${PROJECT_NAME}Version.h")
-		endif()
-	endif()
+		endif ()
+	endif ()
 
-	if(NOT LIMES_ARG_REL_PATH)
-		if(LIMES_ARG_TARGET)
+	if (NOT LIMES_ARG_REL_PATH)
+		if (LIMES_ARG_TARGET)
 			set (LIMES_ARG_REL_PATH "${LIMES_ARG_TARGET}/generated")
-		else()
+		else ()
 			set (LIMES_ARG_REL_PATH generated)
-		endif()
-	endif()
+		endif ()
+	endif ()
 
 	set (output_header "${CMAKE_CURRENT_BINARY_DIR}/${LIMES_ARG_FILENAME}")
 
-	configure_file ("${limes_header_input}" "${output_header}" @ONLY NEWLINE_STYLE UNIX)
+	configure_file ("${limes_header_input}" "${output_header}" @ONLY
+					NEWLINE_STYLE UNIX)
 
-	if(LIMES_ARG_TARGET)
-		if(NOT TARGET ${LIMES_ARG_TARGET})
+	if (LIMES_ARG_TARGET)
+		if (NOT TARGET ${LIMES_ARG_TARGET})
 			message (
 				FATAL_ERROR
 					"${CMAKE_CURRENT_FUNCTION} called with non-existent target ${LIMES_ARG_TARGET}!"
 				)
-		endif()
+		endif ()
 
-		if(NOT LIMES_ARG_SCOPE)
+		if (NOT LIMES_ARG_SCOPE)
 			message (
 				WARNING
 					"You should specify the SCOPE argument to ${CMAKE_CURRENT_FUNCTION} to use the TARGET argument!"
 				)
 			set (LIMES_ARG_SCOPE INTERFACE)
-		endif()
+		endif ()
 
 		target_sources (
 			"${LIMES_ARG_TARGET}"
-			"${LIMES_ARG_SCOPE}" $<BUILD_INTERFACE:${output_header}>
-			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}>)
+			"${LIMES_ARG_SCOPE}"
+			$<BUILD_INTERFACE:${output_header}>
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}>
+			)
 
 		target_include_directories (
-			"${LIMES_ARG_TARGET}" "${LIMES_ARG_SCOPE}"
+			"${LIMES_ARG_TARGET}"
+			"${LIMES_ARG_SCOPE}"
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}>)
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}>
+			)
 
 		# special case - limes_core can't link to itself
-		if(NOT "${LIMES_ARG_TARGET}" MATCHES limes_core)
-			target_link_libraries ("${LIMES_ARG_TARGET}" "${LIMES_ARG_SCOPE}" Limes::limes_core)
-		endif()
-	endif()
+		if (NOT "${LIMES_ARG_TARGET}" MATCHES limes_core)
+			target_link_libraries ("${LIMES_ARG_TARGET}" "${LIMES_ARG_SCOPE}"
+								   Limes::limes_core)
+		endif ()
+	endif ()
 
-	if(NOT LIMES_ARG_INSTALL_COMPONENT)
-		if(LIMES_ARG_TARGET)
-			set (LIMES_ARG_INSTALL_COMPONENT "${PROJECT_NAME}.${LIMES_ARG_TARGET}")
-		else()
+	if (NOT LIMES_ARG_INSTALL_COMPONENT)
+		if (LIMES_ARG_TARGET)
+			set (LIMES_ARG_INSTALL_COMPONENT
+				 "${PROJECT_NAME}.${LIMES_ARG_TARGET}")
+		else ()
 			set (LIMES_ARG_INSTALL_COMPONENT "${PROJECT_NAME}")
-		endif()
-	endif()
+		endif ()
+	endif ()
 
 	install (FILES "${output_header}"
 			 DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}"
 			 COMPONENT "${LIMES_ARG_INSTALL_COMPONENT}")
 
-endfunction()
+endfunction ()

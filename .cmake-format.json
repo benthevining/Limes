@@ -6,15 +6,15 @@
   },
   "format": {
     "autosort": true,
-    "command_case": "unchanged",
-    "dangle_align": "child",
+    "command_case": "canonical",
+    "dangle_align": "prefix-indent",
     "dangle_parens": false,
     "disable": false,
     "enable_sort": true,
     "fractional_tab_policy": "use-space",
-    "keyword_case": "unchanged",
+    "keyword_case": "upper",
     "line_ending": "unix",
-    "line_width": 100,
+    "line_width": 80,
     "max_lines_hwrap": 2,
     "max_pargs_hwrap": 6,
     "max_prefix_chars": 10,
@@ -22,26 +22,25 @@
     "max_subgroups_hwrap": 4,
     "min_prefix_chars": 4,
     "require_valid_layout": false,
-    "separate_ctrl_name_with_space": false,
+    "separate_ctrl_name_with_space": true,
     "separate_fn_name_with_space": true,
     "tab_size": 4,
     "use_tabchars": true
   },
   "lint": {
-    "argument_var_pattern": ".*",
+    "argument_var_pattern": "[a-z][a-z0-9_]+",
     "disabled_codes": [
       "C0111",
       "C0301",
       "C0307",
-      "E1126",
       "R0915"
     ],
-    "function_pattern": ".*",
-    "global_var_pattern": ".*",
-    "internal_var_pattern": ".*",
-    "keyword_pattern": ".*",
-    "local_var_pattern": ".*",
-    "macro_pattern": ".*",
+    "function_pattern": "^limes_",
+    "global_var_pattern": "^LIMES_",
+    "internal_var_pattern": "[a-zA-Z][0-9a-zA-Z_]+",
+    "keyword_pattern": "[A-Z][0-9A-Z_]+",
+    "local_var_pattern": "[a-zA-Z][a-zA-Z0-9_]+",
+    "macro_pattern": "^limes_",
     "max_arguments": 5,
     "max_branches": 20,
     "max_conditionals_custom_parser": 2,
@@ -50,8 +49,8 @@
     "max_statement_spacing": 2,
     "max_statements": 50,
     "min_statement_spacing": 1,
-    "private_var_pattern": ".*",
-    "public_var_pattern": ".*"
+    "private_var_pattern": "[0-9a-z_]+",
+    "public_var_pattern": "[a-zA-Z][0-9a-zA-Z_]+"
   },
   "markup": {
     "bullet_char": "*",
@@ -308,6 +307,16 @@
         },
         "pargs": {
           "flags": "INTERFACE"
+        }
+      },
+      "oranges_generate_properties_json": {
+        "kwargs": {
+          "INPUT_FILE": 1,
+          "OUTPUT_FILE": 1,
+          "USE_TARGET": 1
+        },
+        "pargs": {
+          "flags": "KEEP_INPUT_FILE"
         }
       },
       "oranges_generate_standard_headers": {

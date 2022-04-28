@@ -44,7 +44,9 @@ project (
 add_library (Limes INTERFACE)
 
 set_target_properties (
-	Limes PROPERTIES VERSION "${Limes_VERSION}" SOVERSION "${Limes_VERSION_MAJOR}" LABELS Limes)
+	Limes
+	PROPERTIES VERSION "${Limes_VERSION}" SOVERSION "${Limes_VERSION_MAJOR}"
+			   LABELS Limes)
 
 include (GNUInstallDirs)
 
@@ -58,13 +60,16 @@ add_subdirectory (limes_midi)
 add_subdirectory (limes_audio)
 add_subdirectory (limes_music)
 
-target_sources (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes.h>
-								$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}/limes.h>)
+target_sources (
+	Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes.h>
+					$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}/limes.h>)
 
-install (FILES limes.h DESTINATION "${LIMES_INSTALL_INCLUDE_DIR}" COMPONENT limes_libs_dev)
+install (FILES limes.h DESTINATION "${LIMES_INSTALL_INCLUDE_DIR}"
+		 COMPONENT limes_libs_dev)
 
-target_include_directories (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-											$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}>)
+target_include_directories (
+	Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
+					$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}>)
 
 install (
 	TARGETS Limes
@@ -101,15 +106,16 @@ cpack_add_component (
 	limes_libs_runtime
 	GROUP limes_libs
 	DEPENDS # cmake-format: sortable
-			limes_libs_base limes_vecops_runtime limes_music_runtime limes_core_runtime
-			limes_audio_runtime
+			limes_libs_base limes_vecops_runtime limes_music_runtime
+			limes_core_runtime limes_audio_runtime
 	INSTALL_TYPES User)
 
 cpack_add_component (
 	limes_libs_dev
 	GROUP limes_libs
 	DEPENDS # cmake-format: sortable
-			limes_libs_runtime limes_vecops_dev limes_music_dev limes_core_dev limes_audio_dev
+			limes_libs_runtime limes_vecops_dev limes_music_dev limes_core_dev
+			limes_audio_dev
 	INSTALL_TYPES Developer)
 
 cpack_add_component_group (

@@ -54,7 +54,7 @@ project (
 
 enable_testing ()
 
-if(PROJECT_IS_TOP_LEVEL)
+if (PROJECT_IS_TOP_LEVEL)
 	set (
 		LIMES_INSTALL_DEST
 		"${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
@@ -67,16 +67,16 @@ if(PROJECT_IS_TOP_LEVEL)
 
 	list (APPEND CMAKE_MODULE_PATH "${limes_root}/cmake")
 
-	find_package (Oranges 2.17 REQUIRED)
+	find_package (Oranges 2.22 REQUIRED)
 
 	set (Limes_VERSION "${PROJECT_VERSION}")
 
 	add_subdirectory ("${limes_root}/libs" "${CMAKE_BINARY_DIR}/libs")
-endif()
+endif ()
 
 #
 
-if(CMAKE_CROSSCOMPILING)
+if (CMAKE_CROSSCOMPILING)
 
 	# we need to build the programs for the HOST system, not the TARGET system
 
@@ -86,24 +86,29 @@ if(CMAKE_CROSSCOMPILING)
 
 	set (LIMES_BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/subbuild")
 
-	if(CMAKE_BUILD_TYPE)
+	if (CMAKE_BUILD_TYPE)
 		set (LIMES_BUILD_CONFIG "${CMAKE_BUILD_TYPE}")
-	else()
+	else ()
 		set (LIMES_BUILD_CONFIG Debug)
-	endif()
+	endif ()
 
 	execute_process (
 		COMMAND
-			"${CMAKE_COMMAND}" -B "${LIMES_BINARY_DIR}" -S "${CMAKE_CURRENT_LIST_DIR}" -G
-			"${CMAKE_GENERATOR}" -D "CMAKE_SYSTEM_NAME=${CMAKE_HOST_SYSTEM_NAME}" -D
-			"CMAKE_CROSSCOMPILING=OFF" -D "CMAKE_MAKE_PROGRAM=${CMAKE_MAKE_PROGRAM}" -D
+			"${CMAKE_COMMAND}" -B "${LIMES_BINARY_DIR}" -S
+			"${CMAKE_CURRENT_LIST_DIR}" -G "${CMAKE_GENERATOR}" -D
+			"CMAKE_SYSTEM_NAME=${CMAKE_HOST_SYSTEM_NAME}" -D
+			"CMAKE_CROSSCOMPILING=OFF" -D
+			"CMAKE_MAKE_PROGRAM=${CMAKE_MAKE_PROGRAM}" -D
 			"CMAKE_BUILD_TYPE=${LIMES_BUILD_CONFIG}" -D
-			"CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}" COMMAND_ERROR_IS_FATAL ANY)
+			"CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}"
+			COMMAND_ERROR_IS_FATAL ANY)
 
 	execute_process (
-		COMMAND "${CMAKE_COMMAND}" --build "${LIMES_BINARY_DIR}" --target BinaryBuilder --config
-				"${LIMES_BUILD_CONFIG}" COMMAND_ERROR_IS_FATAL ANY)
-endif()
+		COMMAND
+			"${CMAKE_COMMAND}" --build "${LIMES_BINARY_DIR}" --target
+			BinaryBuilder --config "${LIMES_BUILD_CONFIG}"
+			COMMAND_ERROR_IS_FATAL ANY)
+endif ()
 
 string (TOUPPER "${LIMES_BUILD_CONFIG}" LIMES_BUILD_CONFIG)
 
@@ -120,7 +125,8 @@ cpack_add_component (limes_programs_runtime GROUP limes_programs
 					 DEPENDS limes_binary_builder_runtime INSTALL_TYPES User)
 
 cpack_add_component (
-	limes_programs_dev GROUP limes_programs DEPENDS limes_programs_runtime limes_binary_builder_dev
+	limes_programs_dev GROUP limes_programs DEPENDS limes_programs_runtime
+													limes_binary_builder_dev
 	INSTALL_TYPES Developer)
 
 cpack_add_component_group (

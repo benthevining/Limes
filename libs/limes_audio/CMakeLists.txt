@@ -38,10 +38,10 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-if(TARGET Limes::limes_audio)
+if (TARGET Limes::limes_audio)
 	message (WARNING "Target Limes::limes_audio already exists!")
 	return ()
-endif()
+endif ()
 
 project (
 	LimesAudio
@@ -63,14 +63,18 @@ set_target_properties (
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 
-target_link_libraries (limes_audio PUBLIC Limes::limes_data_structures
-					   PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
+target_link_libraries (
+	limes_audio PUBLIC Limes::limes_data_structures
+	PRIVATE Oranges::OrangesDefaultTarget
+			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 set (LIMES_AUDIO_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_audio")
 
 target_sources (
-	limes_audio PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_audio.h>
-					   $<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/limes_audio.h>)
+	limes_audio
+	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_audio.h>
+		   $<INSTALL_INTERFACE:${LIMES_AUDIO_INSTALL_INCLUDE_DIR}/limes_audio.h>
+	)
 
 install (FILES limes_audio.h DESTINATION "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
 		 COMPONENT limes_audio_dev)
@@ -85,8 +89,8 @@ add_subdirectory (psola)
 add_subdirectory (streams)
 add_subdirectory (util)
 
-set (limes_audio_sources limes_audio.h ${filters_files} ${oscillators_files} ${psola_files}
-						 ${streams_files} ${util_files})
+set (limes_audio_sources limes_audio.h ${filters_files} ${oscillators_files}
+						 ${psola_files} ${streams_files} ${util_files})
 
 source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${limes_audio_sources})
 
@@ -127,22 +131,26 @@ include (CPackComponent)
 
 cpack_add_component (limes_audio_base HIDDEN)
 
-cpack_add_component (limes_audio_runtime GROUP limes_audio DEPENDS limes_audio_base
-					 INSTALL_TYPES User)
+cpack_add_component (limes_audio_runtime GROUP limes_audio
+					 DEPENDS limes_audio_base INSTALL_TYPES User)
 
-cpack_add_component (limes_audio_dev GROUP limes_audio DEPENDS limes_audio_runtime
-					 INSTALL_TYPES Developer)
+cpack_add_component (limes_audio_dev GROUP limes_audio
+					 DEPENDS limes_audio_runtime INSTALL_TYPES Developer)
 
 cpack_add_component_group (
 	limes_audio DISPLAY_NAME "${PROJECT_DESCRIPTION}"
-	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}"
+	PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_audio ALIAS limes_audio)
 
 target_link_libraries (Limes INTERFACE Limes::limes_audio)
 
-if(Limes_IS_TOP_LEVEL)
+if (Limes_IS_TOP_LEVEL)
 	include (OrangesDefaultWarnings)
+	include (OrangesAllIntegrations)
 
-	target_link_libraries (limes_audio PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>)
-endif()
+	target_link_libraries (
+		limes_audio PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
+							$<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
+endif ()

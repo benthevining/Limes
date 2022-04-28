@@ -38,10 +38,10 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-if(TARGET Limes::limes_midi)
+if (TARGET Limes::limes_midi)
 	message (WARNING "Target Limes::limes_midi already exists!")
 	return ()
-endif()
+endif ()
 
 project (
 	LimesMIDI
@@ -63,14 +63,17 @@ set_target_properties (
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 
-target_link_libraries (limes_midi PUBLIC Limes::limes_core PRIVATE Oranges::OrangesDefaultTarget
-																   Oranges::OrangesUnityBuild)
+target_link_libraries (
+	limes_midi PUBLIC Limes::limes_core
+	PRIVATE Oranges::OrangesDefaultTarget
+			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 set (LIMES_MIDI_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_midi")
 
 target_sources (
-	limes_midi PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_midi.h>
-					  $<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/limes_midi.h>)
+	limes_midi
+	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_midi.h>
+		   $<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/limes_midi.h>)
 
 install (FILES limes_midi.h DESTINATION "${LIMES_MIDI_INSTALL_INCLUDE_DIR}"
 		 COMPONENT limes_midi_dev)
@@ -123,21 +126,26 @@ include (CPackComponent)
 
 cpack_add_component (limes_midi_base HIDDEN)
 
-cpack_add_component (limes_midi_runtime GROUP limes_midi DEPENDS limes_midi_base INSTALL_TYPES User)
+cpack_add_component (limes_midi_runtime GROUP limes_midi DEPENDS limes_midi_base
+					 INSTALL_TYPES User)
 
 cpack_add_component (limes_midi_dev GROUP limes_midi DEPENDS limes_midi_runtime
 					 INSTALL_TYPES Developer)
 
 cpack_add_component_group (
 	limes_midi DISPLAY_NAME "${PROJECT_DESCRIPTION}"
-	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}"
+	PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_midi ALIAS limes_midi)
 
 target_link_libraries (Limes INTERFACE Limes::limes_midi)
 
-if(Limes_IS_TOP_LEVEL)
+if (Limes_IS_TOP_LEVEL)
 	include (OrangesDefaultWarnings)
+	include (OrangesAllIntegrations)
 
-	target_link_libraries (limes_midi PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>)
-endif()
+	target_link_libraries (
+		limes_midi PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
+						   $<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
+endif ()

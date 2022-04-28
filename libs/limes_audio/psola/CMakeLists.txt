@@ -16,6 +16,7 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_audio_dev
 	INSTALL_DIR "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  analyzer.cpp analyzer.h PeakFinder.cpp PeakFinder.h shifter.cpp shifter.h)
+		  analyzer.cpp analyzer.h PeakFinder.cpp PeakFinder.h shifter.cpp
+		  shifter.h)
 
 set (psola_files ${psola_files} PARENT_SCOPE)

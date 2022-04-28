@@ -125,15 +125,16 @@ enable_testing ()
 
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
-find_package (Oranges 2.17 REQUIRED)
+find_package (Oranges 2.22 REQUIRED)
 
 include (FeatureSummary)
 
-set_package_properties (Oranges PROPERTIES TYPE REQUIRED PURPOSE "Required CMake modules")
+set_package_properties (Oranges PROPERTIES TYPE REQUIRED
+						PURPOSE "Required CMake modules")
 
 #
 
-if(PROJECT_IS_TOP_LEVEL)
+if (PROJECT_IS_TOP_LEVEL)
 	# cmake-format: off
 	set_property (
 		GLOBAL PROPERTY
@@ -159,33 +160,42 @@ if(PROJECT_IS_TOP_LEVEL)
 	include (OrangesGraphVizConfig)
 
 	unset (Limes_DEPS_GRAPH_OUTPUT_TO_SOURCE)
-endif()
+endif ()
 
 #
 
 include (GNUInstallDirs)
 
 set (
-	LIMES_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
-	CACHE STRING
-		  "Directory below INSTALL_PREFIX where the Limes CMake package files will be installed to")
+	LIMES_INSTALL_DEST
+	"${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+	CACHE
+		STRING
+		"Directory below INSTALL_PREFIX where the Limes CMake package files will be installed to"
+	)
 
 mark_as_advanced (FORCE LIMES_INSTALL_DEST)
 
 #
 
+set (LIMES_PROPERTIES_LIST_FILE "${PROJECT_BINARY_DIR}/properties.txt"
+	 CACHE INTERNAL "")
+
+# don't want to re-populate this file again if it already existed...
+file (REMOVE "${LIMES_PROPERTIES_LIST_FILE}")
+
 add_subdirectory (libs)
 # add_subdirectory (programs)
 
-if(LIMES_BUILD_TESTS)
+if (LIMES_BUILD_TESTS)
 	add_subdirectory (tests)
-endif()
+endif ()
 
 #
 
 include (CPackComponent)
 
-if(LIMES_BUILD_DOCS)
+if (LIMES_BUILD_DOCS)
 	include (OrangesDoxygenConfig)
 
 	oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs
@@ -197,26 +207,33 @@ if(LIMES_BUILD_DOCS)
 		DESCRIPTION "Install the Limes documentation"
 		GROUP limes
 		INSTALL_TYPES Developer)
-endif()
+endif ()
+
+include (OrangesGeneratePropertiesJSON)
+
+oranges_generate_properties_json (
+	INPUT_FILE "${LIMES_PROPERTIES_LIST_FILE}"
+	OUTPUT_FILE "${PROJECT_BINARY_DIR}/properties.json" USE_TARGET limes_core)
 
 #
 
 install (FILES "${CMAKE_CURRENT_LIST_DIR}/cmake/LimesConfigVersionHeader.cmake"
-			   "${CMAKE_CURRENT_LIST_DIR}/cmake/scripts/VersionHeader.h" COMPONENT limes_dev
-		 DESTINATION "${LIMES_INSTALL_DEST}/cmake")
+			   "${CMAKE_CURRENT_LIST_DIR}/cmake/scripts/VersionHeader.h"
+		 COMPONENT limes_dev DESTINATION "${LIMES_INSTALL_DEST}/cmake")
 
 include (CMakePackageConfigHelpers)
 
-write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_VERSION}"
-								  COMPATIBILITY SameMajorVersion)
+write_basic_package_version_file (
+	"LimesConfigVersion.cmake" VERSION "${PROJECT_VERSION}"
+	COMPATIBILITY SameMajorVersion)
 
 configure_package_config_file (
 	"${CMAKE_CURRENT_LIST_DIR}/cmake/LimesConfig.cmake" "LimesConfig.cmake"
 	INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" NO_SET_AND_CHECK_MACRO)
 
 install (FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
-			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION "${LIMES_INSTALL_DEST}"
-		 COMPONENT limes_base)
+			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake"
+		 DESTINATION "${LIMES_INSTALL_DEST}" COMPONENT limes_base)
 
 cpack_add_component (limes_base HIDDEN)
 
@@ -224,15 +241,16 @@ cpack_add_component (
 	limes_runtime
 	GROUP limes
 	DEPENDS # cmake-format: sortable
-			limes_base limes_vecops_runtime limes_music_runtime limes_core_runtime
-			limes_audio_runtime
+			limes_base limes_vecops_runtime limes_music_runtime
+			limes_core_runtime limes_audio_runtime
 	INSTALL_TYPES User)
 
 cpack_add_component (
 	limes_dev
 	GROUP limes
 	DEPENDS # cmake-format: sortable
-			limes_runtime limes_vecops_dev limes_music_dev limes_core_dev limes_audio_dev
+			limes_runtime limes_vecops_dev limes_music_dev limes_core_dev
+			limes_audio_dev
 	INSTALL_TYPES Developer)
 
 cpack_add_component_group (
@@ -253,14 +271,17 @@ feature_summary (
 	INCLUDE_QUIET_PACKAGES
 	WHAT ALL
 	DESCRIPTION
-		"This version of Limes was compiled with the following features and third party libraries:")
+		"This version of Limes was compiled with the following features and third party libraries:"
+	)
 
-install (FILES "${PROJECT_BINARY_DIR}/package_features.txt" DESTINATION "${LIMES_INSTALL_DEST}"
-		 CONFIGURATIONS Debug COMPONENT limes_base)
+install (FILES "${PROJECT_BINARY_DIR}/package_features.txt"
+		 DESTINATION "${LIMES_INSTALL_DEST}" CONFIGURATIONS Debug
+		 COMPONENT limes_base)
 
-if(PROJECT_IS_TOP_LEVEL)
-	feature_summary (INCLUDE_QUIET_PACKAGES DEFAULT_DESCRIPTION QUIET_ON_EMPTY WHAT ALL)
-endif()
+if (PROJECT_IS_TOP_LEVEL)
+	feature_summary (INCLUDE_QUIET_PACKAGES DEFAULT_DESCRIPTION QUIET_ON_EMPTY
+					 WHAT ALL)
+endif ()
 
 export (PACKAGE Limes)
 

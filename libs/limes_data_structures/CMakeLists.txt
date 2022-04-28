@@ -38,10 +38,10 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-if(TARGET Limes::limes_data_structures)
+if (TARGET Limes::limes_data_structures)
 	message (WARNING "Target Limes::limes_data_structures already exists!")
 	return ()
-endif()
+endif ()
 
 project (
 	LimesDataStructures
@@ -63,47 +63,61 @@ set_target_properties (
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 
-target_link_libraries (limes_data_structures PUBLIC Limes::limes_vecops
-					   PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
+target_link_libraries (
+	limes_data_structures PUBLIC Limes::limes_vecops
+	PRIVATE Oranges::OrangesDefaultTarget
+			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
-set (LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_data_structures")
+set (LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR
+	 "${LIMES_INSTALL_INCLUDE_DIR}/limes_data_structures")
 
 target_sources (
 	limes_data_structures
-	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_data_structures.h>
-		   $<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/limes_data_structures.h>
+	PUBLIC
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_data_structures.h>
+		$<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/limes_data_structures.h>
 	)
 
-install (FILES limes_data_structures.h DESTINATION "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}"
+install (FILES limes_data_structures.h
+		 DESTINATION "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}"
 		 COMPONENT limes_data_structures_dev)
 
 target_include_directories (
-	limes_data_structures PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-								 $<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}>)
+	limes_data_structures
+	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
+		   $<INSTALL_INTERFACE:${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}>)
 
 add_subdirectory (data_structures)
 add_subdirectory (fifo)
 add_subdirectory (linked_list)
 add_subdirectory (vectors)
 
-set (limes_data_structures_sources limes_data_structures.h ${data_structures_files} ${fifo_files}
-								   ${linked_list_files} ${vectors_files})
+set (limes_data_structures_sources
+	 limes_data_structures.h ${data_structures_files} ${fifo_files}
+	 ${linked_list_files} ${vectors_files})
 
-source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${limes_data_structures_sources})
-
-list (TRANSFORM limes_data_structures_sources
-	  PREPEND "${CMAKE_INSTALL_PREFIX}/${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/")
-
-source_group (TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}"
+source_group (TREE "${CMAKE_CURRENT_LIST_DIR}"
 			  FILES ${limes_data_structures_sources})
+
+list (
+	TRANSFORM limes_data_structures_sources
+	PREPEND
+		"${CMAKE_INSTALL_PREFIX}/${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}/")
+
+source_group (
+	TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}"
+	FILES ${limes_data_structures_sources})
 
 install (
 	TARGETS limes_data_structures
 	EXPORT LimesDataStructuresTargets
-	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_data_structures_runtime
+	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+			COMPONENT limes_data_structures_runtime
 			NAMELINK_COMPONENT limes_data_structures_dev
-	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_data_structures_dev
-	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_data_structures_runtime
+	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+			COMPONENT limes_data_structures_dev
+	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+			COMPONENT limes_data_structures_runtime
 	INCLUDES
 	DESTINATION "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}")
 
@@ -131,20 +145,25 @@ cpack_add_component (limes_data_structures_base HIDDEN)
 cpack_add_component (limes_data_structures_runtime GROUP limes_data_structures
 					 DEPENDS limes_data_structures_base INSTALL_TYPES User)
 
-cpack_add_component (limes_data_structures_dev GROUP limes_data_structures
-					 DEPENDS limes_data_structures_runtime INSTALL_TYPES Developer)
+cpack_add_component (
+	limes_data_structures_dev GROUP limes_data_structures
+	DEPENDS limes_data_structures_runtime INSTALL_TYPES Developer)
 
 cpack_add_component_group (
 	limes_data_structures DISPLAY_NAME "${PROJECT_DESCRIPTION}"
-	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}"
+	PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_data_structures ALIAS limes_data_structures)
 
 target_link_libraries (Limes INTERFACE Limes::limes_data_structures)
 
-if(Limes_IS_TOP_LEVEL)
+if (Limes_IS_TOP_LEVEL)
 	include (OrangesDefaultWarnings)
+	include (OrangesAllIntegrations)
 
-	target_link_libraries (limes_data_structures
-						   PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>)
-endif()
+	target_link_libraries (
+		limes_data_structures
+		PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
+				$<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
+endif ()

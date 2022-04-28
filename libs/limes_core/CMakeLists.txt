@@ -38,10 +38,10 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-if(TARGET Limes::limes_core)
+if (TARGET Limes::limes_core)
 	message (WARNING "Target Limes::limes_core already exists!")
 	return ()
-endif()
+endif ()
 
 project (
 	LimesCore
@@ -64,8 +64,10 @@ include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 include (CXXConcepts)
 
-target_link_libraries (limes_core PUBLIC Oranges::CXXConcepts PRIVATE Oranges::OrangesDefaultTarget
-																	  Oranges::OrangesUnityBuild)
+target_link_libraries (
+	limes_core PUBLIC Oranges::CXXConcepts
+	PRIVATE Oranges::OrangesDefaultTarget
+			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 include (OrangesGenerateStandardHeaders)
 
@@ -89,8 +91,9 @@ limes_config_version_header (
 	SCOPE PUBLIC
 	REL_PATH Limes/limes_core)
 
-source_group (TREE "${CMAKE_CURRENT_BINARY_DIR}" FILES "${CMAKE_CURRENT_BINARY_DIR}/limes_version.h"
-			  PREFIX Generated)
+source_group (
+	TREE "${CMAKE_CURRENT_BINARY_DIR}"
+	FILES "${CMAKE_CURRENT_BINARY_DIR}/limes_version.h" PREFIX Generated)
 
 #
 
@@ -98,13 +101,16 @@ set (LIMES_CORE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_core")
 
 target_sources (
 	limes_core
-	PUBLIC # cmake-format: sortable
-		   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_core.h>
-		   $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_namespace.h>
-		   $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/limes_core.h>
-		   $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/limes_namespace.h>)
+	PUBLIC
+		# cmake-format: sortable
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_core.h>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_namespace.h>
+		$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/limes_core.h>
+		$<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/limes_namespace.h>
+	)
 
-install (FILES limes_core.h limes_namespace.h DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+install (FILES limes_core.h limes_namespace.h
+		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 		 COMPONENT limes_core_dev)
 
 target_include_directories (
@@ -172,21 +178,26 @@ include (CPackComponent)
 
 cpack_add_component (limes_core_base HIDDEN)
 
-cpack_add_component (limes_core_runtime GROUP limes_core DEPENDS limes_core_base INSTALL_TYPES User)
+cpack_add_component (limes_core_runtime GROUP limes_core DEPENDS limes_core_base
+					 INSTALL_TYPES User)
 
 cpack_add_component (limes_core_dev GROUP limes_core DEPENDS limes_core_runtime
 					 INSTALL_TYPES Developer)
 
 cpack_add_component_group (
 	limes_core DISPLAY_NAME "${PROJECT_DESCRIPTION}"
-	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}"
+	PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_core ALIAS limes_core)
 
 target_link_libraries (Limes INTERFACE Limes::limes_core)
 
-if(Limes_IS_TOP_LEVEL)
+if (Limes_IS_TOP_LEVEL)
 	include (OrangesDefaultWarnings)
+	include (OrangesAllIntegrations)
 
-	target_link_libraries (limes_core PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>)
-endif()
+	target_link_libraries (
+		limes_core PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
+						   $<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
+endif ()

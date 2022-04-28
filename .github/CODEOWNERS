@@ -340,6 +340,7 @@ limes_vecops/util/Constants.h benthevining
 limes_vecops/util/Platform.h benthevining
 ng
 package.json benthevining
+programs/binary_builder/CMakeLists.txt benthevining
 programs/binary_builder/generator.cpp benthevining
 scripts/FindLimes.cmake benthevining
 scripts/FindOranges.cmake benthevining
@@ -354,6 +355,7 @@ tests/CMakeLists.txt benthevining
 tests/CMakePresets.json benthevining
 tests/limes_core/random_tests.cpp benthevining
 tests/limes_music/CMakeLists.txt benthevining
+tests/limes_music/compoundInterval_tests.cpp benthevining
 tests/limes_music/interval_tests.cpp benthevining
 tests/math_tests.cpp benthevining
 tests/tests_config.h benthevining

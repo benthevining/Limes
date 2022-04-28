@@ -38,10 +38,10 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-if(TARGET Limes::limes_music)
+if (TARGET Limes::limes_music)
 	message (WARNING "Target Limes::limes_music already exists!")
 	return ()
-endif()
+endif ()
 
 project (
 	LimesMusic
@@ -63,14 +63,18 @@ set_target_properties (
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 
-target_link_libraries (limes_music PUBLIC Limes::limes_data_structures
-					   PRIVATE Oranges::OrangesDefaultTarget Oranges::OrangesUnityBuild)
+target_link_libraries (
+	limes_music PUBLIC Limes::limes_data_structures
+	PRIVATE Oranges::OrangesDefaultTarget
+			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 set (LIMES_MUSIC_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_music")
 
 target_sources (
-	limes_music PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_music.h>
-					   $<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/limes_music.h>)
+	limes_music
+	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_music.h>
+		   $<INSTALL_INTERFACE:${LIMES_MUSIC_INSTALL_INCLUDE_DIR}/limes_music.h>
+	)
 
 install (FILES limes_music.h DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
 		 COMPONENT limes_music_dev)
@@ -123,22 +127,26 @@ include (CPackComponent)
 
 cpack_add_component (limes_music_base HIDDEN)
 
-cpack_add_component (limes_music_runtime GROUP limes_music DEPENDS limes_music_base
-					 INSTALL_TYPES User)
+cpack_add_component (limes_music_runtime GROUP limes_music
+					 DEPENDS limes_music_base INSTALL_TYPES User)
 
-cpack_add_component (limes_music_dev GROUP limes_music DEPENDS limes_music_runtime
-					 INSTALL_TYPES Developer)
+cpack_add_component (limes_music_dev GROUP limes_music
+					 DEPENDS limes_music_runtime INSTALL_TYPES Developer)
 
 cpack_add_component_group (
 	limes_music DISPLAY_NAME "${PROJECT_DESCRIPTION}"
-	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}"
+	PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_music ALIAS limes_music)
 
 target_link_libraries (Limes INTERFACE Limes::limes_music)
 
-if(Limes_IS_TOP_LEVEL)
+if (Limes_IS_TOP_LEVEL)
 	include (OrangesDefaultWarnings)
+	include (OrangesAllIntegrations)
 
-	target_link_libraries (limes_music PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>)
-endif()
+	target_link_libraries (
+		limes_music PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
+							$<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
+endif ()

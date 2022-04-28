@@ -16,7 +16,7 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_music_dev
 	INSTALL_DIR "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  NoteDuration.h NoteDuration_impl.h NoteLength.cpp NoteLength.h NoteLength_impl.h
-		  TimeSignature.h)
+		  NoteDuration.h NoteDuration_impl.h NoteLength.cpp NoteLength.h
+		  NoteLength_impl.h TimeSignature.h)
 
 set (rhythm_files ${rhythm_files} PARENT_SCOPE)

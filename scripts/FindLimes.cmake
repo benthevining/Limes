@@ -41,38 +41,45 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 include (FindPackageMessage)
 include (FeatureSummary)
 
-set_package_properties (Limes PROPERTIES URL "https://github.com/benthevining/Limes"
-						DESCRIPTION "C++ utility libraries")
+set_package_properties (
+	Limes PROPERTIES URL "https://github.com/benthevining/Limes"
+	DESCRIPTION "C++ utility libraries")
 
 set (Limes_FOUND FALSE)
 
 #
 
-if(NOT LIMES_PATH)
-	if(DEFINED ENV{LIMES_PATH})
+if (NOT LIMES_PATH)
+	if (DEFINED ENV{LIMES_PATH})
 		set (LIMES_PATH "$ENV{LIMES_PATH}")
-	endif()
-endif()
+	endif ()
+endif ()
 
-function(_find_limes_try_local_dir)
-	if(NOT IS_DIRECTORY "${LIMES_PATH}")
-		message (WARNING "LIMES_PATH set to non-existent directory ${LIMES_PATH}!")
+# cmake-lint: disable=C0103
+function (_find_limes_try_local_dir)
+	if (NOT IS_DIRECTORY "${LIMES_PATH}")
+		message (
+			WARNING "LIMES_PATH set to non-existent directory ${LIMES_PATH}!")
 		return ()
-	endif()
+	endif ()
 
 	set (limes_cmakelists "${LIMES_PATH}/CMakeLists.txt")
 
-	if(NOT EXISTS "${limes_cmakelists}")
-		message (WARNING "CMakeLists.txt does not exist in supplied LIMES_PATH: ${LIMES_PATH}!")
+	if (NOT EXISTS "${limes_cmakelists}")
+		message (
+			WARNING
+				"CMakeLists.txt does not exist in supplied LIMES_PATH: ${LIMES_PATH}!"
+			)
 		return ()
-	endif()
+	endif ()
 
-	if(Limes_FIND_VERSION)
+	if (Limes_FIND_VERSION)
 		file (READ "${limes_cmakelists}" cmakelists_text)
 
 		string (FIND "${cmakelists_text}" "project (" project_pos)
 
-		string (SUBSTRING "${cmakelists_text}" "${project_pos}" 50 project_string)
+		string (SUBSTRING "${cmakelists_text}" "${project_pos}" 50
+						  project_string)
 
 		string (FIND "${project_string}" "VERSION" version_pos)
 
@@ -80,51 +87,55 @@ function(_find_limes_try_local_dir)
 
 		string (SUBSTRING "${project_string}" "${version_pos}" 6 version_string)
 
-		if(Limes_FIND_VERSION_EXACT)
-			if(NOT "${version_string}" VERSION_EQUAL "${Limes_FIND_VERSION}")
+		if (Limes_FIND_VERSION_EXACT)
+			if (NOT "${version_string}" VERSION_EQUAL "${Limes_FIND_VERSION}")
 				message (
 					WARNING
 						"Local version of Limes doesn't have EXACT version requested (${version_string}, requested ${Limes_FIND_VERSION})"
 					)
 				return ()
-			endif()
-		else()
-			if("${version_string}" VERSION_LESS "${Limes_FIND_VERSION}")
+			endif ()
+		else ()
+			if ("${version_string}" VERSION_LESS "${Limes_FIND_VERSION}")
 				message (
 					WARNING
 						"Local version of Limes has too old version (${version_string}, requested ${Limes_FIND_VERSION})"
 					)
 				return ()
-			endif()
-		endif()
-	endif()
+			endif ()
+		endif ()
+	endif ()
 
 	add_subdirectory ("${LIMES_PATH}" "${CMAKE_BINARY_DIR}/Limes")
 
-	find_package_message (Limes "Limes package found -- local" "Limes (local)[${LIMES_PATH}]")
+	find_package_message (Limes "Limes package found -- local"
+						  "Limes (local)[${LIMES_PATH}]")
 
 	set (Limes_FOUND TRUE PARENT_SCOPE)
-endfunction()
+endfunction ()
 
-if(LIMES_PATH)
+if (LIMES_PATH)
 	_find_limes_try_local_dir ()
-endif()
+endif ()
 
 unset (LIMES_PATH)
 
 #
 
-set (FETCHCONTENT_BASE_DIR "${CMAKE_SOURCE_DIR}/Cache" CACHE PATH "FetchContent dependency cache")
+set (FETCHCONTENT_BASE_DIR "${CMAKE_SOURCE_DIR}/Cache"
+	 CACHE PATH "FetchContent dependency cache")
 
 mark_as_advanced (FORCE FETCHCONTENT_BASE_DIR)
 
 include (FetchContent)
 
-FetchContent_Declare (Limes GIT_REPOSITORY https://github.com/benthevining/Limes.git
-					  GIT_TAG origin/main)
+FetchContent_Declare (
+	Limes GIT_REPOSITORY https://github.com/benthevining/Limes.git
+	GIT_TAG origin/main)
 
 FetchContent_MakeAvailable (Limes)
 
-find_package_message (Limes "Limes package found -- Sources downloaded" "Limes (GitHub)")
+find_package_message (Limes "Limes package found -- Sources downloaded"
+					  "Limes (GitHub)")
 
 set (Limes_FOUND TRUE)

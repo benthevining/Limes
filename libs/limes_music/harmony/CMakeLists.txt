@@ -27,4 +27,5 @@ oranges_add_source_files (
 		  PitchClass.h
 		  PitchUtils.h)
 
-set (harmony_files ${harmony_files} ${intervals_files} ${scales_files} PARENT_SCOPE)
+set (harmony_files ${harmony_files} ${intervals_files} ${scales_files}
+	 PARENT_SCOPE)
