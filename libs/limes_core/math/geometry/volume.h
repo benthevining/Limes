@@ -22,12 +22,6 @@ namespace math::volume
 {
 
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] inline T cube (T length) noexcept
-{
-	return std::pow (length, 3);
-}
-
-template <Scalar T>
 LIMES_EXPORT [[nodiscard]] constexpr T rectangular_prism (T length, T width, T height) noexcept
 {
 	return length * width * height;
@@ -49,18 +43,6 @@ template <Scalar T>
 LIMES_EXPORT [[nodiscard]] constexpr T pyramid (T length, T width, T height) noexcept
 {
 	return length * width * height / T (3);
-}
-
-template <Scalar T>
-LIMES_EXPORT [[nodiscard]] inline T sphere (T radius) noexcept
-{
-	return constants::pi<T> * std::pow (radius, 3) * T (4) / T (3);
-}
-
-template <Scalar T>
-LIMES_EXPORT [[nodiscard]] inline T cylinder (T radius, T height) noexcept
-{
-	return constants::pi<T> * std::pow (radius, 2) * height;
 }
 
 }  // namespace math::volume

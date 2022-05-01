@@ -16,6 +16,14 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  area.h perimeter.h volume.h)
+		  angle.h
+		  circle.h
+		  cube.h
+		  cylinder.h
+		  rectangle.h
+		  sphere.h
+		  square.h
+		  triangle.h
+		  volume.h)
 
 set (geometry_files ${math/geometry_files} PARENT_SCOPE)
