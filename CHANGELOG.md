@@ -1,5 +1,13 @@
 # Limes changelog
 
+## [4.8.0](http://github.com/benthevining/Limes/compare/v4.7.1...v4.8.0) (2022-05-01)
+
+
+### Features
+
+* added geometry classes ([28635f6](http://github.com/benthevining/Limes/commit/28635f6925f21919272482abb43d17885d469e38))
+* added more geometry classes, reorganizing ([0e5d24f](http://github.com/benthevining/Limes/commit/0e5d24f7492bcb901800dda27721a8637eba6120))
+
 ### [4.7.1](http://github.com/benthevining/Limes/compare/v4.7.0...v4.7.1) (2022-05-01)
 
 

@@ -15,7 +15,7 @@
 #define LIMES_BEGIN_NAMESPACE \
 	namespace limes           \
 	{                         \
-	inline namespace v4_7_1   \
+	inline namespace v4_8_0   \
 	{
 
 
