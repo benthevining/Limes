@@ -35,7 +35,7 @@ FallbackFFT<SampleType>::FallbackFFT (int size)
 	  m_c (static_cast<std::size_t> (m_half) + 1, FFTalignment, SampleType (0)),
 	  m_d (static_cast<std::size_t> (m_half) + 1, FFTalignment, SampleType (0))
 {
-	static_assert (fft::isUsingFallback());
+	// static_assert (fft::isUsingFallback());
 
 	const auto bits = [halfSize = m_half]
 	{

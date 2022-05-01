@@ -178,12 +178,6 @@ mark_as_advanced (FORCE LIMES_INSTALL_DEST)
 
 #
 
-set (LIMES_PROPERTIES_LIST_FILE "${PROJECT_BINARY_DIR}/properties.txt"
-	 CACHE INTERNAL "")
-
-# don't want to re-populate this file again if it already existed...
-file (REMOVE "${LIMES_PROPERTIES_LIST_FILE}")
-
 add_subdirectory (libs)
 # add_subdirectory (programs)
 
@@ -210,10 +204,6 @@ if (LIMES_BUILD_DOCS)
 endif ()
 
 include (OrangesGeneratePropertiesJSON)
-
-oranges_generate_properties_json (
-	INPUT_FILE "${LIMES_PROPERTIES_LIST_FILE}"
-	OUTPUT_FILE "${PROJECT_BINARY_DIR}/properties.json" USE_TARGET limes_core)
 
 #
 

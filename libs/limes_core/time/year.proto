@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package limes.core;
+
+message Year {
+  int64 year = 1;
+}

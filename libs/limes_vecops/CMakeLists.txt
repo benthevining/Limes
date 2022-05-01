@@ -78,12 +78,6 @@ define_property (
 		"Name of the underlying FFT implementation library used by limes_vecops. May be vDSP, IPP, FFTW, or Fallback."
 	)
 
-if (LIMES_PROPERTIES_LIST_FILE)
-	file (
-		APPEND "${LIMES_PROPERTIES_LIST_FILE}"
-		"LIMES_VECOPS_IMPLEMENTATION GLOBAL\nLIMES_FFT_IMPLEMENTATION GLOBAL\n")
-endif ()
-
 option (LIMES_IGNORE_VDSP "Ignore vDSP for vecops" OFF)
 option (LIMES_IGNORE_IPP "Ignore Intel IPP for vecops" OFF)
 option (LIMES_IGNORE_MIPP "Ignore MIPP for vecops" OFF)
