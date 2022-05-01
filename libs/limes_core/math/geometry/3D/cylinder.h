@@ -15,9 +15,10 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 #include <limes_platform.h>
-#include "../../misc/preprocessor.h"
-#include "../mathHelpers.h"
-#include "circle.h"
+#include "../../../misc/preprocessor.h"
+#include "../../mathHelpers.h"
+#include "../2D/circle.h"
+#include "3Dshape.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -25,18 +26,20 @@ namespace math::geometry
 {
 
 template <Scalar ValueType>
-class LIMES_EXPORT Cylinder final
+class LIMES_EXPORT Cylinder final : public ThreeDShape<ValueType>
 {
 public:
 
 	explicit constexpr Cylinder (ValueType radiusToUse, ValueType heightToUse) noexcept;
 
+	explicit constexpr Cylinder (const Circle<ValueType>& face, ValueType heightToUse) noexcept;
+
 	LIMES_CONSTEXPR_COPYABLE (Cylinder);
 	LIMES_CONSTEXPR_MOVABLE (Cylinder);
 
-	[[nodiscard]] constexpr ValueType volume() const noexcept;
+	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
-	[[nodiscard]] constexpr ValueType surfaceArea() const noexcept;
+	[[nodiscard]] constexpr ValueType surfaceArea() const noexcept final;
 
 	[[nodiscard]] constexpr ValueType surfacePerimeter() const noexcept;
 
@@ -62,6 +65,13 @@ constexpr Cylinder<ValueType>::Cylinder (ValueType radiusToUse, ValueType height
 	: m_radius (radiusToUse), height (heightToUse)
 {
 	LIMES_ASSERT (m_radius > 0);
+	LIMES_ASSERT (height > 0);
+}
+
+template <Scalar ValueType>
+constexpr Cylinder<ValueType>::Cylinder (const Circle<ValueType>& face, ValueType heightToUse) noexcept
+	: m_radius (face.radius()), height (heightToUse)
+{
 	LIMES_ASSERT (height > 0);
 }
 

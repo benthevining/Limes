@@ -8,22 +8,7 @@
 #
 # ======================================================================================
 
-include (OrangesSourceFileUtils)
+add_subdirectory (2D)
+add_subdirectory (3D)
 
-oranges_add_source_files (
-	DIRECTORY_NAME "math/geometry"
-	TARGET limes_core
-	INSTALL_COMPONENT limes_core_dev
-	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
-	FILES # cmake-format: sortable
-		  angle.h
-		  circle.h
-		  cube.h
-		  cylinder.h
-		  rectangle.h
-		  sphere.h
-		  square.h
-		  triangle.h
-		  volume.h)
-
-set (geometry_files ${math/geometry_files} PARENT_SCOPE)
+set (geometry_files ${2D_files} ${3D_files} PARENT_SCOPE)

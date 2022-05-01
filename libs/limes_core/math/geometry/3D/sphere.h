@@ -15,8 +15,9 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 #include <limes_platform.h>
-#include "../../misc/preprocessor.h"
-#include "../mathHelpers.h"
+#include "../../../misc/preprocessor.h"
+#include "../../mathHelpers.h"
+#include "3Dshape.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -24,7 +25,7 @@ namespace math::geometry
 {
 
 template <Scalar ValueType>
-class LIMES_EXPORT Sphere final
+class LIMES_EXPORT Sphere final : public ThreeDShape<ValueType>
 {
 public:
 
@@ -33,9 +34,9 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Sphere);
 	LIMES_CONSTEXPR_MOVABLE (Sphere);
 
-	[[nodiscard]] constexpr ValueType volume() const noexcept;
+	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
-	[[nodiscard]] constexpr ValueType surfaceArea() const noexcept;
+	[[nodiscard]] constexpr ValueType surfaceArea() const noexcept final;
 
 	[[nodiscard]] constexpr ValueType circumference() const noexcept;
 

@@ -11,6 +11,7 @@
 .clang-format benthevining
 .clang-tidy benthevining
 .cmake-format.json benthevining
+.ecrc benthevining
 .editorconfig benthevining
 .gitattributes benthevining
 .github/CODEOWNERS benthevining
@@ -37,6 +38,7 @@ Makefile benthevining
 README.md benthevining
 binary_builder/CMakeLists.txt benthevining
 cmake/FindOranges.cmake benthevining
+cmake/LimesBinaryBuilder.cmake benthevining
 cmake/LimesConfig.cmake benthevining
 cmake/LimesConfigVersionHeader.cmake benthevining
 cmake/LimesMacros.cmake benthevining
@@ -51,6 +53,7 @@ libs/limes.h benthevining
 libs/limes_audio/CMakeLists.txt benthevining
 libs/limes_audio/README.md benthevining
 libs/limes_audio/filters/CMakeLists.txt benthevining
+libs/limes_audio/filters/Coeffecients.cpp benthevining
 libs/limes_audio/filters/Coeffecients.h benthevining
 libs/limes_audio/filters/Filter.cpp benthevining
 libs/limes_audio/limes_audio.h benthevining
@@ -101,6 +104,7 @@ libs/limes_core/files/FilesystemEntry.h benthevining
 libs/limes_core/files/directory.h benthevining
 libs/limes_core/files/file.cpp benthevining
 libs/limes_core/files/file.h benthevining
+libs/limes_core/files/sym_link.h benthevining
 libs/limes_core/limes_core.h benthevining
 libs/limes_core/math/CMakeLists.txt benthevining
 libs/limes_core/math/Fraction.h benthevining
@@ -108,6 +112,7 @@ libs/limes_core/math/Fraction_impl.h benthevining
 libs/limes_core/math/Random.cpp benthevining
 libs/limes_core/math/Random.h benthevining
 libs/limes_core/math/fraction_staticAsserts.cpp benthevining
+libs/limes_core/math/geometry/3D/cylinder.h benthevining
 libs/limes_core/math/geometry/CMakeLists.txt benthevining
 libs/limes_core/math/geometry/area.h benthevining
 libs/limes_core/math/geometry/perimeter.h benthevining
@@ -204,6 +209,7 @@ libs/limes_music/harmony/PitchClass.cpp benthevining
 libs/limes_music/harmony/PitchClass.h benthevining
 libs/limes_music/harmony/PitchUtils.h benthevining
 libs/limes_music/harmony/intervals/CMakeLists.txt benthevining
+libs/limes_music/harmony/intervals/CompoundInterval.cpp benthevining
 libs/limes_music/harmony/intervals/CompoundInterval.h benthevining
 libs/limes_music/harmony/intervals/CompoundInterval_impl.h benthevining
 libs/limes_music/harmony/intervals/Interval.cpp benthevining

@@ -15,7 +15,8 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 #include <limes_platform.h>
-#include "../../misc/preprocessor.h"
+#include "2Dshape.h"
+#include "../../../misc/preprocessor.h"
 #include "angle.h"
 #include <cmath>
 
@@ -25,30 +26,30 @@ namespace math::geometry
 {
 
 template <Scalar ValueType>
-class LIMES_EXPORT Triangle final
+class LIMES_EXPORT Triangle final : public TwoDShape<ValueType>
 {
 public:
 
-	using Angle = Angle<ValueType>;
-
 	explicit constexpr Triangle (ValueType base, ValueType height, ValueType hypotenuse) noexcept;
 
-	explicit Triangle (ValueType sideLength, const Angle& oppositeAngle, const Angle& anotherAngle);
+	explicit Triangle (ValueType sideLength, const Angle<ValueType>& oppositeAngle, const Angle<ValueType>& anotherAngle);
 
-	explicit Triangle (ValueType sideOne, ValueType sideTwo, const Angle& angleBetweenThem);
+	explicit Triangle (ValueType sideOne, ValueType sideTwo, const Angle<ValueType>& angleBetweenThem);
 
 	LIMES_CONSTEXPR_COPYABLE (Triangle);
 	LIMES_CONSTEXPR_MOVABLE (Triangle);
 
-	[[nodiscard]] constexpr ValueType area() const noexcept;
+	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
-	[[nodiscard]] constexpr ValueType perimeter() const noexcept;
+	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
 	[[nodiscard]] constexpr ValueType base() const noexcept;
 
 	[[nodiscard]] constexpr ValueType height() const noexcept;
 
 	[[nodiscard]] constexpr ValueType hypotenuse() const noexcept;
+
+	[[nodiscard]] constexpr ValueType altitude() const noexcept;
 
 	[[nodiscard]] constexpr bool isEquilateral() const noexcept;
 
@@ -67,13 +68,24 @@ public:
 	[[nodiscard]] constexpr bool operator== (const Triangle& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Triangle& other) const noexcept;
 
-	[[nodiscard]] Angle getBaseAngle() const noexcept;
+	[[nodiscard]] Angle<ValueType> getBaseAngle() const noexcept;
 
-	[[nodiscard]] Angle getHeightAngle() const noexcept;
+	[[nodiscard]] Angle<ValueType> getHeightAngle() const noexcept;
 
-	[[nodiscard]] Angle getHypotenuseAngle() const noexcept;
+	[[nodiscard]] Angle<ValueType> getHypotenuseAngle() const noexcept;
 
-	[[nodiscard]] Triangle bisect() const noexcept;
+	enum class Side
+	{
+		base,
+		height,
+		hypotenuse
+	};
+
+	[[nodiscard]] Angle<ValueType> getAngle (Side side) const noexcept;
+
+	[[nodiscard]] ValueType getSide (Side side) const noexcept;
+
+	[[nodiscard]] Triangle bisect (Side side = Side::base) const noexcept;
 
 private:
 
@@ -91,7 +103,7 @@ constexpr Triangle<ValueType>::Triangle (ValueType base, ValueType height, Value
 }
 
 template <Scalar ValueType>
-Triangle<ValueType>::Triangle (ValueType sideLength, const Angle& oppositeAngle, const Angle& anotherAngle)
+Triangle<ValueType>::Triangle (ValueType sideLength, const Angle<ValueType>& oppositeAngle, const Angle<ValueType>& anotherAngle)
 {
 	const auto sinA = std::sin (oppositeAngle.degrees());
 
@@ -112,7 +124,7 @@ Triangle<ValueType>::Triangle (ValueType sideLength, const Angle& oppositeAngle,
 }
 
 template <Scalar ValueType>
-Triangle<ValueType>::Triangle (ValueType sideOne, ValueType sideTwo, const Angle& angleBetweenThem)
+Triangle<ValueType>::Triangle (ValueType sideOne, ValueType sideTwo, const Angle<ValueType>& angleBetweenThem)
 {
 	const auto thirdSide = std::sqrt ((sideOne * sideOne) + (sideTwo * sideTwo) - (ValueType (2) * sideOne * sideTwo * std::cos (angleBetweenThem.degrees())));
 
@@ -154,6 +166,12 @@ template <Scalar ValueType>
 constexpr ValueType Triangle<ValueType>::hypotenuse() const noexcept
 {
 	return m_hypotenuse;
+}
+
+template <Scalar ValueType>
+constexpr ValueType Triangle<ValueType>::altitude() const noexcept
+{
+	return ValueType (2) * area() / m_base;
 }
 
 template <Scalar ValueType>
@@ -223,6 +241,30 @@ Angle<ValueType> Triangle<ValueType>::getHypotenuseAngle() const noexcept
 }
 
 template <Scalar ValueType>
+Angle<ValueType> Triangle<ValueType>::getAngle (Side side) const noexcept
+{
+	if (side == Side::base)
+		return getBaseAngle();
+
+	if (side == Side::height)
+		return getHeightAngle();
+
+	return getHypotenuseAngle();
+}
+
+template <Scalar ValueType>
+ValueType Triangle<ValueType>::getSide (Side side) const noexcept
+{
+	if (side == Side::base)
+		return m_base;
+
+	if (side == Side::height)
+		return m_height;
+
+	return m_hypotenuse;
+}
+
+template <Scalar ValueType>
 bool Triangle<ValueType>::isSimilarTo (const Triangle& other) const noexcept
 {
 	return getBaseAngle() == other.getBaseAngle()
@@ -231,9 +273,15 @@ bool Triangle<ValueType>::isSimilarTo (const Triangle& other) const noexcept
 }
 
 template <Scalar ValueType>
-Triangle<ValueType> Triangle<ValueType>::bisect() const noexcept
+Triangle<ValueType> Triangle<ValueType>::bisect (Side side) const noexcept
 {
-	return Triangle { m_base / ValueType (2), m_height, getHypotenuseAngle() };
+	if (side == Side::base)
+		return Triangle { m_base / ValueType (2), m_height, getHypotenuseAngle() };
+
+	if (side == Side::height)
+		return Triangle { m_height / ValueType (2), m_hypotenuse, getBaseAngle() };
+
+	return Triangle { m_hypotenuse / ValueType (2), m_base, getHeightAngle() };
 }
 
 }  // namespace math::geometry

@@ -21,6 +21,7 @@
 #include <numeric>			 // for accumulate
 #include "phasor.h"			 // for phasor
 #include <limes_namespace.h>
+#include <cstdint>
 
 #if LIMES_VECOPS_USE_IPP
 #	include <ipps.h>
@@ -280,32 +281,36 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void squareRootAndCopy (DataType* const dest,
 
 
 // fast inverse square root from Quake 3
-LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE float quake3_fast_inv_sqrt (float number)
+template <Scalar DataType>
+LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType quake3_fast_inv_sqrt (DataType number)
 {
-	const auto x2 = number * 0.5f;
+	using IntType = std::conditional_t<std::is_same_v<DataType, double>,
+									   std::int64_t,
+									   std::int32_t>;
 
-	// cppcheck-suppress invalidPointerCast
-	long i = *(long*) &number;	// NOLINT
+	const auto x2 = number * DataType (0.5);
 
-	i = 0x5f3759df - (i >> 1);	// what the fuck?
+	auto i = *reinterpret_cast<IntType*> (&number);
 
-	// cppcheck-suppress invalidPointerCast
-	float y = *(float*) &i;	 // NOLINT
+	const auto magicConstant = []
+	{
+		if constexpr (std::is_same_v<DataType, double>)
+			return 0x5fe6eb50c7b537a9;
 
-	constexpr auto threehalfs = 1.5f;
+		return 0x5f3759df;
+	}();
 
-	y *= (threehalfs - (x2 * y * y));  // 1st iteration
+	i = magicConstant - (i >> 1);
 
-	//	y  *= ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+	const auto y = *reinterpret_cast<DataType*> (&i);
 
-	return y;
+	return y * DataType (1.5) - (x2 * y * y);
 }
-
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void invSquareRoot (DataType* const dataAndDest, SizeType size)
 {
-	if constexpr (std::is_same_v<DataType, float>)
+	if constexpr (std::is_same_v<DataType, float> || std::is_same_v<DataType, double>)
 	{
 		for (auto i = SizeType (0); i < size; ++i)
 			dataAndDest[i] = quake3_fast_inv_sqrt (dataAndDest[i]);
@@ -327,7 +332,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void invSquareRoot (DataType* const dataAndDe
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	if constexpr (std::is_same_v<DataType, float>)
+	if constexpr (std::is_same_v<DataType, float> || std::is_same_v<DataType, double>)
 	{
 		for (auto i = SizeType (0); i < size; ++i)
 			dest[i] = quake3_fast_inv_sqrt (data[i]);

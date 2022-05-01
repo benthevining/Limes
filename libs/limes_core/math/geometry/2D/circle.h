@@ -15,8 +15,9 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 #include <limes_platform.h>
-#include "../../misc/preprocessor.h"
-#include "../mathHelpers.h"
+#include "2Dshape.h"
+#include "../../../misc/preprocessor.h"
+#include "../../mathHelpers.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -24,7 +25,7 @@ namespace math::geometry
 {
 
 template <Scalar ValueType>
-class LIMES_EXPORT Circle final
+class LIMES_EXPORT Circle final : public TwoDShape<ValueType>
 {
 public:
 
@@ -33,9 +34,9 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Circle);
 	LIMES_CONSTEXPR_MOVABLE (Circle);
 
-	[[nodiscard]] constexpr ValueType area() const noexcept;
+	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
-	[[nodiscard]] constexpr ValueType perimeter() const noexcept;
+	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
 	[[nodiscard]] constexpr ValueType radius() const noexcept;
 

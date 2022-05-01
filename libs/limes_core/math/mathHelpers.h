@@ -82,6 +82,27 @@ LIMES_EXPORT [[nodiscard]] constexpr T limit (T input, T min, T max) noexcept
 
 
 template <Scalar T>
+LIMES_EXPORT [[nodiscard]] constexpr T power (T number, T power) noexcept
+{
+	if (power < T (0))
+		return T (1) / power (number, -power);
+
+	T result = T (1);
+
+	while (power > T (0))
+	{
+		if (power & 1)
+			result = result * number;
+
+		number *= number;
+		power = power >> 1;
+	}
+
+	return result;
+}
+
+
+template <Scalar T>
 LIMES_EXPORT [[nodiscard]] constexpr T map (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept
 {
 	LIMES_ASSERT (sourceRangeMax != sourceRangeMin);  // mapping from a range of zero will produce NaN!

@@ -15,7 +15,8 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 #include <limes_platform.h>
-#include "../../misc/preprocessor.h"
+#include "2Dshape.h"
+#include "../../../misc/preprocessor.h"
 #include "rectangle.h"
 #include "triangle.h"
 #include <cmath>
@@ -26,7 +27,7 @@ namespace math::geometry
 {
 
 template <Scalar ValueType>
-class LIMES_EXPORT Square final
+class LIMES_EXPORT Square final : public TwoDShape<ValueType>
 {
 public:
 
@@ -37,15 +38,17 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Square);
 	LIMES_CONSTEXPR_MOVABLE (Square);
 
-	[[nodiscard]] constexpr ValueType area() const noexcept;
+	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
-	[[nodiscard]] constexpr ValueType perimeter() const noexcept;
+	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
 	[[nodiscard]] constexpr ValueType sideLength() const noexcept;
 
 	[[nodiscard]] constexpr Rect getRectangle() const noexcept;
 
-	[[nodiscard]] Triangle<ValueType> bisect() const noexcept;
+	[[nodiscard]] ValueType diagonal() const noexcept;
+
+	[[nodiscard]] Triangle<ValueType> bisectDiagonal() const noexcept;
 
 	[[nodiscard]] constexpr bool operator== (const Square& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Square& other) const noexcept;
@@ -63,7 +66,7 @@ private:
 
 
 template <Scalar ValueType>
-[[nodiscard]] constexpr bool operator== (const Rectangle<ValueType>& rect, const Square<ValueType>& square) noexcept
+LIMES_EXPORT [[nodiscard]] constexpr bool operator== (const Rectangle<ValueType>& rect, const Square<ValueType>& square) noexcept
 {
 	if (! rect.isSquare())
 		return false;
@@ -72,7 +75,7 @@ template <Scalar ValueType>
 }
 
 template <Scalar ValueType>
-[[nodiscard]] constexpr bool operator!= (const Rectangle<ValueType>& rect, const Square<ValueType>& square) noexcept
+LIMES_EXPORT [[nodiscard]] constexpr bool operator!= (const Rectangle<ValueType>& rect, const Square<ValueType>& square) noexcept
 {
 	return ! (rect == square);
 }
@@ -134,7 +137,15 @@ constexpr Rectangle<ValueType> Square<ValueType>::getRectangle() const noexcept
 }
 
 template <Scalar ValueType>
-Triangle<ValueType> Square<ValueType>::bisect() const noexcept
+ValueType Square<ValueType>::diagonal() const noexcept
+{
+	const auto sideSquared = side_length * side_length;
+
+	return std::sqrt (sideSquared * ValueType (2));
+}
+
+template <Scalar ValueType>
+Triangle<ValueType> Square<ValueType>::bisectDiagonal() const noexcept
 {
 	const auto diag = std::sqrt (ValueType (2) * (side_length * side_length));
 

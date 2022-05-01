@@ -15,7 +15,8 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 #include <limes_platform.h>
-#include "../../misc/preprocessor.h"
+#include "2Dshape.h"
+#include "../../../misc/preprocessor.h"
 #include "triangle.h"
 #include <cmath>
 
@@ -25,7 +26,7 @@ namespace math::geometry
 {
 
 template <Scalar ValueType>
-class LIMES_EXPORT Rectangle final
+class LIMES_EXPORT Rectangle final : public TwoDShape<ValueType>
 {
 public:
 
@@ -34,9 +35,9 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Rectangle);
 	LIMES_CONSTEXPR_MOVABLE (Rectangle);
 
-	[[nodiscard]] constexpr ValueType area() const noexcept;
+	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
-	[[nodiscard]] constexpr ValueType perimeter() const noexcept;
+	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
 	[[nodiscard]] constexpr ValueType length() const noexcept;
 
@@ -44,7 +45,9 @@ public:
 
 	[[nodiscard]] constexpr bool isSquare() const noexcept;
 
-	[[nodiscard]] Triangle<ValueType> bisect() const noexcept;
+	[[nodiscard]] ValueType diagonal() const noexcept;
+
+	[[nodiscard]] Triangle<ValueType> bisectDiagonal() const noexcept;
 
 	[[nodiscard]] constexpr bool operator== (const Rectangle& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Rectangle& other) const noexcept;
@@ -94,7 +97,13 @@ constexpr bool Rectangle<ValueType>::isSquare() const noexcept
 }
 
 template <Scalar ValueType>
-Triangle<ValueType> Rectangle<ValueType>::bisect() const noexcept
+ValueType Rectangle<ValueType>::diagonal() const noexcept
+{
+	return std::sqrt ((m_length * m_length) + (m_width * m_width));
+}
+
+template <Scalar ValueType>
+Triangle<ValueType> Rectangle<ValueType>::bisectDiagonal() const noexcept
 {
 	const auto diag = std::sqrt ((m_length * m_length) + (m_width * m_width));
 
