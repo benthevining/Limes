@@ -39,8 +39,8 @@ jobs:
               uses: actions/cache@v3
               with:
                   path: Cache
-                  key: codeql_analysis.${{ hashFiles('**/') }}
-                  restore-keys: codeql_analysis.
+                  key: codeql.${{ hashFiles('**/') }}
+                  restore-keys: codeql.
 
             - name: Run CMake
               run: CC=gcc-10 CXX=g++-10 cmake --preset default -G Ninja -D CMAKE_C_COMPILER=gcc-10 -D CMAKE_CXX_COMPILER=g++-10

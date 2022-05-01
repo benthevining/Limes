@@ -135,13 +135,16 @@ target_link_libraries (
 	PRIVATE Oranges::OrangesDefaultTarget
 			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
-if (CMAKE_SYSTEM_NAME STREQUAL watchOS)
-	target_compile_options (limes_vecops PRIVATE -fgnu-inline-asm)
-endif ()
-
-# fixes a bug present when compiling vDSP with GCC
+# cmake-format: off
 target_compile_options (
-	limes_vecops PUBLIC $<$<CXX_COMPILER_ID:GNU>:-flax-vector-conversions>)
+	limes_vecops
+	PUBLIC
+		# fixes a bug present when compiling vDSP with GCC
+		$<$<CXX_COMPILER_ID:GNU>:-flax-vector-conversions>
+		# allows inline assembly to be used on watchOS
+		$<$<PLATFORM_ID:watchOS>:-fgnu-inline-asm>
+	)
+# cmake-format: on
 
 set (LIMES_VECOPS_INSTALL_INCLUDE_DIR
 	 "${LIMES_INSTALL_INCLUDE_DIR}/limes_vecops")

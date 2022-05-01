@@ -36,13 +36,8 @@ namespace vecops
 	return static_cast<intptr_t> (_mm_getcsr());
 
 #elif (defined(__arm64__) || defined(__aarch64__))
-#	if TARGET_OS_WATCH
-	asm volatile("mrs %w0, fpcr"
-				 : "=r"(fpsr));
-#	else
 	asm volatile("mrs %0, fpcr"
 				 : "=r"(fpsr));
-#	endif
 
 #elif LIMES_ARM_NEON
 	asm volatile("vmrs %0, fpscr"
@@ -59,15 +54,9 @@ inline void setFpStatusRegister (intptr_t fpsr) noexcept
 	_mm_setcsr (static_cast<uint32_t> (fpsr));
 
 #elif (defined(__arm64__) || defined(__aarch64__))
-#	if TARGET_OS_WATCH
-	asm volatile("msr fpcr, %w0"
-				 :
-				 : "ri"(fpsr));
-#	else
 	asm volatile("msr fpcr, %0"
 				 :
 				 : "ri"(fpsr));
-#	endif
 
 #elif LIMES_ARM_NEON
 	asm volatile("vmsr fpscr, %0"
