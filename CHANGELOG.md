@@ -1,5 +1,12 @@
 # Limes changelog
 
+### [4.7.1](http://github.com/benthevining/Limes/compare/v4.7.0...v4.7.1) (2022-05-01)
+
+
+### Bug Fixes
+
+* fixed watchOS assembly issue ([b17b887](http://github.com/benthevining/Limes/commit/b17b88745649fae78a9ef92cee095767fe9ca9b6))
+
 ## [4.7.0](http://github.com/benthevining/Limes/compare/v4.6.0...v4.7.0) (2022-04-27)
 
 
