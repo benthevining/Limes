@@ -8,6 +8,8 @@
 #
 # ======================================================================================
 
+return ()
+
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
@@ -37,8 +39,10 @@ find_package (Catch2 3 REQUIRED)
 
 add_executable (LimesTests tests_config.h)
 
-set_target_properties (LimesTests PROPERTIES LABELS "Limes;Tests" FOLDER Limes
-											 EchoString "Building the Limes unit test runner...")
+set_target_properties (
+	LimesTests
+	PROPERTIES LABELS "Limes;Tests" FOLDER Limes EchoString "Building the Limes unit test runner..."
+			   MACOSX_BUNDLE OFF)
 
 target_include_directories (LimesTests PRIVATE "${CMAKE_CURRENT_LIST_DIR}")
 

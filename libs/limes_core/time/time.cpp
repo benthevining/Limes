@@ -74,6 +74,16 @@ Date Date::getCurrent()
 	return {};
 }
 
+bool Date::isInPast() const noexcept
+{
+	return isBefore (getCurrent());
+}
+
+bool Date::isInFuture() const noexcept
+{
+	return isAfter (getCurrent());
+}
+
 }  // namespace time
 
 LIMES_END_NAMESPACE

@@ -100,16 +100,6 @@ constexpr Weekday<StartWeekOnSunday> Date::getWeekday() const noexcept
 	return Weekday<StartWeekOnSunday> { year, month, dayOfMonth };
 }
 
-bool Date::isInPast() const noexcept
-{
-	return isBefore (getCurrent());
-}
-
-bool Date::isInFuture() const noexcept
-{
-	return isAfter (getCurrent());
-}
-
 constexpr bool Date::isBefore (const Date& other) const noexcept
 {
 	if (year > other.year)
