@@ -114,7 +114,7 @@ project (
 	VERSION 4.8.0
 	DESCRIPTION "C++ utilities and building blocks"
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"
-	LANGUAGES CXX ASM)
+	LANGUAGES CXX)
 
 option (CMAKE_FIND_PACKAGE_PREFER_CONFIG
 		"Prefer config files to find modules in find_package search" ON)

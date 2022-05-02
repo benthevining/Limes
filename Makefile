@@ -116,7 +116,8 @@ uninstall: ## Runs uninstall script
 .PHONY: clean
 clean: ## Cleans the source tree
 	@echo "Cleaning..."
-	@cd $(LIMES_ROOT) && $(RM) $(BUILDS) $(DOCS) $(DEPS_GRAPH).dot tests/$(BUILDS); $(PRECOMMIT) gc
+	@cd $(LIMES_ROOT)/tests && $(MAKE) clean
+	@cd $(LIMES_ROOT) && $(RM) $(BUILDS) $(DOCS); $(PRECOMMIT) gc
 
 .PHONY: wipe
 wipe: ## Wipes the cache of downloaded dependencies

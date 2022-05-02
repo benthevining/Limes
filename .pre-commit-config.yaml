@@ -40,20 +40,20 @@ repos:
             files: .github/CODEOWNERS
 
       # create build directory for linters, to read CompileCommands.json
-          - id: run-cmake
-            name: Run CMake
-            entry: cmake --preset default -G 'Unix Makefiles' -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-            language: system
-            always_run: true
-            pass_filenames: false
+          # - id: run-cmake
+          #   name: Run CMake
+          #   entry: cmake --preset default -G 'Unix Makefiles' -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+          #   language: system
+          #   always_run: true
+          #   pass_filenames: false
 
       # update dependency graph
-          - id: generate-deps-graph
-            name: Update deps graph
-            entry: cmake --build --preset deps_graph
-            language: system
-            always_run: true
-            pass_filenames: false
+          # - id: generate-deps-graph
+          #   name: Update deps graph
+          #   entry: cmake --build --preset deps_graph
+          #   language: system
+          #   always_run: true
+          #   pass_filenames: false
 
     # - repo: https://github.com/andreoliwa/nitpick
     #   rev: v0.32.0

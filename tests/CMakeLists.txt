@@ -17,11 +17,13 @@ project (
 	VERSION 4.8.0
 	DESCRIPTION "Unit tests for Limes"
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"
-	LANGUAGES CXX ASM)
+	LANGUAGES CXX)
 
 enable_testing ()
 
 if (PROJECT_IS_TOP_LEVEL)
+	set (CMAKE_FIND_PACKAGE_PREFER_CONFIG ON)
+
 	find_package (Limes "${PROJECT_VERSION}" EXACT REQUIRED CONFIG COMPONENTS Libs)
 
 	list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../cmake")
@@ -43,9 +45,11 @@ target_include_directories (LimesTests PRIVATE "${CMAKE_CURRENT_LIST_DIR}")
 target_link_libraries (
 	LimesTests
 	PRIVATE # cmake-format: sortable
-			Limes::Limes Catch2::Catch2WithMain $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>
-			$<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
-			$<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
+			Catch2::Catch2WithMain
+			Limes::Limes
+			Oranges::OrangesUnityBuild
+			Oranges::OrangesDefaultWarnings
+			Oranges::OrangesAllIntegrations)
 
 add_subdirectory (limes_core)
 add_subdirectory (limes_data_structures)
