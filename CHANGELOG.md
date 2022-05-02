@@ -1,5 +1,13 @@
 # Limes changelog
 
+### [4.8.1](http://github.com/benthevining/Limes/compare/v4.8.0...v4.8.1) (2022-05-02)
+
+
+### Bug Fixes
+
+* moving non-constexpr time funcs into .cpp file ([faf67d5](http://github.com/benthevining/Limes/commit/faf67d5004eb90c3726c20e841dcd55efd43eb6c))
+* resolved multiple definitions issue in Date class ([faf3711](http://github.com/benthevining/Limes/commit/faf371192edd4621ab30f93ce3b9ddb701f8cfb4))
+
 ## [4.8.0](http://github.com/benthevining/Limes/compare/v4.7.1...v4.8.0) (2022-05-01)
 
 
