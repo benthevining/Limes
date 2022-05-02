@@ -26,7 +26,6 @@ oranges_add_source_files (
 		  octagon.h
 		  2Dshape.h)
 
-set_source_files_properties (2Dshape.h TARGET_DIRECTORY limes_core
-							 PROPERTIES ABSTRACT ON)
+set_source_files_properties (2Dshape.h TARGET_DIRECTORY limes_core PROPERTIES ABSTRACT ON)
 
 set (2D_files ${math/geometry/2D_files} PARENT_SCOPE)

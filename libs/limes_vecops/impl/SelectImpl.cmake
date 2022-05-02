@@ -32,8 +32,7 @@ if (LIMES_VECOPS_BACKEND)
 		set (LIMES_IGNORE_VDSP OFF)
 		set (LIMES_USE_IPP OFF)
 		set (LIMES_USE_MIPP OFF)
-	elseif ("${LIMES_VECOPS_BACKEND}" STREQUAL IPP OR "${LIMES_VECOPS_BACKEND}"
-													  STREQUAL ipp)
+	elseif ("${LIMES_VECOPS_BACKEND}" STREQUAL IPP OR "${LIMES_VECOPS_BACKEND}" STREQUAL ipp)
 		set (LIMES_IGNORE_IPP OFF)
 		set (LIMES_USE_IPP ON)
 	elseif ("${LIMES_VECOPS_BACKEND}" MATCHES MIPP)
@@ -42,13 +41,11 @@ if (LIMES_VECOPS_BACKEND)
 	elseif ("${LIMES_VECOPS_BACKEND}" MATCHES Fallback)
 		set (LIMES_USE_VECOPS_FALLBACK ON)
 	else ()
-		message (
-			WARNING "Unknown vecops backend requested: ${LIMES_VECOPS_BACKEND}")
+		message (WARNING "Unknown vecops backend requested: ${LIMES_VECOPS_BACKEND}")
 	endif ()
 endif ()
 
-at_most_one (more_than_one LIMES_USE_IPP LIMES_USE_MIPP
-			 LIMES_USE_VECOPS_FALLBACK)
+at_most_one (more_than_one LIMES_USE_IPP LIMES_USE_MIPP LIMES_USE_VECOPS_FALLBACK)
 
 if (more_than_one)
 	message (
@@ -72,26 +69,21 @@ function (_limes_vecops_impl_set_properties)
 		)
 
 	install (FILES "${LIMES_VECOPS_IMPL_HEADER_NAME}"
-			 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl"
-			 COMPONENT limes_vecops_dev)
+			 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl" COMPONENT limes_vecops_dev)
 
-	set_property (GLOBAL PROPERTY LIMES_VECOPS_IMPLEMENTATION
-								  "${LIMES_VECOPS_IMPL_NAME}")
+	set_property (GLOBAL PROPERTY LIMES_VECOPS_IMPLEMENTATION "${LIMES_VECOPS_IMPL_NAME}")
 
-	add_feature_info (
-		vecops_accelerated "NOT ${LIMES_VECOPS_IMPL_NAME} MATCHES Fallback"
-		"Using the ${LIMES_VECOPS_IMPL_NAME} backend for the vecops library")
+	add_feature_info (vecops_accelerated "NOT ${LIMES_VECOPS_IMPL_NAME} MATCHES Fallback"
+					  "Using the ${LIMES_VECOPS_IMPL_NAME} backend for the vecops library")
 
 	message (VERBOSE "limes_vecops -- using ${LIMES_VECOPS_IMPL_NAME}")
 
 	set (LIMES_VECOPS_BACKEND "${LIMES_VECOPS_IMPL_NAME}"
-		 CACHE STRING "Backend being used for the vector operations library"
-			   FORCE)
+		 CACHE STRING "Backend being used for the vector operations library" FORCE)
 
 	mark_as_advanced (FORCE LIMES_VECOPS_BACKEND)
 
-	set_property (CACHE LIMES_VECOPS_BACKEND PROPERTY STRINGS
-													  "vDSP;IPP;MIPP;Fallback")
+	set_property (CACHE LIMES_VECOPS_BACKEND PROPERTY STRINGS "vDSP;IPP;MIPP;Fallback")
 
 	unset (LIMES_VECOPS_IMPL_NAME)
 	unset (LIMES_VECOPS_IMPL_HEADER_NAME)
@@ -124,8 +116,7 @@ endif ()
 
 #
 
-if (NOT LIMES_IGNORE_IPP AND NOT LIMES_USE_MIPP AND NOT
-													LIMES_USE_VECOPS_FALLBACK)
+if (NOT LIMES_IGNORE_IPP AND NOT LIMES_USE_MIPP AND NOT LIMES_USE_VECOPS_FALLBACK)
 
 	# check if we're on an Intel platform
 	include (OrangesGeneratePlatformHeader)
@@ -134,9 +125,8 @@ if (NOT LIMES_IGNORE_IPP AND NOT LIMES_USE_MIPP AND NOT
 
 		find_package (IPP MODULE QUIET COMPONENTS CORE S VM)
 
-		set_package_properties (
-			IPP PROPERTIES TYPE RECOMMENDED
-			PURPOSE "Intel's accelerated vector math library")
+		set_package_properties (IPP PROPERTIES TYPE RECOMMENDED
+								PURPOSE "Intel's accelerated vector math library")
 
 		if (TARGET Intel::IntelIPP)
 			if (NOT ORANGES_INTEL)
@@ -148,8 +138,7 @@ if (NOT LIMES_IGNORE_IPP AND NOT LIMES_USE_MIPP AND NOT
 
 			target_link_libraries (limes_vecops PUBLIC Intel::IntelIPP)
 
-			target_compile_definitions (limes_vecops
-										PUBLIC LIMES_VECOPS_USE_IPP=1)
+			target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_IPP=1)
 
 			set (LIMES_VECOPS_IMPL_HEADER_NAME ipp.h)
 			set (LIMES_VECOPS_IMPL_NAME IPP)

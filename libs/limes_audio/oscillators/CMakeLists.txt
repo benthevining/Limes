@@ -16,7 +16,6 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_audio_dev
 	INSTALL_DIR "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  basic_oscillators.cpp basic_oscillators.h DetunableModel.cpp
-		  DetunableModel.h)
+		  basic_oscillators.cpp basic_oscillators.h DetunableModel.cpp DetunableModel.h)
 
 set (oscillators_files ${oscillators_files} PARENT_SCOPE)

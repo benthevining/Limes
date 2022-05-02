@@ -37,6 +37,7 @@ CMakePresets.json benthevining
 Makefile benthevining
 README.md benthevining
 binary_builder/CMakeLists.txt benthevining
+cmake/FindCatch2.cmake benthevining
 cmake/FindOranges.cmake benthevining
 cmake/LimesBinaryBuilder.cmake benthevining
 cmake/LimesConfig.cmake benthevining
@@ -112,6 +113,7 @@ libs/limes_core/math/Fraction_impl.h benthevining
 libs/limes_core/math/Random.cpp benthevining
 libs/limes_core/math/Random.h benthevining
 libs/limes_core/math/fraction_staticAsserts.cpp benthevining
+libs/limes_core/math/geometry/2D/2Dshape.h benthevining
 libs/limes_core/math/geometry/3D/cylinder.h benthevining
 libs/limes_core/math/geometry/CMakeLists.txt benthevining
 libs/limes_core/math/geometry/area.h benthevining

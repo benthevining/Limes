@@ -16,7 +16,6 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_midi_dev
 	INSTALL_DIR "${LIMES_MIDI_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  PitchbendMapper.cpp PitchbendMapper.h VelocityMapper.cpp
-		  VelocityMapper.h)
+		  PitchbendMapper.cpp PitchbendMapper.h VelocityMapper.cpp VelocityMapper.h)
 
 set (utilities_files ${utilities_files} PARENT_SCOPE)

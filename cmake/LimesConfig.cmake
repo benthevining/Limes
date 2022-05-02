@@ -19,6 +19,7 @@ The following components may be specified in calls to find_package:
 - Locale
 - Music
 - Vecops
+- MIDI
 - BinaryBuilder
 - All
 - Libs
@@ -131,15 +132,12 @@ set (Limes_FOUND TRUE)
 include (FeatureSummary)
 include (FindPackageMessage)
 
-set_package_properties (
-	Limes PROPERTIES URL "https://github.com/benthevining/Limes"
-	DESCRIPTION "C++ utilities")
+set_package_properties (Limes PROPERTIES URL "https://github.com/benthevining/Limes"
+						DESCRIPTION "C++ utilities")
 
 find_package_message (
-	Limes
-	"Limes package found -- installed on system"
-	"Limes (system install) [${Limes_FIND_COMPONENTS}] [${CMAKE_CURRENT_LIST_DIR}]"
-	)
+	Limes "Limes package found -- installed on system"
+	"Limes (system install) [${Limes_FIND_COMPONENTS}] [${CMAKE_CURRENT_LIST_DIR}]")
 
 #
 

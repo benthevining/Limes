@@ -15,8 +15,7 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 include (OrangesCmakeDevTools)
 include (GNUInstallDirs)
 
-set (limes_header_input "${CMAKE_CURRENT_LIST_DIR}/scripts/VersionHeader.h"
-	 CACHE INTERNAL "")
+set (limes_header_input "${CMAKE_CURRENT_LIST_DIR}/scripts/VersionHeader.h" CACHE INTERNAL "")
 
 #
 
@@ -71,8 +70,7 @@ function (limes_config_version_header)
 
 	set (output_header "${CMAKE_CURRENT_BINARY_DIR}/${LIMES_ARG_FILENAME}")
 
-	configure_file ("${limes_header_input}" "${output_header}" @ONLY
-					NEWLINE_STYLE UNIX)
+	configure_file ("${limes_header_input}" "${output_header}" @ONLY NEWLINE_STYLE UNIX)
 
 	if (LIMES_ARG_TARGET)
 		if (NOT TARGET ${LIMES_ARG_TARGET})
@@ -92,29 +90,23 @@ function (limes_config_version_header)
 
 		target_sources (
 			"${LIMES_ARG_TARGET}"
-			"${LIMES_ARG_SCOPE}"
-			$<BUILD_INTERFACE:${output_header}>
-			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}>
-			)
+			"${LIMES_ARG_SCOPE}" $<BUILD_INTERFACE:${output_header}>
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}>)
 
 		target_include_directories (
-			"${LIMES_ARG_TARGET}"
-			"${LIMES_ARG_SCOPE}"
+			"${LIMES_ARG_TARGET}" "${LIMES_ARG_SCOPE}"
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}>
-			)
+			$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_REL_PATH}>)
 
 		# special case - limes_core can't link to itself
 		if (NOT "${LIMES_ARG_TARGET}" MATCHES limes_core)
-			target_link_libraries ("${LIMES_ARG_TARGET}" "${LIMES_ARG_SCOPE}"
-								   Limes::limes_core)
+			target_link_libraries ("${LIMES_ARG_TARGET}" "${LIMES_ARG_SCOPE}" Limes::limes_core)
 		endif ()
 	endif ()
 
 	if (NOT LIMES_ARG_INSTALL_COMPONENT)
 		if (LIMES_ARG_TARGET)
-			set (LIMES_ARG_INSTALL_COMPONENT
-				 "${PROJECT_NAME}.${LIMES_ARG_TARGET}")
+			set (LIMES_ARG_INSTALL_COMPONENT "${PROJECT_NAME}.${LIMES_ARG_TARGET}")
 		else ()
 			set (LIMES_ARG_INSTALL_COMPONENT "${PROJECT_NAME}")
 		endif ()

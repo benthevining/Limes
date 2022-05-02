@@ -41,8 +41,7 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 project (
 	LimesFileUtil
 	VERSION "${LimesPrograms_VERSION}"
-	DESCRIPTION
-		"Command-line utility to provide some universal file utility operations"
+	DESCRIPTION "Command-line utility to provide some universal file utility operations"
 	HOMEPAGE_URL "${LimesPrograms_HOMEPAGE_URL}"
 	LANGUAGES CXX)
 
@@ -50,15 +49,14 @@ include (CPackComponent)
 
 cpack_add_component (limes_file_util_base HIDDEN)
 
-cpack_add_component (limes_file_util_runtime GROUP limes_file_util
-					 DEPENDS limes_file_util_base INSTALL_TYPES User)
+cpack_add_component (limes_file_util_runtime GROUP limes_file_util DEPENDS limes_file_util_base
+					 INSTALL_TYPES User)
 
-cpack_add_component (limes_file_util_dev GROUP limes_file_util
-					 DEPENDS limes_file_util_runtime INSTALL_TYPES Developer)
+cpack_add_component (limes_file_util_dev GROUP limes_file_util DEPENDS limes_file_util_runtime
+					 INSTALL_TYPES Developer)
 
-cpack_add_component_group (
-	limes_file_util DISPLAY_NAME "Limes file utility"
-	DESCRIPTION "${PROJECT_DESCRIPTION}" PARENT_GROUP limes_programs)
+cpack_add_component_group (limes_file_util DISPLAY_NAME "Limes file utility"
+						   DESCRIPTION "${PROJECT_DESCRIPTION}" PARENT_GROUP limes_programs)
 
 if (CMAKE_CROSSCOMPILING)
 
@@ -66,11 +64,9 @@ if (CMAKE_CROSSCOMPILING)
 
 	include (GNUInstallDirs)
 
-	get_target_property (imported_location Limes::FileUtil
-						 IMPORTED_LOCATION_${LIMES_BUILD_CONFIG})
+	get_target_property (imported_location Limes::FileUtil IMPORTED_LOCATION_${LIMES_BUILD_CONFIG})
 
-	install (PROGRAMS "${imported_location}"
-			 DESTINATION "${CMAKE_INSTALL_BINDIR}"
+	install (PROGRAMS "${imported_location}" DESTINATION "${CMAKE_INSTALL_BINDIR}"
 			 COMPONENT limes_file_util_runtime)
 
 	return ()
@@ -93,33 +89,28 @@ set_target_properties (
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 
-target_link_libraries (
-	FileUtil PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget
-					 $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+target_link_libraries (FileUtil PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget
+										$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 if (Limes_IS_TOP_LEVEL OR LimesPrograms_IS_TOP_LEVEL)
 	include (OrangesDefaultWarnings)
 	include (OrangesAllIntegrations)
 
-	target_link_libraries (
-		FileUtil PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
-						 $<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
+	target_link_libraries (FileUtil PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
+											$<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
 endif ()
 
-export (TARGETS FileUtil NAMESPACE Limes::
-		FILE "${CMAKE_BINARY_DIR}/LimesFileUtil.cmake")
+export (TARGETS FileUtil NAMESPACE Limes:: FILE "${CMAKE_BINARY_DIR}/LimesFileUtil.cmake")
 
 add_executable (Limes::FileUtil ALIAS FileUtil)
 
 install (
 	TARGETS FileUtil
 	EXPORT LimesFileUtilTargets
-	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-			COMPONENT limes_file_util_runtime
+	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_file_util_runtime
 			NAMELINK_COMPONENT limes_file_util_dev
 	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_file_util_dev
-	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
-			COMPONENT limes_file_util_runtime
+	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_file_util_runtime
 	INCLUDES
 	DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
 

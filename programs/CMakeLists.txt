@@ -94,20 +94,15 @@ if (CMAKE_CROSSCOMPILING)
 
 	execute_process (
 		COMMAND
-			"${CMAKE_COMMAND}" -B "${LIMES_BINARY_DIR}" -S
-			"${CMAKE_CURRENT_LIST_DIR}" -G "${CMAKE_GENERATOR}" -D
-			"CMAKE_SYSTEM_NAME=${CMAKE_HOST_SYSTEM_NAME}" -D
-			"CMAKE_CROSSCOMPILING=OFF" -D
-			"CMAKE_MAKE_PROGRAM=${CMAKE_MAKE_PROGRAM}" -D
+			"${CMAKE_COMMAND}" -B "${LIMES_BINARY_DIR}" -S "${CMAKE_CURRENT_LIST_DIR}" -G
+			"${CMAKE_GENERATOR}" -D "CMAKE_SYSTEM_NAME=${CMAKE_HOST_SYSTEM_NAME}" -D
+			"CMAKE_CROSSCOMPILING=OFF" -D "CMAKE_MAKE_PROGRAM=${CMAKE_MAKE_PROGRAM}" -D
 			"CMAKE_BUILD_TYPE=${LIMES_BUILD_CONFIG}" -D
-			"CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}"
-			COMMAND_ERROR_IS_FATAL ANY)
+			"CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}" COMMAND_ERROR_IS_FATAL ANY)
 
 	execute_process (
-		COMMAND
-			"${CMAKE_COMMAND}" --build "${LIMES_BINARY_DIR}" --target
-			BinaryBuilder --config "${LIMES_BUILD_CONFIG}"
-			COMMAND_ERROR_IS_FATAL ANY)
+		COMMAND "${CMAKE_COMMAND}" --build "${LIMES_BINARY_DIR}" --target BinaryBuilder --config
+				"${LIMES_BUILD_CONFIG}" COMMAND_ERROR_IS_FATAL ANY)
 endif ()
 
 string (TOUPPER "${LIMES_BUILD_CONFIG}" LIMES_BUILD_CONFIG)
@@ -125,8 +120,7 @@ cpack_add_component (limes_programs_runtime GROUP limes_programs
 					 DEPENDS limes_binary_builder_runtime INSTALL_TYPES User)
 
 cpack_add_component (
-	limes_programs_dev GROUP limes_programs DEPENDS limes_programs_runtime
-													limes_binary_builder_dev
+	limes_programs_dev GROUP limes_programs DEPENDS limes_programs_runtime limes_binary_builder_dev
 	INSTALL_TYPES Developer)
 
 cpack_add_component_group (

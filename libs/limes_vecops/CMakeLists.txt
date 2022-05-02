@@ -87,8 +87,8 @@ option (LIMES_USE_VECOPS_FALLBACK "Use the vecops fallback implementation" OFF)
 
 include (CMakeDependentOption)
 
-cmake_dependent_option (LIMES_USE_IPP "Use IPP for vecops, if available" OFF
-						"NOT LIMES_IGNORE_IPP" OFF)
+cmake_dependent_option (LIMES_USE_IPP "Use IPP for vecops, if available" OFF "NOT LIMES_IGNORE_IPP"
+						OFF)
 cmake_dependent_option (LIMES_USE_MIPP "Use MIPP for vecops, if available" OFF
 						"NOT LIMES_IGNORE_MIPP" OFF)
 
@@ -122,18 +122,15 @@ set_target_properties (
 			   FOLDER Limes/libs
 			   EchoString "Building the limes_vecops library...")
 
-set_property (
-	TARGET limes_vecops APPEND
-	PROPERTY EXPORT_PROPERTIES LIMES_VECOPS_IMPLEMENTATION
-			 LIMES_FFT_IMPLEMENTATION)
+set_property (TARGET limes_vecops APPEND PROPERTY EXPORT_PROPERTIES LIMES_VECOPS_IMPLEMENTATION
+												  LIMES_FFT_IMPLEMENTATION)
 
 include (OrangesDefaultTarget)
 include (OrangesUnityBuild)
 
 target_link_libraries (
-	limes_vecops PUBLIC Limes::limes_core
-	PRIVATE Oranges::OrangesDefaultTarget
-			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+	limes_vecops PUBLIC Limes::limes_core PRIVATE Oranges::OrangesDefaultTarget
+												  $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 # cmake-format: off
 target_compile_options (
@@ -146,22 +143,18 @@ target_compile_options (
 	)
 # cmake-format: on
 
-set (LIMES_VECOPS_INSTALL_INCLUDE_DIR
-	 "${LIMES_INSTALL_INCLUDE_DIR}/limes_vecops")
+set (LIMES_VECOPS_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_vecops")
 
 target_sources (
-	limes_vecops
-	PUBLIC
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h>
-		$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/limes_vecops.h>)
+	limes_vecops PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h>
+						$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/limes_vecops.h>)
 
 install (FILES limes_vecops.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
 		 COMPONENT limes_vecops_dev)
 
 target_include_directories (
-	limes_vecops
-	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-		   $<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}>)
+	limes_vecops PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
+						$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}>)
 
 add_subdirectory (impl) # NB - this must be first!
 add_subdirectory (fft)
@@ -207,16 +200,15 @@ include (CPackComponent)
 
 cpack_add_component (limes_vecops_base HIDDEN)
 
-cpack_add_component (limes_vecops_runtime GROUP limes_vecops
-					 DEPENDS limes_vecops_base INSTALL_TYPES User)
+cpack_add_component (limes_vecops_runtime GROUP limes_vecops DEPENDS limes_vecops_base
+					 INSTALL_TYPES User)
 
-cpack_add_component (limes_vecops_dev GROUP limes_vecops
-					 DEPENDS limes_vecops_runtime INSTALL_TYPES Developer)
+cpack_add_component (limes_vecops_dev GROUP limes_vecops DEPENDS limes_vecops_runtime
+					 INSTALL_TYPES Developer)
 
 cpack_add_component_group (
 	limes_vecops DISPLAY_NAME "${PROJECT_DESCRIPTION}"
-	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}"
-	PARENT_GROUP limes_libs)
+	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_vecops ALIAS limes_vecops)
 
@@ -226,7 +218,6 @@ if (Limes_IS_TOP_LEVEL)
 	include (OrangesDefaultWarnings)
 	include (OrangesAllIntegrations)
 
-	target_link_libraries (
-		limes_vecops PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
-							 $<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
+	target_link_libraries (limes_vecops PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
+												$<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
 endif ()

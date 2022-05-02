@@ -25,7 +25,6 @@ oranges_add_source_files (
 		  sphere.h
 		  triangular_prism.h)
 
-set_source_files_properties (3Dshape.h TARGET_DIRECTORY limes_core
-							 PROPERTIES ABSTRACT ON)
+set_source_files_properties (3Dshape.h TARGET_DIRECTORY limes_core PROPERTIES ABSTRACT ON)
 
 set (3D_files ${math/geometry/3D_files} PARENT_SCOPE)

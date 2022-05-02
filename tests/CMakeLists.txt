@@ -22,8 +22,7 @@ project (
 enable_testing ()
 
 if (PROJECT_IS_TOP_LEVEL)
-	find_package (Limes "${PROJECT_VERSION}" EXACT REQUIRED CONFIG
-				  COMPONENTS Libs)
+	find_package (Limes "${PROJECT_VERSION}" EXACT REQUIRED CONFIG COMPONENTS Libs)
 
 	list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../cmake")
 endif ()
@@ -36,18 +35,15 @@ find_package (Catch2 3 REQUIRED)
 
 add_executable (LimesTests tests_config.h)
 
-set_target_properties (
-	LimesTests PROPERTIES LABELS "Limes;Tests" FOLDER Limes
-						  EchoString "Building the Limes unit test runner...")
+set_target_properties (LimesTests PROPERTIES LABELS "Limes;Tests" FOLDER Limes
+											 EchoString "Building the Limes unit test runner...")
 
 target_include_directories (LimesTests PRIVATE "${CMAKE_CURRENT_LIST_DIR}")
 
 target_link_libraries (
 	LimesTests
 	PRIVATE # cmake-format: sortable
-			Limes::Limes
-			Catch2::Catch2WithMain
-			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>
+			Limes::Limes Catch2::Catch2WithMain $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>
 			$<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
 			$<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
 
@@ -63,9 +59,8 @@ source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${tests_sources})
 add_executable (Limes::LimesTests ALIAS LimesTests)
 
 foreach (tag IN ITEMS core audio music data_structures)
-	add_test (NAME "Limes.${tag}"
-			  COMMAND Limes::LimesTests "[${tag}]" --warn NoAssertions --order
-					  rand --colour-mode ansi --verbosity high)
+	add_test (NAME "Limes.${tag}" COMMAND Limes::LimesTests "[${tag}]" --warn NoAssertions --order
+										  rand --colour-mode ansi --verbosity high)
 
 	set_tests_properties ("Limes.${tag}" PROPERTIES LABELS "Limes;UnitTests")
 endforeach ()

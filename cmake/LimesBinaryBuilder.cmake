@@ -23,8 +23,7 @@ function (limes_add_binary_data_files)
 			)
 	endif ()
 
-	set (oneValueArgs OUTPUT_DIR BASE_NAME NAMESPACE CPP_OUTPUT_VAR
-					  H_OUTPUT_VAR)
+	set (oneValueArgs OUTPUT_DIR BASE_NAME NAMESPACE CPP_OUTPUT_VAR H_OUTPUT_VAR)
 
 	cmake_parse_arguments (LIMES_ARG "" "${oneValueArgs}" "INPUTS" ${ARGN})
 
@@ -32,8 +31,7 @@ function (limes_add_binary_data_files)
 	lemons_check_for_unparsed_args (LIMES_ARG)
 
 	if (NOT LIMES_ARG_OUTPUT_DIR)
-		set (LIMES_ARG_OUTPUT_DIR
-			 "${CMAKE_CURRENT_BINARY_DIR}/BinaryBuilderGenerated")
+		set (LIMES_ARG_OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/BinaryBuilderGenerated")
 	endif ()
 
 	if (NOT LIMES_ARG_BASE_NAME)
@@ -50,10 +48,8 @@ function (limes_add_binary_data_files)
 
 	add_custom_command (
 		OUTPUT "${cpp_output}" "${h_output}"
-		COMMAND
-			Limes::BinaryBuilder -d "${LIMES_ARG_OUTPUT_DIR}" -o
-			"${LIMES_ARG_BASE_NAME}" -ns "${LIMES_ARG_NAMESPACE}"
-			${LIMES_ARG_INPUTS}
+		COMMAND Limes::BinaryBuilder -d "${LIMES_ARG_OUTPUT_DIR}" -o "${LIMES_ARG_BASE_NAME}" -ns
+				"${LIMES_ARG_NAMESPACE}" ${LIMES_ARG_INPUTS}
 		COMMENT "Generating binary files for target ${LIMES_ARG_TARGET}..."
 		VERBATIM USES_TERMINAL COMMAND_EXPAND_LISTS)
 
@@ -71,8 +67,7 @@ endfunction ()
 
 function (limes_add_binary_data_target)
 
-	set (oneValueArgs TARGET_NAME HEADER_NAME NAMESPACE INSTALL_REL_PATH
-					  INSTALL_COMPONENT)
+	set (oneValueArgs TARGET_NAME HEADER_NAME NAMESPACE INSTALL_REL_PATH INSTALL_COMPONENT)
 
 	cmake_parse_arguments (LIMES_ARG "" "${oneValueArgs}" "INPUTS" ${ARGN})
 
@@ -82,14 +77,12 @@ function (limes_add_binary_data_target)
 	if (TARGET "${LIMES_ARG_TARGET_NAME}")
 		message (
 			FATAL_ERROR
-				"${CMAKE_CURRENT_FUNCTION} - target ${LIMES_ARG_TARGET_NAME} already exists!"
-			)
+				"${CMAKE_CURRENT_FUNCTION} - target ${LIMES_ARG_TARGET_NAME} already exists!")
 	endif ()
 
 	add_library ("${LIMES_ARG_TARGET_NAME}" STATIC)
 
-	target_link_libraries ("${LIMES_ARG_TARGET_NAME}"
-						   PRIVATE Oranges::OrangesDefaultTarget)
+	target_link_libraries ("${LIMES_ARG_TARGET_NAME}" PRIVATE Oranges::OrangesDefaultTarget)
 
 	if (NOT LIMES_ARG_HEADER_NAME)
 		set (LIMES_ARG_HEADER_NAME BinaryData)
@@ -110,8 +103,7 @@ function (limes_add_binary_data_target)
 		H_OUTPUT_VAR h_file)
 
 	if (LIMES_ARG_INSTALL_REL_PATH)
-		set (install_dir
-			 "${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_INSTALL_REL_PATH}")
+		set (install_dir "${CMAKE_INSTALL_INCLUDEDIR}/${LIMES_ARG_INSTALL_REL_PATH}")
 	else ()
 		set (install_dir "${CMAKE_INSTALL_INCLUDEDIR}")
 	endif ()
@@ -122,9 +114,8 @@ function (limes_add_binary_data_target)
 			   "$<INSTALL_INTERFACE:${install_dir}/${LIMES_ARG_HEADER_NAME}.h>")
 
 	target_include_directories (
-		"${LIMES_ARG_TARGET_NAME}"
-		INTERFACE "$<BUILD_INTERFACE:${output_dir}>"
-				  "$<INSTALL_INTERFACE:${install_dir}>")
+		"${LIMES_ARG_TARGET_NAME}" INTERFACE "$<BUILD_INTERFACE:${output_dir}>"
+											 "$<INSTALL_INTERFACE:${install_dir}>")
 
 	if (NOT LIMES_ARG_INSTALL_COMPONENT)
 		set (LIMES_ARG_INSTALL_COMPONENT binary_data)

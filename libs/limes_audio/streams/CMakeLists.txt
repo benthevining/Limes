@@ -16,7 +16,7 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_audio_dev
 	INSTALL_DIR "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  oscillator.cpp oscillator.h SampleStream.cpp SampleStream.h
-		  WhiteNoiseGenerator.cpp WhiteNoiseGenerator.h)
+		  oscillator.cpp oscillator.h SampleStream.cpp SampleStream.h WhiteNoiseGenerator.cpp
+		  WhiteNoiseGenerator.h)
 
 set (streams_files ${streams_files} PARENT_SCOPE)

@@ -8,8 +8,7 @@
 #
 # ======================================================================================
 
-set_source_files_properties (ObjectBase.h TARGET_DIRECTORY limes_core
-							 PROPERTIES ABSTRACT ON)
+set_source_files_properties (ObjectBase.h TARGET_DIRECTORY limes_core PROPERTIES ABSTRACT ON)
 
 include (OrangesSourceFileUtils)
 
@@ -19,7 +18,7 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  AtomicObjectHolder.h NonrealtimeMutatableObject.h ObjectBase.h
-		  RealtimeMutatableObject.h RealtimeSafeObject_impl.h)
+		  AtomicObjectHolder.h NonrealtimeMutatableObject.h ObjectBase.h RealtimeMutatableObject.h
+		  RealtimeSafeObject_impl.h)
 
 set (rtso_files ${threading/RealtimeSafeObject_files} PARENT_SCOPE)
