@@ -93,15 +93,16 @@ list (TRANSFORM limes_music_sources
 source_group (TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_MUSIC_INSTALL_INCLUDE_DIR}"
 			  FILES ${limes_music_sources})
 
+# cmake-format: off
 install (
 	TARGETS limes_music
 	EXPORT LimesMusicTargets
 	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_music_runtime
-			NAMELINK_COMPONENT limes_music_dev
+	NAMELINK_COMPONENT limes_music_dev
 	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_music_dev
 	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_music_runtime
-	INCLUDES
-	DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}")
+	INCLUDES DESTINATION "${LIMES_MUSIC_INSTALL_INCLUDE_DIR}")
+# cmake-format: on
 
 install (
 	EXPORT LimesMusicTargets

@@ -93,15 +93,16 @@ list (TRANSFORM limes_locale_sources
 source_group (TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_LOCALE_INSTALL_INCLUDE_DIR}"
 			  FILES ${limes_locale_sources})
 
+# cmake-format: off
 install (
 	TARGETS limes_locale
 	EXPORT LimesLocaleTargets
 	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_locale_runtime
-			NAMELINK_COMPONENT limes_locale_dev
+	NAMELINK_COMPONENT limes_locale_dev
 	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_locale_dev
 	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_locale_runtime
-	INCLUDES
-	DESTINATION "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}")
+	INCLUDES DESTINATION "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}")
+# cmake-format: on
 
 install (
 	EXPORT LimesLocaleTargets

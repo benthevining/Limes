@@ -93,15 +93,16 @@ list (TRANSFORM limes_midi_sources
 source_group (TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_MIDI_INSTALL_INCLUDE_DIR}"
 			  FILES ${limes_midi_sources})
 
+# cmake-format: off
 install (
 	TARGETS limes_midi
 	EXPORT LimesMIDITargets
 	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_midi_runtime
-			NAMELINK_COMPONENT limes_midi_dev
+	NAMELINK_COMPONENT limes_midi_dev
 	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_midi_dev
 	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_midi_runtime
-	INCLUDES
-	DESTINATION "${LIMES_MIDI_INSTALL_INCLUDE_DIR}")
+	INCLUDES DESTINATION "${LIMES_MIDI_INSTALL_INCLUDE_DIR}")
+# cmake-format: on
 
 install (
 	EXPORT LimesMIDITargets

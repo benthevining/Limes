@@ -110,15 +110,16 @@ export (TARGETS BinaryBuilder NAMESPACE Limes:: FILE "${CMAKE_BINARY_DIR}/LimesB
 
 add_executable (Limes::BinaryBuilder ALIAS BinaryBuilder)
 
+# cmake-format: off
 install (
 	TARGETS BinaryBuilder
 	EXPORT LimesBinaryBuilderTargets
 	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_binary_builder_runtime
-			NAMELINK_COMPONENT limes_binary_builder_dev
+	NAMELINK_COMPONENT limes_binary_builder_dev
 	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_binary_builder_dev
 	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_binary_builder_runtime
-	INCLUDES
-	DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+	INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+# cmake-format: on
 
 install (
 	EXPORT LimesBinaryBuilderTargets

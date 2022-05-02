@@ -104,15 +104,16 @@ export (TARGETS FileUtil NAMESPACE Limes:: FILE "${CMAKE_BINARY_DIR}/LimesFileUt
 
 add_executable (Limes::FileUtil ALIAS FileUtil)
 
+# cmake-format: off
 install (
 	TARGETS FileUtil
 	EXPORT LimesFileUtilTargets
 	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_file_util_runtime
-			NAMELINK_COMPONENT limes_file_util_dev
+	NAMELINK_COMPONENT limes_file_util_dev
 	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_file_util_dev
 	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_file_util_runtime
-	INCLUDES
-	DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+	INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+# cmake-format: on
 
 install (
 	EXPORT LimesFileUtilTargets

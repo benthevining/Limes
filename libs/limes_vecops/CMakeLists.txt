@@ -169,15 +169,16 @@ list (TRANSFORM limes_vecops_sources
 source_group (TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
 			  FILES ${limes_vecops_sources})
 
+# cmake-format: off
 install (
 	TARGETS limes_vecops
 	EXPORT LimesVecopsTargets
 	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_vecops_runtime
-			NAMELINK_COMPONENT limes_vecops_dev
+	NAMELINK_COMPONENT limes_vecops_dev
 	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_vecops_dev
 	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_vecops_runtime
-	INCLUDES
-	DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}")
+	INCLUDES DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}")
+# cmake-format: on
 
 install (
 	EXPORT LimesVecopsTargets
