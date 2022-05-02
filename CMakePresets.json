@@ -48,11 +48,7 @@
       }
     },
     {
-      "cacheVariables": {
-        "LIMES_BUILD_DOCS": "ON",
-        "LIMES_BUILD_TESTS": "ON"
-      },
-      "displayName": "CMake configuration for development of Limes (builds tests & docs)",
+      "displayName": "CMake configuration for development of Limes",
       "inherits": "default",
       "name": "maintainer",
       "warnings": {

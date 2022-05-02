@@ -57,6 +57,14 @@ To build the Limes unit tests, pass `-D LIMES_BUILD_TESTS=ON` to the CMake confi
 
 The vector operations library has several options affecting its configuration and behavior; see [its readme](libs/limes_vecops/README.md) for details.
 
+* LIMES_BUILD_TESTS
+
+Builds the Limes unit tests. Defaults to OFF if Limes is not the top-level directory CMake is invoked in.
+
+* LIMES_BUILD_DOCS
+
+Builds the Limes documentation. Defaults to OFF if Limes is not the top-level directory CMake is invoked in.
+
 ### Dependencies
 
 Limes's CMake configuration depends on [Oranges](https://github.com/benthevining/Oranges).

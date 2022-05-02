@@ -45,6 +45,7 @@ Targets
 - Limes::limes_audio
 - Limes::limes_data_structures
 - Limes::limes_locale
+- Limes::limes_midi
 - Limes::BinaryBuilder
 - Limes::Limes
 
@@ -62,6 +63,8 @@ Install components
 - limes_data_structures_runtime
 - limes_locale_dev
 - limes_locale_runtime
+- limes_midi_runtime
+- limes_midi_dev
 - limes_libs_dev
 - limes_libs_runtime
 - limes_docs
@@ -80,6 +83,7 @@ Install component groups
 - limes_audio
 - limes_data_structures
 - limes_locale
+- limes_midi
 - limes_libs
 - limes_binary_builder
 - limes_programs
@@ -93,6 +97,7 @@ find_package components
 - Locale
 - Music
 - Vecops
+- MIDI
 - Libs
 - BinaryBuilder
 - Programs
@@ -104,20 +109,20 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
-option (CMAKE_FIND_PACKAGE_PREFER_CONFIG
-		"Prefer config files to find modules in find_package search" ON)
-
-option (LIMES_BUILD_TESTS "Build the Limes unit tests" OFF)
-option (LIMES_BUILD_DOCS "Build the Limes documentation" OFF)
-
-mark_as_advanced (CMAKE_FIND_PACKAGE_PREFER_CONFIG)
-
 project (
 	Limes
 	VERSION 4.8.0
 	DESCRIPTION "C++ utilities and building blocks"
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"
 	LANGUAGES CXX ASM)
+
+option (CMAKE_FIND_PACKAGE_PREFER_CONFIG
+		"Prefer config files to find modules in find_package search" ON)
+
+option (LIMES_BUILD_TESTS "Build the Limes unit tests" "${PROJECT_IS_TOP_LEVEL}")
+option (LIMES_BUILD_DOCS "Build the Limes documentation" "${PROJECT_IS_TOP_LEVEL}")
+
+mark_as_advanced (CMAKE_FIND_PACKAGE_PREFER_CONFIG)
 
 enable_testing ()
 
