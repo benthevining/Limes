@@ -10,6 +10,17 @@
  * ======================================================================================
  */
 
+/*
+
+limes_core
+--------------------
+
+The Limes core library of utilities.
+
+Dependencies: None
+
+*/
+
 #pragma once
 
 // IWYU pragma: begin_exports

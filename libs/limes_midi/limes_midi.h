@@ -10,6 +10,18 @@
  * ======================================================================================
  */
 
+/*
+
+limes_midi
+-----------------
+
+The Limes library of MIDI utilities.
+
+Dependencies:
+- limes_core
+
+*/
+
 #pragma once
 
 // IWYU pragma: begin_exports

@@ -18,6 +18,8 @@ The Limes library of utilities for working with musical and music-theory related
 Dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_data_structures
+	- limes_vecops
+		- limes_core
 
 Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -10,9 +10,21 @@
  * ======================================================================================
  */
 
-#pragma once
+/*
 
-#include <limes_data_structures.h>
+limes_locale
+-----------------------
+
+The Limes library of localization utilities.
+
+Dependencies:
+- limes_data_structures
+	- limes_vecops
+		- limes_core
+
+*/
+
+#pragma once
 
 // IWYU pragma: begin_exports
 

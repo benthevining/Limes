@@ -10,9 +10,21 @@
  * ======================================================================================
  */
 
-#pragma once
+/*
 
-#include <limes_data_structures.h>
+limes_audio
+--------------------
+
+The Limes library of realtime audio utilities.
+
+Dependencies:
+- limes_data_structures
+	- limes_vecops
+		- limes_core
+
+*/
+
+#pragma once
 
 // IWYU pragma: begin_exports
 

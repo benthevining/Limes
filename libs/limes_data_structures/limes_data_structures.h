@@ -10,9 +10,20 @@
  * ======================================================================================
  */
 
-#pragma once
+/*
 
-#include <limes_vecops.h>
+limes_data_structures
+-----------------------
+
+The Limes library of data structures.
+
+Dependencies:
+- limes_vecops
+	- limes_core
+
+*/
+
+#pragma once
 
 // IWYU pragma: begin_exports
 

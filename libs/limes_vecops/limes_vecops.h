@@ -10,6 +10,25 @@
  * ======================================================================================
  */
 
+/*
+
+limes_vecops
+--------------------
+
+The Limes vector operations library.
+
+Dependencies:
+- limes_core
+
+Optional dependencies:
+- FFTW
+and/or one of:
+- Apple's Accelerate framework
+- Intel IPP
+- MIPP
+
+*/
+
 #pragma once
 
 #include <type_traits>

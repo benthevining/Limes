@@ -18,6 +18,8 @@ A library for internationalization and locale-related operations.
 Dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_data_structures
+	- limes_vecops
+		- limes_core
 
 Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -18,6 +18,7 @@ The Limes library of data structures.
 Dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_vecops
+	- limes_core
 
 Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
