@@ -21,9 +21,9 @@ The following components may be specified in calls to find_package:
 - Vecops
 - MIDI
 - BinaryBuilder
-- All
 - Libs
 - Programs
+- All
 
 ]]
 
@@ -37,7 +37,7 @@ list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 include (CMakeFindDependencyMacro)
 
-find_dependency (Oranges 2.22)
+find_dependency (Oranges 2.23.2)
 
 #
 
@@ -55,25 +55,75 @@ set (
 set (limes_programs # cmake-format: sortable
 					BinaryBuilder)
 
-if (NOT Limes_FIND_COMPONENTS)
-	set (Limes_FIND_COMPONENTS ${limes_libs} ${limes_programs})
-elseif (All IN_LIST Limes_FIND_COMPONENTS)
-	set (Limes_FIND_COMPONENTS ${limes_libs} ${limes_programs})
+set (limes_components ${limes_libs} ${limes_programs})
+
+if (NOT ${CMAKE_FIND_PACKAGE_NAME}_FIND_COMPONENTS)
+	set (finding_components ${limes_components})
+elseif (All IN_LIST ${CMAKE_FIND_PACKAGE_NAME}_FIND_COMPONENTS)
+	set (finding_components ${limes_components})
 else ()
-	if (Libs IN_LIST Limes_FIND_COMPONENTS)
-		list (APPEND Limes_FIND_COMPONENTS ${limes_libs})
-		list (REMOVE_DUPLICATES Limes_FIND_COMPONENTS)
-		list (REMOVE_ITEM Limes_FIND_COMPONENTS Libs)
-	elseif (Programs IN_LIST Limes_FIND_COMPONENTS)
-		list (APPEND Limes_FIND_COMPONENTS ${limes_programs})
-		list (REMOVE_DUPLICATES Limes_FIND_COMPONENTS)
-		list (REMOVE_ITEM Limes_FIND_COMPONENTS Programs)
+	set (finding_components ${${CMAKE_FIND_PACKAGE_NAME}_FIND_COMPONENTS})
+
+	if (Libs IN_LIST finding_components)
+		list (APPEND finding_components ${limes_libs})
+		list (REMOVE_DUPLICATES finding_components)
+		list (REMOVE_ITEM finding_components Libs)
 	endif ()
+
+	if (Programs IN_LIST finding_components)
+		list (APPEND finding_components ${limes_programs})
+		list (REMOVE_DUPLICATES finding_components)
+		list (REMOVE_ITEM finding_components Programs)
+	endif ()
+
+	foreach (comp_name IN LISTS finding_components)
+		if (NOT "${comp_name}" IN_LIST limes_components)
+			message (WARNING " -- Limes: unknown component ${comp_name} requested!")
+			set (${CMAKE_FIND_PACKAGE_NAME}_${comp_name}_FOUND FALSE)
+			list (REMOVE_ITEM finding_components "${comp_name}")
+		endif ()
+	endforeach ()
 endif ()
 
-if (Vecops IN_LIST Limes_FIND_COMPONENTS)
+#
+
+if (Audio IN_LIST finding_components)
+	list (APPEND finding_components DataStructures Vecops Core)
+endif ()
+
+if (DataStructures IN_LIST finding_components)
+	list (APPEND finding_components Vecops Core)
+endif ()
+
+if (Locale IN_LIST finding_components)
+	list (APPEND finding_components DataStructures Vecops Core)
+endif ()
+
+if (MIDI IN_LIST finding_components)
+	list (APPEND finding_components Core)
+endif ()
+
+if (Music IN_LIST finding_components)
+	list (APPEND finding_components DataStructures Vecops Core)
+endif ()
+
+if (Vecops IN_LIST finding_components)
+	list (APPEND finding_components Core)
+endif ()
+
+list (REMOVE_DUPLICATES finding_components)
+
+#
+
+list (JOIN finding_components " " all_comps_string)
+
+message (DEBUG "Limes - config - importing components: ${all_comps_string}")
+
+#
+
+if (Vecops IN_LIST finding_components)
 	if ("@LIMES_VECOPS_USING_IPP@") # LIMES_VECOPS_USING_IPP
-		find_dependency (IPP)
+		find_dependency (IPP COMPONENTS CORE S VM)
 	elseif ("@LIMES_VECOPS_USING_MIPP@") # LIMES_VECOPS_USING_MIPP
 		find_dependency (MIPP)
 	endif ()
@@ -83,62 +133,57 @@ if (Vecops IN_LIST Limes_FIND_COMPONENTS)
 	endif ()
 endif ()
 
-# if(MIDI IN_LIST Limes_FIND_COMPONENTS) find_dependency (MTS-ESP) endif()
+# if(MIDI IN_LIST finding_components) find_dependency (MTS-ESP) endif()
 
-include ("${CMAKE_CURRENT_LIST_DIR}/LimesTargets.cmake")
-
-foreach (comp_name IN LISTS Limes_FIND_COMPONENTS)
-	if ("${comp_name}" IN_LIST limes_components)
-		include ("${CMAKE_CURRENT_LIST_DIR}/Limes${comp_name}Targets.cmake")
-		set (Limes_${comp_name}_FOUND TRUE)
-	else ()
-		message (WARNING " -- Limes: unknown component ${comp_name} requested!")
-	endif ()
+foreach (comp_name IN LISTS finding_components)
+	include ("${CMAKE_CURRENT_LIST_DIR}/Limes${comp_name}Targets.cmake")
+	set (${CMAKE_FIND_PACKAGE_NAME}_${comp_name}_FOUND TRUE)
 endforeach ()
 
 #
 
-set (Limes_Libs_FOUND TRUE)
+set (${CMAKE_FIND_PACKAGE_NAME}_Libs_FOUND TRUE)
 
 foreach (lib_name IN LISTS limes_libs)
-	if (NOT Limes_${lib_name}_FOUND)
-		set (Limes_Libs_FOUND FALSE)
+	if (NOT ${CMAKE_FIND_PACKAGE_NAME}_${lib_name}_FOUND)
+		set (${CMAKE_FIND_PACKAGE_NAME}_Libs_FOUND FALSE)
 		break ()
 	endif ()
 endforeach ()
 
-set (Limes_Programs_FOUND TRUE)
-
-foreach (program_name IN LISTS limes_programs)
-	if (NOT Limes_${program_name}_FOUND)
-		set (Limes_Programs_FOUND FALSE)
-		break ()
-	endif ()
-endforeach ()
-
-if (Limes_Libs_FOUND AND Limes_Programs_FOUND)
-	set (Limes_All_FOUND TRUE)
-else ()
-	set (Limes_All_FOUND FALSE)
+if (${CMAKE_FIND_PACKAGE_NAME}_Libs_FOUND)
+	# this file imports the aggregate Limes::Limes target
+	include ("${CMAKE_CURRENT_LIST_DIR}/LimesLibraryTargets.cmake")
 endif ()
 
-unset (limes_libs)
-unset (limes_programs)
+set (${CMAKE_FIND_PACKAGE_NAME}_Programs_FOUND TRUE)
+
+foreach (program_name IN LISTS limes_programs)
+	if (NOT ${CMAKE_FIND_PACKAGE_NAME}_${program_name}_FOUND)
+		set (${CMAKE_FIND_PACKAGE_NAME}_Programs_FOUND FALSE)
+		break ()
+	endif ()
+endforeach ()
+
+if (${CMAKE_FIND_PACKAGE_NAME}_Libs_FOUND AND ${CMAKE_FIND_PACKAGE_NAME}_Programs_FOUND)
+	set (${CMAKE_FIND_PACKAGE_NAME}_All_FOUND TRUE)
+else ()
+	set (${CMAKE_FIND_PACKAGE_NAME}_All_FOUND FALSE)
+endif ()
 
 #
 
-set (Limes_FOUND TRUE)
+set (${CMAKE_FIND_PACKAGE_NAME}_FOUND TRUE)
 
 include (FeatureSummary)
 include (FindPackageMessage)
 
-set_package_properties (Limes PROPERTIES URL "https://github.com/benthevining/Limes"
-						DESCRIPTION "C++ utilities")
+set_package_properties ("${CMAKE_FIND_PACKAGE_NAME}" PROPERTIES
+						URL "https://github.com/benthevining/Limes" DESCRIPTION "C++ utilities")
 
-find_package_message (
-	Limes "Limes package found -- installed on system"
-	"Limes (system install) [${Limes_FIND_COMPONENTS}] [${CMAKE_CURRENT_LIST_DIR}]")
+find_package_message ("${CMAKE_FIND_PACKAGE_NAME}" "Limes package found -- installed on system"
+					  "Limes (system install) [${finding_components}] [${CMAKE_CURRENT_LIST_DIR}]")
 
 #
 
-check_required_components (Limes)
+check_required_components ("${CMAKE_FIND_PACKAGE_NAME}")

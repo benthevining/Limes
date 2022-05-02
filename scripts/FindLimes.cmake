@@ -41,10 +41,11 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 include (FindPackageMessage)
 include (FeatureSummary)
 
-set_package_properties (Limes PROPERTIES URL "https://github.com/benthevining/Limes"
-						DESCRIPTION "C++ utility libraries")
+set_package_properties (
+	"${CMAKE_FIND_PACKAGE_NAME}" PROPERTIES URL "https://github.com/benthevining/Limes"
+	DESCRIPTION "C++ utility libraries")
 
-set (Limes_FOUND FALSE)
+set (${CMAKE_FIND_PACKAGE_NAME}_FOUND FALSE)
 
 #
 
@@ -68,7 +69,7 @@ function (_find_limes_try_local_dir)
 		return ()
 	endif ()
 
-	if (Limes_FIND_VERSION)
+	if (${CMAKE_FIND_PACKAGE_NAME}_FIND_VERSION)
 		file (READ "${limes_cmakelists}" cmakelists_text)
 
 		string (FIND "${cmakelists_text}" "project (" project_pos)
@@ -81,19 +82,19 @@ function (_find_limes_try_local_dir)
 
 		string (SUBSTRING "${project_string}" "${version_pos}" 6 version_string)
 
-		if (Limes_FIND_VERSION_EXACT)
-			if (NOT "${version_string}" VERSION_EQUAL "${Limes_FIND_VERSION}")
+		if (${CMAKE_FIND_PACKAGE_NAME}_FIND_VERSION_EXACT)
+			if (NOT "${version_string}" VERSION_EQUAL "${${CMAKE_FIND_PACKAGE_NAME}_FIND_VERSION}")
 				message (
 					WARNING
-						"Local version of Limes doesn't have EXACT version requested (${version_string}, requested ${Limes_FIND_VERSION})"
+						"Local version of Limes doesn't have EXACT version requested (${version_string}, requested ${${CMAKE_FIND_PACKAGE_NAME}_FIND_VERSION})"
 					)
 				return ()
 			endif ()
 		else ()
-			if ("${version_string}" VERSION_LESS "${Limes_FIND_VERSION}")
+			if ("${version_string}" VERSION_LESS "${${CMAKE_FIND_PACKAGE_NAME}_FIND_VERSION}")
 				message (
 					WARNING
-						"Local version of Limes has too old version (${version_string}, requested ${Limes_FIND_VERSION})"
+						"Local version of Limes has too old version (${version_string}, requested ${${CMAKE_FIND_PACKAGE_NAME}_FIND_VERSION})"
 					)
 				return ()
 			endif ()
@@ -102,16 +103,19 @@ function (_find_limes_try_local_dir)
 
 	add_subdirectory ("${LIMES_PATH}" "${CMAKE_BINARY_DIR}/Limes")
 
-	find_package_message (Limes "Limes package found -- local" "Limes (local)[${LIMES_PATH}]")
+	find_package_message ("${CMAKE_FIND_PACKAGE_NAME}" "Limes package found -- local"
+						  "Limes (local)[${LIMES_PATH}]")
 
-	set (Limes_FOUND TRUE PARENT_SCOPE)
+	set (${CMAKE_FIND_PACKAGE_NAME}_FOUND TRUE PARENT_SCOPE)
 endfunction ()
 
 if (LIMES_PATH)
 	_find_limes_try_local_dir ()
 endif ()
 
-unset (LIMES_PATH)
+if (${CMAKE_FIND_PACKAGE_NAME}_FOUND)
+	return ()
+endif ()
 
 #
 
@@ -126,6 +130,7 @@ FetchContent_Declare (Limes GIT_REPOSITORY https://github.com/benthevining/Limes
 
 FetchContent_MakeAvailable (Limes)
 
-find_package_message (Limes "Limes package found -- Sources downloaded" "Limes (GitHub)")
+find_package_message ("${CMAKE_FIND_PACKAGE_NAME}" "Limes package found -- Sources downloaded"
+					  "Limes (GitHub)")
 
-set (Limes_FOUND TRUE)
+set (${CMAKE_FIND_PACKAGE_NAME}_FOUND TRUE)

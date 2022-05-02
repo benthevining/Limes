@@ -68,7 +68,7 @@ target_include_directories (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LI
 
 install (
 	TARGETS Limes
-	EXPORT LimesTargets
+	EXPORT LimesLibraryTargets
 	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_libs_runtime
 			NAMELINK_COMPONENT limes_libs_dev
 	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_libs_dev
@@ -77,7 +77,7 @@ install (
 	DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
 
 install (
-	EXPORT LimesTargets
+	EXPORT LimesLibraryTargets
 	NAMESPACE Limes::
 	DESTINATION "${LIMES_INSTALL_DEST}"
 	EXPORT_LINK_INTERFACE_LIBRARIES

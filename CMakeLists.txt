@@ -125,7 +125,7 @@ enable_testing ()
 
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
-find_package (Oranges 2.22 REQUIRED)
+find_package (Oranges 2.23.2 REQUIRED)
 
 include (FeatureSummary)
 
