@@ -23,10 +23,6 @@
 #include <limes_namespace.h>
 #include <cstdint>
 
-#if LIMES_VECOPS_USE_IPP
-#	include <ipps.h>
-#endif
-
 #if LIMES_VECOPS_USE_POMMIER
 #	include "pommier/pommier_wrapper.h"
 #endif

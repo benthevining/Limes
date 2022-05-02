@@ -45,11 +45,8 @@ target_include_directories (LimesTests PRIVATE "${CMAKE_CURRENT_LIST_DIR}")
 target_link_libraries (
 	LimesTests
 	PRIVATE # cmake-format: sortable
-			Catch2::Catch2WithMain
-			Limes::Limes
-			Oranges::OrangesUnityBuild
-			Oranges::OrangesDefaultWarnings
-			Oranges::OrangesAllIntegrations)
+			Catch2::Catch2WithMain Limes::Limes Oranges::OrangesUnityBuild
+			Oranges::OrangesDefaultWarnings Oranges::OrangesAllIntegrations)
 
 add_subdirectory (limes_core)
 add_subdirectory (limes_data_structures)

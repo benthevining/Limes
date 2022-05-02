@@ -16,8 +16,6 @@
 #include <limes_namespace.h>
 #include "../misc/preprocessor.h"
 #include "build_date.h"
-#include <chrono>
-#include <ctime>
 #include "../math/mathHelpers.h"
 
 LIMES_BEGIN_NAMESPACE
@@ -75,18 +73,6 @@ private:
 constexpr Year::Year (int yearNumber) noexcept
 	: year (yearNumber)
 {
-}
-
-Year Year::getCurrent()
-{
-	const auto now = std::chrono::system_clock::now();
-
-	const auto timeT = std::chrono::system_clock::to_time_t (now);
-
-	if (auto* localtime = std::localtime (&timeT))
-		return Year { localtime->tm_year + 1900 };
-
-	return {};
 }
 
 consteval Year Year::getCompilationYear() noexcept

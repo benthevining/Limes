@@ -18,8 +18,6 @@
 #include "../misc/preprocessor.h"
 #include "build_date.h"
 #include <string_view>
-#include <chrono>
-#include <ctime>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -150,18 +148,6 @@ constexpr bool Month::operator== (const Month& other) const noexcept
 constexpr bool Month::operator!= (const Month& other) const noexcept
 {
 	return monthNum != other.monthNum;
-}
-
-Month Month::getCurrent()
-{
-	const auto now = std::chrono::system_clock::now();
-
-	const auto timeT = std::chrono::system_clock::to_time_t (now);
-
-	if (auto* localtime = std::localtime (&timeT))
-		return Month { localtime->tm_mon };
-
-	return {};
 }
 
 consteval Month Month::getCompilationMonth() noexcept

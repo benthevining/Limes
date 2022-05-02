@@ -953,8 +953,8 @@ void cartesianToPolar (DataType* const mag, DataType* const phase, const DataTyp
 		DSPSplitComplex c;
 		c.realp = const_cast<float*> (real);
 		c.imagp = const_cast<float*> (imag);
-		vDSP_zvmags (&c, 1, phase, 1, size);  // using phase as a temporary dest
-		vvsqrtf (mag, phase, &size);		  // using phase as the source
+		vDSP_zvmags (&c, 1, phase, 1, vDSP_Length (size));	// using phase as a temporary dest
+		vvsqrtf (mag, phase, &size);						// using phase as the source
 		vvatan2f (phase, imag, real, &size);
 	}
 	else if constexpr (is_double_type<DataType>())
@@ -962,8 +962,8 @@ void cartesianToPolar (DataType* const mag, DataType* const phase, const DataTyp
 		DSPDoubleSplitComplex c;
 		c.realp = const_cast<double*> (real);
 		c.imagp = const_cast<double*> (imag);
-		vDSP_zvmagsD (&c, 1, phase, 1, size);  // using phase as a temporary dest
-		vvsqrt (mag, phase, &size);			   // using phase as the source
+		vDSP_zvmagsD (&c, 1, phase, 1, vDSP_Length (size));	 // using phase as a temporary dest
+		vvsqrt (mag, phase, &size);							 // using phase as the source
 		vvatan2 (phase, imag, real, &size);
 	}
 	else

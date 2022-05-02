@@ -139,7 +139,7 @@ void FallbackFFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleTy
 {
 	for (std::size_t i = 0; i <= static_cast<std::size_t> (m_half); ++i)
 	{
-		m_a[i] = std::log (magIn[i] + shiftAmount<double>);
+		m_a[i] = std::log (magIn[i] + shiftAmount<SampleType>);
 		m_b[i] = SampleType (0.);
 	}
 

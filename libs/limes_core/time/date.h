@@ -18,8 +18,6 @@
 #include "weekday.h"
 #include "month.h"
 #include "year.h"
-#include <chrono>
-#include <ctime>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -152,18 +150,6 @@ constexpr bool Date::operator== (const Date& other) const noexcept
 constexpr bool Date::operator!= (const Date& other) const noexcept
 {
 	return ! (*this == other);
-}
-
-Date Date::getCurrent()
-{
-	const auto now = std::chrono::system_clock::now();
-
-	const auto timeT = std::chrono::system_clock::to_time_t (now);
-
-	if (auto* localtime = std::localtime (&timeT))
-		return Date { localtime->tm_year + 1900, localtime->tm_mon, localtime->tm_mday };
-
-	return {};
 }
 
 consteval Date Date::getCompilationDate() noexcept

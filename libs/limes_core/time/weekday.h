@@ -20,8 +20,6 @@
 #include "../misc/preprocessor.h"
 #include <string_view>
 #include "build_date.h"
-#include <chrono>
-#include <ctime>
 #include <type_traits>
 
 LIMES_BEGIN_NAMESPACE
@@ -273,24 +271,6 @@ constexpr typename Weekday<StartWeekOnSunday>::OtherWeekdayType Weekday<StartWee
 		return OtherWeekdayType { (dayOfWeek - 1) % 7 };
 
 	return OtherWeekdayType { (dayOfWeek + 1) % 7 };
-}
-
-template <bool StartWeekOnSunday>
-Weekday<StartWeekOnSunday> Weekday<StartWeekOnSunday>::getCurrent()
-{
-	const auto now = std::chrono::system_clock::now();
-
-	const auto timeT = std::chrono::system_clock::to_time_t (now);
-
-	if (auto* localtime = std::localtime (&timeT))
-	{
-		if constexpr (StartWeekOnSunday)
-			return Weekday { localtime->tm_wday };
-		else
-			return Weekday { (localtime->tm_wday - 1) % 7 };
-	}
-
-	return {};
 }
 
 template <bool StartWeekOnSunday>
