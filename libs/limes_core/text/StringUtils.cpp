@@ -11,6 +11,7 @@
  */
 
 #include <cstring>	// for strcmp, strlen
+#include <iostream>
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE
@@ -29,5 +30,14 @@ int length (const char* string)
 }
 
 }  // namespace cstring
+
+void printLimesASCII()
+{
+	std::cout << "  __    ____  __  __  ____  ___\n";
+	std::cout << " (  )  (_  _)(  \\/  )( ___)/ __)\n";
+	std::cout << "  )(__  _)(_  )    (  )__) \\__ \\\n";
+	std::cout << " (____)(____)(_/\\/\\_)(____)(___/\n"
+			  << std::endl;
+}
 
 LIMES_END_NAMESPACE

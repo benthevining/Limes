@@ -26,4 +26,6 @@ LIMES_EXPORT [[nodiscard]] int length (const char* string);
 
 }  // namespace cstring
 
+LIMES_EXPORT void printLimesASCII();
+
 LIMES_END_NAMESPACE

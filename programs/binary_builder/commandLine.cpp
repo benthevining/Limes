@@ -23,7 +23,10 @@ namespace binary_builder
 
 void displayUsage()
 {
-	std::cout << "Limes BinaryBuilder: generates C++ source code which embed several external (binary) files.\n";
+	limes::printLimesASCII();
+
+	std::cout << "Limes BinaryBuilder: generates C++ source code which embed several external (binary) files.\n\n";
+
 	std::cout << "Supported options:\n";
 	std::cout << " <input>	: path to an input file or directory to embed in C++ code.\n";
 	std::cout << "			  If it's a directory, its content will be recursively iterated.\n";

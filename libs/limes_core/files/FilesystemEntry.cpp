@@ -99,7 +99,7 @@ Path FilesystemEntry::getAbsolutePath() const noexcept
 
 std::string FilesystemEntry::getName() const noexcept
 {
-	return path.filename();
+	return path.filename().string();
 }
 
 Directory FilesystemEntry::getDirectory() const
