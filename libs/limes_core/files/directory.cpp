@@ -20,9 +20,25 @@ LIMES_BEGIN_NAMESPACE
 namespace files
 {
 
+bool Directory::createIfDoesntExist() const
+{
+	if (! isValid())
+		return false;
+
+	if (exists())
+		return false;
+
+	return std::filesystem::create_directories (getAbsolutePath());
+}
+
 Path Directory::getRelativePath (const Path& inputPath) const
 {
 	return std::filesystem::relative (inputPath, getAbsolutePath());
+}
+
+FilesystemEntry Directory::getChild (const std::string& childName, bool createIfNeeded) const
+{
+	return FilesystemEntry { getAbsolutePath() / childName, createIfNeeded };
 }
 
 File Directory::createChildFile (const std::string& filename) const
@@ -188,6 +204,19 @@ void Directory::iterateAllChildren (FileCallback&&		fileCallback,
 				symLinkCallback (*linkPtr);
 		}
 	}
+}
+
+std::uintmax_t Directory::sizeInBytes() const
+{
+	if (! exists())
+		return 0;
+
+	std::uintmax_t result = 0;
+
+	for (const auto& child : getAllChildren())
+		result += child.sizeInBytes();
+
+	return result;
 }
 
 Directory Directory::getCurrentWorkingDirectory()

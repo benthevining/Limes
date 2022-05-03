@@ -42,6 +42,17 @@ bool File::hasFileExtension (const std::string& extension) const
 	return getFileExtension() == extension;
 }
 
+bool File::hasFileExtension() const
+{
+	return getPath().has_extension();
+}
+
+File& File::replaceFileExtension (const std::string& newFileExtension)
+{
+	assignPath (getPath().replace_extension (newFileExtension));
+	return *this;
+}
+
 bool File::overwriteWithData (const char* const data, std::size_t numBytes) const noexcept
 {
 	return write_data (data, numBytes, true);

@@ -15,6 +15,8 @@
 #include <string>
 #include <filesystem>
 #include <fstream>
+#include <ctime>
+#include <chrono>
 #include "directory.h"
 #include "file.h"
 #include "sym_link.h"
@@ -35,6 +37,18 @@ FilesystemEntry::FilesystemEntry (const Path& pathToUse, bool createIfNeeded)
 FilesystemEntry& FilesystemEntry::operator= (const Path& newPath)
 {
 	path = newPath;
+	return *this;
+}
+
+FilesystemEntry& FilesystemEntry::assignPath (const Path& newPath)
+{
+	path = newPath;
+	return *this;
+}
+
+FilesystemEntry& FilesystemEntry::changeName (const std::string& newName)
+{
+	path.replace_filename (newName);
 	return *this;
 }
 
@@ -63,6 +77,16 @@ bool FilesystemEntry::operator!= (const FilesystemEntry& other) const noexcept
 	return ! (*this == other);
 }
 
+bool FilesystemEntry::operator< (const FilesystemEntry& other) const noexcept
+{
+	return getName() < other.getName();
+}
+
+bool FilesystemEntry::operator> (const FilesystemEntry& other) const noexcept
+{
+	return getName() > other.getName();
+}
+
 Path FilesystemEntry::getPath() const noexcept
 {
 	return path;
@@ -71,6 +95,11 @@ Path FilesystemEntry::getPath() const noexcept
 Path FilesystemEntry::getAbsolutePath() const noexcept
 {
 	return std::filesystem::absolute (path);
+}
+
+std::string FilesystemEntry::getName() const noexcept
+{
+	return path.filename();
 }
 
 Directory FilesystemEntry::getDirectory() const
@@ -157,6 +186,24 @@ bool FilesystemEntry::isRelativePath() const noexcept
 	return path.is_relative();
 }
 
+bool FilesystemEntry::makeAbsoluteRelativeTo (const Path& basePath) noexcept
+{
+	if (isAbsolutePath())
+		return false;
+
+	if (! basePath.is_absolute())
+		return false;
+
+	path = basePath / path;
+
+	return true;
+}
+
+bool FilesystemEntry::makeAbsoluteRelativeToCWD() noexcept
+{
+	return makeAbsoluteRelativeTo (Directory::getCurrentWorkingDirectory().getAbsolutePath());
+}
+
 bool FilesystemEntry::createIfDoesntExist() const
 {
 	if (! isValid())
@@ -211,6 +258,9 @@ std::uintmax_t FilesystemEntry::sizeInBytes() const
 	if (! exists())
 		return 0;
 
+	if (isDirectory())
+		return getDirectoryObject()->sizeInBytes();
+
 	return std::filesystem::file_size (path);
 }
 
@@ -230,9 +280,25 @@ bool FilesystemEntry::isHidden() const
 	return getAbsolutePath().stem().string().starts_with ('.');
 }
 
-FilesystemEntry::TimeType FilesystemEntry::getLastModificationTime() const noexcept
+std::tm FilesystemEntry::getLastModificationTime() const noexcept
 {
-	return std::filesystem::last_write_time (path);
+	using FileClock = typename std::filesystem::file_time_type::clock;
+	using SystemClock = std::chrono::system_clock;
+
+	const auto fileNow = FileClock::now();
+	const auto systemNow = SystemClock::now();
+
+	const auto fileTime = std::filesystem::last_write_time (getAbsolutePath());
+
+	using SystemDuration = typename SystemClock::duration;
+
+	const auto fileDuration = std::chrono::duration_cast<SystemDuration>(fileTime - fileNow);
+
+	const auto output = std::chrono::time_point_cast<SystemDuration>(fileDuration + systemNow);
+
+	const auto timeT = std::chrono::system_clock::to_time_t (output);
+
+	return *std::localtime (&timeT);
 }
 
 bool FilesystemEntry::rename (const Path& newPath) noexcept
@@ -258,6 +324,15 @@ bool FilesystemEntry::copyTo (const FilesystemEntry& dest, CopyOptions options) 
 	return copyTo (dest.getAbsolutePath(), options);
 }
 
+bool FilesystemEntry::copyToDirectory (const Path& destDirectory, CopyOptions options) const noexcept
+{
+	const Directory dir { destDirectory };
+
+	dir.createIfDoesntExist();
+
+	return copyTo (dir.getAbsolutePath() / getName(), options);
+}
+
 bool FilesystemEntry::copyFrom (const Path& source, CopyOptions options) const noexcept
 {
 	return try_call ([p = getAbsolutePath(), source, options]
@@ -267,6 +342,12 @@ bool FilesystemEntry::copyFrom (const Path& source, CopyOptions options) const n
 bool FilesystemEntry::copyFrom (const FilesystemEntry& source, CopyOptions options) const noexcept
 {
 	return copyFrom (source.getAbsolutePath(), options);
+}
+
+
+std::uintmax_t getAvailableSpaceOnFilesystem()
+{
+	return std::filesystem::space (Directory::getCurrentWorkingDirectory().getAbsolutePath()).available;
 }
 
 }  // namespace files

@@ -36,6 +36,10 @@ public:
 
 	[[nodiscard]] bool hasFileExtension (const std::string& extension) const;
 
+	[[nodiscard]] bool hasFileExtension() const;
+
+	File& replaceFileExtension (const std::string& newFileExtension);
+
 	bool overwriteWithData (const char* const data, std::size_t numBytes) const noexcept;
 
 	bool appendData (const char* const data, std::size_t numBytes) const noexcept;

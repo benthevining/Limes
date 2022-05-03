@@ -18,6 +18,7 @@
 #include "weekday.h"
 #include "month.h"
 #include "year.h"
+#include <ctime>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -33,6 +34,10 @@ public:
 	explicit constexpr Date (const Year& y, const Month& m, int d) noexcept;
 
 	explicit constexpr Date (int y, int m, int d) noexcept;
+
+	explicit constexpr Date (const std::tm& timeObj) noexcept;
+
+	explicit Date (std::time_t time) noexcept;
 
 	LIMES_CONSTEXPR_MOVABLE (Date);
 	LIMES_CONSTEXPR_COPYABLE (Date);
@@ -77,6 +82,12 @@ constexpr Date::Date (const Year& y, const Month& m, int d) noexcept
 constexpr Date::Date (int y, int m, int d) noexcept
 	: year (y), month (m), dayOfMonth (d)
 {
+}
+
+constexpr Date::Date (const std::tm& timeObj) noexcept
+: year(timeObj.tm_year + 1900), month(timeObj.tm_mon), dayOfMonth(timeObj.tm_mday)
+{
+
 }
 
 constexpr Year Date::getYear() const noexcept

@@ -99,7 +99,7 @@ LIMES_EXPORT [[nodiscard]] consteval int build_second() noexcept
 /// Example:
 ///     TODO_BEFORE(01, 2019, "refactor to use std::optional<> once we compile in C++17 mode");
 #define TODO_BEFORE(month, year, msg)                                                                                                                                      \
-	LIMES_BLOCK_WITH_FORCED_SEMICOLON (static_assert (year >= build_year() && year <= build_year() + 3 && month > 0 && month <= 12,                                        \
+	LIMES_BLOCK_WITH_FORCED_SEMICOLON (static_assert (year >= ::limes::time::build_year() && year <= ::limes::time::build_year() + 3 && month > 0 && month <= 12,          \
 													  "Invalid date constraint in TODO_BEFORE macro!");                                                                    \
 									   static_assert (::limes::time::build_year() < year || (::limes::time::build_year() == year && ::limes::time::build_month() < month), \
 													  "expired TODO: " msg);)

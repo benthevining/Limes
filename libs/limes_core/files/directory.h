@@ -35,6 +35,10 @@ public:
 	using DirectoryCallback = std::function<void (const Directory&)>;
 	using SymLinkCallback	= std::function<void (const SymLink&)>;
 
+	bool createIfDoesntExist() const final;
+
+	[[nodiscard]] FilesystemEntry getChild (const std::string& childName, bool createIfNeeded = false) const;
+
 	[[nodiscard]] Path getRelativePath (const Path& inputPath) const;
 
 	File createChildFile (const std::string& filename) const;
@@ -62,6 +66,8 @@ public:
 							 DirectoryCallback&& directoryCallback,
 							 SymLinkCallback&&	 symLinkCallback,
 							 bool				 recurse = true) const;
+
+	[[nodiscard]] std::uintmax_t sizeInBytes() const final;
 
 	[[nodiscard]] static Directory getCurrentWorkingDirectory();
 

@@ -18,6 +18,7 @@
 #include <string>
 #include <cstdint>
 #include <memory>
+#include <ctime>
 #include "../misc/preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
@@ -35,8 +36,6 @@ class LIMES_EXPORT FilesystemEntry
 {
 public:
 
-	using TimeType = std::filesystem::file_time_type;
-
 	using Permissions = std::filesystem::perms;
 
 	using PermOptions = std::filesystem::perm_options;
@@ -53,6 +52,10 @@ public:
 
 	FilesystemEntry& operator= (const Path& newPath);
 
+	FilesystemEntry& assignPath (const Path& newPath);
+
+	FilesystemEntry& changeName (const std::string& newName);
+
 	[[nodiscard]] FilesystemEntry operator/ (const std::string& subpathName) const;
 
 	FilesystemEntry& operator/= (const std::string& subpathName);
@@ -60,8 +63,13 @@ public:
 	[[nodiscard]] bool operator== (const FilesystemEntry& other) const noexcept;
 	[[nodiscard]] bool operator!= (const FilesystemEntry& other) const noexcept;
 
+	[[nodiscard]] bool operator< (const FilesystemEntry& other) const noexcept;
+	[[nodiscard]] bool operator> (const FilesystemEntry& other) const noexcept;
+
 	[[nodiscard]] Path getPath() const noexcept;
 	[[nodiscard]] Path getAbsolutePath() const noexcept;
+
+	[[nodiscard]] std::string getName() const noexcept;
 
 	[[nodiscard]] Directory getDirectory() const;
 	[[nodiscard]] Directory getParentDirectory() const;
@@ -75,17 +83,20 @@ public:
 	[[nodiscard]] bool isAbsolutePath() const noexcept;
 	[[nodiscard]] bool isRelativePath() const noexcept;
 
+	bool makeAbsoluteRelativeTo (const Path& basePath) noexcept;
+	bool makeAbsoluteRelativeToCWD() noexcept;
+
 	[[nodiscard]] std::unique_ptr<File>		 getFileObject() const;
 	[[nodiscard]] std::unique_ptr<Directory> getDirectoryObject() const;
 	[[nodiscard]] std::unique_ptr<SymLink>	 getSymLinkObject() const;
 
-	bool createIfDoesntExist() const;
+	virtual bool createIfDoesntExist() const;
 	bool deleteIfExists() const;
 
 	void touch() const;
 	bool touch_noCreate() const;
 
-	[[nodiscard]] std::uintmax_t sizeInBytes() const;
+	[[nodiscard]] virtual std::uintmax_t sizeInBytes() const;
 
 	[[nodiscard]] bool setPermissions (Permissions permissions, PermOptions options = PermOptions::replace) const noexcept;
 
@@ -93,7 +104,7 @@ public:
 
 	[[nodiscard]] bool isHidden() const;
 
-	[[nodiscard]] TimeType getLastModificationTime() const noexcept;
+	[[nodiscard]] std::tm getLastModificationTime() const noexcept;
 
 	bool rename (const Path& newPath) noexcept;
 
@@ -102,6 +113,8 @@ public:
 	bool copyTo (const Path& dest, CopyOptions options = CopyOptions::update_existing) const noexcept;
 	bool copyTo (const FilesystemEntry& dest, CopyOptions options = CopyOptions::update_existing) const noexcept;
 
+	bool copyToDirectory (const Path& destDirectory, CopyOptions options = CopyOptions::update_existing) const noexcept;
+
 	bool copyFrom (const Path& source, CopyOptions options = CopyOptions::update_existing) const noexcept;
 	bool copyFrom (const FilesystemEntry& source, CopyOptions options = CopyOptions::update_existing) const noexcept;
 
@@ -109,6 +122,9 @@ private:
 
 	Path path;
 };
+
+
+[[nodiscard]] std::uintmax_t getAvailableSpaceOnFilesystem();
 
 }  // namespace files
 
