@@ -93,10 +93,13 @@ set_target_properties (
 			   EchoString "Building the Limes file utility...")
 
 include (OrangesDefaultTarget)
+include (OrangesIPO)
 include (OrangesUnityBuild)
 
-target_link_libraries (FileUtil PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget
-										$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+target_link_libraries (
+	FileUtil
+	PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
+			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 if (Limes_IS_TOP_LEVEL OR LimesPrograms_IS_TOP_LEVEL)
 	include (OrangesDefaultWarnings)
