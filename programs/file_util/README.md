@@ -24,6 +24,12 @@ FileUtil <mode> [<additionalArgs...>]
 
 Where `mode` is one of:
 
+### `absolute`: Convert an input path to an absolute path
+```
+FileUtil absolute <path> [<basePath>]
+```
+If `<path>` is an absolute path, prints `<path>`; otherwise, prints `<basePath>/<path>`. If `<basePath>` is not specified, it defaults to the current working directory.
+
 ### `append`: Append content to a given file
 ```
 FileUtil append <filename> <content> [--strict]
@@ -65,7 +71,7 @@ If the `--error` option is given, the result of the comparison is indicated by a
 ```
 FileUtil follow_symlink <symlink> [--no-recurse]
 ```
-This command follows the given symlink (and, if it points to another symlink, follows *that* symlink, etc) and prints the absolute path of the target to the standard output. If the optional `--no-recurse` argument is present (must be last), then the recursive behavior is disabled, and the path of the passed symlink is printed, even if its target is another symlink.
+This command follows the given symlink (and, if it points to another symlink, follows *that* symlink, etc) and prints the absolute path of the target to the standard output. If the optional `--no-recurse` argument is present, then the recursive behavior is disabled, and the path of the passed symlink is printed, even if its target is another symlink.
 
 ### `ln`: Create a symbolic link
 ```
@@ -89,6 +95,12 @@ FileUtil modtime <fileOrDirectory>
 ```
 This command prints the last modification time of the file or directory to standard output in the form `HH:MM:SS Day Month Year`, with the time in 24-hour format and the month as a 3-letter abbreviation; for example, `03:33:52 2 May 2022`.
 
+### `native`: Convert a path to the current platform's preferred directory separators
+```
+FileUtil native <path>
+```
+Converts any directory separators in `<path>` to the preferred directory separator for the current platform. Unlike most other commands, this one does not make the passed path absolute if a relative path was given.
+
 ### `prepend`: Prepend content to a file
 ```
 FileUtil prepend <filename> <content> [--strict]
@@ -102,8 +114,9 @@ FileUtil pwd
 
 ### `relative`: Get a path relative to another location
 ```
-FileUtil relative <path> <basePath>
+FileUtil relative <path> [<basePath>]
 ```
+If `<basePath>` is not specified, it defaults to the current working directory.
 
 ### `rename`: Rename a file or directory
 ```
@@ -115,11 +128,13 @@ FileUtil rename <oldName> <newName>
 FileUtil rm <filesOrDirs...>
 ```
 
-### `size`: Prints the size of a file or directory, in bytes.
+### `sep`: Prints the current platform's preferred directory separator
+
+### `size`: Prints the size of a file or directory, in bytes
 ```
-FileUtil size <fileOrDir>
+FileUtil size [<fileOrDir>]
 ```
-The size is printed to standard output and is represented as bytes. If a directory is passed, this command reports the cumulative size of all the directory's contents.
+The size is printed to standard output and is represented as bytes. If a directory is passed, this command reports the cumulative size of all the directory's contents. If no file or directory is specified, this command prints the capacity of the entire filesystem.
 
 ### `space`: Prints the amount of remaining space on the filesystem, in bytes
 ```
@@ -130,7 +145,7 @@ FileUtil space
 ```
 FileUtil touch <filesOrDirs...> [--no-create]
 ```
-If the `--no-create option` is specified, files/directories in the input list that don't already exist will simply be ignored. Otherwise, they will eb created.
+If the `--no-create` option is specified, files/directories in the input list that don't already exist will simply be ignored. Otherwise, they will be created.
 
 ### `type`: Print the type of a filesystem entry
 ```

@@ -14,10 +14,6 @@
 - run command in new working dir
 - get permissions
 - set permissions
-- get specific parts of a path
-- convert an input path to preferred dir separators for platform
-- check if a path is absolute
-- oldest/newest out of list of files
 */
 
 #include <iostream>

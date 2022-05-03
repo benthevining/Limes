@@ -64,7 +64,7 @@ repos:
             args: [--quiet, --inline-suppr, --std=c++20, --language=c++, --enable=warning, --enable=style, --enable=performance, --enable=portability, --suppress=unmatchedSuppression, --suppress=missingIncludeSystem, --suppress=unusedStructMember, --suppress=unreadVariable, --suppress=preprocessorErrorDirective, --suppress=unknownMacro, -DLIMES_EXPORT=, -DLIMES_NO_EXPORT=]
             exclude: cmake
           - id: cpplint
-            args: [--verbose=0, '--filter=-whitespace,-legal,-build,-runtime/references,-readability/braces,-readability/todo']
+            args: [--verbose=0, '--filter=-whitespace,-legal,-build,-runtime/references,-readability/braces,-readability/todo,-readability/fn_size']
             additional_dependencies: [cpplint]
           # - id: clang-tidy
           #   args: [-p=Builds]

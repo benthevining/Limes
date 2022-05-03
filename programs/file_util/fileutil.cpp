@@ -28,6 +28,37 @@ namespace fileutil
 	return limes::files::Directory::getCurrentWorkingDirectory();
 }
 
+void absolute (const std::string& path, const std::string& basePath)
+{
+	limes::files::FilesystemEntry target { path };
+
+	if (target.isAbsolutePath())
+	{
+		std::cout << target.getAbsolutePath() << std::endl;
+		return;
+	}
+
+	const auto base = [&basePath]
+	{
+		if (basePath.empty())
+			return getCWD();
+
+		limes::files::Directory dir { basePath };
+
+		if (! dir.isAbsolutePath())
+		{
+			std::cerr << "Error: base path must be absolute: " << dir.getPath() << std::endl;
+			std::exit (EXIT_FAILURE);
+		}
+
+		return dir;
+	}();
+
+	target.makeAbsoluteRelativeTo (base.getAbsolutePath());
+
+	std::cout << target.getAbsolutePath() << std::endl;
+}
+
 void append (const std::string& fileName, std::string content, bool strict)
 {
 	if (content.empty())
@@ -365,6 +396,15 @@ void modtime (const std::string& name)
 	std::cout << time.tm_sec << " " << time.tm_mday << " " << months[time.tm_mon] << " " << time.tm_year + 1900 << std::endl;
 }
 
+void native (const std::string& name)
+{
+	std::filesystem::path path { name };
+
+	path.make_preferred();
+
+	std::cout << path.string() << std::endl;
+}
+
 void prepend (const std::string& fileName, std::string content, bool strict)
 {
 	if (content.empty())
@@ -405,11 +445,21 @@ void relative (const std::string& path, const std::string& basePath)
 {
 	const auto cwd = getCWD().getAbsolutePath();
 
+	const auto base = [&basePath, &cwd]
+	{
+		if (basePath.empty())
+			return getCWD();
+
+		limes::files::Directory dir { basePath };
+
+		dir.makeAbsoluteRelativeTo (cwd);
+
+		return dir;
+	}();
+
 	limes::files::FilesystemEntry target { path };
-	limes::files::FilesystemEntry base { basePath };
 
 	target.makeAbsoluteRelativeTo (cwd);
-	base.makeAbsoluteRelativeTo (cwd);
 
 	std::cout << std::filesystem::relative (target.getAbsolutePath(), base.getAbsolutePath()) << std::endl;
 }
@@ -455,6 +505,12 @@ void rm (const std::vector<std::string>& items)
 
 void size (const std::string& name)
 {
+	if (name.empty())
+	{
+		std::cout << std::filesystem::space (getCWD().getAbsolutePath()).capacity << " bytes" << std::endl;
+		return;
+	}
+
 	limes::files::FilesystemEntry entry { name };
 
 	entry.makeAbsoluteRelativeToCWD();

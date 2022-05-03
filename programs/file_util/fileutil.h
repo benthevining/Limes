@@ -18,6 +18,8 @@
 namespace fileutil
 {
 
+void absolute (const std::string& path, const std::string& basePath);
+
 void append (const std::string& fileName, std::string content, bool strict);
 
 void cat (const std::vector<std::string>& items, const std::string& output);
@@ -39,6 +41,8 @@ void ls (const std::string& dir);
 void mkdir (const std::string& dirName);
 
 void modtime (const std::string& name);
+
+void native (const std::string& name);
 
 void prepend (const std::string& fileName, std::string content, bool strict);
 

@@ -29,6 +29,8 @@ void displayUsage()
 
 	std::cout << "FileUtil <mode> [<additionalArgs...>]\n\n";
 
+	std::cout << "absolute <path> [<basePath>]                : If <path> is an absolute path, prints <path>; otherwise, prints <basePath>/<path>.\n";
+	std::cout << "                                              If <basePath> is not specified, it defaults to the current working directory.\n";
 	std::cout << "append <fileName> <content> [--strict]      : Appends the <content> to the specified file\n";
 	std::cout << "                                              If the --strict option is given, raises an error if the file did not already exist.\n";
 	std::cout << "cat <files...> [--output <outputFile>]      : Concatenates the various given files and prints all the output\n";
@@ -47,13 +49,18 @@ void displayUsage()
 	std::cout << "mkdir <directory>                           : Create a directory\n";
 	std::cout << "modtime <fileOrDir>                         : Prints the time the file or directory was last modified\n";
 	std::cout << "                                              The time is printed in the form HH:MM:SS Day Month Year, with the time in 24-hour format and the month expressed as a 3-letter abbreviation.\n";
+	std::cout << "native <path>                               : Converts any directory separators in <path> to the preferred directory separator for the current platform.\n";
+	std::cout << "                                            : Unlike most other commands, this one does not make the passed path absolute if a relative path was given.\n";
 	std::cout << "prepend <fileName> <content> [--strict]     : Prepends the <content> to the specified file\n";
 	std::cout << "                                              If the --strict option is given, raises an error if the file did not already exist.\n";
 	std::cout << "pwd                                         : Print absolute path of current working directory\n";
-	std::cout << "relative <path> <basePath>                  : Prints the <path> made relative to <basePath>\n";
+	std::cout << "relative <path> [<basePath>]                : Prints the <path> made relative to <basePath>\n";
+	std::cout << "                                              If <basePath> is not specified, it defaults to the current working directory.\n";
 	std::cout << "rename <oldName> <newName>                  : Rename a file or directory\n";
 	std::cout << "rm <filesOrDirs...>                         : Remove files, directories, or symlinks\n";
-	std::cout << "size <fileOrDirectory>                      : Prints the size of the file or directory, in bytes\n";
+	std::cout << "sep                                         : Prints the current platform's preferred directory separator.\n";
+	std::cout << "size [<fileOrDirectory>]                    : Prints the size of the file or directory, in bytes\n";
+	std::cout << "                                              If no file or directory is specified, prints the capacity of the entire filesystem.\n";
 	std::cout << "space                                       : Prints the available space on the filesystem, in bytes\n";
 	std::cout << "touch <filesOrDirs...> [--no-create]        : Update last modification time of files or directories, creating them if they don't exist, unless --no-create is specified\n";
 	std::cout << "type <path>                                 : Prints the type of the filesystem entry found at <path>, as one of 'file', 'directory', or 'symlink'.\n";
@@ -104,6 +111,23 @@ void parseAndExecute (int argc, char** argv)
 	if (mode == "version" || mode == "--version" || mode == "-version" || mode == "-v")
 	{
 		displayVersionInfo();
+		return;
+	}
+
+	if (mode == "absolute")
+	{
+		if (argc < 2)
+		{
+			std::cerr << "Error: Input path not specified in call to absolute" << std::endl;
+			std::exit (EXIT_FAILURE);
+		}
+
+		std::string basePath;
+
+		if (argc > 3)
+			basePath = argv[3];
+
+		fileutil::absolute (std::string { argv[2] }, basePath);
 		return;
 	}
 
@@ -304,6 +328,18 @@ void parseAndExecute (int argc, char** argv)
 		return;
 	}
 
+	if (mode == "native")
+	{
+		if (argc < 2)
+		{
+			std::cerr << "Error: Item name not specified in call to native" << std::endl;
+			std::exit (EXIT_FAILURE);
+		}
+
+		fileutil::native (std::string { argv[2] });
+		return;
+	}
+
 	if (mode == "prepend")
 	{
 		if (argc < 3)
@@ -334,13 +370,18 @@ void parseAndExecute (int argc, char** argv)
 
 	if (mode == "relative")
 	{
-		if (argc < 3)
+		if (argc < 2)
 		{
-			std::cerr << "Error: path and base path must be specified in call to relative" << std::endl;
+			std::cerr << "Error: input path must be specified in call to relative" << std::endl;
 			std::exit (EXIT_FAILURE);
 		}
 
-		fileutil::relative (std::string { argv[2] }, std::string { argv[3] });
+		std::string basePath;
+
+		if (argc > 3)
+			basePath = std::string { argv[3] };
+
+		fileutil::relative (std::string { argv[2] }, basePath);
 		return;
 	}
 
@@ -362,15 +403,20 @@ void parseAndExecute (int argc, char** argv)
 		return;
 	}
 
+	if (mode == "sep")
+	{
+		std::cout << std::filesystem::path::preferred_separator << std::endl;
+		return;
+	}
+
 	if (mode == "size")
 	{
-		if (argc < 2)
-		{
-			std::cerr << "Error: Name not specified in call to size" << std::endl;
-			std::exit (EXIT_FAILURE);
-		}
+		std::string filename;
 
-		fileutil::size (std::string { argv[2] });
+		if (argc > 2)
+			filename = argv[2];
+
+		fileutil::size (filename);
 		return;
 	}
 
