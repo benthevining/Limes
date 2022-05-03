@@ -29,29 +29,50 @@ void displayUsage()
 
 	std::cout << "FileUtil <mode> [<additionalArgs...>]\n\n";
 
-	std::cout << "append <fileName> <content>             : Appends the <content> to the specified file\n";
-	std::cout << "cat <files...>                          : Concatenates the various given files and prints all the output\n";
-	std::cout << "cd <directory>                          : Change the current working directory\n";
-	std::cout << "copy <filesOrDirs...> <dest>            : Copies the files or directories to the given destination.\n";
-	std::cout << "                                          If only one input file is specified, the destination may be a filename; if multiple inputs are specified, the destination must be a directory.\n";
-	std::cout << "                                          If the destination is a directory that doesn't exist, it will be created.\n";
-	std::cout << "exists <filesOrDirs...>                 : Prints 'yes' if every item in the list of files or directories exists; otherwise prints 'no'.\n";
-	std::cout << "follow_symlink <symLink> [--no-recurse] : Follows the symlink (and any other symlinks it points to, recursively) and prints the absolute path of the target to standard output\n";
-	std::cout << "ln <symLinkPath> <symLinkTarget>        : Create a symlink at <symLinkPath> referencing <symLinkTarget>\n";
-	std::cout << "ls [<directory>]                        : Print directory contents\n";
-	std::cout << "mkdir <directory>                       : Create a directory\n";
-	std::cout << "modtime <fileOrDir>                     : Prints the time the file or directory was last modified\n";
-	std::cout << "                                          The time is printed in the form HH:MM:SS Day Month Year, with the time in 24-hour format and the month expressed as a 3-letter abbreviation.\n";
-	std::cout << "pwd                                     : Print absolute path of current working directory\n";
-	std::cout << "relative <path> <basePath>              : Prints the <path> made relative to <basePath>\n";
-	std::cout << "rename <oldName> <newName>              : Rename a file or directory\n";
-	std::cout << "rm <files/dirs...>                      : Remove files, directories, or symlinks\n";
-	std::cout << "size <fileOrDirectory>                  : Prints the size of the file or directory, in bytes\n";
-	std::cout << "space                                   : Prints the available space on the filesystem, in bytes\n";
-	std::cout << "touch <files/dirs...>                   : Update last modification time of files or directories, creating them if they don't exist\n";
-	std::cout << "touch_nocreate <files/dirs...>          : Update last modification time of files or directories; do nothing if they don't exist\n";
-	std::cout << "type <path>                             : Prints the type of the filesystem entry found at <path>, as one of 'file', 'directory', or 'symlink'.\n";
-	std::cout << "write <fileName> <content>              : Writes the <content> to the specified file. If the file already existed, it will be overwritten.\n";
+	std::cout << "append <fileName> <content> [--strict]      : Appends the <content> to the specified file\n";
+	std::cout << "                                              If the --strict option is given, raises an error if the file did not already exist.\n";
+	std::cout << "cat <files...> [--output <outputFile>]      : Concatenates the various given files and prints all the output\n";
+	std::cout << "                                              If <outputFile> is specified, the concatenated output is written to that file.\n";
+	std::cout << "cd <directory>                              : Change the current working directory\n";
+	std::cout << "copy <filesOrDirs...> <dest>                : Copies the files or directories to the given destination.\n";
+	std::cout << "                                              If only one input file is specified, the destination may be a filename; if multiple inputs are specified, the destination must be a directory.\n";
+	std::cout << "                                              If the destination is a directory that doesn't exist, it will be created.\n";
+	std::cout << "equiv <path1> <path2> [--error]             : Prints 'yes' if the two paths are equivalent - ie, refer to the same filesystem object; otherwise, prints 'no'.\n";
+	std::cout << "                                              If the --error option is given, the result of the comparison is indicated by an exit code of 0 or 1 instead of printing to standard output.\n";
+	std::cout << "exists <filesOrDirs...> [--error]           : Prints 'yes' if every item in the list of files or directories exists; otherwise prints 'no'.\n";
+	std::cout << "                                              If the --error option is given, the result of the comparison is indicated by an exit code of 0 or 1 instead of printing to standard output.\n";
+	std::cout << "follow_symlink <symLink> [--no-recurse]     : Follows the symlink (and any other symlinks it points to, recursively) and prints the absolute path of the target to standard output\n";
+	std::cout << "ln <symLinkPath> <symLinkTarget>            : Create a symlink at <symLinkPath> referencing <symLinkTarget>\n";
+	std::cout << "ls [<directory>]                            : Print directory contents\n";
+	std::cout << "mkdir <directory>                           : Create a directory\n";
+	std::cout << "modtime <fileOrDir>                         : Prints the time the file or directory was last modified\n";
+	std::cout << "                                              The time is printed in the form HH:MM:SS Day Month Year, with the time in 24-hour format and the month expressed as a 3-letter abbreviation.\n";
+	std::cout << "prepend <fileName> <content> [--strict]     : Prepends the <content> to the specified file\n";
+	std::cout << "                                              If the --strict option is given, raises an error if the file did not already exist.\n";
+	std::cout << "pwd                                         : Print absolute path of current working directory\n";
+	std::cout << "relative <path> <basePath>                  : Prints the <path> made relative to <basePath>\n";
+	std::cout << "rename <oldName> <newName>                  : Rename a file or directory\n";
+	std::cout << "rm <filesOrDirs...>                         : Remove files, directories, or symlinks\n";
+	std::cout << "size <fileOrDirectory>                      : Prints the size of the file or directory, in bytes\n";
+	std::cout << "space                                       : Prints the available space on the filesystem, in bytes\n";
+	std::cout << "touch <filesOrDirs...> [--no-create]        : Update last modification time of files or directories, creating them if they don't exist, unless --no-create is specified\n";
+	std::cout << "type <path>                                 : Prints the type of the filesystem entry found at <path>, as one of 'file', 'directory', or 'symlink'.\n";
+	std::cout << "write <fileName> <content> [--no-overwrite] : Writes the <content> to the specified file. If the file already existed, it will be overwritten.\n";
+	std::cout << "                                              If the --no-overwrite option is given, raises an error if the file already existed.\n\n";
+
+	std::cout << "help|--help|-help|-h : print this message and exit\n\n";
+	std::cout << "version|--version|-version|-v : print version information and exit\n";
+
+	std::cout << std::endl;
+}
+
+void displayVersionInfo()
+{
+	limes::printLimesASCII();
+
+	std::cout << "Limes FileUtil: version " << limes::getLimesVersion().toString() << "\n\n";
+	std::cout << "Built on " << limes::time::Date::getCompilationDate().toString() << "\n"
+			  << std::endl;
 }
 
 void parseAndExecute (int argc, char** argv)
@@ -80,6 +101,12 @@ void parseAndExecute (int argc, char** argv)
 		return;
 	}
 
+	if (mode == "version" || mode == "--version" || mode == "-version" || mode == "-v")
+	{
+		displayVersionInfo();
+		return;
+	}
+
 	if (mode == "append")
 	{
 		if (argc < 3)
@@ -88,13 +115,50 @@ void parseAndExecute (int argc, char** argv)
 			std::exit (EXIT_FAILURE);
 		}
 
-		fileutil::append (std::string { argv[2] }, std::string { argv[3] });
+		bool strict = false;
+
+		if (argc > 4)
+		{
+			const auto fourthArg = std::string { argv[4] };
+
+			if (fourthArg == "--strict")
+				strict = true;
+		}
+
+		fileutil::append (std::string { argv[2] }, std::string { argv[3] }, strict);
 		return;
 	}
 
 	if (mode == "cat")
 	{
-		fileutil::cat (getVectorOfInputs());
+		std::vector<std::string> items;
+
+		std::string outputFile;
+
+		for (auto i = 2; i < argc; ++i)
+		{
+			const auto arg = std::string { argv[i] };
+
+			if (arg == "--output")
+			{
+				if (i + 1 < argc)
+				{
+					outputFile = argv[i + 1];
+					++i;
+				}
+				else
+				{
+					std::cerr << "Error: argument --output requires a filename" << std::endl;
+					std::exit (EXIT_FAILURE);
+				}
+			}
+			else
+			{
+				items.emplace_back (arg);
+			}
+		}
+
+		fileutil::cat (items, outputFile);
 		return;
 	}
 
@@ -127,9 +191,45 @@ void parseAndExecute (int argc, char** argv)
 		return;
 	}
 
+	if (mode == "equiv")
+	{
+		if (argc < 3)
+		{
+			std::cerr << "Error: two paths must be specified in call to equiv" << std::endl;
+			std::exit (EXIT_FAILURE);
+		}
+
+		bool error = false;
+
+		if (argc > 4)
+		{
+			const auto fourthArg = std::string { argv[4] };
+
+			if (fourthArg == "--error")
+				error = true;
+		}
+
+		fileutil::equivalent (std::string { argv[2] }, std::string { argv[3] }, error);
+		return;
+	}
+
 	if (mode == "exists")
 	{
-		fileutil::exists (getVectorOfInputs());
+		std::vector<std::string> items;
+
+		bool error = false;
+
+		for (auto i = 2; i < argc; ++i)
+		{
+			const auto arg = std::string { argv[i] };
+
+			if (arg == "--error")
+				error = true;
+			else
+				items.emplace_back (arg);
+		}
+
+		fileutil::exists (items, error);
 		return;
 	}
 
@@ -204,6 +304,28 @@ void parseAndExecute (int argc, char** argv)
 		return;
 	}
 
+	if (mode == "prepend")
+	{
+		if (argc < 3)
+		{
+			std::cerr << "Error: filename and content must be specified in call to prepend" << std::endl;
+			std::exit (EXIT_FAILURE);
+		}
+
+		bool strict = false;
+
+		if (argc > 4)
+		{
+			const auto fourthArg = std::string { argv[4] };
+
+			if (fourthArg == "--strict")
+				strict = true;
+		}
+
+		fileutil::prepend (std::string { argv[2] }, std::string { argv[3] }, strict);
+		return;
+	}
+
 	if (mode == "pwd")
 	{
 		fileutil::pwd();
@@ -258,11 +380,23 @@ void parseAndExecute (int argc, char** argv)
 		return;
 	}
 
-	if (mode == "touch" || mode == "touch_nocreate")
+	if (mode == "touch")
 	{
-		const auto allowCreation = mode == "touch";
+		bool allowCreation = true;
 
-		fileutil::touch (getVectorOfInputs(), allowCreation);
+		std::vector<std::string> items;
+
+		for (auto i = 2; i < argc; ++i)
+		{
+			const auto arg = std::string { argv[i] };
+
+			if (arg == "--no-create")
+				allowCreation = false;
+			else
+				items.emplace_back (arg);
+		}
+
+		fileutil::touch (items, allowCreation);
 		return;
 	}
 
@@ -286,7 +420,17 @@ void parseAndExecute (int argc, char** argv)
 			std::exit (EXIT_FAILURE);
 		}
 
-		fileutil::write (std::string { argv[2] }, std::string { argv[3] });
+		bool allowOverwrite = true;
+
+		if (argc > 4)
+		{
+			const auto fourthArg = std::string { argv[4] };
+
+			if (fourthArg == "--no-overwrite")
+				allowOverwrite = false;
+		}
+
+		fileutil::write (std::string { argv[2] }, std::string { argv[3] }, allowOverwrite);
 		return;
 	}
 

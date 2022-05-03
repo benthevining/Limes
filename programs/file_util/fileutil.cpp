@@ -28,7 +28,7 @@ namespace fileutil
 	return limes::files::Directory::getCurrentWorkingDirectory();
 }
 
-void append (const std::string& fileName, const std::string& content)
+void append (const std::string& fileName, std::string content, bool strict)
 {
 	if (content.empty())
 		return;
@@ -39,19 +39,27 @@ void append (const std::string& fileName, const std::string& content)
 
 	if (file.exists())
 	{
-		if (! (content.starts_with ("\n") || content.starts_with ("\r\n")))
+		if (! (content.starts_with ('\n') || content.starts_with ("\r\n")))
 		{
 			const auto fileText = file.loadAsString();
 
-			if (! (fileText.ends_with ("\n") || fileText.ends_with ("\r\n")))
-				file.appendText ("\n");
+			if (! (fileText.ends_with ('\n') || fileText.ends_with ("\r\n")))
+				content.insert (0, 1, '\n');
+		}
+	}
+	else
+	{
+		if (strict)
+		{
+			std::cerr << "Error: cannot append to file that does not exist: " << file.getAbsolutePath() << std::endl;
+			std::exit (EXIT_FAILURE);
 		}
 	}
 
 	file.appendText (content);
 }
 
-void cat (const std::vector<std::string>& items)
+void cat (const std::vector<std::string>& items, const std::string& output)
 {
 	if (items.empty())
 	{
@@ -87,12 +95,22 @@ void cat (const std::vector<std::string>& items)
 			continue;
 
 		if (! result.empty())
-			result += "\n";
+			result += '\n';
 
 		result += fileContent;
 	}
 
-	std::cout << result << std::endl;
+	if (output.empty())
+	{
+		std::cout << result << std::endl;
+		return;
+	}
+
+	limes::files::File outFile { output };
+
+	outFile.makeAbsoluteRelativeToCWD();
+
+	outFile.overwriteWithText (result);
 }
 
 void cd (const std::string& name)
@@ -162,7 +180,33 @@ void copy (const std::vector<std::string>& items, const std::string& destName)
 	}
 }
 
-void exists (const std::vector<std::string>& items)
+void equivalent (const std::string& path1, const std::string& path2, bool error)
+{
+	const auto cwd = getCWD().getAbsolutePath();
+
+	limes::files::FilesystemEntry entry1 { path1 };
+	limes::files::FilesystemEntry entry2 { path2 };
+
+	entry1.makeAbsoluteRelativeTo (cwd);
+	entry2.makeAbsoluteRelativeTo (cwd);
+
+	const auto result = entry1.getAbsolutePath() == entry2.getAbsolutePath();
+
+	if (error)
+	{
+		if (result)
+			std::exit (0);
+
+		std::exit (1);
+	}
+
+	if (result)
+		std::cout << "yes" << std::endl;
+	else
+		std::cout << "no" << std::endl;
+}
+
+void exists (const std::vector<std::string>& items, bool error)
 {
 	if (items.empty())
 	{
@@ -186,6 +230,14 @@ void exists (const std::vector<std::string>& items)
 
 		return true;
 	}();
+
+	if (error)
+	{
+		if (exists)
+			std::exit (0);
+
+		std::exit (1);
+	}
 
 	if (exists)
 		std::cout << "yes" << std::endl;
@@ -311,6 +363,37 @@ void modtime (const std::string& name)
 		std::cout << 0;
 
 	std::cout << time.tm_sec << " " << time.tm_mday << " " << months[time.tm_mon] << " " << time.tm_year + 1900 << std::endl;
+}
+
+void prepend (const std::string& fileName, std::string content, bool strict)
+{
+	if (content.empty())
+		return;
+
+	limes::files::File file { fileName };
+
+	file.makeAbsoluteRelativeToCWD();
+
+	if (file.exists())
+	{
+		if (! (content.ends_with ('\n') || content.ends_with ("\r\n")))
+		{
+			const auto fileText = file.loadAsString();
+
+			if (! (fileText.starts_with ('\n') || fileText.starts_with ("\r\n")))
+				content += '\n';
+		}
+	}
+	else
+	{
+		if (strict)
+		{
+			std::cerr << "Error: cannot prepend to file that does not exist: " << file.getAbsolutePath() << std::endl;
+			std::exit (EXIT_FAILURE);
+		}
+	}
+
+	file.prependText (content);
 }
 
 void pwd()
@@ -439,11 +522,17 @@ void type (const std::string& name)
 	std::cout << typeString << std::endl;
 }
 
-void write (const std::string& fileName, const std::string& content)
+void write (const std::string& fileName, const std::string& content, bool allowOverwrite)
 {
 	limes::files::File file { fileName };
 
 	file.makeAbsoluteRelativeToCWD();
+
+	if (! allowOverwrite && file.exists())
+	{
+		std::cerr << "Error: file already exists: " << file.getAbsolutePath() << std::endl;
+		std::exit (EXIT_FAILURE);
+	}
 
 	file.overwriteWithText (content);
 }

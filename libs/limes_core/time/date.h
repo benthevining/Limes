@@ -19,6 +19,7 @@
 #include "month.h"
 #include "year.h"
 #include <ctime>
+#include <string>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -60,6 +61,8 @@ public:
 
 	[[nodiscard]] constexpr bool operator== (const Date& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Date& other) const noexcept;
+
+	[[nodiscard]] std::string toString() const;
 
 	[[nodiscard]] static Date getCurrent();
 

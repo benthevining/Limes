@@ -18,15 +18,17 @@
 namespace fileutil
 {
 
-void append (const std::string& fileName, const std::string& content);
+void append (const std::string& fileName, std::string content, bool strict);
 
-void cat (const std::vector<std::string>& items);
+void cat (const std::vector<std::string>& items, const std::string& output);
 
 void cd (const std::string& name);
 
 void copy (const std::vector<std::string>& items, const std::string& destName);
 
-void exists (const std::vector<std::string>& items);
+void equivalent (const std::string& path1, const std::string& path2, bool error);
+
+void exists (const std::vector<std::string>& items, bool error);
 
 void follow_symlink (const std::string& linkName, bool recurse);
 
@@ -37,6 +39,8 @@ void ls (const std::string& dir);
 void mkdir (const std::string& dirName);
 
 void modtime (const std::string& name);
+
+void prepend (const std::string& fileName, std::string content, bool strict);
 
 void pwd();
 
@@ -54,6 +58,6 @@ void touch (const std::vector<std::string>& items, bool allowCreation);
 
 void type (const std::string& name);
 
-void write (const std::string& fileName, const std::string& content);
+void write (const std::string& fileName, const std::string& content, bool allowOverwrite);
 
 }  // namespace fileutil

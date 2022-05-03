@@ -16,6 +16,7 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include "preprocessor.h"
+#include <string>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -155,22 +156,7 @@ struct LIMES_EXPORT Version final
 						 patch + 1 };
 	}
 
-	/** Returns a String representation of this Version, with a '.' placed between the major, minor, and patch integers.
-	 */
-	//	[[nodiscard]] String toString() const noexcept;
-	//
-	//	/** Returns a Version object from a String representation. The string should be in the format '0.0.1', for example.
-	//	 */
-	//	[[nodiscard]] static Version fromString (const String& string);
-
-	/** Returns a Version object representing the version of the current project that this module was compiled as a part of.
-		Note that this will only be correct if you use the Lemons repo's CMake configuration scripts, or manually define the macros LEMONS_PROJECT_VERSION_MAJOR, LEMONS_PROJECT_VERSION_MINOR, and LEMONS_PROJECT_VERSION_PATCH.
-	*/
-	[[nodiscard]] constexpr static Version projectVersion()
-	{
-		return Version { 0, 0, 1 };
-		//        return Version { LEMONS_PROJECT_VERSION_MAJOR, LEMONS_PROJECT_VERSION_MINOR, LEMONS_PROJECT_VERSION_PATCH };
-	}
+	[[nodiscard]] std::string toString (char separator = '.') const;
 
 private:
 

@@ -62,7 +62,7 @@ public:
 
 private:
 
-	int monthNum { 0 };
+	int monthNum { 1 };
 };
 
 /*-------------------------------------------------------------------------------------------------------------------------------*/
@@ -70,17 +70,17 @@ private:
 constexpr Month::Month (int number) noexcept
 	: monthNum (number)
 {
-	LIMES_ASSERT (monthNum >= 0 && monthNum < 12);
+	LIMES_ASSERT (monthNum >= 1 && monthNum <= 12);
 }
 
 constexpr int Month::getMonthNumber() const noexcept
 {
-	return monthNum + 1;
+	return monthNum;
 }
 
 constexpr int Month::getNumDays (bool leapYear) noexcept
 {
-	if (monthNum == 1)
+	if (monthNum == 2)
 	{
 		if (leapYear)
 			return 29;
@@ -88,7 +88,7 @@ constexpr int Month::getNumDays (bool leapYear) noexcept
 		return 28;
 	}
 
-	if (monthNum == 3 || monthNum == 5 || monthNum == 8 || monthNum == 10)
+	if (monthNum == 4 || monthNum == 6 || monthNum == 9 || monthNum == 11)
 		return 30;
 
 	return 31;
@@ -96,38 +96,38 @@ constexpr int Month::getNumDays (bool leapYear) noexcept
 
 constexpr Month& Month::operator++() noexcept
 {
-	monthNum = (monthNum + 1) % 12;
+	monthNum = (monthNum + 1) % 13;
 
 	return *this;
 }
 
 constexpr Month& Month::operator--() noexcept
 {
-	monthNum = (monthNum - 1) % 12;
+	monthNum = (monthNum - 1) % 13;
 
 	return *this;
 }
 
 constexpr Month& Month::operator+= (int numMonthsToAdd) noexcept
 {
-	monthNum = (monthNum + numMonthsToAdd) % 12;
+	monthNum = (monthNum + numMonthsToAdd) % 13;
 	return *this;
 }
 
 constexpr Month& Month::operator-= (int numMonthsToSubtract) noexcept
 {
-	monthNum = (monthNum - numMonthsToSubtract) % 12;
+	monthNum = (monthNum - numMonthsToSubtract) % 13;
 	return *this;
 }
 
 constexpr Month Month::operator+ (int numMonthsToAdd) const noexcept
 {
-	return Month { (monthNum + numMonthsToAdd) % 12 };
+	return Month { (monthNum + numMonthsToAdd) % 13 };
 }
 
 constexpr Month Month::operator- (int numMonthsToSubtract) const noexcept
 {
-	return Month { (monthNum - numMonthsToSubtract) % 12 };
+	return Month { (monthNum - numMonthsToSubtract) % 13 };
 }
 
 constexpr bool Month::operator> (const Month& other) const noexcept
@@ -152,14 +152,14 @@ constexpr bool Month::operator!= (const Month& other) const noexcept
 
 consteval Month Month::getCompilationMonth() noexcept
 {
-	return Month { build_month() - 1 };
+	return Month { build_month() };
 }
 
 constexpr std::string_view Month::getString (bool useShort) const noexcept
 {
 	constexpr const std::string_view months[12] = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
-	const auto result = months[monthNum];
+	const auto result = months[monthNum - 1];
 
 	if (useShort)
 		return result.substr (0, 3);

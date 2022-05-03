@@ -17,6 +17,8 @@
 #include "date.h"
 #include <chrono>
 #include <ctime>
+#include <string>
+#include <sstream>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -87,6 +89,18 @@ bool Date::isInPast() const noexcept
 bool Date::isInFuture() const noexcept
 {
 	return isAfter (getCurrent());
+}
+
+std::string Date::toString() const
+{
+	std::stringstream stream;
+
+	if (dayOfMonth < 10)
+		stream << 0;
+
+	stream << dayOfMonth << " " << month.getString (true) << " " << year.getYear();
+
+	return stream.str();
 }
 
 }  // namespace time

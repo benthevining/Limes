@@ -42,15 +42,19 @@ public:
 
 	bool overwriteWithData (const char* const data, std::size_t numBytes) const noexcept;
 
-	bool appendData (const char* const data, std::size_t numBytes) const noexcept;
-
 	bool overwriteWithText (const std::string& text) const noexcept;
-
-	bool appendText (const std::string& text) const noexcept;
 
 	bool overwriteWithText (const std::vector<std::string>& text) const noexcept;
 
+	bool appendData (const char* const data, std::size_t numBytes) const noexcept;
+
+	bool appendText (const std::string& text) const noexcept;
+
 	bool appendText (const std::vector<std::string>& text) const noexcept;
+
+	bool prependText (const std::string& text) const noexcept;
+
+	bool prependText (const std::vector<std::string>& text) const noexcept;
 
 	[[nodiscard]] std::string loadAsString() const noexcept;
 

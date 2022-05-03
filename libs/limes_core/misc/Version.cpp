@@ -11,21 +11,19 @@
  */
 
 #include <limes_namespace.h>
+#include "Version.h"
+#include <string>
+#include <sstream>
 
 LIMES_BEGIN_NAMESPACE
 
-// String Version::toString() const noexcept
-//{
-//	return String (major) + "." + String (minor) + "." + String (patch);
-// }
-//
-// Version Version::fromString (const String& string)
-//{
-//	const auto arr = juce::StringArray::fromTokens (string, ".", "");
-//
-//	jassert (arr.size() == 3);
-//
-//	return Version { arr[0].getIntValue(), arr[1].getIntValue(), arr[2].getIntValue() };
-// }
+std::string Version::toString (char separator) const
+{
+	std::stringstream stream;
+
+	stream << major << separator << minor << separator << patch;
+
+	return stream.str();
+}
 
 LIMES_END_NAMESPACE

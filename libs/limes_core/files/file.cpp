@@ -53,16 +53,6 @@ File& File::replaceFileExtension (const std::string& newFileExtension)
 	return *this;
 }
 
-bool File::overwriteWithData (const char* const data, std::size_t numBytes) const noexcept
-{
-	return write_data (data, numBytes, true);
-}
-
-bool File::appendData (const char* const data, std::size_t numBytes) const noexcept
-{
-	return write_data (data, numBytes, false);
-}
-
 bool File::write_data (const char* const data, std::size_t numBytes, bool overwrite) const noexcept
 {
 	if (numBytes == 0)
@@ -77,14 +67,14 @@ bool File::write_data (const char* const data, std::size_t numBytes, bool overwr
 			stream.write (data, static_cast<std::streamsize> (numBytes)); });
 }
 
+bool File::overwriteWithData (const char* const data, std::size_t numBytes) const noexcept
+{
+	return write_data (data, numBytes, true);
+}
+
 bool File::overwriteWithText (const std::string& text) const noexcept
 {
 	return overwriteWithData (text.data(), text.size());
-}
-
-bool File::appendText (const std::string& text) const noexcept
-{
-	return appendData (text.data(), text.size());
 }
 
 [[nodiscard]] static inline std::string linesToSingleString (const std::vector<std::string>& lines) noexcept
@@ -94,7 +84,9 @@ bool File::appendText (const std::string& text) const noexcept
 	for (const auto& line : lines)
 	{
 		combined += line;
-		combined += '\n';
+
+		if (! (line.ends_with ("\n") || line.ends_with ("\r\n")))
+			combined += '\n';
 	}
 
 	return combined;
@@ -105,9 +97,33 @@ bool File::overwriteWithText (const std::vector<std::string>& text) const noexce
 	return overwriteWithText (linesToSingleString (text));
 }
 
+bool File::appendData (const char* const data, std::size_t numBytes) const noexcept
+{
+	return write_data (data, numBytes, false);
+}
+
+bool File::appendText (const std::string& text) const noexcept
+{
+	return appendData (text.data(), text.size());
+}
+
 bool File::appendText (const std::vector<std::string>& text) const noexcept
 {
 	return appendText (linesToSingleString (text));
+}
+
+bool File::prependText (const std::string& text) const noexcept
+{
+	auto data = loadAsString();
+
+	data = text + data;
+
+	return overwriteWithText (data);
+}
+
+bool File::prependText (const std::vector<std::string>& text) const noexcept
+{
+	return prependText (linesToSingleString (text));
 }
 
 std::string File::loadAsString() const noexcept

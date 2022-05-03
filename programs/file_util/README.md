@@ -26,14 +26,15 @@ Where `mode` is one of:
 
 ### `append`: Append content to a given file
 ```
-FileUtil append <filename> <content>
+FileUtil append <filename> <content> [--strict]
 ```
-Note that the content is given as a single argument. If the file didn't previously exist, the content will be written to the file as if the `write` command was called.
+Note that the content is given as a single argument. If the file did not already exist, then an error will be raised if the `--strict` option was given; otherwise, the content will be written to the file as if the `write` command were called.
 
 ### `cat`: Concatenate and display contents of the given files
 ```
-FileUtil cat <filenames...>
+FileUtil cat <filenames...> [--output <outputFile>]
 ```
+If `<outputFile>` is specified, the concatenated output will be written to that file; otherwise, output is printed to the standard output.
 
 ### `cd`: Change the current working directory
 ```
@@ -46,11 +47,19 @@ FileUtil copy <filesOrDirs...> <destination>
 ```
 In this command, the last argument is always the destination. If one input file is given, the destination may be a filename. If multiple inputs are given, the destination must be a directory. If the destination is a directory that doesn't exist, it will be created.
 
+### `equiv`: Check if two paths are equivalent
+```
+FileUtil equiv <path1> <path2> [--error]
+```
+Prints 'yes' if the two paths refer to the same filesystem object; otherwise, prints 'no'.
+If the `--error` option is given, the result of the comparison is indicated by an exit code of 0 or 1 instead of printing to standard output.
+
 ### `exists`: Check if files and/or directories exist
 ```
-FileUtil exists <filesOrDirs...>
+FileUtil exists <filesOrDirs...> [--error]
 ```
 Prints `yes` if every item in the passed list exists; otherwise prints `no`.
+If the `--error` option is given, the result of the comparison is indicated by an exit code of 0 or 1 instead of printing to standard output.
 
 ### `follow_symlink`: Print the target of a symbolic link
 ```
@@ -79,6 +88,12 @@ FileUtil mkdir <directory>
 FileUtil modtime <fileOrDirectory>
 ```
 This command prints the last modification time of the file or directory to standard output in the form `HH:MM:SS Day Month Year`, with the time in 24-hour format and the month as a 3-letter abbreviation; for example, `03:33:52 2 May 2022`.
+
+### `prepend`: Prepend content to a file
+```
+FileUtil prepend <filename> <content> [--strict]
+```
+Note that the content is given as a single argument. If the file did not already exist, then an error will be raised if the `--strict` option was given; otherwise, the content will be written to the file as if the `write` command were called.
 
 ### `pwd`: Print the absolute path of the current working directory
 ```
@@ -111,16 +126,11 @@ The size is printed to standard output and is represented as bytes. If a directo
 FileUtil space
 ```
 
-### `touch`: Update modification time of files or directories, creating them if they don't exist
+### `touch`: Update modification time of files or directories
 ```
-FileUtil touch <filesOrDirs...>
+FileUtil touch <filesOrDirs...> [--no-create]
 ```
-
-### `touch_nocreate`: Update modification time of files or directories, but do nothing if they don't exist
-```
-FileUtil touch_nocreate <filesOrDirs...>
-```
-In this command, no error will be reported if passed files or directories do not exist.
+If the `--no-create option` is specified, files/directories in the input list that don't already exist will simply be ignored. Otherwise, they will eb created.
 
 ### `type`: Print the type of a filesystem entry
 ```
@@ -130,9 +140,9 @@ If nothing exists at `<path>`, raise an error. Otherwise, prints one of `file`, 
 
 ### `write`: Write content to a file
 ```
-FileUtil write <filename> <content>
+FileUtil write <filename> <content> [--no-overwrite]
 ```
-Note that the content is given as a single argument. If the file already existed, it will be overwritten.
+Note that the content is given as a single argument. If the `--no-overwrite` option is given, then an error is raised if the file already existed; otherwise, it will be overwritten.
 
 
 ## Dependencies
