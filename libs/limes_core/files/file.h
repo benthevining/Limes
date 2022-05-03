@@ -18,6 +18,7 @@
 #include <cstddef>
 #include <vector>
 #include "FilesystemEntry.h"
+#include "../memory/RawData.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -55,6 +56,8 @@ public:
 	bool prependText (const std::string& text) const noexcept;
 
 	bool prependText (const std::vector<std::string>& text) const noexcept;
+
+	[[nodiscard]] RawData loadAsData() const noexcept;
 
 	[[nodiscard]] std::string loadAsString() const noexcept;
 

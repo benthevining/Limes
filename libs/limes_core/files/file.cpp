@@ -62,7 +62,7 @@ bool File::write_data (const char* const data, std::size_t numBytes, bool overwr
 					 {
 			const auto mode = overwrite ? std::ios::trunc : std::ios::app;
 
-			std::basic_ofstream<char> stream { p.c_str(), mode };
+			std::ofstream stream { p.c_str(), mode };
 
 			stream.write (data, static_cast<std::streamsize> (numBytes)); });
 }
@@ -85,7 +85,7 @@ bool File::overwriteWithText (const std::string& text) const noexcept
 	{
 		combined += line;
 
-		if (! (line.ends_with ("\n") || line.ends_with ("\r\n")))
+		if (! (line.ends_with ('\n') || line.ends_with ("\r\n")))
 			combined += '\n';
 	}
 
@@ -126,19 +126,29 @@ bool File::prependText (const std::vector<std::string>& text) const noexcept
 	return prependText (linesToSingleString (text));
 }
 
+RawData File::loadAsData() const noexcept
+{
+	try
+	{
+		std::ifstream stream { getAbsolutePath().c_str() };
+
+		return RawData { stream };
+	}
+	catch (const std::exception&)
+	{
+		return {};
+	}
+}
+
 std::string File::loadAsString() const noexcept
 {
 	try
 	{
-		using DataType = char;
+		std::ifstream stream { getAbsolutePath().c_str() };
 
-		std::basic_ifstream<DataType> stream { getAbsolutePath().c_str() };
+		using Iterator = std::istreambuf_iterator<char>;
 
-		using Iterator = std::istreambuf_iterator<DataType>;
-
-		std::basic_string<DataType> content { Iterator (stream), Iterator() };
-
-		return { content };
+		return { Iterator (stream), Iterator() };
 	}
 	catch (const std::exception&)
 	{
@@ -153,7 +163,7 @@ std::vector<std::string> File::loadAsLines() const
 	auto ss = std::stringstream { loadAsString() };
 
 	for (std::string line; std::getline (ss, line, '\n');)
-		lines.push_back (line);
+		lines.emplace_back (line);
 
 	return lines;
 }

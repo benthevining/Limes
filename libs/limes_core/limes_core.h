@@ -42,6 +42,7 @@ Dependencies: None
 #include "time/weekday.h"
 #include "time/date.h"
 
+#include "memory/RawData.h"
 #include "memory/ReferenceCountedObject.h"
 #include "memory/SharedObject.h"
 #include "memory/StaticObjects.h"
