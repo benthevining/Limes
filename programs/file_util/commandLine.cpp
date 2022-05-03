@@ -138,7 +138,7 @@ void parseAndExecute (int argc, char** argv)
 		{
 			if (argc > 3)
 			{
-				const auto thirdArg = std::string{ argv[3] };
+				const auto thirdArg = std::string { argv[3] };
 
 				if (thirdArg == "--no-recurse")
 					return false;
@@ -203,7 +203,7 @@ void parseAndExecute (int argc, char** argv)
 		return;
 	}
 
-	if(mode == "relative")
+	if (mode == "relative")
 	{
 		if (argc < 3)
 		{

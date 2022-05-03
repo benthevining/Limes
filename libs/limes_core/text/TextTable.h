@@ -51,15 +51,15 @@ public:
 	/** Returns a vector with a string for each row.
 		The prefix and suffix will be appended to each row, and and the column separator will be placed between each column.
 	 */
-	[[nodiscard]] std::vector<std::string> getRows (const std::string& rowPrefix,
-													const std::string& columnSeparator,
-													const std::string& rowSuffix) const;
+	[[nodiscard]] std::vector<std::string> getRows (const std::string& rowPrefix	   = {},
+													const std::string& columnSeparator = {},
+													const std::string& rowSuffix	   = {}) const;
 
 	/** Returns a string containing all the rows in the table.
 	 */
-	[[nodiscard]] std::string toString (const std::string& rowPrefix,
-										const std::string& columnSeparator,
-										const std::string& rowSuffix) const;
+	[[nodiscard]] std::string toString (const std::string& rowPrefix	   = {},
+										const std::string& columnSeparator = {},
+										const std::string& rowSuffix	   = {}) const;
 
 private:
 

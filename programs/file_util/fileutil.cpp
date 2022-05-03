@@ -240,6 +240,12 @@ void ls (const std::string& dir)
 
 		d.makeAbsoluteRelativeTo (cwd.getAbsolutePath());
 
+		if (! d.exists())
+		{
+			std::cerr << "Error: directory does not exist: " << d.getAbsolutePath() << std::endl;
+			std::exit (EXIT_FAILURE);
+		}
+
 		return d;
 	}();
 
@@ -247,8 +253,23 @@ void ls (const std::string& dir)
 
 	limes::alg::sort (children);
 
+	limes::TextTable table;
+
+	int column = 0;
+
 	for (const auto& child : children)
-		std::cout << child.getName() << std::endl;
+	{
+		table.addColumnToCurrentRow (child.getName());
+
+		++column;
+
+		if (column > 2)
+			table.startNewRow();
+
+		column %= 3;
+	}
+
+	std::cout << table.toString ({}, " ") << std::endl;
 }
 
 void mkdir (const std::string& dirName)
