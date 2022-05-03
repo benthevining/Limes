@@ -62,11 +62,13 @@ set_target_properties (
 			   EchoString "Building the limes_data_structures library...")
 
 include (OrangesDefaultTarget)
+include (OrangesIPO)
 include (OrangesUnityBuild)
 
 target_link_libraries (
 	limes_data_structures PUBLIC Limes::limes_vecops
-	PRIVATE Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+	PRIVATE Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
+			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 set (LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_data_structures")
 

@@ -61,11 +61,13 @@ set_target_properties (
 			   EchoString "Building the limes_midi library...")
 
 include (OrangesDefaultTarget)
+include (OrangesIPO)
 include (OrangesUnityBuild)
 
 target_link_libraries (
-	limes_midi PUBLIC Limes::limes_core PRIVATE Oranges::OrangesDefaultTarget
-												$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+	limes_midi PUBLIC Limes::limes_core
+	PRIVATE Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
+			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 set (LIMES_MIDI_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_midi")
 

@@ -63,11 +63,13 @@ set_target_properties (
 			   EchoString "Building the limes_locale library...")
 
 include (OrangesDefaultTarget)
+include (OrangesIPO)
 include (OrangesUnityBuild)
 
 target_link_libraries (
 	limes_locale PUBLIC Limes::limes_data_structures
-	PRIVATE Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+	PRIVATE Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
+			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 set (LIMES_LOCALE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_locale")
 

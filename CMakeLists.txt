@@ -103,8 +103,9 @@ find_package components
 - Music
 - Vecops
 - MIDI
-- Libs
 - BinaryBuilder
+- FileUtil
+- Libs
 - Programs
 - All
 

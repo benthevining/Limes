@@ -21,6 +21,7 @@ The following components may be specified in calls to find_package:
 - Vecops
 - MIDI
 - BinaryBuilder
+- FileUtil
 - Libs
 - Programs
 - All
@@ -53,7 +54,7 @@ set (
 	Vecops)
 
 set (limes_programs # cmake-format: sortable
-					BinaryBuilder)
+					BinaryBuilder FileUtil)
 
 set (limes_components ${limes_libs} ${limes_programs})
 

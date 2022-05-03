@@ -27,6 +27,8 @@ void displayUsage()
 
 	std::cout << "Limes FileUtil: provides a universal, OS-agnostic interface for common filesystem operations\n\n";
 
+	std::cout << "FileUtil <mode> [<additionalArgs...>]\n\n";
+
 	std::cout << "append <fileName> <content>             : Appends the <content> to the specified file\n";
 	std::cout << "cat <files...>                          : Concatenates the various given files and prints all the output\n";
 	std::cout << "cd <directory>                          : Change the current working directory\n";

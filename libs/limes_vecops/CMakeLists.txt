@@ -126,11 +126,13 @@ set_property (TARGET limes_vecops APPEND PROPERTY EXPORT_PROPERTIES LIMES_VECOPS
 												  LIMES_FFT_IMPLEMENTATION)
 
 include (OrangesDefaultTarget)
+include (OrangesIPO)
 include (OrangesUnityBuild)
 
 target_link_libraries (
-	limes_vecops PUBLIC Limes::limes_core PRIVATE Oranges::OrangesDefaultTarget
-												  $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+	limes_vecops PUBLIC Limes::limes_core
+	PRIVATE Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
+			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 # cmake-format: off
 target_compile_options (

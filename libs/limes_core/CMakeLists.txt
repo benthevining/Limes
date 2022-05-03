@@ -61,12 +61,14 @@ set_target_properties (
 			   EchoString "Building the limes_core library...")
 
 include (OrangesDefaultTarget)
+include (OrangesIPO)
 include (OrangesUnityBuild)
 include (CXXConcepts)
 
 target_link_libraries (
-	limes_core PUBLIC Oranges::CXXConcepts PRIVATE Oranges::OrangesDefaultTarget
-												   $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+	limes_core PUBLIC Oranges::CXXConcepts
+	PRIVATE Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
+			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 include (OrangesGenerateStandardHeaders)
 

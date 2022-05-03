@@ -74,6 +74,9 @@ if (CMAKE_CROSSCOMPILING)
 	install (PROGRAMS "${imported_location}" DESTINATION "${CMAKE_INSTALL_BINDIR}"
 			 COMPONENT limes_binary_builder_runtime)
 
+	# install (CODE "execute_process (COMMAND ${CMAKE_COMMAND} --install ${LIMES_BINARY_DIR})"
+	# COMPONENT limes_binary_builder_base)
+
 	return ()
 endif ()
 

@@ -145,6 +145,7 @@ When you call `find_package (Limes)`, you can pass the following component names
 * Music
 * Vecops
 * BinaryBuilder
+* FileUtil
 
 If no component names are specified, Limes will default to importing everything.
 
