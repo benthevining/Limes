@@ -80,8 +80,13 @@ endif ()
 add_executable (BinaryBuilder)
 
 target_sources (
-	BinaryBuilder PRIVATE # cmake-format: sortable
-						  commandLine.cpp commandLine.h generator.cpp generator.h main.cpp)
+	BinaryBuilder
+	PRIVATE # cmake-format: sortable
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/commandLine.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/commandLine.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/generator.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/generator.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/main.cpp>)
 
 set_target_properties (
 	BinaryBuilder
@@ -117,8 +122,7 @@ install (
 	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_binary_builder_runtime
 	NAMELINK_COMPONENT limes_binary_builder_dev
 	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_binary_builder_dev
-	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_binary_builder_runtime
-	INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_binary_builder_runtime)
 # cmake-format: on
 
 install (

@@ -214,7 +214,7 @@ std::uintmax_t Directory::sizeInBytes() const
 	std::uintmax_t result = 0;
 
 	for (const auto& child : getAllChildren())
-		result += child.sizeInBytes();
+		result += child.sizeInBytes();	// cppcheck-suppress useStlAlgorithm
 
 	return result;
 }

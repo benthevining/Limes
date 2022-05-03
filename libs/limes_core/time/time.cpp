@@ -67,9 +67,8 @@ template class Weekday<false>;
 
 
 Date::Date (std::time_t time) noexcept
-: Date (*std::localtime(&time))
+	: Date (*std::localtime (&time))
 {
-
 }
 
 Date Date::getCurrent()

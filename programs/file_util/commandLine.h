@@ -10,29 +10,11 @@
  * ======================================================================================
  */
 
-/*
-- run command in new working dir
-- get permissions
-- set permissions
-*/
+#pragma once
 
-#include <iostream>
-#include <exception>
-#include <cstdlib>
-#include "commandLine.h"
-
-
-int main (int argc, char** argv)
+namespace fileutil
 {
-	try
-	{
-		fileutil::parseAndExecute (argc, argv);
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << "Error: " << e.what() << std::endl;
-		return EXIT_FAILURE;
-	}
 
-	return EXIT_SUCCESS;
+void parseAndExecute (int argc, char** argv);
+
 }

@@ -282,19 +282,19 @@ bool FilesystemEntry::isHidden() const
 
 std::tm FilesystemEntry::getLastModificationTime() const noexcept
 {
-	using FileClock = typename std::filesystem::file_time_type::clock;
+	using FileClock	  = typename std::filesystem::file_time_type::clock;
 	using SystemClock = std::chrono::system_clock;
 
-	const auto fileNow = FileClock::now();
+	const auto fileNow	 = FileClock::now();
 	const auto systemNow = SystemClock::now();
 
 	const auto fileTime = std::filesystem::last_write_time (getAbsolutePath());
 
 	using SystemDuration = typename SystemClock::duration;
 
-	const auto fileDuration = std::chrono::duration_cast<SystemDuration>(fileTime - fileNow);
+	const auto fileDuration = std::chrono::duration_cast<SystemDuration> (fileTime - fileNow);
 
-	const auto output = std::chrono::time_point_cast<SystemDuration>(fileDuration + systemNow);
+	const auto output = std::chrono::time_point_cast<SystemDuration> (fileDuration + systemNow);
 
 	const auto timeT = std::chrono::system_clock::to_time_t (output);
 

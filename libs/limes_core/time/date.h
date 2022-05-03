@@ -85,9 +85,8 @@ constexpr Date::Date (int y, int m, int d) noexcept
 }
 
 constexpr Date::Date (const std::tm& timeObj) noexcept
-: year(timeObj.tm_year + 1900), month(timeObj.tm_mon), dayOfMonth(timeObj.tm_mday)
+	: year (timeObj.tm_year + 1900), month (timeObj.tm_mon), dayOfMonth (timeObj.tm_mday)
 {
-
 }
 
 constexpr Year Date::getYear() const noexcept

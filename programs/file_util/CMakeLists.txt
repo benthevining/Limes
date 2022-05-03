@@ -74,8 +74,14 @@ endif ()
 
 add_executable (FileUtil)
 
-target_sources (FileUtil PRIVATE # cmake-format: sortable
-								 main.cpp)
+target_sources (
+	FileUtil
+	PRIVATE # cmake-format: sortable
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/commandLine.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/commandLine.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fileutil.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fileutil.h>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/main.cpp>)
 
 set_target_properties (
 	FileUtil
@@ -111,8 +117,7 @@ install (
 	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_file_util_runtime
 	NAMELINK_COMPONENT limes_file_util_dev
 	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_file_util_dev
-	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_file_util_runtime
-	INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_file_util_runtime)
 # cmake-format: on
 
 install (

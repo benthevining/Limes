@@ -91,7 +91,7 @@ public:
 	[[nodiscard]] std::unique_ptr<SymLink>	 getSymLinkObject() const;
 
 	virtual bool createIfDoesntExist() const;
-	bool deleteIfExists() const;
+	bool		 deleteIfExists() const;
 
 	void touch() const;
 	bool touch_noCreate() const;
