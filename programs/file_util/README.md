@@ -101,6 +101,12 @@ FileUtil native <path>
 ```
 Converts any directory separators in `<path>` to the preferred directory separator for the current platform. Unlike most other commands, this one does not make the passed path absolute if a relative path was given.
 
+### `path`: Prints the contents of the PATH environment variable
+```
+FileUtil path
+```
+Prints the contents of the PATH environment variable as a list of absolute paths to directories, one per line of output.
+
 ### `prepend`: Prepend content to a file
 ```
 FileUtil prepend <filename> <content> [--strict]
@@ -152,6 +158,12 @@ If the `--no-create` option is specified, files/directories in the input list th
 FileUtil type <path>
 ```
 If nothing exists at `<path>`, raise an error. Otherwise, prints one of `file`, `directory`, or `symlink` describing what exists at the given path.
+
+### `which`: Locate an executable
+```
+FileUtil which [<programName>]
+```
+Searches for an executable file named `<programName>` in each of the directories in the PATH environment variable and prints the absolute path of the first match found. If the `<programName>` is ommitted, this command searches for the FileUtil executable itself.
 
 ### `write`: Write content to a file
 ```

@@ -50,7 +50,8 @@ void displayUsage()
 	std::cout << "modtime <fileOrDir>                         : Prints the time the file or directory was last modified\n";
 	std::cout << "                                              The time is printed in the form HH:MM:SS Day Month Year, with the time in 24-hour format and the month expressed as a 3-letter abbreviation.\n";
 	std::cout << "native <path>                               : Converts any directory separators in <path> to the preferred directory separator for the current platform.\n";
-	std::cout << "                                            : Unlike most other commands, this one does not make the passed path absolute if a relative path was given.\n";
+	std::cout << "                                              Unlike most other commands, this one does not make the passed path absolute if a relative path was given.\n";
+	std::cout << "path                                        : Prints the contents of the PATH environment variable as a list of absolute paths to directories, one per line of output.\n";
 	std::cout << "prepend <fileName> <content> [--strict]     : Prepends the <content> to the specified file\n";
 	std::cout << "                                              If the --strict option is given, raises an error if the file did not already exist.\n";
 	std::cout << "pwd                                         : Print absolute path of current working directory\n";
@@ -64,6 +65,8 @@ void displayUsage()
 	std::cout << "space                                       : Prints the available space on the filesystem, in bytes\n";
 	std::cout << "touch <filesOrDirs...> [--no-create]        : Update last modification time of files or directories, creating them if they don't exist, unless --no-create is specified\n";
 	std::cout << "type <path>                                 : Prints the type of the filesystem entry found at <path>, as one of 'file', 'directory', or 'symlink'.\n";
+	std::cout << "which [<programName>]                       : Searches for an executable file named <programName> in each of the directories in the PATH environment variable and prints the absolute path of the first match found.\n";
+	std::cout << "                                              Omit the <programName> to search for the FileUtil executable itself.\n";
 	std::cout << "write <fileName> <content> [--no-overwrite] : Writes the <content> to the specified file. If the file already existed, it will be overwritten.\n";
 	std::cout << "                                              If the --no-overwrite option is given, raises an error if the file already existed.\n\n";
 
@@ -91,16 +94,6 @@ void parseAndExecute (int argc, char** argv)
 	}
 
 	const auto mode = std::string { argv[1] };
-
-	auto getVectorOfInputs = [argc, argv]
-	{
-		std::vector<std::string> items;
-
-		for (auto i = 2; i < argc; ++i)
-			items.emplace_back (argv[i]);
-
-		return items;
-	};
 
 	if (mode == "help" || mode == "--help" || mode == "-help" || mode == "-h")
 	{
@@ -340,6 +333,12 @@ void parseAndExecute (int argc, char** argv)
 		return;
 	}
 
+	if (mode == "path")
+	{
+		fileutil::path();
+		return;
+	}
+
 	if (mode == "prepend")
 	{
 		if (argc < 3)
@@ -399,7 +398,12 @@ void parseAndExecute (int argc, char** argv)
 
 	if (mode == "rm")
 	{
-		fileutil::rm (getVectorOfInputs());
+		std::vector<std::string> items;
+
+		for (auto i = 2; i < argc; ++i)
+			items.emplace_back (argv[i]);
+
+		fileutil::rm (items);
 		return;
 	}
 
@@ -455,6 +459,19 @@ void parseAndExecute (int argc, char** argv)
 		}
 
 		fileutil::type (std::string { argv[2] });
+		return;
+	}
+
+	if (mode == "which")
+	{
+		std::string programName;
+
+		if (argc > 2)
+			programName = argv[2];
+		else
+			programName = "FileUtil";
+
+		fileutil::which (programName);
 		return;
 	}
 

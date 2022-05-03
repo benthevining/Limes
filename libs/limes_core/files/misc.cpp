@@ -10,28 +10,21 @@
  * ======================================================================================
  */
 
-/*
-- run command in new working dir
-- get permissions
-- set permissions
-*/
+#include "misc.h"
+#include <limes_namespace.h>
+#include <filesystem>
+#include "directory.h"
 
-#include <iostream>
-#include <exception>
-#include <cstdlib>
-#include "commandLine.h"
+LIMES_BEGIN_NAMESPACE
 
-int main (int argc, char** argv)
+namespace files
 {
-	try
-	{
-		fileutil::parseAndExecute (argc, argv);
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << "Error: " << e.what() << std::endl;
-		return EXIT_FAILURE;
-	}
 
-	return EXIT_SUCCESS;
+std::uintmax_t getAvailableSpaceOnFilesystem()
+{
+	return std::filesystem::space (Directory::getCurrentWorkingDirectory().getAbsolutePath()).available;
 }
+
+}  // namespace files
+
+LIMES_END_NAMESPACE

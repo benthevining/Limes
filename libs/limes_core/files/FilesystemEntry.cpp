@@ -344,12 +344,6 @@ bool FilesystemEntry::copyFrom (const FilesystemEntry& source, CopyOptions optio
 	return copyFrom (source.getAbsolutePath(), options);
 }
 
-
-std::uintmax_t getAvailableSpaceOnFilesystem()
-{
-	return std::filesystem::space (Directory::getCurrentWorkingDirectory().getAbsolutePath()).available;
-}
-
 }  // namespace files
 
 LIMES_END_NAMESPACE

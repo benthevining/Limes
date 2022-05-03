@@ -23,6 +23,8 @@ oranges_add_source_files (
 		  FilesystemEntry.cpp
 		  FilesystemEntry.h
 		  sym_link.cpp
-		  sym_link.h)
+		  sym_link.h
+		  misc.h
+		  misc.cpp)
 
 set (files_files ${files_files} PARENT_SCOPE)

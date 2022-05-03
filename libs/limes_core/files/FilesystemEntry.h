@@ -123,9 +123,6 @@ private:
 	Path path;
 };
 
-
-[[nodiscard]] std::uintmax_t getAvailableSpaceOnFilesystem();
-
 }  // namespace files
 
 LIMES_END_NAMESPACE

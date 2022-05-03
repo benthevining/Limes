@@ -11,9 +11,13 @@
  */
 
 #include "directory.h"
+#include "misc.h"
 #include <limes_namespace.h>
 #include <filesystem>
 #include <type_traits>
+#include <vector>
+#include <string>
+#include <cstdlib>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -242,6 +246,27 @@ Directory Directory::getTempFileDirectory()
 void Directory::setAsWorkingDirectory() const
 {
 	setCurrentWorkingDirectory (*this);
+}
+
+std::vector<Directory> Directory::getPATH()
+{
+	std::vector<Directory> dirs;
+
+	if (auto* path = std::getenv ("PATH"))
+	{
+		std::string fullPath { path };
+
+		for (size_t pos = 0; pos != std::string::npos; pos = fullPath.find (PATHseparator()))
+		{
+			dirs.emplace_back (fullPath.substr (0, pos));
+			fullPath.erase (0, pos + 1);
+		}
+	}
+
+	for (auto& dir : dirs)
+		dir.makeAbsoluteRelativeToCWD();
+
+	return dirs;
 }
 
 }  // namespace files

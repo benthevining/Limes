@@ -19,6 +19,7 @@
 #include "sym_link.h"
 #include <vector>
 #include <functional>
+#include <string>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -69,6 +70,8 @@ public:
 
 	[[nodiscard]] std::uintmax_t sizeInBytes() const final;
 
+	void setAsWorkingDirectory() const;
+
 	[[nodiscard]] static Directory getCurrentWorkingDirectory();
 
 	static void setCurrentWorkingDirectory (const Path& path);
@@ -76,7 +79,7 @@ public:
 
 	[[nodiscard]] static Directory getTempFileDirectory();
 
-	void setAsWorkingDirectory() const;
+	[[nodiscard]] static std::vector<Directory> getPATH();
 };
 
 }  // namespace files

@@ -44,6 +44,8 @@ void modtime (const std::string& name);
 
 void native (const std::string& name);
 
+void path();
+
 void prepend (const std::string& fileName, std::string content, bool strict);
 
 void pwd();
@@ -61,6 +63,8 @@ void space();
 void touch (const std::vector<std::string>& items, bool allowCreation);
 
 void type (const std::string& name);
+
+void which (const std::string& programName);
 
 void write (const std::string& fileName, const std::string& content, bool allowOverwrite);
 

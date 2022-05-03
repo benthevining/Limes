@@ -398,11 +398,17 @@ void modtime (const std::string& name)
 
 void native (const std::string& name)
 {
-	std::filesystem::path path { name };
+	std::filesystem::path location { name };
 
-	path.make_preferred();
+	location.make_preferred();
 
-	std::cout << path.string() << std::endl;
+	std::cout << location.string() << std::endl;
+}
+
+void path()
+{
+	for (const auto& pathDir : limes::files::Directory::getPATH())
+		std::cout << pathDir.getAbsolutePath() << std::endl;
 }
 
 void prepend (const std::string& fileName, std::string content, bool strict)
@@ -576,6 +582,23 @@ void type (const std::string& name)
 	}();
 
 	std::cout << typeString << std::endl;
+}
+
+void which (const std::string& programName)
+{
+	for (const auto& pathDir : limes::files::Directory::getPATH())
+	{
+		const auto child = pathDir.getChild (programName);
+
+		if (child.exists())
+		{
+			std::cout << child.getAbsolutePath() << std::endl;
+			return;
+		}
+	}
+
+	std::cerr << programName << " not found" << std::endl;
+	std::exit (EXIT_FAILURE);
 }
 
 void write (const std::string& fileName, const std::string& content, bool allowOverwrite)
