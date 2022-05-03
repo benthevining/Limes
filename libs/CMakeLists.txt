@@ -58,12 +58,17 @@ add_subdirectory (limes_midi)
 add_subdirectory (limes_audio)
 add_subdirectory (limes_music)
 
-target_sources (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes.h>
+set (configured_header "${CMAKE_CURRENT_BINARY_DIR}/limes.h")
+
+configure_file (limes.h limes.h @ONLY NEWLINE_STYLE UNIX)
+
+target_sources (Limes INTERFACE $<BUILD_INTERFACE:${configured_header}>
 								$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}/limes.h>)
 
-install (FILES limes.h DESTINATION "${LIMES_INSTALL_INCLUDE_DIR}" COMPONENT limes_libs_dev)
+install (FILES "${configured_header}" DESTINATION "${LIMES_INSTALL_INCLUDE_DIR}"
+		 COMPONENT limes_libs_dev)
 
-target_include_directories (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
+target_include_directories (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
 											$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}>)
 
 # cmake-format: off

@@ -8,7 +8,15 @@
 #
 # ======================================================================================
 
-return ()
+# cmake-format: off
+# building command-line tools for iOS isn't supported by Apple's SDKs
+if (IOS
+	OR ("${CMAKE_SYSTEM_NAME}" STREQUAL iOS)
+	OR ("${CMAKE_SYSTEM_NAME}" STREQUAL tvOS)
+	OR ("${CMAKE_SYSTEM_NAME}" STREQUAL watchOS))
+	return ()
+endif ()
+# cmake-format: on
 
 include_guard (GLOBAL)
 

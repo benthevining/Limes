@@ -42,15 +42,7 @@ repos:
       # create build directory for linters, to read CompileCommands.json
           # - id: run-cmake
           #   name: Run CMake
-          #   entry: cmake --preset default -G 'Unix Makefiles' -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-          #   language: system
-          #   always_run: true
-          #   pass_filenames: false
-
-      # update dependency graph
-          # - id: generate-deps-graph
-          #   name: Update deps graph
-          #   entry: cmake --build --preset deps_graph
+          #   entry: cmake --preset default -G 'Unix Makefiles'
           #   language: system
           #   always_run: true
           #   pass_filenames: false
@@ -74,8 +66,8 @@ repos:
           - id: cpplint
             args: [--verbose=0, '--filter=-whitespace,-legal,-build,-runtime/references,-readability/braces,-readability/todo']
             additional_dependencies: [cpplint]
-      # - id: clang-tidy
-      #   args: [-p=Builds]
+          # - id: clang-tidy
+          #   args: [-p=Builds]
 
     - repo: https://github.com/pre-commit/pre-commit-hooks
       rev: v4.2.0
@@ -125,12 +117,12 @@ repos:
           - id: fix-ligatures
           - id: fix-smartquotes
           - id: forbid-bidi-controls
-    - repo: https://github.com/crate-ci/typos
-      rev: typos-dict-v0.8.2
-      hooks:
-          - id: typos
-            args: [--write-changes]
-            exclude: languages.cpp|PerlinNoise.cpp|CHANGELOG.md
+    # - repo: https://github.com/crate-ci/typos
+    #   rev: v1.7.3
+    #   hooks:
+    #       - id: typos
+    #         args: [--write-changes]
+    #         exclude: languages.cpp|PerlinNoise.cpp|CHANGELOG.md
 
   # CMake
     - repo: https://github.com/cheshirekow/cmake-format-precommit
@@ -182,7 +174,7 @@ repos:
             exclude: LICENSE
 
 ci:
-    skip: [cppcheck, gitown, check-jsonschema, run-cmake, generate-deps-graph]
+    skip: [cppcheck, gitown, check-jsonschema]
     autofix_commit_msg: 'style: pre-commit autofixes [skip ci]'
     autoupdate_commit_msg: 'chore: pre-commit autoupdate [skip ci]'
 

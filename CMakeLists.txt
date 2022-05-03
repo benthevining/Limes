@@ -89,6 +89,11 @@ Install component groups
 - limes_programs
 - limes
 
+Install types
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- User
+- Developer
+
 find_package components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Audio
@@ -180,7 +185,7 @@ mark_as_advanced (FORCE LIMES_INSTALL_DEST)
 #
 
 add_subdirectory (libs)
-# add_subdirectory (programs)
+add_subdirectory (programs)
 
 if (LIMES_BUILD_TESTS)
 	add_subdirectory (tests)
@@ -263,12 +268,10 @@ feature_summary (
 		"This version of Limes was compiled with the following features and third party libraries:")
 
 install (FILES "${PROJECT_BINARY_DIR}/package_features.txt" DESTINATION "${LIMES_INSTALL_DEST}"
-		 CONFIGURATIONS Debug COMPONENT limes_base)
+		 COMPONENT limes_base)
 
 if (PROJECT_IS_TOP_LEVEL)
 	feature_summary (INCLUDE_QUIET_PACKAGES DEFAULT_DESCRIPTION QUIET_ON_EMPTY WHAT ALL)
 endif ()
 
 export (PACKAGE Limes)
-
-set (Limes_FOUND TRUE CACHE INTERNAL "")
