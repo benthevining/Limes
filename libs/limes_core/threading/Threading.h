@@ -38,36 +38,6 @@ LIMES_EXPORT inline void callAndBlock (Function&& function, Args&&... args)
 
 LIMES_EXPORT [[nodiscard]] int maxNumThreads (int defaultVal = 4) noexcept;
 
-
-template <class Function>
-class LIMES_EXPORT ScopedLoopingThread final
-{
-public:
-
-	explicit ScopedLoopingThread (Function&& function)
-	{
-		auto callback = [f = std::move (function), this]
-		{
-			while (! exitSignal.load())
-				f();
-		};
-
-		callInBackground (std::move (callback));
-	}
-
-	~ScopedLoopingThread()
-	{
-		exitSignal.store (true);
-	}
-
-	LIMES_NON_COPYABLE (ScopedLoopingThread);
-	LIMES_NON_MOVABLE (ScopedLoopingThread);
-
-private:
-
-	std::atomic<bool> exitSignal { false };
-};
-
 }  // namespace threads
 
 LIMES_END_NAMESPACE
