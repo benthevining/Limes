@@ -36,7 +36,9 @@ Limes consists of the following libraries:
 * [limes_music](libs/limes_music/README.md), for music-theory related concepts
 * [limes_vecops](libs/limes_vecops/README.md), for SIMD-accelerated vector operations
 
-Limes also provides a command-line BinaryBuilder tool, which can be used to embed binary resource files into generated C++ source files. There is also a CMake interface, see `cmake/LimesBinaryBuilder.cmake`
+Limes also provides the following command line tools:
+* [BinaryBuilder](programs/binary_builder/README.md), a utility for embedding binary resource files into C++ source code
+* [FileUtil](programs/file_util/README.md), a utility to provide some universal filesystem operations
 
 ## Using Limes
 

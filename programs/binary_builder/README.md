@@ -16,6 +16,8 @@ Usage:
 BinaryBuilder [-d <outputDirectory> -o <fileBaseName> -ns <nameSpace>] <inputFiles...>
 ```
 
+There is also a [CMake interface](../../cmake/LimesBinaryBuilder.cmake) for integrating BinaryBuilder into your builds.
+
 ## Dependencies
 
 * [limes_core](../../libs/limes_core/README.md)

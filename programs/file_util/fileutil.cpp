@@ -315,7 +315,7 @@ void modtime (const std::string& name)
 
 void pwd()
 {
-	std::cout << getCWD().getAbsolutePath().native() << std::endl;
+	std::cout << getCWD().getAbsolutePath().string() << std::endl;
 }
 
 void relative (const std::string& path, const std::string& basePath)

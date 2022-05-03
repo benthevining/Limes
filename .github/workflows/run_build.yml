@@ -57,8 +57,8 @@ jobs:
               uses: actions/cache@v3
               with:
                   path: Cache
-                  key: ${{ inputs.id_key }}.${{ hashFiles('**/') }}
-                  restore-keys: ${{ inputs.id_key }}.
+                  key: ${{ inputs.id_key }}.build.${{ hashFiles('**/') }}
+                  restore-keys: ${{ inputs.id_key }}.build.
 
             - name: Install Ninja
               if: ${{ inputs.cmake_generator == 'Ninja Multi-Config' || inputs.cmake_generator == 'Ninja' }}
