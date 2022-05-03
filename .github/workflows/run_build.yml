@@ -53,12 +53,12 @@ jobs:
                   submodules: recursive
                   fetch-depth: 1
 
-            - name: Set up cache
-              uses: actions/cache@v3
-              with:
-                  path: Cache
-                  key: ${{ inputs.id_key }}.${{ runner.os }}.${{ hashFiles('**/') }}
-                  restore-keys: ${{ inputs.id_key }}.${{ runner.os }}.
+            # - name: Set up cache
+            #   uses: actions/cache@v3
+            #   with:
+            #       path: Cache
+            #       key: ${{ inputs.id_key }}.${{ runner.os }}.${{ hashFiles('**/') }}
+            #       restore-keys: ${{ inputs.id_key }}.${{ runner.os }}.
 
             - name: Install Ninja
               if: ${{ inputs.cmake_generator == 'Ninja Multi-Config' || inputs.cmake_generator == 'Ninja' }}
@@ -67,11 +67,11 @@ jobs:
             - name: Run CMake
               if: ${{ inputs.c_compiler != '' && inputs.cxx_compiler != '' }}
               run: |
-                  CC=${{ inputs.c_compiler }} CXX=${{ inputs.cxx_compiler }} cmake --preset ${{ inputs.cmake_preset }} -G '${{ inputs.cmake_generator }}' -D CMAKE_C_COMPILER=${{ inputs.c_compiler }} -D CMAKE_CXX_COMPILER=${{ inputs.cxx_compiler }} -D CMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF
+                  CC=${{ inputs.c_compiler }} CXX=${{ inputs.cxx_compiler }} cmake --preset ${{ inputs.cmake_preset }} -G '${{ inputs.cmake_generator }}' -D CMAKE_C_COMPILER=${{ inputs.c_compiler }} -D CMAKE_CXX_COMPILER=${{ inputs.cxx_compiler }}
 
             - name: Run CMake
               if: ${{ inputs.c_compiler == '' || inputs.cxx_compiler == '' }}
-              run: cmake --preset ${{ inputs.cmake_preset }} -G '${{ inputs.cmake_generator }}' -D CMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF
+              run: cmake --preset ${{ inputs.cmake_preset }} -G '${{ inputs.cmake_generator }}'
 
             - name: Run debug build
               run: cmake --build --preset ${{ inputs.build_preset }} --config Debug
