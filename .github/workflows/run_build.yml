@@ -53,12 +53,12 @@ jobs:
                   submodules: recursive
                   fetch-depth: 1
 
-            # - name: Set up cache
-            #   uses: actions/cache@v3
-            #   with:
-            #       path: Cache
-            #       key: ${{ inputs.id_key }}.${{ runner.os }}.${{ hashFiles('**/') }}
-            #       restore-keys: ${{ inputs.id_key }}.${{ runner.os }}.
+            - name: Set up cache
+              uses: actions/cache@v3
+              with:
+                  path: Cache
+                  key: ${{ inputs.id_key }}.${{ runner.os }}.${{ hashFiles('**/') }}
+                  restore-keys: ${{ inputs.id_key }}.${{ runner.os }}.
 
             - name: Install Ninja
               if: ${{ inputs.cmake_generator == 'Ninja Multi-Config' || inputs.cmake_generator == 'Ninja' }}
