@@ -18,6 +18,7 @@
 #include <cstdlib>
 #include <string_view>
 #include <filesystem>
+#include <regex>
 #include <limes_core.h>
 
 namespace fileutil
@@ -289,6 +290,48 @@ void follow_symlink (const std::string& linkName, bool recurse)
 	}
 
 	std::cout << link.follow (recurse).getAbsolutePath() << std::endl;
+}
+
+void glob (const std::string& expr, const std::string& dir, bool recurse, bool error)
+{
+	const auto baseDir = [&dir]
+	{
+		if (dir.empty())
+			return getCWD();
+
+		limes::files::Directory base { dir };
+
+		base.makeAbsoluteRelativeToCWD();
+
+		if (! base.exists())
+		{
+			std::cerr << "Error: base directory does not exist: " << base.getAbsolutePath() << std::endl;
+			std::exit (EXIT_FAILURE);
+		}
+
+		return base;
+	}();
+
+	std::regex regex { expr, std::regex_constants::ECMAScript | std::regex_constants::icase };
+
+	bool atLeastOne = false;
+
+	for (const auto& child : baseDir.getAllChildren (recurse))
+	{
+		if (std::regex_search (child.getName(), regex))
+		{
+			atLeastOne = true;
+			std::cout << child.getAbsolutePath() << std::endl;
+		}
+	}
+
+	if (! atLeastOne)
+	{
+		if (error)
+			std::exit (EXIT_FAILURE);
+
+		std::cout << "No files found" << std::endl;
+	}
 }
 
 void ln (const std::string& linkName, const std::string& targetName)

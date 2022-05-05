@@ -81,7 +81,9 @@ target_sources (
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/commandLine.h>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fileutil.cpp>
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fileutil.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/main.cpp>)
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/main.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/usage.cpp>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/usage.h>)
 
 set_target_properties (
 	FileUtil

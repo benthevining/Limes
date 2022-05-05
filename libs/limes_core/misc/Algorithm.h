@@ -93,17 +93,25 @@ LIMES_EXPORT [[nodiscard]] constexpr auto contains_or_default (const ContainerTy
 }
 
 template <Container ContainerType, class UnaryPredicate>
-LIMES_EXPORT [[nodiscard]] constexpr auto* contains_or_null (const ContainerType& container, UnaryPredicate&& p)
+LIMES_EXPORT [[nodiscard]] constexpr ElementType<ContainerType>* contains_or_null (ContainerType& container, UnaryPredicate&& p)
 {
 	const auto res = std::find_if (std::begin (container), std::end (container), std::forward<UnaryPredicate> (p));
 
 	if (res == std::end (container))
-	{
-		using T = typename std::decay<decltype (*container.begin())>::type;
-		return (T) nullptr;
-	}
+		return nullptr;
 
-	return *res;
+	return res;
+}
+
+template <Container ContainerType, class UnaryPredicate>
+LIMES_EXPORT [[nodiscard]] constexpr const ElementType<ContainerType>* contains_or_null (const ContainerType& container, UnaryPredicate&& p)
+{
+	const auto res = std::find_if (std::begin (container), std::end (container), std::forward<UnaryPredicate> (p));
+
+	if (res == std::end (container))
+		return nullptr;
+
+	return res;
 }
 
 template <Container ContainerType, class UnaryPredicate>

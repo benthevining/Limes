@@ -73,6 +73,13 @@ FileUtil follow_symlink <symlink> [--no-recurse]
 ```
 This command follows the given symlink (and, if it points to another symlink, follows *that* symlink, etc) and prints the absolute path of the target to the standard output. If the optional `--no-recurse` argument is present, then the recursive behavior is disabled, and the path of the passed symlink is printed, even if its target is another symlink.
 
+### `glob`: Find files/directories matching a pattern
+```
+FileUtil glob <globbingExpression> [--dir <baseDir>] [--recurse] [--error]
+```
+Prints a list of absolute paths found that match the given globbing expression.
+If the `<baseDir>` option is given, files will be searched for in that directory. Otherwise, it defaults to the current working directory. If the --error flag is given, the program will exit with an error code if no files are found. Otherwise, 'No files found' will be printed.
+
 ### `ln`: Create a symbolic link
 ```
 FileUtil ln <symLinkPath> <symLinkTarget>

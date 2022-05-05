@@ -34,6 +34,8 @@ void exists (const std::vector<std::string>& items, bool error);
 
 void follow_symlink (const std::string& linkName, bool recurse);
 
+void glob (const std::string& expr, const std::string& dir, bool recurse, bool error);
+
 void ln (const std::string& linkName, const std::string& targetName);
 
 void ls (const std::string& dir);

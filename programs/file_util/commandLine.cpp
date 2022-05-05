@@ -11,6 +11,7 @@
  */
 
 #include "commandLine.h"
+#include "usage.h"
 #include "fileutil.h"
 #include <iostream>
 #include <string>
@@ -20,61 +21,6 @@
 
 namespace fileutil
 {
-
-void displayUsage()
-{
-	limes::printLimesASCII();
-
-	std::cout << "Limes FileUtil: provides a universal, OS-agnostic interface for common filesystem operations\n\n";
-
-	std::cout << "FileUtil <mode> [<additionalArgs...>]\n\n";
-
-	std::cout << "absolute <path> [<basePath>]                : If <path> is an absolute path, prints <path>; otherwise, prints <basePath>/<path>.\n";
-	std::cout << "                                              If <basePath> is not specified, it defaults to the current working directory.\n";
-	std::cout << "append <fileName> <content> [--strict]      : Appends the <content> to the specified file\n";
-	std::cout << "                                              If the --strict option is given, raises an error if the file did not already exist.\n";
-	std::cout << "cat <files...> [--output <outputFile>]      : Concatenates the various given files and prints all the output\n";
-	std::cout << "                                              If <outputFile> is specified, the concatenated output is written to that file.\n";
-	std::cout << "cd <directory>                              : Change the current working directory\n";
-	std::cout << "copy <filesOrDirs...> <dest>                : Copies the files or directories to the given destination.\n";
-	std::cout << "                                              If only one input file is specified, the destination may be a filename; if multiple inputs are specified, the destination must be a directory.\n";
-	std::cout << "                                              If the destination is a directory that doesn't exist, it will be created.\n";
-	std::cout << "equiv <path1> <path2> [--error]             : Prints 'yes' if the two paths are equivalent - ie, refer to the same filesystem object; otherwise, prints 'no'.\n";
-	std::cout << "                                              If the --error option is given, the result of the comparison is indicated by an exit code of 0 or 1 instead of printing to standard output.\n";
-	std::cout << "exists <filesOrDirs...> [--error]           : Prints 'yes' if every item in the list of files or directories exists; otherwise prints 'no'.\n";
-	std::cout << "                                              If the --error option is given, the result of the comparison is indicated by an exit code of 0 or 1 instead of printing to standard output.\n";
-	std::cout << "follow_symlink <symLink> [--no-recurse]     : Follows the symlink (and any other symlinks it points to, recursively) and prints the absolute path of the target to standard output\n";
-	std::cout << "ln <symLinkPath> <symLinkTarget>            : Create a symlink at <symLinkPath> referencing <symLinkTarget>\n";
-	std::cout << "ls [<directory>]                            : Print directory contents\n";
-	std::cout << "mkdir <directory>                           : Create a directory\n";
-	std::cout << "modtime <fileOrDir>                         : Prints the time the file or directory was last modified\n";
-	std::cout << "                                              The time is printed in the form HH:MM:SS Day Month Year, with the time in 24-hour format and the month expressed as a 3-letter abbreviation.\n";
-	std::cout << "native <path>                               : Converts any directory separators in <path> to the preferred directory separator for the current platform.\n";
-	std::cout << "                                              Unlike most other commands, this one does not make the passed path absolute if a relative path was given.\n";
-	std::cout << "path                                        : Prints the contents of the PATH environment variable as a list of absolute paths to directories, one per line of output.\n";
-	std::cout << "prepend <fileName> <content> [--strict]     : Prepends the <content> to the specified file\n";
-	std::cout << "                                              If the --strict option is given, raises an error if the file did not already exist.\n";
-	std::cout << "pwd                                         : Print absolute path of current working directory\n";
-	std::cout << "relative <path> [<basePath>]                : Prints the <path> made relative to <basePath>\n";
-	std::cout << "                                              If <basePath> is not specified, it defaults to the current working directory.\n";
-	std::cout << "rename <oldName> <newName>                  : Rename a file or directory\n";
-	std::cout << "rm <filesOrDirs...>                         : Remove files, directories, or symlinks\n";
-	std::cout << "sep                                         : Prints the current platform's preferred directory separator.\n";
-	std::cout << "size [<fileOrDirectory>]                    : Prints the size of the file or directory, in bytes\n";
-	std::cout << "                                              If no file or directory is specified, prints the capacity of the entire filesystem.\n";
-	std::cout << "space                                       : Prints the available space on the filesystem, in bytes\n";
-	std::cout << "touch <filesOrDirs...> [--no-create]        : Update last modification time of files or directories, creating them if they don't exist, unless --no-create is specified\n";
-	std::cout << "type <path>                                 : Prints the type of the filesystem entry found at <path>, as one of 'file', 'directory', or 'symlink'.\n";
-	std::cout << "which [<programName>]                       : Searches for an executable file named <programName> in each of the directories in the PATH environment variable and prints the absolute path of the first match found.\n";
-	std::cout << "                                              Omit the <programName> to search for the FileUtil executable itself.\n";
-	std::cout << "write <fileName> <content> [--no-overwrite] : Writes the <content> to the specified file. If the file already existed, it will be overwritten.\n";
-	std::cout << "                                              If the --no-overwrite option is given, raises an error if the file already existed.\n\n";
-
-	std::cout << "help|--help|-help|-h : print this message and exit\n\n";
-	std::cout << "version|--version|-version|-v : print version information and exit\n";
-
-	std::cout << std::endl;
-}
 
 void displayVersionInfo()
 {
@@ -89,15 +35,25 @@ void parseAndExecute (int argc, char** argv)
 {
 	if (argc == 1)
 	{
-		displayUsage();
+		displayUsageOverview();
 		return;
 	}
 
 	const auto mode = std::string { argv[1] };
 
-	if (mode == "help" || mode == "--help" || mode == "-help" || mode == "-h")
+	if (mode == "--help" || mode == "-help" || mode == "-h")
 	{
-		displayUsage();
+		displayUsageOverview();
+		return;
+	}
+
+	if (mode == "help")
+	{
+		if (argc > 2)
+			displayCommandHelp (std::string { argv[2] });
+		else
+			displayUsageOverview();
+
 		return;
 	}
 
@@ -272,6 +228,56 @@ void parseAndExecute (int argc, char** argv)
 		}();
 
 		fileutil::follow_symlink (std::string { argv[2] }, recurse);
+		return;
+	}
+
+	if (mode == "glob")
+	{
+		bool recurse = false;
+		bool error	 = false;
+
+		std::string dir;
+		std::string expr;
+
+		for (auto i = 2; i < argc; ++i)
+		{
+			const auto arg = std::string { argv[i] };
+
+			if (arg == "--recurse")
+			{
+				recurse = true;
+				continue;
+			}
+
+			if (arg == "--error")
+			{
+				error = true;
+				continue;
+			}
+
+			if (arg == "--dir")
+			{
+				if (i + 1 >= argc)
+				{
+					std::cerr << "Error: directory not specified with --dir option" << std::endl;
+					std::exit (EXIT_FAILURE);
+				}
+
+				dir = argv[i + 1];
+				++i;
+				continue;
+			}
+
+			expr = arg;
+		}
+
+		if (expr.empty())
+		{
+			std::cerr << "Error: globbing expression not specified in call to glob" << std::endl;
+			std::exit (EXIT_FAILURE);
+		}
+
+		fileutil::glob (expr, dir, recurse, error);
 		return;
 	}
 
