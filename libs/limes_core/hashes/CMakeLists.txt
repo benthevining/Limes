@@ -11,22 +11,18 @@
 include (OrangesSourceFileUtils)
 
 oranges_add_source_files (
-	DIRECTORY_NAME files
+	DIRECTORY_NAME hashes
 	TARGET limes_core
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  directory.cpp
-		  directory.h
-		  file.cpp
-		  file.h
-		  FilesystemEntry.cpp
-		  FilesystemEntry.h
-		  sym_link.cpp
-		  sym_link.h
-		  misc.h
-		  misc.cpp
-		  DynamicLibrary.h
-		  DynamicLibrary.cpp)
+		  hash.h
+		  md5.cpp
+		  sha1.cpp
+		  hash.cpp
+		  sha224.cpp
+		  sha256.cpp
+		  sha384.cpp
+		  sha512.cpp)
 
-set (files_files ${files_files} PARENT_SCOPE)
+set (hashes_files ${hashes_files} PARENT_SCOPE)

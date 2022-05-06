@@ -40,7 +40,7 @@
 
 
 #if __cpp_lib_unreachable
-#	define LIMES_UNREACHABLE ::std::unreachable();
+#	define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::std::unreachable())
 #else
 #	define LIMES_UNREACHABLE LIMES_ASSERT_FALSE;
 #endif

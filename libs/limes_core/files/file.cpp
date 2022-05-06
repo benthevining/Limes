@@ -18,6 +18,8 @@
 #include <exception>
 #include <sstream>
 #include "../misc/Functions.h"
+#include "../text/StringUtils.h"
+#include "../hashes/hash.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -77,24 +79,9 @@ bool File::overwriteWithText (const std::string& text) const noexcept
 	return overwriteWithData (text.data(), text.size());
 }
 
-[[nodiscard]] static inline std::string linesToSingleString (const std::vector<std::string>& lines) noexcept
-{
-	std::string combined;
-
-	for (const auto& line : lines)
-	{
-		combined += line;
-
-		if (! (line.ends_with ('\n') || line.ends_with ("\r\n")))
-			combined += '\n';
-	}
-
-	return combined;
-}
-
 bool File::overwriteWithText (const std::vector<std::string>& text) const noexcept
 {
-	return overwriteWithText (linesToSingleString (text));
+	return overwriteWithText (strings::joinWithNewlines (text));
 }
 
 bool File::appendData (const char* const data, std::size_t numBytes) const noexcept
@@ -109,7 +96,7 @@ bool File::appendText (const std::string& text) const noexcept
 
 bool File::appendText (const std::vector<std::string>& text) const noexcept
 {
-	return appendText (linesToSingleString (text));
+	return appendText (strings::joinWithNewlines (text));
 }
 
 bool File::prependText (const std::string& text) const noexcept
@@ -123,7 +110,7 @@ bool File::prependText (const std::string& text) const noexcept
 
 bool File::prependText (const std::vector<std::string>& text) const noexcept
 {
-	return prependText (linesToSingleString (text));
+	return prependText (strings::joinWithNewlines (text));
 }
 
 RawData File::loadAsData() const noexcept
@@ -158,14 +145,42 @@ std::string File::loadAsString() const noexcept
 
 std::vector<std::string> File::loadAsLines() const
 {
-	std::vector<std::string> lines;
+	return strings::splitAtNewlines (loadAsString());
+}
 
-	auto ss = std::stringstream { loadAsString() };
+std::string File::hash (hash::Type hashType) const
+{
+	return hash::hash (hashType, loadAsString());
+}
 
-	for (std::string line; std::getline (ss, line, '\n');)
-		lines.emplace_back (line);
+std::string File::hash_md5() const
+{
+	return hash::md5 (loadAsString());
+}
 
-	return lines;
+std::string File::hash_sha1() const
+{
+	return hash::sha1 (loadAsString());
+}
+
+std::string File::hash_sha224() const
+{
+	return hash::sha224 (loadAsString());
+}
+
+std::string File::hash_sha256() const
+{
+	return hash::sha256 (loadAsString());
+}
+
+std::string File::hash_sha384() const
+{
+	return hash::sha384 (loadAsString());
+}
+
+std::string File::hash_sha512() const
+{
+	return hash::sha512 (loadAsString());
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------*/

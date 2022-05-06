@@ -25,7 +25,7 @@ LIMES_BEGIN_NAMESPACE
 
 RawData::RawData (std::size_t initialSize, bool initializeToZero)
 	: size (initialSize), data (static_cast<char*> (initializeToZero
-														? std::calloc (initialSize, 1UL)
+														? std::calloc (initialSize, std::size_t (1))
 														: std::malloc (initialSize)))
 {
 	throwOnAllocationFailure();
@@ -96,6 +96,11 @@ RawData& RawData::operator= (RawData&& other)
 	return *this;
 }
 
+void RawData::writeToStream (std::basic_ostream<char>& outputStream) const
+{
+	outputStream.write (data, static_cast<std::streamsize> (size));
+}
+
 void RawData::allocate (std::size_t newSize, bool preserveOldData, bool initializeToZero)
 {
 	if (size == newSize)
@@ -116,7 +121,7 @@ void RawData::allocate (std::size_t newSize, bool preserveOldData, bool initiali
 			if (d == nullptr)
 			{
 				if (initializeToZero)
-					return std::calloc (newSize, 1UL);
+					return std::calloc (newSize, std::size_t (1));
 
 				return std::malloc (newSize);
 			}
@@ -128,7 +133,7 @@ void RawData::allocate (std::size_t newSize, bool preserveOldData, bool initiali
 		std::free (data);
 
 		data = static_cast<char*> (initializeToZero
-									   ? std::calloc (size, 1UL)
+									   ? std::calloc (size, std::size_t (1))
 									   : std::malloc (size));
 	}
 

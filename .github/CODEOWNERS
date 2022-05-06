@@ -1,5 +1,6 @@
 
 
+ benthevining
 #
 # * <@insert_github_username>
 # Each line is a file pattern followed by one or more owners.
@@ -107,6 +108,8 @@ libs/limes_core/files/FilesystemEntry.h benthevining
 libs/limes_core/files/directory.h benthevining
 libs/limes_core/files/file.cpp benthevining
 libs/limes_core/files/file.h benthevining
+libs/limes_core/files/misc.h benthevining
+libs/limes_core/files/sym_link.cpp benthevining
 libs/limes_core/files/sym_link.h benthevining
 libs/limes_core/limes_core.h benthevining
 libs/limes_core/math/CMakeLists.txt benthevining
@@ -116,6 +119,11 @@ libs/limes_core/math/Random.cpp benthevining
 libs/limes_core/math/Random.h benthevining
 libs/limes_core/math/fraction_staticAsserts.cpp benthevining
 libs/limes_core/math/geometry/2D/2Dshape.h benthevining
+libs/limes_core/math/geometry/2D/circle.h benthevining
+libs/limes_core/math/geometry/2D/octagon.h benthevining
+libs/limes_core/math/geometry/2D/rectangle.h benthevining
+libs/limes_core/math/geometry/2D/triangle.h benthevining
+libs/limes_core/math/geometry/3D/3Dshape.h benthevining
 libs/limes_core/math/geometry/3D/cube.h benthevining
 libs/limes_core/math/geometry/3D/cylinder.h benthevining
 libs/limes_core/math/geometry/CMakeLists.txt benthevining
@@ -167,6 +175,7 @@ libs/limes_core/time/date.h benthevining
 libs/limes_core/time/month.h benthevining
 libs/limes_core/time/time.cpp benthevining
 libs/limes_core/time/weekday.h benthevining
+libs/limes_core/time/year.proto benthevining
 libs/limes_data_structures/CMakeLists.txt benthevining
 libs/limes_data_structures/README.md benthevining
 libs/limes_data_structures/data_structures/AbstractFIFO.cpp benthevining
@@ -194,6 +203,7 @@ libs/limes_locale/countries/CMakeLists.txt benthevining
 libs/limes_locale/countries/countries.cpp benthevining
 libs/limes_locale/countries/countries.h benthevining
 libs/limes_locale/languages/CMakeLists.txt benthevining
+libs/limes_locale/languages/language.proto benthevining
 libs/limes_locale/languages/languages.cpp benthevining
 libs/limes_locale/languages/languages.h benthevining
 libs/limes_locale/limes_locale.h benthevining
@@ -202,6 +212,7 @@ libs/limes_midi/README.md benthevining
 libs/limes_midi/limes_midi.h benthevining
 libs/limes_midi/tuning/CMakeLists.txt benthevining
 libs/limes_midi/tuning/mts_client.cpp benthevining
+libs/limes_midi/tuning/mts_client.h benthevining
 libs/limes_midi/utilities/CMakeLists.txt benthevining
 libs/limes_midi/utilities/PitchbendMapper.cpp benthevining
 libs/limes_midi/utilities/PitchbendMapper.h benthevining
@@ -360,6 +371,7 @@ ng
 package.json benthevining
 programs/binary_builder/CMakeLists.txt benthevining
 programs/binary_builder/generator.cpp benthevining
+programs/binary_builder/main.cpp benthevining
 programs/file_util/commandLine.cpp benthevining
 programs/file_util/fileutil.cpp benthevining
 scripts/FindLimes.cmake benthevining
@@ -373,6 +385,7 @@ scripts/generate.sh benthevining
 scripts/util.make benthevining
 tests/CMakeLists.txt benthevining
 tests/CMakePresets.json benthevining
+tests/limes_audio/CMakeLists.txt benthevining
 tests/limes_core/random_tests.cpp benthevining
 tests/limes_music/CMakeLists.txt benthevining
 tests/limes_music/compoundInterval_tests.cpp benthevining

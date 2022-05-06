@@ -10,18 +10,53 @@
  * ======================================================================================
  */
 
+#include "StringUtils.h"
 #include <cstring>	// for strcmp, strlen
+#include <cctype>
 #include <iostream>
+#include <algorithm>
+#include <sstream>
+#include <vector>
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE
 
-namespace cstring
+namespace strings
 {
+
+bool isNewline (const std::string_view& string)
+{
+	return string == "\n" || string == "\r\n";
+}
 
 bool areSame (const char* string1, const char* string2)
 {
 	return std::strcmp (string1, string2) == 0;
+}
+
+bool areSameIgnoringCase (const char* string1, const char* string2)
+{
+	const auto l1 = length (string1);
+	const auto l2 = length (string2);
+
+	if (l1 != l2)
+		return false;
+
+	for (auto idx = 0; idx < l1; ++idx)
+		if (std::tolower (static_cast<unsigned char> (string1[idx])) != std::tolower (static_cast<unsigned char> (string2[idx])))
+			return false;
+
+	return true;
+}
+
+bool areSameIgnoringCase (const std::string_view& lhs, const std::string_view& rhs)
+{
+	return std::equal (lhs.begin(), lhs.end(),
+					   rhs.begin(), rhs.end(),
+					   [] (char a, char b)
+					   {
+						   return std::tolower (static_cast<unsigned char> (a)) == std::tolower (static_cast<unsigned char> (b));
+					   });
 }
 
 int length (const char* string)
@@ -29,15 +64,163 @@ int length (const char* string)
 	return static_cast<int> (std::strlen (string));
 }
 
-}  // namespace cstring
+void trim (std::string& string)
+{
+	if (string.empty())
+		return;
+
+	// trim start
+	string.erase (string.begin(), std::find_if (string.begin(), string.end(), [] (unsigned char ch)
+												{ return ! std::isspace (ch); }));
+
+	// trim end
+	string.erase (std::find_if (string.rbegin(), string.rend(), [] (unsigned char ch)
+								{ return ! std::isspace (ch); })
+					  .base(),
+				  string.end());
+}
+
+std::string toUpper (const std::string_view& string)
+{
+	std::string s { string };
+
+	std::transform (s.begin(), s.end(), s.begin(), [] (auto c)
+					{ return static_cast<char> (std::toupper (static_cast<unsigned char> (c))); });
+
+	return s;
+}
+
+std::string toLower (const std::string_view& string)
+{
+	std::string s { string };
+
+	std::transform (s.begin(), s.end(), s.begin(), [] (auto c)
+					{ return static_cast<char> (std::tolower (static_cast<unsigned char> (c))); });
+
+	return s;
+}
+
+std::vector<std::string> split (const std::string_view& stringToSplit,
+								const std::string_view& delimiter,
+								bool					includeDelimiterInResults)
+{
+	std::vector<std::string> strings;
+
+	std::string string { stringToSplit };
+
+	for (size_t pos = 0; pos != std::string::npos; pos = string.find (delimiter))
+	{
+		const auto len = [includeDelimiterInResults, delLen = delimiter.length(), pos]
+		{
+			if (includeDelimiterInResults)
+				return pos + delLen;
+
+			return pos;
+		}();
+
+		strings.emplace_back (string.substr (0, len));
+
+		string.erase (0, pos + delimiter.length());
+	}
+
+	return strings;
+}
+
+std::vector<std::string> splitAtWhitespace (const std::string_view& stringToSplit)
+{
+	std::vector<std::string> tokens;
+
+	auto tokenStart = stringToSplit.begin();
+	auto pos		= tokenStart;
+
+	while (pos != stringToSplit.end())
+	{
+		if (std::isspace (*pos))
+		{
+			auto delimiterStart = pos++;
+
+			while (pos != stringToSplit.end() && std::isspace (*pos))
+				++pos;
+
+			if (pos != stringToSplit.begin())
+				tokens.push_back ({ tokenStart, delimiterStart });
+
+			tokenStart = pos;
+		}
+		else
+		{
+			++pos;
+		}
+	}
+
+	if (pos != stringToSplit.begin())
+		tokens.push_back ({ tokenStart, pos });
+
+	return tokens;
+}
+
+std::vector<std::string> splitAtNewlines (const std::string_view& stringToSplit)
+{
+	auto tokens = split (stringToSplit, "\n", false);
+
+	// if the newline char was \r\n, then strings will now end with \r
+	std::transform (tokens.begin(), tokens.end(), tokens.begin(),
+					[] (auto str)
+					{
+						if (str.ends_with ('\r'))
+							return str.substr (0, str.length() - 1);
+
+						return str;
+					});
+
+	return tokens;
+}
+
+std::string join (const std::vector<std::string>& strings, const std::string_view& delimiter)
+{
+	if (strings.size() == 1)
+		return strings[0];
+
+	std::stringstream stream;
+
+	for (const auto& string : strings)
+	{
+		stream << string;
+
+		if (! string.ends_with (delimiter))
+			stream << delimiter;
+	}
+
+	return stream.str();
+}
+
+std::string joinWithWhitespace (const std::vector<std::string>& strings)
+{
+	return join (strings, " ");
+}
+
+std::string joinWithNewlines (const std::vector<std::string>& strings)
+{
+	return join (strings, getNewline());
+}
+
+std::string getLimesASCII() noexcept
+{
+	std::stringstream str;
+
+	str << "  __    ____  __  __  ____  ___" << new_line
+		<< " (  )  (_  _)(  \\/  )( ___)/ __)" << new_line
+		<< "  )(__  _)(_  )    (  )__) \\__ \\" << new_line
+		<< " (____)(____)(_/\\/\\_)(____)(___/" << new_line;
+
+	return str.str();
+}
 
 void printLimesASCII()
 {
-	std::cout << "  __    ____  __  __  ____  ___\n";
-	std::cout << " (  )  (_  _)(  \\/  )( ___)/ __)\n";
-	std::cout << "  )(__  _)(_  )    (  )__) \\__ \\\n";
-	std::cout << " (____)(____)(_/\\/\\_)(____)(___/\n"
-			  << std::endl;
+	std::cout << getLimesASCII() << std::endl;
 }
+
+}  // namespace strings
 
 LIMES_END_NAMESPACE

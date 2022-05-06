@@ -16,7 +16,7 @@
 #include <limes_namespace.h>
 #include <cstddef>
 #include <string>
-#include <istream>
+#include <iostream>
 #include "../misc/preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
@@ -52,6 +52,8 @@ public:
 	[[nodiscard]] std::size_t getSize() const noexcept;
 
 	[[nodiscard]] std::string toString() const;
+
+	void writeToStream (std::basic_ostream<char>& outputStream) const;
 
 	[[nodiscard]] bool isEmpty() const noexcept;
 

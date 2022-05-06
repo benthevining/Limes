@@ -334,6 +334,58 @@ void glob (const std::string& expr, const std::string& dir, bool recurse, bool e
 	}
 }
 
+void hash (const std::string& hashType, const std::string& filename)
+{
+	limes::files::File file { filename };
+
+	file.makeAbsoluteRelativeToCWD();
+
+	if (! file.exists())
+	{
+		std::cerr << "Error: file does not exist: " << file.getAbsolutePath() << std::endl;
+		std::exit (EXIT_FAILURE);
+	}
+
+	if (hashType == "md5")
+	{
+		std::cout << file.hash_md5() << std::endl;
+		return;
+	}
+
+	if (hashType == "sha1")
+	{
+		std::cout << file.hash_sha1() << std::endl;
+		return;
+	}
+
+	if (hashType == "sha224")
+	{
+		std::cout << file.hash_sha224() << std::endl;
+		return;
+	}
+
+	if (hashType == "sha256")
+	{
+		std::cout << file.hash_sha256() << std::endl;
+		return;
+	}
+
+	if (hashType == "sha384")
+	{
+		std::cout << file.hash_sha384() << std::endl;
+		return;
+	}
+
+	if (hashType == "sha512")
+	{
+		std::cout << file.hash_sha512() << std::endl;
+		return;
+	}
+
+	std::cerr << "Error: unknown hash type requested: " << hashType << std::endl;
+	std::exit (EXIT_FAILURE);
+}
+
 void ln (const std::string& linkName, const std::string& targetName)
 {
 	limes::files::FilesystemEntry link { linkName };

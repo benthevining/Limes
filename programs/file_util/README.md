@@ -80,6 +80,12 @@ FileUtil glob <globbingExpression> [--dir <baseDir>] [--recurse] [--error]
 Prints a list of absolute paths found that match the given globbing expression.
 If the `<baseDir>` option is given, files will be searched for in that directory. Otherwise, it defaults to the current working directory. If the --error flag is given, the program will exit with an error code if no files are found. Otherwise, 'No files found' will be printed.
 
+### `hash`: Compute a hash of a file's contents
+```
+FileUtil hash <hashType> <filename>
+```
+Available hash types are: `md5`, `sha1`, `sha224`, `sha256`, `sha384`, `sha512`
+
 ### `ln`: Create a symbolic link
 ```
 FileUtil ln <symLinkPath> <symLinkTarget>

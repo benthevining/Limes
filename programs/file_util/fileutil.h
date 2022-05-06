@@ -36,6 +36,8 @@ void follow_symlink (const std::string& linkName, bool recurse);
 
 void glob (const std::string& expr, const std::string& dir, bool recurse, bool error);
 
+void hash (const std::string& hashType, const std::string& filename);
+
 void ln (const std::string& linkName, const std::string& targetName);
 
 void ls (const std::string& dir);

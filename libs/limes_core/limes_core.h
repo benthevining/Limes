@@ -58,6 +58,9 @@ Dependencies: None
 #include "files/directory.h"
 #include "files/sym_link.h"
 #include "files/misc.h"
+#include "files/DynamicLibrary.h"
+
+#include "hashes/hash.h"
 
 #include "text/StringUtils.h"
 #include "text/TextTable.h"

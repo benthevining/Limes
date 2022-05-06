@@ -24,10 +24,12 @@ namespace fileutil
 
 void displayVersionInfo()
 {
-	limes::printLimesASCII();
+	limes::strings::printLimesASCII();
 
-	std::cout << "Limes FileUtil: version " << limes::getLimesVersion().toString() << "\n\n";
-	std::cout << "Built on " << limes::time::Date::getCompilationDate().toString() << "\n"
+	const auto newline = limes::strings::new_line;
+
+	std::cout << "Limes FileUtil: version " << limes::getLimesVersion().toString() << newline << newline;
+	std::cout << "Built on " << limes::time::Date::getCompilationDate().toString() << newline
 			  << std::endl;
 }
 
@@ -278,6 +280,18 @@ void parseAndExecute (int argc, char** argv)
 		}
 
 		fileutil::glob (expr, dir, recurse, error);
+		return;
+	}
+
+	if (mode == "hash")
+	{
+		if (argc < 3)
+		{
+			std::cerr << "Error: hash type and filename must be specified in call to hash" << std::endl;
+			std::exit (EXIT_FAILURE);
+		}
+
+		fileutil::hash (std::string { argv[2] }, std::string { argv[3] });
 		return;
 	}
 

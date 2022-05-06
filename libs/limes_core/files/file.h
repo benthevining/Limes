@@ -19,6 +19,7 @@
 #include <vector>
 #include "FilesystemEntry.h"
 #include "../memory/RawData.h"
+#include "../hashes/hash.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -62,6 +63,20 @@ public:
 	[[nodiscard]] std::string loadAsString() const noexcept;
 
 	[[nodiscard]] std::vector<std::string> loadAsLines() const;
+
+	[[nodiscard]] std::string hash (hash::Type hashType) const;
+
+	[[nodiscard]] std::string hash_md5() const;
+
+	[[nodiscard]] std::string hash_sha1() const;
+
+	[[nodiscard]] std::string hash_sha224() const;
+
+	[[nodiscard]] std::string hash_sha256() const;
+
+	[[nodiscard]] std::string hash_sha384() const;
+
+	[[nodiscard]] std::string hash_sha512() const;
 
 private:
 

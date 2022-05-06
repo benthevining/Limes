@@ -115,6 +115,7 @@ target_include_directories (
 					  $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}>)
 
 add_subdirectory (files)
+add_subdirectory (hashes)
 add_subdirectory (math)
 add_subdirectory (memory)
 add_subdirectory (misc)
@@ -127,6 +128,7 @@ set (
 	limes_core.h
 	limes_namespace.h
 	${files_files}
+	${hashes_files}
 	${math_files}
 	${memory_files}
 	${misc_files}
