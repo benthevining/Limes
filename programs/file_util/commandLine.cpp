@@ -429,7 +429,7 @@ void parseAndExecute (int argc, char** argv)
 
 	if (mode == "sep")
 	{
-		std::cout << std::filesystem::path::preferred_separator << std::endl;
+		std::cout << limes::files::dirSeparator() << std::endl;
 		return;
 	}
 
