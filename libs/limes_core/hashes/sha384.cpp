@@ -85,7 +85,7 @@ public:
 		buf[2 * DIGEST_SIZE] = 0;
 
 		for (auto i = 0; i < static_cast<decltype (i)> (DIGEST_SIZE); ++i)
-			std::sprintf (buf + i * 2, "%02x", digest[i]);
+			std::sprintf (buf + i * 2, "%02x", digest[i]);	// NOLINT
 
 		return { buf };
 	}

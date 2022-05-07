@@ -8,27 +8,22 @@
 #
 # ======================================================================================
 
-add_subdirectory (exec_location)
-
 include (OrangesSourceFileUtils)
 
+if (APPLE)
+	set (cpp_file execLoc_mac.cpp)
+elseif (WIN32)
+	set (cpp_file execLoc_win.cpp)
+else ()
+	set (cpp_file execLoc_linux.cpp)
+endif ()
+
 oranges_add_source_files (
-	DIRECTORY_NAME files
+	DIRECTORY_NAME files/exec_location
 	TARGET limes_core
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  directory.cpp
-		  directory.h
-		  file.cpp
-		  file.h
-		  FilesystemEntry.cpp
-		  FilesystemEntry.h
-		  sym_link.cpp
-		  sym_link.h
-		  misc.h
-		  misc.cpp
-		  DynamicLibrary.h
-		  DynamicLibrary.cpp)
+		  exec_location.h "${cpp_file}")
 
-set (files_files ${files_files} ${exec_files} PARENT_SCOPE)
+set (exec_files ${files/exec_location_files} PARENT_SCOPE)

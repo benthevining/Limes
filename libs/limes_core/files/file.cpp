@@ -20,6 +20,7 @@
 #include "../misc/Functions.h"
 #include "../text/StringUtils.h"
 #include "../hashes/hash.h"
+#include "exec_location/exec_location.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -181,6 +182,16 @@ std::string File::hash_sha384() const
 std::string File::hash_sha512() const
 {
 	return hash::sha512 (loadAsString());
+}
+
+File File::getCurrentExecutable()
+{
+	return File { getExecutablePath() };
+}
+
+File File::getCurrentModule()
+{
+	return File { getModulePath() };
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------*/

@@ -484,14 +484,11 @@ void parseAndExecute (int argc, char** argv)
 
 	if (mode == "which")
 	{
-		std::string programName;
-
 		if (argc > 2)
-			programName = argv[2];
+			fileutil::which (std::string { argv[2] });
 		else
-			programName = "FileUtil";
+			std::cout << limes::files::File::getCurrentExecutable().getAbsolutePath() << std::endl;
 
-		fileutil::which (programName);
 		return;
 	}
 

@@ -111,6 +111,8 @@ libs/limes_core/files/file.h benthevining
 libs/limes_core/files/misc.h benthevining
 libs/limes_core/files/sym_link.cpp benthevining
 libs/limes_core/files/sym_link.h benthevining
+libs/limes_core/hashes/sha256.cpp benthevining
+libs/limes_core/hashes/sha512.cpp benthevining
 libs/limes_core/limes_core.h benthevining
 libs/limes_core/math/CMakeLists.txt benthevining
 libs/limes_core/math/Fraction.h benthevining
@@ -172,6 +174,7 @@ libs/limes_core/threading/Threading.h benthevining
 libs/limes_core/time/CMakeLists.txt benthevining
 libs/limes_core/time/build_date.h benthevining
 libs/limes_core/time/date.h benthevining
+libs/limes_core/time/date.proto benthevining
 libs/limes_core/time/month.h benthevining
 libs/limes_core/time/time.cpp benthevining
 libs/limes_core/time/weekday.h benthevining

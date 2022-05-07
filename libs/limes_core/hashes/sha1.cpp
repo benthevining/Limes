@@ -83,12 +83,12 @@ public:
 		char hashTemp[16];
 
 		std::snprintf (hashTemp, sizeof (hashTemp) - 1, "%02X", m_digest[0]);
-		std::strcpy (hashOut, hashTemp);
+		std::strcpy (hashOut, hashTemp);  // NOLINT
 
 		for (size_t i = 1; i < 20; ++i)
 		{
 			std::snprintf (hashTemp, sizeof (hashTemp) - 1, "%02X", m_digest[i]);
-			std::strcat (hashOut, hashTemp);
+			std::strcat (hashOut, hashTemp);  // NOLINT
 		}
 
 		return { hashOut };

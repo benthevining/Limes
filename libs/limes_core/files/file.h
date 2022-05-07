@@ -78,6 +78,10 @@ public:
 
 	[[nodiscard]] std::string hash_sha512() const;
 
+	[[nodiscard]] static File getCurrentExecutable();
+
+	[[nodiscard]] static File getCurrentModule();
+
 private:
 
 	[[nodiscard]] bool write_data (const char* const data, std::size_t numBytes, bool overwrite) const noexcept;

@@ -176,7 +176,7 @@ If nothing exists at `<path>`, raise an error. Otherwise, prints one of `file`, 
 ```
 FileUtil which [<programName>]
 ```
-Searches for an executable file named `<programName>` in each of the directories in the PATH environment variable and prints the absolute path of the first match found. If the `<programName>` is ommitted, this command searches for the FileUtil executable itself.
+Searches for an executable file named `<programName>` in each of the directories in the PATH environment variable and prints the absolute path of the first match found. If the `<programName>` is ommitted, this command prints the path of the currently running FileUtil executable itself.
 
 ### `write`: Write content to a file
 ```

@@ -163,7 +163,7 @@ struct Command final
 	commands.emplace_back ("which",
 						   "[<programName>]",
 						   "Searches for an executable file named <programName> in each of the directories in the PATH environment variable and prints the absolute path of the first match found." + newLine
-							   + "Omit the <programName> to search for the FileUtil executable itself.");
+							   + "Omit the <programName> to print the path of the current FileUtil executable itself.");
 
 	commands.emplace_back ("write",
 						   "<fileName> <content> [--no-overwrite]",

@@ -29,8 +29,7 @@ public:
 
 	inline void update (const unsigned char* input, std::size_t length)
 	{
-		// cppcheck-suppress ctuuninitvar
-		std::uint32_t index = count[0] / 8 % md5_blocksize;	 // cppcheck-suppress uninitvar
+		std::uint32_t index = count[0] / 8 % md5_blocksize;
 
 		if ((count[0] += (length << 3)) < (length << 3))
 			count[1]++;
@@ -101,7 +100,7 @@ public:
 		char buf[33];
 
 		for (auto i = 0; i < 16; ++i)
-			std::sprintf (buf + i * 2, "%02x", digest[i]);
+			std::sprintf (buf + i * 2, "%02x", digest[i]);	// NOLINT
 
 		buf[32] = 0;
 
