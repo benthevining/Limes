@@ -36,14 +36,14 @@ std::string getExecutablePath()
 {
 	char buffer[PATH_MAX];
 
-#ifdef(__sun)
+#if defined(__sun)
 	static constexpr auto proc_self_exe = "/proc/self/path/a.out";
 #else
 	static constexpr auto proc_self_exe	 = "/proc/self/exe";
 #endif
 
 	if (const auto* resolved = realpath (proc_self_exe, buffer))
-		return { resolved, std::strlen (resolved) };
+		return { resolved, static_cast<std::string::size_type> (std::strlen (resolved)) };
 
 	return {};
 }
@@ -64,7 +64,7 @@ std::string getModulePath()
 	return {};
 #endif
 
-#ifdef(__sun)
+#if defined(__sun)
 	static constexpr auto proc_self_maps = "/proc/self/map";
 #else
 	static constexpr auto proc_self_maps = "/proc/self/maps";
@@ -85,15 +85,15 @@ std::string getModulePath()
 				uint64_t low, high, offset;
 				uint32_t major, minor, inode;
 
+				char path[PATH_MAX];
+
 				if (std::sscanf (buffer, "%" PRIx64 "-%" PRIx64 " %s %" PRIx64 " %x:%x %u %s\n", &low, &high, perms, &offset, &major, &minor, &inode, path) != 8)
 					break;
 
-				const auto addr = static_cast<uintptr_t> (WAI_RETURN_ADDRESS());
+				const auto addr = reinterpret_cast<uintptr_t> (WAI_RETURN_ADDRESS());
 
 				if (low <= addr && addr <= high)
 				{
-					char path[PATH_MAX];
-
 					if (auto* resolved = realpath (path, buffer))
 					{
 						auto length = static_cast<int> (std::strlen (resolved));
@@ -144,7 +144,7 @@ std::string getModulePath()
 						}
 #endif
 
-						std::string result { resolved, length };
+						std::string result { resolved, static_cast<std::string::size_type> (length) };
 
 						std::fclose (maps);
 

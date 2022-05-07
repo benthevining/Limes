@@ -17,6 +17,10 @@
 #include <limes_namespace.h>
 #include "exec_location.h"
 
+#if LIMES_MSVC
+#	include <intrin.h>
+#endif
+
 LIMES_BEGIN_NAMESPACE
 
 namespace files
@@ -63,7 +67,7 @@ static inline std::string getModulePathInternal (HMODULE module)
 
 		auto length_ = static_cast<int> (wcslen (buffer2));
 
-		char[MAX_PATH] output;
+		char output[MAX_PATH];
 
 		auto length__ = WideCharToMultiByte (CP_UTF8, 0, buffer2, length_, output, MAX_PATH, nullptr, nullptr);
 
@@ -73,7 +77,7 @@ static inline std::string getModulePathInternal (HMODULE module)
 		if (length__ == 0)
 			break;
 
-		std::string result { output, MAX_PATH };
+		std::string result { output, static_cast<std::string::size_type> (MAX_PATH) };
 
 		if (path != buffer1)
 			std::free (path);

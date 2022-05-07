@@ -16,6 +16,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <limes_namespace.h>
+#include <limits.h>
 #include "exec_location.h"
 
 LIMES_BEGIN_NAMESPACE
@@ -43,7 +44,7 @@ std::string getExecutablePath()
 
 		if (const auto* resolved = realpath (path, buffer2))
 		{
-			std::string result { resolved, std::strlen (resolved) };
+			std::string result { resolved, static_cast<std::string::size_type> (std::strlen (resolved)) };
 
 			if (path != buffer1)
 				std::free (path);
@@ -75,7 +76,7 @@ std::string getModulePath()
 		char buffer[PATH_MAX];
 
 		if (auto* resolved = realpath (info.dli_fname, buffer))
-			return { resolved, std::strlen (resolved) };
+			return { resolved, static_cast<std::string::size_type> (std::strlen (resolved)) };
 	}
 
 	return {};
