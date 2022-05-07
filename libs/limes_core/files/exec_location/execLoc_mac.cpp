@@ -65,9 +65,9 @@ std::string getModulePath()
 #	define WAI_RETURN_ADDRESS() _ReturnAddress()
 #elif defined(__GNUC__)
 #	define WAI_RETURN_ADDRESS() __builtin_extract_return_addr (__builtin_return_address (0))
-#else
-	return {};
 #endif
+
+#ifdef WAI_RETURN_ADDRESS
 
 	Dl_info info;
 
@@ -81,7 +81,11 @@ std::string getModulePath()
 
 	return {};
 
-#undef WAI_RETURN_ADDRESS
+#	undef WAI_RETURN_ADDRESS
+
+#else
+	return {};
+#endif
 }
 
 }  // namespace files

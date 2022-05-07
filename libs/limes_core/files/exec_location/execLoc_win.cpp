@@ -102,27 +102,31 @@ std::string getModulePath()
 #	define WAI_RETURN_ADDRESS() _ReturnAddress()
 #elif defined(__GNUC__)
 #	define WAI_RETURN_ADDRESS() __builtin_extract_return_addr (__builtin_return_address (0))
-#else
-	return {};
 #endif
+
+#ifdef WAI_RETURN_ADDRESS
 
 	HMODULE module;
 
-#if LIMES_MSVC
-#	pragma warning(push)
-#	pragma warning(disable : 4054)
-#endif
+#	if LIMES_MSVC
+#		pragma warning(push)
+#		pragma warning(disable : 4054)
+#	endif
 	if (GetModuleHandleEx (GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT, static_cast<LPCTSTR> (WAI_RETURN_ADDRESS()), &module))
-#if LIMES_MSVC
-#	pragma warning(pop)
-#endif
+#	if LIMES_MSVC
+#		pragma warning(pop)
+#	endif
 	{
 		return getModulePathInternal (module);
 	}
 
 	return {};
 
-#undef WAI_RETURN_ADDRESS
+#	undef WAI_RETURN_ADDRESS
+
+#else
+	return {};
+#endif
 }
 
 }  // namespace files

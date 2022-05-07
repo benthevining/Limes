@@ -39,7 +39,7 @@ std::string getExecutablePath()
 #if defined(__sun)
 	static constexpr auto proc_self_exe = "/proc/self/path/a.out";
 #else
-	static constexpr auto proc_self_exe	 = "/proc/self/exe";
+	static constexpr auto proc_self_exe = "/proc/self/exe";
 #endif
 
 	if (const auto* resolved = realpath (proc_self_exe, buffer))
@@ -60,15 +60,15 @@ std::string getModulePath()
 #	define WAI_RETURN_ADDRESS() _ReturnAddress()
 #elif defined(__GNUC__)
 #	define WAI_RETURN_ADDRESS() __builtin_extract_return_addr (__builtin_return_address (0))
-#else
-	return {};
 #endif
 
-#if defined(__sun)
+#ifdef WAI_RETURN_ADDRESS
+
+#	if defined(__sun)
 	static constexpr auto proc_self_maps = "/proc/self/map";
-#else
+#	else
 	static constexpr auto proc_self_maps = "/proc/self/maps";
-#endif
+#	endif
 
 	for (auto r = 0; r < 5; ++r)
 	{
@@ -98,7 +98,7 @@ std::string getModulePath()
 					{
 						auto length = static_cast<int> (std::strlen (resolved));
 
-#if LIMES_ANDROID
+#	if LIMES_ANDROID
 						if (length > 4
 							&& buffer[length - 1] == 'k'
 							&& buffer[length - 2] == 'p'
@@ -142,7 +142,7 @@ std::string getModulePath()
 							munmap (begin, offset);
 							close (fd);
 						}
-#endif
+#	endif
 
 						std::string result { resolved, static_cast<std::string::size_type> (length) };
 
@@ -159,9 +159,12 @@ std::string getModulePath()
 
 	return {};
 
-#undef WAI_RETURN_ADDRESS
-}
+#	undef WAI_RETURN_ADDRESS
 
+#else
+	return {};
+#endif
+}
 }  // namespace files
 
 LIMES_END_NAMESPACE
