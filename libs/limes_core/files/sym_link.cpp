@@ -11,8 +11,11 @@
  */
 
 #include "sym_link.h"
-#include <exception>
-#include "../misc/Functions.h"
+#include <exception>			// for exception
+#include <filesystem>			// for create_directory_symlink, create_...
+#include "../misc/Functions.h"	// for try_call
+#include "FilesystemEntry.h"	// for FilesystemEntry, Path
+#include <limes_namespace.h>	// for LIMES_BEGIN_NAMESPACE, LIMES_END_...
 
 LIMES_BEGIN_NAMESPACE
 

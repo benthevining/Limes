@@ -12,14 +12,15 @@
 
 #pragma once
 
-#include <limes_namespace.h>
-#include <limes_export.h>
-#include <filesystem>
-#include <string>
-#include <cstdint>
-#include <memory>
-#include <ctime>
-#include "../misc/preprocessor.h"
+#include <memory>				   // for unique_ptr
+#include <limes_export.h>		   // for LIMES_EXPORT
+#include <limes_namespace.h>	   // for LIMES_BEGIN_NAMESPACE, LIMES_END_N...
+#include <cstdint>				   // for uintmax_t
+#include <ctime>				   // for tm
+#include <filesystem>			   // for copy_options, path, perm_options
+#include <string>				   // for string
+#include "../misc/preprocessor.h"  // for LIMES_DEFAULT_COPYABLE, LIMES_DEFA...
+
 
 LIMES_BEGIN_NAMESPACE
 

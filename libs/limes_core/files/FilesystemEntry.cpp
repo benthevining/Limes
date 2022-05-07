@@ -11,16 +11,18 @@
  */
 
 #include "FilesystemEntry.h"
-#include <limes_namespace.h>
-#include <string>
-#include <filesystem>
-#include <fstream>
-#include <ctime>
-#include <chrono>
-#include "directory.h"
-#include "file.h"
-#include "sym_link.h"
-#include "../misc/Functions.h"
+#include <limes_namespace.h>	// for LIMES_BEGIN_NAMESPACE, LIMES_END_NAME...
+#include <ctime>				// for tm
+#include <exception>			// for exception
+#include <filesystem>			// for path, copy, operator/, absolute, crea...
+#include <fstream>				// for string, ofstream
+#include <string>				// for operator<, operator>
+#include "../misc/Functions.h"	// for try_call
+#include "../time/time.h"		// for toTimeObj
+#include "directory.h"			// for Directory
+#include "file.h"				// for File
+#include "sym_link.h"			// for SymLink
+
 
 LIMES_BEGIN_NAMESPACE
 
@@ -282,23 +284,7 @@ bool FilesystemEntry::isHidden() const
 
 std::tm FilesystemEntry::getLastModificationTime() const noexcept
 {
-	using FileClock	  = typename std::filesystem::file_time_type::clock;
-	using SystemClock = std::chrono::system_clock;
-
-	const auto fileNow	 = FileClock::now();
-	const auto systemNow = SystemClock::now();
-
-	const auto fileTime = std::filesystem::last_write_time (getAbsolutePath());
-
-	using SystemDuration = typename SystemClock::duration;
-
-	const auto fileDuration = std::chrono::duration_cast<SystemDuration> (fileTime - fileNow);
-
-	const auto output = std::chrono::time_point_cast<SystemDuration> (fileDuration + systemNow);
-
-	const auto timeT = std::chrono::system_clock::to_time_t (output);
-
-	return *std::localtime (&timeT);
+	return time::toTimeObj (std::filesystem::last_write_time (getAbsolutePath()));
 }
 
 bool FilesystemEntry::rename (const Path& newPath) noexcept

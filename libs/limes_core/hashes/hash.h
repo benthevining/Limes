@@ -12,10 +12,12 @@
 
 #pragma once
 
-#include <limes_export.h>
-#include <limes_namespace.h>
-#include <string>
-#include <string_view>
+#include <limes_export.h>	  // for LIMES_EXPORT
+#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
+#include <cstddef>			  // for size_t
+#include <string>			  // for string
+#include <string_view>		  // for string_view
+
 
 LIMES_BEGIN_NAMESPACE
 

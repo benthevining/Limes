@@ -12,12 +12,11 @@
 
 #pragma once
 
-#include <limes_export.h>
-#include <limes_namespace.h>
-#include <cstddef>
-#include <string>
-#include <iostream>
-#include "../misc/preprocessor.h"
+#include <limes_export.h>	  // for LIMES_EXPORT
+#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
+#include <cstddef>			  // for size_t
+#include <iostream>			  // for basic_istream, basic_ostream
+#include <string>			  // for string
 
 LIMES_BEGIN_NAMESPACE
 

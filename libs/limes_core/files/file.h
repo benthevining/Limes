@@ -12,14 +12,15 @@
 
 #pragma once
 
-#include <limes_namespace.h>
-#include <limes_export.h>
-#include <string>
-#include <cstddef>
-#include <vector>
-#include "FilesystemEntry.h"
-#include "../memory/RawData.h"
-#include "../hashes/hash.h"
+#include <limes_export.h>		// for LIMES_EXPORT
+#include <limes_namespace.h>	// for LIMES_BEGIN_NAMESPACE, LIMES_END_NAME...
+#include <cstddef>				// for size_t
+#include <string>				// for string
+#include <vector>				// for vector
+#include "../hashes/hash.h"		// for Type
+#include "../memory/RawData.h"	// for RawData
+#include "FilesystemEntry.h"	// for FilesystemEntry, Path
+
 
 LIMES_BEGIN_NAMESPACE
 

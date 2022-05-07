@@ -39,6 +39,15 @@ LIMES_EXPORT [[nodiscard]] consteval char PATHseparator() noexcept
 #endif
 }
 
+LIMES_EXPORT [[nodiscard]] consteval bool filesystemIsCaseSensitive() noexcept
+{
+#if LIMES_LINUX
+	return true;
+#else
+	return false;
+#endif
+}
+
 }  // namespace files
 
 LIMES_END_NAMESPACE

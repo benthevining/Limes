@@ -11,13 +11,17 @@
  */
 
 #include "directory.h"
-#include "misc.h"
-#include <limes_namespace.h>
-#include <filesystem>
-#include <type_traits>
-#include <vector>
-#include <string>
-#include <cstdlib>
+#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_...
+#include <cstdlib>			  // for getenv, size_t
+#include <filesystem>		  // for begin, end, operator!=, operator/
+#include <type_traits>		  // for conditional_t
+#include <vector>			  // for vector
+#include <string>			  // for string
+#include "FilesystemEntry.h"  // for FilesystemEntry, Path
+#include "file.h"			  // for File
+#include "sym_link.h"		  // for SymLink
+#include "misc.h"			  // for PATHseparator
+
 
 LIMES_BEGIN_NAMESPACE
 

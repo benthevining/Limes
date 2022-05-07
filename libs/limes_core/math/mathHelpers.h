@@ -17,6 +17,7 @@
 #include <type_traits>
 #include <limes_export.h>
 #include <limes_platform.h>
+#include <algorithm>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -163,6 +164,14 @@ LIMES_EXPORT [[nodiscard]] constexpr T factorial (T number) noexcept
 		return 1;
 
 	return number * factorial (number - T (1));
+}
+
+template <Scalar T>
+LIMES_EXPORT [[nodiscard]] T middleOfThree (T a, T b, T c) noexcept
+{
+	return std::max ({ std::min (a, b),
+					   std::min (std::max (a, b)),
+					   c });
 }
 
 /** Returns the period in samples of a frequency at the specified samplerate. */

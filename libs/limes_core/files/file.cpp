@@ -11,16 +11,19 @@
  */
 
 #include "file.h"
-#include "directory.h"
-#include <limes_namespace.h>
-#include <fstream>
-#include <algorithm>
-#include <exception>
-#include <sstream>
-#include "../misc/Functions.h"
-#include "../text/StringUtils.h"
-#include "../hashes/hash.h"
-#include "exec_location/exec_location.h"
+#include <iterator>						  // for istreambuf_iterator
+#include <limes_namespace.h>			  // for LIMES_BEGIN_NAMESPACE
+#include <exception>					  // for exception
+#include <filesystem>					  // for path, operator/
+#include <fstream>						  // for string, ifstream, ofstream
+#include <string>						  // for char_traits, operator+
+#include "../hashes/hash.h"				  // for hash, md5, sha1, sha224
+#include "../misc/Functions.h"			  // for try_call
+#include "../text/StringUtils.h"		  // for joinWithNewlines, splitA...
+#include "directory.h"					  // for Directory
+#include "exec_location/exec_location.h"  // for getExecutablePath, getMo...
+#include "FilesystemEntry.h"			  // for Path
+#include "../memory/RawData.h"			  // for RawData
 
 LIMES_BEGIN_NAMESPACE
 

@@ -31,21 +31,17 @@
 	Core building blocks.
  */
 
-/** @ingroup lemons_core
-	Use this macro inside a template declaration to place inheritance constraints on a template argument.
-	For example:
-	@code
-	template < class ParameterType, LIMES_MUST_INHERIT_FROM(ParameterType, juce::AudioProcessorParameter) >
-	class SomeClass { };
-	@endcode
-	With the above code, attempting to instantiate a specialization of SomeClass where the template argument is not a type that inherits from juce::AudioProcessorParameter will throw a compile-time error. \n
-	Note that both arguments to this macro must be fully specialized types.
- */
-#define LIMES_MUST_INHERIT_FROM(classToTest, requiredBaseClass) \
-	std::enable_if_t<std::is_base_of<requiredBaseClass, classToTest>::value>* = nullptr
-
 
 LIMES_BEGIN_NAMESPACE
+
+template <typename From, typename To>
+concept convertible_to = std::is_convertible_v<From, To>;
+
+template <typename A, typename B>
+concept same_as = std::is_same_v<A, B>;
+
+template <class ClassToTest, typename RequiredBase>
+concept inherits_from = std::is_base_of_v<RequiredBase, ClassToTest>;
 
 /** @ingroup lemons_core
 	Utility struct that evaluates to std::true_type if the given class specializes the given template, and false otherwise.
@@ -81,21 +77,11 @@ struct LIMES_EXPORT is_specialization<Template<Args...>, Template> final : std::
 {
 };
 
+template <class ClassToTest, template <class...> class Template>
+concept specializes = is_specialization<ClassToTest, Template>::value;
+
 static_assert (is_specialization<std::vector<int>, std::vector>(), "is_specialization test");
 static_assert (! is_specialization<std::vector<int>, std::list>(), "is_specialization test");
-
-/** @ingroup lemons_core
-	Use this macro inside a template declaration to ensure that classToTest is a specialization of the required template.
-	For example:
-	@code
-	template < class VectorType, LIMES_MUST_BE_SPECIALIZATION(VectorType, std::vector) >
-	class SomeClass { };
-	@endcode
-	With the above code, instantiating @code SomeClass< std::vector<int> > @endcode will succeed, and attempting to instantiate @code SomeClass< std::list<int> >; @endcode will throw a compile-time error. \n
-	Note that the first argument to this macro should be a fully-specialized type, and the second argument to this macro must be an unspecialized template!
- */
-#define LIMES_MUST_BE_SPECIALIZATION(classToTest, requiredTemplate) \
-	std::enable_if_t<::limes::is_specialization<classToTest, requiredTemplate>::value>* = nullptr
 
 
 template <class Derived, class Base>
@@ -114,6 +100,11 @@ concept covariant_subtype_of = covariance_check<Derived, Base>::value;
 
 template <typename Test, typename... Types>
 struct LIMES_EXPORT is_one_of final : std::disjunction<std::is_same<Test, Types>...>
+{
+};
+
+template <typename Test, typename... Types>
+struct LIMES_EXPORT is_none_of final : std::negation<is_one_of<Test, Types...>>
 {
 };
 

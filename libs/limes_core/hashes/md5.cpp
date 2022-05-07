@@ -10,13 +10,14 @@
  * ======================================================================================
  */
 
-#include "hash.h"
-#include <limes_namespace.h>
-#include <string>
-#include <string_view>
-#include <cstdint>
-#include <cstring>
-#include <cstdio>
+#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
+#include <cstdint>			  // for uint32_t
+#include <cstdio>			  // for sprintf, size_t
+#include <cstring>			  // for memcpy
+#include <string>			  // for basic_string
+#include <string_view>		  // for string_view
+#include "hash.h"			  // for md5
+
 
 LIMES_BEGIN_NAMESPACE
 

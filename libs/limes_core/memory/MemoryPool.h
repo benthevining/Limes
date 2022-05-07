@@ -12,14 +12,17 @@
 
 #pragma once
 
-#include <limes_namespace.h>
-#include <limes_export.h>
-#include <type_traits>
-#include <cstddef>
-#include <vector>
-#include <memory>
-#include <exception>
-#include "../misc/preprocessor.h"
+#include <memory>				   // for addressof
+#include <utility>				   // for forward
+#include <limes_export.h>		   // for LIMES_EXPORT, LIMES_NO_EXPORT
+#include <limes_namespace.h>	   // for LIMES_BEGIN_NAMESPACE, LIMES_END_...
+#include <cstddef>				   // for size_t, byte
+#include <exception>			   // for exception
+#include <type_traits>			   // for remove_cv
+#include <vector>				   // for vector
+#include "../misc/preprocessor.h"  // for LIMES_NON_COPYABLE, LIMES_DEFAULT...
+#include <limes_platform.h>		   // for LIMES_ASSERT
+
 
 LIMES_BEGIN_NAMESPACE
 

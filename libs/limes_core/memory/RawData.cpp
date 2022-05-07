@@ -10,16 +10,14 @@
  * ======================================================================================
  */
 
-#include <limes_namespace.h>
 #include "RawData.h"
-#include <cstdlib>
-#include <string>
-#include <iterator>
-#include <cstring>
-#include <istream>
-#include <utility>
-#include <new>
-#include <limes_platform.h>
+#include <iterator>			  // for istreambuf_iterator
+#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE
+#include <cstdlib>			  // for malloc, calloc, free
+#include <cstring>			  // for memcpy, memset
+#include <new>				  // for bad_alloc
+#include <string>			  // for char_traits
+
 
 LIMES_BEGIN_NAMESPACE
 

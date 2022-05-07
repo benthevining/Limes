@@ -10,17 +10,17 @@
  * ======================================================================================
  */
 
-#include "hash.h"
-#include <limes_namespace.h>
-#include <string_view>
-#include <string>
-#include <limes_platform.h>
-#include <cstdint>
-#include <cstring>
-#include <cstdio>
+#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
+#include <limes_platform.h>	  // for LIMES_LITTLE_ENDIAN, LIMES_MSVC
+#include <cstdint>			  // for uint32_t, uint8_t
+#include <cstdio>			  // for snprintf, size_t
+#include <cstring>			  // for memcpy, strcat, strcpy
+#include <string>			  // for basic_string
+#include <string_view>		  // for string_view
+#include "hash.h"			  // for sha1
 
 #if LIMES_MSVC
-#	include <stdlib.h>
+#	include <cstdlib>
 #endif
 
 LIMES_BEGIN_NAMESPACE

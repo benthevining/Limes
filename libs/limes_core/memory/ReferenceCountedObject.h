@@ -12,11 +12,11 @@
 
 #pragma once
 
-#include <limes_export.h>
-#include <atomic>
-#include <utility>				 // for std::swap
-#include "../misc/TypeTraits.h"	 // for LIMES_MUST_INHERIT_FROM
-#include <limes_namespace.h>
+#include <limes_export.h>		 // for LIMES_EXPORT
+#include <limes_namespace.h>	 // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
+#include <atomic>				 // for atomic
+#include <limes_platform.h>		 // for LIMES_ASSERT
+#include "../misc/TypeTraits.h"	 // for concept inherits_from
 
 LIMES_BEGIN_NAMESPACE
 
@@ -59,7 +59,7 @@ private:
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-template <class ObjectType, LIMES_MUST_INHERIT_FROM (ObjectType, ReferenceCountedObject)>
+template <inherits_from<ReferenceCountedObject> ObjectType>
 class LIMES_EXPORT ReferenceCountedObjectPtr final
 {
 public:

@@ -36,6 +36,7 @@ Dependencies: None
 #include "misc/Functions.h"
 #include "misc/streams.h"
 
+#include "time/time.h"
 #include "time/build_date.h"
 #include "time/year.h"
 #include "time/month.h"

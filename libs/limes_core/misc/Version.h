@@ -13,10 +13,11 @@
 
 #pragma once
 
-#include <limes_export.h>
-#include <limes_namespace.h>
-#include "preprocessor.h"
-#include <string>
+#include <limes_export.h>	  // for LIMES_EXPORT
+#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
+#include <string>			  // for string
+#include "preprocessor.h"	  // for LIMES_CONSTEXPR_COPYABLE, LIMES_CONSTEX...
+
 
 LIMES_BEGIN_NAMESPACE
 

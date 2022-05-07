@@ -11,14 +11,18 @@
  */
 
 #include "MemoryPool.h"
-#include <limes_namespace.h>
-#include <limes_platform.h>
-#include <cstdlib>
-#include <cstddef>
-#include <limits>
-#include <exception>
-#include "../math/mathHelpers.h"
-#include "../misc/Algorithm.h"
+#include <limes_namespace.h>	  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NA...
+#include <limes_platform.h>		  // for LIMES_ASSERT
+#include <cstdint>				  // for intptr_t
+#include <cmath>				  // for ceil
+#include <cstddef>				  // for size_t, byte
+#include <cstdlib>				  // for free, malloc
+#include <exception>			  // for exception
+#include <limits>				  // for numeric_limits
+#include <stdexcept>			  // for runtime_error
+#include "../math/mathHelpers.h"  // for isDivisibleBy
+#include "../misc/Algorithm.h"	  // for num_of
+
 
 LIMES_BEGIN_NAMESPACE
 

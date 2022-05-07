@@ -12,12 +12,13 @@
 
 #pragma once
 
-#include <limes_export.h>
-#include <limes_namespace.h>
-#include <limes_platform.h>
-#include <string_view>
-#include <string>
-#include <vector>
+#include <limes_export.h>	  // for LIMES_EXPORT
+#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
+#include <limes_platform.h>	  // for LIMES_WINDOWS
+#include <string>			  // for string
+#include <string_view>		  // for string_view, operator""sv, string_view_...
+#include <vector>			  // for vector
+
 
 LIMES_BEGIN_NAMESPACE
 

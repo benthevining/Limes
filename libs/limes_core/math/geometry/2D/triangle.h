@@ -18,6 +18,7 @@
 #include "2Dshape.h"
 #include "../../../misc/preprocessor.h"
 #include "angle.h"
+#include "../../mathHelpers.h"
 #include <cmath>
 
 LIMES_BEGIN_NAMESPACE
@@ -117,10 +118,7 @@ Triangle<ValueType>::Triangle (ValueType sideLength, const Angle<ValueType>& opp
 
 	m_base = std::min ({ sideLength, sideTwo, sideThree });
 
-	// select the middle value of the 3 side lengths
-	m_height = std::max ({ std::min (sideLength, sideTwo),
-						   std::min (std::max (sideLength, sideTwo)),
-						   sideThree });
+	m_height = math::middleOfThree (sideLength, sideTwo, sideThree);
 }
 
 template <Scalar ValueType>
@@ -132,10 +130,7 @@ Triangle<ValueType>::Triangle (ValueType sideOne, ValueType sideTwo, const Angle
 
 	m_base = std::min ({ sideOne, sideTwo, thirdSide });
 
-	// select the middle value of the 3 side lengths
-	m_height = std::max ({ std::min (sideOne, sideTwo),
-						   std::min (std::max (sideOne, sideTwo)),
-						   thirdSide });
+	m_height = math::middleOfThree (sideOne, sideTwo, thirdSide);
 }
 
 template <Scalar ValueType>

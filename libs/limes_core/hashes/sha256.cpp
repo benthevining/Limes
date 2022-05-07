@@ -10,15 +10,15 @@
  * ======================================================================================
  */
 
-#include "hash.h"
+#include <algorithm>		  // for min
+#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
+#include <cstdint>			  // for uint32_t, uint8_t
+#include <cstdio>			  // for sprintf, size_t
+#include <cstring>			  // for memcpy, memset
+#include <string>			  // for basic_string
+#include <string_view>		  // for string_view
+#include "hash.h"			  // for sha256
 
-#include <limes_namespace.h>
-#include <string>
-#include <string_view>
-#include <cstring>
-#include <algorithm>
-#include <cstdio>
-#include <cstdint>
 
 LIMES_BEGIN_NAMESPACE
 

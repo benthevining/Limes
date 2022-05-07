@@ -55,12 +55,8 @@ std::filesystem::path getWisdomFileDir()
 	const std::lock_guard g { wisdom_lock };
 
 	if (widom_file_dir.empty())
-	{
-		const auto* homeDir = std::getenv ("HOME");
-
-		if (homeDir != nullptr)
+		if (const auto* homeDir = std::getenv ("HOME"))
 			widom_file_dir = homeDir;
-	}
 
 	return widom_file_dir;
 }

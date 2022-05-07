@@ -12,14 +12,16 @@
 
 #pragma once
 
-#include <limes_namespace.h>
-#include <limes_export.h>
-#include "FilesystemEntry.h"
-#include "file.h"
-#include "sym_link.h"
-#include <vector>
-#include <functional>
-#include <string>
+#include <functional>		  // for function
+#include <limes_export.h>	  // for LIMES_EXPORT
+#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_...
+#include <stdint.h>			  // for uintmax_t
+#include <string>			  // for string
+#include <vector>			  // for vector
+#include "FilesystemEntry.h"  // for FilesystemEntry, Path
+#include "file.h"			  // for File
+#include "sym_link.h"		  // for SymLink
+
 
 LIMES_BEGIN_NAMESPACE
 
