@@ -32,8 +32,8 @@ struct LIMES_EXPORT Fraction final
 	template <typename T>
 	explicit constexpr Fraction (const Fraction<T>& other) noexcept;
 
-	LIMES_CONSTEXPR_COPYABLE(Fraction);
-	LIMES_CONSTEXPR_MOVABLE(Fraction);
+	LIMES_CONSTEXPR_COPYABLE (Fraction);
+	LIMES_CONSTEXPR_MOVABLE (Fraction);
 
 	template <typename T>
 	constexpr Fraction& operator= (const Fraction<T>& other) noexcept;

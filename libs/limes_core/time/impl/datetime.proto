@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package limes.core;
+
+import "date.proto";
+import "time.proto";
+
+message DateTime {
+  Date date = 1;
+  Time time = 2;
+}

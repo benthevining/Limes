@@ -14,13 +14,13 @@
 #include <chrono>			  // for system_clock
 #include <ctime>			  // for tm, localtime, time_t
 #include <sstream>			  // for char_traits, operator<<, basic_ostream
-#include "../date.h"			  // for Date
-#include "../month.h"			  // for Month
+#include "../date.h"		  // for Date
+#include "../month.h"		  // for Month
 #include "../weekday.h"		  // for Weekday
-#include "../year.h"			  // for Year
-#include "../hour.h"             // for Hour
-#include "../time.h" // for Time
-#include "../DateTime.h" // for DateTime
+#include "../year.h"		  // for Year
+#include "../hour.h"		  // for Hour
+#include "../time.h"		  // for Time
+#include "../DateTime.h"	  // for DateTime
 
 LIMES_BEGIN_NAMESPACE
 
@@ -57,9 +57,8 @@ bool Year::isInFuture() const noexcept
 }
 
 Year::Year (std::time_t time)
-: Year(*std::localtime (&time))
+	: Year (*std::localtime (&time))
 {
-
 }
 
 // NB the only reason this function isn't constexpr is to move it out of the Year class's header files,
@@ -83,9 +82,8 @@ int Year::getNumWeeks() const noexcept
 /*-------------------------------------------------------------------------------------------------------------*/
 
 Month::Month (std::time_t time)
-: Month(*std::localtime (&time))
+	: Month (*std::localtime (&time))
 {
-
 }
 
 Month Month::getCurrent()
@@ -109,9 +107,8 @@ Weekday<StartWeekOnSunday> Weekday<StartWeekOnSunday>::getCurrent()
 
 template <bool StartWeekOnSunday>
 Weekday<StartWeekOnSunday>::Weekday (std::time_t time)
-: Weekday(*std::localtime (&time))
+	: Weekday (*std::localtime (&time))
 {
-
 }
 
 template class Weekday<true>;
@@ -157,9 +154,8 @@ std::string Date::toString (bool shortMonthName) const
 /*-------------------------------------------------------------------------------------------------------------*/
 
 Hour::Hour (std::time_t time)
-: Hour(*std::localtime (&time))
+	: Hour (*std::localtime (&time))
 {
-
 }
 
 Hour Hour::getCurrent()
@@ -173,9 +169,8 @@ Hour Hour::getCurrent()
 /*-------------------------------------------------------------------------------------------------------------*/
 
 Time::Time (std::time_t time)
-: Time (*std::localtime (&time))
+	: Time (*std::localtime (&time))
 {
-
 }
 
 Time Time::getCurrent()
@@ -215,7 +210,7 @@ std::string Time::toString (bool as24HourTime) const
 	if (second < 10)
 		stream << 0;
 
-	stream << second << ':';
+	stream << second;
 
 	if (! as24HourTime)
 	{
@@ -233,9 +228,8 @@ std::string Time::toString (bool as24HourTime) const
 /*-------------------------------------------------------------------------------------------------------------*/
 
 DateTime::DateTime (std::time_t t)
-: DateTime(*std::localtime (&t))
+	: DateTime (*std::localtime (&t))
 {
-
 }
 
 std::time_t DateTime::getTimeT() const

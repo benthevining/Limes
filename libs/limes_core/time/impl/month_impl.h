@@ -1,3 +1,15 @@
+/*
+ * ======================================================================================
+ *  __    ____  __  __  ____  ___
+ * (  )  (_  _)(  \/  )( ___)/ __)
+ *  )(__  _)(_  )    (  )__) \__ \
+ * (____)(____)(_/\/\_)(____)(___/
+ *
+ *  This file is part of the Limes open source library and is licensed under the terms of the GNU Public License.
+ *
+ * ======================================================================================
+ */
+
 #pragma once
 
 #include <limes_namespace.h>
@@ -17,14 +29,13 @@ constexpr Month::Month (int number) noexcept
 }
 
 constexpr Month::Month (Name monthName) noexcept
-: monthNum (static_cast<int>(monthName))
+	: monthNum (static_cast<int> (monthName))
 {
-
 }
 
 constexpr Month& Month::operator= (Name newMonth) noexcept
 {
-	monthNum = static_cast<int>(newMonth);
+	monthNum = static_cast<int> (newMonth);
 	return *this;
 }
 
@@ -41,13 +52,12 @@ constexpr int Month::getMonthNumber() const noexcept
 
 constexpr Month::Name Month::getMonthName() const noexcept
 {
-	return static_cast<Name>(monthNum);
+	return static_cast<Name> (monthNum);
 }
 
 constexpr Month::Month (const std::tm& timeObj) noexcept
-: monthNum(timeObj.tm_mon)
+	: monthNum (timeObj.tm_mon)
 {
-
 }
 
 constexpr int Month::getNumDays (bool leapYear) const noexcept
@@ -68,7 +78,7 @@ constexpr int Month::getNumDays (bool leapYear) const noexcept
 
 constexpr int Month::getNumWeeks (bool leapYear) const noexcept
 {
-	return math::round (static_cast<double>(getNumDays(leapYear)) / 7.);
+	return math::round (static_cast<double> (getNumDays (leapYear)) / 7.);
 }
 
 constexpr Month& Month::operator++() noexcept
@@ -91,12 +101,12 @@ constexpr Month& Month::operator--() noexcept
 	return *this;
 }
 
-constexpr Month& Month::operator++(int) noexcept
+constexpr Month& Month::operator++ (int) noexcept  // NOLINT
 {
 	return ++(*this);
 }
 
-constexpr Month& Month::operator--(int) noexcept
+constexpr Month& Month::operator-- (int) noexcept  // NOLINT
 {
 	return --(*this);
 }
@@ -147,12 +157,12 @@ constexpr bool Month::operator< (const Month& other) const noexcept
 
 constexpr bool Month::operator> (Name other) const noexcept
 {
-	return monthNum > static_cast<int>(other);
+	return monthNum > static_cast<int> (other);
 }
 
 constexpr bool Month::operator< (Name other) const noexcept
 {
-	return monthNum < static_cast<int>(other);
+	return monthNum < static_cast<int> (other);
 }
 
 constexpr bool Month::operator== (const Month& other) const noexcept
@@ -167,12 +177,12 @@ constexpr bool Month::operator!= (const Month& other) const noexcept
 
 constexpr bool Month::operator== (Name other) const noexcept
 {
-	return monthNum == static_cast<int>(other);
+	return monthNum == static_cast<int> (other);
 }
 
 constexpr bool Month::operator!= (Name other) const noexcept
 {
-	return monthNum != static_cast<int>(other);
+	return monthNum != static_cast<int> (other);
 }
 
 consteval Month Month::getCompilationMonth() noexcept
@@ -192,6 +202,6 @@ constexpr std::string_view Month::getString (bool useShort) const noexcept
 	return result;
 }
 
-}
+}  // namespace time
 
 LIMES_END_NAMESPACE

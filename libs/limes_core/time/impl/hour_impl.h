@@ -1,3 +1,15 @@
+/*
+ * ======================================================================================
+ *  __    ____  __  __  ____  ___
+ * (  )  (_  _)(  \/  )( ___)/ __)
+ *  )(__  _)(_  )    (  )__) \__ \
+ * (____)(____)(_/\/\_)(____)(___/
+ *
+ *  This file is part of the Limes open source library and is licensed under the terms of the GNU Public License.
+ *
+ * ======================================================================================
+ */
+
 #pragma once
 
 #include <limes_namespace.h>
@@ -10,13 +22,13 @@ namespace time
 {
 
 constexpr Hour::Hour (int hoursSinceMidnight) noexcept
-: hour(hoursSinceMidnight)
+	: hour (hoursSinceMidnight)
 {
 	LIMES_ASSERT (hour >= 0 && hour < 24);
 }
 
 constexpr Hour::Hour (int hourNumber, bool isAM) noexcept
-: hour(hourNumber)
+	: hour (hourNumber)
 {
 	if (! isAM)
 		hour += 12;
@@ -25,9 +37,8 @@ constexpr Hour::Hour (int hourNumber, bool isAM) noexcept
 }
 
 constexpr Hour::Hour (const std::tm& timeObj) noexcept
-: hour(timeObj.tm_hour)
+	: hour (timeObj.tm_hour)
 {
-
 }
 
 constexpr bool Hour::isAM() const noexcept
@@ -78,13 +89,13 @@ constexpr Hour& Hour::operator--() noexcept
 	return *this;
 }
 
-constexpr Hour& Hour::operator+=(int hoursToAdd) noexcept
+constexpr Hour& Hour::operator+= (int hoursToAdd) noexcept
 {
 	hour = (hour + hoursToAdd) % 24;
 	return *this;
 }
 
-constexpr Hour& Hour::operator-=(int hoursToSubtract) noexcept
+constexpr Hour& Hour::operator-= (int hoursToSubtract) noexcept
 {
 	hour = (hour - hoursToSubtract) % 24;
 	return *this;
@@ -100,22 +111,22 @@ constexpr Hour Hour::operator- (int hoursToSubtract) const noexcept
 	return Hour { (hour - hoursToSubtract) % 24 };
 }
 
-constexpr bool Hour::operator>(const Hour& other) const noexcept
+constexpr bool Hour::operator> (const Hour& other) const noexcept
 {
 	return hour > other.hour;
 }
 
-constexpr bool Hour::operator<(const Hour& other) const noexcept
+constexpr bool Hour::operator< (const Hour& other) const noexcept
 {
 	return hour < other.hour;
 }
 
-constexpr bool Hour::operator==(const Hour& other) const noexcept
+constexpr bool Hour::operator== (const Hour& other) const noexcept
 {
 	return hour == other.hour;
 }
 
-constexpr bool Hour::operator!=(const Hour& other) const noexcept
+constexpr bool Hour::operator!= (const Hour& other) const noexcept
 {
 	return hour != other.hour;
 }
@@ -135,6 +146,6 @@ constexpr Hour Hour::midnight() noexcept
 	return Hour { 0 };
 }
 
-}
+}  // namespace time
 
 LIMES_END_NAMESPACE

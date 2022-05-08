@@ -1,3 +1,15 @@
+/*
+ * ======================================================================================
+ *  __    ____  __  __  ____  ___
+ * (  )  (_  _)(  \/  )( ___)/ __)
+ *  )(__  _)(_  )    (  )__) \__ \
+ * (____)(____)(_/\/\_)(____)(___/
+ *
+ *  This file is part of the Limes open source library and is licensed under the terms of the GNU Public License.
+ *
+ * ======================================================================================
+ */
+
 #pragma once
 
 #include <limes_namespace.h>
@@ -15,9 +27,8 @@ constexpr Year::Year (int yearNumber) noexcept
 }
 
 constexpr Year::Year (const std::tm& timeObj) noexcept
-: year(timeObj.tm_year + 1900)
+	: year (timeObj.tm_year + 1900)
 {
-
 }
 
 constexpr Year& Year::operator= (int newYear) noexcept

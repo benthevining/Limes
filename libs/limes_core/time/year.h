@@ -78,7 +78,7 @@ private:
 	int year { 0 };
 };
 
-}
+}  // namespace time
 
 LIMES_END_NAMESPACE
 

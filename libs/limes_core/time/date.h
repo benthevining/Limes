@@ -20,6 +20,7 @@
 #include "year.h"
 #include <ctime>
 #include <string>
+#include "time_utils.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -40,13 +41,16 @@ public:
 
 	explicit Date (std::time_t time);
 
+	template <Clock ClockType>
+	explicit Date (const Point<ClockType>& timePoint);
+
 	LIMES_CONSTEXPR_MOVABLE (Date);
 	LIMES_CONSTEXPR_COPYABLE (Date);
 
 	[[nodiscard]] constexpr Year  getYear() const noexcept;
 	[[nodiscard]] constexpr Month getMonth() const noexcept;
 	[[nodiscard]] constexpr int	  getDayOfMonth() const noexcept;
-	[[nodiscard]] constexpr int   getDayOfYear() const noexcept;
+	[[nodiscard]] constexpr int	  getDayOfYear() const noexcept;
 
 	template <bool StartWeekOnSunday = false>
 	[[nodiscard]] constexpr Weekday<StartWeekOnSunday> getWeekday() const noexcept;

@@ -44,6 +44,11 @@ Path Directory::getRelativePath (const Path& inputPath) const
 	return std::filesystem::relative (inputPath, getAbsolutePath());
 }
 
+bool Directory::isEmpty() const
+{
+	return getAllChildren().empty();
+}
+
 FilesystemEntry Directory::getChild (const std::string& childName, bool createIfNeeded) const
 {
 	return FilesystemEntry { getAbsolutePath() / childName, createIfNeeded };

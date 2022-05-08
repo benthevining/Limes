@@ -49,7 +49,7 @@ template <Scalar ValueType>
 template <typename T>
 constexpr Fraction<ValueType>::operator T() const noexcept
 {
-	LIMES_ASSERT(denominator != 0);
+	LIMES_ASSERT (denominator != 0);
 
 	return static_cast<T> (numerator) / static_cast<T> (denominator);
 }
@@ -97,14 +97,14 @@ template <Scalar ValueType>
 template <typename T>
 constexpr bool Fraction<ValueType>::operator> (T value) const noexcept
 {
-	return (T) *this > value; // NOLINT
+	return (T) * this > value;	// NOLINT
 }
 
 template <Scalar ValueType>
 template <typename T>
 constexpr bool Fraction<ValueType>::operator< (T value) const noexcept
 {
-	return (T) *this < value; // NOLINT
+	return (T) * this < value;	// NOLINT
 }
 
 template <Scalar ValueType>
@@ -159,7 +159,6 @@ template <Scalar ValueType>
 constexpr Fraction<ValueType>& Fraction<ValueType>::operator+= (ValueType add) noexcept
 {
 	numerator += add;
-	reduce();
 	return *this;
 }
 
@@ -167,7 +166,6 @@ template <Scalar ValueType>
 constexpr Fraction<ValueType>& Fraction<ValueType>::operator-= (ValueType subtract) noexcept
 {
 	numerator -= subtract;
-	reduce();
 	return *this;
 }
 
@@ -192,7 +190,7 @@ constexpr Fraction<ValueType> Fraction<ValueType>::operator/ (const Fraction<Val
 template <Scalar ValueType>
 constexpr Fraction<ValueType> Fraction<ValueType>::operator/ (ValueType divide) const noexcept
 {
-	return Fraction{ numerator / divide, denominator }.reduce();
+	return Fraction { numerator / divide, denominator }.reduce();
 }
 
 template <Scalar ValueType>
@@ -211,7 +209,6 @@ template <Scalar ValueType>
 constexpr Fraction<ValueType>& Fraction<ValueType>::operator*= (ValueType multiply) noexcept
 {
 	numerator *= multiply;
-	reduce();
 	return *this;
 }
 
@@ -219,14 +216,13 @@ template <Scalar ValueType>
 constexpr Fraction<ValueType>& Fraction<ValueType>::operator/= (ValueType divide) noexcept
 {
 	numerator /= divide;
-	reduce();
 	return *this;
 }
 
 template <Scalar ValueType>
 constexpr ValueType Fraction<ValueType>::leastCommonDenominatorWith (const Fraction& other) const noexcept
 {
-	return std::max (ValueType(1), std::gcd (denominator, other.denominator));
+	return std::max (ValueType (1), std::gcd (denominator, other.denominator));
 }
 
 template <Scalar ValueType>
@@ -240,12 +236,12 @@ constexpr ValueType Fraction<ValueType>::divided() const noexcept
 template <Scalar ValueType>
 constexpr Fraction<ValueType> Fraction<ValueType>::reduce() const noexcept
 {
-	const auto gcd = std::max (ValueType(1), std::gcd (numerator, denominator));
-	auto res = Fraction { numerator / gcd, denominator / gcd };
+	const auto gcd = std::max (ValueType (1), std::gcd (numerator, denominator));
+	auto	   res = Fraction { numerator / gcd, denominator / gcd };
 
 	if (res.numerator < 0 && res.denominator < 0)
 	{
-		res.numerator = -res.numerator;
+		res.numerator	= -res.numerator;
 		res.denominator = -res.denominator;
 	}
 

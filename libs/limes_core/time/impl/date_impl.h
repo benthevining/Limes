@@ -1,3 +1,15 @@
+/*
+ * ======================================================================================
+ *  __    ____  __  __  ____  ___
+ * (  )  (_  _)(  \/  )( ___)/ __)
+ *  )(__  _)(_  )    (  )__) \__ \
+ * (____)(____)(_/\/\_)(____)(___/
+ *
+ *  This file is part of the Limes open source library and is licensed under the terms of the GNU Public License.
+ *
+ * ======================================================================================
+ */
+
 #pragma once
 
 #include <limes_namespace.h>
@@ -23,6 +35,12 @@ constexpr Date::Date (int y, int m, int d) noexcept
 
 constexpr Date::Date (const std::tm& timeObj) noexcept
 	: year (timeObj), month (timeObj), dayOfMonth (timeObj.tm_mday)
+{
+}
+
+template <Clock ClockType>
+Date::Date (const Point<ClockType>& timePoint)
+	: Date (toTimeObj (timePoint))
 {
 }
 
@@ -64,7 +82,7 @@ constexpr int Date::getDayOfYear() const noexcept
 constexpr int Date::getWeekNumber() const noexcept
 {
 	const auto dayOfYear = getDayOfYear();
-	const auto weekday = getWeekday<false>();
+	const auto weekday	 = getWeekday<false>();
 
 	if (dayOfYear < 8)
 	{
@@ -104,7 +122,7 @@ constexpr int Date::getWeekNumber() const noexcept
 	if (dayOfYear < week1first)
 		return 1;
 
-	return ((dayOfYear - week1first)/7) + 1;
+	return ((dayOfYear - week1first) / 7) + 1;
 }
 
 constexpr bool Date::isBefore (const Date& other) const noexcept
@@ -154,6 +172,6 @@ consteval Date Date::getCompilationDate() noexcept
 	return Date { build_year(), build_month(), build_day() };
 }
 
-}
+}  // namespace time
 
 LIMES_END_NAMESPACE

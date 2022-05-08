@@ -40,6 +40,8 @@ public:
 
 	bool createIfDoesntExist() const final;
 
+	[[nodiscard]] bool isEmpty() const;
+
 	[[nodiscard]] FilesystemEntry getChild (const std::string& childName, bool createIfNeeded = false) const;
 
 	[[nodiscard]] Path getRelativePath (const Path& inputPath) const;

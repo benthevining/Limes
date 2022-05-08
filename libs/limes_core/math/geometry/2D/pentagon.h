@@ -102,13 +102,13 @@ constexpr bool Pentagon<ValueType>::operator!= (const Pentagon& other) const noe
 template <Scalar ValueType>
 constexpr Angle<ValueType> Pentagon<ValueType>::interiorAngle() noexcept
 {
-	return Angle<ValueType>{ 108 };
+	return Angle<ValueType> { 108 };
 }
 
 template <Scalar ValueType>
 constexpr Angle<ValueType> Pentagon<ValueType>::exteriorAngle() noexcept
 {
-	return Angle<ValueType>{ 72 };
+	return Angle<ValueType> { 72 };
 }
 
 }  // namespace math::geometry

@@ -92,13 +92,13 @@ constexpr bool Hexagon<ValueType>::operator!= (const Hexagon& other) const noexc
 template <Scalar ValueType>
 constexpr Angle<ValueType> Hexagon<ValueType>::interiorAngle() noexcept
 {
-	return Angle<ValueType>{ 120 };
+	return Angle<ValueType> { 120 };
 }
 
 template <Scalar ValueType>
 constexpr Angle<ValueType> Hexagon<ValueType>::exteriorAngle() noexcept
 {
-	return Angle<ValueType>{ 60 };
+	return Angle<ValueType> { 60 };
 }
 
 }  // namespace math::geometry

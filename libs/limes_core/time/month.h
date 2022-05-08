@@ -72,8 +72,8 @@ public:
 	constexpr Month& operator++() noexcept;
 	constexpr Month& operator--() noexcept;
 
-	constexpr Month& operator++(int) noexcept;
-	constexpr Month& operator--(int) noexcept;
+	constexpr Month& operator++ (int) noexcept;	 // NOLINT
+	constexpr Month& operator-- (int) noexcept;	 // NOLINT
 
 	constexpr Month& operator+= (int numMonthsToAdd) noexcept;
 	constexpr Month& operator-= (int numMonthsToSubtract) noexcept;

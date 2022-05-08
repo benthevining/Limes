@@ -1,3 +1,15 @@
+/*
+ * ======================================================================================
+ *  __    ____  __  __  ____  ___
+ * (  )  (_  _)(  \/  )( ___)/ __)
+ *  )(__  _)(_  )    (  )__) \__ \
+ * (____)(____)(_/\/\_)(____)(___/
+ *
+ *  This file is part of the Limes open source library and is licensed under the terms of the GNU Public License.
+ *
+ * ======================================================================================
+ */
+
 #pragma once
 
 #include <limes_export.h>
@@ -40,17 +52,17 @@ public:
 	constexpr Hour& operator++() noexcept;
 	constexpr Hour& operator--() noexcept;
 
-	constexpr Hour& operator+=(int hoursToAdd) noexcept;
-	constexpr Hour& operator-=(int hoursToSubtract) noexcept;
+	constexpr Hour& operator+= (int hoursToAdd) noexcept;
+	constexpr Hour& operator-= (int hoursToSubtract) noexcept;
 
 	[[nodiscard]] constexpr Hour operator+ (int hoursToAdd) const noexcept;
 	[[nodiscard]] constexpr Hour operator- (int hoursToSubtract) const noexcept;
 
-	[[nodiscard]] constexpr bool operator>(const Hour& other) const noexcept;
-	[[nodiscard]] constexpr bool operator<(const Hour& other) const noexcept;
+	[[nodiscard]] constexpr bool operator> (const Hour& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Hour& other) const noexcept;
 
-	[[nodiscard]] constexpr bool operator==(const Hour& other) const noexcept;
-	[[nodiscard]] constexpr bool operator!=(const Hour& other) const noexcept;
+	[[nodiscard]] constexpr bool operator== (const Hour& other) const noexcept;
+	[[nodiscard]] constexpr bool operator!= (const Hour& other) const noexcept;
 
 	[[nodiscard]] static Hour getCurrent();
 
@@ -60,10 +72,11 @@ public:
 	[[nodiscard]] static constexpr Hour midnight() noexcept;
 
 private:
+
 	int hour { 0 };
 };
 
-}
+}  // namespace time
 
 LIMES_END_NAMESPACE
 

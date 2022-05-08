@@ -1,3 +1,15 @@
+/*
+ * ======================================================================================
+ *  __    ____  __  __  ____  ___
+ * (  )  (_  _)(  \/  )( ___)/ __)
+ *  )(__  _)(_  )    (  )__) \__ \
+ * (____)(____)(_/\/\_)(____)(___/
+ *
+ *  This file is part of the Limes open source library and is licensed under the terms of the GNU Public License.
+ *
+ * ======================================================================================
+ */
+
 #pragma once
 
 #include "../build_date.h"
@@ -13,7 +25,7 @@ template <bool StartWeekOnSunday>
 constexpr Weekday<StartWeekOnSunday>::Weekday (int daysSinceStartOfWeek) noexcept
 	: dayOfWeek (daysSinceStartOfWeek)
 {
-		dayOfWeek %= 7;
+	dayOfWeek %= 7;
 }
 
 template <bool StartWeekOnSunday>
@@ -43,7 +55,7 @@ constexpr Weekday<StartWeekOnSunday>::Weekday (const Year& year, const Month& mo
 
 template <bool StartWeekOnSunday>
 constexpr Weekday<StartWeekOnSunday>::Weekday (Name day) noexcept
-: dayOfWeek (static_cast<int>(day))
+	: dayOfWeek (static_cast<int> (day))
 {
 	if constexpr (! StartWeekOnSunday)
 		dayOfWeek = (dayOfWeek - 1) % 7;
@@ -63,7 +75,7 @@ constexpr Weekday<false>::Weekday (const Weekday<true>& other) noexcept
 
 template <bool StartWeekOnSunday>
 constexpr Weekday<StartWeekOnSunday>::Weekday (const std::tm& timeObj) noexcept
-: dayOfWeek(timeObj.tm_wday)
+	: dayOfWeek (timeObj.tm_wday)
 {
 	if constexpr (! StartWeekOnSunday)
 		dayOfWeek = (dayOfWeek - 1) % 7;
@@ -73,9 +85,9 @@ template <bool StartWeekOnSunday>
 constexpr typename Weekday<StartWeekOnSunday>::Name Weekday<StartWeekOnSunday>::getWeekdayName() const noexcept
 {
 	if constexpr (StartWeekOnSunday)
-		return static_cast<Name>(dayOfWeek);
+		return static_cast<Name> (dayOfWeek);
 	else
-		return static_cast<Name>((dayOfWeek + 1) % 7);
+		return static_cast<Name> ((dayOfWeek + 1) % 7);
 }
 
 template <bool StartWeekOnSunday>
@@ -241,9 +253,12 @@ consteval Weekday<StartWeekOnSunday> Weekday<StartWeekOnSunday>::getCompilationW
 }
 
 template <bool StartWeekOnSunday>
-consteval bool Weekday<StartWeekOnSunday>::startsWeekOnSunday() noexcept { return StartWeekOnSunday; }
-
-
+consteval bool Weekday<StartWeekOnSunday>::startsWeekOnSunday() noexcept
+{
+	return StartWeekOnSunday;
 }
+
+
+}  // namespace time
 
 LIMES_END_NAMESPACE

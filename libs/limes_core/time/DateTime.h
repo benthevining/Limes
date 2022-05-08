@@ -1,3 +1,15 @@
+/*
+ * ======================================================================================
+ *  __    ____  __  __  ____  ___
+ * (  )  (_  _)(  \/  )( ___)/ __)
+ *  )(__  _)(_  )    (  )__) \__ \
+ * (____)(____)(_/\/\_)(____)(___/
+ *
+ *  This file is part of the Limes open source library and is licensed under the terms of the GNU Public License.
+ *
+ * ======================================================================================
+ */
+
 #pragma once
 
 #include <limes_export.h>
@@ -6,6 +18,7 @@
 #include "date.h"
 #include <ctime>
 #include <string>
+#include "time_utils.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -24,12 +37,18 @@ public:
 
 	explicit DateTime (std::time_t t);
 
+	template <Clock ClockType>
+	explicit DateTime (const Point<ClockType>& timePoint);
+
 	LIMES_CONSTEXPR_MOVABLE (DateTime);
 	LIMES_CONSTEXPR_COPYABLE (DateTime);
 
 	[[nodiscard]] constexpr std::tm getStdTime() const noexcept;
 
 	[[nodiscard]] std::time_t getTimeT() const;
+
+	template <Clock ClockType = SystemClock>
+	[[nodiscard]] Point<ClockType> getTimePoint() const;
 
 	[[nodiscard]] constexpr bool isBefore (const DateTime& other) const noexcept;
 	[[nodiscard]] constexpr bool isAfter (const DateTime& other) const noexcept;
@@ -50,6 +69,7 @@ public:
 	[[nodiscard]] static consteval DateTime getCompilation() noexcept;
 
 private:
+
 	Time time;
 	Date date;
 };
@@ -57,26 +77,30 @@ private:
 /*-----------------------------------------------------------------------------------------------------------------------*/
 
 constexpr DateTime::DateTime (const Date& d, const Time& t) noexcept
-: time(t), date(d)
+	: time (t), date (d)
 {
-
 }
 
 constexpr DateTime::DateTime (const std::tm& timeObj) noexcept
-: time(timeObj), date(timeObj)
+	: time (timeObj), date (timeObj)
 {
+}
 
+template <Clock ClockType>
+DateTime::DateTime (const Point<ClockType>& timePoint)
+	: DateTime (toTimeObj (timePoint))
+{
 }
 
 constexpr std::tm DateTime::getStdTime() const noexcept
 {
 	std::tm res;
 
-	res.tm_sec = time.getSecond();
-	res.tm_min = time.getMinute();
+	res.tm_sec	= time.getSecond();
+	res.tm_min	= time.getMinute();
 	res.tm_hour = time.getHour().hoursSinceMidnight();
 	res.tm_mday = date.getDayOfMonth();
-	res.tm_mon = date.getMonth().getMonthNumber();
+	res.tm_mon	= date.getMonth().getMonthNumber();
 	res.tm_year = date.getYear().getYear() - 1900;
 	res.tm_wday = date.getWeekday<true>().daysSinceStartOfWeek();
 	res.tm_yday = date.getDayOfYear();
@@ -85,6 +109,12 @@ constexpr std::tm DateTime::getStdTime() const noexcept
 	res.tm_isdst = -1;
 
 	return res;
+}
+
+template <Clock ClockType>
+Point<ClockType> DateTime::getTimePoint() const
+{
+	return fromTimeObj<ClockType> (getTimeT());
 }
 
 constexpr bool DateTime::isBefore (const DateTime& other) const noexcept
@@ -125,9 +155,9 @@ constexpr bool DateTime::operator!= (const DateTime& other) const noexcept
 
 consteval DateTime DateTime::getCompilation() noexcept
 {
-	return DateTime{ Date::getCompilationDate(), Time::getCompilationTime() };
+	return DateTime { Date::getCompilationDate(), Time::getCompilationTime() };
 }
 
-}
+}  // namespace time
 
 LIMES_END_NAMESPACE
