@@ -15,24 +15,46 @@
 #include <string_view>
 #include <string>
 #include "../misc/preprocessor.h"
+#include "md5.h"
+#include "sha1.h"
+#include "sha224.h"
+#include "sha256.h"
+#include "sha384.h"
+#include "sha512.h"
 
 LIMES_BEGIN_NAMESPACE
 
 namespace hash
 {
 
-std::string hash (Type type, const char* input, std::size_t length)
+void Hasher::update (const std::string_view& input)
+{
+	update (reinterpret_cast<const unsigned char*> (input.data()),
+			static_cast<std::size_t> (input.length()));
+}
+
+std::unique_ptr<Hasher> createHasherForType (Type type)
 {
 	switch (type)
 	{
-		case (Type::md5) : return md5 (input, length);
-		case (Type::sha1) : return sha1 (input, length);
-		case (Type::sha224) : return sha224 (input, length);
-		case (Type::sha256) : return sha256 (input, length);
-		case (Type::sha384) : return sha384 (input, length);
-		case (Type::sha512) : return sha512 (input, length);
-		default : LIMES_UNREACHABLE;
+		case (Type::md5) : return std::make_unique<MD5>();
+		case (Type::sha1) : return std::make_unique<SHA1>();
+		case (Type::sha224) : return std::make_unique<SHA224>();
+		case (Type::sha256) : return std::make_unique<SHA256>();
+		case (Type::sha384) : return std::make_unique<SHA384>();
+		case (Type::sha512) : return std::make_unique<SHA512>();
+		default : LIMES_UNREACHABLE; return nullptr;
 	}
+}
+
+
+std::string hash (Type type, const char* input, std::size_t length)
+{
+	auto hasher = createHasherForType (type);
+
+	hasher->update (reinterpret_cast<const unsigned char*> (input), length);
+
+	return hasher->getHash();
 }
 
 std::string hash (Type type, const std::string_view& input)

@@ -1,15 +1,1 @@
-
-
-#
-# * <@insert_github_username>
-# Each line is a file pattern followed by one or more owners.
-# Lines starting with '#' are comments.
-# Order is important. The last matching pattern has the most precedence.
-# These owners will be the default owners for everything in the repo.
-# This file is also being managed automatically by the gitown tool.
-libs/limes_core/files/FilesystemEntry.cpp benthevining
-libs/limes_core/files/FilesystemEntry.h benthevining
-libs/limes_core/math/fraction_staticAsserts.cpp benthevining
-libs/limes_core/math/geometry/2D/angle_staticAsserts.cpp benthevining
-libs/limes_core/math/geometry/2D/pentagon.h benthevining
-libs/limes_core/time/time.h benthevining
+* benthevining

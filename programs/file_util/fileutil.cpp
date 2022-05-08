@@ -346,44 +346,33 @@ void hash (const std::string& hashType, const std::string& filename)
 		std::exit (EXIT_FAILURE);
 	}
 
-	if (hashType == "md5")
+	const auto hash_type = [&hashType]
 	{
-		std::cout << file.hash_md5() << std::endl;
-		return;
-	}
+		if (hashType == "md5")
+			return limes::hash::Type::md5;
 
-	if (hashType == "sha1")
-	{
-		std::cout << file.hash_sha1() << std::endl;
-		return;
-	}
+		if (hashType == "sha1")
+			return limes::hash::Type::sha1;
 
-	if (hashType == "sha224")
-	{
-		std::cout << file.hash_sha224() << std::endl;
-		return;
-	}
+		if (hashType == "sha224")
+			return limes::hash::Type::sha224;
 
-	if (hashType == "sha256")
-	{
-		std::cout << file.hash_sha256() << std::endl;
-		return;
-	}
+		if (hashType == "sha256")
+			return limes::hash::Type::sha256;
 
-	if (hashType == "sha384")
-	{
-		std::cout << file.hash_sha384() << std::endl;
-		return;
-	}
+		if (hashType == "sha384")
+			return limes::hash::Type::sha384;
 
-	if (hashType == "sha512")
-	{
-		std::cout << file.hash_sha512() << std::endl;
-		return;
-	}
+		if (hashType == "sha512")
+			return limes::hash::Type::sha512;
 
-	std::cerr << "Error: unknown hash type requested: " << hashType << std::endl;
-	std::exit (EXIT_FAILURE);
+		std::cerr << "Error: unknown hash type requested: " << hashType << std::endl;
+		std::exit (EXIT_FAILURE);
+
+		return limes::hash::Type::md5;
+	}();
+
+	std::cout << file.hash (hash_type) << std::endl;
 }
 
 void ln (const std::string& linkName, const std::string& targetName)

@@ -64,6 +64,12 @@ Dependencies: None
 #include "files/DynamicLibrary.h"
 
 #include "hashes/hash.h"
+#include "hashes/md5.h"
+#include "hashes/sha1.h"
+#include "hashes/sha224.h"
+#include "hashes/sha256.h"
+#include "hashes/sha384.h"
+#include "hashes/sha512.h"
 
 #include "text/StringUtils.h"
 #include "text/TextTable.h"

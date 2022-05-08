@@ -17,6 +17,7 @@
 #include <cstddef>			  // for size_t
 #include <string>			  // for string
 #include <string_view>		  // for string_view
+#include <memory>			  // for unique_ptr
 
 
 LIMES_BEGIN_NAMESPACE
@@ -34,29 +35,21 @@ enum class Type
 	sha512
 };
 
-LIMES_EXPORT [[nodiscard]] std::string md5 (const char* input, std::size_t length);
+class LIMES_EXPORT Hasher
+{
+public:
 
-LIMES_EXPORT [[nodiscard]] std::string md5 (const std::string_view& input);
+	virtual ~Hasher() = default;
 
-LIMES_EXPORT [[nodiscard]] std::string sha1 (const char* input, std::size_t length);
+	virtual void update (const unsigned char* input, std::size_t length) = 0;
 
-LIMES_EXPORT [[nodiscard]] std::string sha1 (const std::string_view& input);
+	void update (const std::string_view& input);
 
-LIMES_EXPORT [[nodiscard]] std::string sha224 (const char* input, std::size_t length);
+	[[nodiscard]] virtual std::string getHash() = 0;
+};
 
-LIMES_EXPORT [[nodiscard]] std::string sha224 (const std::string_view& input);
+LIMES_EXPORT [[nodiscard]] std::unique_ptr<Hasher> createHasherForType (Type type);
 
-LIMES_EXPORT [[nodiscard]] std::string sha256 (const char* input, std::size_t length);
-
-LIMES_EXPORT [[nodiscard]] std::string sha256 (const std::string_view& input);
-
-LIMES_EXPORT [[nodiscard]] std::string sha384 (const char* input, std::size_t length);
-
-LIMES_EXPORT [[nodiscard]] std::string sha384 (const std::string_view& input);
-
-LIMES_EXPORT [[nodiscard]] std::string sha512 (const char* input, std::size_t length);
-
-LIMES_EXPORT [[nodiscard]] std::string sha512 (const std::string_view& input);
 
 LIMES_EXPORT [[nodiscard]] std::string hash (Type type, const char* input, std::size_t length);
 

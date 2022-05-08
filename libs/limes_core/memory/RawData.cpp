@@ -17,6 +17,7 @@
 #include <cstring>			  // for memcpy, memset
 #include <new>				  // for bad_alloc
 #include <string>			  // for char_traits
+#include "../hashes/hash.h"	  // for hash
 
 
 LIMES_BEGIN_NAMESPACE
@@ -263,6 +264,11 @@ std::string RawData::toString() const
 bool RawData::isEmpty() const noexcept
 {
 	return size == 0 || data == nullptr;
+}
+
+std::string RawData::hash (hash::Type hashType) const
+{
+	return hash::hash (hashType, data, size);
 }
 
 LIMES_END_NAMESPACE

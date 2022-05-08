@@ -18,11 +18,19 @@ oranges_add_source_files (
 	FILES # cmake-format: sortable
 		  hash.h
 		  md5.cpp
+		  md5.h
 		  sha1.cpp
+		  sha1.h
 		  hash.cpp
 		  sha224.cpp
+		  sha224.h
 		  sha256.cpp
+		  sha256.h
 		  sha384.cpp
-		  sha512.cpp)
+		  sha384.h
+		  sha512.cpp
+		  sha512.h
+		  common.h
+		  common.cpp)
 
 set (hashes_files ${hashes_files} PARENT_SCOPE)

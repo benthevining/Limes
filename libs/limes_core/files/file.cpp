@@ -157,36 +157,6 @@ std::string File::hash (hash::Type hashType) const
 	return hash::hash (hashType, loadAsString());
 }
 
-std::string File::hash_md5() const
-{
-	return hash::md5 (loadAsString());
-}
-
-std::string File::hash_sha1() const
-{
-	return hash::sha1 (loadAsString());
-}
-
-std::string File::hash_sha224() const
-{
-	return hash::sha224 (loadAsString());
-}
-
-std::string File::hash_sha256() const
-{
-	return hash::sha256 (loadAsString());
-}
-
-std::string File::hash_sha384() const
-{
-	return hash::sha384 (loadAsString());
-}
-
-std::string File::hash_sha512() const
-{
-	return hash::sha512 (loadAsString());
-}
-
 File File::getCurrentExecutable()
 {
 	return File { getExecutablePath() };

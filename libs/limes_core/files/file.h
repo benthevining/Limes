@@ -17,7 +17,7 @@
 #include <cstddef>				// for size_t
 #include <string>				// for string
 #include <vector>				// for vector
-#include "../hashes/hash.h"		// for Type
+#include "../hashes/hash.h"		// for hash::Type
 #include "../memory/RawData.h"	// for RawData
 #include "FilesystemEntry.h"	// for FilesystemEntry, Path
 
@@ -66,18 +66,6 @@ public:
 	[[nodiscard]] std::vector<std::string> loadAsLines() const;
 
 	[[nodiscard]] std::string hash (hash::Type hashType) const;
-
-	[[nodiscard]] std::string hash_md5() const;
-
-	[[nodiscard]] std::string hash_sha1() const;
-
-	[[nodiscard]] std::string hash_sha224() const;
-
-	[[nodiscard]] std::string hash_sha256() const;
-
-	[[nodiscard]] std::string hash_sha384() const;
-
-	[[nodiscard]] std::string hash_sha512() const;
 
 	[[nodiscard]] static File getCurrentExecutable();
 

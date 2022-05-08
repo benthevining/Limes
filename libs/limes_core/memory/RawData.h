@@ -17,6 +17,7 @@
 #include <cstddef>			  // for size_t
 #include <iostream>			  // for basic_istream, basic_ostream
 #include <string>			  // for string
+#include "../hashes/hash.h"	  // for hash::Type
 
 LIMES_BEGIN_NAMESPACE
 
@@ -83,6 +84,8 @@ public:
 	char* end() noexcept;
 
 	const char* end() const noexcept;
+
+	[[nodiscard]] std::string hash (hash::Type hashType) const;
 
 private:
 
