@@ -22,12 +22,14 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
-template <Scalar ValueType>
+template <Scalar ValueType = int>
 class LIMES_EXPORT Angle final
 {
 public:
 
 	explicit constexpr Angle (ValueType degrees) noexcept;
+
+	constexpr operator ValueType() const noexcept;
 
 	[[nodiscard]] constexpr ValueType degrees() const noexcept;
 
@@ -79,6 +81,8 @@ public:
 	[[nodiscard]] constexpr Angle operator+ (const Angle& other) const noexcept;
 	[[nodiscard]] constexpr Angle operator- (const Angle& other) const noexcept;
 
+	[[nodiscard]] static constexpr Angle right() noexcept;
+
 private:
 
 	ValueType m_degrees;
@@ -90,6 +94,12 @@ constexpr Angle<ValueType>::Angle (ValueType degrees) noexcept
 	: m_degrees (degrees)
 {
 	LIMES_ASSERT (m_degrees >= 0 && m_degrees <= 360);
+}
+
+template <Scalar ValueType>
+constexpr Angle<ValueType>::operator ValueType() const noexcept
+{
+	return m_degrees;
 }
 
 template <Scalar ValueType>
@@ -262,6 +272,12 @@ template <Scalar ValueType>
 constexpr Angle<ValueType> Angle<ValueType>::operator- (const Angle& other) const noexcept
 {
 	return Angle { m_degrees - other.m_degrees };
+}
+
+template <Scalar ValueType>
+constexpr Angle<ValueType> Angle<ValueType>::right() noexcept
+{
+	return Angle { 90 };
 }
 
 }  // namespace math::geometry

@@ -19,6 +19,10 @@
 #include <limes_platform.h>
 #include <algorithm>
 
+#if __has_include(<numbers>)
+#	include <numbers>
+#endif
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math
@@ -39,40 +43,158 @@ concept Integral = std::is_integral_v<T>;
 
 /** A constexpr-enabled absolute value function. */
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] constexpr T abs (T val) noexcept
-{
-	if (val < T (0))
-		return -val;
-
-	return val;
-}
+LIMES_EXPORT [[nodiscard]] constexpr T abs (T val) noexcept;
 
 
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] constexpr T negate (T val) noexcept
+LIMES_EXPORT [[nodiscard]] constexpr T negate (T val) noexcept;
+
+
+template <Scalar T>
+LIMES_EXPORT [[nodiscard]] constexpr int round (T val) noexcept;
+
+
+template <Scalar T>
+LIMES_EXPORT [[nodiscard]] constexpr T limit (T input, T min, T max) noexcept;
+
+
+template <Integral T>
+LIMES_EXPORT [[nodiscard]] constexpr T power (T number, T power) noexcept;
+
+
+template <Scalar T>
+LIMES_EXPORT [[nodiscard]] constexpr T map (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept;
+
+
+/** Returns true if val is 2^something.
+ */
+template <Integral Integer>
+LIMES_EXPORT [[nodiscard]] constexpr bool isPowerOf2 (Integer val) noexcept;
+
+
+/** Returns true if the number is divisible by the divisor with no remainder. */
+template <Integral Integer>
+LIMES_EXPORT [[nodiscard]] constexpr bool isDivisibleBy (Integer number, Integer divisor) noexcept;
+
+
+/** Returns true if the number is evenly divisible by 2. */
+template <Integral Integer>
+LIMES_EXPORT [[nodiscard]] constexpr bool numberIsEven (Integer number) noexcept;
+
+
+template <Integral Integer>
+LIMES_EXPORT [[nodiscard]] constexpr bool isPrime (Integer number) noexcept;
+
+template <Integral T>
+LIMES_EXPORT [[nodiscard]] constexpr T factorial (T number) noexcept;
+
+template <Scalar T>
+LIMES_EXPORT [[nodiscard]] constexpr T middleOfThree (T a, T b, T c) noexcept;
+
+/** Returns the period in samples of a frequency at the specified samplerate. */
+template <Scalar FreqType>
+LIMES_EXPORT [[nodiscard]] constexpr int periodInSamples (double samplerate, FreqType freqHz) noexcept;
+
+/** Returns the frequency in Hz with a given period in samples at the specified samplerate. */
+template <Scalar PeriodType>
+LIMES_EXPORT [[nodiscard]] constexpr PeriodType freqFromPeriod (double samplerate, PeriodType period) noexcept;
+
+
+/** Converts a number of samples to milliseconds at the specified samplerate. */
+template <Integral Integer>
+LIMES_EXPORT [[nodiscard]] constexpr double sampsToMs (double samplerate, Integer numSamples) noexcept;
+
+/** Converts a number of milliseconds to the closest integer number of samples at the specified samplerate. */
+template <Scalar msType>
+LIMES_EXPORT [[nodiscard]] constexpr int msToSamps (double samplerate, msType ms) noexcept;
+
+/** Converts a MIDI note to a frequency in Hz. */
+template <Scalar T>
+LIMES_EXPORT [[nodiscard]] constexpr T midiToFreq (T midiNote) noexcept;
+
+/** Converts a frequency in Hz to a MIDI note. */
+template <Scalar T>
+LIMES_EXPORT [[nodiscard]] inline T freqToMidi (T freqHz) noexcept
+{
+	const auto val = T (69) + T (12) * std::log2 (static_cast<double> (freqHz) / T (440));
+
+	if constexpr (std::is_integral_v<T>)
+		return static_cast<T> (round (val));
+	else
+		return static_cast<T> (val);
+}
+
+///@}
+
+/*---------------------------------------------------------------------------------------------------------------*/
+
+namespace constants
+{
+
+#if __has_include(<numbers>)
+
+template <Scalar T>
+LIMES_EXPORT static constexpr const T pi = std::numbers::pi_v<T>;
+
+#else
+
+template <Scalar T>
+LIMES_EXPORT static constexpr const T pi = static_cast<T> (3.1415916);
+
+#endif
+
+template <Scalar T>
+LIMES_EXPORT static constexpr const T two_pi = pi<T>* T (2.);
+
+template <Scalar T>
+LIMES_EXPORT static constexpr const T half_pi = pi<T> / T (2.);
+
+template <Scalar T>
+LIMES_EXPORT static constexpr const T blackman_alpha = T (0.16);
+
+}  // namespace constants
+
+/*---------------------------------------------------------------------------------------------------------------*/
+
+template <Scalar T>
+constexpr T abs (T val) noexcept
 {
 	if constexpr (std::is_unsigned<T>::value)
 		return val;
+	else
+	{
+		if (val < T (0))
+			return -val;
 
-	if (val < T (0))
-		return -val;
-
-	return val;
+		return val;
+	}
 }
 
+template <Scalar T>
+constexpr T negate (T val) noexcept
+{
+	if constexpr (std::is_unsigned<T>::value)
+		return val;
+	else
+		return -val;
+}
 
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] constexpr int round (T val) noexcept
+constexpr int round (T val) noexcept
 {
 	if constexpr (std::is_integral_v<T>)
 		return static_cast<int> (val);
+	else
+	{
+		if (val >= T (0))
+			return static_cast<int> (val + 0.5);
 
-	return (val >= T (0)) ? static_cast<int> (val + 0.5) : static_cast<int> (val - 0.5);
+		return static_cast<int> (val - 0.5);
+	}
 }
 
-
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] constexpr T limit (T input, T min, T max) noexcept
+constexpr T limit (T input, T min, T max) noexcept
 {
 	LIMES_ASSERT (max > min);
 
@@ -81,30 +203,28 @@ LIMES_EXPORT [[nodiscard]] constexpr T limit (T input, T min, T max) noexcept
 	return input;
 }
 
-
-template <Scalar T>
-LIMES_EXPORT [[nodiscard]] constexpr T power (T number, T power) noexcept
+template <Integral T>
+constexpr T power (T number, T power_) noexcept
 {
-	if (power < T (0))
-		return T (1) / power (number, -power);
+	if (power_ < T (0))
+		return T (1) / power (number, -power_);
 
-	T result = T (1);
+	auto result = T (1);
 
-	while (power > T (0))
+	do
 	{
-		if (power & 1)
+		if (power_ & T (1))
 			result = result * number;
 
 		number *= number;
-		power = power >> 1;
-	}
+		power_ = power_ >> T (1);
+	} while (power_ > T (0));
 
 	return result;
 }
 
-
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] constexpr T map (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept
+constexpr T map (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept
 {
 	LIMES_ASSERT (sourceRangeMax != sourceRangeMin);  // mapping from a range of zero will produce NaN!
 	LIMES_ASSERT (targetRangeMax != targetRangeMin);
@@ -112,34 +232,26 @@ LIMES_EXPORT [[nodiscard]] constexpr T map (T input, T sourceRangeMin, T sourceR
 	return targetRangeMin + ((targetRangeMax - targetRangeMin) * (input - sourceRangeMin)) / (sourceRangeMax - sourceRangeMin);
 }
 
-
-/** Returns true if val is 2^something.
- */
 template <Integral Integer>
-LIMES_EXPORT [[nodiscard]] constexpr bool isPowerOf2 (Integer val) noexcept
+constexpr bool isPowerOf2 (Integer val) noexcept
 {
 	return val > 0 && (val & (val - 1)) == 0;
 }
 
-
-/** Returns true if the number is divisible by the divisor with no remainder. */
 template <Integral Integer>
-LIMES_EXPORT [[nodiscard]] constexpr bool isDivisibleBy (Integer number, Integer divisor) noexcept
+constexpr bool isDivisibleBy (Integer number, Integer divisor) noexcept
 {
 	return number % divisor == 0;
 }
 
-
-/** Returns true if the number is evenly divisible by 2. */
 template <Integral Integer>
-LIMES_EXPORT [[nodiscard]] constexpr bool numberIsEven (Integer number) noexcept
+constexpr bool numberIsEven (Integer number) noexcept
 {
 	return isDivisibleBy (number, Integer (2));
 }
 
-
 template <Integral Integer>
-LIMES_EXPORT [[nodiscard]] constexpr bool isPrime (Integer number) noexcept
+constexpr bool isPrime (Integer number) noexcept
 {
 	if (number <= 1)
 		return false;
@@ -147,19 +259,21 @@ LIMES_EXPORT [[nodiscard]] constexpr bool isPrime (Integer number) noexcept
 	if (number == 2 || number == 3)
 		return true;
 
-	if ((number % 2) == 0 || number % 3 == 0)
+	if (isDivisibleBy (number, Integer (2)) || isDivisibleBy (number, Integer (3)))
 		return false;
 
-	for (auto i = Integer (5); (i * i) <= (number); i = (i + 6))
-		if ((number % i) == 0 || (number % (i + 2) == 0))
+	for (auto i = Integer (5); (i * i) <= number; i += 6)
+		if (isDivisibleBy (number, i) || isDivisibleBy (number, i + Integer (2)))
 			return false;
 
 	return true;
 }
 
 template <Integral T>
-LIMES_EXPORT [[nodiscard]] constexpr T factorial (T number) noexcept
+constexpr T factorial (T number) noexcept
 {
+	LIMES_ASSERT (number >= 0);
+
 	if (number == 0)
 		return 1;
 
@@ -167,16 +281,15 @@ LIMES_EXPORT [[nodiscard]] constexpr T factorial (T number) noexcept
 }
 
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] T middleOfThree (T a, T b, T c) noexcept
+constexpr T middleOfThree (T a, T b, T c) noexcept
 {
 	return std::max ({ std::min (a, b),
 					   std::min (std::max (a, b)),
 					   c });
 }
 
-/** Returns the period in samples of a frequency at the specified samplerate. */
 template <Scalar FreqType>
-LIMES_EXPORT [[nodiscard]] constexpr int periodInSamples (double samplerate, FreqType freqHz) noexcept
+constexpr int periodInSamples (double samplerate, FreqType freqHz) noexcept
 {
 	LIMES_ASSERT (freqHz > FreqType (0.));
 
@@ -185,23 +298,21 @@ LIMES_EXPORT [[nodiscard]] constexpr int periodInSamples (double samplerate, Fre
 	return round (val);
 }
 
-/** Returns the frequency in Hz with a given period in samples at the specified samplerate. */
 template <Scalar PeriodType>
-LIMES_EXPORT [[nodiscard]] constexpr PeriodType freqFromPeriod (double samplerate, PeriodType period) noexcept
+constexpr PeriodType freqFromPeriod (double samplerate, PeriodType period) noexcept
 {
 	LIMES_ASSERT (period > PeriodType (0.));
 
 	const auto val = samplerate / static_cast<double> (period);
 
-	if constexpr (std::is_same_v<PeriodType, int>)
-		return round (val);
-
-	return static_cast<PeriodType> (val);
+	if constexpr (std::is_integral_v<PeriodType>)
+		return static_cast<PeriodType> (round (val));
+	else
+		return static_cast<PeriodType> (val);
 }
 
-
-/** Converts a number of samples to milliseconds at the specified samplerate. */
-LIMES_EXPORT [[nodiscard]] constexpr double sampsToMs (double samplerate, int numSamples) noexcept
+template <Integral Integer>
+constexpr double sampsToMs (double samplerate, Integer numSamples) noexcept
 {
 	LIMES_ASSERT (samplerate > 0.);
 
@@ -210,67 +321,26 @@ LIMES_EXPORT [[nodiscard]] constexpr double sampsToMs (double samplerate, int nu
 	return static_cast<double> (val);
 }
 
-/** Converts a number of milliseconds to the closest integer number of samples at the specified samplerate. */
 template <Scalar msType>
-LIMES_EXPORT [[nodiscard]] constexpr int msToSamps (double samplerate, msType ms) noexcept
+constexpr int msToSamps (double samplerate, msType ms) noexcept
 {
 	const auto val = samplerate / 1000. * static_cast<double> (ms);
 
 	return round (val);
 }
 
-/** Converts a MIDI note to a frequency in Hz. */
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] inline T midiToFreq (T midiNote) noexcept
+constexpr T midiToFreq (T midiNote) noexcept
 {
-	const auto val = 440. * std::pow (2., (static_cast<double> (midiNote) - 69.) / 12.);
+	const auto pow = static_cast<T> (power (2, (round (midiNote) - 69) / 12));
 
-	if constexpr (std::is_same_v<T, int>)
-		return round (val);
+	const auto val = T (440) * pow;
 
-	return static_cast<T> (val);
+	if constexpr (std::is_integral_v<T>)
+		return static_cast<T> (round (val));
+	else
+		return static_cast<T> (val);
 }
-
-/** Converts a frequency in Hz to a MIDI note. */
-template <Scalar T>
-LIMES_EXPORT [[nodiscard]] inline T freqToMidi (T freqHz) noexcept
-{
-	const auto val = 69. + 12. * std::log2 (static_cast<double> (freqHz) / 440.);
-
-	if constexpr (std::is_same_v<T, int>)
-		return round (val);
-
-	return static_cast<T> (val);
-}
-
-///@}
-
-namespace constants
-{
-
-//#if __has_include(<numbers>)
-//#	include <numbers>
-//
-// template <Scalar T>
-// LIMES_EXPORT static constexpr T pi = std::numbers::pi_v<T>;
-//
-//#else
-
-template <Scalar T>
-LIMES_EXPORT static constexpr T pi = static_cast<T> (3.1415916);
-
-//#endif
-
-template <Scalar T>
-LIMES_EXPORT static constexpr T two_pi = pi<T>* T (2.);
-
-template <Scalar T>
-LIMES_EXPORT static constexpr T half_pi = pi<T> / T (2.);
-
-template <Scalar T>
-LIMES_EXPORT static constexpr T blackman_alpha = T (0.16);
-
-}  // namespace constants
 
 }  // namespace math
 

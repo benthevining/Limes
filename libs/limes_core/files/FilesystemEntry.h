@@ -16,11 +16,10 @@
 #include <limes_export.h>		   // for LIMES_EXPORT
 #include <limes_namespace.h>	   // for LIMES_BEGIN_NAMESPACE, LIMES_END_N...
 #include <cstdint>				   // for uintmax_t
-#include <ctime>				   // for tm
 #include <filesystem>			   // for copy_options, path, perm_options
 #include <string>				   // for string
 #include "../misc/preprocessor.h"  // for LIMES_DEFAULT_COPYABLE, LIMES_DEFA...
-
+#include "../time/DateTime.h"      // for DateTime
 
 LIMES_BEGIN_NAMESPACE
 
@@ -105,7 +104,7 @@ public:
 
 	[[nodiscard]] bool isHidden() const;
 
-	[[nodiscard]] std::tm getLastModificationTime() const noexcept;
+	[[nodiscard]] time::DateTime getLastModificationTime() const noexcept;
 
 	bool rename (const Path& newPath) noexcept;
 

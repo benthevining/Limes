@@ -1,66 +1,68 @@
-/*
- * ======================================================================================
- *  __    ____  __  __  ____  ___
- * (  )  (_  _)(  \/  )( ___)/ __)
- *  )(__  _)(_  )    (  )__) \__ \
- * (____)(____)(_/\/\_)(____)(___/
- *
- *  This file is part of the Limes open source library and is licensed under the terms of the GNU Public License.
- *
- * ======================================================================================
- */
-
 #pragma once
 
 #include <limes_export.h>
 #include <limes_namespace.h>
-#include <chrono>
+#include "../misc/preprocessor.h"
+#include "hour.h"
 #include <ctime>
-#include <type_traits>
-#include "../misc/TypeTraits.h"
+#include <string>
 
 LIMES_BEGIN_NAMESPACE
 
 namespace time
 {
 
-// NB. this is only needed until all compilers support std::is_clock_v
-// clang-format off
-template <typename T>
-concept Clock = requires (T c)
+class LIMES_EXPORT Time final
 {
-	{ c.now() } -> convertible_to<std::chrono::time_point<T>>;
+public:
+
+	constexpr Time() = default;
+
+	explicit constexpr Time (const Hour& h, int min, int sec) noexcept;
+
+	explicit constexpr Time (int hourIn24HourFormat, int min, int sec) noexcept;
+
+	explicit constexpr Time (const std::tm& timeObj) noexcept;
+
+	explicit Time (std::time_t time);
+
+	LIMES_CONSTEXPR_MOVABLE (Time);
+	LIMES_CONSTEXPR_COPYABLE (Time);
+
+	[[nodiscard]] constexpr bool isAM() const noexcept;
+	[[nodiscard]] constexpr bool isPM() const noexcept;
+
+	[[nodiscard]] constexpr bool isOnTheHour() const noexcept;
+
+	[[nodiscard]] constexpr Hour getHour() const noexcept;
+	[[nodiscard]] constexpr int getMinute() const noexcept;
+	[[nodiscard]] constexpr int getSecond() const noexcept;
+
+	[[nodiscard]] constexpr bool isBefore (const Time& other) const noexcept;
+	[[nodiscard]] constexpr bool isAfter (const Time& other) const noexcept;
+
+	[[nodiscard]] bool isInPast() const noexcept;
+	[[nodiscard]] bool isInFuture() const noexcept;
+
+	[[nodiscard]] std::string toString (bool as24HourTime = true) const;
+
+	[[nodiscard]] constexpr bool operator>(const Time& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Time& other) const noexcept;
+
+	[[nodiscard]] constexpr bool operator==(const Time& other) const noexcept;
+	[[nodiscard]] constexpr bool operator!=(const Time& other) const noexcept;
+
+	[[nodiscard]] static Time getCurrent();
+
+	[[nodiscard]] static consteval Time getCompilationTime() noexcept;
+
+private:
+	Hour hour;
+	int minute { 0 }, second { 0 };
 };
-// clang-format on
 
-using SystemClock = std::chrono::system_clock;
-
-template <Clock InputClock>
-LIMES_EXPORT [[nodiscard]] std::chrono::time_point<SystemClock> toSystemTime (const std::chrono::time_point<InputClock>& inputTime)
-{
-	if constexpr (std::is_same_v<InputClock, SystemClock>)
-		return inputTime;
-	else
-	{
-		const auto inputNow	 = InputClock::now();
-		const auto systemNow = SystemClock::now();
-
-		using SystemDuration = typename SystemClock::duration;
-
-		const auto inputDuration = std::chrono::duration_cast<SystemDuration> (inputTime - inputNow);
-
-		return std::chrono::time_point_cast<SystemDuration> (inputDuration + systemNow);
-	}
 }
-
-template <Clock ClockType>
-LIMES_EXPORT [[nodiscard]] std::tm toTimeObj (const std::chrono::time_point<ClockType>& inputTime)
-{
-	const auto timeT = SystemClock::to_time_t (toSystemTime (inputTime));
-
-	return *std::localtime (&timeT);
-}
-
-}  // namespace time
 
 LIMES_END_NAMESPACE
+
+#include "impl/time_impl.h"

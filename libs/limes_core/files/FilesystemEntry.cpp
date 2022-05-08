@@ -18,7 +18,7 @@
 #include <fstream>				// for string, ofstream
 #include <string>				// for operator<, operator>
 #include "../misc/Functions.h"	// for try_call
-#include "../time/time.h"		// for toTimeObj
+#include "../time/time_utils.h"		// for toTimeObj
 #include "directory.h"			// for Directory
 #include "file.h"				// for File
 #include "sym_link.h"			// for SymLink
@@ -282,9 +282,9 @@ bool FilesystemEntry::isHidden() const
 	return getAbsolutePath().stem().string().starts_with ('.');
 }
 
-std::tm FilesystemEntry::getLastModificationTime() const noexcept
+time::DateTime FilesystemEntry::getLastModificationTime() const noexcept
 {
-	return time::toTimeObj (std::filesystem::last_write_time (getAbsolutePath()));
+	return time::DateTime { time::toTimeObj (std::filesystem::last_write_time (getAbsolutePath())) };
 }
 
 bool FilesystemEntry::rename (const Path& newPath) noexcept

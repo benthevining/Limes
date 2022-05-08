@@ -104,7 +104,7 @@ constexpr decltype (auto) curry (auto f, auto... ps)
 		return std::invoke (f, ps...);
 	}
 	else {
-		return [f, ps...] (auto... qs) -> decltype (auto)
+		return [f, ps...] (auto... qs)
 		{ return curry (f, ps..., qs...); };
 	}
 }

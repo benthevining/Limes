@@ -43,6 +43,9 @@ public:
 	[[nodiscard]] constexpr bool operator== (const Octagon& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Octagon& other) const noexcept;
 
+	[[nodiscard]] static constexpr Angle<ValueType> interiorAngle() noexcept;
+	[[nodiscard]] static constexpr Angle<ValueType> exteriorAngle() noexcept;
+
 private:
 
 	ValueType side_length;
@@ -84,6 +87,18 @@ template <Scalar ValueType>
 constexpr bool Octagon<ValueType>::operator!= (const Octagon& other) const noexcept
 {
 	return side_length != other.side_length;
+}
+
+template <Scalar ValueType>
+constexpr Angle<ValueType> Octagon<ValueType>::interiorAngle() noexcept
+{
+	return Angle<ValueType> { 135 };
+}
+
+template <Scalar ValueType>
+constexpr Angle<ValueType> Octagon<ValueType>::exteriorAngle() noexcept
+{
+	return Angle<ValueType> { 45 };
 }
 
 }  // namespace math::geometry

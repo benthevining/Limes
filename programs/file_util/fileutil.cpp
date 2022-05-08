@@ -473,22 +473,7 @@ void modtime (const std::string& name)
 
 	const auto time = item.getLastModificationTime();
 
-	constexpr const std::string_view months[12] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-
-	if (time.tm_hour < 10)
-		std::cout << 0;
-
-	std::cout << time.tm_hour << ":";
-
-	if (time.tm_min < 10)
-		std::cout << 0;
-
-	std::cout << time.tm_min << ":";
-
-	if (time.tm_sec < 10)
-		std::cout << 0;
-
-	std::cout << time.tm_sec << " " << time.tm_mday << " " << months[time.tm_mon] << " " << time.tm_year + 1900 << std::endl;
+	std::cout << time.toString() << std::endl;
 }
 
 void native (const std::string& name)

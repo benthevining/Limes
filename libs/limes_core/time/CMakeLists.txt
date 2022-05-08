@@ -8,6 +8,8 @@
 #
 # ======================================================================================
 
+add_subdirectory (impl)
+
 include (OrangesSourceFileUtils)
 
 oranges_add_source_files (
@@ -21,7 +23,9 @@ oranges_add_source_files (
 		  month.h
 		  weekday.h
 		  date.h
-		  time.cpp
-		  time.h)
+		  time_utils.h
+		  hour.h
+		  time.h
+		  DateTime.h)
 
-set (time_files ${time_files} PARENT_SCOPE)
+set (time_files ${time_files} ${impl_files} PARENT_SCOPE)

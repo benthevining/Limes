@@ -15,8 +15,7 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include "../misc/preprocessor.h"
-#include "build_date.h"
-#include "../math/mathHelpers.h"
+#include <ctime>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -31,12 +30,20 @@ public:
 
 	explicit constexpr Year (int yearNumber) noexcept;
 
+	explicit constexpr Year (const std::tm& timeObj) noexcept;
+
+	explicit Year (std::time_t time);
+
 	LIMES_CONSTEXPR_MOVABLE (Year);
 	LIMES_CONSTEXPR_COPYABLE (Year);
+
+	constexpr Year& operator= (int newYear) noexcept;
 
 	[[nodiscard]] constexpr bool isLeap() const noexcept;
 
 	[[nodiscard]] constexpr int getNumDays() const noexcept;
+
+	[[nodiscard]] int getNumWeeks() const noexcept;
 
 	[[nodiscard]] constexpr bool isBC() const noexcept;
 
@@ -59,6 +66,9 @@ public:
 	[[nodiscard]] constexpr bool operator== (const Year& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Year& other) const noexcept;
 
+	[[nodiscard]] bool isInPast() const noexcept;
+	[[nodiscard]] bool isInFuture() const noexcept;
+
 	[[nodiscard]] static Year getCurrent();
 
 	[[nodiscard]] static consteval Year getCompilationYear() noexcept;
@@ -68,101 +78,8 @@ private:
 	int year { 0 };
 };
 
-/*-------------------------------------------------------------------------------------------------------------------------------*/
-
-constexpr Year::Year (int yearNumber) noexcept
-	: year (yearNumber)
-{
 }
-
-consteval Year Year::getCompilationYear() noexcept
-{
-	return Year { build_year() };
-}
-
-constexpr bool Year::isLeap() const noexcept
-{
-	if (math::isDivisibleBy (year, 400))
-		return true;
-
-	if (math::isDivisibleBy (year, 4) && ! math::isDivisibleBy (year, 100))
-		return true;
-
-	return false;
-}
-
-constexpr int Year::getNumDays() const noexcept
-{
-	if (isLeap())
-		return 366;
-
-	return 365;
-}
-
-constexpr bool Year::isBC() const noexcept
-{
-	return year < 0;
-}
-
-constexpr int Year::getYear() const noexcept
-{
-	return year;
-}
-
-constexpr Year& Year::operator++() noexcept
-{
-	++year;
-	return *this;
-}
-
-constexpr Year& Year::operator--() noexcept
-{
-	--year;
-	return *this;
-}
-
-constexpr Year Year::operator+ (int numYearsToAdd) const noexcept
-{
-	return Year { year + numYearsToAdd };
-}
-
-constexpr Year Year::operator- (int numYearsToSubtract) const noexcept
-{
-	return Year { year - numYearsToSubtract };
-}
-
-constexpr Year& Year::operator+= (int numYearsToAdd) noexcept
-{
-	year += numYearsToAdd;
-	return *this;
-}
-
-constexpr Year& Year::operator-= (int numYearsToSubtract) noexcept
-{
-	year -= numYearsToSubtract;
-	return *this;
-}
-
-constexpr bool Year::operator> (const Year& other) const noexcept
-{
-	return year > other.year;
-}
-
-constexpr bool Year::operator< (const Year& other) const noexcept
-{
-	return year < other.year;
-}
-
-constexpr bool Year::operator== (const Year& other) const noexcept
-{
-	return year == other.year;
-}
-
-constexpr bool Year::operator!= (const Year& other) const noexcept
-{
-	return year != other.year;
-}
-
-}  // namespace time
 
 LIMES_END_NAMESPACE
+
+#include "impl/year_impl.h"

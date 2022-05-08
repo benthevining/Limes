@@ -17,6 +17,7 @@ oranges_add_source_files (
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
 		  angle.h
+		  angle_staticAsserts.cpp
 		  circle.h
 		  rectangle.h
 		  square.h

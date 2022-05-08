@@ -38,17 +38,20 @@ public:
 
 	explicit constexpr Date (const std::tm& timeObj) noexcept;
 
-	explicit Date (std::time_t time) noexcept;
+	explicit Date (std::time_t time);
 
 	LIMES_CONSTEXPR_MOVABLE (Date);
 	LIMES_CONSTEXPR_COPYABLE (Date);
 
 	[[nodiscard]] constexpr Year  getYear() const noexcept;
 	[[nodiscard]] constexpr Month getMonth() const noexcept;
-	[[nodiscard]] constexpr int	  getDay() const noexcept;
+	[[nodiscard]] constexpr int	  getDayOfMonth() const noexcept;
+	[[nodiscard]] constexpr int   getDayOfYear() const noexcept;
 
-	template <bool StartWeekOnSunday = true>
+	template <bool StartWeekOnSunday = false>
 	[[nodiscard]] constexpr Weekday<StartWeekOnSunday> getWeekday() const noexcept;
+
+	[[nodiscard]] constexpr int getWeekNumber() const noexcept;
 
 	[[nodiscard]] bool isInPast() const noexcept;
 	[[nodiscard]] bool isInFuture() const noexcept;
@@ -62,7 +65,7 @@ public:
 	[[nodiscard]] constexpr bool operator== (const Date& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Date& other) const noexcept;
 
-	[[nodiscard]] std::string toString() const;
+	[[nodiscard]] std::string toString (bool shortMonthName = true) const;
 
 	[[nodiscard]] static Date getCurrent();
 
@@ -72,94 +75,11 @@ private:
 
 	Year  year;
 	Month month;
-	int	  dayOfMonth { 0 };
+	int	  dayOfMonth { 1 };
 };
-
-/*-------------------------------------------------------------------------------------------------------------------------------*/
-
-constexpr Date::Date (const Year& y, const Month& m, int d) noexcept
-	: year (y), month (m), dayOfMonth (d)
-{
-}
-
-constexpr Date::Date (int y, int m, int d) noexcept
-	: year (y), month (m), dayOfMonth (d)
-{
-}
-
-constexpr Date::Date (const std::tm& timeObj) noexcept
-	: year (timeObj.tm_year + 1900), month (timeObj.tm_mon), dayOfMonth (timeObj.tm_mday)
-{
-}
-
-constexpr Year Date::getYear() const noexcept
-{
-	return year;
-}
-
-constexpr Month Date::getMonth() const noexcept
-{
-	return month;
-}
-
-constexpr int Date::getDay() const noexcept
-{
-	return dayOfMonth;
-}
-
-template <bool StartWeekOnSunday>
-constexpr Weekday<StartWeekOnSunday> Date::getWeekday() const noexcept
-{
-	return Weekday<StartWeekOnSunday> { year, month, dayOfMonth };
-}
-
-constexpr bool Date::isBefore (const Date& other) const noexcept
-{
-	if (year > other.year)
-		return false;
-
-	if (month > other.month)
-		return false;
-
-	return dayOfMonth < other.dayOfMonth;
-}
-
-constexpr bool Date::isAfter (const Date& other) const noexcept
-{
-	if (year < other.year)
-		return false;
-
-	if (month < other.month)
-		return false;
-
-	return dayOfMonth > other.dayOfMonth;
-}
-
-constexpr bool Date::operator> (const Date& other) const noexcept
-{
-	return isAfter (other);
-}
-
-constexpr bool Date::operator< (const Date& other) const noexcept
-{
-	return isBefore (other);
-}
-
-constexpr bool Date::operator== (const Date& other) const noexcept
-{
-	return year == other.year && month == other.month && dayOfMonth == other.dayOfMonth;
-}
-
-constexpr bool Date::operator!= (const Date& other) const noexcept
-{
-	return ! (*this == other);
-}
-
-consteval Date Date::getCompilationDate() noexcept
-{
-	return Date { build_year(), build_month(), build_day() };
-}
 
 }  // namespace time
 
 LIMES_END_NAMESPACE
+
+#include "impl/date_impl.h"

@@ -43,6 +43,9 @@ public:
 	[[nodiscard]] constexpr bool operator== (const Hexagon& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Hexagon& other) const noexcept;
 
+	[[nodiscard]] static constexpr Angle<ValueType> interiorAngle() noexcept;
+	[[nodiscard]] static constexpr Angle<ValueType> exteriorAngle() noexcept;
+
 private:
 
 	ValueType side_length;
@@ -84,6 +87,18 @@ template <Scalar ValueType>
 constexpr bool Hexagon<ValueType>::operator!= (const Hexagon& other) const noexcept
 {
 	return side_length != other.side_length;
+}
+
+template <Scalar ValueType>
+constexpr Angle<ValueType> Hexagon<ValueType>::interiorAngle() noexcept
+{
+	return Angle<ValueType>{ 120 };
+}
+
+template <Scalar ValueType>
+constexpr Angle<ValueType> Hexagon<ValueType>::exteriorAngle() noexcept
+{
+	return Angle<ValueType>{ 60 };
 }
 
 }  // namespace math::geometry

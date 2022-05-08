@@ -45,6 +45,9 @@ public:
 	[[nodiscard]] constexpr bool operator== (const Pentagon& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Pentagon& other) const noexcept;
 
+	[[nodiscard]] static constexpr Angle<ValueType> interiorAngle() noexcept;
+	[[nodiscard]] static constexpr Angle<ValueType> exteriorAngle() noexcept;
+
 private:
 
 	ValueType side_length;
@@ -94,6 +97,18 @@ template <Scalar ValueType>
 constexpr bool Pentagon<ValueType>::operator!= (const Pentagon& other) const noexcept
 {
 	return side_length != other.side_length;
+}
+
+template <Scalar ValueType>
+constexpr Angle<ValueType> Pentagon<ValueType>::interiorAngle() noexcept
+{
+	return Angle<ValueType>{ 108 };
+}
+
+template <Scalar ValueType>
+constexpr Angle<ValueType> Pentagon<ValueType>::exteriorAngle() noexcept
+{
+	return Angle<ValueType>{ 72 };
 }
 
 }  // namespace math::geometry

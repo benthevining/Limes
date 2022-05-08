@@ -49,6 +49,8 @@ template <Scalar ValueType>
 template <typename T>
 constexpr Fraction<ValueType>::operator T() const noexcept
 {
+	LIMES_ASSERT(denominator != 0);
+
 	return static_cast<T> (numerator) / static_cast<T> (denominator);
 }
 
@@ -72,7 +74,8 @@ constexpr bool Fraction<ValueType>::operator!= (const Fraction& other) const noe
 }
 
 template <Scalar ValueType>
-constexpr bool Fraction<ValueType>::operator> (const Fraction& other) const noexcept
+template <typename T>
+constexpr bool Fraction<ValueType>::operator> (const Fraction<T>& other) const noexcept
 {
 	if (other.isNegative() && ! isNegative())
 		return true;
@@ -81,12 +84,27 @@ constexpr bool Fraction<ValueType>::operator> (const Fraction& other) const noex
 }
 
 template <Scalar ValueType>
-constexpr bool Fraction<ValueType>::operator< (const Fraction& other) const noexcept
+template <typename T>
+constexpr bool Fraction<ValueType>::operator< (const Fraction<T>& other) const noexcept
 {
 	if (isNegative() && ! other.isNegative())
 		return true;
 
 	return (double) *this < (double) other;	 // NOLINT
+}
+
+template <Scalar ValueType>
+template <typename T>
+constexpr bool Fraction<ValueType>::operator> (T value) const noexcept
+{
+	return (T) *this > value; // NOLINT
+}
+
+template <Scalar ValueType>
+template <typename T>
+constexpr bool Fraction<ValueType>::operator< (T value) const noexcept
+{
+	return (T) *this < value; // NOLINT
 }
 
 template <Scalar ValueType>
@@ -98,7 +116,7 @@ constexpr Fraction<ValueType> Fraction<ValueType>::operator+ (const Fraction& ot
 		return withDenominator (lcm) + other.withDenominator (lcm);
 	}
 
-	return Fraction<ValueType> { numerator + other.numerator, denominator }.reduce();
+	return Fraction { numerator + other.numerator, denominator }.reduce();
 }
 
 template <Scalar ValueType>
@@ -110,7 +128,19 @@ constexpr Fraction<ValueType> Fraction<ValueType>::operator- (const Fraction& ot
 		return withDenominator (lcm) - other.withDenominator (lcm);
 	}
 
-	return Fraction<ValueType> { numerator - other.numerator, denominator }.reduce();
+	return Fraction { numerator - other.numerator, denominator }.reduce();
+}
+
+template <Scalar ValueType>
+constexpr Fraction<ValueType> Fraction<ValueType>::operator+ (ValueType add) const noexcept
+{
+	return Fraction { numerator + add, denominator }.reduce();
+}
+
+template <Scalar ValueType>
+constexpr Fraction<ValueType> Fraction<ValueType>::operator- (ValueType subtract) const noexcept
+{
+	return Fraction { numerator - subtract, denominator }.reduce();
 }
 
 template <Scalar ValueType>
@@ -126,15 +156,43 @@ constexpr Fraction<ValueType>& Fraction<ValueType>::operator-= (const Fraction& 
 }
 
 template <Scalar ValueType>
+constexpr Fraction<ValueType>& Fraction<ValueType>::operator+= (ValueType add) noexcept
+{
+	numerator += add;
+	reduce();
+	return *this;
+}
+
+template <Scalar ValueType>
+constexpr Fraction<ValueType>& Fraction<ValueType>::operator-= (ValueType subtract) noexcept
+{
+	numerator -= subtract;
+	reduce();
+	return *this;
+}
+
+template <Scalar ValueType>
 constexpr Fraction<ValueType> Fraction<ValueType>::operator* (const Fraction<ValueType>& other) const noexcept
 {
 	return Fraction { numerator * other.numerator, denominator * other.denominator }.reduce();
 }
 
 template <Scalar ValueType>
+constexpr Fraction<ValueType> Fraction<ValueType>::operator* (ValueType multiply) const noexcept
+{
+	return Fraction { numerator * multiply, denominator }.reduce();
+}
+
+template <Scalar ValueType>
 constexpr Fraction<ValueType> Fraction<ValueType>::operator/ (const Fraction<ValueType>& other) const noexcept
 {
-	return *this * other.getReciprocal();
+	return (*this * other.getReciprocal()).reduce();
+}
+
+template <Scalar ValueType>
+constexpr Fraction<ValueType> Fraction<ValueType>::operator/ (ValueType divide) const noexcept
+{
+	return Fraction{ numerator / divide, denominator }.reduce();
 }
 
 template <Scalar ValueType>
@@ -150,28 +208,57 @@ constexpr Fraction<ValueType>& Fraction<ValueType>::operator/= (const Fraction& 
 }
 
 template <Scalar ValueType>
+constexpr Fraction<ValueType>& Fraction<ValueType>::operator*= (ValueType multiply) noexcept
+{
+	numerator *= multiply;
+	reduce();
+	return *this;
+}
+
+template <Scalar ValueType>
+constexpr Fraction<ValueType>& Fraction<ValueType>::operator/= (ValueType divide) noexcept
+{
+	numerator /= divide;
+	reduce();
+	return *this;
+}
+
+template <Scalar ValueType>
 constexpr ValueType Fraction<ValueType>::leastCommonDenominatorWith (const Fraction& other) const noexcept
 {
-	return std::max (1, std::lcm (denominator, other.denominator));
+	return std::max (ValueType(1), std::gcd (denominator, other.denominator));
 }
 
 template <Scalar ValueType>
 constexpr ValueType Fraction<ValueType>::divided() const noexcept
 {
+	LIMES_ASSERT (denominator != 0);
+
 	return numerator / denominator;
 }
 
 template <Scalar ValueType>
 constexpr Fraction<ValueType> Fraction<ValueType>::reduce() const noexcept
 {
-	const auto lcm = std::max (1, std::lcm (numerator, denominator));
-	return Fraction { numerator / lcm, denominator / lcm };
+	const auto gcd = std::max (ValueType(1), std::gcd (numerator, denominator));
+	auto res = Fraction { numerator / gcd, denominator / gcd };
+
+	if (res.numerator < 0 && res.denominator < 0)
+	{
+		res.numerator = -res.numerator;
+		res.denominator = -res.denominator;
+	}
+
+	return res;
 }
 
 template <Scalar ValueType>
 constexpr Fraction<ValueType> Fraction<ValueType>::withDenominator (ValueType newDenominator) const noexcept
 {
-	return Fraction { numerator * (newDenominator / denominator), newDenominator };
+	if (newDenominator > denominator)
+		return Fraction { numerator * (newDenominator / denominator), newDenominator };
+
+	return Fraction { numerator / (denominator / newDenominator), newDenominator };
 }
 
 template <Scalar ValueType>
@@ -180,7 +267,12 @@ constexpr bool Fraction<ValueType>::isNegative() const noexcept
 	if constexpr (std::is_unsigned<ValueType>::value)
 		return false;
 	else
+	{
+		if (numerator < 0 && denominator < 0)
+			return false;
+
 		return numerator < 0 || denominator < 0;
+	}
 }
 
 template <Scalar ValueType>

@@ -15,8 +15,6 @@
 #include <type_traits>
 #include <typeinfo>
 #include <string>
-#include <vector>
-#include <list>
 #include <limes_export.h>
 #include <limes_platform.h>
 #include <limes_namespace.h>
@@ -79,9 +77,6 @@ struct LIMES_EXPORT is_specialization<Template<Args...>, Template> final : std::
 
 template <class ClassToTest, template <class...> class Template>
 concept specializes = is_specialization<ClassToTest, Template>::value;
-
-static_assert (is_specialization<std::vector<int>, std::vector>(), "is_specialization test");
-static_assert (! is_specialization<std::vector<int>, std::list>(), "is_specialization test");
 
 
 template <class Derived, class Base>
