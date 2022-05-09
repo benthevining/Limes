@@ -52,9 +52,9 @@ public:
 
 	[[nodiscard]] constexpr ValueType altitude() const noexcept;
 
-	[[nodiscard]] constexpr bool isEquilateral() const noexcept;
+	constexpr bool isEquilateral() const noexcept;
 
-	[[nodiscard]] constexpr bool isIsosceles() const noexcept;
+	constexpr bool isIsosceles() const noexcept;
 
 	[[nodiscard]] constexpr bool isScalene() const noexcept;
 

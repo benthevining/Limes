@@ -16,8 +16,8 @@
 #include <cmath>
 #include <type_traits>
 #include <limes_export.h>
-#include <limes_platform.h>
 #include <algorithm>
+#include "../misc/limes_assert.h"
 
 #if __has_include(<numbers>)
 #	include <numbers>

@@ -102,6 +102,32 @@ std::string toLower (const std::string_view& string)
 	return s;
 }
 
+std::string upToFirstOccurrenceOf (const std::string_view& inputString,
+								   const std::string_view& stringToFind)
+{
+	std::string orig { inputString };
+
+	const auto pos = orig.find (stringToFind);
+
+	if (pos == std::string::npos)
+		return orig;
+
+	return orig.substr (0, pos);
+}
+
+std::string fromFirstOccurrenceOf (const std::string_view& inputString,
+								   const std::string_view& stringToFind)
+{
+	std::string orig { inputString };
+
+	const auto pos = orig.find (stringToFind);
+
+	if (pos == std::string::npos)
+		return orig;
+
+	return orig.substr (pos + stringToFind.length(), orig.length());
+}
+
 std::vector<std::string> split (const std::string_view& stringToSplit,
 								const std::string_view& delimiter,
 								bool					includeDelimiterInResults)

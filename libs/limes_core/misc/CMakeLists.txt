@@ -24,6 +24,10 @@ oranges_add_source_files (
 		  TypeTraits.h
 		  Version.cpp
 		  Version.h
-		  typeTraits_staticAsserts.cpp)
+		  typeTraits_staticAsserts.cpp
+		  streams.cpp
+		  debugger.h
+		  debugger.cpp
+		  limes_assert.h)
 
 set (misc_files ${misc_files} PARENT_SCOPE)

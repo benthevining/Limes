@@ -40,6 +40,12 @@ LIMES_EXPORT void trim (std::string& string);
 LIMES_EXPORT [[nodiscard]] std::string toUpper (const std::string_view& string);
 LIMES_EXPORT [[nodiscard]] std::string toLower (const std::string_view& string);
 
+LIMES_EXPORT [[nodiscard]] std::string upToFirstOccurrenceOf (const std::string_view& inputString,
+															  const std::string_view& stringToFind);
+
+LIMES_EXPORT [[nodiscard]] std::string fromFirstOccurrenceOf (const std::string_view& inputString,
+															  const std::string_view& stringToFind);
+
 LIMES_EXPORT [[nodiscard]] std::vector<std::string> split (const std::string_view& stringToSplit,
 														   const std::string_view& delimiter,
 														   bool					   includeDelimiterInResults = false);

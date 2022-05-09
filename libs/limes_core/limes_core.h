@@ -35,6 +35,8 @@ Dependencies: None
 #include "misc/Version.h"
 #include "misc/Functions.h"
 #include "misc/streams.h"
+#include "misc/debugger.h"
+#include "misc/limes_assert.h"
 
 #include "time/time_utils.h"
 #include "time/time.h"

@@ -10,31 +10,19 @@
  * ======================================================================================
  */
 
-#pragma once
-
+#include "streams.h"
 #include <limes_namespace.h>
-#include <limes_export.h>
-#include <ios>
-#include "preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
 
-struct LIMES_EXPORT ScopedStreamFlags final
+ScopedStreamFlags::ScopedStreamFlags (std::ios_base& streamToUse)
+	: stream (streamToUse), flags (stream.flags())
 {
-public:
+}
 
-	explicit ScopedStreamFlags (std::ios_base& streamToUse);
-
-	~ScopedStreamFlags();
-
-	LIMES_NON_COPYABLE (ScopedStreamFlags);
-	LIMES_NON_MOVABLE (ScopedStreamFlags);
-
-private:
-
-	std::ios_base& stream;
-
-	const std::ios_base::fmtflags flags;
-};
+ScopedStreamFlags::~ScopedStreamFlags()
+{
+	stream.flags (flags);
+}
 
 LIMES_END_NAMESPACE

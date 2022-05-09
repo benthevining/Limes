@@ -12,7 +12,7 @@
 
 #include "PitchbendMapper.h"
 
-#include <limes_platform.h>
+#include <limes_core.h>
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE
