@@ -112,7 +112,7 @@ repos:
 
   # YAML
     - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
-      rev: 0.1.1
+      rev: 0.2.1
       hooks:
           - id: yamlfmt
             args: [--width, '400', --preserve-quotes]
@@ -139,7 +139,7 @@ repos:
 
   # protobuf
     - repo: https://github.com/yoheimuta/protolint
-      rev: v0.37.1
+      rev: v0.38.1
       hooks:
           - id: protolint
             args: [-fix]
