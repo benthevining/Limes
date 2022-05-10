@@ -20,6 +20,7 @@
 #include <string>				   // for string
 #include "../misc/preprocessor.h"  // for LIMES_DEFAULT_COPYABLE, LIMES_DEFA...
 #include "../time/DateTime.h"	   // for DateTime
+#include <functional>			   // for std::hash
 
 LIMES_BEGIN_NAMESPACE
 
@@ -126,3 +127,17 @@ private:
 }  // namespace files
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+template <>
+struct LIMES_EXPORT hash<limes::files::FilesystemEntry>
+{
+	hash() = default;
+
+	LIMES_DEFAULT_COPYABLE (hash);
+	LIMES_DEFAULT_MOVABLE (hash);
+
+	size_t operator() (const limes::files::FilesystemEntry& e) const noexcept;
+};
+}  // namespace std

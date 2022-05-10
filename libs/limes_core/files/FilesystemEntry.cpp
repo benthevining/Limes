@@ -333,3 +333,11 @@ bool FilesystemEntry::copyFrom (const FilesystemEntry& source, CopyOptions optio
 }  // namespace files
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+size_t hash<limes::files::FilesystemEntry>::operator() (const limes::files::FilesystemEntry& e) const noexcept
+{
+	return filesystem::hash_value (e.getAbsolutePath());
+}
+}  // namespace std

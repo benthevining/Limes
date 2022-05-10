@@ -20,7 +20,8 @@
 #include "../hashes/hash.h"		// for hash::Type
 #include "../memory/RawData.h"	// for RawData
 #include "FilesystemEntry.h"	// for FilesystemEntry, Path
-
+#include <functional>			// for std::hash
+#include "../misc/preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -90,3 +91,17 @@ public:
 }  // namespace files
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+template <>
+struct LIMES_EXPORT hash<limes::files::File>
+{
+	hash() = default;
+
+	LIMES_DEFAULT_COPYABLE (hash);
+	LIMES_DEFAULT_MOVABLE (hash);
+
+	size_t operator() (const limes::files::File& f) const noexcept;
+};
+}  // namespace std

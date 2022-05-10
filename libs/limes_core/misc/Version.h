@@ -17,7 +17,7 @@
 #include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
 #include <string>			  // for string
 #include "preprocessor.h"	  // for LIMES_CONSTEXPR_COPYABLE, LIMES_CONSTEX...
-
+#include <functional>		  // for std::hash
 
 LIMES_BEGIN_NAMESPACE
 
@@ -165,3 +165,17 @@ private:
 };
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+template <>
+struct LIMES_EXPORT hash<limes::Version>
+{
+	hash() = default;
+
+	LIMES_DEFAULT_COPYABLE (hash);
+	LIMES_DEFAULT_MOVABLE (hash);
+
+	size_t operator() (const limes::Version& v) const noexcept;
+};
+}  // namespace std

@@ -25,7 +25,7 @@ public:
 
 	DynamicLibrary() = default;
 
-	explicit DynamicLibrary (const std::string_view& nameOrPath);
+	explicit DynamicLibrary (const std::string_view& nameOrPath) noexcept;
 
 	~DynamicLibrary();
 
@@ -36,9 +36,9 @@ public:
 
 	[[nodiscard]] void* getHandle() const noexcept;
 
-	void* findFunction (const std::string_view& functionName);
+	void* findFunction (const std::string_view& functionName) noexcept;
 
-	bool open (const std::string_view& nameOrPath);
+	bool open (const std::string_view& nameOrPath) noexcept;
 
 	void close();
 

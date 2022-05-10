@@ -183,3 +183,11 @@ TempFile::~TempFile()
 }  // namespace files
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+size_t hash<limes::files::File>::operator() (const limes::files::File& f) const noexcept
+{
+	return hash<string> {}(f.loadAsString());
+}
+}  // namespace std

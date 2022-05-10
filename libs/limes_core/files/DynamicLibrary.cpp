@@ -14,6 +14,7 @@
 #include <limes_namespace.h>
 #include <limes_platform.h>
 #include <string>
+#include <exception>
 
 #if LIMES_WINDOWS
 #	include <windows.h>
@@ -23,7 +24,7 @@
 
 LIMES_BEGIN_NAMESPACE
 
-DynamicLibrary::DynamicLibrary (const std::string_view& nameOrPath)
+DynamicLibrary::DynamicLibrary (const std::string_view& nameOrPath) noexcept
 {
 	open (nameOrPath);
 }
@@ -43,20 +44,27 @@ void* DynamicLibrary::getHandle() const noexcept
 	return handle;
 }
 
-bool DynamicLibrary::open (const std::string_view& nameOrPath)
+bool DynamicLibrary::open (const std::string_view& nameOrPath) noexcept
 {
-	close();
+	try
+	{
+		close();
 
-	if (nameOrPath.empty())
-		return false;
+		if (nameOrPath.empty())
+			return false;
 
 #if LIMES_WINDOWS
-	handle = ::LoadLibraryA (std::string (nameOrPath).c_str());
+		handle = ::LoadLibraryA (std::string (nameOrPath).c_str());
 #else
-	handle = ::dlopen (std::string (nameOrPath).c_str(), RTLD_LOCAL | RTLD_NOW);
+		handle = ::dlopen (std::string (nameOrPath).c_str(), RTLD_LOCAL | RTLD_NOW);
 #endif
 
-	return handle != nullptr;
+		return handle != nullptr;
+	}
+	catch (std::exception&)
+	{
+		return false;
+	}
 }
 
 void DynamicLibrary::close()
@@ -71,16 +79,23 @@ void DynamicLibrary::close()
 #endif
 }
 
-void* DynamicLibrary::findFunction (const std::string_view& functionName)
+void* DynamicLibrary::findFunction (const std::string_view& functionName) noexcept
 {
-	if (handle == nullptr || functionName.empty())
-		return nullptr;
+	try
+	{
+		if (handle == nullptr || functionName.empty())
+			return nullptr;
 
 #if LIMES_WINDOWS
-	return ::GetProcAddress (static_cast<HMODULE> (handle), std::string (functionName).c_str());
+		return ::GetProcAddress (static_cast<HMODULE> (handle), std::string (functionName).c_str());
 #else
-	return ::dlsym (handle, std::string (functionName).c_str());
+		return ::dlsym (handle, std::string (functionName).c_str());
 #endif
+	}
+	catch (std::exception&)
+	{
+		return nullptr;
+	}
 }
 
 LIMES_END_NAMESPACE
