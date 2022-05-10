@@ -25,15 +25,21 @@ LIMES_BEGIN_NAMESPACE
 namespace assert
 {
 
+#if LIMES_MSVC
+#	ifndef __INTEL_COMPILER
+#		pragma intrinsic(__debugbreak)
+#	endif
+#endif
+
 void break_in_debugger() noexcept
 {
 #if LIMES_IOS || LIMES_LINUX
 	::kill (0, SIGTRAP);
 
+#elif LIMES_ANDROID
+	__builtin_trap();
+
 #elif LIMES_MSVC
-#	ifndef __INTEL_COMPILER
-#		pragma intrinsic(__debugbreak)
-#	endif
 	__debugbreak();
 
 #elif LIMES_INTEL && (LIMES_GCC || LIMES_CLANG || LIMES_OSX)
@@ -42,8 +48,6 @@ void break_in_debugger() noexcept
 #elif LIMES_ARM && LIMES_OSX
 	__builtin_debugtrap();
 
-#elif LIMES_ANDROID
-	__builtin_trap();
 #else
 	__asm int 3
 #endif
