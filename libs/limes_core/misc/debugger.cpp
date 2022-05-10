@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "debugger.h"
+#include "limes_assert.h"
 #include <limes_namespace.h>
 #include <limes_platform.h>
 
@@ -31,6 +31,9 @@
 #endif
 
 LIMES_BEGIN_NAMESPACE
+
+namespace assert
+{
 
 [[nodiscard]] static inline bool debuggerCheckInternal() noexcept
 {
@@ -107,5 +110,7 @@ bool isRunningUnderDebugger() noexcept
 
 	return result;
 }
+
+}  // namespace assert
 
 LIMES_END_NAMESPACE

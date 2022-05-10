@@ -14,54 +14,38 @@
 
 #include <limes_export.h>
 #include <limes_namespace.h>
-#include "debugger.h"
 #include "preprocessor.h"
 #include <type_traits>
 #include <utility>
-#include <limes_platform.h>
 #include <limes_build_type.h>
-
-#if LIMES_IOS || LIMES_LINUX
-#	include <sys/types.h>
-#	include <signal.h>
-#endif
 
 LIMES_BEGIN_NAMESPACE
 
-LIMES_NO_EXPORT constexpr void limes_fire_assertion_failure()
+namespace assert
+{
+
+LIMES_EXPORT [[nodiscard]] bool isRunningUnderDebugger() noexcept;
+
+LIMES_EXPORT [[noreturn]] void break_in_debugger() noexcept;
+
+LIMES_EXPORT void log_assertion (const char* fileName, int lineNum, const char* condition) noexcept;
+
+LIMES_EXPORT constexpr void fire_assertion_failure() noexcept
 {
 	if (! std::is_constant_evaluated())
-	{
-		if (! isRunningUnderDebugger())
-			return;
-
-#if LIMES_IOS || LIMES_LINUX
-		::kill (0, SIGTRAP);
-
-#elif LIMES_MSVC
-#	ifndef __INTEL_COMPILER
-#		pragma intrinsic(__debugbreak)
-#	endif
-		__debugbreak();
-
-#elif LIMES_INTEL && (LIMES_GCC || LIMES_CLANG || LIMES_OSX)
-		asm("int $3");
-
-#elif LIMES_ARM && LIMES_OSX
-		__builtin_debugtrap();
-
-#elif LIMES_ANDROID
-		__builtin_trap();
-#else
-		__asm int 3
-#endif
-	}
+		if (isRunningUnderDebugger())
+			break_in_debugger();
 }
 
-#if LIMES_DEBUG
-#	define LIMES_ASSERT_FALSE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::limes::limes_fire_assertion_failure();)
+}  // namespace assert
 
-#	define LIMES_ASSERT(x) LIMES_BLOCK_WITH_FORCED_SEMICOLON (if (! (x)) LIMES_ASSERT_FALSE;)
+LIMES_END_NAMESPACE
+
+
+#if LIMES_DEBUG
+#	define LIMES_ASSERT_FALSE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::limes::assert::log_assertion (__FILE__, __LINE__, nullptr); ::limes::assert::fire_assertion_failure();)
+
+#	define LIMES_ASSERT(x) LIMES_BLOCK_WITH_FORCED_SEMICOLON (if (! (x)) { ::limes::assert::log_assertion(__FILE__, __LINE__, LIMES_MAKE_STRING(x)); ::limes::assert::fire_assertion_failure(); })
 #else
 #	define LIMES_ASSERT_FALSE
 #	define LIMES_ASSERT
@@ -71,7 +55,5 @@ LIMES_NO_EXPORT constexpr void limes_fire_assertion_failure()
 #if __cpp_lib_unreachable
 #	define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::std::unreachable())
 #else
-#	define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (LIMES_ASSERT_FALSE;)
+#	define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::limes::assert::fire_assertion_failure();)
 #endif
-
-LIMES_END_NAMESPACE

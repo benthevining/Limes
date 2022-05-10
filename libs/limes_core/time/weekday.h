@@ -56,9 +56,7 @@ public:
 
 	explicit Weekday (std::time_t time);
 
-	using OtherWeekdayType = std::conditional_t<StartWeekOnSunday,
-												Weekday<false>,
-												Weekday<true>>;
+	using OtherWeekdayType = Weekday<! StartWeekOnSunday>;
 
 	explicit constexpr Weekday (const OtherWeekdayType& other) noexcept;
 

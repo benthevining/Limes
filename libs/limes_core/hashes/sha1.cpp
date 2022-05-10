@@ -18,6 +18,7 @@
 #include <string>			  // for basic_string
 #include <string_view>		  // for string_view
 #include "sha1.h"			  // for sha1
+#include <bit>				  // for std::endian
 
 #if LIMES_MSVC
 #	include <cstdlib>
@@ -165,12 +166,11 @@ void SHA1::S_R4 (std::uint32_t v, std::uint32_t& w, std::uint32_t x, std::uint32
 
 std::uint32_t SHA1::SHABLK0 (std::uint32_t i) noexcept
 {
-#if LIMES_LITTLE_ENDIAN
-	return m_block[i] = static_cast<std::uint8_t> ((rotate_left (m_block[i], 24) & 0xFF00FF00)
-												   | (rotate_left (m_block[i], 8) & 0x00FF00FF));
-#else
-	return m_block[i];
-#endif
+	if constexpr (std::endian::native == std::endian::little)
+		return m_block[i] = static_cast<std::uint8_t> ((rotate_left (m_block[i], 24) & 0xFF00FF00)
+													   | (rotate_left (m_block[i], 8) & 0x00FF00FF));
+	else
+		return m_block[i];
 }
 
 std::uint32_t SHA1::SHABLK (std::uint32_t i) noexcept
