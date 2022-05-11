@@ -14,6 +14,7 @@
 #include <limes_namespace.h>
 #include <vector>
 #include <type_traits>
+#include <variant>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -27,11 +28,11 @@ static_assert (! TypeListA::empty);
 
 static_assert (TypeListA::equal<TypeList<int, double, float>>);
 
-static_assert (TypeListA::replace_at<1, size_t>::TypeID::equal<TypeList<int, size_t, float>>);
+static_assert (TypeListA::replace_at<1, size_t>::equal<TypeList<int, size_t, float>>);
 
-// static_assert(TypeListA::reverse::TypeID::equal<TypeList<float, double, int>>);
+static_assert (TypeListA::reverse::equal<TypeList<float, double, int>>);
 
-static_assert (TypeListA::remove<int, float>::TypeID::equal<TypeList<double>>);
+static_assert (TypeListA::remove<int, float>::equal<TypeList<double>>);
 
 static_assert (TypeListA::contains<int>);
 static_assert (TypeListA::contains<double>);
@@ -43,6 +44,7 @@ static_assert (TypeListA::num_of<int> == 1);
 
 using TypeListB = TypeListA::add<int>;
 
+static_assert (TypeListB::size == 4);
 static_assert (TypeListB::num_of<int> == 2);
 static_assert (TypeListB::contains_duplicates);
 
@@ -80,11 +82,29 @@ using TypeListE = TypeListD::remove_at<1>;
 
 static_assert (TypeListE::equal<TypeList<int, float>>);
 
-static_assert (TypeListE::remove_last::TypeID::equal<TypeList<int>>);
+static_assert (TypeListE::remove_last::equal<TypeList<int>>);
 
 using EmptyList = OnlyInt::remove<int>;
 
-// static_assert(EmptyList::empty);
+static_assert (EmptyList::empty);
+
+static_assert (EmptyList::equal<TypeListE::clear>);
+
+static_assert (EmptyList::reverse::equal<Empty>);
+
+using variant_type = std::variant<int, float, double>;
+
+using CreatedList = make_type_list_t<variant_type>;
+
+static_assert (CreatedList::equal<TypeList<int, float, double>>);
+
+static_assert (CreatedList::reverse::equal<TypeList<double, float, int>>);
+
+static_assert (std::is_same_v<variant_type, CreatedList::apply_to<std::variant>>);
+
+using TypeListF = TypeList<std::vector<int>, std::variant<size_t, double, float>, size_t>;
+
+static_assert (TypeListF::index_of<std::vector<int>> == 0);
 
 }  // namespace typelist
 

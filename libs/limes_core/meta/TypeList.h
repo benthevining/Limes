@@ -19,6 +19,8 @@
 #include "TypeTraits.h"
 #include <utility>
 #include <memory>
+#include <vector>
+#include <string>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -27,7 +29,6 @@ namespace typelist
 
 /*
  - compare typelists - get another typelist with items in common / not
- - reverse
  - sort?
  */
 
@@ -36,22 +37,24 @@ class LIMES_EXPORT TypeList final
 {
 public:
 
+	TypeList() = delete;
+
 	using TypeID = TypeList<Types...>;
 
 	using clear = TypeList<>;
 
-	static constinit const auto size = size_v<TypeList>;
+	static constinit const size_t size = size_v<TypeList>;
 
-	static constinit const auto empty = size == 0;
+	static constinit const bool empty = is_empty<TypeList>;
 
 	template <class Other>
-	static constinit const auto equal = are_same_v<TypeList, Other>;
+	static constinit const bool equal = are_same_v<TypeList, Other>;
 
 	template <typename Type>
-	static constinit const auto contains = contains_v<TypeList, Type>;
+	static constinit const bool contains = contains_v<TypeList, Type>;
 
 	template <typename Type>
-	static constinit const auto num_of = count_v<TypeList, Type>;
+	static constinit const size_t num_of = count_v<TypeList, Type>;
 
 	template <typename... TypesToAdd>
 	using add = add_t<TypeList, TypesToAdd...>;
@@ -64,9 +67,9 @@ public:
 
 	using front = get_first_t<TypeList>;
 
-	using back = get_last_t<TypeList, Types...>;
+	using back = get_last_t<TypeList>;
 
-	//	using reverse = reverse_t<TypeList>;
+	using reverse = reverse_t<TypeList>;
 
 	template <size_t Index, typename... Args>
 	static constexpr at<Index> construct (Args&&... args)
@@ -81,7 +84,7 @@ public:
 	}
 
 	template <typename Type>
-	static constinit const auto index_of = find_v<TypeList, Type>;
+	static constinit const size_t index_of = find_v<TypeList, Type>;
 
 	template <typename... TypesToRemove>
 	using remove = remove_t<TypeList, TypesToRemove...>;
@@ -98,9 +101,12 @@ public:
 	template <size_t Index, typename ReplaceWith>
 	using replace_at = replace_at_t<TypeList, Index, ReplaceWith>;
 
-	static constinit const auto contains_duplicates = contains_duplicates_v<TypeList>;
+	static constinit const bool contains_duplicates = contains_duplicates_v<TypeList>;
 
 	using remove_duplicates = remove_duplicates_t<TypeList>;
+
+	template <template <typename...> class T>
+	using apply_to = T<Types...>;
 
 	template <Function Func, typename... Args>
 	static constexpr void for_each (Func&& f, Args&&... args) noexcept (noexcept ((std::forward<Func> (f).template operator()<Types> (std::forward<Args> (args)...), ...)))
@@ -115,9 +121,114 @@ public:
 	}
 };
 
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+template <>
+class LIMES_EXPORT TypeList<> final
+{
+public:
+
+	TypeList() = delete;
+
+	using TypeID = TypeList<>;
+	using clear	 = TypeID;
+
+	static constinit const size_t size = 0;
+
+	static constinit const bool empty = true;
+
+	template <class Other>
+	static constinit const bool equal = is_empty<Other>;
+
+	template <typename>
+	static constinit const bool contains = false;
+
+	template <typename>
+	static constinit const size_t num_of = 0;
+
+	template <typename... TypesToAdd>
+	using add = TypeList<TypesToAdd...>;
+
+	template <typename... TypesToAdd>
+	using addIfAbsent = addIfAbsent_t<TypeList, TypesToAdd...>;
+
+	template <size_t>
+	using at = NoType;
+
+	using front = NoType;
+	using back	= NoType;
+
+	using reverse = TypeID;
+
+	template <size_t, typename... Args>
+	static constexpr NoType construct (Args&&...)
+	{
+		return {};
+	}
+
+	template <size_t, typename... Args>
+	static std::unique_ptr<NoType> make_unique (Args&&...)
+	{
+		return std::make_unique<NoType>();
+	}
+
+	template <typename>
+	static constinit const size_t index_of = invalid_index;
+
+	template <typename...>
+	using remove = TypeID;
+
+	template <size_t>
+	using remove_at = TypeID;
+
+	using remove_first = TypeID;
+	using remove_last  = TypeID;
+
+	template <typename, typename>
+	using replace = TypeID;
+
+	template <size_t, typename>
+	using replace_at = TypeID;
+
+	static constinit const bool contains_duplicates = false;
+
+	using remove_duplicates = TypeID;
+
+	template <template <typename...> class T>
+	using apply_to = T<NoType>;
+
+	template <Function Func, typename... Args>
+	static constexpr void for_each (Func&&, Args&&...) noexcept
+	{
+	}
+
+	template <Function Func, typename... Args>
+	static constexpr void for_all (Func&& f, Args&&... args) noexcept (noexcept (f().template operator()<> (std::forward<Args> (args)...)))
+	{
+		return f().template operator()<> (std::forward<Args> (args)...);
+	}
+};
+
+LIMES_EXPORT using Empty = TypeList<>;
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+template <typename>
+struct LIMES_EXPORT make_type_list;
+
+template <template <typename...> class T, typename... Args>
+struct LIMES_EXPORT make_type_list<T<Args...>> final
+{
+	using type = TypeList<Args...>;
+};
+
+template <typename... Args>
+LIMES_EXPORT using make_type_list_t = typename make_type_list<Args...>::type;
+
+/*----------------------------------------------------------------------------------------------------------------------*/
 
 template <class T>
-static constinit const auto is_typelist = is_specialization<T, TypeList>::value;
+LIMES_EXPORT static constinit const auto is_typelist = is_specialization<T, TypeList>::value;
 
 template <typename T>
 concept type_list = is_typelist<T>;

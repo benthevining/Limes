@@ -24,6 +24,24 @@ namespace typelist
 
 using std::size_t;
 
+LIMES_EXPORT static constinit const auto invalid_index = static_cast<size_t> (-1);
+
+struct LIMES_EXPORT NoType final
+{
+};
+
+template <typename T>
+LIMES_EXPORT static constinit const bool is_null_type = std::is_same_v<T, NoType>;
+
+template <typename... Types>
+struct LIMES_NO_EXPORT InternalTypeList final
+{
+	template <template <typename...> class TypelistType>
+	using makeTypelist = TypelistType<Types...>;
+};
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
 template <class LHS, class RHS>
 struct LIMES_EXPORT are_same final : std::false_type
 {
@@ -64,6 +82,9 @@ struct LIMES_EXPORT size<Typelist<Args...>> final : std::integral_constant<size_
 
 template <class Typelist>
 LIMES_EXPORT constinit const auto size_v = size<Typelist>::value;
+
+template <class Typelist>
+LIMES_EXPORT constinit const bool is_empty = (size_v<Typelist> == 0);
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -144,10 +165,6 @@ private:
 			typename finder<SearchIndex - 1, Others...>::type>;
 	};
 
-	struct NoType final
-	{
-	};
-
 	template <size_t SearchIndex, typename First>
 	struct finder<SearchIndex, First> final
 	{
@@ -168,8 +185,8 @@ LIMES_EXPORT using get_t = typename get<Typelist, Index>::type;
 template <class Typelist>
 LIMES_EXPORT using get_first_t = get_t<Typelist, 0>;
 
-template <class Typelist, typename... Types>
-LIMES_EXPORT using get_last_t = get_t<Typelist, sizeof...(Types) - 1>;
+template <class Typelist>
+LIMES_EXPORT using get_last_t = get_t<Typelist, size_v<Typelist> - 1>;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -226,13 +243,6 @@ private:
 	template <typename Type>
 	static constinit const auto isTypeAbsent = (! std::is_same_v<TypesToRemove, Type> && ...);
 
-	template <typename... Types>
-	struct InternalTypeList final
-	{
-		template <template <typename...> class TypelistType>
-		using makeTypelist = TypelistType<Types...>;
-	};
-
 	template <class ListType, typename... ListArgs>
 	struct remover;
 
@@ -276,13 +286,6 @@ private:
 
 	static_assert (Index <= size_v<Typelist<Args...>>, "Cannot remove item out of range of TypeList!");
 
-	template <typename... Types>
-	struct InternalTypeList final
-	{
-		template <template <typename...> class TypelistType>
-		using makeTypelist = TypelistType<Types...>;
-	};
-
 	template <size_t CurrentIndex, class ListType, typename... ListArgs>
 	struct remover;
 
@@ -323,13 +326,6 @@ private:
 
 	static_assert (contains_v<Typelist<Args...>, ToReplace>, "Cannot replace type not in Typelist!");
 
-	template <typename... Types>
-	struct InternalTypeList final
-	{
-		template <template <typename...> class TypelistType>
-		using makeTypelist = TypelistType<Types...>;
-	};
-
 	template <class TypeList, typename InPlaceType, typename...>
 	struct replacer;
 
@@ -369,13 +365,6 @@ struct LIMES_EXPORT replace_at<Typelist<Args...>, Index, ReplaceWith> final
 private:
 
 	static_assert (Index <= size_v<Typelist<Args...>>, "Cannot replace item out of range of TypeList!");
-
-	template <typename... Types>
-	struct InternalTypeList final
-	{
-		template <template <typename...> class TypelistType>
-		using makeTypelist = TypelistType<Types...>;
-	};
 
 	template <size_t CurrentIndex, class ListType, typename... ListArgs>
 	struct rebuilder;
@@ -453,18 +442,11 @@ struct LIMES_EXPORT remove_duplicates<Typelist<Args...>> final
 {
 private:
 
-	template <typename... Types>
-	struct InternalTypeList final
-	{
-		template <template <typename...> class TypelistType>
-		using makeTypelist = TypelistType<Types...>;
-	};
-
 	template <size_t CurrentIndex>
 	using CurrentType = get_t<Typelist<Args...>, CurrentIndex>;
 
 	template <class ListType, size_t CurrentIndex>
-	static constinit const auto containsCurrentType = contains_v<ListType, CurrentType<CurrentIndex>>;
+	static constinit const bool containsCurrentType = contains_v<ListType, CurrentType<CurrentIndex>>;
 
 	template <size_t CurrentIndex, class ListType, typename...>
 	struct rebuilder;
@@ -522,42 +504,45 @@ LIMES_EXPORT static constinit const auto contains_duplicates_v = contains_duplic
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
-// template <class Typelist>
-// struct LIMES_EXPORT reverse;
-//
-// template <template <typename...> class Typelist, typename... Args>
-// struct LIMES_EXPORT reverse<Typelist<Args...>> final
-//{
-// private:
-//
-//	template <typename... Types>
-//	struct InternalTypeList final
-//	{
-//		template <template <typename...> class TypelistType>
-//		using makeTypelist = TypelistType<Types...>;
-//	};
-//
-//	using OriginalList = Typelist<Args...>;
-//
-//	static constinit const auto origListSize = size_v<OriginalList>;
-//
-//	template<size_t CurrentIndex, class NewList>
-//	struct reverser final
-//	{
-//		using this_type = add_t<NewList, get_t<OriginalList, origListSize - CurrentIndex>>;
-//
-//		using type = std::conditional_t<CurrentIndex == origListSize-1,
-//		this_type,
-//		typename reverser<CurrentIndex+1, this_type>::type>;
-//	};
-//
-// public:
-//
-//	using type = typename reverser<0, InternalTypeList<>>::type::template makeTypelist<Typelist>;
-// };
-//
-// template <class Typelist>
-// LIMES_EXPORT using reverse_t = typename reverse<Typelist>::type;
+template <class Typelist>
+struct LIMES_EXPORT reverse;
+
+template <template <typename...> class Typelist, typename... Args>
+struct LIMES_EXPORT reverse<Typelist<Args...>> final
+{
+private:
+
+	template <typename>
+	struct base;
+
+	template <template <typename...> class T, typename... Types>
+	struct base<T<Types...>> final
+	{
+		using type = T<>;
+	};
+
+	template <typename T, typename = typename base<T>::type>
+	struct reverse_impl;
+
+	template <template <typename...> class T, typename... Types>
+	struct reverse_impl<typename base<T<Types...>>::type, T<Types...>> final
+	{
+		using type = T<Types...>;
+	};
+
+	template <template <typename...> class T, typename First, typename... Rest, typename... done>
+	struct reverse_impl<T<First, Rest...>, T<done...>> final
+	{
+		using type = typename reverse_impl<T<Rest...>, T<First, done...>>::type;
+	};
+
+public:
+
+	using type = typename reverse_impl<InternalTypeList<Args...>>::type::template makeTypelist<Typelist>;
+};
+
+template <class Typelist>
+LIMES_EXPORT using reverse_t = typename reverse<Typelist>::type;
 
 }  // namespace typelist
 
