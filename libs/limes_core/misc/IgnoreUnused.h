@@ -18,7 +18,7 @@
 LIMES_BEGIN_NAMESPACE
 
 template <typename... Args>
-LIMES_EXPORT void ignore_unused (Args&&...)
+LIMES_EXPORT constexpr void ignore_unused (Args&&...) noexcept
 {
 }
 

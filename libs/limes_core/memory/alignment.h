@@ -17,6 +17,7 @@
 #include <limes_platform.h>
 #include <cstdlib>
 #include <exception>
+#include <memory>
 #include "../misc/preprocessor.h"
 
 #if LIMES_MSVC || LIMES_WINDOWS
@@ -45,7 +46,7 @@ LIMES_EXPORT [[nodiscard]] T* allocate_aligned (std::size_t count = 1, std::size
 		auto* const typed_ptr = static_cast<T*> (ptr);
 
 		for (size_t i = 0; i < count; ++i)
-			new (typed_ptr + i) T (std::forward<Args> (args)...);
+			std::construct_at (typed_ptr + i, std::forward<Args> (args)...);
 
 		return typed_ptr;
 	}
@@ -56,22 +57,24 @@ LIMES_EXPORT [[nodiscard]] T* allocate_aligned (std::size_t count = 1, std::size
 }
 
 template <typename T>
-LIMES_EXPORT void deallocate_aligned (T* ptr) noexcept
+LIMES_EXPORT bool deallocate_aligned (T* ptr) noexcept
 {
 	try
 	{
 		if (ptr == nullptr)
-			return;
+			return true;
 
 #if LIMES_MSVC || LIMES_WINDOWS
 		_aligned_free (ptr);
 #else
-		free (ptr);
+		std::free (ptr);
 #endif
+
+		return true;
 	}
 	catch (const std::exception&)
 	{
-		return;
+		return false;
 	}
 }
 

@@ -12,7 +12,14 @@
 
 #pragma once
 
+#include <limes_core.h>
+
+LIMES_DISABLE_ALL_COMPILER_WARNINGS
+
 #include <mipp.h>
+
+LIMES_REENABLE_ALL_COMPILER_WARNINGS
+
 #include <limits>
 #include <limes_vecops.h>
 #include "fallback_impl.h"

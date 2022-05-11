@@ -28,6 +28,9 @@ Dependencies: None
 #include <limes_platform.h>
 #include <limes_build_type.h>
 
+#include "system/limes_assert.h"
+#include "system/compiler_warnings.h"
+
 #include "misc/preprocessor.h"
 #include "misc/IgnoreUnused.h"
 #include "misc/TypeTraits.h"
@@ -35,7 +38,6 @@ Dependencies: None
 #include "misc/Version.h"
 #include "misc/Functions.h"
 #include "misc/streams.h"
-#include "misc/limes_assert.h"
 
 #include "time/time_utils.h"
 #include "time/time.h"
@@ -78,6 +80,7 @@ Dependencies: None
 #include "math/mathHelpers.h"
 #include "math/Fraction.h"
 #include "math/Random.h"
+#include "math/matrix.h"
 #include "math/geometry/2D/angle.h"
 #include "math/geometry/2D/2Dshape.h"
 #include "math/geometry/2D/circle.h"

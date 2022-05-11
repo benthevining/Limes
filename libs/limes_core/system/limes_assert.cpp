@@ -14,6 +14,7 @@
 #include <limes_namespace.h>
 #include <limes_platform.h>
 #include <iostream>
+#include "compiler_warnings.h"
 
 #if LIMES_IOS || LIMES_LINUX
 #	include <sys/types.h>
@@ -30,6 +31,8 @@ namespace assert
 #		pragma intrinsic(__debugbreak)
 #	endif
 #endif
+
+LIMES_DISABLE_ALL_COMPILER_WARNINGS
 
 void break_in_debugger() noexcept
 {
@@ -52,6 +55,8 @@ void break_in_debugger() noexcept
 	__asm int 3
 #endif
 }
+
+LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
 void log_assertion (const char* fileName, int lineNum, const char* condition) noexcept
 {

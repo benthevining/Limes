@@ -19,7 +19,7 @@
 LIMES_BEGIN_NAMESPACE
 
 template <auto Data>
-LIMES_EXPORT [[nodiscard]] constexpr const auto& make_static() noexcept
+LIMES_EXPORT [[nodiscard]] consteval const auto& make_static() noexcept
 {
 	return Data;
 }

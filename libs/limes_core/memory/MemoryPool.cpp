@@ -29,7 +29,7 @@ LIMES_BEGIN_NAMESPACE
 MemoryPool::MemoryPool (std::size_t storageSizeBytes, std::size_t chunkSize)
 	: totalSizeBytes (storageSizeBytes),
 	  chunkSizeBytes (chunkSize),
-	  memory (static_cast<std::byte*> (malloc (storageSizeBytes)))
+	  memory (static_cast<std::byte*> (std::malloc (storageSizeBytes)))
 {
 	if (memory == nullptr)
 		throw std::runtime_error ("Failed to allocate a memory pool");
@@ -54,11 +54,10 @@ MemoryPool::~MemoryPool()
 {
 	try
 	{
-		free (memory);
+		std::free (memory);
 	}
 	catch (const std::exception&)
 	{
-		return;
 	}
 }
 

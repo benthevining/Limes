@@ -17,7 +17,7 @@
 #include <type_traits>
 #include <limes_export.h>
 #include <algorithm>
-#include "../misc/limes_assert.h"
+#include "../system/limes_assert.h"
 
 #if __has_include(<numbers>)
 #	include <numbers>

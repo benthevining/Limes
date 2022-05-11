@@ -30,8 +30,7 @@ class LIMES_EXPORT Random final
 public:
 
 	using EngineType = std::minstd_rand;
-
-	using ValueType = EngineType::result_type;
+	using ValueType	 = EngineType::result_type;
 
 	explicit Random (ValueType seedValue);
 

@@ -13,7 +13,7 @@
 #pragma once
 
 #include <limes_namespace.h>
-#include "../../misc/limes_assert.h"
+#include "../../system/limes_assert.h"
 #include "../build_date.h"
 
 LIMES_BEGIN_NAMESPACE

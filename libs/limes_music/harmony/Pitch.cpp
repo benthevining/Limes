@@ -34,6 +34,7 @@ bool Pitch::approximatelyEqual (const Pitch& other) const noexcept
 
 double Pitch::getFreqHz() const noexcept
 {
+	LIMES_ASSERT (midiPitch > 0.);
 	return math::midiToFreq (midiPitch);
 }
 

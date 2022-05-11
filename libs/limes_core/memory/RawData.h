@@ -51,9 +51,9 @@ public:
 
 	[[nodiscard]] std::size_t getSize() const noexcept;
 
-	[[nodiscard]] std::string toString() const;
+	[[nodiscard]] std::string toString() const noexcept;
 
-	void writeToStream (std::basic_ostream<char>& outputStream) const;
+	bool writeToStream (std::basic_ostream<char>& outputStream) const noexcept;
 
 	[[nodiscard]] bool isEmpty() const noexcept;
 
@@ -61,7 +61,7 @@ public:
 
 	void free();
 
-	[[nodiscard]] char* release();
+	[[nodiscard]] char* release() noexcept;
 
 	void append (const char* const newData, std::size_t numBytes);
 

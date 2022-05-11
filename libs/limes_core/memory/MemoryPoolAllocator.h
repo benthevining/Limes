@@ -17,6 +17,7 @@
 #include <limes_export.h>
 #include <cstdlib>
 #include "../misc/preprocessor.h"
+#include <type_traits>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -88,22 +89,20 @@ public:
 		using other = MemoryPoolAllocator<U, MaxCapacity>;
 	};
 
-	void construct (T* const ptr, const T& t) const
+	void construct (T* const ptr, const T& t) const noexcept (std::is_nothrow_copy_constructible_v<T>)
 	{
-		void* const voidPtr = static_cast<void*> (ptr);
-		new (voidPtr) T (t);
+		std::construct_at (ptr, t);
 	}
 
 	template <typename... Args>
 	void construct (T* const ptr, Args&&... args) const
 	{
-		void* const voidPtr = static_cast<void*> (ptr);
-		new (voidPtr) T (std::forward<Args> (args)...);
+		std::construct_at (ptr, std::forward<Args> (args)...);
 	}
 
-	void destroy (T* const ptr) const
+	void destroy (T* const ptr) const noexcept
 	{
-		ptr->~T();
+		std::destroy_at (ptr);
 	}
 
 private:

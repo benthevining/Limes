@@ -26,7 +26,7 @@ LIMES_BEGIN_NAMESPACE
 namespace strings
 {
 
-bool isNewline (const std::string_view& string)
+bool isNewline (const std::string_view& string) noexcept
 {
 	return string == "\n" || string == "\r\n";
 }

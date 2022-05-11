@@ -22,17 +22,25 @@
 
 LIMES_BEGIN_NAMESPACE
 
-template <class Function>
-LIMES_EXPORT bool call_once (Function&& func, std::invoke_result_t<Function>* result = nullptr)
+// clang-format off
+template <typename T>
+concept Function = requires (T f)
+{
+	{ f() };
+};
+// clang-format on
+
+template <Function Func>
+LIMES_EXPORT bool call_once (Func&& func, std::invoke_result_t<Func>* result = nullptr) noexcept (noexcept (func))
 {
 	static std::atomic<bool> called = false;
 
-	if (called)
+	if (called.load())
 		return false;
 
-	called = true;
+	called.store (true);
 
-	if constexpr (std::is_void_v<std::invoke_result_t<Function>>)
+	if constexpr (std::is_void_v<std::invoke_result_t<Func>>)
 	{
 		std::invoke (func);
 	}
@@ -48,19 +56,25 @@ LIMES_EXPORT bool call_once (Function&& func, std::invoke_result_t<Function>* re
 }
 
 
-template <class Function>
+template <Function Func>
 class LIMES_EXPORT CallDeferred final
 {
 public:
 
-	constexpr explicit CallDeferred (Function&& function)
+	constexpr explicit CallDeferred (Func&& function) noexcept
 		: func (std::move (function))
 	{
 	}
 
 	~CallDeferred()
 	{
-		std::invoke (func);
+		try
+		{
+			std::invoke (func);
+		}
+		catch (std::exception&)
+		{
+		}
 	}
 
 	LIMES_NON_COPYABLE (CallDeferred);
@@ -68,16 +82,16 @@ public:
 
 private:
 
-	const Function func;
+	const Func func;
 };
 
 
-template <class Function1, class Function2>
+template <Function Function1, Function Function2>
 class LIMES_EXPORT RAIICaller final
 {
 public:
 
-	constexpr explicit RAIICaller (Function1&& onConstruct, Function2&& onDestroy)
+	constexpr explicit RAIICaller (Function1&& onConstruct, Function2&& onDestroy) noexcept (noexcept (onConstruct))
 		: deferredFunc (std::move (onDestroy))
 	{
 		std::invoke (onConstruct);
@@ -85,7 +99,13 @@ public:
 
 	~RAIICaller()
 	{
-		std::invoke (deferredFunc);
+		try
+		{
+			std::invoke (deferredFunc);
+		}
+		catch (std::exception&)
+		{
+		}
 	}
 
 	LIMES_NON_COPYABLE (RAIICaller);
@@ -103,7 +123,8 @@ constexpr decltype (auto) curry (auto f, auto... ps)
 	{
 		return std::invoke (f, ps...);
 	}
-	else {
+	else
+	{
 		return [f, ps...] (auto... qs)
 		{ return curry (f, ps..., qs...); };
 	}
@@ -111,23 +132,37 @@ constexpr decltype (auto) curry (auto f, auto... ps)
 
 
 template <typename... Param>
-LIMES_EXPORT consteval decltype (auto) consteval_invoke (Param&&... param)
+LIMES_EXPORT consteval decltype (auto) consteval_invoke (Param&&... param) noexcept
 {
-	return std::invoke (std::forward<Param> (param)...);
+	try
+	{
+		return std::invoke (std::forward<Param> (param)...);
+	}
+	catch (std::exception&)
+	{
+	}
 }
 
 
-template <typename Function, typename... Args>
-LIMES_EXPORT inline bool try_call (Function&& func, Args&&... args) noexcept
+template <Function Func, typename... Args>
+LIMES_EXPORT inline bool try_call (Func&& func, Args&&... args) noexcept
 {
-	try
+	if constexpr (noexcept (func))
 	{
 		func (std::forward<Args> (args)...);
 		return true;
 	}
-	catch (const std::exception&)
+	else
 	{
-		return false;
+		try
+		{
+			func (std::forward<Args> (args)...);
+			return true;
+		}
+		catch (const std::exception&)
+		{
+			return false;
+		}
 	}
 }
 

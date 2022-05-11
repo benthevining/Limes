@@ -21,7 +21,7 @@
 #include <type_traits>			   // for remove_cv
 #include <vector>				   // for vector
 #include "../misc/preprocessor.h"  // for LIMES_NON_COPYABLE, LIMES_DEFAULT...
-#include <limes_platform.h>		   // for LIMES_ASSERT
+#include "../system/limes_assert.h"
 
 
 LIMES_BEGIN_NAMESPACE
@@ -127,6 +127,8 @@ public:
 		return *object;
 	}
 
+	[[nodiscard]] bool isOwnedByPool() const noexcept;
+
 private:
 
 	MemoryPool& memoryPool;
@@ -219,22 +221,18 @@ bool MemoryPool::owns (const ObjectType& object) const noexcept
 /*-----------------------------------------------------------------------------------------------------------------*/
 
 
-template <typename ObjectType, bool AllowOverflowAllocation, typename... Args>
-LIMES_NO_EXPORT inline ObjectType* mem_pool_ptr_construct_object (MemoryPool& pool, Args&&... constructorArgs)
-{
-	if constexpr (AllowOverflowAllocation)
-		return &pool.constructOrBust (std::forward<Args> (constructorArgs)...);
-	else
-		return pool.construct (std::forward<Args> (constructorArgs)...);
-}
-
-
 template <typename ObjectType, bool AllowOverflowAllocation>
 template <typename... Args>
 MemoryPoolPointer<ObjectType, AllowOverflowAllocation>::MemoryPoolPointer (MemoryPool& pool, Args&&... constructorArgs)
-	: memoryPool (pool), object (mem_pool_ptr_construct_object (memoryPool, std::forward<Args> (constructorArgs)...))
+	: memoryPool (pool)
 {
-	LIMES_ASSERT (object != nullptr);
+	if constexpr (AllowOverflowAllocation)
+		object = &(pool.constructOrBust (std::forward<Args> (constructorArgs)...));	 // cppcheck-suppress redundantAssignment
+	else
+	{
+		object = pool.construct (std::forward<Args> (constructorArgs)...);	// cppcheck-suppress redundantAssignment
+		LIMES_ASSERT (object != nullptr);
+	}
 }
 
 template <typename ObjectType, bool AllowOverflowAllocation>
@@ -242,6 +240,20 @@ MemoryPoolPointer<ObjectType, AllowOverflowAllocation>::~MemoryPoolPointer()
 {
 	if (object != nullptr)
 		memoryPool.destruct (*object);
+}
+
+template <typename ObjectType, bool AllowOverflowAllocation>
+bool MemoryPoolPointer<ObjectType, AllowOverflowAllocation>::isOwnedByPool() const noexcept
+{
+	if constexpr (! AllowOverflowAllocation)
+		return true;
+	else
+	{
+		if (object == nullptr)
+			return false;
+
+		return memoryPool.owns (*object);
+	}
 }
 
 LIMES_END_NAMESPACE

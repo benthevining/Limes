@@ -25,7 +25,7 @@ LIMES_BEGIN_NAMESPACE
 namespace strings
 {
 
-LIMES_EXPORT [[nodiscard]] bool isNewline (const std::string_view& string);
+LIMES_EXPORT [[nodiscard]] bool isNewline (const std::string_view& string) noexcept;
 
 LIMES_EXPORT [[nodiscard]] bool areSame (const char* string1, const char* string2);
 

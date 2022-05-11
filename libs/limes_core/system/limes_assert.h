@@ -14,10 +14,11 @@
 
 #include <limes_export.h>
 #include <limes_namespace.h>
-#include "preprocessor.h"
+#include "../misc/preprocessor.h"
 #include <type_traits>
 #include <utility>
 #include <limes_build_type.h>
+#include "../misc/IgnoreUnused.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -48,7 +49,7 @@ LIMES_END_NAMESPACE
 #	define LIMES_ASSERT(x) LIMES_BLOCK_WITH_FORCED_SEMICOLON (if (! (x)) { ::limes::assert::log_assertion(__FILE__, __LINE__, LIMES_MAKE_STRING(x)); ::limes::assert::fire_assertion_failure(); })
 #else
 #	define LIMES_ASSERT_FALSE
-#	define LIMES_ASSERT
+#	define LIMES_ASSERT(x) LIMES_BLOCK_WITH_FORCED_SEMICOLON ([[maybe_unused]] auto limes_assert_result = (x); ::limes::ignore_unused (limes_assert_result);)
 #endif
 
 

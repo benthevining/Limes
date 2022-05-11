@@ -18,6 +18,7 @@
 #include <limes_export.h>
 #include <limes_platform.h>
 #include <limes_namespace.h>
+#include <exception>
 
 #if ! LIMES_WINDOWS
 #	include <cxxabi.h>
@@ -104,36 +105,41 @@ struct LIMES_EXPORT is_none_of final : std::negation<is_one_of<Test, Types...>>
 };
 
 
-template <typename ObjectType>
-LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const ObjectType& object)
+LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto& object) noexcept
 {
-#if LIMES_WINDOWS
-	const auto res = std::string (typeid (object).name());
-
-	if (res.startsWith ("class "))
-		return res.substring (6);
-
-	if (res.startsWith ("struct "))
-		return res.substring (7);
-
-	return res;
-#else
-	int status = 0;
-
-	if (auto* demangled = abi::__cxa_demangle (typeid (object).name(), nullptr, nullptr, &status))
+	try
 	{
-		const auto res = std::string (demangled);
-		free (demangled);
+#if LIMES_WINDOWS
+		const auto res = std::string (typeid (object).name());
+
+		if (res.startsWith ("class "))
+			return res.substring (6);
+
+		if (res.startsWith ("struct "))
+			return res.substring (7);
 
 		return res;
-	}
+#else
+		int status = 0;
 
-	return {};
+		if (auto* demangled = abi::__cxa_demangle (typeid (object).name(), nullptr, nullptr, &status))
+		{
+			const auto res = std::string (demangled);
+			free (demangled);
+
+			return res;
+		}
+
+		return {};
 #endif
+	}
+	catch (std::exception&)
+	{
+		return {};
+	}
 }
 
-template <typename ObjectType>
-LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const ObjectType* c)
+LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto* c) noexcept
 {
 	if (c != nullptr)
 		return getDemangledName (*c) + " pointer";

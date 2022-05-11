@@ -27,9 +27,6 @@ using vector = std::conditional_t<std::is_scalar_v<ObjectType> && ! std::is_poin
 
 using StringVector = vector<std::string>;
 
-template <typename ObjectType>
-using Matrix = vector<vector<ObjectType>>;
-
 template <typename ObjectType, size_t N>
 using StackVector = vector<ObjectType, StackAllocator<ObjectType, N>>;
 

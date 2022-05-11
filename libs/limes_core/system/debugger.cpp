@@ -13,6 +13,7 @@
 #include "limes_assert.h"
 #include <limes_namespace.h>
 #include <limes_platform.h>
+#include <atomic>
 
 #if LIMES_WINDOWS
 #	include <windows.h>
@@ -98,17 +99,19 @@ namespace assert
 
 bool isRunningUnderDebugger() noexcept
 {
-	static bool isCheckedAlready = false;
-	static bool result			 = false;
+	static std::atomic<bool> isCheckedAlready = false;
+	static std::atomic<bool> result			  = false;
 
-	if (isCheckedAlready)
-		return result;
+	if (isCheckedAlready.load())
+		return result.load();
 
-	result = debuggerCheckInternal();
+	const auto res = debuggerCheckInternal();
 
-	isCheckedAlready = true;
+	result.store (res);
 
-	return result;
+	isCheckedAlready.store (true);
+
+	return res;
 }
 
 }  // namespace assert

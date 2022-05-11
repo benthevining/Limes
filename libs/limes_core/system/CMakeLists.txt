@@ -8,23 +8,14 @@
 #
 # ======================================================================================
 
-add_subdirectory (geometry)
-
 include (OrangesSourceFileUtils)
 
 oranges_add_source_files (
-	DIRECTORY_NAME math
+	DIRECTORY_NAME system
 	TARGET limes_core
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  Fraction.h
-		  Fraction_impl.h
-		  fraction_staticAsserts.cpp
-		  math_staticAsserts.cpp
-		  mathHelpers.h
-		  Random.cpp
-		  Random.h
-		  matrix.h)
+		  limes_assert.cpp limes_assert.h debugger.cpp compiler_warnings.h)
 
-set (math_files ${math_files} ${geometry_files} PARENT_SCOPE)
+set (system_files ${system_files} PARENT_SCOPE)

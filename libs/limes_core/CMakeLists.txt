@@ -119,6 +119,7 @@ add_subdirectory (hashes)
 add_subdirectory (math)
 add_subdirectory (memory)
 add_subdirectory (misc)
+add_subdirectory (system)
 add_subdirectory (text)
 add_subdirectory (threading)
 add_subdirectory (time)
@@ -132,6 +133,7 @@ set (
 	${math_files}
 	${memory_files}
 	${misc_files}
+	${system_files}
 	${text_files}
 	${threading_files}
 	${time_files})

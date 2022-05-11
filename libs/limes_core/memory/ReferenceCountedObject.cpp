@@ -11,7 +11,7 @@
  */
 
 #include "ReferenceCountedObject.h"
-#include "../misc/limes_assert.h"
+#include "../system/limes_assert.h"
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE

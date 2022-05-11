@@ -18,7 +18,7 @@
 #include <new>				  // for bad_alloc
 #include <string>			  // for char_traits
 #include "../hashes/hash.h"	  // for hash
-
+#include <exception>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -95,9 +95,17 @@ RawData& RawData::operator= (RawData&& other)
 	return *this;
 }
 
-void RawData::writeToStream (std::basic_ostream<char>& outputStream) const
+bool RawData::writeToStream (std::basic_ostream<char>& outputStream) const noexcept
 {
-	outputStream.write (data, static_cast<std::streamsize> (size));
+	try
+	{
+		outputStream.write (data, static_cast<std::streamsize> (size));
+		return true;
+	}
+	catch (std::exception&)
+	{
+		return false;
+	}
 }
 
 void RawData::allocate (std::size_t newSize, bool preserveOldData, bool initializeToZero)
@@ -146,7 +154,7 @@ void RawData::free()
 	data = nullptr;
 }
 
-char* RawData::release()
+char* RawData::release() noexcept
 {
 	auto* const ptr = data;
 
@@ -165,9 +173,12 @@ void RawData::append (const char* const newData, std::size_t numBytes)
 
 	allocate (oldSize + numBytes, true, false);
 
-	std::memcpy (static_cast<void*> (data + oldSize),
-				 static_cast<const void*> (newData),
-				 numBytes);
+	if (data != nullptr)
+	{
+		std::memcpy (static_cast<void*> (data + oldSize),
+					 static_cast<const void*> (newData),
+					 numBytes);
+	}
 }
 
 void RawData::append (const RawData& other)
@@ -256,9 +267,16 @@ std::size_t RawData::getSize() const noexcept
 	return size;
 }
 
-std::string RawData::toString() const
+std::string RawData::toString() const noexcept
 {
-	return { data, size };
+	try
+	{
+		return { data, size };
+	}
+	catch (std::exception&)
+	{
+		return {};
+	}
 }
 
 bool RawData::isEmpty() const noexcept

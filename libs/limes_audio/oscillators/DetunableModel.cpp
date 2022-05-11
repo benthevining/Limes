@@ -39,6 +39,7 @@ void DetunableModel::setFrequency (float frequency)
 
 	for (auto i = 0; i < numVoices; ++i)
 	{
+		LIMES_ASSERT (lowBound > 0.);
 		frequencies[i] = static_cast<float> (math::midiToFreq (lowBound));
 		lowBound += increment;
 	}
