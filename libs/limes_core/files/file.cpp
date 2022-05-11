@@ -193,13 +193,13 @@ std::FILE* File::getCfile (char mode) const noexcept
 
 	try
 	{
-		const auto path = getAbsolutePath().make_preferred();
+		const auto pathStr = getAbsolutePath().make_preferred();
 
 #if LIMES_WINDOWS
-		const auto str = std::wstring_convert<std::codecvt_utf8<wchar_t>> {}.to_bytes (path);
+		const auto str = std::wstring_convert<std::codecvt_utf8<wchar_t>> {}.to_bytes (pathStr);
 		return std::fopen (str.c_str(), &mode);
 #else
-		return std::fopen (path.c_str(), &mode);
+		return std::fopen (pathStr.c_str(), &mode);
 #endif
 	}
 	catch (std::exception&)

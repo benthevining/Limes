@@ -137,11 +137,14 @@ File DynamicLibrary::getFile() const
 
 #if LIMES_WINDOWS
 
-	wchar_t buffer[MAX_PATH];
+	char buffer[MAX_PATH];
 
 	::GetModuleFileNameA (static_cast<HMODULE> (handle), buffer, sizeof (buffer) / sizeof (buffer[0]));
 
-	const std::string path = std::wstring_convert<std::codecvt_utf8<wchar_t>> {}.to_bytes (std::wstring { buffer });
+	const std::string path { buffer };
+
+	if (path.empty())
+		return {};
 
 	return File { path };
 

@@ -15,11 +15,14 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include <type_traits>
+#include <cstddef>
 
 LIMES_BEGIN_NAMESPACE
 
 namespace typelist
 {
+
+using std::size_t;
 
 template <class LHS, class RHS>
 struct LIMES_EXPORT are_same final : std::false_type
