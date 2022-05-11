@@ -30,6 +30,12 @@ static_assert (TypeListA::equal<TypeList<int, double, float>>);
 
 static_assert (TypeListA::replace_at<1, size_t>::equal<TypeList<int, size_t, float>>);
 
+static_assert (TypeListA::insert_at<1, size_t>::equal<TypeList<int, size_t, double, float>>);
+
+static_assert (TypeListA::swap_at<1, 2>::equal<TypeList<int, float, double>>);
+
+static_assert (TypeListA::swap<double, int>::equal<TypeList<double, int, float>>);
+
 static_assert (TypeListA::reverse::equal<TypeList<float, double, int>>);
 
 static_assert (TypeListA::remove<int, float>::equal<TypeList<double>>);
@@ -78,6 +84,10 @@ static_assert (TypeListD::equal<TypeList<int, size_t, float>>);
 
 static_assert (is_typelist<TypeListD>);
 
+static_assert (TypeListD::prepend<double>::equal<TypeList<double, int, size_t, float>>);
+
+static_assert (TypeListD::append<double>::equal<TypeList<int, size_t, float, double>>);
+
 using TypeListE = TypeListD::remove_at<1>;
 
 static_assert (TypeListE::equal<TypeList<int, float>>);
@@ -94,7 +104,7 @@ static_assert (EmptyList::reverse::equal<Empty>);
 
 using variant_type = std::variant<int, float, double>;
 
-using CreatedList = make_type_list_t<variant_type>;
+using CreatedList = make_type_list_from_t<variant_type>;
 
 static_assert (CreatedList::equal<TypeList<int, float, double>>);
 

@@ -24,7 +24,7 @@ namespace typelist
 
 using std::size_t;
 
-LIMES_EXPORT static constinit const auto invalid_index = static_cast<size_t> (-1);
+LIMES_EXPORT static constinit const size_t invalid_index = static_cast<size_t> (-1);
 
 struct LIMES_EXPORT NoType final
 {
@@ -53,7 +53,7 @@ struct LIMES_EXPORT are_same<LHS<Args...>, RHS<Args...>> final : std::true_type
 };
 
 template <class LHS, class RHS>
-LIMES_EXPORT constinit const auto are_same_v = are_same<LHS, RHS>::value;
+LIMES_EXPORT constinit const bool are_same_v = are_same<LHS, RHS>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -66,7 +66,7 @@ struct LIMES_EXPORT contains<Typelist<Args...>, TypeToFind> final : std::bool_co
 };
 
 template <class Typelist, typename TypeToFind>
-LIMES_EXPORT constinit const auto contains_v = contains<Typelist, TypeToFind>::value;
+LIMES_EXPORT constinit const bool contains_v = contains<Typelist, TypeToFind>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -81,7 +81,7 @@ struct LIMES_EXPORT size<Typelist<Args...>> final : std::integral_constant<size_
 };
 
 template <class Typelist>
-LIMES_EXPORT constinit const auto size_v = size<Typelist>::value;
+LIMES_EXPORT constinit const size_t size_v = size<Typelist>::value;
 
 template <class Typelist>
 LIMES_EXPORT constinit const bool is_empty = (size_v<Typelist> == 0);
@@ -110,8 +110,11 @@ struct LIMES_EXPORT addIfAbsent<Typelist<Args...>, TypesToAdd...> final
 {
 private:
 
-	template <typename Type>
-	static constinit const auto isTypeAbsent = ! contains_v<Typelist<Args...>, Type>;
+	template <class ListType, typename Type>
+	using add_one = std::conditional_t<
+		(! contains_v<Typelist<Args...>, Type>),
+		add_t<ListType, Type>,
+		ListType>;
 
 	template <class ListType, typename... ListArgs>
 	struct adder;
@@ -120,20 +123,14 @@ private:
 	struct adder<ListType, First, Others...> final
 	{
 		using type = typename adder<
-			std::conditional_t<
-				isTypeAbsent<First>,
-				add_t<ListType, First>,
-				ListType>,
+			add_one<ListType, First>,
 			Others...>::type;
 	};
 
 	template <class ListType, typename First>
 	struct adder<ListType, First> final
 	{
-		using type = std::conditional_t<
-			isTypeAbsent<First>,
-			add_t<ListType, First>,
-			ListType>;
+		using type = add_one<ListType, First>;
 	};
 
 public:
@@ -143,6 +140,55 @@ public:
 
 template <class Typelist, typename... TypesToAdd>
 LIMES_EXPORT using addIfAbsent_t = typename addIfAbsent<Typelist, TypesToAdd...>::type;
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+template <class Typelist, size_t Index, typename ToInsert>
+struct LIMES_EXPORT insert_at;
+
+template <template <typename...> class Typelist, size_t Index, typename ToInsert, typename... Args>
+struct LIMES_EXPORT insert_at<Typelist<Args...>, Index, ToInsert> final
+{
+private:
+
+	static_assert (Index <= size_v<Typelist<Args...>>, "Insertion index in type list is out of bounds!");
+
+	template <size_t CurrentIndex, class ListType, typename Type>
+	using inserter = std::conditional_t<
+		CurrentIndex == Index,
+		add_t<add_t<ListType, ToInsert>, Type>,
+		add_t<ListType, Type>>;
+
+	template <size_t CurrentIndex, class ListType, typename... ListArgs>
+	struct rebuilder;
+
+	template <size_t CurrentIndex, class ListType, typename First, typename... Others>
+	struct rebuilder<CurrentIndex, ListType, First, Others...> final
+	{
+		using type = typename rebuilder<CurrentIndex + 1, inserter<CurrentIndex, ListType, First>, Others...>::type;
+	};
+
+	template <size_t CurrentIndex, class ListType, typename First>
+	struct rebuilder<CurrentIndex, ListType, First> final
+	{
+	public:
+
+		using type = inserter<CurrentIndex, ListType, First>;
+	};
+
+public:
+
+	using type = typename rebuilder<0, InternalTypeList<>, Args...>::type::template makeTypelist<Typelist>;
+};
+
+template <class Typelist, size_t Index, typename ToInsert>
+LIMES_EXPORT using insert_at_t = typename insert_at<Typelist, Index, ToInsert>::type;
+
+template <class Typelist, typename ToPrepend>
+LIMES_EXPORT using prepend_t = insert_at_t<Typelist, 0, ToPrepend>;
+
+template <class Typelist, typename ToAppend>
+LIMES_EXPORT using append_t = add_t<Typelist, ToAppend>;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -207,7 +253,7 @@ private:
 	template <size_t Index, typename First, typename... Others>
 	struct finder<Index, First, Others...> final
 	{
-		static constinit const auto value = std::conditional_t<
+		static constinit const size_t value = std::conditional_t<
 			std::is_same_v<First, TypeToFind>,
 			std::integral_constant<size_t, Index>,
 			finder<Index + 1, Others...>>::value;
@@ -216,16 +262,16 @@ private:
 	template <size_t Index, typename First>
 	struct finder<Index, First> final
 	{
-		static constinit const auto value = Index;
+		static constinit const size_t value = Index;
 	};
 
 public:
 
-	static constinit const auto value = finder<0, Args...>::value;
+	static constinit const size_t value = finder<0, Args...>::value;
 };
 
 template <class Typelist, typename TypeToFind>
-LIMES_EXPORT constinit const auto find_v = find<Typelist, TypeToFind>::value;
+LIMES_EXPORT constinit const size_t find_v = find<Typelist, TypeToFind>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -241,7 +287,10 @@ private:
 				   "TypesToRemove contains types that are not in the Typelist");
 
 	template <typename Type>
-	static constinit const auto isTypeAbsent = (! std::is_same_v<TypesToRemove, Type> && ...);
+	static constinit const bool isTypeAbsent = (! std::is_same_v<TypesToRemove, Type> && ...);
+
+	template <class ListType, typename Type>
+	using remove_one = std::conditional_t<isTypeAbsent<Type>, add_t<ListType, Type>, ListType>;
 
 	template <class ListType, typename... ListArgs>
 	struct remover;
@@ -250,20 +299,14 @@ private:
 	struct remover<ListType, First, Others...> final
 	{
 		using type = typename remover<
-			std::conditional_t<
-				isTypeAbsent<First>,
-				add_t<ListType, First>,
-				ListType>,
+			remove_one<ListType, First>,
 			Others...>::type;
 	};
 
 	template <class ListType, typename First>
 	struct remover<ListType, First>
 	{
-		using type = std::conditional_t<
-			isTypeAbsent<First>,
-			add_t<ListType, First>,
-			ListType>;
+		using type = remove_one<ListType, First>;
 	};
 
 public:
@@ -286,6 +329,9 @@ private:
 
 	static_assert (Index <= size_v<Typelist<Args...>>, "Cannot remove item out of range of TypeList!");
 
+	template <size_t CurrentIndex, class ListType, typename Type>
+	using do_remove = std::conditional_t<CurrentIndex == Index, ListType, add_t<ListType, Type>>;
+
 	template <size_t CurrentIndex, class ListType, typename... ListArgs>
 	struct remover;
 
@@ -294,16 +340,14 @@ private:
 	{
 		using type = typename remover<
 			CurrentIndex + 1,
-			std::conditional_t<CurrentIndex == Index, ListType, add_t<ListType, First>>,
+			do_remove<CurrentIndex, ListType, First>,
 			Others...>::type;
 	};
 
 	template <size_t CurrentIndex, class ListType, typename First>
 	struct remover<CurrentIndex, ListType, First>
 	{
-		using type = std::conditional_t<CurrentIndex == Index,
-										ListType,
-										add_t<ListType, First>>;
+		using type = do_remove<CurrentIndex, ListType, First>;
 	};
 
 public:
@@ -326,20 +370,23 @@ private:
 
 	static_assert (contains_v<Typelist<Args...>, ToReplace>, "Cannot replace type not in Typelist!");
 
+	template <class TypeList, typename First, typename InPlaceType>
+	using do_replace = add_t<TypeList, std::conditional_t<std::is_same_v<First, ToReplace>, InPlaceType, First>>;
+
 	template <class TypeList, typename InPlaceType, typename...>
 	struct replacer;
 
 	template <class TypeList, typename InPlaceType, typename First>
 	struct replacer<TypeList, InPlaceType, First> final
 	{
-		using type = add_t<TypeList, std::conditional_t<std::is_same_v<First, ToReplace>, InPlaceType, First>>;
+		using type = do_replace<TypeList, First, InPlaceType>;
 	};
 
 	template <class TypeList, typename InPlaceType, typename First, typename... Others>
 	struct replacer<TypeList, InPlaceType, First, Others...> final
 	{
 		using type = typename replacer<
-			add_t<TypeList, std::conditional_t<std::is_same_v<First, ToReplace>, InPlaceType, First>>,
+			do_replace<TypeList, First, InPlaceType>,
 			InPlaceType,
 			Others...>::type;
 	};
@@ -366,6 +413,9 @@ private:
 
 	static_assert (Index <= size_v<Typelist<Args...>>, "Cannot replace item out of range of TypeList!");
 
+	template <size_t CurrentIndex, class ListType, typename First>
+	using do_replace = std::conditional_t<CurrentIndex == Index, add_t<ListType, ReplaceWith>, add_t<ListType, First>>;
+
 	template <size_t CurrentIndex, class ListType, typename... ListArgs>
 	struct rebuilder;
 
@@ -374,16 +424,14 @@ private:
 	{
 		using type = typename rebuilder<
 			CurrentIndex + 1,
-			std::conditional_t<CurrentIndex == Index, add_t<ListType, ReplaceWith>, add_t<ListType, First>>,
+			do_replace<CurrentIndex, ListType, First>,
 			Others...>::type;
 	};
 
 	template <size_t CurrentIndex, class ListType, typename First>
 	struct rebuilder<CurrentIndex, ListType, First>
 	{
-		using type = std::conditional_t<CurrentIndex == Index,
-										add_t<ListType, ReplaceWith>,
-										add_t<ListType, First>>;
+		using type = do_replace<CurrentIndex, ListType, First>;
 	};
 
 public:
@@ -393,6 +441,79 @@ public:
 
 template <class Typelist, size_t Index, typename ReplaceWith>
 LIMES_EXPORT using replace_at_t = typename replace_at<Typelist, Index, ReplaceWith>::type;
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+template <class Typelist, size_t Index1, size_t Index2>
+struct LIMES_EXPORT swap_at;
+
+template <template <typename...> class Typelist, size_t Index1, size_t Index2, typename... Args>
+struct LIMES_EXPORT swap_at<Typelist<Args...>, Index1, Index2> final
+{
+private:
+
+	using OriginalList = Typelist<Args...>;
+
+	static_assert (Index1 <= size_v<OriginalList>, "Swap index out of range of TypeList!");
+	static_assert (Index2 <= size_v<OriginalList>, "Swap index out of range of TypeList!");
+
+	template <size_t CurrentIndex, class ListType, typename First>
+	using do_swap = std::conditional_t<CurrentIndex == Index1,
+									   add_t<ListType, get_t<OriginalList, Index2>>,
+									   std::conditional_t<CurrentIndex == Index2,
+														  add_t<ListType, get_t<OriginalList, Index1>>,
+														  add_t<ListType, First>>>;
+
+	template <size_t CurrentIndex, class ListType, typename...>
+	struct rebuilder;
+
+	template <size_t CurrentIndex, class ListType, typename First, typename... Others>
+	struct rebuilder<CurrentIndex, ListType, First, Others...> final
+	{
+		using type = typename rebuilder<
+			CurrentIndex + 1,
+			do_swap<CurrentIndex, ListType, First>,
+			Others...>::type;
+	};
+
+	template <size_t CurrentIndex, class ListType, typename First>
+	struct rebuilder<CurrentIndex, ListType, First> final
+	{
+		using type = do_swap<CurrentIndex, ListType, First>;
+	};
+
+public:
+
+	using type = typename rebuilder<0, InternalTypeList<>, Args...>::type::template makeTypelist<Typelist>;
+};
+
+template <class Typelist, size_t Index1, size_t Index2>
+LIMES_EXPORT using swap_at_t = typename swap_at<Typelist, Index1, Index2>::type;
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+template <class Typelist, typename Type1, typename Type2>
+struct LIMES_EXPORT swap;
+
+template <template <typename...> class Typelist, typename Type1, typename Type2, typename... Args>
+struct LIMES_EXPORT swap<Typelist<Args...>, Type1, Type2> final
+{
+private:
+
+	using OriginalList = Typelist<Args...>;
+
+	static_assert (contains_v<OriginalList, Type1>, "Cannot swap types not in Typelist!");
+	static_assert (contains_v<OriginalList, Type2>, "Cannot swap types not in Typelist!");
+
+public:
+
+	using type = swap_at_t<OriginalList,
+						   find_v<OriginalList, Type1>,
+						   find_v<OriginalList, Type2>>;
+};
+
+template <class Typelist, typename Type1, typename Type2>
+LIMES_EXPORT using swap_t = typename swap<Typelist, Type1, Type2>::type;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -409,14 +530,14 @@ private:
 	{
 	private:
 
-		static constinit const auto thisValue = std::conditional_t<
+		static constinit const size_t thisValue = std::conditional_t<
 			std::is_same_v<ToCount, get_t<Typelist<Args...>, CurrentIndex>>,
 			std::integral_constant<size_t, Count + 1>,
 			std::integral_constant<size_t, Count>>::value;
 
 	public:
 
-		static constinit const auto value = std::conditional_t<
+		static constinit const size_t value = std::conditional_t<
 			CurrentIndex == size_v<Typelist<Args...>>,
 			std::integral_constant<size_t, thisValue>,
 			counter<thisValue, CurrentIndex + 1>>::value;
@@ -424,13 +545,13 @@ private:
 
 public:
 
-	static constinit const auto value = std::conditional_t<contains_v<Typelist<Args...>, ToCount>,
-														   std::integral_constant<size_t, counter<0, 0>::value>,
-														   std::integral_constant<size_t, 0>>::value;
+	static constinit const size_t value = std::conditional_t<contains_v<Typelist<Args...>, ToCount>,
+															 std::integral_constant<size_t, counter<0, 0>::value>,
+															 std::integral_constant<size_t, 0>>::value;
 };
 
 template <class Typelist, typename ToCount>
-LIMES_EXPORT static constinit const auto count_v = count<Typelist, ToCount>::value;
+LIMES_EXPORT static constinit const size_t count_v = count<Typelist, ToCount>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -445,8 +566,10 @@ private:
 	template <size_t CurrentIndex>
 	using CurrentType = get_t<Typelist<Args...>, CurrentIndex>;
 
-	template <class ListType, size_t CurrentIndex>
-	static constinit const bool containsCurrentType = contains_v<ListType, CurrentType<CurrentIndex>>;
+	template <size_t CurrentIndex, class ListType>
+	using remover = std::conditional_t<contains_v<ListType, CurrentType<CurrentIndex>>,
+									   ListType,
+									   add_t<ListType, CurrentType<CurrentIndex>>>;
 
 	template <size_t CurrentIndex, class ListType, typename...>
 	struct rebuilder;
@@ -456,18 +579,14 @@ private:
 	{
 		using type = typename rebuilder<
 			CurrentIndex + 1,
-			std::conditional_t<containsCurrentType<ListType, CurrentIndex>,
-							   ListType,
-							   add_t<ListType, CurrentType<CurrentIndex>>>,
+			remover<CurrentIndex, ListType>,
 			Others...>::type;
 	};
 
 	template <size_t CurrentIndex, class ListType, typename First>
 	struct rebuilder<CurrentIndex, ListType, First> final
 	{
-		using type = std::conditional_t<containsCurrentType<ListType, CurrentIndex>,
-										ListType,
-										add_t<ListType, CurrentType<CurrentIndex>>>;
+		using type = remover<CurrentIndex, ListType>;
 	};
 
 public:
@@ -490,17 +609,17 @@ private:
 
 	using NoDuplicates = remove_duplicates_t<Typelist<Args...>>;
 
-	static constinit const auto origSize = size_v<Typelist<Args...>>;
+	static constinit const size_t origSize = size_v<Typelist<Args...>>;
 
-	static constinit const auto prunedSize = size_v<NoDuplicates>;
+	static constinit const size_t prunedSize = size_v<NoDuplicates>;
 
 public:
 
-	static constinit const auto value = origSize != prunedSize;
+	static constinit const bool value = origSize != prunedSize;
 };
 
 template <class Typelist>
-LIMES_EXPORT static constinit const auto contains_duplicates_v = contains_duplicates<Typelist>::value;
+LIMES_EXPORT static constinit const bool contains_duplicates_v = contains_duplicates<Typelist>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 

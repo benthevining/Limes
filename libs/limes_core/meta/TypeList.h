@@ -39,11 +39,13 @@ public:
 
 	TypeList() = delete;
 
+	using size_type = size_t;
+
 	using TypeID = TypeList<Types...>;
 
 	using clear = TypeList<>;
 
-	static constinit const size_t size = size_v<TypeList>;
+	static constinit const size_type size = size_v<TypeList>;
 
 	static constinit const bool empty = is_empty<TypeList>;
 
@@ -54,7 +56,7 @@ public:
 	static constinit const bool contains = contains_v<TypeList, Type>;
 
 	template <typename Type>
-	static constinit const size_t num_of = count_v<TypeList, Type>;
+	static constinit const size_type num_of = count_v<TypeList, Type>;
 
 	template <typename... TypesToAdd>
 	using add = add_t<TypeList, TypesToAdd...>;
@@ -62,34 +64,48 @@ public:
 	template <typename... TypesToAdd>
 	using addIfAbsent = addIfAbsent_t<TypeList, TypesToAdd...>;
 
-	template <size_t Index>
+	template <size_t Index, typename ToInsert>
+	using insert_at = insert_at_t<TypeList, Index, ToInsert>;
+
+	template <typename ToPrepend>
+	using prepend = prepend_t<TypeList, ToPrepend>;
+
+	template <typename ToAppend>
+	using append = append_t<TypeList, ToAppend>;
+
+	template <size_t Index1, size_t Index2>
+	using swap_at = swap_at_t<TypeList, Index1, Index2>;
+
+	template <typename Type1, typename Type2>
+	using swap = swap_t<TypeList, Type1, Type2>;
+
+	template <size_type Index>
 	using at = get_t<TypeList, Index>;
 
 	using front = get_first_t<TypeList>;
-
-	using back = get_last_t<TypeList>;
+	using back	= get_last_t<TypeList>;
 
 	using reverse = reverse_t<TypeList>;
 
-	template <size_t Index, typename... Args>
+	template <size_type Index, typename... Args>
 	static constexpr at<Index> construct (Args&&... args)
 	{
 		return at<Index> (std::forward<Args> (args)...);
 	}
 
-	template <size_t Index, typename... Args>
+	template <size_type Index, typename... Args>
 	static std::unique_ptr<at<Index>> make_unique (Args&&... args)
 	{
 		return std::make_unique<at<Index>> (std::forward<Args> (args)...);
 	}
 
 	template <typename Type>
-	static constinit const size_t index_of = find_v<TypeList, Type>;
+	static constinit const size_type index_of = find_v<TypeList, Type>;
 
 	template <typename... TypesToRemove>
 	using remove = remove_t<TypeList, TypesToRemove...>;
 
-	template <size_t Index>
+	template <size_type Index>
 	using remove_at = remove_at_t<TypeList, Index>;
 
 	using remove_first = remove_at<0>;
@@ -98,7 +114,7 @@ public:
 	template <typename Replace, typename With>
 	using replace = replace_t<TypeList, Replace, With>;
 
-	template <size_t Index, typename ReplaceWith>
+	template <size_type Index, typename ReplaceWith>
 	using replace_at = replace_at_t<TypeList, Index, ReplaceWith>;
 
 	static constinit const bool contains_duplicates = contains_duplicates_v<TypeList>;
@@ -130,10 +146,12 @@ public:
 
 	TypeList() = delete;
 
+	using size_type = size_t;
+
 	using TypeID = TypeList<>;
 	using clear	 = TypeID;
 
-	static constinit const size_t size = 0;
+	static constinit const size_type size = 0;
 
 	static constinit const bool empty = true;
 
@@ -144,7 +162,7 @@ public:
 	static constinit const bool contains = false;
 
 	template <typename>
-	static constinit const size_t num_of = 0;
+	static constinit const size_type num_of = 0;
 
 	template <typename... TypesToAdd>
 	using add = TypeList<TypesToAdd...>;
@@ -152,7 +170,22 @@ public:
 	template <typename... TypesToAdd>
 	using addIfAbsent = addIfAbsent_t<TypeList, TypesToAdd...>;
 
-	template <size_t>
+	template <size_t Index, typename ToInsert>
+	using insert_at = insert_at_t<TypeList, Index, ToInsert>;
+
+	template <typename ToPrepend>
+	using prepend = add_t<TypeList, ToPrepend>;
+
+	template <typename ToAppend>
+	using append = append_t<TypeList, ToAppend>;
+
+	template <size_t, size_t>
+	using swap_at = TypeID;
+
+	template <typename, typename>
+	using swap = TypeID;
+
+	template <size_type>
 	using at = NoType;
 
 	using front = NoType;
@@ -160,25 +193,25 @@ public:
 
 	using reverse = TypeID;
 
-	template <size_t, typename... Args>
+	template <size_type, typename... Args>
 	static constexpr NoType construct (Args&&...)
 	{
 		return {};
 	}
 
-	template <size_t, typename... Args>
+	template <size_type, typename... Args>
 	static std::unique_ptr<NoType> make_unique (Args&&...)
 	{
 		return std::make_unique<NoType>();
 	}
 
 	template <typename>
-	static constinit const size_t index_of = invalid_index;
+	static constinit const size_type index_of = invalid_index;
 
 	template <typename...>
 	using remove = TypeID;
 
-	template <size_t>
+	template <size_type>
 	using remove_at = TypeID;
 
 	using remove_first = TypeID;
@@ -187,7 +220,7 @@ public:
 	template <typename, typename>
 	using replace = TypeID;
 
-	template <size_t, typename>
+	template <size_type, typename>
 	using replace_at = TypeID;
 
 	static constinit const bool contains_duplicates = false;
@@ -214,16 +247,16 @@ LIMES_EXPORT using Empty = TypeList<>;
 /*----------------------------------------------------------------------------------------------------------------------*/
 
 template <typename>
-struct LIMES_EXPORT make_type_list;
+struct LIMES_EXPORT make_type_list_from;
 
 template <template <typename...> class T, typename... Args>
-struct LIMES_EXPORT make_type_list<T<Args...>> final
+struct LIMES_EXPORT make_type_list_from<T<Args...>> final
 {
 	using type = TypeList<Args...>;
 };
 
 template <typename... Args>
-LIMES_EXPORT using make_type_list_t = typename make_type_list<Args...>::type;
+LIMES_EXPORT using make_type_list_from_t = typename make_type_list_from<Args...>::type;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
