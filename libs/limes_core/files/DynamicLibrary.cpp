@@ -25,6 +25,7 @@
 
 #	if LIMES_LINUX
 #		include <link.h>
+#		include <linux/limits.h>
 #	elif LIMES_APPLE
 #		include <cstdint>
 #		include <cstring>
@@ -155,7 +156,7 @@ File DynamicLibrary::getFile() const
 
 #else
 
-	char buffer[MAX_PATH];
+	char buffer[PATH_MAX];
 
 	::dlinfo (handle, RTLD_DI_ORIGIN, buffer);
 

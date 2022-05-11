@@ -46,7 +46,7 @@ LIMES_END_NAMESPACE
 #if LIMES_CLANG || defined(__GNUC__)
 #	define LIMES_ASSERT_GET_FUNC_NAME __PRETTY_FUNCTION__
 #elif LIMES_MSVC
-#	define LIMES_MSVC __FUNCSIG__
+#	define LIMES_ASSERT_GET_FUNC_NAME __FUNCSIG__
 #elif defined(__SUNPRO_CC)
 #	define LIMES_ASSERT_GET_FUNC_NAME __func__
 #else

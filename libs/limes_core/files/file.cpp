@@ -27,6 +27,11 @@
 #include "../memory/RawData.h"			  // for RawData
 #include <cstdio>
 
+#if LIMES_WINDOWS
+#	include <locale>  // for wstring_convert
+#	include <codecvt>
+#endif
+
 LIMES_BEGIN_NAMESPACE
 
 namespace files
@@ -188,7 +193,14 @@ std::FILE* File::getCfile (char mode) const noexcept
 
 	try
 	{
-		return std::fopen (getAbsolutePath().make_preferred().c_str(), &mode);
+		const auto path = getAbsolutePath().make_preferred();
+
+#if LIMES_WINDOWS
+		const auto str = std::wstring_convert<std::codecvt_utf8<wchar_t>> {}.to_bytes (path);
+		return std::fopen (str.c_str(), &mode);
+#else
+		return std::fopen (path.c_str(), &mode);
+#endif
 	}
 	catch (std::exception&)
 	{
