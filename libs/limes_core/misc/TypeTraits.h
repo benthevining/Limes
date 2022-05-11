@@ -112,10 +112,10 @@ LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto& object)
 #if LIMES_WINDOWS
 		const auto res = std::string (typeid (object).name());
 
-		if (res.startsWith ("class "))
+		if (res.starts_with ("class "))
 			return res.substr (6, res.length());
 
-		if (res.startsWith ("struct "))
+		if (res.starts_with ("struct "))
 			return res.substr (7, res.length());
 
 		return res;

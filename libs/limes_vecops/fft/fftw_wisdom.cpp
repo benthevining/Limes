@@ -26,44 +26,44 @@ namespace vecops
 
 namespace fftw
 {
-static std::filesystem::path widom_file_dir { std::getenv ("HOME") };  // NOLINT
-static std::mutex			 wisdom_lock;							   // NOLINT
-static bool					 useWisdom { true };					   // NOLINT
+static files::Directory	 widom_file_dir;	  // NOLINT
+static std::mutex		 wisdom_lock;		  // NOLINT
+static std::atomic<bool> useWisdom { true };  // NOLINT
 
-bool setWisdomFileDir (const std::filesystem::path& dirAbsPath)
+bool setWisdomFileDir (const files::Directory& directory)
 {
 	if constexpr (! fft::isUsingFFTW())
 		return false;
 
+	if (! directory.isValid())
+		return false;
+
 	const std::lock_guard g { wisdom_lock };
 
-	if (dirAbsPath.empty() || ! dirAbsPath.is_absolute())
+	if (widom_file_dir == directory)
 		return false;
 
-	if (dirAbsPath == widom_file_dir)
-		return false;
-
-	widom_file_dir = dirAbsPath;
+	widom_file_dir = directory;
 	return true;
 }
 
-std::filesystem::path getWisdomFileDir()
+files::Directory getWisdomFileDir()
 {
 	if constexpr (! fft::isUsingFFTW())
 		return {};
 
 	const std::lock_guard g { wisdom_lock };
 
-	if (widom_file_dir.empty())
+	if (! widom_file_dir.isValid())
 		if (const auto* homeDir = std::getenv ("HOME"))
-			widom_file_dir = homeDir;
+			widom_file_dir = files::Path { homeDir };
 
 	return widom_file_dir;
 }
 
 void enableWisdom (bool shouldUseWisdom)
 {
-	useWisdom = shouldUseWisdom;
+	useWisdom.store (shouldUseWisdom);
 }
 
 bool isUsingWisdom()
@@ -71,10 +71,10 @@ bool isUsingWisdom()
 	if constexpr (! fft::isUsingFFTW())
 		return false;
 
-	if (getWisdomFileDir().empty())
+	if (! getWisdomFileDir().isValid())
 		return false;
 
-	return useWisdom;
+	return useWisdom.load();
 }
 }  // namespace fftw
 
@@ -91,7 +91,7 @@ bool isUsingWisdom()
 #		define fftw_export_wisdom_to_file	 fftwf_export_wisdom_to_file
 #	endif
 
-[[nodiscard]] inline FILE* fftw_get_wisdom_file (bool isDouble, bool save)
+[[nodiscard]] inline FILE* fftw_get_wisdom_file (bool isDouble, bool save) noexcept
 {
 #	if FFTW_SINGLE_ONLY
 	if (isDouble)
@@ -109,18 +109,18 @@ bool isUsingWisdom()
 	{
 		const auto fileDir = fftw::getWisdomFileDir();
 
-		if (fileDir.empty())
+		if (! fileDir.isValid())
 			return nullptr;
+
+		std::string filename { ".fftw_wisdom." };
 
 		const auto typeChar = isDouble ? 'd' : 'f';
 
-		std::stringstream file_name;
+		filename.push_back (typeChar);
 
-		file_name << fileDir << "/.fftw_wisdom." << typeChar;
+		const auto modeChar = save ? 'w' : 'r';
 
-		const auto mode_char = save ? "wb" : "rb";
-
-		return std::fopen (file_name.str().c_str(), mode_char);
+		return fileDir.getChildFile (filename).getCfile (modeChar);
 	}
 	catch (const std::exception&)
 	{

@@ -113,9 +113,9 @@ private:
 /* These functions always exist, but simply do nothing when the FFTW backend is not being used. */
 namespace fftw
 {
-LIMES_EXPORT bool setWisdomFileDir (const std::filesystem::path& dirAbsPath);
+LIMES_EXPORT bool setWisdomFileDir (const files::Directory& directory);
 
-LIMES_EXPORT [[nodiscard]] std::filesystem::path getWisdomFileDir();
+LIMES_EXPORT [[nodiscard]] files::Directory getWisdomFileDir();
 
 LIMES_EXPORT void enableWisdom (bool shouldUseWisdom);
 

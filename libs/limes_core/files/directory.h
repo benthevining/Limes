@@ -34,24 +34,37 @@ public:
 
 	using FilesystemEntry::FilesystemEntry;
 
+	LIMES_DEFAULT_COPYABLE (Directory);
+	LIMES_DEFAULT_MOVABLE (Directory);
+
+	Directory& operator= (const Path& newPath);
+	Directory& operator= (const std::string_view& newPath);
+
 	using FileCallback		= std::function<void (const File&)>;
 	using DirectoryCallback = std::function<void (const Directory&)>;
 	using SymLinkCallback	= std::function<void (const SymLink&)>;
+
+	[[nodiscard]] FilesystemEntry operator/ (const std::string_view& subpathName) const;
+
+	FilesystemEntry& operator/= (const std::string_view& subpathName);
+
+	[[nodiscard]] bool contains (const FilesystemEntry& entry) const;
+	[[nodiscard]] bool contains (const std::string_view& childName) const;
 
 	bool createIfDoesntExist() const final;
 
 	[[nodiscard]] bool isEmpty() const;
 
-	[[nodiscard]] FilesystemEntry getChild (const std::string& childName, bool createIfNeeded = false) const;
-
 	[[nodiscard]] Path getRelativePath (const Path& inputPath) const;
 
-	File createChildFile (const std::string& filename) const;
+	[[nodiscard]] FilesystemEntry getChild (const std::string_view& childName, bool createIfNeeded = false) const;
 
-	Directory createChildDirectory (const std::string& subdirectoryName) const;
+	[[nodiscard]] File getChildFile (const std::string_view& filename, bool createIfNeeded = false) const;
 
-	SymLink createChildSymLink (const std::string&	   symLinkName,
-								const FilesystemEntry& symLinkTarget) const;
+	[[nodiscard]] Directory getChildDirectory (const std::string_view& subdirectoryName, bool createIfNeeded = false) const;
+
+	[[nodiscard]] SymLink createChildSymLink (const std::string_view& symLinkName,
+											  const FilesystemEntry&  symLinkTarget) const;
 
 	[[nodiscard]] std::vector<File> getChildFiles (bool recurse = true) const;
 

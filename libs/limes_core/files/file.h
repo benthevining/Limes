@@ -12,16 +12,18 @@
 
 #pragma once
 
-#include <limes_export.h>		// for LIMES_EXPORT
-#include <limes_namespace.h>	// for LIMES_BEGIN_NAMESPACE, LIMES_END_NAME...
-#include <cstddef>				// for size_t
-#include <string>				// for string
+#include <limes_export.h>	  // for LIMES_EXPORT
+#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAME...
+#include <cstddef>			  // for size_t
+#include <string>			  // for string
+#include <string_view>
 #include <vector>				// for vector
 #include "../hashes/hash.h"		// for hash::Type
 #include "../memory/RawData.h"	// for RawData
 #include "FilesystemEntry.h"	// for FilesystemEntry, Path
 #include <functional>			// for std::hash
 #include "../misc/preprocessor.h"
+#include <cstdio>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -34,29 +36,35 @@ public:
 
 	using FilesystemEntry::FilesystemEntry;
 
+	LIMES_DEFAULT_COPYABLE (File);
+	LIMES_DEFAULT_MOVABLE (File);
+
+	File& operator= (const Path& newPath);
+	File& operator= (const std::string_view& newPath);
+
 	[[nodiscard]] std::string getFilename (bool includeExtension = false) const;
 
 	[[nodiscard]] std::string getFileExtension() const;
 
-	[[nodiscard]] bool hasFileExtension (const std::string& extension) const;
+	[[nodiscard]] bool hasFileExtension (const std::string_view& extension) const;
 
 	[[nodiscard]] bool hasFileExtension() const;
 
-	File& replaceFileExtension (const std::string& newFileExtension);
+	File& replaceFileExtension (const std::string_view& newFileExtension);
 
 	bool overwriteWithData (const char* const data, std::size_t numBytes) const noexcept;
 
-	bool overwriteWithText (const std::string& text) const noexcept;
+	bool overwriteWithText (const std::string_view& text) const noexcept;
 
 	bool overwriteWithText (const std::vector<std::string>& text) const noexcept;
 
 	bool appendData (const char* const data, std::size_t numBytes) const noexcept;
 
-	bool appendText (const std::string& text) const noexcept;
+	bool appendText (const std::string_view& text) const noexcept;
 
 	bool appendText (const std::vector<std::string>& text) const noexcept;
 
-	bool prependText (const std::string& text) const noexcept;
+	bool prependText (const std::string_view& text) const noexcept;
 
 	bool prependText (const std::vector<std::string>& text) const noexcept;
 
@@ -67,6 +75,8 @@ public:
 	[[nodiscard]] std::vector<std::string> loadAsLines() const;
 
 	[[nodiscard]] std::string hash (hash::Type hashType) const;
+
+	[[nodiscard]] std::FILE* getCfile (char mode = 'r') const noexcept;
 
 	[[nodiscard]] static File getCurrentExecutable();
 
@@ -83,7 +93,7 @@ class LIMES_EXPORT TempFile final : public File
 {
 public:
 
-	explicit TempFile (const std::string& filename);
+	explicit TempFile (const std::string_view& filename);
 
 	~TempFile() final;
 };

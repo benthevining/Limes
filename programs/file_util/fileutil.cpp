@@ -582,7 +582,7 @@ void size (const std::string& name)
 {
 	if (name.empty())
 	{
-		std::cout << std::filesystem::space (getCWD().getAbsolutePath()).capacity << " bytes" << std::endl;
+		std::cout << limes::files::getTotalSizeOfFilesystem() << " bytes" << std::endl;
 		return;
 	}
 

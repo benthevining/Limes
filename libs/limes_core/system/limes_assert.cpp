@@ -14,60 +14,90 @@
 #include <limes_namespace.h>
 #include <limes_platform.h>
 #include <iostream>
-#include "compiler_warnings.h"
-
-#if LIMES_IOS || LIMES_LINUX
-#	include <sys/types.h>
-#	include <signal.h>
-#endif
+#include <sstream>
+#include <atomic>
+#include <exception>
+#include "../text/StringUtils.h"
+#include <cstdlib>
+#include <mutex>
+#include "../files/file.h"
+#include "debugger.h"
 
 LIMES_BEGIN_NAMESPACE
 
 namespace assert
 {
 
-#if LIMES_MSVC
-#	ifndef __INTEL_COMPILER
-#		pragma intrinsic(__debugbreak)
-#	endif
-#endif
+static files::File logFile;
+static std::mutex  logFileMutex;
 
-LIMES_DISABLE_ALL_COMPILER_WARNINGS
-
-void break_in_debugger() noexcept
+void setAssertionLogFile (const std::filesystem::path& logFileToUse) noexcept
 {
-#if LIMES_IOS || LIMES_LINUX
-	::kill (0, SIGTRAP);
+	files::File newLogFile { logFileToUse };
+	newLogFile.makeAbsoluteRelativeToCWD();
 
-#elif LIMES_ANDROID
-	__builtin_trap();
+	const std::lock_guard g { logFileMutex };
 
-#elif LIMES_MSVC
-	__debugbreak();
-
-#elif LIMES_INTEL && (LIMES_GCC || LIMES_CLANG || LIMES_OSX)
-	asm("int $3");
-
-#elif LIMES_ARM && LIMES_OSX
-	__builtin_debugtrap();
-
-#else
-	__asm int 3
-#endif
+	logFile = newLogFile;
 }
 
-LIMES_REENABLE_ALL_COMPILER_WARNINGS
-
-void log_assertion (const char* fileName, int lineNum, const char* condition) noexcept
+std::filesystem::path getAssertionLogFile()
 {
-	std::cerr << "Assertion failure in file " << fileName << ", line " << lineNum;
+	{
+		const std::lock_guard g { logFileMutex };
 
-	if (condition == nullptr)
-		std::cerr << " (LIMES_ASSERT_FALSE)";
-	else
-		std::cerr << ": condition '" << condition << "' failed";
+		if (logFile.isValid())
+			return logFile.getAbsolutePath();
+	}
 
-	std::cerr << std::endl;
+	if (const auto* filename = std::getenv ("LIMES_ASSERTION_LOG_FILE"))
+	{
+		files::File result { filename };
+
+		result.makeAbsoluteRelativeToCWD();
+
+		return result.getAbsolutePath();
+	}
+
+	return {};
+}
+
+static inline void log_assertion (const char* fileName, const char* functionName, int lineNum, const char* condition) noexcept
+{
+	try
+	{
+		std::stringstream stream;
+
+		stream << "Assertion failure in file " << fileName << ", function " << functionName << ", line " << lineNum;
+
+		if (condition == nullptr)
+			stream << " (LIMES_ASSERT_FALSE)";
+		else
+			stream << ": condition '" << condition << "' failed";
+
+		auto log = stream.str();
+
+		std::cerr << log << std::endl;
+
+		const auto logOutput = files::File { getAssertionLogFile() };
+
+		if (logOutput.isValid())
+		{
+			log += strings::new_line;
+			logOutput.appendText (log);
+		}
+	}
+	catch (std::exception&)
+	{
+	}
+}
+
+void fire_assertion_internal (const char* fileName, const char* functionName, int lineNum, const char* condition) noexcept
+{
+	log_assertion (fileName, functionName, lineNum, condition);
+
+	if (debugger::isRunningUnderDebugger())
+		debugger::breakInDebugger();
 }
 
 }  // namespace assert

@@ -14,12 +14,12 @@
 #include <limes_namespace.h>
 #include <limes_platform.h>
 #include <atomic>
+#include "compiler_warnings.h"
 
 #if LIMES_WINDOWS
 #	include <windows.h>
 #elif LIMES_APPLE
 #	include <unistd.h>
-#	include <sys/types.h>
 #	include <sys/sysctl.h>
 #elif LIMES_ANDROID
 #	include "../files/file.h"
@@ -27,13 +27,20 @@
 #	include <string>
 #	include <exception>
 #else  // Linux
-#	include <sys/types.h>
 #	include <sys/ptrace.h>
+#endif
+
+#if LIMES_APPLE || LIMES_LINUX
+#	include <sys/types.h>
+#endif
+
+#if LIMES_IOS || LIMES_LINUX
+#	include <signal.h>
 #endif
 
 LIMES_BEGIN_NAMESPACE
 
-namespace assert
+namespace debugger
 {
 
 [[nodiscard]] static inline bool debuggerCheckInternal() noexcept
@@ -97,11 +104,11 @@ namespace assert
 }
 
 
+static std::atomic<bool> isCheckedAlready = false;
+static std::atomic<bool> result			  = false;
+
 bool isRunningUnderDebugger() noexcept
 {
-	static std::atomic<bool> isCheckedAlready = false;
-	static std::atomic<bool> result			  = false;
-
 	if (isCheckedAlready.load())
 		return result.load();
 
@@ -114,6 +121,39 @@ bool isRunningUnderDebugger() noexcept
 	return res;
 }
 
-}  // namespace assert
+
+#if LIMES_MSVC
+#	ifndef __INTEL_COMPILER
+#		pragma intrinsic(__debugbreak)
+#	endif
+#endif
+
+LIMES_DISABLE_ALL_COMPILER_WARNINGS
+
+void breakInDebugger() noexcept
+{
+#if LIMES_IOS || LIMES_LINUX
+	::kill (0, SIGTRAP);
+
+#elif LIMES_ANDROID
+	__builtin_trap();
+
+#elif LIMES_MSVC
+	__debugbreak();
+
+#elif LIMES_INTEL && (LIMES_GCC || LIMES_CLANG || LIMES_OSX)
+	asm("int $3");
+
+#elif LIMES_ARM && LIMES_OSX
+	__builtin_debugtrap();
+
+#else
+	__asm int 3
+#endif
+}
+
+LIMES_REENABLE_ALL_COMPILER_WARNINGS
+
+}  // namespace debugger
 
 LIMES_END_NAMESPACE

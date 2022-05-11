@@ -10,26 +10,20 @@
  * ======================================================================================
  */
 
-#include "misc.h"
+#pragma once
+
+#include <limes_export.h>
 #include <limes_namespace.h>
-#include <filesystem>
-#include "directory.h"
 
 LIMES_BEGIN_NAMESPACE
 
-namespace files
+namespace debugger
 {
 
-std::uintmax_t getAvailableSpaceOnFilesystem()
-{
-	return std::filesystem::space (Directory::getCurrentWorkingDirectory().getAbsolutePath()).available;
-}
+LIMES_EXPORT [[nodiscard]] bool isRunningUnderDebugger() noexcept;
 
-std::uintmax_t getTotalSizeOfFilesystem()
-{
-	return std::filesystem::space (Directory::getCurrentWorkingDirectory().getAbsolutePath()).capacity;
-}
+LIMES_EXPORT [[noreturn]] void breakInDebugger() noexcept;
 
-}  // namespace files
+}  // namespace debugger
 
 LIMES_END_NAMESPACE

@@ -11,12 +11,13 @@
  */
 
 #include "file.h"
-#include <iterator>						  // for istreambuf_iterator
-#include <limes_namespace.h>			  // for LIMES_BEGIN_NAMESPACE
-#include <exception>					  // for exception
-#include <filesystem>					  // for path, operator/
-#include <fstream>						  // for string, ifstream, ofstream
-#include <string>						  // for char_traits, operator+
+#include <iterator>			  // for istreambuf_iterator
+#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE
+#include <exception>		  // for exception
+#include <filesystem>		  // for path, operator/
+#include <fstream>			  // for string, ifstream, ofstream
+#include <string>			  // for char_traits, operator+
+#include <string_view>
 #include "../hashes/hash.h"				  // for hash, md5, sha1, sha224
 #include "../misc/Functions.h"			  // for try_call
 #include "../text/StringUtils.h"		  // for joinWithNewlines, splitA...
@@ -24,11 +25,24 @@
 #include "exec_location/exec_location.h"  // for getExecutablePath, getMo...
 #include "FilesystemEntry.h"			  // for Path
 #include "../memory/RawData.h"			  // for RawData
+#include <cstdio>
 
 LIMES_BEGIN_NAMESPACE
 
 namespace files
 {
+
+File& File::operator= (const Path& newPath)
+{
+	assignPath (newPath);
+	return *this;
+}
+
+File& File::operator= (const std::string_view& newPath)
+{
+	assignPath (newPath);
+	return *this;
+}
 
 std::string File::getFilename (bool includeExtension) const
 {
@@ -43,7 +57,7 @@ std::string File::getFileExtension() const
 	return getPath().extension().string();
 }
 
-bool File::hasFileExtension (const std::string& extension) const
+bool File::hasFileExtension (const std::string_view& extension) const
 {
 	return getFileExtension() == extension;
 }
@@ -53,7 +67,7 @@ bool File::hasFileExtension() const
 	return getPath().has_extension();
 }
 
-File& File::replaceFileExtension (const std::string& newFileExtension)
+File& File::replaceFileExtension (const std::string_view& newFileExtension)
 {
 	assignPath (getPath().replace_extension (newFileExtension));
 	return *this;
@@ -78,7 +92,7 @@ bool File::overwriteWithData (const char* const data, std::size_t numBytes) cons
 	return write_data (data, numBytes, true);
 }
 
-bool File::overwriteWithText (const std::string& text) const noexcept
+bool File::overwriteWithText (const std::string_view& text) const noexcept
 {
 	return overwriteWithData (text.data(), text.size());
 }
@@ -93,7 +107,7 @@ bool File::appendData (const char* const data, std::size_t numBytes) const noexc
 	return write_data (data, numBytes, false);
 }
 
-bool File::appendText (const std::string& text) const noexcept
+bool File::appendText (const std::string_view& text) const noexcept
 {
 	return appendData (text.data(), text.size());
 }
@@ -103,11 +117,11 @@ bool File::appendText (const std::vector<std::string>& text) const noexcept
 	return appendText (strings::joinWithNewlines (text));
 }
 
-bool File::prependText (const std::string& text) const noexcept
+bool File::prependText (const std::string_view& text) const noexcept
 {
 	auto data = loadAsString();
 
-	data = text + data;
+	data = std::string { text } + data;
 
 	return overwriteWithText (data);
 }
@@ -167,9 +181,24 @@ File File::getCurrentModule()
 	return File { getModulePath() };
 }
 
+std::FILE* File::getCfile (char mode) const noexcept
+{
+	if (! exists())
+		return nullptr;
+
+	try
+	{
+		return std::fopen (getAbsolutePath().make_preferred().c_str(), &mode);
+	}
+	catch (std::exception&)
+	{
+		return nullptr;
+	}
+}
+
 /*-------------------------------------------------------------------------------------------------------------------------*/
 
-TempFile::TempFile (const std::string& filename)
+TempFile::TempFile (const std::string_view& filename)
 	: File (Directory::getTempFileDirectory().getAbsolutePath() / filename)
 {
 	createIfDoesntExist();

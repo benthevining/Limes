@@ -42,30 +42,26 @@ FilesystemEntry& FilesystemEntry::operator= (const Path& newPath)
 	return *this;
 }
 
+FilesystemEntry& FilesystemEntry::operator= (const std::string_view& newPath)
+{
+	path = newPath;
+	return *this;
+}
+
+FilesystemEntry::operator Path() const noexcept
+{
+	return getAbsolutePath();
+}
+
 FilesystemEntry& FilesystemEntry::assignPath (const Path& newPath)
 {
 	path = newPath;
 	return *this;
 }
 
-FilesystemEntry& FilesystemEntry::changeName (const std::string& newName)
+FilesystemEntry& FilesystemEntry::changeName (const std::string_view& newName)
 {
 	path.replace_filename (newName);
-	return *this;
-}
-
-FilesystemEntry FilesystemEntry::operator/ (const std::string& subpathName) const
-{
-	FilesystemEntry newEntry { *this };
-
-	newEntry.path.append (subpathName);
-
-	return newEntry;
-}
-
-FilesystemEntry& FilesystemEntry::operator/= (const std::string& subpathName)
-{
-	path.append (subpathName);
 	return *this;
 }
 

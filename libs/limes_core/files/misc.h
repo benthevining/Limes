@@ -25,6 +25,8 @@ namespace files
 
 LIMES_EXPORT [[nodiscard]] std::uintmax_t getAvailableSpaceOnFilesystem();
 
+LIMES_EXPORT [[nodiscard]] std::uintmax_t getTotalSizeOfFilesystem();
+
 LIMES_EXPORT [[nodiscard]] constexpr char dirSeparator() noexcept
 {
 	return static_cast<char> (std::filesystem::path::preferred_separator);

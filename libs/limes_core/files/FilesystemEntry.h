@@ -52,14 +52,11 @@ public:
 	LIMES_DEFAULT_MOVABLE (FilesystemEntry);
 
 	FilesystemEntry& operator= (const Path& newPath);
+	FilesystemEntry& operator= (const std::string_view& newPath);
 
 	FilesystemEntry& assignPath (const Path& newPath);
 
-	FilesystemEntry& changeName (const std::string& newName);
-
-	[[nodiscard]] FilesystemEntry operator/ (const std::string& subpathName) const;
-
-	FilesystemEntry& operator/= (const std::string& subpathName);
+	FilesystemEntry& changeName (const std::string_view& newName);
 
 	[[nodiscard]] bool operator== (const FilesystemEntry& other) const noexcept;
 	[[nodiscard]] bool operator!= (const FilesystemEntry& other) const noexcept;
@@ -69,6 +66,8 @@ public:
 
 	[[nodiscard]] Path getPath() const noexcept;
 	[[nodiscard]] Path getAbsolutePath() const noexcept;
+
+	operator Path() const noexcept;
 
 	[[nodiscard]] std::string getName() const noexcept;
 

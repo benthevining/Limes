@@ -27,7 +27,10 @@ public:
 
 	using FilesystemEntry::FilesystemEntry;
 
-	SymLink (const Path& symLinkPath, const FilesystemEntry& linkTarget);
+	LIMES_DEFAULT_COPYABLE (SymLink);
+	LIMES_DEFAULT_MOVABLE (SymLink);
+
+	explicit SymLink (const Path& symLinkPath, const FilesystemEntry& linkTarget);
 
 	[[nodiscard]] FilesystemEntry follow (bool recurse = true) const noexcept;
 

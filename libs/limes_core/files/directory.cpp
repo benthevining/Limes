@@ -28,6 +28,43 @@ LIMES_BEGIN_NAMESPACE
 namespace files
 {
 
+Directory& Directory::operator= (const Path& newPath)
+{
+	assignPath (newPath);
+	return *this;
+}
+
+Directory& Directory::operator= (const std::string_view& newPath)
+{
+	assignPath (newPath);
+	return *this;
+}
+
+FilesystemEntry Directory::operator/ (const std::string_view& subpathName) const
+{
+	return FilesystemEntry { getAbsolutePath() / subpathName };
+}
+
+FilesystemEntry& Directory::operator/= (const std::string_view& subpathName)
+{
+	assignPath (getAbsolutePath() / subpathName);
+	return *this;
+}
+
+bool Directory::contains (const FilesystemEntry& entry) const
+{
+	return entry.getDirectory().getAbsolutePath() == getAbsolutePath();
+}
+
+bool Directory::contains (const std::string_view& childName) const
+{
+	for (const auto& entry : getAllChildren())
+		if (entry.getName() == childName)
+			return true;
+
+	return false;
+}
+
 bool Directory::createIfDoesntExist() const
 {
 	if (! isValid())
@@ -49,31 +86,23 @@ bool Directory::isEmpty() const
 	return getAllChildren().empty();
 }
 
-FilesystemEntry Directory::getChild (const std::string& childName, bool createIfNeeded) const
+FilesystemEntry Directory::getChild (const std::string_view& childName, bool createIfNeeded) const
 {
 	return FilesystemEntry { getAbsolutePath() / childName, createIfNeeded };
 }
 
-File Directory::createChildFile (const std::string& filename) const
+File Directory::getChildFile (const std::string_view& filename, bool createIfNeeded) const
 {
-	File file { getAbsolutePath() / filename };
-
-	file.createIfDoesntExist();
-
-	return file;
+	return File { getAbsolutePath() / filename, createIfNeeded };
 }
 
-Directory Directory::createChildDirectory (const std::string& subdirectoryName) const
+Directory Directory::getChildDirectory (const std::string_view& subdirectoryName, bool createIfNeeded) const
 {
-	Directory dir { getAbsolutePath() / subdirectoryName };
-
-	dir.createIfDoesntExist();
-
-	return dir;
+	return Directory { getAbsolutePath() / subdirectoryName, createIfNeeded };
 }
 
-SymLink Directory::createChildSymLink (const std::string&	  symLinkName,
-									   const FilesystemEntry& symLinkTarget) const
+SymLink Directory::createChildSymLink (const std::string_view& symLinkName,
+									   const FilesystemEntry&  symLinkTarget) const
 {
 	return SymLink { getAbsolutePath() / symLinkName, symLinkTarget };
 }
