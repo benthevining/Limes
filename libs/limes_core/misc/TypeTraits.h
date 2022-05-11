@@ -113,10 +113,10 @@ LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto& object)
 		const auto res = std::string (typeid (object).name());
 
 		if (res.startsWith ("class "))
-			return res.substring (6);
+			return res.substr (6, res.length());
 
 		if (res.startsWith ("struct "))
-			return res.substring (7);
+			return res.substr (7, res.length());
 
 		return res;
 #else
@@ -125,7 +125,7 @@ LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto& object)
 		if (auto* demangled = abi::__cxa_demangle (typeid (object).name(), nullptr, nullptr, &status))
 		{
 			const auto res = std::string (demangled);
-			free (demangled);
+			std::free (demangled);
 
 			return res;
 		}
@@ -141,10 +141,10 @@ LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto& object)
 
 LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto* c) noexcept
 {
-	if (c != nullptr)
-		return getDemangledName (*c) + " pointer";
+	if (c == nullptr)
+		return "nullptr";
 
-	return "nullptr";
+	return getDemangledName (*c) + " pointer";
 }
 
 LIMES_END_NAMESPACE
