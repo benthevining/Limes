@@ -11,18 +11,12 @@
 include (OrangesSourceFileUtils)
 
 oranges_add_source_files (
-	DIRECTORY_NAME misc
+	DIRECTORY_NAME meta
 	TARGET limes_core
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  Algorithm.h
-		  Functions.h
-		  IgnoreUnused.h
-		  preprocessor.h
-		  streams.h
-		  Version.cpp
-		  Version.h
-		  streams.cpp)
+		  TypeTraits.h TypeList.h TypeList_impl.h typeTraits_staticAsserts.cpp
+		  typeList_staticAsserts.cpp)
 
-set (misc_files ${misc_files} PARENT_SCOPE)
+set (meta_files ${meta_files} PARENT_SCOPE)

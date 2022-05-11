@@ -118,6 +118,7 @@ add_subdirectory (files)
 add_subdirectory (hashes)
 add_subdirectory (math)
 add_subdirectory (memory)
+add_subdirectory (meta)
 add_subdirectory (misc)
 add_subdirectory (system)
 add_subdirectory (text)
@@ -132,6 +133,7 @@ set (
 	${hashes_files}
 	${math_files}
 	${memory_files}
+	${meta_files}
 	${misc_files}
 	${system_files}
 	${text_files}

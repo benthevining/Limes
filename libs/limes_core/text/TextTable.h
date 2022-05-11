@@ -15,7 +15,8 @@
 #include <limes_export.h>  // for LIMES_EXPORT
 #include <cstring>		   // for size_t
 #include <string>		   // for basic_string
-#include <vector>		   // for vector
+#include <string_view>
+#include <vector>  // for vector
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE
@@ -26,11 +27,11 @@ public:
 
 	/** Appends text to the current row.
 	 */
-	void addColumnToCurrentRow (const std::string& text);
+	void addColumnToCurrentRow (const std::string_view& text);
 
 	/** Appends text to the current row. This is identical to calling addColumnToCurrentRow().
 	 */
-	TextTable& operator<< (const std::string& text);
+	TextTable& operator<< (const std::string_view& text);
 
 	/** Starts a new row; subsequent calls to addTextToCurrentRow() will be added to the next row.
 	 */
@@ -51,15 +52,15 @@ public:
 	/** Returns a vector with a string for each row.
 		The prefix and suffix will be appended to each row, and and the column separator will be placed between each column.
 	 */
-	[[nodiscard]] std::vector<std::string> getRows (const std::string& rowPrefix	   = {},
-													const std::string& columnSeparator = {},
-													const std::string& rowSuffix	   = {}) const;
+	[[nodiscard]] std::vector<std::string> getRows (const std::string_view& rowPrefix		= {},
+													const std::string_view& columnSeparator = {},
+													const std::string_view& rowSuffix		= {}) const;
 
 	/** Returns a string containing all the rows in the table.
 	 */
-	[[nodiscard]] std::string toString (const std::string& rowPrefix	   = {},
-										const std::string& columnSeparator = {},
-										const std::string& rowSuffix	   = {}) const;
+	[[nodiscard]] std::string toString (const std::string_view& rowPrefix		= {},
+										const std::string_view& columnSeparator = {},
+										const std::string_view& rowSuffix		= {}) const;
 
 private:
 

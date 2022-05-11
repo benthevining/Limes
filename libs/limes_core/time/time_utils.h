@@ -17,7 +17,7 @@
 #include <chrono>
 #include <ctime>
 #include <type_traits>
-#include "../misc/TypeTraits.h"
+#include "../meta/TypeTraits.h"
 
 LIMES_BEGIN_NAMESPACE
 

@@ -13,7 +13,7 @@
 #include "TextTable.h"
 #include <algorithm>  // for max
 #include <limes_namespace.h>
-
+#include "StringUtils.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -64,7 +64,7 @@ TextTable& TextTable::operator++()
 	return *this;
 }
 
-void TextTable::addColumnToCurrentRow (const std::string& text)
+void TextTable::addColumnToCurrentRow (const std::string_view& text)
 {
 	if (newRow || rows.empty())
 	{
@@ -72,10 +72,10 @@ void TextTable::addColumnToCurrentRow (const std::string& text)
 		rows.emplace_back();
 	}
 
-	rows.back().columns.push_back (text);
+	rows.back().columns.push_back (std::string { text });
 }
 
-TextTable& TextTable::operator<< (const std::string& text)
+TextTable& TextTable::operator<< (const std::string_view& text)
 {
 	addColumnToCurrentRow (text);
 	return *this;
@@ -96,9 +96,9 @@ int TextTable::getNumColumns() const noexcept
 	return maxColumns;
 }
 
-std::vector<std::string> TextTable::getRows (const std::string& rowPrefix,
-											 const std::string& columnSeparator,
-											 const std::string& rowSuffix) const
+std::vector<std::string> TextTable::getRows (const std::string_view& rowPrefix,
+											 const std::string_view& columnSeparator,
+											 const std::string_view& rowSuffix) const
 {
 	const auto widths = [this]
 	{
@@ -117,19 +117,21 @@ std::vector<std::string> TextTable::getRows (const std::string& rowPrefix,
 	std::vector<std::string> outVec;
 
 	for (const auto& row : rows)
-		outVec.emplace_back (std::string (rowPrefix).append (row.toString (columnSeparator, widths)).append (rowSuffix));  // cppcheck-suppress useStlAlgorithm
+		outVec.emplace_back (std::string { rowPrefix }.append (row.toString (std::string { columnSeparator }, widths)).append (rowSuffix));	 // cppcheck-suppress useStlAlgorithm
 
 	return outVec;
 }
 
-std::string TextTable::toString (const std::string& rowPrefix,
-								 const std::string& columnSeparator,
-								 const std::string& rowSuffix) const
+std::string TextTable::toString (const std::string_view& rowPrefix,
+								 const std::string_view& columnSeparator,
+								 const std::string_view& rowSuffix) const
 {
 	std::string result;
 
+	const std::string nl { strings::new_line };
+
 	for (const auto& row : getRows (rowPrefix, columnSeparator, rowSuffix))
-		result += row + "\n";  // cppcheck-suppress useStlAlgorithm
+		result += row + nl;	 // cppcheck-suppress useStlAlgorithm
 
 	return result;
 }

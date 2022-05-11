@@ -77,7 +77,7 @@ struct LIMES_EXPORT is_specialization<Template<Args...>, Template> final : std::
 };
 
 template <class ClassToTest, template <class...> class Template>
-concept specializes = is_specialization<ClassToTest, Template>::value;
+concept specializes = ::limes::is_specialization<ClassToTest, Template>::value;
 
 
 template <class Derived, class Base>
@@ -91,7 +91,7 @@ struct LIMES_EXPORT covariance_check<T<Ds...>, T<Bs...>> final : std::conjunctio
 };
 
 template <class Derived, class Base>
-concept covariant_subtype_of = covariance_check<Derived, Base>::value;
+concept covariant_subtype_of = ::limes::covariance_check<Derived, Base>::value;
 
 
 template <typename Test, typename... Types>

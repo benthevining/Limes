@@ -16,7 +16,7 @@
 #include <limes_namespace.h>	 // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
 #include <atomic>				 // for atomic
 #include <limes_platform.h>		 // for LIMES_ASSERT
-#include "../misc/TypeTraits.h"	 // for concept inherits_from
+#include "../meta/TypeTraits.h"	 // for concept inherits_from
 
 LIMES_BEGIN_NAMESPACE
 
