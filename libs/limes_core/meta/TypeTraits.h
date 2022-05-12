@@ -33,9 +33,6 @@
 
 LIMES_BEGIN_NAMESPACE
 
-template <typename From, typename To>
-concept convertible_to = std::is_convertible_v<From, To>;
-
 template <typename A, typename B>
 concept same_as = std::is_same_v<A, B>;
 

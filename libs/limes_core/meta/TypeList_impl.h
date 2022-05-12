@@ -16,6 +16,7 @@
 #include <limes_namespace.h>
 #include <type_traits>
 #include <cstddef>
+#include "TypeTraits.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -24,20 +25,30 @@ namespace typelist
 
 using std::size_t;
 
+template <size_t Value>
+using SizeConstant = std::integral_constant<size_t, Value>;
+
 LIMES_EXPORT static constinit const size_t invalid_index = static_cast<size_t> (-1);
 
-struct LIMES_EXPORT NoType final
+struct LIMES_EXPORT NullType final
 {
 };
 
 template <typename T>
-LIMES_EXPORT static constinit const bool is_null_type = std::is_same_v<T, NoType>;
+LIMES_EXPORT static constinit const bool is_null_type = std::is_same_v<T, NullType>;
 
 template <typename... Types>
 struct LIMES_NO_EXPORT InternalTypeList final
 {
 	template <template <typename...> class TypelistType>
 	using makeTypelist = TypelistType<Types...>;
+};
+
+template <template <typename> class Condition>
+struct LIMES_NO_EXPORT TypeErasedUnaryPredicate final
+{
+	template <typename Type>
+	static constinit const bool met = Condition<Type>();
 };
 
 /*----------------------------------------------------------------------------------------------------------------------*/
@@ -53,38 +64,56 @@ struct LIMES_EXPORT are_same<LHS<Args...>, RHS<Args...>> final : std::true_type
 };
 
 template <class LHS, class RHS>
-LIMES_EXPORT constinit const bool are_same_v = are_same<LHS, RHS>::value;
+LIMES_EXPORT static constinit const bool are_same_v = are_same<LHS, RHS>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
-template <class Typelist, typename TypeToFind>
-struct LIMES_EXPORT contains;
+template <class Typelist, typename... TypesToFind>
+struct LIMES_EXPORT contains final
+{
+private:
 
-template <template <typename...> class Typelist, typename TypeToFind, typename... Args>
-struct LIMES_EXPORT contains<Typelist<Args...>, TypeToFind> final : std::bool_constant<(std::is_same_v<TypeToFind, Args> || ...)>
+	template <class TypeList, typename TypeToFind>
+	struct contains_one;
+
+	template <template <typename...> class TypeList, typename TypeToFind, typename... Args>
+	struct contains_one<TypeList<Args...>, TypeToFind> final : std::bool_constant<(std::is_same_v<TypeToFind, Args> || ...)>
+	{
+	};
+
+public:
+
+	static constinit const bool value = (contains_one<Typelist, TypesToFind>::value && ...);
+};
+
+template <class Typelist, typename... TypesToFind>
+LIMES_EXPORT static constinit const bool contains_v = contains<Typelist, TypesToFind...>::value;
+
+template <class Typelist, typename... TypesToFind>
+struct LIMES_EXPORT contains_or final : std::bool_constant<(contains_v<Typelist, TypesToFind> || ...)>
 {
 };
 
-template <class Typelist, typename TypeToFind>
-LIMES_EXPORT constinit const bool contains_v = contains<Typelist, TypeToFind>::value;
+template <class Typelist, typename... TypesToFind>
+LIMES_EXPORT static constinit const bool contains_or_v = contains_or<Typelist, TypesToFind...>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
 template <class Typelist>
-struct LIMES_EXPORT size final : std::integral_constant<size_t, 0>
+struct LIMES_EXPORT size final : SizeConstant<0>
 {
 };
 
 template <template <typename...> class Typelist, typename... Args>
-struct LIMES_EXPORT size<Typelist<Args...>> final : std::integral_constant<size_t, sizeof...(Args)>
+struct LIMES_EXPORT size<Typelist<Args...>> final : SizeConstant<sizeof...(Args)>
 {
 };
 
 template <class Typelist>
-LIMES_EXPORT constinit const size_t size_v = size<Typelist>::value;
+LIMES_EXPORT static constinit const size_t size_v = size<Typelist>::value;
 
 template <class Typelist>
-LIMES_EXPORT constinit const bool is_empty = (size_v<Typelist> == 0);
+LIMES_EXPORT static constinit const bool is_empty = (size_v<Typelist> == 0);
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -203,26 +232,26 @@ private:
 	static_assert (Index <= size_v<Typelist<Args...>>, "Search index in type list is out of bounds!");
 
 	template <size_t SearchIndex, typename First, typename... Others>
-	struct finder final
+	struct getter final
 	{
 		using type = std::conditional_t<
 			SearchIndex == 0,
 			First,
-			typename finder<SearchIndex - 1, Others...>::type>;
+			typename getter<SearchIndex - 1, Others...>::type>;
 	};
 
 	template <size_t SearchIndex, typename First>
-	struct finder<SearchIndex, First> final
+	struct getter<SearchIndex, First> final
 	{
 		using type = std::conditional_t<
 			SearchIndex == 0,
 			First,
-			NoType>;
+			NullType>;
 	};
 
 public:
 
-	using type = typename finder<Index, Args...>::type;
+	using type = typename getter<Index, Args...>::type;
 };
 
 template <class Typelist, size_t Index>
@@ -251,18 +280,15 @@ private:
 	struct finder;
 
 	template <size_t Index, typename First, typename... Others>
-	struct finder<Index, First, Others...> final
+	struct finder<Index, First, Others...> final : SizeConstant<std::conditional_t<std::is_same_v<First, TypeToFind>,
+																				   std::integral_constant<size_t, Index>,
+																				   finder<Index + 1, Others...>>::value>
 	{
-		static constinit const size_t value = std::conditional_t<
-			std::is_same_v<First, TypeToFind>,
-			std::integral_constant<size_t, Index>,
-			finder<Index + 1, Others...>>::value;
 	};
 
 	template <size_t Index, typename First>
-	struct finder<Index, First> final
+	struct finder<Index, First> final : SizeConstant<Index>
 	{
-		static constinit const size_t value = Index;
 	};
 
 public:
@@ -271,7 +297,7 @@ public:
 };
 
 template <class Typelist, typename TypeToFind>
-LIMES_EXPORT constinit const size_t find_v = find<Typelist, TypeToFind>::value;
+LIMES_EXPORT static constinit const size_t find_v = find<Typelist, TypeToFind>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -282,9 +308,6 @@ template <template <typename...> class Typelist, typename... TypesToRemove, type
 struct LIMES_EXPORT remove<Typelist<Args...>, TypesToRemove...>
 {
 private:
-
-	static_assert ((contains_v<Typelist<Args...>, TypesToRemove> && ...),
-				   "TypesToRemove contains types that are not in the Typelist");
 
 	template <typename Type>
 	static constinit const bool isTypeAbsent = (! std::is_same_v<TypesToRemove, Type> && ...);
@@ -316,6 +339,9 @@ public:
 
 template <class Typelist, typename... TypesToRemove>
 LIMES_EXPORT using remove_t = typename remove<Typelist, TypesToRemove...>::type;
+
+template <class Typelist>
+LIMES_EXPORT using remove_null_types_t = remove_t<Typelist, NullType>;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -357,6 +383,90 @@ public:
 
 template <class Typelist, size_t Index>
 LIMES_EXPORT using remove_at_t = typename remove_at<Typelist, Index>::type;
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+template <class Typelist, template <typename> class UnaryPredicate>
+struct LIMES_EXPORT remove_if;
+
+template <template <typename...> class Typelist, template <typename> class UnaryPredicate, typename... Args>
+struct LIMES_EXPORT remove_if<Typelist<Args...>, UnaryPredicate> final
+{
+private:
+
+	using Condition = TypeErasedUnaryPredicate<UnaryPredicate>;
+
+	template <class TypeList, typename Type>
+	using conditional_add = std::conditional_t<Condition::template met<Type>,
+											   TypeList,
+											   add_t<TypeList, Type>>;
+
+	template <class TypeList, typename...>
+	struct rebuilder;
+
+	template <class TypeList, typename First, typename... Others>
+	struct rebuilder<TypeList, First, Others...> final
+	{
+		using type = typename rebuilder<
+			conditional_add<TypeList, First>,
+			Others...>::type;
+	};
+
+	template <class TypeList, typename First>
+	struct rebuilder<TypeList, First> final
+	{
+		using type = conditional_add<TypeList, First>;
+	};
+
+public:
+
+	using type = typename rebuilder<InternalTypeList<>, Args...>::type::template makeTypelist<Typelist>;
+};
+
+template <class Typelist, template <typename> class UnaryPredicate>
+LIMES_EXPORT using remove_if_t = typename remove_if<Typelist, UnaryPredicate>::type;
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+template <class Typelist, template <typename> class UnaryPredicate>
+struct LIMES_EXPORT remove_if_not;
+
+template <template <typename...> class Typelist, template <typename> class UnaryPredicate, typename... Args>
+struct LIMES_EXPORT remove_if_not<Typelist<Args...>, UnaryPredicate> final
+{
+private:
+
+	using Condition = TypeErasedUnaryPredicate<UnaryPredicate>;
+
+	template <class TypeList, typename Type>
+	using conditional_add = std::conditional_t<! Condition::template met<Type>,
+											   TypeList,
+											   add_t<TypeList, Type>>;
+
+	template <class TypeList, typename...>
+	struct rebuilder;
+
+	template <class TypeList, typename First, typename... Others>
+	struct rebuilder<TypeList, First, Others...> final
+	{
+		using type = typename rebuilder<
+			conditional_add<TypeList, First>,
+			Others...>::type;
+	};
+
+	template <class TypeList, typename First>
+	struct rebuilder<TypeList, First> final
+	{
+		using type = conditional_add<TypeList, First>;
+	};
+
+public:
+
+	using type = typename rebuilder<InternalTypeList<>, Args...>::type::template makeTypelist<Typelist>;
+};
+
+template <class Typelist, template <typename> class UnaryPredicate>
+LIMES_EXPORT using remove_if_not_t = typename remove_if_not<Typelist, UnaryPredicate>::type;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -532,26 +642,72 @@ private:
 
 		static constinit const size_t thisValue = std::conditional_t<
 			std::is_same_v<ToCount, get_t<Typelist<Args...>, CurrentIndex>>,
-			std::integral_constant<size_t, Count + 1>,
-			std::integral_constant<size_t, Count>>::value;
+			SizeConstant<Count + 1>,
+			SizeConstant<Count>>::value;
 
 	public:
 
 		static constinit const size_t value = std::conditional_t<
 			CurrentIndex == size_v<Typelist<Args...>>,
-			std::integral_constant<size_t, thisValue>,
+			SizeConstant<thisValue>,
 			counter<thisValue, CurrentIndex + 1>>::value;
 	};
 
 public:
 
-	static constinit const size_t value = std::conditional_t<contains_v<Typelist<Args...>, ToCount>,
-															 std::integral_constant<size_t, counter<0, 0>::value>,
-															 std::integral_constant<size_t, 0>>::value;
+	static constinit const size_t value = counter<0, 0>::value;
 };
 
 template <class Typelist, typename ToCount>
 LIMES_EXPORT static constinit const size_t count_v = count<Typelist, ToCount>::value;
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+template <class Typelist, template <typename> class UnaryPredicate>
+struct LIMES_EXPORT count_if;
+
+template <template <typename...> class Typelist, template <typename> class UnaryPredicate, typename... Args>
+struct LIMES_EXPORT count_if<Typelist<Args...>, UnaryPredicate> final
+{
+private:
+
+	using Condition = TypeErasedUnaryPredicate<UnaryPredicate>;
+
+	template <size_t Count, size_t CurrentIndex>
+	struct counter final
+	{
+	private:
+
+		using thisValue = std::conditional_t<
+			Condition::template met<get_t<Typelist<Args...>, CurrentIndex>>,
+			SizeConstant<Count + 1>,
+			SizeConstant<Count>>;
+
+	public:
+
+		static constinit const size_t value = std::conditional_t<
+			CurrentIndex == size_v<Typelist<Args...>>,
+			thisValue,
+			counter<thisValue::value, CurrentIndex + 1>>::value;
+	};
+
+public:
+
+	static constinit const size_t value = counter<0, 0>::value;
+};
+
+template <class Typelist, template <typename> class UnaryPredicate>
+LIMES_EXPORT static constinit const size_t count_if_v = count_if<Typelist, UnaryPredicate>::value;
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+template <class Typelist, template <typename> class UnaryPredicate>
+struct LIMES_EXPORT count_if_not : SizeConstant<(size_v<Typelist> - count_if_v<Typelist, UnaryPredicate>)>
+{
+};
+
+template <class Typelist, template <typename> class UnaryPredicate>
+LIMES_EXPORT static constinit const size_t count_if_not_v = count_if_not<Typelist, UnaryPredicate>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -603,19 +759,9 @@ template <class Typelist>
 struct LIMES_EXPORT contains_duplicates;
 
 template <template <typename...> class Typelist, typename... Args>
-struct LIMES_EXPORT contains_duplicates<Typelist<Args...>> final
+struct LIMES_EXPORT contains_duplicates<Typelist<Args...>> final : std::bool_constant<
+																	   (size_v<Typelist<Args...>> != size_v<remove_duplicates_t<Typelist<Args...>>>)>
 {
-private:
-
-	using NoDuplicates = remove_duplicates_t<Typelist<Args...>>;
-
-	static constinit const size_t origSize = size_v<Typelist<Args...>>;
-
-	static constinit const size_t prunedSize = size_v<NoDuplicates>;
-
-public:
-
-	static constinit const bool value = origSize != prunedSize;
 };
 
 template <class Typelist>

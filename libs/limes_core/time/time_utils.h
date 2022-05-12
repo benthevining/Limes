@@ -29,7 +29,7 @@ namespace time
 template <typename T>
 concept Clock = requires (T c)
 {
-	{ c.now() } -> convertible_to<std::chrono::time_point<T>>;
+	{ c.now() } -> std::convertible_to<std::chrono::time_point<T>>;
 };
 // clang-format on
 

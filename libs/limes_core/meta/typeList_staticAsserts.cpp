@@ -40,13 +40,25 @@ static_assert (TypeListA::reverse::equal<TypeList<float, double, int>>);
 
 static_assert (TypeListA::remove<int, float>::equal<TypeList<double>>);
 
+static_assert (TypeListA::remove_if<std::is_floating_point>::equal<TypeList<int>>);
+
+static_assert (TypeListA::remove_if_not<std::is_floating_point>::equal<TypeList<double, float>>);
+
 static_assert (TypeListA::contains<int>);
 static_assert (TypeListA::contains<double>);
 static_assert (TypeListA::contains<float>);
+static_assert (TypeListA::contains<int, double, float>);
 static_assert (! TypeListA::contains<size_t>);
+static_assert (! TypeListA::contains<int, double, float, size_t>);
 static_assert (! TypeListA::contains<std::vector<int>>);
 
+static_assert (TypeListA::contains_or<int, size_t>);
+static_assert (! TypeListA::contains_or<size_t, std::vector<double>>);
+
 static_assert (TypeListA::num_of<int> == 1);
+
+static_assert (TypeListA::count_if<std::is_floating_point> == 2);
+static_assert (TypeListA::count_if_not<std::is_floating_point> == 1);
 
 using TypeListB = TypeListA::add<int>;
 
@@ -81,6 +93,9 @@ static_assert (OnlyInt::contains<int>);
 using TypeListD = TypeListA::replace<double, size_t>;
 
 static_assert (TypeListD::equal<TypeList<int, size_t, float>>);
+
+static_assert (TypeListD::count_if<std::is_floating_point> == 1);
+static_assert (TypeListD::count_if_not<std::is_floating_point> == 2);
 
 static_assert (is_typelist<TypeListD>);
 

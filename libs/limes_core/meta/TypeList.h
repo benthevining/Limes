@@ -17,6 +17,7 @@
 #include "TypeList_impl.h"
 #include "../misc/Functions.h"
 #include "TypeTraits.h"
+#include <type_traits>
 #include <utility>
 #include <memory>
 #include <vector>
@@ -29,7 +30,7 @@ namespace typelist
 
 /*
  - compare typelists - get another typelist with items in common / not
- - sort?
+ - equality comparison ignoring order
  */
 
 template <typename... Types>
@@ -52,11 +53,20 @@ public:
 	template <class Other>
 	static constinit const bool equal = are_same_v<TypeList, Other>;
 
-	template <typename Type>
-	static constinit const bool contains = contains_v<TypeList, Type>;
+	template <typename... TypesToFind>
+	static constinit const bool contains = contains_v<TypeList, TypesToFind...>;
+
+	template <typename... TypesToFind>
+	static constinit const bool contains_or = contains_or_v<TypeList, TypesToFind...>;
 
 	template <typename Type>
 	static constinit const size_type num_of = count_v<TypeList, Type>;
+
+	template <template <typename> class UnaryPredicate>
+	static constinit const size_type count_if = count_if_v<TypeList, UnaryPredicate>;
+
+	template <template <typename> class UnaryPredicate>
+	static constinit const size_type count_if_not = count_if_not_v<TypeList, UnaryPredicate>;
 
 	template <typename... TypesToAdd>
 	using add = add_t<TypeList, TypesToAdd...>;
@@ -64,7 +74,7 @@ public:
 	template <typename... TypesToAdd>
 	using addIfAbsent = addIfAbsent_t<TypeList, TypesToAdd...>;
 
-	template <size_t Index, typename ToInsert>
+	template <size_type Index, typename ToInsert>
 	using insert_at = insert_at_t<TypeList, Index, ToInsert>;
 
 	template <typename ToPrepend>
@@ -73,7 +83,7 @@ public:
 	template <typename ToAppend>
 	using append = append_t<TypeList, ToAppend>;
 
-	template <size_t Index1, size_t Index2>
+	template <size_type Index1, size_type Index2>
 	using swap_at = swap_at_t<TypeList, Index1, Index2>;
 
 	template <typename Type1, typename Type2>
@@ -111,6 +121,14 @@ public:
 	using remove_first = remove_at<0>;
 	using remove_last  = remove_at<size - 1>;
 
+	using remove_null_types = remove_null_types_t<TypeList>;
+
+	template <template <typename> class UnaryPredicate>
+	using remove_if = remove_if_t<TypeList, UnaryPredicate>;
+
+	template <template <typename> class UnaryPredicate>
+	using remove_if_not = remove_if_not_t<TypeList, UnaryPredicate>;
+
 	template <typename Replace, typename With>
 	using replace = replace_t<TypeList, Replace, With>;
 
@@ -131,7 +149,8 @@ public:
 	}
 
 	template <Function Func, typename... Args>
-	static constexpr void for_all (Func&& f, Args&&... args) noexcept (noexcept (f().template operator()<Types...> (std::forward<Args> (args)...)))
+	static constexpr auto for_all (Func&& f, Args&&... args) noexcept (noexcept (f().template operator()<Types...> (std::forward<Args> (args)...)))
+		-> std::invoke_result_t<Func, Args...>
 	{
 		return f().template operator()<Types...> (std::forward<Args> (args)...);
 	}
@@ -158,11 +177,20 @@ public:
 	template <class Other>
 	static constinit const bool equal = is_empty<Other>;
 
-	template <typename>
+	template <typename...>
 	static constinit const bool contains = false;
+
+	template <typename...>
+	static constinit const bool contains_or = false;
 
 	template <typename>
 	static constinit const size_type num_of = 0;
+
+	template <template <typename> class>
+	static constinit const size_type count_if = 0;
+
+	template <template <typename> class UnaryPredicate>
+	static constinit const size_type count_if_not = 0;
 
 	template <typename... TypesToAdd>
 	using add = TypeList<TypesToAdd...>;
@@ -170,7 +198,7 @@ public:
 	template <typename... TypesToAdd>
 	using addIfAbsent = addIfAbsent_t<TypeList, TypesToAdd...>;
 
-	template <size_t Index, typename ToInsert>
+	template <size_type Index, typename ToInsert>
 	using insert_at = insert_at_t<TypeList, Index, ToInsert>;
 
 	template <typename ToPrepend>
@@ -179,30 +207,30 @@ public:
 	template <typename ToAppend>
 	using append = append_t<TypeList, ToAppend>;
 
-	template <size_t, size_t>
+	template <size_type, size_type>
 	using swap_at = TypeID;
 
 	template <typename, typename>
 	using swap = TypeID;
 
 	template <size_type>
-	using at = NoType;
+	using at = NullType;
 
-	using front = NoType;
-	using back	= NoType;
+	using front = NullType;
+	using back	= NullType;
 
 	using reverse = TypeID;
 
 	template <size_type, typename... Args>
-	static constexpr NoType construct (Args&&...)
+	static constexpr NullType construct (Args&&...)
 	{
 		return {};
 	}
 
 	template <size_type, typename... Args>
-	static std::unique_ptr<NoType> make_unique (Args&&...)
+	static std::unique_ptr<NullType> make_unique (Args&&...)
 	{
-		return std::make_unique<NoType>();
+		return std::make_unique<NullType>();
 	}
 
 	template <typename>
@@ -217,6 +245,14 @@ public:
 	using remove_first = TypeID;
 	using remove_last  = TypeID;
 
+	using remove_null_types = TypeID;
+
+	template <template <typename> class>
+	using remove_if = TypeID;
+
+	template <template <typename> class>
+	using remove_if_not = TypeID;
+
 	template <typename, typename>
 	using replace = TypeID;
 
@@ -228,7 +264,7 @@ public:
 	using remove_duplicates = TypeID;
 
 	template <template <typename...> class T>
-	using apply_to = T<NoType>;
+	using apply_to = T<NullType>;
 
 	template <Function Func, typename... Args>
 	static constexpr void for_each (Func&&, Args&&...) noexcept
@@ -236,7 +272,8 @@ public:
 	}
 
 	template <Function Func, typename... Args>
-	static constexpr void for_all (Func&& f, Args&&... args) noexcept (noexcept (f().template operator()<> (std::forward<Args> (args)...)))
+	static constexpr auto for_all (Func&& f, Args&&... args) noexcept (noexcept (f().template operator()<> (std::forward<Args> (args)...)))
+		-> std::invoke_result_t<Func, Args...>
 	{
 		return f().template operator()<> (std::forward<Args> (args)...);
 	}
