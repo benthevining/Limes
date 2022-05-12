@@ -77,6 +77,8 @@ using TypeListC = TypeListA::addIfAbsent<double>;
 
 static_assert (TypeListC::equal<TypeListA>);
 
+static_assert (TypeListA::common_with<TypeListC>::equal<TypeListA>);
+
 static_assert (std::is_same_v<TypeListA::front, int>);
 static_assert (std::is_same_v<TypeListA::back, float>);
 static_assert (std::is_same_v<TypeListA::at<1>, double>);
@@ -84,6 +86,10 @@ static_assert (std::is_same_v<TypeListA::at<1>, double>);
 static_assert (TypeListA::index_of<double> == 1);
 
 using OnlyInt = TypeListA::remove<float>::TypeID::remove<double>;
+
+static_assert (TypeListA::common_with<OnlyInt>::equal<TypeList<int>>);
+
+static_assert (TypeListA::not_in<OnlyInt>::equal<TypeList<double, float>>);
 
 static_assert (OnlyInt::size == 1);
 static_assert (! OnlyInt::contains<double>);

@@ -17,7 +17,6 @@
 #include <chrono>
 #include <ctime>
 #include <type_traits>
-#include <concepts>
 #include "../meta/TypeTraits.h"
 
 LIMES_BEGIN_NAMESPACE
@@ -30,7 +29,7 @@ namespace time
 template <typename T>
 concept Clock = requires (T c)
 {
-	{ c.now() } -> std::convertible_to<std::chrono::time_point<T>>;
+	{ c.now() } -> convertible_to<std::chrono::time_point<T>>;
 };
 // clang-format on
 

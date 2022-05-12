@@ -33,6 +33,14 @@
 
 LIMES_BEGIN_NAMESPACE
 
+// exactly the same as std::convertible_to, only implemented here because some versions of Xcode seem to be missing it
+template <class From, class To>
+concept convertible_to =
+	std::is_convertible_v<From, To> && requires
+{
+	static_cast<To> (std::declval<From>());
+};
+
 template <typename A, typename B>
 concept same_as = std::is_same_v<A, B>;
 

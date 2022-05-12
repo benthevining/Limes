@@ -29,7 +29,6 @@ namespace typelist
 {
 
 /*
- - compare typelists - get another typelist with items in common / not
  - equality comparison ignoring order
  */
 
@@ -138,6 +137,12 @@ public:
 	static constexpr const bool contains_duplicates = contains_duplicates_v<TypeID>;
 
 	using remove_duplicates = remove_duplicates_t<TypeID>;
+
+	template <class Other>
+	using common_with = common_t<TypeID, Other>;
+
+	template <class Other>
+	using not_in = not_in_t<TypeID, Other>;
 
 	template <template <typename...> class T>
 	using apply_to = T<Types...>;
@@ -262,6 +267,12 @@ public:
 	static constinit const bool contains_duplicates = false;
 
 	using remove_duplicates = TypeID;
+
+	template <class>
+	using common_with = TypeID;
+
+	template <class Other>
+	using not_in = TypeID;
 
 	template <template <typename...> class T>
 	using apply_to = T<>;
