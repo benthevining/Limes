@@ -46,56 +46,56 @@ public:
 
 	using clear = TypeList<>;
 
-	static constinit const size_type size = size_v<TypeList>;
+	static constexpr const size_type size = size_v<TypeID>;
 
-	static constinit const bool empty = is_empty<TypeList>;
+	static constexpr const bool empty = is_empty<TypeID>;
 
 	template <class Other>
-	static constinit const bool equal = are_same_v<TypeList, Other>;
+	static constexpr const bool equal = are_same_v<TypeID, Other>;
 
 	template <typename... TypesToFind>
-	static constinit const bool contains = contains_v<TypeList, TypesToFind...>;
+	static constexpr const bool contains = contains_v<TypeID, TypesToFind...>;
 
 	template <typename... TypesToFind>
-	static constinit const bool contains_or = contains_or_v<TypeList, TypesToFind...>;
+	static constexpr const bool contains_or = contains_or_v<TypeID, TypesToFind...>;
 
 	template <typename Type>
-	static constinit const size_type num_of = count_v<TypeList, Type>;
+	static constexpr const size_type num_of = count_v<TypeID, Type>;
 
 	template <template <typename> class UnaryPredicate>
-	static constinit const size_type count_if = count_if_v<TypeList, UnaryPredicate>;
+	static constexpr const size_type count_if = count_if_v<TypeID, UnaryPredicate>;
 
 	template <template <typename> class UnaryPredicate>
-	static constinit const size_type count_if_not = count_if_not_v<TypeList, UnaryPredicate>;
+	static constexpr const size_type count_if_not = count_if_not_v<TypeID, UnaryPredicate>;
 
 	template <typename... TypesToAdd>
-	using add = add_t<TypeList, TypesToAdd...>;
+	using add = add_t<TypeID, TypesToAdd...>;
 
 	template <typename... TypesToAdd>
-	using addIfAbsent = addIfAbsent_t<TypeList, TypesToAdd...>;
+	using addIfAbsent = addIfAbsent_t<TypeID, TypesToAdd...>;
 
 	template <size_type Index, typename ToInsert>
-	using insert_at = insert_at_t<TypeList, Index, ToInsert>;
+	using insert_at = insert_at_t<TypeID, Index, ToInsert>;
 
 	template <typename ToPrepend>
-	using prepend = prepend_t<TypeList, ToPrepend>;
+	using prepend = prepend_t<TypeID, ToPrepend>;
 
 	template <typename ToAppend>
-	using append = append_t<TypeList, ToAppend>;
+	using append = append_t<TypeID, ToAppend>;
 
 	template <size_type Index1, size_type Index2>
-	using swap_at = swap_at_t<TypeList, Index1, Index2>;
+	using swap_at = swap_at_t<TypeID, Index1, Index2>;
 
 	template <typename Type1, typename Type2>
-	using swap = swap_t<TypeList, Type1, Type2>;
+	using swap = swap_t<TypeID, Type1, Type2>;
 
 	template <size_type Index>
-	using at = get_t<TypeList, Index>;
+	using at = get_t<TypeID, Index>;
 
-	using front = get_first_t<TypeList>;
-	using back	= get_last_t<TypeList>;
+	using front = get_first_t<TypeID>;
+	using back	= get_last_t<TypeID>;
 
-	using reverse = reverse_t<TypeList>;
+	using reverse = reverse_t<TypeID>;
 
 	template <size_type Index, typename... Args>
 	static constexpr at<Index> construct (Args&&... args)
@@ -110,34 +110,34 @@ public:
 	}
 
 	template <typename Type>
-	static constinit const size_type index_of = find_v<TypeList, Type>;
+	static constexpr const size_type index_of = find_v<TypeID, Type>;
 
 	template <typename... TypesToRemove>
-	using remove = remove_t<TypeList, TypesToRemove...>;
+	using remove = remove_t<TypeID, TypesToRemove...>;
 
 	template <size_type Index>
-	using remove_at = remove_at_t<TypeList, Index>;
+	using remove_at = remove_at_t<TypeID, Index>;
 
 	using remove_first = remove_at<0>;
 	using remove_last  = remove_at<size - 1>;
 
-	using remove_null_types = remove_null_types_t<TypeList>;
+	using remove_null_types = remove_null_types_t<TypeID>;
 
 	template <template <typename> class UnaryPredicate>
-	using remove_if = remove_if_t<TypeList, UnaryPredicate>;
+	using remove_if = remove_if_t<TypeID, UnaryPredicate>;
 
 	template <template <typename> class UnaryPredicate>
-	using remove_if_not = remove_if_not_t<TypeList, UnaryPredicate>;
+	using remove_if_not = remove_if_not_t<TypeID, UnaryPredicate>;
 
 	template <typename Replace, typename With>
-	using replace = replace_t<TypeList, Replace, With>;
+	using replace = replace_t<TypeID, Replace, With>;
 
 	template <size_type Index, typename ReplaceWith>
-	using replace_at = replace_at_t<TypeList, Index, ReplaceWith>;
+	using replace_at = replace_at_t<TypeID, Index, ReplaceWith>;
 
-	static constinit const bool contains_duplicates = contains_duplicates_v<TypeList>;
+	static constexpr const bool contains_duplicates = contains_duplicates_v<TypeID>;
 
-	using remove_duplicates = remove_duplicates_t<TypeList>;
+	using remove_duplicates = remove_duplicates_t<TypeID>;
 
 	template <template <typename...> class T>
 	using apply_to = T<Types...>;
@@ -175,7 +175,7 @@ public:
 	static constinit const bool empty = true;
 
 	template <class Other>
-	static constinit const bool equal = is_empty<Other>;
+	static constexpr const bool equal = is_empty<Other>;
 
 	template <typename...>
 	static constinit const bool contains = false;
@@ -196,16 +196,16 @@ public:
 	using add = TypeList<TypesToAdd...>;
 
 	template <typename... TypesToAdd>
-	using addIfAbsent = addIfAbsent_t<TypeList, TypesToAdd...>;
+	using addIfAbsent = addIfAbsent_t<TypeID, TypesToAdd...>;
 
-	template <size_type Index, typename ToInsert>
-	using insert_at = insert_at_t<TypeList, Index, ToInsert>;
+	template <size_type, typename ToInsert>
+	using insert_at = TypeList<ToInsert>;
 
 	template <typename ToPrepend>
-	using prepend = add_t<TypeList, ToPrepend>;
+	using prepend = TypeList<ToPrepend>;
 
 	template <typename ToAppend>
-	using append = append_t<TypeList, ToAppend>;
+	using append = TypeList<ToAppend>;
 
 	template <size_type, size_type>
 	using swap_at = TypeID;
@@ -264,7 +264,7 @@ public:
 	using remove_duplicates = TypeID;
 
 	template <template <typename...> class T>
-	using apply_to = T<NullType>;
+	using apply_to = T<>;
 
 	template <Function Func, typename... Args>
 	static constexpr void for_each (Func&&, Args&&...) noexcept
