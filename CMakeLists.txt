@@ -118,9 +118,9 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 project (
 	Limes
 	VERSION 4.8.1
+	LANGUAGES CXX
 	DESCRIPTION "C++ utilities and building blocks"
-	HOMEPAGE_URL "www.github.com/benthevining/Limes"
-	LANGUAGES CXX)
+	HOMEPAGE_URL "www.github.com/benthevining/Limes")
 
 option (CMAKE_FIND_PACKAGE_PREFER_CONFIG
 		"Prefer config files to find modules in find_package search" ON)

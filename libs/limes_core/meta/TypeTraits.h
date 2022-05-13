@@ -25,15 +25,9 @@
 #endif
 
 
-/** @defgroup lemons_core lemons_core
-	@ingroup Common
-	Core building blocks.
- */
-
-
 LIMES_BEGIN_NAMESPACE
 
-// exactly the same as std::convertible_to, only implemented here because some versions of Xcode seem to be missing it
+/** Exactly the same as std::convertible_to, only implemented here because some versions of Xcode seem to be missing it. */
 template <class From, class To>
 concept convertible_to =
 	std::is_convertible_v<From, To> && requires
@@ -47,43 +41,34 @@ concept same_as = std::is_same_v<A, B>;
 template <class ClassToTest, typename RequiredBase>
 concept inherits_from = std::is_base_of_v<RequiredBase, ClassToTest>;
 
-/** @ingroup lemons_core
-	Utility struct that evaluates to std::true_type if the given class specializes the given template, and false otherwise.
-	For example:
-	@code
-	is_specialization< std::vector<int>, std::vector >()
-	@endcode
-	evaluates to a compile-time true value, and
-	@code
-	is_specialization< std::vector<int>, std::list >()
-	@endcode
-	evaluates to a compile-time false value.
- */
+#ifndef DOXYGEN
+
 template <class T, template <class...> class Template>
 struct LIMES_EXPORT is_specialization final : std::false_type
 {
 };
 
-/** @ingroup lemons_core
- Utility struct that evaluates to std::true_type if the given class specializes the given template, and false otherwise.
- For example:
- @code
- is_specialization< std::vector<int>, std::vector >()
- @endcode
- evaluates to a compile-time true value, and
- @code
- is_specialization< std::vector<int>, std::list >()
- @endcode
- evaluates to a compile-time false value.
- */
 template <template <class...> class Template, class... Args>
 struct LIMES_EXPORT is_specialization<Template<Args...>, Template> final : std::true_type
 {
 };
 
-template <class ClassToTest, template <class...> class Template>
-concept specializes = ::limes::is_specialization<ClassToTest, Template>::value;
+#endif
 
+/** Evaluates to true if the given type is a specialization of the given template class; false otherwise.
+	@tparam ClassToTest Fully-specialized type to test.
+	@tparam Template Template class to test if ClassToTest specializes.
+ */
+template <class ClassToTest, template <class...> class Template>
+static constexpr const bool is_specialization_v = is_specialization<ClassToTest, Template>::value;
+
+template <class ClassToTest, template <class...> class Template>
+concept specializes = requires
+{
+	is_specialization_v<ClassToTest, Template>;
+};
+
+#ifndef DOXYGEN
 
 template <class Derived, class Base>
 struct LIMES_EXPORT covariance_check final : std::is_base_of<Base, Derived>
@@ -95,21 +80,54 @@ struct LIMES_EXPORT covariance_check<T<Ds...>, T<Bs...>> final : std::conjunctio
 {
 };
 
-template <class Derived, class Base>
-concept covariant_subtype_of = ::limes::covariance_check<Derived, Base>::value;
+#endif
 
+/** Evaluates to true if Base and Derived are covariant types; false otherwise.
+	@tparam Derived Derived type that may be covariant with Base.
+	@tparam Base Type that Derived may be covariant with.
+ */
+template <class Derived, class Base>
+static constexpr const bool is_covariant_v = covariance_check<Derived, Base>::value;
+
+template <class Derived, class Base>
+concept covariant_subtype_of = requires
+{
+	is_covariant_v<Derived, Base>;
+};
+
+#ifndef DOXYGEN
 
 template <typename Test, typename... Types>
 struct LIMES_EXPORT is_one_of final : std::disjunction<std::is_same<Test, Types>...>
 {
 };
 
+#endif
+
+/** Evaluates to true if Test is the same as any of the types in Types.
+	@tparam Test Type to search for in the list of types.
+	@tparam Types List of types to check.
+ */
+template <typename Test, typename... Types>
+static constexpr const bool is_one_of_v = is_one_of<Test, Types...>::value;
+
+#ifndef DOXYGEN
+
 template <typename Test, typename... Types>
 struct LIMES_EXPORT is_none_of final : std::negation<is_one_of<Test, Types...>>
 {
 };
 
+#endif
 
+/** Evalutes to true if Test is not in the list of Types.
+	@tparam Test Type to search for in the list of types.
+	@tparam Types List of types to check.
+ */
+template <typename Test, typename... Types>
+static constexpr const bool is_none_of_v = is_none_of<Test, Types...>::value;
+
+/** Returns the demangled name of the type of the passed object. */
 LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto& object) noexcept
 {
 	try
@@ -144,6 +162,7 @@ LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto& object)
 	}
 }
 
+/** Returns the demangled name of the type of the passed object, ending with " pointer". */
 LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto* c) noexcept
 {
 	if (c == nullptr)

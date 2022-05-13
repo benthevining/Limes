@@ -28,6 +28,8 @@ static_assert (! TypeListA::empty);
 
 static_assert (TypeListA::equal<TypeList<int, double, float>>);
 
+static_assert (TypeListA::equal_ignore_order<TypeList<float, int, double>>);
+
 static_assert (TypeListA::replace_at<1, size_t>::equal<TypeList<int, size_t, float>>);
 
 static_assert (TypeListA::insert_at<1, size_t>::equal<TypeList<int, size_t, double, float>>);
@@ -86,6 +88,8 @@ static_assert (std::is_same_v<TypeListA::at<1>, double>);
 static_assert (TypeListA::index_of<double> == 1);
 
 using OnlyInt = TypeListA::remove<float>::TypeID::remove<double>;
+
+static_assert (TypeListA::add_from<OnlyInt>::equal<TypeList<int, double, float, int>>);
 
 static_assert (TypeListA::common_with<OnlyInt>::equal<TypeList<int>>);
 

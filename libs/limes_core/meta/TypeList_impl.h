@@ -18,6 +18,8 @@
 #include <cstddef>
 #include "TypeTraits.h"
 
+#ifndef DOXYGEN
+
 LIMES_BEGIN_NAMESPACE
 
 namespace typelist
@@ -128,6 +130,20 @@ struct LIMES_EXPORT add<Typelist<Args...>, TypesToAdd...> final
 
 template <class Typelist, typename... TypesToAdd>
 LIMES_EXPORT using add_t = typename add<Typelist, TypesToAdd...>::type;
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+template <class List1, class List2>
+struct LIMES_EXPORT add_from;
+
+template <template <typename...> class List1, template <typename...> class List2, typename... List1Args, typename... List2Args>
+struct LIMES_EXPORT add_from<List1<List1Args...>, List2<List2Args...>> final
+{
+	using type = List1<List1Args..., List2Args...>;
+};
+
+template <class List1, class List2>
+LIMES_EXPORT using add_from_t = typename add_from<List1, List2>::type;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -251,6 +267,9 @@ public:
 
 template <class List1, class List2>
 LIMES_EXPORT using not_in_t = typename not_in<List1, List2>::type;
+
+template <class List1, class List2>
+LIMES_EXPORT static constexpr const bool same_ignoring_order_v = is_empty<not_in_t<List1, List2>>&& is_empty<not_in_t<List2, List1>>;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -585,9 +604,7 @@ private:
 
 public:
 
-	using type = std::conditional_t<std::is_same_v<ToReplace, ReplaceWith>,
-									Typelist<Args...>,
-									typename replacer<InternalTypeList<>, ReplaceWith, Args...>::type::template makeTypelist<Typelist>>;
+	using type = typename replacer<InternalTypeList<>, ReplaceWith, Args...>::type::template makeTypelist<Typelist>;
 };
 
 template <class Typelist, typename ToReplace, typename ReplaceWith>
@@ -644,6 +661,8 @@ struct LIMES_EXPORT swap_at<Typelist<Args...>, Index1, Index2> final
 {
 private:
 
+	static_assert (Index1 != Index2, "Cannot swap elements at the same index!");
+
 	using OriginalList = Typelist<Args...>;
 
 	static_assert (Index1 <= size_v<OriginalList>, "Swap index out of range of TypeList!");
@@ -691,6 +710,8 @@ template <template <typename...> class Typelist, typename Type1, typename Type2,
 struct LIMES_EXPORT swap<Typelist<Args...>, Type1, Type2> final
 {
 private:
+
+	static_assert (! std::is_same_v<Type1, Type2>, "Type1 and Type2 need to be different types");
 
 	using OriginalList = Typelist<Args...>;
 
@@ -894,3 +915,5 @@ LIMES_EXPORT using reverse_t = typename reverse<Typelist>::type;
 }  // namespace typelist
 
 LIMES_END_NAMESPACE
+
+#endif /* ifndef DOXYGEN */
