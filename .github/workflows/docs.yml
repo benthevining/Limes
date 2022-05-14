@@ -1,0 +1,39 @@
+---
+name: Build docs
+
+# yamllint disable rule:line-length
+
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+    schedule:
+        - cron: 0 0 * * 1
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+
+    Build_docs:
+
+        name: Build docs
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+
+        steps:
+
+            - name: Checkout code
+              uses: actions/checkout@v3
+              with:
+                  submodules: recursive
+                  fetch-depth: 1
+
+            - uses: actions/setup-python@v3
+              with:
+                  python-version: '3.9'
+
+            - name: Run docs build script
+              run: export GH_REPO_TOKEN=${{ secrets.ACCESS_TOKEN }} && bash .github/publish_docs.sh

@@ -137,6 +137,17 @@ repos:
           - id: markdownlint-fix
             exclude: CHANGELOG.md
 
+  # shell scripts
+    - repo: https://github.com/shellcheck-py/shellcheck-py
+      rev: v0.8.0.4
+      hooks:
+          - id: shellcheck
+    - repo: https://github.com/lovesegfault/beautysh
+      rev: v6.2.1
+      hooks:
+          - id: beautysh
+            args: [--tab]
+
   # protobuf
     - repo: https://github.com/yoheimuta/protolint
       rev: v0.38.1
