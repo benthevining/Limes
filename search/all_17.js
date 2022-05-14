@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['detail_1255',['detail',['../namespacevecops_1_1detail.html',1,'vecops::detail'],['../namespacevecops_1_1fb_1_1detail.html',1,'vecops::fb::detail'],['../namespacevecops_1_1fb_1_1window_1_1detail.html',1,'vecops::fb::window::detail']]],
+  ['fb_1256',['fb',['../namespacevecops_1_1fb.html',1,'vecops']]],
+  ['fft_1257',['fft',['../namespacevecops_1_1fft.html',1,'vecops']]],
+  ['fftw_1258',['fftw',['../namespacevecops_1_1fftw.html',1,'vecops']]],
+  ['pommier_1259',['pommier',['../namespacevecops_1_1pommier.html',1,'vecops']]],
+  ['v2si_1260',['v2si',['../namespacepommier.html#af3b06fdb15d0a1c9d04c64ec66bd4b11',1,'pommier']]],
+  ['v4sf_1261',['v4sf',['../namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657',1,'pommier']]],
+  ['v4si_1262',['v4si',['../namespacepommier.html#a7929bd98d4b4a6252dd3a315fb9f2261',1,'pommier']]],
+  ['v4su_1263',['v4su',['../namespacepommier.html#acb6d2cbc874da232bcc4028f436ac2fe',1,'pommier']]],
+  ['value_5ftype_1264',['value_type',['../class_aligned_allocator.html#a4f282f745fef173b798566f97b93be5c',1,'AlignedAllocator::value_type()'],['../class_memory_pool_allocator.html#a3a436fb189e4dd2cf606348677869333',1,'MemoryPoolAllocator::value_type()'],['../class_stack_allocator.html#aab3854e1e013c7d9be03f5ac39aade79',1,'StackAllocator::value_type()'],['../struct_linked_list_model_1_1_iterator.html#a3274d69cf983483b21c46494c03272ef',1,'LinkedListModel::Iterator::value_type()'],['../structowned__vector_1_1iterator__base.html#aab8abe7a4c8a23c88d660914610aeca2',1,'owned_vector::iterator_base::value_type()']]],
+  ['valuetype_1265',['ValueType',['../classmath_1_1_random.html#a4ecd876d598895c55c8f7f15fb09fcea',1,'math::Random']]],
+  ['vdsp_2eh_1266',['vdsp.h',['../vdsp_8h.html',1,'']]],
+  ['vdsp_5ffft_1267',['vDSP_FFT',['../classvecops_1_1v_d_s_p___f_f_t.html',1,'vecops::vDSP_FFT&lt; SampleType &gt;'],['../classvecops_1_1v_d_s_p___f_f_t.html#aa301016eef6819375444730437c38c86',1,'vecops::vDSP_FFT::vDSP_FFT()']]],
+  ['vdsp_5ffft_2eh_1268',['vdsp_fft.h',['../vdsp__fft_8h.html',1,'']]],
+  ['vecops_1269',['vecops',['../namespacevecops.html',1,'']]],
+  ['vector_1270',['vector',['../vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa',1,'vector.h']]],
+  ['vector_2eh_1271',['vector.h',['../vector_8h.html',1,'']]],
+  ['vector_5ftype_1272',['vector_type',['../classbasic__vector.html#a7f9eec3d698fdda3ebdb5aa56316a8e6',1,'basic_vector']]],
+  ['velocitymapper_1273',['VelocityMapper',['../classmidi_1_1_velocity_mapper.html',1,'midi']]],
+  ['velocitymapper_2eh_1274',['VelocityMapper.h',['../_velocity_mapper_8h.html',1,'']]],
+  ['version_1275',['Version',['../struct_version.html',1,'Version'],['../struct_version.html#a93515e3399a90e8762ea110e059ac7be',1,'Version::Version() noexcept=default'],['../struct_version.html#a17d6546930873fd9dcf5a0bc3b1ea413',1,'Version::Version(int maj, int min, int p) noexcept'],['../struct_version.html#a9d1bf32bb674906c53df904eb23fa50a',1,'Version::Version(Version &amp;&amp;)=default'],['../struct_version.html#ac20aaf3b6d82fb669944c0c70166ed7a',1,'Version::Version(const Version &amp;)=default']]],
+  ['version_2eh_1276',['Version.h',['../_version_8h.html',1,'']]],
+  ['volume_1277',['volume',['../classmath_1_1geometry_1_1_three_d_shape.html#ad2e9b9b7de82333a816a7e7880e1919f',1,'math::geometry::ThreeDShape::volume()'],['../classmath_1_1geometry_1_1_cone.html#ab848fee33edca6dbd3d12e51725ce0d6',1,'math::geometry::Cone::volume()'],['../classmath_1_1geometry_1_1_cube.html#a2c6d32e59332a9e0293dc82c97153a21',1,'math::geometry::Cube::volume()'],['../classmath_1_1geometry_1_1_cylinder.html#adfc4ece29aa8e09a8d11cec62c09f048',1,'math::geometry::Cylinder::volume()'],['../classmath_1_1geometry_1_1_pyramid.html#a0fbc67b2fd5df3032bf9608ccbdb5b82',1,'math::geometry::Pyramid::volume()'],['../classmath_1_1geometry_1_1_rectangular_prism.html#a4a6f5b738f5cfa3c4ccffa2669850707',1,'math::geometry::RectangularPrism::volume()'],['../classmath_1_1geometry_1_1_sphere.html#ac462d673bcdc2c161eb52deafa06581f',1,'math::geometry::Sphere::volume()'],['../classmath_1_1geometry_1_1_triangular_prism.html#a25865bbe6cbb82cb052e3457d5937070',1,'math::geometry::TriangularPrism::volume()']]],
+  ['window_1278',['window',['../namespacevecops_1_1fb_1_1window.html',1,'vecops::fb::window'],['../namespacevecops_1_1window.html',1,'vecops::window']]]
+];

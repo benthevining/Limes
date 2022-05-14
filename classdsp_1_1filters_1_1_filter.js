@@ -1,0 +1,9 @@
+var classdsp_1_1filters_1_1_filter =
+[
+    [ "SampleVector", "classdsp_1_1filters_1_1_filter.html#a42d6959ad779182e8309e3d9b1478c16", null ],
+    [ "prepare", "classdsp_1_1filters_1_1_filter.html#a725eca528d00a2ce66b68daea5a76483", null ],
+    [ "process", "classdsp_1_1filters_1_1_filter.html#a59f95ad05b79bac7da5e58f67f809095", null ],
+    [ "process", "classdsp_1_1filters_1_1_filter.html#a3e126dda3751e86db6f80e030f73e61b", null ],
+    [ "reset", "classdsp_1_1filters_1_1_filter.html#a59b8adad76d902189fd7c04cb4954864", null ],
+    [ "coefs", "classdsp_1_1filters_1_1_filter.html#ac9a8561703881a0cb831e08ebe3e67a8", null ]
+];

@@ -1,0 +1,27 @@
+var classmusic_1_1scales_1_1_octatonic =
+[
+    [ "Octatonic", "classmusic_1_1scales_1_1_octatonic.html#a94d30898f844b1498db45cbc828be9ce", null ],
+    [ "Octatonic", "classmusic_1_1scales_1_1_octatonic.html#a7604ec00e67af4cc5fa2c4b878f46627", null ],
+    [ "Octatonic", "classmusic_1_1scales_1_1_octatonic.html#ab7b8aa9df13b2f4cf29b9b7e9fa16d6d", null ],
+    [ "Octatonic", "classmusic_1_1scales_1_1_octatonic.html#a041df25f0ca6e2a197a0833afdf4447d", null ],
+    [ "~Octatonic", "classmusic_1_1scales_1_1_octatonic.html#a9370c3d285eb46bccdd4bb4d266d28fb", null ],
+    [ "containsPitch", "classmusic_1_1scales_1_1_octatonic.html#a1601a80abe457022043486acc275a170", null ],
+    [ "containsPitch", "classmusic_1_1scales_1_1_octatonic.html#a8a6d8521a8ded5be37c24aa366dde11c", null ],
+    [ "containsPitchClass", "classmusic_1_1scales_1_1_octatonic.html#ac9f0ab4433af31a09865f1e42760058f", null ],
+    [ "getIntervals", "classmusic_1_1scales_1_1_octatonic.html#a76ed3849972d223dae057c35fb0ed8bf", null ],
+    [ "getIntervalsAsSemitones", "classmusic_1_1scales_1_1_octatonic.html#a06d3d5d614fed76e65f76a28e2e84831", null ],
+    [ "getPitchClasses", "classmusic_1_1scales_1_1_octatonic.html#a9737f9abff691fadcef559e5d8b950b7", null ],
+    [ "getPitchClassOfRoot", "classmusic_1_1scales_1_1_octatonic.html#a40b37961796499077fb23615d9ebb74b", null ],
+    [ "getPitchClassOfScaleDegree", "classmusic_1_1scales_1_1_octatonic.html#ac1b9aa7ad9c3568d755bce52cf4ff731", null ],
+    [ "getPitches", "classmusic_1_1scales_1_1_octatonic.html#a12ddafec810985a94cf7aba94fae87ee", null ],
+    [ "getPitches", "classmusic_1_1scales_1_1_octatonic.html#af55296545289d9d15a416f1c7bff2909", null ],
+    [ "getRoot", "classmusic_1_1scales_1_1_octatonic.html#a71fb8ccd2bd9defb856c2c6e1f4fb361", null ],
+    [ "notesPerOctave", "classmusic_1_1scales_1_1_octatonic.html#a12c7ac79bb8fb7c1e016725b11228118", null ],
+    [ "operator!=", "classmusic_1_1scales_1_1_octatonic.html#a75df71f60a944b2c85d621d715c72f0f", null ],
+    [ "operator!=", "classmusic_1_1scales_1_1_octatonic.html#a237ac3c6c63475899aed39a9311dceda", null ],
+    [ "operator=", "classmusic_1_1scales_1_1_octatonic.html#a5a5c55cdbfe2cab6a482920c422d5f6a", null ],
+    [ "operator=", "classmusic_1_1scales_1_1_octatonic.html#aea860ce78d2efba8fc74a02f2256784b", null ],
+    [ "operator==", "classmusic_1_1scales_1_1_octatonic.html#a77a3d35d6e579868e8a42d0e67817c97", null ],
+    [ "operator==", "classmusic_1_1scales_1_1_octatonic.html#ac2980ae89fa968f5b577b6d47739fe66", null ],
+    [ "startsWithHalfStep", "classmusic_1_1scales_1_1_octatonic.html#a2fde749d2de52d708ec2423b6de77105", null ]
+];
