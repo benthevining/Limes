@@ -22,50 +22,97 @@
 
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains some text manipulation utilities for working with both C++ and C-style strings. */
 namespace strings
 {
 
+/** Returns true if the passed string is \c \n or \c \r\n . */
 LIMES_EXPORT [[nodiscard]] bool isNewline (const std::string_view& string) noexcept;
 
+/** Returns true if the two strings contain exactly the same characters. */
 LIMES_EXPORT [[nodiscard]] bool areSame (const char* string1, const char* string2);
 
+/** Returns true if the two strings are the same, regardless of the case of their characters. */
+///@{
 LIMES_EXPORT [[nodiscard]] bool areSameIgnoringCase (const char* string1, const char* string2);
-
 LIMES_EXPORT [[nodiscard]] bool areSameIgnoringCase (const std::string_view& lhs, const std::string_view& rhs);
+///@}
 
+/** Returns the length of the string. */
 LIMES_EXPORT [[nodiscard]] int length (const char* string);
 
+/** Removes any whitespace characters from the beginning and end of the string. */
 LIMES_EXPORT void trim (std::string& string);
 
+/** Returns a copy of the string, with all its characters converted to upper case. */
 LIMES_EXPORT [[nodiscard]] std::string toUpper (const std::string_view& string);
+
+/** Returns a copy of the string, with all its characters converted to lower case. */
 LIMES_EXPORT [[nodiscard]] std::string toLower (const std::string_view& string);
 
+/** Returns a copy of the passed string, ending at the first occurance of \c stringToFind .
+	@param inputString The input string to slice
+	@param stringToFind The delimiter to split the output string at.
+ */
 LIMES_EXPORT [[nodiscard]] std::string upToFirstOccurrenceOf (const std::string_view& inputString,
 															  const std::string_view& stringToFind);
 
+/** Returns a copy of the passed string, beginning at the first occurance of \c stringToFind .
+	@param inputString The input string to slice
+	@param stringToFind The delimiter to split the output string at.
+ */
 LIMES_EXPORT [[nodiscard]] std::string fromFirstOccurrenceOf (const std::string_view& inputString,
 															  const std::string_view& stringToFind);
 
+/** Takes an input string and splits it into a series of smaller strings.
+	@param stringToSplit The input string to slice
+	@param delimiter The string to use as the delimiter between smaller tokens.
+	@param includeDelimiterInResults If true, each output token will end with \c delimiter .
+ */
 LIMES_EXPORT [[nodiscard]] std::vector<std::string> split (const std::string_view& stringToSplit,
 														   const std::string_view& delimiter,
 														   bool					   includeDelimiterInResults = false);
 
+/** Splits the input string using whitespace characters as the delimiter, not including the whitespace in the output tokens.
+	Each output token is also trimmed, meaning that if multiple spaces are between words, the output tokens will still contain only characters.
+ */
 LIMES_EXPORT [[nodiscard]] std::vector<std::string> splitAtWhitespace (const std::string_view& stringToSplit);
 
+/** Splits the input string into lines.
+	The input string can use \c \n or \c \r\n for its newline characters, or a mixture of both.
+ */
 LIMES_EXPORT [[nodiscard]] std::vector<std::string> splitAtNewlines (const std::string_view& stringToSplit);
 
+/** Joins the input strings into one string, placing \c delimiter between each input string.
+	@param strings Strings to be joined
+	@param delimiter String that will be placed between each input string in the output string
+ */
 LIMES_EXPORT [[nodiscard]] std::string join (const std::vector<std::string>& strings, const std::string_view& delimiter);
 
+/** Joins the strings together, using a space character as the token delimiter. */
 LIMES_EXPORT [[nodiscard]] std::string joinWithWhitespace (const std::vector<std::string>& strings);
 
+/** Joins the strings together, using the platform's preferred newline character as the token delimiter. */
 LIMES_EXPORT [[nodiscard]] std::string joinWithNewlines (const std::vector<std::string>& strings);
 
+/** Returns the platform's preferred newline separator: \c \r\n on Windows, \c \n everywhere else.
+	@see new_line
+ */
 LIMES_EXPORT [[nodiscard]] constexpr std::string_view getNewline() noexcept;
 
+/** A static variable that can be referenced for convenience, instead of needing to call \c getNewline() .
+	@see getNewline
+ */
 LIMES_EXPORT static const std::string_view new_line { getNewline() };
 
+/** Returns the Limes library ASCII logo as a string.
+	@see printLimesASCII
+ */
 LIMES_EXPORT [[nodiscard]] std::string getLimesASCII() noexcept;
 
+/** Prints the Limes library ASCII logo to std::cout.
+	@see getLimesASCII
+ */
 LIMES_EXPORT void printLimesASCII();
 
 

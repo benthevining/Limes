@@ -18,73 +18,136 @@
 #include <iostream>			  // for basic_istream, basic_ostream
 #include <string>			  // for string
 #include "../hashes/hash.h"	  // for hash::Type
+#include "../misc/preprocessor.h"
+#include <functional>  // for std::hash
 
 LIMES_BEGIN_NAMESPACE
 
+/** This class is a wrapper around a pointer to some raw data on the heap. */
 class LIMES_EXPORT RawData final
 {
 public:
 
+	/** Constructors */
+	///@{
+
+	/** Constructs an empty RawData object that owns no memory. */
 	RawData() = default;
 
+	/** Constructs a RawData objects that is allocated some initial memory, optionally initialized to zeroes. */
 	explicit RawData (std::size_t initialSize, bool initializeToZero = true);
 
+	/** Constructs a RawData object that refers to the specified data.
+		@note The RawData object will take ownership of the passed pointer, so you should not delete it after using this constructor, or you'll get double-delete bugs!
+	 */
 	explicit RawData (char* const dataToUse, std::size_t dataSize);
 
+	/** Constructs a RawData object whose memory is initialized by reading the entire contents of the input stream. */
 	explicit RawData (std::basic_istream<char>& inputStream);
 
+	/** Constructs a RawData object whose memory is initialized with the contents of the string. */
 	explicit RawData (const std::string& string);
 
+	/** Copy constructor. */
 	explicit RawData (const RawData& other);
 
+	/** Move constructor. */
 	explicit RawData (RawData&& other) noexcept;
 
+	///@}
+
+	/** Destructor. */
 	~RawData();
 
+	/** Assignment operators. */
+	///@{
 	RawData& operator= (const RawData& other);
-
 	RawData& operator= (RawData&& other);
+	///@}
 
-	[[nodiscard]] char* getData() noexcept;
-
+	/** Returns a pointer to this object's data. */
+	///@{
+	[[nodiscard]] char*		  getData() noexcept;
 	[[nodiscard]] const char* getData() const noexcept;
+	///@}
 
+	/** Returns the size (in bytes) of the data that this object owns. */
 	[[nodiscard]] std::size_t getSize() const noexcept;
 
-	[[nodiscard]] std::string toString() const noexcept;
-
-	bool writeToStream (std::basic_ostream<char>& outputStream) const noexcept;
-
+	/** Returns true if this data object is empty. */
 	[[nodiscard]] bool isEmpty() const noexcept;
 
+	/** Returns a string representation of the data this object contains. */
+	[[nodiscard]] std::string toString() const noexcept;
+
+	/** Writes this object's data to the passed output stream.
+		@return True if writing to the stream succeeded.
+	 */
+	bool writeToStream (std::basic_ostream<char>& outputStream) const noexcept;
+
+	/** Allocates new memory for this object.
+		@param newSize The new total size of this object's internal memory, in bytes
+		@param preserveOldData If true, the allocation will attempt to preserve any old memory that was allocated. If this is false, this function will free the old memory before allocating new memory.
+		@param initializeToZero If true, all the newly allocated bytes are filled with zeroes.
+	 */
 	void allocate (std::size_t newSize, bool preserveOldData = true, bool initializeToZero = true);
 
+	/** Frees all of this object's internal memory. */
 	void free();
 
+	/** Returns this object's memory pointer and releases ownership of it. This is analagous to \c std::unique_ptr::release()
+		@note Once this function is called, this object will not free this pointer, so you must do so!
+	 */
 	[[nodiscard]] char* release() noexcept;
 
+	/** Appends some data to the end of this object's data, reallocating memory if necessary. */
+	///@{
 	void append (const char* const newData, std::size_t numBytes);
-
 	void append (const RawData& other);
+	///@}
 
+	/** Prepends some data to the beginning of this object's data, reallocating memory if necessary. */
+	///@{
+	void prepend (const char* const newData, std::size_t numBytes);
+	void prepend (const RawData& other);
+	///@}
+
+	/** Overwrites this object's data with the input data, reallocating memory if necessary. */
+	///@{
 	void copyFrom (const char* const newData, std::size_t newSize);
-
 	void copyFrom (const RawData& other);
+	///@}
 
+	/** Copies this object's data to the specified destination. */
+	///@{
 	void copyTo (char* const dest, std::size_t maxNumBytes) const;
 
+	/** @param allowAllocation If this is false, the data may be truncated if the destination object has a smaller preallocated memory size than the data size.
+	 */
+	void copyTo (RawData& other, bool allowAllocation = true) const;
+	///@}
+
+	/** Writes the specified value to every byte in this object's owned memory. */
 	void fill (char fillWith);
 
+	/** Fills this object's owned memory with zeroes. */
 	void zero();
 
-	char* begin() noexcept;
-
+	/** Returns a pointer to the beginning of this object's owned memory.
+		The returned pointer may be null if this object is empty.
+	 */
+	///@{
+	char*		begin() noexcept;
 	const char* begin() const noexcept;
+	///@}
 
-	char* end() noexcept;
-
+	/** Returns a pointer to the end of this object's owned memory. */
+	///@{
+	char*		end() noexcept;
 	const char* end() const noexcept;
+	///@}
 
+	/** Computes a hash value for this object's data, based on the specified hash type. */
 	[[nodiscard]] std::string hash (hash::Type hashType) const;
 
 private:
@@ -97,3 +160,22 @@ private:
 };
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+
+/** A specialization of \c std::hash for RawData objects.
+	The hash value is calculated based on the string representation of the data.
+ */
+template <>
+struct LIMES_EXPORT hash<limes::RawData> final
+{
+	hash() = default;
+
+	LIMES_DEFAULT_COPYABLE (hash);
+	LIMES_DEFAULT_MOVABLE (hash);
+
+	size_t operator() (const limes::RawData& d) const noexcept;
+};
+
+}  // namespace std

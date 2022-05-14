@@ -47,17 +47,26 @@ DynamicLibrary::DynamicLibrary (const std::string_view& nameOrPath) noexcept
 
 DynamicLibrary::~DynamicLibrary()
 {
-	close();
+	try
+	{
+		close();
+	}
+	catch (std::exception&)
+	{
+	}
 }
 
 bool DynamicLibrary::operator== (const DynamicLibrary& other) const noexcept
 {
-	return handle == other.handle;
+	if (handle == other.handle)
+		return true;
+
+	return getFile() == other.getFile();
 }
 
 bool DynamicLibrary::operator!= (const DynamicLibrary& other) const noexcept
 {
-	return handle != other.handle;
+	return ! (*this == other);
 }
 
 bool DynamicLibrary::isOpen() const noexcept
@@ -267,3 +276,13 @@ LIMES_REENABLE_ALL_COMPILER_WARNINGS
 }  // namespace files
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+
+size_t hash<limes::files::DynamicLibrary>::operator() (const limes::files::DynamicLibrary& l) const noexcept
+{
+	return hash<limes::files::FilesystemEntry> {}(l.getFile());
+}
+
+}  // namespace std

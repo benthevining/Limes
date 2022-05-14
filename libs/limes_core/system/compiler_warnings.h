@@ -14,7 +14,21 @@
 
 #include <limes_platform.h>
 
-#if LIMES_CLANG
+#ifdef DOXYGEN
+
+/** This macro disables all compiler warnings from the point in the source code where it is encountered until \c LIMES_REENABLE_ALL_COMPILER_WARNINGS is encountered.
+	@see LIMES_REENABLE_ALL_COMPILER_WARNINGS
+ */
+#	define LIMES_DISABLE_ALL_COMPILER_WARNINGS
+
+/** This macro re-enables all compiler warnings after \c LIMES_DISABLE_ALL_COMPILER_WARNINGS has been issued.
+	@see LIMES_DISABLE_ALL_COMPILER_WARNINGS
+ */
+#	define LIMES_REENABLE_ALL_COMPILER_WARNINGS
+
+#else
+
+#	if LIMES_CLANG
 
 // clang-format off
 #	define LIMES_DISABLE_ALL_COMPILER_WARNINGS \
@@ -22,10 +36,10 @@
 		_Pragma ("clang diagnostic ignored \"-Weverything\"")
 // clang-format on
 
-#	define LIMES_REENABLE_ALL_COMPILER_WARNINGS \
-		_Pragma ("clang diagnostic pop")
+#		define LIMES_REENABLE_ALL_COMPILER_WARNINGS \
+			_Pragma ("clang diagnostic pop")
 
-#elif LIMES_GCC
+#	elif LIMES_GCC
 
 // clang-format off
 #	define LIMES_DISABLE_ALL_COMPILER_WARNINGS								   \
@@ -61,10 +75,12 @@
 		_Pragma ("warning (disable : 4702)")
 // clang-format on
 
-#	define LIMES_REENABLE_ALL_COMPILER_WARNINGS \
-		_Pragma ("warning (pop)")
+#		define LIMES_REENABLE_ALL_COMPILER_WARNINGS \
+			_Pragma ("warning (pop)")
 
-#else
-#	define LIMES_DISABLE_ALL_COMPILER_WARNINGS
-#	define LIMES_REENABLE_ALL_COMPILER_WARNINGS
+#	else
+#		define LIMES_DISABLE_ALL_COMPILER_WARNINGS
+#		define LIMES_REENABLE_ALL_COMPILER_WARNINGS
+#	endif
+
 #endif

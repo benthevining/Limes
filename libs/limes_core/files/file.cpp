@@ -26,6 +26,7 @@
 #include "FilesystemEntry.h"			  // for Path
 #include "../memory/RawData.h"			  // for RawData
 #include <cstdio>
+#include <atomic>
 
 #if LIMES_WINDOWS
 #	include <locale>  // for wstring_convert
@@ -72,9 +73,14 @@ bool File::hasFileExtension() const
 	return getPath().has_extension();
 }
 
-File& File::replaceFileExtension (const std::string_view& newFileExtension)
+File& File::replaceFileExtension (const std::string_view& newFileExtension,
+								  bool					  renameOnDisk)
 {
-	assignPath (getPath().replace_extension (newFileExtension));
+	if (renameOnDisk)
+		rename (getAbsolutePath().replace_extension (newFileExtension));
+	else
+		assignPath (getPath().replace_extension (newFileExtension));
+
 	return *this;
 }
 
@@ -92,48 +98,57 @@ bool File::write_data (const char* const data, std::size_t numBytes, bool overwr
 			stream.write (data, static_cast<std::streamsize> (numBytes)); });
 }
 
-bool File::overwriteWithData (const char* const data, std::size_t numBytes) const noexcept
+bool File::overwrite (const char* const data, std::size_t numBytes) const noexcept
 {
 	return write_data (data, numBytes, true);
 }
 
-bool File::overwriteWithText (const std::string_view& text) const noexcept
+bool File::overwrite (const RawData& data) const noexcept
 {
-	return overwriteWithData (text.data(), text.size());
+	return write_data (data.getData(), data.getSize(), true);
 }
 
-bool File::overwriteWithText (const std::vector<std::string>& text) const noexcept
+bool File::overwrite (const std::string_view& text) const noexcept
 {
-	return overwriteWithText (strings::joinWithNewlines (text));
+	return overwrite (text.data(), text.size());
 }
 
-bool File::appendData (const char* const data, std::size_t numBytes) const noexcept
+bool File::append (const char* const data, std::size_t numBytes) const noexcept
 {
 	return write_data (data, numBytes, false);
 }
 
-bool File::appendText (const std::string_view& text) const noexcept
+bool File::append (const RawData& data) const noexcept
 {
-	return appendData (text.data(), text.size());
+	return write_data (data.getData(), data.getSize(), false);
 }
 
-bool File::appendText (const std::vector<std::string>& text) const noexcept
+bool File::append (const std::string_view& text) const noexcept
 {
-	return appendText (strings::joinWithNewlines (text));
+	return write_data (text.data(), text.size(), false);
 }
 
-bool File::prependText (const std::string_view& text) const noexcept
+bool File::prepend (const RawData& data) const noexcept
+{
+	return prepend (data.getData(), data.getSize());
+}
+
+bool File::prepend (const char* const data, std::size_t numBytes) const noexcept
+{
+	auto dataObj = loadAsData();
+
+	dataObj.append (data, numBytes);
+
+	return overwrite (dataObj);
+}
+
+bool File::prepend (const std::string_view& text) const noexcept
 {
 	auto data = loadAsString();
 
 	data = std::string { text } + data;
 
-	return overwriteWithText (data);
-}
-
-bool File::prependText (const std::vector<std::string>& text) const noexcept
-{
-	return prependText (strings::joinWithNewlines (text));
+	return overwrite (data);
 }
 
 RawData File::loadAsData() const noexcept
@@ -210,15 +225,52 @@ std::FILE* File::getCfile (char mode) const noexcept
 
 /*-------------------------------------------------------------------------------------------------------------------------*/
 
-TempFile::TempFile (const std::string_view& filename)
-	: File (Directory::getTempFileDirectory().getAbsolutePath() / filename)
+TempFile::TempFile (const std::string_view& filename, bool destroyOnDelete)
+	: File (Directory::getTempFileDirectory().getAbsolutePath() / filename), shouldDelete (destroyOnDelete)
 {
 	createIfDoesntExist();
 }
 
 TempFile::~TempFile()
 {
-	deleteIfExists();
+	if (shouldDelete)
+	{
+		try
+		{
+			deleteIfExists();
+		}
+		catch (std::exception&)
+		{
+		}
+	}
+}
+
+TempFile::TempFile (TempFile&& other) noexcept
+	: shouldDelete (other.shouldDelete)
+{
+	assignPath (other.getAbsolutePath());
+
+	other.shouldDelete = false;
+}
+
+TempFile& TempFile::operator= (TempFile&& other) noexcept
+{
+	assignPath (other.getAbsolutePath());
+
+	shouldDelete = other.shouldDelete;
+
+	other.shouldDelete = false;
+
+	return *this;
+}
+
+static std::atomic<int> tempFileCounter = 0;
+
+TempFile TempFile::getNextFile()
+{
+	const auto name = std::to_string (tempFileCounter++) + ".tmp";
+
+	return TempFile { name, true };
 }
 
 }  // namespace files

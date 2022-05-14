@@ -184,6 +184,9 @@ std::vector<std::string> splitAtWhitespace (const std::string_view& stringToSpli
 	if (pos != stringToSplit.begin())
 		tokens.push_back ({ tokenStart, pos });
 
+	for (auto& token : tokens)
+		trim (token);
+
 	return tokens;
 }
 

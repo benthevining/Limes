@@ -80,6 +80,9 @@ bool SymLink::references (const FilesystemEntry& entry) const
 
 bool SymLink::referencesSameLocationAs (const SymLink& other) const
 {
+	if (follow (false) == other.follow (false))
+		return true;
+
 	return follow (true) == other.follow (true);
 }
 

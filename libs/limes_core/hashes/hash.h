@@ -22,9 +22,11 @@
 
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains some common hash functions and utilities. */
 namespace hash
 {
 
+/** Represents a type of hash function that comes with the Limes library. */
 enum class Type
 {
 	md5,
@@ -35,24 +37,37 @@ enum class Type
 	sha512
 };
 
+/** A base class representing an object that calculates a hash function. */
 class LIMES_EXPORT Hasher
 {
 public:
 
+	/** Destructor. */
 	virtual ~Hasher() = default;
 
+	/** Updates the internal state of the hasher with some new data. */
 	virtual void update (const unsigned char* input, std::size_t length) = 0;
 
+	/** Updates the internal state of the hasher with some new data. */
 	void update (const std::string_view& input);
 
+	/** Retrieves the calculated hash value as a string. */
 	[[nodiscard]] virtual std::string getHash() = 0;
 };
 
+/** Creates an appropriate Hasher for the given Type.
+	@see hash
+ */
 LIMES_EXPORT [[nodiscard]] std::unique_ptr<Hasher> createHasherForType (Type type);
 
-
+/** Calculates a hash value for the input data using a hasher appropriate for the desired type.
+	@see createHasherForType
+ */
 LIMES_EXPORT [[nodiscard]] std::string hash (Type type, const char* input, std::size_t length);
 
+/** Calculates a hash value for the input string using a hasher appropriate for the desired type.
+	@see createHasherForType
+ */
 LIMES_EXPORT [[nodiscard]] std::string hash (Type type, const std::string_view& input);
 
 }  // namespace hash

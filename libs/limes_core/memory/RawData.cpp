@@ -33,7 +33,6 @@ RawData::RawData (std::size_t initialSize, bool initializeToZero)
 RawData::RawData (char* const dataToUse, std::size_t dataSize)
 	: size (dataSize), data (dataToUse)
 {
-	throwOnAllocationFailure();
 }
 
 RawData::RawData (std::basic_istream<char>& inputStream)
@@ -186,6 +185,34 @@ void RawData::append (const RawData& other)
 	append (other.data, other.size);
 }
 
+void RawData::prepend (const char* const newData, std::size_t numBytes)
+{
+	if (newData == nullptr || numBytes == 0)
+		return;
+
+	const RawData orig { *this };
+
+	const auto oldSize = size;
+
+	allocate (oldSize + numBytes, false, false);
+
+	if (data != nullptr)
+	{
+		std::memcpy (static_cast<void*> (data),
+					 newData,
+					 numBytes);
+
+		std::memcpy (static_cast<void*> (data + numBytes),
+					 orig.getData(),
+					 oldSize);
+	}
+}
+
+void RawData::prepend (const RawData& other)
+{
+	prepend (other.getData(), other.getSize());
+}
+
 void RawData::copyFrom (const char* const newData, std::size_t newSize)
 {
 	if (newData == nullptr || newSize == 0)
@@ -211,6 +238,17 @@ void RawData::copyTo (char* const dest, std::size_t maxNumBytes) const
 	std::memcpy (static_cast<void*> (dest),
 				 static_cast<const void*> (data),
 				 maxNumBytes);
+}
+
+void RawData::copyTo (RawData& other, bool allowAllocation) const
+{
+	if (allowAllocation)
+	{
+		other.copyFrom (*this);
+		return;
+	}
+
+	copyTo (other.data, std::min (size, other.size));
 }
 
 void RawData::fill (char fillWith)
@@ -290,3 +328,13 @@ std::string RawData::hash (hash::Type hashType) const
 }
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+
+size_t hash<limes::RawData>::operator() (const limes::RawData& d) const noexcept
+{
+	return hash<std::string> {}(d.toString());
+}
+
+}  // namespace std

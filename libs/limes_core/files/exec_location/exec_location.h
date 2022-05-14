@@ -16,6 +16,8 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 
+#ifndef DOXYGEN
+
 LIMES_BEGIN_NAMESPACE
 
 namespace files
@@ -28,3 +30,5 @@ LIMES_NO_EXPORT [[nodiscard]] std::string getModulePath();
 }  // namespace files
 
 LIMES_END_NAMESPACE
+
+#endif

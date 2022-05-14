@@ -88,7 +88,7 @@ void append (const std::string& fileName, std::string content, bool strict)
 		}
 	}
 
-	file.appendText (content);
+	file.append (content);
 }
 
 void cat (const std::vector<std::string>& items, const std::string& output)
@@ -142,7 +142,7 @@ void cat (const std::vector<std::string>& items, const std::string& output)
 
 	outFile.makeAbsoluteRelativeToCWD();
 
-	outFile.overwriteWithText (result);
+	outFile.overwrite (result);
 }
 
 void cd (const std::string& name)
@@ -508,7 +508,7 @@ void prepend (const std::string& fileName, std::string content, bool strict)
 		}
 	}
 
-	file.prependText (content);
+	file.prepend (content);
 }
 
 void pwd()
@@ -682,7 +682,7 @@ void write (const std::string& fileName, const std::string& content, bool allowO
 		std::exit (EXIT_FAILURE);
 	}
 
-	file.overwriteWithText (content);
+	file.overwrite (content);
 }
 
 }  // namespace fileutil

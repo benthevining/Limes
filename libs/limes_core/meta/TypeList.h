@@ -104,13 +104,13 @@ public:
 	static constexpr const size_t num_of = count_v<TypeID, Type>;
 
 	/** The number of types in the TypeList that satisfy the predicate.
-		@tparam UnaryPredicate A template class that will be instantiated for each type in the TypeList and must provide a compile-time call operator that will determine if the predicate is met for the type it was instantiated with. Examples of unary predicates are `std::is_floating_point` or `std::is_enum`.
+		@tparam UnaryPredicate A template class that will be instantiated for each type in the TypeList and must provide a compile-time call operator that will determine if the predicate is met for the type it was instantiated with. Examples of unary predicates are \c std::is_floating_point or  \c std::is_enum .
 	 */
 	template <template <typename> class UnaryPredicate>
 	static constexpr const size_t count_if = count_if_v<TypeID, UnaryPredicate>;
 
 	/** The number of types in the TypeList that do not satisfy the predicate.
-		@tparam UnaryPredicate A template class that will be instantiated for each type in the TypeList and must provide a compile-time call operator that will determine if the predicate is met for the type it was instantiated with. Examples of unary predicates are `std::is_floating_point` or `std::is_enum`.
+		@tparam UnaryPredicate A template class that will be instantiated for each type in the TypeList and must provide a compile-time call operator that will determine if the predicate is met for the type it was instantiated with. Examples of unary predicates are \c std::is_floating_point or  \c std::is_enum .
 	 */
 	template <template <typename> class UnaryPredicate>
 	static constexpr const size_t count_if_not = count_if_not_v<TypeID, UnaryPredicate>;
@@ -133,7 +133,7 @@ public:
 	template <typename... TypesToAdd>
 	using addIfAbsent = addIfAbsent_t<TypeID, TypesToAdd...>;
 
-	/** Inserts a type in the TypeList at the given index. Types after the given index in the list will be pushed back by 1.
+	/** Inserts a type in the TypeList at the given \c Index . Types after the given index in the list will be pushed back by 1.
 		@tparam Index The index in the TypeList to insert the new type at. Indices start from 0.
 		@tparam ToInsert The type to insert in the TypeList.
 	 */
@@ -154,7 +154,7 @@ public:
 	using append = append_t<TypeID, ToAppend>;
 
 	/** Swaps the types at two indices in the list.
-		A compile-time error will be raised if Index1 and Index2 are the same.
+		A compile-time error will be raised if \c Index1 and \c Index2 are the same.
 		@tparam Index1 The first index to be swapped.
 		@tparam Index2 The second index to be swapped.
 	 */
@@ -162,8 +162,8 @@ public:
 	using swap_at = swap_at_t<TypeID, Index1, Index2>;
 
 	/** Swaps two types in the list.
-		This finds the first instances of each type in the list, and uses swap_at to swap their indices.
-		A compile-time error will be raised if Type1 and Type2 are the same type.
+		This finds the first instances of each type in the list, and uses \c swap_at to swap their indices.
+		A compile-time error will be raised if \c Type1 and \c Type2 are the same type.
 		@tparam Type1 The first type to be swapped.
 		@tparam Type2 The second type to be swapped.
 	 */
@@ -177,12 +177,12 @@ public:
 	using at = get_t<TypeID, Index>;
 
 	/** The type of the first element in the TypeList.
-		This is semantically the same as at<0>.
+		This is semantically the same as \c at<0> .
 	 */
 	using front = get_first_t<TypeID>;
 
 	/** The type of the last element in the TypeList.
-		This is semantically the same as at<size - 1>.
+		This is semantically the same as \c at<size-1> .
 	 */
 	using back = get_last_t<TypeID>;
 
@@ -190,7 +190,7 @@ public:
 	using reverse = reverse_t<TypeID>;
 
 	/** The index of the first occurance of the specified type in the TypeList.
-		A compile-time error will be raised if the specified type is not in the TypeList, unless the list is empty -- if the list is empty, this will always evaluate to static_cast<size_t> (-1), regardless of what type was specified.
+		A compile-time error will be raised if the specified type is not in the TypeList, unless the list is empty -- if the list is empty, this will always evaluate to \c static_cast<size_t>(-1) , regardless of what type was specified.
 		@tparam Type The type to find in the TypeList.
 	 */
 	template <typename Type>
@@ -202,52 +202,52 @@ public:
 	template <typename... TypesToRemove>
 	using remove = remove_t<TypeID, TypesToRemove...>;
 
-	/** If any NullType elements are present in this TypeList, removes them.
-		This is semantically the same as remove<NullType>.
+	/** If any \c NullType elements are present in this TypeList, removes them.
+		This is semantically the same as \c remove<NullType> .
 	 */
 	using remove_null_types = remove_null_types_t<TypeID>;
 
 	/** The type of a new TypeList with the type at the specified index removed.
 		All types after Index in the list will be moved forward by 1.
-		A compile-time error will be raised if the Index is out of range for this TypeList.
+		A compile-time error will be raised if the \c Index is out of range for this TypeList.
 		@tparam Index Index to remove from the list.
 	 */
 	template <size_t Index>
 	using remove_at = remove_at_t<TypeID, Index>;
 
 	/** Removes the first element of the TypeList.
-		This is semantically the same as remove_at<0>.
+		This is semantically the same as \c remove_at<0> .
 	 */
 	using remove_first = remove_at<0>;
 
 	/** Removes the last element of the TypeList.
-		This is semantically the same as remove_at<size - 1>.
+		This is semantically the same as \c remove_at<size-1> .
 	 */
 	using remove_last = remove_at<size - 1>;
 
 	/** Evaluates the predicate for each type in the list, and removes it if the predicate is met.
-		@tparam UnaryPredicate A template class that will be instantiated for each type in the TypeList and must provide a compile-time call operator that will determine if the predicate is met for the type it was instantiated with. Examples of unary predicates are `std::is_floating_point` or `std::is_enum`.
+		@tparam UnaryPredicate A template class that will be instantiated for each type in the TypeList and must provide a compile-time call operator that will determine if the predicate is met for the type it was instantiated with. Examples of unary predicates are \c std::is_floating_point or  \c std::is_enum .
 	 */
 	template <template <typename> class UnaryPredicate>
 	using remove_if = remove_if_t<TypeID, UnaryPredicate>;
 
 	/** Evaluates the predicate for each type in the list, and removes it if the predicate is not met.
-		@tparam UnaryPredicate A template class that will be instantiated for each type in the TypeList and must provide a compile-time call operator that will determine if the predicate is met for the type it was instantiated with. Examples of unary predicates are `std::is_floating_point` or `std::is_enum`.
+		@tparam UnaryPredicate A template class that will be instantiated for each type in the TypeList and must provide a compile-time call operator that will determine if the predicate is met for the type it was instantiated with. Examples of unary predicates are \c std::is_floating_point or  \c std::is_enum .
 	 */
 	template <template <typename> class UnaryPredicate>
 	using remove_if_not = remove_if_not_t<TypeID, UnaryPredicate>;
 
-	/** Replaces all occurances of Replace in the list with With.
+	/** Replaces all occurances of \c Replace in the list with \c With.
 		@tparam Replace The type to be replaced in the list. A compile-time error will be raised if the list does not contain this type.
-		@tparam With The type to replace Replace with.
+		@tparam With The type to replace \c Replace with.
 	 */
 	template <typename Replace, typename With>
 	using replace = replace_t<TypeID, Replace, With>;
 
-	/** Replaces the type at the specified Index with the new type ReplaceWith.
-		A compile-time error will be raised if the Index is out of range for this TypeList.
+	/** Replaces the type at the specified \c Index with the new type \c ReplaceWith.
+		A compile-time error will be raised if the \c Index is out of range for this TypeList.
 		@tparam Index The index of the element to be replaced in the list.
-		@tparam ReplaceWith The new type to put at index Index in the list.
+		@tparam ReplaceWith The new type to put at index \c Index in the list.
 	 */
 	template <size_t Index, typename ReplaceWith>
 	using replace_at = replace_at_t<TypeID, Index, ReplaceWith>;
@@ -258,7 +258,7 @@ public:
 	/** The type of a new TypeList with all duplicates removed -- if a type appeared in the original list multiple times, it will appear in the new list exactly once. */
 	using remove_duplicates = remove_duplicates_t<TypeID>;
 
-	/** The type of a new TypeList that contains only types that were present in the original list and the passed list Other.
+	/** The type of a new TypeList that contains only types that were present in the original list and the passed list \c Other .
 
 		For example:
 		@code
@@ -274,7 +274,7 @@ public:
 	template <class Other>
 	using common_with = common_t<TypeID, Other>;
 
-	/** The type of a new TypeList that contains only types that were present in the original list and not in the passed list Other.
+	/** The type of a new TypeList that contains only types that were present in the original list and not in the passed list \c Other .
 
 		For example:
 		@code
@@ -307,7 +307,7 @@ public:
 	using apply_to = T<Types...>;
 
 	/** Constructs an object of the type at the given index in the list.
-		If the TypeList is empty, this will return a NullType object.
+		If the TypeList is empty, this will return a \c NullType object.
 		@tparam Index The index in the list of the type to be constructed. A compile-time error will be raised if this index is out of range for the list.
 		@tparam Args Constructor arguments for the new object.
 	 */
@@ -317,7 +317,7 @@ public:
 		return at<Index> (std::forward<Args> (args)...);
 	}
 
-	/** The same as construct(), except it returns a unique_ptr to the new object.
+	/** The same as \c construct() , except it returns a \c unique_ptr to the new object.
 		@tparam Index The index in the list of the type to be constructed. A compile-time error will be raised if this index is out of range for the list.
 		@tparam Args Constructor arguments for the new object.
 	 */

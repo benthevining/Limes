@@ -24,12 +24,15 @@ LIMES_BEGIN_NAMESPACE
 namespace hash
 {
 
+/** A Hasher object that calculates a SHA224 hash. */
 class LIMES_EXPORT SHA224 final : public Hasher	 // cppcheck-suppress noConstructor
 {
 public:
 
+	/** Updates the internal state of the hasher with new data. */
 	void update (const unsigned char* data, std::size_t length) final;
 
+	/** Retrieves the calculated hash value as a string. */
 	[[nodiscard]] std::string getHash() final;
 
 private:
@@ -47,8 +50,10 @@ private:
 	unsigned char m_block[2 * SHA224_256_BLOCK_SIZE];
 };
 
+/** Calculates a SHA224 hash for the given data. */
 LIMES_EXPORT [[nodiscard]] std::string sha224 (const char* input, std::size_t length);
 
+/** Calculates a SHA224 hash for the given data. */
 LIMES_EXPORT [[nodiscard]] std::string sha224 (const std::string_view& input);
 
 }  // namespace hash

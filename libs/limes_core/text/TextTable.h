@@ -21,23 +21,21 @@
 
 LIMES_BEGIN_NAMESPACE
 
+/** A class that creates a table of strings, laid out in rows and columns, and can pretty-print them with the columns aligned. */
 class LIMES_EXPORT TextTable final
 {
 public:
 
-	/** Appends text to the current row.
-	 */
+	/** Appends text to the current row. */
 	void addColumnToCurrentRow (const std::string_view& text);
 
-	/** Appends text to the current row. This is identical to calling addColumnToCurrentRow().
-	 */
+	/** Appends text to the current row. This is identical to calling \c addColumnToCurrentRow() . */
 	TextTable& operator<< (const std::string_view& text);
 
-	/** Starts a new row; subsequent calls to addTextToCurrentRow() will be added to the next row.
-	 */
+	/** Starts a new row; subsequent calls to \c addTextToCurrentRow() will be added to the next row. */
 	void startNewRow();
 
-	/** Starts a new row. This is identical to calling startNewRow(). */
+	/** Starts a new row. This is identical to calling \c startNewRow() . */
 	TextTable& operator++();
 
 	/** Clears and resets the table. */
@@ -50,16 +48,17 @@ public:
 	[[nodiscard]] int getNumColumns() const noexcept;
 
 	/** Returns a vector with a string for each row.
-		The prefix and suffix will be appended to each row, and and the column separator will be placed between each column.
+		The prefix and suffix will be appended/prepended to each row, and and the column separator will be placed between each column.
 	 */
 	[[nodiscard]] std::vector<std::string> getRows (const std::string_view& rowPrefix		= {},
-													const std::string_view& columnSeparator = {},
+													const std::string_view& columnSeparator = " ",
 													const std::string_view& rowSuffix		= {}) const;
 
 	/** Returns a string containing all the rows in the table.
+		The prefix and suffix will be appended/prepended to each row, and and the column separator will be placed between each column.
 	 */
 	[[nodiscard]] std::string toString (const std::string_view& rowPrefix		= {},
-										const std::string_view& columnSeparator = {},
+										const std::string_view& columnSeparator = " ",
 										const std::string_view& rowSuffix		= {}) const;
 
 private:

@@ -24,12 +24,17 @@ LIMES_BEGIN_NAMESPACE
 namespace hash
 {
 
+/** A Hasher object that calculates an MD5 hash.
+	MD5 is considered to be broken and insecure, so shouldn't be used for security-critical purposes in new applications, but is provided for backwards compatability.
+ */
 class LIMES_EXPORT MD5 final : public Hasher  // cppcheck-suppress noConstructor
 {
 public:
 
+	/** Updates the internal state of the hasher with new data. */
 	void update (const unsigned char* input, std::size_t length) final;
 
+	/** Retrieves the calculated hash value as a string. */
 	[[nodiscard]] std::string getHash() final;
 
 private:
@@ -45,8 +50,10 @@ private:
 	unsigned char buffer[md5_blocksize];
 };
 
+/** Calculates an MD5 hash for the given data. */
 LIMES_EXPORT [[nodiscard]] std::string md5 (const char* input, std::size_t length);
 
+/** Calculates an MD5 hash for the given string. */
 LIMES_EXPORT [[nodiscard]] std::string md5 (const std::string_view& input);
 
 }  // namespace hash

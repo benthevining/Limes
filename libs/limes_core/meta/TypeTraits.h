@@ -27,7 +27,7 @@
 
 LIMES_BEGIN_NAMESPACE
 
-/** Exactly the same as std::convertible_to, only implemented here because some versions of Xcode seem to be missing it. */
+/** Exactly the same as \c std::convertible_to , only implemented here because some versions of Xcode seem to be missing it. */
 template <class From, class To>
 concept convertible_to =
 	std::is_convertible_v<From, To> && requires
@@ -57,7 +57,7 @@ struct LIMES_EXPORT is_specialization<Template<Args...>, Template> final : std::
 
 /** Evaluates to true if the given type is a specialization of the given template class; false otherwise.
 	@tparam ClassToTest Fully-specialized type to test.
-	@tparam Template Template class to test if ClassToTest specializes.
+	@tparam Template Template class to test if \c ClassToTest specializes.
  */
 template <class ClassToTest, template <class...> class Template>
 static constexpr const bool is_specialization_v = is_specialization<ClassToTest, Template>::value;
@@ -82,9 +82,9 @@ struct LIMES_EXPORT covariance_check<T<Ds...>, T<Bs...>> final : std::conjunctio
 
 #endif
 
-/** Evaluates to true if Base and Derived are covariant types; false otherwise.
-	@tparam Derived Derived type that may be covariant with Base.
-	@tparam Base Type that Derived may be covariant with.
+/** Evaluates to true if \c Base and \c Derived are covariant types; false otherwise.
+	@tparam Derived Derived type that may be covariant with \c Base.
+	@tparam Base Type that \c Derived may be covariant with.
  */
 template <class Derived, class Base>
 static constexpr const bool is_covariant_v = covariance_check<Derived, Base>::value;
@@ -104,7 +104,7 @@ struct LIMES_EXPORT is_one_of final : std::disjunction<std::is_same<Test, Types>
 
 #endif
 
-/** Evaluates to true if Test is the same as any of the types in Types.
+/** Evaluates to true if \c Test is the same as any of the types in \c Types .
 	@tparam Test Type to search for in the list of types.
 	@tparam Types List of types to check.
  */
@@ -120,7 +120,7 @@ struct LIMES_EXPORT is_none_of final : std::negation<is_one_of<Test, Types...>>
 
 #endif
 
-/** Evalutes to true if Test is not in the list of Types.
+/** Evalutes to true if \c Test is not in the list of \c Types .
 	@tparam Test Type to search for in the list of types.
 	@tparam Types List of types to check.
  */

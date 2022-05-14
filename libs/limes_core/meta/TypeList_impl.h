@@ -18,7 +18,30 @@
 #include <cstddef>
 #include "TypeTraits.h"
 
-#ifndef DOXYGEN
+#ifdef DOXYGEN
+
+LIMES_BEGIN_NAMESPACE
+
+namespace typelist
+{
+
+/** A placeholder class representing a type that is null, invalid, or nonexistent. */
+struct LIMES_EXPORT NullType final
+{
+};
+
+/** Returns true if \c T is a \c NullType .
+	@tparam T Type to test
+	@see NullType
+ */
+template <typename T>
+LIMES_EXPORT static constexpr const bool is_null_type = std::is_same_v<T, NullType>;
+
+}  // namespace typelist
+
+LIMES_END_NAMESPACE
+
+#else
 
 LIMES_BEGIN_NAMESPACE
 

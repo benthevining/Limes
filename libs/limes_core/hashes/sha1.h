@@ -24,12 +24,17 @@ LIMES_BEGIN_NAMESPACE
 namespace hash
 {
 
+/** A Hasher object that calculates a SHA1 hash.
+	SHA1 is considered to be insecure and shouldn't be used for security-critical purposes in new projects, but is provided for backwards compatability.
+ */
 class LIMES_EXPORT SHA1 final : public Hasher  // cppcheck-suppress noConstructor
 {
 public:
 
+	/** Updates the internal state of the hasher with new data. */
 	void update (const unsigned char* data, std::size_t length) final;
 
+	/** Retrieves the calculated hash value as a string. */
 	[[nodiscard]] std::string getHash() final;
 
 private:
@@ -55,8 +60,10 @@ private:
 	std::uint8_t m_block[64];
 };
 
+/** Calculates a SHA1 hash for the given data. */
 LIMES_EXPORT [[nodiscard]] std::string sha1 (const char* input, std::size_t length);
 
+/** Calculates a SHA1 hash for the given string. */
 LIMES_EXPORT [[nodiscard]] std::string sha1 (const std::string_view& input);
 
 }  // namespace hash

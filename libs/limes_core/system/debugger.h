@@ -20,8 +20,11 @@ LIMES_BEGIN_NAMESPACE
 namespace debugger
 {
 
+/** Returns true if the calling process is running under a debugger. */
 LIMES_EXPORT [[nodiscard]] bool isRunningUnderDebugger() noexcept;
 
+/** Attempts to break into the debugger. If one is not attached, this function may or may not crash, depending on the platform.
+ */
 LIMES_EXPORT [[noreturn]] void breakInDebugger() noexcept;
 
 }  // namespace debugger

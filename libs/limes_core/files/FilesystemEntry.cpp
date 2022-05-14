@@ -53,9 +53,20 @@ FilesystemEntry::operator Path() const noexcept
 	return getAbsolutePath();
 }
 
-FilesystemEntry& FilesystemEntry::assignPath (const Path& newPath)
+FilesystemEntry& FilesystemEntry::assignPath (const Path& newPath) noexcept
 {
 	path = newPath;
+	return *this;
+}
+
+FilesystemEntry FilesystemEntry::operator/ (const std::string_view& subpathName) const
+{
+	return FilesystemEntry { getAbsolutePath() / subpathName };
+}
+
+FilesystemEntry& FilesystemEntry::operator/= (const std::string_view& subpathName)
+{
+	assignPath (getAbsolutePath() / subpathName);
 	return *this;
 }
 
@@ -75,24 +86,54 @@ bool FilesystemEntry::operator!= (const FilesystemEntry& other) const noexcept
 	return ! (*this == other);
 }
 
+bool FilesystemEntry::operator== (const Path& other) const noexcept
+{
+	return getAbsolutePath() == std::filesystem::absolute (other);
+}
+
+bool FilesystemEntry::operator!= (const Path& other) const noexcept
+{
+	return ! (*this == other);
+}
+
 bool FilesystemEntry::operator< (const FilesystemEntry& other) const noexcept
 {
-	return getName() < other.getName();
+	return getAbsolutePath() < other.getAbsolutePath();
 }
 
 bool FilesystemEntry::operator> (const FilesystemEntry& other) const noexcept
 {
-	return getName() > other.getName();
+	return getAbsolutePath() > other.getAbsolutePath();
 }
 
-Path FilesystemEntry::getPath() const noexcept
+bool FilesystemEntry::operator< (const Path& other) const noexcept
 {
-	return path;
+	return getAbsolutePath() > std::filesystem::absolute (other);
 }
 
-Path FilesystemEntry::getAbsolutePath() const noexcept
+bool FilesystemEntry::operator> (const Path& other) const noexcept
 {
-	return std::filesystem::absolute (path);
+	return getAbsolutePath() < std::filesystem::absolute (other);
+}
+
+Path FilesystemEntry::getPath (bool makePreferred) const noexcept
+{
+	if (! makePreferred)
+		return path;
+
+	Path pathCopy { path };
+
+	return pathCopy.make_preferred();
+}
+
+Path FilesystemEntry::getAbsolutePath (bool makePreferred) const noexcept
+{
+	auto abs = std::filesystem::absolute (path);
+
+	if (! makePreferred)
+		return abs;
+
+	return abs.make_preferred();
 }
 
 std::string FilesystemEntry::getName() const noexcept
@@ -239,7 +280,8 @@ bool FilesystemEntry::deleteIfExists() const
 
 void FilesystemEntry::touch() const
 {
-	std::ofstream output (getAbsolutePath());
+	if (! createIfDoesntExist())
+		std::ofstream output (getAbsolutePath());
 }
 
 bool FilesystemEntry::touch_noCreate() const
@@ -309,6 +351,9 @@ bool FilesystemEntry::copyTo (const FilesystemEntry& dest, CopyOptions options) 
 bool FilesystemEntry::copyToDirectory (const Path& destDirectory, CopyOptions options) const noexcept
 {
 	const Directory dir { destDirectory };
+
+	if (dir == getDirectory())
+		return false;
 
 	dir.createIfDoesntExist();
 

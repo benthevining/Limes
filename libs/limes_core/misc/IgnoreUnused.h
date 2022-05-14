@@ -17,6 +17,7 @@
 
 LIMES_BEGIN_NAMESPACE
 
+/** A utility function to silence unused variable warnings. */
 template <typename... Args>
 LIMES_EXPORT constexpr void ignore_unused (Args&&...) noexcept
 {

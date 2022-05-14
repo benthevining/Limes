@@ -23,15 +23,19 @@ LIMES_BEGIN_NAMESPACE
 namespace files
 {
 
+/** Returns the available space on the filesystem, in bytes. */
 LIMES_EXPORT [[nodiscard]] std::uintmax_t getAvailableSpaceOnFilesystem();
 
+/** Returns the total size of the filesystem, in bytes. */
 LIMES_EXPORT [[nodiscard]] std::uintmax_t getTotalSizeOfFilesystem();
 
+/** Returns the platform's preferred separator: \c \ on Windows, and \c / everywhere else. */
 LIMES_EXPORT [[nodiscard]] constexpr char dirSeparator() noexcept
 {
 	return static_cast<char> (std::filesystem::path::preferred_separator);
 }
 
+/** Returns the platform's separator char for the \c PATH  environment variable: \c ; on Windows, and \c : everywhere else. */
 LIMES_EXPORT [[nodiscard]] consteval char PATHseparator() noexcept
 {
 #if LIMES_WINDOWS
@@ -41,6 +45,7 @@ LIMES_EXPORT [[nodiscard]] consteval char PATHseparator() noexcept
 #endif
 }
 
+/** Returns true if the current platform's filesystem is case-sensitive. True on Linux, false everywhere else. */
 LIMES_EXPORT [[nodiscard]] consteval bool filesystemIsCaseSensitive() noexcept
 {
 #if LIMES_LINUX

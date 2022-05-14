@@ -40,17 +40,6 @@ Directory& Directory::operator= (const std::string_view& newPath)
 	return *this;
 }
 
-FilesystemEntry Directory::operator/ (const std::string_view& subpathName) const
-{
-	return FilesystemEntry { getAbsolutePath() / subpathName };
-}
-
-FilesystemEntry& Directory::operator/= (const std::string_view& subpathName)
-{
-	assignPath (getAbsolutePath() / subpathName);
-	return *this;
-}
-
 bool Directory::contains (const FilesystemEntry& entry) const
 {
 	return entry.getDirectory().getAbsolutePath() == getAbsolutePath();
@@ -248,6 +237,13 @@ void Directory::iterateAllChildren (FileCallback&&		fileCallback,
 	}
 }
 
+void Directory::iterateAllChildren (FilesystemEntryCallback&& callback,
+									bool					  recurse) const
+{
+	for (const auto& entry : getAllChildren (recurse))
+		callback (entry);
+}
+
 std::uintmax_t Directory::sizeInBytes() const
 {
 	if (! exists())
@@ -284,6 +280,11 @@ Directory Directory::getTempFileDirectory()
 void Directory::setAsWorkingDirectory() const
 {
 	setCurrentWorkingDirectory (*this);
+}
+
+bool Directory::isCurrentWorkingDirectory() const
+{
+	return *this == getCurrentWorkingDirectory();
 }
 
 std::vector<Directory> Directory::getPATH()

@@ -84,7 +84,7 @@ static inline void log_assertion (const char* fileName, const char* functionName
 		if (logOutput.isValid())
 		{
 			log += strings::new_line;
-			logOutput.appendText (log);
+			logOutput.append (log);
 		}
 	}
 	catch (std::exception&)
