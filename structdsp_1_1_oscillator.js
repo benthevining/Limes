@@ -1,7 +1,7 @@
 var structdsp_1_1_oscillator =
 [
     [ "Phase", "structdsp_1_1_oscillator_1_1_phase.html", "structdsp_1_1_oscillator_1_1_phase" ],
-    [ "SampleVector", "structdsp_1_1_oscillator.html#a9c700638fbc9b20c7d01af333fa9dace", null ],
+    [ "SampleVector", "structdsp_1_1_oscillator.html#a1e5b8a154ca74d2c469f92c24fe55fab", null ],
     [ "getFrequency", "structdsp_1_1_oscillator.html#ad8bd29310d3cefaa3bd757c6315a36c4", null ],
     [ "getSample", "structdsp_1_1_oscillator.html#a5520f61d0deb5752ab24f64c1f5bc80d", null ],
     [ "getSamples", "structdsp_1_1_oscillator.html#a71de49020f685e073977ef1bf2d32c6c", null ],

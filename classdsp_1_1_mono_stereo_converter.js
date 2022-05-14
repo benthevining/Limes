@@ -1,6 +1,6 @@
 var classdsp_1_1_mono_stereo_converter =
 [
-    [ "SampleVector", "classdsp_1_1_mono_stereo_converter.html#a8b33fb4fdf47dae5553f4142855ca99a", null ],
+    [ "SampleVector", "classdsp_1_1_mono_stereo_converter.html#aaaedf36c1b621ebc2dff204ea98ad6cd", null ],
     [ "convertMonoToStereo", "classdsp_1_1_mono_stereo_converter.html#abe1d48e879af588f3c50b833892127e2", null ],
     [ "convertMonoToStereo", "classdsp_1_1_mono_stereo_converter.html#ae41d9a49c5b3c4bf4a9497688a7ed26b", null ],
     [ "convertStereoToMono", "classdsp_1_1_mono_stereo_converter.html#a87275ee16f66af05198fa1cfedbe04f6", null ],

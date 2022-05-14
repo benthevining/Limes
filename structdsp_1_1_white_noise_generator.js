@@ -1,6 +1,6 @@
 var structdsp_1_1_white_noise_generator =
 [
-    [ "SampleVector", "structdsp_1_1_white_noise_generator.html#a9c700638fbc9b20c7d01af333fa9dace", null ],
+    [ "SampleVector", "structdsp_1_1_white_noise_generator.html#a1e5b8a154ca74d2c469f92c24fe55fab", null ],
     [ "WhiteNoiseGenerator", "structdsp_1_1_white_noise_generator.html#a74b1ba45eddd7d8c10d60db23c8284b9", null ],
     [ "WhiteNoiseGenerator", "structdsp_1_1_white_noise_generator.html#a3465e6a5c765866b21c0cc962bcda083", null ],
     [ "WhiteNoiseGenerator", "structdsp_1_1_white_noise_generator.html#abc95581c7c6511ea4085a1bb75f8a793", null ],

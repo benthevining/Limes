@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('vector_8h.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">vector.h File Reference</div>  </div>
@@ -112,98 +113,33 @@ $(document).ready(function(){initNavTree('vector_8h.html',''); initResizable(); 
 </div>
 <p><a href="vector_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespaceds"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceds.html">ds</a></td></tr>
+<tr class="memdesc:namespaceds"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains some useful data structures. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ac99c5282a5bdf680e0d361796c5fc953"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , size_t Capacity&gt; </td></tr>
-<tr class="memitem:ac99c5282a5bdf680e0d361796c5fc953"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_8h.html#ac99c5282a5bdf680e0d361796c5fc953">PoolVector</a> = <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector</a>&lt; ObjectType, <a class="el" href="class_memory_pool_allocator.html">MemoryPoolAllocator</a>&lt; ObjectType, Capacity &gt; &gt;</td></tr>
-<tr class="separator:ac99c5282a5bdf680e0d361796c5fc953"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3e868dd5192308de5509777d85acb2f"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , size_t N&gt; </td></tr>
-<tr class="memitem:ad3e868dd5192308de5509777d85acb2f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_8h.html#ad3e868dd5192308de5509777d85acb2f">StackVector</a> = <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector</a>&lt; ObjectType, <a class="el" href="class_stack_allocator.html">StackAllocator</a>&lt; ObjectType, N &gt; &gt;</td></tr>
-<tr class="separator:ad3e868dd5192308de5509777d85acb2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4f0f79241cafdc8f2f20d08af5a31bf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#af4f0f79241cafdc8f2f20d08af5a31bf">StringVector</a> = <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector</a>&lt; std::string &gt;</td></tr>
-<tr class="separator:af4f0f79241cafdc8f2f20d08af5a31bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4aa0f07eb0a2fc7453107bb42b4591aa"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , class Allocator  = std::allocator&lt;ObjectType&gt;&gt; </td></tr>
-<tr class="memitem:a4aa0f07eb0a2fc7453107bb42b4591aa"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector</a> = std::conditional_t&lt; std::is_scalar_v&lt; ObjectType &gt; &amp;&amp;! std::is_pointer_v&lt; ObjectType &gt;, <a class="el" href="classscalar__vector.html">scalar_vector</a>&lt; ObjectType, Allocator &gt;, <a class="el" href="classbasic__vector.html">basic_vector</a>&lt; ObjectType, Allocator &gt; &gt;</td></tr>
-<tr class="separator:a4aa0f07eb0a2fc7453107bb42b4591aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3142f6ef83d2aad2bdb2d96d49bf6afd"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , size_t Capacity&gt; </td></tr>
+<tr class="memitem:a3142f6ef83d2aad2bdb2d96d49bf6afd"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceds.html#a3142f6ef83d2aad2bdb2d96d49bf6afd">ds::PoolVector</a> = vector&lt; ObjectType, <a class="el" href="classmemory_1_1_memory_pool_allocator.html">memory::MemoryPoolAllocator</a>&lt; ObjectType, Capacity &gt; &gt;</td></tr>
+<tr class="separator:a3142f6ef83d2aad2bdb2d96d49bf6afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a3bd5fbadad4a81c5f13d07b98aadcd"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , size_t N&gt; </td></tr>
+<tr class="memitem:a0a3bd5fbadad4a81c5f13d07b98aadcd"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceds.html#a0a3bd5fbadad4a81c5f13d07b98aadcd">ds::StackVector</a> = vector&lt; ObjectType, <a class="el" href="classmemory_1_1_stack_allocator.html">memory::StackAllocator</a>&lt; ObjectType, N &gt; &gt;</td></tr>
+<tr class="separator:a0a3bd5fbadad4a81c5f13d07b98aadcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8460838eef5bd70737ec1aadb28b4b8d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceds.html#a8460838eef5bd70737ec1aadb28b4b8d">ds::StringVector</a> = vector&lt; std::string &gt;</td></tr>
+<tr class="separator:a8460838eef5bd70737ec1aadb28b4b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a813f9ca146f6e29fde2f5d40bf2bb870"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , class Allocator  = std::allocator&lt;ObjectType&gt;&gt; </td></tr>
+<tr class="memitem:a813f9ca146f6e29fde2f5d40bf2bb870"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector</a> = std::conditional_t&lt; std::is_scalar_v&lt; ObjectType &gt; &amp;&amp;! std::is_pointer_v&lt; ObjectType &gt;, scalar_vector&lt; ObjectType, Allocator &gt;, basic_vector&lt; ObjectType, Allocator &gt; &gt;</td></tr>
+<tr class="separator:a813f9ca146f6e29fde2f5d40bf2bb870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="ac99c5282a5bdf680e0d361796c5fc953"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac99c5282a5bdf680e0d361796c5fc953">&#9670;&nbsp;</a></span>PoolVector</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ObjectType , size_t Capacity&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="vector_8h.html#ac99c5282a5bdf680e0d361796c5fc953">PoolVector</a> =  <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector</a>&lt;ObjectType, <a class="el" href="class_memory_pool_allocator.html">MemoryPoolAllocator</a>&lt;ObjectType, Capacity&gt; &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00034">34</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
-
-</div>
-</div>
-<a id="ad3e868dd5192308de5509777d85acb2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3e868dd5192308de5509777d85acb2f">&#9670;&nbsp;</a></span>StackVector</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ObjectType , size_t N&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="vector_8h.html#ad3e868dd5192308de5509777d85acb2f">StackVector</a> =  <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector</a>&lt;ObjectType, <a class="el" href="class_stack_allocator.html">StackAllocator</a>&lt;ObjectType, N&gt; &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00031">31</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
-
-</div>
-</div>
-<a id="af4f0f79241cafdc8f2f20d08af5a31bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4f0f79241cafdc8f2f20d08af5a31bf">&#9670;&nbsp;</a></span>StringVector</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="vector_8h.html#af4f0f79241cafdc8f2f20d08af5a31bf">StringVector</a> =  <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector</a>&lt;std::string&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00028">28</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
-
-</div>
-</div>
-<a id="a4aa0f07eb0a2fc7453107bb42b4591aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4aa0f07eb0a2fc7453107bb42b4591aa">&#9670;&nbsp;</a></span>vector</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ObjectType , class Allocator  = std::allocator&lt;ObjectType&gt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector</a> =  std::conditional_t&lt;std::is_scalar_v&lt;ObjectType&gt; &amp;&amp; ! std::is_pointer_v&lt;ObjectType&gt;, <a class="el" href="classscalar__vector.html">scalar_vector</a>&lt;ObjectType, Allocator&gt;, <a class="el" href="classbasic__vector.html">basic_vector</a>&lt;ObjectType, Allocator&gt; &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00026">26</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_0e0c5ea0f8eb3c0f9e9d1c7f184a59c4.html">limes_data_structures</a></li><li class="navelem"><a class="el" href="dir_06ea5f4baff843fd89ddbd7e26c5816f.html">vectors</a></li><li class="navelem"><a class="el" href="vector_8h.html">vector.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:43 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:04 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

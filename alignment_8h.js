@@ -1,6 +1,6 @@
 var alignment_8h =
 [
-    [ "aligned_pointer", "classaligned__pointer.html", "classaligned__pointer" ],
-    [ "allocate_aligned", "alignment_8h.html#ada6c738c9bdd4010553287fbf86251b4", null ],
-    [ "deallocate_aligned", "alignment_8h.html#a9a4bbf79110e777c0034004dadc38b37", null ]
+    [ "aligned_pointer", "classmemory_1_1aligned__pointer.html", "classmemory_1_1aligned__pointer" ],
+    [ "allocate_aligned", "alignment_8h.html#a898974242418e2b20981a737c5e82410", null ],
+    [ "deallocate_aligned", "alignment_8h.html#a5a001535fbebdaa7499f0d95e2a5cec7", null ]
 ];

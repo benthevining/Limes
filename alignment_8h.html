@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('alignment_8h.html',''); initResizable(
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">alignment.h File Reference</div>  </div>
@@ -117,104 +118,31 @@ $(document).ready(function(){initNavTree('alignment_8h.html',''); initResizable(
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaligned__pointer.html">aligned_pointer&lt; T &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmemory_1_1aligned__pointer.html">memory::aligned_pointer&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacememory"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacememory.html">memory</a></td></tr>
+<tr class="memdesc:namespacememory"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains utilities for working with memory allocation and management. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ada6c738c9bdd4010553287fbf86251b4"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
-<tr class="memitem:ada6c738c9bdd4010553287fbf86251b4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a> LIMES_EXPORT T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="alignment_8h.html#ada6c738c9bdd4010553287fbf86251b4">allocate_aligned</a> (std::size_t count=1, std::size_t alignment=32, Args &amp;&amp;... args) noexcept</td></tr>
-<tr class="separator:ada6c738c9bdd4010553287fbf86251b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a4bbf79110e777c0034004dadc38b37"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a9a4bbf79110e777c0034004dadc38b37"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="alignment_8h.html#a9a4bbf79110e777c0034004dadc38b37">deallocate_aligned</a> (T *ptr) noexcept</td></tr>
-<tr class="separator:a9a4bbf79110e777c0034004dadc38b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a898974242418e2b20981a737c5e82410"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
+<tr class="memitem:a898974242418e2b20981a737c5e82410"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacememory.html#a898974242418e2b20981a737c5e82410">memory::allocate_aligned</a> (std::size_t count=1, std::size_t alignment=32, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="separator:a898974242418e2b20981a737c5e82410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a001535fbebdaa7499f0d95e2a5cec7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a5a001535fbebdaa7499f0d95e2a5cec7"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacememory.html#a5a001535fbebdaa7499f0d95e2a5cec7">memory::deallocate_aligned</a> (T *ptr) noexcept</td></tr>
+<tr class="separator:a5a001535fbebdaa7499f0d95e2a5cec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ada6c738c9bdd4010553287fbf86251b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada6c738c9bdd4010553287fbf86251b4">&#9670;&nbsp;</a></span>allocate_aligned()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a> LIMES_EXPORT T* allocate_aligned </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>count</em> = <code>1</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>alignment</em> = <code>32</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="alignment_8h_source.html#l00031">31</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
-
-</div>
-</div>
-<a id="a9a4bbf79110e777c0034004dadc38b37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a4bbf79110e777c0034004dadc38b37">&#9670;&nbsp;</a></span>deallocate_aligned()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT bool deallocate_aligned </td>
-          <td>(</td>
-          <td class="paramtype">T *&#160;</td>
-          <td class="paramname"><em>ptr</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="alignment_8h_source.html#l00060">60</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_aligned_allocator_8h_source.html#l00153">AlignedAllocator&lt; T, Alignment, UseExceptions &gt;::deallocate()</a>, and <a class="el" href="alignment_8h_source.html#l00097">aligned_pointer&lt; int &gt;::~aligned_pointer()</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_9a46d78c45cc3c1f9dc56c640d7c4019.html">memory</a></li><li class="navelem"><a class="el" href="alignment_8h.html">alignment.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:43 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

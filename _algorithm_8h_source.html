@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -334,20 +334,20 @@ $(document).ready(function(){initNavTree('_algorithm_8h_source.html',''); initRe
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;}</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="keyword">template</span> &lt;Container InputContainer, Container OutputContainer, <span class="keyword">class</span> UnaryOp&gt;</div>
-<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="namespacealg.html#ad17e51dc6ca77a27c4359ce50edfb330">  249</a></span>&#160;LIMES_EXPORT constexpr <span class="keywordtype">void</span> <a class="code" href="namespacealg.html#ad17e51dc6ca77a27c4359ce50edfb330">transform</a> (<span class="keyword">const</span> InputContainer&amp; input, OutputContainer&amp; output, UnaryOp&amp;&amp; func)</div>
+<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="namespacealg.html#ad17e51dc6ca77a27c4359ce50edfb330">  249</a></span>&#160;LIMES_EXPORT constexpr <span class="keywordtype">void</span> <a class="code" href="namespacealg.html#ad17e51dc6ca77a27c4359ce50edfb330">transform</a> (<span class="keyword">const</span> InputContainer&amp; input, OutputContainer&amp; output, UnaryOp&amp;&amp; <a class="code" href="namespacefunc.html">func</a>)</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;{</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <a class="code" href="namespacealg.html#ad17e51dc6ca77a27c4359ce50edfb330">std::transform</a> (std::begin (input), std::end (input), std::begin (output), std::forward&lt;UnaryOp&gt; (func));</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <a class="code" href="namespacealg.html#ad17e51dc6ca77a27c4359ce50edfb330">std::transform</a> (std::begin (input), std::end (input), std::begin (output), std::forward&lt;UnaryOp&gt; (<a class="code" href="namespacefunc.html">func</a>));</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;}</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="keyword">template</span> &lt;Container OutputContainerType, Container InputContainer, <span class="keyword">class</span> UnaryOp&gt;</div>
-<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="namespacealg.html#a757811af9ff407f689d49264b212c877">  255</a></span>&#160;LIMES_EXPORT [[nodiscard]] constexpr OutputContainerType <a class="code" href="namespacealg.html#a757811af9ff407f689d49264b212c877">createFromTransform</a> (<span class="keyword">const</span> InputContainer&amp; input, UnaryOp&amp;&amp; func)</div>
+<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="namespacealg.html#a757811af9ff407f689d49264b212c877">  255</a></span>&#160;LIMES_EXPORT [[nodiscard]] constexpr OutputContainerType <a class="code" href="namespacealg.html#a757811af9ff407f689d49264b212c877">createFromTransform</a> (<span class="keyword">const</span> InputContainer&amp; input, UnaryOp&amp;&amp; <a class="code" href="namespacefunc.html">func</a>)</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;{</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    static_assert (std::is_default_constructible_v&lt;OutputContainerType&gt;,</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                   <span class="stringliteral">&quot;OutputContainerType must be default constructible!&quot;</span>);</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    OutputContainerType output;</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <a class="code" href="namespacealg.html#ad17e51dc6ca77a27c4359ce50edfb330">transform</a> (input, output, std::forward&lt;UnaryOp&gt; (func));</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <a class="code" href="namespacealg.html#ad17e51dc6ca77a27c4359ce50edfb330">transform</a> (input, output, std::forward&lt;UnaryOp&gt; (<a class="code" href="namespacefunc.html">func</a>));</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keywordflow">return</span> output;</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;}</div>
@@ -401,6 +401,7 @@ $(document).ready(function(){initNavTree('_algorithm_8h_source.html',''); initRe
 <div class="ttc" id="anamespacealg_html_a8d2253337fd326084a3bd515bffb057b"><div class="ttname"><a href="namespacealg.html#a8d2253337fd326084a3bd515bffb057b">alg::removeDuplicates</a></div><div class="ttdeci">constexpr LIMES_EXPORT void removeDuplicates(ContainerType &amp;container)</div><div class="ttdef"><b>Definition:</b> <a href="_algorithm_8h_source.html#l00153">Algorithm.h:153</a></div></div>
 <div class="ttc" id="anamespacealg_html_a50b7caffcb11cf23485bc228bfa27e4e"><div class="ttname"><a href="namespacealg.html#a50b7caffcb11cf23485bc228bfa27e4e">alg::shuffle</a></div><div class="ttdeci">LIMES_EXPORT void shuffle(ContainerType &amp;container)</div><div class="ttdef"><b>Definition:</b> <a href="_algorithm_8h_source.html#l00196">Algorithm.h:196</a></div></div>
 <div class="ttc" id="anamespacealg_html_a0274b772d59a6b8895a83e548c54db6e"><div class="ttname"><a href="namespacealg.html#a0274b772d59a6b8895a83e548c54db6e">alg::contains_or_default</a></div><div class="ttdeci">constexpr LIMES_EXPORT auto contains_or_default(const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</div><div class="ttdef"><b>Definition:</b> <a href="_algorithm_8h_source.html#l00080">Algorithm.h:80</a></div></div>
+<div class="ttc" id="anamespacefunc_html"><div class="ttname"><a href="namespacefunc.html">func</a></div><div class="ttdoc">This namespace contains some utilities for working with higher-level functions and functions as objec...</div><div class="ttdef"><b>Definition:</b> <a href="_functions_8h_source.html#l00026">Functions.h:26</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00022">limes_namespace.h:22</a></div></div>
 <div class="ttc" id="anamespacealg_html_aab87399b7732eecfc20de2f1c3b6feb7"><div class="ttname"><a href="namespacealg.html#aab87399b7732eecfc20de2f1c3b6feb7">alg::reverse</a></div><div class="ttdeci">constexpr LIMES_EXPORT void reverse(ContainerType &amp;container)</div><div class="ttdef"><b>Definition:</b> <a href="_algorithm_8h_source.html#l00159">Algorithm.h:159</a></div></div>
 <div class="ttc" id="anamespacealg_html_a1ee6f580fa8fd88edeba8b923334e40e"><div class="ttname"><a href="namespacealg.html#a1ee6f580fa8fd88edeba8b923334e40e">alg::contains_or_null</a></div><div class="ttdeci">constexpr LIMES_EXPORT ElementType&lt; ContainerType &gt; * contains_or_null(ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</div><div class="ttdef"><b>Definition:</b> <a href="_algorithm_8h_source.html#l00096">Algorithm.h:96</a></div></div>
@@ -422,7 +423,7 @@ $(document).ready(function(){initNavTree('_algorithm_8h_source.html',''); initRe
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_b248b318e77e637c1d0c7267e8f84ced.html">misc</a></li><li class="navelem"><a class="el" href="_algorithm_8h.html">Algorithm.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:42 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

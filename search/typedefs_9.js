@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['objectcreationfunction_2677',['ObjectCreationFunction',['../classowned__vector.html#aa78f0493b5a0374ba3c5c51bcc692eaf',1,'owned_vector']]],
-  ['objecttype_2678',['ObjectType',['../classbasic__vector.html#a6976ffb63dbe57e5acdea1ef731982e9',1,'basic_vector']]],
-  ['oscillator_2679',['Oscillator',['../namespacedsp_1_1osc.html#ad8383dc63bae31f5edc1554ef2a26908',1,'dsp::osc']]],
-  ['other_2680',['other',['../struct_aligned_allocator_1_1rebind.html#a0e9fdc2d5f21fa1ce690280536a97b52',1,'AlignedAllocator::rebind::other()'],['../struct_memory_pool_allocator_1_1rebind.html#a12738bff02a3536c3270b1a39beeebf7',1,'MemoryPoolAllocator::rebind::other()'],['../struct_stack_allocator_1_1rebind.html#a740e13d43fdffe5d9aaa4db989e68ecc',1,'StackAllocator::rebind::other()']]],
-  ['otherweekdaytype_2681',['OtherWeekdayType',['../classtime_1_1_weekday.html#aab9b905f48c1e6ea68cb6371dc7a478a',1,'time::Weekday']]],
-  ['ownedobjecttype_2682',['OwnedObjectType',['../classowned__vector.html#a9acf3e9940f681a0214108a65c24ddce',1,'owned_vector']]],
-  ['ownedtype_2683',['OwnedType',['../classaligned__pointer.html#a5944bd79da8c6bebf9e986c23325f35c',1,'aligned_pointer::OwnedType()'],['../class_memory_pool_pointer.html#a7d3122834bbaf8cee936a4ce7b81e1e0',1,'MemoryPoolPointer::OwnedType()']]]
+  ['objectcreationfunction_2683',['ObjectCreationFunction',['../classds_1_1owned__vector.html#afa801080963c04e4ad7d4a535dd05b1e',1,'ds::owned_vector']]],
+  ['objecttype_2684',['ObjectType',['../classds_1_1basic__vector.html#a828556c803e73edd9ec6e9912b0ecba4',1,'ds::basic_vector']]],
+  ['oscillator_2685',['Oscillator',['../namespacedsp_1_1osc.html#ad8383dc63bae31f5edc1554ef2a26908',1,'dsp::osc']]],
+  ['other_2686',['other',['../structmemory_1_1_aligned_allocator_1_1rebind.html#acda34fd988505bd5d3398ae00121cc7a',1,'memory::AlignedAllocator::rebind::other()'],['../structmemory_1_1_memory_pool_allocator_1_1rebind.html#aa8268550c5287fc389fbe49286ca4b6d',1,'memory::MemoryPoolAllocator::rebind::other()'],['../structmemory_1_1_stack_allocator_1_1rebind.html#a062cdffc020cc216a2135c19e1027632',1,'memory::StackAllocator::rebind::other()']]],
+  ['otherweekdaytype_2687',['OtherWeekdayType',['../classtime_1_1_weekday.html#aab9b905f48c1e6ea68cb6371dc7a478a',1,'time::Weekday']]],
+  ['ownedobjecttype_2688',['OwnedObjectType',['../classds_1_1owned__vector.html#a82cf863ec67a3b3ca1e58ca1770eaf3d',1,'ds::owned_vector']]],
+  ['ownedtype_2689',['OwnedType',['../classmemory_1_1aligned__pointer.html#a2781018fd429480d4374540ad7c0fe7a',1,'memory::aligned_pointer::OwnedType()'],['../classmemory_1_1_memory_pool_pointer.html#ad806f766437d35af1ba0bb28cc409c75',1,'memory::MemoryPoolPointer::OwnedType()']]]
 ];

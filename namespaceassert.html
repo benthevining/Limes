@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -88,15 +88,12 @@ $(document).ready(function(){initNavTree('namespaceassert.html',''); initResizab
 <div class="title">assert Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This namespace contains utilities for runtime assertions.  
+<a href="namespaceassert.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a94d2d989fc36228179fb43e01ba142e3"><td class="memItemLeft" align="right" valign="top">constexpr LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceassert.html#a94d2d989fc36228179fb43e01ba142e3">fire_assertion</a> (const char *fileName, const char *functionName, int lineNum, const char *condition) noexcept</td></tr>
-<tr class="memdesc:a94d2d989fc36228179fb43e01ba142e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fires an assertion failure.  <a href="namespaceassert.html#a94d2d989fc36228179fb43e01ba142e3">More...</a><br /></td></tr>
-<tr class="separator:a94d2d989fc36228179fb43e01ba142e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85a5c42b940ee58eb06e74dfc2501edb"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceassert.html#a85a5c42b940ee58eb06e74dfc2501edb">fire_assertion_internal</a> (const char *fileName, const char *functionName, int lineNum, const char *condition) noexcept</td></tr>
-<tr class="memdesc:a85a5c42b940ee58eb06e74dfc2501edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The internal implementation of firing an assertion failure.  <a href="namespaceassert.html#a85a5c42b940ee58eb06e74dfc2501edb">More...</a><br /></td></tr>
-<tr class="separator:a85a5c42b940ee58eb06e74dfc2501edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64329f2d07616067699dcccc702a4184"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceassert.html#a64329f2d07616067699dcccc702a4184">getAssertionLogFile</a> ()</td></tr>
 <tr class="memdesc:a64329f2d07616067699dcccc702a4184"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the path to the current assertion log file, if any.  <a href="namespaceassert.html#a64329f2d07616067699dcccc702a4184">More...</a><br /></td></tr>
 <tr class="separator:a64329f2d07616067699dcccc702a4184"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,115 +101,9 @@ Functions</h2></td></tr>
 <tr class="memdesc:a2c49f64f578f6c0589dab44d41af3e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a filepath to be used to log assertion failures for the current process.  <a href="namespaceassert.html#a2c49f64f578f6c0589dab44d41af3e2f">More...</a><br /></td></tr>
 <tr class="separator:a2c49f64f578f6c0589dab44d41af3e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a94d2d989fc36228179fb43e01ba142e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94d2d989fc36228179fb43e01ba142e3">&#9670;&nbsp;</a></span>fire_assertion()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr LIMES_EXPORT void assert::fire_assertion </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>fileName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>functionName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>lineNum</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>condition</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Fires an assertion failure. </p>
-<p>This function is intended for internal use by the <code>LIMES_ASSERT</code> macro. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a" title="Evaluates the condition, and if it is false, logs an assertion failure message and stops in the debug...">LIMES_ASSERT</a> </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="limes__assert_8h_source.html#l00038">38</a> of file <a class="el" href="limes__assert_8h_source.html">limes_assert.h</a>.</p>
-
-<p class="reference">References <a class="el" href="namespaceassert.html#a85a5c42b940ee58eb06e74dfc2501edb">fire_assertion_internal()</a>.</p>
-
-</div>
-</div>
-<a id="a85a5c42b940ee58eb06e74dfc2501edb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85a5c42b940ee58eb06e74dfc2501edb">&#9670;&nbsp;</a></span>fire_assertion_internal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT void assert::fire_assertion_internal </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>fileName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>functionName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>lineNum</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>condition</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The internal implementation of firing an assertion failure. </p>
-<p>This function is intended for internal use by the <code>LIMES_ASSERT</code> macro. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a" title="Evaluates the condition, and if it is false, logs an assertion failure message and stops in the debug...">LIMES_ASSERT</a> </dd></dl>
-
-<p class="reference">Referenced by <a class="el" href="limes__assert_8h_source.html#l00038">fire_assertion()</a>.</p>
-
-</div>
-</div>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This namespace contains utilities for runtime assertions. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a64329f2d07616067699dcccc702a4184"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a64329f2d07616067699dcccc702a4184">&#9670;&nbsp;</a></span>getAssertionLogFile()</h2>
 
@@ -268,7 +159,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceassert.html">assert</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:43 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:04 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

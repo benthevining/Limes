@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['zero_1297',['zero',['../class_raw_data.html#a365b5fb7c8114f700ab988987b0fd163',1,'RawData::zero()'],['../classscalar__vector.html#a2b9192b2a8a74fe528b0e1d40cf29972',1,'scalar_vector::zero()']]],
-  ['zip_5fwith_1298',['zip_with',['../classbasic__vector.html#a876417daab4e2c7359cc42849bb0b981',1,'basic_vector']]]
+  ['zero_1300',['zero',['../classmemory_1_1_raw_data.html#af7fbd020e90abb82b2338b2651c677fc',1,'memory::RawData::zero()'],['../classds_1_1scalar__vector.html#a8e365a492d42b73dcc0dc47fabf9f960',1,'ds::scalar_vector::zero()']]],
+  ['zip_5fwith_1301',['zip_with',['../classds_1_1basic__vector.html#a8042171938b8235b900ab8925e1debb4',1,'ds::basic_vector']]]
 ];

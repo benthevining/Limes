@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -102,231 +102,236 @@ $(document).ready(function(){initNavTree('stack__allocator_8h_source.html',''); 
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="limes__namespace_8h.html">limes_namespace.h</a>&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;limes_export.h&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<a class="code" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment = alignof (std::max_align_t)&gt;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classstack__buffer.html">   25</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="classstack__buffer.html">stack_buffer</a> final</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    ~<a class="code" href="classstack__buffer.html">stack_buffer</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<a class="code" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacememory.html">memory</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment = alignof (std::max_align_t)&gt;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classmemory_1_1stack__buffer.html">   27</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="classmemory_1_1stack__buffer.html">stack_buffer</a> final</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classstack__buffer.html">stack_buffer</a> (<span class="keyword">const</span> <a class="code" href="classstack__buffer.html">stack_buffer</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classstack__buffer.html">stack_buffer</a> (<a class="code" href="classstack__buffer.html">stack_buffer</a>&amp;&amp;)      = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classstack__buffer.html">stack_buffer</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="classstack__buffer.html">stack_buffer</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classstack__buffer.html">stack_buffer</a>&amp; operator= (<a class="code" href="classstack__buffer.html">stack_buffer</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> ReqAlign&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    [[nodiscard]] std::byte* allocate (std::size_t n);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> deallocate (std::byte* p, std::size_t n) noexcept;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ~<a class="code" href="classmemory_1_1stack__buffer.html">stack_buffer</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classmemory_1_1stack__buffer.html">stack_buffer</a> (<span class="keyword">const</span> <a class="code" href="classmemory_1_1stack__buffer.html">stack_buffer</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classmemory_1_1stack__buffer.html">stack_buffer</a> (<a class="code" href="classmemory_1_1stack__buffer.html">stack_buffer</a>&amp;&amp;)      = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classmemory_1_1stack__buffer.html">stack_buffer</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="classmemory_1_1stack__buffer.html">stack_buffer</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classmemory_1_1stack__buffer.html">stack_buffer</a>&amp; operator= (<a class="code" href="classmemory_1_1stack__buffer.html">stack_buffer</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> ReqAlign&gt;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    [[nodiscard]] std::byte* allocate (std::size_t n);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    [[nodiscard]] <span class="keyword">static</span> consteval std::size_t <a class="code" href="namespacealg.html#aea20a3c576495f7b76380ed04a28b098">size</a>() noexcept;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> deallocate (std::byte* p, std::size_t n) noexcept;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    [[nodiscard]] std::size_t used() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    [[nodiscard]] <span class="keyword">static</span> consteval std::size_t <a class="code" href="namespacealg.html#aea20a3c576495f7b76380ed04a28b098">size</a>() noexcept;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> reset() noexcept;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    [[nodiscard]] std::size_t used() <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> reset() noexcept;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    [[nodiscard]] <span class="keyword">static</span> std::size_t align_up (std::size_t n) noexcept;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="namespacealg.html#ad811e97da051a2a578697084d10f0681">contains</a> (std::byte* p) noexcept;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    [[nodiscard]] <span class="keyword">static</span> std::size_t align_up (std::size_t n) noexcept;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">alignas</span> (alignment) std::byte buf_[N];</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    std::byte* ptr_ { buf_ };</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="namespacealg.html#ad811e97da051a2a578697084d10f0681">contains</a> (std::byte* p) noexcept;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">alignas</span> (alignment) std::byte buf_[N];</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    std::byte* ptr_ { buf_ };</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> Align = alignof (std::max_align_t)&gt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_stack_allocator.html">   60</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="class_stack_allocator.html">StackAllocator</a> final</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_stack_allocator.html#ac4b75393a6d88a162e4817e9cc3e0d09">   64</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="class_stack_allocator.html#ac4b75393a6d88a162e4817e9cc3e0d09">pointer</a>         = T*;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_stack_allocator.html#a83cacd3745438bfa7600f0549cafe4b3">   65</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="class_stack_allocator.html#a83cacd3745438bfa7600f0549cafe4b3">const_pointer</a>   = <span class="keyword">const</span> T*;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_stack_allocator.html#a4fb6cf379e5addaafd196401f0c351b2">   66</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="class_stack_allocator.html#a4fb6cf379e5addaafd196401f0c351b2">reference</a>       = T&amp;;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_stack_allocator.html#aaafba582ee8adae488fceabf5f270091">   67</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="class_stack_allocator.html#aaafba582ee8adae488fceabf5f270091">const_reference</a> = <span class="keyword">const</span> T&amp;;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_stack_allocator.html#aab3854e1e013c7d9be03f5ac39aade79">   68</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="class_stack_allocator.html#aab3854e1e013c7d9be03f5ac39aade79">value_type</a>      = T;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_stack_allocator.html#a73343f1185310239d61fe765d1f42c87">   69</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="class_stack_allocator.html#a73343f1185310239d61fe765d1f42c87">size_type</a>       = std::size_t;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_stack_allocator.html#a0321d95d68fcbd1897d3ff1719aed4ac">   70</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="class_stack_allocator.html#a0321d95d68fcbd1897d3ff1719aed4ac">difference_type</a> = ptrdiff_t;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="class_stack_allocator.html">StackAllocator</a> (<span class="keyword">const</span> <a class="code" href="class_stack_allocator.html">StackAllocator</a>&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="class_stack_allocator.html">StackAllocator</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="class_stack_allocator.html">StackAllocator</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_stack_allocator.html#a33f6f8ead617eae2a55bf6691b1dde02">   75</a></span>&#160;    <a class="code" href="class_stack_allocator.html#a33f6f8ead617eae2a55bf6691b1dde02">StackAllocator</a>() noexcept</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        static_assert (N % Align == 0,</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                       <span class="stringliteral">&quot;size N needs to be a multiple of alignment Align&quot;</span>);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_stack_allocator.html#a6f29b491af5a71e4ba169f42f35b8104">   82</a></span>&#160;    <a class="code" href="class_stack_allocator.html#a6f29b491af5a71e4ba169f42f35b8104">StackAllocator</a> (<span class="keyword">const</span> <a class="code" href="class_stack_allocator.html">StackAllocator&lt;U, N, Align&gt;</a>&amp; a) noexcept</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        : a_ (a.a_)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> _Up&gt;</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="struct_stack_allocator_1_1rebind.html">   88</a></span>&#160;    <span class="keyword">struct </span>LIMES_EXPORT <a class="code" href="struct_stack_allocator_1_1rebind.html">rebind</a></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="struct_stack_allocator_1_1rebind.html#a740e13d43fdffe5d9aaa4db989e68ecc">   90</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="class_stack_allocator.html">other</a> = <a class="code" href="class_stack_allocator.html">StackAllocator&lt;_Up, N, Align&gt;</a>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    };</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    [[nodiscard]] T* allocate (std::size_t n);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> Align = alignof (std::max_align_t)&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classmemory_1_1_stack_allocator.html">   62</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator</a> final</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classmemory_1_1_stack_allocator.html#af8b4595e15b00bb4f15c4eeba13e5e57">   66</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classmemory_1_1_stack_allocator.html#af8b4595e15b00bb4f15c4eeba13e5e57">pointer</a>         = T*;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classmemory_1_1_stack_allocator.html#a302ceb3b4a59ff7b1a9185c1ba364ed0">   67</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classmemory_1_1_stack_allocator.html#a302ceb3b4a59ff7b1a9185c1ba364ed0">const_pointer</a>   = <span class="keyword">const</span> T*;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classmemory_1_1_stack_allocator.html#a60a0b08cc9a694eea83a74cbfed9b2fb">   68</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classmemory_1_1_stack_allocator.html#a60a0b08cc9a694eea83a74cbfed9b2fb">reference</a>       = T&amp;;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classmemory_1_1_stack_allocator.html#a0eaa9f9dc501a64f38b3d8d3a6562797">   69</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classmemory_1_1_stack_allocator.html#a0eaa9f9dc501a64f38b3d8d3a6562797">const_reference</a> = <span class="keyword">const</span> T&amp;;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classmemory_1_1_stack_allocator.html#aec4f7ff39ad939a0f6604bd9e93feec6">   70</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classmemory_1_1_stack_allocator.html#aec4f7ff39ad939a0f6604bd9e93feec6">value_type</a>      = T;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classmemory_1_1_stack_allocator.html#a5e1574b79f57afe522d79944562561f7">   71</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classmemory_1_1_stack_allocator.html#a5e1574b79f57afe522d79944562561f7">size_type</a>       = std::size_t;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classmemory_1_1_stack_allocator.html#a74177d34ad84e4f83bd5df2dab1bc5de">   72</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classmemory_1_1_stack_allocator.html#a74177d34ad84e4f83bd5df2dab1bc5de">difference_type</a> = ptrdiff_t;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator</a> (<span class="keyword">const</span> <a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator</a>&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classmemory_1_1_stack_allocator.html#a7d773b1da0b968ac377f91072101d455">   77</a></span>&#160;    <a class="code" href="classmemory_1_1_stack_allocator.html#a7d773b1da0b968ac377f91072101d455">StackAllocator</a>() noexcept</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        static_assert (N % Align == 0,</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                       <span class="stringliteral">&quot;size N needs to be a multiple of alignment Align&quot;</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classmemory_1_1_stack_allocator.html#ae498f6adebe3303440f85078133e19aa">   84</a></span>&#160;    <a class="code" href="classmemory_1_1_stack_allocator.html#ae498f6adebe3303440f85078133e19aa">StackAllocator</a> (<span class="keyword">const</span> <a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator&lt;U, N, Align&gt;</a>&amp; a) noexcept</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        : a_ (a.a_)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> _Up&gt;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="structmemory_1_1_stack_allocator_1_1rebind.html">   90</a></span>&#160;    <span class="keyword">struct </span>LIMES_EXPORT <a class="code" href="structmemory_1_1_stack_allocator_1_1rebind.html">rebind</a></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="structmemory_1_1_stack_allocator_1_1rebind.html#a062cdffc020cc216a2135c19e1027632">   92</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classmemory_1_1_stack_allocator.html">other</a> = <a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator&lt;_Up, N, Align&gt;</a>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    };</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> deallocate (T* p, std::size_t n) noexcept;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    [[nodiscard]] T* allocate (std::size_t n);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class </span>T1, std::size_t N1, std::size_t A1,</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;              <span class="keyword">class </span>U, std::size_t M, std::size_t A2&gt;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="stack__allocator_8h.html#a48b4ae579a01213925730513cf6d54b4">operator== </a>(<span class="keyword">const</span> <a class="code" href="class_stack_allocator.html">StackAllocator&lt;T1, N1, A1&gt;</a>&amp; x, <span class="keyword">const</span> <a class="code" href="class_stack_allocator.html">StackAllocator&lt;U, M, A2&gt;</a>&amp; y) noexcept;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> U, std::<span class="keywordtype">size_t</span> M, std::<span class="keywordtype">size_t</span> A&gt;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="class_stack_allocator.html#affacd3179ff0a5a62862d4a5cf3cde1a">  102</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_stack_allocator.html">StackAllocator</a>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> deallocate (T* p, std::size_t n) noexcept;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class </span>T1, std::size_t N1, std::size_t A1,</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;              <span class="keyword">class </span>U, std::size_t M, std::size_t A2&gt;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="namespacememory.html#aecfd625bb829beed62531a5ee2437253">operator== </a>(<span class="keyword">const</span> <a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator&lt;T1, N1, A1&gt;</a>&amp; x, <span class="keyword">const</span> <a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator&lt;U, M, A2&gt;</a>&amp; y) noexcept;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> U, std::<span class="keywordtype">size_t</span> M, std::<span class="keywordtype">size_t</span> A&gt;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classmemory_1_1_stack_allocator.html#affacd3179ff0a5a62862d4a5cf3cde1a">  104</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator</a>;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="classstack__buffer.html">stack_buffer&lt;N, Align&gt;</a> a_;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;};</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> A1, <span class="keyword">class</span> U, std::<span class="keywordtype">size_t</span> M, std::<span class="keywordtype">size_t</span> A2&gt;</div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="stack__allocator_8h.html#a48b4ae579a01213925730513cf6d54b4">  110</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="stack__allocator_8h.html#a48b4ae579a01213925730513cf6d54b4">operator== </a>(<span class="keyword">const</span> <a class="code" href="class_stack_allocator.html">StackAllocator&lt;T, N, A1&gt;</a>&amp; x, <span class="keyword">const</span> <a class="code" href="class_stack_allocator.html">StackAllocator&lt;U, M, A2&gt;</a>&amp; y) noexcept</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;{</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> N == M &amp;&amp; A1 == A2 &amp;&amp; &amp;x.a_ == &amp;y.a_;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> A1, <span class="keyword">class</span> U, std::<span class="keywordtype">size_t</span> M, std::<span class="keywordtype">size_t</span> A2&gt;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="stack__allocator_8h.html#aa7dce4993e6f1d9c27d16b02fecbeebe">  116</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="stack__allocator_8h.html#aa7dce4993e6f1d9c27d16b02fecbeebe">operator!= </a>(<span class="keyword">const</span> <a class="code" href="class_stack_allocator.html">StackAllocator&lt;T, N, A1&gt;</a>&amp; x, <span class="keyword">const</span> <a class="code" href="class_stack_allocator.html">StackAllocator&lt;U, M, A2&gt;</a>&amp; y) noexcept</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> ! (x == y);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="classmemory_1_1stack__buffer.html">stack_buffer&lt;N, Align&gt;</a> a_;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> A1, <span class="keyword">class</span> U, std::<span class="keywordtype">size_t</span> M, std::<span class="keywordtype">size_t</span> A2&gt;</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="namespacememory.html#a8e55766b0cfedf720d471ab0f659bb13">  112</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="namespacememory.html#aecfd625bb829beed62531a5ee2437253">operator== </a>(<span class="keyword">const</span> <a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator&lt;T, N, A1&gt;</a>&amp; x, <span class="keyword">const</span> <a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator&lt;U, M, A2&gt;</a>&amp; y) noexcept</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;{</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> N == M &amp;&amp; A1 == A2 &amp;&amp; &amp;x.a_ == &amp;y.a_;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> A1, <span class="keyword">class</span> U, std::<span class="keywordtype">size_t</span> M, std::<span class="keywordtype">size_t</span> A2&gt;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="namespacememory.html#ad584035846c172918892caa9250985a2">  118</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="namespacememory.html#a0fe0e90915fab76ee5dcec18711ceb22">operator!= </a>(<span class="keyword">const</span> <a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator&lt;T, N, A1&gt;</a>&amp; x, <span class="keyword">const</span> <a class="code" href="classmemory_1_1_stack_allocator.html">StackAllocator&lt;U, M, A2&gt;</a>&amp; y) noexcept</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;{</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">return</span> ! (x == y);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> Align&gt;</div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="class_stack_allocator.html#a73055b0818e93a9e56e22301990a25bc">  124</a></span>&#160;T* <a class="code" href="class_stack_allocator.html#a73055b0818e93a9e56e22301990a25bc">StackAllocator&lt;T, N, Align&gt;::allocate</a> (std::size_t n)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span> (a_.template allocate&lt;alignof (T)&gt; (n * <span class="keyword">sizeof</span> (T)));</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> Align&gt;</div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="class_stack_allocator.html#ab9d0b9400d26dbf9c63b7c29e9eacdbb">  130</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_stack_allocator.html#ab9d0b9400d26dbf9c63b7c29e9eacdbb">StackAllocator&lt;T, N, Align&gt;::deallocate</a> (T* p, std::size_t n) noexcept</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;{</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    a_.deallocate (<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span> (p), n * <span class="keyword">sizeof</span> (T));</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> Align&gt;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classmemory_1_1_stack_allocator.html#ac726af64ae9ea0e2471e5a29bc904bb7">  126</a></span>&#160;T* <a class="code" href="classmemory_1_1_stack_allocator.html#ac726af64ae9ea0e2471e5a29bc904bb7">StackAllocator&lt;T, N, Align&gt;::allocate</a> (std::size_t n)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;{</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span> (a_.template allocate&lt;alignof (T)&gt; (n * <span class="keyword">sizeof</span> (T)));</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> Align&gt;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classmemory_1_1_stack_allocator.html#a0c26fd4453b75dbbf899e54bd0702f3a">  132</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmemory_1_1_stack_allocator.html#a0c26fd4453b75dbbf899e54bd0702f3a">StackAllocator&lt;T, N, Align&gt;::deallocate</a> (T* p, std::size_t n) noexcept</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;{</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    a_.deallocate (<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span> (p), n * <span class="keyword">sizeof</span> (T));</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
-<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classstack__buffer.html#a1029fab0e4fd8e0ffe9355884ed7e8d4">  138</a></span>&#160;consteval std::size_t <a class="code" href="classstack__buffer.html#a1029fab0e4fd8e0ffe9355884ed7e8d4">stack_buffer&lt;N, alignment&gt;::size</a>() noexcept</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;{</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">return</span> N;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
-<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="classstack__buffer.html#a3c0f5b39da22179443576a5329574c38">  144</a></span>&#160;std::size_t <a class="code" href="classstack__buffer.html#a3c0f5b39da22179443576a5329574c38">stack_buffer&lt;N, alignment&gt;::used</a>() const noexcept</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;{</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span> (ptr_ - buf_);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;}</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
-<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="classstack__buffer.html#a4f9dfc96368e8de5698e4a1249f34380">  150</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classstack__buffer.html#a4f9dfc96368e8de5698e4a1249f34380">stack_buffer&lt;N, alignment&gt;::reset</a>() noexcept</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;{</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    ptr_ = buf_;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;}</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> ReqAlign&gt;</div>
-<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="classstack__buffer.html#a044adfb4e681e031c40072d2947efc20">  157</a></span>&#160;std::byte* <a class="code" href="classstack__buffer.html#a044adfb4e681e031c40072d2947efc20">stack_buffer&lt;N, alignment&gt;::allocate</a> (std::size_t n)</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;{</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    static_assert (ReqAlign &lt;= alignment, <span class="stringliteral">&quot;alignment is too small for this arena&quot;</span>);</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (<a class="code" href="namespacealg.html#ad811e97da051a2a578697084d10f0681">contains</a> (ptr_) &amp;&amp; <span class="stringliteral">&quot;short_alloc has outlived arena&quot;</span>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="classmemory_1_1stack__buffer.html#a0270dcb78742dfe9ad9f8458ce883418">  140</a></span>&#160;consteval std::size_t <a class="code" href="classmemory_1_1stack__buffer.html#a0270dcb78742dfe9ad9f8458ce883418">stack_buffer&lt;N, alignment&gt;::size</a>() noexcept</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;{</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordflow">return</span> N;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;}</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="classmemory_1_1stack__buffer.html#aa02ad0bec7228e4cf9e75f9439d24223">  146</a></span>&#160;std::size_t <a class="code" href="classmemory_1_1stack__buffer.html#aa02ad0bec7228e4cf9e75f9439d24223">stack_buffer&lt;N, alignment&gt;::used</a>() const noexcept</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;{</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span> (ptr_ - buf_);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="classmemory_1_1stack__buffer.html#a48cd5dc17d215d3c4b6c924dc6f4777a">  152</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmemory_1_1stack__buffer.html#a48cd5dc17d215d3c4b6c924dc6f4777a">stack_buffer&lt;N, alignment&gt;::reset</a>() noexcept</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;{</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    ptr_ = buf_;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;}</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> ReqAlign&gt;</div>
+<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="classmemory_1_1stack__buffer.html#a60ec1a8fd94ce2e7fdecc9b27c6c83f5">  159</a></span>&#160;std::byte* <a class="code" href="classmemory_1_1stack__buffer.html#a60ec1a8fd94ce2e7fdecc9b27c6c83f5">stack_buffer&lt;N, alignment&gt;::allocate</a> (std::size_t n)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;{</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    static_assert (ReqAlign &lt;= alignment, <span class="stringliteral">&quot;alignment is too small for this arena&quot;</span>);</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> aligned_n = align_up (n);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (<a class="code" href="namespacealg.html#ad811e97da051a2a578697084d10f0681">contains</a> (ptr_) &amp;&amp; <span class="stringliteral">&quot;short_alloc has outlived arena&quot;</span>);</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">static_cast&lt;</span>decltype (aligned_n)<span class="keyword">&gt;</span> (buf_ + N - ptr_) &gt;= aligned_n)</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    {</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keyword">auto</span>* r = ptr_;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        ptr_ += aligned_n;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordflow">return</span> r;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    }</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    static_assert (alignment &lt;= <span class="keyword">alignof</span> (std::max_align_t), <span class="stringliteral">&quot;you&#39;ve chosen an &quot;</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                                                            <span class="stringliteral">&quot;alignment that is larger than alignof(std::max_align_t), and &quot;</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                                                            <span class="stringliteral">&quot;cannot be guaranteed by normal operator new&quot;</span>);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>std::byte*<span class="keyword">&gt;</span> (::operator <span class="keyword">new</span> (n));</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;}</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
-<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="classstack__buffer.html#a46342ed22c1ee1648519145bf090edb6">  180</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classstack__buffer.html#a46342ed22c1ee1648519145bf090edb6">stack_buffer&lt;N, alignment&gt;::deallocate</a> (std::byte* p, std::size_t n) noexcept</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;{</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (<a class="code" href="namespacealg.html#ad811e97da051a2a578697084d10f0681">contains</a> (ptr_) &amp;&amp; <span class="stringliteral">&quot;short_alloc has outlived arena&quot;</span>);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacealg.html#ad811e97da051a2a578697084d10f0681">contains</a> (p))</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    {</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        n = align_up (n);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">if</span> (p + n == ptr_)</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            ptr_ = p;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    }</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    else</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        ::operator <span class="keyword">delete</span> (p);</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;std::size_t <a class="code" href="classstack__buffer.html">stack_buffer&lt;N, alignment&gt;::align_up</a> (std::size_t n) noexcept</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;{</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">return</span> (n + (alignment - 1)) &amp; ~(alignment - 1);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classstack__buffer.html">stack_buffer&lt;N, alignment&gt;::contains</a> (std::byte* p) noexcept</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;{</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">return</span> std::uintptr_t (buf_) &lt;= std::uintptr_t (p) &amp;&amp; std::uintptr_t (p) &lt;= std::uintptr_t (buf_) + N;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;}</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> aligned_n = align_up (n);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">static_cast&lt;</span>decltype (aligned_n)<span class="keyword">&gt;</span> (buf_ + N - ptr_) &gt;= aligned_n)</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    {</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keyword">auto</span>* r = ptr_;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        ptr_ += aligned_n;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">return</span> r;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    static_assert (alignment &lt;= <span class="keyword">alignof</span> (std::max_align_t), <span class="stringliteral">&quot;you&#39;ve chosen an &quot;</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                                                            <span class="stringliteral">&quot;alignment that is larger than alignof(std::max_align_t), and &quot;</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                                                            <span class="stringliteral">&quot;cannot be guaranteed by normal operator new&quot;</span>);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>std::byte*<span class="keyword">&gt;</span> (::operator <span class="keyword">new</span> (n));</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="classmemory_1_1stack__buffer.html#a5d85623aa1076ed44d22003fce4db907">  182</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmemory_1_1stack__buffer.html#a5d85623aa1076ed44d22003fce4db907">stack_buffer&lt;N, alignment&gt;::deallocate</a> (std::byte* p, std::size_t n) noexcept</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;{</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (<a class="code" href="namespacealg.html#ad811e97da051a2a578697084d10f0681">contains</a> (ptr_) &amp;&amp; <span class="stringliteral">&quot;short_alloc has outlived arena&quot;</span>);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacealg.html#ad811e97da051a2a578697084d10f0681">contains</a> (p))</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    {</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        n = align_up (n);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">if</span> (p + n == ptr_)</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            ptr_ = p;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    else</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        ::operator <span class="keyword">delete</span> (p);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;}</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;std::size_t <a class="code" href="classmemory_1_1stack__buffer.html">stack_buffer&lt;N, alignment&gt;::align_up</a> (std::size_t n) noexcept</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;{</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">return</span> (n + (alignment - 1)) &amp; ~(alignment - 1);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;}</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> N, std::<span class="keywordtype">size_t</span> alignment&gt;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacealg.html#ad811e97da051a2a578697084d10f0681">stack_buffer&lt;N, alignment&gt;::contains</a> (std::byte* p) noexcept</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;{</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordflow">return</span> std::uintptr_t (buf_) &lt;= std::uintptr_t (p) &amp;&amp; std::uintptr_t (p) &lt;= std::uintptr_t (buf_) + N;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;}</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;}  <span class="comment">// namespace memory</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="alimes__assert_8h_html_a06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdoc">Evaluates the condition, and if it is false, logs an assertion failure message and stops in the debug...</div><div class="ttdef"><b>Definition:</b> <a href="limes__assert_8h_source.html#l00074">limes_assert.h:74</a></div></div>
-<div class="ttc" id="aclass_stack_allocator_html_ab9d0b9400d26dbf9c63b7c29e9eacdbb"><div class="ttname"><a href="class_stack_allocator.html#ab9d0b9400d26dbf9c63b7c29e9eacdbb">StackAllocator::deallocate</a></div><div class="ttdeci">void deallocate(T *p, std::size_t n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00130">stack_allocator.h:130</a></div></div>
-<div class="ttc" id="aclass_stack_allocator_html_a0321d95d68fcbd1897d3ff1719aed4ac"><div class="ttname"><a href="class_stack_allocator.html#a0321d95d68fcbd1897d3ff1719aed4ac">StackAllocator::difference_type</a></div><div class="ttdeci">ptrdiff_t difference_type</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00070">stack_allocator.h:70</a></div></div>
-<div class="ttc" id="astack__allocator_8h_html_a48b4ae579a01213925730513cf6d54b4"><div class="ttname"><a href="stack__allocator_8h.html#a48b4ae579a01213925730513cf6d54b4">operator==</a></div><div class="ttdeci">bool operator==(const StackAllocator&lt; T, N, A1 &gt; &amp;x, const StackAllocator&lt; U, M, A2 &gt; &amp;y) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00110">stack_allocator.h:110</a></div></div>
-<div class="ttc" id="aclass_stack_allocator_html_aab3854e1e013c7d9be03f5ac39aade79"><div class="ttname"><a href="class_stack_allocator.html#aab3854e1e013c7d9be03f5ac39aade79">StackAllocator::value_type</a></div><div class="ttdeci">T value_type</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00068">stack_allocator.h:68</a></div></div>
-<div class="ttc" id="aclass_stack_allocator_html_a73343f1185310239d61fe765d1f42c87"><div class="ttname"><a href="class_stack_allocator.html#a73343f1185310239d61fe765d1f42c87">StackAllocator::size_type</a></div><div class="ttdeci">std::size_t size_type</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00069">stack_allocator.h:69</a></div></div>
-<div class="ttc" id="aclass_stack_allocator_html_a73055b0818e93a9e56e22301990a25bc"><div class="ttname"><a href="class_stack_allocator.html#a73055b0818e93a9e56e22301990a25bc">StackAllocator::allocate</a></div><div class="ttdeci">T * allocate(std::size_t n)</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00124">stack_allocator.h:124</a></div></div>
-<div class="ttc" id="aclass_stack_allocator_html"><div class="ttname"><a href="class_stack_allocator.html">StackAllocator</a></div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00060">stack_allocator.h:60</a></div></div>
-<div class="ttc" id="aclass_stack_allocator_html_aaafba582ee8adae488fceabf5f270091"><div class="ttname"><a href="class_stack_allocator.html#aaafba582ee8adae488fceabf5f270091">StackAllocator::const_reference</a></div><div class="ttdeci">const T &amp; const_reference</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00067">stack_allocator.h:67</a></div></div>
-<div class="ttc" id="aclass_stack_allocator_html_a83cacd3745438bfa7600f0549cafe4b3"><div class="ttname"><a href="class_stack_allocator.html#a83cacd3745438bfa7600f0549cafe4b3">StackAllocator::const_pointer</a></div><div class="ttdeci">const T * const_pointer</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00065">stack_allocator.h:65</a></div></div>
-<div class="ttc" id="aclassstack__buffer_html"><div class="ttname"><a href="classstack__buffer.html">stack_buffer</a></div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00025">stack_allocator.h:25</a></div></div>
-<div class="ttc" id="aclass_stack_allocator_html_a4fb6cf379e5addaafd196401f0c351b2"><div class="ttname"><a href="class_stack_allocator.html#a4fb6cf379e5addaafd196401f0c351b2">StackAllocator::reference</a></div><div class="ttdeci">T &amp; reference</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00066">stack_allocator.h:66</a></div></div>
-<div class="ttc" id="aclassstack__buffer_html_a3c0f5b39da22179443576a5329574c38"><div class="ttname"><a href="classstack__buffer.html#a3c0f5b39da22179443576a5329574c38">stack_buffer::used</a></div><div class="ttdeci">std::size_t used() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00144">stack_allocator.h:144</a></div></div>
+<div class="ttc" id="aclassmemory_1_1stack__buffer_html_aa02ad0bec7228e4cf9e75f9439d24223"><div class="ttname"><a href="classmemory_1_1stack__buffer.html#aa02ad0bec7228e4cf9e75f9439d24223">memory::stack_buffer::used</a></div><div class="ttdeci">std::size_t used() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00146">stack_allocator.h:146</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_stack_allocator_html_a0eaa9f9dc501a64f38b3d8d3a6562797"><div class="ttname"><a href="classmemory_1_1_stack_allocator.html#a0eaa9f9dc501a64f38b3d8d3a6562797">memory::StackAllocator::const_reference</a></div><div class="ttdeci">const T &amp; const_reference</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00069">stack_allocator.h:69</a></div></div>
+<div class="ttc" id="anamespacememory_html_a0fe0e90915fab76ee5dcec18711ceb22"><div class="ttname"><a href="namespacememory.html#a0fe0e90915fab76ee5dcec18711ceb22">memory::operator!=</a></div><div class="ttdeci">LIMES_EXPORT bool operator!=(const Type *object1, const memory::ReferenceCountedObjectPtr&lt; Type &gt; &amp;object2) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_reference_counted_object_8h_source.html#l00264">ReferenceCountedObject.h:264</a></div></div>
+<div class="ttc" id="anamespacememory_html_aecfd625bb829beed62531a5ee2437253"><div class="ttname"><a href="namespacememory.html#aecfd625bb829beed62531a5ee2437253">memory::operator==</a></div><div class="ttdeci">LIMES_EXPORT bool operator==(const Type *object1, const memory::ReferenceCountedObjectPtr&lt; Type &gt; &amp;object2) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_reference_counted_object_8h_source.html#l00258">ReferenceCountedObject.h:258</a></div></div>
+<div class="ttc" id="anamespacememory_html"><div class="ttname"><a href="namespacememory.html">memory</a></div><div class="ttdoc">This namespace contains utilities for working with memory allocation and management.</div><div class="ttdef"><b>Definition:</b> <a href="_aligned_allocator_8h_source.html#l00026">AlignedAllocator.h:26</a></div></div>
+<div class="ttc" id="aclassmemory_1_1stack__buffer_html"><div class="ttname"><a href="classmemory_1_1stack__buffer.html">memory::stack_buffer</a></div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00027">stack_allocator.h:27</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_stack_allocator_html_ac726af64ae9ea0e2471e5a29bc904bb7"><div class="ttname"><a href="classmemory_1_1_stack_allocator.html#ac726af64ae9ea0e2471e5a29bc904bb7">memory::StackAllocator::allocate</a></div><div class="ttdeci">T * allocate(std::size_t n)</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00126">stack_allocator.h:126</a></div></div>
+<div class="ttc" id="alimes__assert_8h_html_a06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdef"><b>Definition:</b> <a href="limes__assert_8h_source.html#l00075">limes_assert.h:75</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_stack_allocator_html_a60a0b08cc9a694eea83a74cbfed9b2fb"><div class="ttname"><a href="classmemory_1_1_stack_allocator.html#a60a0b08cc9a694eea83a74cbfed9b2fb">memory::StackAllocator::reference</a></div><div class="ttdeci">T &amp; reference</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00068">stack_allocator.h:68</a></div></div>
+<div class="ttc" id="astructmemory_1_1_stack_allocator_1_1rebind_html"><div class="ttname"><a href="structmemory_1_1_stack_allocator_1_1rebind.html">memory::StackAllocator::rebind</a></div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00090">stack_allocator.h:90</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_stack_allocator_html_a0c26fd4453b75dbbf899e54bd0702f3a"><div class="ttname"><a href="classmemory_1_1_stack_allocator.html#a0c26fd4453b75dbbf899e54bd0702f3a">memory::StackAllocator::deallocate</a></div><div class="ttdeci">void deallocate(T *p, std::size_t n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00132">stack_allocator.h:132</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_stack_allocator_html_a302ceb3b4a59ff7b1a9185c1ba364ed0"><div class="ttname"><a href="classmemory_1_1_stack_allocator.html#a302ceb3b4a59ff7b1a9185c1ba364ed0">memory::StackAllocator::const_pointer</a></div><div class="ttdeci">const T * const_pointer</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00067">stack_allocator.h:67</a></div></div>
+<div class="ttc" id="aclassmemory_1_1stack__buffer_html_a60ec1a8fd94ce2e7fdecc9b27c6c83f5"><div class="ttname"><a href="classmemory_1_1stack__buffer.html#a60ec1a8fd94ce2e7fdecc9b27c6c83f5">memory::stack_buffer::allocate</a></div><div class="ttdeci">std::byte * allocate(std::size_t n)</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00159">stack_allocator.h:159</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00022">limes_namespace.h:22</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_stack_allocator_html_a74177d34ad84e4f83bd5df2dab1bc5de"><div class="ttname"><a href="classmemory_1_1_stack_allocator.html#a74177d34ad84e4f83bd5df2dab1bc5de">memory::StackAllocator::difference_type</a></div><div class="ttdeci">ptrdiff_t difference_type</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00072">stack_allocator.h:72</a></div></div>
+<div class="ttc" id="aclassmemory_1_1stack__buffer_html_a0270dcb78742dfe9ad9f8458ce883418"><div class="ttname"><a href="classmemory_1_1stack__buffer.html#a0270dcb78742dfe9ad9f8458ce883418">memory::stack_buffer::size</a></div><div class="ttdeci">static consteval std::size_t size() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00140">stack_allocator.h:140</a></div></div>
+<div class="ttc" id="aclassmemory_1_1stack__buffer_html_a5d85623aa1076ed44d22003fce4db907"><div class="ttname"><a href="classmemory_1_1stack__buffer.html#a5d85623aa1076ed44d22003fce4db907">memory::stack_buffer::deallocate</a></div><div class="ttdeci">void deallocate(std::byte *p, std::size_t n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00182">stack_allocator.h:182</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_stack_allocator_html_aec4f7ff39ad939a0f6604bd9e93feec6"><div class="ttname"><a href="classmemory_1_1_stack_allocator.html#aec4f7ff39ad939a0f6604bd9e93feec6">memory::StackAllocator::value_type</a></div><div class="ttdeci">T value_type</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00070">stack_allocator.h:70</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_stack_allocator_html_ae498f6adebe3303440f85078133e19aa"><div class="ttname"><a href="classmemory_1_1_stack_allocator.html#ae498f6adebe3303440f85078133e19aa">memory::StackAllocator::StackAllocator</a></div><div class="ttdeci">StackAllocator(const StackAllocator&lt; U, N, Align &gt; &amp;a) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00084">stack_allocator.h:84</a></div></div>
 <div class="ttc" id="anamespacealg_html_aea20a3c576495f7b76380ed04a28b098"><div class="ttname"><a href="namespacealg.html#aea20a3c576495f7b76380ed04a28b098">alg::size</a></div><div class="ttdeci">constexpr LIMES_EXPORT int size(const ContainerType &amp;container)</div><div class="ttdef"><b>Definition:</b> <a href="_algorithm_8h_source.html#l00138">Algorithm.h:138</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00015">limes_namespace.h:15</a></div></div>
-<div class="ttc" id="aclassstack__buffer_html_a46342ed22c1ee1648519145bf090edb6"><div class="ttname"><a href="classstack__buffer.html#a46342ed22c1ee1648519145bf090edb6">stack_buffer::deallocate</a></div><div class="ttdeci">void deallocate(std::byte *p, std::size_t n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00180">stack_allocator.h:180</a></div></div>
-<div class="ttc" id="astruct_stack_allocator_1_1rebind_html"><div class="ttname"><a href="struct_stack_allocator_1_1rebind.html">StackAllocator::rebind</a></div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00088">stack_allocator.h:88</a></div></div>
-<div class="ttc" id="aclass_stack_allocator_html_a6f29b491af5a71e4ba169f42f35b8104"><div class="ttname"><a href="class_stack_allocator.html#a6f29b491af5a71e4ba169f42f35b8104">StackAllocator::StackAllocator</a></div><div class="ttdeci">StackAllocator(const StackAllocator&lt; U, N, Align &gt; &amp;a) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00082">stack_allocator.h:82</a></div></div>
-<div class="ttc" id="astack__allocator_8h_html_aa7dce4993e6f1d9c27d16b02fecbeebe"><div class="ttname"><a href="stack__allocator_8h.html#aa7dce4993e6f1d9c27d16b02fecbeebe">operator!=</a></div><div class="ttdeci">bool operator!=(const StackAllocator&lt; T, N, A1 &gt; &amp;x, const StackAllocator&lt; U, M, A2 &gt; &amp;y) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00116">stack_allocator.h:116</a></div></div>
-<div class="ttc" id="aclass_stack_allocator_html_a33f6f8ead617eae2a55bf6691b1dde02"><div class="ttname"><a href="class_stack_allocator.html#a33f6f8ead617eae2a55bf6691b1dde02">StackAllocator::StackAllocator</a></div><div class="ttdeci">StackAllocator() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00075">stack_allocator.h:75</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_stack_allocator_html_a5e1574b79f57afe522d79944562561f7"><div class="ttname"><a href="classmemory_1_1_stack_allocator.html#a5e1574b79f57afe522d79944562561f7">memory::StackAllocator::size_type</a></div><div class="ttdeci">std::size_t size_type</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00071">stack_allocator.h:71</a></div></div>
 <div class="ttc" id="anamespacealg_html_ad811e97da051a2a578697084d10f0681"><div class="ttname"><a href="namespacealg.html#ad811e97da051a2a578697084d10f0681">alg::contains</a></div><div class="ttdeci">constexpr LIMES_EXPORT bool contains(const ContainerType &amp;container, const ElementType&lt; ContainerType &gt; &amp;value)</div><div class="ttdef"><b>Definition:</b> <a href="_algorithm_8h_source.html#l00046">Algorithm.h:46</a></div></div>
-<div class="ttc" id="aclass_stack_allocator_html_ac4b75393a6d88a162e4817e9cc3e0d09"><div class="ttname"><a href="class_stack_allocator.html#ac4b75393a6d88a162e4817e9cc3e0d09">StackAllocator::pointer</a></div><div class="ttdeci">T * pointer</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00064">stack_allocator.h:64</a></div></div>
-<div class="ttc" id="aclassstack__buffer_html_a044adfb4e681e031c40072d2947efc20"><div class="ttname"><a href="classstack__buffer.html#a044adfb4e681e031c40072d2947efc20">stack_buffer::allocate</a></div><div class="ttdeci">std::byte * allocate(std::size_t n)</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00157">stack_allocator.h:157</a></div></div>
-<div class="ttc" id="aclassstack__buffer_html_a1029fab0e4fd8e0ffe9355884ed7e8d4"><div class="ttname"><a href="classstack__buffer.html#a1029fab0e4fd8e0ffe9355884ed7e8d4">stack_buffer::size</a></div><div class="ttdeci">static consteval std::size_t size() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00138">stack_allocator.h:138</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_stack_allocator_html_af8b4595e15b00bb4f15c4eeba13e5e57"><div class="ttname"><a href="classmemory_1_1_stack_allocator.html#af8b4595e15b00bb4f15c4eeba13e5e57">memory::StackAllocator::pointer</a></div><div class="ttdeci">T * pointer</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00066">stack_allocator.h:66</a></div></div>
+<div class="ttc" id="aclassmemory_1_1stack__buffer_html_a48cd5dc17d215d3c4b6c924dc6f4777a"><div class="ttname"><a href="classmemory_1_1stack__buffer.html#a48cd5dc17d215d3c4b6c924dc6f4777a">memory::stack_buffer::reset</a></div><div class="ttdeci">void reset() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00152">stack_allocator.h:152</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_stack_allocator_html_a7d773b1da0b968ac377f91072101d455"><div class="ttname"><a href="classmemory_1_1_stack_allocator.html#a7d773b1da0b968ac377f91072101d455">memory::StackAllocator::StackAllocator</a></div><div class="ttdeci">StackAllocator() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00077">stack_allocator.h:77</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_stack_allocator_html"><div class="ttname"><a href="classmemory_1_1_stack_allocator.html">memory::StackAllocator</a></div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00062">stack_allocator.h:62</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="limes__namespace_8h.html">limes_namespace.h</a></div></div>
-<div class="ttc" id="aclassstack__buffer_html_a4f9dfc96368e8de5698e4a1249f34380"><div class="ttname"><a href="classstack__buffer.html#a4f9dfc96368e8de5698e4a1249f34380">stack_buffer::reset</a></div><div class="ttdeci">void reset() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="stack__allocator_8h_source.html#l00150">stack_allocator.h:150</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_9a46d78c45cc3c1f9dc56c640d7c4019.html">memory</a></li><li class="navelem"><a class="el" href="stack__allocator_8h.html">stack_allocator.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:42 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

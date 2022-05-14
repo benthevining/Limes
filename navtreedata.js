@@ -50,9 +50,6 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -63,19 +60,19 @@ var NAVTREEINDEX =
 [
 ".html",
 "_whole_tone_8h.html",
-"class_raw_data.html#aa4968f7409b66ba719335a65c0f79f10",
-"classdsp_1_1psola_1_1_shifter.html#a30454bbd16eb0467e33d8d8ab26440bc",
-"classfiles_1_1_filesystem_entry.html#adeb5caaa30bfa36d21f38ddd9239deaa",
-"classmath_1_1geometry_1_1_cone.html#a837f9a8d87b38915479785fb12dfdfc0",
-"classmusic_1_1_chord.html#a242c630e2d8c79e054a2a506d96e5cdd",
-"classmusic_1_1scales_1_1_octatonic.html#ab7b8aa9df13b2f4cf29b9b7e9fa16d6d",
-"classtime_1_1_hour.html#aa8c6305480a3d666333e1800a8204d17",
+"classds_1_1scalar__vector.html#af7bce0d536c6b6e4080b1dd459e72806",
+"classfiles_1_1_file.html#a6d0122d220195391ac56a0c6eca59f20",
+"classfunc_1_1_call_deferred.html",
+"classmath_1_1geometry_1_1_rectangle.html#afc886461c13d920f49d42bd0dc1381bc",
+"classmemory_1_1_reference_counted_object.html",
+"classmusic_1_1_microtonal_interval.html#a004d68072cab95493c65ae6ae0da1b01",
+"classtime_1_1_date.html#afd71b87c39abcd2054a6607be074b33a",
 "classvecops_1_1_fallback_f_f_t.html#a271a69c6f1046ab95f6697974c3bb932",
-"globals_vars.html",
-"limes__vecops_8h.html#a857ac5f8f89b743a2687cd965dbcc98a",
-"namespacemembers_h.html",
-"struct_version.html#aa49748af8463e87ac3895135804a94cf",
-"structstd_1_1hash_3_01limes_1_1_raw_data_01_4.html#a47a09ad6c44654f507ba42e329c924c2"
+"group__lemons__math.html#ga03e0609c4a16e5500a587ca9bafe7f87",
+"limes__vecops_8h.html#a8d27dd47c9fcd0cc4fd9cda84b9552b3",
+"namespacemembers_i.html",
+"structdsp_1_1filters_1_1_coeffecients_1_1_storage.html#acb9629f1dfdd0b96557ce7d09fe160e4",
+"structmusic_1_1scales_1_1_scale.html#ac9e5b1d465057124f70839c7ec538f72"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

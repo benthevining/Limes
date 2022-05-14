@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['clear_2646',['clear',['../classtypelist_1_1_type_list.html#a6f513c54e4e4a155dd8f41d1e1df746e',1,'typelist::TypeList']]],
-  ['column_2647',['Column',['../class_matrix.html#a3187dfd30e35c78d991e0527dfc355c2',1,'Matrix']]],
-  ['common_5fwith_2648',['common_with',['../classtypelist_1_1_type_list.html#a0eb9e236fbb10647701e63983a8a1d2d',1,'typelist::TypeList']]],
-  ['conditionaltype_2649',['ConditionalType',['../namespacevecops.html#a8d3e45c405f383578b897b775dd17eb8',1,'vecops']]],
-  ['const_5fiterator_2650',['const_iterator',['../classbasic__vector.html#ae1f71fa1ceb452fcf663b83b7e3b55c4',1,'basic_vector::const_iterator()'],['../classowned__vector.html#aaa056b41cd004b118cd52600e866a1b0',1,'owned_vector::const_iterator()']]],
-  ['const_5fpointer_2651',['const_pointer',['../class_aligned_allocator.html#a5699b69d436bbc28c267e82fa4c4d67e',1,'AlignedAllocator::const_pointer()'],['../class_memory_pool_allocator.html#aa77b2e9924801348db87e3838624d7a0',1,'MemoryPoolAllocator::const_pointer()'],['../class_stack_allocator.html#a83cacd3745438bfa7600f0549cafe4b3',1,'StackAllocator::const_pointer()']]],
-  ['const_5freference_2652',['const_reference',['../class_aligned_allocator.html#a3658a0f6982beef1903511cd9d751273',1,'AlignedAllocator::const_reference()'],['../class_memory_pool_allocator.html#a1377f45a06047e9365f424ded53e3d18',1,'MemoryPoolAllocator::const_reference()'],['../class_stack_allocator.html#aaafba582ee8adae488fceabf5f270091',1,'StackAllocator::const_reference()']]],
-  ['copyoptions_2653',['CopyOptions',['../classfiles_1_1_filesystem_entry.html#a74945df516560d81721125c34923d1dc',1,'files::FilesystemEntry']]]
+  ['clear_2652',['clear',['../classmeta_1_1_type_list.html#a665752851436124da071d3aa67c997d6',1,'meta::TypeList']]],
+  ['column_2653',['Column',['../classmath_1_1_matrix.html#aaafa268584c63eaa3195a98f83804b3b',1,'math::Matrix']]],
+  ['common_5fwith_2654',['common_with',['../classmeta_1_1_type_list.html#a1cde21ab3769005ac8f1b0163c970218',1,'meta::TypeList']]],
+  ['conditionaltype_2655',['ConditionalType',['../namespacevecops.html#a8d3e45c405f383578b897b775dd17eb8',1,'vecops']]],
+  ['const_5fiterator_2656',['const_iterator',['../classds_1_1basic__vector.html#a56935020f24fd8314c44a7d37ba94c5b',1,'ds::basic_vector::const_iterator()'],['../classds_1_1owned__vector.html#a4958943f1b1fc981a71bf4d0b5338e77',1,'ds::owned_vector::const_iterator()']]],
+  ['const_5fpointer_2657',['const_pointer',['../classmemory_1_1_aligned_allocator.html#ae624283bb042d93c67fc6db71baece21',1,'memory::AlignedAllocator::const_pointer()'],['../classmemory_1_1_memory_pool_allocator.html#aece42e1e0758d034f8f0a6df6fcaf38b',1,'memory::MemoryPoolAllocator::const_pointer()'],['../classmemory_1_1_stack_allocator.html#a302ceb3b4a59ff7b1a9185c1ba364ed0',1,'memory::StackAllocator::const_pointer()']]],
+  ['const_5freference_2658',['const_reference',['../classmemory_1_1_aligned_allocator.html#a2f8bcb70926ea1fb1ed1bd7841be1002',1,'memory::AlignedAllocator::const_reference()'],['../classmemory_1_1_memory_pool_allocator.html#a0f6bbb244030a87cf9f5336167f54231',1,'memory::MemoryPoolAllocator::const_reference()'],['../classmemory_1_1_stack_allocator.html#a0eaa9f9dc501a64f38b3d8d3a6562797',1,'memory::StackAllocator::const_reference()']]],
+  ['copyoptions_2659',['CopyOptions',['../classfiles_1_1_filesystem_entry.html#a74945df516560d81721125c34923d1dc',1,'files::FilesystemEntry']]]
 ];

@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -106,36 +106,42 @@ $(document).ready(function(){initNavTree('_static_objects_8h_source.html',''); i
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<a class="code" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">template</span> &lt;auto Data&gt;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="_static_objects_8h.html#a5b8dbb7e1d42fdc873bfa5d7d9371111">   22</a></span>&#160;LIMES_EXPORT [[nodiscard]] consteval <span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="_static_objects_8h.html#a5b8dbb7e1d42fdc873bfa5d7d9371111">make_static</a>() noexcept</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">return</span> Data;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="_static_objects_8h.html#ab045742abc24a4bb1db4b1cddf4fe510">   28</a></span>&#160;LIMES_EXPORT [[nodiscard]] ObjectType&amp; <a class="code" href="_static_objects_8h.html#ab045742abc24a4bb1db4b1cddf4fe510">getStaticObject</a> (Args&amp;&amp;... args)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> std::unique_ptr&lt;ObjectType&gt; ptr;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span> (ptr.get() == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        ptr = std::make_unique&lt;ObjectType&gt; (std::forward&lt;Args&gt; (args)...);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacememory.html">memory</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">template</span> &lt;auto Data&gt;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespacememory.html#af83c9457a4906ef4e3d67963fb18418b">   25</a></span>&#160;LIMES_EXPORT [[nodiscard]] consteval <span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespacememory.html#af83c9457a4906ef4e3d67963fb18418b">make_static</a>() noexcept</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> Data;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespacememory.html#a6379140bdddcd776d5f4ab92eb64e1bc">   31</a></span>&#160;LIMES_EXPORT [[nodiscard]] ObjectType&amp; <a class="code" href="namespacememory.html#a6379140bdddcd776d5f4ab92eb64e1bc">getStaticObject</a> (Args&amp;&amp;... args)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">static</span> std::unique_ptr&lt;ObjectType&gt; ptr;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> *ptr;  <span class="comment">// cppcheck-suppress nullPointerRedundantCheck</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span> (ptr.get() == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        ptr = std::make_unique&lt;ObjectType&gt; (std::forward&lt;Args&gt; (args)...);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> *ptr;  <span class="comment">// cppcheck-suppress nullPointerRedundantCheck</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}  <span class="comment">// namespace memory</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="a_static_objects_8h_html_a5b8dbb7e1d42fdc873bfa5d7d9371111"><div class="ttname"><a href="_static_objects_8h.html#a5b8dbb7e1d42fdc873bfa5d7d9371111">make_static</a></div><div class="ttdeci">LIMES_BEGIN_NAMESPACE LIMES_EXPORT const consteval auto &amp; make_static() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_static_objects_8h_source.html#l00022">StaticObjects.h:22</a></div></div>
+<div class="ttc" id="anamespacememory_html"><div class="ttname"><a href="namespacememory.html">memory</a></div><div class="ttdoc">This namespace contains utilities for working with memory allocation and management.</div><div class="ttdef"><b>Definition:</b> <a href="_aligned_allocator_8h_source.html#l00026">AlignedAllocator.h:26</a></div></div>
+<div class="ttc" id="anamespacememory_html_a6379140bdddcd776d5f4ab92eb64e1bc"><div class="ttname"><a href="namespacememory.html#a6379140bdddcd776d5f4ab92eb64e1bc">memory::getStaticObject</a></div><div class="ttdeci">LIMES_EXPORT ObjectType &amp; getStaticObject(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> <a href="_static_objects_8h_source.html#l00031">StaticObjects.h:31</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00022">limes_namespace.h:22</a></div></div>
+<div class="ttc" id="anamespacememory_html_af83c9457a4906ef4e3d67963fb18418b"><div class="ttname"><a href="namespacememory.html#af83c9457a4906ef4e3d67963fb18418b">memory::make_static</a></div><div class="ttdeci">LIMES_EXPORT const consteval auto &amp; make_static() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_static_objects_8h_source.html#l00025">StaticObjects.h:25</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00015">limes_namespace.h:15</a></div></div>
-<div class="ttc" id="a_static_objects_8h_html_ab045742abc24a4bb1db4b1cddf4fe510"><div class="ttname"><a href="_static_objects_8h.html#ab045742abc24a4bb1db4b1cddf4fe510">getStaticObject</a></div><div class="ttdeci">LIMES_EXPORT ObjectType &amp; getStaticObject(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> <a href="_static_objects_8h_source.html#l00028">StaticObjects.h:28</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_9a46d78c45cc3c1f9dc56c640d7c4019.html">memory</a></li><li class="navelem"><a class="el" href="_static_objects_8h.html">StaticObjects.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:42 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

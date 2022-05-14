@@ -1,6 +1,6 @@
 var structdsp_1_1osc_1_1_square =
 [
-    [ "SampleVector", "structdsp_1_1osc_1_1_square.html#a9c700638fbc9b20c7d01af333fa9dace", null ],
+    [ "SampleVector", "structdsp_1_1osc_1_1_square.html#a1e5b8a154ca74d2c469f92c24fe55fab", null ],
     [ "Square", "structdsp_1_1osc_1_1_square.html#ad2156ecd2391f6a2bdf9ba586cfa8a1e", null ],
     [ "getFrequency", "structdsp_1_1osc_1_1_square.html#a75215d7f2dddadab87c140c7a7b8e41c", null ],
     [ "getSample", "structdsp_1_1osc_1_1_square.html#a5520f61d0deb5752ab24f64c1f5bc80d", null ],

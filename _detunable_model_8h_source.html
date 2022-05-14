@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -133,7 +133,7 @@ $(document).ready(function(){initNavTree('_detunable_model_8h_source.html',''); 
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    [[nodiscard]] <span class="keywordtype">float</span> getFrequency (<span class="keywordtype">int</span> voiceNumber) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> applyFrequencies (std::function&lt;<span class="keywordtype">void</span> (<span class="keywordtype">float</span>)&gt;&amp;&amp; func) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> applyFrequencies (std::function&lt;<span class="keywordtype">void</span> (<span class="keywordtype">float</span>)&gt;&amp;&amp; <a class="code" href="namespacefunc.html">func</a>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
@@ -141,7 +141,7 @@ $(document).ready(function(){initNavTree('_detunable_model_8h_source.html',''); 
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">float</span> lastFrequency { 440.f };</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classscalar__vector.html">scalar_vector&lt;float&gt;</a> frequencies;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classds_1_1scalar__vector.html">ds::scalar_vector&lt;float&gt;</a> frequencies;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}  <span class="comment">// namespace dsp::osc</span></div>
@@ -151,19 +151,20 @@ $(document).ready(function(){initNavTree('_detunable_model_8h_source.html',''); 
 </div><!-- doc-content -->
 <div class="ttc" id="apreprocessor_8h_html_aa204cf467eb45621b139f7fbf6b0f503"><div class="ttname"><a href="preprocessor_8h.html#aa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a></div><div class="ttdeci">#define LIMES_DEFAULT_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="preprocessor_8h_source.html#l00055">preprocessor.h:55</a></div></div>
 <div class="ttc" id="anamespacedsp_1_1osc_html"><div class="ttname"><a href="namespacedsp_1_1osc.html">dsp::osc</a></div><div class="ttdef"><b>Definition:</b> <a href="basic__oscillators_8h_source.html#l00025">basic_oscillators.h:25</a></div></div>
+<div class="ttc" id="anamespacefunc_html"><div class="ttname"><a href="namespacefunc.html">func</a></div><div class="ttdoc">This namespace contains some utilities for working with higher-level functions and functions as objec...</div><div class="ttdef"><b>Definition:</b> <a href="_functions_8h_source.html#l00026">Functions.h:26</a></div></div>
 <div class="ttc" id="apreprocessor_8h_html_a5bf553d96012e220f7715df0a90066da"><div class="ttname"><a href="preprocessor_8h.html#a5bf553d96012e220f7715df0a90066da">LIMES_DEFAULT_COPYABLE</a></div><div class="ttdeci">#define LIMES_DEFAULT_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="preprocessor_8h_source.html#l00051">preprocessor.h:51</a></div></div>
 <div class="ttc" id="alimes__data__structures_8h_html"><div class="ttname"><a href="limes__data__structures_8h.html">limes_data_structures.h</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00022">limes_namespace.h:22</a></div></div>
 <div class="ttc" id="alimes__core_8h_html"><div class="ttname"><a href="limes__core_8h.html">limes_core.h</a></div></div>
-<div class="ttc" id="aclassscalar__vector_html"><div class="ttname"><a href="classscalar__vector.html">scalar_vector&lt; float &gt;</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00015">limes_namespace.h:15</a></div></div>
 <div class="ttc" id="aclassdsp_1_1osc_1_1_detunable_model_html"><div class="ttname"><a href="classdsp_1_1osc_1_1_detunable_model.html">dsp::osc::DetunableModel</a></div><div class="ttdef"><b>Definition:</b> <a href="_detunable_model_8h_source.html#l00025">DetunableModel.h:25</a></div></div>
+<div class="ttc" id="aclassds_1_1scalar__vector_html"><div class="ttname"><a href="classds_1_1scalar__vector.html">ds::scalar_vector&lt; float &gt;</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_a9e7e74a9fa95c9d0d5d9012ba9e5673.html">limes_audio</a></li><li class="navelem"><a class="el" href="dir_5c339f3431aa7d027ad67394f65a8849.html">oscillators</a></li><li class="navelem"><a class="el" href="_detunable_model_8h.html">DetunableModel.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:42 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

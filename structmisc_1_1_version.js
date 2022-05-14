@@ -1,0 +1,26 @@
+var structmisc_1_1_version =
+[
+    [ "Version", "structmisc_1_1_version.html#a60937ea064675daab17b3d5de9bbfd57", null ],
+    [ "Version", "structmisc_1_1_version.html#a6df61c1bc8897522a5309998e2e28fed", null ],
+    [ "Version", "structmisc_1_1_version.html#aeb7b2f3d1afcfee454eff92dcd861ad5", null ],
+    [ "Version", "structmisc_1_1_version.html#a840e1cea63526ddbf0c5ce8ef1252340", null ],
+    [ "bumpMajor", "structmisc_1_1_version.html#afe9f34e1a0164f81a0dac5c45477c5fd", null ],
+    [ "bumpMinor", "structmisc_1_1_version.html#a51aaeddaba7ec8eecd5a104fdad189dc", null ],
+    [ "bumpPatch", "structmisc_1_1_version.html#a41704b043608029d2b34644adafaa62f", null ],
+    [ "getMajor", "structmisc_1_1_version.html#a6db7b229b8fec8255184f4f568d4b9ff", null ],
+    [ "getMinor", "structmisc_1_1_version.html#a3d7d033a895bda0bda7cc4e35e5838c0", null ],
+    [ "getPatch", "structmisc_1_1_version.html#a6f2e9f739f14b9a1bd5a7227a8eea0c2", null ],
+    [ "hasSameMajorVersion", "structmisc_1_1_version.html#a026965800c2a42acfffea8df5e8e43ea", null ],
+    [ "isNewerThan", "structmisc_1_1_version.html#a50a585dfabfd25d8d9a0ea3af6941a06", null ],
+    [ "isOlderThan", "structmisc_1_1_version.html#aa5d742733039f440ab91533ce90f6937", null ],
+    [ "operator!=", "structmisc_1_1_version.html#a480a0b9ece83754361041f24341506c3", null ],
+    [ "operator<", "structmisc_1_1_version.html#a47de28f966e09b66f9da0e08c3be2ddb", null ],
+    [ "operator=", "structmisc_1_1_version.html#ab975636db90993495f7356e4b98ca72f", null ],
+    [ "operator=", "structmisc_1_1_version.html#a5c3c9753d5ff10972a71f1eb53df9fdd", null ],
+    [ "operator==", "structmisc_1_1_version.html#a615a0dc52397a0ce4aba77abfa967820", null ],
+    [ "operator>", "structmisc_1_1_version.html#aba75d348e15f92c048b877a05d0c1bd2", null ],
+    [ "toString", "structmisc_1_1_version.html#a78b81002ae2d53bc8967e11014704d8e", null ],
+    [ "withMajorBump", "structmisc_1_1_version.html#a77e016812717f605ca2d52008dddb0b7", null ],
+    [ "withMinorBump", "structmisc_1_1_version.html#a1a41842bebc4cd83a37746af871841e7", null ],
+    [ "withPatchBump", "structmisc_1_1_version.html#aba6df1c94908a540c4c7406b5358121d", null ]
+];

@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -113,9 +113,10 @@ Public Types</h2></td></tr>
 <tr class="separator:afd61b18fdf61fdaa9503289065c7dd89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5040d9cc3d3ba7f641ab25e89c18b80"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_filesystem_entry.html#ac5040d9cc3d3ba7f641ab25e89c18b80">PermOptions</a> = std::filesystem::perm_options</td></tr>
 <tr class="separator:ac5040d9cc3d3ba7f641ab25e89c18b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Typedefs</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Typedefs for callbacks used by the functions that iterate through this directory's children. </p>
+</div></td></tr>
 <tr class="memitem:a0681cdf7d16ce1d1faead0facdfe6caf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a0681cdf7d16ce1d1faead0facdfe6caf">FileCallback</a> = std::function&lt; void(const <a class="el" href="classfiles_1_1_file.html">File</a> &amp;)&gt;</td></tr>
-<tr class="memdesc:a0681cdf7d16ce1d1faead0facdfe6caf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typedefs for callbacks used by the functions that iterate through this directory's children.  <a href="classfiles_1_1_directory.html#a0681cdf7d16ce1d1faead0facdfe6caf">More...</a><br /></td></tr>
 <tr class="separator:a0681cdf7d16ce1d1faead0facdfe6caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a928bf0ab0b38096860a4a4cad1eab720"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a928bf0ab0b38096860a4a4cad1eab720">DirectoryCallback</a> = std::function&lt; void(const <a class="el" href="classfiles_1_1_directory.html">Directory</a> &amp;)&gt;</td></tr>
 <tr class="separator:a928bf0ab0b38096860a4a4cad1eab720"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,7 +143,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a539db4d6acb7e111e94460a40e1c8aa2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_filesystem_entry.html#a539db4d6acb7e111e94460a40e1c8aa2">copyFrom</a> (const <a class="el" href="classfiles_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;source, <a class="el" href="classfiles_1_1_filesystem_entry.html#a74945df516560d81721125c34923d1dc">CopyOptions</a> options=CopyOptions::update_existing) const noexcept</td></tr>
 <tr class="separator:a539db4d6acb7e111e94460a40e1c8aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac94cbb7cac53af77d84d537351cfd9e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_filesystem_entry.html#ac94cbb7cac53af77d84d537351cfd9e1">copyFrom</a> (const <a class="el" href="namespacefiles.html#a794b8ca19b6b9e9045a70663a9c3416c">Path</a> &amp;source, <a class="el" href="classfiles_1_1_filesystem_entry.html#a74945df516560d81721125c34923d1dc">CopyOptions</a> options=CopyOptions::update_existing) const noexcept</td></tr>
-<tr class="memdesc:ac94cbb7cac53af77d84d537351cfd9e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrites this filesystem entry by copying from another location.  <a href="classfiles_1_1_filesystem_entry.html#ac94cbb7cac53af77d84d537351cfd9e1">More...</a><br /></td></tr>
+<tr class="memdesc:ac94cbb7cac53af77d84d537351cfd9e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwriting Overwrites this filesystem entry by copying from another location.  <a href="classfiles_1_1_filesystem_entry.html#ac94cbb7cac53af77d84d537351cfd9e1">More...</a><br /></td></tr>
 <tr class="separator:ac94cbb7cac53af77d84d537351cfd9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9157e1aa99966fff615fe55d728f8ea8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_filesystem_entry.html#a9157e1aa99966fff615fe55d728f8ea8">copyToDirectory</a> (const <a class="el" href="namespacefiles.html#a794b8ca19b6b9e9045a70663a9c3416c">Path</a> &amp;destDirectory, <a class="el" href="classfiles_1_1_filesystem_entry.html#a74945df516560d81721125c34923d1dc">CopyOptions</a> options=CopyOptions::update_existing) const noexcept</td></tr>
 <tr class="memdesc:a9157e1aa99966fff615fe55d728f8ea8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a copy of this filesystem object, with the same filename, in a different directory.  <a href="classfiles_1_1_filesystem_entry.html#a9157e1aa99966fff615fe55d728f8ea8">More...</a><br /></td></tr>
@@ -160,7 +161,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a09b3b1216d8d897947204e31c464b4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the filesystem object this object refers to exists on disk.  <a href="classfiles_1_1_filesystem_entry.html#a09b3b1216d8d897947204e31c464b4cf">More...</a><br /></td></tr>
 <tr class="separator:a09b3b1216d8d897947204e31c464b4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adeb5caaa30bfa36d21f38ddd9239deaa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#adeb5caaa30bfa36d21f38ddd9239deaa">FilesystemEntry</a> ()=default</td></tr>
-<tr class="memdesc:adeb5caaa30bfa36d21f38ddd9239deaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructors.  <a href="classfiles_1_1_directory.html#adeb5caaa30bfa36d21f38ddd9239deaa">More...</a><br /></td></tr>
+<tr class="memdesc:adeb5caaa30bfa36d21f38ddd9239deaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classfiles_1_1_filesystem_entry.html" title="The base class for any kind of object in the filesystem.">FilesystemEntry</a> with an empty path.  <a href="classfiles_1_1_directory.html#adeb5caaa30bfa36d21f38ddd9239deaa">More...</a><br /></td></tr>
 <tr class="separator:adeb5caaa30bfa36d21f38ddd9239deaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a72fa462a280d1c5d625e9b1d1dac0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a1a72fa462a280d1c5d625e9b1d1dac0e">FilesystemEntry</a> (const <a class="el" href="classfiles_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;)=default</td></tr>
 <tr class="separator:a1a72fa462a280d1c5d625e9b1d1dac0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,13 +173,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a61a768c3effba7e761f704532131dfcf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacefiles.html#a794b8ca19b6b9e9045a70663a9c3416c">Path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_filesystem_entry.html#a61a768c3effba7e761f704532131dfcf">getAbsolutePath</a> (bool makePreferred=false) const noexcept</td></tr>
 <tr class="memdesc:a61a768c3effba7e761f704532131dfcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the full, absolute path of this filesystem entry.  <a href="classfiles_1_1_filesystem_entry.html#a61a768c3effba7e761f704532131dfcf">More...</a><br /></td></tr>
 <tr class="separator:a61a768c3effba7e761f704532131dfcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95b69859e365d803ac79f1bad7758471"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; <a class="el" href="classfiles_1_1_filesystem_entry.html">FilesystemEntry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a95b69859e365d803ac79f1bad7758471">getAllChildren</a> (bool recurse=true) const</td></tr>
+<tr class="memitem:a95b69859e365d803ac79f1bad7758471"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classfiles_1_1_filesystem_entry.html">FilesystemEntry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a95b69859e365d803ac79f1bad7758471">getAllChildren</a> (bool recurse=true) const</td></tr>
 <tr class="memdesc:a95b69859e365d803ac79f1bad7758471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all child filesystem entries that exist in this directory.  <a href="classfiles_1_1_directory.html#a95b69859e365d803ac79f1bad7758471">More...</a><br /></td></tr>
 <tr class="separator:a95b69859e365d803ac79f1bad7758471"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dfa68f208a5b850764c45438b729931"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfiles_1_1_filesystem_entry.html">FilesystemEntry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a7dfa68f208a5b850764c45438b729931">getChild</a> (const std::string_view &amp;childName, bool createIfNeeded=false) const</td></tr>
 <tr class="memdesc:a7dfa68f208a5b850764c45438b729931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a type-erased <a class="el" href="classfiles_1_1_filesystem_entry.html" title="The base class for any kind of object in the filesystem.">FilesystemEntry</a> representing a filesystem object in this directory with the specified name.  <a href="classfiles_1_1_directory.html#a7dfa68f208a5b850764c45438b729931">More...</a><br /></td></tr>
 <tr class="separator:a7dfa68f208a5b850764c45438b729931"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01e5a2a313b7444934c5fdcf26bc02a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; <a class="el" href="classfiles_1_1_directory.html">Directory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a01e5a2a313b7444934c5fdcf26bc02a8">getChildDirectories</a> (bool recurse=true) const</td></tr>
+<tr class="memitem:a01e5a2a313b7444934c5fdcf26bc02a8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classfiles_1_1_directory.html">Directory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a01e5a2a313b7444934c5fdcf26bc02a8">getChildDirectories</a> (bool recurse=true) const</td></tr>
 <tr class="memdesc:a01e5a2a313b7444934c5fdcf26bc02a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all child directories that exist in this directory.  <a href="classfiles_1_1_directory.html#a01e5a2a313b7444934c5fdcf26bc02a8">More...</a><br /></td></tr>
 <tr class="separator:a01e5a2a313b7444934c5fdcf26bc02a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb76e7a4144edf43db95cbb157ab6b1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfiles_1_1_directory.html">Directory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#adb76e7a4144edf43db95cbb157ab6b1e">getChildDirectory</a> (const std::string_view &amp;subdirectoryName, bool createIfNeeded=false) const</td></tr>
@@ -187,10 +188,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a689dd5d0c2ed54ab0a97c3d89f681f2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfiles_1_1_file.html">File</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a689dd5d0c2ed54ab0a97c3d89f681f2e">getChildFile</a> (const std::string_view &amp;filename, bool createIfNeeded=false) const</td></tr>
 <tr class="memdesc:a689dd5d0c2ed54ab0a97c3d89f681f2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classfiles_1_1_file.html" title="This class represents a file on the filesystem.">File</a> object representing a file in this directory with the specified name.  <a href="classfiles_1_1_directory.html#a689dd5d0c2ed54ab0a97c3d89f681f2e">More...</a><br /></td></tr>
 <tr class="separator:a689dd5d0c2ed54ab0a97c3d89f681f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a621e6ae07b7c937fbfbdda662f7d9108"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; <a class="el" href="classfiles_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a621e6ae07b7c937fbfbdda662f7d9108">getChildFiles</a> (bool recurse=true) const</td></tr>
+<tr class="memitem:a621e6ae07b7c937fbfbdda662f7d9108"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classfiles_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a621e6ae07b7c937fbfbdda662f7d9108">getChildFiles</a> (bool recurse=true) const</td></tr>
 <tr class="memdesc:a621e6ae07b7c937fbfbdda662f7d9108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all child files that exist in this directory.  <a href="classfiles_1_1_directory.html#a621e6ae07b7c937fbfbdda662f7d9108">More...</a><br /></td></tr>
 <tr class="separator:a621e6ae07b7c937fbfbdda662f7d9108"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae01c76e026e92acdef949deb55049888"><td class="memItemLeft" align="right" valign="top"><a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; <a class="el" href="classfiles_1_1_sym_link.html">SymLink</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#ae01c76e026e92acdef949deb55049888">getChildSymLinks</a> (bool recurse=true) const</td></tr>
+<tr class="memitem:ae01c76e026e92acdef949deb55049888"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classfiles_1_1_sym_link.html">SymLink</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#ae01c76e026e92acdef949deb55049888">getChildSymLinks</a> (bool recurse=true) const</td></tr>
 <tr class="memdesc:ae01c76e026e92acdef949deb55049888"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all child symbolic links that exist in this directory.  <a href="classfiles_1_1_directory.html#ae01c76e026e92acdef949deb55049888">More...</a><br /></td></tr>
 <tr class="separator:ae01c76e026e92acdef949deb55049888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7382b6e12105957a50492570ab27f14f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfiles_1_1_directory.html">Directory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_filesystem_entry.html#a7382b6e12105957a50492570ab27f14f">getDirectory</a> () const</td></tr>
@@ -305,9 +306,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a30b265a1ff9708e8e259227c95783aa7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_filesystem_entry.html#a30b265a1ff9708e8e259227c95783aa7">touch_noCreate</a> () const</td></tr>
 <tr class="memdesc:a30b265a1ff9708e8e259227c95783aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <a class="el" href="classfiles_1_1_filesystem_entry.html#addf51936721322625169b5ee31900072" title="If the filesystem entry this object refers do doesn&#39;t exist, this function creates it.">touch()</a>, except this function does not create the filesystem entry if it didn't already exist.  <a href="classfiles_1_1_filesystem_entry.html#a30b265a1ff9708e8e259227c95783aa7">More...</a><br /></td></tr>
 <tr class="separator:a30b265a1ff9708e8e259227c95783aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Assignment</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Assigns this object to refer to a new path. </p>
+</div></td></tr>
 <tr class="memitem:a37546e1978194d9a2f9c4b6644810a21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfiles_1_1_directory.html">Directory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a37546e1978194d9a2f9c4b6644810a21">operator=</a> (const <a class="el" href="namespacefiles.html#a794b8ca19b6b9e9045a70663a9c3416c">Path</a> &amp;newPath)</td></tr>
-<tr class="memdesc:a37546e1978194d9a2f9c4b6644810a21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns this object to refer to a new path.  <a href="classfiles_1_1_directory.html#a37546e1978194d9a2f9c4b6644810a21">More...</a><br /></td></tr>
 <tr class="separator:a37546e1978194d9a2f9c4b6644810a21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4db7e7b3a1f4ec9c51733fa7df5a2588"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfiles_1_1_directory.html">Directory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a4db7e7b3a1f4ec9c51733fa7df5a2588">operator=</a> (const std::string_view &amp;newPath)</td></tr>
 <tr class="separator:a4db7e7b3a1f4ec9c51733fa7df5a2588"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -317,15 +319,14 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a4e2fa3048ea1d26d21bf8ec4bd433d5f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classfiles_1_1_directory.html">Directory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a4e2fa3048ea1d26d21bf8ec4bd433d5f">getCurrentWorkingDirectory</a> ()</td></tr>
 <tr class="memdesc:a4e2fa3048ea1d26d21bf8ec4bd433d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a directory object representing the current working directory.  <a href="classfiles_1_1_directory.html#a4e2fa3048ea1d26d21bf8ec4bd433d5f">More...</a><br /></td></tr>
 <tr class="separator:a4e2fa3048ea1d26d21bf8ec4bd433d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a260cb978d6e0804989cc3be30f8057e0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; <a class="el" href="classfiles_1_1_directory.html">Directory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a260cb978d6e0804989cc3be30f8057e0">getPATH</a> ()</td></tr>
+<tr class="memitem:a260cb978d6e0804989cc3be30f8057e0"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="classfiles_1_1_directory.html">Directory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a260cb978d6e0804989cc3be30f8057e0">getPATH</a> ()</td></tr>
 <tr class="memdesc:a260cb978d6e0804989cc3be30f8057e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the contents of the <code>PATH</code> environment variable as a vector of <a class="el" href="classfiles_1_1_directory.html" title="This class represents a directory on the filesystem.">Directory</a> objects.  <a href="classfiles_1_1_directory.html#a260cb978d6e0804989cc3be30f8057e0">More...</a><br /></td></tr>
 <tr class="separator:a260cb978d6e0804989cc3be30f8057e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6934e33ce15fc4fa6fea43f02c36c7e9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classfiles_1_1_directory.html">Directory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a6934e33ce15fc4fa6fea43f02c36c7e9">getTempFileDirectory</a> ()</td></tr>
 <tr class="memdesc:a6934e33ce15fc4fa6fea43f02c36c7e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a directory appropriate for storing temporary files.  <a href="classfiles_1_1_directory.html#a6934e33ce15fc4fa6fea43f02c36c7e9">More...</a><br /></td></tr>
 <tr class="separator:a6934e33ce15fc4fa6fea43f02c36c7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Set the current working directory</div></td></tr>
 <tr class="memitem:a07d8b903a160e050d0724a4b2351df4c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#a07d8b903a160e050d0724a4b2351df4c">setCurrentWorkingDirectory</a> (const <a class="el" href="namespacefiles.html#a794b8ca19b6b9e9045a70663a9c3416c">Path</a> &amp;path)</td></tr>
-<tr class="memdesc:a07d8b903a160e050d0724a4b2351df4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the current working directory.  <a href="classfiles_1_1_directory.html#a07d8b903a160e050d0724a4b2351df4c">More...</a><br /></td></tr>
 <tr class="separator:a07d8b903a160e050d0724a4b2351df4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab79e855ab522ba9d3d31972cb224fc29"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_directory.html#ab79e855ab522ba9d3d31972cb224fc29">setCurrentWorkingDirectory</a> (const <a class="el" href="classfiles_1_1_directory.html">Directory</a> &amp;directory)</td></tr>
 <tr class="separator:ab79e855ab522ba9d3d31972cb224fc29"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -371,7 +372,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="directory_8h_source.html#l00050">50</a> of file <a class="el" href="directory_8h_source.html">directory.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="directory_8h_source.html#l00054">54</a> of file <a class="el" href="directory_8h_source.html">directory.h</a>.</p>
 
 </div>
 </div>
@@ -387,9 +388,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Typedefs for callbacks used by the functions that iterate through this directory's children. </p>
-
-<p class="definition">Definition at line <a class="el" href="directory_8h_source.html#l00049">49</a> of file <a class="el" href="directory_8h_source.html">directory.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="directory_8h_source.html#l00053">53</a> of file <a class="el" href="directory_8h_source.html">directory.h</a>.</p>
 
 </div>
 </div>
@@ -405,7 +404,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="directory_8h_source.html#l00052">52</a> of file <a class="el" href="directory_8h_source.html">directory.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="directory_8h_source.html#l00056">56</a> of file <a class="el" href="directory_8h_source.html">directory.h</a>.</p>
 
 </div>
 </div>
@@ -469,7 +468,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="directory_8h_source.html#l00051">51</a> of file <a class="el" href="directory_8h_source.html">directory.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="directory_8h_source.html#l00055">55</a> of file <a class="el" href="directory_8h_source.html">directory.h</a>.</p>
 
 </div>
 </div>
@@ -691,7 +690,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Overwrites this filesystem entry by copying from another location. </p>
+<p>Overwriting Overwrites this filesystem entry by copying from another location. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if copying was successful. </dd></dl>
 
 </div>
@@ -765,9 +764,6 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Creates a copy of this filesystem entry at a new location. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if copying was successful. </dd></dl>
 
 </div>
 </div>
@@ -946,7 +942,6 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructors. </p>
 <p>Creates a <a class="el" href="classfiles_1_1_filesystem_entry.html" title="The base class for any kind of object in the filesystem.">FilesystemEntry</a> with an empty path. </p>
 
 </div>
@@ -1067,7 +1062,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt;<a class="el" href="classfiles_1_1_filesystem_entry.html">FilesystemEntry</a>&gt; files::Directory::getAllChildren </td>
+          <td class="memname">std::vector&lt;<a class="el" href="classfiles_1_1_filesystem_entry.html">FilesystemEntry</a>&gt; files::Directory::getAllChildren </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>recurse</em> = <code>true</code></td><td>)</td>
@@ -1119,7 +1114,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt;<a class="el" href="classfiles_1_1_directory.html">Directory</a>&gt; files::Directory::getChildDirectories </td>
+          <td class="memname">std::vector&lt;<a class="el" href="classfiles_1_1_directory.html">Directory</a>&gt; files::Directory::getChildDirectories </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>recurse</em> = <code>true</code></td><td>)</td>
@@ -1202,7 +1197,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt;<a class="el" href="classfiles_1_1_file.html">File</a>&gt; files::Directory::getChildFiles </td>
+          <td class="memname">std::vector&lt;<a class="el" href="classfiles_1_1_file.html">File</a>&gt; files::Directory::getChildFiles </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>recurse</em> = <code>true</code></td><td>)</td>
@@ -1223,7 +1218,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt;<a class="el" href="classfiles_1_1_sym_link.html">SymLink</a>&gt; files::Directory::getChildSymLinks </td>
+          <td class="memname">std::vector&lt;<a class="el" href="classfiles_1_1_sym_link.html">SymLink</a>&gt; files::Directory::getChildSymLinks </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>recurse</em> = <code>true</code></td><td>)</td>
@@ -1438,7 +1433,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt;<a class="el" href="classfiles_1_1_directory.html">Directory</a>&gt; files::Directory::getPATH </td>
+          <td class="memname">static std::vector&lt;<a class="el" href="classfiles_1_1_directory.html">Directory</a>&gt; files::Directory::getPATH </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2096,8 +2091,6 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns true if this filesystem entry does not refer to the same absolute path as the other one. </p>
-
 </div>
 </div>
 <a id="abd6c09d9c465c1c2b1363a6c44385305"></a>
@@ -2206,8 +2199,6 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Lexicographically compares this filesystem entry's absolute path with another path. </p>
-
 </div>
 </div>
 <a id="a1cd7d5078e805a9870dbfb2c02750824"></a>
@@ -2278,8 +2269,6 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Assigns this object to refer to a new path. </p>
-
 </div>
 </div>
 <a id="a4db7e7b3a1f4ec9c51733fa7df5a2588"></a>
@@ -2349,8 +2338,6 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Returns true if this filesystem entry refers to the same absolute path as the other one. </p>
 
 </div>
 </div>
@@ -2559,8 +2546,6 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the current working directory. </p>
-
 </div>
 </div>
 <a id="a4e1c18e47442416fe6b83a29fbace76e"></a>
@@ -2697,7 +2682,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacefiles.html">files</a></li><li class="navelem"><a class="el" href="classfiles_1_1_directory.html">Directory</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:43 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:04 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

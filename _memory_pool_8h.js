@@ -1,6 +1,6 @@
 var _memory_pool_8h =
 [
-    [ "MemoryPool", "class_memory_pool.html", "class_memory_pool" ],
-    [ "MemoryPoolPointer", "class_memory_pool_pointer.html", "class_memory_pool_pointer" ],
-    [ "createFor", "_memory_pool_8h.html#ad33bb3c59bb07af1665a462d82fb8458", null ]
+    [ "MemoryPool", "classmemory_1_1_memory_pool.html", "classmemory_1_1_memory_pool" ],
+    [ "MemoryPoolPointer", "classmemory_1_1_memory_pool_pointer.html", "classmemory_1_1_memory_pool_pointer" ],
+    [ "createFor", "_memory_pool_8h.html#ac5870c91fc3ffdf022b7714afb4e4d63", null ]
 ];

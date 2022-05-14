@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -109,157 +109,163 @@ $(document).ready(function(){initNavTree('_f_i_f_o_8h_source.html',''); initResi
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_f_i_f_o.html">   25</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="class_f_i_f_o.html">FIFO</a> final</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_f_i_f_o.html#a36bab521b149270f0d1185060625b3fa">   29</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_f_i_f_o.html#a36bab521b149270f0d1185060625b3fa">FIFO</a> (<span class="keywordtype">int</span> initialSize)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        : model (initialSize)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        storage.reserve (initialSize);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="preprocessor_8h.html#aa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (<a class="code" href="class_f_i_f_o.html">FIFO</a>);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="preprocessor_8h.html#a3c9f53b7d1a99a02600fdbe81a772f82">LIMES_NON_MOVABLE</a> (<a class="code" href="class_f_i_f_o.html">FIFO</a>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceds.html">ds</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classds_1_1_f_i_f_o.html">   28</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="classds_1_1_f_i_f_o.html">FIFO</a> final</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classds_1_1_f_i_f_o.html#aae35dfbef5662e2209c95686fb2e154b">   32</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classds_1_1_f_i_f_o.html#aae35dfbef5662e2209c95686fb2e154b">FIFO</a> (<span class="keywordtype">int</span> initialSize)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        : model (initialSize)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        storage.reserve (initialSize);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_f_i_f_o.html#a85f89cd08361fd7b5cb5744b763169e3">   38</a></span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="class_f_i_f_o.html#a85f89cd08361fd7b5cb5744b763169e3">getCapacity</a>() const noexcept</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> model.getCapacity();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_f_i_f_o.html#ae4e91912773e797b00d55c5af0dfa3a0">   43</a></span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="class_f_i_f_o.html#ae4e91912773e797b00d55c5af0dfa3a0">getFreeSpace</a>() const noexcept</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> model.getFreeSpace();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_f_i_f_o.html#a570467bdf523bb8a36d5b9a05de40b2d">   48</a></span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="class_f_i_f_o.html#a570467bdf523bb8a36d5b9a05de40b2d">numStoredObjects</a>() const noexcept</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> model.getNumStoredObjects();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_f_i_f_o.html#a7d570a699d787a7eae5d7f61fc421454">   53</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_f_i_f_o.html#a7d570a699d787a7eae5d7f61fc421454">reset</a>()</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        model.reset();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        storage.clear();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_f_i_f_o.html#a7df7936cd718abe1380c5dfec1664c22">   59</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_f_i_f_o.html#a7df7936cd718abe1380c5dfec1664c22">setCapacity</a> (<span class="keywordtype">int</span> newCapacity)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        model.setCapacity (newCapacity);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        storage.reserve (newCapacity);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_f_i_f_o.html#ab484ce71b7a7e99703e68651b02bbfbc">   65</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_f_i_f_o.html#ab484ce71b7a7e99703e68651b02bbfbc">push</a> (ObjectType&amp;&amp; <span class="keywordtype">object</span>)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> scopedWrite = model.write (1);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (scopedWrite.blockSize1 == 1);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        storage[scopedWrite.startIndex1] = object;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="preprocessor_8h.html#aa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (<a class="code" href="classds_1_1_f_i_f_o.html">FIFO</a>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="preprocessor_8h.html#a3c9f53b7d1a99a02600fdbe81a772f82">LIMES_NON_MOVABLE</a> (<a class="code" href="classds_1_1_f_i_f_o.html">FIFO</a>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classds_1_1_f_i_f_o.html#aae297371877024313a5585b676adada6">   41</a></span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="classds_1_1_f_i_f_o.html#aae297371877024313a5585b676adada6">getCapacity</a>() const noexcept</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> model.getCapacity();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classds_1_1_f_i_f_o.html#a8b82dd1189c2cb5b0053416c93af3f40">   46</a></span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="classds_1_1_f_i_f_o.html#a8b82dd1189c2cb5b0053416c93af3f40">getFreeSpace</a>() const noexcept</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> model.getFreeSpace();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classds_1_1_f_i_f_o.html#a44ca7816276588dac88fcbe318c50cfe">   51</a></span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="classds_1_1_f_i_f_o.html#a44ca7816276588dac88fcbe318c50cfe">numStoredObjects</a>() const noexcept</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> model.getNumStoredObjects();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classds_1_1_f_i_f_o.html#ad6b3fa223e46d0fbbd2b990ea3273864">   56</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classds_1_1_f_i_f_o.html#ad6b3fa223e46d0fbbd2b990ea3273864">reset</a>()</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        model.reset();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        storage.clear();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classds_1_1_f_i_f_o.html#a3240e5cf22e52d42f6a394ec07ef79d5">   62</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classds_1_1_f_i_f_o.html#a3240e5cf22e52d42f6a394ec07ef79d5">setCapacity</a> (<span class="keywordtype">int</span> newCapacity)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        model.setCapacity (newCapacity);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        storage.reserve (newCapacity);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classds_1_1_f_i_f_o.html#af3883d12ba4ba3a454f7a4e5c89d647c">   68</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classds_1_1_f_i_f_o.html#af3883d12ba4ba3a454f7a4e5c89d647c">push</a> (ObjectType&amp;&amp; <span class="keywordtype">object</span>)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> scopedWrite = model.write (1);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (scopedWrite.blockSize1 == 1);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_f_i_f_o.html#a98a3dfbcafefca7d07f46c7ce8d74493">   74</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_f_i_f_o.html#a98a3dfbcafefca7d07f46c7ce8d74493">push</a> (<span class="keyword">const</span> ObjectType* <span class="keyword">const</span> data, <span class="keywordtype">int</span> numObjects)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (storage.capacity() == model.getCapacity());</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> scopedWrite = model.write (numObjects);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">// the buffer isn&#39;t big enough to hold all the samples you want to store!</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (scopedWrite.blockSize1 + scopedWrite.blockSize2 == numObjects);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        storage[scopedWrite.startIndex1] = object;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classds_1_1_f_i_f_o.html#a407b91d83f7b2410f6bd890eaccc8856">   77</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classds_1_1_f_i_f_o.html#a407b91d83f7b2410f6bd890eaccc8856">push</a> (<span class="keyword">const</span> ObjectType* <span class="keyword">const</span> data, <span class="keywordtype">int</span> numObjects)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (storage.capacity() == model.getCapacity());</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> scopedWrite = model.write (numObjects);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">auto</span>* <span class="keyword">const</span> writing = storage.data();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = scopedWrite.startIndex1, j = 0; i &lt; scopedWrite.blockSize1; ++i, ++j)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            storage[i] = data[j];</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="comment">// the buffer isn&#39;t big enough to hold all the samples you want to store!</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (scopedWrite.blockSize1 + scopedWrite.blockSize2 == numObjects);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">auto</span>* <span class="keyword">const</span> writing = storage.data();</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = scopedWrite.startIndex2, j = scopedWrite.blockSize1; i &lt; scopedWrite.blockSize2; ++i, ++j)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = scopedWrite.startIndex1, j = 0; i &lt; scopedWrite.blockSize1; ++i, ++j)</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            storage[i] = data[j];</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="class_f_i_f_o.html#a13cbdcf2a908e63497fe06dc54a73f55">   92</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_f_i_f_o.html#a13cbdcf2a908e63497fe06dc54a73f55">push</a> (<span class="keyword">const</span> <a class="code" href="classbasic__vector.html">basic_vector&lt;ObjectType&gt;</a>&amp; data)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        push (data.<a class="code" href="classbasic__vector.html#a916e601a011f54460853fc6d6a89dfef">data</a>(), data.<a class="code" href="classbasic__vector.html#a591ed2d38fef88b327e3ed5ded141b00">numObjects</a>());</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="class_f_i_f_o.html#a002eb875e279f96ddae35514c6b633a6">   97</a></span>&#160;    [[nodiscard]] ObjectType <a class="code" href="class_f_i_f_o.html#a002eb875e279f96ddae35514c6b633a6">pop</a>()</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> scopedRead = model.read (1);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (scopedRead.blockSize1 == 1);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> storage[scopedRead.startIndex1];</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = scopedWrite.startIndex2, j = scopedWrite.blockSize1; i &lt; scopedWrite.blockSize2; ++i, ++j)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            storage[i] = data[j];</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classds_1_1_f_i_f_o.html#aa286f66eb540f24c8433524968819351">   95</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classds_1_1_f_i_f_o.html#aa286f66eb540f24c8433524968819351">push</a> (<span class="keyword">const</span> <a class="code" href="classds_1_1basic__vector.html">basic_vector&lt;ObjectType&gt;</a>&amp; data)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        push (data.<a class="code" href="classds_1_1basic__vector.html#a796eb2fc1ea1f0ece5e39bfbd8384117">data</a>(), data.<a class="code" href="classds_1_1basic__vector.html#ae13b312317ff34bd296fd2eb1c11e7f8">numObjects</a>());</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classds_1_1_f_i_f_o.html#acad95d2ee9f0fdfb568349f3d5b8b171">  100</a></span>&#160;    [[nodiscard]] ObjectType <a class="code" href="classds_1_1_f_i_f_o.html#acad95d2ee9f0fdfb568349f3d5b8b171">pop</a>()</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> scopedRead = model.read (1);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (scopedRead.blockSize1 == 1);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="class_f_i_f_o.html#ad29e2d45e6bf51ca9f781c72a905786a">  106</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_f_i_f_o.html#ad29e2d45e6bf51ca9f781c72a905786a">pop</a> (ObjectType* <span class="keyword">const</span> data, <span class="keywordtype">int</span> numObjects)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (storage.capacity() == model.getCapacity());</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> scopedRead = model.read (numObjects);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> numNull = numObjects - (scopedRead.blockSize1 + scopedRead.blockSize2);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; numNull; ++i)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            data[i] = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span> storage[scopedRead.startIndex1];</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classds_1_1_f_i_f_o.html#a64e6dc8d5cca476f0dc53d7f1f709546">  109</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classds_1_1_f_i_f_o.html#a64e6dc8d5cca476f0dc53d7f1f709546">pop</a> (ObjectType* <span class="keyword">const</span> data, <span class="keywordtype">int</span> numObjects)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (storage.capacity() == model.getCapacity());</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> scopedRead = model.read (numObjects);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> numNull = numObjects - (scopedRead.blockSize1 + scopedRead.blockSize2);</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keyword">auto</span>* <span class="keyword">const</span> output = data + numNull;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>* <span class="keyword">const</span> reading = storage.data();</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = scopedRead.startIndex1, j = 0; i &lt; scopedRead.blockSize1; ++i, ++j)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            output[j] = reading[i];</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; numNull; ++i)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            data[i] = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keyword">auto</span>* <span class="keyword">const</span> output = data + numNull;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>* <span class="keyword">const</span> reading = storage.data();</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = scopedRead.startIndex2, j = scopedRead.blockSize1; i &lt; scopedRead.blockSize2; ++i, ++j)</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = scopedRead.startIndex1, j = 0; i &lt; scopedRead.blockSize1; ++i, ++j)</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            output[j] = reading[i];</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="class_f_i_f_o.html#a09de55eb0b64bf8f4a91455539161fed">  128</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_f_i_f_o.html#a09de55eb0b64bf8f4a91455539161fed">pop</a> (<a class="code" href="classbasic__vector.html">basic_vector&lt;ObjectType&gt;</a>&amp; output)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    {</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        pop (output.<a class="code" href="classbasic__vector.html#a916e601a011f54460853fc6d6a89dfef">data</a>(), output.<a class="code" href="classbasic__vector.html#a22cd867c6807ab972f184ab98ef460b3">capacity</a>());</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector&lt;ObjectType&gt;</a> storage;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="class_abstract_f_i_f_o.html">AbstractFIFO</a> model;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;};</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = scopedRead.startIndex2, j = scopedRead.blockSize1; i &lt; scopedRead.blockSize2; ++i, ++j)</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            output[j] = reading[i];</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classds_1_1_f_i_f_o.html#a228fd71c33451fa706c41131a0951906">  131</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classds_1_1_f_i_f_o.html#a228fd71c33451fa706c41131a0951906">pop</a> (<a class="code" href="classds_1_1basic__vector.html">basic_vector&lt;ObjectType&gt;</a>&amp; output)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        pop (output.<a class="code" href="classds_1_1basic__vector.html#a796eb2fc1ea1f0ece5e39bfbd8384117">data</a>(), output.<a class="code" href="classds_1_1basic__vector.html#ad247b8f87f8adbdf5963af4202694194">capacity</a>());</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <a class="code" href="namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">vector&lt;ObjectType&gt;</a> storage;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <a class="code" href="classds_1_1_abstract_f_i_f_o.html">AbstractFIFO</a> model;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;};</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;}  <span class="comment">// namespace ds</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_f_i_f_o_html_a7df7936cd718abe1380c5dfec1664c22"><div class="ttname"><a href="class_f_i_f_o.html#a7df7936cd718abe1380c5dfec1664c22">FIFO::setCapacity</a></div><div class="ttdeci">void setCapacity(int newCapacity)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00059">FIFO.h:59</a></div></div>
+<div class="ttc" id="aclassds_1_1_f_i_f_o_html_a228fd71c33451fa706c41131a0951906"><div class="ttname"><a href="classds_1_1_f_i_f_o.html#a228fd71c33451fa706c41131a0951906">ds::FIFO::pop</a></div><div class="ttdeci">void pop(basic_vector&lt; ObjectType &gt; &amp;output)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00131">FIFO.h:131</a></div></div>
+<div class="ttc" id="aclassds_1_1basic__vector_html_a796eb2fc1ea1f0ece5e39bfbd8384117"><div class="ttname"><a href="classds_1_1basic__vector.html#a796eb2fc1ea1f0ece5e39bfbd8384117">ds::basic_vector::data</a></div><div class="ttdeci">ElementType * data() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="basic__vector_8h_source.html#l00326">basic_vector.h:326</a></div></div>
+<div class="ttc" id="anamespaceds_html"><div class="ttname"><a href="namespaceds.html">ds</a></div><div class="ttdoc">This namespace contains some useful data structures.</div><div class="ttdef"><b>Definition:</b> <a href="_abstract_f_i_f_o_8h_source.html#l00022">AbstractFIFO.h:22</a></div></div>
+<div class="ttc" id="aclassds_1_1basic__vector_html_ad247b8f87f8adbdf5963af4202694194"><div class="ttname"><a href="classds_1_1basic__vector.html#ad247b8f87f8adbdf5963af4202694194">ds::basic_vector::capacity</a></div><div class="ttdeci">constexpr int capacity() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="basic__vector_8h_source.html#l00107">basic_vector.h:107</a></div></div>
+<div class="ttc" id="aclassds_1_1_f_i_f_o_html_a3240e5cf22e52d42f6a394ec07ef79d5"><div class="ttname"><a href="classds_1_1_f_i_f_o.html#a3240e5cf22e52d42f6a394ec07ef79d5">ds::FIFO::setCapacity</a></div><div class="ttdeci">void setCapacity(int newCapacity)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00062">FIFO.h:62</a></div></div>
 <div class="ttc" id="a_abstract_f_i_f_o_8h_html"><div class="ttname"><a href="_abstract_f_i_f_o_8h.html">AbstractFIFO.h</a></div></div>
-<div class="ttc" id="aclass_f_i_f_o_html_ad29e2d45e6bf51ca9f781c72a905786a"><div class="ttname"><a href="class_f_i_f_o.html#ad29e2d45e6bf51ca9f781c72a905786a">FIFO::pop</a></div><div class="ttdeci">void pop(ObjectType *const data, int numObjects)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00106">FIFO.h:106</a></div></div>
-<div class="ttc" id="aclass_f_i_f_o_html_a13cbdcf2a908e63497fe06dc54a73f55"><div class="ttname"><a href="class_f_i_f_o.html#a13cbdcf2a908e63497fe06dc54a73f55">FIFO::push</a></div><div class="ttdeci">void push(const basic_vector&lt; ObjectType &gt; &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00092">FIFO.h:92</a></div></div>
-<div class="ttc" id="alimes__assert_8h_html_a06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdoc">Evaluates the condition, and if it is false, logs an assertion failure message and stops in the debug...</div><div class="ttdef"><b>Definition:</b> <a href="limes__assert_8h_source.html#l00074">limes_assert.h:74</a></div></div>
-<div class="ttc" id="aclass_f_i_f_o_html_ae4e91912773e797b00d55c5af0dfa3a0"><div class="ttname"><a href="class_f_i_f_o.html#ae4e91912773e797b00d55c5af0dfa3a0">FIFO::getFreeSpace</a></div><div class="ttdeci">int getFreeSpace() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00043">FIFO.h:43</a></div></div>
-<div class="ttc" id="aclass_f_i_f_o_html_a85f89cd08361fd7b5cb5744b763169e3"><div class="ttname"><a href="class_f_i_f_o.html#a85f89cd08361fd7b5cb5744b763169e3">FIFO::getCapacity</a></div><div class="ttdeci">int getCapacity() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00038">FIFO.h:38</a></div></div>
-<div class="ttc" id="avector_8h_html_a4aa0f07eb0a2fc7453107bb42b4591aa"><div class="ttname"><a href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector</a></div><div class="ttdeci">std::conditional_t&lt; std::is_scalar_v&lt; ObjectType &gt; &amp;&amp;! std::is_pointer_v&lt; ObjectType &gt;, scalar_vector&lt; ObjectType, Allocator &gt;, basic_vector&lt; ObjectType, Allocator &gt; &gt; vector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00026">vector.h:26</a></div></div>
-<div class="ttc" id="aclass_f_i_f_o_html_a570467bdf523bb8a36d5b9a05de40b2d"><div class="ttname"><a href="class_f_i_f_o.html#a570467bdf523bb8a36d5b9a05de40b2d">FIFO::numStoredObjects</a></div><div class="ttdeci">int numStoredObjects() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00048">FIFO.h:48</a></div></div>
-<div class="ttc" id="aclass_f_i_f_o_html"><div class="ttname"><a href="class_f_i_f_o.html">FIFO</a></div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00025">FIFO.h:25</a></div></div>
+<div class="ttc" id="aclassds_1_1_f_i_f_o_html_a407b91d83f7b2410f6bd890eaccc8856"><div class="ttname"><a href="classds_1_1_f_i_f_o.html#a407b91d83f7b2410f6bd890eaccc8856">ds::FIFO::push</a></div><div class="ttdeci">void push(const ObjectType *const data, int numObjects)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00077">FIFO.h:77</a></div></div>
+<div class="ttc" id="aclassds_1_1_f_i_f_o_html_af3883d12ba4ba3a454f7a4e5c89d647c"><div class="ttname"><a href="classds_1_1_f_i_f_o.html#af3883d12ba4ba3a454f7a4e5c89d647c">ds::FIFO::push</a></div><div class="ttdeci">void push(ObjectType &amp;&amp;object)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00068">FIFO.h:68</a></div></div>
+<div class="ttc" id="aclassds_1_1_f_i_f_o_html_aae35dfbef5662e2209c95686fb2e154b"><div class="ttname"><a href="classds_1_1_f_i_f_o.html#aae35dfbef5662e2209c95686fb2e154b">ds::FIFO::FIFO</a></div><div class="ttdeci">FIFO(int initialSize)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00032">FIFO.h:32</a></div></div>
+<div class="ttc" id="aclassds_1_1_abstract_f_i_f_o_html"><div class="ttname"><a href="classds_1_1_abstract_f_i_f_o.html">ds::AbstractFIFO</a></div><div class="ttdef"><b>Definition:</b> <a href="_abstract_f_i_f_o_8h_source.html#l00025">AbstractFIFO.h:25</a></div></div>
+<div class="ttc" id="alimes__assert_8h_html_a06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdef"><b>Definition:</b> <a href="limes__assert_8h_source.html#l00075">limes_assert.h:75</a></div></div>
+<div class="ttc" id="aclassds_1_1basic__vector_html_ae13b312317ff34bd296fd2eb1c11e7f8"><div class="ttname"><a href="classds_1_1basic__vector.html#ae13b312317ff34bd296fd2eb1c11e7f8">ds::basic_vector::numObjects</a></div><div class="ttdeci">constexpr int numObjects() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="basic__vector_8h_source.html#l00112">basic_vector.h:112</a></div></div>
+<div class="ttc" id="aclassds_1_1basic__vector_html"><div class="ttname"><a href="classds_1_1basic__vector.html">ds::basic_vector</a></div><div class="ttdef"><b>Definition:</b> <a href="basic__vector_8h_source.html#l00032">basic_vector.h:32</a></div></div>
+<div class="ttc" id="aclassds_1_1_f_i_f_o_html_aae297371877024313a5585b676adada6"><div class="ttname"><a href="classds_1_1_f_i_f_o.html#aae297371877024313a5585b676adada6">ds::FIFO::getCapacity</a></div><div class="ttdeci">int getCapacity() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00041">FIFO.h:41</a></div></div>
+<div class="ttc" id="aclassds_1_1_f_i_f_o_html_a8b82dd1189c2cb5b0053416c93af3f40"><div class="ttname"><a href="classds_1_1_f_i_f_o.html#a8b82dd1189c2cb5b0053416c93af3f40">ds::FIFO::getFreeSpace</a></div><div class="ttdeci">int getFreeSpace() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00046">FIFO.h:46</a></div></div>
+<div class="ttc" id="aclassds_1_1_f_i_f_o_html_ad6b3fa223e46d0fbbd2b990ea3273864"><div class="ttname"><a href="classds_1_1_f_i_f_o.html#ad6b3fa223e46d0fbbd2b990ea3273864">ds::FIFO::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00056">FIFO.h:56</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00022">limes_namespace.h:22</a></div></div>
+<div class="ttc" id="aclassds_1_1_f_i_f_o_html_aa286f66eb540f24c8433524968819351"><div class="ttname"><a href="classds_1_1_f_i_f_o.html#aa286f66eb540f24c8433524968819351">ds::FIFO::push</a></div><div class="ttdeci">void push(const basic_vector&lt; ObjectType &gt; &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00095">FIFO.h:95</a></div></div>
 <div class="ttc" id="apreprocessor_8h_html_aa19294b73467ee63a3601fe2ff636b8c"><div class="ttname"><a href="preprocessor_8h.html#aa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a></div><div class="ttdeci">#define LIMES_NON_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="preprocessor_8h_source.html#l00042">preprocessor.h:42</a></div></div>
-<div class="ttc" id="aclass_abstract_f_i_f_o_html"><div class="ttname"><a href="class_abstract_f_i_f_o.html">AbstractFIFO</a></div><div class="ttdef"><b>Definition:</b> <a href="_abstract_f_i_f_o_8h_source.html#l00022">AbstractFIFO.h:22</a></div></div>
 <div class="ttc" id="alimes__core_8h_html"><div class="ttname"><a href="limes__core_8h.html">limes_core.h</a></div></div>
-<div class="ttc" id="aclass_f_i_f_o_html_a002eb875e279f96ddae35514c6b633a6"><div class="ttname"><a href="class_f_i_f_o.html#a002eb875e279f96ddae35514c6b633a6">FIFO::pop</a></div><div class="ttdeci">ObjectType pop()</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00097">FIFO.h:97</a></div></div>
-<div class="ttc" id="aclass_f_i_f_o_html_a7d570a699d787a7eae5d7f61fc421454"><div class="ttname"><a href="class_f_i_f_o.html#a7d570a699d787a7eae5d7f61fc421454">FIFO::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00053">FIFO.h:53</a></div></div>
-<div class="ttc" id="aclassbasic__vector_html_a916e601a011f54460853fc6d6a89dfef"><div class="ttname"><a href="classbasic__vector.html#a916e601a011f54460853fc6d6a89dfef">basic_vector::data</a></div><div class="ttdeci">ElementType * data() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="basic__vector_8h_source.html#l00320">basic_vector.h:320</a></div></div>
-<div class="ttc" id="aclass_f_i_f_o_html_a98a3dfbcafefca7d07f46c7ce8d74493"><div class="ttname"><a href="class_f_i_f_o.html#a98a3dfbcafefca7d07f46c7ce8d74493">FIFO::push</a></div><div class="ttdeci">void push(const ObjectType *const data, int numObjects)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00074">FIFO.h:74</a></div></div>
+<div class="ttc" id="anamespaceds_html_a813f9ca146f6e29fde2f5d40bf2bb870"><div class="ttname"><a href="namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector</a></div><div class="ttdeci">std::conditional_t&lt; std::is_scalar_v&lt; ObjectType &gt; &amp;&amp;! std::is_pointer_v&lt; ObjectType &gt;, scalar_vector&lt; ObjectType, Allocator &gt;, basic_vector&lt; ObjectType, Allocator &gt; &gt; vector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00029">vector.h:29</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00015">limes_namespace.h:15</a></div></div>
-<div class="ttc" id="aclassbasic__vector_html"><div class="ttname"><a href="classbasic__vector.html">basic_vector</a></div><div class="ttdef"><b>Definition:</b> <a href="basic__vector_8h_source.html#l00026">basic_vector.h:26</a></div></div>
-<div class="ttc" id="aclass_f_i_f_o_html_a09de55eb0b64bf8f4a91455539161fed"><div class="ttname"><a href="class_f_i_f_o.html#a09de55eb0b64bf8f4a91455539161fed">FIFO::pop</a></div><div class="ttdeci">void pop(basic_vector&lt; ObjectType &gt; &amp;output)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00128">FIFO.h:128</a></div></div>
-<div class="ttc" id="aclassbasic__vector_html_a22cd867c6807ab972f184ab98ef460b3"><div class="ttname"><a href="classbasic__vector.html#a22cd867c6807ab972f184ab98ef460b3">basic_vector::capacity</a></div><div class="ttdeci">constexpr int capacity() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="basic__vector_8h_source.html#l00101">basic_vector.h:101</a></div></div>
+<div class="ttc" id="aclassds_1_1_f_i_f_o_html"><div class="ttname"><a href="classds_1_1_f_i_f_o.html">ds::FIFO</a></div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00028">FIFO.h:28</a></div></div>
+<div class="ttc" id="aclassds_1_1_f_i_f_o_html_a44ca7816276588dac88fcbe318c50cfe"><div class="ttname"><a href="classds_1_1_f_i_f_o.html#a44ca7816276588dac88fcbe318c50cfe">ds::FIFO::numStoredObjects</a></div><div class="ttdeci">int numStoredObjects() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00051">FIFO.h:51</a></div></div>
 <div class="ttc" id="apreprocessor_8h_html_a3c9f53b7d1a99a02600fdbe81a772f82"><div class="ttname"><a href="preprocessor_8h.html#a3c9f53b7d1a99a02600fdbe81a772f82">LIMES_NON_MOVABLE</a></div><div class="ttdeci">#define LIMES_NON_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="preprocessor_8h_source.html#l00046">preprocessor.h:46</a></div></div>
-<div class="ttc" id="aclassbasic__vector_html_a591ed2d38fef88b327e3ed5ded141b00"><div class="ttname"><a href="classbasic__vector.html#a591ed2d38fef88b327e3ed5ded141b00">basic_vector::numObjects</a></div><div class="ttdeci">constexpr int numObjects() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="basic__vector_8h_source.html#l00106">basic_vector.h:106</a></div></div>
-<div class="ttc" id="aclass_f_i_f_o_html_a36bab521b149270f0d1185060625b3fa"><div class="ttname"><a href="class_f_i_f_o.html#a36bab521b149270f0d1185060625b3fa">FIFO::FIFO</a></div><div class="ttdeci">FIFO(int initialSize)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00029">FIFO.h:29</a></div></div>
-<div class="ttc" id="aclass_f_i_f_o_html_ab484ce71b7a7e99703e68651b02bbfbc"><div class="ttname"><a href="class_f_i_f_o.html#ab484ce71b7a7e99703e68651b02bbfbc">FIFO::push</a></div><div class="ttdeci">void push(ObjectType &amp;&amp;object)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00065">FIFO.h:65</a></div></div>
+<div class="ttc" id="aclassds_1_1_f_i_f_o_html_acad95d2ee9f0fdfb568349f3d5b8b171"><div class="ttname"><a href="classds_1_1_f_i_f_o.html#acad95d2ee9f0fdfb568349f3d5b8b171">ds::FIFO::pop</a></div><div class="ttdeci">ObjectType pop()</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00100">FIFO.h:100</a></div></div>
+<div class="ttc" id="aclassds_1_1_f_i_f_o_html_a64e6dc8d5cca476f0dc53d7f1f709546"><div class="ttname"><a href="classds_1_1_f_i_f_o.html#a64e6dc8d5cca476f0dc53d7f1f709546">ds::FIFO::pop</a></div><div class="ttdeci">void pop(ObjectType *const data, int numObjects)</div><div class="ttdef"><b>Definition:</b> <a href="_f_i_f_o_8h_source.html#l00109">FIFO.h:109</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_0e0c5ea0f8eb3c0f9e9d1c7f184a59c4.html">limes_data_structures</a></li><li class="navelem"><a class="el" href="dir_d04bf64b38a838d6a5b55d789e3a55a7.html">fifo</a></li><li class="navelem"><a class="el" href="_f_i_f_o_8h.html">FIFO.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:42 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

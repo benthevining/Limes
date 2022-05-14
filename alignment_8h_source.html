@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -115,127 +115,133 @@ $(document).ready(function(){initNavTree('alignment_8h_source.html',''); initRes
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<a class="code" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="alignment_8h.html#ada6c738c9bdd4010553287fbf86251b4">   31</a></span>&#160;LIMES_EXPORT [[nodiscard]] T* <a class="code" href="alignment_8h.html#ada6c738c9bdd4010553287fbf86251b4">allocate_aligned</a> (std::size_t count = 1, std::size_t alignment = 32, Args&amp;&amp;... args) noexcept</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> sizeBytes = count * <span class="keyword">sizeof</span> (T);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#if LIMES_MSVC || LIMES_WINDOWS</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">auto</span>* <span class="keyword">const</span> ptr = _aligned_malloc (sizeBytes, alignment);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">auto</span>* <span class="keyword">const</span> ptr = std::aligned_alloc (alignment, sizeBytes);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span> (ptr == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacememory.html">memory</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespacememory.html#a898974242418e2b20981a737c5e82410">   34</a></span>&#160;LIMES_EXPORT [[nodiscard]] T* <a class="code" href="namespacememory.html#a898974242418e2b20981a737c5e82410">allocate_aligned</a> (std::size_t count = 1, std::size_t alignment = 32, Args&amp;&amp;... args) noexcept</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> sizeBytes = count * <span class="keyword">sizeof</span> (T);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#if LIMES_MSVC || LIMES_WINDOWS</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">auto</span>* <span class="keyword">const</span> ptr = _aligned_malloc (sizeBytes, alignment);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">auto</span>* <span class="keyword">const</span> ptr = std::aligned_alloc (alignment, sizeBytes);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">auto</span>* <span class="keyword">const</span> typed_ptr = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span> (ptr);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; count; ++i)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            std::construct_at (typed_ptr + i, std::forward&lt;Args&gt; (args)...);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span> (ptr == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">auto</span>* <span class="keyword">const</span> typed_ptr = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span> (ptr);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> typed_ptr;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp;)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="alignment_8h.html#a9a4bbf79110e777c0034004dadc38b37">   60</a></span>&#160;LIMES_EXPORT <span class="keywordtype">bool</span> <a class="code" href="alignment_8h.html#a9a4bbf79110e777c0034004dadc38b37">deallocate_aligned</a> (T* ptr) noexcept</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span> (ptr == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#if LIMES_MSVC || LIMES_WINDOWS</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        _aligned_free (ptr);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        std::free (ptr);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp;)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classaligned__pointer.html">   83</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="classaligned__pointer.html">aligned_pointer</a> final</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classaligned__pointer.html#a5944bd79da8c6bebf9e986c23325f35c">   87</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classaligned__pointer.html#a5944bd79da8c6bebf9e986c23325f35c">OwnedType</a> = T;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classaligned__pointer.html#ad0f1fe931d3ab1e1292a1bea73e574be">   90</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classaligned__pointer.html#ad0f1fe931d3ab1e1292a1bea73e574be">aligned_pointer</a> (std::size_t count = 1, std::size_t alignment = 32, Args&amp;&amp;... args)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        : ptr (<a class="code" href="alignment_8h.html#ada6c738c9bdd4010553287fbf86251b4">allocate_aligned</a>&lt;T&gt; (count, alignment, std::forward&lt;Args&gt; (args)...))</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">if</span> (ptr == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">throw</span> std::runtime_error (<span class="stringliteral">&quot;Failed aligned memory allocation&quot;</span>);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classaligned__pointer.html#a1a1fd6eab94d8aef3b9072f5edae16ed">   97</a></span>&#160;    <a class="code" href="classaligned__pointer.html#a1a1fd6eab94d8aef3b9072f5edae16ed">~aligned_pointer</a>()</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <a class="code" href="alignment_8h.html#a9a4bbf79110e777c0034004dadc38b37">deallocate_aligned</a> (ptr);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="preprocessor_8h.html#aa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (<a class="code" href="classaligned__pointer.html">aligned_pointer</a>);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="preprocessor_8h.html#aa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a> (<a class="code" href="classaligned__pointer.html">aligned_pointer</a>);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classaligned__pointer.html#a44f1dc9cfb74cd5173475776d87554d0">  106</a></span>&#160;    [[nodiscard]] T* <a class="code" href="classaligned__pointer.html#a44f1dc9cfb74cd5173475776d87554d0">get</a>() const noexcept { <span class="keywordflow">return</span> ptr; }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classaligned__pointer.html#a8ae51da5be67d0b0e36d7c9e6cb4665c">  108</a></span>&#160;    [[nodiscard]] T* <a class="code" href="classaligned__pointer.html#a8ae51da5be67d0b0e36d7c9e6cb4665c">operator()</a>() const noexcept { <span class="keywordflow">return</span> ptr; }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classaligned__pointer.html#a334c0cb71f338936a26f211147cc7867">  110</a></span>&#160;    <span class="keyword">operator</span> T*() <span class="keyword">const</span> noexcept { <span class="keywordflow">return</span> ptr; }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classaligned__pointer.html#a235be9f54693cf8dce66882ea1aa2f64">  112</a></span>&#160;    T* <a class="code" href="classaligned__pointer.html#a235be9f54693cf8dce66882ea1aa2f64">operator-&gt;</a>() const noexcept { <span class="keywordflow">return</span> ptr; }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classaligned__pointer.html#a17652e3137845627d3da3e1e0e50f547">  114</a></span>&#160;    [[nodiscard]] T&amp; <a class="code" href="classaligned__pointer.html#a17652e3137845627d3da3e1e0e50f547">operator*</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (ptr != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">return</span> *ptr;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="classaligned__pointer.html#affb50a9d18ba606eca3f25bc92acfd95">  120</a></span>&#160;    [[nodiscard]] decltype (<span class="keyword">auto</span>) operator[] (std::<span class="keywordtype">size_t</span> idx) { <span class="keywordflow">return</span> ptr[idx]; }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    T* ptr;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; count; ++i)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            std::construct_at (typed_ptr + i, std::forward&lt;Args&gt; (args)...);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> typed_ptr;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp;)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="namespacememory.html#a5a001535fbebdaa7499f0d95e2a5cec7">   63</a></span>&#160;LIMES_EXPORT <span class="keywordtype">bool</span> <a class="code" href="namespacememory.html#a5a001535fbebdaa7499f0d95e2a5cec7">deallocate_aligned</a> (T* ptr) noexcept</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">if</span> (ptr == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#if LIMES_MSVC || LIMES_WINDOWS</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        _aligned_free (ptr);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        std::free (ptr);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp;)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classmemory_1_1aligned__pointer.html">   86</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="classmemory_1_1aligned__pointer.html">aligned_pointer</a> final</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classmemory_1_1aligned__pointer.html#a2781018fd429480d4374540ad7c0fe7a">   90</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classmemory_1_1aligned__pointer.html#a2781018fd429480d4374540ad7c0fe7a">OwnedType</a> = T;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classmemory_1_1aligned__pointer.html#aec7bb99d52f0d481f68f1f948dfdea9a">   93</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classmemory_1_1aligned__pointer.html#aec7bb99d52f0d481f68f1f948dfdea9a">aligned_pointer</a> (std::size_t count = 1, std::size_t alignment = 32, Args&amp;&amp;... args)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        : ptr (<a class="code" href="namespacememory.html#a898974242418e2b20981a737c5e82410">allocate_aligned</a>&lt;T&gt; (count, alignment, std::forward&lt;Args&gt; (args)...))</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">if</span> (ptr == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordflow">throw</span> std::runtime_error (<span class="stringliteral">&quot;Failed aligned memory allocation&quot;</span>);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classmemory_1_1aligned__pointer.html#a53a40bde9425962df38801e60ec53c30">  100</a></span>&#160;    <a class="code" href="classmemory_1_1aligned__pointer.html#a53a40bde9425962df38801e60ec53c30">~aligned_pointer</a>()</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="namespacememory.html#a5a001535fbebdaa7499f0d95e2a5cec7">deallocate_aligned</a> (ptr);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="preprocessor_8h.html#aa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (<a class="code" href="classmemory_1_1aligned__pointer.html">aligned_pointer</a>);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="preprocessor_8h.html#aa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a> (<a class="code" href="classmemory_1_1aligned__pointer.html">aligned_pointer</a>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classmemory_1_1aligned__pointer.html#a72ade0d19f3bd4e058e0c8c94fab88f3">  109</a></span>&#160;    [[nodiscard]] T* <a class="code" href="classmemory_1_1aligned__pointer.html#a72ade0d19f3bd4e058e0c8c94fab88f3">get</a>() const noexcept { <span class="keywordflow">return</span> ptr; }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classmemory_1_1aligned__pointer.html#a0e4dbeca69770a5ffcd56c9efeb9acb9">  111</a></span>&#160;    [[nodiscard]] T* <a class="code" href="classmemory_1_1aligned__pointer.html#a0e4dbeca69770a5ffcd56c9efeb9acb9">operator()</a>() const noexcept { <span class="keywordflow">return</span> ptr; }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="classmemory_1_1aligned__pointer.html#a44063e9588d759943bb70e8f2d608ddc">  113</a></span>&#160;    <span class="keyword">operator</span> T*() <span class="keyword">const</span> noexcept { <span class="keywordflow">return</span> ptr; }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="classmemory_1_1aligned__pointer.html#a350c383da62265eb97bde2d133a2acc8">  115</a></span>&#160;    T* <a class="code" href="classmemory_1_1aligned__pointer.html#a350c383da62265eb97bde2d133a2acc8">operator-&gt;</a>() const noexcept { <span class="keywordflow">return</span> ptr; }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="classmemory_1_1aligned__pointer.html#a4d16acd03f96bd4f77b2c2b8b4f2d352">  117</a></span>&#160;    [[nodiscard]] T&amp; <a class="code" href="classmemory_1_1aligned__pointer.html#a4d16acd03f96bd4f77b2c2b8b4f2d352">operator*</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (ptr != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">return</span> *ptr;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="classmemory_1_1aligned__pointer.html#a86d745bcfc834fffc469b36920d28e40">  123</a></span>&#160;    [[nodiscard]] decltype (<span class="keyword">auto</span>) operator[] (std::<span class="keywordtype">size_t</span> idx) { <span class="keywordflow">return</span> ptr[idx]; }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    T* ptr;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;};</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}  <span class="comment">// namespace memory</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassaligned__pointer_html_a8ae51da5be67d0b0e36d7c9e6cb4665c"><div class="ttname"><a href="classaligned__pointer.html#a8ae51da5be67d0b0e36d7c9e6cb4665c">aligned_pointer::operator()</a></div><div class="ttdeci">T * operator()() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00108">alignment.h:108</a></div></div>
 <div class="ttc" id="apreprocessor_8h_html_aa204cf467eb45621b139f7fbf6b0f503"><div class="ttname"><a href="preprocessor_8h.html#aa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a></div><div class="ttdeci">#define LIMES_DEFAULT_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="preprocessor_8h_source.html#l00055">preprocessor.h:55</a></div></div>
-<div class="ttc" id="alimes__assert_8h_html_a06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdoc">Evaluates the condition, and if it is false, logs an assertion failure message and stops in the debug...</div><div class="ttdef"><b>Definition:</b> <a href="limes__assert_8h_source.html#l00074">limes_assert.h:74</a></div></div>
-<div class="ttc" id="aclassaligned__pointer_html_a235be9f54693cf8dce66882ea1aa2f64"><div class="ttname"><a href="classaligned__pointer.html#a235be9f54693cf8dce66882ea1aa2f64">aligned_pointer::operator-&gt;</a></div><div class="ttdeci">T * operator-&gt;() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00112">alignment.h:112</a></div></div>
-<div class="ttc" id="aclassaligned__pointer_html"><div class="ttname"><a href="classaligned__pointer.html">aligned_pointer</a></div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00083">alignment.h:83</a></div></div>
-<div class="ttc" id="aclassaligned__pointer_html_a17652e3137845627d3da3e1e0e50f547"><div class="ttname"><a href="classaligned__pointer.html#a17652e3137845627d3da3e1e0e50f547">aligned_pointer::operator*</a></div><div class="ttdeci">T &amp; operator*() const</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00114">alignment.h:114</a></div></div>
-<div class="ttc" id="aalignment_8h_html_a9a4bbf79110e777c0034004dadc38b37"><div class="ttname"><a href="alignment_8h.html#a9a4bbf79110e777c0034004dadc38b37">deallocate_aligned</a></div><div class="ttdeci">LIMES_EXPORT bool deallocate_aligned(T *ptr) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00060">alignment.h:60</a></div></div>
+<div class="ttc" id="aclassmemory_1_1aligned__pointer_html_a4d16acd03f96bd4f77b2c2b8b4f2d352"><div class="ttname"><a href="classmemory_1_1aligned__pointer.html#a4d16acd03f96bd4f77b2c2b8b4f2d352">memory::aligned_pointer::operator*</a></div><div class="ttdeci">T &amp; operator*() const</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00117">alignment.h:117</a></div></div>
+<div class="ttc" id="anamespacememory_html"><div class="ttname"><a href="namespacememory.html">memory</a></div><div class="ttdoc">This namespace contains utilities for working with memory allocation and management.</div><div class="ttdef"><b>Definition:</b> <a href="_aligned_allocator_8h_source.html#l00026">AlignedAllocator.h:26</a></div></div>
+<div class="ttc" id="aclassmemory_1_1aligned__pointer_html_aec7bb99d52f0d481f68f1f948dfdea9a"><div class="ttname"><a href="classmemory_1_1aligned__pointer.html#aec7bb99d52f0d481f68f1f948dfdea9a">memory::aligned_pointer::aligned_pointer</a></div><div class="ttdeci">aligned_pointer(std::size_t count=1, std::size_t alignment=32, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00093">alignment.h:93</a></div></div>
+<div class="ttc" id="alimes__assert_8h_html_a06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdef"><b>Definition:</b> <a href="limes__assert_8h_source.html#l00075">limes_assert.h:75</a></div></div>
+<div class="ttc" id="aclassmemory_1_1aligned__pointer_html"><div class="ttname"><a href="classmemory_1_1aligned__pointer.html">memory::aligned_pointer</a></div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00086">alignment.h:86</a></div></div>
+<div class="ttc" id="anamespacememory_html_a5a001535fbebdaa7499f0d95e2a5cec7"><div class="ttname"><a href="namespacememory.html#a5a001535fbebdaa7499f0d95e2a5cec7">memory::deallocate_aligned</a></div><div class="ttdeci">LIMES_EXPORT bool deallocate_aligned(T *ptr) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00063">alignment.h:63</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00022">limes_namespace.h:22</a></div></div>
+<div class="ttc" id="anamespacememory_html_a898974242418e2b20981a737c5e82410"><div class="ttname"><a href="namespacememory.html#a898974242418e2b20981a737c5e82410">memory::allocate_aligned</a></div><div class="ttdeci">LIMES_EXPORT T * allocate_aligned(std::size_t count=1, std::size_t alignment=32, Args &amp;&amp;... args) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00034">alignment.h:34</a></div></div>
+<div class="ttc" id="aclassmemory_1_1aligned__pointer_html_a0e4dbeca69770a5ffcd56c9efeb9acb9"><div class="ttname"><a href="classmemory_1_1aligned__pointer.html#a0e4dbeca69770a5ffcd56c9efeb9acb9">memory::aligned_pointer::operator()</a></div><div class="ttdeci">T * operator()() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00111">alignment.h:111</a></div></div>
 <div class="ttc" id="apreprocessor_8h_html_aa19294b73467ee63a3601fe2ff636b8c"><div class="ttname"><a href="preprocessor_8h.html#aa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a></div><div class="ttdeci">#define LIMES_NON_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="preprocessor_8h_source.html#l00042">preprocessor.h:42</a></div></div>
-<div class="ttc" id="aclassaligned__pointer_html_ad0f1fe931d3ab1e1292a1bea73e574be"><div class="ttname"><a href="classaligned__pointer.html#ad0f1fe931d3ab1e1292a1bea73e574be">aligned_pointer::aligned_pointer</a></div><div class="ttdeci">aligned_pointer(std::size_t count=1, std::size_t alignment=32, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00090">alignment.h:90</a></div></div>
-<div class="ttc" id="aalignment_8h_html_ada6c738c9bdd4010553287fbf86251b4"><div class="ttname"><a href="alignment_8h.html#ada6c738c9bdd4010553287fbf86251b4">allocate_aligned</a></div><div class="ttdeci">LIMES_BEGIN_NAMESPACE LIMES_EXPORT T * allocate_aligned(std::size_t count=1, std::size_t alignment=32, Args &amp;&amp;... args) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00031">alignment.h:31</a></div></div>
-<div class="ttc" id="aclassaligned__pointer_html_a1a1fd6eab94d8aef3b9072f5edae16ed"><div class="ttname"><a href="classaligned__pointer.html#a1a1fd6eab94d8aef3b9072f5edae16ed">aligned_pointer::~aligned_pointer</a></div><div class="ttdeci">~aligned_pointer()</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00097">alignment.h:97</a></div></div>
+<div class="ttc" id="aclassmemory_1_1aligned__pointer_html_a350c383da62265eb97bde2d133a2acc8"><div class="ttname"><a href="classmemory_1_1aligned__pointer.html#a350c383da62265eb97bde2d133a2acc8">memory::aligned_pointer::operator-&gt;</a></div><div class="ttdeci">T * operator-&gt;() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00115">alignment.h:115</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00015">limes_namespace.h:15</a></div></div>
-<div class="ttc" id="aclassaligned__pointer_html_a5944bd79da8c6bebf9e986c23325f35c"><div class="ttname"><a href="classaligned__pointer.html#a5944bd79da8c6bebf9e986c23325f35c">aligned_pointer&lt; int &gt;::OwnedType</a></div><div class="ttdeci">int OwnedType</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00087">alignment.h:87</a></div></div>
-<div class="ttc" id="aclassaligned__pointer_html_a44f1dc9cfb74cd5173475776d87554d0"><div class="ttname"><a href="classaligned__pointer.html#a44f1dc9cfb74cd5173475776d87554d0">aligned_pointer::get</a></div><div class="ttdeci">T * get() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00106">alignment.h:106</a></div></div>
+<div class="ttc" id="aclassmemory_1_1aligned__pointer_html_a72ade0d19f3bd4e058e0c8c94fab88f3"><div class="ttname"><a href="classmemory_1_1aligned__pointer.html#a72ade0d19f3bd4e058e0c8c94fab88f3">memory::aligned_pointer::get</a></div><div class="ttdeci">T * get() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00109">alignment.h:109</a></div></div>
+<div class="ttc" id="aclassmemory_1_1aligned__pointer_html_a53a40bde9425962df38801e60ec53c30"><div class="ttname"><a href="classmemory_1_1aligned__pointer.html#a53a40bde9425962df38801e60ec53c30">memory::aligned_pointer::~aligned_pointer</a></div><div class="ttdeci">~aligned_pointer()</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00100">alignment.h:100</a></div></div>
+<div class="ttc" id="aclassmemory_1_1aligned__pointer_html_a2781018fd429480d4374540ad7c0fe7a"><div class="ttname"><a href="classmemory_1_1aligned__pointer.html#a2781018fd429480d4374540ad7c0fe7a">memory::aligned_pointer&lt; int &gt;::OwnedType</a></div><div class="ttdeci">int OwnedType</div><div class="ttdef"><b>Definition:</b> <a href="alignment_8h_source.html#l00090">alignment.h:90</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_9a46d78c45cc3c1f9dc56c640d7c4019.html">memory</a></li><li class="navelem"><a class="el" href="alignment_8h.html">alignment.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:42 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

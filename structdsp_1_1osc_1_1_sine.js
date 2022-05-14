@@ -1,6 +1,6 @@
 var structdsp_1_1osc_1_1_sine =
 [
-    [ "SampleVector", "structdsp_1_1osc_1_1_sine.html#a9c700638fbc9b20c7d01af333fa9dace", null ],
+    [ "SampleVector", "structdsp_1_1osc_1_1_sine.html#a1e5b8a154ca74d2c469f92c24fe55fab", null ],
     [ "Sine", "structdsp_1_1osc_1_1_sine.html#aa8f01029e17bd2f512e7c8bdf33fb405", null ],
     [ "getFrequency", "structdsp_1_1osc_1_1_sine.html#a7ed04aacbcf3fced74fa25b456a850a0", null ],
     [ "getSample", "structdsp_1_1osc_1_1_sine.html#a5520f61d0deb5752ab24f64c1f5bc80d", null ],

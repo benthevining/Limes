@@ -1,6 +1,6 @@
 var classdsp_1_1_circular_buffer =
 [
-    [ "SampleVector", "classdsp_1_1_circular_buffer.html#ac6360cb0bdb59e415c5f7cccf492935a", null ],
+    [ "SampleVector", "classdsp_1_1_circular_buffer.html#a6f7f7f2820e4904424dfcfb58c07f9ca", null ],
     [ "CircularBuffer", "classdsp_1_1_circular_buffer.html#a55ec84f650102759e16f863a3e09c49d", null ],
     [ "clear", "classdsp_1_1_circular_buffer.html#a9bebc53b430ec0568de1be13c4ade8db", null ],
     [ "getCapacity", "classdsp_1_1_circular_buffer.html#aa0a9c119b6a161fdd0fae8b07910e20f", null ],

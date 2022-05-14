@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -118,18 +118,18 @@ $(document).ready(function(){initNavTree('languages_8h_source.html',''); initRes
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="structlocale_1_1_language.html">Language</a> (<span class="keyword">const</span> std::string_view&amp; name,</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                       <span class="keyword">const</span> std::string_view&amp; ISO_639_1, <span class="keyword">const</span> std::string_view&amp; ISO_639_2,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                       <span class="keyword">const</span> <a class="code" href="vector_8h.html#af4f0f79241cafdc8f2f20d08af5a31bf">StringVector</a>&amp; countries   = {},  <span class="comment">// NOLINT</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                       <span class="keywordtype">bool</span>                rightToLeft = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                       <span class="keyword">const</span> <a class="code" href="namespaceds.html#a8460838eef5bd70737ec1aadb28b4b8d">ds::StringVector</a>&amp; countries   = {},  <span class="comment">// NOLINT</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                       <span class="keywordtype">bool</span>                    rightToLeft = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="structlocale_1_1_language.html">Language</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> isForCountry (<span class="keyword">const</span> std::string_view&amp; countryCode) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    [[nodiscard]] <a class="code" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector&lt;Country&gt;</a> getCountries() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    [[nodiscard]] <a class="code" href="namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector&lt;Country&gt;</a> getCountries() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structlocale_1_1_language.html#a170827715d8c2242c9e58d046eb7409f">   42</a></span>&#160;    std::string <a class="code" href="structlocale_1_1_language.html#a170827715d8c2242c9e58d046eb7409f">languageName</a>, ISO639_1, ISO639_2;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structlocale_1_1_language.html#a09c078cc2e7115ce195b7aa3ad7ab354">   44</a></span>&#160;    <a class="code" href="vector_8h.html#af4f0f79241cafdc8f2f20d08af5a31bf">StringVector</a> <a class="code" href="structlocale_1_1_language.html#a09c078cc2e7115ce195b7aa3ad7ab354">countryCodes</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structlocale_1_1_language.html#a700670c2ff28836efd571e95d19a46f6">   44</a></span>&#160;    <a class="code" href="namespaceds.html#a8460838eef5bd70737ec1aadb28b4b8d">ds::StringVector</a> <a class="code" href="structlocale_1_1_language.html#a700670c2ff28836efd571e95d19a46f6">countryCodes</a>;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structlocale_1_1_language.html#ae172bcc498b78e911304d47febddf397">   46</a></span>&#160;    <span class="keywordtype">bool</span> isRightToLeft { <span class="keyword">false</span> };</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
@@ -139,9 +139,9 @@ $(document).ready(function(){initNavTree('languages_8h_source.html',''); initRes
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;[[nodiscard]] LIMES_EXPORT Language <a class="code" href="namespacelocale.html#ace306aa0dfcae7ac36db5bd2047e664a">getLanguage</a> (<span class="keyword">const</span> std::string_view&amp; languageName);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;[[nodiscard]] LIMES_EXPORT <a class="code" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector&lt;Language&gt;</a> <a class="code" href="namespacelocale.html#adf61d06fd552d7834e603c5f73ab8f34">getLanguagesForCountry</a> (<span class="keyword">const</span> std::string_view&amp; countryCode);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;[[nodiscard]] LIMES_EXPORT <a class="code" href="namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector&lt;Language&gt;</a> <a class="code" href="namespacelocale.html#a5a9ca617c05af633b214fe6043698e6e">getLanguagesForCountry</a> (<span class="keyword">const</span> std::string_view&amp; countryCode);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;[[nodiscard]] LIMES_EXPORT <a class="code" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector&lt;Language&gt;</a> <a class="code" href="namespacelocale.html#af0ca6102725e659e1a6ea2c076ce2d0c">getAllKnownLanguages</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;[[nodiscard]] LIMES_EXPORT <a class="code" href="namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector&lt;Language&gt;</a> <a class="code" href="namespacelocale.html#a0a4fffa9ecde73148de5240e2e73d034">getAllKnownLanguages</a>();</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}  <span class="comment">// namespace locale</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
@@ -151,22 +151,22 @@ $(document).ready(function(){initNavTree('languages_8h_source.html',''); initRes
 <div class="ttc" id="astructlocale_1_1_language_html"><div class="ttname"><a href="structlocale_1_1_language.html">locale::Language</a></div><div class="ttdef"><b>Definition:</b> <a href="languages_8h_source.html#l00029">languages.h:29</a></div></div>
 <div class="ttc" id="anamespacelocale_html_ae2a4889b42da4f8cc121814805e3b775"><div class="ttname"><a href="namespacelocale.html#ae2a4889b42da4f8cc121814805e3b775">locale::getLanguageForCode</a></div><div class="ttdeci">LIMES_EXPORT Language getLanguageForCode(const std::string_view &amp;ISOlanguageCode)</div></div>
 <div class="ttc" id="anamespacelocale_html"><div class="ttname"><a href="namespacelocale.html">locale</a></div><div class="ttdef"><b>Definition:</b> <a href="countries_8h_source.html#l00022">countries.h:22</a></div></div>
-<div class="ttc" id="anamespacelocale_html_adf61d06fd552d7834e603c5f73ab8f34"><div class="ttname"><a href="namespacelocale.html#adf61d06fd552d7834e603c5f73ab8f34">locale::getLanguagesForCountry</a></div><div class="ttdeci">LIMES_EXPORT vector&lt; Language &gt; getLanguagesForCountry(const std::string_view &amp;countryCode)</div></div>
-<div class="ttc" id="avector_8h_html_af4f0f79241cafdc8f2f20d08af5a31bf"><div class="ttname"><a href="vector_8h.html#af4f0f79241cafdc8f2f20d08af5a31bf">StringVector</a></div><div class="ttdeci">vector&lt; std::string &gt; StringVector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00028">vector.h:28</a></div></div>
-<div class="ttc" id="avector_8h_html_a4aa0f07eb0a2fc7453107bb42b4591aa"><div class="ttname"><a href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector</a></div><div class="ttdeci">std::conditional_t&lt; std::is_scalar_v&lt; ObjectType &gt; &amp;&amp;! std::is_pointer_v&lt; ObjectType &gt;, scalar_vector&lt; ObjectType, Allocator &gt;, basic_vector&lt; ObjectType, Allocator &gt; &gt; vector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00026">vector.h:26</a></div></div>
-<div class="ttc" id="astructlocale_1_1_language_html_a09c078cc2e7115ce195b7aa3ad7ab354"><div class="ttname"><a href="structlocale_1_1_language.html#a09c078cc2e7115ce195b7aa3ad7ab354">locale::Language::countryCodes</a></div><div class="ttdeci">StringVector countryCodes</div><div class="ttdef"><b>Definition:</b> <a href="languages_8h_source.html#l00044">languages.h:44</a></div></div>
 <div class="ttc" id="alimes__data__structures_8h_html"><div class="ttname"><a href="limes__data__structures_8h.html">limes_data_structures.h</a></div></div>
-<div class="ttc" id="anamespacelocale_html_af0ca6102725e659e1a6ea2c076ce2d0c"><div class="ttname"><a href="namespacelocale.html#af0ca6102725e659e1a6ea2c076ce2d0c">locale::getAllKnownLanguages</a></div><div class="ttdeci">LIMES_EXPORT vector&lt; Language &gt; getAllKnownLanguages()</div></div>
+<div class="ttc" id="anamespaceds_html_a8460838eef5bd70737ec1aadb28b4b8d"><div class="ttname"><a href="namespaceds.html#a8460838eef5bd70737ec1aadb28b4b8d">ds::StringVector</a></div><div class="ttdeci">vector&lt; std::string &gt; StringVector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00031">vector.h:31</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00022">limes_namespace.h:22</a></div></div>
+<div class="ttc" id="anamespaceds_html_a813f9ca146f6e29fde2f5d40bf2bb870"><div class="ttname"><a href="namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector</a></div><div class="ttdeci">std::conditional_t&lt; std::is_scalar_v&lt; ObjectType &gt; &amp;&amp;! std::is_pointer_v&lt; ObjectType &gt;, scalar_vector&lt; ObjectType, Allocator &gt;, basic_vector&lt; ObjectType, Allocator &gt; &gt; vector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00029">vector.h:29</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00015">limes_namespace.h:15</a></div></div>
+<div class="ttc" id="anamespacelocale_html_a0a4fffa9ecde73148de5240e2e73d034"><div class="ttname"><a href="namespacelocale.html#a0a4fffa9ecde73148de5240e2e73d034">locale::getAllKnownLanguages</a></div><div class="ttdeci">LIMES_EXPORT ds::vector&lt; Language &gt; getAllKnownLanguages()</div></div>
+<div class="ttc" id="anamespacelocale_html_a5a9ca617c05af633b214fe6043698e6e"><div class="ttname"><a href="namespacelocale.html#a5a9ca617c05af633b214fe6043698e6e">locale::getLanguagesForCountry</a></div><div class="ttdeci">LIMES_EXPORT ds::vector&lt; Language &gt; getLanguagesForCountry(const std::string_view &amp;countryCode)</div></div>
 <div class="ttc" id="anamespacelocale_html_ace306aa0dfcae7ac36db5bd2047e664a"><div class="ttname"><a href="namespacelocale.html#ace306aa0dfcae7ac36db5bd2047e664a">locale::getLanguage</a></div><div class="ttdeci">LIMES_EXPORT Language getLanguage(const std::string_view &amp;languageName)</div></div>
+<div class="ttc" id="astructlocale_1_1_language_html_a700670c2ff28836efd571e95d19a46f6"><div class="ttname"><a href="structlocale_1_1_language.html#a700670c2ff28836efd571e95d19a46f6">locale::Language::countryCodes</a></div><div class="ttdeci">ds::StringVector countryCodes</div><div class="ttdef"><b>Definition:</b> <a href="languages_8h_source.html#l00044">languages.h:44</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <div class="ttc" id="astructlocale_1_1_language_html_a170827715d8c2242c9e58d046eb7409f"><div class="ttname"><a href="structlocale_1_1_language.html#a170827715d8c2242c9e58d046eb7409f">locale::Language::languageName</a></div><div class="ttdeci">std::string languageName</div><div class="ttdef"><b>Definition:</b> <a href="languages_8h_source.html#l00042">languages.h:42</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_8be6f37dbc74117fadbac95decbd80e0.html">limes_locale</a></li><li class="navelem"><a class="el" href="dir_47b0ae583f3ed7f7ec46ec3091da6450.html">languages</a></li><li class="navelem"><a class="el" href="languages_8h.html">languages.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:42 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

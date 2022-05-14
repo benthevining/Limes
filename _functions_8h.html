@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('_functions_8h.html',''); initResizable
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -118,210 +119,44 @@ $(document).ready(function(){initNavTree('_functions_8h.html',''); initResizable
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_call_deferred.html">CallDeferred&lt; Func &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfunc_1_1_call_deferred.html">func::CallDeferred&lt; Func &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_a_i_i_caller.html">RAIICaller&lt; Function1, Function2 &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfunc_1_1_r_a_i_i_caller.html">func::RAIICaller&lt; Function1, Function2 &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacefunc"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefunc.html">func</a></td></tr>
+<tr class="memdesc:namespacefunc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains some utilities for working with higher-level functions and functions as objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a36f76afbd799be834b61c2fba7b698bf"><td class="memTemplParams" colspan="2">template&lt;Function Func&gt; </td></tr>
-<tr class="memitem:a36f76afbd799be834b61c2fba7b698bf"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_functions_8h.html#a36f76afbd799be834b61c2fba7b698bf">call_once</a> (Func &amp;&amp;func, std::invoke_result_t&lt; Func &gt; *result=nullptr) noexcept(noexcept(func))</td></tr>
-<tr class="separator:a36f76afbd799be834b61c2fba7b698bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10c43b0d88e91df294937c42b678f0c9"><td class="memTemplParams" colspan="2">template&lt;typename... Param&gt; </td></tr>
-<tr class="memitem:a10c43b0d88e91df294937c42b678f0c9"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORTdecltype(auto) consteval&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_functions_8h.html#a10c43b0d88e91df294937c42b678f0c9">consteval_invoke</a> (Param &amp;&amp;... param) noexcept</td></tr>
-<tr class="separator:a10c43b0d88e91df294937c42b678f0c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeab7432abcbbc7fd7bcbdbda7e20e076"><td class="memItemLeft" align="right" valign="top">constexpr decltype(auto)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_functions_8h.html#aeab7432abcbbc7fd7bcbdbda7e20e076">curry</a> (auto f, auto... ps)</td></tr>
-<tr class="separator:aeab7432abcbbc7fd7bcbdbda7e20e076"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7e59c063b154e365d10bc50a2b523ad"><td class="memTemplParams" colspan="2">template&lt;Function Func, typename... Args&gt; </td></tr>
-<tr class="memitem:ad7e59c063b154e365d10bc50a2b523ad"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_functions_8h.html#ad7e59c063b154e365d10bc50a2b523ad">try_call</a> (Func &amp;&amp;func, Args &amp;&amp;... args) noexcept</td></tr>
-<tr class="separator:ad7e59c063b154e365d10bc50a2b523ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a721d87621ab2fa2ff1ab032652d0b035"><td class="memTemplParams" colspan="2">template&lt;Function Func&gt; </td></tr>
+<tr class="memitem:a721d87621ab2fa2ff1ab032652d0b035"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefunc.html#a721d87621ab2fa2ff1ab032652d0b035">func::call_once</a> (Func &amp;&amp;func, std::invoke_result_t&lt; Func &gt; *result=nullptr) noexcept(noexcept(func))</td></tr>
+<tr class="separator:a721d87621ab2fa2ff1ab032652d0b035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca5e418d69ffceeb71b3ba29e6539e3c"><td class="memTemplParams" colspan="2">template&lt;typename... Param&gt; </td></tr>
+<tr class="memitem:aca5e418d69ffceeb71b3ba29e6539e3c"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORTdecltype(auto) consteval&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefunc.html#aca5e418d69ffceeb71b3ba29e6539e3c">func::consteval_invoke</a> (Param &amp;&amp;... param) noexcept</td></tr>
+<tr class="separator:aca5e418d69ffceeb71b3ba29e6539e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c20c15a7d3553a54d6fc156280e9705"><td class="memItemLeft" align="right" valign="top">constexpr decltype(auto)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefunc.html#a0c20c15a7d3553a54d6fc156280e9705">func::curry</a> (auto f, auto... ps)</td></tr>
+<tr class="separator:a0c20c15a7d3553a54d6fc156280e9705"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c54695eb338963524e6830107685528"><td class="memTemplParams" colspan="2">template&lt;Function Func, typename... Args&gt; </td></tr>
+<tr class="memitem:a2c54695eb338963524e6830107685528"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefunc.html#a2c54695eb338963524e6830107685528">func::try_call</a> (Func &amp;&amp;func, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="separator:a2c54695eb338963524e6830107685528"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:abf64f2f268de39c4f6f49487379b0295"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:abf64f2f268de39c4f6f49487379b0295"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a> concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_functions_8h.html#abf64f2f268de39c4f6f49487379b0295">Function</a></td></tr>
-<tr class="separator:abf64f2f268de39c4f6f49487379b0295"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dbd7fc208fe38c48614027d7480df86"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3dbd7fc208fe38c48614027d7480df86"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefunc.html#a3dbd7fc208fe38c48614027d7480df86">func::Function</a></td></tr>
+<tr class="separator:a3dbd7fc208fe38c48614027d7480df86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a36f76afbd799be834b61c2fba7b698bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36f76afbd799be834b61c2fba7b698bf">&#9670;&nbsp;</a></span>call_once()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Function Func&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT bool call_once </td>
-          <td>(</td>
-          <td class="paramtype">Func &amp;&amp;&#160;</td>
-          <td class="paramname"><em>func</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::invoke_result_t&lt; Func &gt; *&#160;</td>
-          <td class="paramname"><em>result</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_functions_8h_source.html#l00034">34</a> of file <a class="el" href="_functions_8h_source.html">Functions.h</a>.</p>
-
-</div>
-</div>
-<a id="a10c43b0d88e91df294937c42b678f0c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10c43b0d88e91df294937c42b678f0c9">&#9670;&nbsp;</a></span>consteval_invoke()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename... Param&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORTdecltype(auto) consteval consteval_invoke </td>
-          <td>(</td>
-          <td class="paramtype">Param &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>param</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_functions_8h_source.html#l00135">135</a> of file <a class="el" href="_functions_8h_source.html">Functions.h</a>.</p>
-
-</div>
-</div>
-<a id="aeab7432abcbbc7fd7bcbdbda7e20e076"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeab7432abcbbc7fd7bcbdbda7e20e076">&#9670;&nbsp;</a></span>curry()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr decltype(auto) curry </td>
-          <td>(</td>
-          <td class="paramtype">auto&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">auto...&#160;</td>
-          <td class="paramname"><em>ps</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_functions_8h_source.html#l00120">120</a> of file <a class="el" href="_functions_8h_source.html">Functions.h</a>.</p>
-
-</div>
-</div>
-<a id="ad7e59c063b154e365d10bc50a2b523ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7e59c063b154e365d10bc50a2b523ad">&#9670;&nbsp;</a></span>try_call()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Function Func, typename... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT bool try_call </td>
-          <td>(</td>
-          <td class="paramtype">Func &amp;&amp;&#160;</td>
-          <td class="paramname"><em>func</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_functions_8h_source.html#l00148">148</a> of file <a class="el" href="_functions_8h_source.html">Functions.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="abf64f2f268de39c4f6f49487379b0295"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf64f2f268de39c4f6f49487379b0295">&#9670;&nbsp;</a></span>Function</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a> concept Function</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= requires (T f)</div>
-<div class="line">{</div>
-<div class="line">    { f() };</div>
-<div class="line">}</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_functions_8h_source.html#l00027">27</a> of file <a class="el" href="_functions_8h_source.html">Functions.h</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_b248b318e77e637c1d0c7267e8f84ced.html">misc</a></li><li class="navelem"><a class="el" href="_functions_8h.html">Functions.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:43 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

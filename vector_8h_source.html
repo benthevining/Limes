@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -108,39 +108,44 @@ $(document).ready(function(){initNavTree('vector_8h_source.html',''); initResiza
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<a class="code" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keyword">class</span> Allocator = std::allocator&lt;ObjectType&gt;&gt;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">using</span> <a class="code" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector</a> = std::conditional_t&lt;std::is_scalar_v&lt;ObjectType&gt; &amp;&amp; ! std::is_pointer_v&lt;ObjectType&gt;,</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                  <a class="code" href="classscalar__vector.html">scalar_vector&lt;ObjectType, Allocator&gt;</a>,</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">   26</a></span>&#160;                                  <a class="code" href="classbasic__vector.html">basic_vector&lt;ObjectType, Allocator&gt;</a>&gt;;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="vector_8h.html#af4f0f79241cafdc8f2f20d08af5a31bf">   28</a></span>&#160;<span class="keyword">using</span> <a class="code" href="vector_8h.html#af4f0f79241cafdc8f2f20d08af5a31bf">StringVector</a> = <a class="code" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector&lt;std::string&gt;</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keywordtype">size_t</span> N&gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="vector_8h.html#ad3e868dd5192308de5509777d85acb2f">   31</a></span>&#160;<span class="keyword">using</span> <a class="code" href="vector_8h.html#ad3e868dd5192308de5509777d85acb2f">StackVector</a> = <a class="code" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector&lt;ObjectType, StackAllocator&lt;ObjectType, N&gt;</a>&gt;;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceds.html">ds</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keyword">class</span> Allocator = std::allocator&lt;ObjectType&gt;&gt;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">vector</a> = std::conditional_t&lt;std::is_scalar_v&lt;ObjectType&gt; &amp;&amp; ! std::is_pointer_v&lt;ObjectType&gt;,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                  scalar_vector&lt;ObjectType, Allocator&gt;,</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">   29</a></span>&#160;                                  <a class="code" href="classds_1_1basic__vector.html">basic_vector&lt;ObjectType, Allocator&gt;</a>&gt;;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespaceds.html#a8460838eef5bd70737ec1aadb28b4b8d">   31</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceds.html#a8460838eef5bd70737ec1aadb28b4b8d">StringVector</a> = <a class="code" href="namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">vector&lt;std::string&gt;</a>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keywordtype">size_t</span> Capacity&gt;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="vector_8h.html#ac99c5282a5bdf680e0d361796c5fc953">   34</a></span>&#160;<span class="keyword">using</span> <a class="code" href="vector_8h.html#ac99c5282a5bdf680e0d361796c5fc953">PoolVector</a> = <a class="code" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector&lt;ObjectType, MemoryPoolAllocator&lt;ObjectType, Capacity&gt;</a>&gt;;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keywordtype">size_t</span> N&gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespaceds.html#a0a3bd5fbadad4a81c5f13d07b98aadcd">   34</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceds.html#a0a3bd5fbadad4a81c5f13d07b98aadcd">StackVector</a> = <a class="code" href="namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">vector&lt;ObjectType, memory::StackAllocator&lt;ObjectType, N&gt;</a>&gt;;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keywordtype">size_t</span> Capacity&gt;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespaceds.html#a3142f6ef83d2aad2bdb2d96d49bf6afd">   37</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceds.html#a3142f6ef83d2aad2bdb2d96d49bf6afd">PoolVector</a> = <a class="code" href="namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">vector&lt;ObjectType, memory::MemoryPoolAllocator&lt;ObjectType, Capacity&gt;</a>&gt;;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}  <span class="comment">// namespace ds</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="avector_8h_html_af4f0f79241cafdc8f2f20d08af5a31bf"><div class="ttname"><a href="vector_8h.html#af4f0f79241cafdc8f2f20d08af5a31bf">StringVector</a></div><div class="ttdeci">vector&lt; std::string &gt; StringVector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00028">vector.h:28</a></div></div>
-<div class="ttc" id="avector_8h_html_a4aa0f07eb0a2fc7453107bb42b4591aa"><div class="ttname"><a href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">vector</a></div><div class="ttdeci">std::conditional_t&lt; std::is_scalar_v&lt; ObjectType &gt; &amp;&amp;! std::is_pointer_v&lt; ObjectType &gt;, scalar_vector&lt; ObjectType, Allocator &gt;, basic_vector&lt; ObjectType, Allocator &gt; &gt; vector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00026">vector.h:26</a></div></div>
+<div class="ttc" id="anamespaceds_html"><div class="ttname"><a href="namespaceds.html">ds</a></div><div class="ttdoc">This namespace contains some useful data structures.</div><div class="ttdef"><b>Definition:</b> <a href="_abstract_f_i_f_o_8h_source.html#l00022">AbstractFIFO.h:22</a></div></div>
+<div class="ttc" id="aclassds_1_1basic__vector_html"><div class="ttname"><a href="classds_1_1basic__vector.html">ds::basic_vector</a></div><div class="ttdef"><b>Definition:</b> <a href="basic__vector_8h_source.html#l00032">basic_vector.h:32</a></div></div>
+<div class="ttc" id="anamespaceds_html_a3142f6ef83d2aad2bdb2d96d49bf6afd"><div class="ttname"><a href="namespaceds.html#a3142f6ef83d2aad2bdb2d96d49bf6afd">ds::PoolVector</a></div><div class="ttdeci">vector&lt; ObjectType, memory::MemoryPoolAllocator&lt; ObjectType, Capacity &gt; &gt; PoolVector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00037">vector.h:37</a></div></div>
+<div class="ttc" id="anamespaceds_html_a8460838eef5bd70737ec1aadb28b4b8d"><div class="ttname"><a href="namespaceds.html#a8460838eef5bd70737ec1aadb28b4b8d">ds::StringVector</a></div><div class="ttdeci">vector&lt; std::string &gt; StringVector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00031">vector.h:31</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00022">limes_namespace.h:22</a></div></div>
 <div class="ttc" id="alimes__core_8h_html"><div class="ttname"><a href="limes__core_8h.html">limes_core.h</a></div></div>
-<div class="ttc" id="aclassscalar__vector_html"><div class="ttname"><a href="classscalar__vector.html">scalar_vector</a></div><div class="ttdef"><b>Definition:</b> <a href="scalar__vector_8h_source.html#l00024">scalar_vector.h:24</a></div></div>
 <div class="ttc" id="ascalar__vector_8h_html"><div class="ttname"><a href="scalar__vector_8h.html">scalar_vector.h</a></div></div>
-<div class="ttc" id="avector_8h_html_ad3e868dd5192308de5509777d85acb2f"><div class="ttname"><a href="vector_8h.html#ad3e868dd5192308de5509777d85acb2f">StackVector</a></div><div class="ttdeci">vector&lt; ObjectType, StackAllocator&lt; ObjectType, N &gt; &gt; StackVector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00031">vector.h:31</a></div></div>
+<div class="ttc" id="anamespaceds_html_a813f9ca146f6e29fde2f5d40bf2bb870"><div class="ttname"><a href="namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector</a></div><div class="ttdeci">std::conditional_t&lt; std::is_scalar_v&lt; ObjectType &gt; &amp;&amp;! std::is_pointer_v&lt; ObjectType &gt;, scalar_vector&lt; ObjectType, Allocator &gt;, basic_vector&lt; ObjectType, Allocator &gt; &gt; vector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00029">vector.h:29</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00015">limes_namespace.h:15</a></div></div>
 <div class="ttc" id="abasic__vector_8h_html"><div class="ttname"><a href="basic__vector_8h.html">basic_vector.h</a></div></div>
-<div class="ttc" id="aclassbasic__vector_html"><div class="ttname"><a href="classbasic__vector.html">basic_vector</a></div><div class="ttdef"><b>Definition:</b> <a href="basic__vector_8h_source.html#l00026">basic_vector.h:26</a></div></div>
-<div class="ttc" id="avector_8h_html_ac99c5282a5bdf680e0d361796c5fc953"><div class="ttname"><a href="vector_8h.html#ac99c5282a5bdf680e0d361796c5fc953">PoolVector</a></div><div class="ttdeci">vector&lt; ObjectType, MemoryPoolAllocator&lt; ObjectType, Capacity &gt; &gt; PoolVector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00034">vector.h:34</a></div></div>
+<div class="ttc" id="anamespaceds_html_a0a3bd5fbadad4a81c5f13d07b98aadcd"><div class="ttname"><a href="namespaceds.html#a0a3bd5fbadad4a81c5f13d07b98aadcd">ds::StackVector</a></div><div class="ttdeci">vector&lt; ObjectType, memory::StackAllocator&lt; ObjectType, N &gt; &gt; StackVector</div><div class="ttdef"><b>Definition:</b> <a href="vector_8h_source.html#l00034">vector.h:34</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_0e0c5ea0f8eb3c0f9e9d1c7f184a59c4.html">limes_data_structures</a></li><li class="navelem"><a class="el" href="dir_06ea5f4baff843fd89ddbd7e26c5816f.html">vectors</a></li><li class="navelem"><a class="el" href="vector_8h.html">vector.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:43 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

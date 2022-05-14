@@ -1,38 +1,38 @@
 var hierarchy =
 [
-    [ "AbstractFIFO", "class_abstract_f_i_f_o.html", null ],
-    [ "aligned_pointer< T >", "classaligned__pointer.html", null ],
-    [ "aligned_pointer< int >", "classaligned__pointer.html", null ],
-    [ "aligned_pointer< SampleType >", "classaligned__pointer.html", null ],
-    [ "AlignedAllocator< T, Alignment, UseExceptions >", "class_aligned_allocator.html", null ],
+    [ "ds::AbstractFIFO", "classds_1_1_abstract_f_i_f_o.html", null ],
+    [ "memory::aligned_pointer< T >", "classmemory_1_1aligned__pointer.html", null ],
+    [ "memory::aligned_pointer< int >", "classmemory_1_1aligned__pointer.html", null ],
+    [ "memory::aligned_pointer< SampleType >", "classmemory_1_1aligned__pointer.html", null ],
+    [ "memory::AlignedAllocator< T, Alignment, UseExceptions >", "classmemory_1_1_aligned_allocator.html", null ],
     [ "dsp::psola::Analyzer< SampleType >", "classdsp_1_1psola_1_1_analyzer.html", null ],
     [ "math::geometry::Angle< ValueType >", "classmath_1_1geometry_1_1_angle.html", null ],
-    [ "basic_vector< ElementType, Allocator >", "classbasic__vector.html", null ],
-    [ "basic_vector< ElementType, std::allocator< ElementType > >", "classbasic__vector.html", [
-      [ "scalar_vector< ElementType, Allocator >", "classscalar__vector.html", null ]
+    [ "ds::basic_vector< ElementType, Allocator >", "classds_1_1basic__vector.html", null ],
+    [ "ds::basic_vector< ElementType, std::allocator< ElementType > >", "classds_1_1basic__vector.html", [
+      [ "ds::scalar_vector< ElementType, Allocator >", "classds_1_1scalar__vector.html", null ]
     ] ],
-    [ "basic_vector< float, std::allocator< float > >", "classbasic__vector.html", [
-      [ "scalar_vector< float >", "classscalar__vector.html", null ]
+    [ "ds::basic_vector< float, std::allocator< float > >", "classds_1_1basic__vector.html", [
+      [ "ds::scalar_vector< float >", "classds_1_1scalar__vector.html", null ]
     ] ],
-    [ "basic_vector< int, std::allocator< int > >", "classbasic__vector.html", [
-      [ "scalar_vector< int >", "classscalar__vector.html", null ]
+    [ "ds::basic_vector< int, std::allocator< int > >", "classds_1_1basic__vector.html", [
+      [ "ds::scalar_vector< int >", "classds_1_1scalar__vector.html", null ]
     ] ],
-    [ "basic_vector< SampleType, std::allocator< SampleType > >", "classbasic__vector.html", [
-      [ "scalar_vector< SampleType >", "classscalar__vector.html", null ]
+    [ "ds::basic_vector< SampleType, std::allocator< SampleType > >", "classds_1_1basic__vector.html", [
+      [ "ds::scalar_vector< SampleType >", "classds_1_1scalar__vector.html", null ]
     ] ],
-    [ "basic_vector< Sampletype, std::allocator< Sampletype > >", "classbasic__vector.html", [
-      [ "scalar_vector< Sampletype >", "classscalar__vector.html", null ]
+    [ "ds::basic_vector< Sampletype, std::allocator< Sampletype > >", "classds_1_1basic__vector.html", [
+      [ "ds::scalar_vector< Sampletype >", "classds_1_1scalar__vector.html", null ]
+    ] ],
+    [ "basic_vector< std::unique_ptr< ds::LinkedList::Node >, std::allocator< std::unique_ptr< ds::LinkedList::Node >> >", null, [
+      [ "ds::owned_vector< ds::LinkedList::Node >", "classds_1_1owned__vector.html", null ]
     ] ],
     [ "basic_vector< std::unique_ptr< ElementType >, std::allocator< std::unique_ptr< ElementType >> >", null, [
-      [ "owned_vector< ElementType, Allocator >", "classowned__vector.html", null ]
+      [ "ds::owned_vector< ElementType, Allocator >", "classds_1_1owned__vector.html", null ]
     ] ],
     [ "basic_vector< std::unique_ptr< Grain >, std::allocator< std::unique_ptr< Grain >> >", null, [
-      [ "owned_vector< Grain >", "classowned__vector.html", null ]
+      [ "ds::owned_vector< Grain >", "classds_1_1owned__vector.html", null ]
     ] ],
-    [ "basic_vector< std::unique_ptr< LinkedList::Node >, std::allocator< std::unique_ptr< LinkedList::Node >> >", null, [
-      [ "owned_vector< LinkedList::Node >", "classowned__vector.html", null ]
-    ] ],
-    [ "CallDeferred< Func >", "class_call_deferred.html", null ],
+    [ "func::CallDeferred< Func >", "classfunc_1_1_call_deferred.html", null ],
     [ "music::Chord", "classmusic_1_1_chord.html", null ],
     [ "dsp::CircularBuffer< SampleType >", "classdsp_1_1_circular_buffer.html", null ],
     [ "dsp::filters::Coeffecients< Sampletype >", "classdsp_1_1filters_1_1_coeffecients.html", null ],
@@ -44,7 +44,7 @@ var hierarchy =
     [ "time::Date", "classtime_1_1_date.html", null ],
     [ "time::DateTime", "classtime_1_1_date_time.html", null ],
     [ "dsp::osc::DetunableModel", "classdsp_1_1osc_1_1_detunable_model.html", null ],
-    [ "Dimensions", "struct_dimensions.html", null ],
+    [ "misc::Dimensions", "structmisc_1_1_dimensions.html", null ],
     [ "files::DynamicLibrary", "classfiles_1_1_dynamic_library.html", null ],
     [ "false_type", null, [
       [ "threads::detail::is_rt_safe< T, detail::copy_tag, detail::assignable_tag >", "structthreads_1_1detail_1_1is__rt__safe.html", [
@@ -73,7 +73,7 @@ var hierarchy =
       [ "vecops::IPP_FFT< SampleType >", "classvecops_1_1_i_p_p___f_f_t.html", null ],
       [ "vecops::vDSP_FFT< SampleType >", "classvecops_1_1v_d_s_p___f_f_t.html", null ]
     ] ],
-    [ "FIFO< ObjectType >", "class_f_i_f_o.html", null ],
+    [ "ds::FIFO< ObjectType >", "classds_1_1_f_i_f_o.html", null ],
     [ "files::FilesystemEntry", "classfiles_1_1_filesystem_entry.html", [
       [ "files::Directory", "classfiles_1_1_directory.html", null ],
       [ "files::File", "classfiles_1_1_file.html", [
@@ -86,8 +86,8 @@ var hierarchy =
     [ "std::hash< limes::files::DynamicLibrary >", "structstd_1_1hash_3_01limes_1_1files_1_1_dynamic_library_01_4.html", null ],
     [ "std::hash< limes::files::File >", "structstd_1_1hash_3_01limes_1_1files_1_1_file_01_4.html", null ],
     [ "std::hash< limes::files::FilesystemEntry >", "structstd_1_1hash_3_01limes_1_1files_1_1_filesystem_entry_01_4.html", null ],
-    [ "std::hash< limes::RawData >", "structstd_1_1hash_3_01limes_1_1_raw_data_01_4.html", null ],
-    [ "std::hash< limes::Version >", "structstd_1_1hash_3_01limes_1_1_version_01_4.html", null ],
+    [ "std::hash< limes::memory::RawData >", "structstd_1_1hash_3_01limes_1_1memory_1_1_raw_data_01_4.html", null ],
+    [ "std::hash< limes::misc::Version >", "structstd_1_1hash_3_01limes_1_1misc_1_1_version_01_4.html", null ],
     [ "hash::Hasher", "classhash_1_1_hasher.html", [
       [ "hash::MD5", "classhash_1_1_m_d5.html", null ],
       [ "hash::SHA1", "classhash_1_1_s_h_a1.html", null ],
@@ -108,22 +108,22 @@ var hierarchy =
     [ "music::Interval", "classmusic_1_1_interval.html", [
       [ "music::CompoundInterval", "classmusic_1_1_compound_interval.html", null ]
     ] ],
-    [ "LinkedListModel< ObjectType >::Iterator", "struct_linked_list_model_1_1_iterator.html", null ],
-    [ "owned_vector< ElementType, Allocator >::iterator_base< is_const >", "structowned__vector_1_1iterator__base.html", null ],
+    [ "ds::LinkedListModel< ObjectType >::Iterator", "structds_1_1_linked_list_model_1_1_iterator.html", null ],
+    [ "ds::owned_vector< ElementType, Allocator >::iterator_base< is_const >", "structds_1_1owned__vector_1_1iterator__base.html", null ],
     [ "locale::Language", "structlocale_1_1_language.html", null ],
-    [ "LinkedList< ObjectType >", "class_linked_list.html", null ],
-    [ "LinkedListModel< ObjectType >", "struct_linked_list_model.html", null ],
-    [ "LinkedListModel< LinkedList::Node >", "struct_linked_list_model.html", null ],
-    [ "LinkedListModel< music::NoteLength >", "struct_linked_list_model.html", null ],
-    [ "Matrix< ObjectType, Rows, Columns >", "class_matrix.html", null ],
-    [ "MemoryPool", "class_memory_pool.html", null ],
-    [ "MemoryPoolAllocator< T, MaxCapacity >", "class_memory_pool_allocator.html", null ],
-    [ "MemoryPoolPointer< ObjectType, AllowOverflowAllocation >", "class_memory_pool_pointer.html", null ],
+    [ "ds::LinkedList< ObjectType >", "classds_1_1_linked_list.html", null ],
+    [ "ds::LinkedListModel< ObjectType >", "structds_1_1_linked_list_model.html", null ],
+    [ "ds::LinkedListModel< ds::LinkedList::Node >", "structds_1_1_linked_list_model.html", null ],
+    [ "ds::LinkedListModel< music::NoteLength >", "structds_1_1_linked_list_model.html", null ],
+    [ "math::Matrix< ObjectType, Rows, Columns >", "classmath_1_1_matrix.html", null ],
+    [ "memory::MemoryPool", "classmemory_1_1_memory_pool.html", null ],
+    [ "memory::MemoryPoolAllocator< T, MaxCapacity >", "classmemory_1_1_memory_pool_allocator.html", null ],
+    [ "memory::MemoryPoolPointer< ObjectType, AllowOverflowAllocation >", "classmemory_1_1_memory_pool_pointer.html", null ],
     [ "music::MicrotonalInterval", "classmusic_1_1_microtonal_interval.html", null ],
     [ "dsp::MonoStereoConverter< SampleType >", "classdsp_1_1_mono_stereo_converter.html", null ],
     [ "time::Month", "classtime_1_1_month.html", null ],
     [ "midi::MtsClient", "classmidi_1_1_mts_client.html", null ],
-    [ "LinkedList< ObjectType >::Node", "struct_linked_list_1_1_node.html", null ],
+    [ "ds::LinkedList< ObjectType >::Node", "structds_1_1_linked_list_1_1_node.html", null ],
     [ "music::NoteDuration", "structmusic_1_1_note_duration.html", null ],
     [ "music::NoteLength", "structmusic_1_1_note_length.html", null ],
     [ "typelist::NullType", "structtypelist_1_1_null_type.html", null ],
@@ -132,23 +132,23 @@ var hierarchy =
       [ "threads::detail::NonRealtimeMutatableObject< ObjectType >", "classthreads_1_1detail_1_1_non_realtime_mutatable_object.html", null ],
       [ "threads::detail::RealtimeMutatableObject< ObjectType >", "classthreads_1_1detail_1_1_realtime_mutatable_object.html", null ]
     ] ],
-    [ "OptionalObject< T >", "class_optional_object.html", null ],
+    [ "memory::OptionalObject< T >", "classmemory_1_1_optional_object.html", null ],
     [ "dsp::PerlinNoise< SampleType >", "classdsp_1_1_perlin_noise.html", null ],
     [ "dsp::Oscillator< SampleType >::Phase", "structdsp_1_1_oscillator_1_1_phase.html", null ],
     [ "music::Pitch", "classmusic_1_1_pitch.html", null ],
     [ "midi::PitchbendMapper", "classmidi_1_1_pitchbend_mapper.html", null ],
     [ "music::PitchClass", "structmusic_1_1_pitch_class.html", null ],
     [ "dsp::psola::PitchDetector< SampleType >", "classdsp_1_1psola_1_1_pitch_detector.html", null ],
-    [ "RAIICaller< Function1, Function2 >", "class_r_a_i_i_caller.html", null ],
+    [ "func::RAIICaller< Function1, Function2 >", "classfunc_1_1_r_a_i_i_caller.html", null ],
     [ "math::Random", "classmath_1_1_random.html", null ],
-    [ "RawData", "class_raw_data.html", null ],
-    [ "AlignedAllocator< T, Alignment, UseExceptions >::rebind< U >", "struct_aligned_allocator_1_1rebind.html", null ],
-    [ "MemoryPoolAllocator< T, MaxCapacity >::rebind< U >", "struct_memory_pool_allocator_1_1rebind.html", null ],
-    [ "StackAllocator< T, N, Align >::rebind< _Up >", "struct_stack_allocator_1_1rebind.html", null ],
-    [ "ReferenceCountedObject", "class_reference_counted_object.html", [
-      [ "SharedObject< SuperType >", "struct_shared_object.html", null ]
+    [ "memory::RawData", "classmemory_1_1_raw_data.html", null ],
+    [ "memory::AlignedAllocator< T, Alignment, UseExceptions >::rebind< U >", "structmemory_1_1_aligned_allocator_1_1rebind.html", null ],
+    [ "memory::MemoryPoolAllocator< T, MaxCapacity >::rebind< U >", "structmemory_1_1_memory_pool_allocator_1_1rebind.html", null ],
+    [ "memory::StackAllocator< T, N, Align >::rebind< _Up >", "structmemory_1_1_stack_allocator_1_1rebind.html", null ],
+    [ "memory::ReferenceCountedObject", "classmemory_1_1_reference_counted_object.html", [
+      [ "memory::SharedObject< SuperType >", "structmemory_1_1_shared_object.html", null ]
     ] ],
-    [ "ReferenceCountedObjectPtr< ObjectType >", "class_reference_counted_object_ptr.html", null ],
+    [ "memory::ReferenceCountedObjectPtr< ObjectType >", "classmemory_1_1_reference_counted_object_ptr.html", null ],
     [ "dsp::SampleStream< SampleType >", "structdsp_1_1_sample_stream.html", [
       [ "dsp::Oscillator< SampleType >", "structdsp_1_1_oscillator.html", [
         [ "dsp::osc::Saw< SampleType >", "structdsp_1_1osc_1_1_saw.html", null ],
@@ -166,17 +166,17 @@ var hierarchy =
     ] ],
     [ "vecops::ScopedFlushToZero", "classvecops_1_1_scoped_flush_to_zero.html", null ],
     [ "vecops::ScopedNoDenormals", "classvecops_1_1_scoped_no_denormals.html", null ],
-    [ "AbstractFIFO::ScopedRead", "class_abstract_f_i_f_o_1_1_scoped_read.html", null ],
-    [ "ScopedStreamFlags", "struct_scoped_stream_flags.html", null ],
-    [ "AbstractFIFO::ScopedWrite", "class_abstract_f_i_f_o_1_1_scoped_write.html", null ],
-    [ "SharedObjectOwner< OwnedObjectType >", "struct_shared_object_owner.html", null ],
+    [ "ds::AbstractFIFO::ScopedRead", "classds_1_1_abstract_f_i_f_o_1_1_scoped_read.html", null ],
+    [ "misc::ScopedStreamFlags", "structmisc_1_1_scoped_stream_flags.html", null ],
+    [ "ds::AbstractFIFO::ScopedWrite", "classds_1_1_abstract_f_i_f_o_1_1_scoped_write.html", null ],
+    [ "memory::SharedObjectOwner< OwnedObjectType >", "structmemory_1_1_shared_object_owner.html", null ],
     [ "dsp::psola::Shifter< SampleType >", "classdsp_1_1psola_1_1_shifter.html", null ],
-    [ "stack_buffer< N, alignment >", "classstack__buffer.html", null ],
-    [ "stack_buffer< N, alignof(std::max_align_t) >", "classstack__buffer.html", null ],
-    [ "StackAllocator< T, N, Align >", "class_stack_allocator.html", null ],
+    [ "memory::stack_buffer< N, alignment >", "classmemory_1_1stack__buffer.html", null ],
+    [ "memory::stack_buffer< N, alignof(std::max_align_t) >", "classmemory_1_1stack__buffer.html", null ],
+    [ "memory::StackAllocator< T, N, Align >", "classmemory_1_1_stack_allocator.html", null ],
     [ "dsp::filters::Coeffecients< Sampletype >::Storage", "structdsp_1_1filters_1_1_coeffecients_1_1_storage.html", null ],
     [ "music::TimeSignature::Subdivision", "structmusic_1_1_time_signature_1_1_subdivision.html", null ],
-    [ "TextTable", "class_text_table.html", null ],
+    [ "strings::TextTable", "classstrings_1_1_text_table.html", null ],
     [ "threads::ThreadedObjectReader< ObjectType >", "structthreads_1_1_threaded_object_reader.html", null ],
     [ "threads::ThreadedObjectWriter< ObjectType >", "structthreads_1_1_threaded_object_writer.html", null ],
     [ "threads::ThreadSafeObject< ObjectType, totalNumThreads >", "classthreads_1_1_thread_safe_object.html", null ],
@@ -202,9 +202,9 @@ var hierarchy =
       [ "math::geometry::Square< ValueType >", "classmath_1_1geometry_1_1_square.html", null ],
       [ "math::geometry::Triangle< ValueType >", "classmath_1_1geometry_1_1_triangle.html", null ]
     ] ],
-    [ "typelist::TypeList< Types >", "classtypelist_1_1_type_list.html", null ],
+    [ "meta::TypeList< Types >", "classmeta_1_1_type_list.html", null ],
     [ "midi::VelocityMapper", "classmidi_1_1_velocity_mapper.html", null ],
-    [ "Version", "struct_version.html", null ],
+    [ "misc::Version", "structmisc_1_1_version.html", null ],
     [ "time::Weekday< StartWeekOnSunday >", "classtime_1_1_weekday.html", null ],
     [ "time::Year", "classtime_1_1_year.html", null ]
 ];

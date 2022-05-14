@@ -7,14 +7,14 @@ var files_dup =
       [ "ThreeDShape", "classmath_1_1geometry_1_1_three_d_shape.html", "classmath_1_1geometry_1_1_three_d_shape" ]
     ] ],
     [ "AbstractFIFO.h", "_abstract_f_i_f_o_8h.html", [
-      [ "AbstractFIFO", "class_abstract_f_i_f_o.html", "class_abstract_f_i_f_o" ],
-      [ "ScopedRead", "class_abstract_f_i_f_o_1_1_scoped_read.html", "class_abstract_f_i_f_o_1_1_scoped_read" ],
-      [ "ScopedWrite", "class_abstract_f_i_f_o_1_1_scoped_write.html", "class_abstract_f_i_f_o_1_1_scoped_write" ]
+      [ "AbstractFIFO", "classds_1_1_abstract_f_i_f_o.html", "classds_1_1_abstract_f_i_f_o" ],
+      [ "ScopedRead", "classds_1_1_abstract_f_i_f_o_1_1_scoped_read.html", "classds_1_1_abstract_f_i_f_o_1_1_scoped_read" ],
+      [ "ScopedWrite", "classds_1_1_abstract_f_i_f_o_1_1_scoped_write.html", "classds_1_1_abstract_f_i_f_o_1_1_scoped_write" ]
     ] ],
     [ "Algorithm.h", "_algorithm_8h.html", "_algorithm_8h" ],
     [ "AlignedAllocator.h", "_aligned_allocator_8h.html", [
-      [ "AlignedAllocator", "class_aligned_allocator.html", "class_aligned_allocator" ],
-      [ "rebind", "struct_aligned_allocator_1_1rebind.html", "struct_aligned_allocator_1_1rebind" ]
+      [ "AlignedAllocator", "classmemory_1_1_aligned_allocator.html", "classmemory_1_1_aligned_allocator" ],
+      [ "rebind", "structmemory_1_1_aligned_allocator_1_1rebind.html", "structmemory_1_1_aligned_allocator_1_1rebind" ]
     ] ],
     [ "alignment.h", "alignment_8h.html", "alignment_8h" ],
     [ "analyzer.h", "analyzer_8h.html", [
@@ -29,7 +29,7 @@ var files_dup =
     ] ],
     [ "basic_oscillators.h", "basic__oscillators_8h.html", "basic__oscillators_8h" ],
     [ "basic_vector.h", "basic__vector_8h.html", [
-      [ "basic_vector", "classbasic__vector.html", "classbasic__vector" ]
+      [ "basic_vector", "classds_1_1basic__vector.html", "classds_1_1basic__vector" ]
     ] ],
     [ "build_date.h", "build__date_8h.html", "build__date_8h" ],
     [ "Chord.h", "_chord_8h.html", [
@@ -76,7 +76,7 @@ var files_dup =
       [ "DetunableModel", "classdsp_1_1osc_1_1_detunable_model.html", "classdsp_1_1osc_1_1_detunable_model" ]
     ] ],
     [ "Dimensions.h", "_dimensions_8h.html", [
-      [ "Dimensions", "struct_dimensions.html", "struct_dimensions" ]
+      [ "Dimensions", "structmisc_1_1_dimensions.html", "structmisc_1_1_dimensions" ]
     ] ],
     [ "directory.h", "directory_8h.html", [
       [ "Directory", "classfiles_1_1_directory.html", "classfiles_1_1_directory" ]
@@ -94,7 +94,7 @@ var files_dup =
     [ "fft_common.h", "fft__common_8h.html", "fft__common_8h" ],
     [ "fftw_fft.h", "fftw__fft_8h.html", "fftw__fft_8h" ],
     [ "FIFO.h", "_f_i_f_o_8h.html", [
-      [ "FIFO", "class_f_i_f_o.html", "class_f_i_f_o" ]
+      [ "FIFO", "classds_1_1_f_i_f_o.html", "classds_1_1_f_i_f_o" ]
     ] ],
     [ "file.h", "file_8h.html", [
       [ "File", "classfiles_1_1_file.html", "classfiles_1_1_file" ],
@@ -142,24 +142,24 @@ var files_dup =
     [ "limes_namespace.h", "limes__namespace_8h.html", "limes__namespace_8h" ],
     [ "limes_vecops.h", "limes__vecops_8h.html", "limes__vecops_8h" ],
     [ "LinkedList.h", "_linked_list_8h.html", [
-      [ "LinkedList", "class_linked_list.html", "class_linked_list" ],
-      [ "Node", "struct_linked_list_1_1_node.html", "struct_linked_list_1_1_node" ]
+      [ "LinkedList", "classds_1_1_linked_list.html", "classds_1_1_linked_list" ],
+      [ "Node", "structds_1_1_linked_list_1_1_node.html", "structds_1_1_linked_list_1_1_node" ]
     ] ],
     [ "LinkedList_impl.h", "_linked_list__impl_8h.html", null ],
     [ "LinkedListModel.h", "_linked_list_model_8h.html", [
-      [ "Iterator", "struct_linked_list_model_1_1_iterator.html", "struct_linked_list_model_1_1_iterator" ],
-      [ "LinkedListModel", "struct_linked_list_model.html", "struct_linked_list_model" ]
+      [ "Iterator", "structds_1_1_linked_list_model_1_1_iterator.html", "structds_1_1_linked_list_model_1_1_iterator" ],
+      [ "LinkedListModel", "structds_1_1_linked_list_model.html", "structds_1_1_linked_list_model" ]
     ] ],
     [ "LinkedListModel_impl.h", "_linked_list_model__impl_8h.html", null ],
     [ "mathHelpers.h", "math_helpers_8h.html", "math_helpers_8h" ],
     [ "matrix.h", "matrix_8h.html", [
-      [ "Matrix", "class_matrix.html", "class_matrix" ]
+      [ "Matrix", "classmath_1_1_matrix.html", "classmath_1_1_matrix" ]
     ] ],
     [ "md5.h", "md5_8h.html", "md5_8h" ],
     [ "MemoryPool.h", "_memory_pool_8h.html", "_memory_pool_8h" ],
     [ "MemoryPoolAllocator.h", "_memory_pool_allocator_8h.html", [
-      [ "MemoryPoolAllocator", "class_memory_pool_allocator.html", "class_memory_pool_allocator" ],
-      [ "rebind", "struct_memory_pool_allocator_1_1rebind.html", "struct_memory_pool_allocator_1_1rebind" ]
+      [ "MemoryPoolAllocator", "classmemory_1_1_memory_pool_allocator.html", "classmemory_1_1_memory_pool_allocator" ],
+      [ "rebind", "structmemory_1_1_memory_pool_allocator_1_1rebind.html", "structmemory_1_1_memory_pool_allocator_1_1rebind" ]
     ] ],
     [ "MicrotonalInterval.h", "_microtonal_interval_8h.html", "_microtonal_interval_8h" ],
     [ "mipp.h", "mipp_8h.html", "mipp_8h" ],
@@ -198,15 +198,15 @@ var files_dup =
       [ "Octatonic", "classmusic_1_1scales_1_1_octatonic.html", "classmusic_1_1scales_1_1_octatonic" ]
     ] ],
     [ "OptionalObject.h", "_optional_object_8h.html", [
-      [ "OptionalObject", "class_optional_object.html", "class_optional_object" ]
+      [ "OptionalObject", "classmemory_1_1_optional_object.html", "classmemory_1_1_optional_object" ]
     ] ],
     [ "oscillator.h", "oscillator_8h.html", [
       [ "Oscillator", "structdsp_1_1_oscillator.html", "structdsp_1_1_oscillator" ],
       [ "Phase", "structdsp_1_1_oscillator_1_1_phase.html", "structdsp_1_1_oscillator_1_1_phase" ]
     ] ],
     [ "owned_vector.h", "owned__vector_8h.html", [
-      [ "iterator_base", "structowned__vector_1_1iterator__base.html", "structowned__vector_1_1iterator__base" ],
-      [ "owned_vector", "classowned__vector.html", "classowned__vector" ]
+      [ "iterator_base", "structds_1_1owned__vector_1_1iterator__base.html", "structds_1_1owned__vector_1_1iterator__base" ],
+      [ "owned_vector", "classds_1_1owned__vector.html", "classds_1_1owned__vector" ]
     ] ],
     [ "PeakFinder.h", "_peak_finder_8h.html", null ],
     [ "pentagon.h", "pentagon_8h.html", [
@@ -238,8 +238,8 @@ var files_dup =
       [ "Random", "classmath_1_1_random.html", "classmath_1_1_random" ]
     ] ],
     [ "RawData.h", "_raw_data_8h.html", [
-      [ "hash< limes::RawData >", "structstd_1_1hash_3_01limes_1_1_raw_data_01_4.html", "structstd_1_1hash_3_01limes_1_1_raw_data_01_4" ],
-      [ "RawData", "class_raw_data.html", "class_raw_data" ]
+      [ "hash< limes::memory::RawData >", "structstd_1_1hash_3_01limes_1_1memory_1_1_raw_data_01_4.html", "structstd_1_1hash_3_01limes_1_1memory_1_1_raw_data_01_4" ],
+      [ "RawData", "classmemory_1_1_raw_data.html", "classmemory_1_1_raw_data" ]
     ] ],
     [ "RealtimeMutatableObject.h", "_realtime_mutatable_object_8h.html", [
       [ "RealtimeMutatableObject", "classthreads_1_1detail_1_1_realtime_mutatable_object.html", "classthreads_1_1detail_1_1_realtime_mutatable_object" ]
@@ -258,7 +258,7 @@ var files_dup =
       [ "SampleStream", "structdsp_1_1_sample_stream.html", "structdsp_1_1_sample_stream" ]
     ] ],
     [ "scalar_vector.h", "scalar__vector_8h.html", [
-      [ "scalar_vector", "classscalar__vector.html", "classscalar__vector" ]
+      [ "scalar_vector", "classds_1_1scalar__vector.html", "classds_1_1scalar__vector" ]
     ] ],
     [ "Scale.h", "_scale_8h.html", [
       [ "Scale", "structmusic_1_1scales_1_1_scale.html", "structmusic_1_1scales_1_1_scale" ]
@@ -269,8 +269,8 @@ var files_dup =
     [ "sha384.h", "sha384_8h.html", "sha384_8h" ],
     [ "sha512.h", "sha512_8h.html", "sha512_8h" ],
     [ "SharedObject.h", "_shared_object_8h.html", [
-      [ "SharedObject", "struct_shared_object.html", "struct_shared_object" ],
-      [ "SharedObjectOwner", "struct_shared_object_owner.html", "struct_shared_object_owner" ]
+      [ "SharedObject", "structmemory_1_1_shared_object.html", "structmemory_1_1_shared_object" ],
+      [ "SharedObjectOwner", "structmemory_1_1_shared_object_owner.html", "structmemory_1_1_shared_object_owner" ]
     ] ],
     [ "shifter.h", "shifter_8h.html", [
       [ "Shifter", "classdsp_1_1psola_1_1_shifter.html", "classdsp_1_1psola_1_1_shifter" ]
@@ -283,14 +283,14 @@ var files_dup =
     [ "stack_allocator.h", "stack__allocator_8h.html", "stack__allocator_8h" ],
     [ "StaticObjects.h", "_static_objects_8h.html", "_static_objects_8h" ],
     [ "streams.h", "streams_8h.html", [
-      [ "ScopedStreamFlags", "struct_scoped_stream_flags.html", "struct_scoped_stream_flags" ]
+      [ "ScopedStreamFlags", "structmisc_1_1_scoped_stream_flags.html", "structmisc_1_1_scoped_stream_flags" ]
     ] ],
     [ "StringUtils.h", "_string_utils_8h.html", "_string_utils_8h" ],
     [ "sym_link.h", "sym__link_8h.html", [
       [ "SymLink", "classfiles_1_1_sym_link.html", "classfiles_1_1_sym_link" ]
     ] ],
     [ "TextTable.h", "_text_table_8h.html", [
-      [ "TextTable", "class_text_table.html", "class_text_table" ]
+      [ "TextTable", "classstrings_1_1_text_table.html", "classstrings_1_1_text_table" ]
     ] ],
     [ "Threading.h", "_threading_8h.html", "_threading_8h" ],
     [ "ThreadSafeObject.h", "_thread_safe_object_8h.html", [
@@ -327,8 +327,8 @@ var files_dup =
       [ "VelocityMapper", "classmidi_1_1_velocity_mapper.html", "classmidi_1_1_velocity_mapper" ]
     ] ],
     [ "Version.h", "_version_8h.html", [
-      [ "hash< limes::Version >", "structstd_1_1hash_3_01limes_1_1_version_01_4.html", "structstd_1_1hash_3_01limes_1_1_version_01_4" ],
-      [ "Version", "struct_version.html", "struct_version" ]
+      [ "hash< limes::misc::Version >", "structstd_1_1hash_3_01limes_1_1misc_1_1_version_01_4.html", "structstd_1_1hash_3_01limes_1_1misc_1_1_version_01_4" ],
+      [ "Version", "structmisc_1_1_version.html", "structmisc_1_1_version" ]
     ] ],
     [ "weekday.h", "weekday_8h.html", [
       [ "Weekday", "classtime_1_1_weekday.html", "classtime_1_1_weekday" ]

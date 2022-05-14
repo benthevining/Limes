@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -109,98 +109,104 @@ $(document).ready(function(){initNavTree('_shared_object_8h_source.html',''); in
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> SuperType&gt;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="struct_shared_object.html">   25</a></span>&#160;<span class="keyword">struct </span>LIMES_EXPORT <a class="code" href="struct_shared_object.html">SharedObject</a> : <span class="keyword">public</span> <a class="code" href="class_reference_counted_object.html">ReferenceCountedObject</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="struct_shared_object.html">SharedObject</a>()  = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ~<a class="code" href="struct_shared_object.html">SharedObject</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="struct_shared_object.html#ae407e695584bd1b93eb7c90d7ab0221b">   30</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="class_reference_counted_object_ptr.html">Ptr</a> = <a class="code" href="class_reference_counted_object_ptr.html">ReferenceCountedObjectPtr&lt;SuperType&gt;</a>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    [[nodiscard]] <span class="keyword">virtual</span> <a class="code" href="class_reference_counted_object_ptr.html">Ptr</a> clone() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacememory.html">memory</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> SuperType&gt;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structmemory_1_1_shared_object.html">   28</a></span>&#160;<span class="keyword">struct </span>LIMES_EXPORT <a class="code" href="structmemory_1_1_shared_object.html">SharedObject</a> : <span class="keyword">public</span> <a class="code" href="classmemory_1_1_reference_counted_object.html">ReferenceCountedObject</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="structmemory_1_1_shared_object.html">SharedObject</a>()  = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ~<a class="code" href="structmemory_1_1_shared_object.html">SharedObject</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structmemory_1_1_shared_object.html#a474fa554698b21c23b0d7d57ed728428">   33</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classmemory_1_1_reference_counted_object_ptr.html">Ptr</a> = <a class="code" href="classmemory_1_1_reference_counted_object_ptr.html">ReferenceCountedObjectPtr&lt;SuperType&gt;</a>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> OwnedObjectType&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="struct_shared_object_owner.html">   37</a></span>&#160;<span class="keyword">struct </span>LIMES_EXPORT <a class="code" href="struct_shared_object_owner.html">SharedObjectOwner</a></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    static_assert (std::is_base_of_v&lt;<a class="code" href="struct_shared_object.html">SharedObject&lt;OwnedObjectType&gt;</a>, OwnedObjectType&gt;);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="struct_shared_object_owner.html#ab00b078d1ecdbe58297c0a2f66d9b1de">   43</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="struct_shared_object_owner.html#ab00b078d1ecdbe58297c0a2f66d9b1de">SharedObjectType</a> = OwnedObjectType;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="struct_shared_object_owner.html#a7a4cf90921861d544eb34f06d6d96ebb">   46</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="struct_shared_object_owner.html#a7a4cf90921861d544eb34f06d6d96ebb">SharedObjectOwner</a> (Args&amp;&amp;... args)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        : data (new OwnedObjectType (std::forward&lt;Args&gt; (args)...))</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="preprocessor_8h.html#a5bf553d96012e220f7715df0a90066da">LIMES_DEFAULT_COPYABLE</a> (<a class="code" href="struct_shared_object_owner.html">SharedObjectOwner</a>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="preprocessor_8h.html#aa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a> (<a class="code" href="struct_shared_object_owner.html">SharedObjectOwner</a>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    [[nodiscard]] <span class="keyword">virtual</span> <a class="code" href="classmemory_1_1_reference_counted_object_ptr.html">Ptr</a> clone() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> OwnedObjectType&gt;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structmemory_1_1_shared_object_owner.html">   40</a></span>&#160;<span class="keyword">struct </span>LIMES_EXPORT <a class="code" href="structmemory_1_1_shared_object_owner.html">SharedObjectOwner</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    static_assert (std::is_base_of_v&lt;<a class="code" href="structmemory_1_1_shared_object.html">SharedObject&lt;OwnedObjectType&gt;</a>, OwnedObjectType&gt;);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structmemory_1_1_shared_object_owner.html#a745f5da067e5dea0d7b55d019f567442">   46</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="structmemory_1_1_shared_object_owner.html#a745f5da067e5dea0d7b55d019f567442">SharedObjectType</a> = OwnedObjectType;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structmemory_1_1_shared_object_owner.html#aa45b465b0355baf05a45621e7e0a6d57">   49</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="structmemory_1_1_shared_object_owner.html#aa45b465b0355baf05a45621e7e0a6d57">SharedObjectOwner</a> (Args&amp;&amp;... args)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        : data (new OwnedObjectType (std::forward&lt;Args&gt; (args)...))</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="struct_shared_object_owner.html#af97a19c71ca7ad322c055506a583550d">   54</a></span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="struct_shared_object_owner.html#af97a19c71ca7ad322c055506a583550d">getReferenceCount</a>() const noexcept</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">if</span> (data == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> data-&gt;getRefCount();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="preprocessor_8h.html#a5bf553d96012e220f7715df0a90066da">LIMES_DEFAULT_COPYABLE</a> (<a class="code" href="structmemory_1_1_shared_object_owner.html">SharedObjectOwner</a>);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="preprocessor_8h.html#aa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a> (<a class="code" href="structmemory_1_1_shared_object_owner.html">SharedObjectOwner</a>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structmemory_1_1_shared_object_owner.html#a4ab1adeca59930a75a51be4298304b40">   57</a></span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="structmemory_1_1_shared_object_owner.html#a4ab1adeca59930a75a51be4298304b40">getReferenceCount</a>() const noexcept</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span> (data == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="struct_shared_object_owner.html#ab2ea2bac356b4e9713640b13054d034b">   62</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="struct_shared_object_owner.html#ab2ea2bac356b4e9713640b13054d034b">duplicateIfShared</a>()</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span> (getReferenceCount() &gt; 1)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (data != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            data = data-&gt;clone();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> data-&gt;getRefCount();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="structmemory_1_1_shared_object_owner.html#abf165147b86ba372b119e390be585009">   65</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structmemory_1_1_shared_object_owner.html#abf165147b86ba372b119e390be585009">duplicateIfShared</a>()</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">if</span> (getReferenceCount() &gt; 1)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (data != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            data = data-&gt;clone();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="struct_shared_object_owner.html#a84111fb03a138f18f77ef0943da773df">   76</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="struct_shared_object_owner.html#a84111fb03a138f18f77ef0943da773df">ownedObjectExists</a>() const noexcept</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> data != <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="struct_shared_object_owner.html#a1279746779e544ee7baf61b66b803d13">   81</a></span>&#160;    [[nodiscard]] OwnedObjectType&amp; <a class="code" href="struct_shared_object_owner.html#a1279746779e544ee7baf61b66b803d13">getOwnedObject</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (ownedObjectExists());</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">return</span> *data;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="struct_shared_object_owner.html#a675109323810ab5b0d07cfab80dc062d">   87</a></span>&#160;    <span class="keyword">typename</span> OwnedObjectType::Ptr <a class="code" href="struct_shared_object_owner.html#a675109323810ab5b0d07cfab80dc062d">data</a>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="structmemory_1_1_shared_object_owner.html#a28f1cce6f5146a15ba8f4d11ffef4251">   79</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="structmemory_1_1_shared_object_owner.html#a28f1cce6f5146a15ba8f4d11ffef4251">ownedObjectExists</a>() const noexcept</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> data != <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="structmemory_1_1_shared_object_owner.html#a83218a24635bc7e742adb5278d5b0d16">   84</a></span>&#160;    [[nodiscard]] OwnedObjectType&amp; <a class="code" href="structmemory_1_1_shared_object_owner.html#a83218a24635bc7e742adb5278d5b0d16">getOwnedObject</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <a class="code" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (ownedObjectExists());</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> *data;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="structmemory_1_1_shared_object_owner.html#ab46419e4ab9c38827f0d1dd80e2942db">   90</a></span>&#160;    <span class="keyword">typename</span> OwnedObjectType::Ptr <a class="code" href="structmemory_1_1_shared_object_owner.html#ab46419e4ab9c38827f0d1dd80e2942db">data</a>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}  <span class="comment">// namespace memory</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="apreprocessor_8h_html_aa204cf467eb45621b139f7fbf6b0f503"><div class="ttname"><a href="preprocessor_8h.html#aa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a></div><div class="ttdeci">#define LIMES_DEFAULT_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="preprocessor_8h_source.html#l00055">preprocessor.h:55</a></div></div>
-<div class="ttc" id="astruct_shared_object_owner_html_ab00b078d1ecdbe58297c0a2f66d9b1de"><div class="ttname"><a href="struct_shared_object_owner.html#ab00b078d1ecdbe58297c0a2f66d9b1de">SharedObjectOwner::SharedObjectType</a></div><div class="ttdeci">OwnedObjectType SharedObjectType</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00043">SharedObject.h:43</a></div></div>
+<div class="ttc" id="astructmemory_1_1_shared_object_owner_html_a28f1cce6f5146a15ba8f4d11ffef4251"><div class="ttname"><a href="structmemory_1_1_shared_object_owner.html#a28f1cce6f5146a15ba8f4d11ffef4251">memory::SharedObjectOwner::ownedObjectExists</a></div><div class="ttdeci">bool ownedObjectExists() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00079">SharedObject.h:79</a></div></div>
+<div class="ttc" id="astructmemory_1_1_shared_object_owner_html_a83218a24635bc7e742adb5278d5b0d16"><div class="ttname"><a href="structmemory_1_1_shared_object_owner.html#a83218a24635bc7e742adb5278d5b0d16">memory::SharedObjectOwner::getOwnedObject</a></div><div class="ttdeci">OwnedObjectType &amp; getOwnedObject() const</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00084">SharedObject.h:84</a></div></div>
 <div class="ttc" id="a_reference_counted_object_8h_html"><div class="ttname"><a href="_reference_counted_object_8h.html">ReferenceCountedObject.h</a></div></div>
-<div class="ttc" id="alimes__assert_8h_html_a06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdoc">Evaluates the condition, and if it is false, logs an assertion failure message and stops in the debug...</div><div class="ttdef"><b>Definition:</b> <a href="limes__assert_8h_source.html#l00074">limes_assert.h:74</a></div></div>
-<div class="ttc" id="astruct_shared_object_owner_html_a1279746779e544ee7baf61b66b803d13"><div class="ttname"><a href="struct_shared_object_owner.html#a1279746779e544ee7baf61b66b803d13">SharedObjectOwner::getOwnedObject</a></div><div class="ttdeci">OwnedObjectType &amp; getOwnedObject() const</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00081">SharedObject.h:81</a></div></div>
+<div class="ttc" id="anamespacememory_html"><div class="ttname"><a href="namespacememory.html">memory</a></div><div class="ttdoc">This namespace contains utilities for working with memory allocation and management.</div><div class="ttdef"><b>Definition:</b> <a href="_aligned_allocator_8h_source.html#l00026">AlignedAllocator.h:26</a></div></div>
+<div class="ttc" id="astructmemory_1_1_shared_object_owner_html_a745f5da067e5dea0d7b55d019f567442"><div class="ttname"><a href="structmemory_1_1_shared_object_owner.html#a745f5da067e5dea0d7b55d019f567442">memory::SharedObjectOwner::SharedObjectType</a></div><div class="ttdeci">OwnedObjectType SharedObjectType</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00046">SharedObject.h:46</a></div></div>
+<div class="ttc" id="astructmemory_1_1_shared_object_owner_html"><div class="ttname"><a href="structmemory_1_1_shared_object_owner.html">memory::SharedObjectOwner</a></div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00040">SharedObject.h:40</a></div></div>
+<div class="ttc" id="alimes__assert_8h_html_a06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdef"><b>Definition:</b> <a href="limes__assert_8h_source.html#l00075">limes_assert.h:75</a></div></div>
 <div class="ttc" id="apreprocessor_8h_html_a5bf553d96012e220f7715df0a90066da"><div class="ttname"><a href="preprocessor_8h.html#a5bf553d96012e220f7715df0a90066da">LIMES_DEFAULT_COPYABLE</a></div><div class="ttdeci">#define LIMES_DEFAULT_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="preprocessor_8h_source.html#l00051">preprocessor.h:51</a></div></div>
-<div class="ttc" id="astruct_shared_object_owner_html_a7a4cf90921861d544eb34f06d6d96ebb"><div class="ttname"><a href="struct_shared_object_owner.html#a7a4cf90921861d544eb34f06d6d96ebb">SharedObjectOwner::SharedObjectOwner</a></div><div class="ttdeci">SharedObjectOwner(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00046">SharedObject.h:46</a></div></div>
-<div class="ttc" id="aclass_reference_counted_object_html"><div class="ttname"><a href="class_reference_counted_object.html">ReferenceCountedObject</a></div><div class="ttdef"><b>Definition:</b> <a href="_reference_counted_object_8h_source.html#l00023">ReferenceCountedObject.h:23</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00022">limes_namespace.h:22</a></div></div>
-<div class="ttc" id="astruct_shared_object_owner_html_af97a19c71ca7ad322c055506a583550d"><div class="ttname"><a href="struct_shared_object_owner.html#af97a19c71ca7ad322c055506a583550d">SharedObjectOwner::getReferenceCount</a></div><div class="ttdeci">int getReferenceCount() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00054">SharedObject.h:54</a></div></div>
+<div class="ttc" id="astructmemory_1_1_shared_object_owner_html_aa45b465b0355baf05a45621e7e0a6d57"><div class="ttname"><a href="structmemory_1_1_shared_object_owner.html#aa45b465b0355baf05a45621e7e0a6d57">memory::SharedObjectOwner::SharedObjectOwner</a></div><div class="ttdeci">SharedObjectOwner(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00049">SharedObject.h:49</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00015">limes_namespace.h:15</a></div></div>
-<div class="ttc" id="astruct_shared_object_html"><div class="ttname"><a href="struct_shared_object.html">SharedObject</a></div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00025">SharedObject.h:25</a></div></div>
-<div class="ttc" id="astruct_shared_object_owner_html_a84111fb03a138f18f77ef0943da773df"><div class="ttname"><a href="struct_shared_object_owner.html#a84111fb03a138f18f77ef0943da773df">SharedObjectOwner::ownedObjectExists</a></div><div class="ttdeci">bool ownedObjectExists() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00076">SharedObject.h:76</a></div></div>
-<div class="ttc" id="astruct_shared_object_owner_html_a675109323810ab5b0d07cfab80dc062d"><div class="ttname"><a href="struct_shared_object_owner.html#a675109323810ab5b0d07cfab80dc062d">SharedObjectOwner::data</a></div><div class="ttdeci">OwnedObjectType::Ptr data</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00087">SharedObject.h:87</a></div></div>
-<div class="ttc" id="astruct_shared_object_owner_html"><div class="ttname"><a href="struct_shared_object_owner.html">SharedObjectOwner</a></div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00037">SharedObject.h:37</a></div></div>
-<div class="ttc" id="aclass_reference_counted_object_ptr_html"><div class="ttname"><a href="class_reference_counted_object_ptr.html">ReferenceCountedObjectPtr</a></div><div class="ttdef"><b>Definition:</b> <a href="_reference_counted_object_8h_source.html#l00063">ReferenceCountedObject.h:63</a></div></div>
+<div class="ttc" id="astructmemory_1_1_shared_object_owner_html_abf165147b86ba372b119e390be585009"><div class="ttname"><a href="structmemory_1_1_shared_object_owner.html#abf165147b86ba372b119e390be585009">memory::SharedObjectOwner::duplicateIfShared</a></div><div class="ttdeci">bool duplicateIfShared()</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00065">SharedObject.h:65</a></div></div>
+<div class="ttc" id="astructmemory_1_1_shared_object_owner_html_ab46419e4ab9c38827f0d1dd80e2942db"><div class="ttname"><a href="structmemory_1_1_shared_object_owner.html#ab46419e4ab9c38827f0d1dd80e2942db">memory::SharedObjectOwner::data</a></div><div class="ttdeci">OwnedObjectType::Ptr data</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00090">SharedObject.h:90</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_reference_counted_object_html"><div class="ttname"><a href="classmemory_1_1_reference_counted_object.html">memory::ReferenceCountedObject</a></div><div class="ttdef"><b>Definition:</b> <a href="_reference_counted_object_8h_source.html#l00026">ReferenceCountedObject.h:26</a></div></div>
+<div class="ttc" id="astructmemory_1_1_shared_object_html"><div class="ttname"><a href="structmemory_1_1_shared_object.html">memory::SharedObject</a></div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00028">SharedObject.h:28</a></div></div>
+<div class="ttc" id="astructmemory_1_1_shared_object_owner_html_a4ab1adeca59930a75a51be4298304b40"><div class="ttname"><a href="structmemory_1_1_shared_object_owner.html#a4ab1adeca59930a75a51be4298304b40">memory::SharedObjectOwner::getReferenceCount</a></div><div class="ttdeci">int getReferenceCount() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00057">SharedObject.h:57</a></div></div>
+<div class="ttc" id="aclassmemory_1_1_reference_counted_object_ptr_html"><div class="ttname"><a href="classmemory_1_1_reference_counted_object_ptr.html">memory::ReferenceCountedObjectPtr</a></div><div class="ttdef"><b>Definition:</b> <a href="_reference_counted_object_8h_source.html#l00066">ReferenceCountedObject.h:66</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="limes__namespace_8h.html">limes_namespace.h</a></div></div>
-<div class="ttc" id="astruct_shared_object_owner_html_ab2ea2bac356b4e9713640b13054d034b"><div class="ttname"><a href="struct_shared_object_owner.html#ab2ea2bac356b4e9713640b13054d034b">SharedObjectOwner::duplicateIfShared</a></div><div class="ttdeci">bool duplicateIfShared()</div><div class="ttdef"><b>Definition:</b> <a href="_shared_object_8h_source.html#l00062">SharedObject.h:62</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_9a46d78c45cc3c1f9dc56c640d7c4019.html">memory</a></li><li class="navelem"><a class="el" href="_shared_object_8h.html">SharedObject.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:42 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

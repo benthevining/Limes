@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('namespacestrings.html',''); initResiza
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -93,6 +94,12 @@ $(document).ready(function(){initNavTree('namespacestrings.html',''); initResiza
 <p>This namespace contains some text manipulation utilities for working with both C++ and C-style strings.  
 <a href="namespacestrings.html#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstrings_1_1_text_table.html">TextTable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class that creates a table of strings, laid out in rows and columns, and can pretty-print them with the columns aligned.  <a href="classstrings_1_1_text_table.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae10f4755523ad3a3d40c303df5209746"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#ae10f4755523ad3a3d40c303df5209746">areSame</a> (const char *string1, const char *string2)</td></tr>
@@ -112,13 +119,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:abee9ff5a9ca4278f4ca7bbfce0829b6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the passed string is <code>\n</code>  or <code>\r</code> <br  />
  .  <a href="namespacestrings.html#abee9ff5a9ca4278f4ca7bbfce0829b6d">More...</a><br /></td></tr>
 <tr class="separator:abee9ff5a9ca4278f4ca7bbfce0829b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d0abc87d5388e777a455d0bd7eaeb80"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a3d0abc87d5388e777a455d0bd7eaeb80">join</a> (const <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; std::string &gt; &amp;strings, const std::string_view &amp;delimiter)</td></tr>
+<tr class="memitem:a3d0abc87d5388e777a455d0bd7eaeb80"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a3d0abc87d5388e777a455d0bd7eaeb80">join</a> (const std::vector&lt; std::string &gt; &amp;strings, const std::string_view &amp;delimiter)</td></tr>
 <tr class="memdesc:a3d0abc87d5388e777a455d0bd7eaeb80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Joins the input strings into one string, placing <code>delimiter</code> between each input string.  <a href="namespacestrings.html#a3d0abc87d5388e777a455d0bd7eaeb80">More...</a><br /></td></tr>
 <tr class="separator:a3d0abc87d5388e777a455d0bd7eaeb80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace077e9ab71ba1ae1d291050ec98268a"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#ace077e9ab71ba1ae1d291050ec98268a">joinWithNewlines</a> (const <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; std::string &gt; &amp;strings)</td></tr>
+<tr class="memitem:ace077e9ab71ba1ae1d291050ec98268a"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#ace077e9ab71ba1ae1d291050ec98268a">joinWithNewlines</a> (const std::vector&lt; std::string &gt; &amp;strings)</td></tr>
 <tr class="memdesc:ace077e9ab71ba1ae1d291050ec98268a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Joins the strings together, using the platform's preferred newline character as the token delimiter.  <a href="namespacestrings.html#ace077e9ab71ba1ae1d291050ec98268a">More...</a><br /></td></tr>
 <tr class="separator:ace077e9ab71ba1ae1d291050ec98268a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a944b447caa14ef2daa41c856a8b7caa5"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a944b447caa14ef2daa41c856a8b7caa5">joinWithWhitespace</a> (const <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; std::string &gt; &amp;strings)</td></tr>
+<tr class="memitem:a944b447caa14ef2daa41c856a8b7caa5"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a944b447caa14ef2daa41c856a8b7caa5">joinWithWhitespace</a> (const std::vector&lt; std::string &gt; &amp;strings)</td></tr>
 <tr class="memdesc:a944b447caa14ef2daa41c856a8b7caa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Joins the strings together, using a space character as the token delimiter.  <a href="namespacestrings.html#a944b447caa14ef2daa41c856a8b7caa5">More...</a><br /></td></tr>
 <tr class="separator:a944b447caa14ef2daa41c856a8b7caa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06f15b073d051461804970c0570b83e4"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a06f15b073d051461804970c0570b83e4">length</a> (const char *string)</td></tr>
@@ -127,13 +134,13 @@ Functions</h2></td></tr>
 <tr class="memitem:af6bd4c9f670460dac73a6e8fd017fb0f"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#af6bd4c9f670460dac73a6e8fd017fb0f">printLimesASCII</a> ()</td></tr>
 <tr class="memdesc:af6bd4c9f670460dac73a6e8fd017fb0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the Limes library ASCII logo to std::cout.  <a href="namespacestrings.html#af6bd4c9f670460dac73a6e8fd017fb0f">More...</a><br /></td></tr>
 <tr class="separator:af6bd4c9f670460dac73a6e8fd017fb0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a502c1c0d50a8b5fd842edfce3308be33"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a502c1c0d50a8b5fd842edfce3308be33">split</a> (const std::string_view &amp;stringToSplit, const std::string_view &amp;delimiter, bool includeDelimiterInResults=false)</td></tr>
+<tr class="memitem:a502c1c0d50a8b5fd842edfce3308be33"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a502c1c0d50a8b5fd842edfce3308be33">split</a> (const std::string_view &amp;stringToSplit, const std::string_view &amp;delimiter, bool includeDelimiterInResults=false)</td></tr>
 <tr class="memdesc:a502c1c0d50a8b5fd842edfce3308be33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes an input string and splits it into a series of smaller strings.  <a href="namespacestrings.html#a502c1c0d50a8b5fd842edfce3308be33">More...</a><br /></td></tr>
 <tr class="separator:a502c1c0d50a8b5fd842edfce3308be33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18a3031f1edaf1917cb8c694ad55537c"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a18a3031f1edaf1917cb8c694ad55537c">splitAtNewlines</a> (const std::string_view &amp;stringToSplit)</td></tr>
+<tr class="memitem:a18a3031f1edaf1917cb8c694ad55537c"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a18a3031f1edaf1917cb8c694ad55537c">splitAtNewlines</a> (const std::string_view &amp;stringToSplit)</td></tr>
 <tr class="memdesc:a18a3031f1edaf1917cb8c694ad55537c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits the input string into lines.  <a href="namespacestrings.html#a18a3031f1edaf1917cb8c694ad55537c">More...</a><br /></td></tr>
 <tr class="separator:a18a3031f1edaf1917cb8c694ad55537c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef16f0d3bd8e33e85680969dc50e22ed"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#aef16f0d3bd8e33e85680969dc50e22ed">splitAtWhitespace</a> (const std::string_view &amp;stringToSplit)</td></tr>
+<tr class="memitem:aef16f0d3bd8e33e85680969dc50e22ed"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#aef16f0d3bd8e33e85680969dc50e22ed">splitAtWhitespace</a> (const std::string_view &amp;stringToSplit)</td></tr>
 <tr class="memdesc:aef16f0d3bd8e33e85680969dc50e22ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits the input string using whitespace characters as the delimiter, not including the whitespace in the output tokens.  <a href="namespacestrings.html#aef16f0d3bd8e33e85680969dc50e22ed">More...</a><br /></td></tr>
 <tr class="separator:aef16f0d3bd8e33e85680969dc50e22ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b43a1bc909986f23418a796a0d7c345"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a7b43a1bc909986f23418a796a0d7c345">toLower</a> (const std::string_view &amp;string)</td></tr>
@@ -380,7 +387,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">LIMES_EXPORT std::string strings::join </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
           <td class="paramname"><em>strings</em>, </td>
         </tr>
         <tr>
@@ -417,7 +424,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">LIMES_EXPORT std::string strings::joinWithNewlines </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
           <td class="paramname"><em>strings</em></td><td>)</td>
           <td></td>
         </tr>
@@ -437,7 +444,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">LIMES_EXPORT std::string strings::joinWithWhitespace </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
           <td class="paramname"><em>strings</em></td><td>)</td>
           <td></td>
         </tr>
@@ -495,7 +502,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORT <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt;std::string&gt; strings::split </td>
+          <td class="memname">LIMES_EXPORT std::vector&lt;std::string&gt; strings::split </td>
           <td>(</td>
           <td class="paramtype">const std::string_view &amp;&#160;</td>
           <td class="paramname"><em>stringToSplit</em>, </td>
@@ -539,7 +546,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORT <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt;std::string&gt; strings::splitAtNewlines </td>
+          <td class="memname">LIMES_EXPORT std::vector&lt;std::string&gt; strings::splitAtNewlines </td>
           <td>(</td>
           <td class="paramtype">const std::string_view &amp;&#160;</td>
           <td class="paramname"><em>stringToSplit</em></td><td>)</td>
@@ -561,7 +568,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORT <a class="el" href="vector_8h.html#a4aa0f07eb0a2fc7453107bb42b4591aa">std::vector</a>&lt;std::string&gt; strings::splitAtWhitespace </td>
+          <td class="memname">LIMES_EXPORT std::vector&lt;std::string&gt; strings::splitAtWhitespace </td>
           <td>(</td>
           <td class="paramtype">const std::string_view &amp;&#160;</td>
           <td class="paramname"><em>stringToSplit</em></td><td>)</td>
@@ -706,7 +713,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacestrings.html">strings</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:43 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:04 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

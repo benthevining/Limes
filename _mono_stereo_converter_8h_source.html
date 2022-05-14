@@ -27,7 +27,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
    </div>
-   <div id="projectbrief">C++ utilities and building blocks</div>
+   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
   </td>
  </tr>
  </tbody>
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('_mono_stereo_converter_8h_source.html'
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classdsp_1_1_mono_stereo_converter.html#a8b33fb4fdf47dae5553f4142855ca99a">   52</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classscalar__vector.html">SampleVector</a> = <a class="code" href="classscalar__vector.html">scalar_vector&lt;SampleType&gt;</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classdsp_1_1_mono_stereo_converter.html#aaaedf36c1b621ebc2dff204ea98ad6cd">   52</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classds_1_1scalar__vector.html">SampleVector</a> = <a class="code" href="classds_1_1scalar__vector.html">ds::scalar_vector&lt;SampleType&gt;</a>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> prepare (<span class="keywordtype">int</span> blocksize);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
@@ -137,18 +137,18 @@ $(document).ready(function(){initNavTree('_mono_stereo_converter_8h_source.html'
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                              SampleType*       monoOut,</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                              <span class="keywordtype">int</span>               numSamples);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> convertStereoToMono (const <a class="code" href="classscalar__vector.html">SampleVector</a>&amp; leftIn,</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                              const <a class="code" href="classscalar__vector.html">SampleVector</a>&amp; rightIn,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                              <a class="code" href="classscalar__vector.html">SampleVector</a>&amp;       monoOut);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> convertStereoToMono (const <a class="code" href="classds_1_1scalar__vector.html">SampleVector</a>&amp; leftIn,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                              const <a class="code" href="classds_1_1scalar__vector.html">SampleVector</a>&amp; rightIn,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                              <a class="code" href="classds_1_1scalar__vector.html">SampleVector</a>&amp;       monoOut);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> convertMonoToStereo (const SampleType* monoIn,</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                              SampleType*       leftOut,</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                              SampleType*       rightOut,</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                              <span class="keywordtype">int</span>               numSamples);</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> convertMonoToStereo (const <a class="code" href="classscalar__vector.html">SampleVector</a>&amp; monoIn,</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                              <a class="code" href="classscalar__vector.html">SampleVector</a>&amp;       leftOut,</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                              <a class="code" href="classscalar__vector.html">SampleVector</a>&amp;       rightOut);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> convertMonoToStereo (const <a class="code" href="classds_1_1scalar__vector.html">SampleVector</a>&amp; monoIn,</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                              <a class="code" href="classds_1_1scalar__vector.html">SampleVector</a>&amp;       leftOut,</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                              <a class="code" href="classds_1_1scalar__vector.html">SampleVector</a>&amp;       rightOut);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;private:</div>
@@ -170,17 +170,17 @@ $(document).ready(function(){initNavTree('_mono_stereo_converter_8h_source.html'
 <div class="ttc" id="agroup__lemons__stereo__conversion_html_ggab1a12ea0ed30dd9ebf7c261a68dc1d73a0d2a8602a2cd80a62be55f9bc60e1f22"><div class="ttname"><a href="group__lemons__stereo__conversion.html#ggab1a12ea0ed30dd9ebf7c261a68dc1d73a0d2a8602a2cd80a62be55f9bc60e1f22">dsp::StereoReductionMode::mixToMono</a></div><div class="ttdeci">@ mixToMono</div><div class="ttdoc">In this mode, a MonoStereoConverter will mix together the two channels of a stereo signal to create i...</div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00022">limes_namespace.h:22</a></div></div>
 <div class="ttc" id="agroup__lemons__stereo__conversion_html_ggab1a12ea0ed30dd9ebf7c261a68dc1d73a97ed31f67756738d6c8d74a1ee8c565d"><div class="ttname"><a href="group__lemons__stereo__conversion.html#ggab1a12ea0ed30dd9ebf7c261a68dc1d73a97ed31f67756738d6c8d74a1ee8c565d">dsp::StereoReductionMode::rightOnly</a></div><div class="ttdeci">@ rightOnly</div><div class="ttdoc">In this mode, a MonoStereoConverter will output only the right channel of a stereo signal as its mono...</div></div>
-<div class="ttc" id="aclassscalar__vector_html"><div class="ttname"><a href="classscalar__vector.html">scalar_vector&lt; SampleType &gt;</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00015">limes_namespace.h:15</a></div></div>
 <div class="ttc" id="agroup__lemons__stereo__conversion_html_ggab1a12ea0ed30dd9ebf7c261a68dc1d73a1551df77400b2edbe1682fef8b4ee182"><div class="ttname"><a href="group__lemons__stereo__conversion.html#ggab1a12ea0ed30dd9ebf7c261a68dc1d73a1551df77400b2edbe1682fef8b4ee182">dsp::StereoReductionMode::leftOnly</a></div><div class="ttdeci">@ leftOnly</div><div class="ttdoc">In this mode, a MonoStereoConverter will output only the left channel of a stereo signal as its mono ...</div></div>
 <div class="ttc" id="anamespacedsp_html"><div class="ttname"><a href="namespacedsp.html">dsp</a></div><div class="ttdef"><b>Definition:</b> <a href="_coeffecients_8h_source.html#l00022">Coeffecients.h:22</a></div></div>
 <div class="ttc" id="alimes__audio_2util_2_misc_8h_html"><div class="ttname"><a href="limes__audio_2util_2_misc_8h.html">Misc.h</a></div></div>
+<div class="ttc" id="aclassds_1_1scalar__vector_html"><div class="ttname"><a href="classds_1_1scalar__vector.html">ds::scalar_vector&lt; SampleType &gt;</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_a9e7e74a9fa95c9d0d5d9012ba9e5673.html">limes_audio</a></li><li class="navelem"><a class="el" href="dir_8b092633fdcca3f15d4a308be51fefa9.html">util</a></li><li class="navelem"><a class="el" href="_mono_stereo_converter_8h.html">MonoStereoConverter.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 01:04:42 for Limes by
+    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
