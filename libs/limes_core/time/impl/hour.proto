@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-package limes.core;
-
-message Hour {
-  uint64 hour = 1;
-}

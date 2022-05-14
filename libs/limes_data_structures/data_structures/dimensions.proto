@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package limes.data_structures;
-
-message Dimensions {
-  uint64 width = 1;
-  uint64 height = 2;
-}

@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-package limes.core;
-
-message Month {
-  uint64 month = 1;
-}

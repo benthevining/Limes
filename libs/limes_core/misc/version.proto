@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-package limes.core;
-
-message Version {
-  uint64 major = 1;
-  uint64 minor = 2;
-  uint64 patch = 3;
-}
