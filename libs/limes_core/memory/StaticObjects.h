@@ -18,6 +18,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace memory
+{
+
 template <auto Data>
 LIMES_EXPORT [[nodiscard]] consteval const auto& make_static() noexcept
 {
@@ -34,5 +37,7 @@ LIMES_EXPORT [[nodiscard]] ObjectType& getStaticObject (Args&&... args)
 
 	return *ptr;  // cppcheck-suppress nullPointerRedundantCheck
 }
+
+}  // namespace memory
 
 LIMES_END_NAMESPACE

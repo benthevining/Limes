@@ -27,7 +27,13 @@
 
 LIMES_BEGIN_NAMESPACE
 
-/** Exactly the same as \c std::convertible_to , only implemented here because some versions of Xcode seem to be missing it. */
+/** This namespace contains utilities for template metaprogramming. */
+namespace meta
+{
+
+/** @concept convertible_to
+	Exactly the same as \c std::convertible_to , only implemented here because some versions of Xcode seem to be missing it.
+ */
 template <class From, class To>
 concept convertible_to =
 	std::is_convertible_v<From, To> && requires
@@ -35,13 +41,15 @@ concept convertible_to =
 	static_cast<To> (std::declval<From>());
 };
 
+/** @concept same_as */
 template <typename A, typename B>
 concept same_as = std::is_same_v<A, B>;
 
+/** @concept inherits_from */
 template <class ClassToTest, typename RequiredBase>
 concept inherits_from = std::is_base_of_v<RequiredBase, ClassToTest>;
 
-#ifndef DOXYGEN
+/// @cond
 
 template <class T, template <class...> class Template>
 struct LIMES_EXPORT is_specialization final : std::false_type
@@ -53,7 +61,7 @@ struct LIMES_EXPORT is_specialization<Template<Args...>, Template> final : std::
 {
 };
 
-#endif
+/// @endcond
 
 /** Evaluates to true if the given type is a specialization of the given template class; false otherwise.
 	@tparam ClassToTest Fully-specialized type to test.
@@ -62,13 +70,16 @@ struct LIMES_EXPORT is_specialization<Template<Args...>, Template> final : std::
 template <class ClassToTest, template <class...> class Template>
 static constexpr const bool is_specialization_v = is_specialization<ClassToTest, Template>::value;
 
+/** @concept specializes
+	@see is_specialization_v
+ */
 template <class ClassToTest, template <class...> class Template>
 concept specializes = requires
 {
 	is_specialization_v<ClassToTest, Template>;
 };
 
-#ifndef DOXYGEN
+/// @cond
 
 template <class Derived, class Base>
 struct LIMES_EXPORT covariance_check final : std::is_base_of<Base, Derived>
@@ -80,7 +91,7 @@ struct LIMES_EXPORT covariance_check<T<Ds...>, T<Bs...>> final : std::conjunctio
 {
 };
 
-#endif
+/// @endcond
 
 /** Evaluates to true if \c Base and \c Derived are covariant types; false otherwise.
 	@tparam Derived Derived type that may be covariant with \c Base.
@@ -89,20 +100,23 @@ struct LIMES_EXPORT covariance_check<T<Ds...>, T<Bs...>> final : std::conjunctio
 template <class Derived, class Base>
 static constexpr const bool is_covariant_v = covariance_check<Derived, Base>::value;
 
+/** @concept covariant_subtype_of
+ @see is_covariant_v
+ */
 template <class Derived, class Base>
 concept covariant_subtype_of = requires
 {
 	is_covariant_v<Derived, Base>;
 };
 
-#ifndef DOXYGEN
+/// @cond
 
 template <typename Test, typename... Types>
 struct LIMES_EXPORT is_one_of final : std::disjunction<std::is_same<Test, Types>...>
 {
 };
 
-#endif
+/// @endcond
 
 /** Evaluates to true if \c Test is the same as any of the types in \c Types .
 	@tparam Test Type to search for in the list of types.
@@ -111,14 +125,14 @@ struct LIMES_EXPORT is_one_of final : std::disjunction<std::is_same<Test, Types>
 template <typename Test, typename... Types>
 static constexpr const bool is_one_of_v = is_one_of<Test, Types...>::value;
 
-#ifndef DOXYGEN
+/// @cond
 
 template <typename Test, typename... Types>
 struct LIMES_EXPORT is_none_of final : std::negation<is_one_of<Test, Types...>>
 {
 };
 
-#endif
+/// @endcond
 
 /** Evalutes to true if \c Test is not in the list of \c Types .
 	@tparam Test Type to search for in the list of types.
@@ -126,6 +140,11 @@ struct LIMES_EXPORT is_none_of final : std::negation<is_one_of<Test, Types...>>
  */
 template <typename Test, typename... Types>
 static constexpr const bool is_none_of_v = is_none_of<Test, Types...>::value;
+
+}  // namespace meta
+
+namespace misc
+{
 
 /** Returns the demangled name of the type of the passed object. */
 LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto& object) noexcept
@@ -170,5 +189,7 @@ LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto* c) noex
 
 	return getDemangledName (*c) + " pointer";
 }
+
+}  // namespace misc
 
 LIMES_END_NAMESPACE

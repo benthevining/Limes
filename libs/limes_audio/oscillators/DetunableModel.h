@@ -53,7 +53,7 @@ private:
 
 	float lastFrequency { 440.f };
 
-	scalar_vector<float> frequencies;
+	ds::scalar_vector<float> frequencies;
 };
 
 }  // namespace dsp::osc

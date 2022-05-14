@@ -68,7 +68,7 @@ public:
 	[[nodiscard]] bool operator!= (const WholeTone& other) const;
 
 	/** Returns an array of 6 2's, since every interval in this scale is a whole step. */
-	[[nodiscard]] vector<int> getIntervalsAsSemitones() const final;
+	[[nodiscard]] ds::vector<int> getIntervalsAsSemitones() const final;
 
 	/** Returns the pitch class of the root of this scale. */
 	[[nodiscard]] PitchClass getPitchClassOfRoot() const noexcept final;

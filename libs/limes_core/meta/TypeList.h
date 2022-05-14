@@ -23,7 +23,7 @@
 
 LIMES_BEGIN_NAMESPACE
 
-namespace typelist
+namespace meta
 {
 
 /**
@@ -68,90 +68,90 @@ public:
 	using clear = TypeList<>;
 
 	/** The total size of the TypeList. */
-	static constexpr const size_t size = size_v<TypeID>;
+	static constexpr const size_t size = typelist::size_v<TypeID>;
 
 	/** True if the TypeList is empty; false otherwise. */
-	static constexpr const bool empty = is_empty<TypeID>;
+	static constexpr const bool empty = typelist::is_empty<TypeID>;
 
 	/** True if the other TypeList holds the same types in the same order as this one.
 		@tparam Other Another TypeList to compare with.
 	 */
 	template <class Other>
-	static constexpr const bool equal = are_same_v<TypeID, Other>;
+	static constexpr const bool equal = typelist::are_same_v<TypeID, Other>;
 
 	/** True if the other TypeList holds the same types as this one, regardless of their order.
 		@tparam Other Another TypeList to compare with.
 	 */
 	template <class Other>
-	static constexpr const bool equal_ignore_order = same_ignoring_order_v<TypeID, Other>;
+	static constexpr const bool equal_ignore_order = typelist::same_ignoring_order_v<TypeID, Other>;
 
 	/** True if all the passed types are contained in this TypeList.
 		@tparam TypesToFind List of types to check if this TypeList contains.
 	 */
 	template <typename... TypesToFind>
-	static constexpr const bool contains = contains_v<TypeID, TypesToFind...>;
+	static constexpr const bool contains = typelist::contains_v<TypeID, TypesToFind...>;
 
 	/** True if this TypeList contains at least one of the passed types.
 		@tparam TypesToFind List of types to check if this TypeList contains.
 	 */
 	template <typename... TypesToFind>
-	static constexpr const bool contains_or = contains_or_v<TypeID, TypesToFind...>;
+	static constexpr const bool contains_or = typelist::contains_or_v<TypeID, TypesToFind...>;
 
 	/** The number of times the given type appears in this TypeList.
 		@tparam Type The type to count occurances of in this TypeList.
 	 */
 	template <typename Type>
-	static constexpr const size_t num_of = count_v<TypeID, Type>;
+	static constexpr const size_t num_of = typelist::count_v<TypeID, Type>;
 
 	/** The number of types in the TypeList that satisfy the predicate.
 		@tparam UnaryPredicate A template class that will be instantiated for each type in the TypeList and must provide a compile-time call operator that will determine if the predicate is met for the type it was instantiated with. Examples of unary predicates are \c std::is_floating_point or  \c std::is_enum .
 	 */
 	template <template <typename> class UnaryPredicate>
-	static constexpr const size_t count_if = count_if_v<TypeID, UnaryPredicate>;
+	static constexpr const size_t count_if = typelist::count_if_v<TypeID, UnaryPredicate>;
 
 	/** The number of types in the TypeList that do not satisfy the predicate.
 		@tparam UnaryPredicate A template class that will be instantiated for each type in the TypeList and must provide a compile-time call operator that will determine if the predicate is met for the type it was instantiated with. Examples of unary predicates are \c std::is_floating_point or  \c std::is_enum .
 	 */
 	template <template <typename> class UnaryPredicate>
-	static constexpr const size_t count_if_not = count_if_not_v<TypeID, UnaryPredicate>;
+	static constexpr const size_t count_if_not = typelist::count_if_not_v<TypeID, UnaryPredicate>;
 
 	/** The type of a new TypeList with the given types appended to the end.
 		@tparam TypesToAdd Types to add to the end of this TypeList.
 	 */
 	template <typename... TypesToAdd>
-	using add = add_t<TypeID, TypesToAdd...>;
+	using add = typelist::add_t<TypeID, TypesToAdd...>;
 
 	/** The type of a new TypeList with types added from another TypeList.
 		@tparam Other Another TypeList to add types from.
 	 */
 	template <class Other>
-	using add_from = add_from_t<TypeID, Other>;
+	using add_from = typelist::add_from_t<TypeID, Other>;
 
 	/** For each type in the passed list of types, adds it to the TypeList if it was not already in the list.
 		@tparam TypesToAdd List of types to add to the TypeList
 	 */
 	template <typename... TypesToAdd>
-	using addIfAbsent = addIfAbsent_t<TypeID, TypesToAdd...>;
+	using addIfAbsent = typelist::addIfAbsent_t<TypeID, TypesToAdd...>;
 
 	/** Inserts a type in the TypeList at the given \c Index . Types after the given index in the list will be pushed back by 1.
 		@tparam Index The index in the TypeList to insert the new type at. Indices start from 0.
 		@tparam ToInsert The type to insert in the TypeList.
 	 */
 	template <size_t Index, typename ToInsert>
-	using insert_at = insert_at_t<TypeID, Index, ToInsert>;
+	using insert_at = typelist::insert_at_t<TypeID, Index, ToInsert>;
 
 	/** Prepends a type to the beginning of the TypeList.
 		@tparam ToPrepend Type to prepend to the list.
 	 */
 	template <typename ToPrepend>
-	using prepend = prepend_t<TypeID, ToPrepend>;
+	using prepend = typelist::prepend_t<TypeID, ToPrepend>;
 
 	/** Appends a type to the end of the TypeList.
 		This has the same semantics as using add with one passed type, but is provided so that you can be more explicit.
 		@tparam ToAppend Type to append to the list.
 	 */
 	template <typename ToAppend>
-	using append = append_t<TypeID, ToAppend>;
+	using append = typelist::append_t<TypeID, ToAppend>;
 
 	/** Swaps the types at two indices in the list.
 		A compile-time error will be raised if \c Index1 and \c Index2 are the same.
@@ -159,7 +159,7 @@ public:
 		@tparam Index2 The second index to be swapped.
 	 */
 	template <size_t Index1, size_t Index2>
-	using swap_at = swap_at_t<TypeID, Index1, Index2>;
+	using swap_at = typelist::swap_at_t<TypeID, Index1, Index2>;
 
 	/** Swaps two types in the list.
 		This finds the first instances of each type in the list, and uses \c swap_at to swap their indices.
@@ -168,44 +168,44 @@ public:
 		@tparam Type2 The second type to be swapped.
 	 */
 	template <typename Type1, typename Type2>
-	using swap = swap_t<TypeID, Type1, Type2>;
+	using swap = typelist::swap_t<TypeID, Type1, Type2>;
 
 	/** Gets the type of an element of the list at the specified index.
 		@tparam Index The index in the list to retrieve. A compile-time error will be raised if this index is out of bounds for this TypeList, unless the list is empty -- if the list is empty, this will always evaluate to NullType.
 	 */
 	template <size_t Index>
-	using at = get_t<TypeID, Index>;
+	using at = typelist::get_t<TypeID, Index>;
 
 	/** The type of the first element in the TypeList.
 		This is semantically the same as \c at<0> .
 	 */
-	using front = get_first_t<TypeID>;
+	using front = typelist::get_first_t<TypeID>;
 
 	/** The type of the last element in the TypeList.
 		This is semantically the same as \c at<size-1> .
 	 */
-	using back = get_last_t<TypeID>;
+	using back = typelist::get_last_t<TypeID>;
 
 	/** The type of a new TypeList with the same types as this one, but in reverse order. */
-	using reverse = reverse_t<TypeID>;
+	using reverse = typelist::reverse_t<TypeID>;
 
 	/** The index of the first occurance of the specified type in the TypeList.
 		A compile-time error will be raised if the specified type is not in the TypeList, unless the list is empty -- if the list is empty, this will always evaluate to \c static_cast<size_t>(-1) , regardless of what type was specified.
 		@tparam Type The type to find in the TypeList.
 	 */
 	template <typename Type>
-	static constexpr const size_t index_of = find_v<TypeID, Type>;
+	static constexpr const size_t index_of = typelist::find_v<TypeID, Type>;
 
 	/** The type of a new TypeList with all occurances of the passed types removed.
 		@tparam TypesToRemove List of types to remove from the list.
 	 */
 	template <typename... TypesToRemove>
-	using remove = remove_t<TypeID, TypesToRemove...>;
+	using remove = typelist::remove_t<TypeID, TypesToRemove...>;
 
 	/** If any \c NullType elements are present in this TypeList, removes them.
 		This is semantically the same as \c remove<NullType> .
 	 */
-	using remove_null_types = remove_null_types_t<TypeID>;
+	using remove_null_types = typelist::remove_null_types_t<TypeID>;
 
 	/** The type of a new TypeList with the type at the specified index removed.
 		All types after Index in the list will be moved forward by 1.
@@ -213,7 +213,7 @@ public:
 		@tparam Index Index to remove from the list.
 	 */
 	template <size_t Index>
-	using remove_at = remove_at_t<TypeID, Index>;
+	using remove_at = typelist::remove_at_t<TypeID, Index>;
 
 	/** Removes the first element of the TypeList.
 		This is semantically the same as \c remove_at<0> .
@@ -229,20 +229,20 @@ public:
 		@tparam UnaryPredicate A template class that will be instantiated for each type in the TypeList and must provide a compile-time call operator that will determine if the predicate is met for the type it was instantiated with. Examples of unary predicates are \c std::is_floating_point or  \c std::is_enum .
 	 */
 	template <template <typename> class UnaryPredicate>
-	using remove_if = remove_if_t<TypeID, UnaryPredicate>;
+	using remove_if = typelist::remove_if_t<TypeID, UnaryPredicate>;
 
 	/** Evaluates the predicate for each type in the list, and removes it if the predicate is not met.
 		@tparam UnaryPredicate A template class that will be instantiated for each type in the TypeList and must provide a compile-time call operator that will determine if the predicate is met for the type it was instantiated with. Examples of unary predicates are \c std::is_floating_point or  \c std::is_enum .
 	 */
 	template <template <typename> class UnaryPredicate>
-	using remove_if_not = remove_if_not_t<TypeID, UnaryPredicate>;
+	using remove_if_not = typelist::remove_if_not_t<TypeID, UnaryPredicate>;
 
 	/** Replaces all occurances of \c Replace in the list with \c With.
 		@tparam Replace The type to be replaced in the list. A compile-time error will be raised if the list does not contain this type.
 		@tparam With The type to replace \c Replace with.
 	 */
 	template <typename Replace, typename With>
-	using replace = replace_t<TypeID, Replace, With>;
+	using replace = typelist::replace_t<TypeID, Replace, With>;
 
 	/** Replaces the type at the specified \c Index with the new type \c ReplaceWith.
 		A compile-time error will be raised if the \c Index is out of range for this TypeList.
@@ -250,13 +250,13 @@ public:
 		@tparam ReplaceWith The new type to put at index \c Index in the list.
 	 */
 	template <size_t Index, typename ReplaceWith>
-	using replace_at = replace_at_t<TypeID, Index, ReplaceWith>;
+	using replace_at = typelist::replace_at_t<TypeID, Index, ReplaceWith>;
 
 	/** True if any type appears in the list more than once. */
-	static constexpr const bool contains_duplicates = contains_duplicates_v<TypeID>;
+	static constexpr const bool contains_duplicates = typelist::contains_duplicates_v<TypeID>;
 
 	/** The type of a new TypeList with all duplicates removed -- if a type appeared in the original list multiple times, it will appear in the new list exactly once. */
-	using remove_duplicates = remove_duplicates_t<TypeID>;
+	using remove_duplicates = typelist::remove_duplicates_t<TypeID>;
 
 	/** The type of a new TypeList that contains only types that were present in the original list and the passed list \c Other .
 
@@ -272,7 +272,7 @@ public:
 		@tparam Other Another type list to compare this one with.
 	 */
 	template <class Other>
-	using common_with = common_t<TypeID, Other>;
+	using common_with = typelist::common_t<TypeID, Other>;
 
 	/** The type of a new TypeList that contains only types that were present in the original list and not in the passed list \c Other .
 
@@ -288,7 +288,7 @@ public:
 		@tparam Other  Another type list to compare this one with.
 	 */
 	template <class Other>
-	using not_in = not_in_t<TypeID, Other>;
+	using not_in = typelist::not_in_t<TypeID, Other>;
 
 	/** Applies the types in this typelist to another class template, as its template arguments.
 
@@ -332,7 +332,7 @@ public:
 		@tparam Func Templated function to call.
 		@tparam Args Arguments to forward to the function.
 	 */
-	template <Function Func, typename... Args>
+	template <func::Function Func, typename... Args>
 	static constexpr void for_each (Func&& f, Args&&... args) noexcept (noexcept ((std::forward<Func> (f).template operator()<Types> (std::forward<Args> (args)...), ...)))
 	{
 		(std::forward<Func> (f).template operator()<Types> (std::forward<Args> (args)...), ...);
@@ -344,7 +344,7 @@ public:
 		@tparam Args Arguments to forward to the function.
 		@return The return type of the function.
 	 */
-	template <Function Func, typename... Args>
+	template <func::Function Func, typename... Args>
 	static constexpr auto for_all (Func&& f, Args&&... args) noexcept (noexcept (f().template operator()<Types...> (std::forward<Args> (args)...)))
 		-> std::invoke_result_t<Func, Args...>
 	{
@@ -354,7 +354,7 @@ public:
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef DOXYGEN
+/// @cond
 
 template <>
 class LIMES_EXPORT TypeList<> final
@@ -371,10 +371,10 @@ public:
 	static constinit const bool empty = true;
 
 	template <class Other>
-	static constexpr const bool equal = is_empty<Other>;
+	static constexpr const bool equal = typelist::is_empty<Other>;
 
 	template <class Other>
-	static constexpr const bool equal_ignore_order = is_empty<Other>;
+	static constexpr const bool equal_ignore_order = typelist::is_empty<Other>;
 
 	template <typename...>
 	static constinit const bool contains = false;
@@ -398,7 +398,7 @@ public:
 	using add_from = Other;
 
 	template <typename... TypesToAdd>
-	using addIfAbsent = addIfAbsent_t<TypeID, TypesToAdd...>;
+	using addIfAbsent = typelist::addIfAbsent_t<TypeID, TypesToAdd...>;
 
 	template <size_t, typename ToInsert>
 	using insert_at = TypeList<ToInsert>;
@@ -416,15 +416,15 @@ public:
 	using swap = TypeID;
 
 	template <size_t>
-	using at = NullType;
+	using at = typelist::NullType;
 
-	using front = NullType;
-	using back	= NullType;
+	using front = typelist::NullType;
+	using back	= typelist::NullType;
 
 	using reverse = TypeID;
 
 	template <typename>
-	static constinit const size_t index_of = invalid_index;
+	static constinit const size_t index_of = typelist::invalid_index;
 
 	template <typename...>
 	using remove = TypeID;
@@ -463,23 +463,23 @@ public:
 	using apply_to = T<>;
 
 	template <size_t, typename... Args>
-	static constexpr NullType construct (Args&&...) noexcept
+	static constexpr typelist::NullType construct (Args&&...) noexcept
 	{
 		return {};
 	}
 
 	template <size_t, typename... Args>
-	static std::unique_ptr<NullType> make_unique (Args&&...) noexcept
+	static std::unique_ptr<typelist::NullType> make_unique (Args&&...) noexcept
 	{
-		return std::make_unique<NullType>();
+		return std::make_unique<typelist::NullType>();
 	}
 
-	template <Function Func, typename... Args>
+	template <func::Function Func, typename... Args>
 	static constexpr void for_each (Func&&, Args&&...) noexcept
 	{
 	}
 
-	template <Function Func, typename... Args>
+	template <func::Function Func, typename... Args>
 	static constexpr auto for_all (Func&& f, Args&&... args) noexcept (noexcept (f().template operator()<> (std::forward<Args> (args)...)))
 		-> std::invoke_result_t<Func, Args...>
 	{
@@ -487,14 +487,14 @@ public:
 	}
 };
 
-#endif /* ifndef DOXYGEN */
+/// @endcond
 
 /** A utility typedef for an empty TypeList. */
 LIMES_EXPORT using Empty = TypeList<>;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef DOXYGEN
+/// @cond
 
 template <typename>
 struct LIMES_EXPORT make_type_list_from;
@@ -505,7 +505,7 @@ struct LIMES_EXPORT make_type_list_from<T<Args...>> final
 	using type = TypeList<Args...>;
 };
 
-#endif
+/// @endcond
 
 /** Creates a typelist from the template arguments of a template type.
 	For example:
@@ -524,11 +524,14 @@ LIMES_EXPORT using make_type_list_from_t = typename make_type_list_from<Args...>
 
 /** True if the specified type is a specialization of TypeList. */
 template <class T>
-LIMES_EXPORT static constinit const bool is_typelist = is_specialization<T, TypeList>::value;
+LIMES_EXPORT static constinit const bool is_typelist = meta::is_specialization<T, TypeList>::value;
 
+/** @concept type_list
+	@see is_typelist
+ */
 template <typename T>
 concept type_list = is_typelist<T>;
 
-}  // namespace typelist
+}  // namespace meta
 
 LIMES_END_NAMESPACE

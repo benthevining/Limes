@@ -22,6 +22,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace memory
+{
+
 RawData::RawData (std::size_t initialSize, bool initializeToZero)
 	: size (initialSize), data (static_cast<char*> (initializeToZero
 														? std::calloc (initialSize, std::size_t (1))
@@ -327,12 +330,14 @@ std::string RawData::hash (hash::Type hashType) const
 	return hash::hash (hashType, data, size);
 }
 
+}  // namespace memory
+
 LIMES_END_NAMESPACE
 
 namespace std
 {
 
-size_t hash<limes::RawData>::operator() (const limes::RawData& d) const noexcept
+size_t hash<limes::memory::RawData>::operator() (const limes::memory::RawData& d) const noexcept
 {
 	return hash<std::string> {}(d.toString());
 }

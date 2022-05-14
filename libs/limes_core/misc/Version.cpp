@@ -16,6 +16,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace misc
+{
+
 std::string Version::toString (char separator) const
 {
 	std::stringstream stream;
@@ -25,11 +28,13 @@ std::string Version::toString (char separator) const
 	return stream.str();
 }
 
+}  // namespace misc
+
 LIMES_END_NAMESPACE
 
 namespace std
 {
-size_t hash<limes::Version>::operator() (const limes::Version& v) const noexcept
+size_t hash<limes::misc::Version>::operator() (const limes::misc::Version& v) const noexcept
 {
 	return hash<string> {}(v.toString());
 }

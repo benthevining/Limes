@@ -50,10 +50,10 @@ struct LIMES_EXPORT Scale
 
 	/** Subclasses must implement this to return an array of integers representing the intervals in this scale as a series of semitone steps.
 	 */
-	[[nodiscard]] virtual vector<int> getIntervalsAsSemitones() const = 0;
+	[[nodiscard]] virtual ds::vector<int> getIntervalsAsSemitones() const = 0;
 
 	/** Returns an array of Interval objects that represent the intervals in this scale. */
-	[[nodiscard]] vector<Interval> getIntervals() const;
+	[[nodiscard]] ds::vector<Interval> getIntervals() const;
 
 	/** Returns true if this scale contains the passed pitch class.
 	 */
@@ -67,16 +67,16 @@ struct LIMES_EXPORT Scale
 
 	/** Returns the pitch classes present in one octave of this scale.
 	 */
-	[[nodiscard]] vector<PitchClass> getPitchClasses() const;
+	[[nodiscard]] ds::vector<PitchClass> getPitchClasses() const;
 
 	/** Returns an array of pitch objects representing one octave of this scale, at the given octave number.
 		@param octaveNumber The MIDI octave number to produce pitches for.
 	 */
-	[[nodiscard]] vector<Pitch> getPitches (int octaveNumber) const;
+	[[nodiscard]] ds::vector<Pitch> getPitches (int octaveNumber) const;
 
 	/** Returns an array of pitch objects representing this scale between a lowest and highest MIDI pitch.
 	 */
-	[[nodiscard]] vector<Pitch> getPitches (int lowestMidiNote, int highestMidiNote) const;
+	[[nodiscard]] ds::vector<Pitch> getPitches (int lowestMidiNote, int highestMidiNote) const;
 
 	/** Subclasses must implement this to return the pitch class of the root (or tonic) note of the scale.
 	 */

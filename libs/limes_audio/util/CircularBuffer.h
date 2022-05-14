@@ -28,7 +28,7 @@ class LIMES_EXPORT CircularBuffer final
 {
 public:
 
-	using SampleVector = scalar_vector<SampleType>;
+	using SampleVector = ds::scalar_vector<SampleType>;
 
 	/** Creates a CircularBuffer with an initial size. */
 	explicit CircularBuffer (int initialCapacity = 512);
@@ -72,7 +72,7 @@ public:
 
 private:
 
-	limes::AbstractFIFO fifo;
+	ds::AbstractFIFO fifo;
 
 	SampleVector storage;
 };

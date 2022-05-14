@@ -17,6 +17,7 @@
 
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains functions related to the debugger. */
 namespace debugger
 {
 

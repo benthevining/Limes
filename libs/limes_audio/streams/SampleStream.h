@@ -32,7 +32,7 @@ struct LIMES_EXPORT SampleStream
 {
 public:
 
-	using SampleVector = scalar_vector<SampleType>;
+	using SampleVector = ds::scalar_vector<SampleType>;
 
 	/** Creates a sample stream with a specified lambda function for producing the next sample. */
 	explicit SampleStream (std::function<SampleType()>&& sampleFuncToUse);

@@ -17,6 +17,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace strings
+{
+
 std::string TextTable::Row::toString (const std::string&		 columnSeparator,
 									  const std::vector<size_t>& widths) const
 {
@@ -135,5 +138,7 @@ std::string TextTable::toString (const std::string_view& rowPrefix,
 
 	return result;
 }
+
+}  // namespace strings
 
 LIMES_END_NAMESPACE

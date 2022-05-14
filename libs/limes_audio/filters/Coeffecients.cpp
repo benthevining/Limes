@@ -27,13 +27,13 @@ Coeffecients<Sampletype>::Storage::Storage()
 }
 
 template <Sample Sampletype>
-scalar_vector<Sampletype>* Coeffecients<Sampletype>::Storage::operator->() noexcept
+ds::scalar_vector<Sampletype>* Coeffecients<Sampletype>::Storage::operator->() noexcept
 {
 	return &coefficients;
 }
 
 template <Sample Sampletype>
-const scalar_vector<Sampletype>* Coeffecients<Sampletype>::Storage::operator->() const noexcept
+const ds::scalar_vector<Sampletype>* Coeffecients<Sampletype>::Storage::operator->() const noexcept
 {
 	return &coefficients;
 }

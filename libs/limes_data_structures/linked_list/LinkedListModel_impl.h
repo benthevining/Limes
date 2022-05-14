@@ -17,6 +17,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace ds
+{
+
 template <typename ObjectType>
 LinkedListModel<ObjectType>::~LinkedListModel()
 {
@@ -295,5 +298,7 @@ constexpr typename LinkedListModel<ObjectType>::Iterator::reference LinkedListMo
 	LIMES_ASSERT (currentNode != nullptr);
 	return currentNode->getObject();
 }
+
+}  // namespace ds
 
 LIMES_END_NAMESPACE

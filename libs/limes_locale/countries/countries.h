@@ -27,7 +27,7 @@ struct Language;
 
 struct LIMES_EXPORT Country final
 {
-	[[nodiscard]] vector<Language> getLanguages() const;
+	[[nodiscard]] ds::vector<Language> getLanguages() const;
 
 	std::string countryCode, countryName;
 
@@ -45,7 +45,7 @@ struct LIMES_EXPORT Country final
 
 [[nodiscard]] Country getCountryByName (const std::string_view& countryName);
 
-[[nodiscard]] vector<Country> getAllCountries();
+[[nodiscard]] ds::vector<Country> getAllCountries();
 
 }  // namespace locale
 

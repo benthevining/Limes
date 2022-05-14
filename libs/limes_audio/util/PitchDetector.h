@@ -32,7 +32,7 @@ class LIMES_EXPORT PitchDetector final
 {
 public:
 
-	using SampleVector = scalar_vector<SampleType>;
+	using SampleVector = ds::scalar_vector<SampleType>;
 
 	/** Creates a pitch detector with an initial minimum detectable frequency and confidence threshold.
 		The latency of the algorithm is determined by 2 * the period of the minimum frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.

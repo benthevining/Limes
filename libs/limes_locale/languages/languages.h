@@ -30,18 +30,18 @@ struct LIMES_EXPORT Language final
 {
 	explicit Language (const std::string_view& name,
 					   const std::string_view& ISO_639_1, const std::string_view& ISO_639_2,
-					   const StringVector& countries   = {},  // NOLINT
-					   bool				   rightToLeft = false);
+					   const ds::StringVector& countries   = {},  // NOLINT
+					   bool					   rightToLeft = false);
 
 	Language() = default;
 
 	[[nodiscard]] bool isForCountry (const std::string_view& countryCode) const;
 
-	[[nodiscard]] vector<Country> getCountries() const;
+	[[nodiscard]] ds::vector<Country> getCountries() const;
 
 	std::string languageName, ISO639_1, ISO639_2;
 
-	StringVector countryCodes;
+	ds::StringVector countryCodes;
 
 	bool isRightToLeft { false };
 };
@@ -51,9 +51,9 @@ struct LIMES_EXPORT Language final
 
 [[nodiscard]] LIMES_EXPORT Language getLanguage (const std::string_view& languageName);
 
-[[nodiscard]] LIMES_EXPORT vector<Language> getLanguagesForCountry (const std::string_view& countryCode);
+[[nodiscard]] LIMES_EXPORT ds::vector<Language> getLanguagesForCountry (const std::string_view& countryCode);
 
-[[nodiscard]] LIMES_EXPORT vector<Language> getAllKnownLanguages();
+[[nodiscard]] LIMES_EXPORT ds::vector<Language> getAllKnownLanguages();
 
 }  // namespace locale
 

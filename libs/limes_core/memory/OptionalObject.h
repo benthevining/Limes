@@ -20,6 +20,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace memory
+{
+
 template <typename T>
 class LIMES_EXPORT OptionalObject final
 {
@@ -31,18 +34,18 @@ public:
 	~OptionalObject() = default;
 
 	template <typename... Args>
-	OptionalObject (Args&&... args);
+	explicit OptionalObject (Args&&... args);
 
-	OptionalObject (const OptionalObject& other);
+	explicit OptionalObject (const OptionalObject& other);
 
-	OptionalObject (OptionalObject&& other) noexcept;
+	explicit OptionalObject (OptionalObject&& other) noexcept;
 
 	OptionalObject& operator= (const OptionalObject& other);
 
 	OptionalObject& operator= (OptionalObject&& other) noexcept;
 
 	template <typename... Args>
-	[[nodiscard]] T& create (Args&&... args);
+	T& create (Args&&... args);
 
 	void destroy();
 
@@ -89,7 +92,7 @@ template <typename T>
 T& OptionalObject<T>::operator*() const
 {
 	LIMES_ASSERT (object != nullptr);
-	return &object;
+	return *object;
 }
 
 template <typename T>
@@ -168,5 +171,7 @@ consteval size_t OptionalObject<T>::getSize() noexcept
 {
 	return sizeof (T);
 }
+
+}  // namespace memory
 
 LIMES_END_NAMESPACE

@@ -19,6 +19,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace misc
+{
+
 /** @ingroup lemons_core
 	A simple struct that represents the dimensions of a GUI. */
 struct LIMES_EXPORT Dimensions final
@@ -74,5 +77,7 @@ private:
 
 	int width { 0 }, height { 0 };
 };
+
+}  // namespace misc
 
 LIMES_END_NAMESPACE

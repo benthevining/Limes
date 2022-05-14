@@ -77,7 +77,7 @@ private:
 
 	FFTSetupType m_spec;
 
-	aligned_pointer<SampleType> m_spare, m_spare2;
+	memory::aligned_pointer<SampleType> m_spare, m_spare2;
 
 	DSPSplitComplexType m_buf, m_packed;
 };

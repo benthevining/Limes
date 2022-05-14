@@ -26,6 +26,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace memory
+{
+
 MemoryPool::MemoryPool (std::size_t storageSizeBytes, std::size_t chunkSize)
 	: totalSizeBytes (storageSizeBytes),
 	  chunkSizeBytes (chunkSize),
@@ -168,5 +171,7 @@ MemoryPool::Chunk::Chunk (std::byte* const ptr) noexcept
 	: location (ptr)
 {
 }
+
+}  // namespace memory
 
 LIMES_END_NAMESPACE

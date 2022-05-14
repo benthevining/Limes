@@ -22,6 +22,10 @@
 
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains some utilities for working with higher-level functions and functions as objects. */
+namespace func
+{
+
 // clang-format off
 template <typename T>
 concept Function = requires (T f)
@@ -145,7 +149,7 @@ LIMES_EXPORT consteval decltype (auto) consteval_invoke (Param&&... param) noexc
 
 
 template <Function Func, typename... Args>
-LIMES_EXPORT inline bool try_call (Func&& func, Args&&... args) noexcept
+LIMES_EXPORT constexpr bool try_call (Func&& func, Args&&... args) noexcept
 {
 	if constexpr (noexcept (func))
 	{
@@ -165,5 +169,7 @@ LIMES_EXPORT inline bool try_call (Func&& func, Args&&... args) noexcept
 		}
 	}
 }
+
+}  // namespace func
 
 LIMES_END_NAMESPACE

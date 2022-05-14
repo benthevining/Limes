@@ -81,7 +81,7 @@ public:
 
 	/** Returns a sequence of alternating 2's and 1's.
 	 */
-	[[nodiscard]] vector<int> getIntervalsAsSemitones() const final;
+	[[nodiscard]] ds::vector<int> getIntervalsAsSemitones() const final;
 
 	/** Returns the pitch class of the root of this scale. */
 	[[nodiscard]] PitchClass getPitchClassOfRoot() const noexcept final;

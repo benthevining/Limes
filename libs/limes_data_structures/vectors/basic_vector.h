@@ -22,6 +22,12 @@
 
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains some useful data structures.
+	'ds' stands for data structures.
+ */
+namespace ds
+{
+
 template <typename ElementType, class Allocator = std::allocator<ElementType>>
 class LIMES_EXPORT basic_vector
 {
@@ -333,5 +339,7 @@ protected:
 
 	using size_type = typename vector_type::size_type;
 };
+
+}  // namespace ds
 
 LIMES_END_NAMESPACE

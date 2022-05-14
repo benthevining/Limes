@@ -61,7 +61,7 @@ void PeakFinder<SampleType>::releaseResources()
 }
 
 template <Sample SampleType>
-const vector<int>& PeakFinder<SampleType>::findPeaks (const SampleType* const inputSamples, int numSamples, float period)
+const ds::scalar_vector<int>& PeakFinder<SampleType>::findPeaks (const SampleType* const inputSamples, int numSamples, float period)
 {
 	LIMES_ASSERT (period > 0.f && numSamples > 0);
 

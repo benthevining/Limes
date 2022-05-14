@@ -21,6 +21,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace ds
+{
+
 template <typename ElementType, class Allocator = std::allocator<std::unique_ptr<ElementType>>>
 class LIMES_EXPORT owned_vector final : public basic_vector<std::unique_ptr<ElementType>, Allocator>
 {
@@ -225,5 +228,7 @@ private:
 
 	ObjectCreationFunction createObject;
 };
+
+}  // namespace ds
 
 LIMES_END_NAMESPACE

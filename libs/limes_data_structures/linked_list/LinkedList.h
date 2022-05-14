@@ -19,6 +19,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace ds
+{
+
 template <typename ObjectType>
 class LIMES_EXPORT LinkedList final
 {
@@ -72,6 +75,8 @@ private:
 
 	owned_vector<Node> nodes;
 };
+
+}  // namespace ds
 
 LIMES_END_NAMESPACE
 

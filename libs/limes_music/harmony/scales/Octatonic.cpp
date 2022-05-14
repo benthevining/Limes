@@ -30,9 +30,9 @@ bool Octatonic::operator!= (const Octatonic& other) const
 	return ! (*this == other);
 }
 
-vector<int> Octatonic::getIntervalsAsSemitones() const
+ds::vector<int> Octatonic::getIntervalsAsSemitones() const
 {
-	vector<int> intervals;
+	ds::vector<int> intervals;
 
 	auto semitone = startWithHalfStep;
 

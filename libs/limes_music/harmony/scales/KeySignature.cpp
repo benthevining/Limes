@@ -63,7 +63,7 @@ namespace music::scales
 // }
 
 
-vector<int> KeySignature::getIntervalsAsSemitones() const
+ds::vector<int> KeySignature::getIntervalsAsSemitones() const
 {
 	switch (type)
 	{

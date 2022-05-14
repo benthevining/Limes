@@ -117,7 +117,7 @@ private:
 
 	int samplesToNextGrain { 0 }, placeInBlock { 0 }, targetPitchHz { 0 };
 
-	owned_vector<Grain> grains;
+	ds::owned_vector<Grain> grains;
 };
 
 }  // namespace dsp::psola

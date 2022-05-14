@@ -36,7 +36,7 @@ public:
 
 	/** Follows the symbolic link to find its target.
 		If the \c recurse option is true, and the immediate target of this symlink is another symlink, then this function will follow *that* symlink, and so on, until a non-symbolic-link filesystem object is reached.
-		@note Be careful, there is no protection against cycles in this function, so you may invoke an infinite loop!
+		@attention Be careful, there is no protection against cycles in this function, so you may invoke an infinite loop!
 	 */
 	[[nodiscard]] FilesystemEntry follow (bool recurse = true) const noexcept;
 
@@ -46,7 +46,8 @@ public:
 	/** Returns true if the other symbolic link references the same target as this one, either as its immediate target or as part of the chain of recursive symbolic links (if one exists). */
 	[[nodiscard]] bool referencesSameLocationAs (const SymLink& other) const;
 
-	/** Creates a symbolic link on the filesystem.
+	/** @name Symbolic link creation
+		Creates a symbolic link on the filesystem.
 		@returns True if link creation was successful.
 	 */
 	///@{

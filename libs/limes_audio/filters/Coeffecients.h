@@ -98,13 +98,13 @@ public:
 		LIMES_DEFAULT_MOVABLE (Storage);
 		LIMES_DEFAULT_COPYABLE (Storage);
 
-		scalar_vector<Sampletype>* operator->() noexcept;
+		ds::scalar_vector<Sampletype>* operator->() noexcept;
 
-		const scalar_vector<Sampletype>* operator->() const noexcept;
+		const ds::scalar_vector<Sampletype>* operator->() const noexcept;
 
 		Storage& operator= (std::initializer_list<Sampletype> list);
 
-		scalar_vector<Sampletype> coefficients;
+		ds::scalar_vector<Sampletype> coefficients;
 	};
 
 	Storage coefficients;

@@ -21,6 +21,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace memory
+{
+
 template <typename T, std::size_t MaxCapacity>
 class LIMES_EXPORT MemoryPoolAllocator final
 {
@@ -109,5 +112,7 @@ private:
 
 	MemoryPool pool;
 };
+
+}  // namespace memory
 
 LIMES_END_NAMESPACE

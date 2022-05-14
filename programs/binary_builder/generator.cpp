@@ -124,7 +124,7 @@ void generateBodyFile (const Options& options)
 			throw std::runtime_error { std::string ("Failed to open file ") + fileName.getAbsolutePath().string() };
 		}
 
-		limes::ScopedStreamFlags flags { stream };
+		limes::misc::ScopedStreamFlags flags { stream };
 
 		const auto fileLen = static_cast<unsigned int> (fileName.sizeInBytes());
 

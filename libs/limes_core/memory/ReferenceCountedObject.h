@@ -20,6 +20,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace memory
+{
+
 class LIMES_EXPORT ReferenceCountedObject
 {
 public:
@@ -59,7 +62,7 @@ private:
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-template <inherits_from<ReferenceCountedObject> ObjectType>
+template <meta::inherits_from<ReferenceCountedObject> ObjectType>
 class LIMES_EXPORT ReferenceCountedObjectPtr final
 {
 public:
@@ -251,18 +254,18 @@ private:
 	}
 };
 
-
 template <typename Type>
-LIMES_EXPORT bool operator== (const Type* object1, const ReferenceCountedObjectPtr<Type>& object2) noexcept
+LIMES_EXPORT bool operator== (const Type* object1, const memory::ReferenceCountedObjectPtr<Type>& object2) noexcept
 {
 	return object1 == object2.get();
 }
 
 template <typename Type>
-LIMES_EXPORT bool operator!= (const Type* object1, const ReferenceCountedObjectPtr<Type>& object2) noexcept
+LIMES_EXPORT bool operator!= (const Type* object1, const memory::ReferenceCountedObjectPtr<Type>& object2) noexcept
 {
 	return object1 != object2.get();
 }
 
+}  // namespace memory
 
 LIMES_END_NAMESPACE

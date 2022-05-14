@@ -30,7 +30,7 @@ class LIMES_EXPORT Filter final
 {
 public:
 
-	using SampleVector = scalar_vector<SampleType>;
+	using SampleVector = ds::scalar_vector<SampleType>;
 
 	/** Resets the internal state of the filter. */
 	void reset (SampleType resetToValue = SampleType (0));

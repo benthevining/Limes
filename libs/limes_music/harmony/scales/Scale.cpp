@@ -33,7 +33,7 @@ bool Scale::operator!= (const Scale& other) const
 	return ! (*this == other);
 }
 
-vector<Interval> Scale::getIntervals() const
+ds::vector<Interval> Scale::getIntervals() const
 {
 	return getIntervalsAsSemitones().transformElementsTo<Interval> ([] (const auto interval)
 																	{ return Interval::fromNumSemitones (interval); });
@@ -58,9 +58,9 @@ bool Scale::containsPitchClass (const PitchClass& pitchClass) const
 												  { return pitchClass == PitchClass { root + interval }; });
 }
 
-vector<PitchClass> Scale::getPitchClasses() const
+ds::vector<PitchClass> Scale::getPitchClasses() const
 {
-	vector<PitchClass> pitchClasses;
+	ds::vector<PitchClass> pitchClasses;
 
 	for (auto i = 0; i <= notesPerOctave(); ++i)
 	{
@@ -73,7 +73,7 @@ vector<PitchClass> Scale::getPitchClasses() const
 	return pitchClasses;
 }
 
-vector<Pitch> Scale::getPitches (int octaveNumber) const
+ds::vector<Pitch> Scale::getPitches (int octaveNumber) const
 {
 	const auto startingNote = [this, octaveNumber]
 	{
@@ -89,7 +89,7 @@ vector<Pitch> Scale::getPitches (int octaveNumber) const
 																 { return Pitch { startingNote + interval }; });
 }
 
-vector<Pitch> Scale::getPitches (int lowestMidiNote, int highestMidiNote) const
+ds::vector<Pitch> Scale::getPitches (int lowestMidiNote, int highestMidiNote) const
 {
 	const auto startingNote = [this, &lowestMidiNote]
 	{
@@ -99,7 +99,7 @@ vector<Pitch> Scale::getPitches (int lowestMidiNote, int highestMidiNote) const
 		return lowestMidiNote;
 	}();
 
-	vector<Pitch> pitches;
+	ds::vector<Pitch> pitches;
 
 	const auto intervals = getIntervalsAsSemitones();
 

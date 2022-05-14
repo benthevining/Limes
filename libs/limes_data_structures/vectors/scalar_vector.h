@@ -20,6 +20,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace ds
+{
+
 template <typename ElementType, class Allocator = std::allocator<ElementType>>
 class LIMES_EXPORT scalar_vector final : public basic_vector<ElementType, Allocator>
 {
@@ -216,5 +219,7 @@ private:
 		return std::min (this->numObjects(), dataSize);
 	}
 };
+
+}  // namespace ds
 
 LIMES_END_NAMESPACE

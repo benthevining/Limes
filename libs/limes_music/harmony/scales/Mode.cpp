@@ -22,7 +22,7 @@ LIMES_BEGIN_NAMESPACE
 namespace music::scales
 {
 
-vector<int> Mode::getIntervalsAsSemitones() const
+ds::vector<int> Mode::getIntervalsAsSemitones() const
 {
 	switch (type)
 	{

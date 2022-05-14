@@ -20,6 +20,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace math
+{
+
 template <typename ObjectType, size_t Rows, size_t Columns>
 class LIMES_EXPORT Matrix final
 {
@@ -187,5 +190,7 @@ Matrix<ObjectType, NumRows, NumColumns> Matrix<ObjectType, Rows, Columns>::getSu
 
 	return newMatrix;
 }
+
+}  // namespace math
 
 LIMES_END_NAMESPACE

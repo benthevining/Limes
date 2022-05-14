@@ -89,8 +89,8 @@ bool File::write_data (const char* const data, std::size_t numBytes, bool overwr
 	if (numBytes == 0)
 		return false;
 
-	return try_call ([data, numBytes, overwrite, p = getAbsolutePath()]
-					 {
+	return func::try_call ([data, numBytes, overwrite, p = getAbsolutePath()]
+						   {
 			const auto mode = overwrite ? std::ios::trunc : std::ios::app;
 
 			std::ofstream stream { p.c_str(), mode };
@@ -103,7 +103,7 @@ bool File::overwrite (const char* const data, std::size_t numBytes) const noexce
 	return write_data (data, numBytes, true);
 }
 
-bool File::overwrite (const RawData& data) const noexcept
+bool File::overwrite (const memory::RawData& data) const noexcept
 {
 	return write_data (data.getData(), data.getSize(), true);
 }
@@ -118,7 +118,7 @@ bool File::append (const char* const data, std::size_t numBytes) const noexcept
 	return write_data (data, numBytes, false);
 }
 
-bool File::append (const RawData& data) const noexcept
+bool File::append (const memory::RawData& data) const noexcept
 {
 	return write_data (data.getData(), data.getSize(), false);
 }
@@ -128,7 +128,7 @@ bool File::append (const std::string_view& text) const noexcept
 	return write_data (text.data(), text.size(), false);
 }
 
-bool File::prepend (const RawData& data) const noexcept
+bool File::prepend (const memory::RawData& data) const noexcept
 {
 	return prepend (data.getData(), data.getSize());
 }
@@ -151,13 +151,13 @@ bool File::prepend (const std::string_view& text) const noexcept
 	return overwrite (data);
 }
 
-RawData File::loadAsData() const noexcept
+memory::RawData File::loadAsData() const noexcept
 {
 	try
 	{
 		std::ifstream stream { getAbsolutePath().c_str() };
 
-		return RawData { stream };
+		return memory::RawData { stream };
 	}
 	catch (const std::exception&)
 	{

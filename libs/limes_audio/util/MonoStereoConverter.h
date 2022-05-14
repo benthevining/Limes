@@ -49,7 +49,7 @@ class LIMES_EXPORT MonoStereoConverter final
 {
 public:
 
-	using SampleVector = scalar_vector<SampleType>;
+	using SampleVector = ds::scalar_vector<SampleType>;
 
 	/** Prepares the converter to process a new maximum blocksize. */
 	void prepare (int blocksize);

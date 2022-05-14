@@ -17,10 +17,15 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace misc
+{
+
 /** A utility function to silence unused variable warnings. */
 template <typename... Args>
 LIMES_EXPORT constexpr void ignore_unused (Args&&...) noexcept
 {
 }
+
+}  // namespace misc
 
 LIMES_END_NAMESPACE

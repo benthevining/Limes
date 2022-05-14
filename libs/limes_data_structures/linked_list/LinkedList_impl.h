@@ -18,6 +18,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace ds
+{
+
 template <typename ObjectType>
 template <typename... Args>
 LinkedList<ObjectType>::Node::Node (Args&&... args)
@@ -121,5 +124,7 @@ void LinkedList<ObjectType>::removeNode (const Node& node)
 
 	nodes.removeObject (&node);
 }
+
+}  // namespace ds
 
 LIMES_END_NAMESPACE

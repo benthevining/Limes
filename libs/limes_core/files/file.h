@@ -40,7 +40,9 @@ public:
 	LIMES_DEFAULT_COPYABLE (File);
 	LIMES_DEFAULT_MOVABLE (File);
 
-	/** Assigns this object to refer to a new path. */
+	/** @name Assignment
+		Assigns this object to refer to a new path.
+	 */
 	///@{
 	File& operator= (const Path& newPath);
 	File& operator= (const std::string_view& newPath);
@@ -66,41 +68,47 @@ public:
 	File& replaceFileExtension (const std::string_view& newFileExtension,
 								bool					renameOnDisk = true);
 
-	/** Replaces the file's contents with the given data.
+	/** @name Overwriting with content
+		Replaces the file's contents with the given data.
 		@returns True if writing the data was successful.
 	 */
 	///@{
-	bool overwrite (const RawData& data) const noexcept;
+	bool overwrite (const memory::RawData& data) const noexcept;
 	bool overwrite (const char* const data, std::size_t numBytes) const noexcept;
 	bool overwrite (const std::string_view& text) const noexcept;
 	///@}
 
-	/** Appends the given data to the file's current contents.
+	/** @name Appending content
+		Appends the given data to the file's current contents.
 		@returns True if writing the data was successful.
 	 */
 	///@{
-	bool append (const RawData& data) const noexcept;
+	bool append (const memory::RawData& data) const noexcept;
 	bool append (const char* const data, std::size_t numBytes) const noexcept;
 	bool append (const std::string_view& text) const noexcept;
 	///@}
 
-	/** Prepends the given raw data to the file's current contents.
+	/** @name Prepending content
+		Prepends the given raw data to the file's current contents.
 		@returns True if writing the data was successful.
 	 */
 	///@{
-	bool prepend (const RawData& data) const noexcept;
+	bool prepend (const memory::RawData& data) const noexcept;
 	bool prepend (const char* const data, std::size_t numBytes) const noexcept;
 	bool prepend (const std::string_view& text) const noexcept;
 	///@}
 
+	/** @name Loading the file */
+	///@{
 	/** Loads the file's contents as a RawData object. */
-	[[nodiscard]] RawData loadAsData() const noexcept;
+	[[nodiscard]] memory::RawData loadAsData() const noexcept;
 
 	/** Loads the file's contents as a string. */
 	[[nodiscard]] std::string loadAsString() const noexcept;
 
 	/** Loads the file's contents as a vector of strings, with each string containing the contents of one line of the file. */
 	[[nodiscard]] std::vector<std::string> loadAsLines() const;
+	///@}
 
 	/** Calculates a hash of the file's content using the specified hash type. */
 	[[nodiscard]] std::string hash (hash::Type hashType) const;

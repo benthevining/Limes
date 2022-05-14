@@ -61,13 +61,13 @@ public:
 
 	[[nodiscard]] bool fitsInScale (const scales::Scale& scale) const noexcept;
 
-	[[nodiscard]] vector<Interval> getIntervals() const;
+	[[nodiscard]] ds::vector<Interval> getIntervals() const;
 
-	[[nodiscard]] vector<PitchClass> getPitchClasses() const;
+	[[nodiscard]] ds::vector<PitchClass> getPitchClasses() const;
 
 	[[nodiscard]] int getNumUniquePitchClasses() const;
 
-	[[nodiscard]] vector<Pitch> getPitches() const;
+	[[nodiscard]] ds::vector<Pitch> getPitches() const;
 
 	[[nodiscard]] Chord applyInterval (const Interval& interval, bool above);
 
@@ -81,7 +81,7 @@ public:
 
 private:
 
-	vector<Pitch> pitches;
+	ds::vector<Pitch> pitches;
 };
 
 }  // namespace music

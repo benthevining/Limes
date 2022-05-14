@@ -22,6 +22,7 @@
 
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains implementation details for the TypeList class. */
 namespace typelist
 {
 
@@ -42,6 +43,8 @@ LIMES_EXPORT static constexpr const bool is_null_type = std::is_same_v<T, NullTy
 LIMES_END_NAMESPACE
 
 #else
+
+/// @cond
 
 LIMES_BEGIN_NAMESPACE
 
@@ -939,4 +942,6 @@ LIMES_EXPORT using reverse_t = typename reverse<Typelist>::type;
 
 LIMES_END_NAMESPACE
 
-#endif /* ifndef DOXYGEN */
+/// @endcond
+
+#endif

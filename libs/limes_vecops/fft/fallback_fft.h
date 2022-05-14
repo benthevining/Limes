@@ -65,9 +65,9 @@ private:
 
 	const int m_half { this->fft_size / 2 };
 
-	aligned_pointer<int> m_table;
+	memory::aligned_pointer<int> m_table;
 
-	aligned_pointer<SampleType> m_sincos, m_sincos_r, m_vr, m_vi, m_a, m_b, m_c, m_d;
+	memory::aligned_pointer<SampleType> m_sincos, m_sincos_r, m_vr, m_vi, m_a, m_b, m_c, m_d;
 
 	SampleType* m_a_and_b[2] { m_a, m_b };
 	SampleType* m_c_and_d[2] { m_c, m_d };

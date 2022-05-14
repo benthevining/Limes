@@ -17,11 +17,11 @@
 
 LIMES_BEGIN_NAMESPACE
 
-static_assert (is_specialization<std::vector<int>, std::vector>());
-static_assert (! is_specialization<std::vector<int>, std::list>());
+static_assert (meta::is_specialization<std::vector<int>, std::vector>());
+static_assert (! meta::is_specialization<std::vector<int>, std::list>());
 
-static_assert (is_one_of_v<int, double, float, int>);
-static_assert (is_none_of_v<int, float, double, std::vector<int>>);
+static_assert (meta::is_one_of_v<int, double, float, int>);
+static_assert (meta::is_none_of_v<int, float, double, std::vector<int>>);
 
 struct Base
 {
@@ -31,6 +31,6 @@ struct Derived : Base
 {
 };
 
-static_assert (is_covariant_v<Derived, Base>);
+static_assert (meta::is_covariant_v<Derived, Base>);
 
 LIMES_END_NAMESPACE

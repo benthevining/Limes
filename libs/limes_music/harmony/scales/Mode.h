@@ -86,7 +86,7 @@ public:
 	}
 
 	/** Returns the set of intervals that make up this mode. */
-	[[nodiscard]] vector<int> getIntervalsAsSemitones() const final;
+	[[nodiscard]] ds::vector<int> getIntervalsAsSemitones() const final;
 
 	/** Returns the pitch class of the root of this mode. */
 	[[nodiscard]] PitchClass getPitchClassOfRoot() const noexcept final;

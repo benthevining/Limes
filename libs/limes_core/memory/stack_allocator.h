@@ -14,12 +14,14 @@
 
 #include <limes_namespace.h>
 #include <limes_export.h>
-
-LIMES_BEGIN_NAMESPACE
-
 #include <cassert>
 #include <cstddef>
 #include <cstdint>
+
+LIMES_BEGIN_NAMESPACE
+
+namespace memory
+{
 
 template <std::size_t N, std::size_t alignment = alignof (std::max_align_t)>
 class LIMES_EXPORT stack_buffer final
@@ -203,5 +205,7 @@ bool stack_buffer<N, alignment>::contains (std::byte* p) noexcept
 {
 	return std::uintptr_t (buf_) <= std::uintptr_t (p) && std::uintptr_t (p) <= std::uintptr_t (buf_) + N;
 }
+
+}  // namespace memory
 
 LIMES_END_NAMESPACE

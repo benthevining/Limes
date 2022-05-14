@@ -21,6 +21,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace strings
+{
+
 /** A class that creates a table of strings, laid out in rows and columns, and can pretty-print them with the columns aligned. */
 class LIMES_EXPORT TextTable final
 {
@@ -75,5 +78,7 @@ private:
 
 	bool newRow { true };
 };
+
+}  // namespace strings
 
 LIMES_END_NAMESPACE

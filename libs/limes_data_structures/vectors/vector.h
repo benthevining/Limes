@@ -20,6 +20,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace ds
+{
+
 template <typename ObjectType, class Allocator = std::allocator<ObjectType>>
 using vector = std::conditional_t<std::is_scalar_v<ObjectType> && ! std::is_pointer_v<ObjectType>,
 								  scalar_vector<ObjectType, Allocator>,
@@ -28,9 +31,11 @@ using vector = std::conditional_t<std::is_scalar_v<ObjectType> && ! std::is_poin
 using StringVector = vector<std::string>;
 
 template <typename ObjectType, size_t N>
-using StackVector = vector<ObjectType, StackAllocator<ObjectType, N>>;
+using StackVector = vector<ObjectType, memory::StackAllocator<ObjectType, N>>;
 
 template <typename ObjectType, size_t Capacity>
-using PoolVector = vector<ObjectType, MemoryPoolAllocator<ObjectType, Capacity>>;
+using PoolVector = vector<ObjectType, memory::MemoryPoolAllocator<ObjectType, Capacity>>;
+
+}  // namespace ds
 
 LIMES_END_NAMESPACE

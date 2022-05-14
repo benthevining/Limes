@@ -26,6 +26,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace memory
+{
+
 class LIMES_EXPORT MemoryPool final
 {
 public:
@@ -255,5 +258,7 @@ bool MemoryPoolPointer<ObjectType, AllowOverflowAllocation>::isOwnedByPool() con
 		return memoryPool.owns (*object);
 	}
 }
+
+}  // namespace memory
 
 LIMES_END_NAMESPACE

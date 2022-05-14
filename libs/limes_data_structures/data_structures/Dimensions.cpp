@@ -17,6 +17,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace misc
+{
+
 Dimensions& Dimensions::setWidth (int newWidth)
 {
 	LIMES_ASSERT (newWidth > 0);
@@ -77,5 +80,7 @@ bool Dimensions::hasSameAspectRatioAs (const Dimensions& other) const noexcept
 //
 //	return Dimensions { arr[0].getIntValue(), arr[1].getIntValue() };
 // }
+
+}  // namespace misc
 
 LIMES_END_NAMESPACE

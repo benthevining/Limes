@@ -15,6 +15,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace misc
+{
+
 ScopedStreamFlags::ScopedStreamFlags (std::ios_base& streamToUse)
 	: stream (streamToUse), flags (stream.flags())
 {
@@ -24,5 +27,7 @@ ScopedStreamFlags::~ScopedStreamFlags()
 {
 	stream.flags (flags);
 }
+
+}  // namespace misc
 
 LIMES_END_NAMESPACE

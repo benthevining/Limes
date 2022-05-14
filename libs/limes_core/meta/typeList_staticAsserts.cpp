@@ -18,7 +18,7 @@
 
 LIMES_BEGIN_NAMESPACE
 
-namespace typelist
+namespace meta
 {
 
 using TypeListA = TypeList<int, double, float>;
@@ -141,6 +141,6 @@ using TypeListF = TypeList<std::vector<int>, std::variant<size_t, double, float>
 
 static_assert (TypeListF::index_of<std::vector<int>> == 0);
 
-}  // namespace typelist
+}  // namespace meta
 
 LIMES_END_NAMESPACE

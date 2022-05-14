@@ -306,8 +306,8 @@ std::uintmax_t FilesystemEntry::sizeInBytes() const
 
 bool FilesystemEntry::setPermissions (Permissions permissions, PermOptions options) const noexcept
 {
-	return try_call ([p = getAbsolutePath(), permissions, options]
-					 { std::filesystem::permissions (p, permissions, options); });
+	return func::try_call ([p = getAbsolutePath(), permissions, options]
+						   { std::filesystem::permissions (p, permissions, options); });
 }
 
 FilesystemEntry::Permissions FilesystemEntry::getPermissions() const
@@ -327,8 +327,8 @@ time::DateTime FilesystemEntry::getLastModificationTime() const noexcept
 
 bool FilesystemEntry::rename (const Path& newPath) noexcept
 {
-	return try_call ([this, newPath]
-					 { std::filesystem::rename (path, newPath);
+	return func::try_call ([this, newPath]
+						   { std::filesystem::rename (path, newPath);
 		path = newPath; });
 }
 
@@ -339,8 +339,8 @@ bool FilesystemEntry::rename (const std::string& newFilenameWithinDirectory)
 
 bool FilesystemEntry::copyTo (const Path& dest, CopyOptions options) const noexcept
 {
-	return try_call ([p = getAbsolutePath(), dest, options]
-					 { std::filesystem::copy (p, dest, options); });
+	return func::try_call ([p = getAbsolutePath(), dest, options]
+						   { std::filesystem::copy (p, dest, options); });
 }
 
 bool FilesystemEntry::copyTo (const FilesystemEntry& dest, CopyOptions options) const noexcept
@@ -362,8 +362,8 @@ bool FilesystemEntry::copyToDirectory (const Path& destDirectory, CopyOptions op
 
 bool FilesystemEntry::copyFrom (const Path& source, CopyOptions options) const noexcept
 {
-	return try_call ([p = getAbsolutePath(), source, options]
-					 { std::filesystem::copy (source, p, options); });
+	return func::try_call ([p = getAbsolutePath(), source, options]
+						   { std::filesystem::copy (source, p, options); });
 }
 
 bool FilesystemEntry::copyFrom (const FilesystemEntry& source, CopyOptions options) const noexcept

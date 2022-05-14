@@ -27,6 +27,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace memory
+{
+
 template <typename T, typename... Args>
 LIMES_EXPORT [[nodiscard]] T* allocate_aligned (std::size_t count = 1, std::size_t alignment = 32, Args&&... args) noexcept
 {
@@ -123,5 +126,7 @@ private:
 
 	T* ptr;
 };
+
+}  // namespace memory
 
 LIMES_END_NAMESPACE

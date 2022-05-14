@@ -19,6 +19,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace misc
+{
+
 struct LIMES_EXPORT ScopedStreamFlags final
 {
 public:
@@ -36,5 +39,7 @@ private:
 
 	const std::ios_base::fmtflags flags;
 };
+
+}  // namespace misc
 
 LIMES_END_NAMESPACE

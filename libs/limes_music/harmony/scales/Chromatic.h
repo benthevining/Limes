@@ -67,7 +67,7 @@ public:
 	[[nodiscard]] bool operator!= (const Chromatic& other) const;
 
 	/** Returns an array of 12 1's, since every interval in a chromatic scale is a half step. */
-	[[nodiscard]] vector<int> getIntervalsAsSemitones() const final;
+	[[nodiscard]] ds::vector<int> getIntervalsAsSemitones() const final;
 
 	/** Returns the pitch class that this chromatic scale starts on. */
 	[[nodiscard]] PitchClass getPitchClassOfRoot() const noexcept final;

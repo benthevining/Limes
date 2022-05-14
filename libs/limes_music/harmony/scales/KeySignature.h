@@ -157,7 +157,7 @@ public:
 	[[nodiscard]] constexpr int getNumFlats() const noexcept;
 
 	/** Returns the set of intervals that make up this key signature. */
-	[[nodiscard]] vector<int> getIntervalsAsSemitones() const final;
+	[[nodiscard]] ds::vector<int> getIntervalsAsSemitones() const final;
 
 	/** Returns 8. */
 	[[nodiscard]] int notesPerOctave() const noexcept final;

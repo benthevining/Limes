@@ -19,6 +19,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace ds
+{
+
 class LIMES_EXPORT AbstractFIFO final
 {
 public:
@@ -110,5 +113,7 @@ private:
 
 	std::atomic<int> validStart { 0 }, validEnd { 0 };
 };
+
+}  // namespace ds
 
 LIMES_END_NAMESPACE

@@ -16,6 +16,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace ds
+{
+
 template <typename ObjectType>
 struct LIMES_EXPORT LinkedListModel final
 {
@@ -99,6 +102,8 @@ private:
 
 	std::reference_wrapper<ObjectType> thisNode;
 };
+
+}  // namespace ds
 
 LIMES_END_NAMESPACE
 

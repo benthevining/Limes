@@ -31,9 +31,9 @@ bool Chromatic::operator!= (const Chromatic& other) const
 	return startingPitchClass != other.startingPitchClass;
 }
 
-vector<int> Chromatic::getIntervalsAsSemitones() const
+ds::vector<int> Chromatic::getIntervalsAsSemitones() const
 {
-	vector<int> intervals;
+	ds::vector<int> intervals;
 
 	intervals.reserve (semitonesInOctave);
 

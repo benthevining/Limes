@@ -20,7 +20,7 @@ LIMES_BEGIN_NAMESPACE
 namespace locale
 {
 
-vector<Language> Country::getLanguages() const
+ds::vector<Language> Country::getLanguages() const
 {
 	return getLanguagesForCountry (countryCode);
 }
@@ -50,14 +50,14 @@ struct KnownCountries final
 										 { return country.countryName == countryName; });
 	}
 
-	[[nodiscard]] vector<Country> getAll() const
+	[[nodiscard]] ds::vector<Country> getAll() const
 	{
 		return countries;
 	}
 
 private:
 
-	vector<Country> countries;
+	ds::vector<Country> countries;
 };
 
 
@@ -79,7 +79,7 @@ Country getCountryByName (const std::string_view& countryName)
 	return getCountries().getCountryByName (std::string { countryName });
 }
 
-vector<Country> getAllCountries()
+ds::vector<Country> getAllCountries()
 {
 	return getCountries().getAll();
 }

@@ -33,8 +33,8 @@ bool SymLink::create (const Path& linkPath, const FilesystemEntry& target) noexc
 	if (! target.exists())
 		return false;
 
-	return try_call ([&target, &linkPath]
-					 {
+	return func::try_call ([&target, &linkPath]
+						   {
 			const auto targetPath = target.getAbsolutePath();
 
 			if (target.isDirectory())

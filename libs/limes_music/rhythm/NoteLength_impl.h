@@ -155,7 +155,7 @@ constexpr void NoteLength::tieToNotes (NoteLength* noteBefore, NoteLength* noteA
 {
 	LIMES_ASSERT (! grace);
 
-	using LL = LinkedListModel<NoteLength>;
+	using LL = ds::LinkedListModel<NoteLength>;
 
 	auto* before = [nb = noteBefore]() -> LL*
 	{

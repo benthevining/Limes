@@ -80,7 +80,7 @@ private:
 
 	bool grace { false };
 
-	LinkedListModel<NoteLength> tie { *this };
+	ds::LinkedListModel<NoteLength> tie { *this };
 };
 
 }  // namespace music

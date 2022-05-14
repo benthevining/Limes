@@ -80,9 +80,9 @@ bool Chord::fitsInScale (const scales::Scale& scale) const noexcept
 						{ return scale.containsPitch (p); });
 }
 
-vector<Interval> Chord::getIntervals() const
+ds::vector<Interval> Chord::getIntervals() const
 {
-	vector<Interval> intervals;
+	ds::vector<Interval> intervals;
 
 	for (auto i = 1; i < static_cast<int> (pitches.numObjects()); ++i)
 		intervals.push_back (Interval::fromPitches (pitches[i - 1], pitches[i]));
@@ -90,7 +90,7 @@ vector<Interval> Chord::getIntervals() const
 	return intervals;
 }
 
-vector<PitchClass> Chord::getPitchClasses() const
+ds::vector<PitchClass> Chord::getPitchClasses() const
 {
 	auto pitchClasses = pitches.transformElementsTo<PitchClass> ([] (const auto& pitch)
 																 { return pitch.getPitchClass(); });
@@ -105,7 +105,7 @@ int Chord::getNumUniquePitchClasses() const
 	return getPitchClasses().numObjects();
 }
 
-vector<Pitch> Chord::getPitches() const
+ds::vector<Pitch> Chord::getPitches() const
 {
 	return pitches;
 }

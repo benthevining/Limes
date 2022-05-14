@@ -40,7 +40,7 @@ public:
 
 private:
 
-	scalar_vector<int> state;
+	ds::scalar_vector<int> state;
 };
 
 }  // namespace dsp

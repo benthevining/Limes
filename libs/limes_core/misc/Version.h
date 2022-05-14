@@ -21,8 +21,11 @@
 
 LIMES_BEGIN_NAMESPACE
 
-/** @ingroup lemons_core
-	A class that represents a version of something, with major, minor, and patch numbers.
+/** This namespace contains miscellaneous things. */
+namespace misc
+{
+
+/** A class that represents a version of something, with major, minor, and patch numbers.
  */
 struct LIMES_EXPORT Version final
 {
@@ -164,18 +167,20 @@ private:
 	int major { 0 }, minor { 0 }, patch { 1 };
 };
 
+}  // namespace misc
+
 LIMES_END_NAMESPACE
 
 namespace std
 {
 template <>
-struct LIMES_EXPORT hash<limes::Version>
+struct LIMES_EXPORT hash<limes::misc::Version>
 {
 	hash() = default;
 
 	LIMES_DEFAULT_COPYABLE (hash);
 	LIMES_DEFAULT_MOVABLE (hash);
 
-	size_t operator() (const limes::Version& v) const noexcept;
+	size_t operator() (const limes::misc::Version& v) const noexcept;
 };
 }  // namespace std

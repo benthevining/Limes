@@ -21,6 +21,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace memory
+{
+
 template <typename SuperType>
 struct LIMES_EXPORT SharedObject : public ReferenceCountedObject
 {
@@ -86,5 +89,7 @@ protected:
 
 	typename OwnedObjectType::Ptr data;
 };
+
+}  // namespace memory
 
 LIMES_END_NAMESPACE

@@ -39,7 +39,7 @@ class LIMES_EXPORT Analyzer final
 {
 public:
 
-	using SampleVector = scalar_vector<SampleType>;
+	using SampleVector = ds::scalar_vector<SampleType>;
 
 	/** Creates an Analyzer with an initial minimum detectable frequency.
 		@see setMinInputFreq()
@@ -93,7 +93,7 @@ private:
 
 	/*-----------------------------------------------------------------------------------*/
 
-	struct Grain final : public ReferenceCountedObject
+	struct Grain final : public memory::ReferenceCountedObject
 	{
 		[[nodiscard]] SampleType getSample (int index) const noexcept;
 
@@ -135,11 +135,11 @@ private:
 	PitchDetector<SampleType> pitchDetector;
 	PeakFinder<SampleType>	  peakFinder;
 
-	owned_vector<Grain> grains;
+	ds::owned_vector<Grain> grains;
 
 	SampleVector window, prevFrame;
 
-	vector<int> incompleteGrainsFromLastFrame;
+	ds::scalar_vector<int> incompleteGrainsFromLastFrame;
 
 	int lastBlocksize { 0 }, lastFrameGrainSize { 0 };
 
@@ -147,7 +147,7 @@ private:
 
 	math::Random random;
 
-	vector<Shifter<SampleType>*> shifters;
+	ds::vector<Shifter<SampleType>*> shifters;
 };
 
 }  // namespace dsp::psola

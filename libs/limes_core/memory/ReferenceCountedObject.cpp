@@ -16,6 +16,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace memory
+{
+
 ReferenceCountedObject::~ReferenceCountedObject()
 {
 	// it's dangerous to delete an object that's still referenced by something else!
@@ -59,5 +62,7 @@ int ReferenceCountedObject::getRefCount() const noexcept
 {
 	return refCount.load();
 }
+
+}  // namespace memory
 
 LIMES_END_NAMESPACE

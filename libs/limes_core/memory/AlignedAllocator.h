@@ -23,6 +23,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace memory
+{
+
 template <typename T, std::size_t Alignment = sizeof (T), bool UseExceptions = false>
 class LIMES_EXPORT AlignedAllocator final
 {
@@ -128,7 +131,7 @@ T* AlignedAllocator<T, Alignment, UseExceptions>::allocate (std::size_t num) con
 	if (num > max_size())
 	{
 		if constexpr (UseExceptions)
-			throw std::bad_alloc();
+			throw std::bad_alloc();	 // cppcheck-suppress throwInNoexceptFunction
 		else
 			return nullptr;
 	}
@@ -146,7 +149,7 @@ template <typename T, std::size_t Alignment, bool UseExceptions>
 template <typename U>
 [[nodiscard]] T* AlignedAllocator<T, Alignment, UseExceptions>::allocate (size_t num, const U*) const noexcept (! UseExceptions)
 {
-	return allocate (num);
+	return allocate (num);	// cppcheck-suppress throwInNoexceptFunction
 }
 
 template <typename T, std::size_t Alignment, bool UseExceptions>
@@ -154,7 +157,7 @@ void AlignedAllocator<T, Alignment, UseExceptions>::deallocate (T* const ptr, st
 {
 	if (! deallocate_aligned (ptr))
 		if constexpr (UseExceptions)
-			throw std::runtime_error ("Error in call to deallocate_aligned");
+			throw std::runtime_error ("Error in call to deallocate_aligned");  // cppcheck-suppress throwInNoexceptFunction
 }
 
 template <typename T, std::size_t Alignment, bool UseExceptions>
@@ -223,5 +226,7 @@ consteval size_t AlignedAllocator<T, Alignment, UseExceptions>::getAlignment() n
 {
 	return Alignment;
 }
+
+}  // namespace memory
 
 LIMES_END_NAMESPACE

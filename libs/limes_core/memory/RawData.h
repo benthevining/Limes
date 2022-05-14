@@ -23,12 +23,16 @@
 
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains utilities for working with memory allocation and management. */
+namespace memory
+{
+
 /** This class is a wrapper around a pointer to some raw data on the heap. */
 class LIMES_EXPORT RawData final
 {
 public:
 
-	/** Constructors */
+	/** @name Constructors */
 	///@{
 
 	/** Constructs an empty RawData object that owns no memory. */
@@ -38,7 +42,7 @@ public:
 	explicit RawData (std::size_t initialSize, bool initializeToZero = true);
 
 	/** Constructs a RawData object that refers to the specified data.
-		@note The RawData object will take ownership of the passed pointer, so you should not delete it after using this constructor, or you'll get double-delete bugs!
+		@attention The RawData object will take ownership of the passed pointer, so you should not delete it after using this constructor, or you'll get double-delete bugs!
 	 */
 	explicit RawData (char* const dataToUse, std::size_t dataSize);
 
@@ -59,13 +63,15 @@ public:
 	/** Destructor. */
 	~RawData();
 
-	/** Assignment operators. */
+	/** @name Assignment */
 	///@{
 	RawData& operator= (const RawData& other);
 	RawData& operator= (RawData&& other);
 	///@}
 
-	/** Returns a pointer to this object's data. */
+	/** @name Data accessors
+		Returns a pointer to this object's data.
+	 */
 	///@{
 	[[nodiscard]] char*		  getData() noexcept;
 	[[nodiscard]] const char* getData() const noexcept;
@@ -96,29 +102,37 @@ public:
 	void free();
 
 	/** Returns this object's memory pointer and releases ownership of it. This is analagous to \c std::unique_ptr::release()
-		@note Once this function is called, this object will not free this pointer, so you must do so!
+		@attention Once this function is called, this object will not free this pointer, so you must do so!
 	 */
 	[[nodiscard]] char* release() noexcept;
 
-	/** Appends some data to the end of this object's data, reallocating memory if necessary. */
+	/** @name Appending
+		Appends some data to the end of this object's data, reallocating memory if necessary.
+	 */
 	///@{
 	void append (const char* const newData, std::size_t numBytes);
 	void append (const RawData& other);
 	///@}
 
-	/** Prepends some data to the beginning of this object's data, reallocating memory if necessary. */
+	/** @name Prepending
+		Prepends some data to the beginning of this object's data, reallocating memory if necessary.
+	 */
 	///@{
 	void prepend (const char* const newData, std::size_t numBytes);
 	void prepend (const RawData& other);
 	///@}
 
-	/** Overwrites this object's data with the input data, reallocating memory if necessary. */
+	/** @name Overwriting
+		Overwrites this object's data with the input data, reallocating memory if necessary.
+	 */
 	///@{
 	void copyFrom (const char* const newData, std::size_t newSize);
 	void copyFrom (const RawData& other);
 	///@}
 
-	/** Copies this object's data to the specified destination. */
+	/** @name Copying
+		Copies this object's data to the specified destination.
+	 */
 	///@{
 	void copyTo (char* const dest, std::size_t maxNumBytes) const;
 
@@ -133,7 +147,8 @@ public:
 	/** Fills this object's owned memory with zeroes. */
 	void zero();
 
-	/** Returns a pointer to the beginning of this object's owned memory.
+	/** @name begin() accessors
+		Returns a pointer to the beginning of this object's owned memory.
 		The returned pointer may be null if this object is empty.
 	 */
 	///@{
@@ -141,7 +156,8 @@ public:
 	const char* begin() const noexcept;
 	///@}
 
-	/** Returns a pointer to the end of this object's owned memory. */
+	/** @name end() accessors
+		Returns a pointer to the end of this object's owned memory. */
 	///@{
 	char*		end() noexcept;
 	const char* end() const noexcept;
@@ -159,6 +175,8 @@ private:
 	char* data { nullptr };
 };
 
+}  // namespace memory
+
 LIMES_END_NAMESPACE
 
 namespace std
@@ -168,14 +186,14 @@ namespace std
 	The hash value is calculated based on the string representation of the data.
  */
 template <>
-struct LIMES_EXPORT hash<limes::RawData> final
+struct LIMES_EXPORT hash<limes::memory::RawData> final
 {
 	hash() = default;
 
 	LIMES_DEFAULT_COPYABLE (hash);
 	LIMES_DEFAULT_MOVABLE (hash);
 
-	size_t operator() (const limes::RawData& d) const noexcept;
+	size_t operator() (const limes::memory::RawData& d) const noexcept;
 };
 
 }  // namespace std

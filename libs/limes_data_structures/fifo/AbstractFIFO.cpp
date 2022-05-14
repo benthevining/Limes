@@ -17,6 +17,9 @@
 
 LIMES_BEGIN_NAMESPACE
 
+namespace ds
+{
+
 AbstractFIFO::AbstractFIFO (int initialSize)
 	: bufferSize (initialSize)
 {
@@ -186,5 +189,7 @@ AbstractFIFO::ScopedWrite::~ScopedWrite() noexcept
 {
 	fifoModel.finishedWrite (numObjects);
 }
+
+}  // namespace ds
 
 LIMES_END_NAMESPACE

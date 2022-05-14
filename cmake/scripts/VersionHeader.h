@@ -16,8 +16,8 @@
 
 namespace @LIMES_ARG_NAMESPACE@
 {
-	[[nodiscard]] static consteval ::limes::Version @LIMES_ARG_FUNCTION_NAME@() noexcept
+	[[nodiscard]] static consteval ::limes::misc::Version @LIMES_ARG_FUNCTION_NAME@() noexcept
 	{
-		return ::limes::Version { @LIMES_ARG_MAJOR@, @LIMES_ARG_MINOR@, @LIMES_ARG_PATCH@ };
+		return ::limes::misc::Version { @LIMES_ARG_MAJOR@, @LIMES_ARG_MINOR@, @LIMES_ARG_PATCH@ };
 	}
 }

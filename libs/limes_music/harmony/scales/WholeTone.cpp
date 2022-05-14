@@ -30,9 +30,9 @@ bool WholeTone::operator!= (const WholeTone& other) const
 	return startingPitchClass != other.startingPitchClass;
 }
 
-vector<int> WholeTone::getIntervalsAsSemitones() const
+ds::vector<int> WholeTone::getIntervalsAsSemitones() const
 {
-	vector<int> intervals;
+	ds::vector<int> intervals;
 
 	intervals.reserve (6);
 

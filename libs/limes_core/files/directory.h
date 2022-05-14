@@ -38,13 +38,17 @@ public:
 	LIMES_DEFAULT_COPYABLE (Directory);
 	LIMES_DEFAULT_MOVABLE (Directory);
 
-	/** Assigns this object to refer to a new path. */
+	/** @name Assignment
+		Assigns this object to refer to a new path.
+	 */
 	///@{
 	Directory& operator= (const Path& newPath);
 	Directory& operator= (const std::string_view& newPath);
 	///@}
 
-	/** Typedefs for callbacks used by the functions that iterate through this directory's children. */
+	/** @name Typedefs
+		Typedefs for callbacks used by the functions that iterate through this directory's children.
+	 */
 	///@{
 	using FileCallback			  = std::function<void (const File&)>;
 	using DirectoryCallback		  = std::function<void (const Directory&)>;
@@ -149,7 +153,7 @@ public:
 	/** Returns a directory object representing the current working directory. */
 	[[nodiscard]] static Directory getCurrentWorkingDirectory();
 
-	/** Sets the current working directory. */
+	/** @name Set the current working directory */
 	///@{
 	static void setCurrentWorkingDirectory (const Path& path);
 	static void setCurrentWorkingDirectory (const Directory& directory);

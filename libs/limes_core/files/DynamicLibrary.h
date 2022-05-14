@@ -28,7 +28,7 @@ class LIMES_EXPORT DynamicLibrary final
 {
 public:
 
-	/** Constructors */
+	/** @name Constructors */
 	///@{
 
 	/** Creates an unopened library object. Call open() to actually open a library. */
