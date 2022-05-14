@@ -36,7 +36,7 @@ jobs:
                   python-version: '3.9'
 
             - name: Install dependencies
-              run: apt-get install --update doxygen graphviz
+              run: apt-get install --yes doxygen graphviz
 
             - name: Run docs build script
               run: export GH_REPO_TOKEN=${{ secrets.ACCESS_TOKEN }} && bash .github/publish_docs.sh
