@@ -61,7 +61,7 @@ set_target_properties (
 			   FOLDER Limes/libs
 			   EchoString "Building the limes_data_structures library...")
 
-target_link_libraries (limes_data_structures PUBLIC Limes::limes_vecops PRIVATE LimesDefaultLibrary)
+target_link_libraries (limes_data_structures PUBLIC Limes::limes_vecops)
 
 set (LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_data_structures")
 
@@ -112,13 +112,10 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_data_structures_base)
 
-oranges_create_pkgconfig_file (
-	TARGET limes_data_structures
-	INCLUDE_REL_PATH "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION "${PROJECT_DESCRIPTION}"
-	URL "${PROJECT_HOMEPAGE_URL}"
-	VERSION "${PROJECT_VERSION}"
-	INSTALL_COMPONENT limes_data_structures_dev)
+# oranges_create_pkgconfig_file ( TARGET limes_data_structures INCLUDE_REL_PATH
+# "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}" DESCRIPTION "${PROJECT_DESCRIPTION}" URL
+# "${PROJECT_HOMEPAGE_URL}" VERSION "${PROJECT_VERSION}" INSTALL_COMPONENT
+# limes_data_structures_dev)
 
 cpack_add_component (limes_data_structures_base HIDDEN DEPENDS limes_libs_base)
 

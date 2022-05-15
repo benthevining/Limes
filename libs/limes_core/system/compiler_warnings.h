@@ -65,6 +65,7 @@
 		_Pragma ("GCC diagnostic ignored \"-Wredundant-move\"")				   \
 		_Pragma ("GCC diagnostic ignored \"-Wstrict-aliasing\"")			   \
 		_Pragma ("GCC diagnostic ignored \"-Woverloaded-virtual\"")			   \
+		_Pragma ("GCC diagnostic ignored \"-Wnoexcept\"")					   \
 		_Pragma ("GCC diagnostic ignored \"-Wc99-extensions\"")				   \
 // clang-format on
 

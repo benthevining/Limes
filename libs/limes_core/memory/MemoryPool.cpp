@@ -162,7 +162,7 @@ bool MemoryPool::contains (void* ptr) const noexcept
 	return reinterpret_cast<std::size_t> (ptr) >= mem_start && reinterpret_cast<std::size_t> (ptr) < mem_start + totalSizeBytes;
 }
 
-const void* const MemoryPool::getMemoryRootLocation() const noexcept
+const void* MemoryPool::getMemoryRootLocation() const noexcept
 {
 	return static_cast<void*> (memory);
 }

@@ -61,7 +61,7 @@ namespace fft
 
 static_assert (isUsingFFTW() || isUsingVDSP() || isUsingIPP() || isUsingFallback());
 
-[[nodiscard]] static consteval const char* const getImplementationName() noexcept
+[[nodiscard]] static consteval const char* getImplementationName() noexcept
 {
 	if constexpr (isUsingFFTW())
 		return "FFTW";

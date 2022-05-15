@@ -10,15 +10,16 @@
  * ======================================================================================
  */
 
-#include <dlfcn.h>			  // for dladdr, Dl_info
 #include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
-#include <mach-o/dyld.h>	  // for _NSGetExecutablePath
-#include <cstdint>			  // for uint32_t
-#include <limits.h>			  // for PATH_MAX
-#include <cstdlib>			  // for free, realpath, malloc
-#include <cstring>			  // for strlen
-#include <string>			  // for string
-#include "exec_location.h"	  // for getExecutablePath, getModulePath
+#include <limes_platform.h>
+#include <dlfcn.h>			// for dladdr, Dl_info
+#include <mach-o/dyld.h>	// for _NSGetExecutablePath
+#include <cstdint>			// for uint32_t
+#include <limits.h>			// for PATH_MAX
+#include <cstdlib>			// for free, realpath, malloc
+#include <cstring>			// for strlen
+#include <string>			// for string
+#include "exec_location.h"	// for getExecutablePath, getModulePath
 
 LIMES_BEGIN_NAMESPACE
 

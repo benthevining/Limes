@@ -44,13 +44,17 @@ template <Sample SampleType>
 
 /*--------------------------------------------------------------------------------------------*/
 
+LIMES_DISABLE_ALL_COMPILER_WARNINGS
+
 template <Sample SampleType>
 Sine<SampleType>::Sine()
-	: Oscillator<SampleType> ([this]
+	: Oscillator<SampleType> ([this]() noexcept (noexcept (std::sin (phase.next (math::constants::two_pi<SampleType>))))
 							  { return std::sin (phase.next (math::constants::two_pi<SampleType>)); })
 {
 	phase.resetPhase();
 }
+
+LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
 template <Sample SampleType>
 void Sine<SampleType>::resetPhase()
@@ -79,7 +83,7 @@ template struct Sine<double>;
 
 template <Sample SampleType>
 Saw<SampleType>::Saw()
-	: Oscillator<SampleType> ([this]
+	: Oscillator<SampleType> ([this]() noexcept
 							  {
 	const auto p = phase.next (1);
 	return SampleType (2) * p - SampleType (1) - blep (p, phase.getIncrement()); })
@@ -113,7 +117,7 @@ template struct Saw<double>;
 
 template <Sample SampleType>
 Square<SampleType>::Square()
-	: Oscillator<SampleType> ([this]
+	: Oscillator<SampleType> ([this]() noexcept
 							  {
 	const auto inc = phase.getIncrement();
 	const auto p   = phase.next (1);
@@ -151,7 +155,7 @@ template struct Square<double>;
 
 template <Sample SampleType>
 Triangle<SampleType>::Triangle()
-	: Oscillator<SampleType> ([this]
+	: Oscillator<SampleType> ([this]() noexcept
 							  {
 	sum += SampleType (4) * square.phase.getIncrement() * square.getSample();
 	return sum; })

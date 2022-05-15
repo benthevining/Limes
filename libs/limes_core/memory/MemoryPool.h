@@ -77,7 +77,7 @@ public:
 	template <typename ObjectType>
 	[[nodiscard]] bool owns (const ObjectType& object) const noexcept;
 
-	[[nodiscard]] const void* const getMemoryRootLocation() const noexcept;
+	[[nodiscard]] const void* getMemoryRootLocation() const noexcept;
 
 private:
 

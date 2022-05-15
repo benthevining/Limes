@@ -145,7 +145,13 @@ void breakInDebugger() noexcept
 	asm("int $3");
 
 #elif LIMES_ARM && LIMES_OSX
+#	if LIMES_CLANG
 	__builtin_debugtrap();
+#	elif LIMES_GCC
+	__builtin_trap();
+#	else
+	__asm int 3
+#	endif
 
 #else
 	__asm int 3

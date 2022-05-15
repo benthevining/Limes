@@ -136,7 +136,7 @@ enable_testing ()
 
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
-find_package (Oranges 2.23.2 REQUIRED)
+find_package (Oranges 2.24.0 REQUIRED)
 
 include (FeatureSummary)
 
@@ -209,8 +209,6 @@ if (LIMES_BUILD_DOCS)
 		GROUP limes
 		INSTALL_TYPES Developer)
 endif ()
-
-include (OrangesGeneratePropertiesJSON)
 
 #
 

@@ -62,7 +62,7 @@ set_target_properties (
 			   FOLDER Limes/libs
 			   EchoString "Building the limes_audio library...")
 
-target_link_libraries (limes_audio PUBLIC Limes::limes_data_structures PRIVATE LimesDefaultLibrary)
+target_link_libraries (limes_audio PUBLIC Limes::limes_data_structures)
 
 set (LIMES_AUDIO_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_audio")
 
@@ -112,13 +112,9 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_audio_base)
 
-oranges_create_pkgconfig_file (
-	TARGET limes_audio
-	INCLUDE_REL_PATH "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION "${PROJECT_DESCRIPTION}"
-	URL "${PROJECT_HOMEPAGE_URL}"
-	VERSION "${PROJECT_VERSION}"
-	INSTALL_COMPONENT limes_audio_dev)
+# oranges_create_pkgconfig_file ( TARGET limes_audio INCLUDE_REL_PATH
+# "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}" DESCRIPTION "${PROJECT_DESCRIPTION}" URL
+# "${PROJECT_HOMEPAGE_URL}" VERSION "${PROJECT_VERSION}" INSTALL_COMPONENT limes_audio_dev)
 
 cpack_add_component (limes_audio_base HIDDEN DEPENDS limes_libs_base)
 

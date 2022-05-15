@@ -60,7 +60,7 @@ set_target_properties (
 			   FOLDER Limes/libs
 			   EchoString "Building the limes_midi library...")
 
-target_link_libraries (limes_midi PUBLIC Limes::limes_core PRIVATE LimesDefaultLibrary)
+target_link_libraries (limes_midi PUBLIC Limes::limes_core)
 
 set (LIMES_MIDI_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_midi")
 
@@ -106,13 +106,9 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_midi_base)
 
-oranges_create_pkgconfig_file (
-	TARGET limes_midi
-	INCLUDE_REL_PATH "${LIMES_MIDI_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION "${PROJECT_DESCRIPTION}"
-	URL "${PROJECT_HOMEPAGE_URL}"
-	VERSION "${PROJECT_VERSION}"
-	INSTALL_COMPONENT limes_midi_dev)
+# oranges_create_pkgconfig_file ( TARGET limes_midi INCLUDE_REL_PATH
+# "${LIMES_MIDI_INSTALL_INCLUDE_DIR}" DESCRIPTION "${PROJECT_DESCRIPTION}" URL
+# "${PROJECT_HOMEPAGE_URL}" VERSION "${PROJECT_VERSION}" INSTALL_COMPONENT limes_midi_dev)
 
 cpack_add_component (limes_midi_base HIDDEN DEPENDS limes_libs_base)
 

@@ -50,11 +50,12 @@ set_target_properties (
 include (OrangesDefaultTarget)
 include (OrangesIPO)
 include (OrangesUnityBuild)
+include (OrangesOptimizationFlags)
 
 target_link_libraries (
 	LimesDefaultLibrary
-	INTERFACE Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
-			  $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+	INTERFACE Oranges::OrangesDefaultCXXTarget $<BUILD_INTERFACE:Oranges::OrangesOptimizationFlags>
+			  $<BUILD_INTERFACE:Oranges::OrangesIPO> $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 if (Limes_IS_TOP_LEVEL)
 	include (OrangesDefaultWarnings)
@@ -143,13 +144,9 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_libs_base)
 
-oranges_create_pkgconfig_file (
-	TARGET Limes
-	INCLUDE_REL_PATH "${LIMES_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION "${Limes_DESCRIPTION}"
-	URL "${Limes_HOMEPAGE_URL}"
-	VERSION "${Limes_VERSION}"
-	INSTALL_COMPONENT limes_libs_dev)
+# oranges_create_pkgconfig_file ( TARGET Limes INCLUDE_REL_PATH "${LIMES_INSTALL_INCLUDE_DIR}"
+# DESCRIPTION "${Limes_DESCRIPTION}" URL "${Limes_HOMEPAGE_URL}" VERSION "${Limes_VERSION}"
+# INSTALL_COMPONENT limes_libs_dev)
 
 cpack_add_component (limes_libs_base HIDDEN)
 

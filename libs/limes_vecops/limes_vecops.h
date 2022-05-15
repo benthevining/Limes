@@ -43,11 +43,6 @@ static_assert (sizeof (float) == 4, "float is not 32-bits wide");
 static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 
 
-#if (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_IPP) || (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_MIPP) || (LIMES_VECOPS_USE_IPP && LIMES_VECOPS_USE_MIPP)
-#	error "Only one of LIMES_VECOPS_USE_VDSP, LIMES_VECOPS_USE_IPP, or LIMES_VECOPS_USE_MIPP may be set to 1!"
-#endif
-
-
 #ifndef LIMES_VECOPS_USE_VDSP
 #	if (LIMES_VECOPS_USE_IPP || LIMES_VECOPS_USE_MIPP)
 #		define LIMES_VECOPS_USE_VDSP 0
@@ -82,6 +77,10 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 #			define LIMES_VECOPS_USE_MIPP 0
 #		endif
 #	endif
+#endif
+
+#if (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_IPP) || (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_MIPP) || (LIMES_VECOPS_USE_IPP && LIMES_VECOPS_USE_MIPP)
+#	error "Only one of LIMES_VECOPS_USE_VDSP, LIMES_VECOPS_USE_IPP, or LIMES_VECOPS_USE_MIPP may be set to 1!"
 #endif
 
 #ifndef LIMES_VECOPS_USE_POMMIER
@@ -501,7 +500,7 @@ LIMES_EXPORT [[nodiscard]] consteval bool isUsingFallback() noexcept
 static_assert (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingFallback());
 
 
-LIMES_EXPORT [[nodiscard]] static consteval const char* const getImplementationName() noexcept
+LIMES_EXPORT [[nodiscard]] static consteval const char* getImplementationName() noexcept
 {
 	if constexpr (isUsingVDSP())
 		return "Apple vDSP";

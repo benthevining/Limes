@@ -20,14 +20,14 @@ namespace dsp
 
 template <Sample SampleType>
 WhiteNoiseGenerator<SampleType>::WhiteNoiseGenerator()
-	: SampleStream<SampleType> ([this]
+	: SampleStream<SampleType> ([this]() noexcept
 								{ return getNextSampleValue(); })
 {
 }
 
 template <Sample SampleType>
 WhiteNoiseGenerator<SampleType>::WhiteNoiseGenerator (int64_t randomSeed)
-	: SampleStream<SampleType> ([this]
+	: SampleStream<SampleType> ([this]() noexcept
 								{ return getNextSampleValue(); }),
 	  random (randomSeed)
 {
@@ -35,7 +35,7 @@ WhiteNoiseGenerator<SampleType>::WhiteNoiseGenerator (int64_t randomSeed)
 
 template <Sample SampleType>
 WhiteNoiseGenerator<SampleType>::WhiteNoiseGenerator (math::Random& randomToFork)
-	: SampleStream<SampleType> ([this]
+	: SampleStream<SampleType> ([this]() noexcept
 								{ return getNextSampleValue(); }),
 	  random (randomToFork.fork())
 {

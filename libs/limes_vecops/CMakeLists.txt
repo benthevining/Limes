@@ -125,16 +125,17 @@ set_target_properties (
 set_property (TARGET limes_vecops APPEND PROPERTY EXPORT_PROPERTIES LIMES_VECOPS_IMPLEMENTATION
 												  LIMES_FFT_IMPLEMENTATION)
 
-target_link_libraries (limes_vecops PUBLIC Limes::limes_core PRIVATE LimesDefaultLibrary)
+target_link_libraries (limes_vecops PUBLIC Limes::limes_core)
 
 # cmake-format: off
 target_compile_options (
 	limes_vecops
-	PRIVATE
+	PUBLIC
 		# fixes a bug present when compiling vDSP with GCC
 		"$<$<CXX_COMPILER_ID:GNU>:-flax-vector-conversions>"
+	PRIVATE
 		# allows inline assembly to be used on watchOS
-		"$<$<AND:$<PLATFORM_ID:watchOS>,$<CXX_COMPILER_ID:GNU,Clang,AppleClang>>:-fgnu-inline-asm>"
+		"$<$<AND:$<PLATFORM_ID:watchOS>,$<CXX_COMPILER_ID:Clang,AppleClang>>:-fgnu-inline-asm>"
 	)
 # cmake-format: on
 
@@ -182,13 +183,9 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_vecops_base)
 
-oranges_create_pkgconfig_file (
-	TARGET limes_vecops
-	INCLUDE_REL_PATH "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION "${PROJECT_DESCRIPTION}"
-	URL "${PROJECT_HOMEPAGE_URL}"
-	VERSION "${PROJECT_VERSION}"
-	INSTALL_COMPONENT limes_vecops_dev)
+# oranges_create_pkgconfig_file ( TARGET limes_vecops INCLUDE_REL_PATH
+# "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" DESCRIPTION "${PROJECT_DESCRIPTION}" URL
+# "${PROJECT_HOMEPAGE_URL}" VERSION "${PROJECT_VERSION}" INSTALL_COMPONENT limes_vecops_dev)
 
 cpack_add_component (limes_vecops_base HIDDEN DEPENDS limes_libs_base)
 

@@ -19,8 +19,10 @@ namespace dsp::filters
 {
 
 template <Sample SampleType>
-inline void snapToZero (SampleType& sample)
+inline void snapToZero (SampleType& sample) noexcept
 {
+	if (! (sample < SampleType (-1.0e-8) || sample > SampleType (1.0e-8)))
+		sample = SampleType (0);
 }
 
 template <Sample SampleType>

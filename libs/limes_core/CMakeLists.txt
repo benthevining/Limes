@@ -60,7 +60,7 @@ set_target_properties (
 			   FOLDER Limes/libs
 			   EchoString "Building the limes_core library...")
 
-target_link_libraries (limes_core PUBLIC Oranges::CXXConcepts PRIVATE LimesDefaultLibrary)
+target_link_libraries (limes_core PUBLIC LimesDefaultLibrary)
 
 include (OrangesGenerateStandardHeaders)
 
@@ -162,13 +162,9 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_core_base)
 
-oranges_create_pkgconfig_file (
-	TARGET limes_core
-	INCLUDE_REL_PATH "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
-	DESCRIPTION "${PROJECT_DESCRIPTION}"
-	URL "${PROJECT_HOMEPAGE_URL}"
-	VERSION "${PROJECT_VERSION}"
-	INSTALL_COMPONENT limes_core_dev)
+# oranges_create_pkgconfig_file ( TARGET limes_core INCLUDE_REL_PATH
+# "${LIMES_CORE_INSTALL_INCLUDE_DIR}" DESCRIPTION "${PROJECT_DESCRIPTION}" URL
+# "${PROJECT_HOMEPAGE_URL}" VERSION "${PROJECT_VERSION}" INSTALL_COMPONENT limes_core_dev)
 
 cpack_add_component (limes_core_base HIDDEN DEPENDS limes_libs_base)
 

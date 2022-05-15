@@ -86,7 +86,7 @@ struct LIMES_EXPORT Saw final : public Oscillator<SampleType>
 	LIMES_DEFAULT_COPYABLE (Saw);
 
 	/** Resets the sawtooth wave's phase. */
-	void resetPhase();
+	void resetPhase() final;
 
 	/** Sets the output frequency and samplerate of the sawtooth wave. */
 	void setFrequency (SampleType frequency, SampleType sampleRate) final;

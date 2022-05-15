@@ -104,9 +104,13 @@ LIMES_END_NAMESPACE
 #	define LIMES_ASSERT(x) LIMES_BLOCK_WITH_FORCED_SEMICOLON ([[maybe_unused]] auto limes_assert_result = (x); ::limes::misc::ignore_unused (limes_assert_result);)
 #endif
 
-#if __cpp_lib_unreachable
-#	define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::std::unreachable())
-#else
+#ifdef __cpp_lib_unreachable
+#	if __cpp_lib_unreachable
+#		define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::std::unreachable())
+#	endif
+#endif
+
+#ifndef LIMES_UNREACHABLE
 #	define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (LIMES_ASSERT_FALSE;)
 #endif
 

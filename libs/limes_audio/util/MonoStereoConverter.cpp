@@ -46,7 +46,8 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleVector& l
 														   const SampleVector& rightIn,
 														   SampleVector&	   monoOut)
 {
-	LIMES_ASSERT (leftIn.numObjects() == rightIn.numObjects() == monoOut.numObjects());
+	LIMES_ASSERT (leftIn.numObjects() == rightIn.numObjects());
+	LIMES_ASSERT (leftIn.numObjects() == monoOut.numObjects());
 
 	convertStereoToMono (leftIn.data(), rightIn.data(), monoOut.data(), monoOut.numObjects());
 }
@@ -86,7 +87,8 @@ void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleVector& m
 														   SampleVector&	   leftOut,
 														   SampleVector&	   rightOut)
 {
-	LIMES_ASSERT (monoIn.numObjects() == leftOut.numObjects() == rightOut.numObjects());
+	LIMES_ASSERT (leftOut.numObjects() == rightOut.numObjects());
+	LIMES_ASSERT (leftOut.numObjects() == monoIn.numObjects());
 
 	convertMonoToStereo (monoIn.data(), leftOut.data(), rightOut.data(), monoIn.numObjects());
 }
