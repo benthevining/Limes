@@ -15,6 +15,7 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include "../misc/preprocessor.h"
+#include "../system/compiler_defs.h"
 #include <ctime>
 
 LIMES_BEGIN_NAMESPACE
@@ -66,10 +67,10 @@ public:
 
 	[[nodiscard]] static Hour getCurrent();
 
-	[[nodiscard]] static consteval Hour getCompilationHour() noexcept;
+	[[nodiscard]] LIMES_PURE_FUNCTION static consteval Hour getCompilationHour() noexcept;
 
-	[[nodiscard]] static constexpr Hour noon() noexcept;
-	[[nodiscard]] static constexpr Hour midnight() noexcept;
+	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Hour noon() noexcept;
+	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Hour midnight() noexcept;
 
 private:
 

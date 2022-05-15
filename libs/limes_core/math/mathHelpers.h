@@ -18,6 +18,7 @@
 #include <limes_export.h>
 #include <algorithm>
 #include "../system/limes_assert.h"
+#include "../system/compiler_defs.h"
 
 #if __has_include(<numbers>)
 #	include <numbers>
@@ -43,78 +44,78 @@ concept Integral = std::is_integral_v<T>;
 
 /** A constexpr-enabled absolute value function. */
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] constexpr T abs (T val) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T abs (T val) noexcept;
 
 
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] constexpr T negate (T val) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T negate (T val) noexcept;
 
 
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] constexpr int round (T val) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr int round (T val) noexcept;
 
 
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] constexpr T limit (T input, T min, T max) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T limit (T input, T min, T max) noexcept;
 
 
 template <Integral T>
-LIMES_EXPORT [[nodiscard]] constexpr T power (T number, T power) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T power (T number, T power) noexcept;
 
 
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] constexpr T map (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T map (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept;
 
 
 /** Returns true if val is 2^something.
  */
 template <Integral Integer>
-LIMES_EXPORT [[nodiscard]] constexpr bool isPowerOf2 (Integer val) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr bool isPowerOf2 (Integer val) noexcept;
 
 
 /** Returns true if the number is divisible by the divisor with no remainder. */
 template <Integral Integer>
-LIMES_EXPORT [[nodiscard]] constexpr bool isDivisibleBy (Integer number, Integer divisor) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr bool isDivisibleBy (Integer number, Integer divisor) noexcept;
 
 
 /** Returns true if the number is evenly divisible by 2. */
 template <Integral Integer>
-LIMES_EXPORT [[nodiscard]] constexpr bool numberIsEven (Integer number) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr bool numberIsEven (Integer number) noexcept;
 
 
 template <Integral Integer>
-LIMES_EXPORT [[nodiscard]] constexpr bool isPrime (Integer number) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr bool isPrime (Integer number) noexcept;
 
 template <Integral T>
-LIMES_EXPORT [[nodiscard]] constexpr T factorial (T number) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T factorial (T number) noexcept;
 
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] constexpr T middleOfThree (T a, T b, T c) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T middleOfThree (T a, T b, T c) noexcept;
 
 /** Returns the period in samples of a frequency at the specified samplerate. */
 template <Scalar FreqType>
-LIMES_EXPORT [[nodiscard]] constexpr int periodInSamples (double samplerate, FreqType freqHz) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr int periodInSamples (double samplerate, FreqType freqHz) noexcept;
 
 /** Returns the frequency in Hz with a given period in samples at the specified samplerate. */
 template <Scalar PeriodType>
-LIMES_EXPORT [[nodiscard]] constexpr PeriodType freqFromPeriod (double samplerate, PeriodType period) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr PeriodType freqFromPeriod (double samplerate, PeriodType period) noexcept;
 
 
 /** Converts a number of samples to milliseconds at the specified samplerate. */
 template <Integral Integer>
-LIMES_EXPORT [[nodiscard]] constexpr double sampsToMs (double samplerate, Integer numSamples) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr double sampsToMs (double samplerate, Integer numSamples) noexcept;
 
 /** Converts a number of milliseconds to the closest integer number of samples at the specified samplerate. */
 template <Scalar msType>
-LIMES_EXPORT [[nodiscard]] constexpr int msToSamps (double samplerate, msType ms) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr int msToSamps (double samplerate, msType ms) noexcept;
 
 /** Converts a MIDI note to a frequency in Hz. */
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] constexpr T midiToFreq (T midiNote) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T midiToFreq (T midiNote) noexcept;
 
 /** Converts a frequency in Hz to a MIDI note. */
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] inline T freqToMidi (T freqHz) noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION inline T freqToMidi (T freqHz) noexcept
 {
 	const auto val = T (69) + T (12) * std::log2 (static_cast<double> (freqHz) / T (440));
 

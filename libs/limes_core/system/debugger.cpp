@@ -121,6 +121,28 @@ bool isRunningUnderDebugger() noexcept
 	return res;
 }
 
+#if LIMES_IOS || LIMES_LINUX
+#	define LIMES_BREAK_IN_DEBUGGER ::kill (0, SIGTRAP);
+#elif LIMES_MSVC
+#	define LIMES_BREAK_IN_DEBUGGER __debugbreak();
+#elif defined(__has_builtin)
+#	if __has_builtin(__builtin_trap)
+#		define LIMES_BREAK_IN_DEBUGGER __builtin_trap();
+#	elif __has_builtin(__builtin_debugtrap)
+#		define LIMES_BREAK_IN_DEBUGGER __builtin_debugtrap();
+#	endif
+#endif
+
+#ifndef LIMES_BREAK_IN_DEBUGGER
+#	if LIMES_INTEL && (LIMES_GCC || LIMES_CLANG || LIMES_OSX)
+#		define LIMES_BREAK_IN_DEBUGGER asm("int $3");
+#	else
+#		define LIMES_BREAK_IN_DEBUGGER __asm int 3
+#	endif
+#endif
+
+
+LIMES_DISABLE_ALL_COMPILER_WARNINGS
 
 #if LIMES_MSVC
 #	ifndef __INTEL_COMPILER
@@ -128,35 +150,12 @@ bool isRunningUnderDebugger() noexcept
 #	endif
 #endif
 
-LIMES_DISABLE_ALL_COMPILER_WARNINGS
-
 void breakInDebugger() noexcept
 {
-#if LIMES_IOS || LIMES_LINUX
-	::kill (0, SIGTRAP);
-
-#elif LIMES_ANDROID
-	__builtin_trap();
-
-#elif LIMES_MSVC
-	__debugbreak();
-
-#elif LIMES_INTEL && (LIMES_GCC || LIMES_CLANG || LIMES_OSX)
-	asm("int $3");
-
-#elif LIMES_ARM && LIMES_OSX
-#	if LIMES_CLANG
-	__builtin_debugtrap();
-#	elif LIMES_GCC
-	__builtin_trap();
-#	else
-	__asm int 3
-#	endif
-
-#else
-	__asm int 3
-#endif
+	LIMES_BREAK_IN_DEBUGGER
 }
+
+#undef LIMES_BREAK_IN_DEBUGGER
 
 LIMES_REENABLE_ALL_COMPILER_WARNINGS
 

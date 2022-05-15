@@ -11,7 +11,7 @@
  */
 
 #include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
-#include <limes_platform.h>
+#include "../system/compiler_defs.h"
 #include <cstdint>		// for uint32_t
 #include <cstdio>		// for sprintf, size_t
 #include <cstring>		// for memcpy

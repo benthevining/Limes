@@ -59,7 +59,7 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 #	if (LIMES_VECOPS_USE_VDSP || LIMES_VECOPS_USE_MIPP)
 #		define LIMES_VECOPS_USE_IPP 0
 #	else
-#		if LIMES_INTEL && __has_include(<ipps.h>)
+#		if LIMES_INTEL && LIMES_HAS_INCLUDE(<ipps.h>)
 #			define LIMES_VECOPS_USE_IPP 1
 #		else
 #			define LIMES_VECOPS_USE_IPP 0
@@ -71,7 +71,7 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 #	if (LIMES_VECOPS_USE_VDSP || LIMES_VECOPS_USE_IPP)
 #		define LIMES_VECOPS_USE_MIPP 0
 #	else
-#		if (LIMES_SSE || LIMES_AVX || LIMES_AVX_512 || LIMES_ARM_NEON) && __has_include(<mipp.h>)
+#		if (LIMES_SSE || LIMES_AVX || LIMES_AVX_512 || LIMES_ARM_NEON) && LIMES_HAS_INCLUDE(<mipp.h>)
 #			define LIMES_VECOPS_USE_MIPP 1
 #		else
 #			define LIMES_VECOPS_USE_MIPP 0
@@ -465,7 +465,7 @@ private:
 
 #pragma mark Implementation kind checking
 
-LIMES_EXPORT [[nodiscard]] consteval bool isUsingVDSP() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingVDSP() noexcept
 {
 #if LIMES_VECOPS_USE_VDSP
 	return true;
@@ -474,7 +474,7 @@ LIMES_EXPORT [[nodiscard]] consteval bool isUsingVDSP() noexcept
 #endif
 }
 
-LIMES_EXPORT [[nodiscard]] consteval bool isUsingIPP() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingIPP() noexcept
 {
 #if LIMES_VECOPS_USE_IPP
 	return true;
@@ -483,7 +483,7 @@ LIMES_EXPORT [[nodiscard]] consteval bool isUsingIPP() noexcept
 #endif
 }
 
-LIMES_EXPORT [[nodiscard]] consteval bool isUsingMIPP() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingMIPP() noexcept
 {
 #if LIMES_VECOPS_USE_MIPP
 	return true;
@@ -492,7 +492,7 @@ LIMES_EXPORT [[nodiscard]] consteval bool isUsingMIPP() noexcept
 #endif
 }
 
-LIMES_EXPORT [[nodiscard]] consteval bool isUsingFallback() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingFallback() noexcept
 {
 	return ! (isUsingVDSP() || isUsingIPP() || isUsingMIPP());	// cppcheck-suppress knownConditionTrueFalse
 }
@@ -500,7 +500,7 @@ LIMES_EXPORT [[nodiscard]] consteval bool isUsingFallback() noexcept
 static_assert (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingFallback());
 
 
-LIMES_EXPORT [[nodiscard]] static consteval const char* getImplementationName() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION static consteval const char* getImplementationName() noexcept
 {
 	if constexpr (isUsingVDSP())
 		return "Apple vDSP";
@@ -512,7 +512,7 @@ LIMES_EXPORT [[nodiscard]] static consteval const char* getImplementationName() 
 		return "Fallback";
 }
 
-LIMES_EXPORT [[nodiscard]] consteval bool isUsingPommierExtensions() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingPommierExtensions() noexcept
 {
 #if LIMES_VECOPS_USE_POMMIER
 	return true;

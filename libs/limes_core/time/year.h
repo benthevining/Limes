@@ -15,6 +15,7 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include "../misc/preprocessor.h"
+#include "../system/compiler_defs.h"
 #include <ctime>
 
 LIMES_BEGIN_NAMESPACE
@@ -71,7 +72,7 @@ public:
 
 	[[nodiscard]] static Year getCurrent();
 
-	[[nodiscard]] static consteval Year getCompilationYear() noexcept;
+	[[nodiscard]] LIMES_PURE_FUNCTION static consteval Year getCompilationYear() noexcept;
 
 private:
 

@@ -17,6 +17,7 @@
 #include <limes_platform.h>
 #include "2Dshape.h"
 #include "../../../misc/preprocessor.h"
+#include "../../../system/compiler_defs.h"
 #include <cmath>
 
 LIMES_BEGIN_NAMESPACE
@@ -45,8 +46,8 @@ public:
 	[[nodiscard]] constexpr bool operator== (const Pentagon& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Pentagon& other) const noexcept;
 
-	[[nodiscard]] static constexpr Angle<ValueType> interiorAngle() noexcept;
-	[[nodiscard]] static constexpr Angle<ValueType> exteriorAngle() noexcept;
+	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> interiorAngle() noexcept;
+	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> exteriorAngle() noexcept;
 
 private:
 

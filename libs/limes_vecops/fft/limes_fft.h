@@ -21,7 +21,7 @@
 #include <limes_core.h>
 
 #ifndef LIMES_VECOPS_USE_FFTW
-#	if __has_include(<fftw3.h>)
+#	if LIMES_HAS_INCLUDE(<fftw3.h>)
 #		define LIMES_VECOPS_USE_FFTW 1	 // NOLINT
 #	else
 #		define LIMES_VECOPS_USE_FFTW 0	 // NOLINT
@@ -35,7 +35,7 @@ namespace vecops
 
 namespace fft
 {
-[[nodiscard]] consteval bool isUsingFFTW() noexcept
+[[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingFFTW() noexcept
 {
 #if LIMES_VECOPS_USE_FFTW
 	return true;
@@ -44,24 +44,24 @@ namespace fft
 #endif
 }
 
-[[nodiscard]] consteval bool isUsingVDSP() noexcept
+[[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingVDSP() noexcept
 {
 	return vecops::isUsingVDSP() && ! isUsingFFTW();  // cppcheck-suppress knownConditionTrueFalse
 }
 
-[[nodiscard]] consteval bool isUsingIPP() noexcept
+[[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingIPP() noexcept
 {
 	return vecops::isUsingIPP() && ! isUsingFFTW();	 // cppcheck-suppress knownConditionTrueFalse
 }
 
-[[nodiscard]] consteval bool isUsingFallback() noexcept
+[[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingFallback() noexcept
 {
 	return ! (isUsingFFTW() || isUsingVDSP() || isUsingIPP());	// cppcheck-suppress knownConditionTrueFalse
 }
 
 static_assert (isUsingFFTW() || isUsingVDSP() || isUsingIPP() || isUsingFallback());
 
-[[nodiscard]] static consteval const char* getImplementationName() noexcept
+[[nodiscard]] LIMES_PURE_FUNCTION static consteval const char* getImplementationName() noexcept
 {
 	if constexpr (isUsingFFTW())
 		return "FFTW";

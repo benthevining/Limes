@@ -16,6 +16,7 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  limes_assert.cpp limes_assert.h debugger.cpp debugger.h compiler_warnings.h)
+		  limes_assert.cpp limes_assert.h debugger.cpp debugger.h compiler_warnings.h
+		  compiler_defs.h)
 
 set (system_files ${system_files} PARENT_SCOPE)

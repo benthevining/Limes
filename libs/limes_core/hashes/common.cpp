@@ -12,7 +12,7 @@
 
 #include "common.h"
 #include <limes_namespace.h>
-#include <limes_platform.h>
+#include "../system/compiler_defs.h"
 
 LIMES_BEGIN_NAMESPACE
 

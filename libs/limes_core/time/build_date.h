@@ -15,13 +15,14 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include "../misc/preprocessor.h"
+#include "../system/compiler_defs.h"
 
 LIMES_BEGIN_NAMESPACE
 
 namespace time
 {
 
-LIMES_EXPORT [[nodiscard]] consteval int build_year() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_year() noexcept
 {
 	const char* date = __DATE__;
 
@@ -35,7 +36,7 @@ LIMES_EXPORT [[nodiscard]] consteval int build_year() noexcept
 	return result;
 }
 
-LIMES_EXPORT [[nodiscard]] consteval int build_month() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_month() noexcept
 {
 	constexpr const char months[12][4] {
 		"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
@@ -54,7 +55,7 @@ LIMES_EXPORT [[nodiscard]] consteval int build_month() noexcept
 	return 0;
 }
 
-LIMES_EXPORT [[nodiscard]] consteval int build_day() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_day() noexcept
 {
 	const char* date = __DATE__;
 
@@ -68,21 +69,21 @@ LIMES_EXPORT [[nodiscard]] consteval int build_day() noexcept
 	return result + (date[1] - '0');
 }
 
-LIMES_EXPORT [[nodiscard]] consteval int build_hour() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_hour() noexcept
 {
 	constexpr const char time[] = __TIME__;
 
 	return (time[0] - '0') * 10 + (time[1] - '0');
 }
 
-LIMES_EXPORT [[nodiscard]] consteval int build_minute() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_minute() noexcept
 {
 	constexpr const char time[] = __TIME__;
 
 	return (time[3] - '0') * 10 + (time[4] - '0');
 }
 
-LIMES_EXPORT [[nodiscard]] consteval int build_second() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_second() noexcept
 {
 	constexpr const char time[] = __TIME__;
 

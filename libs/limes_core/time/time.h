@@ -16,6 +16,7 @@
 #include <limes_namespace.h>
 #include "../misc/preprocessor.h"
 #include "hour.h"
+#include "../system/compiler_defs.h"
 #include <ctime>
 #include <string>
 #include "time_utils.h"
@@ -70,7 +71,7 @@ public:
 
 	[[nodiscard]] static Time getCurrent();
 
-	[[nodiscard]] static consteval Time getCompilationTime() noexcept;
+	[[nodiscard]] LIMES_PURE_FUNCTION static consteval Time getCompilationTime() noexcept;
 
 private:
 

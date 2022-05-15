@@ -111,6 +111,14 @@ LIMES_END_NAMESPACE
 #endif
 
 #ifndef LIMES_UNREACHABLE
+#	ifdef __has_builtin
+#		if __has_builtin(__builtin_unreachable)
+#			define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (__builtin_unreachable();)
+#		endif
+#	endif
+#endif
+
+#ifndef LIMES_UNREACHABLE
 #	define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (LIMES_ASSERT_FALSE;)
 #endif
 

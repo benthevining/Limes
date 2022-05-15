@@ -30,6 +30,7 @@ Dependencies: None
 #include "system/limes_assert.h"
 #include "system/debugger.h"
 #include "system/compiler_warnings.h"
+#include "system/compiler_defs.h"
 
 #include "misc/preprocessor.h"
 #include "misc/IgnoreUnused.h"

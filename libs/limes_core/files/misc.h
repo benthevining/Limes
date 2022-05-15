@@ -17,6 +17,7 @@
 #include <limes_platform.h>
 #include <cstdint>
 #include <filesystem>
+#include "../system/compiler_defs.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -30,13 +31,13 @@ LIMES_EXPORT [[nodiscard]] std::uintmax_t getAvailableSpaceOnFilesystem();
 LIMES_EXPORT [[nodiscard]] std::uintmax_t getTotalSizeOfFilesystem();
 
 /** Returns the platform's preferred separator: \c \ on Windows, and \c / everywhere else. */
-LIMES_EXPORT [[nodiscard]] constexpr char dirSeparator() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr char dirSeparator() noexcept
 {
 	return static_cast<char> (std::filesystem::path::preferred_separator);
 }
 
 /** Returns the platform's separator char for the \c PATH  environment variable: \c ; on Windows, and \c : everywhere else. */
-LIMES_EXPORT [[nodiscard]] consteval char PATHseparator() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval char PATHseparator() noexcept
 {
 #if LIMES_WINDOWS
 	return ';';
@@ -46,7 +47,7 @@ LIMES_EXPORT [[nodiscard]] consteval char PATHseparator() noexcept
 }
 
 /** Returns true if the current platform's filesystem is case-sensitive. True on Linux, false everywhere else. */
-LIMES_EXPORT [[nodiscard]] consteval bool filesystemIsCaseSensitive() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool filesystemIsCaseSensitive() noexcept
 {
 #if LIMES_LINUX
 	return true;

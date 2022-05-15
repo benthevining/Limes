@@ -18,7 +18,7 @@
 #include <string>			  // for string
 #include <string_view>		  // for string_view, operator""sv, string_view_...
 #include <vector>			  // for vector
-
+#include "../system/compiler_defs.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -27,19 +27,19 @@ namespace strings
 {
 
 /** Returns true if the passed string is \c \n or \c \r\n . */
-LIMES_EXPORT [[nodiscard]] bool isNewline (const std::string_view& string) noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION bool isNewline (const std::string_view& string) noexcept;
 
 /** Returns true if the two strings contain exactly the same characters. */
-LIMES_EXPORT [[nodiscard]] bool areSame (const char* string1, const char* string2);
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION bool areSame (const char* string1, const char* string2);
 
 /** Returns true if the two strings are the same, regardless of the case of their characters. */
 ///@{
-LIMES_EXPORT [[nodiscard]] bool areSameIgnoringCase (const char* string1, const char* string2);
-LIMES_EXPORT [[nodiscard]] bool areSameIgnoringCase (const std::string_view& lhs, const std::string_view& rhs);
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION bool areSameIgnoringCase (const char* string1, const char* string2);
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION bool areSameIgnoringCase (const std::string_view& lhs, const std::string_view& rhs);
 ///@}
 
 /** Returns the length of the string. */
-LIMES_EXPORT [[nodiscard]] int length (const char* string);
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION int length (const char* string);
 
 /** Removes any whitespace characters from the beginning and end of the string. */
 LIMES_EXPORT void trim (std::string& string);
@@ -110,7 +110,7 @@ LIMES_EXPORT [[nodiscard]] std::string joinWithNewlines (const std::vector<std::
 /** Returns the platform's preferred newline separator: \c \r\n on Windows, \c \n everywhere else.
 	@see new_line
  */
-LIMES_EXPORT [[nodiscard]] constexpr std::string_view getNewline() noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr std::string_view getNewline() noexcept;
 
 /** A static variable that can be referenced for convenience, instead of needing to call \c getNewline() .
 	@see getNewline

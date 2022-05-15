@@ -21,6 +21,7 @@
 #include <ctime>
 #include <string>
 #include "time_utils.h"
+#include "../system/compiler_defs.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -73,7 +74,7 @@ public:
 
 	[[nodiscard]] static Date getCurrent();
 
-	[[nodiscard]] static consteval Date getCompilationDate() noexcept;
+	[[nodiscard]] LIMES_PURE_FUNCTION static consteval Date getCompilationDate() noexcept;
 
 private:
 

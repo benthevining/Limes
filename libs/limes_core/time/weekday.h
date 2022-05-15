@@ -17,6 +17,7 @@
 #include "year.h"
 #include "month.h"
 #include "../misc/preprocessor.h"
+#include "../system/compiler_defs.h"
 #include <string_view>
 #include <type_traits>
 #include <ctime>
@@ -99,7 +100,7 @@ public:
 
 	[[nodiscard]] static consteval Weekday getCompilationWeekday() noexcept;
 
-	[[nodiscard]] static consteval bool startsWeekOnSunday() noexcept;
+	[[nodiscard]] LIMES_PURE_FUNCTION static consteval bool startsWeekOnSunday() noexcept;
 
 private:
 

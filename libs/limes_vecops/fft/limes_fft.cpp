@@ -30,16 +30,17 @@ namespace vecops
 
 template <Scalar SampleType>
 FFT<SampleType>::FFT (int size)
-{
+	:
 #if LIMES_VECOPS_USE_FFTW
-	pimpl = std::make_unique<FFTW_FFT<SampleType>> (size);
+	  pimpl (std::make_unique<FFTW_FFT<SampleType>> (size))
 #elif LIMES_VECOPS_USE_VDSP
-	pimpl = std::make_unique<vDSP_FFT<SampleType>> (size);
+	  pimpl (std::make_unique<vDSP_FFT<SampleType>> (size))
 #elif LIMES_VECOPS_USE_IPP
-	pimpl = std::make_unique<IPP_FFT<SampleType>> (size);
+	  pimpl (std::make_unique<IPP_FFT<SampleType>> (size))
 #else
-	pimpl = std::make_unique<FallbackFFT<SampleType>> (size);
+	  pimpl (std::make_unique<FallbackFFT<SampleType>> (size))
 #endif
+{
 }
 
 template <Scalar SampleType>

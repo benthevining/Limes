@@ -15,6 +15,7 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include "../misc/preprocessor.h"
+#include "../system/compiler_defs.h"
 #include <string_view>
 #include <ctime>
 
@@ -95,7 +96,7 @@ public:
 
 	[[nodiscard]] static Month getCurrent();
 
-	[[nodiscard]] static consteval Month getCompilationMonth() noexcept;
+	[[nodiscard]] LIMES_PURE_FUNCTION static consteval Month getCompilationMonth() noexcept;
 
 private:
 

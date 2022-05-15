@@ -22,7 +22,6 @@
 #include "sym_link.h"		  // for SymLink
 #include "misc.h"			  // for PATHseparator
 
-
 LIMES_BEGIN_NAMESPACE
 
 namespace files

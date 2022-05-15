@@ -14,6 +14,18 @@
 
 #include <limes_platform.h>
 
+#ifdef __has_include
+#	define LIMES_HAS_INCLUDE(file) __has_include(file)
+#else
+#	define LIMES_HAS_INCLUDE(file) 0
+#endif
+
+#ifdef __has_attribute
+#	define LIMES_HAS_ATTRIBUTE(attribute) __has_attribute (attribute)
+#else
+#	define LIMES_HAS_ATTRIBUTE(attribute) 0
+#endif
+
 
 #if LIMES_MSVC
 #	define LIMES_BLOCK_WITH_FORCED_SEMICOLON(statement)         \

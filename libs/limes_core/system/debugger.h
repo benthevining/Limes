@@ -14,6 +14,7 @@
 
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include "compiler_defs.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -22,7 +23,7 @@ namespace debugger
 {
 
 /** Returns true if the calling process is running under a debugger. */
-LIMES_EXPORT [[nodiscard]] bool isRunningUnderDebugger() noexcept;
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION bool isRunningUnderDebugger() noexcept;
 
 /** Attempts to break into the debugger. If one is not attached, this function may or may not crash, depending on the platform.
  */

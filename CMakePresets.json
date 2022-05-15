@@ -65,6 +65,26 @@
     },
     {
       "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "g++-11",
+        "CMAKE_C_COMPILER": "gcc-11"
+      },
+      "displayName": "Build with Ninja and GCC",
+      "generator": "Ninja Multi-Config",
+      "inherits": "maintainer",
+      "name": "ninja-gcc"
+    },
+    {
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "clang",
+        "CMAKE_C_COMPILER": "clang++"
+      },
+      "displayName": "Build with Ninja and Clang",
+      "generator": "Ninja Multi-Config",
+      "inherits": "maintainer",
+      "name": "ninja-clang"
+    },
+    {
+      "cacheVariables": {
         "LIMES_IGNORE_FFTW": "ON",
         "LIMES_IGNORE_POMMIER": "ON",
         "LIMES_USE_VECOPS_FALLBACK": "ON"

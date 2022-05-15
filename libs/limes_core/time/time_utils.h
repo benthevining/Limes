@@ -18,6 +18,7 @@
 #include <ctime>
 #include <type_traits>
 #include "../meta/TypeTraits.h"
+#include "../system/compiler_defs.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -39,7 +40,7 @@ using Point = std::chrono::time_point<ClockType>;
 using SystemClock = std::chrono::system_clock;
 
 template <Clock InputClock, Clock OutputClock>
-LIMES_EXPORT [[nodiscard]] Point<OutputClock> convertClockTimePoints (const Point<InputClock>& inputTime)
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION Point<OutputClock> convertClockTimePoints (const Point<InputClock>& inputTime)
 {
 	if constexpr (std::is_same_v<InputClock, OutputClock>)
 		return inputTime;
@@ -57,7 +58,7 @@ LIMES_EXPORT [[nodiscard]] Point<OutputClock> convertClockTimePoints (const Poin
 }
 
 template <Clock InputClock>
-LIMES_EXPORT [[nodiscard]] Point<SystemClock> toSystemTime (const Point<InputClock>& inputTime)
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION Point<SystemClock> toSystemTime (const Point<InputClock>& inputTime)
 {
 	return convertClockTimePoints<InputClock, SystemClock> (inputTime);
 }

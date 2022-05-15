@@ -13,6 +13,7 @@
 #pragma once
 
 #include <limes_platform.h>
+#include "../misc/preprocessor.h"
 
 #ifdef DOXYGEN
 
@@ -28,9 +29,39 @@
  */
 #	define LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
+/** @def LIMES_COMPILER_MESSAGE
+	Displays a custom message with the compiler's output. To display a custom warning message, use \c LIMES_COMPILER_WARNING.
+	@see LIMES_COMPILER_WARNING
+ */
+#	define LIMES_COMPILER_MESSAGE(text)
+
+/** @def LIMES_COMPILER_WARNING
+	This macro causes the compiler to print the given text as a compilation warning, if available with the currently used compiler.
+	Some compilers don't support user-defined warnings, so the text may just be printed to std::out during compilation with no actual warning issued.
+	@see LIMES_COMPILER_MESSAGE
+ */
+#	define LIMES_COMPILER_WARNING(text)
+
 #endif
 
 /// @cond
+
+#if LIMES_CLANG || LIMES_GCC
+#	define LIMES_COMPILER_WARNING(text) \
+		_Pragma (LIMES_MAKE_STRING (GCC warning (text)))
+#endif
+
+#if LIMES_GCC || LIMES_MSVC || LIMES_INTEL_COMPILER
+#	define LIMES_COMPILER_MESSAGE(text) \
+		_Pragma (LIMES_MAKE_STRING (message text))
+#elif LIMES_CLANG
+#	define LIMES_COMPILER_MESSAGE(text) \
+		_Pragma (LIMES_MAKE_STRING (GCC message (text)))
+#elif LIMES_CRAY_COMPILER
+#	define LIMES_COMPILER_MESSAGE(text) \
+		_Pragma (LIMES_MAKE_STRING (_CRI message text))
+#endif
+
 
 #if LIMES_CLANG
 
@@ -72,7 +103,7 @@
 #	define LIMES_REENABLE_ALL_COMPILER_WARNINGS \
 		_Pragma ("GCC diagnostic pop")
 
-#elif LIMES_MSVC
+#elif (LIMES_MSVC || LIMES_INTEL_COMPILER)
 
 // clang-format off
 #	define LIMES_DISABLE_ALL_COMPILER_WARNINGS \
@@ -83,9 +114,22 @@
 #	define LIMES_REENABLE_ALL_COMPILER_WARNINGS \
 		_Pragma ("warning (pop)")
 
-#else
+#endif
+
+#ifndef LIMES_DISABLE_ALL_COMPILER_WARNINGS
 #	define LIMES_DISABLE_ALL_COMPILER_WARNINGS
+#endif
+
+#ifndef LIMES_REENABLE_ALL_COMPILER_WARNINGS
 #	define LIMES_REENABLE_ALL_COMPILER_WARNINGS
+#endif
+
+#ifndef LIMES_COMPILER_MESSAGE
+#	define LIMES_COMPILER_MESSAGE(text)
+#endif
+
+#ifndef LIMES_COMPILER_WARNING
+#	define LIMES_COMPILER_WARNING(text) LIMES_COMPILER_MESSAGE (text)
 #endif
 
 /// @endcond
