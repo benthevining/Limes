@@ -13,7 +13,7 @@ var classmemory_1_1_memory_pool =
     [ "deallocate", "classmemory_1_1_memory_pool.html#a27186b1031fe082a1348870960cb5677", null ],
     [ "deallocate", "classmemory_1_1_memory_pool.html#a2b753c3731bc2c4d428617dfc2d4980a", null ],
     [ "destruct", "classmemory_1_1_memory_pool.html#abc038159ca0b33b93e7eb2fe07fc0f39", null ],
-    [ "getMemoryRootLocation", "classmemory_1_1_memory_pool.html#a9dcedbc7be5ca8c651449084e8cc34d4", null ],
+    [ "getMemoryRootLocation", "classmemory_1_1_memory_pool.html#a9ca2f8e0d574cef5c19bca3f39b77819", null ],
     [ "getRemainingCapacity", "classmemory_1_1_memory_pool.html#ac02613d5e2036a45bd671adb9f70fc33", null ],
     [ "getRemainingSpace", "classmemory_1_1_memory_pool.html#aa8d1bf99fb491b8553f10b410304cade", null ],
     [ "getTotalCapacity", "classmemory_1_1_memory_pool.html#ac09a5fe672f16fa5bfdd36065527406f", null ],

@@ -47,7 +47,7 @@ var limes__vecops_8h =
     [ "generateHamm", "limes__vecops_8h.html#ab41b83147aa9748b2b60ce1eb4244a9d", null ],
     [ "generateHanning", "limes__vecops_8h.html#a1f3dd9621252650e890a6f846ee6e3ce", null ],
     [ "generateRamp", "limes__vecops_8h.html#aa5fd110a645569562ed1b0ff9571d204", null ],
-    [ "getImplementationName", "limes__vecops_8h.html#a9080c5700fe4616a274ff3dc18e3fe3f", null ],
+    [ "getImplementationName", "limes__vecops_8h.html#a4ef9e48b13c1e24f3dd37aba133dd6d5", null ],
     [ "interleave", "limes__vecops_8h.html#a4deb61bd8fcff15bb624875cc38a483f", null ],
     [ "invSquareRoot", "limes__vecops_8h.html#a80888e96e6a1d2a8effbd788cf866da4", null ],
     [ "invSquareRootAndCopy", "limes__vecops_8h.html#a55b527f9ebf789195e30604180b5dc35", null ],
