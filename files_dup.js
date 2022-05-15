@@ -125,6 +125,7 @@ var files_dup =
     [ "ipp_fft.h", "ipp__fft_8h.html", [
       [ "IPP_FFT", "classvecops_1_1_i_p_p___f_f_t.html", "classvecops_1_1_i_p_p___f_f_t" ]
     ] ],
+    [ "json.h", "json_8h.html", "json_8h" ],
     [ "KeySignature.h", "_key_signature_8h.html", [
       [ "KeySignature", "classmusic_1_1scales_1_1_key_signature.html", "classmusic_1_1scales_1_1_key_signature" ]
     ] ],

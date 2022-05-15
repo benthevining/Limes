@@ -8,6 +8,7 @@ var namespaces_dup =
     [ "files", "namespacefiles.html", null ],
     [ "func", "namespacefunc.html", null ],
     [ "hash", "namespacehash.html", null ],
+    [ "json", "namespacejson.html", null ],
     [ "locale", "namespacelocale.html", null ],
     [ "math", "namespacemath.html", "namespacemath" ],
     [ "memory", "namespacememory.html", null ],

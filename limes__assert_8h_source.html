@@ -105,75 +105,74 @@ $(document).ready(function(){initNavTree('limes__assert_8h_source.html',''); ini
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;../misc/preprocessor.h&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;limes_build_type.h&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../misc/IgnoreUnused.h&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;limes_platform.h&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;filesystem&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<a class="code" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespaceassert.html">   28</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceassert.html">assert</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;LIMES_EXPORT <span class="keywordtype">void</span> fire_assertion_internal (<span class="keyword">const</span> <span class="keywordtype">char</span>* fileName, <span class="keyword">const</span> <span class="keywordtype">char</span>* functionName, <span class="keywordtype">int</span> lineNum, <span class="keyword">const</span> <span class="keywordtype">char</span>* condition) noexcept;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;LIMES_EXPORT constexpr <span class="keywordtype">void</span> fire_assertion (<span class="keyword">const</span> <span class="keywordtype">char</span>* fileName, <span class="keyword">const</span> <span class="keywordtype">char</span>* functionName, <span class="keywordtype">int</span> lineNum, <span class="keyword">const</span> <span class="keywordtype">char</span>* condition) noexcept</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span> (! std::is_constant_evaluated())</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        fire_assertion_internal (fileName, functionName, lineNum, condition);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;LIMES_EXPORT <span class="keywordtype">void</span> <a class="code" href="namespaceassert.html#a2c49f64f578f6c0589dab44d41af3e2f">setAssertionLogFile</a> (<span class="keyword">const</span> std::filesystem::path&amp; logFileToUse) noexcept;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;LIMES_EXPORT [[nodiscard]] std::filesystem::path <a class="code" href="namespaceassert.html#a64329f2d07616067699dcccc702a4184">getAssertionLogFile</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}  <span class="comment">// namespace assert</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#ifdef DOXYGEN</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="limes__assert_8h.html#a25f3c9bb0036097a480811b544f1eb34">   67</a></span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_FALSE</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">   75</a></span>&#160;<span class="preprocessor">#   define LIMES_ASSERT(condition)</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="limes__assert_8h.html#ad16dd0041c15feb8b68d38dc707f9595">   83</a></span>&#160;<span class="preprocessor">#   define LIMES_UNREACHABLE</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#if LIMES_CLANG || defined(__GNUC__)</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_GET_FUNC_NAME __PRETTY_FUNCTION__</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#elif LIMES_MSVC</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_GET_FUNC_NAME __FUNCSIG__</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#elif defined(__SUNPRO_CC)</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_GET_FUNC_NAME __func__</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_GET_FUNC_NAME __FUNCTION__</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#if LIMES_DEBUG</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_FALSE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::limes::assert::fire_assertion (__FILE__, LIMES_ASSERT_GET_FUNC_NAME, __LINE__, nullptr);)</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT(condition) LIMES_BLOCK_WITH_FORCED_SEMICOLON (if (! (condition))::limes::assert::fire_assertion (__FILE__, LIMES_ASSERT_GET_FUNC_NAME, __LINE__, LIMES_MAKE_STRING (condition));)</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_FALSE</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT(x) LIMES_BLOCK_WITH_FORCED_SEMICOLON ([[maybe_unused]] auto limes_assert_result = (x); ::limes::ignore_unused (limes_assert_result);)</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#if __cpp_lib_unreachable</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#   define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::std::unreachable())</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#   define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (LIMES_ASSERT_FALSE;)</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../misc/IgnoreUnused.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;limes_platform.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;filesystem&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespaceassert.html">   27</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceassert.html">assert</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;LIMES_EXPORT <span class="keywordtype">void</span> fire_assertion_internal (<span class="keyword">const</span> <span class="keywordtype">char</span>* fileName, <span class="keyword">const</span> <span class="keywordtype">char</span>* functionName, <span class="keywordtype">int</span> lineNum, <span class="keyword">const</span> <span class="keywordtype">char</span>* condition) noexcept;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;LIMES_EXPORT constexpr <span class="keywordtype">void</span> fire_assertion (<span class="keyword">const</span> <span class="keywordtype">char</span>* fileName, <span class="keyword">const</span> <span class="keywordtype">char</span>* functionName, <span class="keywordtype">int</span> lineNum, <span class="keyword">const</span> <span class="keywordtype">char</span>* condition) noexcept</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">if</span> (! std::is_constant_evaluated())</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        fire_assertion_internal (fileName, functionName, lineNum, condition);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;LIMES_EXPORT <span class="keywordtype">void</span> <a class="code" href="namespaceassert.html#a2c49f64f578f6c0589dab44d41af3e2f">setAssertionLogFile</a> (<span class="keyword">const</span> std::filesystem::path&amp; logFileToUse) noexcept;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;LIMES_EXPORT [[nodiscard]] std::filesystem::path <a class="code" href="namespaceassert.html#a64329f2d07616067699dcccc702a4184">getAssertionLogFile</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}  <span class="comment">// namespace assert</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#ifdef DOXYGEN</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="limes__assert_8h.html#a25f3c9bb0036097a480811b544f1eb34">   66</a></span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_FALSE</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">   74</a></span>&#160;<span class="preprocessor">#   define LIMES_ASSERT(condition)</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="limes__assert_8h.html#ad16dd0041c15feb8b68d38dc707f9595">   82</a></span>&#160;<span class="preprocessor">#   define LIMES_UNREACHABLE</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#if LIMES_CLANG || defined(__GNUC__)</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_GET_FUNC_NAME __PRETTY_FUNCTION__</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#elif LIMES_MSVC</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_GET_FUNC_NAME __FUNCSIG__</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#elif defined(__SUNPRO_CC)</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_GET_FUNC_NAME __func__</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_GET_FUNC_NAME __FUNCTION__</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#if ORANGES_DEBUG</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_FALSE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::limes::assert::fire_assertion (__FILE__, LIMES_ASSERT_GET_FUNC_NAME, __LINE__, nullptr);)</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT(condition) LIMES_BLOCK_WITH_FORCED_SEMICOLON (if (! (condition))::limes::assert::fire_assertion (__FILE__, LIMES_ASSERT_GET_FUNC_NAME, __LINE__, LIMES_MAKE_STRING (condition));)</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT_FALSE</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#   define LIMES_ASSERT(x) LIMES_BLOCK_WITH_FORCED_SEMICOLON ([[maybe_unused]] auto limes_assert_result = (x); ::limes::misc::ignore_unused (limes_assert_result);)</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#if __cpp_lib_unreachable</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#   define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::std::unreachable())</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#   define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (LIMES_ASSERT_FALSE;)</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="alimes__namespace_8h_html_a7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00022">limes_namespace.h:22</a></div></div>
 <div class="ttc" id="anamespaceassert_html_a2c49f64f578f6c0589dab44d41af3e2f"><div class="ttname"><a href="namespaceassert.html#a2c49f64f578f6c0589dab44d41af3e2f">assert::setAssertionLogFile</a></div><div class="ttdeci">LIMES_EXPORT void setAssertionLogFile(const std::filesystem::path &amp;logFileToUse) noexcept</div><div class="ttdoc">Sets a filepath to be used to log assertion failures for the current process.</div></div>
-<div class="ttc" id="anamespaceassert_html"><div class="ttname"><a href="namespaceassert.html">assert</a></div><div class="ttdoc">This namespace contains utilities for runtime assertions.</div><div class="ttdef"><b>Definition:</b> <a href="limes__assert_8h_source.html#l00028">limes_assert.h:28</a></div></div>
+<div class="ttc" id="anamespaceassert_html"><div class="ttname"><a href="namespaceassert.html">assert</a></div><div class="ttdoc">This namespace contains utilities for runtime assertions.</div><div class="ttdef"><b>Definition:</b> <a href="limes__assert_8h_source.html#l00027">limes_assert.h:27</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00015">limes_namespace.h:15</a></div></div>
 <div class="ttc" id="anamespaceassert_html_a64329f2d07616067699dcccc702a4184"><div class="ttname"><a href="namespaceassert.html#a64329f2d07616067699dcccc702a4184">assert::getAssertionLogFile</a></div><div class="ttdeci">LIMES_EXPORT std::filesystem::path getAssertionLogFile()</div><div class="ttdoc">Returns the path to the current assertion log file, if any.</div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="limes__namespace_8h.html">limes_namespace.h</a></div></div>
@@ -181,7 +180,7 @@ $(document).ready(function(){initNavTree('limes__assert_8h_source.html',''); ini
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_2d8a48939303f02673a94e0c7666fd8b.html">system</a></li><li class="navelem"><a class="el" href="limes__assert_8h.html">limes_assert.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
+    <li class="footer">Generated on Sun May 15 2022 04:08:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

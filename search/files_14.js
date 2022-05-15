@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['weekday_2eh_1697',['weekday.h',['../weekday_8h.html',1,'']]],
-  ['weekday_5fimpl_2eh_1698',['weekday_impl.h',['../weekday__impl_8h.html',1,'']]],
-  ['whitenoisegenerator_2eh_1699',['WhiteNoiseGenerator.h',['../_white_noise_generator_8h.html',1,'']]],
-  ['wholetone_2eh_1700',['WholeTone.h',['../_whole_tone_8h.html',1,'']]]
+  ['vdsp_2eh_1727',['vdsp.h',['../vdsp_8h.html',1,'']]],
+  ['vdsp_5ffft_2eh_1728',['vdsp_fft.h',['../vdsp__fft_8h.html',1,'']]],
+  ['vector_2eh_1729',['vector.h',['../vector_8h.html',1,'']]],
+  ['velocitymapper_2eh_1730',['VelocityMapper.h',['../_velocity_mapper_8h.html',1,'']]],
+  ['version_2eh_1731',['Version.h',['../_version_8h.html',1,'']]]
 ];

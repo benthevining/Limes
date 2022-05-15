@@ -126,6 +126,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ae10f4755523ad3a3d40c303df5209746"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#ae10f4755523ad3a3d40c303df5209746">strings::areSame</a> (const char *string1, const char *string2)</td></tr>
 <tr class="memdesc:ae10f4755523ad3a3d40c303df5209746"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the two strings contain exactly the same characters.  <a href="namespacestrings.html#ae10f4755523ad3a3d40c303df5209746">More...</a><br /></td></tr>
 <tr class="separator:ae10f4755523ad3a3d40c303df5209746"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91ded74a12444e6e18c9b0720251fa61"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a91ded74a12444e6e18c9b0720251fa61">strings::dropFirstChars</a> (std::string &amp;string, std::size_t numChars)</td></tr>
+<tr class="memdesc:a91ded74a12444e6e18c9b0720251fa61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a specified number of characters from the beginning of the string.  <a href="namespacestrings.html#a91ded74a12444e6e18c9b0720251fa61">More...</a><br /></td></tr>
+<tr class="separator:a91ded74a12444e6e18c9b0720251fa61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8158cf75c9842b20d6b8727c4184663e"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a8158cf75c9842b20d6b8727c4184663e">strings::dropLastChars</a> (std::string &amp;string, std::size_t numChars)</td></tr>
+<tr class="memdesc:a8158cf75c9842b20d6b8727c4184663e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a specified number of characters from the end of the string.  <a href="namespacestrings.html#a8158cf75c9842b20d6b8727c4184663e">More...</a><br /></td></tr>
+<tr class="separator:a8158cf75c9842b20d6b8727c4184663e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a978efbcde4c3c58ace812c788841ddf6"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a978efbcde4c3c58ace812c788841ddf6">strings::fromFirstOccurrenceOf</a> (const std::string_view &amp;inputString, const std::string_view &amp;stringToFind)</td></tr>
 <tr class="memdesc:a978efbcde4c3c58ace812c788841ddf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a copy of the passed string, beginning at the first occurance of <code>stringToFind</code> .  <a href="namespacestrings.html#a978efbcde4c3c58ace812c788841ddf6">More...</a><br /></td></tr>
 <tr class="separator:a978efbcde4c3c58ace812c788841ddf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,6 +161,9 @@ Functions</h2></td></tr>
 <tr class="memitem:af6bd4c9f670460dac73a6e8fd017fb0f"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#af6bd4c9f670460dac73a6e8fd017fb0f">strings::printLimesASCII</a> ()</td></tr>
 <tr class="memdesc:af6bd4c9f670460dac73a6e8fd017fb0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the Limes library ASCII logo to std::cout.  <a href="namespacestrings.html#af6bd4c9f670460dac73a6e8fd017fb0f">More...</a><br /></td></tr>
 <tr class="separator:af6bd4c9f670460dac73a6e8fd017fb0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97d1b1e05002b566f1e7149385b40262"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a97d1b1e05002b566f1e7149385b40262">strings::quoted</a> (const std::string_view &amp;string)</td></tr>
+<tr class="memdesc:a97d1b1e05002b566f1e7149385b40262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds <code>"</code> characters to the beginning and end of the string, if they aren't already there.  <a href="namespacestrings.html#a97d1b1e05002b566f1e7149385b40262">More...</a><br /></td></tr>
+<tr class="separator:a97d1b1e05002b566f1e7149385b40262"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a502c1c0d50a8b5fd842edfce3308be33"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a502c1c0d50a8b5fd842edfce3308be33">strings::split</a> (const std::string_view &amp;stringToSplit, const std::string_view &amp;delimiter, bool includeDelimiterInResults=false)</td></tr>
 <tr class="memdesc:a502c1c0d50a8b5fd842edfce3308be33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes an input string and splits it into a series of smaller strings.  <a href="namespacestrings.html#a502c1c0d50a8b5fd842edfce3308be33">More...</a><br /></td></tr>
 <tr class="separator:a502c1c0d50a8b5fd842edfce3308be33"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,6 +182,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1670eabe3d3dbe930eeab693ad5a61ba"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a1670eabe3d3dbe930eeab693ad5a61ba">strings::trim</a> (std::string &amp;string)</td></tr>
 <tr class="memdesc:a1670eabe3d3dbe930eeab693ad5a61ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes any whitespace characters from the beginning and end of the string.  <a href="namespacestrings.html#a1670eabe3d3dbe930eeab693ad5a61ba">More...</a><br /></td></tr>
 <tr class="separator:a1670eabe3d3dbe930eeab693ad5a61ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6af9fb7a1cc053fed006ca09dff9f8d9"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a6af9fb7a1cc053fed006ca09dff9f8d9">strings::unquoted</a> (const std::string_view &amp;string)</td></tr>
+<tr class="memdesc:a6af9fb7a1cc053fed006ca09dff9f8d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes <code>"</code> characters from the beginning and end of the string, if they were there.  <a href="namespacestrings.html#a6af9fb7a1cc053fed006ca09dff9f8d9">More...</a><br /></td></tr>
+<tr class="separator:a6af9fb7a1cc053fed006ca09dff9f8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0e28328b54ff88954f6b25e8e77d382"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#aa0e28328b54ff88954f6b25e8e77d382">strings::upToFirstOccurrenceOf</a> (const std::string_view &amp;inputString, const std::string_view &amp;stringToFind)</td></tr>
 <tr class="memdesc:aa0e28328b54ff88954f6b25e8e77d382"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a copy of the passed string, ending at the first occurance of <code>stringToFind</code> .  <a href="namespacestrings.html#aa0e28328b54ff88954f6b25e8e77d382">More...</a><br /></td></tr>
 <tr class="separator:aa0e28328b54ff88954f6b25e8e77d382"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -201,7 +213,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_39c4531bb332ab2fb7914284ac583f02.html">text</a></li><li class="navelem"><a class="el" href="_string_utils_8h.html">StringUtils.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 02:42:04 for Limes by
+    <li class="footer">Generated on Sun May 15 2022 04:08:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

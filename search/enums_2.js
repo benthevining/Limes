@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['side_2735',['Side',['../classmath_1_1geometry_1_1_triangle.html#acecb461fd2ad8660cfcacc697de6bbe8',1,'math::geometry::Triangle']]],
-  ['stereoreductionmode_2736',['StereoReductionMode',['../group__lemons__stereo__conversion.html#gab1a12ea0ed30dd9ebf7c261a68dc1d73',1,'dsp']]]
+  ['quality_2798',['Quality',['../classmusic_1_1_interval.html#a92dfb9d078d6e96c0a56351a0455258c',1,'music::Interval']]]
 ];

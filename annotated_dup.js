@@ -5,6 +5,7 @@ var annotated_dup =
     [ "files", "namespacefiles.html", "namespacefiles" ],
     [ "func", "namespacefunc.html", "namespacefunc" ],
     [ "hash", "namespacehash.html", "namespacehash" ],
+    [ "json", "namespacejson.html", "namespacejson" ],
     [ "locale", "namespacelocale.html", "namespacelocale" ],
     [ "math", "namespacemath.html", "namespacemath" ],
     [ "memory", "namespacememory.html", "namespacememory" ],

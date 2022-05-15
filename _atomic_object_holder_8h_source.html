@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('_atomic_object_holder_8h_source.html',
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structthreads_1_1detail_1_1_atomic_object_base.html#ad1c1933f117a07faff01e6c9fd4ded17">   41</a></span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="structthreads_1_1detail_1_1_atomic_object_base.html#ad1c1933f117a07faff01e6c9fd4ded17">isUsingAtomic</a>() const noexcept final { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structthreads_1_1detail_1_1_atomic_object_base.html#a54595f5290858cf778695e569e2f1deb">   43</a></span>&#160;    [[nodiscard]] <span class="keyword">const</span> ObjectType&amp; <a class="code" href="structthreads_1_1detail_1_1_atomic_object_base.html#a54595f5290858cf778695e569e2f1deb">acquire_read</a>() final</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structthreads_1_1detail_1_1_atomic_object_base.html#a54595f5290858cf778695e569e2f1deb">   43</a></span>&#160;    [[nodiscard]] <span class="keyword">const</span> <a class="code" href="namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>&amp; <a class="code" href="structthreads_1_1detail_1_1_atomic_object_base.html#a54595f5290858cf778695e569e2f1deb">acquire_read</a>() final</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> storage.acquire_read (idxForThread (! RealtimeMutatable));</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
@@ -137,7 +137,7 @@ $(document).ready(function(){initNavTree('_atomic_object_holder_8h_source.html',
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structthreads_1_1detail_1_1_atomic_object_base.html#a9d7afe8106479d84b4d66ce47e3d611b">   52</a></span>&#160;    [[nodiscard]] ObjectType&amp; <a class="code" href="structthreads_1_1detail_1_1_atomic_object_base.html#a9d7afe8106479d84b4d66ce47e3d611b">acquire_write</a>() final</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structthreads_1_1detail_1_1_atomic_object_base.html#a9d7afe8106479d84b4d66ce47e3d611b">   52</a></span>&#160;    [[nodiscard]] <a class="code" href="namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>&amp; <a class="code" href="structthreads_1_1detail_1_1_atomic_object_base.html#a9d7afe8106479d84b4d66ce47e3d611b">acquire_write</a>() final</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> storage.acquire_write (idxForThread (RealtimeMutatable));</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
@@ -179,13 +179,14 @@ $(document).ready(function(){initNavTree('_atomic_object_holder_8h_source.html',
 <div class="ttc" id="astructthreads_1_1detail_1_1_object_base_html"><div class="ttname"><a href="structthreads_1_1detail_1_1_object_base.html">threads::detail::ObjectBase</a></div><div class="ttdef"><b>Definition:</b> <a href="_object_base_8h_source.html#l00025">ObjectBase.h:25</a></div></div>
 <div class="ttc" id="astructthreads_1_1detail_1_1_atomic_object_base_html_a54595f5290858cf778695e569e2f1deb"><div class="ttname"><a href="structthreads_1_1detail_1_1_atomic_object_base.html#a54595f5290858cf778695e569e2f1deb">threads::detail::AtomicObjectBase::acquire_read</a></div><div class="ttdeci">const ObjectType &amp; acquire_read() final</div><div class="ttdef"><b>Definition:</b> <a href="_atomic_object_holder_8h_source.html#l00043">AtomicObjectHolder.h:43</a></div></div>
 <div class="ttc" id="astructthreads_1_1detail_1_1_atomic_object_base_html"><div class="ttname"><a href="structthreads_1_1detail_1_1_atomic_object_base.html">threads::detail::AtomicObjectBase</a></div><div class="ttdef"><b>Definition:</b> <a href="_atomic_object_holder_8h_source.html#l00028">AtomicObjectHolder.h:28</a></div></div>
+<div class="ttc" id="anamespacejson_html_ab9033928f827dd8617b0431ad7f31c44"><div class="ttname"><a href="namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">json::ObjectType</a></div><div class="ttdeci">ObjectType</div><div class="ttdoc">Represents the type of a JSON node.</div><div class="ttdef"><b>Definition:</b> <a href="json_8h_source.html#l00031">json.h:31</a></div></div>
 <div class="ttc" id="a_object_base_8h_html"><div class="ttname"><a href="_object_base_8h.html">ObjectBase.h</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_f3c3802d3847d937c602d8d473665a27.html">threading</a></li><li class="navelem"><a class="el" href="dir_c92e427628e03d12bde5622e94f381a2.html">RealtimeSafeObject</a></li><li class="navelem"><a class="el" href="_atomic_object_holder_8h.html">AtomicObjectHolder.h</a></li>
-    <li class="footer">Generated on Sat May 14 2022 02:42:03 for Limes by
+    <li class="footer">Generated on Sun May 15 2022 04:08:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

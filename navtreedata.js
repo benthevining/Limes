@@ -59,20 +59,21 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"_whole_tone_8h.html",
-"classds_1_1scalar__vector.html#af7bce0d536c6b6e4080b1dd459e72806",
-"classfiles_1_1_file.html#a6d0122d220195391ac56a0c6eca59f20",
-"classfunc_1_1_call_deferred.html",
-"classmath_1_1geometry_1_1_rectangle.html#afc886461c13d920f49d42bd0dc1381bc",
-"classmemory_1_1_reference_counted_object.html",
-"classmusic_1_1_microtonal_interval.html#a004d68072cab95493c65ae6ae0da1b01",
-"classtime_1_1_date.html#afd71b87c39abcd2054a6607be074b33a",
-"classvecops_1_1_fallback_f_f_t.html#a271a69c6f1046ab95f6697974c3bb932",
-"group__lemons__math.html#ga03e0609c4a16e5500a587ca9bafe7f87",
-"limes__vecops_8h.html#a8d27dd47c9fcd0cc4fd9cda84b9552b3",
-"namespacemembers_i.html",
-"structdsp_1_1filters_1_1_coeffecients_1_1_storage.html#acb9629f1dfdd0b96557ce7d09fe160e4",
-"structmusic_1_1scales_1_1_scale.html#ac9e5b1d465057124f70839c7ec538f72"
+"_version_8h.html",
+"classds_1_1scalar__vector.html#ae7518f90079ac486766c59bf7c2ce609",
+"classfiles_1_1_file.html#a57c79f078776722cd7a9dff206fa0015",
+"classfiles_1_1_temp_file.html#afd61b18fdf61fdaa9503289065c7dd89",
+"classmath_1_1geometry_1_1_pentagon.html#a3d24b8fde80e672fd9e1e9e8c4a8720b",
+"classmemory_1_1_optional_object.html#aaf4f2edf40902cbb0aaf8d864e4fa283",
+"classmusic_1_1_interval.html#a1ff7811dab05d2c5809b44c0ad2778f8",
+"classthreads_1_1detail_1_1_non_realtime_mutatable_object.html#ac0b2774637282ee6939c6239d699ee7f",
+"classtime_1_1_year.html#ae9b56410fb907fb777fd394a870dd886",
+"fallback__impl_8h.html#ab47d10f92ce1c4d7fed2c8c2f1100c5f",
+"limes__vecops_8h.html#a1dc6405e4146d70bdd34824a574f06e9",
+"namespacedsp_1_1filters.html",
+"structds_1_1owned__vector_1_1iterator__base.html#a9d984e1d3dc20a35549cd4fc79eeeb46",
+"structmusic_1_1_note_length.html#a1ea083fd335ef042b65fa63582cefba9",
+"vdsp__fft_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
