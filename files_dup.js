@@ -49,6 +49,7 @@ var files_dup =
       [ "Storage", "structdsp_1_1filters_1_1_coeffecients_1_1_storage.html", "structdsp_1_1filters_1_1_coeffecients_1_1_storage" ]
     ] ],
     [ "common.h", "common_8h.html", null ],
+    [ "compiler_defs.h", "compiler__defs_8h.html", "compiler__defs_8h" ],
     [ "compiler_warnings.h", "compiler__warnings_8h.html", "compiler__warnings_8h" ],
     [ "CompoundInterval.h", "_compound_interval_8h.html", [
       [ "CompoundInterval", "classmusic_1_1_compound_interval.html", "classmusic_1_1_compound_interval" ]

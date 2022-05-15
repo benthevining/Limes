@@ -124,6 +124,10 @@ Macros</h2></td></tr>
 <tr class="separator:a5bf553d96012e220f7715df0a90066da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa204cf467eb45621b139f7fbf6b0f503"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="preprocessor_8h.html#aa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a>(ClassName)</td></tr>
 <tr class="separator:aa204cf467eb45621b139f7fbf6b0f503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac33f41199d77eecdd9be85687d4184c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="preprocessor_8h.html#ac33f41199d77eecdd9be85687d4184c8">LIMES_HAS_ATTRIBUTE</a>(attribute)&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ac33f41199d77eecdd9be85687d4184c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa78f05f215babe3642360840ad6d79b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="preprocessor_8h.html#aa78f05f215babe3642360840ad6d79b7">LIMES_HAS_INCLUDE</a>(file)&#160;&#160;&#160;0</td></tr>
+<tr class="separator:aa78f05f215babe3642360840ad6d79b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a654264c78a601e3b9f229f10ad807442"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="preprocessor_8h.html#a654264c78a601e3b9f229f10ad807442">LIMES_MAKE_STRING</a>(str)&#160;&#160;&#160;<a class="el" href="preprocessor_8h.html#adfce4c523a8a63eb2d6c1cc44297a1ce">LIMES_MAKE_STRING_HELPER</a> (str)</td></tr>
 <tr class="separator:a654264c78a601e3b9f229f10ad807442"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfce4c523a8a63eb2d6c1cc44297a1ce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="preprocessor_8h.html#adfce4c523a8a63eb2d6c1cc44297a1ce">LIMES_MAKE_STRING_HELPER</a>(str)&#160;&#160;&#160;#str</td></tr>
@@ -153,7 +157,7 @@ Macros</h2></td></tr>
 <div class="line">            statement                                    \</div>
 <div class="line">        } <span class="keywordflow">while</span> (<span class="keyword">false</span>)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00025">25</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00037">37</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
 
 </div>
 </div>
@@ -183,7 +187,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00039">39</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00051">51</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
 
 </div>
 </div>
@@ -213,7 +217,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00037">37</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00049">49</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
 
 </div>
 </div>
@@ -235,7 +239,7 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    constexpr ClassName (<span class="keyword">const</span> ClassName&amp;) = <span class="keywordflow">default</span>; \</div>
 <div class="line">    constexpr ClassName&amp; operator= (<span class="keyword">const</span> ClassName&amp;) = <span class="keywordflow">default</span></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00060">60</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00072">72</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
 
 </div>
 </div>
@@ -257,7 +261,7 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    constexpr ClassName (ClassName&amp;&amp;) = <span class="keywordflow">default</span>; \</div>
 <div class="line">    constexpr ClassName&amp; operator= (ClassName&amp;&amp;) = <span class="keywordflow">default</span></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00064">64</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00076">76</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
 
 </div>
 </div>
@@ -279,7 +283,7 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    ClassName (<span class="keyword">const</span> ClassName&amp;) = <span class="keywordflow">default</span>; \</div>
 <div class="line">    ClassName&amp; operator= (<span class="keyword">const</span> ClassName&amp;) = <span class="keywordflow">default</span></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00051">51</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00063">63</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
 
 </div>
 </div>
@@ -301,7 +305,47 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    ClassName (ClassName&amp;&amp;) = <span class="keywordflow">default</span>;   \</div>
 <div class="line">    ClassName&amp; operator= (ClassName&amp;&amp;) = <span class="keywordflow">default</span></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00055">55</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00067">67</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
+
+</div>
+</div>
+<a id="ac33f41199d77eecdd9be85687d4184c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac33f41199d77eecdd9be85687d4184c8">&#9670;&nbsp;</a></span>LIMES_HAS_ATTRIBUTE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIMES_HAS_ATTRIBUTE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">attribute</td><td>)</td>
+          <td>&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00026">26</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
+
+</div>
+</div>
+<a id="aa78f05f215babe3642360840ad6d79b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa78f05f215babe3642360840ad6d79b7">&#9670;&nbsp;</a></span>LIMES_HAS_INCLUDE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIMES_HAS_INCLUDE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">file</td><td>)</td>
+          <td>&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00020">20</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
 
 </div>
 </div>
@@ -321,7 +365,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00034">34</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00046">46</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
 
 </div>
 </div>
@@ -341,7 +385,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00032">32</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00044">44</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
 
 </div>
 </div>
@@ -363,7 +407,7 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    ClassName (<span class="keyword">const</span> ClassName&amp;) = <span class="keyword">delete</span>; \</div>
 <div class="line">    ClassName&amp; operator= (<span class="keyword">const</span> ClassName&amp;) = <span class="keyword">delete</span></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00042">42</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00054">54</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
 
 </div>
 </div>
@@ -385,7 +429,7 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    ClassName (ClassName&amp;&amp;) = <span class="keyword">delete</span>; \</div>
 <div class="line">    ClassName&amp; operator= (ClassName&amp;&amp;) = <span class="keyword">delete</span></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00046">46</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="preprocessor_8h_source.html#l00058">58</a> of file <a class="el" href="preprocessor_8h_source.html">preprocessor.h</a>.</p>
 
 </div>
 </div>
@@ -395,7 +439,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_b248b318e77e637c1d0c7267e8f84ced.html">misc</a></li><li class="navelem"><a class="el" href="preprocessor_8h.html">preprocessor.h</a></li>
-    <li class="footer">Generated on Sun May 15 2022 10:28:36 for Limes by
+    <li class="footer">Generated on Sun May 15 2022 15:05:47 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

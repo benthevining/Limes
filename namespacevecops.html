@@ -336,8 +336,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a42882a8f8ceea2e44b75c2d60dfae34c"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
 <tr class="memitem:a42882a8f8ceea2e44b75c2d60dfae34c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevecops.html#a42882a8f8ceea2e44b75c2d60dfae34c">generateRamp</a> (DataType *const output, SizeType size, DataType startValue, DataType endValue)</td></tr>
 <tr class="separator:a42882a8f8ceea2e44b75c2d60dfae34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ef9e48b13c1e24f3dd37aba133dd6d5"><td class="memItemLeft" align="right" valign="top">static LIMES_EXPORT const consteval char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html#a4ef9e48b13c1e24f3dd37aba133dd6d5">getImplementationName</a> () noexcept</td></tr>
-<tr class="separator:a4ef9e48b13c1e24f3dd37aba133dd6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a21f574f3d9ec4bcff2d04b4491e364"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT static <a class="el" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> const consteval char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html#a1a21f574f3d9ec4bcff2d04b4491e364">getImplementationName</a> () noexcept</td></tr>
+<tr class="separator:a1a21f574f3d9ec4bcff2d04b4491e364"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4deb61bd8fcff15bb624875cc38a483f"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType1, Integral SizeType2&gt; </td></tr>
 <tr class="memitem:a4deb61bd8fcff15bb624875cc38a483f"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevecops.html#a4deb61bd8fcff15bb624875cc38a483f">interleave</a> (DataType *const output, const DataType *const *const origData, SizeType1 numChannels, SizeType2 numSamples)</td></tr>
 <tr class="separator:a4deb61bd8fcff15bb624875cc38a483f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -358,16 +358,16 @@ Functions</h2></td></tr>
 <tr class="separator:a55b527f9ebf789195e30604180b5dc35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c5fce68c3759e785f4778df27012b24"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html#a8c5fce68c3759e785f4778df27012b24">isFlushToZeroEnabled</a> () noexcept</td></tr>
 <tr class="separator:a8c5fce68c3759e785f4778df27012b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eeae8a3f7b5307c4c10d95d5ebaf5ff"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html#a6eeae8a3f7b5307c4c10d95d5ebaf5ff">isUsingFallback</a> () noexcept</td></tr>
-<tr class="separator:a6eeae8a3f7b5307c4c10d95d5ebaf5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc4ba4e3e24c479a1dc9aa41e38b8032"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html#acc4ba4e3e24c479a1dc9aa41e38b8032">isUsingIPP</a> () noexcept</td></tr>
-<tr class="separator:acc4ba4e3e24c479a1dc9aa41e38b8032"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa50a86f82e23c05a119b1a8365a37be9"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html#aa50a86f82e23c05a119b1a8365a37be9">isUsingMIPP</a> () noexcept</td></tr>
-<tr class="separator:aa50a86f82e23c05a119b1a8365a37be9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd2bb48ef6fca3c4b5124160695fa2ad"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html#abd2bb48ef6fca3c4b5124160695fa2ad">isUsingPommierExtensions</a> () noexcept</td></tr>
-<tr class="separator:abd2bb48ef6fca3c4b5124160695fa2ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8e540f6b72de7bed044d4f53d2da3d0"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html#ab8e540f6b72de7bed044d4f53d2da3d0">isUsingVDSP</a> () noexcept</td></tr>
-<tr class="separator:ab8e540f6b72de7bed044d4f53d2da3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a467465de51d6f11e720ef4fd5e1bef4b"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT <a class="el" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html#a467465de51d6f11e720ef4fd5e1bef4b">isUsingFallback</a> () noexcept</td></tr>
+<tr class="separator:a467465de51d6f11e720ef4fd5e1bef4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6536142f4ae3b7eb733d5446657c7304"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT <a class="el" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html#a6536142f4ae3b7eb733d5446657c7304">isUsingIPP</a> () noexcept</td></tr>
+<tr class="separator:a6536142f4ae3b7eb733d5446657c7304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac49ec9d0f787d23c27bc51ec2cbd5bdf"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT <a class="el" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html#ac49ec9d0f787d23c27bc51ec2cbd5bdf">isUsingMIPP</a> () noexcept</td></tr>
+<tr class="separator:ac49ec9d0f787d23c27bc51ec2cbd5bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e828d61bfb16fafbdaf77a03870e93d"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT <a class="el" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html#a6e828d61bfb16fafbdaf77a03870e93d">isUsingPommierExtensions</a> () noexcept</td></tr>
+<tr class="separator:a6e828d61bfb16fafbdaf77a03870e93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af183d34eeacbd6b3475b5e5a00a547ea"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT <a class="el" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html#af183d34eeacbd6b3475b5e5a00a547ea">isUsingVDSP</a> () noexcept</td></tr>
+<tr class="separator:af183d34eeacbd6b3475b5e5a00a547ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b9ca98d48877ea7a09777202711fd14"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
 <tr class="memitem:a2b9ca98d48877ea7a09777202711fd14"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevecops.html#a2b9ca98d48877ea7a09777202711fd14">max</a> (const DataType *const data, SizeType size)</td></tr>
 <tr class="separator:a2b9ca98d48877ea7a09777202711fd14"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3376,8 +3376,8 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 </div>
 </div>
-<a id="a4ef9e48b13c1e24f3dd37aba133dd6d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ef9e48b13c1e24f3dd37aba133dd6d5">&#9670;&nbsp;</a></span>getImplementationName()</h2>
+<a id="a1a21f574f3d9ec4bcff2d04b4491e364"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a21f574f3d9ec4bcff2d04b4491e364">&#9670;&nbsp;</a></span>getImplementationName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3386,7 +3386,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static LIMES_EXPORT const consteval char* vecops::getImplementationName </td>
+          <td class="memname">LIMES_EXPORT static <a class="el" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> const consteval char* vecops::getImplementationName </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -3670,8 +3670,8 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 </div>
 </div>
-<a id="a6eeae8a3f7b5307c4c10d95d5ebaf5ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6eeae8a3f7b5307c4c10d95d5ebaf5ff">&#9670;&nbsp;</a></span>isUsingFallback()</h2>
+<a id="a467465de51d6f11e720ef4fd5e1bef4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a467465de51d6f11e720ef4fd5e1bef4b">&#9670;&nbsp;</a></span>isUsingFallback()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3680,7 +3680,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORT consteval bool vecops::isUsingFallback </td>
+          <td class="memname">LIMES_EXPORT <a class="el" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool vecops::isUsingFallback </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -3699,8 +3699,8 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 </div>
 </div>
-<a id="acc4ba4e3e24c479a1dc9aa41e38b8032"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc4ba4e3e24c479a1dc9aa41e38b8032">&#9670;&nbsp;</a></span>isUsingIPP()</h2>
+<a id="a6536142f4ae3b7eb733d5446657c7304"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6536142f4ae3b7eb733d5446657c7304">&#9670;&nbsp;</a></span>isUsingIPP()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3709,7 +3709,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORT consteval bool vecops::isUsingIPP </td>
+          <td class="memname">LIMES_EXPORT <a class="el" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool vecops::isUsingIPP </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -3728,8 +3728,8 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 </div>
 </div>
-<a id="aa50a86f82e23c05a119b1a8365a37be9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa50a86f82e23c05a119b1a8365a37be9">&#9670;&nbsp;</a></span>isUsingMIPP()</h2>
+<a id="ac49ec9d0f787d23c27bc51ec2cbd5bdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac49ec9d0f787d23c27bc51ec2cbd5bdf">&#9670;&nbsp;</a></span>isUsingMIPP()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3738,7 +3738,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORT consteval bool vecops::isUsingMIPP </td>
+          <td class="memname">LIMES_EXPORT <a class="el" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool vecops::isUsingMIPP </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -3757,8 +3757,8 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 </div>
 </div>
-<a id="abd2bb48ef6fca3c4b5124160695fa2ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd2bb48ef6fca3c4b5124160695fa2ad">&#9670;&nbsp;</a></span>isUsingPommierExtensions()</h2>
+<a id="a6e828d61bfb16fafbdaf77a03870e93d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e828d61bfb16fafbdaf77a03870e93d">&#9670;&nbsp;</a></span>isUsingPommierExtensions()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3767,7 +3767,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORT consteval bool vecops::isUsingPommierExtensions </td>
+          <td class="memname">LIMES_EXPORT <a class="el" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool vecops::isUsingPommierExtensions </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -3784,8 +3784,8 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 </div>
 </div>
-<a id="ab8e540f6b72de7bed044d4f53d2da3d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8e540f6b72de7bed044d4f53d2da3d0">&#9670;&nbsp;</a></span>isUsingVDSP()</h2>
+<a id="af183d34eeacbd6b3475b5e5a00a547ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af183d34eeacbd6b3475b5e5a00a547ea">&#9670;&nbsp;</a></span>isUsingVDSP()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3794,7 +3794,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORT consteval bool vecops::isUsingVDSP </td>
+          <td class="memname">LIMES_EXPORT <a class="el" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool vecops::isUsingVDSP </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -3845,7 +3845,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 <p class="reference">References <a class="el" href="fallback__impl_8h_source.html#l00513">vecops::fb::max()</a>, and <a class="el" href="_algorithm_8h_source.html#l00138">alg::size()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_fraction__impl_8h_source.html#l00223">math::Fraction&lt; ValueType &gt;::leastCommonDenominatorWith()</a>, <a class="el" href="math_helpers_8h_source.html#l00197">math::limit()</a>, <a class="el" href="fallback_8h_source.html#l00329">max()</a>, <a class="el" href="math_helpers_8h_source.html#l00284">math::middleOfThree()</a>, <a class="el" href="_random_8h_source.html#l00073">math::Random::next()</a>, <a class="el" href="_fraction__impl_8h_source.html#l00237">math::Fraction&lt; ValueType &gt;::reduce()</a>, <a class="el" href="basic__vector_8h_source.html#l00252">ds::basic_vector&lt; SampleType, std::allocator&lt; SampleType &gt; &gt;::reserve()</a>, and <a class="el" href="triangle_8h_source.html#l00107">math::geometry::Triangle&lt; ValueType &gt;::Triangle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_fraction__impl_8h_source.html#l00223">math::Fraction&lt; ValueType &gt;::leastCommonDenominatorWith()</a>, <a class="el" href="math_helpers_8h_source.html#l00198">math::limit()</a>, <a class="el" href="fallback_8h_source.html#l00329">max()</a>, <a class="el" href="math_helpers_8h_source.html#l00285">math::middleOfThree()</a>, <a class="el" href="_random_8h_source.html#l00073">math::Random::next()</a>, <a class="el" href="_fraction__impl_8h_source.html#l00237">math::Fraction&lt; ValueType &gt;::reduce()</a>, <a class="el" href="basic__vector_8h_source.html#l00252">ds::basic_vector&lt; SampleType, std::allocator&lt; SampleType &gt; &gt;::reserve()</a>, and <a class="el" href="triangle_8h_source.html#l00107">math::geometry::Triangle&lt; ValueType &gt;::Triangle()</a>.</p>
 
 </div>
 </div>
@@ -3879,7 +3879,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="fallback_8h_source.html#l00329">329</a> of file <a class="el" href="fallback_8h_source.html">fallback.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_fraction__impl_8h_source.html#l00223">math::Fraction&lt; ValueType &gt;::leastCommonDenominatorWith()</a>, <a class="el" href="math_helpers_8h_source.html#l00197">math::limit()</a>, <a class="el" href="math_helpers_8h_source.html#l00284">math::middleOfThree()</a>, <a class="el" href="_random_8h_source.html#l00073">math::Random::next()</a>, <a class="el" href="_fraction__impl_8h_source.html#l00237">math::Fraction&lt; ValueType &gt;::reduce()</a>, <a class="el" href="basic__vector_8h_source.html#l00252">ds::basic_vector&lt; SampleType, std::allocator&lt; SampleType &gt; &gt;::reserve()</a>, and <a class="el" href="triangle_8h_source.html#l00107">math::geometry::Triangle&lt; ValueType &gt;::Triangle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_fraction__impl_8h_source.html#l00223">math::Fraction&lt; ValueType &gt;::leastCommonDenominatorWith()</a>, <a class="el" href="math_helpers_8h_source.html#l00198">math::limit()</a>, <a class="el" href="math_helpers_8h_source.html#l00285">math::middleOfThree()</a>, <a class="el" href="_random_8h_source.html#l00073">math::Random::next()</a>, <a class="el" href="_fraction__impl_8h_source.html#l00237">math::Fraction&lt; ValueType &gt;::reduce()</a>, <a class="el" href="basic__vector_8h_source.html#l00252">ds::basic_vector&lt; SampleType, std::allocator&lt; SampleType &gt; &gt;::reserve()</a>, and <a class="el" href="triangle_8h_source.html#l00107">math::geometry::Triangle&lt; ValueType &gt;::Triangle()</a>.</p>
 
 </div>
 </div>
@@ -4233,7 +4233,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 <p class="reference">References <a class="el" href="fallback__impl_8h_source.html#l00556">vecops::fb::min()</a>, and <a class="el" href="_algorithm_8h_source.html#l00138">alg::size()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="math_helpers_8h_source.html#l00197">math::limit()</a>, <a class="el" href="math_helpers_8h_source.html#l00284">math::middleOfThree()</a>, <a class="el" href="fallback_8h_source.html#l00353">min()</a>, <a class="el" href="_random_8h_source.html#l00073">math::Random::next()</a>, and <a class="el" href="triangle_8h_source.html#l00107">math::geometry::Triangle&lt; ValueType &gt;::Triangle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="math_helpers_8h_source.html#l00198">math::limit()</a>, <a class="el" href="math_helpers_8h_source.html#l00285">math::middleOfThree()</a>, <a class="el" href="fallback_8h_source.html#l00353">min()</a>, <a class="el" href="_random_8h_source.html#l00073">math::Random::next()</a>, and <a class="el" href="triangle_8h_source.html#l00107">math::geometry::Triangle&lt; ValueType &gt;::Triangle()</a>.</p>
 
 </div>
 </div>
@@ -4267,7 +4267,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="fallback_8h_source.html#l00353">353</a> of file <a class="el" href="fallback_8h_source.html">fallback.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="math_helpers_8h_source.html#l00197">math::limit()</a>, <a class="el" href="math_helpers_8h_source.html#l00284">math::middleOfThree()</a>, <a class="el" href="_random_8h_source.html#l00073">math::Random::next()</a>, and <a class="el" href="triangle_8h_source.html#l00107">math::geometry::Triangle&lt; ValueType &gt;::Triangle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="math_helpers_8h_source.html#l00198">math::limit()</a>, <a class="el" href="math_helpers_8h_source.html#l00285">math::middleOfThree()</a>, <a class="el" href="_random_8h_source.html#l00073">math::Random::next()</a>, and <a class="el" href="triangle_8h_source.html#l00107">math::geometry::Triangle&lt; ValueType &gt;::Triangle()</a>.</p>
 
 </div>
 </div>
@@ -7438,7 +7438,7 @@ template&lt;Scalar SampleType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacevecops.html">vecops</a></li>
-    <li class="footer">Generated on Sun May 15 2022 10:28:36 for Limes by
+    <li class="footer">Generated on Sun May 15 2022 15:05:47 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

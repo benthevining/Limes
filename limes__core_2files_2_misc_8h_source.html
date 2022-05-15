@@ -105,58 +105,60 @@ $(document).ready(function(){initNavTree('limes__core_2files_2_misc_8h_source.ht
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;limes_platform.h&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;filesystem&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<a class="code" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacefiles.html">files</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;LIMES_EXPORT [[nodiscard]] std::uintmax_t <a class="code" href="namespacefiles.html#a4471cdb2bad95eac219a7de790f6fa33">getAvailableSpaceOnFilesystem</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;LIMES_EXPORT [[nodiscard]] std::uintmax_t <a class="code" href="namespacefiles.html#a281600c22db06a3e4f5b80f777f09448">getTotalSizeOfFilesystem</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespacefiles.html#abea6c2fda82a1141b4fc7417dee87f14">   33</a></span>&#160;LIMES_EXPORT [[nodiscard]] constexpr <span class="keywordtype">char</span> <a class="code" href="namespacefiles.html#abea6c2fda82a1141b4fc7417dee87f14">dirSeparator</a>() noexcept</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span> (std::filesystem::path::preferred_separator);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespacefiles.html#a6eb23d9f3a90944a56cae056d5f7f71b">   39</a></span>&#160;LIMES_EXPORT [[nodiscard]] consteval <span class="keywordtype">char</span> <a class="code" href="namespacefiles.html#a6eb23d9f3a90944a56cae056d5f7f71b">PATHseparator</a>() noexcept</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#if LIMES_WINDOWS</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span> <span class="charliteral">&#39;;&#39;</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> <span class="charliteral">&#39;:&#39;</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="namespacefiles.html#a417867e598a5bccc6135cfe5e202356c">   49</a></span>&#160;LIMES_EXPORT [[nodiscard]] consteval <span class="keywordtype">bool</span> <a class="code" href="namespacefiles.html#a417867e598a5bccc6135cfe5e202356c">filesystemIsCaseSensitive</a>() noexcept</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#if LIMES_LINUX</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}  <span class="comment">// namespace files</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../system/compiler_defs.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacefiles.html">files</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;LIMES_EXPORT [[nodiscard]] std::uintmax_t <a class="code" href="namespacefiles.html#a4471cdb2bad95eac219a7de790f6fa33">getAvailableSpaceOnFilesystem</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;LIMES_EXPORT [[nodiscard]] std::uintmax_t <a class="code" href="namespacefiles.html#a281600c22db06a3e4f5b80f777f09448">getTotalSizeOfFilesystem</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespacefiles.html#abea6c2fda82a1141b4fc7417dee87f14">   34</a></span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> constexpr <span class="keywordtype">char</span> <a class="code" href="namespacefiles.html#abea6c2fda82a1141b4fc7417dee87f14">dirSeparator</a>() noexcept</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span> (std::filesystem::path::preferred_separator);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="namespacefiles.html#a6eb23d9f3a90944a56cae056d5f7f71b">   40</a></span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval <span class="keywordtype">char</span> <a class="code" href="namespacefiles.html#a6eb23d9f3a90944a56cae056d5f7f71b">PATHseparator</a>() noexcept</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#if LIMES_WINDOWS</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> <span class="charliteral">&#39;;&#39;</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> <span class="charliteral">&#39;:&#39;</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacefiles.html#a417867e598a5bccc6135cfe5e202356c">   50</a></span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval <span class="keywordtype">bool</span> <a class="code" href="namespacefiles.html#a417867e598a5bccc6135cfe5e202356c">filesystemIsCaseSensitive</a>() noexcept</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#if LIMES_LINUX</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}  <span class="comment">// namespace files</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<a class="code" href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacefiles_html_a417867e598a5bccc6135cfe5e202356c"><div class="ttname"><a href="namespacefiles.html#a417867e598a5bccc6135cfe5e202356c">files::filesystemIsCaseSensitive</a></div><div class="ttdeci">LIMES_EXPORT consteval bool filesystemIsCaseSensitive() noexcept</div><div class="ttdoc">Returns true if the current platform's filesystem is case-sensitive.</div><div class="ttdef"><b>Definition:</b> <a href="limes__core_2files_2_misc_8h_source.html#l00049">limes_core/files/Misc.h:49</a></div></div>
+<div class="ttc" id="anamespacefiles_html_a417867e598a5bccc6135cfe5e202356c"><div class="ttname"><a href="namespacefiles.html#a417867e598a5bccc6135cfe5e202356c">files::filesystemIsCaseSensitive</a></div><div class="ttdeci">LIMES_EXPORT consteval bool filesystemIsCaseSensitive() noexcept</div><div class="ttdoc">Returns true if the current platform's filesystem is case-sensitive.</div><div class="ttdef"><b>Definition:</b> <a href="limes__core_2files_2_misc_8h_source.html#l00050">limes_core/files/Misc.h:50</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="limes__namespace_8h.html#a7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00022">limes_namespace.h:22</a></div></div>
 <div class="ttc" id="anamespacefiles_html_a4471cdb2bad95eac219a7de790f6fa33"><div class="ttname"><a href="namespacefiles.html#a4471cdb2bad95eac219a7de790f6fa33">files::getAvailableSpaceOnFilesystem</a></div><div class="ttdeci">LIMES_EXPORT std::uintmax_t getAvailableSpaceOnFilesystem()</div><div class="ttdoc">Returns the available space on the filesystem, in bytes.</div></div>
-<div class="ttc" id="anamespacefiles_html_abea6c2fda82a1141b4fc7417dee87f14"><div class="ttname"><a href="namespacefiles.html#abea6c2fda82a1141b4fc7417dee87f14">files::dirSeparator</a></div><div class="ttdeci">constexpr LIMES_EXPORT char dirSeparator() noexcept</div><div class="ttdoc">Returns the platform's preferred separator: \ on Windows, and / everywhere else.</div><div class="ttdef"><b>Definition:</b> <a href="limes__core_2files_2_misc_8h_source.html#l00033">limes_core/files/Misc.h:33</a></div></div>
+<div class="ttc" id="anamespacefiles_html_abea6c2fda82a1141b4fc7417dee87f14"><div class="ttname"><a href="namespacefiles.html#abea6c2fda82a1141b4fc7417dee87f14">files::dirSeparator</a></div><div class="ttdeci">constexpr LIMES_EXPORT char dirSeparator() noexcept</div><div class="ttdoc">Returns the platform's preferred separator: \ on Windows, and / everywhere else.</div><div class="ttdef"><b>Definition:</b> <a href="limes__core_2files_2_misc_8h_source.html#l00034">limes_core/files/Misc.h:34</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html_a41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="limes__namespace_8h.html#a41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="limes__namespace_8h_source.html#l00015">limes_namespace.h:15</a></div></div>
 <div class="ttc" id="anamespacefiles_html"><div class="ttname"><a href="namespacefiles.html">files</a></div><div class="ttdoc">This namespace contains filesystem utilities.</div><div class="ttdef"><b>Definition:</b> <a href="directory_8h_source.html#l00028">directory.h:28</a></div></div>
 <div class="ttc" id="anamespacefiles_html_a281600c22db06a3e4f5b80f777f09448"><div class="ttname"><a href="namespacefiles.html#a281600c22db06a3e4f5b80f777f09448">files::getTotalSizeOfFilesystem</a></div><div class="ttdeci">LIMES_EXPORT std::uintmax_t getTotalSizeOfFilesystem()</div><div class="ttdoc">Returns the total size of the filesystem, in bytes.</div></div>
-<div class="ttc" id="anamespacefiles_html_a6eb23d9f3a90944a56cae056d5f7f71b"><div class="ttname"><a href="namespacefiles.html#a6eb23d9f3a90944a56cae056d5f7f71b">files::PATHseparator</a></div><div class="ttdeci">LIMES_EXPORT consteval char PATHseparator() noexcept</div><div class="ttdoc">Returns the platform's separator char for the PATH environment variable: ; on Windows,...</div><div class="ttdef"><b>Definition:</b> <a href="limes__core_2files_2_misc_8h_source.html#l00039">limes_core/files/Misc.h:39</a></div></div>
+<div class="ttc" id="acompiler__defs_8h_html_abed8f597c61ed37a221c9ae8dccf9e22"><div class="ttname"><a href="compiler__defs_8h.html#abed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a></div><div class="ttdeci">#define LIMES_PURE_FUNCTION</div><div class="ttdef"><b>Definition:</b> <a href="compiler__defs_8h_source.html#l00022">compiler_defs.h:22</a></div></div>
+<div class="ttc" id="anamespacefiles_html_a6eb23d9f3a90944a56cae056d5f7f71b"><div class="ttname"><a href="namespacefiles.html#a6eb23d9f3a90944a56cae056d5f7f71b">files::PATHseparator</a></div><div class="ttdeci">LIMES_EXPORT consteval char PATHseparator() noexcept</div><div class="ttdoc">Returns the platform's separator char for the PATH environment variable: ; on Windows,...</div><div class="ttdef"><b>Definition:</b> <a href="limes__core_2files_2_misc_8h_source.html#l00040">limes_core/files/Misc.h:40</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_22e0f3de6e8710dbfc7b879383088d23.html">files</a></li><li class="navelem"><a class="el" href="limes__core_2files_2_misc_8h.html">misc.h</a></li>
-    <li class="footer">Generated on Sun May 15 2022 10:28:35 for Limes by
+    <li class="footer">Generated on Sun May 15 2022 15:05:46 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
