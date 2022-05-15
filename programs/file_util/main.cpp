@@ -21,8 +21,18 @@
 #include <cstdlib>
 #include "commandLine.h"
 
+#include <limes_core.h>
+
 int main (int argc, char** argv)
 {
+	limes::files::File jsonFile { "/Users/benvining/Documents/MyRepos/Citrus/Limes/CMakePresets.json" };
+
+	const auto json = limes::json::Node { jsonFile.loadAsString() };
+
+	std::cout << json.getJsonText();
+
+	return;
+
 	try
 	{
 		fileutil::parseAndExecute (argc, argv);

@@ -82,6 +82,46 @@ void trim (std::string& string)
 				  string.end());
 }
 
+void dropFirstChars (std::string& string, std::size_t numChars)
+{
+	string = string.substr (numChars, string.length());
+}
+
+void dropLastChars (std::string& string, std::size_t numChars)
+{
+	string = string.substr (0, string.length() - numChars);
+}
+
+std::string quoted (const std::string_view& string)
+{
+	std::string copy { string };
+
+	if (! copy.starts_with ('"'))
+		copy.insert (0, "\"");
+
+	if (! copy.ends_with ('"'))
+		copy += '"';
+
+	return copy;
+}
+
+std::string unquoted (const std::string_view& string)
+{
+	std::string copy { string };
+
+	if (copy.starts_with ("\\\""))
+		dropFirstChars (copy, 2);
+	else if (copy.starts_with ('"'))
+		dropFirstChars (copy, 1);
+
+	if (copy.ends_with ("\\\""))
+		dropLastChars (copy, 2);
+	else if (copy.ends_with ('"'))
+		dropLastChars (copy, 1);
+
+	return copy;
+}
+
 std::string toUpper (const std::string_view& string)
 {
 	std::string s { string };
@@ -132,26 +172,37 @@ std::vector<std::string> split (const std::string_view& stringToSplit,
 								const std::string_view& delimiter,
 								bool					includeDelimiterInResults)
 {
-	std::vector<std::string> strings;
+	const auto delimiterStartChar = delimiter.front();
 
-	std::string string { stringToSplit };
+	std::vector<std::string> tokens;
 
-	for (size_t pos = 0; pos != std::string::npos; pos = string.find (delimiter))
+	auto tokenStart = stringToSplit.begin();
+	auto pos		= tokenStart;
+
+	while (pos != stringToSplit.end())
 	{
-		const auto len = [includeDelimiterInResults, delLen = delimiter.length(), pos]
+		if (*pos == delimiterStartChar)
 		{
-			if (includeDelimiterInResults)
-				return pos + delLen;
+			auto delimiterStart = pos++;
 
-			return pos;
-		}();
+			while (pos != stringToSplit.end() && delimiter.find (*pos) != std::string_view::npos)
+				++pos;
 
-		strings.emplace_back (string.substr (0, len));
+			if (pos != stringToSplit.begin())
+				tokens.push_back ({ tokenStart, includeDelimiterInResults ? pos : delimiterStart });
 
-		string.erase (0, pos + delimiter.length());
+			tokenStart = pos;
+		}
+		else
+		{
+			++pos;
+		}
 	}
 
-	return strings;
+	if (pos != stringToSplit.begin())
+		tokens.push_back ({ tokenStart, pos });
+
+	return tokens;
 }
 
 std::vector<std::string> splitAtWhitespace (const std::string_view& stringToSplit)
@@ -214,11 +265,13 @@ std::string join (const std::vector<std::string>& strings, const std::string_vie
 
 	std::stringstream stream;
 
-	for (const auto& string : strings)
+	for (std::vector<std::string>::size_type i = 0; i < strings.size(); ++i)
 	{
+		const auto& string = strings[i];
+
 		stream << string;
 
-		if (! string.ends_with (delimiter))
+		if ((i + 1 < strings.size()) && (! string.ends_with (delimiter)))
 			stream << delimiter;
 	}
 

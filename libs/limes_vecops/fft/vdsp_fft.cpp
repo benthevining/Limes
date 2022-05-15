@@ -35,11 +35,11 @@ vDSP_FFT<SampleType>::vDSP_FFT (int size)
 	else
 		m_spec = vDSP_create_fftsetupD (vDSP_Length (this->m_order), FFT_RADIX2);
 
-	m_buf.realp = allocate_aligned<SampleType> (static_cast<std::size_t> (this->fft_size), vDSPalignment, SampleType (0));
-	m_buf.imagp = allocate_aligned<SampleType> (static_cast<std::size_t> (this->fft_size), vDSPalignment, SampleType (0));
+	m_buf.realp = memory::allocate_aligned<SampleType> (static_cast<std::size_t> (this->fft_size), vDSPalignment, SampleType (0));
+	m_buf.imagp = memory::allocate_aligned<SampleType> (static_cast<std::size_t> (this->fft_size), vDSPalignment, SampleType (0));
 
-	m_packed.realp = allocate_aligned<SampleType> (static_cast<std::size_t> (this->fft_size) / 2 + 1, vDSPalignment, SampleType (0));
-	m_packed.imagp = allocate_aligned<SampleType> (static_cast<std::size_t> (this->fft_size) / 2 + 1, vDSPalignment, SampleType (0));
+	m_packed.realp = memory::allocate_aligned<SampleType> (static_cast<std::size_t> (this->fft_size) / 2 + 1, vDSPalignment, SampleType (0));
+	m_packed.imagp = memory::allocate_aligned<SampleType> (static_cast<std::size_t> (this->fft_size) / 2 + 1, vDSPalignment, SampleType (0));
 }
 
 template <Scalar SampleType>
@@ -50,10 +50,10 @@ vDSP_FFT<SampleType>::~vDSP_FFT()
 	else
 		vDSP_destroy_fftsetupD (m_spec);
 
-	deallocate_aligned (m_buf.realp);
-	deallocate_aligned (m_buf.imagp);
-	deallocate_aligned (m_packed.realp);
-	deallocate_aligned (m_packed.imagp);
+	memory::deallocate_aligned (m_buf.realp);
+	memory::deallocate_aligned (m_buf.imagp);
+	memory::deallocate_aligned (m_packed.realp);
+	memory::deallocate_aligned (m_packed.imagp);
 }
 
 template <Scalar SampleType>

@@ -88,28 +88,36 @@ endif ()
 
 #
 
+set (any_limes_libs OFF)
+
 if (Audio IN_LIST finding_components)
 	list (APPEND finding_components DataStructures Vecops Core)
+	set (any_limes_libs ON)
 endif ()
 
 if (DataStructures IN_LIST finding_components)
 	list (APPEND finding_components Vecops Core)
+	set (any_limes_libs ON)
 endif ()
 
 if (Locale IN_LIST finding_components)
 	list (APPEND finding_components DataStructures Vecops Core)
+	set (any_limes_libs ON)
 endif ()
 
 if (MIDI IN_LIST finding_components)
 	list (APPEND finding_components Core)
+	set (any_limes_libs ON)
 endif ()
 
 if (Music IN_LIST finding_components)
 	list (APPEND finding_components DataStructures Vecops Core)
+	set (any_limes_libs ON)
 endif ()
 
 if (Vecops IN_LIST finding_components)
 	list (APPEND finding_components Core)
+	set (any_limes_libs ON)
 endif ()
 
 list (REMOVE_DUPLICATES finding_components)
@@ -135,6 +143,10 @@ if (Vecops IN_LIST finding_components)
 endif ()
 
 # if(MIDI IN_LIST finding_components) find_dependency (MTS-ESP) endif()
+
+if (any_limes_libs)
+	include ("${CMAKE_CURRENT_LIST_DIR}/LimesDefaultLibraryTarget.cmake")
+endif ()
 
 foreach (comp_name IN LISTS finding_components)
 	include ("${CMAKE_CURRENT_LIST_DIR}/Limes${comp_name}Targets.cmake")

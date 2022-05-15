@@ -125,23 +125,16 @@ set_target_properties (
 set_property (TARGET limes_vecops APPEND PROPERTY EXPORT_PROPERTIES LIMES_VECOPS_IMPLEMENTATION
 												  LIMES_FFT_IMPLEMENTATION)
 
-include (OrangesDefaultTarget)
-include (OrangesIPO)
-include (OrangesUnityBuild)
-
-target_link_libraries (
-	limes_vecops PUBLIC Limes::limes_core
-	PRIVATE Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
-			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+target_link_libraries (limes_vecops PUBLIC Limes::limes_core PRIVATE LimesDefaultLibrary)
 
 # cmake-format: off
 target_compile_options (
 	limes_vecops
-	PUBLIC
+	PRIVATE
 		# fixes a bug present when compiling vDSP with GCC
-		$<$<CXX_COMPILER_ID:GNU>:-flax-vector-conversions>
+		"$<$<CXX_COMPILER_ID:GNU>:-flax-vector-conversions>"
 		# allows inline assembly to be used on watchOS
-		$<$<PLATFORM_ID:watchOS>:-fgnu-inline-asm>
+		"$<$<AND:$<PLATFORM_ID:watchOS>,$<CXX_COMPILER_ID:GNU,Clang,AppleClang>>:-fgnu-inline-asm>"
 	)
 # cmake-format: on
 
@@ -189,8 +182,6 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_vecops_base)
 
-include (OrangesGeneratePkgConfig)
-
 oranges_create_pkgconfig_file (
 	TARGET limes_vecops
 	INCLUDE_REL_PATH "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
@@ -199,9 +190,7 @@ oranges_create_pkgconfig_file (
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_vecops_dev)
 
-include (CPackComponent)
-
-cpack_add_component (limes_vecops_base HIDDEN)
+cpack_add_component (limes_vecops_base HIDDEN DEPENDS limes_libs_base)
 
 cpack_add_component (limes_vecops_runtime GROUP limes_vecops DEPENDS limes_vecops_base
 					 INSTALL_TYPES User)
@@ -214,13 +203,3 @@ cpack_add_component_group (
 	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_vecops ALIAS limes_vecops)
-
-target_link_libraries (Limes INTERFACE Limes::limes_vecops)
-
-if (Limes_IS_TOP_LEVEL)
-	include (OrangesDefaultWarnings)
-	include (OrangesAllIntegrations)
-
-	target_link_libraries (limes_vecops PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
-												$<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
-endif ()

@@ -62,14 +62,7 @@ set_target_properties (
 			   FOLDER Limes/libs
 			   EchoString "Building the limes_locale library...")
 
-include (OrangesDefaultTarget)
-include (OrangesIPO)
-include (OrangesUnityBuild)
-
-target_link_libraries (
-	limes_locale PUBLIC Limes::limes_data_structures
-	PRIVATE Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
-			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+target_link_libraries (limes_locale PUBLIC Limes::limes_data_structures PRIVATE LimesDefaultLibrary)
 
 set (LIMES_LOCALE_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_locale")
 
@@ -115,8 +108,6 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_locale_base)
 
-include (OrangesGeneratePkgConfig)
-
 oranges_create_pkgconfig_file (
 	TARGET limes_locale
 	INCLUDE_REL_PATH "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}"
@@ -125,9 +116,7 @@ oranges_create_pkgconfig_file (
 	VERSION "${PROJECT_VERSION}"
 	INSTALL_COMPONENT limes_locale_dev)
 
-include (CPackComponent)
-
-cpack_add_component (limes_locale_base HIDDEN)
+cpack_add_component (limes_locale_base HIDDEN DEPENDS limes_libs_base)
 
 cpack_add_component (limes_locale_runtime GROUP limes_locale DEPENDS limes_locale_base
 					 INSTALL_TYPES User)
@@ -140,13 +129,3 @@ cpack_add_component_group (
 	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_locale ALIAS limes_locale)
-
-target_link_libraries (Limes INTERFACE Limes::limes_locale)
-
-if (Limes_IS_TOP_LEVEL)
-	include (OrangesDefaultWarnings)
-	include (OrangesAllIntegrations)
-
-	target_link_libraries (limes_locale PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
-												$<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
-endif ()

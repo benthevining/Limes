@@ -17,7 +17,6 @@
 #include "../misc/preprocessor.h"
 #include <type_traits>
 #include <utility>
-#include <limes_build_type.h>
 #include "../misc/IgnoreUnused.h"
 #include <limes_platform.h>
 #include <filesystem>
@@ -96,13 +95,13 @@ LIMES_END_NAMESPACE
 #	define LIMES_ASSERT_GET_FUNC_NAME __FUNCTION__
 #endif
 
-#if LIMES_DEBUG
+#if ORANGES_DEBUG
 #	define LIMES_ASSERT_FALSE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::limes::assert::fire_assertion (__FILE__, LIMES_ASSERT_GET_FUNC_NAME, __LINE__, nullptr);)
 
 #	define LIMES_ASSERT(condition) LIMES_BLOCK_WITH_FORCED_SEMICOLON (if (! (condition))::limes::assert::fire_assertion (__FILE__, LIMES_ASSERT_GET_FUNC_NAME, __LINE__, LIMES_MAKE_STRING (condition));)
 #else
 #	define LIMES_ASSERT_FALSE
-#	define LIMES_ASSERT(x) LIMES_BLOCK_WITH_FORCED_SEMICOLON ([[maybe_unused]] auto limes_assert_result = (x); ::limes::ignore_unused (limes_assert_result);)
+#	define LIMES_ASSERT(x) LIMES_BLOCK_WITH_FORCED_SEMICOLON ([[maybe_unused]] auto limes_assert_result = (x); ::limes::misc::ignore_unused (limes_assert_result);)
 #endif
 
 #if __cpp_lib_unreachable

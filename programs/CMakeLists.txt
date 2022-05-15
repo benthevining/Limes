@@ -54,6 +54,9 @@ project (
 
 enable_testing ()
 
+include (GNUInstallDirs)
+include (CPackComponent)
+
 if (PROJECT_IS_TOP_LEVEL)
 	set (
 		LIMES_INSTALL_DEST
@@ -99,7 +102,10 @@ if (CMAKE_CROSSCOMPILING)
 			"${CMAKE_GENERATOR}" -D "CMAKE_SYSTEM_NAME=${CMAKE_HOST_SYSTEM_NAME}" -D
 			"CMAKE_CROSSCOMPILING=OFF" -D "CMAKE_MAKE_PROGRAM=${CMAKE_MAKE_PROGRAM}" -D
 			"CMAKE_BUILD_TYPE=${LIMES_BUILD_CONFIG}" -D
-			"CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}" COMMAND_ERROR_IS_FATAL ANY)
+			"CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}" -D
+			"CMAKE_INSTALL_BINDIR=${CMAKE_INSTALL_BINDIR}" -D
+			"CMAKE_INSTALL_LIBDIR=${CMAKE_INSTALL_LIBDIR}" -D
+			"CMAKE_INSTALL_INCLUDEDIR=${CMAKE_INSTALL_INCLUDEDIR}" COMMAND_ERROR_IS_FATAL ANY)
 	# cmake-format:on
 
 	execute_process (COMMAND "${CMAKE_COMMAND}" --build "${LIMES_BINARY_DIR}" --config
@@ -114,8 +120,6 @@ add_subdirectory (binary_builder)
 add_subdirectory (file_util)
 
 #
-
-include (CPackComponent)
 
 cpack_add_component (limes_programs_runtime GROUP limes_programs
 					 DEPENDS limes_binary_builder_runtime INSTALL_TYPES User)

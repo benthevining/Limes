@@ -41,14 +41,58 @@ project (
 	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}"
 	LANGUAGES CXX ASM)
 
+add_library (LimesDefaultLibrary INTERFACE)
+
+set_target_properties (
+	LimesDefaultLibrary PROPERTIES VERSION "${Limes_VERSION}" SOVERSION "${Limes_VERSION_MAJOR}"
+								   LABELS Limes FOLDER Limes/libs)
+
+include (OrangesDefaultTarget)
+include (OrangesIPO)
+include (OrangesUnityBuild)
+
+target_link_libraries (
+	LimesDefaultLibrary
+	INTERFACE Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
+			  $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+
+if (Limes_IS_TOP_LEVEL)
+	include (OrangesDefaultWarnings)
+	include (OrangesAllIntegrations)
+
+	target_link_libraries (
+		LimesDefaultLibrary INTERFACE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
+									  $<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
+endif ()
+
+# cmake-format: off
+install (
+	TARGETS LimesDefaultLibrary
+	EXPORT LimesDefaultLibraryTarget
+	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_libs_base
+	NAMELINK_COMPONENT limes_libs_base
+	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_libs_base
+	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT limes_libs_base
+	INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+# cmake-format: on
+
+install (
+	EXPORT LimesDefaultLibraryTarget
+	NAMESPACE Limes::
+	DESTINATION "${LIMES_INSTALL_DEST}"
+	EXPORT_LINK_INTERFACE_LIBRARIES
+	COMPONENT limes_libs_base)
+
+cpack_add_component (limes_libs_base HIDDEN)
+
 add_library (Limes INTERFACE)
 
 set_target_properties (
 	Limes PROPERTIES VERSION "${Limes_VERSION}" SOVERSION "${Limes_VERSION_MAJOR}" LABELS Limes)
 
-include (GNUInstallDirs)
-
 set (LIMES_INSTALL_INCLUDE_DIR "${CMAKE_INSTALL_INCLUDEDIR}/Limes")
+
+include (OrangesGeneratePkgConfig)
 
 add_subdirectory (limes_core)
 add_subdirectory (limes_vecops)
@@ -57,6 +101,16 @@ add_subdirectory (limes_locale)
 add_subdirectory (limes_midi)
 add_subdirectory (limes_audio)
 add_subdirectory (limes_music)
+
+target_link_libraries (
+	Limes
+	INTERFACE Limes::limes_core
+			  Limes::limes_audio
+			  Limes::limes_data_structures
+			  Limes::limes_locale
+			  Limes::limes_midi
+			  Limes::limes_music
+			  Limes::limes_vecops)
 
 set (configured_header "${CMAKE_CURRENT_BINARY_DIR}/limes.h")
 
@@ -89,8 +143,6 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_libs_base)
 
-include (OrangesGeneratePkgConfig)
-
 oranges_create_pkgconfig_file (
 	TARGET Limes
 	INCLUDE_REL_PATH "${LIMES_INSTALL_INCLUDE_DIR}"
@@ -98,8 +150,6 @@ oranges_create_pkgconfig_file (
 	URL "${Limes_HOMEPAGE_URL}"
 	VERSION "${Limes_VERSION}"
 	INSTALL_COMPONENT limes_libs_dev)
-
-include (CPackComponent)
 
 cpack_add_component (limes_libs_base HIDDEN)
 

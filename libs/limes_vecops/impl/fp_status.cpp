@@ -64,7 +64,7 @@ inline void setFpStatusRegister (intptr_t fpsr) noexcept
 				 : "ri"(fpsr));
 
 #else
-	ignore_unused (fpsr);
+	misc::ignore_unused (fpsr);
 #endif
 }
 
@@ -101,7 +101,7 @@ void disableDenormalisedNumberSupport (bool shouldDisable) noexcept
 
 	setFpStatusRegister ((getFpStatusRegister() & (~mask)) | (shouldDisable ? mask : 0));
 #else
-	ignore_unused (shouldDisable);
+	misc::ignore_unused (shouldDisable);
 #endif
 }
 
@@ -123,7 +123,7 @@ void enableFlushToZeroMode (bool shouldEnable) noexcept
 
 	setFpStatusRegister ((getFpStatusRegister() & (~mask)) | (shouldEnable ? mask : 0));
 #else
-	ignore_unused (shouldEnable);
+	misc::ignore_unused (shouldEnable);
 #endif
 }
 

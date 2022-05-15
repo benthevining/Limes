@@ -150,7 +150,7 @@ if (PROJECT_IS_TOP_LEVEL)
 		GLOBAL PROPERTY
 			DEBUG_CONFIGURATIONS Debug
 			USE_FOLDERS YES
-			PREDEFINED_TARGETS_FOLDER Targets
+			PREDEFINED_TARGETS_FOLDER Utility
 			REPORT_UNDEFINED_PROPERTIES "${CMAKE_BINARY_DIR}/undefined_properties.log")
 	# cmake-format: on
 
@@ -185,6 +185,8 @@ mark_as_advanced (FORCE LIMES_INSTALL_DEST)
 
 #
 
+include (CPackComponent)
+
 add_subdirectory (libs)
 add_subdirectory (programs)
 
@@ -193,8 +195,6 @@ if (LIMES_BUILD_TESTS)
 endif ()
 
 #
-
-include (CPackComponent)
 
 if (LIMES_BUILD_DOCS)
 	include (OrangesDoxygenConfig)
