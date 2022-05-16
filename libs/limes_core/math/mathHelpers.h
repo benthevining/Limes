@@ -115,15 +115,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T midiToFreq (T midiNot
 
 /** Converts a frequency in Hz to a MIDI note. */
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION inline T freqToMidi (T freqHz) noexcept
-{
-	const auto val = T (69) + T (12) * std::log2 (static_cast<double> (freqHz) / T (440));
-
-	if constexpr (std::is_integral_v<T>)
-		return static_cast<T> (round (val));
-	else
-		return static_cast<T> (val);
-}
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION inline T freqToMidi (T freqHz) noexcept;
 
 ///@}
 
@@ -333,9 +325,20 @@ constexpr int msToSamps (double samplerate, msType ms) noexcept
 template <Scalar T>
 constexpr T midiToFreq (T midiNote) noexcept
 {
-	const auto pow = static_cast<T> (power (2, (round (midiNote) - 69) / 12));
+	const auto pow = static_cast<T> (power (2, round ((round (midiNote) - 69) / 12)));
 
 	const auto val = T (440) * pow;
+
+	if constexpr (std::is_integral_v<T>)
+		return static_cast<T> (round (val));
+	else
+		return static_cast<T> (val);
+}
+
+template <Scalar T>
+T freqToMidi (T freqHz) noexcept
+{
+	const auto val = T (69) + T (12) * static_cast<T> (std::log2 (static_cast<double> (freqHz) / 440.));
 
 	if constexpr (std::is_integral_v<T>)
 		return static_cast<T> (round (val));

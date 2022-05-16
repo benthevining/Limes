@@ -191,7 +191,7 @@ add_subdirectory (libs)
 add_subdirectory (programs)
 
 if (LIMES_BUILD_TESTS)
-	# add_subdirectory (tests)
+	add_subdirectory (tests)
 endif ()
 
 #

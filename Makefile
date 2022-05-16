@@ -58,7 +58,7 @@ help:  ## Print this message
 
 .PHONY: init
 init:  ## Initializes the workspace and installs all dependencies
-	@chmod +x $(LIMES_ROOT)/scripts/alphabetize_codeowners.py
+	@chmod +x $(LIMES_ROOT)/scripts/build_all.sh
 	@cd $(LIMES_ROOT) && $(PRECOMMIT) install --install-hooks --overwrite && $(PRECOMMIT) install --install-hooks --overwrite --hook-type commit-msg
 
 #
@@ -74,6 +74,12 @@ config: $(BUILDS) ## configure CMake
 .PHONY: build
 build: config ## runs CMake build
 	@cd $(LIMES_ROOT) && $(CMAKE) --build --preset maintainer --config $(CONFIG)
+
+#
+
+.PHONY: all
+all: clean ## Builds every configuration of every preset (may take a while)
+	@time $(LIMES_ROOT)/scripts/build_all.sh
 
 #
 
@@ -117,7 +123,7 @@ uninstall: ## Runs uninstall script
 clean: ## Cleans the source tree
 	@echo "Cleaning..."
 	@cd $(LIMES_ROOT)/tests && $(MAKE) clean
-	@cd $(LIMES_ROOT) && $(RM) $(BUILDS) $(DOCS); $(PRECOMMIT) gc
+	@cd $(LIMES_ROOT) && $(RM) $(BUILDS) $(DOCS) logs; $(PRECOMMIT) gc
 
 .PHONY: wipe
 wipe: ## Wipes the cache of downloaded dependencies

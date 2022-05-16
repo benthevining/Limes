@@ -28,7 +28,7 @@ template <typename SampleType>
 }
 
 template <typename SampleType>
-[[nodiscard]] inline bool allSamplesAreEqual (const vector<SampleType>& vecA, const vector<SampleType>& vecB)
+[[nodiscard]] inline bool allSamplesAreEqual (const ds::vector<SampleType>& vecA, const ds::vector<SampleType>& vecB)
 {
 	const auto num = std::min (vecA.numObjects(), vecB.numObjects());
 

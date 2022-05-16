@@ -19,7 +19,7 @@
 
 TEMPLATE_TEST_CASE ("Circular buffer", "[audio]", float, double)
 {
-	limes::vector<TestType> origStorage, circOutput;
+	limes::ds::vector<TestType> origStorage, circOutput;
 
 	limes::dsp::CircularBuffer<TestType> circularBuffer;
 
