@@ -7,6 +7,7 @@ var math_helpers_8h =
     [ "freqFromPeriod", "math_helpers_8h.html#ga6bb0f47d78ad031a40afbf364083bb43", null ],
     [ "freqFromPeriod", "math_helpers_8h.html#ga6bb0f47d78ad031a40afbf364083bb43", null ],
     [ "freqToMidi", "math_helpers_8h.html#gaba5c165d2cb7683000726630f32ff02c", null ],
+    [ "freqToMidi", "math_helpers_8h.html#gaba5c165d2cb7683000726630f32ff02c", null ],
     [ "isDivisibleBy", "math_helpers_8h.html#ga9e117ca50dccbf636d7a04e110a08df8", null ],
     [ "isDivisibleBy", "math_helpers_8h.html#ga9e117ca50dccbf636d7a04e110a08df8", null ],
     [ "isPowerOf2", "math_helpers_8h.html#ga2c6a4276c506b35b346e1bf5dbc04e15", null ],

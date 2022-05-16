@@ -50,7 +50,7 @@ var searchData=
   ['fraction_5fimpl_2eh_320',['Fraction_impl.h',['../_fraction__impl_8h.html',1,'']]],
   ['free_321',['free',['../classmemory_1_1_raw_data.html#a60d729ca22f4a9d7f5bffc5e5f5fc562',1,'memory::RawData']]],
   ['freqfromperiod_322',['freqFromPeriod',['../group__lemons__math.html#ga6bb0f47d78ad031a40afbf364083bb43',1,'math::freqFromPeriod(double samplerate, PeriodType period) noexcept'],['../group__lemons__math.html#ga6bb0f47d78ad031a40afbf364083bb43',1,'math::freqFromPeriod(double samplerate, PeriodType period) noexcept']]],
-  ['freqtomidi_323',['freqToMidi',['../group__lemons__math.html#gaba5c165d2cb7683000726630f32ff02c',1,'math']]],
+  ['freqtomidi_323',['freqToMidi',['../group__lemons__math.html#gaba5c165d2cb7683000726630f32ff02c',1,'math::freqToMidi(T freqHz) noexcept'],['../group__lemons__math.html#gaba5c165d2cb7683000726630f32ff02c',1,'math::freqToMidi(T freqHz) noexcept']]],
   ['frequencytomidi_324',['frequencyToMidi',['../classmidi_1_1_mts_client.html#a9384e01133ed828e1d0af9dfe3d7bb14',1,'midi::MtsClient']]],
   ['friday_325',['Friday',['../classtime_1_1_weekday.html#a61e3d5d06fa34f271c0051e51a001272ac33b138a163847cdb6caeeb7c9a126b4',1,'time::Weekday']]],
   ['fromfirstoccurrenceof_326',['fromFirstOccurrenceOf',['../namespacestrings.html#a978efbcde4c3c58ace812c788841ddf6',1,'strings']]],

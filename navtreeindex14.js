@@ -1,5 +1,6 @@
 var NAVTREEINDEX14 =
 {
+"structmusic_1_1_note_duration.html#a63c63cce2167e4b0776c53e2f53b2a91":[9,0,12,5,5],
 "structmusic_1_1_note_duration.html#a77fc8dd5d575c89fe9fabc20e241acd2":[9,0,12,5,3],
 "structmusic_1_1_note_duration.html#a96bdccb65ef7664b24c36098081150a4":[9,0,12,5,10],
 "structmusic_1_1_note_duration.html#ab26935641d984c9889570ced260fa41e":[9,0,12,5,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX14 =
 "vdsp_8h.html#addda7745b173e6698fa8e824ca76897d":[10,0,152,41],
 "vdsp_8h.html#adf3a02b51cbe2d52b39383ce0e3c7f77":[10,0,152,1],
 "vdsp_8h.html#ae0044c389a1ce29cdd6f94eb4a52b9aa":[10,0,152,73],
-"vdsp_8h.html#ae07bf69fb030c5a34098e884b1c884e2":[10,0,152,22],
-"vdsp_8h.html#ae3973eddb1bd6cbeb7738e71af87440c":[10,0,152,3]
+"vdsp_8h.html#ae07bf69fb030c5a34098e884b1c884e2":[10,0,152,22]
 };
