@@ -48,7 +48,7 @@ public:
 	[[nodiscard]] constexpr bool operator!= (const Sphere& other) const noexcept;
 
 	[[nodiscard]] constexpr bool operator> (const Sphere& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const Sphere& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Sphere& other) const noexcept;
 
 private:
 
@@ -112,7 +112,7 @@ constexpr bool Sphere<ValueType>::operator> (const Sphere& other) const noexcept
 }
 
 template <Scalar ValueType>
-constexpr bool Sphere<ValueType>::operator< (const Sphere& other) const noexcept
+constexpr bool Sphere<ValueType>::operator<(const Sphere& other) const noexcept
 {
 	return m_radius < other.m_radius;
 }

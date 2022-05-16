@@ -48,7 +48,7 @@ public:
 		return semitones > other.semitones;
 	}
 
-	[[nodiscard]] constexpr bool operator< (const MicrotonalInterval& other)
+	[[nodiscard]] constexpr bool operator<(const MicrotonalInterval& other)
 	{
 		return semitones < other.semitones;
 	}
