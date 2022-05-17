@@ -82,7 +82,7 @@ repos:
 
   # license header
     - repo: https://github.com/Lucas-C/pre-commit-hooks
-      rev: v1.1.13
+      rev: v1.1.14
       hooks:
           - id: insert-license
             name: Insert license header in C++ source files
@@ -118,7 +118,7 @@ repos:
 
   # YAML
     - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
-      rev: 0.1.1
+      rev: 0.2.1
       hooks:
           - id: yamlfmt
             args: [--width, '400', --preserve-quotes]
@@ -127,7 +127,7 @@ repos:
       hooks:
           - id: yamllint
     - repo: https://github.com/sirosen/check-jsonschema
-      rev: 0.14.3
+      rev: 0.15.0
       hooks:
           - id: check-github-workflows
           - id: check-jsonschema
@@ -176,7 +176,7 @@ repos:
           - id: yapf
             args: [-i]
     - repo: https://github.com/PyCQA/pylint
-      rev: v2.13.8
+      rev: v2.14.0-b1
       hooks:
           - id: pylint
             args: [--disable=bad-indentation, --disable=line-too-long, --disable=duplicate-code, --check-quote-consistency=yes, --max-args=5, --max-branches=15, --max-statements=55, --good-names=f]

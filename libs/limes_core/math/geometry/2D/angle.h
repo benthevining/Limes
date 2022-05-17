@@ -67,7 +67,7 @@ public:
 	[[nodiscard]] constexpr bool operator!= (const Angle& other) const noexcept;
 
 	[[nodiscard]] constexpr bool operator> (const Angle& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const Angle& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Angle& other) const noexcept;
 
 	[[nodiscard]] constexpr Angle& operator+= (ValueType degreesToAdd) noexcept;
 	[[nodiscard]] constexpr Angle& operator-= (ValueType degreesToSubtract) noexcept;
@@ -217,7 +217,7 @@ constexpr bool Angle<ValueType>::operator> (const Angle& other) const noexcept
 }
 
 template <Scalar ValueType>
-constexpr bool Angle<ValueType>::operator< (const Angle& other) const noexcept
+constexpr bool Angle<ValueType>::operator<(const Angle& other) const noexcept
 {
 	return m_degrees < other.m_degrees;
 }

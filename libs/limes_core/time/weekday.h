@@ -76,10 +76,10 @@ public:
 	[[nodiscard]] constexpr Weekday operator- (int numDaysToSubtract) const noexcept;
 
 	[[nodiscard]] constexpr bool operator> (const Weekday& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const Weekday& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Weekday& other) const noexcept;
 
 	[[nodiscard]] constexpr bool operator> (const OtherWeekdayType& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const OtherWeekdayType& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const OtherWeekdayType& other) const noexcept;
 
 	[[nodiscard]] constexpr bool operator== (const Weekday& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Weekday& other) const noexcept;

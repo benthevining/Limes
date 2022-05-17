@@ -83,10 +83,10 @@ public:
 	[[nodiscard]] constexpr Month operator- (int numMonthsToSubtract) const noexcept;
 
 	[[nodiscard]] constexpr bool operator> (const Month& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const Month& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Month& other) const noexcept;
 
 	[[nodiscard]] constexpr bool operator> (Name other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (Name other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(Name other) const noexcept;
 
 	[[nodiscard]] constexpr bool operator== (const Month& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Month& other) const noexcept;
