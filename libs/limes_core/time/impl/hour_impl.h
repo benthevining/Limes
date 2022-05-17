@@ -116,7 +116,7 @@ constexpr bool Hour::operator> (const Hour& other) const noexcept
 	return hour > other.hour;
 }
 
-constexpr bool Hour::operator<(const Hour& other) const noexcept
+constexpr bool Hour::operator< (const Hour& other) const noexcept
 {
 	return hour < other.hour;
 }

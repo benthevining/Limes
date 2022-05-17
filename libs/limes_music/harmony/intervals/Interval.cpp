@@ -108,7 +108,7 @@ bool Interval::operator> (const Interval& other) const noexcept
 	return kind > other.kind;
 }
 
-bool Interval::operator<(const Interval& other) const noexcept
+bool Interval::operator< (const Interval& other) const noexcept
 {
 	if (getNumSemitones() < other.getNumSemitones())
 		return true;

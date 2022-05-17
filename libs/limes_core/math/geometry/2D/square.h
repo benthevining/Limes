@@ -57,7 +57,7 @@ public:
 	[[nodiscard]] constexpr bool operator!= (const Rect& other) const noexcept;
 
 	[[nodiscard]] constexpr bool operator> (const Square& other) const noexcept;
-	[[nodiscard]] constexpr bool operator<(const Square& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Square& other) const noexcept;
 
 private:
 
@@ -125,7 +125,7 @@ constexpr bool Square<ValueType>::operator> (const Square& other) const noexcept
 }
 
 template <Scalar ValueType>
-constexpr bool Square<ValueType>::operator<(const Square& other) const noexcept
+constexpr bool Square<ValueType>::operator< (const Square& other) const noexcept
 {
 	return side_length < other.side_length;
 }

@@ -102,7 +102,7 @@ constexpr bool Time::operator> (const Time& other) const noexcept
 	return isAfter (other);
 }
 
-constexpr bool Time::operator<(const Time& other) const noexcept
+constexpr bool Time::operator< (const Time& other) const noexcept
 {
 	return isBefore (other);
 }

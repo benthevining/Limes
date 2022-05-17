@@ -95,7 +95,7 @@ FileUtil ln <symLinkPath> <symLinkTarget>
 ```
 FileUtil ls [<directory>]
 ```
-The additional `<directory>` argument is optional; if ommitted, this command lists the contents of the current working directory.
+The additional `<directory>` argument is optional; if omitted, this command lists the contents of the current working directory.
 
 ### `mkdir`: Create a directory
 ```
@@ -176,7 +176,7 @@ If nothing exists at `<path>`, raise an error. Otherwise, prints one of `file`, 
 ```
 FileUtil which [<programName>]
 ```
-Searches for an executable file named `<programName>` in each of the directories in the PATH environment variable and prints the absolute path of the first match found. If the `<programName>` is ommitted, this command prints the path of the currently running FileUtil executable itself.
+Searches for an executable file named `<programName>` in each of the directories in the PATH environment variable and prints the absolute path of the first match found. If the `<programName>` is omitted, this command prints the path of the currently running FileUtil executable itself.
 
 ### `write`: Write content to a file
 ```

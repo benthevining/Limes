@@ -4,7 +4,7 @@
       "displayName": "Build the dependency graph image",
       "inherits": "default",
       "name": "deps_graph",
-      "targets": "DependencyGraph"
+      "targets": "LimesDependencyGraph"
     },
     {
       "displayName": "Build the Doxygen documentation",

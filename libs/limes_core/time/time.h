@@ -64,7 +64,7 @@ public:
 	[[nodiscard]] std::string toString (bool as24HourTime = true) const;
 
 	[[nodiscard]] constexpr bool operator> (const Time& other) const noexcept;
-	[[nodiscard]] constexpr bool operator<(const Time& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Time& other) const noexcept;
 
 	[[nodiscard]] constexpr bool operator== (const Time& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Time& other) const noexcept;

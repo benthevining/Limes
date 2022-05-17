@@ -18,7 +18,6 @@
 	inline namespace v4_8_1   \
 	{
 
-
 #define LIMES_END_NAMESPACE \
 	}                       \
 	}

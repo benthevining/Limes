@@ -164,12 +164,6 @@ if (PROJECT_IS_TOP_LEVEL)
 	include (OrangesUninstallTarget)
 	include (OrangesDefaultCPackSettings)
 	include (OrangesInstallSystemLibs)
-
-	set (Limes_DEPS_GRAPH_OUTPUT_TO_SOURCE util)
-
-	include (OrangesGraphVizConfig)
-
-	unset (Limes_DEPS_GRAPH_OUTPUT_TO_SOURCE)
 endif ()
 
 #
@@ -191,13 +185,17 @@ add_subdirectory (libs)
 add_subdirectory (programs)
 
 if (LIMES_BUILD_TESTS)
-	add_subdirectory (tests)
+	# add_subdirectory (tests)
 endif ()
 
 #
 
 if (LIMES_BUILD_DOCS)
 	include (OrangesDoxygenConfig)
+	include (OrangesGraphViz)
+
+	oranges_add_graphviz_target (TARGET LimesDependencyGraph SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}"
+								 COPY_GRAPH_TO "${CMAKE_CURRENT_LIST_DIR}/util/deps_graph.png")
 
 	oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs
 								   INSTALL_COMPONENT limes_docs)

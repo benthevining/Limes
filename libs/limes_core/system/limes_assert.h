@@ -105,7 +105,7 @@ LIMES_END_NAMESPACE
 #endif
 
 #ifdef __cpp_lib_unreachable
-#	if __cpp_lib_unreachable
+#	if __cpp_lib_unreachable >= 202202L
 #		define LIMES_UNREACHABLE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::std::unreachable())
 #	endif
 #endif

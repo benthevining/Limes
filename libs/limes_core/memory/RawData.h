@@ -101,7 +101,7 @@ public:
 	/** Frees all of this object's internal memory. */
 	void free();
 
-	/** Returns this object's memory pointer and releases ownership of it. This is analagous to \c std::unique_ptr::release()
+	/** Returns this object's memory pointer and releases ownership of it. This is analogous to \c std::unique_ptr::release()
 		@attention Once this function is called, this object will not free this pointer, so you must do so!
 	 */
 	[[nodiscard]] char* release() noexcept;

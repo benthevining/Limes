@@ -98,7 +98,7 @@ public:
 	static constexpr const bool contains_or = typelist::contains_or_v<TypeID, TypesToFind...>;
 
 	/** The number of times the given type appears in this TypeList.
-		@tparam Type The type to count occurances of in this TypeList.
+		@tparam Type The type to count occurrences of in this TypeList.
 	 */
 	template <typename Type>
 	static constexpr const size_t num_of = typelist::count_v<TypeID, Type>;
@@ -189,14 +189,14 @@ public:
 	/** The type of a new TypeList with the same types as this one, but in reverse order. */
 	using reverse = typelist::reverse_t<TypeID>;
 
-	/** The index of the first occurance of the specified type in the TypeList.
+	/** The index of the first occurrence of the specified type in the TypeList.
 		A compile-time error will be raised if the specified type is not in the TypeList, unless the list is empty -- if the list is empty, this will always evaluate to \c static_cast<size_t>(-1) , regardless of what type was specified.
 		@tparam Type The type to find in the TypeList.
 	 */
 	template <typename Type>
 	static constexpr const size_t index_of = typelist::find_v<TypeID, Type>;
 
-	/** The type of a new TypeList with all occurances of the passed types removed.
+	/** The type of a new TypeList with all occurrences of the passed types removed.
 		@tparam TypesToRemove List of types to remove from the list.
 	 */
 	template <typename... TypesToRemove>
@@ -237,7 +237,7 @@ public:
 	template <template <typename> class UnaryPredicate>
 	using remove_if_not = typelist::remove_if_not_t<TypeID, UnaryPredicate>;
 
-	/** Replaces all occurances of \c Replace in the list with \c With.
+	/** Replaces all occurrences of \c Replace in the list with \c With.
 		@tparam Replace The type to be replaced in the list. A compile-time error will be raised if the list does not contain this type.
 		@tparam With The type to replace \c Replace with.
 	 */

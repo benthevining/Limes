@@ -94,6 +94,7 @@ set_target_properties (
 set (LIMES_INSTALL_INCLUDE_DIR "${CMAKE_INSTALL_INCLUDEDIR}/Limes")
 
 include (OrangesGeneratePkgConfig)
+include (OrangesSWIG)
 
 add_subdirectory (limes_core)
 add_subdirectory (limes_vecops)

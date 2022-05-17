@@ -100,7 +100,7 @@ public:
 	/** Returns true if this interval is semantically smaller than the other one, taking enharmonic spellings into account.
 		For example, this will tell you that an augmented fourth is "smaller" than a diminished fifth.
 	 */
-	[[nodiscard]] bool operator<(const Interval& other) const noexcept;
+	[[nodiscard]] bool operator< (const Interval& other) const noexcept;
 
 	/** Adds another interval object to this one.
 		@see fromNumSemitones()

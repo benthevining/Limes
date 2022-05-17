@@ -90,6 +90,12 @@ do
 		fi
 	done
 
+
+
+	continue
+
+
+
 	if [ "$preset" = "iOS" ] || [ "$preset" = "tvOS" ] || [ "$preset" = "watchOS" ]; then
 		continue
 	fi

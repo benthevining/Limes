@@ -14,6 +14,7 @@
 
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include <limes_platform.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -21,6 +22,9 @@ namespace misc
 {
 
 /** A utility function to silence unused variable warnings. */
+#if LIMES_INTEL_COMPILER
+#	pragma warning disable 592
+#endif
 template <typename... Args>
 LIMES_EXPORT constexpr void ignore_unused (Args&&...) noexcept
 {

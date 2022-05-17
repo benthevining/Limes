@@ -134,7 +134,7 @@ struct LIMES_EXPORT is_none_of final : std::negation<is_one_of<Test, Types...>>
 
 /// @endcond
 
-/** Evalutes to true if \c Test is not in the list of \c Types .
+/** Evaluates to true if \c Test is not in the list of \c Types .
 	@tparam Test Type to search for in the list of types.
 	@tparam Types List of types to check.
  */

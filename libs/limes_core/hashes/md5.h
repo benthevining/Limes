@@ -25,7 +25,7 @@ namespace hash
 {
 
 /** A Hasher object that calculates an MD5 hash.
-	MD5 is considered to be broken and insecure, so shouldn't be used for security-critical purposes in new applications, but is provided for backwards compatability.
+	MD5 is considered to be broken and insecure, so shouldn't be used for security-critical purposes in new applications, but is provided for backwards compatibility.
  */
 class LIMES_EXPORT MD5 final : public Hasher  // cppcheck-suppress noConstructor
 {

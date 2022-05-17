@@ -62,14 +62,14 @@ LIMES_EXPORT [[nodiscard]] std::string toUpper (const std::string_view& string);
 /** Returns a copy of the string, with all its characters converted to lower case. */
 LIMES_EXPORT [[nodiscard]] std::string toLower (const std::string_view& string);
 
-/** Returns a copy of the passed string, ending at the first occurance of \c stringToFind .
+/** Returns a copy of the passed string, ending at the first occurrence of \c stringToFind .
 	@param inputString The input string to slice
 	@param stringToFind The delimiter to split the output string at.
  */
 LIMES_EXPORT [[nodiscard]] std::string upToFirstOccurrenceOf (const std::string_view& inputString,
 															  const std::string_view& stringToFind);
 
-/** Returns a copy of the passed string, beginning at the first occurance of \c stringToFind .
+/** Returns a copy of the passed string, beginning at the first occurrence of \c stringToFind .
 	@param inputString The input string to slice
 	@param stringToFind The delimiter to split the output string at.
  */

@@ -62,7 +62,7 @@ public:
 	[[nodiscard]] constexpr Year operator- (int numYearsToSubtract) const noexcept;
 
 	[[nodiscard]] constexpr bool operator> (const Year& other) const noexcept;
-	[[nodiscard]] constexpr bool operator<(const Year& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Year& other) const noexcept;
 
 	[[nodiscard]] constexpr bool operator== (const Year& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Year& other) const noexcept;

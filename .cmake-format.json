@@ -183,6 +183,22 @@
           "TARGET": 1
         }
       },
+      "oranges_add_graphviz_target": {
+        "kwargs": {
+          "BINARY_DIR": 1,
+          "COPY_GRAPH_TO": 1,
+          "EXTRA_CMAKE_OPTIONS": "+",
+          "GRAPHVIZ_CONFIG_FILE": 1,
+          "OUTPUT_DIR": 1,
+          "SOURCE_DIR": 1,
+          "TARGET": 1
+        },
+        "pargs": {
+          "flags": [
+            "ALL"
+          ]
+        }
+      },
       "oranges_add_source_files": {
         "kwargs": {
           "DIRECTORY_NAME": 1,
