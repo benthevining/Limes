@@ -32,9 +32,9 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 @PACKAGE_INIT@
 
-list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
-
 #
+
+list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 include (CMakeFindDependencyMacro)
 
@@ -79,7 +79,10 @@ else ()
 
 	foreach (comp_name IN LISTS finding_components)
 		if (NOT "${comp_name}" IN_LIST limes_components)
-			message (WARNING " -- Limes: unknown component ${comp_name} requested!")
+			if (NOT ${CMAKE_FIND_PACKAGE_NAME}_QUIETLY)
+				message (WARNING " -- Limes: unknown component ${comp_name} requested!")
+			endif ()
+
 			set (${CMAKE_FIND_PACKAGE_NAME}_${comp_name}_FOUND FALSE)
 			list (REMOVE_ITEM finding_components "${comp_name}")
 		endif ()
@@ -126,7 +129,9 @@ list (REMOVE_DUPLICATES finding_components)
 
 list (JOIN finding_components " " all_comps_string)
 
-message (DEBUG "Limes - config - importing components: ${all_comps_string}")
+if (NOT ${CMAKE_FIND_PACKAGE_NAME}_QUIETLY)
+	message (DEBUG "Limes - config - importing components: ${all_comps_string}")
+endif ()
 
 #
 
@@ -145,6 +150,7 @@ endif ()
 # if(MIDI IN_LIST finding_components) find_dependency (MTS-ESP) endif()
 
 if (any_limes_libs)
+	# this file imports the default library target that all other library targets link against
 	include ("${CMAKE_CURRENT_LIST_DIR}/LimesDefaultLibraryTarget.cmake")
 endif ()
 

@@ -109,14 +109,6 @@ target_link_libraries (
 	PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
 			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
-if (Limes_IS_TOP_LEVEL OR LimesPrograms_IS_TOP_LEVEL)
-	include (OrangesDefaultWarnings)
-	include (OrangesAllIntegrations)
-
-	target_link_libraries (BinaryBuilder PRIVATE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
-												 $<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
-endif ()
-
 export (TARGETS BinaryBuilder NAMESPACE Limes:: FILE "${CMAKE_BINARY_DIR}/LimesBinaryBuilder.cmake")
 
 add_executable (Limes::BinaryBuilder ALIAS BinaryBuilder)

@@ -128,6 +128,9 @@ option (CMAKE_FIND_PACKAGE_PREFER_CONFIG
 option (LIMES_BUILD_TESTS "Build the Limes unit tests" "${PROJECT_IS_TOP_LEVEL}")
 option (LIMES_BUILD_DOCS "Build the Limes documentation" "${PROJECT_IS_TOP_LEVEL}")
 
+option (ORANGES_MAINTAINER_BUILD "Build with static analysis tools and default compiler warnings"
+		"${PROJECT_IS_TOP_LEVEL}")
+
 mark_as_advanced (CMAKE_FIND_PACKAGE_PREFER_CONFIG)
 
 enable_testing ()
@@ -192,7 +195,7 @@ endif ()
 
 if (LIMES_BUILD_DOCS)
 	include (OrangesDoxygenConfig)
-	include (OrangesGraphViz)
+	include (OrangesGraphviz)
 
 	oranges_add_graphviz_target (TARGET LimesDependencyGraph SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}"
 								 COPY_GRAPH_TO "${CMAKE_CURRENT_LIST_DIR}/util/deps_graph.png")
@@ -210,21 +213,19 @@ endif ()
 
 #
 
-install (FILES "${CMAKE_CURRENT_LIST_DIR}/cmake/LimesConfigVersionHeader.cmake"
-			   "${CMAKE_CURRENT_LIST_DIR}/cmake/scripts/VersionHeader.h" COMPONENT limes_dev
-		 DESTINATION "${LIMES_INSTALL_DEST}/cmake")
+install (DIRECTORY cmake DESTINATION "${LIMES_INSTALL_DEST}" COMPONENT limes_dev PATTERN .DS_Store
+																						 EXCLUDE)
 
 include (CMakePackageConfigHelpers)
 
-write_basic_package_version_file ("LimesConfigVersion.cmake" VERSION "${PROJECT_VERSION}"
+write_basic_package_version_file (Limes-config-version.cmake VERSION "${PROJECT_VERSION}"
 								  COMPATIBILITY SameMajorVersion)
 
-configure_package_config_file (
-	"${CMAKE_CURRENT_LIST_DIR}/cmake/LimesConfig.cmake" "LimesConfig.cmake"
-	INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" NO_SET_AND_CHECK_MACRO)
+configure_package_config_file (cmake/Limes-config.cmake Limes-config.cmake
+							   INSTALL_DESTINATION "${LIMES_INSTALL_DEST}" NO_SET_AND_CHECK_MACRO)
 
-install (FILES "${CMAKE_CURRENT_BINARY_DIR}/LimesConfigVersion.cmake"
-			   "${CMAKE_CURRENT_BINARY_DIR}/LimesConfig.cmake" DESTINATION "${LIMES_INSTALL_DEST}"
+install (FILES "${CMAKE_CURRENT_BINARY_DIR}/Limes-config-version.cmake"
+			   "${CMAKE_CURRENT_BINARY_DIR}/Limes-config.cmake" DESTINATION "${LIMES_INSTALL_DEST}"
 		 COMPONENT limes_base)
 
 cpack_add_component (limes_base HIDDEN)

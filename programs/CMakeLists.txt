@@ -54,8 +54,15 @@ project (
 
 enable_testing ()
 
+option (CMAKE_FIND_PACKAGE_PREFER_CONFIG
+		"Prefer config files to find modules in find_package search" ON)
+
+option (ORANGES_MAINTAINER_BUILD "Build with static analysis tools and default compiler warnings"
+		"${PROJECT_IS_TOP_LEVEL}")
+
 include (GNUInstallDirs)
 include (CPackComponent)
+include (OrangesDefaultTarget)
 
 if (PROJECT_IS_TOP_LEVEL)
 	set (
@@ -95,21 +102,51 @@ if (CMAKE_CROSSCOMPILING)
 		set (LIMES_BUILD_CONFIG Debug)
 	endif ()
 
-	# cmake-format:off
+	set (subCMakeOpts "")
+
+	if (CMAKE_GENERATOR_PLATFORM)
+		list (APPEND subCMakeOpts "-A${CMAKE_GENERATOR_PLATFORM}")
+	endif ()
+
+	if (CMAKE_GENERATOR_TOOLSET)
+		list (APPEND subCMakeOpts "-T${CMAKE_GENERATOR_TOOLSET}")
+	endif ()
+
+	if (CMAKE_MAKE_PROGRAM)
+		list (APPEND subCMakeOpts "-DCMAKE_MAKE_PROGRAM=${CMAKE_MAKE_PROGRAM}")
+	endif ()
+
+	get_property (is_multi_config GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
+
+	if (is_multi_config)
+		list (APPEND subCMakeOpts "-DCMAKE_CONFIGURATION_TYPES=${CMAKE_CONFIGURATION_TYPES}")
+	else ()
+		list (APPEND subCMakeOpts "-DCMAKE_BUILD_TYPE=${LIMES_BUILD_CONFIG}")
+	endif ()
+
+	# cmake-format: off
 	execute_process (
 		COMMAND
-			"${CMAKE_COMMAND}" -S "${CMAKE_CURRENT_LIST_DIR}" -B "${LIMES_BINARY_DIR}" -G
-			"${CMAKE_GENERATOR}" -D "CMAKE_SYSTEM_NAME=${CMAKE_HOST_SYSTEM_NAME}" -D
-			"CMAKE_CROSSCOMPILING=OFF" -D "CMAKE_MAKE_PROGRAM=${CMAKE_MAKE_PROGRAM}" -D
-			"CMAKE_BUILD_TYPE=${LIMES_BUILD_CONFIG}" -D
-			"CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}" -D
-			"CMAKE_INSTALL_BINDIR=${CMAKE_INSTALL_BINDIR}" -D
-			"CMAKE_INSTALL_LIBDIR=${CMAKE_INSTALL_LIBDIR}" -D
-			"CMAKE_INSTALL_INCLUDEDIR=${CMAKE_INSTALL_INCLUDEDIR}" COMMAND_ERROR_IS_FATAL ANY)
-	# cmake-format:on
+			"${CMAKE_COMMAND}"
+				-S "${CMAKE_CURRENT_LIST_DIR}"
+				-B "${LIMES_BINARY_DIR}"
+				-G "${CMAKE_GENERATOR}"
+				-D "CMAKE_SYSTEM_NAME=${CMAKE_HOST_SYSTEM_NAME}"
+				-D "CMAKE_CROSSCOMPILING=OFF"
+				-D "CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}"
+				-D "CMAKE_INSTALL_BINDIR=${CMAKE_INSTALL_BINDIR}"
+				-D "CMAKE_INSTALL_LIBDIR=${CMAKE_INSTALL_LIBDIR}"
+				-D "CMAKE_INSTALL_INCLUDEDIR=${CMAKE_INSTALL_INCLUDEDIR}"
+				${subCMakeOpts}
+			COMMAND_ERROR_IS_FATAL ANY)
 
-	execute_process (COMMAND "${CMAKE_COMMAND}" --build "${LIMES_BINARY_DIR}" --config
-							 "${LIMES_BUILD_CONFIG}" COMMAND_ERROR_IS_FATAL ANY)
+	unset (subCMakeOpts)
+
+	execute_process (COMMAND "${CMAKE_COMMAND}"
+								--build "${LIMES_BINARY_DIR}"
+								--config "${LIMES_BUILD_CONFIG}"
+					 COMMAND_ERROR_IS_FATAL ANY)
+	# cmake-format: on
 
 	string (TOUPPER "${LIMES_BUILD_CONFIG}" LIMES_BUILD_CONFIG)
 endif ()

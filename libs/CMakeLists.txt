@@ -50,21 +50,11 @@ set_target_properties (
 include (OrangesDefaultTarget)
 include (OrangesIPO)
 include (OrangesUnityBuild)
-include (OrangesOptimizationFlags)
 
 target_link_libraries (
 	LimesDefaultLibrary
-	INTERFACE Oranges::OrangesDefaultCXXTarget $<BUILD_INTERFACE:Oranges::OrangesOptimizationFlags>
-			  $<BUILD_INTERFACE:Oranges::OrangesIPO> $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
-
-if (Limes_IS_TOP_LEVEL)
-	include (OrangesDefaultWarnings)
-	include (OrangesAllIntegrations)
-
-	target_link_libraries (
-		LimesDefaultLibrary INTERFACE $<BUILD_INTERFACE:Oranges::OrangesDefaultWarnings>
-									  $<BUILD_INTERFACE:Oranges::OrangesAllIntegrations>)
-endif ()
+	INTERFACE Oranges::OrangesDefaultCXXTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
+			  $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 # cmake-format: off
 install (
