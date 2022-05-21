@@ -28,7 +28,7 @@ The following components may be specified in calls to find_package:
 
 ]]
 
-cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
+cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
 @PACKAGE_INIT@
 
