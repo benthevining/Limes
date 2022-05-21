@@ -70,7 +70,7 @@ oranges_generate_standard_headers (
 	NO_AGGREGATE_HEADER
 	EXPORT_HEADER limes_export.h
 	PLATFORM_HEADER limes_platform.h
-	INSTALL_COMPONENT limes_core_dev
+	INSTALL_COMPONENT limes_core_dev SCOPE PUBLIC
 	REL_PATH Limes/limes_core SOURCE_GROUP_NAME Generated)
 
 include (LimesConfigVersionHeader)

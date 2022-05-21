@@ -81,11 +81,17 @@ function (limes_config_version_header)
 		endif ()
 
 		if (NOT LIMES_ARG_SCOPE)
-			message (
-				WARNING
-					"You should specify the SCOPE argument to ${CMAKE_CURRENT_FUNCTION} to use the TARGET argument!"
-				)
-			set (LIMES_ARG_SCOPE INTERFACE)
+			get_target_property (target_type "${LIMES_ARG_TARGET}" TYPE)
+
+			if ("${target_type}" STREQUAL INTERFACE_LIBRARY)
+				set (LIMES_ARG_SCOPE INTERFACE)
+			elseif ("${target_type}" STREQUAL EXECUTABLE)
+				set (LIMES_ARG_SCOPE PUBLIC)
+			else ()
+				set (LIMES_ARG_SCOPE PRIVATE)
+			endif ()
+
+			unset (target_type)
 		endif ()
 
 		target_sources (

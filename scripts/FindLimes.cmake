@@ -18,10 +18,6 @@ This file can be copied verbatim into any projects that depend on Limes, and com
 You can then use the environment or command line variable LIMES_PATH to turn this find module into an add_subdirectory of a local copy of Limes;
 if neither variable is set, this module will use FetchContent to download the Limes sources from GitHub.
 
-Output variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Limes_FOUND
-
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - LIMES_PATH
@@ -49,9 +45,9 @@ set (${CMAKE_FIND_PACKAGE_NAME}_FOUND FALSE)
 
 #
 
-if (NOT LIMES_PATH)
+if (NOT (DEFINED LIMES_PATH OR DEFINED CACHE{LIMES_PATH}))
 	if (DEFINED ENV{LIMES_PATH})
-		set (LIMES_PATH "$ENV{LIMES_PATH}")
+		set (LIMES_PATH "$ENV{LIMES_PATH}" CACHE PATH "Path to the Limes repository")
 	endif ()
 endif ()
 
