@@ -30,10 +30,10 @@ public:
 
 	~stack_buffer() = default;
 
-	stack_buffer (const stack_buffer&) = delete;
-	stack_buffer (stack_buffer&&)	   = delete;
+	stack_buffer (const stack_buffer&)			  = delete;
+	stack_buffer (stack_buffer&&)				  = delete;
 	stack_buffer& operator= (const stack_buffer&) = delete;
-	stack_buffer& operator= (stack_buffer&&) = delete;
+	stack_buffer& operator= (stack_buffer&&)	  = delete;
 
 	template <std::size_t ReqAlign>
 	[[nodiscard]] std::byte* allocate (std::size_t n);
@@ -71,7 +71,7 @@ public:
 	using size_type		  = std::size_t;
 	using difference_type = ptrdiff_t;
 
-	StackAllocator (const StackAllocator&) = default;
+	StackAllocator (const StackAllocator&)			  = default;
 	StackAllocator& operator= (const StackAllocator&) = delete;
 
 	StackAllocator() noexcept

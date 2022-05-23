@@ -143,19 +143,19 @@ constexpr bool Weekday<StartWeekOnSunday>::operator> (const Weekday& other) cons
 }
 
 template <bool StartWeekOnSunday>
-constexpr bool Weekday<StartWeekOnSunday>::operator< (const Weekday& other) const noexcept
+constexpr bool Weekday<StartWeekOnSunday>::operator<(const Weekday& other) const noexcept
 {
 	return dayOfWeek < other.dayOfWeek;
 }
 
 template <>
-constexpr bool Weekday<true>::operator< (const Weekday<false>& other) const noexcept
+constexpr bool Weekday<true>::operator<(const Weekday<false>& other) const noexcept
 {
 	return (dayOfWeek + 1) % 7 < other.daysSinceStartOfWeek();
 }
 
 template <>
-constexpr bool Weekday<false>::operator< (const Weekday<true>& other) const noexcept
+constexpr bool Weekday<false>::operator<(const Weekday<true>& other) const noexcept
 {
 	return (dayOfWeek - 1) % 7 < other.daysSinceStartOfWeek();
 }

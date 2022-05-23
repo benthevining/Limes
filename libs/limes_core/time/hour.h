@@ -60,7 +60,7 @@ public:
 	[[nodiscard]] constexpr Hour operator- (int hoursToSubtract) const noexcept;
 
 	[[nodiscard]] constexpr bool operator> (const Hour& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const Hour& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Hour& other) const noexcept;
 
 	[[nodiscard]] constexpr bool operator== (const Hour& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Hour& other) const noexcept;
