@@ -24,29 +24,51 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
+/** Represents a circle. */
 template <Scalar ValueType>
 class LIMES_EXPORT Circle final : public TwoDShape<ValueType>
 {
 public:
 
+	/** Creates a circle with the given radius (in unspecified units). */
 	explicit constexpr Circle (ValueType radiusToUse) noexcept;
 
 	LIMES_CONSTEXPR_COPYABLE (Circle);
 	LIMES_CONSTEXPR_MOVABLE (Circle);
 
+	/** Returns the area of the circle. */
 	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
+	/** Returns the perimeter of the circle.
+		This is the same as \c diameter() .
+		@see diameter()
+	 */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
+	/** Returns the radius of the circle. */
 	[[nodiscard]] constexpr ValueType radius() const noexcept;
 
+	/** Returns the diameter of the circle.
+	 This is the same as \c perimeter() , but is provided for more ergonomic use.
+	 @see perimeter()
+	 */
 	[[nodiscard]] constexpr ValueType diameter() const noexcept;
 
+	/** @name Equality comparisons
+		Compares circles for equality based on their radii.
+	 */
+	///@{
 	[[nodiscard]] constexpr bool operator== (const Circle& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Circle& other) const noexcept;
+	///@}
 
+	/** @name Greater/less than comparisons
+		Compares circles based on their radii.
+	 */
+	///@{
 	[[nodiscard]] constexpr bool operator> (const Circle& other) const noexcept;
-	[[nodiscard]] constexpr bool operator<(const Circle& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Circle& other) const noexcept;
+	///@}
 
 private:
 
@@ -104,7 +126,7 @@ constexpr bool Circle<ValueType>::operator> (const Circle& other) const noexcept
 }
 
 template <Scalar ValueType>
-constexpr bool Circle<ValueType>::operator<(const Circle& other) const noexcept
+constexpr bool Circle<ValueType>::operator< (const Circle& other) const noexcept
 {
 	return m_radius < other.m_radius;
 }

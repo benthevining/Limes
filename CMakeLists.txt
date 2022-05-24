@@ -162,7 +162,6 @@ if (PROJECT_IS_TOP_LEVEL)
 	set (CMAKE_INSTALL_MESSAGE LAZY)
 	set (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION ON)
 
-	include (OrangesDeprecateDirectoryScopedCommands)
 	include (OrangesWipeCacheTarget)
 	include (OrangesUninstallTarget)
 	include (OrangesDefaultCPackSettings)

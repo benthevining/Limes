@@ -38,6 +38,7 @@ Dependencies: None
 #include "misc/Version.h"
 #include "misc/Functions.h"
 #include "misc/streams.h"
+#include "misc/bitField.h"
 
 #include "meta/TypeTraits.h"
 #include "meta/TypeList.h"
@@ -63,6 +64,7 @@ Dependencies: None
 #include "memory/OptionalObject.h"
 
 #include "files/FilesystemEntry.h"
+#include "files/CFile.h"
 #include "files/file.h"
 #include "files/directory.h"
 #include "files/sym_link.h"

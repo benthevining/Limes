@@ -16,7 +16,7 @@
 #include <limes_export.h>
 #include <cstdint>
 
-#ifndef DOXYGEN
+/// @cond
 
 LIMES_BEGIN_NAMESPACE
 
@@ -116,4 +116,4 @@ LIMES_NO_EXPORT static constinit const std::uint64_t sha512_k[80] = { 0x428a2f98
 
 LIMES_END_NAMESPACE
 
-#endif
+/// @endcond

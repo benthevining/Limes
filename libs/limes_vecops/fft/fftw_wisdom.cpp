@@ -12,6 +12,7 @@
 
 #include <limes_namespace.h>
 #include "limes_fft.h"
+#include <limes_core.h>
 #include <mutex>  // for lock_guard, mutex
 #include <filesystem>
 #include <cstdlib>
@@ -91,26 +92,25 @@ bool isUsingWisdom()
 #		define fftw_export_wisdom_to_file	 fftwf_export_wisdom_to_file
 #	endif
 
-[[nodiscard]] inline FILE* fftw_get_wisdom_file (bool isDouble, bool save) noexcept
+[[nodiscard]] inline files::CFile fftw_get_wisdom_file (bool isDouble, bool save) noexcept
 {
 #	if FFTW_SINGLE_ONLY
 	if (isDouble)
 		return nullptr;
-
 #	elif FFTW_DOUBLE_ONLY
 	if (! isDouble)
 		return nullptr;
 #	endif
 
 	if (! fftw::useWisdom)
-		return nullptr;
+		return {};
 
 	try
 	{
 		const auto fileDir = fftw::getWisdomFileDir();
 
 		if (! fileDir.isValid())
-			return nullptr;
+			return {};
 
 		std::string filename { ".fftw_wisdom." };
 
@@ -118,13 +118,13 @@ bool isUsingWisdom()
 
 		filename.push_back (typeChar);
 
-		const auto modeChar = save ? 'w' : 'r';
+		const auto mode = save ? files::CFile::Mode::Write : files::CFile::Mode::Read;
 
-		return fileDir.getChildFile (filename).getCfile (modeChar);
+		return fileDir.getChildFile (filename).getCfile (mode);
 	}
 	catch (const std::exception&)
 	{
-		return nullptr;
+		return {};
 	}
 }
 
@@ -132,14 +132,12 @@ bool isUsingWisdom()
 template <bool IsDouble>
 void fftw_save_wisdom()
 {
-	if (auto* wisdomFile = fftw_get_wisdom_file (IsDouble, false))
+	if (auto wisdomFile = fftw_get_wisdom_file (IsDouble, false))
 	{
 		if constexpr (IsDouble)
-			fftw_import_wisdom_from_file (wisdomFile);
+			fftw_import_wisdom_from_file (wisdomFile.get());
 		else
-			fftwf_import_wisdom_from_file (wisdomFile);
-
-		std::fclose (wisdomFile);
+			fftwf_import_wisdom_from_file (wisdomFile.get());
 	}
 }
 
@@ -150,14 +148,12 @@ template void fftw_save_wisdom<false>();
 template <bool IsDouble>
 void fftw_load_wisdom()
 {
-	if (auto* wisdomFile = fftw_get_wisdom_file (IsDouble, true))
+	if (auto wisdomFile = fftw_get_wisdom_file (IsDouble, true))
 	{
 		if constexpr (IsDouble)
-			fftw_export_wisdom_to_file (wisdomFile);
+			fftw_export_wisdom_to_file (wisdomFile.get());
 		else
-			fftwf_export_wisdom_to_file (wisdomFile);
-
-		std::fclose (wisdomFile);
+			fftwf_export_wisdom_to_file (wisdomFile.get());
 	}
 }
 

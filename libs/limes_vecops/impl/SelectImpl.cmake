@@ -24,7 +24,6 @@ cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
 #
 
-include (OrangesCmakeDevTools)
 include (FeatureSummary)
 
 if (LIMES_VECOPS_BACKEND)
@@ -45,16 +44,12 @@ if (LIMES_VECOPS_BACKEND)
 	endif ()
 endif ()
 
-at_most_one (more_than_one LIMES_USE_IPP LIMES_USE_MIPP LIMES_USE_VECOPS_FALLBACK)
+# at_most_one (more_than_one LIMES_USE_IPP LIMES_USE_MIPP LIMES_USE_VECOPS_FALLBACK)
 
-if (more_than_one)
-	message (
-		WARNING
-			"Defining more than one of LIMES_USE_IPP, LIMES_USE_MIPP, or LIMES_USE_VECOPS_FALLBACK to truthy values is non-deterministic behavior!"
-		)
-endif ()
+# if (more_than_one) message ( WARNING "Defining more than one of LIMES_USE_IPP, LIMES_USE_MIPP, or
+# LIMES_USE_VECOPS_FALLBACK to truthy values is non-deterministic behavior!" ) endif ()
 
-unset (more_than_one)
+# unset (more_than_one)
 
 #
 
@@ -121,7 +116,7 @@ if (NOT LIMES_IGNORE_IPP AND NOT LIMES_USE_MIPP AND NOT LIMES_USE_VECOPS_FALLBAC
 	# check if we're on an Intel platform
 	include (OrangesGeneratePlatformHeader)
 
-	if (ORANGES_INTEL OR LIMES_USE_IPP)
+	if (PLAT_INTEL OR LIMES_USE_IPP)
 
 		find_package (IPP MODULE QUIET COMPONENTS CORE S VM)
 
@@ -129,7 +124,7 @@ if (NOT LIMES_IGNORE_IPP AND NOT LIMES_USE_MIPP AND NOT LIMES_USE_VECOPS_FALLBAC
 								PURPOSE "Intel's accelerated vector math library")
 
 		if (TARGET Intel::IntelIPP)
-			if (NOT ORANGES_INTEL)
+			if (NOT PLAT_INTEL)
 				message (
 					WARNING
 						"Enabling Intel IPP, but non-Intel platform detected. A different vecops backend is recommended"

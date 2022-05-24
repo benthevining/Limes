@@ -62,7 +62,6 @@ option (ORANGES_MAINTAINER_BUILD "Build with static analysis tools and default c
 
 include (GNUInstallDirs)
 include (CPackComponent)
-include (OrangesDefaultTarget)
 
 if (PROJECT_IS_TOP_LEVEL)
 	set (

@@ -29,6 +29,8 @@ oranges_add_source_files (
 		  misc.h
 		  misc.cpp
 		  DynamicLibrary.h
-		  DynamicLibrary.cpp)
+		  DynamicLibrary.cpp
+		  CFile.h
+		  CFile.cpp)
 
 set (files_files ${files_files} ${exec_files} PARENT_SCOPE)

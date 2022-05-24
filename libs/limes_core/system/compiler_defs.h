@@ -21,6 +21,7 @@
 #	define LIMES_NEVER_INLINE
 #	define LIMES_PURE_FUNCTION
 #	define LIMES_RESTRICT
+#	define LIMES_PACK(declaration)
 
 #endif
 
@@ -31,6 +32,11 @@
 #	define LIMES_NEVER_INLINE __declspec(noinline)
 #	define LIMES_RESTRICT	   __restrict
 
+#	define LIMES_PACK(declaration) \
+		__pragma (pack (push, 1))   \
+			declaration             \
+			__pragma (pack (pop))
+
 #else
 
 #	if LIMES_HAS_ATTRIBUTE(pure)
@@ -39,6 +45,10 @@
 #		define LIMES_PURE_FUNCTION _Pragma ("does_not_write_global_data")
 #	elif LIMES_ARM_COMPILER
 #		define LIMES_PURE_FUNCTION __pure
+#	endif
+
+#	if LIMES_HAS_ATTRIBUTE(__packed__)
+#		define LIMES_PACK(declaration) declaration __attribute__ ((__packed__))
 #	endif
 
 #	if defined(__SUNPRO_C) || defined(__SUNPRO_CC)
@@ -67,6 +77,7 @@
 
 #endif
 
+
 #ifndef LIMES_FORCE_INLINE
 #	define LIMES_FORCE_INLINE inline
 #endif
@@ -81,6 +92,10 @@
 
 #ifndef LIMES_PURE_FUNCTION
 #	define LIMES_PURE_FUNCTION
+#endif
+
+#ifndef LIMES_PACK
+#	define LIMES_PACK(declaration) declaration
 #endif
 
 /// @endcond

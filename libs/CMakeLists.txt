@@ -47,10 +47,6 @@ set_target_properties (
 	LimesDefaultLibrary PROPERTIES VERSION "${Limes_VERSION}" SOVERSION "${Limes_VERSION_MAJOR}"
 								   LABELS Limes FOLDER Limes/libs)
 
-include (OrangesDefaultTarget)
-include (OrangesIPO)
-include (OrangesUnityBuild)
-
 target_link_libraries (
 	LimesDefaultLibrary
 	INTERFACE Oranges::OrangesDefaultCXXTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>

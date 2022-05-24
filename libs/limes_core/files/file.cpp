@@ -28,11 +28,6 @@
 #include <cstdio>
 #include <atomic>
 
-#if LIMES_WINDOWS
-#	include <locale>  // for wstring_convert
-#	include <codecvt>
-#endif
-
 LIMES_BEGIN_NAMESPACE
 
 namespace files
@@ -201,25 +196,18 @@ File File::getCurrentModule()
 	return File { getModulePath() };
 }
 
-std::FILE* File::getCfile (char mode) const noexcept
+CFile File::getCfile (CFile::Mode mode) const noexcept
 {
 	if (! exists())
-		return nullptr;
+		return {};
 
 	try
 	{
-		const auto pathStr = getAbsolutePath().make_preferred();
-
-#if LIMES_WINDOWS
-		const auto str = std::wstring_convert<std::codecvt_utf8<wchar_t>> {}.to_bytes (pathStr);
-		return std::fopen (str.c_str(), &mode);
-#else
-		return std::fopen (pathStr.c_str(), &mode);
-#endif
+		return CFile { getAbsolutePath(), mode };
 	}
 	catch (std::exception&)
 	{
-		return nullptr;
+		return {};
 	}
 }
 

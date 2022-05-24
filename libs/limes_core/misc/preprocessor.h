@@ -51,28 +51,28 @@
 #define LIMES_CONCATENATE(item1, item2) LIMES_CONCATENATE_HELPER (item1, item2)
 
 
-#define LIMES_NON_COPYABLE(ClassName)                 \
-	ClassName (const ClassName&)			= delete; \
+#define LIMES_NON_COPYABLE(ClassName)      \
+	ClassName (const ClassName&) = delete; \
 	ClassName& operator= (const ClassName&) = delete
 
-#define LIMES_NON_MOVABLE(ClassName)             \
-	ClassName (ClassName&&)			   = delete; \
+#define LIMES_NON_MOVABLE(ClassName)  \
+	ClassName (ClassName&&) = delete; \
 	ClassName& operator= (ClassName&&) = delete
 
 
-#define LIMES_DEFAULT_COPYABLE(ClassName)              \
-	ClassName (const ClassName&)			= default; \
+#define LIMES_DEFAULT_COPYABLE(ClassName)   \
+	ClassName (const ClassName&) = default; \
 	ClassName& operator= (const ClassName&) = default
 
-#define LIMES_DEFAULT_MOVABLE(ClassName)          \
-	ClassName (ClassName&&)			   = default; \
+#define LIMES_DEFAULT_MOVABLE(ClassName) \
+	ClassName (ClassName&&) = default;   \
 	ClassName& operator= (ClassName&&) = default
 
 
-#define LIMES_CONSTEXPR_COPYABLE(ClassName)                      \
-	constexpr ClassName (const ClassName&)			  = default; \
+#define LIMES_CONSTEXPR_COPYABLE(ClassName)           \
+	constexpr ClassName (const ClassName&) = default; \
 	constexpr ClassName& operator= (const ClassName&) = default
 
-#define LIMES_CONSTEXPR_MOVABLE(ClassName)                  \
-	constexpr ClassName (ClassName&&)			 = default; \
+#define LIMES_CONSTEXPR_MOVABLE(ClassName)       \
+	constexpr ClassName (ClassName&&) = default; \
 	constexpr ClassName& operator= (ClassName&&) = default

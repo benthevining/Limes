@@ -26,6 +26,7 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
+/** Represents a square. */
 template <Scalar ValueType>
 class LIMES_EXPORT Square final : public TwoDShape<ValueType>
 {
@@ -33,31 +34,49 @@ public:
 
 	using Rect = Rectangle<ValueType>;
 
+	/** Creates a square with the specified side length (in unspecified units). */
 	explicit constexpr Square (ValueType sideLengthToUse) noexcept;
 
 	LIMES_CONSTEXPR_COPYABLE (Square);
 	LIMES_CONSTEXPR_MOVABLE (Square);
 
+	/** Returns the area of the square. */
 	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
+	/** Returns the perimeter of the square. */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
+	/** Returns the side length of the square. */
 	[[nodiscard]] constexpr ValueType sideLength() const noexcept;
 
+	/** Returns a rectangle object with the same dimensions as this square. */
 	[[nodiscard]] constexpr Rect getRectangle() const noexcept;
 
+	/** Returns the length of the internal diagonal of the rectangle. */
 	[[nodiscard]] ValueType diagonal() const noexcept;
 
+	/** Returns a triangle representing the rectangle bisected along its internal diagonal. */
 	[[nodiscard]] Triangle<ValueType> bisectDiagonal() const noexcept;
 
+	/** @name Equality comparisons
+		Squares are considered equal if their side lengths are equal.
+	 */
+	///@{
 	[[nodiscard]] constexpr bool operator== (const Square& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Square& other) const noexcept;
-
 	[[nodiscard]] constexpr bool operator== (const Rect& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Rect& other) const noexcept;
+	///@}
 
+	/** @name Greater/less than comparisons
+		Compares squares based on their areas.
+	 */
+	///@{
 	[[nodiscard]] constexpr bool operator> (const Square& other) const noexcept;
-	[[nodiscard]] constexpr bool operator<(const Square& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Square& other) const noexcept;
+	[[nodiscard]] constexpr bool operator> (const Rect& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Rect& other) const noexcept;
+	///@}
 
 private:
 
@@ -125,9 +144,21 @@ constexpr bool Square<ValueType>::operator> (const Square& other) const noexcept
 }
 
 template <Scalar ValueType>
-constexpr bool Square<ValueType>::operator<(const Square& other) const noexcept
+constexpr bool Square<ValueType>::operator< (const Square& other) const noexcept
 {
 	return side_length < other.side_length;
+}
+
+template <Scalar ValueType>
+constexpr bool Square<ValueType>::operator> (const Rect& other) const noexcept
+{
+	return area() > other.area();
+}
+
+template <Scalar ValueType>
+constexpr bool Square<ValueType>::operator< (const Rect& other) const noexcept
+{
+	return area() < other.area();
 }
 
 template <Scalar ValueType>

@@ -150,7 +150,8 @@ LIMES_DISABLE_ALL_COMPILER_WARNINGS
 #	endif
 #endif
 
-void breakInDebugger() noexcept {
+void breakInDebugger() noexcept
+{
 	LIMES_BREAK_IN_DEBUGGER
 }
 

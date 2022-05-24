@@ -177,6 +177,16 @@ File DynamicLibrary::getFile() const
 #endif
 }
 
+std::string DynamicLibrary::getName() const
+{
+	auto name = getFile().getFilename (false);
+
+	if (name.starts_with ("lib"))
+		name = name.substr (2, std::string::npos);
+
+	return name;
+}
+
 
 #if LIMES_APPLE
 

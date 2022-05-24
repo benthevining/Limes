@@ -100,10 +100,6 @@ set_target_properties (
 			   FOLDER Limes/programs
 			   EchoString "Building the Limes BinaryBuilder...")
 
-include (OrangesDefaultTarget)
-include (OrangesIPO)
-include (OrangesUnityBuild)
-
 target_link_libraries (
 	BinaryBuilder
 	PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>

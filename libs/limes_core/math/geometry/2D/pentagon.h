@@ -25,28 +25,50 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
+/** Represents a pentagon. */
 template <Scalar ValueType>
 class LIMES_EXPORT Pentagon final : public TwoDShape<ValueType>
 {
 public:
 
+	/** Creates a pentagon with the specified side length (in unspecified units). */
 	explicit constexpr Pentagon (ValueType sideLength) noexcept;
 
 	LIMES_CONSTEXPR_COPYABLE (Pentagon);
 	LIMES_CONSTEXPR_MOVABLE (Pentagon);
 
+	/** Returns the area of the pentagon. */
 	[[nodiscard]] ValueType area() const noexcept final;
 
+	/** Returns the perimeter of the pentagon. */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
+	/** Returns the length of the internal diagonal of the pentagon. */
 	[[nodiscard]] ValueType diagonal() const noexcept;
 
+	/** Returns the side length of the pentagon. */
 	[[nodiscard]] constexpr ValueType sideLength() const noexcept;
 
+	/** @name Equality comparisons
+		Pentagons are considered equal if their side length is the same.
+	 */
+	///@{
 	[[nodiscard]] constexpr bool operator== (const Pentagon& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Pentagon& other) const noexcept;
+	///@}
 
+	/** @name Greater/less than comparisons
+		Compares pentagons based on their areas.
+	 */
+	///@{
+	[[nodiscard]] constexpr bool operator> (const Pentagon& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Pentagon& other) const noexcept;
+	///@}
+
+	/** Returns the interior angle of any pentagon (108 degrees). */
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> interiorAngle() noexcept;
+
+	/** Returns the exterior angle of any pentagon (72 degrees). */
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> exteriorAngle() noexcept;
 
 private:
@@ -98,6 +120,18 @@ template <Scalar ValueType>
 constexpr bool Pentagon<ValueType>::operator!= (const Pentagon& other) const noexcept
 {
 	return side_length != other.side_length;
+}
+
+template <Scalar ValueType>
+constexpr bool Pentagon<ValueType>::operator> (const Pentagon& other) const noexcept
+{
+	return area() > other.area();
+}
+
+template <Scalar ValueType>
+constexpr bool Pentagon<ValueType>::operator< (const Pentagon& other) const noexcept
+{
+	return area() < other.area();
 }
 
 template <Scalar ValueType>

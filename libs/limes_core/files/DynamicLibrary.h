@@ -15,6 +15,7 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include <string_view>
+#include <string>
 #include "../misc/preprocessor.h"
 #include "file.h"
 
@@ -23,7 +24,9 @@ LIMES_BEGIN_NAMESPACE
 namespace files
 {
 
-/** This class represents a dynamically loaded library. */
+/** This class represents a dynamically loaded library.
+	On Unixes, this is the equivalent of \c dlopen() .
+ */
 class LIMES_EXPORT DynamicLibrary final
 {
 public:
@@ -31,7 +34,7 @@ public:
 	/** @name Constructors */
 	///@{
 
-	/** Creates an unopened library object. Call open() to actually open a library. */
+	/** Creates an unopened library object. Call \c open() to actually open a library. */
 	DynamicLibrary() = default;
 
 	/** Creates a library object and attempts to open the specified library. */
@@ -71,8 +74,13 @@ public:
 	/** Closes the shared library, if one is open. */
 	void close();
 
-	/** Attempts to locate the file on disk where the code for the current shared library is actually located. */
+	/** Attempts to locate the file on disk where the code for the current shared library is actually located.
+		If the library isn't open, returns a null file.
+	 */
 	[[nodiscard]] File getFile() const;
+
+	/** Attempts to determine the name of the library, if it is open. If the library isn't open, returns an empty string. */
+	[[nodiscard]] std::string getName() const;
 
 private:
 

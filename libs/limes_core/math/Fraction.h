@@ -51,13 +51,13 @@ struct LIMES_EXPORT Fraction final
 	[[nodiscard]] constexpr bool operator> (const Fraction<T>& other) const noexcept;
 
 	template <typename T>
-	[[nodiscard]] constexpr bool operator<(const Fraction<T>& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Fraction<T>& other) const noexcept;
 
 	template <typename T>
 	[[nodiscard]] constexpr bool operator> (T value) const noexcept;
 
 	template <typename T>
-	[[nodiscard]] constexpr bool operator<(T value) const noexcept;
+	[[nodiscard]] constexpr bool operator< (T value) const noexcept;
 
 	[[nodiscard]] constexpr Fraction operator+ (const Fraction& other) const noexcept;
 	[[nodiscard]] constexpr Fraction operator- (const Fraction& other) const noexcept;

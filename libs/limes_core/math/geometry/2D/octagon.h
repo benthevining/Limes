@@ -25,26 +25,47 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
+/** Represents an octagon. */
 template <Scalar ValueType>
 class LIMES_EXPORT Octagon final : public TwoDShape<ValueType>
 {
 public:
 
+	/** Creates an octagon with the specified side length (in unspecified units). */
 	explicit constexpr Octagon (ValueType sideLength) noexcept;
 
 	LIMES_CONSTEXPR_COPYABLE (Octagon);
 	LIMES_CONSTEXPR_MOVABLE (Octagon);
 
+	/** Returns the area of the octagon. */
 	[[nodiscard]] ValueType area() const noexcept final;
 
+	/** Returns the perimeter of the octagon. */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
+	/** Returns the side length of the octagon. */
 	[[nodiscard]] constexpr ValueType sideLength() const noexcept;
 
+	/** @name Equality comparisons
+		Octagons are considered equal if their side length is the same.
+	 */
+	///@{
 	[[nodiscard]] constexpr bool operator== (const Octagon& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Octagon& other) const noexcept;
+	///@}
 
+	/** @name Greater/less than comparisons
+		Compares octagons based on their areas.
+	 */
+	///@{
+	[[nodiscard]] constexpr bool operator> (const Octagon& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Octagon& other) const noexcept;
+	///@}
+
+	/** Returns the interior angle of any octagon (135 degrees). */
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> interiorAngle() noexcept;
+
+	/** Returns the exterior angle of any octagon (45 degrees). */
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> exteriorAngle() noexcept;
 
 private:
@@ -88,6 +109,18 @@ template <Scalar ValueType>
 constexpr bool Octagon<ValueType>::operator!= (const Octagon& other) const noexcept
 {
 	return side_length != other.side_length;
+}
+
+template <Scalar ValueType>
+constexpr bool Octagon<ValueType>::operator> (const Octagon& other) const noexcept
+{
+	return area() > other.area();
+}
+
+template <Scalar ValueType>
+constexpr bool Octagon<ValueType>::operator< (const Octagon& other) const noexcept
+{
+	return area() < other.area();
 }
 
 template <Scalar ValueType>

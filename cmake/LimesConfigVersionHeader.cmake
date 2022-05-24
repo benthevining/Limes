@@ -12,7 +12,7 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
-include (OrangesCmakeDevTools)
+include (OrangesFunctionArgumentHelpers)
 include (GNUInstallDirs)
 
 set (limes_header_input "${CMAKE_CURRENT_LIST_DIR}/scripts/VersionHeader.h" CACHE INTERNAL "")

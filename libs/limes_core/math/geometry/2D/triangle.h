@@ -26,55 +26,38 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
+/** Represents a triangle. */
 template <Scalar ValueType>
 class LIMES_EXPORT Triangle final : public TwoDShape<ValueType>
 {
 public:
 
+	/** @name Constructors */
+	///@{
+	/** Creates a triangle with all three side lengths explicitly specified. */
 	explicit constexpr Triangle (ValueType base, ValueType height, ValueType hypotenuse) noexcept;
 
+	/** Creates a triangle from one side length and two angles.
+		@param sideLength The length of one of the sides.
+		@param oppositeAngle The angle opposite the side \c sideLength
+		@param anotherAngle Another angle of the triangle
+	 */
 	explicit Triangle (ValueType sideLength, const Angle<ValueType>& oppositeAngle, const Angle<ValueType>& anotherAngle);
 
+	/** Creates a triangle from two side lengths and the angle between them. */
 	explicit Triangle (ValueType sideOne, ValueType sideTwo, const Angle<ValueType>& angleBetweenThem);
+	///@}
 
 	LIMES_CONSTEXPR_COPYABLE (Triangle);
 	LIMES_CONSTEXPR_MOVABLE (Triangle);
 
+	/** Returns the area of the triangle. */
 	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
+	/** Returns the perimeter of the triangle. */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
-	[[nodiscard]] constexpr ValueType base() const noexcept;
-
-	[[nodiscard]] constexpr ValueType height() const noexcept;
-
-	[[nodiscard]] constexpr ValueType hypotenuse() const noexcept;
-
-	[[nodiscard]] constexpr ValueType altitude() const noexcept;
-
-	constexpr bool isEquilateral() const noexcept;
-
-	constexpr bool isIsosceles() const noexcept;
-
-	[[nodiscard]] constexpr bool isScalene() const noexcept;
-
-	[[nodiscard]] constexpr bool isRight() const noexcept;
-
-	[[nodiscard]] constexpr bool isAcute() const noexcept;
-
-	[[nodiscard]] constexpr bool isObtuse() const noexcept;
-
-	[[nodiscard]] bool isSimilarTo (const Triangle& other) const noexcept;
-
-	[[nodiscard]] constexpr bool operator== (const Triangle& other) const noexcept;
-	[[nodiscard]] constexpr bool operator!= (const Triangle& other) const noexcept;
-
-	[[nodiscard]] Angle<ValueType> getBaseAngle() const noexcept;
-
-	[[nodiscard]] Angle<ValueType> getHeightAngle() const noexcept;
-
-	[[nodiscard]] Angle<ValueType> getHypotenuseAngle() const noexcept;
-
+	/** Identifies the sides of a triangle. */
 	enum class Side
 	{
 		base,
@@ -82,10 +65,72 @@ public:
 		hypotenuse
 	};
 
-	[[nodiscard]] Angle<ValueType> getAngle (Side side) const noexcept;
+	/** @name Side length queries */
+	///@{
+	/** Returns the length of the triangle's base side. */
+	[[nodiscard]] constexpr ValueType base() const noexcept;
 
+	/** Returns the length of the triangle's height side. */
+	[[nodiscard]] constexpr ValueType height() const noexcept;
+
+	/** Returns the length of the triangle's hypotenuse side. */
+	[[nodiscard]] constexpr ValueType hypotenuse() const noexcept;
+
+	/** Returns the length of the requested side. */
 	[[nodiscard]] ValueType getSide (Side side) const noexcept;
+	///@}
 
+	/** Returns the length of the vertical altitude from the triangle's base to the point opposite the base. */
+	[[nodiscard]] constexpr ValueType altitude() const noexcept;
+
+	/** @name Triangle type queries */
+	///@{
+	/** Returns true if all three sides are the same length. */
+	constexpr bool isEquilateral() const noexcept;
+
+	/** Returns true if two sides have the same length. */
+	constexpr bool isIsosceles() const noexcept;
+
+	/** Returns true if no two sides are the same length. */
+	[[nodiscard]] constexpr bool isScalene() const noexcept;
+
+	/** Returns true if one of the angles is a right angle. */
+	[[nodiscard]] constexpr bool isRight() const noexcept;
+
+	/** Returns true if all three angles are acute. */
+	[[nodiscard]] constexpr bool isAcute() const noexcept;
+
+	/** Returns true if one angle is obtuse. */
+	[[nodiscard]] constexpr bool isObtuse() const noexcept;
+	///@}
+
+	/** Returns true if the two triangles have the same angle measures, regardless of their side lengths. */
+	[[nodiscard]] bool isSimilarTo (const Triangle& other) const noexcept;
+
+	/** @name Equality comparisons
+		Triangles are considered equal if all three sides have the same length.
+	 */
+	///@{
+	[[nodiscard]] constexpr bool operator== (const Triangle& other) const noexcept;
+	[[nodiscard]] constexpr bool operator!= (const Triangle& other) const noexcept;
+	///@}
+
+	/** @name Angle queries */
+	///@{
+	/** Returns the angle opposite the base side. */
+	[[nodiscard]] Angle<ValueType> getBaseAngle() const noexcept;
+
+	/** Returns the angle opposite the height side. */
+	[[nodiscard]] Angle<ValueType> getHeightAngle() const noexcept;
+
+	/** Returns the angle opposite the hypotenuse side. */
+	[[nodiscard]] Angle<ValueType> getHypotenuseAngle() const noexcept;
+
+	/** Returns the angle opposite the requested side. */
+	[[nodiscard]] Angle<ValueType> getAngle (Side side) const noexcept;
+	///@}
+
+	/** Returns a new triangle created by bisecting the requested side of the current triangle. */
 	[[nodiscard]] Triangle bisect (Side side = Side::base) const noexcept;
 
 private:

@@ -25,26 +25,47 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
+/** Represents a hexagon. */
 template <Scalar ValueType>
 class LIMES_EXPORT Hexagon final : public TwoDShape<ValueType>
 {
 public:
 
+	/** Creates a hexagon with the specified side length (in unspecified units). */
 	explicit constexpr Hexagon (ValueType sideLength) noexcept;
 
 	LIMES_CONSTEXPR_COPYABLE (Hexagon);
 	LIMES_CONSTEXPR_MOVABLE (Hexagon);
 
+	/** Returns the area of the hexagon. */
 	[[nodiscard]] ValueType area() const noexcept final;
 
+	/** Returns the perimeter of the hexagon. */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
+	/** Returns the side length of the hexagon. */
 	[[nodiscard]] constexpr ValueType sideLength() const noexcept;
 
+	/** @name Equality comparisons
+		Hexagons are considered equal if their side length is the same.
+	 */
+	///@{
 	[[nodiscard]] constexpr bool operator== (const Hexagon& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Hexagon& other) const noexcept;
+	///@}
 
+	/** @name Greater/less than comparisons
+		Compares hexagons based on their areas.
+	 */
+	///@{
+	[[nodiscard]] constexpr bool operator> (const Hexagon& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Hexagon& other) const noexcept;
+	///@}
+
+	/** Returns the interior angle of any hexagon (120 degrees). */
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> interiorAngle() noexcept;
+
+	/** Returns the exterior angle of any hexagon (60 degrees). */
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> exteriorAngle() noexcept;
 
 private:
@@ -88,6 +109,18 @@ template <Scalar ValueType>
 constexpr bool Hexagon<ValueType>::operator!= (const Hexagon& other) const noexcept
 {
 	return side_length != other.side_length;
+}
+
+template <Scalar ValueType>
+constexpr bool Hexagon<ValueType>::operator> (const Hexagon& other) const noexcept
+{
+	return area() > other.area();
+}
+
+template <Scalar ValueType>
+constexpr bool Hexagon<ValueType>::operator< (const Hexagon& other) const noexcept
+{
+	return area() < other.area();
 }
 
 template <Scalar ValueType>

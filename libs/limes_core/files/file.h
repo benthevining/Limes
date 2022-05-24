@@ -23,14 +23,16 @@
 #include "FilesystemEntry.h"	// for FilesystemEntry, Path
 #include <functional>			// for std::hash
 #include "../misc/preprocessor.h"
-#include <cstdio>
+#include "CFile.h"
 
 LIMES_BEGIN_NAMESPACE
 
 namespace files
 {
 
-/** This class represents a file on the filesystem. */
+/** This class represents a file on the filesystem.
+	@see CFile
+ */
 class LIMES_EXPORT File : public FilesystemEntry
 {
 public:
@@ -113,11 +115,11 @@ public:
 	/** Calculates a hash of the file's content using the specified hash type. */
 	[[nodiscard]] std::string hash (hash::Type hashType) const;
 
-	/** Returns a C-style \c FILE* referring to this file.
+	/** Returns a CFile referring to this file.
 		This will return a nullptr if the file does not exist.
-		@param mode Any of the valid modes for \c std::fopen() . Most commonly \c r for "read" or \c w for "write".
+		@see CFile
 	 */
-	[[nodiscard]] std::FILE* getCfile (char mode = 'r') const noexcept;
+	[[nodiscard]] CFile getCfile (CFile::Mode mode = CFile::Mode::Read) const noexcept;
 
 	/** Returns a file representing the location of the executable file that launched the current process.
 		Note that the file returned by this function may not exist anymore; on some Unixes, it is perfectly legal to delete an executable file while the executable is still running.

@@ -32,6 +32,7 @@ class Directory;
 class File;
 class SymLink;
 
+/** Convenience typedef for filesystem paths. */
 using Path = std::filesystem::path;
 
 /** The base class for any kind of object in the filesystem.
@@ -97,9 +98,9 @@ public:
 		Lexicographically compares this filesystem entry's absolute path with another path.
 	 */
 	///@{
-	[[nodiscard]] bool operator<(const FilesystemEntry& other) const noexcept;
+	[[nodiscard]] bool operator< (const FilesystemEntry& other) const noexcept;
 	[[nodiscard]] bool operator> (const FilesystemEntry& other) const noexcept;
-	[[nodiscard]] bool operator<(const Path& other) const noexcept;
+	[[nodiscard]] bool operator< (const Path& other) const noexcept;
 	[[nodiscard]] bool operator> (const Path& other) const noexcept;
 	///@}
 

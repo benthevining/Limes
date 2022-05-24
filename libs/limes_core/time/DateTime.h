@@ -60,7 +60,7 @@ public:
 	[[nodiscard]] std::string toString (bool as24HourTime = true, bool shortMonthName = true) const;
 
 	[[nodiscard]] constexpr bool operator> (const DateTime& other) const noexcept;
-	[[nodiscard]] constexpr bool operator<(const DateTime& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const DateTime& other) const noexcept;
 
 	[[nodiscard]] constexpr bool operator== (const DateTime& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const DateTime& other) const noexcept;
@@ -139,7 +139,7 @@ constexpr bool DateTime::operator> (const DateTime& other) const noexcept
 	return isAfter (other);
 }
 
-constexpr bool DateTime::operator<(const DateTime& other) const noexcept
+constexpr bool DateTime::operator< (const DateTime& other) const noexcept
 {
 	return isBefore (other);
 }

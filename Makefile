@@ -59,7 +59,9 @@ help:  ## Print this message
 .PHONY: init
 init:  ## Initializes the workspace and installs all dependencies
 	@chmod +x $(LIMES_ROOT)/scripts/build_all.sh
-	@cd $(LIMES_ROOT) && $(PRECOMMIT) install --install-hooks --overwrite && $(PRECOMMIT) install --install-hooks --overwrite --hook-type commit-msg
+	@cd $(LIMES_ROOT) && \
+		$(PRECOMMIT) install --install-hooks --overwrite && \
+		$(PRECOMMIT) install --install-hooks --overwrite --hook-type commit-msg
 
 #
 

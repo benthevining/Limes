@@ -37,7 +37,10 @@ enum class Type
 	sha512
 };
 
-/** A base class representing an object that calculates a hash function. */
+/** A base class representing an object that calculates a hash function.
+	You should call the \c update() method with any data that needs to be hashed, and then call \c getHash() to finalize the internal calculations and retrieve the final hash value.
+	You shouldn't call \c update() again after calling \c getHash() .
+ */
 class LIMES_EXPORT Hasher
 {
 public:
