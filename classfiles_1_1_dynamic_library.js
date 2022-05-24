@@ -9,6 +9,7 @@ var classfiles_1_1_dynamic_library =
     [ "findFunction", "classfiles_1_1_dynamic_library.html#a034c23f98cca3c07b31a77e955597d41", null ],
     [ "getFile", "classfiles_1_1_dynamic_library.html#a0d4474b499d2258dcca5c72cab3dbb56", null ],
     [ "getHandle", "classfiles_1_1_dynamic_library.html#aa176a2ad1647ff69fde8124dccb9af1b", null ],
+    [ "getName", "classfiles_1_1_dynamic_library.html#aadd28016ec5bcbb99ec5fb802342ddd3", null ],
     [ "isOpen", "classfiles_1_1_dynamic_library.html#a3fc98da3aad0f3df592a8d28800aef57", null ],
     [ "open", "classfiles_1_1_dynamic_library.html#a7fac326ab0c7f3604d07143286b4d851", null ],
     [ "operator!=", "classfiles_1_1_dynamic_library.html#a4f7874ea2e87219391bfec3a937079dc", null ],

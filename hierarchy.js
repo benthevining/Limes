@@ -32,7 +32,9 @@ var hierarchy =
     [ "basic_vector< std::unique_ptr< Grain >, std::allocator< std::unique_ptr< Grain >> >", null, [
       [ "ds::owned_vector< Grain >", "classds_1_1owned__vector.html", null ]
     ] ],
+    [ "misc::BitField< StorageType >", "structmisc_1_1_bit_field.html", null ],
     [ "func::CallDeferred< Func >", "classfunc_1_1_call_deferred.html", null ],
+    [ "files::CFile", "classfiles_1_1_c_file.html", null ],
     [ "music::Chord", "classmusic_1_1_chord.html", null ],
     [ "dsp::CircularBuffer< SampleType >", "classdsp_1_1_circular_buffer.html", null ],
     [ "dsp::filters::Coeffecients< Sampletype >", "classdsp_1_1filters_1_1_coeffecients.html", null ],
@@ -143,9 +145,9 @@ var hierarchy =
     [ "func::RAIICaller< Function1, Function2 >", "classfunc_1_1_r_a_i_i_caller.html", null ],
     [ "math::Random", "classmath_1_1_random.html", null ],
     [ "memory::RawData", "classmemory_1_1_raw_data.html", null ],
-    [ "memory::StackAllocator< T, N, Align >::rebind< _Up >", "structmemory_1_1_stack_allocator_1_1rebind.html", null ],
     [ "memory::AlignedAllocator< T, Alignment, UseExceptions >::rebind< U >", "structmemory_1_1_aligned_allocator_1_1rebind.html", null ],
     [ "memory::MemoryPoolAllocator< T, MaxCapacity >::rebind< U >", "structmemory_1_1_memory_pool_allocator_1_1rebind.html", null ],
+    [ "memory::StackAllocator< T, N, Align >::rebind< _Up >", "structmemory_1_1_stack_allocator_1_1rebind.html", null ],
     [ "memory::ReferenceCountedObject", "classmemory_1_1_reference_counted_object.html", [
       [ "memory::SharedObject< SuperType >", "structmemory_1_1_shared_object.html", null ]
     ] ],

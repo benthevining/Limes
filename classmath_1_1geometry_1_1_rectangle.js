@@ -9,9 +9,11 @@ var classmath_1_1geometry_1_1_rectangle =
     [ "isSquare", "classmath_1_1geometry_1_1_rectangle.html#ab31bdcd15467106ddbb07ee6771b1f14", null ],
     [ "length", "classmath_1_1geometry_1_1_rectangle.html#afcfe454af8808fd560719dfdc131d03b", null ],
     [ "operator!=", "classmath_1_1geometry_1_1_rectangle.html#a71a778158bac51f462be251897e14ad3", null ],
+    [ "operator<", "classmath_1_1geometry_1_1_rectangle.html#ad26cb7f42f1dadb486041211f3bca799", null ],
     [ "operator=", "classmath_1_1geometry_1_1_rectangle.html#a72fb610c81fc2b3d03c470474f22f594", null ],
     [ "operator=", "classmath_1_1geometry_1_1_rectangle.html#afc886461c13d920f49d42bd0dc1381bc", null ],
     [ "operator==", "classmath_1_1geometry_1_1_rectangle.html#a99d70ece296018eb9e0450b678edd812", null ],
+    [ "operator>", "classmath_1_1geometry_1_1_rectangle.html#aac3e74058612423bc8d1cf9a35a990cf", null ],
     [ "perimeter", "classmath_1_1geometry_1_1_rectangle.html#a097c6156a749c27d3578ace8deed5141", null ],
     [ "width", "classmath_1_1geometry_1_1_rectangle.html#aeb6f07ce9663fbbfbb0b50037020565a", null ]
 ];

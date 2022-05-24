@@ -91,6 +91,9 @@ $(document).ready(function(){initNavTree('classmath_1_1geometry_1_1_square.html'
 </div><!--header-->
 <div class="contents">
 
+<p>Represents a square.  
+ <a href="classmath_1_1geometry_1_1_square.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="square_8h_source.html">square.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for math::geometry::Square&lt; ValueType &gt;:</div>
@@ -113,42 +116,60 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a85b2a282a8f2256a6440a5f1d7645d60"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#a85b2a282a8f2256a6440a5f1d7645d60">Square</a> (<a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:a85b2a282a8f2256a6440a5f1d7645d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a066e5f4b3bbe790737ed437acc0e6fb0"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#a066e5f4b3bbe790737ed437acc0e6fb0">Square</a> (ValueType sideLengthToUse) noexcept</td></tr>
+<tr class="memdesc:a066e5f4b3bbe790737ed437acc0e6fb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a square with the specified side length (in unspecified units).  <a href="classmath_1_1geometry_1_1_square.html#a066e5f4b3bbe790737ed437acc0e6fb0">More...</a><br /></td></tr>
 <tr class="separator:a066e5f4b3bbe790737ed437acc0e6fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40c3e591191ebc40d77aa8b199be8b68"><td class="memItemLeft" align="right" valign="top">constexpr ValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#a40c3e591191ebc40d77aa8b199be8b68">area</a> () const noexcept final</td></tr>
+<tr class="memdesc:a40c3e591191ebc40d77aa8b199be8b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the area of the square.  <a href="classmath_1_1geometry_1_1_square.html#a40c3e591191ebc40d77aa8b199be8b68">More...</a><br /></td></tr>
 <tr class="separator:a40c3e591191ebc40d77aa8b199be8b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5914565a6ed2f162038af74927e188be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmath_1_1geometry_1_1_triangle.html">Triangle</a>&lt; ValueType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#a5914565a6ed2f162038af74927e188be">bisectDiagonal</a> () const noexcept</td></tr>
+<tr class="memdesc:a5914565a6ed2f162038af74927e188be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a triangle representing the rectangle bisected along its internal diagonal.  <a href="classmath_1_1geometry_1_1_square.html#a5914565a6ed2f162038af74927e188be">More...</a><br /></td></tr>
 <tr class="separator:a5914565a6ed2f162038af74927e188be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e21acc3a53e76487e9e1b5337d3eeb0"><td class="memItemLeft" align="right" valign="top">ValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#a1e21acc3a53e76487e9e1b5337d3eeb0">diagonal</a> () const noexcept</td></tr>
+<tr class="memdesc:a1e21acc3a53e76487e9e1b5337d3eeb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length of the internal diagonal of the rectangle.  <a href="classmath_1_1geometry_1_1_square.html#a1e21acc3a53e76487e9e1b5337d3eeb0">More...</a><br /></td></tr>
 <tr class="separator:a1e21acc3a53e76487e9e1b5337d3eeb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9649952e7fa1ba97de2c2c1e6096fa27"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classmath_1_1geometry_1_1_square.html#a6dcde90c0aef498c783d8e31f9ad53c7">Rect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#a9649952e7fa1ba97de2c2c1e6096fa27">getRectangle</a> () const noexcept</td></tr>
+<tr class="memdesc:a9649952e7fa1ba97de2c2c1e6096fa27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a rectangle object with the same dimensions as this square.  <a href="classmath_1_1geometry_1_1_square.html#a9649952e7fa1ba97de2c2c1e6096fa27">More...</a><br /></td></tr>
 <tr class="separator:a9649952e7fa1ba97de2c2c1e6096fa27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab76f9dcc78e0fd4bee655cb07041f665"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#ab76f9dcc78e0fd4bee655cb07041f665">operator!=</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html#a6dcde90c0aef498c783d8e31f9ad53c7">Rect</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:ab76f9dcc78e0fd4bee655cb07041f665"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1995c141b55ab55b78cd18bb8f33683"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#ac1995c141b55ab55b78cd18bb8f33683">operator!=</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:ac1995c141b55ab55b78cd18bb8f33683"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afce33b8c2ee32a07248c6bc8a7986638"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#afce33b8c2ee32a07248c6bc8a7986638">operator&lt;</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:afce33b8c2ee32a07248c6bc8a7986638"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57fdf6896c9928f1634573473960e864"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#a57fdf6896c9928f1634573473960e864">operator=</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a> &amp;)=default</td></tr>
 <tr class="separator:a57fdf6896c9928f1634573473960e864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3266a6b987e5edd0ee773823a39c834f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#a3266a6b987e5edd0ee773823a39c834f">operator=</a> (<a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:a3266a6b987e5edd0ee773823a39c834f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ae3dad55d9de5d4ea7f5ada85d32e40"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#a1ae3dad55d9de5d4ea7f5ada85d32e40">operator==</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html#a6dcde90c0aef498c783d8e31f9ad53c7">Rect</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:a1ae3dad55d9de5d4ea7f5ada85d32e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa64c928995fa3ce0a3b6faea3eea4b4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#aaa64c928995fa3ce0a3b6faea3eea4b4">operator==</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:aaa64c928995fa3ce0a3b6faea3eea4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae14c6bf5799beb02e4bfd2d48cdb23e0"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#ae14c6bf5799beb02e4bfd2d48cdb23e0">operator&gt;</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:ae14c6bf5799beb02e4bfd2d48cdb23e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafa6f4508f0037713064609da4933582"><td class="memItemLeft" align="right" valign="top">constexpr ValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#aafa6f4508f0037713064609da4933582">perimeter</a> () const noexcept final</td></tr>
+<tr class="memdesc:aafa6f4508f0037713064609da4933582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the perimeter of the square.  <a href="classmath_1_1geometry_1_1_square.html#aafa6f4508f0037713064609da4933582">More...</a><br /></td></tr>
 <tr class="separator:aafa6f4508f0037713064609da4933582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab44da1994a2237b8435ec11e5abcbfb4"><td class="memItemLeft" align="right" valign="top">constexpr ValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#ab44da1994a2237b8435ec11e5abcbfb4">sideLength</a> () const noexcept</td></tr>
+<tr class="memdesc:ab44da1994a2237b8435ec11e5abcbfb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the side length of the square.  <a href="classmath_1_1geometry_1_1_square.html#ab44da1994a2237b8435ec11e5abcbfb4">More...</a><br /></td></tr>
 <tr class="separator:ab44da1994a2237b8435ec11e5abcbfb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Equality comparisons</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Squares are considered equal if their side lengths are equal. </p>
+</div></td></tr>
+<tr class="memitem:aaa64c928995fa3ce0a3b6faea3eea4b4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#aaa64c928995fa3ce0a3b6faea3eea4b4">operator==</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:aaa64c928995fa3ce0a3b6faea3eea4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1995c141b55ab55b78cd18bb8f33683"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#ac1995c141b55ab55b78cd18bb8f33683">operator!=</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:ac1995c141b55ab55b78cd18bb8f33683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ae3dad55d9de5d4ea7f5ada85d32e40"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#a1ae3dad55d9de5d4ea7f5ada85d32e40">operator==</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html#a6dcde90c0aef498c783d8e31f9ad53c7">Rect</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a1ae3dad55d9de5d4ea7f5ada85d32e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab76f9dcc78e0fd4bee655cb07041f665"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#ab76f9dcc78e0fd4bee655cb07041f665">operator!=</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html#a6dcde90c0aef498c783d8e31f9ad53c7">Rect</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:ab76f9dcc78e0fd4bee655cb07041f665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Greater/less than comparisons</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Compares squares based on their areas. </p>
+</div></td></tr>
+<tr class="memitem:ae14c6bf5799beb02e4bfd2d48cdb23e0"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#ae14c6bf5799beb02e4bfd2d48cdb23e0">operator&gt;</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:ae14c6bf5799beb02e4bfd2d48cdb23e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afce33b8c2ee32a07248c6bc8a7986638"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#afce33b8c2ee32a07248c6bc8a7986638">operator&lt;</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:afce33b8c2ee32a07248c6bc8a7986638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca63f32720dda9e29acb72c18095a590"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#aca63f32720dda9e29acb72c18095a590">operator&gt;</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html#a6dcde90c0aef498c783d8e31f9ad53c7">Rect</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:aca63f32720dda9e29acb72c18095a590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a307296196e3d99976a9a2de30a254d9e"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmath_1_1geometry_1_1_square.html#a307296196e3d99976a9a2de30a254d9e">operator&lt;</a> (const <a class="el" href="classmath_1_1geometry_1_1_square.html#a6dcde90c0aef498c783d8e31f9ad53c7">Rect</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a307296196e3d99976a9a2de30a254d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;Scalar ValueType&gt;<br />
 class math::geometry::Square&lt; ValueType &gt;</h3>
 
+<p>Represents a square. </p>
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00030">30</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00031">31</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a6dcde90c0aef498c783d8e31f9ad53c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6dcde90c0aef498c783d8e31f9ad53c7">&#9670;&nbsp;</a></span>Rect</h2>
@@ -164,7 +185,7 @@ template&lt;Scalar ValueType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00034">34</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00035">35</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 </div>
 </div>
@@ -195,7 +216,9 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00085">85</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p>Creates a square with the specified side length (in unspecified units). </p>
+
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00104">104</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 <p class="reference">References <a class="el" href="limes__assert_8h_source.html#l00074">LIMES_ASSERT</a>.</p>
 
@@ -280,9 +303,11 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the area of the square. </p>
+
 <p>Implements <a class="el" href="classmath_1_1geometry_1_1_two_d_shape.html#a50c6bec0ea940e4121beaea9a0a482db">math::geometry::TwoDShape&lt; ValueType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00092">92</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00111">111</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 </div>
 </div>
@@ -308,7 +333,9 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00148">148</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p>Returns a triangle representing the rectangle bisected along its internal diagonal. </p>
+
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00179">179</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 </div>
 </div>
@@ -334,7 +361,9 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00140">140</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p>Returns the length of the internal diagonal of the rectangle. </p>
+
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00171">171</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 </div>
 </div>
@@ -360,7 +389,9 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00134">134</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p>Returns a rectangle object with the same dimensions as this square. </p>
+
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00165">165</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 </div>
 </div>
@@ -390,7 +421,7 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00165">165</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00196">196</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 </div>
 </div>
@@ -420,12 +451,42 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00116">116</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00135">135</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+
+</div>
+</div>
+<a id="a307296196e3d99976a9a2de30a254d9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a307296196e3d99976a9a2de30a254d9e">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar ValueType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool <a class="el" href="classmath_1_1geometry_1_1_square.html">math::geometry::Square</a>&lt; ValueType &gt;::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmath_1_1geometry_1_1_square.html#a6dcde90c0aef498c783d8e31f9ad53c7">Rect</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00159">159</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 </div>
 </div>
 <a id="afce33b8c2ee32a07248c6bc8a7986638"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afce33b8c2ee32a07248c6bc8a7986638">&#9670;&nbsp;</a></span>operator&lt;()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afce33b8c2ee32a07248c6bc8a7986638">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -450,7 +511,7 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00128">128</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00147">147</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 </div>
 </div>
@@ -536,7 +597,7 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00156">156</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00187">187</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 </div>
 </div>
@@ -566,12 +627,42 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00110">110</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00129">129</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+
+</div>
+</div>
+<a id="aca63f32720dda9e29acb72c18095a590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca63f32720dda9e29acb72c18095a590">&#9670;&nbsp;</a></span>operator&gt;() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar ValueType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool <a class="el" href="classmath_1_1geometry_1_1_square.html">math::geometry::Square</a>&lt; ValueType &gt;::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmath_1_1geometry_1_1_square.html#a6dcde90c0aef498c783d8e31f9ad53c7">Rect</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00153">153</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 </div>
 </div>
 <a id="ae14c6bf5799beb02e4bfd2d48cdb23e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae14c6bf5799beb02e4bfd2d48cdb23e0">&#9670;&nbsp;</a></span>operator&gt;()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae14c6bf5799beb02e4bfd2d48cdb23e0">&#9670;&nbsp;</a></span>operator&gt;() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -596,7 +687,7 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00122">122</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00141">141</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 </div>
 </div>
@@ -622,9 +713,11 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the perimeter of the square. </p>
+
 <p>Implements <a class="el" href="classmath_1_1geometry_1_1_two_d_shape.html#aee84170522fdabeb5548afc4915321a9">math::geometry::TwoDShape&lt; ValueType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00098">98</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00117">117</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 </div>
 </div>
@@ -650,7 +743,9 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00104">104</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
+<p>Returns the side length of the square. </p>
+
+<p class="definition">Definition at line <a class="el" href="square_8h_source.html#l00123">123</a> of file <a class="el" href="square_8h_source.html">square.h</a>.</p>
 
 </div>
 </div>
@@ -663,7 +758,7 @@ template&lt;Scalar ValueType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemath.html">math</a></li><li class="navelem"><a class="el" href="namespacemath_1_1geometry.html">geometry</a></li><li class="navelem"><a class="el" href="classmath_1_1geometry_1_1_square.html">Square</a></li>
-    <li class="footer">Generated on Sat May 21 2022 08:23:31 for Limes by
+    <li class="footer">Generated on Tue May 24 2022 05:18:49 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

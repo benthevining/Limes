@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['type_2811',['Type',['../classmusic_1_1scales_1_1_key_signature.html#a86c125eacdf13feff21a88a3cab6d321',1,'music::scales::KeySignature::Type()'],['../classmusic_1_1scales_1_1_mode.html#a21d99d5c4373dcf7cd222335cf32bfad',1,'music::scales::Mode::Type()'],['../namespacehash.html#add3ce0ac3d3c8404d1b002ab4e064db9',1,'hash::Type()']]]
+  ['side_2834',['Side',['../classmath_1_1geometry_1_1_triangle.html#acecb461fd2ad8660cfcacc697de6bbe8',1,'math::geometry::Triangle']]],
+  ['stereoreductionmode_2835',['StereoReductionMode',['../group__lemons__stereo__conversion.html#gab1a12ea0ed30dd9ebf7c261a68dc1d73',1,'dsp']]]
 ];

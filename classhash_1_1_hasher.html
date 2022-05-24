@@ -120,8 +120,9 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A base class representing an object that calculates a hash function. </p>
+<p>You should call the <code><a class="el" href="classhash_1_1_hasher.html#a9dca4b7dea9a080b4e4da5ab84cc23f2" title="Updates the internal state of the hasher with some new data.">update()</a></code> method with any data that needs to be hashed, and then call <code><a class="el" href="classhash_1_1_hasher.html#abd33dbf72b84d4613a2bb582a80928de" title="Retrieves the calculated hash value as a string.">getHash()</a></code> to finalize the internal calculations and retrieve the final hash value. You shouldn't call <code><a class="el" href="classhash_1_1_hasher.html#a9dca4b7dea9a080b4e4da5ab84cc23f2" title="Updates the internal state of the hasher with some new data.">update()</a></code> again after calling <code><a class="el" href="classhash_1_1_hasher.html#abd33dbf72b84d4613a2bb582a80928de" title="Retrieves the calculated hash value as a string.">getHash()</a></code> . </p>
 
-<p class="definition">Definition at line <a class="el" href="hash_8h_source.html#l00041">41</a> of file <a class="el" href="hash_8h_source.html">hash.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hash_8h_source.html#l00044">44</a> of file <a class="el" href="hash_8h_source.html">hash.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1fb8089c01dc0914c3744b66aad5af69"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1fb8089c01dc0914c3744b66aad5af69">&#9670;&nbsp;</a></span>~Hasher()</h2>
@@ -249,7 +250,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacehash.html">hash</a></li><li class="navelem"><a class="el" href="classhash_1_1_hasher.html">Hasher</a></li>
-    <li class="footer">Generated on Sat May 21 2022 08:23:31 for Limes by
+    <li class="footer">Generated on Tue May 24 2022 05:18:49 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

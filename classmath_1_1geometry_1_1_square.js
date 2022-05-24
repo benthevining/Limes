@@ -10,11 +10,13 @@ var classmath_1_1geometry_1_1_square =
     [ "getRectangle", "classmath_1_1geometry_1_1_square.html#a9649952e7fa1ba97de2c2c1e6096fa27", null ],
     [ "operator!=", "classmath_1_1geometry_1_1_square.html#ab76f9dcc78e0fd4bee655cb07041f665", null ],
     [ "operator!=", "classmath_1_1geometry_1_1_square.html#ac1995c141b55ab55b78cd18bb8f33683", null ],
+    [ "operator<", "classmath_1_1geometry_1_1_square.html#a307296196e3d99976a9a2de30a254d9e", null ],
     [ "operator<", "classmath_1_1geometry_1_1_square.html#afce33b8c2ee32a07248c6bc8a7986638", null ],
     [ "operator=", "classmath_1_1geometry_1_1_square.html#a57fdf6896c9928f1634573473960e864", null ],
     [ "operator=", "classmath_1_1geometry_1_1_square.html#a3266a6b987e5edd0ee773823a39c834f", null ],
     [ "operator==", "classmath_1_1geometry_1_1_square.html#a1ae3dad55d9de5d4ea7f5ada85d32e40", null ],
     [ "operator==", "classmath_1_1geometry_1_1_square.html#aaa64c928995fa3ce0a3b6faea3eea4b4", null ],
+    [ "operator>", "classmath_1_1geometry_1_1_square.html#aca63f32720dda9e29acb72c18095a590", null ],
     [ "operator>", "classmath_1_1geometry_1_1_square.html#ae14c6bf5799beb02e4bfd2d48cdb23e0", null ],
     [ "perimeter", "classmath_1_1geometry_1_1_square.html#aafa6f4508f0037713064609da4933582", null ],
     [ "sideLength", "classmath_1_1geometry_1_1_square.html#ab44da1994a2237b8435ec11e5abcbfb4", null ]

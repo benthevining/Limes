@@ -3,6 +3,7 @@ var classmath_1_1geometry_1_1_angle =
     [ "Angle", "classmath_1_1geometry_1_1_angle.html#a9cb9402c2de3131ba34628aecfda04e1", null ],
     [ "bisect", "classmath_1_1geometry_1_1_angle.html#ae2dedb94ca2c13b541cb53d8bd1950da", null ],
     [ "degrees", "classmath_1_1geometry_1_1_angle.html#ad3357d37f05df78ae570764b1bba0172", null ],
+    [ "full", "classmath_1_1geometry_1_1_angle.html#a0b37243d33015f31fdcd2e588ed78018", null ],
     [ "getComplement", "classmath_1_1geometry_1_1_angle.html#a11f80710ccb7e50cef7fbed52184c075", null ],
     [ "getExplement", "classmath_1_1geometry_1_1_angle.html#af431ac5d20895ff8ab67a208c5660ee4", null ],
     [ "getSupplement", "classmath_1_1geometry_1_1_angle.html#a0f3b99af11478c460e89b600a93d12ea", null ],
@@ -18,6 +19,7 @@ var classmath_1_1geometry_1_1_angle =
     [ "isSupplementaryWith", "classmath_1_1geometry_1_1_angle.html#a8353f104cd9a588d36bd5c8ab321065e", null ],
     [ "operator ValueType", "classmath_1_1geometry_1_1_angle.html#ae22c7e285f151da5daad2ddd08a4f32f", null ],
     [ "operator!=", "classmath_1_1geometry_1_1_angle.html#a8425564cfb8af7f7028c9a5a975e019f", null ],
+    [ "operator!=", "classmath_1_1geometry_1_1_angle.html#a580a180d0ee0203427d97ab643cc4d48", null ],
     [ "operator+", "classmath_1_1geometry_1_1_angle.html#a7cf96717d4834ac037a0e1f574222ca4", null ],
     [ "operator+", "classmath_1_1geometry_1_1_angle.html#a5699f3a3c3740bed75176c83fc8dccef", null ],
     [ "operator+=", "classmath_1_1geometry_1_1_angle.html#a20b882121e84967fc8e1c0ff9ce9e714", null ],
@@ -27,8 +29,12 @@ var classmath_1_1geometry_1_1_angle =
     [ "operator-=", "classmath_1_1geometry_1_1_angle.html#a06d5cff62e40ad3c388889232f950479", null ],
     [ "operator-=", "classmath_1_1geometry_1_1_angle.html#aa333fe987d190f08775c698df11b58bf", null ],
     [ "operator<", "classmath_1_1geometry_1_1_angle.html#acca5b429b194e65b8a3c691382ae4667", null ],
+    [ "operator<", "classmath_1_1geometry_1_1_angle.html#a12be89c49cd347fc52edd0542a8277d0", null ],
     [ "operator==", "classmath_1_1geometry_1_1_angle.html#ad6ac3eb0e07261b771542153eac4a269", null ],
+    [ "operator==", "classmath_1_1geometry_1_1_angle.html#a7af25823379a6cc387c0cbed03e365ef", null ],
     [ "operator>", "classmath_1_1geometry_1_1_angle.html#ad870a3c3d73a5c636afee8bbde37052c", null ],
+    [ "operator>", "classmath_1_1geometry_1_1_angle.html#a3747efb4325537fe2a4dfa6cf63c0d06", null ],
     [ "radians", "classmath_1_1geometry_1_1_angle.html#a0b9fda3272294b749a11744b930cbc70", null ],
-    [ "right", "classmath_1_1geometry_1_1_angle.html#aaa032ccd17a4782a31cb78b1b2413e5f", null ]
+    [ "right", "classmath_1_1geometry_1_1_angle.html#aaa032ccd17a4782a31cb78b1b2413e5f", null ],
+    [ "straight", "classmath_1_1geometry_1_1_angle.html#ab5410bcad3fe41b06cf67dc21f267dda", null ]
 ];

@@ -1,5 +1,6 @@
 var namespacefiles =
 [
+    [ "CFile", "classfiles_1_1_c_file.html", "classfiles_1_1_c_file" ],
     [ "Directory", "classfiles_1_1_directory.html", "classfiles_1_1_directory" ],
     [ "DynamicLibrary", "classfiles_1_1_dynamic_library.html", "classfiles_1_1_dynamic_library" ],
     [ "File", "classfiles_1_1_file.html", "classfiles_1_1_file" ],

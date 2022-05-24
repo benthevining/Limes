@@ -153,9 +153,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a61a768c3effba7e761f704532131dfcf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacefiles.html#a794b8ca19b6b9e9045a70663a9c3416c">Path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_filesystem_entry.html#a61a768c3effba7e761f704532131dfcf">getAbsolutePath</a> (bool makePreferred=false) const noexcept</td></tr>
 <tr class="memdesc:a61a768c3effba7e761f704532131dfcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the full, absolute path of this filesystem entry.  <a href="classfiles_1_1_filesystem_entry.html#a61a768c3effba7e761f704532131dfcf">More...</a><br /></td></tr>
 <tr class="separator:a61a768c3effba7e761f704532131dfcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a832d210327c69ff6649e460e3073ad76"><td class="memItemLeft" align="right" valign="top">std::FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_file.html#a832d210327c69ff6649e460e3073ad76">getCfile</a> (char mode='r') const noexcept</td></tr>
-<tr class="memdesc:a832d210327c69ff6649e460e3073ad76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a C-style <code>FILE*</code> referring to this file.  <a href="classfiles_1_1_file.html#a832d210327c69ff6649e460e3073ad76">More...</a><br /></td></tr>
-<tr class="separator:a832d210327c69ff6649e460e3073ad76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eca747ae1667bf745be309250f40092"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfiles_1_1_c_file.html">CFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_file.html#a2eca747ae1667bf745be309250f40092">getCfile</a> (<a class="el" href="classfiles_1_1_c_file.html#a9718f3b5f8f5cc3124c59c9d72e16ead">CFile::Mode</a> mode=<a class="el" href="classfiles_1_1_c_file.html#a9718f3b5f8f5cc3124c59c9d72e16eada7a1a5f3e79fdc91edf2f5ead9d66abb4">CFile::Mode::Read</a>) const noexcept</td></tr>
+<tr class="memdesc:a2eca747ae1667bf745be309250f40092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classfiles_1_1_c_file.html" title="This class is a wrapper around a C-style FILE* that takes care of freeing the file when the object is...">CFile</a> referring to this file.  <a href="classfiles_1_1_file.html#a2eca747ae1667bf745be309250f40092">More...</a><br /></td></tr>
+<tr class="separator:a2eca747ae1667bf745be309250f40092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7382b6e12105957a50492570ab27f14f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfiles_1_1_directory.html">Directory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_filesystem_entry.html#a7382b6e12105957a50492570ab27f14f">getDirectory</a> () const</td></tr>
 <tr class="memdesc:a7382b6e12105957a50492570ab27f14f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the directory containing this filesystem entry.  <a href="classfiles_1_1_filesystem_entry.html#a7382b6e12105957a50492570ab27f14f">More...</a><br /></td></tr>
 <tr class="separator:a7382b6e12105957a50492570ab27f14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -278,8 +278,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents a file on the filesystem. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classfiles_1_1_c_file.html" title="This class is a wrapper around a C-style FILE* that takes care of freeing the file when the object is...">CFile</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00034">34</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00036">36</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a74945df516560d81721125c34923d1dc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a74945df516560d81721125c34923d1dc">&#9670;&nbsp;</a></span>CopyOptions</h2>
@@ -301,7 +302,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00046">46</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00047">47</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
 
 </div>
 </div>
@@ -325,7 +326,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00044">44</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00045">45</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
 
 </div>
 </div>
@@ -349,7 +350,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00045">45</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00046">46</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
 
 </div>
 </div>
@@ -953,8 +954,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a832d210327c69ff6649e460e3073ad76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a832d210327c69ff6649e460e3073ad76">&#9670;&nbsp;</a></span>getCfile()</h2>
+<a id="a2eca747ae1667bf745be309250f40092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eca747ae1667bf745be309250f40092">&#9670;&nbsp;</a></span>getCfile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -963,10 +964,10 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::FILE* files::File::getCfile </td>
+          <td class="memname"><a class="el" href="classfiles_1_1_c_file.html">CFile</a> files::File::getCfile </td>
           <td>(</td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>mode</em> = <code>'r'</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classfiles_1_1_c_file.html#a9718f3b5f8f5cc3124c59c9d72e16ead">CFile::Mode</a>&#160;</td>
+          <td class="paramname"><em>mode</em> = <code><a class="el" href="classfiles_1_1_c_file.html#a9718f3b5f8f5cc3124c59c9d72e16eada7a1a5f3e79fdc91edf2f5ead9d66abb4">CFile::Mode::Read</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -977,13 +978,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a C-style <code>FILE*</code> referring to this file. </p>
-<p>This will return a nullptr if the file does not exist. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mode</td><td>Any of the valid modes for <code>std::fopen()</code> . Most commonly <code>r</code> for "read" or <code>w</code> for "write". </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Returns a <a class="el" href="classfiles_1_1_c_file.html" title="This class is a wrapper around a C-style FILE* that takes care of freeing the file when the object is...">CFile</a> referring to this file. </p>
+<p>This will return a nullptr if the file does not exist. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classfiles_1_1_c_file.html" title="This class is a wrapper around a C-style FILE* that takes care of freeing the file when the object is...">CFile</a> </dd></dl>
 
 </div>
 </div>
@@ -2503,7 +2499,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacefiles.html">files</a></li><li class="navelem"><a class="el" href="classfiles_1_1_file.html">File</a></li>
-    <li class="footer">Generated on Sat May 21 2022 08:23:31 for Limes by
+    <li class="footer">Generated on Tue May 24 2022 05:18:49 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

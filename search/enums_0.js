@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_2806',['Name',['../classtime_1_1_month.html#a9b8014e3f80cf7f161260a1e2f4590c9',1,'time::Month::Name()'],['../classtime_1_1_weekday.html#a61e3d5d06fa34f271c0051e51a001272',1,'time::Weekday::Name()']]]
+  ['mode_2830',['Mode',['../classfiles_1_1_c_file.html#a9718f3b5f8f5cc3124c59c9d72e16ead',1,'files::CFile']]]
 ];

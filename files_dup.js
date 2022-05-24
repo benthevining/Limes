@@ -31,7 +31,13 @@ var files_dup =
     [ "basic_vector.h", "basic__vector_8h.html", [
       [ "basic_vector", "classds_1_1basic__vector.html", "classds_1_1basic__vector" ]
     ] ],
+    [ "bitField.h", "bit_field_8h.html", [
+      [ "BitField", "structmisc_1_1_bit_field.html", "structmisc_1_1_bit_field" ]
+    ] ],
     [ "build_date.h", "build__date_8h.html", "build__date_8h" ],
+    [ "CFile.h", "_c_file_8h.html", [
+      [ "CFile", "classfiles_1_1_c_file.html", "classfiles_1_1_c_file" ]
+    ] ],
     [ "Chord.h", "_chord_8h.html", [
       [ "Chord", "classmusic_1_1_chord.html", "classmusic_1_1_chord" ]
     ] ],
