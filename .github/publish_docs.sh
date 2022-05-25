@@ -43,9 +43,6 @@ cmake --preset default
 
 cmake --build --preset docs
 
-# need to create an empty .nojekyll file
-touch .nojekyll
-
 cd "$docs_git_tree"
 
 # remove everything currently in the docs branch
@@ -54,11 +51,14 @@ rm -rf -- *
 # copy generated docs to cloned copy of docs git tree
 mv "$limes_root"/doc/html/* "$docs_git_tree"
 
+# need to create an empty .nojekyll file
+touch .nojekyll
+
 git config push.default simple
 git config user.name "Github Actions"
 git config user.email "actions@github.com"
 
-git add --all
+git add --all .
 
 git commit -am "Updating docs" --allow-empty
 
