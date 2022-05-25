@@ -21,6 +21,16 @@ Dependencies: None
 
 */
 
+/** @defgroup limes_core
+	The Limes core library of utilities.
+	All classes and functions in this group are accessible after linking to the limes_core library and including limes_core.h.
+ */
+
+/** @file
+	The main header for the limes_core library.
+	@ingroup limes_core
+ */
+
 #pragma once
 
 // IWYU pragma: begin_exports

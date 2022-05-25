@@ -18,12 +18,18 @@
 #include "../misc/preprocessor.h"
 #include "FilesystemEntry.h"  // for Path typedef
 
+/** @file
+	This file defines the CFile class.
+	@ingroup files
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace files
 {
 
 /** This class is a wrapper around a C-style \c FILE* that takes care of freeing the file when the object is destroyed, and provides a few other convenience methods.
+	@ingroup files
 	@see File
  */
 class LIMES_EXPORT CFile final
@@ -66,7 +72,7 @@ public:
 
 	LIMES_NON_COPYABLE (CFile);
 
-	/** @name: Accessors
+	/** @name Accessors
 	 */
 	///@{
 	/** Returns the pointer this object holds.

@@ -21,12 +21,19 @@
 #include "triangle.h"
 #include <cmath>
 
+/** @file
+	This file defines the Square class.
+	@ingroup 2Dgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
 {
 
-/** Represents a square. */
+/** Represents a square.
+	@ingroup 2Dgeometry
+ */
 template <Scalar ValueType>
 class LIMES_EXPORT Square final : public TwoDShape<ValueType>
 {

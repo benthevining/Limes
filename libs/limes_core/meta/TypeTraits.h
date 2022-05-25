@@ -24,12 +24,27 @@
 #	include <cxxabi.h>
 #endif
 
+/** @defgroup meta
+	Utilities for metaprogramming.
+	@ingroup limes_core
+ */
+
+/** @file
+	This file defines some general utilities for metaprogramming.
+	@ingroup meta
+ */
 
 LIMES_BEGIN_NAMESPACE
 
-/** This namespace contains utilities for template metaprogramming. */
+/** This namespace contains utilities for template metaprogramming.
+	@ingroup meta
+ */
 namespace meta
 {
+
+/** @ingroup meta
+	@{
+ */
 
 /** @concept convertible_to
 	Exactly the same as \c std::convertible_to , only implemented here because some versions of Xcode seem to be missing it.
@@ -141,12 +156,16 @@ struct LIMES_EXPORT is_none_of final : std::negation<is_one_of<Test, Types...>>
 template <typename Test, typename... Types>
 static constexpr const bool is_none_of_v = is_none_of<Test, Types...>::value;
 
+/**@}*/
+
 }  // namespace meta
 
 namespace misc
 {
 
-/** Returns the demangled name of the type of the passed object. */
+/** Returns the demangled name of the type of the passed object.
+	@ingroup meta
+ */
 LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto& object) noexcept
 {
 	try
@@ -181,7 +200,9 @@ LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto& object)
 	}
 }
 
-/** Returns the demangled name of the type of the passed object, ending with " pointer". */
+/** Returns the demangled name of the type of the passed object, ending with " pointer".
+	@ingroup meta
+ */
 LIMES_EXPORT [[nodiscard]] std::string getDemangledTypeName (const auto* c) noexcept
 {
 	if (c == nullptr)

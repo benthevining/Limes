@@ -19,12 +19,19 @@
 #include <string_view>
 #include <cstdint>
 
+/** @file
+	This file defines the SHA512 hasher class.
+	@ingroup hashes
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace hash
 {
 
-/** A Hasher object that calculates a SHA512 hash. */
+/** A Hasher object that calculates a SHA512 hash.
+	@ingroup hashes
+ */
 class LIMES_EXPORT SHA512 final : public Hasher	 // cppcheck-suppress noConstructor
 {
 public:
@@ -49,10 +56,14 @@ private:
 	std::uint64_t m_h[8] = { 0x6a09e667f3bcc908ULL, 0xbb67ae8584caa73bULL, 0x3c6ef372fe94f82bULL, 0xa54ff53a5f1d36f1ULL, 0x510e527fade682d1ULL, 0x9b05688c2b3e6c1fULL, 0x1f83d9abfb41bd6bULL, 0x5be0cd19137e2179ULL };
 };
 
-/** Calculates a SHA512 hash for the given data. */
+/** Calculates a SHA512 hash for the given data.
+	@ingroup hashes
+ */
 LIMES_EXPORT [[nodiscard]] std::string sha512 (const char* input, std::size_t length);
 
-/** Calculates a SHA512 hash for the given string. */
+/** Calculates a SHA512 hash for the given string.
+	@ingroup hashes
+ */
 LIMES_EXPORT [[nodiscard]] std::string sha512 (const std::string_view& input);
 
 }  // namespace hash

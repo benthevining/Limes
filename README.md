@@ -115,6 +115,9 @@ Limes creates the following CPack install components:
 * limes_programs_runtime
 * limes_dev (aggregate of all other dev components)
 * limes_runtime (aggregate of all other runtime components)
+* limes_doc_pdf
+* limes_doc_html
+* limes_doc_man
 
 Limes also creates the following CPack install component groups:
 
@@ -128,6 +131,7 @@ Limes also creates the following CPack install component groups:
 * limes_libs
 * limes_binary_builder
 * limes_programs
+* limes_docs
 * limes (aggregate of all Limes components)
 
 ### find_package components

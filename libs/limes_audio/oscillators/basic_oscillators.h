@@ -31,19 +31,7 @@ struct Triangle;
 template <Sample T>
 using Oscillator = dsp::Oscillator<T>;
 
-/** @defgroup lemons_oscillators Oscillators
-	@ingroup lemons_dsp
-	%Oscillator classes.
- */
-
-
-/** @defgroup lemons_basic_oscillators Basic wave shapes
-	@ingroup lemons_oscillators
-	Basic oscillator necessities.
- */
-
-/** @ingroup lemons_basic_oscillators
-	A basic sine wave oscillator.
+/** A basic sine wave oscillator.
 	@see Oscillator, Phase
  */
 template <Sample SampleType>
@@ -72,8 +60,7 @@ private:
 
 /*--------------------------------------------------------------------------------------------*/
 
-/** @ingroup lemons_basic_oscillators
-	A basic sawtooth wave oscillator.
+/** A basic sawtooth wave oscillator.
 	@see SuperSaw, Oscillator, Phase
  */
 template <Sample SampleType>
@@ -103,8 +90,7 @@ private:
 /*--------------------------------------------------------------------------------------------*/
 
 
-/** @ingroup lemons_basic_oscillators
-	A basic square wave oscillator.
+/** A basic square wave oscillator.
 	@see Oscillator, Phase
  */
 template <Sample SampleType>
@@ -135,8 +121,7 @@ private:
 
 /*--------------------------------------------------------------------------------------------*/
 
-/** @ingroup lemons_basic_oscillators
-	A basic triangle wave oscillator.
+/** A basic triangle wave oscillator.
 	@see Square, Oscillator, Phase
  */
 template <Sample SampleType>

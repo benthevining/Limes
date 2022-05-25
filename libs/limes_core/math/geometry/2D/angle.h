@@ -17,6 +17,11 @@
 #include <limes_platform.h>
 #include "../../mathHelpers.h"
 
+/** @file
+	This file defines the Angle class.
+	@ingroup 2Dgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
@@ -24,6 +29,7 @@ namespace math::geometry
 
 /** This class represents a geometric angle.
 	Internally, the angle is represented in degrees.
+	@ingroup 2Dgeometry
  */
 template <Scalar ValueType = int>
 class LIMES_EXPORT Angle final
@@ -69,7 +75,7 @@ public:
 	[[nodiscard]] constexpr bool isOblique() const noexcept;
 	///@}
 
-	/** @name  */
+	/** @name Angle relations */
 	///@{
 	/** Returns true if this angle and the other's measures in degrees sum to 90. */
 	[[nodiscard]] constexpr bool isComplementaryWith (const Angle& other) const noexcept;

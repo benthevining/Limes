@@ -22,9 +22,21 @@
 #include "../time/DateTime.h"	   // for DateTime
 #include <functional>			   // for std::hash
 
+/** @defgroup files
+	Utilities for working with the filesystem.
+	@ingroup limes_core
+ */
+
+/** @file
+	This file defines the FilesystemEntry class and some typedefs used throughout the files namespace.
+	@ingroup files
+ */
+
 LIMES_BEGIN_NAMESPACE
 
-/** This namespace contains filesystem utilities. */
+/** This namespace contains filesystem utilities.
+	@ingroup files
+ */
 namespace files
 {
 
@@ -37,6 +49,7 @@ using Path = std::filesystem::path;
 
 /** The base class for any kind of object in the filesystem.
 	This class is essentially a wrapper around \c std::filesystem::path.
+	@ingroup files
  */
 class LIMES_EXPORT FilesystemEntry
 {
@@ -54,9 +67,8 @@ public:
 
 	/** Creates a FilesystemEntry referring to the specified path.
 		@param pathToUse The path to this filesystem entry (which may or may not exist)
-		@param createIfNeeded If true, then if the filesystem entry does not exist when this object is created, it will be created.
 	 */
-	explicit FilesystemEntry (const Path& pathToUse, bool createIfNeeded = false);
+	explicit FilesystemEntry (const Path& pathToUse);
 
 	///@}
 
@@ -259,6 +271,7 @@ namespace std
 
 /** A specialization of \c std::hash for filesystem entries.
 	The hash value is computed based on the path of the filesystem entry.
+	@ingroup files
  */
 template <>
 struct LIMES_EXPORT hash<limes::files::FilesystemEntry> final

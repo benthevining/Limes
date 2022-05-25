@@ -16,7 +16,12 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 
-#ifndef DOXYGEN
+/** @file
+	This file contains implementation details for retrieving the executable's location (used by the File class).
+	@ingroup files
+ */
+
+/// @cond
 
 LIMES_BEGIN_NAMESPACE
 
@@ -31,4 +36,4 @@ LIMES_NO_EXPORT [[nodiscard]] std::string getModulePath();
 
 LIMES_END_NAMESPACE
 
-#endif
+/// @endcond

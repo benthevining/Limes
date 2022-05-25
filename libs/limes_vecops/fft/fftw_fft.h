@@ -16,6 +16,8 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 
+/// @cond
+
 #ifndef FFTW_HEADER_NAME
 #	define FFTW_HEADER_NAME <fftw3.h>
 #endif
@@ -110,3 +112,5 @@ private:
 }  // namespace vecops
 
 LIMES_END_NAMESPACE
+
+/// @endcond

@@ -21,6 +21,8 @@ LIMES_BEGIN_NAMESPACE
 namespace vecops
 {
 
+/// @cond
+
 template <Scalar SampleType>
 class LIMES_NO_EXPORT IPP_FFT final : public FFTImpl<SampleType>
 {
@@ -65,6 +67,8 @@ private:
 	SampleType*	 m_packed;
 	SampleType*	 m_spare;
 };
+
+/// @endcond
 
 }  // namespace vecops
 

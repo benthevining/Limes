@@ -18,15 +18,24 @@
 #include <cstddef>
 #include "TypeTraits.h"
 
+/** @file
+	This file contains implementation details for the TypeList class.
+	@ingroup meta
+ */
+
 #ifdef DOXYGEN
 
 LIMES_BEGIN_NAMESPACE
 
-/** This namespace contains implementation details for the TypeList class. */
+/** This namespace contains implementation details for the TypeList class.
+	@ingroup meta
+ */
 namespace typelist
 {
 
-/** A placeholder class representing a type that is null, invalid, or nonexistent. */
+/** A placeholder class representing a type that is null, invalid, or nonexistent.
+	@ingroup meta
+ */
 struct LIMES_EXPORT NullType final
 {
 };
@@ -34,6 +43,7 @@ struct LIMES_EXPORT NullType final
 /** Returns true if \c T is a \c NullType .
 	@tparam T Type to test
 	@see NullType
+	@ingroup meta
  */
 template <typename T>
 LIMES_EXPORT static constexpr const bool is_null_type = std::is_same_v<T, NullType>;

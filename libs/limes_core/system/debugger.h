@@ -16,16 +16,26 @@
 #include <limes_namespace.h>
 #include "compiler_defs.h"
 
+/** @file
+	This file defines functions related to the debugger.
+	@ingroup system
+ */
+
 LIMES_BEGIN_NAMESPACE
 
-/** This namespace contains functions related to the debugger. */
+/** This namespace contains functions related to the debugger.
+	@ingroup system
+ */
 namespace debugger
 {
 
-/** Returns true if the calling process is running under a debugger. */
+/** Returns true if the calling process is running under a debugger.
+	@ingroup system
+ */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION bool isRunningUnderDebugger() noexcept;
 
 /** Attempts to break into the debugger. If one is not attached, this function may or may not crash, depending on the platform.
+	@ingroup system
  */
 LIMES_EXPORT [[noreturn]] void breakInDebugger() noexcept;
 

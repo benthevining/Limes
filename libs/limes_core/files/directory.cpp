@@ -21,6 +21,7 @@
 #include "file.h"			  // for File
 #include "sym_link.h"		  // for SymLink
 #include "misc.h"			  // for PATHseparator
+#include "../misc/Algorithm.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -46,11 +47,8 @@ bool Directory::contains (const FilesystemEntry& entry) const
 
 bool Directory::contains (const std::string_view& childName) const
 {
-	for (const auto& entry : getAllChildren())
-		if (entry.getName() == childName)
-			return true;
-
-	return false;
+	return alg::contains_if (getAllChildren(), [&childName] (const FilesystemEntry& e)
+							 { return e.getName() == childName; });
 }
 
 bool Directory::createIfDoesntExist() const
@@ -76,17 +74,32 @@ bool Directory::isEmpty() const
 
 FilesystemEntry Directory::getChild (const std::string_view& childName, bool createIfNeeded) const
 {
-	return FilesystemEntry { getAbsolutePath() / childName, createIfNeeded };
+	auto entry = FilesystemEntry { getAbsolutePath() / childName };
+
+	if (createIfNeeded)
+		entry.createIfDoesntExist();
+
+	return entry;
 }
 
 File Directory::getChildFile (const std::string_view& filename, bool createIfNeeded) const
 {
-	return File { getAbsolutePath() / filename, createIfNeeded };
+	auto file = File { getAbsolutePath() / filename };
+
+	if (createIfNeeded)
+		file.createIfDoesntExist();
+
+	return file;
 }
 
 Directory Directory::getChildDirectory (const std::string_view& subdirectoryName, bool createIfNeeded) const
 {
-	return Directory { getAbsolutePath() / subdirectoryName, createIfNeeded };
+	auto dir = Directory { getAbsolutePath() / subdirectoryName };
+
+	if (createIfNeeded)
+		dir.createIfDoesntExist();
+
+	return dir;
 }
 
 SymLink Directory::createChildSymLink (const std::string_view& symLinkName,

@@ -19,6 +19,11 @@
 #include <string>
 #include <string_view>
 
+/** @file
+	This file defines the SHA1 hasher class.
+	@ingroup hashes
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace hash
@@ -26,6 +31,7 @@ namespace hash
 
 /** A Hasher object that calculates a SHA1 hash.
 	SHA1 is considered to be insecure and shouldn't be used for security-critical purposes in new projects, but is provided for backwards compatibility.
+	@ingroup hashes
  */
 class LIMES_EXPORT SHA1 final : public Hasher  // cppcheck-suppress noConstructor
 {
@@ -60,10 +66,14 @@ private:
 	std::uint8_t m_block[64];
 };
 
-/** Calculates a SHA1 hash for the given data. */
+/** Calculates a SHA1 hash for the given data.
+	@ingroup hashes
+ */
 LIMES_EXPORT [[nodiscard]] std::string sha1 (const char* input, std::size_t length);
 
-/** Calculates a SHA1 hash for the given string. */
+/** Calculates a SHA1 hash for the given string.
+	@ingroup hashes
+ */
 LIMES_EXPORT [[nodiscard]] std::string sha1 (const std::string_view& input);
 
 }  // namespace hash

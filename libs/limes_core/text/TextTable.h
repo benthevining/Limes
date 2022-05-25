@@ -19,12 +19,19 @@
 #include <vector>  // for vector
 #include <limes_namespace.h>
 
+/** @file
+	This file defines the TextTable class.
+	@ingroup text
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace strings
 {
 
-/** A class that creates a table of strings, laid out in rows and columns, and can pretty-print them with the columns aligned. */
+/** A class that creates a table of strings, laid out in rows and columns, and can pretty-print them with the columns aligned.
+	@ingroup text
+ */
 class LIMES_EXPORT TextTable final
 {
 public:

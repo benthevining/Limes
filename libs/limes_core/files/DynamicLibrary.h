@@ -19,6 +19,11 @@
 #include "../misc/preprocessor.h"
 #include "file.h"
 
+/** @file
+	This file defines the DynamicLibrary class.
+	@ingroup files
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace files
@@ -26,6 +31,7 @@ namespace files
 
 /** This class represents a dynamically loaded library.
 	On Unixes, this is the equivalent of \c dlopen() .
+	@ingroup files
  */
 class LIMES_EXPORT DynamicLibrary final
 {
@@ -96,6 +102,7 @@ namespace std
 
 /** A specialization of \c std::hash for dynamic libraries.
 	The hash value is computed based on the path of the file containing the dynamic library code.
+	@ingroup files
  */
 template <>
 struct LIMES_EXPORT hash<limes::files::DynamicLibrary> final

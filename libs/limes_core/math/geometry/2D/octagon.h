@@ -20,12 +20,19 @@
 #include "../../../system/compiler_defs.h"
 #include <cmath>
 
+/** @file
+	This file defines the Octagon class.
+	@ingroup 2Dgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
 {
 
-/** Represents an octagon. */
+/** Represents an octagon.
+	@ingroup 2Dgeometry
+ */
 template <Scalar ValueType>
 class LIMES_EXPORT Octagon final : public TwoDShape<ValueType>
 {

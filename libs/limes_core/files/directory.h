@@ -22,13 +22,19 @@
 #include "file.h"			  // for File
 #include "sym_link.h"		  // for SymLink
 
+/** @file
+	This file defines the Directory class.
+	@ingroup files
+ */
 
 LIMES_BEGIN_NAMESPACE
 
 namespace files
 {
 
-/** This class represents a directory on the filesystem. */
+/** This class represents a directory on the filesystem.
+	@ingroup files
+ */
 class LIMES_EXPORT Directory final : public FilesystemEntry
 {
 public:

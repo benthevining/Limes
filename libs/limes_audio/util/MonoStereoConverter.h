@@ -23,13 +23,7 @@ LIMES_BEGIN_NAMESPACE
 namespace dsp
 {
 
-/** @defgroup lemons_stereo_conversion Mono/stereo conversion
-	@ingroup lemons_dsp
-	Mono/stereo conversion utilities.
- */
-
-/** @ingroup lemons_stereo_conversion
-	An enum used to describe how a MonoStereoConverter will convert stereo signals to mono. */
+/** An enum used to describe how a MonoStereoConverter will convert stereo signals to mono. */
 LIMES_EXPORT enum class StereoReductionMode {
 	/** In this mode, a MonoStereoConverter will output only the left channel of a stereo signal as its mono reduction. */
 	leftOnly,
@@ -41,8 +35,7 @@ LIMES_EXPORT enum class StereoReductionMode {
 	mixToMono
 };
 
-/** @ingroup lemons_stereo_conversion
-	A utility class for converting mono signals to stereo, or stereo signals to mono.
+/** A utility class for converting mono signals to stereo, or stereo signals to mono.
  */
 template <Sample SampleType>
 class LIMES_EXPORT MonoStereoConverter final

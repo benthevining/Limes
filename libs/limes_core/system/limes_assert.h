@@ -21,9 +21,21 @@
 #include <limes_platform.h>
 #include <filesystem>
 
+/** @defgroup system
+	Utilities that may be OS- or compiler-specific.
+	@ingroup limes_core
+ */
+
+/** @file
+	This file defines functions and macros related to runtime assertions.
+	@ingroup system
+ */
+
 LIMES_BEGIN_NAMESPACE
 
-/** This namespace contains utilities for runtime assertions. */
+/** This namespace contains utilities for runtime assertions.
+	@ingroup system
+ */
 namespace assert
 {
 
@@ -43,11 +55,13 @@ LIMES_EXPORT constexpr void fire_assertion (const char* fileName, const char* fu
 	When a log file is being used, assertion failures will still stop the debugger and be printed to standard error.
 	The assertion log file can also be controlled by the environment variable \c LIMES_ASSERTION_LOG_FILE .
 	@see getAssertionLogFile
+	@ingroup system
  */
 LIMES_EXPORT void setAssertionLogFile (const std::filesystem::path& logFileToUse) noexcept;
 
 /** Returns the path to the current assertion log file, if any.
 	@see setAssertionLogFile
+	@ingroup system
  */
 LIMES_EXPORT [[nodiscard]] std::filesystem::path getAssertionLogFile();
 
@@ -62,6 +76,7 @@ LIMES_END_NAMESPACE
 	This macro can be used in constexpr functions, but assertion failures will not be caught or logged if the function is evaluated at compile time.
 	In release builds, this macro expands to nothing.
 	@see LIMES_ASSERT, LIMES_UNREACHABLE
+	@ingroup system
  */
 #	define LIMES_ASSERT_FALSE
 
@@ -70,6 +85,7 @@ LIMES_END_NAMESPACE
 	This macro can be used in constexpr functions, but assertion failures will not be caught or logged if the function is evaluated at compile time.
 	In release builds, this macro expands to nothing.
 	@see LIMES_ASSERT_FALSE
+	@ingroup system
  */
 #	define LIMES_ASSERT(condition)
 
@@ -78,6 +94,7 @@ LIMES_END_NAMESPACE
 	The use case of this macro is to indicate to the compiler and to static analysis tools that a control path is intended to be unreachable.
 	If a code path should not be reached, but may be in some cases, use \c LIMES_ASSERT_FALSE instead.
 	@see LIMES_ASSERT_FALSE
+	@ingroup system
  */
 #	define LIMES_UNREACHABLE
 

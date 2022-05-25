@@ -20,12 +20,19 @@
 #include "../../../system/compiler_defs.h"
 #include <cmath>
 
+/** @file
+	This file defines the Pentagon class.
+	@ingroup 2Dgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
 {
 
-/** Represents a pentagon. */
+/** Represents a pentagon.
+	@ingroup 2Dgeometry
+ */
 template <Scalar ValueType>
 class LIMES_EXPORT Pentagon final : public TwoDShape<ValueType>
 {

@@ -15,13 +15,32 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 
+/** @defgroup geometry
+	Classes representing geometric shapes.
+	@ingroup math
+ */
+
+/** @defgroup 2Dgeometry 2-D geometry
+	Two-dimensional geometric shapes.
+	@ingroup geometry
+ */
+
+/** @file
+	This file defines the TwoDShape interface class.
+	@ingroup 2Dgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
-/** This namespace contains utilities for working with geometric shapes and calculations. */
+/** This namespace contains utilities for working with geometric shapes and calculations.
+	@ingroup geometry
+ */
 namespace math::geometry
 {
 
-/** A base class for any kind of 2-dimensional shape. */
+/** A base class for any kind of 2-dimensional shape.
+	@ingroup 2Dgeometry
+ */
 template <Scalar ValueType>
 class LIMES_EXPORT TwoDShape
 {

@@ -19,12 +19,19 @@
 #include <string_view>
 #include <cstdint>
 
+/** @file
+	This file defines the SHA384 hasher class.
+	@ingroup hashes
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace hash
 {
 
-/** A Hasher object that calculates a SHA384 hash. */
+/** A Hasher object that calculates a SHA384 hash.
+	@ingroup hashes
+ */
 class LIMES_EXPORT SHA384 final : public Hasher	 // cppcheck-suppress noConstructor
 {
 public:
@@ -49,10 +56,14 @@ private:
 	std::uint64_t m_h[8] = { 0xcbbb9d5dc1059ed8ULL, 0x629a292a367cd507ULL, 0x9159015a3070dd17ULL, 0x152fecd8f70e5939ULL, 0x67332667ffc00b31ULL, 0x8eb44a8768581511ULL, 0xdb0c2e0d64f98fa7ULL, 0x47b5481dbefa4fa4ULL };
 };
 
-/** Calculates a SHA384 hash for the given data. */
+/** Calculates a SHA384 hash for the given data.
+	@ingroup hashes
+ */
 LIMES_EXPORT [[nodiscard]] std::string sha384 (const char* input, std::size_t length);
 
-/** Calculates a SHA384 hash for the given string. */
+/** Calculates a SHA384 hash for the given string.
+	@ingroup hashes
+ */
 LIMES_EXPORT [[nodiscard]] std::string sha384 (const std::string_view& input);
 
 }  // namespace hash

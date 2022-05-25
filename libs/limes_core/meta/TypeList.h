@@ -21,6 +21,11 @@
 #include <utility>
 #include <memory>
 
+/** @file
+	This file defines the TypeList class.
+	@ingroup meta
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace meta
@@ -44,6 +49,7 @@ namespace meta
 	Most operations on TypeLists are done with using statements, as illustrated above. Once declared, a TypeList is immutable; it can only create permutations of itself as new specializations of TypeList.
 
 	@tparam Types The list of types for the TypeList to hold.
+	@ingroup meta
  */
 template <typename... Types>
 class LIMES_EXPORT TypeList final
@@ -489,7 +495,9 @@ public:
 
 /// @endcond
 
-/** A utility typedef for an empty TypeList. */
+/** A utility typedef for an empty TypeList.
+	@ingroup meta
+ */
 LIMES_EXPORT using Empty = TypeList<>;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
@@ -516,18 +524,22 @@ struct LIMES_EXPORT make_type_list_from<T<Args...>> final
 
 	static_assert (TypeList::equal<TypeList<int, float, double>>);
 	@endcode
+	@ingroup meta
  */
 template <typename... Args>
 LIMES_EXPORT using make_type_list_from_t = typename make_type_list_from<Args...>::type;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
-/** True if the specified type is a specialization of TypeList. */
+/** True if the specified type is a specialization of TypeList.
+	@ingroup meta
+ */
 template <class T>
 LIMES_EXPORT static constinit const bool is_typelist = meta::is_specialization<T, TypeList>::value;
 
 /** @concept type_list
 	@see is_typelist
+	@ingroup meta
  */
 template <typename T>
 concept type_list = is_typelist<T>;

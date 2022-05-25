@@ -23,6 +23,8 @@ LIMES_BEGIN_NAMESPACE
 namespace vecops
 {
 
+/// @cond
+
 template <Scalar SampleType>
 class LIMES_NO_EXPORT vDSP_FFT final : public FFTImpl<SampleType>
 {
@@ -81,6 +83,8 @@ private:
 
 	DSPSplitComplexType m_buf, m_packed;
 };
+
+/// @endcond
 
 }  // namespace vecops
 

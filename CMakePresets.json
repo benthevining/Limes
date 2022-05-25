@@ -10,7 +10,7 @@
       "displayName": "Build the Doxygen documentation",
       "inherits": "default",
       "name": "docs",
-      "targets": "LimesDoxygen"
+      "targets": "LimesDocs"
     },
     {
       "cleanFirst": true,

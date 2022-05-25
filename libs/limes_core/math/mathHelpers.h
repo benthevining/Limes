@@ -19,28 +19,39 @@
 #include <algorithm>
 #include "../system/limes_assert.h"
 #include "../system/compiler_defs.h"
+#include "../misc/preprocessor.h"
 
-#if __has_include(<numbers>)
+#if LIMES_HAS_INCLUDE(<numbers>)
 #	include <numbers>
 #endif
 
+/** @defgroup math
+	Math utilities.
+	@ingroup limes_core
+ */
+
+/** @file
+	This file contains some math utility functions.
+	@ingroup math
+ */
+
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains math utilities.
+	@ingroup math
+ */
 namespace math
 {
+
+/** @ingroup math
+	@{
+ */
 
 template <typename T>
 concept Scalar = std::is_scalar_v<T>;
 
 template <typename T>
 concept Integral = std::is_integral_v<T>;
-
-/** @addtogroup lemons_math Math
-	@ingroup lemons_core
-	Math utility functions.
-
- @{
- */
 
 /** A constexpr-enabled absolute value function. */
 template <Scalar T>
@@ -117,14 +128,15 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T midiToFreq (T midiNot
 template <Scalar T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION inline T freqToMidi (T freqHz) noexcept;
 
-///@}
-
 /*---------------------------------------------------------------------------------------------------------------*/
 
+/** This namespace contains some mathematical constants.
+	@ingroup math
+ */
 namespace constants
 {
 
-#if __has_include(<numbers>)
+#if LIMES_HAS_INCLUDE(<numbers>)
 
 template <Scalar T>
 LIMES_EXPORT static constexpr const T pi = std::numbers::pi_v<T>;
@@ -345,6 +357,8 @@ T freqToMidi (T freqHz) noexcept
 	else
 		return static_cast<T> (val);
 }
+
+/** @} */
 
 }  // namespace math
 

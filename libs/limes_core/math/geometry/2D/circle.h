@@ -19,12 +19,19 @@
 #include "../../../misc/preprocessor.h"
 #include "../../mathHelpers.h"
 
+/** @file
+	This file defines the Circle class.
+	@ingroup 2Dgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
 {
 
-/** Represents a circle. */
+/** Represents a circle.
+	@ingroup 2Dgeometry
+ */
 template <Scalar ValueType>
 class LIMES_EXPORT Circle final : public TwoDShape<ValueType>
 {

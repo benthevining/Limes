@@ -21,6 +21,10 @@
 #include "../misc/preprocessor.h"
 #include <functional>  // for std::hash
 
+/** @file
+	This file defines the RawData class.
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 /** This namespace contains utilities for working with memory allocation and management. */

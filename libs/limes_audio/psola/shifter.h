@@ -25,13 +25,7 @@ LIMES_BEGIN_NAMESPACE
 namespace dsp::psola
 {
 
-/** @defgroup lemons_psola_synthesis Resynthesis
-	@ingroup lemons_psola
-	PSOLA resynthesis classes.
- */
-
-/** @ingroup lemons_psola_synthesis
-	A class that repitches a stream of monophonic audio using PSOLA-like techniques.
+/** A class that repitches a stream of monophonic audio using PSOLA-like techniques.
 	This class is essentially a "client" of an Analyzer object, which allows multiple Shifters to be used simultaneously without requiring the expensive analysis process to be repeated.
  */
 template <Sample SampleType>

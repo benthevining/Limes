@@ -49,7 +49,7 @@ std::string Node::getJsonText (bool compact) const
 		std::vector<std::string> strings;
 
 		for (const auto& element : array)
-			strings.emplace_back (element.getJsonText());
+			strings.emplace_back (element.getJsonText());  // cppcheck-suppress useStlAlgorithm
 
 		return "[" + strings::join (strings, ",") + "]";
 	}

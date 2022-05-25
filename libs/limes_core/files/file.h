@@ -25,12 +25,18 @@
 #include "../misc/preprocessor.h"
 #include "CFile.h"
 
+/** @file
+	This file defines the File and TempFile classes.
+	@ingroup files
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace files
 {
 
 /** This class represents a file on the filesystem.
+	@ingroup files
 	@see CFile
  */
 class LIMES_EXPORT File : public FilesystemEntry
@@ -144,6 +150,7 @@ private:
 	This object will create the temporary file when the object is constructed, and by default destroy the file when the object is destroyed (though this behavior can be turned off).
 	The temporary file will reside in the directory returned by Directory::getTempFileDirectory().
 	If you don't care about filenames and just need a temporary file to work with, use the static method getNextFile().
+	@ingroup files
 	@see Directory::getTempFileDirectory()
  */
 class LIMES_EXPORT TempFile final : public File
@@ -184,6 +191,7 @@ namespace std
 
 /** A specialization of \c std::hash for File objects.
 	The hash value is computed using the file's contents.
+	@ingroup files
  */
 template <>
 struct LIMES_EXPORT hash<limes::files::File> final

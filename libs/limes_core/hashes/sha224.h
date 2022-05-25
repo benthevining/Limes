@@ -19,12 +19,19 @@
 #include <string_view>
 #include <cstdint>
 
+/** @file
+	This file defines the SHA224 hasher class.
+	@ingroup hashes
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace hash
 {
 
-/** A Hasher object that calculates a SHA224 hash. */
+/** A Hasher object that calculates a SHA224 hash.
+	@ingroup hashes
+ */
 class LIMES_EXPORT SHA224 final : public Hasher	 // cppcheck-suppress noConstructor
 {
 public:
@@ -50,10 +57,14 @@ private:
 	unsigned char m_block[2 * SHA224_256_BLOCK_SIZE];
 };
 
-/** Calculates a SHA224 hash for the given data. */
+/** Calculates a SHA224 hash for the given data.
+	@ingroup hashes
+ */
 LIMES_EXPORT [[nodiscard]] std::string sha224 (const char* input, std::size_t length);
 
-/** Calculates a SHA224 hash for the given data. */
+/** Calculates a SHA224 hash for the given data.
+	@ingroup hashes
+ */
 LIMES_EXPORT [[nodiscard]] std::string sha224 (const std::string_view& input);
 
 }  // namespace hash

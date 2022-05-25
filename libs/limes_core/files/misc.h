@@ -19,10 +19,19 @@
 #include <filesystem>
 #include "../system/compiler_defs.h"
 
+/** @file
+	This file defines miscellaneous filesystem utility functions.
+	@ingroup files
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace files
 {
+
+/** @ingroup files
+	@{
+ */
 
 /** Returns the available space on the filesystem, in bytes. */
 LIMES_EXPORT [[nodiscard]] std::uintmax_t getAvailableSpaceOnFilesystem();
@@ -55,6 +64,8 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool filesystemIsCaseSe
 	return false;
 #endif
 }
+
+/** @}*/
 
 }  // namespace files
 

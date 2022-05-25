@@ -20,6 +20,11 @@
 #include "triangle.h"
 #include <cmath>
 
+/** @file
+	This file defines the Rectangle class.
+	@ingroup 2Dgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
@@ -27,6 +32,7 @@ namespace math::geometry
 
 /** Represents a rectangle.
 	A rectangle may or may not be square.
+	@ingroup 2Dgeometry
  */
 template <Scalar ValueType>
 class LIMES_EXPORT Rectangle final : public TwoDShape<ValueType>

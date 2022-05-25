@@ -20,12 +20,19 @@
 #include "../../../system/compiler_defs.h"
 #include <cmath>
 
+/** @file
+	This file defines the Hexagon class.
+	@ingroup 2Dgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
 {
 
-/** Represents a hexagon. */
+/** Represents a hexagon.
+	@ingroup 2Dgeometry
+ */
 template <Scalar ValueType>
 class LIMES_EXPORT Hexagon final : public TwoDShape<ValueType>
 {

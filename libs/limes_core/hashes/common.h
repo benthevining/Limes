@@ -16,6 +16,11 @@
 #include <limes_export.h>
 #include <cstdint>
 
+/** @file
+	This file defines internal utilities common to the various hash algorithms.
+	@ingroup hashes
+ */
+
 /// @cond
 
 LIMES_BEGIN_NAMESPACE

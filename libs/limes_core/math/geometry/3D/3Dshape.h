@@ -15,6 +15,11 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 
+/** @defgroup 3Dgeometry 3-D geometry
+	Three-dimensional geometric shapes.
+	@ingroup geometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry

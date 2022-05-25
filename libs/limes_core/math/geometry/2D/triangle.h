@@ -21,12 +21,19 @@
 #include "../../mathHelpers.h"
 #include <cmath>
 
+/** @file
+	This file defines the Triangle class.
+	@ingroup 2Dgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
 {
 
-/** Represents a triangle. */
+/** Represents a triangle.
+	@ingroup 2Dgeometry
+ */
 template <Scalar ValueType>
 class LIMES_EXPORT Triangle final : public TwoDShape<ValueType>
 {

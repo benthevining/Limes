@@ -19,6 +19,11 @@
 #include <string_view>
 #include <cstdint>
 
+/** @file
+	This file defines the MD5 hasher class.
+	@ingroup hashes
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace hash
@@ -26,6 +31,7 @@ namespace hash
 
 /** A Hasher object that calculates an MD5 hash.
 	MD5 is considered to be broken and insecure, so shouldn't be used for security-critical purposes in new applications, but is provided for backwards compatibility.
+	@ingroup hashes
  */
 class LIMES_EXPORT MD5 final : public Hasher  // cppcheck-suppress noConstructor
 {
@@ -50,10 +56,14 @@ private:
 	unsigned char buffer[md5_blocksize];
 };
 
-/** Calculates an MD5 hash for the given data. */
+/** Calculates an MD5 hash for the given data.
+	@ingroup hashes
+ */
 LIMES_EXPORT [[nodiscard]] std::string md5 (const char* input, std::size_t length);
 
-/** Calculates an MD5 hash for the given string. */
+/** Calculates an MD5 hash for the given string.
+	@ingroup hashes
+ */
 LIMES_EXPORT [[nodiscard]] std::string md5 (const std::string_view& input);
 
 }  // namespace hash

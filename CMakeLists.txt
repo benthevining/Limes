@@ -74,6 +74,9 @@ Install components
 - limes_programs_runtime
 - limes_dev
 - limes_runtime
+- limes_doc_pdf
+- limes_doc_html
+- limes_doc_man
 
 Install component groups
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -87,6 +90,7 @@ Install component groups
 - limes_libs
 - limes_binary_builder
 - limes_programs
+- limes_docs
 - limes
 
 Install types
@@ -193,21 +197,7 @@ endif ()
 #
 
 if (LIMES_BUILD_DOCS)
-	include (OrangesDoxygenConfig)
-	include (OrangesGraphviz)
-
-	oranges_add_graphviz_target (TARGET LimesDependencyGraph SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}"
-								 COPY_GRAPH_TO "${CMAKE_CURRENT_LIST_DIR}/util/deps_graph.png")
-
-	oranges_create_doxygen_target (TARGET LimesDoxygen INPUT_PATHS libs
-								   INSTALL_COMPONENT limes_docs)
-
-	cpack_add_component (
-		limes_docs
-		DISPLAY_NAME "Limes documentation"
-		DESCRIPTION "Install the Limes documentation"
-		GROUP limes
-		INSTALL_TYPES Developer)
+	add_subdirectory (docs)
 endif ()
 
 #

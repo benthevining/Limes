@@ -29,11 +29,9 @@ LIMES_BEGIN_NAMESPACE
 namespace files
 {
 
-FilesystemEntry::FilesystemEntry (const Path& pathToUse, bool createIfNeeded)
+FilesystemEntry::FilesystemEntry (const Path& pathToUse)
 	: path (pathToUse)
 {
-	if (createIfNeeded)
-		createIfDoesntExist();
 }
 
 FilesystemEntry& FilesystemEntry::operator= (const Path& newPath)

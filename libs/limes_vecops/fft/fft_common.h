@@ -22,6 +22,8 @@ LIMES_BEGIN_NAMESPACE
 namespace vecops
 {
 
+/// @cond
+
 template <Scalar SampleType>
 LIMES_NO_EXPORT constexpr SampleType shiftAmount = SampleType (0.000001);
 
@@ -76,6 +78,8 @@ private:
 		return 0;
 	}
 };
+
+/// @endcond
 
 }  // namespace vecops
 

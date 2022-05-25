@@ -31,9 +31,9 @@ static_assert (Month { Month::Name::February }.getNumDays (false) == 28, "Month:
 static_assert (Month { Month::Name::February }.getNumDays (true) == 29, "Month::getNumDays");
 
 static_assert (
-	Month { Month::Name::December } ++.getMonthName() == Month::Name::January, "Month::operator++");
+	(Month { Month::Name::December } ++).getMonthName() == Month::Name::January, "Month::operator++");
 static_assert (
-	Month { Month::Name::January } --.getMonthName() == Month::Name::December, "Month::operator--");
+	(Month { Month::Name::January } --).getMonthName() == Month::Name::December, "Month::operator--");
 
 static_assert (Month { Month::Name::March }.getMonthNumber() == 3, "Month::getMonthNumber");
 static_assert (Month { Month::Name::October }.getMonthNumber() == 10, "Month::getMonthNumber");

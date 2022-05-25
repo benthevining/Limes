@@ -20,11 +20,27 @@
 #include <vector>			  // for vector
 #include "../system/compiler_defs.h"
 
+/** @defgroup text
+	Utilities for working with text and strings.
+	@ingroup limes_core
+ */
+
+/** @file
+	This file contains free functions for working with strings.
+	@ingroup text
+ */
+
 LIMES_BEGIN_NAMESPACE
 
-/** This namespace contains some text manipulation utilities for working with both C++ and C-style strings. */
+/** This namespace contains some text manipulation utilities for working with both C++ and C-style strings.
+	@ingroup text
+ */
 namespace strings
 {
+
+/** @ingroup text
+	@{
+ */
 
 /** Returns true if the passed string is \c \n or \c \r\n . */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION bool isNewline (const std::string_view& string) noexcept;
@@ -138,6 +154,8 @@ constexpr std::string_view getNewline() noexcept
 	return "\n"sv;
 #endif
 }
+
+/** @} */
 
 }  // namespace strings
 

@@ -16,12 +16,19 @@
 #include <limes_export.h>
 #include "FilesystemEntry.h"
 
+/** @file
+	This file defines the SymLink class.
+	@ingroup files
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace files
 {
 
-/** This class represents a symbolic link on the filesystem. */
+/** This class represents a symbolic link on the filesystem.
+	@ingroup files
+ */
 class LIMES_EXPORT SymLink final : public FilesystemEntry
 {
 public:

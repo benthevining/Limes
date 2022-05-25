@@ -19,14 +19,30 @@
 #include <string_view>		  // for string_view
 #include <memory>			  // for unique_ptr
 
+/** @defgroup hashes
+	Cryptographic hash functions.
+	@ingroup limes_core
+ */
+
+/** @file
+	This file defines the Hasher class and the hash() free functions.
+	@ingroup hashes
+ */
 
 LIMES_BEGIN_NAMESPACE
 
-/** This namespace contains some common hash functions and utilities. */
+/** This namespace contains some common hash functions and utilities.
+	@ingroup hashes
+ */
 namespace hash
 {
 
-/** Represents a type of hash function that comes with the Limes library. */
+/** @ingroup hashes
+	@{
+ */
+
+/** Represents a type of hash function that comes with the Limes library.
+ */
 enum class Type
 {
 	md5,
@@ -72,6 +88,8 @@ LIMES_EXPORT [[nodiscard]] std::string hash (Type type, const char* input, std::
 	@see createHasherForType
  */
 LIMES_EXPORT [[nodiscard]] std::string hash (Type type, const std::string_view& input);
+
+/** @}*/
 
 }  // namespace hash
 

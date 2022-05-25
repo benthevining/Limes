@@ -16,6 +16,11 @@ Limes - version @Limes_VERSION@
 
 */
 
+/** @file
+	The main header for the entire Limes library.
+	This file includes the headers for all Limes libraries.
+ */
+
 #pragma once
 
 #include <limes_core.h>
