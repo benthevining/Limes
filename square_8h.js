@@ -1,6 +1,0 @@
-var square_8h =
-[
-    [ "Square", "classmath_1_1geometry_1_1_square.html", "classmath_1_1geometry_1_1_square" ],
-    [ "operator!=", "square_8h.html#a317e9900bc8f2c083ad6d6c8fafc5df8", null ],
-    [ "operator==", "square_8h.html#a2396d30ac8dc8dc734b4aa53fb53c6e5", null ]
-];

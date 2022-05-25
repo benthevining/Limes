@@ -1,0 +1,27 @@
+var structmusic_1_1_note_length =
+[
+    [ "NoteLength", "db/d92/structmusic_1_1_note_length.html#aaee093fa8f3848f47c6b8903c3730b92", null ],
+    [ "getDuration", "db/d92/structmusic_1_1_note_length.html#a1e358c68ced882b7fd6353e71b8ded6d", null ],
+    [ "getFirstNoteInTie", "db/d92/structmusic_1_1_note_length.html#a7a653c0e62fb1aa7fde7138deaea4471", null ],
+    [ "getLastNoteInTie", "db/d92/structmusic_1_1_note_length.html#acf4316118368f42afe26a08f28cddb6f", null ],
+    [ "getNumDots", "db/d92/structmusic_1_1_note_length.html#a02f1309db59c3711be69d121b9b99cc3", null ],
+    [ "getNumNotesOfDuration", "db/d92/structmusic_1_1_note_length.html#affa8d4b561a3f96409da79763e62daea", null ],
+    [ "getNumNotesOfDurationForWholeTie", "db/d92/structmusic_1_1_note_length.html#af9def8422a673b40999b20646cf6523e", null ],
+    [ "getRelativeValue", "db/d92/structmusic_1_1_note_length.html#ad9d67f2984466bbf2981e373b99b80da", null ],
+    [ "getRelativeValueForWholeTie", "db/d92/structmusic_1_1_note_length.html#ad37d255a5dc80cf814c2e0446bffd85c", null ],
+    [ "hasStem", "db/d92/structmusic_1_1_note_length.html#a2c83e0878a43e97c5d8609e16f303e98", null ],
+    [ "isDotted", "db/d92/structmusic_1_1_note_length.html#a1ea083fd335ef042b65fa63582cefba9", null ],
+    [ "isFirstNoteInTie", "db/d92/structmusic_1_1_note_length.html#a8fcab4dd67d684f97fb8e913e4d50fcf", null ],
+    [ "isGraceNote", "db/d92/structmusic_1_1_note_length.html#aabb684634e002ea527592cd518247764", null ],
+    [ "isLastNoteInTie", "db/d92/structmusic_1_1_note_length.html#a787c3992d4826104d3be14c3e40855d1", null ],
+    [ "isTied", "db/d92/structmusic_1_1_note_length.html#a2b4cd2ecb9ff7433b3a2432a98f1e1df", null ],
+    [ "LIMES_DEFAULT_COPYABLE", "db/d92/structmusic_1_1_note_length.html#a630996c7a97a1ae3d95ac3100cf3b8c6", null ],
+    [ "LIMES_DEFAULT_MOVABLE", "db/d92/structmusic_1_1_note_length.html#ade7057207913a5cc1a428ca2df7b23eb", null ],
+    [ "noteHeadIsFilled", "db/d92/structmusic_1_1_note_length.html#a3812fcf3d01ac01182b17d02a9b3614d", null ],
+    [ "operator!=", "db/d92/structmusic_1_1_note_length.html#abfa84024abe7f07bd157e52668470442", null ],
+    [ "operator<", "db/d92/structmusic_1_1_note_length.html#a2723a362985fd2788a9aafbcd93e36a7", null ],
+    [ "operator==", "db/d92/structmusic_1_1_note_length.html#a6ce14ff2ec9c0f11b511c1e7c94fa31b", null ],
+    [ "operator>", "db/d92/structmusic_1_1_note_length.html#a1d0995dd136749ce2eeeccc93d833e0d", null ],
+    [ "removeTies", "db/d92/structmusic_1_1_note_length.html#ab323958cffeae82434b132f1f4d4c4d0", null ],
+    [ "tieToNotes", "db/d92/structmusic_1_1_note_length.html#a9210bff4a13025d88a9e44e0534216bb", null ]
+];

@@ -23,13 +23,13 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "Limes", "index.html", [
-    [ "README", "md__home_runner_work__limes__limes_libs_limes_audio__r_e_a_d_m_e.html", null ],
-    [ "README", "md__home_runner_work__limes__limes_libs_limes_core__r_e_a_d_m_e.html", null ],
-    [ "README", "md__home_runner_work__limes__limes_libs_limes_data_structures__r_e_a_d_m_e.html", null ],
-    [ "README", "md__home_runner_work__limes__limes_libs_limes_locale__r_e_a_d_m_e.html", null ],
-    [ "README", "md__home_runner_work__limes__limes_libs_limes_midi__r_e_a_d_m_e.html", null ],
-    [ "README", "md__home_runner_work__limes__limes_libs_limes_music__r_e_a_d_m_e.html", null ],
-    [ "README", "md__home_runner_work__limes__limes_libs_limes_vecops__r_e_a_d_m_e.html", null ],
+    [ "README", "da/d04/md__home_runner_work__limes__limes_libs_limes_audio__r_e_a_d_m_e.html", null ],
+    [ "README", "d2/df6/md__home_runner_work__limes__limes_libs_limes_core__r_e_a_d_m_e.html", null ],
+    [ "README", "d7/da2/md__home_runner_work__limes__limes_libs_limes_data_structures__r_e_a_d_m_e.html", null ],
+    [ "README", "d2/d46/md__home_runner_work__limes__limes_libs_limes_locale__r_e_a_d_m_e.html", null ],
+    [ "README", "de/d00/md__home_runner_work__limes__limes_libs_limes_midi__r_e_a_d_m_e.html", null ],
+    [ "README", "da/dc3/md__home_runner_work__limes__limes_libs_limes_music__r_e_a_d_m_e.html", null ],
+    [ "README", "d5/d67/md__home_runner_work__limes__limes_libs_limes_vecops__r_e_a_d_m_e.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -58,21 +58,21 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"_velocity_mapper_8h.html",
-"classds_1_1scalar__vector.html#ad247b8f87f8adbdf5963af4202694194",
-"classfiles_1_1_file.html#a0d19dc8965413fe13319b05859e0a62d",
-"classfiles_1_1_temp_file.html#a9627bb228737520c388da0845c484eaa",
-"classmath_1_1geometry_1_1_cylinder.html#ad9b74e839c8a96b46ffe08c763dcc92e",
-"classmemory_1_1_memory_pool_allocator.html#a33508cd3b7bf351ebe4bda81a7bde26d",
-"classmusic_1_1_compound_interval.html#a37e98836f2ed8d928f8911a8730dd7f6",
-"classmusic_1_1scales_1_1_whole_tone.html#ab5a2079a781bf92031b1eec14ac06a35",
-"classtime_1_1_weekday.html#a7d3ad737b360d8b6f8c119212595a8b1",
-"fallback__impl_8h.html#ab7b9bd774cf7bc7d5412a6fb7b48f00d",
-"json_8h.html#ab9033928f827dd8617b0431ad7f31c44",
-"mipp_8h.html#a6e3857bfb72f13e41340b56e0cf22483",
-"sse__mathfun_8h.html#a437458949f05f83f70c795536f079027",
-"structmemory_1_1_shared_object_owner.html#ab157d15635f086172e0a7975c0023914",
-"vdsp_8h.html#a1e3bf970f63afa9bf0e04420d3c098f5"
+"d1/d7a/_realtime_type_traits_8h.html#adb15c7e72fd6eee6d9cbbadf02048743",
+"d2/daa/_memory_pool_8h.html",
+"d3/d66/structmusic_1_1scales_1_1_scale.html#a6a8d3a6ed910dda15b9442bd59bc1c92",
+"d4/d06/classmeta_1_1_type_list.html#acb221491c37c27717d16a7f739d337e8",
+"d4/dcb/mipp_8h.html#ae3973eddb1bd6cbeb7738e71af87440c",
+"d5/d98/year_8h_source.html",
+"d6/d1a/fallback_8h.html#aed14075e6467850af3e648b2d1cf9208",
+"d6/dda/structdsp_1_1osc_1_1_triangle.html#aedd9d46f7f2571cb7128af71752d0c6d",
+"d9/dda/group__files.html#gabea6c2fda82a1141b4fc7417dee87f14",
+"db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html#a4d40f0673fdf64d43a41ff27eb567ba0",
+"dc/dc1/classtime_1_1_month.html#a9b8014e3f80cf7f161260a1e2f4590c9a41ba70891fb6f39327d8ccb9b1dafb84",
+"dd/dfb/math_helpers_8h.html#ga09f140aa9f0323bb7cbb299cfd4be28f",
+"de/d6d/classmusic_1_1_pitch.html#a7429699ec38340a77047240211686da7",
+"df/d16/structds_1_1_linked_list_model.html#a1a015b40cd6efc3b4a62cdc91ad6bc35",
+"df/dcc/classfiles_1_1_file.html#ad29e63925bc45b2ff88f2e957b604cb0"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
