@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
+   &#160;<span id="projectnumber">4.8.1</span>
    </div>
-   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
+   <div id="projectbrief">C++ utilities and building blocks</div>
   </td>
  </tr>
  </tbody>
@@ -87,7 +88,7 @@ $(document).ready(function(){initNavTree('limes__assert_8h.html',''); initResiza
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">limes_assert.h File Reference</div>  </div>
+<div class="title">limes_assert.h File Reference<div class="ingroups"><a class="el" href="group__limes__core.html">Limes_core</a> &raquo; <a class="el" href="group__system.html">System</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;limes_export.h&gt;</code><br />
@@ -125,44 +126,27 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a06a4bfb323e9f05d2e51a72b21f40e0a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limes__assert_8h.html#a06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a>(condition)</td></tr>
-<tr class="separator:a06a4bfb323e9f05d2e51a72b21f40e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06a4bfb323e9f05d2e51a72b21f40e0a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a>(condition)</td></tr>
+<tr class="separator:ga06a4bfb323e9f05d2e51a72b21f40e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25f3c9bb0036097a480811b544f1eb34"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limes__assert_8h.html#a25f3c9bb0036097a480811b544f1eb34">LIMES_ASSERT_FALSE</a></td></tr>
 <tr class="separator:a25f3c9bb0036097a480811b544f1eb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad16dd0041c15feb8b68d38dc707f9595"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="limes__assert_8h.html#ad16dd0041c15feb8b68d38dc707f9595">LIMES_UNREACHABLE</a></td></tr>
-<tr class="separator:ad16dd0041c15feb8b68d38dc707f9595"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad16dd0041c15feb8b68d38dc707f9595"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__system.html#gad16dd0041c15feb8b68d38dc707f9595">LIMES_UNREACHABLE</a></td></tr>
+<tr class="separator:gad16dd0041c15feb8b68d38dc707f9595"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a64329f2d07616067699dcccc702a4184"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceassert.html#a64329f2d07616067699dcccc702a4184">assert::getAssertionLogFile</a> ()</td></tr>
-<tr class="memdesc:a64329f2d07616067699dcccc702a4184"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the path to the current assertion log file, if any.  <a href="namespaceassert.html#a64329f2d07616067699dcccc702a4184">More...</a><br /></td></tr>
-<tr class="separator:a64329f2d07616067699dcccc702a4184"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c49f64f578f6c0589dab44d41af3e2f"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceassert.html#a2c49f64f578f6c0589dab44d41af3e2f">assert::setAssertionLogFile</a> (const std::filesystem::path &amp;logFileToUse) noexcept</td></tr>
-<tr class="memdesc:a2c49f64f578f6c0589dab44d41af3e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a filepath to be used to log assertion failures for the current process.  <a href="namespaceassert.html#a2c49f64f578f6c0589dab44d41af3e2f">More...</a><br /></td></tr>
-<tr class="separator:a2c49f64f578f6c0589dab44d41af3e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64329f2d07616067699dcccc702a4184"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__system.html#ga64329f2d07616067699dcccc702a4184">assert::getAssertionLogFile</a> ()</td></tr>
+<tr class="memdesc:ga64329f2d07616067699dcccc702a4184"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the path to the current assertion log file, if any.  <a href="group__system.html#ga64329f2d07616067699dcccc702a4184">More...</a><br /></td></tr>
+<tr class="separator:ga64329f2d07616067699dcccc702a4184"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c49f64f578f6c0589dab44d41af3e2f"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__system.html#ga2c49f64f578f6c0589dab44d41af3e2f">assert::setAssertionLogFile</a> (const std::filesystem::path &amp;logFileToUse) noexcept</td></tr>
+<tr class="memdesc:ga2c49f64f578f6c0589dab44d41af3e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a filepath to be used to log assertion failures for the current process.  <a href="group__system.html#ga2c49f64f578f6c0589dab44d41af3e2f">More...</a><br /></td></tr>
+<tr class="separator:ga2c49f64f578f6c0589dab44d41af3e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a06a4bfb323e9f05d2e51a72b21f40e0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06a4bfb323e9f05d2e51a72b21f40e0a">&#9670;&nbsp;</a></span>LIMES_ASSERT</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file defines functions and macros related to runtime assertions. </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LIMES_ASSERT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">condition</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Evaluates the condition, and if it is false, logs an assertion failure message and stops in the debugger if one is attached. This macro can be used in constexpr functions, but assertion failures will not be caught or logged if the function is evaluated at compile time. In release builds, this macro expands to nothing. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="limes__assert_8h.html#a25f3c9bb0036097a480811b544f1eb34">LIMES_ASSERT_FALSE</a> </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="limes__assert_8h_source.html#l00074">74</a> of file <a class="el" href="limes__assert_8h_source.html">limes_assert.h</a>.</p>
-
-</div>
-</div>
+<p class="definition">Definition in file <a class="el" href="limes__assert_8h_source.html">limes_assert.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a25f3c9bb0036097a480811b544f1eb34"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a25f3c9bb0036097a480811b544f1eb34">&#9670;&nbsp;</a></span>LIMES_ASSERT_FALSE</h2>
 
@@ -175,24 +159,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="limes__assert_8h_source.html#l00066">66</a> of file <a class="el" href="limes__assert_8h_source.html">limes_assert.h</a>.</p>
-
-</div>
-</div>
-<a id="ad16dd0041c15feb8b68d38dc707f9595"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad16dd0041c15feb8b68d38dc707f9595">&#9670;&nbsp;</a></span>LIMES_UNREACHABLE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LIMES_UNREACHABLE</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Invokes undefined behavior. The use case of this macro is to indicate to the compiler and to static analysis tools that a control path is intended to be unreachable. If a code path should not be reached, but may be in some cases, use <code>LIMES_ASSERT_FALSE</code> instead. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="limes__assert_8h.html#a25f3c9bb0036097a480811b544f1eb34">LIMES_ASSERT_FALSE</a> </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="limes__assert_8h_source.html#l00082">82</a> of file <a class="el" href="limes__assert_8h_source.html">limes_assert.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="limes__assert_8h_source.html#l00081">81</a> of file <a class="el" href="limes__assert_8h_source.html">limes_assert.h</a>.</p>
 
 </div>
 </div>
@@ -202,7 +169,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_2d8a48939303f02673a94e0c7666fd8b.html">system</a></li><li class="navelem"><a class="el" href="limes__assert_8h.html">limes_assert.h</a></li>
-    <li class="footer">Generated on Tue May 24 2022 05:18:48 for Limes by
+    <li class="footer">Generated on Wed May 25 2022 08:27:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
+   &#160;<span id="projectnumber">4.8.1</span>
    </div>
-   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
+   <div id="projectbrief">C++ utilities and building blocks</div>
   </td>
  </tr>
  </tbody>
@@ -84,11 +85,9 @@ $(document).ready(function(){initNavTree('hash_8h.html',''); initResizable(); })
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">hash.h File Reference</div>  </div>
+<div class="title">hash.h File Reference<div class="ingroups"><a class="el" href="group__limes__core.html">Limes_core</a> &raquo; <a class="el" href="group__hashes.html">Hashes</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;limes_export.h&gt;</code><br />
@@ -127,41 +126,39 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacehash"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehash.html">hash</a></td></tr>
 <tr class="memdesc:namespacehash"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains some common hash functions and utilities. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:add3ce0ac3d3c8404d1b002ab4e064db9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehash.html#add3ce0ac3d3c8404d1b002ab4e064db9">hash::Type</a> { <br />
-&#160;&#160;<a class="el" href="namespacehash.html#add3ce0ac3d3c8404d1b002ab4e064db9a1bc29b36f623ba82aaf6724fd3b16718">hash::Type::md5</a>, 
-<a class="el" href="namespacehash.html#add3ce0ac3d3c8404d1b002ab4e064db9a74a89174426b40307102e165374ab8ab">hash::Type::sha1</a>, 
-<a class="el" href="namespacehash.html#add3ce0ac3d3c8404d1b002ab4e064db9a492d7a5fe8a3d874ff236ec4a4b52c63">hash::Type::sha224</a>, 
-<a class="el" href="namespacehash.html#add3ce0ac3d3c8404d1b002ab4e064db9ad8d8a6d2e9e1fb99302b479a8fe540d4">hash::Type::sha256</a>, 
+<tr class="memitem:ga93880e4516879865db6f778fbe52858e"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::unique_ptr&lt; Hasher &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hashes.html#ga93880e4516879865db6f778fbe52858e">hash::createHasherForType</a> (Type type)</td></tr>
+<tr class="memdesc:ga93880e4516879865db6f778fbe52858e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an appropriate <a class="el" href="classhash_1_1_hasher.html" title="A base class representing an object that calculates a hash function.">Hasher</a> for the given Type.  <a href="group__hashes.html#ga93880e4516879865db6f778fbe52858e">More...</a><br /></td></tr>
+<tr class="separator:ga93880e4516879865db6f778fbe52858e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77f8b860e06068de15d1b5884ffffe7e"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hashes.html#ga77f8b860e06068de15d1b5884ffffe7e">hash::hash</a> (Type type, const char *input, std::size_t length)</td></tr>
+<tr class="memdesc:ga77f8b860e06068de15d1b5884ffffe7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a hash value for the input data using a hasher appropriate for the desired type.  <a href="group__hashes.html#ga77f8b860e06068de15d1b5884ffffe7e">More...</a><br /></td></tr>
+<tr class="separator:ga77f8b860e06068de15d1b5884ffffe7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2f7e434e212f85cd74b50d6a2aa5b03"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hashes.html#gaf2f7e434e212f85cd74b50d6a2aa5b03">hash::hash</a> (Type type, const std::string_view &amp;input)</td></tr>
+<tr class="memdesc:gaf2f7e434e212f85cd74b50d6a2aa5b03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a hash value for the input string using a hasher appropriate for the desired type.  <a href="group__hashes.html#gaf2f7e434e212f85cd74b50d6a2aa5b03">More...</a><br /></td></tr>
+<tr class="separator:gaf2f7e434e212f85cd74b50d6a2aa5b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd3ce0ac3d3c8404d1b002ab4e064db9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hashes.html#gadd3ce0ac3d3c8404d1b002ab4e064db9">hash::Type</a> { <br />
+&#160;&#160;<a class="el" href="group__hashes.html#ggadd3ce0ac3d3c8404d1b002ab4e064db9a1bc29b36f623ba82aaf6724fd3b16718">hash::Type::md5</a>, 
+<a class="el" href="group__hashes.html#ggadd3ce0ac3d3c8404d1b002ab4e064db9a74a89174426b40307102e165374ab8ab">hash::Type::sha1</a>, 
+<a class="el" href="group__hashes.html#ggadd3ce0ac3d3c8404d1b002ab4e064db9a492d7a5fe8a3d874ff236ec4a4b52c63">hash::Type::sha224</a>, 
+<a class="el" href="group__hashes.html#ggadd3ce0ac3d3c8404d1b002ab4e064db9ad8d8a6d2e9e1fb99302b479a8fe540d4">hash::Type::sha256</a>, 
 <br />
-&#160;&#160;<a class="el" href="namespacehash.html#add3ce0ac3d3c8404d1b002ab4e064db9a23b1f23465cc48415b07c3da88c88103">hash::Type::sha384</a>, 
-<a class="el" href="namespacehash.html#add3ce0ac3d3c8404d1b002ab4e064db9a79521051c5c4526354393a974d561458">hash::Type::sha512</a>
+&#160;&#160;<a class="el" href="group__hashes.html#ggadd3ce0ac3d3c8404d1b002ab4e064db9a23b1f23465cc48415b07c3da88c88103">hash::Type::sha384</a>, 
+<a class="el" href="group__hashes.html#ggadd3ce0ac3d3c8404d1b002ab4e064db9a79521051c5c4526354393a974d561458">hash::Type::sha512</a>
 <br />
  }</td></tr>
-<tr class="memdesc:add3ce0ac3d3c8404d1b002ab4e064db9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a type of hash function that comes with the Limes library.  <a href="namespacehash.html#add3ce0ac3d3c8404d1b002ab4e064db9">More...</a><br /></td></tr>
-<tr class="separator:add3ce0ac3d3c8404d1b002ab4e064db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a93880e4516879865db6f778fbe52858e"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::unique_ptr&lt; Hasher &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehash.html#a93880e4516879865db6f778fbe52858e">hash::createHasherForType</a> (Type type)</td></tr>
-<tr class="memdesc:a93880e4516879865db6f778fbe52858e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an appropriate <a class="el" href="classhash_1_1_hasher.html" title="A base class representing an object that calculates a hash function.">Hasher</a> for the given Type.  <a href="namespacehash.html#a93880e4516879865db6f778fbe52858e">More...</a><br /></td></tr>
-<tr class="separator:a93880e4516879865db6f778fbe52858e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77f8b860e06068de15d1b5884ffffe7e"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehash.html#a77f8b860e06068de15d1b5884ffffe7e">hash::hash</a> (Type type, const char *input, std::size_t length)</td></tr>
-<tr class="memdesc:a77f8b860e06068de15d1b5884ffffe7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a hash value for the input data using a hasher appropriate for the desired type.  <a href="namespacehash.html#a77f8b860e06068de15d1b5884ffffe7e">More...</a><br /></td></tr>
-<tr class="separator:a77f8b860e06068de15d1b5884ffffe7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2f7e434e212f85cd74b50d6a2aa5b03"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehash.html#af2f7e434e212f85cd74b50d6a2aa5b03">hash::hash</a> (Type type, const std::string_view &amp;input)</td></tr>
-<tr class="memdesc:af2f7e434e212f85cd74b50d6a2aa5b03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a hash value for the input string using a hasher appropriate for the desired type.  <a href="namespacehash.html#af2f7e434e212f85cd74b50d6a2aa5b03">More...</a><br /></td></tr>
-<tr class="separator:af2f7e434e212f85cd74b50d6a2aa5b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:gadd3ce0ac3d3c8404d1b002ab4e064db9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a type of hash function that comes with the Limes library.  <a href="group__hashes.html#gadd3ce0ac3d3c8404d1b002ab4e064db9">More...</a><br /></td></tr>
+<tr class="separator:gadd3ce0ac3d3c8404d1b002ab4e064db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file defines the Hasher class and the <a class="el" href="group__hashes.html#gaf2f7e434e212f85cd74b50d6a2aa5b03" title="Calculates a hash value for the input string using a hasher appropriate for the desired type.">hash()</a> free functions. </p>
+
+<p class="definition">Definition in file <a class="el" href="hash_8h_source.html">hash.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_9d876a86157d9a0e3aece00d12ae95e4.html">hashes</a></li><li class="navelem"><a class="el" href="hash_8h.html">hash.h</a></li>
-    <li class="footer">Generated on Tue May 24 2022 05:18:48 for Limes by
+    <li class="footer">Generated on Wed May 25 2022 08:27:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

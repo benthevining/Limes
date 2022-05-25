@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
+   &#160;<span id="projectnumber">4.8.1</span>
    </div>
-   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
+   <div id="projectbrief">C++ utilities and building blocks</div>
   </td>
  </tr>
  </tbody>
@@ -81,17 +82,136 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
 <div class="title">Limes Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><div class="fragment"><div class="line"> __    ____  __  __  ____  ___</div>
+<div class="line">(  )  (_  _)(  \/  )( ___)/ __)</div>
+<div class="line"> )(__  _)(_  )    (  )__) \__ \</div>
+<div class="line">(____)(____)(_/\/\_)(____)(___/</div>
+</div><!-- fragment --><p><img src="https://img.shields.io/github/languages/top/benthevining/Limes" alt="GitHub top language" class="inline"/> <a href="https://github.com/benthevining/Limes/actions/workflows/test_and_release.yml"><object type="image/svg+xml" data="https://github.com/benthevining/Limes/actions/workflows/test_and_release.yml/badge.svg" style="pointer-events: none;">Create release</object></a> <a href="https://results.pre-commit.ci/latest/github/benthevining/Limes/main"><object type="image/svg+xml" data="https://results.pre-commit.ci/badge/github/benthevining/Limes/main.svg" style="pointer-events: none;">pre-commit.ci status</object></a> <a href="https://www.codefactor.io/repository/github/benthevining/limes"><img src="https://www.codefactor.io/repository/github/benthevining/limes/badge" alt="CodeFactor" class="inline"/></a> <a href="https://github.com/benthevining/Limes/actions/workflows/codeql-analysis.yml"><object type="image/svg+xml" data="https://github.com/benthevining/Limes/actions/workflows/codeql-analysis.yml/badge.svg" style="pointer-events: none;">CodeQL</object></a> <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/semantic--release-conventionalcommits-e10079?logo=semantic-release" alt="semantic-release: conventionalcommits" class="inline"/></a> <img src="https://img.shields.io/github/license/benthevining/Limes" alt="License" class="inline"/> <img src="https://img.shields.io/github/repo-size/benthevining/Limes" alt="GitHub repo size" class="inline"/> <img src="https://img.shields.io/tokei/lines/github/benthevining/Limes" alt="Lines of code" class="inline"/> <img src="https://img.shields.io/github/commit-activity/m/benthevining/Limes" alt="GitHub commit activity" class="inline"/> <img src="https://img.shields.io/github/release-date/benthevining/Limes" alt="GitHub Release Date" class="inline"/> <img src="https://img.shields.io/github/v/release/benthevining/Limes" alt="GitHub release" class="inline"/> <img src="https://img.shields.io/github/sponsors/benthevining?style=social" alt="GitHub Sponsors" class="inline"/> <img src="https://img.shields.io/github/stars/benthevining/Limes?style=social" alt="GitHub Repo stars" class="inline"/> <img src="https://img.shields.io/github/followers/benthevining?style=social" alt="GitHub followers" class="inline"/></p>
+<p>A collection of standalone C++ static libraries.</p>
+<h2>What's here</h2>
+<p>Limes consists of the following libraries:</p>
+<ul>
+<li><a class="el" href="libs_2limes__core_2_r_e_a_d_m_e_8md.html">limes_core</a>, the core library of utilities</li>
+<li><a class="el" href="libs_2limes__data__structures_2_r_e_a_d_m_e_8md.html">limes_data_structures</a>, some basic data structures</li>
+<li><a class="el" href="libs_2limes__audio_2_r_e_a_d_m_e_8md.html">limes_audio</a>, for realtime audio and DSP</li>
+<li><a class="el" href="libs_2limes__midi_2_r_e_a_d_m_e_8md.html">limes_midi</a>, for basic MIDI support utilities</li>
+<li><a class="el" href="libs_2limes__locale_2_r_e_a_d_m_e_8md.html">limes_locale</a>, for locale and internationalization</li>
+<li><a class="el" href="libs_2limes__music_2_r_e_a_d_m_e_8md.html">limes_music</a>, for music-theory related concepts</li>
+<li><a class="el" href="libs_2limes__vecops_2_r_e_a_d_m_e_8md.html">limes_vecops</a>, for SIMD-accelerated vector operations</li>
+</ul>
+<p>Limes also provides the following command line tools:</p><ul>
+<li>BinaryBuilder, a utility for embedding binary resource files into C++ source code</li>
+<li>FileUtil, a utility to provide some universal filesystem operations</li>
+</ul>
+<h2>Using Limes</h2>
+<p>You can run <code>cmake --install</code> and then call <code>find_package (Limes)</code> from your consuming project, and everything should just work out of the box.</p>
+<p>If your project depends on Limes, I recommend copying the <code>FindLimes</code> script from the <code>scripts/</code> directory into your project's source tree (and adding its location to the <code>CMAKE_MODULE_PATH</code> before calling <code>find_package (Limes)</code>), so that if your project is built on a system where Limes hasn't been installed, it can still be fetched at configure-time. See the <code>FindLimes</code> file for more documentation on what it does.</p>
+<h2>Compiling Limes</h2>
+<p>Limes makes use of C++20, notably concepts. Limes has been tested on Mac, Windows, and Linux with Clang, GCC, and MSVC. Limes is also tested crosscompiled for iOS, tvOS and watchOS.</p>
+<p>To build the Limes unit tests, pass <code>-D LIMES_BUILD_TESTS=ON</code> to the CMake configuration. This option defaults to off.</p>
+<h2>CMake information</h2>
+<h3>Options</h3>
+<p>The vector operations library has several options affecting its configuration and behavior; see <a class="el" href="libs_2limes__vecops_2_r_e_a_d_m_e_8md.html">its readme</a> for details.</p>
+<ul>
+<li>LIMES_BUILD_TESTS</li>
+</ul>
+<p>Builds the Limes unit tests. Defaults to OFF if Limes is not the top-level directory CMake is invoked in.</p>
+<ul>
+<li>LIMES_BUILD_DOCS</li>
+</ul>
+<p>Builds the Limes documentation. Defaults to OFF if Limes is not the top-level directory CMake is invoked in.</p>
+<h3>Dependencies</h3>
+<p>Limes's CMake configuration depends on <a href="https://github.com/benthevining/Oranges">Oranges</a>. You can set the environment or command-line variables <code>ORANGES_PATH</code> to point Limes to a local copy; if it is already installed on your system, it should be found automatically. Otherwise, the Oranges source code will be downloaded from GitHub at configure time, using CMake's FetchContent module.</p>
+<h3>Targets</h3>
+<p>Limes creates the following CMake targets:</p>
+<ul>
+<li>Limes::limes_core</li>
+<li>Limes::limes_vecops</li>
+<li>Limes::limes_music</li>
+<li>Limes::limes_audio</li>
+<li>Limes::limes_midi</li>
+<li>Limes::limes_data_structures</li>
+<li>Limes::limes_locale</li>
+<li>Limes::BinaryBuilder</li>
+</ul>
+<p>All of these are static library targets. Additionally, there is a <code>Limes::Limes</code> interface library target that links to all of the library targets (but not the BinaryBuilder).</p>
+<h3>Install components</h3>
+<p>Limes creates the following CPack install components:</p>
+<ul>
+<li>limes_vecops_dev</li>
+<li>limes_vecops_runtime</li>
+<li>limes_music_dev</li>
+<li>limes_music_runtime</li>
+<li>limes_core_dev</li>
+<li>limes_core_runtime</li>
+<li>limes_audio_dev</li>
+<li>limes_audio_runtime</li>
+<li>limes_midi_dev</li>
+<li>limes_midi_runtime</li>
+<li>limes_data_structures_dev</li>
+<li>limes_data_structures_runtime</li>
+<li>limes_locale_dev</li>
+<li>limes_locale_runtime</li>
+<li>limes_libs_dev</li>
+<li>limes_libs_runtime</li>
+<li>limes_docs</li>
+<li>limes_binary_builder_dev</li>
+<li>limes_binary_builder_runtime</li>
+<li>limes_programs_dev</li>
+<li>limes_programs_runtime</li>
+<li>limes_dev (aggregate of all other dev components)</li>
+<li>limes_runtime (aggregate of all other runtime components)</li>
+<li>limes_doc_pdf</li>
+<li>limes_doc_html</li>
+<li>limes_doc_man</li>
+</ul>
+<p>Limes also creates the following CPack install component groups:</p>
+<ul>
+<li>limes_vecops</li>
+<li>limes_music</li>
+<li>limes_core</li>
+<li>limes_audio</li>
+<li>limes_midi</li>
+<li>limes_data_structures</li>
+<li>limes_locale</li>
+<li>limes_libs</li>
+<li>limes_binary_builder</li>
+<li>limes_programs</li>
+<li>limes_docs</li>
+<li>limes (aggregate of all Limes components)</li>
+</ul>
+<h3>find_package components</h3>
+<p>When you call <code>find_package (Limes)</code>, you can pass the following component names:</p>
+<ul>
+<li>All</li>
+<li>Libs</li>
+<li>Programs</li>
+<li>Audio</li>
+<li>MIDI</li>
+<li>Core</li>
+<li>DataStructures</li>
+<li>Locale</li>
+<li>Music</li>
+<li>Vecops</li>
+<li>BinaryBuilder</li>
+<li>FileUtil</li>
+</ul>
+<p>If no component names are specified, Limes will default to importing everything.</p>
+<h2>Dependency graph</h2>
+<p align="center"></p>
+<p><img src="https://github.com/benthevining/Limes/blob/main/util/deps_graph.png" alt="Limes dependency graph" class="inline"/> </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue May 24 2022 05:18:49 for Limes by
+    <li class="footer">Generated on Wed May 25 2022 08:27:44 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

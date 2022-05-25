@@ -38,8 +38,8 @@ var math_helpers_8h =
     [ "sampsToMs", "math_helpers_8h.html#ga03e0609c4a16e5500a587ca9bafe7f87", null ],
     [ "blackman_alpha", "math_helpers_8h.html#ab9ce49145794b197c4107d35284a6e0e", null ],
     [ "half_pi", "math_helpers_8h.html#a235933b0adc79428388d6f18d94193d3", null ],
-    [ "Integral", "math_helpers_8h.html#a04e106b35afcdef6a145a5db35d91efa", null ],
+    [ "Integral", "math_helpers_8h.html#ga04e106b35afcdef6a145a5db35d91efa", null ],
     [ "pi", "math_helpers_8h.html#afc3cb116f5aa8a90b9c93d112b372f1e", null ],
-    [ "Scalar", "math_helpers_8h.html#a85112aca5e58028e5a710f98adde3f40", null ],
+    [ "Scalar", "math_helpers_8h.html#ga85112aca5e58028e5a710f98adde3f40", null ],
     [ "two_pi", "math_helpers_8h.html#a6db585a73b2811284a16382a6cfb4952", null ]
 ];

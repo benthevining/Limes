@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
+   &#160;<span id="projectnumber">4.8.1</span>
    </div>
-   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
+   <div id="projectbrief">C++ utilities and building blocks</div>
   </td>
  </tr>
  </tbody>
@@ -106,6 +107,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsp_1_1_circular_buffer.html">CircularBuffer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdsp_1_1_mono_stereo_converter.html">MonoStereoConverter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A utility class for converting mono signals to stereo, or stereo signals to mono.  <a href="classdsp_1_1_mono_stereo_converter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdsp_1_1_oscillator.html">Oscillator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for any kind of oscillator.  <a href="structdsp_1_1_oscillator.html#details">More...</a><br /></td></tr>
@@ -120,11 +122,12 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:gab1a12ea0ed30dd9ebf7c261a68dc1d73"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lemons__stereo__conversion.html#gab1a12ea0ed30dd9ebf7c261a68dc1d73">StereoReductionMode</a> { <a class="el" href="group__lemons__stereo__conversion.html#ggab1a12ea0ed30dd9ebf7c261a68dc1d73a1551df77400b2edbe1682fef8b4ee182">StereoReductionMode::leftOnly</a>, 
-<a class="el" href="group__lemons__stereo__conversion.html#ggab1a12ea0ed30dd9ebf7c261a68dc1d73a97ed31f67756738d6c8d74a1ee8c565d">StereoReductionMode::rightOnly</a>, 
-<a class="el" href="group__lemons__stereo__conversion.html#ggab1a12ea0ed30dd9ebf7c261a68dc1d73a0d2a8602a2cd80a62be55f9bc60e1f22">StereoReductionMode::mixToMono</a>
+<tr class="memitem:ab1a12ea0ed30dd9ebf7c261a68dc1d73"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedsp.html#ab1a12ea0ed30dd9ebf7c261a68dc1d73">StereoReductionMode</a> { <a class="el" href="namespacedsp.html#ab1a12ea0ed30dd9ebf7c261a68dc1d73a1551df77400b2edbe1682fef8b4ee182">StereoReductionMode::leftOnly</a>, 
+<a class="el" href="namespacedsp.html#ab1a12ea0ed30dd9ebf7c261a68dc1d73a97ed31f67756738d6c8d74a1ee8c565d">StereoReductionMode::rightOnly</a>, 
+<a class="el" href="namespacedsp.html#ab1a12ea0ed30dd9ebf7c261a68dc1d73a0d2a8602a2cd80a62be55f9bc60e1f22">StereoReductionMode::mixToMono</a>
  }</td></tr>
-<tr class="separator:gab1a12ea0ed30dd9ebf7c261a68dc1d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ab1a12ea0ed30dd9ebf7c261a68dc1d73"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enum used to describe how a MonoStereoConverter will convert stereo signals to mono.  <a href="namespacedsp.html#ab1a12ea0ed30dd9ebf7c261a68dc1d73">More...</a><br /></td></tr>
+<tr class="separator:ab1a12ea0ed30dd9ebf7c261a68dc1d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -135,6 +138,41 @@ Variables</h2></td></tr>
 <tr class="memitem:aba42c13b1022431b2261219fe38c2ced"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedsp.html#aba42c13b1022431b2261219fe38c2ced">Sample</a> = std::is_same_v&lt;T, float&gt; || std::is_same_v&lt;T, double&gt;</td></tr>
 <tr class="separator:aba42c13b1022431b2261219fe38c2ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ab1a12ea0ed30dd9ebf7c261a68dc1d73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1a12ea0ed30dd9ebf7c261a68dc1d73">&#9670;&nbsp;</a></span>StereoReductionMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespacedsp.html#ab1a12ea0ed30dd9ebf7c261a68dc1d73">dsp::StereoReductionMode</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>An enum used to describe how a <a class="el" href="classdsp_1_1_mono_stereo_converter.html" title="A utility class for converting mono signals to stereo, or stereo signals to mono.">MonoStereoConverter</a> will convert stereo signals to mono. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab1a12ea0ed30dd9ebf7c261a68dc1d73a1551df77400b2edbe1682fef8b4ee182"></a>leftOnly&#160;</td><td class="fielddoc"><p>In this mode, a <a class="el" href="classdsp_1_1_mono_stereo_converter.html" title="A utility class for converting mono signals to stereo, or stereo signals to mono.">MonoStereoConverter</a> will output only the left channel of a stereo signal as its mono reduction. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab1a12ea0ed30dd9ebf7c261a68dc1d73a97ed31f67756738d6c8d74a1ee8c565d"></a>rightOnly&#160;</td><td class="fielddoc"><p>In this mode, a <a class="el" href="classdsp_1_1_mono_stereo_converter.html" title="A utility class for converting mono signals to stereo, or stereo signals to mono.">MonoStereoConverter</a> will output only the right channel of a stereo signal as its mono reduction. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab1a12ea0ed30dd9ebf7c261a68dc1d73a0d2a8602a2cd80a62be55f9bc60e1f22"></a>mixToMono&#160;</td><td class="fielddoc"><p>In this mode, a <a class="el" href="classdsp_1_1_mono_stereo_converter.html" title="A utility class for converting mono signals to stereo, or stereo signals to mono.">MonoStereoConverter</a> will mix together the two channels of a stereo signal to create its mono reduction. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_mono_stereo_converter_8h_source.html#l00027">27</a> of file <a class="el" href="_mono_stereo_converter_8h_source.html">MonoStereoConverter.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a242ea887a4703b35824902729922c98b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a242ea887a4703b35824902729922c98b">&#9670;&nbsp;</a></span>inverseRootTwo</h2>
@@ -186,7 +224,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacedsp.html">dsp</a></li>
-    <li class="footer">Generated on Tue May 24 2022 05:18:49 for Limes by
+    <li class="footer">Generated on Wed May 25 2022 08:27:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

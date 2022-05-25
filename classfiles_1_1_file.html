@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
+   &#160;<span id="projectnumber">4.8.1</span>
    </div>
-   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
+   <div id="projectbrief">C++ utilities and building blocks</div>
   </td>
  </tr>
  </tbody>
@@ -145,9 +146,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adeb5caaa30bfa36d21f38ddd9239deaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a72fa462a280d1c5d625e9b1d1dac0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_file.html#a1a72fa462a280d1c5d625e9b1d1dac0e">FilesystemEntry</a> (const <a class="el" href="classfiles_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;)=default</td></tr>
 <tr class="separator:a1a72fa462a280d1c5d625e9b1d1dac0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83ed66613e11011cf5f58de34224f296"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_file.html#a83ed66613e11011cf5f58de34224f296">FilesystemEntry</a> (const <a class="el" href="namespacefiles.html#a794b8ca19b6b9e9045a70663a9c3416c">Path</a> &amp;pathToUse, bool createIfNeeded=false)</td></tr>
-<tr class="memdesc:a83ed66613e11011cf5f58de34224f296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classfiles_1_1_filesystem_entry.html" title="The base class for any kind of object in the filesystem.">FilesystemEntry</a> referring to the specified path.  <a href="classfiles_1_1_file.html#a83ed66613e11011cf5f58de34224f296">More...</a><br /></td></tr>
-<tr class="separator:a83ed66613e11011cf5f58de34224f296"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad880842142372c42cc2ece037107818b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_file.html#ad880842142372c42cc2ece037107818b">FilesystemEntry</a> (const <a class="el" href="namespacefiles.html#a794b8ca19b6b9e9045a70663a9c3416c">Path</a> &amp;pathToUse)</td></tr>
+<tr class="memdesc:ad880842142372c42cc2ece037107818b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classfiles_1_1_filesystem_entry.html" title="The base class for any kind of object in the filesystem.">FilesystemEntry</a> referring to the specified path.  <a href="classfiles_1_1_file.html#ad880842142372c42cc2ece037107818b">More...</a><br /></td></tr>
+<tr class="separator:ad880842142372c42cc2ece037107818b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afeb046c3c1c4bbcee893b068c0c772ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_file.html#afeb046c3c1c4bbcee893b068c0c772ba">FilesystemEntry</a> (<a class="el" href="classfiles_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:afeb046c3c1c4bbcee893b068c0c772ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61a768c3effba7e761f704532131dfcf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacefiles.html#a794b8ca19b6b9e9045a70663a9c3416c">Path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_filesystem_entry.html#a61a768c3effba7e761f704532131dfcf">getAbsolutePath</a> (bool makePreferred=false) const noexcept</td></tr>
@@ -195,7 +196,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5140a8a866b878fcbfad3603b1a47985"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_file.html#a5140a8a866b878fcbfad3603b1a47985">hasFileExtension</a> (const std::string_view &amp;extension) const</td></tr>
 <tr class="memdesc:a5140a8a866b878fcbfad3603b1a47985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this file has the specified file extension.  <a href="classfiles_1_1_file.html#a5140a8a866b878fcbfad3603b1a47985">More...</a><br /></td></tr>
 <tr class="separator:a5140a8a866b878fcbfad3603b1a47985"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa056480600dcf01657dfe788c895de8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_file.html#afa056480600dcf01657dfe788c895de8">hash</a> (<a class="el" href="namespacehash.html#add3ce0ac3d3c8404d1b002ab4e064db9">hash::Type</a> hashType) const</td></tr>
+<tr class="memitem:afa056480600dcf01657dfe788c895de8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_file.html#afa056480600dcf01657dfe788c895de8">hash</a> (<a class="el" href="group__hashes.html#gadd3ce0ac3d3c8404d1b002ab4e064db9">hash::Type</a> hashType) const</td></tr>
 <tr class="memdesc:afa056480600dcf01657dfe788c895de8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a hash of the file's content using the specified hash type.  <a href="classfiles_1_1_file.html#afa056480600dcf01657dfe788c895de8">More...</a><br /></td></tr>
 <tr class="separator:afa056480600dcf01657dfe788c895de8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76d80f597e36ed73ee5485d92d7bb428"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfiles_1_1_filesystem_entry.html#a76d80f597e36ed73ee5485d92d7bb428">isAbsolutePath</a> () const noexcept</td></tr>
@@ -280,7 +281,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><p>This class represents a file on the filesystem. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classfiles_1_1_c_file.html" title="This class is a wrapper around a C-style FILE* that takes care of freeing the file when the object is...">CFile</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00036">36</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="file_8h_source.html#l00042">42</a> of file <a class="el" href="file_8h_source.html">file.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a74945df516560d81721125c34923d1dc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a74945df516560d81721125c34923d1dc">&#9670;&nbsp;</a></span>CopyOptions</h2>
@@ -302,7 +303,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00047">47</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00060">60</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
 
 </div>
 </div>
@@ -326,7 +327,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00045">45</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00058">58</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
 
 </div>
 </div>
@@ -350,7 +351,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00046">46</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00059">59</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
 
 </div>
 </div>
@@ -867,8 +868,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a83ed66613e11011cf5f58de34224f296"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83ed66613e11011cf5f58de34224f296">&#9670;&nbsp;</a></span>FilesystemEntry() <span class="overload">[3/4]</span></h2>
+<a id="ad880842142372c42cc2ece037107818b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad880842142372c42cc2ece037107818b">&#9670;&nbsp;</a></span>FilesystemEntry() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -891,7 +892,6 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pathToUse</td><td>The path to this filesystem entry (which may or may not exist) </td></tr>
-    <tr><td class="paramname">createIfNeeded</td><td>If true, then if the filesystem entry does not exist when this object is created, it will be created. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1379,7 +1379,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">std::string files::File::hash </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacehash.html#add3ce0ac3d3c8404d1b002ab4e064db9">hash::Type</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="group__hashes.html#gadd3ce0ac3d3c8404d1b002ab4e064db9">hash::Type</a>&#160;</td>
           <td class="paramname"><em>hashType</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -2499,7 +2499,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacefiles.html">files</a></li><li class="navelem"><a class="el" href="classfiles_1_1_file.html">File</a></li>
-    <li class="footer">Generated on Tue May 24 2022 05:18:49 for Limes by
+    <li class="footer">Generated on Wed May 25 2022 08:27:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

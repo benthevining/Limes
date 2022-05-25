@@ -1,7 +1,7 @@
 var limes__fft_8h =
 [
     [ "FFT", "classvecops_1_1_f_f_t.html", "classvecops_1_1_f_f_t" ],
-    [ "FFTImpl", "classvecops_1_1_f_f_t_impl.html", "classvecops_1_1_f_f_t_impl" ],
+    [ "FFTImpl", "classvecops_1_1_f_f_t_impl.html", null ],
     [ "LIMES_VECOPS_USE_FFTW", "limes__fft_8h.html#a25d4ef2f45323ffac2004347580d93a3", null ],
     [ "enableWisdom", "limes__fft_8h.html#ab90597bb127479bf13f5bef248f45364", null ],
     [ "getImplementationName", "limes__fft_8h.html#a17cea7c21dc36ac136f4d29740f44915", null ],

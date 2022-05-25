@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
+   &#160;<span id="projectnumber">4.8.1</span>
    </div>
-   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
+   <div id="projectbrief">C++ utilities and building blocks</div>
   </td>
  </tr>
  </tbody>
@@ -82,11 +83,6 @@ $(document).ready(function(){initNavTree('fftw__fft_8h.html',''); initResizable(
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">fftw_fft.h File Reference</div>  </div>
 </div><!--header-->
@@ -96,7 +92,6 @@ $(document).ready(function(){initNavTree('fftw__fft_8h.html',''); initResizable(
 <code>#include &quot;<a class="el" href="fft__common_8h_source.html">fft_common.h</a>&quot;</code><br />
 <code>#include &lt;<a class="el" href="limes__namespace_8h_source.html">limes_namespace.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="limes__core_8h_source.html">limes_core.h</a>&gt;</code><br />
-<code>#include &lt;fftw3.h&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for fftw_fft.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -107,91 +102,13 @@ $(document).ready(function(){initNavTree('fftw__fft_8h.html',''); initResizable(
 </div>
 </div>
 <p><a href="fftw__fft_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvecops_1_1_f_f_t_w___f_f_t.html">vecops::FFTW_FFT&lt; SampleType &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacevecops"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacevecops.html">vecops</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a09e13e7bc904f98333229f65792654dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fftw__fft_8h.html#a09e13e7bc904f98333229f65792654dc">FFTW_DOUBLE_ONLY</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a09e13e7bc904f98333229f65792654dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0f842cd586876ba9d1b4872b1bb4f08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fftw__fft_8h.html#af0f842cd586876ba9d1b4872b1bb4f08">FFTW_HEADER_NAME</a>&#160;&#160;&#160;&lt;fftw3.h&gt;</td></tr>
-<tr class="separator:af0f842cd586876ba9d1b4872b1bb4f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc2bf4398dc8eb9ce229e5548eb4d17a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fftw__fft_8h.html#afc2bf4398dc8eb9ce229e5548eb4d17a">FFTW_SINGLE_ONLY</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:afc2bf4398dc8eb9ce229e5548eb4d17a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:aa8d7bbbfd0cffda120478042af244802"><td class="memTemplParams" colspan="2">template&lt;bool IsDouble&gt; </td></tr>
-<tr class="memitem:aa8d7bbbfd0cffda120478042af244802"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevecops.html#aa8d7bbbfd0cffda120478042af244802">vecops::fftw_load_wisdom</a> ()</td></tr>
-<tr class="separator:aa8d7bbbfd0cffda120478042af244802"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8b59f246bec13e6e4afd82fb117b5d2"><td class="memTemplParams" colspan="2">template&lt;bool IsDouble&gt; </td></tr>
-<tr class="memitem:ae8b59f246bec13e6e4afd82fb117b5d2"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacevecops.html#ae8b59f246bec13e6e4afd82fb117b5d2">vecops::fftw_save_wisdom</a> ()</td></tr>
-<tr class="separator:ae8b59f246bec13e6e4afd82fb117b5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a09e13e7bc904f98333229f65792654dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09e13e7bc904f98333229f65792654dc">&#9670;&nbsp;</a></span>FFTW_DOUBLE_ONLY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FFTW_DOUBLE_ONLY&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="fftw__fft_8h_source.html#l00030">30</a> of file <a class="el" href="fftw__fft_8h_source.html">fftw_fft.h</a>.</p>
-
-</div>
-</div>
-<a id="af0f842cd586876ba9d1b4872b1bb4f08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0f842cd586876ba9d1b4872b1bb4f08">&#9670;&nbsp;</a></span>FFTW_HEADER_NAME</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FFTW_HEADER_NAME&#160;&#160;&#160;&lt;fftw3.h&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="fftw__fft_8h_source.html#l00020">20</a> of file <a class="el" href="fftw__fft_8h_source.html">fftw_fft.h</a>.</p>
-
-</div>
-</div>
-<a id="afc2bf4398dc8eb9ce229e5548eb4d17a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc2bf4398dc8eb9ce229e5548eb4d17a">&#9670;&nbsp;</a></span>FFTW_SINGLE_ONLY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FFTW_SINGLE_ONLY&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="fftw__fft_8h_source.html#l00026">26</a> of file <a class="el" href="fftw__fft_8h_source.html">fftw_fft.h</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_fd627f24d7bb4f56aee54e980d5bfd70.html">limes_vecops</a></li><li class="navelem"><a class="el" href="dir_ac9e7747da43d8e5dd5305cf45a38b52.html">fft</a></li><li class="navelem"><a class="el" href="fftw__fft_8h.html">fftw_fft.h</a></li>
-    <li class="footer">Generated on Tue May 24 2022 05:18:48 for Limes by
+    <li class="footer">Generated on Wed May 25 2022 08:27:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

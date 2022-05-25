@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
+   &#160;<span id="projectnumber">4.8.1</span>
    </div>
-   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
+   <div id="projectbrief">C++ utilities and building blocks</div>
   </td>
  </tr>
  </tbody>
@@ -84,8 +85,7 @@ $(document).ready(function(){initNavTree('namespacefiles.html',''); initResizabl
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">files Namespace Reference</div>  </div>
 </div><!--header-->
@@ -123,24 +123,6 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a794b8ca19b6b9e9045a70663a9c3416c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefiles.html#a794b8ca19b6b9e9045a70663a9c3416c">Path</a> = std::filesystem::path</td></tr>
 <tr class="memdesc:a794b8ca19b6b9e9045a70663a9c3416c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience typedef for filesystem paths.  <a href="namespacefiles.html#a794b8ca19b6b9e9045a70663a9c3416c">More...</a><br /></td></tr>
 <tr class="separator:a794b8ca19b6b9e9045a70663a9c3416c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:abea6c2fda82a1141b4fc7417dee87f14"><td class="memItemLeft" align="right" valign="top">constexpr LIMES_EXPORT char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefiles.html#abea6c2fda82a1141b4fc7417dee87f14">dirSeparator</a> () noexcept</td></tr>
-<tr class="memdesc:abea6c2fda82a1141b4fc7417dee87f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the platform's preferred separator: <code>\</code> on Windows, and <code>/</code> everywhere else.  <a href="namespacefiles.html#abea6c2fda82a1141b4fc7417dee87f14">More...</a><br /></td></tr>
-<tr class="separator:abea6c2fda82a1141b4fc7417dee87f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a417867e598a5bccc6135cfe5e202356c"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefiles.html#a417867e598a5bccc6135cfe5e202356c">filesystemIsCaseSensitive</a> () noexcept</td></tr>
-<tr class="memdesc:a417867e598a5bccc6135cfe5e202356c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the current platform's filesystem is case-sensitive.  <a href="namespacefiles.html#a417867e598a5bccc6135cfe5e202356c">More...</a><br /></td></tr>
-<tr class="separator:a417867e598a5bccc6135cfe5e202356c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4471cdb2bad95eac219a7de790f6fa33"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::uintmax_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefiles.html#a4471cdb2bad95eac219a7de790f6fa33">getAvailableSpaceOnFilesystem</a> ()</td></tr>
-<tr class="memdesc:a4471cdb2bad95eac219a7de790f6fa33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the available space on the filesystem, in bytes.  <a href="namespacefiles.html#a4471cdb2bad95eac219a7de790f6fa33">More...</a><br /></td></tr>
-<tr class="separator:a4471cdb2bad95eac219a7de790f6fa33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a281600c22db06a3e4f5b80f777f09448"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::uintmax_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefiles.html#a281600c22db06a3e4f5b80f777f09448">getTotalSizeOfFilesystem</a> ()</td></tr>
-<tr class="memdesc:a281600c22db06a3e4f5b80f777f09448"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total size of the filesystem, in bytes.  <a href="namespacefiles.html#a281600c22db06a3e4f5b80f777f09448">More...</a><br /></td></tr>
-<tr class="separator:a281600c22db06a3e4f5b80f777f09448"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eb23d9f3a90944a56cae056d5f7f71b"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT consteval char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefiles.html#a6eb23d9f3a90944a56cae056d5f7f71b">PATHseparator</a> () noexcept</td></tr>
-<tr class="memdesc:a6eb23d9f3a90944a56cae056d5f7f71b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the platform's separator char for the <code>PATH</code> environment variable: <code></code>; on Windows, and <code></code>: everywhere else.  <a href="namespacefiles.html#a6eb23d9f3a90944a56cae056d5f7f71b">More...</a><br /></td></tr>
-<tr class="separator:a6eb23d9f3a90944a56cae056d5f7f71b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This namespace contains filesystem utilities. </p>
@@ -159,134 +141,7 @@ Functions</h2></td></tr>
 
 <p>Convenience typedef for filesystem paths. </p>
 
-<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00036">36</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="abea6c2fda82a1141b4fc7417dee87f14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abea6c2fda82a1141b4fc7417dee87f14">&#9670;&nbsp;</a></span>dirSeparator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr LIMES_EXPORT char files::dirSeparator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the platform's preferred separator: <code>\</code> on Windows, and <code>/</code> everywhere else. </p>
-
-<p class="definition">Definition at line <a class="el" href="limes__core_2files_2_misc_8h_source.html#l00034">34</a> of file <a class="el" href="limes__core_2files_2_misc_8h_source.html">limes_core/files/Misc.h</a>.</p>
-
-</div>
-</div>
-<a id="a417867e598a5bccc6135cfe5e202356c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a417867e598a5bccc6135cfe5e202356c">&#9670;&nbsp;</a></span>filesystemIsCaseSensitive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT consteval bool files::filesystemIsCaseSensitive </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns true if the current platform's filesystem is case-sensitive. </p>
-<p>True on Linux, false everywhere else. </p>
-
-<p class="definition">Definition at line <a class="el" href="limes__core_2files_2_misc_8h_source.html#l00050">50</a> of file <a class="el" href="limes__core_2files_2_misc_8h_source.html">limes_core/files/Misc.h</a>.</p>
-
-</div>
-</div>
-<a id="a4471cdb2bad95eac219a7de790f6fa33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4471cdb2bad95eac219a7de790f6fa33">&#9670;&nbsp;</a></span>getAvailableSpaceOnFilesystem()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT std::uintmax_t files::getAvailableSpaceOnFilesystem </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the available space on the filesystem, in bytes. </p>
-
-</div>
-</div>
-<a id="a281600c22db06a3e4f5b80f777f09448"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a281600c22db06a3e4f5b80f777f09448">&#9670;&nbsp;</a></span>getTotalSizeOfFilesystem()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT std::uintmax_t files::getTotalSizeOfFilesystem </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the total size of the filesystem, in bytes. </p>
-
-</div>
-</div>
-<a id="a6eb23d9f3a90944a56cae056d5f7f71b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6eb23d9f3a90944a56cae056d5f7f71b">&#9670;&nbsp;</a></span>PATHseparator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT consteval char files::PATHseparator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the platform's separator char for the <code>PATH</code> environment variable: <code></code>; on Windows, and <code></code>: everywhere else. </p>
-
-<p class="definition">Definition at line <a class="el" href="limes__core_2files_2_misc_8h_source.html#l00040">40</a> of file <a class="el" href="limes__core_2files_2_misc_8h_source.html">limes_core/files/Misc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_filesystem_entry_8h_source.html#l00048">48</a> of file <a class="el" href="_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
 
 </div>
 </div>
@@ -296,7 +151,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacefiles.html">files</a></li>
-    <li class="footer">Generated on Tue May 24 2022 05:18:49 for Limes by
+    <li class="footer">Generated on Wed May 25 2022 08:27:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

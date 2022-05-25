@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
+   &#160;<span id="projectnumber">4.8.1</span>
    </div>
-   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
+   <div id="projectbrief">C++ utilities and building blocks</div>
   </td>
  </tr>
  </tbody>
@@ -102,420 +103,34 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ae9137d0122fa88934aef2a4634925854"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemeta.html#ae9137d0122fa88934aef2a4634925854">Empty</a> = <a class="el" href="classmeta_1_1_type_list.html">TypeList</a>&lt;&gt;</td></tr>
-<tr class="memdesc:ae9137d0122fa88934aef2a4634925854"><td class="mdescLeft">&#160;</td><td class="mdescRight">A utility typedef for an empty <a class="el" href="classmeta_1_1_type_list.html" title="A compile-time list of types that can be manipulated.">TypeList</a>.  <a href="namespacemeta.html#ae9137d0122fa88934aef2a4634925854">More...</a><br /></td></tr>
-<tr class="separator:ae9137d0122fa88934aef2a4634925854"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a115a8d3a6dd7fd06dfb451e18dc7a82c"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a115a8d3a6dd7fd06dfb451e18dc7a82c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a115a8d3a6dd7fd06dfb451e18dc7a82c">make_type_list_from_t</a> = typename make_type_list_from&lt; Args... &gt;::type</td></tr>
-<tr class="memdesc:a115a8d3a6dd7fd06dfb451e18dc7a82c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a typelist from the template arguments of a template type.  <a href="namespacemeta.html#a115a8d3a6dd7fd06dfb451e18dc7a82c">More...</a><br /></td></tr>
-<tr class="separator:a115a8d3a6dd7fd06dfb451e18dc7a82c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9137d0122fa88934aef2a4634925854"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__meta.html#gae9137d0122fa88934aef2a4634925854">Empty</a> = <a class="el" href="classmeta_1_1_type_list.html">TypeList</a>&lt;&gt;</td></tr>
+<tr class="memdesc:gae9137d0122fa88934aef2a4634925854"><td class="mdescLeft">&#160;</td><td class="mdescRight">A utility typedef for an empty <a class="el" href="classmeta_1_1_type_list.html" title="A compile-time list of types that can be manipulated.">TypeList</a>.  <a href="group__meta.html#gae9137d0122fa88934aef2a4634925854">More...</a><br /></td></tr>
+<tr class="separator:gae9137d0122fa88934aef2a4634925854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga115a8d3a6dd7fd06dfb451e18dc7a82c"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:ga115a8d3a6dd7fd06dfb451e18dc7a82c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga115a8d3a6dd7fd06dfb451e18dc7a82c">make_type_list_from_t</a> = typename make_type_list_from&lt; Args... &gt;::type</td></tr>
+<tr class="memdesc:ga115a8d3a6dd7fd06dfb451e18dc7a82c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a typelist from the template arguments of a template type.  <a href="group__meta.html#ga115a8d3a6dd7fd06dfb451e18dc7a82c">More...</a><br /></td></tr>
+<tr class="separator:ga115a8d3a6dd7fd06dfb451e18dc7a82c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:acdb251fa2e47ba059a07793809acbf65"><td class="memTemplParams" colspan="2">template&lt;class From , class To &gt; </td></tr>
-<tr class="memitem:acdb251fa2e47ba059a07793809acbf65"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#acdb251fa2e47ba059a07793809acbf65">convertible_to</a></td></tr>
-<tr class="memdesc:acdb251fa2e47ba059a07793809acbf65"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept convertible_to Exactly the same as <code>std::convertible_to</code> , only implemented here because some versions of Xcode seem to be missing it.  <a href="namespacemeta.html#acdb251fa2e47ba059a07793809acbf65">More...</a><br /></td></tr>
-<tr class="separator:acdb251fa2e47ba059a07793809acbf65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a746c09a5c6a4d20a262aed7f24f36848"><td class="memTemplParams" colspan="2">template&lt;class Derived , class Base &gt; </td></tr>
-<tr class="memitem:a746c09a5c6a4d20a262aed7f24f36848"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a746c09a5c6a4d20a262aed7f24f36848">covariant_subtype_of</a></td></tr>
-<tr class="memdesc:a746c09a5c6a4d20a262aed7f24f36848"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept covariant_subtype_of  <a href="namespacemeta.html#a746c09a5c6a4d20a262aed7f24f36848">More...</a><br /></td></tr>
-<tr class="separator:a746c09a5c6a4d20a262aed7f24f36848"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a292aa323959c2cf1c81898824456f744"><td class="memTemplParams" colspan="2">template&lt;class ClassToTest , typename RequiredBase &gt; </td></tr>
-<tr class="memitem:a292aa323959c2cf1c81898824456f744"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a292aa323959c2cf1c81898824456f744">inherits_from</a> = std::is_base_of_v&lt;RequiredBase, ClassToTest&gt;</td></tr>
-<tr class="memdesc:a292aa323959c2cf1c81898824456f744"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept inherits_from  <a href="namespacemeta.html#a292aa323959c2cf1c81898824456f744">More...</a><br /></td></tr>
-<tr class="separator:a292aa323959c2cf1c81898824456f744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c5bc8d9c87b7b65334e9ed46658df8e"><td class="memTemplParams" colspan="2">template&lt;class Derived , class Base &gt; </td></tr>
-<tr class="memitem:a9c5bc8d9c87b7b65334e9ed46658df8e"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a9c5bc8d9c87b7b65334e9ed46658df8e">is_covariant_v</a> = covariance_check&lt;Derived, Base&gt;::value</td></tr>
-<tr class="memdesc:a9c5bc8d9c87b7b65334e9ed46658df8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if <code>Base</code> and <code>Derived</code> are covariant types; false otherwise.  <a href="namespacemeta.html#a9c5bc8d9c87b7b65334e9ed46658df8e">More...</a><br /></td></tr>
-<tr class="separator:a9c5bc8d9c87b7b65334e9ed46658df8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d8f3624182e0de82ffcee87c74998f8"><td class="memTemplParams" colspan="2">template&lt;typename Test , typename... Types&gt; </td></tr>
-<tr class="memitem:a5d8f3624182e0de82ffcee87c74998f8"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a5d8f3624182e0de82ffcee87c74998f8">is_none_of_v</a> = is_none_of&lt;Test, Types...&gt;::value</td></tr>
-<tr class="memdesc:a5d8f3624182e0de82ffcee87c74998f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if <code>Test</code> is not in the list of <code>Types</code> .  <a href="namespacemeta.html#a5d8f3624182e0de82ffcee87c74998f8">More...</a><br /></td></tr>
-<tr class="separator:a5d8f3624182e0de82ffcee87c74998f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ce960f50290d7a51e8bdc59d2ced2a3"><td class="memTemplParams" colspan="2">template&lt;typename Test , typename... Types&gt; </td></tr>
-<tr class="memitem:a6ce960f50290d7a51e8bdc59d2ced2a3"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a6ce960f50290d7a51e8bdc59d2ced2a3">is_one_of_v</a> = is_one_of&lt;Test, Types...&gt;::value</td></tr>
-<tr class="memdesc:a6ce960f50290d7a51e8bdc59d2ced2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if <code>Test</code> is the same as any of the types in <code>Types</code> .  <a href="namespacemeta.html#a6ce960f50290d7a51e8bdc59d2ced2a3">More...</a><br /></td></tr>
-<tr class="separator:a6ce960f50290d7a51e8bdc59d2ced2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15b26b106b48cfa969cf4e5d413c99cf"><td class="memTemplParams" colspan="2">template&lt;class ClassToTest , template&lt; class... &gt; class Template&gt; </td></tr>
-<tr class="memitem:a15b26b106b48cfa969cf4e5d413c99cf"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a15b26b106b48cfa969cf4e5d413c99cf">is_specialization_v</a> = is_specialization&lt;ClassToTest, Template&gt;::value</td></tr>
-<tr class="memdesc:a15b26b106b48cfa969cf4e5d413c99cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if the given type is a specialization of the given template class; false otherwise.  <a href="namespacemeta.html#a15b26b106b48cfa969cf4e5d413c99cf">More...</a><br /></td></tr>
-<tr class="separator:a15b26b106b48cfa969cf4e5d413c99cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6aec098859f26d48fdae64b7721ef3d"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:ab6aec098859f26d48fdae64b7721ef3d"><td class="memTemplItemLeft" align="right" valign="top">static LIMES_EXPORT const constinit bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#ab6aec098859f26d48fdae64b7721ef3d">is_typelist</a> = meta::is_specialization&lt;T, <a class="el" href="classmeta_1_1_type_list.html">TypeList</a>&gt;::value</td></tr>
-<tr class="memdesc:ab6aec098859f26d48fdae64b7721ef3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the specified type is a specialization of <a class="el" href="classmeta_1_1_type_list.html" title="A compile-time list of types that can be manipulated.">TypeList</a>.  <a href="namespacemeta.html#ab6aec098859f26d48fdae64b7721ef3d">More...</a><br /></td></tr>
-<tr class="separator:ab6aec098859f26d48fdae64b7721ef3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d12e4fdee21a131b2561b8c61fd572a"><td class="memTemplParams" colspan="2">template&lt;typename A , typename B &gt; </td></tr>
-<tr class="memitem:a0d12e4fdee21a131b2561b8c61fd572a"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a0d12e4fdee21a131b2561b8c61fd572a">same_as</a> = std::is_same_v&lt;A, B&gt;</td></tr>
-<tr class="memdesc:a0d12e4fdee21a131b2561b8c61fd572a"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept same_as  <a href="namespacemeta.html#a0d12e4fdee21a131b2561b8c61fd572a">More...</a><br /></td></tr>
-<tr class="separator:a0d12e4fdee21a131b2561b8c61fd572a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cef158dc43897c440f6dd045fdaef77"><td class="memTemplParams" colspan="2">template&lt;class ClassToTest , template&lt; class... &gt; class Template&gt; </td></tr>
-<tr class="memitem:a1cef158dc43897c440f6dd045fdaef77"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a1cef158dc43897c440f6dd045fdaef77">specializes</a></td></tr>
-<tr class="memdesc:a1cef158dc43897c440f6dd045fdaef77"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept specializes  <a href="namespacemeta.html#a1cef158dc43897c440f6dd045fdaef77">More...</a><br /></td></tr>
-<tr class="separator:a1cef158dc43897c440f6dd045fdaef77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1970162982459d4ff86837ef09bf2c3a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a1970162982459d4ff86837ef09bf2c3a"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a1970162982459d4ff86837ef09bf2c3a">type_list</a> = <a class="el" href="namespacemeta.html#ab6aec098859f26d48fdae64b7721ef3d">is_typelist</a>&lt;T&gt;</td></tr>
-<tr class="memdesc:a1970162982459d4ff86837ef09bf2c3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept type_list  <a href="namespacemeta.html#a1970162982459d4ff86837ef09bf2c3a">More...</a><br /></td></tr>
-<tr class="separator:a1970162982459d4ff86837ef09bf2c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6aec098859f26d48fdae64b7721ef3d"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:gab6aec098859f26d48fdae64b7721ef3d"><td class="memTemplItemLeft" align="right" valign="top">static LIMES_EXPORT const constinit bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#gab6aec098859f26d48fdae64b7721ef3d">is_typelist</a> = meta::is_specialization&lt;T, <a class="el" href="classmeta_1_1_type_list.html">TypeList</a>&gt;::value</td></tr>
+<tr class="memdesc:gab6aec098859f26d48fdae64b7721ef3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the specified type is a specialization of <a class="el" href="classmeta_1_1_type_list.html" title="A compile-time list of types that can be manipulated.">TypeList</a>.  <a href="group__meta.html#gab6aec098859f26d48fdae64b7721ef3d">More...</a><br /></td></tr>
+<tr class="separator:gab6aec098859f26d48fdae64b7721ef3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1970162982459d4ff86837ef09bf2c3a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga1970162982459d4ff86837ef09bf2c3a"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga1970162982459d4ff86837ef09bf2c3a">type_list</a> = <a class="el" href="group__meta.html#gab6aec098859f26d48fdae64b7721ef3d">is_typelist</a>&lt;T&gt;</td></tr>
+<tr class="memdesc:ga1970162982459d4ff86837ef09bf2c3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept type_list  <a href="group__meta.html#ga1970162982459d4ff86837ef09bf2c3a">More...</a><br /></td></tr>
+<tr class="separator:ga1970162982459d4ff86837ef09bf2c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This namespace contains utilities for template metaprogramming. </p>
-</div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="ae9137d0122fa88934aef2a4634925854"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9137d0122fa88934aef2a4634925854">&#9670;&nbsp;</a></span>Empty</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacemeta.html#ae9137d0122fa88934aef2a4634925854">meta::Empty</a> = typedef <a class="el" href="classmeta_1_1_type_list.html">TypeList</a>&lt;&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A utility typedef for an empty <a class="el" href="classmeta_1_1_type_list.html" title="A compile-time list of types that can be manipulated.">TypeList</a>. </p>
-
-<p class="definition">Definition at line <a class="el" href="_type_list_8h_source.html#l00493">493</a> of file <a class="el" href="_type_list_8h_source.html">TypeList.h</a>.</p>
-
-</div>
-</div>
-<a id="a115a8d3a6dd7fd06dfb451e18dc7a82c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a115a8d3a6dd7fd06dfb451e18dc7a82c">&#9670;&nbsp;</a></span>make_type_list_from_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename... Args&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacemeta.html#a115a8d3a6dd7fd06dfb451e18dc7a82c">meta::make_type_list_from_t</a> = typedef typename make_type_list_from&lt;Args...&gt;::type</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates a typelist from the template arguments of a template type. </p>
-<p>For example: </p><div class="fragment"><div class="line"><span class="keyword">using</span> OriginalType = std::variant&lt;int, float, double&gt;;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">using</span> TypeList = make_type_list_from_t&lt;OriginalType&gt;;</div>
-<div class="line"> </div>
-<div class="line">static_assert (<a class="code" href="classmeta_1_1_type_list.html#aeafea4ab27d9d66bdf44edd373f8745b">TypeList::equal</a>&lt;TypeList&lt;int, float, double&gt;&gt;);</div>
-</div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="_type_list_8h_source.html#l00521">521</a> of file <a class="el" href="_type_list_8h_source.html">TypeList.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="acdb251fa2e47ba059a07793809acbf65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdb251fa2e47ba059a07793809acbf65">&#9670;&nbsp;</a></span>convertible_to</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class From , class To &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">concept meta::convertible_to</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">    std::is_convertible_v&lt;From, To&gt; &amp;&amp; requires</div>
-<div class="line">{</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span>To<span class="keyword">&gt;</span> (std::declval&lt;From&gt;());</div>
-<div class="line">}</div>
-</div><!-- fragment -->
-<p>@concept convertible_to Exactly the same as <code>std::convertible_to</code> , only implemented here because some versions of Xcode seem to be missing it. </p>
-
-<p class="definition">Definition at line <a class="el" href="_type_traits_8h_source.html#l00038">38</a> of file <a class="el" href="_type_traits_8h_source.html">TypeTraits.h</a>.</p>
-
-</div>
-</div>
-<a id="a746c09a5c6a4d20a262aed7f24f36848"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a746c09a5c6a4d20a262aed7f24f36848">&#9670;&nbsp;</a></span>covariant_subtype_of</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Derived , class Base &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">concept meta::covariant_subtype_of</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= requires</div>
-<div class="line">{</div>
-<div class="line">    is_covariant_v&lt;Derived, Base&gt;;</div>
-<div class="line">}</div>
-</div><!-- fragment -->
-<p>@concept covariant_subtype_of </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacemeta.html#a9c5bc8d9c87b7b65334e9ed46658df8e" title="Evaluates to true if Base and Derived are covariant types; false otherwise.">is_covariant_v</a> </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_type_traits_8h_source.html#l00107">107</a> of file <a class="el" href="_type_traits_8h_source.html">TypeTraits.h</a>.</p>
-
-</div>
-</div>
-<a id="a292aa323959c2cf1c81898824456f744"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a292aa323959c2cf1c81898824456f744">&#9670;&nbsp;</a></span>inherits_from</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ClassToTest , typename RequiredBase &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">concept meta::inherits_from = std::is_base_of_v&lt;RequiredBase, ClassToTest&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>@concept inherits_from </p>
-
-<p class="definition">Definition at line <a class="el" href="_type_traits_8h_source.html#l00050">50</a> of file <a class="el" href="_type_traits_8h_source.html">TypeTraits.h</a>.</p>
-
-</div>
-</div>
-<a id="a9c5bc8d9c87b7b65334e9ed46658df8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c5bc8d9c87b7b65334e9ed46658df8e">&#9670;&nbsp;</a></span>is_covariant_v</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Derived , class Base &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const bool meta::is_covariant_v = covariance_check&lt;Derived, Base&gt;::value</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Evaluates to true if <code>Base</code> and <code>Derived</code> are covariant types; false otherwise. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Derived</td><td>Derived type that may be covariant with <code>Base</code>. </td></tr>
-    <tr><td class="paramname">Base</td><td>Type that <code>Derived</code> may be covariant with. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_type_traits_8h_source.html#l00101">101</a> of file <a class="el" href="_type_traits_8h_source.html">TypeTraits.h</a>.</p>
-
-</div>
-</div>
-<a id="a5d8f3624182e0de82ffcee87c74998f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d8f3624182e0de82ffcee87c74998f8">&#9670;&nbsp;</a></span>is_none_of_v</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Test , typename... Types&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const bool meta::is_none_of_v = is_none_of&lt;Test, Types...&gt;::value</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Evaluates to true if <code>Test</code> is not in the list of <code>Types</code> . </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Test</td><td>Type to search for in the list of types. </td></tr>
-    <tr><td class="paramname">Types</td><td>List of types to check. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_type_traits_8h_source.html#l00142">142</a> of file <a class="el" href="_type_traits_8h_source.html">TypeTraits.h</a>.</p>
-
-</div>
-</div>
-<a id="a6ce960f50290d7a51e8bdc59d2ced2a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ce960f50290d7a51e8bdc59d2ced2a3">&#9670;&nbsp;</a></span>is_one_of_v</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Test , typename... Types&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const bool meta::is_one_of_v = is_one_of&lt;Test, Types...&gt;::value</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Evaluates to true if <code>Test</code> is the same as any of the types in <code>Types</code> . </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Test</td><td>Type to search for in the list of types. </td></tr>
-    <tr><td class="paramname">Types</td><td>List of types to check. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_type_traits_8h_source.html#l00126">126</a> of file <a class="el" href="_type_traits_8h_source.html">TypeTraits.h</a>.</p>
-
-</div>
-</div>
-<a id="a15b26b106b48cfa969cf4e5d413c99cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15b26b106b48cfa969cf4e5d413c99cf">&#9670;&nbsp;</a></span>is_specialization_v</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ClassToTest , template&lt; class... &gt; class Template&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const bool meta::is_specialization_v = is_specialization&lt;ClassToTest, Template&gt;::value</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Evaluates to true if the given type is a specialization of the given template class; false otherwise. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">ClassToTest</td><td>Fully-specialized type to test. </td></tr>
-    <tr><td class="paramname">Template</td><td>Template class to test if <code>ClassToTest</code> specializes. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_type_traits_8h_source.html#l00071">71</a> of file <a class="el" href="_type_traits_8h_source.html">TypeTraits.h</a>.</p>
-
-</div>
-</div>
-<a id="ab6aec098859f26d48fdae64b7721ef3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6aec098859f26d48fdae64b7721ef3d">&#9670;&nbsp;</a></span>is_typelist</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT const constinit bool meta::is_typelist = meta::is_specialization&lt;T, <a class="el" href="classmeta_1_1_type_list.html">TypeList</a>&gt;::value</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>True if the specified type is a specialization of <a class="el" href="classmeta_1_1_type_list.html" title="A compile-time list of types that can be manipulated.">TypeList</a>. </p>
-
-<p class="definition">Definition at line <a class="el" href="_type_list_8h_source.html#l00527">527</a> of file <a class="el" href="_type_list_8h_source.html">TypeList.h</a>.</p>
-
-</div>
-</div>
-<a id="a0d12e4fdee21a131b2561b8c61fd572a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d12e4fdee21a131b2561b8c61fd572a">&#9670;&nbsp;</a></span>same_as</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename A , typename B &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">concept meta::same_as = std::is_same_v&lt;A, B&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>@concept same_as </p>
-
-<p class="definition">Definition at line <a class="el" href="_type_traits_8h_source.html#l00046">46</a> of file <a class="el" href="_type_traits_8h_source.html">TypeTraits.h</a>.</p>
-
-</div>
-</div>
-<a id="a1cef158dc43897c440f6dd045fdaef77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cef158dc43897c440f6dd045fdaef77">&#9670;&nbsp;</a></span>specializes</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ClassToTest , template&lt; class... &gt; class Template&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">concept meta::specializes</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= requires</div>
-<div class="line">{</div>
-<div class="line">    is_specialization_v&lt;ClassToTest, Template&gt;;</div>
-<div class="line">}</div>
-</div><!-- fragment -->
-<p>@concept specializes </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacemeta.html#a15b26b106b48cfa969cf4e5d413c99cf" title="Evaluates to true if the given type is a specialization of the given template class; false otherwise.">is_specialization_v</a> </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_type_traits_8h_source.html#l00077">77</a> of file <a class="el" href="_type_traits_8h_source.html">TypeTraits.h</a>.</p>
-
-</div>
-</div>
-<a id="a1970162982459d4ff86837ef09bf2c3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1970162982459d4ff86837ef09bf2c3a">&#9670;&nbsp;</a></span>type_list</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">concept meta::type_list = <a class="el" href="namespacemeta.html#ab6aec098859f26d48fdae64b7721ef3d">is_typelist</a>&lt;T&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>@concept type_list </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacemeta.html#ab6aec098859f26d48fdae64b7721ef3d" title="True if the specified type is a specialization of TypeList.">is_typelist</a> </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_type_list_8h_source.html#l00533">533</a> of file <a class="el" href="_type_list_8h_source.html">TypeList.h</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassmeta_1_1_type_list_html_aeafea4ab27d9d66bdf44edd373f8745b"><div class="ttname"><a href="classmeta_1_1_type_list.html#aeafea4ab27d9d66bdf44edd373f8745b">meta::TypeList::equal</a></div><div class="ttdeci">static constexpr const bool equal</div><div class="ttdoc">True if the other TypeList holds the same types in the same order as this one.</div><div class="ttdef"><b>Definition:</b> <a href="_type_list_8h_source.html#l00080">TypeList.h:80</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacemeta.html">meta</a></li>
-    <li class="footer">Generated on Tue May 24 2022 05:18:49 for Limes by
+    <li class="footer">Generated on Wed May 25 2022 08:27:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

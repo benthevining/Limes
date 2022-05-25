@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
+   &#160;<span id="projectnumber">4.8.1</span>
    </div>
-   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
+   <div id="projectbrief">C++ utilities and building blocks</div>
   </td>
  </tr>
  </tbody>
@@ -102,9 +103,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae10f4755523ad3a3d40c303df5209746"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#ae10f4755523ad3a3d40c303df5209746">areSame</a> (const char *string1, const char *string2)</td></tr>
-<tr class="memdesc:ae10f4755523ad3a3d40c303df5209746"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the two strings contain exactly the same characters.  <a href="namespacestrings.html#ae10f4755523ad3a3d40c303df5209746">More...</a><br /></td></tr>
-<tr class="separator:ae10f4755523ad3a3d40c303df5209746"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ded74a12444e6e18c9b0720251fa61"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a91ded74a12444e6e18c9b0720251fa61">dropFirstChars</a> (std::string &amp;string, std::size_t numChars)</td></tr>
 <tr class="memdesc:a91ded74a12444e6e18c9b0720251fa61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a specified number of characters from the beginning of the string.  <a href="namespacestrings.html#a91ded74a12444e6e18c9b0720251fa61">More...</a><br /></td></tr>
 <tr class="separator:a91ded74a12444e6e18c9b0720251fa61"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,10 +119,6 @@ Functions</h2></td></tr>
 <tr class="memdesc:adca9725130e0ee777d8c0b82962b221d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the platform's preferred newline separator: <code>\r</code> <br  />
  on Windows, <code>\n</code>  everywhere else.  <a href="namespacestrings.html#adca9725130e0ee777d8c0b82962b221d">More...</a><br /></td></tr>
 <tr class="separator:adca9725130e0ee777d8c0b82962b221d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abee9ff5a9ca4278f4ca7bbfce0829b6d"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#abee9ff5a9ca4278f4ca7bbfce0829b6d">isNewline</a> (const std::string_view &amp;string) noexcept</td></tr>
-<tr class="memdesc:abee9ff5a9ca4278f4ca7bbfce0829b6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the passed string is <code>\n</code>  or <code>\r</code> <br  />
- .  <a href="namespacestrings.html#abee9ff5a9ca4278f4ca7bbfce0829b6d">More...</a><br /></td></tr>
-<tr class="separator:abee9ff5a9ca4278f4ca7bbfce0829b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d0abc87d5388e777a455d0bd7eaeb80"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestrings.html#a3d0abc87d5388e777a455d0bd7eaeb80">join</a> (const std::vector&lt; std::string &gt; &amp;strings, const std::string_view &amp;delimiter)</td></tr>
 <tr class="memdesc:a3d0abc87d5388e777a455d0bd7eaeb80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Joins the input strings into one string, placing <code>delimiter</code> between each input string.  <a href="namespacestrings.html#a3d0abc87d5388e777a455d0bd7eaeb80">More...</a><br /></td></tr>
 <tr class="separator:a3d0abc87d5388e777a455d0bd7eaeb80"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,94 +171,6 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This namespace contains some text manipulation utilities for working with both C++ and C-style strings. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ae10f4755523ad3a3d40c303df5209746"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae10f4755523ad3a3d40c303df5209746">&#9670;&nbsp;</a></span>areSame()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT bool strings::areSame </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>string1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>string2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns true if the two strings contain exactly the same characters. </p>
-
-</div>
-</div>
-<a id="adf0591a4823b8797fdcaeab2f1fc33d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf0591a4823b8797fdcaeab2f1fc33d8">&#9670;&nbsp;</a></span>areSameIgnoringCase() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT bool strings::areSameIgnoringCase </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>string1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>string2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns true if the two strings are the same, regardless of the case of their characters. </p>
-
-</div>
-</div>
-<a id="ac664d2d7911285656b6088d0caa46571"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac664d2d7911285656b6088d0caa46571">&#9670;&nbsp;</a></span>areSameIgnoringCase() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT bool strings::areSameIgnoringCase </td>
-          <td>(</td>
-          <td class="paramtype">const std::string_view &amp;&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string_view &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a91ded74a12444e6e18c9b0720251fa61"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a91ded74a12444e6e18c9b0720251fa61">&#9670;&nbsp;</a></span>dropFirstChars()</h2>
 
@@ -417,36 +323,7 @@ Variables</h2></td></tr>
  on Windows, <code>\n</code>  everywhere else. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacestrings.html#aebbfe58099474e9a4fb0f90f78ad2dff" title="A static variable that can be referenced for convenience, instead of needing to call getNewline() .">new_line</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8h_source.html#l00131">131</a> of file <a class="el" href="_string_utils_8h_source.html">StringUtils.h</a>.</p>
-
-</div>
-</div>
-<a id="abee9ff5a9ca4278f4ca7bbfce0829b6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abee9ff5a9ca4278f4ca7bbfce0829b6d">&#9670;&nbsp;</a></span>isNewline()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT bool strings::isNewline </td>
-          <td>(</td>
-          <td class="paramtype">const std::string_view &amp;&#160;</td>
-          <td class="paramname"><em>string</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns true if the passed string is <code>\n</code>  or <code>\r</code> <br  />
- . </p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8h_source.html#l00147">147</a> of file <a class="el" href="_string_utils_8h_source.html">StringUtils.h</a>.</p>
 
 </div>
 </div>
@@ -815,7 +692,7 @@ Variables</h2></td></tr>
 <p>A static variable that can be referenced for convenience, instead of needing to call <code><a class="el" href="namespacestrings.html#adca9725130e0ee777d8c0b82962b221d" title="Returns the platform&#39;s preferred newline separator: \r   on Windows, \n  everywhere else.">getNewline()</a></code> . </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacestrings.html#adca9725130e0ee777d8c0b82962b221d" title="Returns the platform&#39;s preferred newline separator: \r   on Windows, \n  everywhere else.">getNewline</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_string_utils_8h_source.html#l00118">118</a> of file <a class="el" href="_string_utils_8h_source.html">StringUtils.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_string_utils_8h_source.html#l00134">134</a> of file <a class="el" href="_string_utils_8h_source.html">StringUtils.h</a>.</p>
 
 </div>
 </div>
@@ -825,7 +702,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacestrings.html">strings</a></li>
-    <li class="footer">Generated on Tue May 24 2022 05:18:49 for Limes by
+    <li class="footer">Generated on Wed May 25 2022 08:27:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

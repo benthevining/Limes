@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
+   &#160;<span id="projectnumber">4.8.1</span>
    </div>
-   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
+   <div id="projectbrief">C++ utilities and building blocks</div>
   </td>
  </tr>
  </tbody>
@@ -84,10 +85,9 @@ $(document).ready(function(){initNavTree('_type_traits_8h.html',''); initResizab
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">TypeTraits.h File Reference</div>  </div>
+<div class="title">TypeTraits.h File Reference<div class="ingroups"><a class="el" href="group__limes__core.html">Limes_core</a> &raquo; <a class="el" href="group__meta.html">Meta</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;type_traits&gt;</code><br />
@@ -128,59 +128,101 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a68eeb3d3bbba66a9432a45a4c775ec9f"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemisc.html#a68eeb3d3bbba66a9432a45a4c775ec9f">misc::getDemangledTypeName</a> (const auto &amp;object) noexcept</td></tr>
-<tr class="memdesc:a68eeb3d3bbba66a9432a45a4c775ec9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the demangled name of the type of the passed object.  <a href="namespacemisc.html#a68eeb3d3bbba66a9432a45a4c775ec9f">More...</a><br /></td></tr>
-<tr class="separator:a68eeb3d3bbba66a9432a45a4c775ec9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af540d4bebc4621fa4b3e745a3dae3408"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemisc.html#af540d4bebc4621fa4b3e745a3dae3408">misc::getDemangledTypeName</a> (const auto *c) noexcept</td></tr>
-<tr class="memdesc:af540d4bebc4621fa4b3e745a3dae3408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the demangled name of the type of the passed object, ending with " pointer".  <a href="namespacemisc.html#af540d4bebc4621fa4b3e745a3dae3408">More...</a><br /></td></tr>
-<tr class="separator:af540d4bebc4621fa4b3e745a3dae3408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68eeb3d3bbba66a9432a45a4c775ec9f"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__meta.html#ga68eeb3d3bbba66a9432a45a4c775ec9f">misc::getDemangledTypeName</a> (const auto &amp;object) noexcept</td></tr>
+<tr class="memdesc:ga68eeb3d3bbba66a9432a45a4c775ec9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the demangled name of the type of the passed object.  <a href="group__meta.html#ga68eeb3d3bbba66a9432a45a4c775ec9f">More...</a><br /></td></tr>
+<tr class="separator:ga68eeb3d3bbba66a9432a45a4c775ec9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf540d4bebc4621fa4b3e745a3dae3408"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__meta.html#gaf540d4bebc4621fa4b3e745a3dae3408">misc::getDemangledTypeName</a> (const auto *c) noexcept</td></tr>
+<tr class="memdesc:gaf540d4bebc4621fa4b3e745a3dae3408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the demangled name of the type of the passed object, ending with " pointer".  <a href="group__meta.html#gaf540d4bebc4621fa4b3e745a3dae3408">More...</a><br /></td></tr>
+<tr class="separator:gaf540d4bebc4621fa4b3e745a3dae3408"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:acdb251fa2e47ba059a07793809acbf65"><td class="memTemplParams" colspan="2">template&lt;class From , class To &gt; </td></tr>
-<tr class="memitem:acdb251fa2e47ba059a07793809acbf65"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#acdb251fa2e47ba059a07793809acbf65">meta::convertible_to</a></td></tr>
-<tr class="memdesc:acdb251fa2e47ba059a07793809acbf65"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept convertible_to Exactly the same as <code>std::convertible_to</code> , only implemented here because some versions of Xcode seem to be missing it.  <a href="namespacemeta.html#acdb251fa2e47ba059a07793809acbf65">More...</a><br /></td></tr>
-<tr class="separator:acdb251fa2e47ba059a07793809acbf65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a746c09a5c6a4d20a262aed7f24f36848"><td class="memTemplParams" colspan="2">template&lt;class Derived , class Base &gt; </td></tr>
-<tr class="memitem:a746c09a5c6a4d20a262aed7f24f36848"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a746c09a5c6a4d20a262aed7f24f36848">meta::covariant_subtype_of</a></td></tr>
-<tr class="memdesc:a746c09a5c6a4d20a262aed7f24f36848"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept covariant_subtype_of  <a href="namespacemeta.html#a746c09a5c6a4d20a262aed7f24f36848">More...</a><br /></td></tr>
-<tr class="separator:a746c09a5c6a4d20a262aed7f24f36848"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a292aa323959c2cf1c81898824456f744"><td class="memTemplParams" colspan="2">template&lt;class ClassToTest , typename RequiredBase &gt; </td></tr>
-<tr class="memitem:a292aa323959c2cf1c81898824456f744"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a292aa323959c2cf1c81898824456f744">meta::inherits_from</a> = std::is_base_of_v&lt;RequiredBase, ClassToTest&gt;</td></tr>
-<tr class="memdesc:a292aa323959c2cf1c81898824456f744"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept inherits_from  <a href="namespacemeta.html#a292aa323959c2cf1c81898824456f744">More...</a><br /></td></tr>
-<tr class="separator:a292aa323959c2cf1c81898824456f744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c5bc8d9c87b7b65334e9ed46658df8e"><td class="memTemplParams" colspan="2">template&lt;class Derived , class Base &gt; </td></tr>
-<tr class="memitem:a9c5bc8d9c87b7b65334e9ed46658df8e"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a9c5bc8d9c87b7b65334e9ed46658df8e">meta::is_covariant_v</a> = covariance_check&lt;Derived, Base&gt;::value</td></tr>
-<tr class="memdesc:a9c5bc8d9c87b7b65334e9ed46658df8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if <code>Base</code> and <code>Derived</code> are covariant types; false otherwise.  <a href="namespacemeta.html#a9c5bc8d9c87b7b65334e9ed46658df8e">More...</a><br /></td></tr>
-<tr class="separator:a9c5bc8d9c87b7b65334e9ed46658df8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d8f3624182e0de82ffcee87c74998f8"><td class="memTemplParams" colspan="2">template&lt;typename Test , typename... Types&gt; </td></tr>
-<tr class="memitem:a5d8f3624182e0de82ffcee87c74998f8"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a5d8f3624182e0de82ffcee87c74998f8">meta::is_none_of_v</a> = is_none_of&lt;Test, Types...&gt;::value</td></tr>
-<tr class="memdesc:a5d8f3624182e0de82ffcee87c74998f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if <code>Test</code> is not in the list of <code>Types</code> .  <a href="namespacemeta.html#a5d8f3624182e0de82ffcee87c74998f8">More...</a><br /></td></tr>
-<tr class="separator:a5d8f3624182e0de82ffcee87c74998f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ce960f50290d7a51e8bdc59d2ced2a3"><td class="memTemplParams" colspan="2">template&lt;typename Test , typename... Types&gt; </td></tr>
-<tr class="memitem:a6ce960f50290d7a51e8bdc59d2ced2a3"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a6ce960f50290d7a51e8bdc59d2ced2a3">meta::is_one_of_v</a> = is_one_of&lt;Test, Types...&gt;::value</td></tr>
-<tr class="memdesc:a6ce960f50290d7a51e8bdc59d2ced2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if <code>Test</code> is the same as any of the types in <code>Types</code> .  <a href="namespacemeta.html#a6ce960f50290d7a51e8bdc59d2ced2a3">More...</a><br /></td></tr>
-<tr class="separator:a6ce960f50290d7a51e8bdc59d2ced2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15b26b106b48cfa969cf4e5d413c99cf"><td class="memTemplParams" colspan="2">template&lt;class ClassToTest , template&lt; class... &gt; class Template&gt; </td></tr>
-<tr class="memitem:a15b26b106b48cfa969cf4e5d413c99cf"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a15b26b106b48cfa969cf4e5d413c99cf">meta::is_specialization_v</a> = is_specialization&lt;ClassToTest, Template&gt;::value</td></tr>
-<tr class="memdesc:a15b26b106b48cfa969cf4e5d413c99cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if the given type is a specialization of the given template class; false otherwise.  <a href="namespacemeta.html#a15b26b106b48cfa969cf4e5d413c99cf">More...</a><br /></td></tr>
-<tr class="separator:a15b26b106b48cfa969cf4e5d413c99cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d12e4fdee21a131b2561b8c61fd572a"><td class="memTemplParams" colspan="2">template&lt;typename A , typename B &gt; </td></tr>
-<tr class="memitem:a0d12e4fdee21a131b2561b8c61fd572a"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a0d12e4fdee21a131b2561b8c61fd572a">meta::same_as</a> = std::is_same_v&lt;A, B&gt;</td></tr>
-<tr class="memdesc:a0d12e4fdee21a131b2561b8c61fd572a"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept same_as  <a href="namespacemeta.html#a0d12e4fdee21a131b2561b8c61fd572a">More...</a><br /></td></tr>
-<tr class="separator:a0d12e4fdee21a131b2561b8c61fd572a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cef158dc43897c440f6dd045fdaef77"><td class="memTemplParams" colspan="2">template&lt;class ClassToTest , template&lt; class... &gt; class Template&gt; </td></tr>
-<tr class="memitem:a1cef158dc43897c440f6dd045fdaef77"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemeta.html#a1cef158dc43897c440f6dd045fdaef77">meta::specializes</a></td></tr>
-<tr class="memdesc:a1cef158dc43897c440f6dd045fdaef77"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept specializes  <a href="namespacemeta.html#a1cef158dc43897c440f6dd045fdaef77">More...</a><br /></td></tr>
-<tr class="separator:a1cef158dc43897c440f6dd045fdaef77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:gacdb251fa2e47ba059a07793809acbf65"><td class="memTemplParams" colspan="2">template&lt;class From , class To &gt; </td></tr>
+<tr class="memitem:gacdb251fa2e47ba059a07793809acbf65"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#gacdb251fa2e47ba059a07793809acbf65">meta::convertible_to</a></td></tr>
+<tr class="memdesc:gacdb251fa2e47ba059a07793809acbf65"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept convertible_to Exactly the same as <code>std::convertible_to</code> , only implemented here because some versions of Xcode seem to be missing it.  <a href="group__meta.html#gacdb251fa2e47ba059a07793809acbf65">More...</a><br /></td></tr>
+<tr class="separator:gacdb251fa2e47ba059a07793809acbf65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga746c09a5c6a4d20a262aed7f24f36848"><td class="memTemplParams" colspan="2">template&lt;class Derived , class Base &gt; </td></tr>
+<tr class="memitem:ga746c09a5c6a4d20a262aed7f24f36848"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga746c09a5c6a4d20a262aed7f24f36848">meta::covariant_subtype_of</a></td></tr>
+<tr class="memdesc:ga746c09a5c6a4d20a262aed7f24f36848"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept covariant_subtype_of  <a href="group__meta.html#ga746c09a5c6a4d20a262aed7f24f36848">More...</a><br /></td></tr>
+<tr class="separator:ga746c09a5c6a4d20a262aed7f24f36848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga292aa323959c2cf1c81898824456f744"><td class="memTemplParams" colspan="2">template&lt;class ClassToTest , typename RequiredBase &gt; </td></tr>
+<tr class="memitem:ga292aa323959c2cf1c81898824456f744"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga292aa323959c2cf1c81898824456f744">meta::inherits_from</a> = std::is_base_of_v&lt;RequiredBase, ClassToTest&gt;</td></tr>
+<tr class="memdesc:ga292aa323959c2cf1c81898824456f744"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept inherits_from  <a href="group__meta.html#ga292aa323959c2cf1c81898824456f744">More...</a><br /></td></tr>
+<tr class="separator:ga292aa323959c2cf1c81898824456f744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c5bc8d9c87b7b65334e9ed46658df8e"><td class="memTemplParams" colspan="2">template&lt;class Derived , class Base &gt; </td></tr>
+<tr class="memitem:ga9c5bc8d9c87b7b65334e9ed46658df8e"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga9c5bc8d9c87b7b65334e9ed46658df8e">meta::is_covariant_v</a> = covariance_check&lt;Derived, Base&gt;::value</td></tr>
+<tr class="memdesc:ga9c5bc8d9c87b7b65334e9ed46658df8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if <code>Base</code> and <code>Derived</code> are covariant types; false otherwise.  <a href="group__meta.html#ga9c5bc8d9c87b7b65334e9ed46658df8e">More...</a><br /></td></tr>
+<tr class="separator:ga9c5bc8d9c87b7b65334e9ed46658df8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d8f3624182e0de82ffcee87c74998f8"><td class="memTemplParams" colspan="2">template&lt;typename Test , typename... Types&gt; </td></tr>
+<tr class="memitem:ga5d8f3624182e0de82ffcee87c74998f8"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga5d8f3624182e0de82ffcee87c74998f8">meta::is_none_of_v</a> = is_none_of&lt;Test, Types...&gt;::value</td></tr>
+<tr class="memdesc:ga5d8f3624182e0de82ffcee87c74998f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if <code>Test</code> is not in the list of <code>Types</code> .  <a href="group__meta.html#ga5d8f3624182e0de82ffcee87c74998f8">More...</a><br /></td></tr>
+<tr class="separator:ga5d8f3624182e0de82ffcee87c74998f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ce960f50290d7a51e8bdc59d2ced2a3"><td class="memTemplParams" colspan="2">template&lt;typename Test , typename... Types&gt; </td></tr>
+<tr class="memitem:ga6ce960f50290d7a51e8bdc59d2ced2a3"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga6ce960f50290d7a51e8bdc59d2ced2a3">meta::is_one_of_v</a> = is_one_of&lt;Test, Types...&gt;::value</td></tr>
+<tr class="memdesc:ga6ce960f50290d7a51e8bdc59d2ced2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if <code>Test</code> is the same as any of the types in <code>Types</code> .  <a href="group__meta.html#ga6ce960f50290d7a51e8bdc59d2ced2a3">More...</a><br /></td></tr>
+<tr class="separator:ga6ce960f50290d7a51e8bdc59d2ced2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15b26b106b48cfa969cf4e5d413c99cf"><td class="memTemplParams" colspan="2">template&lt;class ClassToTest , template&lt; class... &gt; class Template&gt; </td></tr>
+<tr class="memitem:ga15b26b106b48cfa969cf4e5d413c99cf"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga15b26b106b48cfa969cf4e5d413c99cf">meta::is_specialization_v</a> = is_specialization&lt;ClassToTest, Template&gt;::value</td></tr>
+<tr class="memdesc:ga15b26b106b48cfa969cf4e5d413c99cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if the given type is a specialization of the given template class; false otherwise.  <a href="group__meta.html#ga15b26b106b48cfa969cf4e5d413c99cf">More...</a><br /></td></tr>
+<tr class="separator:ga15b26b106b48cfa969cf4e5d413c99cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d12e4fdee21a131b2561b8c61fd572a"><td class="memTemplParams" colspan="2">template&lt;typename A , typename B &gt; </td></tr>
+<tr class="memitem:ga0d12e4fdee21a131b2561b8c61fd572a"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga0d12e4fdee21a131b2561b8c61fd572a">meta::same_as</a> = std::is_same_v&lt;A, B&gt;</td></tr>
+<tr class="memdesc:ga0d12e4fdee21a131b2561b8c61fd572a"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept same_as  <a href="group__meta.html#ga0d12e4fdee21a131b2561b8c61fd572a">More...</a><br /></td></tr>
+<tr class="separator:ga0d12e4fdee21a131b2561b8c61fd572a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1cef158dc43897c440f6dd045fdaef77"><td class="memTemplParams" colspan="2">template&lt;class ClassToTest , template&lt; class... &gt; class Template&gt; </td></tr>
+<tr class="memitem:ga1cef158dc43897c440f6dd045fdaef77"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga1cef158dc43897c440f6dd045fdaef77">meta::specializes</a></td></tr>
+<tr class="memdesc:ga1cef158dc43897c440f6dd045fdaef77"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept specializes  <a href="group__meta.html#ga1cef158dc43897c440f6dd045fdaef77">More...</a><br /></td></tr>
+<tr class="separator:ga1cef158dc43897c440f6dd045fdaef77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:gacdb251fa2e47ba059a07793809acbf65"><td class="memTemplParams" colspan="2">template&lt;class From , class To &gt; </td></tr>
+<tr class="memitem:gacdb251fa2e47ba059a07793809acbf65"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#gacdb251fa2e47ba059a07793809acbf65">meta::convertible_to</a></td></tr>
+<tr class="memdesc:gacdb251fa2e47ba059a07793809acbf65"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept convertible_to Exactly the same as <code>std::convertible_to</code> , only implemented here because some versions of Xcode seem to be missing it.  <a href="group__meta.html#gacdb251fa2e47ba059a07793809acbf65">More...</a><br /></td></tr>
+<tr class="separator:gacdb251fa2e47ba059a07793809acbf65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d12e4fdee21a131b2561b8c61fd572a"><td class="memTemplParams" colspan="2">template&lt;typename A , typename B &gt; </td></tr>
+<tr class="memitem:ga0d12e4fdee21a131b2561b8c61fd572a"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga0d12e4fdee21a131b2561b8c61fd572a">meta::same_as</a> = std::is_same_v&lt;A, B&gt;</td></tr>
+<tr class="memdesc:ga0d12e4fdee21a131b2561b8c61fd572a"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept same_as  <a href="group__meta.html#ga0d12e4fdee21a131b2561b8c61fd572a">More...</a><br /></td></tr>
+<tr class="separator:ga0d12e4fdee21a131b2561b8c61fd572a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga292aa323959c2cf1c81898824456f744"><td class="memTemplParams" colspan="2">template&lt;class ClassToTest , typename RequiredBase &gt; </td></tr>
+<tr class="memitem:ga292aa323959c2cf1c81898824456f744"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga292aa323959c2cf1c81898824456f744">meta::inherits_from</a> = std::is_base_of_v&lt;RequiredBase, ClassToTest&gt;</td></tr>
+<tr class="memdesc:ga292aa323959c2cf1c81898824456f744"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept inherits_from  <a href="group__meta.html#ga292aa323959c2cf1c81898824456f744">More...</a><br /></td></tr>
+<tr class="separator:ga292aa323959c2cf1c81898824456f744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15b26b106b48cfa969cf4e5d413c99cf"><td class="memTemplParams" colspan="2">template&lt;class ClassToTest , template&lt; class... &gt; class Template&gt; </td></tr>
+<tr class="memitem:ga15b26b106b48cfa969cf4e5d413c99cf"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga15b26b106b48cfa969cf4e5d413c99cf">meta::is_specialization_v</a> = is_specialization&lt;ClassToTest, Template&gt;::value</td></tr>
+<tr class="memdesc:ga15b26b106b48cfa969cf4e5d413c99cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if the given type is a specialization of the given template class; false otherwise.  <a href="group__meta.html#ga15b26b106b48cfa969cf4e5d413c99cf">More...</a><br /></td></tr>
+<tr class="separator:ga15b26b106b48cfa969cf4e5d413c99cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1cef158dc43897c440f6dd045fdaef77"><td class="memTemplParams" colspan="2">template&lt;class ClassToTest , template&lt; class... &gt; class Template&gt; </td></tr>
+<tr class="memitem:ga1cef158dc43897c440f6dd045fdaef77"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga1cef158dc43897c440f6dd045fdaef77">meta::specializes</a></td></tr>
+<tr class="memdesc:ga1cef158dc43897c440f6dd045fdaef77"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept specializes  <a href="group__meta.html#ga1cef158dc43897c440f6dd045fdaef77">More...</a><br /></td></tr>
+<tr class="separator:ga1cef158dc43897c440f6dd045fdaef77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c5bc8d9c87b7b65334e9ed46658df8e"><td class="memTemplParams" colspan="2">template&lt;class Derived , class Base &gt; </td></tr>
+<tr class="memitem:ga9c5bc8d9c87b7b65334e9ed46658df8e"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga9c5bc8d9c87b7b65334e9ed46658df8e">meta::is_covariant_v</a> = covariance_check&lt;Derived, Base&gt;::value</td></tr>
+<tr class="memdesc:ga9c5bc8d9c87b7b65334e9ed46658df8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if <code>Base</code> and <code>Derived</code> are covariant types; false otherwise.  <a href="group__meta.html#ga9c5bc8d9c87b7b65334e9ed46658df8e">More...</a><br /></td></tr>
+<tr class="separator:ga9c5bc8d9c87b7b65334e9ed46658df8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga746c09a5c6a4d20a262aed7f24f36848"><td class="memTemplParams" colspan="2">template&lt;class Derived , class Base &gt; </td></tr>
+<tr class="memitem:ga746c09a5c6a4d20a262aed7f24f36848"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga746c09a5c6a4d20a262aed7f24f36848">meta::covariant_subtype_of</a></td></tr>
+<tr class="memdesc:ga746c09a5c6a4d20a262aed7f24f36848"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept covariant_subtype_of  <a href="group__meta.html#ga746c09a5c6a4d20a262aed7f24f36848">More...</a><br /></td></tr>
+<tr class="separator:ga746c09a5c6a4d20a262aed7f24f36848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ce960f50290d7a51e8bdc59d2ced2a3"><td class="memTemplParams" colspan="2">template&lt;typename Test , typename... Types&gt; </td></tr>
+<tr class="memitem:ga6ce960f50290d7a51e8bdc59d2ced2a3"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga6ce960f50290d7a51e8bdc59d2ced2a3">meta::is_one_of_v</a> = is_one_of&lt;Test, Types...&gt;::value</td></tr>
+<tr class="memdesc:ga6ce960f50290d7a51e8bdc59d2ced2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if <code>Test</code> is the same as any of the types in <code>Types</code> .  <a href="group__meta.html#ga6ce960f50290d7a51e8bdc59d2ced2a3">More...</a><br /></td></tr>
+<tr class="separator:ga6ce960f50290d7a51e8bdc59d2ced2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d8f3624182e0de82ffcee87c74998f8"><td class="memTemplParams" colspan="2">template&lt;typename Test , typename... Types&gt; </td></tr>
+<tr class="memitem:ga5d8f3624182e0de82ffcee87c74998f8"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__meta.html#ga5d8f3624182e0de82ffcee87c74998f8">meta::is_none_of_v</a> = is_none_of&lt;Test, Types...&gt;::value</td></tr>
+<tr class="memdesc:ga5d8f3624182e0de82ffcee87c74998f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates to true if <code>Test</code> is not in the list of <code>Types</code> .  <a href="group__meta.html#ga5d8f3624182e0de82ffcee87c74998f8">More...</a><br /></td></tr>
+<tr class="separator:ga5d8f3624182e0de82ffcee87c74998f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file defines some general utilities for metaprogramming. </p>
+
+<p class="definition">Definition in file <a class="el" href="_type_traits_8h_source.html">TypeTraits.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_db1624377dd76a589c108b2ad61e06f8.html">meta</a></li><li class="navelem"><a class="el" href="_type_traits_8h.html">TypeTraits.h</a></li>
-    <li class="footer">Generated on Tue May 24 2022 05:18:49 for Limes by
+    <li class="footer">Generated on Wed May 25 2022 08:27:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

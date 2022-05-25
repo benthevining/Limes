@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Limes
+   &#160;<span id="projectnumber">4.8.1</span>
    </div>
-   <div id="projectbrief">C++utilitiesandbuildingblocks</div>
+   <div id="projectbrief">C++ utilities and building blocks</div>
   </td>
  </tr>
  </tbody>
@@ -84,10 +85,9 @@ $(document).ready(function(){initNavTree('math_helpers_8h.html',''); initResizab
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">mathHelpers.h File Reference</div>  </div>
+<div class="title">mathHelpers.h File Reference<div class="ingroups"><a class="el" href="group__limes__core.html">Limes_core</a> &raquo; <a class="el" href="group__math.html">Math</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="limes__namespace_8h_source.html">limes_namespace.h</a>&gt;</code><br />
@@ -97,6 +97,7 @@ $(document).ready(function(){initNavTree('math_helpers_8h.html',''); initResizab
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &quot;<a class="el" href="limes__assert_8h_source.html">../system/limes_assert.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="compiler__defs_8h_source.html">../system/compiler_defs.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="preprocessor_8h_source.html">../misc/preprocessor.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for mathHelpers.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -119,140 +120,11 @@ $(document).ready(function(){initNavTree('math_helpers_8h.html',''); initResizab
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacemath"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemath.html">math</a></td></tr>
+<tr class="memdesc:namespacemath"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains math utilities. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacemath_1_1constants"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemath_1_1constants.html">math::constants</a></td></tr>
+<tr class="memdesc:namespacemath_1_1constants"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains some mathematical constants. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga6d262e04bc6f3646fdefa9bdb887f977">math::abs</a> (T val) noexcept</td></tr>
-<tr class="memdesc:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constexpr-enabled absolute value function.  <a href="group__lemons__math.html#ga6d262e04bc6f3646fdefa9bdb887f977">More...</a><br /></td></tr>
-<tr class="separator:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga6d262e04bc6f3646fdefa9bdb887f977">math::abs</a> (T val) noexcept</td></tr>
-<tr class="memdesc:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constexpr-enabled absolute value function.  <a href="group__lemons__math.html#ga6d262e04bc6f3646fdefa9bdb887f977">More...</a><br /></td></tr>
-<tr class="separator:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplParams" colspan="2">template&lt;Integral T&gt; </td></tr>
-<tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga8f543e20a836b53e34ff51af3c435650">math::factorial</a> (T number) noexcept</td></tr>
-<tr class="separator:ga8f543e20a836b53e34ff51af3c435650"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplParams" colspan="2">template&lt;Integral T&gt; </td></tr>
-<tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga8f543e20a836b53e34ff51af3c435650">math::factorial</a> (T number) noexcept</td></tr>
-<tr class="separator:ga8f543e20a836b53e34ff51af3c435650"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6bb0f47d78ad031a40afbf364083bb43"><td class="memTemplParams" colspan="2">template&lt;Scalar PeriodType&gt; </td></tr>
-<tr class="memitem:ga6bb0f47d78ad031a40afbf364083bb43"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT PeriodType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga6bb0f47d78ad031a40afbf364083bb43">math::freqFromPeriod</a> (double samplerate, PeriodType period) noexcept</td></tr>
-<tr class="memdesc:ga6bb0f47d78ad031a40afbf364083bb43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the frequency in Hz with a given period in samples at the specified samplerate.  <a href="group__lemons__math.html#ga6bb0f47d78ad031a40afbf364083bb43">More...</a><br /></td></tr>
-<tr class="separator:ga6bb0f47d78ad031a40afbf364083bb43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6bb0f47d78ad031a40afbf364083bb43"><td class="memTemplParams" colspan="2">template&lt;Scalar PeriodType&gt; </td></tr>
-<tr class="memitem:ga6bb0f47d78ad031a40afbf364083bb43"><td class="memTemplItemLeft" align="right" valign="top">constexpr PeriodType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga6bb0f47d78ad031a40afbf364083bb43">math::freqFromPeriod</a> (double samplerate, PeriodType period) noexcept</td></tr>
-<tr class="memdesc:ga6bb0f47d78ad031a40afbf364083bb43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the frequency in Hz with a given period in samples at the specified samplerate.  <a href="group__lemons__math.html#ga6bb0f47d78ad031a40afbf364083bb43">More...</a><br /></td></tr>
-<tr class="separator:ga6bb0f47d78ad031a40afbf364083bb43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaba5c165d2cb7683000726630f32ff02c"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:gaba5c165d2cb7683000726630f32ff02c"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#gaba5c165d2cb7683000726630f32ff02c">math::freqToMidi</a> (T freqHz) noexcept</td></tr>
-<tr class="memdesc:gaba5c165d2cb7683000726630f32ff02c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a frequency in Hz to a MIDI note.  <a href="group__lemons__math.html#gaba5c165d2cb7683000726630f32ff02c">More...</a><br /></td></tr>
-<tr class="separator:gaba5c165d2cb7683000726630f32ff02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaba5c165d2cb7683000726630f32ff02c"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:gaba5c165d2cb7683000726630f32ff02c"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#gaba5c165d2cb7683000726630f32ff02c">math::freqToMidi</a> (T freqHz) noexcept</td></tr>
-<tr class="memdesc:gaba5c165d2cb7683000726630f32ff02c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a frequency in Hz to a MIDI note.  <a href="group__lemons__math.html#gaba5c165d2cb7683000726630f32ff02c">More...</a><br /></td></tr>
-<tr class="separator:gaba5c165d2cb7683000726630f32ff02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
-<tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga9e117ca50dccbf636d7a04e110a08df8">math::isDivisibleBy</a> (Integer number, Integer divisor) noexcept</td></tr>
-<tr class="memdesc:ga9e117ca50dccbf636d7a04e110a08df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is divisible by the divisor with no remainder.  <a href="group__lemons__math.html#ga9e117ca50dccbf636d7a04e110a08df8">More...</a><br /></td></tr>
-<tr class="separator:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
-<tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga9e117ca50dccbf636d7a04e110a08df8">math::isDivisibleBy</a> (Integer number, Integer divisor) noexcept</td></tr>
-<tr class="memdesc:ga9e117ca50dccbf636d7a04e110a08df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is divisible by the divisor with no remainder.  <a href="group__lemons__math.html#ga9e117ca50dccbf636d7a04e110a08df8">More...</a><br /></td></tr>
-<tr class="separator:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
-<tr class="memitem:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga2c6a4276c506b35b346e1bf5dbc04e15">math::isPowerOf2</a> (Integer val) noexcept</td></tr>
-<tr class="memdesc:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if val is 2^something.  <a href="group__lemons__math.html#ga2c6a4276c506b35b346e1bf5dbc04e15">More...</a><br /></td></tr>
-<tr class="separator:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
-<tr class="memitem:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga2c6a4276c506b35b346e1bf5dbc04e15">math::isPowerOf2</a> (Integer val) noexcept</td></tr>
-<tr class="memdesc:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if val is 2^something.  <a href="group__lemons__math.html#ga2c6a4276c506b35b346e1bf5dbc04e15">More...</a><br /></td></tr>
-<tr class="separator:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
-<tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#gaa7aecc12e23fb531f845fdf32f2588cf">math::isPrime</a> (Integer number) noexcept</td></tr>
-<tr class="separator:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
-<tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#gaa7aecc12e23fb531f845fdf32f2588cf">math::isPrime</a> (Integer number) noexcept</td></tr>
-<tr class="separator:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga54cdbdfc2b2002ed1b794a8e2e416e35"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:ga54cdbdfc2b2002ed1b794a8e2e416e35"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga54cdbdfc2b2002ed1b794a8e2e416e35">math::limit</a> (T input, T min, T max) noexcept</td></tr>
-<tr class="separator:ga54cdbdfc2b2002ed1b794a8e2e416e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga54cdbdfc2b2002ed1b794a8e2e416e35"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:ga54cdbdfc2b2002ed1b794a8e2e416e35"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga54cdbdfc2b2002ed1b794a8e2e416e35">math::limit</a> (T input, T min, T max) noexcept</td></tr>
-<tr class="separator:ga54cdbdfc2b2002ed1b794a8e2e416e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad0e5a71d2f701efa07a804945876b122"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:gad0e5a71d2f701efa07a804945876b122"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#gad0e5a71d2f701efa07a804945876b122">math::map</a> (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept</td></tr>
-<tr class="separator:gad0e5a71d2f701efa07a804945876b122"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad0e5a71d2f701efa07a804945876b122"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:gad0e5a71d2f701efa07a804945876b122"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#gad0e5a71d2f701efa07a804945876b122">math::map</a> (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept</td></tr>
-<tr class="separator:gad0e5a71d2f701efa07a804945876b122"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga09f140aa9f0323bb7cbb299cfd4be28f">math::middleOfThree</a> (T a, T b, T c) noexcept</td></tr>
-<tr class="separator:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga09f140aa9f0323bb7cbb299cfd4be28f">math::middleOfThree</a> (T a, T b, T c) noexcept</td></tr>
-<tr class="separator:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1d25879e95bcdc91434efb4fe91bda13"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:ga1d25879e95bcdc91434efb4fe91bda13"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga1d25879e95bcdc91434efb4fe91bda13">math::midiToFreq</a> (T midiNote) noexcept</td></tr>
-<tr class="memdesc:ga1d25879e95bcdc91434efb4fe91bda13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI note to a frequency in Hz.  <a href="group__lemons__math.html#ga1d25879e95bcdc91434efb4fe91bda13">More...</a><br /></td></tr>
-<tr class="separator:ga1d25879e95bcdc91434efb4fe91bda13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1d25879e95bcdc91434efb4fe91bda13"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:ga1d25879e95bcdc91434efb4fe91bda13"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga1d25879e95bcdc91434efb4fe91bda13">math::midiToFreq</a> (T midiNote) noexcept</td></tr>
-<tr class="memdesc:ga1d25879e95bcdc91434efb4fe91bda13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI note to a frequency in Hz.  <a href="group__lemons__math.html#ga1d25879e95bcdc91434efb4fe91bda13">More...</a><br /></td></tr>
-<tr class="separator:ga1d25879e95bcdc91434efb4fe91bda13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="memTemplParams" colspan="2">template&lt;Scalar msType&gt; </td></tr>
-<tr class="memitem:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga95da7fc1fb96ae78716e0faf3b1dc0a0">math::msToSamps</a> (double samplerate, msType ms) noexcept</td></tr>
-<tr class="memdesc:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a number of milliseconds to the closest integer number of samples at the specified samplerate.  <a href="group__lemons__math.html#ga95da7fc1fb96ae78716e0faf3b1dc0a0">More...</a><br /></td></tr>
-<tr class="separator:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="memTemplParams" colspan="2">template&lt;Scalar msType&gt; </td></tr>
-<tr class="memitem:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga95da7fc1fb96ae78716e0faf3b1dc0a0">math::msToSamps</a> (double samplerate, msType ms) noexcept</td></tr>
-<tr class="memdesc:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a number of milliseconds to the closest integer number of samples at the specified samplerate.  <a href="group__lemons__math.html#ga95da7fc1fb96ae78716e0faf3b1dc0a0">More...</a><br /></td></tr>
-<tr class="separator:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0c049988ace901cbcc231b71ade26e9e"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:ga0c049988ace901cbcc231b71ade26e9e"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga0c049988ace901cbcc231b71ade26e9e">math::negate</a> (T val) noexcept</td></tr>
-<tr class="separator:ga0c049988ace901cbcc231b71ade26e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0c049988ace901cbcc231b71ade26e9e"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:ga0c049988ace901cbcc231b71ade26e9e"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga0c049988ace901cbcc231b71ade26e9e">math::negate</a> (T val) noexcept</td></tr>
-<tr class="separator:ga0c049988ace901cbcc231b71ade26e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
-<tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga548a17542294fda4e35f822965eef21d">math::numberIsEven</a> (Integer number) noexcept</td></tr>
-<tr class="memdesc:ga548a17542294fda4e35f822965eef21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is evenly divisible by 2.  <a href="group__lemons__math.html#ga548a17542294fda4e35f822965eef21d">More...</a><br /></td></tr>
-<tr class="separator:ga548a17542294fda4e35f822965eef21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
-<tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga548a17542294fda4e35f822965eef21d">math::numberIsEven</a> (Integer number) noexcept</td></tr>
-<tr class="memdesc:ga548a17542294fda4e35f822965eef21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is evenly divisible by 2.  <a href="group__lemons__math.html#ga548a17542294fda4e35f822965eef21d">More...</a><br /></td></tr>
-<tr class="separator:ga548a17542294fda4e35f822965eef21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="memTemplParams" colspan="2">template&lt;Scalar FreqType&gt; </td></tr>
-<tr class="memitem:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga1a6dc5f37f6bc00737b62629958fd0ab">math::periodInSamples</a> (double samplerate, FreqType freqHz) noexcept</td></tr>
-<tr class="memdesc:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the period in samples of a frequency at the specified samplerate.  <a href="group__lemons__math.html#ga1a6dc5f37f6bc00737b62629958fd0ab">More...</a><br /></td></tr>
-<tr class="separator:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="memTemplParams" colspan="2">template&lt;Scalar FreqType&gt; </td></tr>
-<tr class="memitem:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga1a6dc5f37f6bc00737b62629958fd0ab">math::periodInSamples</a> (double samplerate, FreqType freqHz) noexcept</td></tr>
-<tr class="memdesc:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the period in samples of a frequency at the specified samplerate.  <a href="group__lemons__math.html#ga1a6dc5f37f6bc00737b62629958fd0ab">More...</a><br /></td></tr>
-<tr class="separator:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4c562496dcd927fa763bbed87f0dbac1"><td class="memTemplParams" colspan="2">template&lt;Integral T&gt; </td></tr>
-<tr class="memitem:ga4c562496dcd927fa763bbed87f0dbac1"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga4c562496dcd927fa763bbed87f0dbac1">math::power</a> (T number, T power) noexcept</td></tr>
-<tr class="separator:ga4c562496dcd927fa763bbed87f0dbac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4c562496dcd927fa763bbed87f0dbac1"><td class="memTemplParams" colspan="2">template&lt;Integral T&gt; </td></tr>
-<tr class="memitem:ga4c562496dcd927fa763bbed87f0dbac1"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga4c562496dcd927fa763bbed87f0dbac1">math::power</a> (T number, T power_) noexcept</td></tr>
-<tr class="separator:ga4c562496dcd927fa763bbed87f0dbac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacb9b0f8450f502b2c771ca5e5a7da212"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:gacb9b0f8450f502b2c771ca5e5a7da212"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#gacb9b0f8450f502b2c771ca5e5a7da212">math::round</a> (T val) noexcept</td></tr>
-<tr class="separator:gacb9b0f8450f502b2c771ca5e5a7da212"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacb9b0f8450f502b2c771ca5e5a7da212"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
-<tr class="memitem:gacb9b0f8450f502b2c771ca5e5a7da212"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#gacb9b0f8450f502b2c771ca5e5a7da212">math::round</a> (T val) noexcept</td></tr>
-<tr class="separator:gacb9b0f8450f502b2c771ca5e5a7da212"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
-<tr class="memitem:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga03e0609c4a16e5500a587ca9bafe7f87">math::sampsToMs</a> (double samplerate, Integer numSamples) noexcept</td></tr>
-<tr class="memdesc:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a number of samples to milliseconds at the specified samplerate.  <a href="group__lemons__math.html#ga03e0609c4a16e5500a587ca9bafe7f87">More...</a><br /></td></tr>
-<tr class="separator:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
-<tr class="memitem:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="memTemplItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__lemons__math.html#ga03e0609c4a16e5500a587ca9bafe7f87">math::sampsToMs</a> (double samplerate, Integer numSamples) noexcept</td></tr>
-<tr class="memdesc:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a number of samples to milliseconds at the specified samplerate.  <a href="group__lemons__math.html#ga03e0609c4a16e5500a587ca9bafe7f87">More...</a><br /></td></tr>
-<tr class="separator:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -262,26 +134,158 @@ Variables</h2></td></tr>
 <tr class="memitem:a235933b0adc79428388d6f18d94193d3"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
 <tr class="memitem:a235933b0adc79428388d6f18d94193d3"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemath_1_1constants.html#a235933b0adc79428388d6f18d94193d3">math::constants::half_pi</a> = pi&lt;T&gt; / T (2.)</td></tr>
 <tr class="separator:a235933b0adc79428388d6f18d94193d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04e106b35afcdef6a145a5db35d91efa"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a04e106b35afcdef6a145a5db35d91efa"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemath.html#a04e106b35afcdef6a145a5db35d91efa">math::Integral</a> = std::is_integral_v&lt;T&gt;</td></tr>
-<tr class="separator:a04e106b35afcdef6a145a5db35d91efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc3cb116f5aa8a90b9c93d112b372f1e"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
 <tr class="memitem:afc3cb116f5aa8a90b9c93d112b372f1e"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemath_1_1constants.html#afc3cb116f5aa8a90b9c93d112b372f1e">math::constants::pi</a> = static_cast&lt;T&gt; (3.1415916)</td></tr>
 <tr class="separator:afc3cb116f5aa8a90b9c93d112b372f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85112aca5e58028e5a710f98adde3f40"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a85112aca5e58028e5a710f98adde3f40"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemath.html#a85112aca5e58028e5a710f98adde3f40">math::Scalar</a> = std::is_scalar_v&lt;T&gt;</td></tr>
-<tr class="separator:a85112aca5e58028e5a710f98adde3f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6db585a73b2811284a16382a6cfb4952"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
 <tr class="memitem:a6db585a73b2811284a16382a6cfb4952"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemath_1_1constants.html#a6db585a73b2811284a16382a6cfb4952">math::constants::two_pi</a> = pi&lt;T&gt;* T (2.)</td></tr>
 <tr class="separator:a6db585a73b2811284a16382a6cfb4952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga6d262e04bc6f3646fdefa9bdb887f977">math::abs</a> (T val) noexcept</td></tr>
+<tr class="memdesc:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constexpr-enabled absolute value function.  <a href="group__math.html#ga6d262e04bc6f3646fdefa9bdb887f977">More...</a><br /></td></tr>
+<tr class="separator:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga6d262e04bc6f3646fdefa9bdb887f977">math::abs</a> (T val) noexcept</td></tr>
+<tr class="memdesc:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constexpr-enabled absolute value function.  <a href="group__math.html#ga6d262e04bc6f3646fdefa9bdb887f977">More...</a><br /></td></tr>
+<tr class="separator:ga6d262e04bc6f3646fdefa9bdb887f977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplParams" colspan="2">template&lt;Integral T&gt; </td></tr>
+<tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga8f543e20a836b53e34ff51af3c435650">math::factorial</a> (T number) noexcept</td></tr>
+<tr class="separator:ga8f543e20a836b53e34ff51af3c435650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplParams" colspan="2">template&lt;Integral T&gt; </td></tr>
+<tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga8f543e20a836b53e34ff51af3c435650">math::factorial</a> (T number) noexcept</td></tr>
+<tr class="separator:ga8f543e20a836b53e34ff51af3c435650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6bb0f47d78ad031a40afbf364083bb43"><td class="memTemplParams" colspan="2">template&lt;Scalar PeriodType&gt; </td></tr>
+<tr class="memitem:ga6bb0f47d78ad031a40afbf364083bb43"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT PeriodType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga6bb0f47d78ad031a40afbf364083bb43">math::freqFromPeriod</a> (double samplerate, PeriodType period) noexcept</td></tr>
+<tr class="memdesc:ga6bb0f47d78ad031a40afbf364083bb43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the frequency in Hz with a given period in samples at the specified samplerate.  <a href="group__math.html#ga6bb0f47d78ad031a40afbf364083bb43">More...</a><br /></td></tr>
+<tr class="separator:ga6bb0f47d78ad031a40afbf364083bb43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6bb0f47d78ad031a40afbf364083bb43"><td class="memTemplParams" colspan="2">template&lt;Scalar PeriodType&gt; </td></tr>
+<tr class="memitem:ga6bb0f47d78ad031a40afbf364083bb43"><td class="memTemplItemLeft" align="right" valign="top">constexpr PeriodType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga6bb0f47d78ad031a40afbf364083bb43">math::freqFromPeriod</a> (double samplerate, PeriodType period) noexcept</td></tr>
+<tr class="memdesc:ga6bb0f47d78ad031a40afbf364083bb43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the frequency in Hz with a given period in samples at the specified samplerate.  <a href="group__math.html#ga6bb0f47d78ad031a40afbf364083bb43">More...</a><br /></td></tr>
+<tr class="separator:ga6bb0f47d78ad031a40afbf364083bb43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba5c165d2cb7683000726630f32ff02c"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:gaba5c165d2cb7683000726630f32ff02c"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#gaba5c165d2cb7683000726630f32ff02c">math::freqToMidi</a> (T freqHz) noexcept</td></tr>
+<tr class="memdesc:gaba5c165d2cb7683000726630f32ff02c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a frequency in Hz to a MIDI note.  <a href="group__math.html#gaba5c165d2cb7683000726630f32ff02c">More...</a><br /></td></tr>
+<tr class="separator:gaba5c165d2cb7683000726630f32ff02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba5c165d2cb7683000726630f32ff02c"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:gaba5c165d2cb7683000726630f32ff02c"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#gaba5c165d2cb7683000726630f32ff02c">math::freqToMidi</a> (T freqHz) noexcept</td></tr>
+<tr class="memdesc:gaba5c165d2cb7683000726630f32ff02c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a frequency in Hz to a MIDI note.  <a href="group__math.html#gaba5c165d2cb7683000726630f32ff02c">More...</a><br /></td></tr>
+<tr class="separator:gaba5c165d2cb7683000726630f32ff02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga04e106b35afcdef6a145a5db35d91efa"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga04e106b35afcdef6a145a5db35d91efa"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga04e106b35afcdef6a145a5db35d91efa">math::Integral</a> = std::is_integral_v&lt;T&gt;</td></tr>
+<tr class="separator:ga04e106b35afcdef6a145a5db35d91efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
+<tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga9e117ca50dccbf636d7a04e110a08df8">math::isDivisibleBy</a> (Integer number, Integer divisor) noexcept</td></tr>
+<tr class="memdesc:ga9e117ca50dccbf636d7a04e110a08df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is divisible by the divisor with no remainder.  <a href="group__math.html#ga9e117ca50dccbf636d7a04e110a08df8">More...</a><br /></td></tr>
+<tr class="separator:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
+<tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga9e117ca50dccbf636d7a04e110a08df8">math::isDivisibleBy</a> (Integer number, Integer divisor) noexcept</td></tr>
+<tr class="memdesc:ga9e117ca50dccbf636d7a04e110a08df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is divisible by the divisor with no remainder.  <a href="group__math.html#ga9e117ca50dccbf636d7a04e110a08df8">More...</a><br /></td></tr>
+<tr class="separator:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
+<tr class="memitem:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga2c6a4276c506b35b346e1bf5dbc04e15">math::isPowerOf2</a> (Integer val) noexcept</td></tr>
+<tr class="memdesc:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if val is 2^something.  <a href="group__math.html#ga2c6a4276c506b35b346e1bf5dbc04e15">More...</a><br /></td></tr>
+<tr class="separator:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
+<tr class="memitem:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga2c6a4276c506b35b346e1bf5dbc04e15">math::isPowerOf2</a> (Integer val) noexcept</td></tr>
+<tr class="memdesc:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if val is 2^something.  <a href="group__math.html#ga2c6a4276c506b35b346e1bf5dbc04e15">More...</a><br /></td></tr>
+<tr class="separator:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
+<tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#gaa7aecc12e23fb531f845fdf32f2588cf">math::isPrime</a> (Integer number) noexcept</td></tr>
+<tr class="separator:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
+<tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#gaa7aecc12e23fb531f845fdf32f2588cf">math::isPrime</a> (Integer number) noexcept</td></tr>
+<tr class="separator:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga54cdbdfc2b2002ed1b794a8e2e416e35"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:ga54cdbdfc2b2002ed1b794a8e2e416e35"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga54cdbdfc2b2002ed1b794a8e2e416e35">math::limit</a> (T input, T min, T max) noexcept</td></tr>
+<tr class="separator:ga54cdbdfc2b2002ed1b794a8e2e416e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga54cdbdfc2b2002ed1b794a8e2e416e35"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:ga54cdbdfc2b2002ed1b794a8e2e416e35"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga54cdbdfc2b2002ed1b794a8e2e416e35">math::limit</a> (T input, T min, T max) noexcept</td></tr>
+<tr class="separator:ga54cdbdfc2b2002ed1b794a8e2e416e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad0e5a71d2f701efa07a804945876b122"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:gad0e5a71d2f701efa07a804945876b122"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#gad0e5a71d2f701efa07a804945876b122">math::map</a> (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept</td></tr>
+<tr class="separator:gad0e5a71d2f701efa07a804945876b122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad0e5a71d2f701efa07a804945876b122"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:gad0e5a71d2f701efa07a804945876b122"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#gad0e5a71d2f701efa07a804945876b122">math::map</a> (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept</td></tr>
+<tr class="separator:gad0e5a71d2f701efa07a804945876b122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga09f140aa9f0323bb7cbb299cfd4be28f">math::middleOfThree</a> (T a, T b, T c) noexcept</td></tr>
+<tr class="separator:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga09f140aa9f0323bb7cbb299cfd4be28f">math::middleOfThree</a> (T a, T b, T c) noexcept</td></tr>
+<tr class="separator:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d25879e95bcdc91434efb4fe91bda13"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:ga1d25879e95bcdc91434efb4fe91bda13"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga1d25879e95bcdc91434efb4fe91bda13">math::midiToFreq</a> (T midiNote) noexcept</td></tr>
+<tr class="memdesc:ga1d25879e95bcdc91434efb4fe91bda13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI note to a frequency in Hz.  <a href="group__math.html#ga1d25879e95bcdc91434efb4fe91bda13">More...</a><br /></td></tr>
+<tr class="separator:ga1d25879e95bcdc91434efb4fe91bda13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d25879e95bcdc91434efb4fe91bda13"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:ga1d25879e95bcdc91434efb4fe91bda13"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga1d25879e95bcdc91434efb4fe91bda13">math::midiToFreq</a> (T midiNote) noexcept</td></tr>
+<tr class="memdesc:ga1d25879e95bcdc91434efb4fe91bda13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI note to a frequency in Hz.  <a href="group__math.html#ga1d25879e95bcdc91434efb4fe91bda13">More...</a><br /></td></tr>
+<tr class="separator:ga1d25879e95bcdc91434efb4fe91bda13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="memTemplParams" colspan="2">template&lt;Scalar msType&gt; </td></tr>
+<tr class="memitem:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga95da7fc1fb96ae78716e0faf3b1dc0a0">math::msToSamps</a> (double samplerate, msType ms) noexcept</td></tr>
+<tr class="memdesc:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a number of milliseconds to the closest integer number of samples at the specified samplerate.  <a href="group__math.html#ga95da7fc1fb96ae78716e0faf3b1dc0a0">More...</a><br /></td></tr>
+<tr class="separator:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="memTemplParams" colspan="2">template&lt;Scalar msType&gt; </td></tr>
+<tr class="memitem:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga95da7fc1fb96ae78716e0faf3b1dc0a0">math::msToSamps</a> (double samplerate, msType ms) noexcept</td></tr>
+<tr class="memdesc:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a number of milliseconds to the closest integer number of samples at the specified samplerate.  <a href="group__math.html#ga95da7fc1fb96ae78716e0faf3b1dc0a0">More...</a><br /></td></tr>
+<tr class="separator:ga95da7fc1fb96ae78716e0faf3b1dc0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c049988ace901cbcc231b71ade26e9e"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:ga0c049988ace901cbcc231b71ade26e9e"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga0c049988ace901cbcc231b71ade26e9e">math::negate</a> (T val) noexcept</td></tr>
+<tr class="separator:ga0c049988ace901cbcc231b71ade26e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c049988ace901cbcc231b71ade26e9e"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:ga0c049988ace901cbcc231b71ade26e9e"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga0c049988ace901cbcc231b71ade26e9e">math::negate</a> (T val) noexcept</td></tr>
+<tr class="separator:ga0c049988ace901cbcc231b71ade26e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
+<tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga548a17542294fda4e35f822965eef21d">math::numberIsEven</a> (Integer number) noexcept</td></tr>
+<tr class="memdesc:ga548a17542294fda4e35f822965eef21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is evenly divisible by 2.  <a href="group__math.html#ga548a17542294fda4e35f822965eef21d">More...</a><br /></td></tr>
+<tr class="separator:ga548a17542294fda4e35f822965eef21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
+<tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga548a17542294fda4e35f822965eef21d">math::numberIsEven</a> (Integer number) noexcept</td></tr>
+<tr class="memdesc:ga548a17542294fda4e35f822965eef21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is evenly divisible by 2.  <a href="group__math.html#ga548a17542294fda4e35f822965eef21d">More...</a><br /></td></tr>
+<tr class="separator:ga548a17542294fda4e35f822965eef21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="memTemplParams" colspan="2">template&lt;Scalar FreqType&gt; </td></tr>
+<tr class="memitem:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga1a6dc5f37f6bc00737b62629958fd0ab">math::periodInSamples</a> (double samplerate, FreqType freqHz) noexcept</td></tr>
+<tr class="memdesc:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the period in samples of a frequency at the specified samplerate.  <a href="group__math.html#ga1a6dc5f37f6bc00737b62629958fd0ab">More...</a><br /></td></tr>
+<tr class="separator:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="memTemplParams" colspan="2">template&lt;Scalar FreqType&gt; </td></tr>
+<tr class="memitem:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga1a6dc5f37f6bc00737b62629958fd0ab">math::periodInSamples</a> (double samplerate, FreqType freqHz) noexcept</td></tr>
+<tr class="memdesc:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the period in samples of a frequency at the specified samplerate.  <a href="group__math.html#ga1a6dc5f37f6bc00737b62629958fd0ab">More...</a><br /></td></tr>
+<tr class="separator:ga1a6dc5f37f6bc00737b62629958fd0ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c562496dcd927fa763bbed87f0dbac1"><td class="memTemplParams" colspan="2">template&lt;Integral T&gt; </td></tr>
+<tr class="memitem:ga4c562496dcd927fa763bbed87f0dbac1"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga4c562496dcd927fa763bbed87f0dbac1">math::power</a> (T number, T power) noexcept</td></tr>
+<tr class="separator:ga4c562496dcd927fa763bbed87f0dbac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c562496dcd927fa763bbed87f0dbac1"><td class="memTemplParams" colspan="2">template&lt;Integral T&gt; </td></tr>
+<tr class="memitem:ga4c562496dcd927fa763bbed87f0dbac1"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga4c562496dcd927fa763bbed87f0dbac1">math::power</a> (T number, T power_) noexcept</td></tr>
+<tr class="separator:ga4c562496dcd927fa763bbed87f0dbac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb9b0f8450f502b2c771ca5e5a7da212"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:gacb9b0f8450f502b2c771ca5e5a7da212"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#gacb9b0f8450f502b2c771ca5e5a7da212">math::round</a> (T val) noexcept</td></tr>
+<tr class="separator:gacb9b0f8450f502b2c771ca5e5a7da212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb9b0f8450f502b2c771ca5e5a7da212"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
+<tr class="memitem:gacb9b0f8450f502b2c771ca5e5a7da212"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#gacb9b0f8450f502b2c771ca5e5a7da212">math::round</a> (T val) noexcept</td></tr>
+<tr class="separator:gacb9b0f8450f502b2c771ca5e5a7da212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
+<tr class="memitem:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga03e0609c4a16e5500a587ca9bafe7f87">math::sampsToMs</a> (double samplerate, Integer numSamples) noexcept</td></tr>
+<tr class="memdesc:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a number of samples to milliseconds at the specified samplerate.  <a href="group__math.html#ga03e0609c4a16e5500a587ca9bafe7f87">More...</a><br /></td></tr>
+<tr class="separator:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
+<tr class="memitem:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="memTemplItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga03e0609c4a16e5500a587ca9bafe7f87">math::sampsToMs</a> (double samplerate, Integer numSamples) noexcept</td></tr>
+<tr class="memdesc:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a number of samples to milliseconds at the specified samplerate.  <a href="group__math.html#ga03e0609c4a16e5500a587ca9bafe7f87">More...</a><br /></td></tr>
+<tr class="separator:ga03e0609c4a16e5500a587ca9bafe7f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga85112aca5e58028e5a710f98adde3f40"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga85112aca5e58028e5a710f98adde3f40"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__math.html#ga85112aca5e58028e5a710f98adde3f40">math::Scalar</a> = std::is_scalar_v&lt;T&gt;</td></tr>
+<tr class="separator:ga85112aca5e58028e5a710f98adde3f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file contains some math utility functions. </p>
+
+<p class="definition">Definition in file <a class="el" href="math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="dir_f0d4ec8d2337f2081e409df54f3b2ddf.html">math</a></li><li class="navelem"><a class="el" href="math_helpers_8h.html">mathHelpers.h</a></li>
-    <li class="footer">Generated on Tue May 24 2022 05:18:48 for Limes by
+    <li class="footer">Generated on Wed May 25 2022 08:27:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -1,14 +1,14 @@
 var _string_utils_8h =
 [
-    [ "areSame", "_string_utils_8h.html#ae10f4755523ad3a3d40c303df5209746", null ],
-    [ "areSameIgnoringCase", "_string_utils_8h.html#adf0591a4823b8797fdcaeab2f1fc33d8", null ],
-    [ "areSameIgnoringCase", "_string_utils_8h.html#ac664d2d7911285656b6088d0caa46571", null ],
+    [ "areSame", "_string_utils_8h.html#gae10f4755523ad3a3d40c303df5209746", null ],
+    [ "areSameIgnoringCase", "_string_utils_8h.html#gadf0591a4823b8797fdcaeab2f1fc33d8", null ],
+    [ "areSameIgnoringCase", "_string_utils_8h.html#gac664d2d7911285656b6088d0caa46571", null ],
     [ "dropFirstChars", "_string_utils_8h.html#a91ded74a12444e6e18c9b0720251fa61", null ],
     [ "dropLastChars", "_string_utils_8h.html#a8158cf75c9842b20d6b8727c4184663e", null ],
     [ "fromFirstOccurrenceOf", "_string_utils_8h.html#a978efbcde4c3c58ace812c788841ddf6", null ],
     [ "getLimesASCII", "_string_utils_8h.html#a5c4847f86fcb8d4796c802653764509f", null ],
     [ "getNewline", "_string_utils_8h.html#adca9725130e0ee777d8c0b82962b221d", null ],
-    [ "isNewline", "_string_utils_8h.html#abee9ff5a9ca4278f4ca7bbfce0829b6d", null ],
+    [ "isNewline", "_string_utils_8h.html#gabee9ff5a9ca4278f4ca7bbfce0829b6d", null ],
     [ "join", "_string_utils_8h.html#a3d0abc87d5388e777a455d0bd7eaeb80", null ],
     [ "joinWithNewlines", "_string_utils_8h.html#ace077e9ab71ba1ae1d291050ec98268a", null ],
     [ "joinWithWhitespace", "_string_utils_8h.html#a944b447caa14ef2daa41c856a8b7caa5", null ],

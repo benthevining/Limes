@@ -1,8 +1,6 @@
 var files_dup =
 [
-    [ "2Dshape.h", "2_dshape_8h.html", [
-      [ "TwoDShape", "classmath_1_1geometry_1_1_two_d_shape.html", "classmath_1_1geometry_1_1_two_d_shape" ]
-    ] ],
+    [ "2Dshape.h", "2_dshape_8h.html", null ],
     [ "3Dshape.h", "3_dshape_8h.html", [
       [ "ThreeDShape", "classmath_1_1geometry_1_1_three_d_shape.html", "classmath_1_1geometry_1_1_three_d_shape" ]
     ] ],
@@ -94,12 +92,10 @@ var files_dup =
     ] ],
     [ "exec_location.h", "exec__location_8h.html", null ],
     [ "fallback.h", "fallback_8h.html", "fallback_8h" ],
-    [ "fallback_fft.h", "fallback__fft_8h.html", [
-      [ "FallbackFFT", "classvecops_1_1_fallback_f_f_t.html", "classvecops_1_1_fallback_f_f_t" ]
-    ] ],
+    [ "fallback_fft.h", "fallback__fft_8h.html", null ],
     [ "fallback_impl.h", "fallback__impl_8h.html", "fallback__impl_8h" ],
-    [ "fft_common.h", "fft__common_8h.html", "fft__common_8h" ],
-    [ "fftw_fft.h", "fftw__fft_8h.html", "fftw__fft_8h" ],
+    [ "fft_common.h", "fft__common_8h.html", null ],
+    [ "fftw_fft.h", "fftw__fft_8h.html", null ],
     [ "FIFO.h", "_f_i_f_o_8h.html", [
       [ "FIFO", "classds_1_1_f_i_f_o.html", "classds_1_1_f_i_f_o" ]
     ] ],
@@ -129,9 +125,7 @@ var files_dup =
     [ "Interval.h", "_interval_8h.html", "_interval_8h" ],
     [ "Interval_impl.h", "_interval__impl_8h.html", null ],
     [ "ipp.h", "ipp_8h.html", "ipp_8h" ],
-    [ "ipp_fft.h", "ipp__fft_8h.html", [
-      [ "IPP_FFT", "classvecops_1_1_i_p_p___f_f_t.html", "classvecops_1_1_i_p_p___f_f_t" ]
-    ] ],
+    [ "ipp_fft.h", "ipp__fft_8h.html", null ],
     [ "json.h", "json_8h.html", "json_8h" ],
     [ "KeySignature.h", "_key_signature_8h.html", [
       [ "KeySignature", "classmusic_1_1scales_1_1_key_signature.html", "classmusic_1_1scales_1_1_key_signature" ]
@@ -327,9 +321,7 @@ var files_dup =
     [ "TypeList_impl.h", "_type_list__impl_8h.html", "_type_list__impl_8h" ],
     [ "TypeTraits.h", "_type_traits_8h.html", "_type_traits_8h" ],
     [ "vdsp.h", "vdsp_8h.html", "vdsp_8h" ],
-    [ "vdsp_fft.h", "vdsp__fft_8h.html", [
-      [ "vDSP_FFT", "classvecops_1_1v_d_s_p___f_f_t.html", "classvecops_1_1v_d_s_p___f_f_t" ]
-    ] ],
+    [ "vdsp_fft.h", "vdsp__fft_8h.html", null ],
     [ "vector.h", "vector_8h.html", "vector_8h" ],
     [ "VelocityMapper.h", "_velocity_mapper_8h.html", [
       [ "VelocityMapper", "classmidi_1_1_velocity_mapper.html", "classmidi_1_1_velocity_mapper" ]
