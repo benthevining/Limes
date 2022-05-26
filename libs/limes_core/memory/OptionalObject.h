@@ -18,45 +18,76 @@
 #include <memory>
 #include <cstring>	// for memcpy
 
+/** @file
+	This file defines the OptionalObject class.
+	@ingroup memory
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace memory
 {
 
+/** An object that retains its allocated memory, but can be dynamically constructed and destroyed (without deallocating its memory).
+	@tparam T The type of owned object
+	@ingroup memory
+ */
 template <typename T>
 class LIMES_EXPORT OptionalObject final
 {
 public:
 
+	/** You can access the type of the owned object with this typedef. */
 	using Type = T;
 
-	OptionalObject()  = default;
-	~OptionalObject() = default;
+	/** @name Constructors */
+	///@{
+	/** Creates an uninitialized, null object. */
+	OptionalObject() = default;
 
+	/** Constructs the object with the given arguments. */
 	template <typename... Args>
 	explicit OptionalObject (Args&&... args);
 
+	/** Copy constructor. */
 	explicit OptionalObject (const OptionalObject& other);
 
+	/** Move constructor. */
 	explicit OptionalObject (OptionalObject&& other) noexcept;
+	///@}
 
+	/** @name Assignment */
+	///@{
 	OptionalObject& operator= (const OptionalObject& other);
-
 	OptionalObject& operator= (OptionalObject&& other) noexcept;
+	///@}
 
+	/** Constructs the object with the given arguments.
+		If the object already existed when this function is called, its destructor will be called.
+	 */
 	template <typename... Args>
 	T& create (Args&&... args);
 
+	/** Calls the object's destructor, but does not deallocate its memory. */
 	void destroy();
 
+	/** @name Accessors
+		Returns a pointer to the owned object.
+	 */
+	///@{
 	[[nodiscard]] T* get() const noexcept;
+	T*				 operator->() const noexcept;
+	///@}
 
-	T* operator->() const noexcept;
-
+	/** Returns a reference to the owned object.
+		Be careful, the owned pointer may be null!
+	 */
 	T& operator*() const;
 
+	/** Returns true if the object currently exists. */
 	[[nodiscard]] bool exists() const noexcept;
 
+	/** Returns the size of the owned object (and thus, the preallocated memory), in bytes. */
 	[[nodiscard]] static consteval size_t getSize() noexcept;
 
 private:
@@ -118,14 +149,15 @@ OptionalObject<T>& OptionalObject<T>::operator= (const OptionalObject& other)
 template <typename T>
 void OptionalObject<T>::duplicate (const OptionalObject& other)
 {
-	std::memcpy (static_cast<void*> (memory),
-				 static_cast<void*> (other.memory),
-				 sizeof (T));
-
 	if (other.object == nullptr)
+	{
 		object = nullptr;
-	else
-		object = static_cast<T*> (memory);
+		return;
+	}
+
+	object = static_cast<T*> (memory);
+
+	*object = *other.object;
 }
 
 template <typename T>

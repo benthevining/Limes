@@ -17,11 +17,19 @@
 #include <ios>
 #include "preprocessor.h"
 
+/** @file
+	This file defines the class ScopedStreamFlags.
+	@ingroup misc
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace misc
 {
 
+/** A simple RAII class to save and restore the state of a standard stream's flags.
+	@ingroup misc
+ */
 struct LIMES_EXPORT ScopedStreamFlags final
 {
 public:

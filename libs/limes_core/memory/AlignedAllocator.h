@@ -21,11 +21,20 @@
 #include <stdexcept>
 #include <memory>
 
+/** @file
+	This file defines the AlignedAllocator class.
+	@ingroup memory
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace memory
 {
 
+/** An STL-style allocator that allocates aligned pointers.
+	@ingroup memory
+	@see allocate_aligned, deallocate_aligned
+ */
 template <typename T, std::size_t Alignment = sizeof (T), bool UseExceptions = false>
 class LIMES_EXPORT AlignedAllocator final
 {

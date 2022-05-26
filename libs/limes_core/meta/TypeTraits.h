@@ -24,7 +24,7 @@
 #	include <cxxabi.h>
 #endif
 
-/** @defgroup meta
+/** @defgroup meta Metaprogramming
 	Utilities for metaprogramming.
 	@ingroup limes_core
  */

@@ -46,7 +46,7 @@ public:
 	PeakFinder() = default;
 
 	/** Analyzes a stream of audio and identifies the best set of pitch peaks to use for PSOLA pitch shifting.
-		The heuristics are that the grains should be approximately 2 periods long, with approximately 50% overlap, approximately centered on pitch peaks. This algorithm attempts to maximize all three criteria in the stream of selected peaks. To obtain the actual grains' start and end indices from the list of peak indices, you should do @code peak - period @endcode and @code peak + period @endcode, respectively, because the grains are 2 periods long and centered on the peaks.
+		The heuristics are that the grains should be approximately 2 periods long, with approximately 50% overlap, approximately centered on pitch peaks. This algorithm attempts to maximize all three criteria in the stream of selected peaks. To obtain the actual grains' start and end indices from the list of peak indices, you should do\c peak-period and \c peak+period , respectively, because the grains are 2 periods long and centered on the peaks.
 	*/
 	[[nodiscard]] const ds::scalar_vector<int>& findPeaks (const SampleType* const inputSamples, int numSamples, float period);
 

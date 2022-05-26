@@ -23,7 +23,6 @@ oranges_add_source_files (
 		  streams.h
 		  Version.cpp
 		  Version.h
-		  streams.cpp
-		  bitField.h)
+		  streams.cpp)
 
 set (misc_files ${misc_files} PARENT_SCOPE)

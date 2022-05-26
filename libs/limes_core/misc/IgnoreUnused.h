@@ -16,12 +16,19 @@
 #include <limes_namespace.h>
 #include <limes_platform.h>
 
+/** @file
+	This file defines the function ignore_unused().
+	@ingroup misc
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace misc
 {
 
-/** A utility function to silence unused variable warnings. */
+/** A utility function to silence unused variable warnings.
+	@ingroup misc
+ */
 #if LIMES_INTEL_COMPILER
 #	pragma warning disable 592
 #endif

@@ -18,11 +18,31 @@
 #include <vector>  // for std::begin, std::end
 #include <limes_namespace.h>
 
+/** @defgroup alg Algorithms
+	Algorithms for manipulating generic container types.
+	@ingroup limes_core
+ */
+
+/** @file
+	This file defines various utility algorithms.
+	@ingroup alg
+ */
+
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace defines various utility algorithms.
+	@ingroup alg
+ */
 namespace alg
 {
 
+/** @ingroup alg
+	@{
+ */
+
+/** @concept Container
+	This concept requires that a type has \c begin() and \c end() functions that return iterators.
+ */
 template <typename T>
 concept Container = requires (T a)
 {
@@ -30,30 +50,38 @@ concept Container = requires (T a)
 	{ std::end (a) };
 };
 
+/** Handy typedef for deducing the type of the objects in a Container. */
 template <Container ContainerType>
 using ElementType = std::remove_reference_t<decltype (*std::begin (std::declval<ContainerType&>()))>;
 
+/** Typedef for the type returned by calling \c begin() or \c end() on a Container. */
 template <Container ContainerType>
 using IteratorType = decltype (std::begin (std::declval<ContainerType>()));
 
+/** Fills the container with the specified value. */
 template <Container ContainerType>
 LIMES_EXPORT constexpr void fill (ContainerType& container, const ElementType<ContainerType>& toFillWith)
 {
 	std::fill (std::begin (container), std::end (container), toFillWith);
 }
 
+/** Returns true if the container contains the specified value. */
 template <Container ContainerType>
 LIMES_EXPORT [[nodiscard]] constexpr bool contains (const ContainerType& container, const ElementType<ContainerType>& value)
 {
 	return std::find (std::begin (container), std::end (container), value) != std::end (container);
 }
 
+/** Returns true if the specified predicate is met by at least one object in the container. */
 template <Container ContainerType, class UnaryPredicate>
 LIMES_EXPORT [[nodiscard]] constexpr bool contains_if (const ContainerType& container, UnaryPredicate&& p)
 {
 	return std::find_if (std::begin (container), std::end (container), std::forward<UnaryPredicate> (p)) != std::end (container);
 }
 
+/** If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned.
+	If no objects in the container meet the predicate, then \c defaultValue is returned.
+ */
 template <Container ContainerType, class UnaryPredicate>
 LIMES_EXPORT [[nodiscard]] constexpr ElementType<ContainerType>& contains_or (const ContainerType& container, ElementType<ContainerType>& defaultValue, UnaryPredicate&& p)
 {
@@ -65,6 +93,9 @@ LIMES_EXPORT [[nodiscard]] constexpr ElementType<ContainerType>& contains_or (co
 	return *res;
 }
 
+/** If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned.
+	If no objects in the container meet the predicate, then \c defaultValue is returned.
+ */
 template <Container ContainerType, class UnaryPredicate>
 LIMES_EXPORT [[nodiscard]] constexpr const ElementType<ContainerType>& contains_or (const ContainerType& container, const ElementType<ContainerType>& defaultValue, UnaryPredicate&& p)
 {
@@ -76,8 +107,12 @@ LIMES_EXPORT [[nodiscard]] constexpr const ElementType<ContainerType>& contains_
 	return *res;
 }
 
+/** If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned.
+	If no objects in the container meet the predicate, then a default-constructed object is returned.
+	Note that the container's element type must be default constructable!
+ */
 template <Container ContainerType, class UnaryPredicate>
-LIMES_EXPORT [[nodiscard]] constexpr auto contains_or_default (const ContainerType& container, UnaryPredicate&& p)
+LIMES_EXPORT [[nodiscard]] constexpr ElementType<ContainerType> contains_or_default (const ContainerType& container, UnaryPredicate&& p)
 {
 	using T = ElementType<ContainerType>;
 
@@ -92,8 +127,11 @@ LIMES_EXPORT [[nodiscard]] constexpr auto contains_or_default (const ContainerTy
 	return *res;
 }
 
+/** If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned.
+	If no objects in the container meet the predicate, then a nullptr is returned.
+ */
 template <Container ContainerType, class UnaryPredicate>
-LIMES_EXPORT [[nodiscard]] constexpr ElementType<ContainerType>* contains_or_null (ContainerType& container, UnaryPredicate&& p)
+LIMES_EXPORT [[nodiscard]] constexpr ElementType<ContainerType>* find_if (const ContainerType& container, UnaryPredicate&& p)
 {
 	const auto res = std::find_if (std::begin (container), std::end (container), std::forward<UnaryPredicate> (p));
 
@@ -103,8 +141,11 @@ LIMES_EXPORT [[nodiscard]] constexpr ElementType<ContainerType>* contains_or_nul
 	return res;
 }
 
+/** If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned.
+	If no objects in the container meet the predicate, then a nullptr is returned.
+ */
 template <Container ContainerType, class UnaryPredicate>
-LIMES_EXPORT [[nodiscard]] constexpr const ElementType<ContainerType>* contains_or_null (const ContainerType& container, UnaryPredicate&& p)
+LIMES_EXPORT [[nodiscard]] constexpr const ElementType<ContainerType>* find_if (const ContainerType& container, UnaryPredicate&& p)
 {
 	const auto res = std::find_if (std::begin (container), std::end (container), std::forward<UnaryPredicate> (p));
 
@@ -114,53 +155,32 @@ LIMES_EXPORT [[nodiscard]] constexpr const ElementType<ContainerType>* contains_
 	return res;
 }
 
-template <Container ContainerType, class UnaryPredicate>
-LIMES_EXPORT [[nodiscard]] constexpr auto* find_if (const ContainerType& container, UnaryPredicate&& p)
-{
-	const auto res = std::find_if (std::begin (container), std::end (container), std::forward<UnaryPredicate> (p));
-
-	if (res == std::end (container))
-	{
-		using T = typename std::decay<decltype (*container.begin())>::type;
-		return (T) nullptr;
-	}
-
-	return *res;
-}
-
+/** Counts the number of objects in the container that meet the specified predicate. */
 template <Container ContainerType, class UnaryPredicate>
 LIMES_EXPORT [[nodiscard]] constexpr int num_of (const ContainerType& container, UnaryPredicate&& p)
 {
 	return static_cast<int> (std::count_if (std::begin (container), std::end (container), std::forward<UnaryPredicate> (p)));
 }
 
+/** Counts the number of objects in the container. */
 template <Container ContainerType>
 LIMES_EXPORT [[nodiscard]] constexpr int size (const ContainerType& container)
 {
-	using T = ElementType<ContainerType>;
-
-	return num_of (container, [] (const T&)
+	return num_of (container, [] (const ElementType<ContainerType>&)
 				   { return true; });
 }
 
-template <Container ContainerType>
-LIMES_EXPORT constexpr void remove (ContainerType& container, const ElementType<ContainerType>& object)
-{
-	container.erase (std::remove (std::begin (container), std::end (container), object));
-}
-
-template <Container ContainerType>
-LIMES_EXPORT constexpr void removeDuplicates (ContainerType& container)
-{
-	container.erase (std::unique (std::begin (container), std::end (container)), std::end (container));
-}
-
+/** Reverses the objects in the container. */
 template <Container ContainerType>
 LIMES_EXPORT constexpr void reverse (ContainerType& container)
 {
 	std::reverse (std::begin (container), std::end (container));
 }
 
+/** Sorts the objects in the container.
+	@param container The container to sort.
+	@param forward If false, the container will be reversed after it is sorted.
+ */
 template <Container ContainerType>
 LIMES_EXPORT constexpr void sort (ContainerType& container, bool forward = true)
 {
@@ -170,6 +190,7 @@ LIMES_EXPORT constexpr void sort (ContainerType& container, bool forward = true)
 		reverse (container);
 }
 
+/** Sorts the container using a custom comparator. */
 template <Container ContainerType, class Comparison>
 LIMES_EXPORT constexpr void sort (ContainerType& container, Comparison&& predicate, bool forward = true)
 {
@@ -179,25 +200,21 @@ LIMES_EXPORT constexpr void sort (ContainerType& container, Comparison&& predica
 		reverse (container);
 }
 
-LIMES_NO_EXPORT static inline auto& get_rand_engine()
-{
-	struct RandomEngine final
-	{
-		std::random_device		   device {};
-		std::default_random_engine engine { device() };
-	};
-
-	static RandomEngine engine;
-
-	return engine.engine;  // cppcheck-suppress returnReference
-}
-
+/** Randomizes the order of the elements in the container. */
 template <Container ContainerType>
 LIMES_EXPORT void shuffle (ContainerType& container)
 {
-	std::shuffle (std::begin (container), std::end (container), get_rand_engine());
+	static std::random_device		  device {};
+	static std::default_random_engine engine { device() };
+
+	std::shuffle (std::begin (container), std::end (container), engine);
 }
 
+/** Calls a function with corresponding pairs of elements from two containers.
+	The function's first two arguments must be the element types of \c Container1 and \c Container2 ; if the function accepts a third integer argument, then it will also receive the current index.
+	The iteration stops when the end of the smallest container is reached.
+	@returns The number of times the function was called
+ */
 template <Container Container1, Container Container2, class Callable>
 LIMES_EXPORT constexpr int call_both (const Container1& container1, const Container2& container2, Callable&& callable)
 {
@@ -207,18 +224,23 @@ LIMES_EXPORT constexpr int call_both (const Container1& container1, const Contai
 		 first != std::end (container1) && second != std::end (container2);
 		 ++first, ++second, ++count)
 	{
-		callable (*first, *second);
+		if constexpr (requires { std::invoke (callable, *first, *second, count); })
+			std::invoke (callable, *first, *second, count);
+		else
+			std::invoke (callable, *first, *second);
 	}
 
 	return count;
 }
 
+/** Returns the maximum value in the container. */
 template <Container ContainerType>
 LIMES_EXPORT [[nodiscard]] constexpr auto max_value (const ContainerType& container)
 {
 	return *std::max_element (std::begin (container), std::end (container));
 }
 
+/** Returns the maximum value in the container and its index in the container. */
 template <Container ContainerType>
 LIMES_EXPORT [[nodiscard]] constexpr auto max_value (const ContainerType& container, int& maxIndex)
 {
@@ -229,12 +251,14 @@ LIMES_EXPORT [[nodiscard]] constexpr auto max_value (const ContainerType& contai
 	return *max_elem;
 }
 
+/** Returns the minimum value in the container. */
 template <Container ContainerType>
 LIMES_EXPORT [[nodiscard]] constexpr auto min_value (const ContainerType& container)
 {
 	return *std::min_element (std::begin (container), std::end (container));
 }
 
+/** Returns the minimum value in the container and its index in the container. */
 template <Container ContainerType>
 LIMES_EXPORT [[nodiscard]] constexpr auto min_value (const ContainerType& container, int& minIndex)
 {
@@ -245,12 +269,19 @@ LIMES_EXPORT [[nodiscard]] constexpr auto min_value (const ContainerType& contai
 	return *min_elem;
 }
 
+/** Populates \c output by calling \c func with each element of \c input in sequence.
+	@see createFromTransform()
+ */
 template <Container InputContainer, Container OutputContainer, class UnaryOp>
 LIMES_EXPORT constexpr void transform (const InputContainer& input, OutputContainer& output, UnaryOp&& func)
 {
 	std::transform (std::begin (input), std::end (input), std::begin (output), std::forward<UnaryOp> (func));
 }
 
+/** The same as \c transform() , except the output container is default constructed before being populated.
+	\c OutputContainerType must be default constructable!
+	@see transform()
+ */
 template <Container OutputContainerType, Container InputContainer, class UnaryOp>
 LIMES_EXPORT [[nodiscard]] constexpr OutputContainerType createFromTransform (const InputContainer& input, UnaryOp&& func)
 {
@@ -264,7 +295,16 @@ LIMES_EXPORT [[nodiscard]] constexpr OutputContainerType createFromTransform (co
 	return output;
 }
 
+/** This function allows structured bindings of iterators, similar to Python's \c %enumerate() method.
 
+	Example usage:
+	@code
+	std::vector<int> v {7,14,21};
+
+	for (const auto [idx, val] : enumerate(v))
+		assert ((idx+1)*7 == val);
+	@endcode
+ */
 template <Container ContainerType>
 LIMES_EXPORT [[nodiscard]] constexpr auto enumerate (ContainerType&& iterable)
 {
@@ -294,6 +334,8 @@ LIMES_EXPORT [[nodiscard]] constexpr auto enumerate (ContainerType&& iterable)
 
 	return iterable_wrapper { std::forward<ContainerType> (iterable) };
 }
+
+/** @} */
 
 }  // namespace alg
 

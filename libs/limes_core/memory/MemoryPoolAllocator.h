@@ -19,11 +19,20 @@
 #include "../misc/preprocessor.h"
 #include <type_traits>
 
+/** @file
+	This file defines the MemoryPoolAllocator class.
+	@ingroup memory
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace memory
 {
 
+/** An STL-style allocator that uses an internal MemoryPool to allocate objects.
+	@ingroup memory
+	@see MemoryPool
+ */
 template <typename T, std::size_t MaxCapacity>
 class LIMES_EXPORT MemoryPoolAllocator final
 {

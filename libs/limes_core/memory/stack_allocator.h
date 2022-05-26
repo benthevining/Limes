@@ -18,46 +18,23 @@
 #include <cstddef>
 #include <cstdint>
 
+/** @file
+	This file defines the StackAllocator class.
+	@ingroup memory
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace memory
 {
 
-template <std::size_t N, std::size_t alignment = alignof (std::max_align_t)>
-class LIMES_EXPORT stack_buffer final
-{
-public:
-
-	~stack_buffer() = default;
-
-	stack_buffer (const stack_buffer&) = delete;
-	stack_buffer (stack_buffer&&)	   = delete;
-	stack_buffer& operator= (const stack_buffer&) = delete;
-	stack_buffer& operator= (stack_buffer&&) = delete;
-
-	template <std::size_t ReqAlign>
-	[[nodiscard]] std::byte* allocate (std::size_t n);
-
-	void deallocate (std::byte* p, std::size_t n) noexcept;
-
-	[[nodiscard]] static consteval std::size_t size() noexcept;
-
-	[[nodiscard]] std::size_t used() const noexcept;
-
-	void reset() noexcept;
-
-private:
-
-	[[nodiscard]] static std::size_t align_up (std::size_t n) noexcept;
-
-	[[nodiscard]] bool contains (std::byte* p) noexcept;
-
-	alignas (alignment) std::byte buf_[N];
-	std::byte* ptr_ { buf_ };
-};
-
-/*-----------------------------------------------------------------------------------------------------------------*/
-
+/** An STL-style allocator that uses stack space to allocate objects.
+	Once the reserved stack space runs out, this allocator falls back to using \c new calls.
+	@tparam T The type of objects to be allocated
+	@tparam N The number of bytes to reserve on the stack
+	@tparam Align The alignment to use
+	@ingroup memory
+ */
 template <class T, std::size_t N, std::size_t Align = alignof (std::max_align_t)>
 class LIMES_EXPORT StackAllocator final
 {
@@ -105,7 +82,39 @@ public:
 
 private:
 
-	stack_buffer<N, Align> a_;
+	class stack_buffer final
+	{
+	public:
+
+		~stack_buffer() = default;
+
+		stack_buffer (const stack_buffer&) = delete;
+		stack_buffer (stack_buffer&&)	   = delete;
+		stack_buffer& operator= (const stack_buffer&) = delete;
+		stack_buffer& operator= (stack_buffer&&) = delete;
+
+		template <std::size_t ReqAlign>
+		[[nodiscard]] std::byte* allocate (std::size_t n);
+
+		void deallocate (std::byte* p, std::size_t n) noexcept;
+
+		[[nodiscard]] static consteval std::size_t size() noexcept;
+
+		[[nodiscard]] std::size_t used() const noexcept;
+
+		void reset() noexcept;
+
+	private:
+
+		[[nodiscard]] static std::size_t align_up (std::size_t n) noexcept;
+
+		[[nodiscard]] bool contains (std::byte* p) noexcept;
+
+		alignas (Align) std::byte buf_[N];
+		std::byte* ptr_ { buf_ };
+	};
+
+	stack_buffer a_;
 };
 
 template <class T, std::size_t N, std::size_t A1, class U, std::size_t M, std::size_t A2>
@@ -136,29 +145,29 @@ void StackAllocator<T, N, Align>::deallocate (T* p, std::size_t n) noexcept
 
 /*-----------------------------------------------------------------------------------------------------------------*/
 
-template <std::size_t N, std::size_t alignment>
-consteval std::size_t stack_buffer<N, alignment>::size() noexcept
+template <class T, std::size_t N, std::size_t Align>
+consteval std::size_t StackAllocator<T, N, Align>::stack_buffer::size() noexcept
 {
 	return N;
 }
 
-template <std::size_t N, std::size_t alignment>
-std::size_t stack_buffer<N, alignment>::used() const noexcept
+template <class T, std::size_t N, std::size_t Align>
+std::size_t StackAllocator<T, N, Align>::stack_buffer::used() const noexcept
 {
 	return static_cast<std::size_t> (ptr_ - buf_);
 }
 
-template <std::size_t N, std::size_t alignment>
-void stack_buffer<N, alignment>::reset() noexcept
+template <class T, std::size_t N, std::size_t Align>
+void StackAllocator<T, N, Align>::stack_buffer::reset() noexcept
 {
 	ptr_ = buf_;
 }
 
-template <std::size_t N, std::size_t alignment>
+template <class T, std::size_t N, std::size_t Align>
 template <std::size_t ReqAlign>
-std::byte* stack_buffer<N, alignment>::allocate (std::size_t n)
+std::byte* StackAllocator<T, N, Align>::stack_buffer::allocate (std::size_t n)
 {
-	static_assert (ReqAlign <= alignment, "alignment is too small for this arena");
+	static_assert (ReqAlign <= Align, "alignment is too small for this arena");
 
 	LIMES_ASSERT (contains (ptr_) && "short_alloc has outlived arena");
 
@@ -171,15 +180,15 @@ std::byte* stack_buffer<N, alignment>::allocate (std::size_t n)
 		return r;
 	}
 
-	static_assert (alignment <= alignof (std::max_align_t), "you've chosen an "
-															"alignment that is larger than alignof(std::max_align_t), and "
-															"cannot be guaranteed by normal operator new");
+	static_assert (Align <= alignof (std::max_align_t), "you've chosen an "
+														"alignment that is larger than alignof(std::max_align_t), and "
+														"cannot be guaranteed by normal operator new");
 
 	return static_cast<std::byte*> (::operator new (n));
 }
 
-template <std::size_t N, std::size_t alignment>
-void stack_buffer<N, alignment>::deallocate (std::byte* p, std::size_t n) noexcept
+template <class T, std::size_t N, std::size_t Align>
+void StackAllocator<T, N, Align>::stack_buffer::deallocate (std::byte* p, std::size_t n) noexcept
 {
 	LIMES_ASSERT (contains (ptr_) && "short_alloc has outlived arena");
 
@@ -194,14 +203,14 @@ void stack_buffer<N, alignment>::deallocate (std::byte* p, std::size_t n) noexce
 		::operator delete (p);
 }
 
-template <std::size_t N, std::size_t alignment>
-std::size_t stack_buffer<N, alignment>::align_up (std::size_t n) noexcept
+template <class T, std::size_t N, std::size_t Align>
+std::size_t StackAllocator<T, N, Align>::stack_buffer::align_up (std::size_t n) noexcept
 {
-	return (n + (alignment - 1)) & ~(alignment - 1);
+	return (n + (Align - 1)) & ~(Align - 1);
 }
 
-template <std::size_t N, std::size_t alignment>
-bool stack_buffer<N, alignment>::contains (std::byte* p) noexcept
+template <class T, std::size_t N, std::size_t Align>
+bool StackAllocator<T, N, Align>::stack_buffer::contains (std::byte* p) noexcept
 {
 	return std::uintptr_t (buf_) <= std::uintptr_t (p) && std::uintptr_t (p) <= std::uintptr_t (buf_) + N;
 }

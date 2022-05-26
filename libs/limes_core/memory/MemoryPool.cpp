@@ -77,6 +77,11 @@ std::size_t MemoryPool::getRemainingSpace() const noexcept
 	return static_cast<std::size_t> (availableChunks) * chunkSizeBytes;
 }
 
+std::size_t MemoryPool::getChunkSize() const noexcept
+{
+	return chunkSizeBytes;
+}
+
 void* MemoryPool::allocate (std::size_t numBytesToAllocate) noexcept
 {
 	const auto numChunks = static_cast<int> (std::ceil (static_cast<float> (numBytesToAllocate) / static_cast<float> (chunkSizeBytes)));

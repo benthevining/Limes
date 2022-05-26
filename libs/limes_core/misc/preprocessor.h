@@ -19,7 +19,7 @@
 	@ingroup system
  */
 
-#ifdef __has_include || defined(DOXYGEN)
+#if defined(__has_include) || defined(DOXYGEN)
 
 /** @def LIMES_HAS_INCLUDE
 	A simple macro that always evaluates to false if the compiler doesn't support \c __has_include .
@@ -30,7 +30,7 @@
 #	define LIMES_HAS_INCLUDE(file) 0
 #endif
 
-#ifdef __has_attribute || defined(DOXYGEN)
+#if defined(__has_attribute) || defined(DOXYGEN)
 
 /** @def LIMES_HAS_ATTRIBUTE
 	A simple macro that always evaluates to false if the compiler doesn't support \c __has_attribute .
@@ -120,9 +120,9 @@
 	@ingroup system
  */
 #define LIMES_NON_COPYABLE(ClassName)      \
-	/** ClassName is not copyable. */      \
+	/** %##ClassName is not copyable. */   \
 	ClassName (const ClassName&) = delete; \
-	/** ClassName is not copyable. */      \
+	/** %##ClassName is not copyable. */   \
 	ClassName& operator= (const ClassName&) = delete
 
 /** @def LIMES_NON_MOVABLE
@@ -136,10 +136,10 @@
 	@endcode
 	@ingroup system
  */
-#define LIMES_NON_MOVABLE(ClassName)  \
-	/** ClassName is not movable. */  \
-	ClassName (ClassName&&) = delete; \
-	/** ClassName is not movable. */  \
+#define LIMES_NON_MOVABLE(ClassName)    \
+	/** %##ClassName is not movable. */ \
+	ClassName (ClassName&&) = delete;   \
+	/** %##ClassName is not movable. */ \
 	ClassName& operator= (ClassName&&) = delete
 
 /** @def LIMES_DEFAULT_COPYABLE
@@ -154,10 +154,10 @@
 	@ingroup system
 	@see LIMES_CONSTEXPR_COPYABLE
  */
-#define LIMES_DEFAULT_COPYABLE(ClassName)   \
-	/** ClassName is default copyable. */   \
-	ClassName (const ClassName&) = default; \
-	/** ClassName is default copyable. */   \
+#define LIMES_DEFAULT_COPYABLE(ClassName)    \
+	/** %##ClassName is default copyable. */ \
+	ClassName (const ClassName&) = default;  \
+	/** %##ClassName is default copyable. */ \
 	ClassName& operator= (const ClassName&) = default
 
 /** @def LIMES_DEFAULT_MOVABLE
@@ -172,10 +172,10 @@
 	@ingroup system
 	@see LIMES_CONSTEXPR_MOVABLE
  */
-#define LIMES_DEFAULT_MOVABLE(ClassName) \
-	/** ClassName is default movable. */ \
-	ClassName (ClassName&&) = default;   \
-	/** ClassName is default movable. */ \
+#define LIMES_DEFAULT_MOVABLE(ClassName)    \
+	/** %##ClassName is default movable. */ \
+	ClassName (ClassName&&) = default;      \
+	/** %##ClassName is default movable. */ \
 	ClassName& operator= (ClassName&&) = default
 
 /** @def LIMES_CONSTEXPR_COPYABLE
@@ -190,10 +190,10 @@
 	@see LIMES_DEFAULT_COPYABLE
 	@ingroup system
  */
-#define LIMES_CONSTEXPR_COPYABLE(ClassName)               \
-	/** ClassName is default copyable at compile time. */ \
-	constexpr ClassName (const ClassName&) = default;     \
-	/** ClassName is default copyable at compile time. */ \
+#define LIMES_CONSTEXPR_COPYABLE(ClassName)                  \
+	/** %##ClassName is default copyable at compile time. */ \
+	constexpr ClassName (const ClassName&) = default;        \
+	/** %##ClassName is default copyable at compile time. */ \
 	constexpr ClassName& operator= (const ClassName&) = default
 
 /** @def LIMES_CONSTEXPR_COPYABLE
@@ -208,8 +208,8 @@
 	@see LIMES_DEFAULT_MOVABLE
 	@ingroup system
  */
-#define LIMES_CONSTEXPR_MOVABLE(ClassName)               \
-	/** ClassName is default movable at compile time. */ \
-	constexpr ClassName (ClassName&&) = default;         \
-	/** ClassName is default movable at compile time. */ \
+#define LIMES_CONSTEXPR_MOVABLE(ClassName)                  \
+	/** %##ClassName is default movable at compile time. */ \
+	constexpr ClassName (ClassName&&) = default;            \
+	/** %##ClassName is default movable at compile time. */ \
 	constexpr ClassName& operator= (ClassName&&) = default

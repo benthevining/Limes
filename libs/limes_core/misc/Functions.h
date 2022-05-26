@@ -20,20 +20,40 @@
 #include <exception>
 #include "preprocessor.h"
 
+/** @defgroup func Functional
+	Utilities for working with higher-level functions and functions as objects.
+	@ingroup limes_core
+ */
+
+/** @file
+	This file defines utilities for working with higher-level functions and functions as objects.
+	@ingroup func
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 /** This namespace contains some utilities for working with higher-level functions and functions as objects. */
 namespace func
 {
 
+/** @concept Function
+	This concept simply requires that an object is invocable.
+	@ingroup func
+ */
 // clang-format off
 template <typename T>
 concept Function = requires (T f)
 {
-	{ f() };
+	{ std::invoke (f) };
 };
 // clang-format on
 
+/** Calls the function object exactly once throughout the entire life of the program.
+	Note that the call counter is specific to this process.
+	@param func Function to call
+	@param result If the result type of \c func is not \c void and \c result is not \c nullptr , then \c result will be populated with \c func 's return value.
+	@ingroup func
+ */
 template <Function Func>
 LIMES_EXPORT bool call_once (Func&& func, std::invoke_result_t<Func>* result = nullptr) noexcept (noexcept (func))
 {
@@ -60,16 +80,21 @@ LIMES_EXPORT bool call_once (Func&& func, std::invoke_result_t<Func>* result = n
 }
 
 
+/** This class calls a given function when its destructor is executed.
+	@ingroup func
+ */
 template <Function Func>
 class LIMES_EXPORT CallDeferred final
 {
 public:
 
+	/** The constructor simply stores the function object, it does not execute it. */
 	constexpr explicit CallDeferred (Func&& function) noexcept
 		: func (std::move (function))
 	{
 	}
 
+	/** The destructor executes the stored function. */
 	~CallDeferred()
 	{
 		try
@@ -90,6 +115,9 @@ private:
 };
 
 
+/** This generic RAII object allows you to specify a function to be called when it is created and when it is destroyed.
+	@ingroup func
+ */
 template <Function Function1, Function Function2>
 class LIMES_EXPORT RAIICaller final
 {
@@ -121,6 +149,10 @@ private:
 };
 
 
+/** Breaks down a function that takes multiple arguments into a series of functions that each take one argument.
+	Additionally, if the original function is callable with one argument, then this function returns the result of calling that function.
+	@ingroup func
+ */
 constexpr decltype (auto) curry (auto f, auto... ps)
 {
 	if constexpr (requires { std::invoke (f, ps...); })
@@ -135,6 +167,9 @@ constexpr decltype (auto) curry (auto f, auto... ps)
 }
 
 
+/** Forces a given function to be executed at compile time.
+	@ingroup func
+ */
 template <typename... Param>
 LIMES_EXPORT consteval decltype (auto) consteval_invoke (Param&&... param) noexcept
 {
@@ -148,6 +183,10 @@ LIMES_EXPORT consteval decltype (auto) consteval_invoke (Param&&... param) noexc
 }
 
 
+/** Executes a potentially-throwing function within a try-catch block, and returns false if an exception is thrown and true if no exceptions are thrown.
+	This is basically a simple Lippincott function.
+	@ingroup func
+ */
 template <Function Func, typename... Args>
 LIMES_EXPORT constexpr bool try_call (Func&& func, Args&&... args) noexcept
 {

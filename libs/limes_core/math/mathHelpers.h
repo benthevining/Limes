@@ -25,7 +25,7 @@
 #	include <numbers>
 #endif
 
-/** @defgroup math
+/** @defgroup math Math
 	Math utilities.
 	@ingroup limes_core
  */
@@ -139,7 +139,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION inline T freqToMidi (T freqHz) no
 namespace constants
 {
 
-#ifdef DOXYGEN || LIMES_HAS_INCLUDE(<numbers>)
+#if defined(DOXYGEN) || LIMES_HAS_INCLUDE(<numbers>)
 
 /** Pi. */
 template <Scalar T>

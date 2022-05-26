@@ -22,7 +22,7 @@
 #include "../time/DateTime.h"	   // for DateTime
 #include <functional>			   // for std::hash
 
-/** @defgroup files
+/** @defgroup files Files
 	Utilities for working with the filesystem.
 	@ingroup limes_core
  */

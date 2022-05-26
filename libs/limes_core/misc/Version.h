@@ -19,7 +19,7 @@
 #include "preprocessor.h"	  // for LIMES_CONSTEXPR_COPYABLE, LIMES_CONSTEX...
 #include <functional>		  // for std::hash
 
-/** @defgroup misc
+/** @defgroup misc Miscellaneous
 	Miscellaneous things.
 	@ingroup limes_core
  */
@@ -38,6 +38,7 @@ namespace misc
 {
 
 /** A class that represents a version of something, with major, minor, and patch numbers.
+	This class is meant to model the semantic versioning standard.
 	@ingroup misc
  */
 struct LIMES_EXPORT Version final

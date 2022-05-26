@@ -21,7 +21,7 @@ Dependencies: None
 
 */
 
-/** @defgroup limes_core
+/** @defgroup limes_core limes_core
 	The Limes core library of utilities.
 	All classes and functions in this group are accessible after linking to the limes_core library and including limes_core.h.
  */
@@ -48,7 +48,6 @@ Dependencies: None
 #include "misc/Version.h"
 #include "misc/Functions.h"
 #include "misc/streams.h"
-#include "misc/bitField.h"
 
 #include "meta/TypeTraits.h"
 #include "meta/TypeList.h"
@@ -64,7 +63,6 @@ Dependencies: None
 
 #include "memory/RawData.h"
 #include "memory/ReferenceCountedObject.h"
-#include "memory/SharedObject.h"
 #include "memory/StaticObjects.h"
 #include "memory/alignment.h"
 #include "memory/AlignedAllocator.h"

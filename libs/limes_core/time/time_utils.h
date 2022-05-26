@@ -20,7 +20,7 @@
 #include "../meta/TypeTraits.h"
 #include "../system/compiler_defs.h"
 
-/** @defgroup time
+/** @defgroup time Time
 	Utilities for working with time measurements.
 	@ingroup limes_core
  */

@@ -21,7 +21,7 @@
 #include "../misc/preprocessor.h"
 #include <functional>  // for std::hash
 
-/** @defgroup memory
+/** @defgroup memory Memory
 	Utilities for memory management.
 	@ingroup limes_core
  */
@@ -52,7 +52,9 @@ public:
 	/** Constructs an empty RawData object that owns no memory. */
 	RawData() = default;
 
-	/** Constructs a RawData objects that is allocated some initial memory, optionally initialized to zeroes. */
+	/** Constructs a RawData objects that is allocated some initial memory, optionally initialized to zeroes.
+		@throws std::bad_alloc An exception is thrown if the allocation of this object's internal memory fails.
+	 */
 	explicit RawData (std::size_t initialSize, bool initializeToZero = true);
 
 	/** Constructs a RawData object that refers to the specified data.
@@ -60,13 +62,19 @@ public:
 	 */
 	explicit RawData (char* const dataToUse, std::size_t dataSize);
 
-	/** Constructs a RawData object whose memory is initialized by reading the entire contents of the input stream. */
+	/** Constructs a RawData object whose memory is initialized by reading the entire contents of the input stream.
+		@throws std::bad_alloc An exception is thrown if the allocation of this object's internal memory fails.
+	 */
 	explicit RawData (std::basic_istream<char>& inputStream);
 
-	/** Constructs a RawData object whose memory is initialized with the contents of the string. */
+	/** Constructs a RawData object whose memory is initialized with the contents of the string.
+		@throws std::bad_alloc An exception is thrown if the allocation of this object's internal memory fails.
+	 */
 	explicit RawData (const std::string& string);
 
-	/** Copy constructor. */
+	/** Copy constructor.
+		@throws std::bad_alloc An exception is thrown if the allocation of this object's internal memory fails.
+	 */
 	explicit RawData (const RawData& other);
 
 	/** Move constructor. */
@@ -79,8 +87,12 @@ public:
 
 	/** @name Assignment */
 	///@{
-	RawData& operator= (const RawData& other);
 	RawData& operator= (RawData&& other);
+
+	/**
+		@throws std::bad_alloc An exception is thrown if the allocation of this object's internal memory fails.
+	 */
+	RawData& operator= (const RawData& other);
 	///@}
 
 	/** @name Data accessors
@@ -109,6 +121,7 @@ public:
 		@param newSize The new total size of this object's internal memory, in bytes
 		@param preserveOldData If true, the allocation will attempt to preserve any old memory that was allocated. If this is false, this function will free the old memory before allocating new memory.
 		@param initializeToZero If true, all the newly allocated bytes are filled with zeroes.
+		@throws std::bad_alloc An exception is thrown if the allocation of this object's internal memory fails.
 	 */
 	void allocate (std::size_t newSize, bool preserveOldData = true, bool initializeToZero = true);
 
@@ -121,25 +134,34 @@ public:
 	[[nodiscard]] char* release() noexcept;
 
 	/** @name Appending
-		Appends some data to the end of this object's data, reallocating memory if necessary.
 	 */
 	///@{
+	/**
+		Appends some data to the end of this object's data, reallocating memory if necessary.
+		@throws std::bad_alloc An exception is thrown if the allocation of this object's internal memory fails.
+	 */
 	void append (const char* const newData, std::size_t numBytes);
 	void append (const RawData& other);
 	///@}
 
 	/** @name Prepending
-		Prepends some data to the beginning of this object's data, reallocating memory if necessary.
 	 */
 	///@{
+	/**
+		Prepends some data to the beginning of this object's data, reallocating memory if necessary.
+		@throws std::bad_alloc An exception is thrown if the allocation of this object's internal memory fails.
+	 */
 	void prepend (const char* const newData, std::size_t numBytes);
 	void prepend (const RawData& other);
 	///@}
 
 	/** @name Overwriting
-		Overwrites this object's data with the input data, reallocating memory if necessary.
 	 */
 	///@{
+	/**
+		Overwrites this object's data with the input data, reallocating memory if necessary.
+		@throws std::bad_alloc An exception is thrown if the allocation of this object's internal memory fails.
+	 */
 	void copyFrom (const char* const newData, std::size_t newSize);
 	void copyFrom (const RawData& other);
 	///@}

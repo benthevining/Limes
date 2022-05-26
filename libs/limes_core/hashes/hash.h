@@ -19,7 +19,7 @@
 #include <string_view>		  // for string_view
 #include <memory>			  // for unique_ptr
 
-/** @defgroup hashes
+/** @defgroup hashes Hashes
 	Cryptographic hash functions.
 	@ingroup limes_core
  */

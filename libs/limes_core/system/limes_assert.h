@@ -21,7 +21,7 @@
 #include <limes_platform.h>
 #include <filesystem>
 
-/** @defgroup system
+/** @defgroup system System
 	Utilities that may be OS- or compiler-specific.
 	@ingroup limes_core
  */

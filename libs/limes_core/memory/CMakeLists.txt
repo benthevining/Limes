@@ -24,7 +24,6 @@ oranges_add_source_files (
 		  OptionalObject.h
 		  ReferenceCountedObject.cpp
 		  ReferenceCountedObject.h
-		  SharedObject.h
 		  stack_allocator.h
 		  StaticObjects.h
 		  RawData.h

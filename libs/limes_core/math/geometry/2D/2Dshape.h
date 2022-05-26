@@ -15,7 +15,7 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 
-/** @defgroup geometry
+/** @defgroup geometry Geometry
 	Classes representing geometric shapes.
 	@ingroup math
  */

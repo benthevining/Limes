@@ -43,14 +43,21 @@ set (docs_output "${CMAKE_CURRENT_LIST_DIR}/../doc")
 set_property (DIRECTORY "${CMAKE_CURRENT_LIST_DIR}" APPEND PROPERTY ADDITIONAL_CLEAN_FILES
 																	"${docs_output}")
 
+if (Limes_IS_TOP_LEVEL)
+	set (all_flag ALL)
+endif ()
+
 add_custom_target (
 	LimesDocs
+	${all_flag}
 	COMMAND Doxygen::doxygen --version
 	COMMAND Doxygen::doxygen "${CMAKE_CURRENT_LIST_DIR}/Doxyfile"
 	WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 	VERBATIM USES_TERMINAL
 	BYPRODUCTS "${docs_output}"
 	COMMENT "Building Limes documentation...")
+
+unset (all_flag)
 
 add_dependencies (LimesDocs LimesDependencyGraph)
 

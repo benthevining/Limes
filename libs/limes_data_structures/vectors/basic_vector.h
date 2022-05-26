@@ -116,12 +116,12 @@ public:
 
 	constexpr void remove (const ElementType& toRemove)
 	{
-		alg::remove (objects, toRemove);
+		objects.erase (std::remove (std::begin (objects), std::end (objects), toRemove));
 	}
 
 	constexpr void removeDuplicates()
 	{
-		alg::removeDuplicates (objects);
+		objects.erase (std::unique (std::begin (objects), std::end (objects)), std::end (objects));
 	}
 
 	constexpr void reverse()

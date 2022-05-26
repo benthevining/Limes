@@ -20,7 +20,7 @@
 #include <vector>			  // for vector
 #include "../system/compiler_defs.h"
 
-/** @defgroup text
+/** @defgroup text Text
 	Utilities for working with text and strings.
 	@ingroup limes_core
  */
