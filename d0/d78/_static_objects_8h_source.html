@@ -105,36 +105,36 @@ $(document).ready(function(){initNavTree('d0/d78/_static_objects_8h_source.html'
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;limes_export.h&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a>&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d4/daf/namespacememory.html">memory</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">template</span> &lt;auto Data&gt;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d4/daf/namespacememory.html#af83c9457a4906ef4e3d67963fb18418b">   25</a></span>&#160;LIMES_EXPORT [[nodiscard]] consteval <span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="../../d4/daf/namespacememory.html#af83c9457a4906ef4e3d67963fb18418b">make_static</a>() noexcept</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> Data;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d4/daf/namespacememory.html#a6379140bdddcd776d5f4ab92eb64e1bc">   31</a></span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>&amp; <a class="code" href="../../d4/daf/namespacememory.html#a6379140bdddcd776d5f4ab92eb64e1bc">getStaticObject</a> (Args&amp;&amp;... args)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">static</span> std::unique_ptr&lt;ObjectType&gt; ptr;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span> (ptr.get() == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        ptr = std::make_unique&lt;ObjectType&gt; (std::forward&lt;Args&gt; (args)...);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> *ptr;  <span class="comment">// cppcheck-suppress nullPointerRedundantCheck</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}  <span class="comment">// namespace memory</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d4/daf/namespacememory.html">memory</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span> &lt;auto Data&gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d7/ded/group__memory.html#gaf83c9457a4906ef4e3d67963fb18418b">   34</a></span>&#160;LIMES_EXPORT [[nodiscard]] consteval <span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="../../d7/ded/group__memory.html#gaf83c9457a4906ef4e3d67963fb18418b">make_static</a>() noexcept</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> Data;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d7/ded/group__memory.html#ga6379140bdddcd776d5f4ab92eb64e1bc">   44</a></span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>&amp; <a class="code" href="../../d7/ded/group__memory.html#ga6379140bdddcd776d5f4ab92eb64e1bc">getStaticObject</a> (Args&amp;&amp;... args)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">static</span> std::unique_ptr&lt;ObjectType&gt; ptr;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span> (ptr.get() == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        ptr = std::make_unique&lt;ObjectType&gt; (std::forward&lt;Args&gt; (args)...);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> *ptr;  <span class="comment">// cppcheck-suppress nullPointerRedundantCheck</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}  <span class="comment">// namespace memory</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacememory_html"><div class="ttname"><a href="../../d4/daf/namespacememory.html">memory</a></div><div class="ttdoc">This namespace contains utilities for working with memory allocation and management.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/db8/_aligned_allocator_8h_source.html#l00026">AlignedAllocator.h:26</a></div></div>
-<div class="ttc" id="anamespacememory_html_a6379140bdddcd776d5f4ab92eb64e1bc"><div class="ttname"><a href="../../d4/daf/namespacememory.html#a6379140bdddcd776d5f4ab92eb64e1bc">memory::getStaticObject</a></div><div class="ttdeci">LIMES_EXPORT ObjectType &amp; getStaticObject(Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d78/_static_objects_8h_source.html#l00031">StaticObjects.h:31</a></div></div>
-<div class="ttc" id="anamespacememory_html_af83c9457a4906ef4e3d67963fb18418b"><div class="ttname"><a href="../../d4/daf/namespacememory.html#af83c9457a4906ef4e3d67963fb18418b">memory::make_static</a></div><div class="ttdeci">LIMES_EXPORT const consteval auto &amp; make_static() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d78/_static_objects_8h_source.html#l00025">StaticObjects.h:25</a></div></div>
+<div class="ttc" id="agroup__memory_html_ga6379140bdddcd776d5f4ab92eb64e1bc"><div class="ttname"><a href="../../d7/ded/group__memory.html#ga6379140bdddcd776d5f4ab92eb64e1bc">memory::getStaticObject</a></div><div class="ttdeci">LIMES_EXPORT ObjectType &amp; getStaticObject(Args &amp;&amp;... args)</div><div class="ttdoc">This function retrieves a static object of a specified type.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d78/_static_objects_8h_source.html#l00044">StaticObjects.h:44</a></div></div>
+<div class="ttc" id="anamespacememory_html"><div class="ttname"><a href="../../d4/daf/namespacememory.html">memory</a></div><div class="ttdoc">This namespace contains utilities for working with memory allocation and management.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/db8/_aligned_allocator_8h_source.html#l00031">AlignedAllocator.h:31</a></div></div>
+<div class="ttc" id="agroup__memory_html_gaf83c9457a4906ef4e3d67963fb18418b"><div class="ttname"><a href="../../d7/ded/group__memory.html#gaf83c9457a4906ef4e3d67963fb18418b">memory::make_static</a></div><div class="ttdeci">LIMES_EXPORT const consteval auto &amp; make_static() noexcept</div><div class="ttdoc">This function forces some data to be evaluated at compile time.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d78/_static_objects_8h_source.html#l00034">StaticObjects.h:34</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00039">limes_namespace.h:39</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00027">limes_namespace.h:27</a></div></div>
 <div class="ttc" id="anamespacejson_html_ab9033928f827dd8617b0431ad7f31c44"><div class="ttname"><a href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">json::ObjectType</a></div><div class="ttdeci">ObjectType</div><div class="ttdoc">Represents the type of a JSON node.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d05/json_8h_source.html#l00031">json.h:31</a></div></div>
@@ -143,7 +143,7 @@ $(document).ready(function(){initNavTree('d0/d78/_static_objects_8h_source.html'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_9a46d78c45cc3c1f9dc56c640d7c4019.html">memory</a></li><li class="navelem"><a class="el" href="../../d0/d78/_static_objects_8h.html">StaticObjects.h</a></li>
-    <li class="footer">Generated on Thu May 26 2022 10:05:02 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 16:10:55 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

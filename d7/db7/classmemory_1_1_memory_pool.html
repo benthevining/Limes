@@ -93,72 +93,100 @@ $(document).ready(function(){initNavTree('d7/db7/classmemory_1_1_memory_pool.htm
 </div><!--header-->
 <div class="contents">
 
+<p>This class is a pool of preallocated memory that can be doled out in smaller chunks, allowing objects to be dynamically created and destroyed without incurring memory allocations.  
+ <a href="../../d7/db7/classmemory_1_1_memory_pool.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a971767b6016b113644a3fe8edab1a9ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a971767b6016b113644a3fe8edab1a9ae">MemoryPool</a> (const <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a971767b6016b113644a3fe8edab1a9ae"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> is not copyable.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a971767b6016b113644a3fe8edab1a9ae">More...</a><br /></td></tr>
+<tr class="memdesc:a971767b6016b113644a3fe8edab1a9ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">MemoryPool is not copyable.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a971767b6016b113644a3fe8edab1a9ae">More...</a><br /></td></tr>
 <tr class="separator:a971767b6016b113644a3fe8edab1a9ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa604bedbd9c422e8ea4fbd8433246cf1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#aa604bedbd9c422e8ea4fbd8433246cf1">MemoryPool</a> (<a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:aa604bedbd9c422e8ea4fbd8433246cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> is not movable.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#aa604bedbd9c422e8ea4fbd8433246cf1">More...</a><br /></td></tr>
+<tr class="memdesc:aa604bedbd9c422e8ea4fbd8433246cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">MemoryPool is not movable.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#aa604bedbd9c422e8ea4fbd8433246cf1">More...</a><br /></td></tr>
 <tr class="separator:aa604bedbd9c422e8ea4fbd8433246cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a3c7c524288c119cdef6acd4d7b2ae9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a3a3c7c524288c119cdef6acd4d7b2ae9">MemoryPool</a> (std::size_t storageSizeBytes, std::size_t chunkSize=32)</td></tr>
+<tr class="memdesc:a3a3c7c524288c119cdef6acd4d7b2ae9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html" title="This class is a pool of preallocated memory that can be doled out in smaller chunks,...">MemoryPool</a>.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a3a3c7c524288c119cdef6acd4d7b2ae9">More...</a><br /></td></tr>
 <tr class="separator:a3a3c7c524288c119cdef6acd4d7b2ae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa58ea253ac53368ec2c4fb0dc34a61e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#aa58ea253ac53368ec2c4fb0dc34a61e5">~MemoryPool</a> ()</td></tr>
+<tr class="memdesc:aa58ea253ac53368ec2c4fb0dc34a61e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#aa58ea253ac53368ec2c4fb0dc34a61e5">More...</a><br /></td></tr>
 <tr class="separator:aa58ea253ac53368ec2c4fb0dc34a61e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0a943d119043abd0fc464718c76e89f"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType &gt; </td></tr>
-<tr class="memitem:ac0a943d119043abd0fc464718c76e89f"><td class="memTemplItemLeft" align="right" valign="top">ObjectType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#ac0a943d119043abd0fc464718c76e89f">allocate</a> () noexcept</td></tr>
-<tr class="separator:ac0a943d119043abd0fc464718c76e89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a154b4dab932dc354cd517ac5a09938f9"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a154b4dab932dc354cd517ac5a09938f9">allocate</a> (std::size_t numBytesToAllocate) noexcept</td></tr>
-<tr class="separator:a154b4dab932dc354cd517ac5a09938f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5514d12e266debdc23e9bdd87b80064"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , typename... Args&gt; </td></tr>
-<tr class="memitem:ae5514d12e266debdc23e9bdd87b80064"><td class="memTemplItemLeft" align="right" valign="top">ObjectType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#ae5514d12e266debdc23e9bdd87b80064">construct</a> (Args &amp;&amp;... constructorArgs) noexcept</td></tr>
-<tr class="separator:ae5514d12e266debdc23e9bdd87b80064"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a738e23812da135ce40163168ba3320ce"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , typename... Args&gt; </td></tr>
-<tr class="memitem:a738e23812da135ce40163168ba3320ce"><td class="memTemplItemLeft" align="right" valign="top">ObjectType &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a738e23812da135ce40163168ba3320ce">constructOrBust</a> (Args &amp;&amp;... constructorArgs)</td></tr>
-<tr class="separator:a738e23812da135ce40163168ba3320ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2ab3edcb57848218c05ba581a1838eb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#ab2ab3edcb57848218c05ba581a1838eb">contains</a> (void *ptr) const noexcept</td></tr>
+<tr class="memdesc:ab2ab3edcb57848218c05ba581a1838eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the memory pool's preallocated memory contains the passed memory location.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#ab2ab3edcb57848218c05ba581a1838eb">More...</a><br /></td></tr>
 <tr class="separator:ab2ab3edcb57848218c05ba581a1838eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27186b1031fe082a1348870960cb5677"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType &gt; </td></tr>
-<tr class="memitem:a27186b1031fe082a1348870960cb5677"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a27186b1031fe082a1348870960cb5677">deallocate</a> (ObjectType *const object) noexcept</td></tr>
-<tr class="separator:a27186b1031fe082a1348870960cb5677"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b753c3731bc2c4d428617dfc2d4980a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a2b753c3731bc2c4d428617dfc2d4980a">deallocate</a> (void *ptr, std::size_t numBytes) noexcept</td></tr>
-<tr class="separator:a2b753c3731bc2c4d428617dfc2d4980a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc038159ca0b33b93e7eb2fe07fc0f39"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType &gt; </td></tr>
-<tr class="memitem:abc038159ca0b33b93e7eb2fe07fc0f39"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#abc038159ca0b33b93e7eb2fe07fc0f39">destruct</a> (ObjectType &amp;object) noexcept</td></tr>
-<tr class="separator:abc038159ca0b33b93e7eb2fe07fc0f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6aa8dd28a44fe2acef9f1f2a0d2a0fe"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#ad6aa8dd28a44fe2acef9f1f2a0d2a0fe">getChunkSize</a> () const noexcept</td></tr>
+<tr class="memdesc:ad6aa8dd28a44fe2acef9f1f2a0d2a0fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the pool's internal chunk size, in bytes.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#ad6aa8dd28a44fe2acef9f1f2a0d2a0fe">More...</a><br /></td></tr>
+<tr class="separator:ad6aa8dd28a44fe2acef9f1f2a0d2a0fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ca2f8e0d574cef5c19bca3f39b77819"><td class="memItemLeft" align="right" valign="top">const void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a9ca2f8e0d574cef5c19bca3f39b77819">getMemoryRootLocation</a> () const noexcept</td></tr>
+<tr class="memdesc:a9ca2f8e0d574cef5c19bca3f39b77819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the start location of the pool's preallocated memory block.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a9ca2f8e0d574cef5c19bca3f39b77819">More...</a><br /></td></tr>
 <tr class="separator:a9ca2f8e0d574cef5c19bca3f39b77819"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac02613d5e2036a45bd671adb9f70fc33"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType &gt; </td></tr>
 <tr class="memitem:ac02613d5e2036a45bd671adb9f70fc33"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#ac02613d5e2036a45bd671adb9f70fc33">getRemainingCapacity</a> () const noexcept</td></tr>
+<tr class="memdesc:ac02613d5e2036a45bd671adb9f70fc33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the remaining space in the pool, expressed as the number of additional <code>ObjectType</code> objects it can hold.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#ac02613d5e2036a45bd671adb9f70fc33">More...</a><br /></td></tr>
 <tr class="separator:ac02613d5e2036a45bd671adb9f70fc33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8d1bf99fb491b8553f10b410304cade"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#aa8d1bf99fb491b8553f10b410304cade">getRemainingSpace</a> () const noexcept</td></tr>
+<tr class="memdesc:aa8d1bf99fb491b8553f10b410304cade"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total remaining free space in the memory pool, in bytes.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#aa8d1bf99fb491b8553f10b410304cade">More...</a><br /></td></tr>
 <tr class="separator:aa8d1bf99fb491b8553f10b410304cade"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac09a5fe672f16fa5bfdd36065527406f"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType &gt; </td></tr>
 <tr class="memitem:ac09a5fe672f16fa5bfdd36065527406f"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#ac09a5fe672f16fa5bfdd36065527406f">getTotalCapacity</a> () const noexcept</td></tr>
+<tr class="memdesc:ac09a5fe672f16fa5bfdd36065527406f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total size of this memory pool, expressed as the number of <code>ObjectType</code> objects it can hold.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#ac09a5fe672f16fa5bfdd36065527406f">More...</a><br /></td></tr>
 <tr class="separator:ac09a5fe672f16fa5bfdd36065527406f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad13c784390a47af9849fa84649f723ac"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#ad13c784390a47af9849fa84649f723ac">getTotalSize</a> () const noexcept</td></tr>
+<tr class="memdesc:ad13c784390a47af9849fa84649f723ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total size, in bytes, of the memory pool's preallocated memory.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#ad13c784390a47af9849fa84649f723ac">More...</a><br /></td></tr>
 <tr class="separator:ad13c784390a47af9849fa84649f723ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a210c90c4aaaec80a2fc9b8988957ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a4a210c90c4aaaec80a2fc9b8988957ea">operator=</a> (const <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a4a210c90c4aaaec80a2fc9b8988957ea"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> is not copyable.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a4a210c90c4aaaec80a2fc9b8988957ea">More...</a><br /></td></tr>
+<tr class="memdesc:a4a210c90c4aaaec80a2fc9b8988957ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">MemoryPool is not copyable.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a4a210c90c4aaaec80a2fc9b8988957ea">More...</a><br /></td></tr>
 <tr class="separator:a4a210c90c4aaaec80a2fc9b8988957ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27a98abdd319c29600a3bdfc8f473f74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a27a98abdd319c29600a3bdfc8f473f74">operator=</a> (<a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a27a98abdd319c29600a3bdfc8f473f74"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> is not movable.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a27a98abdd319c29600a3bdfc8f473f74">More...</a><br /></td></tr>
+<tr class="memdesc:a27a98abdd319c29600a3bdfc8f473f74"><td class="mdescLeft">&#160;</td><td class="mdescRight">MemoryPool is not movable.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a27a98abdd319c29600a3bdfc8f473f74">More...</a><br /></td></tr>
 <tr class="separator:a27a98abdd319c29600a3bdfc8f473f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe7fbdd937281bd039d1c4f8dc471c88"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType &gt; </td></tr>
 <tr class="memitem:abe7fbdd937281bd039d1c4f8dc471c88"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#abe7fbdd937281bd039d1c4f8dc471c88">owns</a> (const ObjectType &amp;object) const noexcept</td></tr>
+<tr class="memdesc:abe7fbdd937281bd039d1c4f8dc471c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the pool owns the specified object &ndash; ie, if the pointer to the object is within the pool's preallocated memory block.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#abe7fbdd937281bd039d1c4f8dc471c88">More...</a><br /></td></tr>
 <tr class="separator:abe7fbdd937281bd039d1c4f8dc471c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Allocation</div></td></tr>
+<tr class="memitem:a154b4dab932dc354cd517ac5a09938f9"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a154b4dab932dc354cd517ac5a09938f9">allocate</a> (std::size_t numBytesToAllocate) noexcept</td></tr>
+<tr class="memdesc:a154b4dab932dc354cd517ac5a09938f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates the desired number of bytes from the pool's preallocated memory.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a154b4dab932dc354cd517ac5a09938f9">More...</a><br /></td></tr>
+<tr class="separator:a154b4dab932dc354cd517ac5a09938f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0a943d119043abd0fc464718c76e89f"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType &gt; </td></tr>
+<tr class="memitem:ac0a943d119043abd0fc464718c76e89f"><td class="memTemplItemLeft" align="right" valign="top">ObjectType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#ac0a943d119043abd0fc464718c76e89f">allocate</a> () noexcept</td></tr>
+<tr class="memdesc:ac0a943d119043abd0fc464718c76e89f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates <code>sizeof(ObjectType)</code> bytes, and returns a typed pointer to the allocated memory location.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#ac0a943d119043abd0fc464718c76e89f">More...</a><br /></td></tr>
+<tr class="separator:ac0a943d119043abd0fc464718c76e89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aaf924c949ad00dcb39475ebd8d685e"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , typename... Args&gt; </td></tr>
+<tr class="memitem:a0aaf924c949ad00dcb39475ebd8d685e"><td class="memTemplItemLeft" align="right" valign="top">ObjectType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a0aaf924c949ad00dcb39475ebd8d685e">construct</a> (Args &amp;&amp;... constructorArgs) noexcept(noexcept(ObjectType(std::forward&lt; Args &gt;(constructorArgs)...)))</td></tr>
+<tr class="memdesc:a0aaf924c949ad00dcb39475ebd8d685e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates space for an object and constructs it in the allocated memory space.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a0aaf924c949ad00dcb39475ebd8d685e">More...</a><br /></td></tr>
+<tr class="separator:a0aaf924c949ad00dcb39475ebd8d685e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a738e23812da135ce40163168ba3320ce"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , typename... Args&gt; </td></tr>
+<tr class="memitem:a738e23812da135ce40163168ba3320ce"><td class="memTemplItemLeft" align="right" valign="top">ObjectType &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a738e23812da135ce40163168ba3320ce">constructOrBust</a> (Args &amp;&amp;... constructorArgs)</td></tr>
+<tr class="memdesc:a738e23812da135ce40163168ba3320ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Similar to <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a0aaf924c949ad00dcb39475ebd8d685e" title="Allocates space for an object and constructs it in the allocated memory space.">construct()</a>, but if allocation from the memory pool fails, falls back to a regular <code>new</code> call.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a738e23812da135ce40163168ba3320ce">More...</a><br /></td></tr>
+<tr class="separator:a738e23812da135ce40163168ba3320ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Deallocation</div></td></tr>
+<tr class="memitem:a2b753c3731bc2c4d428617dfc2d4980a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a2b753c3731bc2c4d428617dfc2d4980a">deallocate</a> (void *ptr, std::size_t numBytes) noexcept</td></tr>
+<tr class="memdesc:a2b753c3731bc2c4d428617dfc2d4980a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a certain number of bytes at a specific location within the pool.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a2b753c3731bc2c4d428617dfc2d4980a">More...</a><br /></td></tr>
+<tr class="separator:a2b753c3731bc2c4d428617dfc2d4980a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27186b1031fe082a1348870960cb5677"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType &gt; </td></tr>
+<tr class="memitem:a27186b1031fe082a1348870960cb5677"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a27186b1031fe082a1348870960cb5677">deallocate</a> (ObjectType *const object) noexcept</td></tr>
+<tr class="memdesc:a27186b1031fe082a1348870960cb5677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the passed object.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a27186b1031fe082a1348870960cb5677">More...</a><br /></td></tr>
+<tr class="separator:a27186b1031fe082a1348870960cb5677"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc038159ca0b33b93e7eb2fe07fc0f39"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType &gt; </td></tr>
+<tr class="memitem:abc038159ca0b33b93e7eb2fe07fc0f39"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#abc038159ca0b33b93e7eb2fe07fc0f39">destruct</a> (ObjectType &amp;object) noexcept</td></tr>
+<tr class="memdesc:abc038159ca0b33b93e7eb2fe07fc0f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls an object's destructor and frees its memory from the pool.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#abc038159ca0b33b93e7eb2fe07fc0f39">More...</a><br /></td></tr>
+<tr class="separator:abc038159ca0b33b93e7eb2fe07fc0f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a85e6246e9a3189d98b89359c0a198aa7"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType &gt; </td></tr>
 <tr class="memitem:a85e6246e9a3189d98b89359c0a198aa7"><td class="memTemplItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a85e6246e9a3189d98b89359c0a198aa7">createFor</a> (std::size_t desiredCapacity)</td></tr>
+<tr class="memdesc:a85e6246e9a3189d98b89359c0a198aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html" title="This class is a pool of preallocated memory that can be doled out in smaller chunks,...">MemoryPool</a> that can hold a specified number of objects of a certain type.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#a85e6246e9a3189d98b89359c0a198aa7">More...</a><br /></td></tr>
 <tr class="separator:a85e6246e9a3189d98b89359c0a198aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00032">32</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<div class="textblock"><p>This class is a pool of preallocated memory that can be doled out in smaller chunks, allowing objects to be dynamically created and destroyed without incurring memory allocations. </p>
+<p>The pool's total size must be declared upon construction. Internally, the pool manages its memory using the concept of "chunks" &ndash; each time some memory from the pool is requested, the pool rounds the requested number of bytes up to the next multiple of its chunk size, then it finds the first occurrence of the needed number of contiguous available chunks. If you're going to use a pool to create one kind of object, then I'd recommend making the chunk size the size of the object &ndash; in fact, the function <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a85e6246e9a3189d98b89359c0a198aa7" title="Creates a MemoryPool that can hold a specified number of objects of a certain type.">createFor()</a> exists for just this purpose. It's also possible to store any number of disparate types within the same memory pool.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html" title="A smart pointer to an object that lives within a MemoryPool.">MemoryPoolPointer</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00044">44</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3a3c7c524288c119cdef6acd4d7b2ae9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3a3c7c524288c119cdef6acd4d7b2ae9">&#9670;&nbsp;</a></span>MemoryPool() <span class="overload">[1/3]</span></h2>
@@ -194,6 +222,21 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates a <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html" title="This class is a pool of preallocated memory that can be doled out in smaller chunks,...">MemoryPool</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">storageSizeBytes</td><td>The total size of the preallocated memory the pool will own, in bytes. It is recommended for this to be a multiple of /c chunkSize . </td></tr>
+    <tr><td class="paramname">chunkSize</td><td>The size of the individual memory "chunks" that can be doled out as needed. It is recommended for this to be a divisor of /c storageSizeBytes . </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>An exception is thrown if the allocation of the memory pool's internal memory block fails. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aa58ea253ac53368ec2c4fb0dc34a61e5"></a>
@@ -210,6 +253,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
@@ -237,7 +282,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> is not copyable. </p>
+<p>MemoryPool is not copyable. </p>
 
 </div>
 </div>
@@ -265,7 +310,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> is not movable. </p>
+<p>MemoryPool is not movable. </p>
 
 </div>
 </div>
@@ -292,7 +337,10 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00163">163</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Allocates <code>sizeof(ObjectType)</code> bytes, and returns a typed pointer to the allocated memory location. </p>
+<p>Note that this function does not construct the object, it simply casts the <code>void*</code> to an <code>ObjectType*</code> . </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a0aaf924c949ad00dcb39475ebd8d685e" title="Allocates space for an object and constructs it in the allocated memory space.">construct</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00244">244</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -320,10 +368,13 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Allocates the desired number of bytes from the pool's preallocated memory. </p>
+<p>The actual number of bytes allocated will be rounded up to the next multiple of the pool's <code>chunkSize</code> . The allocated memory will be contiguous. </p><dl class="section return"><dt>Returns</dt><dd>A pointer to the allocated memory location within the pool, or nullptr if allocation is unsuccessful </dd></dl>
+
 </div>
 </div>
-<a id="ae5514d12e266debdc23e9bdd87b80064"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5514d12e266debdc23e9bdd87b80064">&#9670;&nbsp;</a></span>construct()</h2>
+<a id="a0aaf924c949ad00dcb39475ebd8d685e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aaf924c949ad00dcb39475ebd8d685e">&#9670;&nbsp;</a></span>construct()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -348,7 +399,17 @@ template&lt;typename ObjectType , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00169">169</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Allocates space for an object and constructs it in the allocated memory space. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">constructorArgs</td><td>Arguments to forward to the constructor of <code>ObjectType</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the newly constructed object, or if allocation was unsuccessful, nullptr. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a738e23812da135ce40163168ba3320ce" title="Similar to construct(), but if allocation from the memory pool fails, falls back to a regular new cal...">constructOrBust</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00250">250</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -370,7 +431,16 @@ template&lt;typename ObjectType , typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00187">187</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Similar to <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a0aaf924c949ad00dcb39475ebd8d685e" title="Allocates space for an object and constructs it in the allocated memory space.">construct()</a>, but if allocation from the memory pool fails, falls back to a regular <code>new</code> call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">constructorArgs</td><td>Arguments to forward to the constructor of <code>ObjectType</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#a0aaf924c949ad00dcb39475ebd8d685e" title="Allocates space for an object and constructs it in the allocated memory space.">construct()</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00261">261</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -397,6 +467,8 @@ template&lt;typename ObjectType , typename... Args&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if the memory pool's preallocated memory contains the passed memory location. </p>
 
 </div>
 </div>
@@ -426,6 +498,9 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Creates a <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html" title="This class is a pool of preallocated memory that can be doled out in smaller chunks,...">MemoryPool</a> that can hold a specified number of objects of a certain type. </p>
+<p>The created pool's total size will be <code>desiredCapacity*sizeof</code>(ObjectType) and its chunk size will be <code>sizeof(ObjectType)</code> . </p>
+
 </div>
 </div>
 <a id="a27186b1031fe082a1348870960cb5677"></a>
@@ -454,7 +529,10 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00198">198</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Deallocates the passed object. </p>
+<p>Note that this function does not call the object's destructor, it only frees its memory from the pool. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html#abc038159ca0b33b93e7eb2fe07fc0f39" title="Calls an object&#39;s destructor and frees its memory from the pool.">destruct</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00272">272</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -492,6 +570,8 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Deallocates a certain number of bytes at a specific location within the pool. </p>
+
 </div>
 </div>
 <a id="abc038159ca0b33b93e7eb2fe07fc0f39"></a>
@@ -520,7 +600,36 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00204">204</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Calls an object's destructor and frees its memory from the pool. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00278">278</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+
+</div>
+</div>
+<a id="ad6aa8dd28a44fe2acef9f1f2a0d2a0fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6aa8dd28a44fe2acef9f1f2a0d2a0fe">&#9670;&nbsp;</a></span>getChunkSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t memory::MemoryPool::getChunkSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the pool's internal chunk size, in bytes. </p>
 
 </div>
 </div>
@@ -547,6 +656,8 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the start location of the pool's preallocated memory block. </p>
+
 </div>
 </div>
 <a id="ac02613d5e2036a45bd671adb9f70fc33"></a>
@@ -571,7 +682,9 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00157">157</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Returns the remaining space in the pool, expressed as the number of additional <code>ObjectType</code> objects it can hold. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00238">238</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -598,6 +711,8 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the total remaining free space in the memory pool, in bytes. </p>
+
 </div>
 </div>
 <a id="ac09a5fe672f16fa5bfdd36065527406f"></a>
@@ -622,7 +737,9 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00151">151</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Returns the total size of this memory pool, expressed as the number of <code>ObjectType</code> objects it can hold. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00232">232</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -648,6 +765,8 @@ template&lt;typename ObjectType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the total size, in bytes, of the memory pool's preallocated memory. </p>
 
 </div>
 </div>
@@ -675,7 +794,7 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> is not copyable. </p>
+<p>MemoryPool is not copyable. </p>
 
 </div>
 </div>
@@ -703,7 +822,7 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> is not movable. </p>
+<p>MemoryPool is not movable. </p>
 
 </div>
 </div>
@@ -733,7 +852,9 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00219">219</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Returns true if the pool owns the specified object &ndash; ie, if the pointer to the object is within the pool's preallocated memory block. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00293">293</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -746,7 +867,7 @@ template&lt;typename ObjectType &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d4/daf/namespacememory.html">memory</a></li><li class="navelem"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a></li>
-    <li class="footer">Generated on Thu May 26 2022 10:05:03 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 16:10:56 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

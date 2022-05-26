@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('d4/d37/group__system.html','../../'); 
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">System<div class="ingroups"><a class="el" href="../../da/d07/group__limes__core.html">Limes_core</a></div></div>  </div>
+<div class="title">System<div class="ingroups"><a class="el" href="../../da/d07/group__limes__core.html">limes_core</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -309,7 +309,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"> \</div>
-<div class="line">    constexpr ClassName (<span class="keyword">const</span> ClassName&amp;) = <span class="keywordflow">default</span>;     \ \</div>
+<div class="line">    constexpr ClassName (<span class="keyword">const</span> ClassName&amp;) = <span class="keywordflow">default</span>;        \ \</div>
 <div class="line">    constexpr ClassName&amp; operator= (<span class="keyword">const</span> ClassName&amp;) = <span class="keywordflow">default</span></div>
 </div><!-- fragment --><p>Similar to <code>LIMES_DEFAULT_COPYABLE</code>, this macro can be placed into a class definition to default its copy constructor and copy assignment operator, but they will also be declared constexpr. Example usage: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyStruct</div>
 <div class="line">{</div>
@@ -339,8 +339,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">   \</div>
-<div class="line">    ClassName (<span class="keyword">const</span> ClassName&amp;) = <span class="keywordflow">default</span>; \   \</div>
+<b>Value:</b><div class="fragment"><div class="line"> \</div>
+<div class="line">    ClassName (<span class="keyword">const</span> ClassName&amp;) = <span class="keywordflow">default</span>;  \ \</div>
 <div class="line">    ClassName&amp; operator= (<span class="keyword">const</span> ClassName&amp;) = <span class="keywordflow">default</span></div>
 </div><!-- fragment --><p>This macro can be placed into a class definition to default its copy constructor and copy assignment operator. Example usage: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyStruct</div>
 <div class="line">{</div>
@@ -368,7 +368,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"> \</div>
-<div class="line">    ClassName (ClassName&amp;&amp;) = <span class="keywordflow">default</span>;   \ \</div>
+<div class="line">    ClassName (ClassName&amp;&amp;) = <span class="keywordflow">default</span>;      \ \</div>
 <div class="line">    ClassName&amp; operator= (ClassName&amp;&amp;) = <span class="keywordflow">default</span></div>
 </div><!-- fragment --><p>This macro can be placed into a class definition to default its move constructor and move assignment operator. Example usage: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyStruct</div>
 <div class="line">{</div>
@@ -509,8 +509,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">      \</div>
-<div class="line">    ClassName (<span class="keyword">const</span> ClassName&amp;) = <span class="keyword">delete</span>; \      \</div>
+<b>Value:</b><div class="fragment"><div class="line">   \</div>
+<div class="line">    ClassName (<span class="keyword">const</span> ClassName&amp;) = <span class="keyword">delete</span>; \   \</div>
 <div class="line">    ClassName&amp; operator= (<span class="keyword">const</span> ClassName&amp;) = <span class="keyword">delete</span></div>
 </div><!-- fragment --><p>This macro can be placed into a class definition to delete its copy constructor and copy assignment operator. Example usage: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyStruct</div>
 <div class="line">{</div>
@@ -536,8 +536,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  \</div>
-<div class="line">    ClassName (ClassName&amp;&amp;) = <span class="keyword">delete</span>; \  \</div>
+<b>Value:</b><div class="fragment"><div class="line"> \</div>
+<div class="line">    ClassName (ClassName&amp;&amp;) = <span class="keyword">delete</span>;   \ \</div>
 <div class="line">    ClassName&amp; operator= (ClassName&amp;&amp;) = <span class="keyword">delete</span></div>
 </div><!-- fragment --><p>This macro can be placed into a class definition to delete its move constructor and move assignment operator. Example usage: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyStruct</div>
 <div class="line">{</div>
@@ -763,7 +763,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu May 26 2022 10:05:02 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 16:10:55 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

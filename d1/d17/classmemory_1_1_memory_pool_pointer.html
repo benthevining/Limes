@@ -92,51 +92,73 @@ $(document).ready(function(){initNavTree('d1/d17/classmemory_1_1_memory_pool_poi
 </div><!--header-->
 <div class="contents">
 
+<p>A smart pointer to an object that lives within a <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html" title="This class is a pool of preallocated memory that can be doled out in smaller chunks,...">MemoryPool</a>.  
+ <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ad806f766437d35af1ba0bb28cc409c75"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ad806f766437d35af1ba0bb28cc409c75">OwnedType</a> = ObjectType</td></tr>
+<tr class="memdesc:ad806f766437d35af1ba0bb28cc409c75"><td class="mdescLeft">&#160;</td><td class="mdescRight">You can access the type of the owned object via this typedef.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ad806f766437d35af1ba0bb28cc409c75">More...</a><br /></td></tr>
 <tr class="separator:ad806f766437d35af1ba0bb28cc409c75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aafa2560429bed2ea462e07c1d189fd60"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#aafa2560429bed2ea462e07c1d189fd60">MemoryPoolPointer</a> (const <a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> &amp;)=delete</td></tr>
-<tr class="memdesc:aafa2560429bed2ea462e07c1d189fd60"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> is not copyable.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#aafa2560429bed2ea462e07c1d189fd60">More...</a><br /></td></tr>
+<tr class="memdesc:aafa2560429bed2ea462e07c1d189fd60"><td class="mdescLeft">&#160;</td><td class="mdescRight">MemoryPoolPointer is not copyable.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#aafa2560429bed2ea462e07c1d189fd60">More...</a><br /></td></tr>
 <tr class="separator:aafa2560429bed2ea462e07c1d189fd60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29fa9946d224bbc358052f952a929802"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a29fa9946d224bbc358052f952a929802"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a29fa9946d224bbc358052f952a929802">MemoryPoolPointer</a> (<a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> &amp;pool, Args &amp;&amp;... constructorArgs)</td></tr>
-<tr class="separator:a29fa9946d224bbc358052f952a929802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff8a522538b6f21bb8ea06b4a4b5d6e7"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:aff8a522538b6f21bb8ea06b4a4b5d6e7"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#aff8a522538b6f21bb8ea06b4a4b5d6e7">MemoryPoolPointer</a> (<a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> &amp;pool, Args &amp;&amp;... constructorArgs) noexcept((! AllowOverflowAllocation) &amp;&amp;noexcept(ObjectType(std::forward&lt; Args &gt;(constructorArgs)...)))</td></tr>
+<tr class="memdesc:aff8a522538b6f21bb8ea06b4a4b5d6e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the owned object by allocating its memory from the passed memory pool.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#aff8a522538b6f21bb8ea06b4a4b5d6e7">More...</a><br /></td></tr>
+<tr class="separator:aff8a522538b6f21bb8ea06b4a4b5d6e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13ce95a64934a90d1b15b363f9827858"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a13ce95a64934a90d1b15b363f9827858">MemoryPoolPointer</a> (<a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> &amp;&amp;)=default</td></tr>
-<tr class="memdesc:a13ce95a64934a90d1b15b363f9827858"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> is default movable.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a13ce95a64934a90d1b15b363f9827858">More...</a><br /></td></tr>
+<tr class="memdesc:a13ce95a64934a90d1b15b363f9827858"><td class="mdescLeft">&#160;</td><td class="mdescRight">MemoryPoolPointer is default movable.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a13ce95a64934a90d1b15b363f9827858">More...</a><br /></td></tr>
 <tr class="separator:a13ce95a64934a90d1b15b363f9827858"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18ddd0204a55637168502311e08ad8a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a18ddd0204a55637168502311e08ad8a3">~MemoryPoolPointer</a> ()</td></tr>
+<tr class="memdesc:a18ddd0204a55637168502311e08ad8a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a18ddd0204a55637168502311e08ad8a3">More...</a><br /></td></tr>
 <tr class="separator:a18ddd0204a55637168502311e08ad8a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af87c683762c785e04c85919ee336740b"><td class="memItemLeft" align="right" valign="top">ObjectType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#af87c683762c785e04c85919ee336740b">get</a> () const noexcept</td></tr>
-<tr class="separator:af87c683762c785e04c85919ee336740b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac12877ca81ae44676e120319acf16703"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ac12877ca81ae44676e120319acf16703">isOwnedByPool</a> () const noexcept</td></tr>
+<tr class="memdesc:ac12877ca81ae44676e120319acf16703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the object exists and was allocated from the memory pool.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ac12877ca81ae44676e120319acf16703">More...</a><br /></td></tr>
 <tr class="separator:ac12877ca81ae44676e120319acf16703"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f38d6bc52a88689221298adc80b22f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a3f38d6bc52a88689221298adc80b22f2">operator ObjectType *</a> () const noexcept</td></tr>
-<tr class="separator:a3f38d6bc52a88689221298adc80b22f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada07e57a5229bfd54dedff83c53f5ac6"><td class="memItemLeft" align="right" valign="top">ObjectType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ada07e57a5229bfd54dedff83c53f5ac6">operator()</a> () const noexcept</td></tr>
-<tr class="separator:ada07e57a5229bfd54dedff83c53f5ac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6239bb0dbec6bb9bf1ca94311dcfe5bc"><td class="memItemLeft" align="right" valign="top">ObjectType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a6239bb0dbec6bb9bf1ca94311dcfe5bc">operator*</a> () const</td></tr>
+<tr class="memdesc:a6239bb0dbec6bb9bf1ca94311dcfe5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the owned object.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a6239bb0dbec6bb9bf1ca94311dcfe5bc">More...</a><br /></td></tr>
 <tr class="separator:a6239bb0dbec6bb9bf1ca94311dcfe5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b829d136efa2c08b0160f920c085e06"><td class="memItemLeft" align="right" valign="top">ObjectType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a6b829d136efa2c08b0160f920c085e06">operator-&gt;</a> () const noexcept</td></tr>
-<tr class="separator:a6b829d136efa2c08b0160f920c085e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3124fecd9a6de9a278cd2dc935c29e0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a3124fecd9a6de9a278cd2dc935c29e0a">operator=</a> (const <a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a3124fecd9a6de9a278cd2dc935c29e0a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> is not copyable.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a3124fecd9a6de9a278cd2dc935c29e0a">More...</a><br /></td></tr>
+<tr class="memdesc:a3124fecd9a6de9a278cd2dc935c29e0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">MemoryPoolPointer is not copyable.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a3124fecd9a6de9a278cd2dc935c29e0a">More...</a><br /></td></tr>
 <tr class="separator:a3124fecd9a6de9a278cd2dc935c29e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed1fd4a657ff1b51efd2c0ba0228b9bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#aed1fd4a657ff1b51efd2c0ba0228b9bd">operator=</a> (<a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> &amp;&amp;)=default</td></tr>
-<tr class="memdesc:aed1fd4a657ff1b51efd2c0ba0228b9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> is default movable.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#aed1fd4a657ff1b51efd2c0ba0228b9bd">More...</a><br /></td></tr>
+<tr class="memdesc:aed1fd4a657ff1b51efd2c0ba0228b9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">MemoryPoolPointer is default movable.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#aed1fd4a657ff1b51efd2c0ba0228b9bd">More...</a><br /></td></tr>
 <tr class="separator:aed1fd4a657ff1b51efd2c0ba0228b9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:af87c683762c785e04c85919ee336740b"><td class="memItemLeft" align="right" valign="top">ObjectType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#af87c683762c785e04c85919ee336740b">get</a> () const noexcept</td></tr>
+<tr class="memdesc:af87c683762c785e04c85919ee336740b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessors Returns a pointer to the owned object.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#af87c683762c785e04c85919ee336740b">More...</a><br /></td></tr>
+<tr class="separator:af87c683762c785e04c85919ee336740b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada07e57a5229bfd54dedff83c53f5ac6"><td class="memItemLeft" align="right" valign="top">ObjectType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ada07e57a5229bfd54dedff83c53f5ac6">operator()</a> () const noexcept</td></tr>
+<tr class="memdesc:ada07e57a5229bfd54dedff83c53f5ac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessors Returns a pointer to the owned object.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ada07e57a5229bfd54dedff83c53f5ac6">More...</a><br /></td></tr>
+<tr class="separator:ada07e57a5229bfd54dedff83c53f5ac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f38d6bc52a88689221298adc80b22f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a3f38d6bc52a88689221298adc80b22f2">operator ObjectType *</a> () const noexcept</td></tr>
+<tr class="memdesc:a3f38d6bc52a88689221298adc80b22f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessors Returns a pointer to the owned object.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a3f38d6bc52a88689221298adc80b22f2">More...</a><br /></td></tr>
+<tr class="separator:a3f38d6bc52a88689221298adc80b22f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b829d136efa2c08b0160f920c085e06"><td class="memItemLeft" align="right" valign="top">ObjectType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a6b829d136efa2c08b0160f920c085e06">operator-&gt;</a> () const noexcept</td></tr>
+<tr class="memdesc:a6b829d136efa2c08b0160f920c085e06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessors Returns a pointer to the owned object.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a6b829d136efa2c08b0160f920c085e06">More...</a><br /></td></tr>
+<tr class="separator:a6b829d136efa2c08b0160f920c085e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename ObjectType, bool AllowOverflowAllocation = false&gt;<br />
 class memory::MemoryPoolPointer&lt; ObjectType, AllowOverflowAllocation &gt;</h3>
 
+<p>A smart pointer to an object that lives within a <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html" title="This class is a pool of preallocated memory that can be doled out in smaller chunks,...">MemoryPool</a>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ObjectType</td><td>The type of the owned object </td></tr>
+    <tr><td class="paramname">AllowOverflowAllocation</td><td>If true, then if allocating from the memory pool fails, this class will fall back to using a regular <code>new</code> call. If this parameter is false, then if allocating from the pool fails, this object will be in a null state.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html" title="This class is a pool of preallocated memory that can be doled out in smaller chunks,...">MemoryPool</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00104">104</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00171">171</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ad806f766437d35af1ba0bb28cc409c75"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad806f766437d35af1ba0bb28cc409c75">&#9670;&nbsp;</a></span>OwnedType</h2>
@@ -152,13 +174,15 @@ template&lt;typename ObjectType , bool AllowOverflowAllocation = false&gt; </div
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00108">108</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>You can access the type of the owned object via this typedef. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00176">176</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a29fa9946d224bbc358052f952a929802"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29fa9946d224bbc358052f952a929802">&#9670;&nbsp;</a></span>MemoryPoolPointer() <span class="overload">[1/3]</span></h2>
+<a id="aff8a522538b6f21bb8ea06b4a4b5d6e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff8a522538b6f21bb8ea06b4a4b5d6e7">&#9670;&nbsp;</a></span>MemoryPoolPointer() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -190,12 +214,21 @@ template&lt;typename... Args&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00229">229</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Creates the owned object by allocating its memory from the passed memory pool. </p>
+<p>If allocation from the pool is unsuccessful and the template parameter <code>AllowOverflowAllocation</code> is true, then this class will fall back to calling <code>new</code> to allocate the owned object. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pool</td><td>Memory pool to use </td></tr>
+    <tr><td class="paramname">constructorArgs</td><td>Arguments to forward to the constructor of <code>ObjectType</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00303">303</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -213,7 +246,10 @@ template&lt;typename ObjectType , bool AllowOverflowAllocation&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00242">242</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Destructor. </p>
+<p>This destroys the owned object and frees its memory. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00316">316</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -243,7 +279,7 @@ template&lt;typename ObjectType , bool AllowOverflowAllocation = false&gt; </div
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> is not copyable. </p>
+<p>MemoryPoolPointer is not copyable. </p>
 
 </div>
 </div>
@@ -273,7 +309,7 @@ template&lt;typename ObjectType , bool AllowOverflowAllocation = false&gt; </div
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> is default movable. </p>
+<p>MemoryPoolPointer is default movable. </p>
 
 </div>
 </div>
@@ -303,7 +339,9 @@ template&lt;typename ObjectType , bool AllowOverflowAllocation = false&gt; </div
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00119">119</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Accessors Returns a pointer to the owned object. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00198">198</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -329,7 +367,9 @@ template&lt;typename ObjectType , bool AllowOverflowAllocation&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00249">249</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Returns true if the object exists and was allocated from the memory pool. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00323">323</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -358,7 +398,9 @@ template&lt;typename ObjectType , bool AllowOverflowAllocation = false&gt; </div
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00123">123</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Accessors Returns a pointer to the owned object. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00200">200</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -387,7 +429,9 @@ template&lt;typename ObjectType , bool AllowOverflowAllocation = false&gt; </div
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00121">121</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Accessors Returns a pointer to the owned object. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00199">199</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -416,7 +460,10 @@ template&lt;typename ObjectType , bool AllowOverflowAllocation = false&gt; </div
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00127">127</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Returns a reference to the owned object. </p>
+<p>Be careful, the owned pointer may be null! </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00207">207</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -445,7 +492,9 @@ template&lt;typename ObjectType , bool AllowOverflowAllocation = false&gt; </div
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00125">125</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
+<p>Accessors Returns a pointer to the owned object. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00201">201</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -475,7 +524,7 @@ template&lt;typename ObjectType , bool AllowOverflowAllocation = false&gt; </div
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> is not copyable. </p>
+<p>MemoryPoolPointer is not copyable. </p>
 
 </div>
 </div>
@@ -505,7 +554,7 @@ template&lt;typename ObjectType , bool AllowOverflowAllocation = false&gt; </div
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> is default movable. </p>
+<p>MemoryPoolPointer is default movable. </p>
 
 </div>
 </div>
@@ -518,7 +567,7 @@ template&lt;typename ObjectType , bool AllowOverflowAllocation = false&gt; </div
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d4/daf/namespacememory.html">memory</a></li><li class="navelem"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a></li>
-    <li class="footer">Generated on Thu May 26 2022 10:05:03 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 16:10:56 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

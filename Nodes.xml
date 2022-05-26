@@ -38,9 +38,36 @@
         <Path>modules.html</Path>
         <Subnodes>
          <Node>
-          <Name>Limes_core</Name>
+          <Name>lemons_psola</Name>
+          <Path>d6/d74/group__lemons__psola.html</Path>
+          <Subnodes>
+           <Node>
+            <Name>Analysis</Name>
+            <Path>df/d40/group__lemons__psola__analysis.html</Path>
+            <Subnodes>
+            </Subnodes>
+           </Node>
+          </Subnodes>
+         </Node>
+         <Node>
+          <Name>limes_core</Name>
           <Path>da/d07/group__limes__core.html</Path>
           <Subnodes>
+           <Node>
+            <Name>Algorithms</Name>
+            <Path>de/d29/group__alg.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Algorithm.h</Name>
+              <Path>d8/dda/_algorithm_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>Container</Name>
+              <Path>de/d29/group__alg.html</Path>
+              <Anchor>ga9280a6b61ef312c80d85e6e0b91e8a00</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
            <Node>
             <Name>Files</Name>
             <Path>d9/dda/group__files.html</Path>
@@ -101,6 +128,41 @@
               <Name>PATHseparator</Name>
               <Path>d9/dda/group__files.html</Path>
               <Anchor>ga6eb23d9f3a90944a56cae056d5f7f71b</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>Functional</Name>
+            <Path>de/d94/group__func.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Functions.h</Name>
+              <Path>d6/d9b/_functions_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>call_once</Name>
+              <Path>de/d94/group__func.html</Path>
+              <Anchor>ga721d87621ab2fa2ff1ab032652d0b035</Anchor>
+             </Node>
+             <Node>
+              <Name>consteval_invoke</Name>
+              <Path>de/d94/group__func.html</Path>
+              <Anchor>gaca5e418d69ffceeb71b3ba29e6539e3c</Anchor>
+             </Node>
+             <Node>
+              <Name>curry</Name>
+              <Path>de/d94/group__func.html</Path>
+              <Anchor>ga0c20c15a7d3553a54d6fc156280e9705</Anchor>
+             </Node>
+             <Node>
+              <Name>try_call</Name>
+              <Path>de/d94/group__func.html</Path>
+              <Anchor>ga2c54695eb338963524e6830107685528</Anchor>
+             </Node>
+             <Node>
+              <Name>Function</Name>
+              <Path>de/d94/group__func.html</Path>
+              <Anchor>ga3dbd7fc208fe38c48614027d7480df86</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -500,13 +562,61 @@
             <Path>d7/ded/group__memory.html</Path>
             <Subnodes>
              <Node>
+              <Name>AlignedAllocator.h</Name>
+              <Path>d4/db8/_aligned_allocator_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>alignment.h</Name>
+              <Path>db/dad/alignment_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>MemoryPool.h</Name>
+              <Path>d2/daa/_memory_pool_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>MemoryPoolAllocator.h</Name>
+              <Path>d5/d53/_memory_pool_allocator_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>OptionalObject.h</Name>
+              <Path>d8/dad/_optional_object_8h.html</Path>
+             </Node>
+             <Node>
               <Name>RawData.h</Name>
               <Path>d2/dea/_raw_data_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>stack_allocator.h</Name>
+              <Path>d5/d5a/stack__allocator_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>StaticObjects.h</Name>
+              <Path>d0/d78/_static_objects_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>allocate_aligned</Name>
+              <Path>d7/ded/group__memory.html</Path>
+              <Anchor>ga898974242418e2b20981a737c5e82410</Anchor>
+             </Node>
+             <Node>
+              <Name>deallocate_aligned</Name>
+              <Path>d7/ded/group__memory.html</Path>
+              <Anchor>ga5a001535fbebdaa7499f0d95e2a5cec7</Anchor>
+             </Node>
+             <Node>
+              <Name>getStaticObject</Name>
+              <Path>d7/ded/group__memory.html</Path>
+              <Anchor>ga6379140bdddcd776d5f4ab92eb64e1bc</Anchor>
+             </Node>
+             <Node>
+              <Name>make_static</Name>
+              <Path>d7/ded/group__memory.html</Path>
+              <Anchor>gaf83c9457a4906ef4e3d67963fb18418b</Anchor>
              </Node>
             </Subnodes>
            </Node>
            <Node>
-            <Name>Meta</Name>
+            <Name>Metaprogramming</Name>
             <Path>d6/db2/group__meta.html</Path>
             <Subnodes>
              <Node>
@@ -604,12 +714,25 @@
             </Subnodes>
            </Node>
            <Node>
-            <Name>Misc</Name>
+            <Name>Miscellaneous</Name>
             <Path>d1/ded/group__misc.html</Path>
             <Subnodes>
              <Node>
+              <Name>IgnoreUnused.h</Name>
+              <Path>d1/d57/_ignore_unused_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>streams.h</Name>
+              <Path>db/d8e/streams_8h.html</Path>
+             </Node>
+             <Node>
               <Name>Version.h</Name>
               <Path>d0/dd7/_version_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>ignore_unused</Name>
+              <Path>d1/ded/group__misc.html</Path>
+              <Anchor>ga4048d6d752c40052344526e820f1d8fc</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -3307,6 +3430,37 @@
                   <Name>Shifter&lt; SampleType &gt;</Name>
                   <Path>d2/d32/classdsp_1_1psola_1_1_analyzer.html</Path>
                   <Anchor>ab0c6bf0dc83509d935bf350d9dace989</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>PeakFinder</Name>
+                <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>PeakFinder</Name>
+                  <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+                  <Anchor>aaa84ab9445bdc03a77a7282749d943d0</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>findPeaks</Name>
+                  <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+                  <Anchor>ad1614565ff7b7315af8d8edca5d974f4</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>prepare</Name>
+                  <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+                  <Anchor>af27df41f18bda8f046d66eca0caa3012</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>releaseResources</Name>
+                  <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+                  <Anchor>ab759e3941b8bebb355fc33e89e1c38ef</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>reset</Name>
+                  <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+                  <Anchor>a883fc981d94ffbd9162d76bfff4168e0</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -8324,67 +8478,67 @@
                <Node>
                 <Name>OwnedType</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a2781018fd429480d4374540ad7c0fe7a</Anchor>
+                <Anchor>aff39c3fe41222c7ed1026d8b578a602e</Anchor>
                </Node>
                <Node>
                 <Name>aligned_pointer</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>aec7bb99d52f0d481f68f1f948dfdea9a</Anchor>
+                <Anchor>aa537f3eb1ce16ce6e66db8280d16e2ab</Anchor>
                </Node>
                <Node>
                 <Name>~aligned_pointer</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a53a40bde9425962df38801e60ec53c30</Anchor>
+                <Anchor>aaeac6c3ce8c6043064214b9c2bf18c46</Anchor>
                </Node>
                <Node>
                 <Name>aligned_pointer</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a7a4c264c1e6d562ea4e7ffebe0fadb65</Anchor>
+                <Anchor>a8daaff2a63e982b8e88f3491761899d1</Anchor>
                </Node>
                <Node>
                 <Name>aligned_pointer</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>ae6a84432f553d430d3529f02b8662f39</Anchor>
+                <Anchor>a1a31813fc9d3aa560e59293eb44797e9</Anchor>
                </Node>
                <Node>
                 <Name>get</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a72ade0d19f3bd4e058e0c8c94fab88f3</Anchor>
+                <Anchor>acb4c425d36258fbab48339f988e0c433</Anchor>
                </Node>
                <Node>
                 <Name>operator T*</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a44063e9588d759943bb70e8f2d608ddc</Anchor>
+                <Anchor>a08921458737dbca5abefa7692fcb36c3</Anchor>
                </Node>
                <Node>
                 <Name>operator()</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a0e4dbeca69770a5ffcd56c9efeb9acb9</Anchor>
+                <Anchor>a0e39ebcc68c4edad1152becd010ff18e</Anchor>
                </Node>
                <Node>
                 <Name>operator*</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a4d16acd03f96bd4f77b2c2b8b4f2d352</Anchor>
+                <Anchor>a2dae8158e8e167b6548e0d03e62d6200</Anchor>
                </Node>
                <Node>
                 <Name>operator-&gt;</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a350c383da62265eb97bde2d133a2acc8</Anchor>
+                <Anchor>ad098b9b903e23f0cca8b22f376ea4c9e</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a842dcecf00c6ba5cf78946cf8d42504b</Anchor>
+                <Anchor>a3aae0e9cc6663f344291568160bb373a</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a1f972c2b7758fd0be589d2d7ad569618</Anchor>
+                <Anchor>a5cc6cdf8629bb5b439847a4b88883bf0</Anchor>
                </Node>
                <Node>
                 <Name>operator[]</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a86d745bcfc834fffc469b36920d28e40</Anchor>
+                <Anchor>ae2dbeb1fb7171d43e3253e3d85854d9d</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -8577,7 +8731,7 @@
                <Node>
                 <Name>construct</Name>
                 <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
-                <Anchor>ae5514d12e266debdc23e9bdd87b80064</Anchor>
+                <Anchor>a0aaf924c949ad00dcb39475ebd8d685e</Anchor>
                </Node>
                <Node>
                 <Name>constructOrBust</Name>
@@ -8608,6 +8762,11 @@
                 <Name>destruct</Name>
                 <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
                 <Anchor>abc038159ca0b33b93e7eb2fe07fc0f39</Anchor>
+               </Node>
+               <Node>
+                <Name>getChunkSize</Name>
+                <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
+                <Anchor>ad6aa8dd28a44fe2acef9f1f2a0d2a0fe</Anchor>
                </Node>
                <Node>
                 <Name>getMemoryRootLocation</Name>
@@ -8795,7 +8954,7 @@
                <Node>
                 <Name>MemoryPoolPointer</Name>
                 <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
-                <Anchor>a29fa9946d224bbc358052f952a929802</Anchor>
+                <Anchor>aff8a522538b6f21bb8ea06b4a4b5d6e7</Anchor>
                </Node>
                <Node>
                 <Name>~MemoryPoolPointer</Name>
@@ -8867,11 +9026,6 @@
                 <Name>OptionalObject</Name>
                 <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
                 <Anchor>a7b7bf0f69c703aa1313f1381fe0bb741</Anchor>
-               </Node>
-               <Node>
-                <Name>~OptionalObject</Name>
-                <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
-                <Anchor>a780f1628f40579d830c93afc9393a02b</Anchor>
                </Node>
                <Node>
                 <Name>OptionalObject</Name>
@@ -9300,169 +9454,6 @@
                 <Name>reset</Name>
                 <Path>d6/d26/classmemory_1_1_reference_counted_object_ptr.html</Path>
                 <Anchor>a6ce6e3ed918c854a0d5c7a6912c0a5bc</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-             <Node>
-              <Name>SharedObject</Name>
-              <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>Ptr</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a474fa554698b21c23b0d7d57ed728428</Anchor>
-               </Node>
-               <Node>
-                <Name>SharedObject</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a56c4830e9baab8ae5ee2c76d997be7c0</Anchor>
-               </Node>
-               <Node>
-                <Name>~SharedObject</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a422e334706194a43b72f00b28d33835b</Anchor>
-               </Node>
-               <Node>
-                <Name>clone</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a20f78e9adc9fb1828da126eb1168a7c3</Anchor>
-               </Node>
-               <Node>
-                <Name>decRefCount</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a2ba97995dd88c16cf283fce3d6d53902</Anchor>
-               </Node>
-               <Node>
-                <Name>decRefCountWithoutDeleting</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a7243679968d6a41bee91ab40a1c8ebd3</Anchor>
-               </Node>
-               <Node>
-                <Name>getRefCount</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a40a5b355c562aa5c235ab48fc3e993ab</Anchor>
-               </Node>
-               <Node>
-                <Name>incRefCount</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a03e6249927e599af13a7d241a5dc4867</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-             <Node>
-              <Name>SharedObjectOwner</Name>
-              <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>SharedObjectType</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>a745f5da067e5dea0d7b55d019f567442</Anchor>
-               </Node>
-               <Node>
-                <Name>SharedObjectOwner</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>aa45b465b0355baf05a45621e7e0a6d57</Anchor>
-               </Node>
-               <Node>
-                <Name>SharedObjectOwner</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>a01df8a97b802c3a0849a42c5c1bb0fda</Anchor>
-               </Node>
-               <Node>
-                <Name>SharedObjectOwner</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>a2adcf1eadccf32700b5c18b3f9ec4afe</Anchor>
-               </Node>
-               <Node>
-                <Name>duplicateIfShared</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>abf165147b86ba372b119e390be585009</Anchor>
-               </Node>
-               <Node>
-                <Name>getOwnedObject</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>a83218a24635bc7e742adb5278d5b0d16</Anchor>
-               </Node>
-               <Node>
-                <Name>getReferenceCount</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>a4ab1adeca59930a75a51be4298304b40</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>ad9135a4d0472624308007248edf2411b</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>ab157d15635f086172e0a7975c0023914</Anchor>
-               </Node>
-               <Node>
-                <Name>ownedObjectExists</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>a28f1cce6f5146a15ba8f4d11ffef4251</Anchor>
-               </Node>
-               <Node>
-                <Name>data</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>ab46419e4ab9c38827f0d1dd80e2942db</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-             <Node>
-              <Name>stack_buffer</Name>
-              <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>~stack_buffer</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>acd2508efb477499590ec3a5b1dcc7f01</Anchor>
-               </Node>
-               <Node>
-                <Name>stack_buffer</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a3283e3acb5d9e1042d204506fa54178c</Anchor>
-               </Node>
-               <Node>
-                <Name>stack_buffer</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a7f7cf7d91c6a7f95b77aee6baedb7483</Anchor>
-               </Node>
-               <Node>
-                <Name>allocate</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a60ec1a8fd94ce2e7fdecc9b27c6c83f5</Anchor>
-               </Node>
-               <Node>
-                <Name>deallocate</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a5d85623aa1076ed44d22003fce4db907</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a80247c8a5cc7b61c7a18e738b535bdb4</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a739b2564806ead1fa8b754222bed19cf</Anchor>
-               </Node>
-               <Node>
-                <Name>reset</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a48cd5dc17d215d3c4b6c924dc6f4777a</Anchor>
-               </Node>
-               <Node>
-                <Name>size</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a0270dcb78742dfe9ad9f8458ce883418</Anchor>
-               </Node>
-               <Node>
-                <Name>used</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>aa02ad0bec7228e4cf9e75f9439d24223</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -9910,27 +9901,6 @@
             <Name>misc</Name>
             <Path>d9/d37/namespacemisc.html</Path>
             <Subnodes>
-             <Node>
-              <Name>BitField</Name>
-              <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>getBit</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>aa4f2a1a492992ec8390b63422c112345</Anchor>
-               </Node>
-               <Node>
-                <Name>getEntireField</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>a474c1db4b265658ac45d5e7454d7eb1d</Anchor>
-               </Node>
-               <Node>
-                <Name>setBit</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>ae684d2676d5cfbda8d3d7b6834a56350</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
              <Node>
               <Name>Dimensions</Name>
               <Path>dd/db0/structmisc_1_1_dimensions.html</Path>
@@ -14370,17 +14340,7 @@
              <Node>
               <Name>contains_or_default</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a0274b772d59a6b8895a83e548c54db6e</Anchor>
-             </Node>
-             <Node>
-              <Name>contains_or_null</Name>
-              <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a9490a5f483f3ea2a93e767352d2cc233</Anchor>
-             </Node>
-             <Node>
-              <Name>contains_or_null</Name>
-              <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a1ee6f580fa8fd88edeba8b923334e40e</Anchor>
+              <Anchor>a787a5069c66574efe3747a4c74046325</Anchor>
              </Node>
              <Node>
               <Name>createFromTransform</Name>
@@ -14400,12 +14360,12 @@
              <Node>
               <Name>find_if</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>aa993a9b75ef39c952ffa1525515dd212</Anchor>
+              <Anchor>aef6e921fb66d033398c60d9aa387026a</Anchor>
              </Node>
              <Node>
-              <Name>get_rand_engine</Name>
+              <Name>find_if</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a2b5ac094c436ed8c63247a52d575d904</Anchor>
+              <Anchor>a3f0432bba758bc38ef2b2051c656a544</Anchor>
              </Node>
              <Node>
               <Name>max_value</Name>
@@ -14431,16 +14391,6 @@
               <Name>num_of</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
               <Anchor>a347b3ccd19983a354d0992a4359c01c2</Anchor>
-             </Node>
-             <Node>
-              <Name>remove</Name>
-              <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>aae9c886f1fa07ab2915bc9a3e5e121c6</Anchor>
-             </Node>
-             <Node>
-              <Name>removeDuplicates</Name>
-              <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a8d2253337fd326084a3bd515bffb057b</Anchor>
              </Node>
              <Node>
               <Name>reverse</Name>
@@ -14475,7 +14425,7 @@
              <Node>
               <Name>Container</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a9280a6b61ef312c80d85e6e0b91e8a00</Anchor>
+              <Anchor>ga9280a6b61ef312c80d85e6e0b91e8a00</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -14659,79 +14609,79 @@
                <Node>
                 <Name>OwnedType</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a2781018fd429480d4374540ad7c0fe7a</Anchor>
+                <Anchor>aff39c3fe41222c7ed1026d8b578a602e</Anchor>
                </Node>
                <Node>
                 <Name>aligned_pointer</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>aec7bb99d52f0d481f68f1f948dfdea9a</Anchor>
+                <Anchor>aa537f3eb1ce16ce6e66db8280d16e2ab</Anchor>
                </Node>
                <Node>
                 <Name>~aligned_pointer</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a53a40bde9425962df38801e60ec53c30</Anchor>
+                <Anchor>aaeac6c3ce8c6043064214b9c2bf18c46</Anchor>
                </Node>
                <Node>
                 <Name>aligned_pointer</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a7a4c264c1e6d562ea4e7ffebe0fadb65</Anchor>
+                <Anchor>a8daaff2a63e982b8e88f3491761899d1</Anchor>
                </Node>
                <Node>
                 <Name>aligned_pointer</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>ae6a84432f553d430d3529f02b8662f39</Anchor>
+                <Anchor>a1a31813fc9d3aa560e59293eb44797e9</Anchor>
                </Node>
                <Node>
                 <Name>get</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a72ade0d19f3bd4e058e0c8c94fab88f3</Anchor>
+                <Anchor>acb4c425d36258fbab48339f988e0c433</Anchor>
                </Node>
                <Node>
                 <Name>operator T*</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a44063e9588d759943bb70e8f2d608ddc</Anchor>
+                <Anchor>a08921458737dbca5abefa7692fcb36c3</Anchor>
                </Node>
                <Node>
                 <Name>operator()</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a0e4dbeca69770a5ffcd56c9efeb9acb9</Anchor>
+                <Anchor>a0e39ebcc68c4edad1152becd010ff18e</Anchor>
                </Node>
                <Node>
                 <Name>operator*</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a4d16acd03f96bd4f77b2c2b8b4f2d352</Anchor>
+                <Anchor>a2dae8158e8e167b6548e0d03e62d6200</Anchor>
                </Node>
                <Node>
                 <Name>operator-&gt;</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a350c383da62265eb97bde2d133a2acc8</Anchor>
+                <Anchor>ad098b9b903e23f0cca8b22f376ea4c9e</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a842dcecf00c6ba5cf78946cf8d42504b</Anchor>
+                <Anchor>a3aae0e9cc6663f344291568160bb373a</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a1f972c2b7758fd0be589d2d7ad569618</Anchor>
+                <Anchor>a5cc6cdf8629bb5b439847a4b88883bf0</Anchor>
                </Node>
                <Node>
                 <Name>operator[]</Name>
                 <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-                <Anchor>a86d745bcfc834fffc469b36920d28e40</Anchor>
+                <Anchor>ae2dbeb1fb7171d43e3253e3d85854d9d</Anchor>
                </Node>
               </Subnodes>
              </Node>
              <Node>
               <Name>allocate_aligned</Name>
               <Path>db/dad/alignment_8h.html</Path>
-              <Anchor>a898974242418e2b20981a737c5e82410</Anchor>
+              <Anchor>ga898974242418e2b20981a737c5e82410</Anchor>
              </Node>
              <Node>
               <Name>deallocate_aligned</Name>
               <Path>db/dad/alignment_8h.html</Path>
-              <Anchor>a5a001535fbebdaa7499f0d95e2a5cec7</Anchor>
+              <Anchor>ga5a001535fbebdaa7499f0d95e2a5cec7</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -15715,33 +15665,6 @@
                 <Name>objects</Name>
                 <Path>df/d63/classds_1_1basic__vector.html</Path>
                 <Anchor>ac2f2cd2288e8e8be15dcd249d3d3645b</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-            </Subnodes>
-           </Node>
-           <Node>
-            <Name>bitField.h</Name>
-            <Path>dd/d8f/bit_field_8h.html</Path>
-            <Subnodes>
-             <Node>
-              <Name>BitField</Name>
-              <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>getBit</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>aa4f2a1a492992ec8390b63422c112345</Anchor>
-               </Node>
-               <Node>
-                <Name>getEntireField</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>a474c1db4b265658ac45d5e7454d7eb1d</Anchor>
-               </Node>
-               <Node>
-                <Name>setBit</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>ae684d2676d5cfbda8d3d7b6834a56350</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -20603,27 +20526,27 @@
              <Node>
               <Name>call_once</Name>
               <Path>d6/d9b/_functions_8h.html</Path>
-              <Anchor>a721d87621ab2fa2ff1ab032652d0b035</Anchor>
+              <Anchor>ga721d87621ab2fa2ff1ab032652d0b035</Anchor>
              </Node>
              <Node>
               <Name>consteval_invoke</Name>
               <Path>d6/d9b/_functions_8h.html</Path>
-              <Anchor>aca5e418d69ffceeb71b3ba29e6539e3c</Anchor>
+              <Anchor>gaca5e418d69ffceeb71b3ba29e6539e3c</Anchor>
              </Node>
              <Node>
               <Name>curry</Name>
               <Path>d6/d9b/_functions_8h.html</Path>
-              <Anchor>a0c20c15a7d3553a54d6fc156280e9705</Anchor>
+              <Anchor>ga0c20c15a7d3553a54d6fc156280e9705</Anchor>
              </Node>
              <Node>
               <Name>try_call</Name>
               <Path>d6/d9b/_functions_8h.html</Path>
-              <Anchor>a2c54695eb338963524e6830107685528</Anchor>
+              <Anchor>ga2c54695eb338963524e6830107685528</Anchor>
              </Node>
              <Node>
               <Name>Function</Name>
               <Path>d6/d9b/_functions_8h.html</Path>
-              <Anchor>a3dbd7fc208fe38c48614027d7480df86</Anchor>
+              <Anchor>ga3dbd7fc208fe38c48614027d7480df86</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -20961,7 +20884,7 @@
              <Node>
               <Name>ignore_unused</Name>
               <Path>d1/d57/_ignore_unused_8h.html</Path>
-              <Anchor>a4048d6d752c40052344526e820f1d8fc</Anchor>
+              <Anchor>ga4048d6d752c40052344526e820f1d8fc</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -23753,7 +23676,7 @@
                <Node>
                 <Name>construct</Name>
                 <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
-                <Anchor>ae5514d12e266debdc23e9bdd87b80064</Anchor>
+                <Anchor>a0aaf924c949ad00dcb39475ebd8d685e</Anchor>
                </Node>
                <Node>
                 <Name>constructOrBust</Name>
@@ -23784,6 +23707,11 @@
                 <Name>destruct</Name>
                 <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
                 <Anchor>abc038159ca0b33b93e7eb2fe07fc0f39</Anchor>
+               </Node>
+               <Node>
+                <Name>getChunkSize</Name>
+                <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
+                <Anchor>ad6aa8dd28a44fe2acef9f1f2a0d2a0fe</Anchor>
                </Node>
                <Node>
                 <Name>getMemoryRootLocation</Name>
@@ -23839,7 +23767,7 @@
                <Node>
                 <Name>MemoryPoolPointer</Name>
                 <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
-                <Anchor>a29fa9946d224bbc358052f952a929802</Anchor>
+                <Anchor>aff8a522538b6f21bb8ea06b4a4b5d6e7</Anchor>
                </Node>
                <Node>
                 <Name>~MemoryPoolPointer</Name>
@@ -25742,11 +25670,6 @@
                 <Anchor>a7b7bf0f69c703aa1313f1381fe0bb741</Anchor>
                </Node>
                <Node>
-                <Name>~OptionalObject</Name>
-                <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
-                <Anchor>a780f1628f40579d830c93afc9393a02b</Anchor>
-               </Node>
-               <Node>
                 <Name>OptionalObject</Name>
                 <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
                 <Anchor>a231a4aa5f8fa327d4067e4e7cf762412</Anchor>
@@ -26186,6 +26109,39 @@
            <Node>
             <Name>PeakFinder.h</Name>
             <Path>dc/dad/_peak_finder_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>PeakFinder</Name>
+              <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>PeakFinder</Name>
+                <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+                <Anchor>aaa84ab9445bdc03a77a7282749d943d0</Anchor>
+               </Node>
+               <Node>
+                <Name>findPeaks</Name>
+                <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+                <Anchor>ad1614565ff7b7315af8d8edca5d974f4</Anchor>
+               </Node>
+               <Node>
+                <Name>prepare</Name>
+                <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+                <Anchor>af27df41f18bda8f046d66eca0caa3012</Anchor>
+               </Node>
+               <Node>
+                <Name>releaseResources</Name>
+                <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+                <Anchor>ab759e3941b8bebb355fc33e89e1c38ef</Anchor>
+               </Node>
+               <Node>
+                <Name>reset</Name>
+                <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+                <Anchor>a883fc981d94ffbd9162d76bfff4168e0</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>pentagon.h</Name>
@@ -28499,119 +28455,6 @@
             </Subnodes>
            </Node>
            <Node>
-            <Name>SharedObject.h</Name>
-            <Path>d7/de2/_shared_object_8h.html</Path>
-            <Subnodes>
-             <Node>
-              <Name>SharedObject</Name>
-              <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>Ptr</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a474fa554698b21c23b0d7d57ed728428</Anchor>
-               </Node>
-               <Node>
-                <Name>SharedObject</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a56c4830e9baab8ae5ee2c76d997be7c0</Anchor>
-               </Node>
-               <Node>
-                <Name>~SharedObject</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a422e334706194a43b72f00b28d33835b</Anchor>
-               </Node>
-               <Node>
-                <Name>clone</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a20f78e9adc9fb1828da126eb1168a7c3</Anchor>
-               </Node>
-               <Node>
-                <Name>decRefCount</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a2ba97995dd88c16cf283fce3d6d53902</Anchor>
-               </Node>
-               <Node>
-                <Name>decRefCountWithoutDeleting</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a7243679968d6a41bee91ab40a1c8ebd3</Anchor>
-               </Node>
-               <Node>
-                <Name>getRefCount</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a40a5b355c562aa5c235ab48fc3e993ab</Anchor>
-               </Node>
-               <Node>
-                <Name>incRefCount</Name>
-                <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-                <Anchor>a03e6249927e599af13a7d241a5dc4867</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-             <Node>
-              <Name>SharedObjectOwner</Name>
-              <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>SharedObjectType</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>a745f5da067e5dea0d7b55d019f567442</Anchor>
-               </Node>
-               <Node>
-                <Name>SharedObjectOwner</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>aa45b465b0355baf05a45621e7e0a6d57</Anchor>
-               </Node>
-               <Node>
-                <Name>SharedObjectOwner</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>a01df8a97b802c3a0849a42c5c1bb0fda</Anchor>
-               </Node>
-               <Node>
-                <Name>SharedObjectOwner</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>a2adcf1eadccf32700b5c18b3f9ec4afe</Anchor>
-               </Node>
-               <Node>
-                <Name>duplicateIfShared</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>abf165147b86ba372b119e390be585009</Anchor>
-               </Node>
-               <Node>
-                <Name>getOwnedObject</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>a83218a24635bc7e742adb5278d5b0d16</Anchor>
-               </Node>
-               <Node>
-                <Name>getReferenceCount</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>a4ab1adeca59930a75a51be4298304b40</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>ad9135a4d0472624308007248edf2411b</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>ab157d15635f086172e0a7975c0023914</Anchor>
-               </Node>
-               <Node>
-                <Name>ownedObjectExists</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>a28f1cce6f5146a15ba8f4d11ffef4251</Anchor>
-               </Node>
-               <Node>
-                <Name>data</Name>
-                <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-                <Anchor>ab46419e4ab9c38827f0d1dd80e2942db</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-            </Subnodes>
-           </Node>
-           <Node>
             <Name>shifter.h</Name>
             <Path>d7/d4f/shifter_8h.html</Path>
             <Subnodes>
@@ -28969,62 +28812,6 @@
               </Subnodes>
              </Node>
              <Node>
-              <Name>stack_buffer</Name>
-              <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>~stack_buffer</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>acd2508efb477499590ec3a5b1dcc7f01</Anchor>
-               </Node>
-               <Node>
-                <Name>stack_buffer</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a3283e3acb5d9e1042d204506fa54178c</Anchor>
-               </Node>
-               <Node>
-                <Name>stack_buffer</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a7f7cf7d91c6a7f95b77aee6baedb7483</Anchor>
-               </Node>
-               <Node>
-                <Name>allocate</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a60ec1a8fd94ce2e7fdecc9b27c6c83f5</Anchor>
-               </Node>
-               <Node>
-                <Name>deallocate</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a5d85623aa1076ed44d22003fce4db907</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a80247c8a5cc7b61c7a18e738b535bdb4</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a739b2564806ead1fa8b754222bed19cf</Anchor>
-               </Node>
-               <Node>
-                <Name>reset</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a48cd5dc17d215d3c4b6c924dc6f4777a</Anchor>
-               </Node>
-               <Node>
-                <Name>size</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>a0270dcb78742dfe9ad9f8458ce883418</Anchor>
-               </Node>
-               <Node>
-                <Name>used</Name>
-                <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-                <Anchor>aa02ad0bec7228e4cf9e75f9439d24223</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-             <Node>
               <Name>StackAllocator</Name>
               <Path>d1/d2b/classmemory_1_1_stack_allocator.html</Path>
               <Subnodes>
@@ -29135,12 +28922,12 @@
              <Node>
               <Name>getStaticObject</Name>
               <Path>d0/d78/_static_objects_8h.html</Path>
-              <Anchor>a6379140bdddcd776d5f4ab92eb64e1bc</Anchor>
+              <Anchor>ga6379140bdddcd776d5f4ab92eb64e1bc</Anchor>
              </Node>
              <Node>
               <Name>make_static</Name>
               <Path>d0/d78/_static_objects_8h.html</Path>
-              <Anchor>af83c9457a4906ef4e3d67963fb18418b</Anchor>
+              <Anchor>gaf83c9457a4906ef4e3d67963fb18418b</Anchor>
              </Node>
             </Subnodes>
            </Node>

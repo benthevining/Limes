@@ -2,7 +2,6 @@ var classmemory_1_1_optional_object =
 [
     [ "Type", "dc/d1a/classmemory_1_1_optional_object.html#a7a2425befdfe0797767d29d13c39bc8b", null ],
     [ "OptionalObject", "dc/d1a/classmemory_1_1_optional_object.html#a7b7bf0f69c703aa1313f1381fe0bb741", null ],
-    [ "~OptionalObject", "dc/d1a/classmemory_1_1_optional_object.html#a780f1628f40579d830c93afc9393a02b", null ],
     [ "OptionalObject", "dc/d1a/classmemory_1_1_optional_object.html#a231a4aa5f8fa327d4067e4e7cf762412", null ],
     [ "OptionalObject", "dc/d1a/classmemory_1_1_optional_object.html#a19ac2bf896e9b2519e04033c8da17561", null ],
     [ "OptionalObject", "dc/d1a/classmemory_1_1_optional_object.html#a8f82d128c4c9a5e91bdfe6e7b1ccdf28", null ],

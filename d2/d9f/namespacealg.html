@@ -83,111 +83,118 @@ $(document).ready(function(){initNavTree('d2/d9f/namespacealg.html','../../'); i
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">alg Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This namespace defines various utility algorithms.  
+<a href="../../d2/d9f/namespacealg.html#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
 <tr class="memitem:a7dccb7818bdc5ba28aaff325dd4e715c"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
 <tr class="memitem:a7dccb7818bdc5ba28aaff325dd4e715c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a> = std::remove_reference_t&lt; decltype(*std::begin(std::declval&lt; ContainerType &amp; &gt;()))&gt;</td></tr>
+<tr class="memdesc:a7dccb7818bdc5ba28aaff325dd4e715c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handy typedef for deducing the type of the objects in a Container.  <a href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">More...</a><br /></td></tr>
 <tr class="separator:a7dccb7818bdc5ba28aaff325dd4e715c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab08589f26a257d13ba1e706690752d0c"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
 <tr class="memitem:ab08589f26a257d13ba1e706690752d0c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#ab08589f26a257d13ba1e706690752d0c">IteratorType</a> = decltype(std::begin(std::declval&lt; ContainerType &gt;()))</td></tr>
+<tr class="memdesc:ab08589f26a257d13ba1e706690752d0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typedef for the type returned by calling <code>begin()</code> or <code>end()</code> on a Container.  <a href="../../d2/d9f/namespacealg.html#ab08589f26a257d13ba1e706690752d0c">More...</a><br /></td></tr>
 <tr class="separator:ab08589f26a257d13ba1e706690752d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a6c6814ab08f80fede21d3bdddd2ce6e8"><td class="memTemplParams" colspan="2">template&lt;Container Container1, Container Container2, class Callable &gt; </td></tr>
-<tr class="memitem:a6c6814ab08f80fede21d3bdddd2ce6e8"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a6c6814ab08f80fede21d3bdddd2ce6e8">call_both</a> (const Container1 &amp;container1, const Container2 &amp;container2, Callable &amp;&amp;callable)</td></tr>
-<tr class="separator:a6c6814ab08f80fede21d3bdddd2ce6e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9280a6b61ef312c80d85e6e0b91e8a00"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga9280a6b61ef312c80d85e6e0b91e8a00"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d29/group__alg.html#ga9280a6b61ef312c80d85e6e0b91e8a00">Container</a></td></tr>
+<tr class="memdesc:ga9280a6b61ef312c80d85e6e0b91e8a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept Container This concept requires that a type has <code>begin()</code> and <code>end()</code> functions that return iterators.  <a href="../../de/d29/group__alg.html#ga9280a6b61ef312c80d85e6e0b91e8a00">More...</a><br /></td></tr>
+<tr class="separator:ga9280a6b61ef312c80d85e6e0b91e8a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8578202135800da03ad18668933fcb7a"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
+<tr class="memitem:a8578202135800da03ad18668933fcb7a"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a8578202135800da03ad18668933fcb7a">fill</a> (ContainerType &amp;container, const <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; &amp;toFillWith)</td></tr>
+<tr class="memdesc:a8578202135800da03ad18668933fcb7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the container with the specified value.  <a href="../../d2/d9f/namespacealg.html#a8578202135800da03ad18668933fcb7a">More...</a><br /></td></tr>
+<tr class="separator:a8578202135800da03ad18668933fcb7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad811e97da051a2a578697084d10f0681"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
 <tr class="memitem:ad811e97da051a2a578697084d10f0681"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#ad811e97da051a2a578697084d10f0681">contains</a> (const ContainerType &amp;container, const <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; &amp;value)</td></tr>
+<tr class="memdesc:ad811e97da051a2a578697084d10f0681"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the container contains the specified value.  <a href="../../d2/d9f/namespacealg.html#ad811e97da051a2a578697084d10f0681">More...</a><br /></td></tr>
 <tr class="separator:ad811e97da051a2a578697084d10f0681"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d73d5e0ebb7ce07de5de55cbe8fb94d"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType, class UnaryPredicate &gt; </td></tr>
 <tr class="memitem:a2d73d5e0ebb7ce07de5de55cbe8fb94d"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a2d73d5e0ebb7ce07de5de55cbe8fb94d">contains_if</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="memdesc:a2d73d5e0ebb7ce07de5de55cbe8fb94d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the specified predicate is met by at least one object in the container.  <a href="../../d2/d9f/namespacealg.html#a2d73d5e0ebb7ce07de5de55cbe8fb94d">More...</a><br /></td></tr>
 <tr class="separator:a2d73d5e0ebb7ce07de5de55cbe8fb94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65c3a333b7540ccefdbbd29adedf12f2"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType, class UnaryPredicate &gt; </td></tr>
-<tr class="memitem:a65c3a333b7540ccefdbbd29adedf12f2"><td class="memTemplItemLeft" align="right" valign="top">constexpr const LIMES_EXPORT <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a65c3a333b7540ccefdbbd29adedf12f2">contains_or</a> (const ContainerType &amp;container, const <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; &amp;defaultValue, UnaryPredicate &amp;&amp;p)</td></tr>
-<tr class="separator:a65c3a333b7540ccefdbbd29adedf12f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b5e74fd10c9d3e41c0dd79d0a1b7711"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType, class UnaryPredicate &gt; </td></tr>
 <tr class="memitem:a8b5e74fd10c9d3e41c0dd79d0a1b7711"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a8b5e74fd10c9d3e41c0dd79d0a1b7711">contains_or</a> (const ContainerType &amp;container, <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; &amp;defaultValue, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="memdesc:a8b5e74fd10c9d3e41c0dd79d0a1b7711"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned.  <a href="../../d2/d9f/namespacealg.html#a8b5e74fd10c9d3e41c0dd79d0a1b7711">More...</a><br /></td></tr>
 <tr class="separator:a8b5e74fd10c9d3e41c0dd79d0a1b7711"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0274b772d59a6b8895a83e548c54db6e"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType, class UnaryPredicate &gt; </td></tr>
-<tr class="memitem:a0274b772d59a6b8895a83e548c54db6e"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a0274b772d59a6b8895a83e548c54db6e">contains_or_default</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
-<tr class="separator:a0274b772d59a6b8895a83e548c54db6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9490a5f483f3ea2a93e767352d2cc233"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType, class UnaryPredicate &gt; </td></tr>
-<tr class="memitem:a9490a5f483f3ea2a93e767352d2cc233"><td class="memTemplItemLeft" align="right" valign="top">constexpr const LIMES_EXPORT <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a9490a5f483f3ea2a93e767352d2cc233">contains_or_null</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
-<tr class="separator:a9490a5f483f3ea2a93e767352d2cc233"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ee6f580fa8fd88edeba8b923334e40e"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType, class UnaryPredicate &gt; </td></tr>
-<tr class="memitem:a1ee6f580fa8fd88edeba8b923334e40e"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a1ee6f580fa8fd88edeba8b923334e40e">contains_or_null</a> (ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
-<tr class="separator:a1ee6f580fa8fd88edeba8b923334e40e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a757811af9ff407f689d49264b212c877"><td class="memTemplParams" colspan="2">template&lt;Container OutputContainerType, Container InputContainer, class UnaryOp &gt; </td></tr>
-<tr class="memitem:a757811af9ff407f689d49264b212c877"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT OutputContainerType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a757811af9ff407f689d49264b212c877">createFromTransform</a> (const InputContainer &amp;input, UnaryOp &amp;&amp;func)</td></tr>
-<tr class="separator:a757811af9ff407f689d49264b212c877"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a977caee9e6a4f374dbbb4589c8cfc39e"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
-<tr class="memitem:a977caee9e6a4f374dbbb4589c8cfc39e"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a977caee9e6a4f374dbbb4589c8cfc39e">enumerate</a> (ContainerType &amp;&amp;iterable)</td></tr>
-<tr class="separator:a977caee9e6a4f374dbbb4589c8cfc39e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8578202135800da03ad18668933fcb7a"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
-<tr class="memitem:a8578202135800da03ad18668933fcb7a"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a8578202135800da03ad18668933fcb7a">fill</a> (ContainerType &amp;container, const <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; &amp;toFillWith)</td></tr>
-<tr class="separator:a8578202135800da03ad18668933fcb7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa993a9b75ef39c952ffa1525515dd212"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType, class UnaryPredicate &gt; </td></tr>
-<tr class="memitem:aa993a9b75ef39c952ffa1525515dd212"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT auto *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#aa993a9b75ef39c952ffa1525515dd212">find_if</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
-<tr class="separator:aa993a9b75ef39c952ffa1525515dd212"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b5ac094c436ed8c63247a52d575d904"><td class="memItemLeft" align="right" valign="top">static LIMES_NO_EXPORT auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a2b5ac094c436ed8c63247a52d575d904">get_rand_engine</a> ()</td></tr>
-<tr class="separator:a2b5ac094c436ed8c63247a52d575d904"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3955575ad4fce0e172c08bc3ee849d3b"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
-<tr class="memitem:a3955575ad4fce0e172c08bc3ee849d3b"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a3955575ad4fce0e172c08bc3ee849d3b">max_value</a> (const ContainerType &amp;container)</td></tr>
-<tr class="separator:a3955575ad4fce0e172c08bc3ee849d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaadb9d743ac062dccd1fa8db03f8b6e0"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
-<tr class="memitem:aaadb9d743ac062dccd1fa8db03f8b6e0"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#aaadb9d743ac062dccd1fa8db03f8b6e0">max_value</a> (const ContainerType &amp;container, int &amp;maxIndex)</td></tr>
-<tr class="separator:aaadb9d743ac062dccd1fa8db03f8b6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adffc06b89dc20f499a540036f6c59141"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
-<tr class="memitem:adffc06b89dc20f499a540036f6c59141"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#adffc06b89dc20f499a540036f6c59141">min_value</a> (const ContainerType &amp;container)</td></tr>
-<tr class="separator:adffc06b89dc20f499a540036f6c59141"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aace5a83c7d44d74ccd79d5ed5a015ac6"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
-<tr class="memitem:aace5a83c7d44d74ccd79d5ed5a015ac6"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#aace5a83c7d44d74ccd79d5ed5a015ac6">min_value</a> (const ContainerType &amp;container, int &amp;minIndex)</td></tr>
-<tr class="separator:aace5a83c7d44d74ccd79d5ed5a015ac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65c3a333b7540ccefdbbd29adedf12f2"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType, class UnaryPredicate &gt; </td></tr>
+<tr class="memitem:a65c3a333b7540ccefdbbd29adedf12f2"><td class="memTemplItemLeft" align="right" valign="top">constexpr const LIMES_EXPORT <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a65c3a333b7540ccefdbbd29adedf12f2">contains_or</a> (const ContainerType &amp;container, const <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; &amp;defaultValue, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="memdesc:a65c3a333b7540ccefdbbd29adedf12f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned.  <a href="../../d2/d9f/namespacealg.html#a65c3a333b7540ccefdbbd29adedf12f2">More...</a><br /></td></tr>
+<tr class="separator:a65c3a333b7540ccefdbbd29adedf12f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a787a5069c66574efe3747a4c74046325"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType, class UnaryPredicate &gt; </td></tr>
+<tr class="memitem:a787a5069c66574efe3747a4c74046325"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a787a5069c66574efe3747a4c74046325">contains_or_default</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="memdesc:a787a5069c66574efe3747a4c74046325"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned.  <a href="../../d2/d9f/namespacealg.html#a787a5069c66574efe3747a4c74046325">More...</a><br /></td></tr>
+<tr class="separator:a787a5069c66574efe3747a4c74046325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef6e921fb66d033398c60d9aa387026a"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType, class UnaryPredicate &gt; </td></tr>
+<tr class="memitem:aef6e921fb66d033398c60d9aa387026a"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#aef6e921fb66d033398c60d9aa387026a">find_if</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="memdesc:aef6e921fb66d033398c60d9aa387026a"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned.  <a href="../../d2/d9f/namespacealg.html#aef6e921fb66d033398c60d9aa387026a">More...</a><br /></td></tr>
+<tr class="separator:aef6e921fb66d033398c60d9aa387026a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f0432bba758bc38ef2b2051c656a544"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType, class UnaryPredicate &gt; </td></tr>
+<tr class="memitem:a3f0432bba758bc38ef2b2051c656a544"><td class="memTemplItemLeft" align="right" valign="top">constexpr const LIMES_EXPORT <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a3f0432bba758bc38ef2b2051c656a544">find_if</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="memdesc:a3f0432bba758bc38ef2b2051c656a544"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned.  <a href="../../d2/d9f/namespacealg.html#a3f0432bba758bc38ef2b2051c656a544">More...</a><br /></td></tr>
+<tr class="separator:a3f0432bba758bc38ef2b2051c656a544"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347b3ccd19983a354d0992a4359c01c2"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType, class UnaryPredicate &gt; </td></tr>
 <tr class="memitem:a347b3ccd19983a354d0992a4359c01c2"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a347b3ccd19983a354d0992a4359c01c2">num_of</a> (const ContainerType &amp;container, UnaryPredicate &amp;&amp;p)</td></tr>
+<tr class="memdesc:a347b3ccd19983a354d0992a4359c01c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of objects in the container that meet the specified predicate.  <a href="../../d2/d9f/namespacealg.html#a347b3ccd19983a354d0992a4359c01c2">More...</a><br /></td></tr>
 <tr class="separator:a347b3ccd19983a354d0992a4359c01c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae9c886f1fa07ab2915bc9a3e5e121c6"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
-<tr class="memitem:aae9c886f1fa07ab2915bc9a3e5e121c6"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#aae9c886f1fa07ab2915bc9a3e5e121c6">remove</a> (ContainerType &amp;container, const <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; &amp;object)</td></tr>
-<tr class="separator:aae9c886f1fa07ab2915bc9a3e5e121c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d2253337fd326084a3bd515bffb057b"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
-<tr class="memitem:a8d2253337fd326084a3bd515bffb057b"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a8d2253337fd326084a3bd515bffb057b">removeDuplicates</a> (ContainerType &amp;container)</td></tr>
-<tr class="separator:a8d2253337fd326084a3bd515bffb057b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab87399b7732eecfc20de2f1c3b6feb7"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
-<tr class="memitem:aab87399b7732eecfc20de2f1c3b6feb7"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#aab87399b7732eecfc20de2f1c3b6feb7">reverse</a> (ContainerType &amp;container)</td></tr>
-<tr class="separator:aab87399b7732eecfc20de2f1c3b6feb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50b7caffcb11cf23485bc228bfa27e4e"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
-<tr class="memitem:a50b7caffcb11cf23485bc228bfa27e4e"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a50b7caffcb11cf23485bc228bfa27e4e">shuffle</a> (ContainerType &amp;container)</td></tr>
-<tr class="separator:a50b7caffcb11cf23485bc228bfa27e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea20a3c576495f7b76380ed04a28b098"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
 <tr class="memitem:aea20a3c576495f7b76380ed04a28b098"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">size</a> (const ContainerType &amp;container)</td></tr>
+<tr class="memdesc:aea20a3c576495f7b76380ed04a28b098"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of objects in the container.  <a href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">More...</a><br /></td></tr>
 <tr class="separator:aea20a3c576495f7b76380ed04a28b098"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab87399b7732eecfc20de2f1c3b6feb7"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
+<tr class="memitem:aab87399b7732eecfc20de2f1c3b6feb7"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#aab87399b7732eecfc20de2f1c3b6feb7">reverse</a> (ContainerType &amp;container)</td></tr>
+<tr class="memdesc:aab87399b7732eecfc20de2f1c3b6feb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the objects in the container.  <a href="../../d2/d9f/namespacealg.html#aab87399b7732eecfc20de2f1c3b6feb7">More...</a><br /></td></tr>
+<tr class="separator:aab87399b7732eecfc20de2f1c3b6feb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5926fcc8887c86f6bdb0c4671c915333"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
 <tr class="memitem:a5926fcc8887c86f6bdb0c4671c915333"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a5926fcc8887c86f6bdb0c4671c915333">sort</a> (ContainerType &amp;container, bool forward=true)</td></tr>
+<tr class="memdesc:a5926fcc8887c86f6bdb0c4671c915333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts the objects in the container.  <a href="../../d2/d9f/namespacealg.html#a5926fcc8887c86f6bdb0c4671c915333">More...</a><br /></td></tr>
 <tr class="separator:a5926fcc8887c86f6bdb0c4671c915333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83890f0559cb4afdbd69151ddb5851fc"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType, class Comparison &gt; </td></tr>
 <tr class="memitem:a83890f0559cb4afdbd69151ddb5851fc"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a83890f0559cb4afdbd69151ddb5851fc">sort</a> (ContainerType &amp;container, Comparison &amp;&amp;predicate, bool forward=true)</td></tr>
+<tr class="memdesc:a83890f0559cb4afdbd69151ddb5851fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts the container using a custom comparator.  <a href="../../d2/d9f/namespacealg.html#a83890f0559cb4afdbd69151ddb5851fc">More...</a><br /></td></tr>
 <tr class="separator:a83890f0559cb4afdbd69151ddb5851fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50b7caffcb11cf23485bc228bfa27e4e"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
+<tr class="memitem:a50b7caffcb11cf23485bc228bfa27e4e"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a50b7caffcb11cf23485bc228bfa27e4e">shuffle</a> (ContainerType &amp;container)</td></tr>
+<tr class="memdesc:a50b7caffcb11cf23485bc228bfa27e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Randomizes the order of the elements in the container.  <a href="../../d2/d9f/namespacealg.html#a50b7caffcb11cf23485bc228bfa27e4e">More...</a><br /></td></tr>
+<tr class="separator:a50b7caffcb11cf23485bc228bfa27e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c6814ab08f80fede21d3bdddd2ce6e8"><td class="memTemplParams" colspan="2">template&lt;Container Container1, Container Container2, class Callable &gt; </td></tr>
+<tr class="memitem:a6c6814ab08f80fede21d3bdddd2ce6e8"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a6c6814ab08f80fede21d3bdddd2ce6e8">call_both</a> (const Container1 &amp;container1, const Container2 &amp;container2, Callable &amp;&amp;callable)</td></tr>
+<tr class="memdesc:a6c6814ab08f80fede21d3bdddd2ce6e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function with corresponding pairs of elements from two containers.  <a href="../../d2/d9f/namespacealg.html#a6c6814ab08f80fede21d3bdddd2ce6e8">More...</a><br /></td></tr>
+<tr class="separator:a6c6814ab08f80fede21d3bdddd2ce6e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3955575ad4fce0e172c08bc3ee849d3b"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
+<tr class="memitem:a3955575ad4fce0e172c08bc3ee849d3b"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a3955575ad4fce0e172c08bc3ee849d3b">max_value</a> (const ContainerType &amp;container)</td></tr>
+<tr class="memdesc:a3955575ad4fce0e172c08bc3ee849d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum value in the container.  <a href="../../d2/d9f/namespacealg.html#a3955575ad4fce0e172c08bc3ee849d3b">More...</a><br /></td></tr>
+<tr class="separator:a3955575ad4fce0e172c08bc3ee849d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaadb9d743ac062dccd1fa8db03f8b6e0"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
+<tr class="memitem:aaadb9d743ac062dccd1fa8db03f8b6e0"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#aaadb9d743ac062dccd1fa8db03f8b6e0">max_value</a> (const ContainerType &amp;container, int &amp;maxIndex)</td></tr>
+<tr class="memdesc:aaadb9d743ac062dccd1fa8db03f8b6e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum value in the container and its index in the container.  <a href="../../d2/d9f/namespacealg.html#aaadb9d743ac062dccd1fa8db03f8b6e0">More...</a><br /></td></tr>
+<tr class="separator:aaadb9d743ac062dccd1fa8db03f8b6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adffc06b89dc20f499a540036f6c59141"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
+<tr class="memitem:adffc06b89dc20f499a540036f6c59141"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#adffc06b89dc20f499a540036f6c59141">min_value</a> (const ContainerType &amp;container)</td></tr>
+<tr class="memdesc:adffc06b89dc20f499a540036f6c59141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum value in the container.  <a href="../../d2/d9f/namespacealg.html#adffc06b89dc20f499a540036f6c59141">More...</a><br /></td></tr>
+<tr class="separator:adffc06b89dc20f499a540036f6c59141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aace5a83c7d44d74ccd79d5ed5a015ac6"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
+<tr class="memitem:aace5a83c7d44d74ccd79d5ed5a015ac6"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#aace5a83c7d44d74ccd79d5ed5a015ac6">min_value</a> (const ContainerType &amp;container, int &amp;minIndex)</td></tr>
+<tr class="memdesc:aace5a83c7d44d74ccd79d5ed5a015ac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum value in the container and its index in the container.  <a href="../../d2/d9f/namespacealg.html#aace5a83c7d44d74ccd79d5ed5a015ac6">More...</a><br /></td></tr>
+<tr class="separator:aace5a83c7d44d74ccd79d5ed5a015ac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad17e51dc6ca77a27c4359ce50edfb330"><td class="memTemplParams" colspan="2">template&lt;Container InputContainer, Container OutputContainer, class UnaryOp &gt; </td></tr>
 <tr class="memitem:ad17e51dc6ca77a27c4359ce50edfb330"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#ad17e51dc6ca77a27c4359ce50edfb330">transform</a> (const InputContainer &amp;input, OutputContainer &amp;output, UnaryOp &amp;&amp;func)</td></tr>
+<tr class="memdesc:ad17e51dc6ca77a27c4359ce50edfb330"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populates <code>output</code> by calling <code>func</code> with each element of <code>input</code> in sequence.  <a href="../../d2/d9f/namespacealg.html#ad17e51dc6ca77a27c4359ce50edfb330">More...</a><br /></td></tr>
 <tr class="separator:ad17e51dc6ca77a27c4359ce50edfb330"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a9280a6b61ef312c80d85e6e0b91e8a00"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a9280a6b61ef312c80d85e6e0b91e8a00"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a9280a6b61ef312c80d85e6e0b91e8a00">Container</a></td></tr>
-<tr class="separator:a9280a6b61ef312c80d85e6e0b91e8a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a757811af9ff407f689d49264b212c877"><td class="memTemplParams" colspan="2">template&lt;Container OutputContainerType, Container InputContainer, class UnaryOp &gt; </td></tr>
+<tr class="memitem:a757811af9ff407f689d49264b212c877"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT OutputContainerType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a757811af9ff407f689d49264b212c877">createFromTransform</a> (const InputContainer &amp;input, UnaryOp &amp;&amp;func)</td></tr>
+<tr class="memdesc:a757811af9ff407f689d49264b212c877"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <code><a class="el" href="../../d2/d9f/namespacealg.html#ad17e51dc6ca77a27c4359ce50edfb330" title="Populates output by calling func with each element of input in sequence.">transform()</a></code> , except the output container is default constructed before being populated.  <a href="../../d2/d9f/namespacealg.html#a757811af9ff407f689d49264b212c877">More...</a><br /></td></tr>
+<tr class="separator:a757811af9ff407f689d49264b212c877"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a977caee9e6a4f374dbbb4589c8cfc39e"><td class="memTemplParams" colspan="2">template&lt;Container ContainerType&gt; </td></tr>
+<tr class="memitem:a977caee9e6a4f374dbbb4589c8cfc39e"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d9f/namespacealg.html#a977caee9e6a4f374dbbb4589c8cfc39e">enumerate</a> (ContainerType &amp;&amp;iterable)</td></tr>
+<tr class="memdesc:a977caee9e6a4f374dbbb4589c8cfc39e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function allows structured bindings of iterators, similar to Python's <code>enumerate</code>() method.  <a href="../../d2/d9f/namespacealg.html#a977caee9e6a4f374dbbb4589c8cfc39e">More...</a><br /></td></tr>
+<tr class="separator:a977caee9e6a4f374dbbb4589c8cfc39e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This namespace defines various utility algorithms. </p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a7dccb7818bdc5ba28aaff325dd4e715c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7dccb7818bdc5ba28aaff325dd4e715c">&#9670;&nbsp;</a></span>ElementType</h2>
 
@@ -202,7 +209,9 @@ template&lt;Container ContainerType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00034">34</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Handy typedef for deducing the type of the objects in a Container. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00055">55</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -220,7 +229,9 @@ template&lt;Container ContainerType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00037">37</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Typedef for the type returned by calling <code>begin()</code> or <code>end()</code> on a Container. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00059">59</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -267,7 +278,10 @@ template&lt;Container Container1, Container Container2, class Callable &gt; </di
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00202">202</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Calls a function with corresponding pairs of elements from two containers. </p>
+<p>The function's first two arguments must be the element types of <code>Container1</code> and <code>Container2</code> ; if the function accepts a third integer argument, then it will also receive the current index. The iteration stops when the end of the smallest container is reached. </p><dl class="section return"><dt>Returns</dt><dd>The number of times the function was called </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00219">219</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -307,7 +321,9 @@ template&lt;Container ContainerType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00046">46</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Returns true if the container contains the specified value. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00070">70</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -347,7 +363,9 @@ template&lt;Container ContainerType, class UnaryPredicate &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00052">52</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Returns true if the specified predicate is met by at least one object in the container. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00077">77</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -393,7 +411,10 @@ template&lt;Container ContainerType, class UnaryPredicate &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00069">69</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned. </p>
+<p>If no objects in the container meet the predicate, then <code>defaultValue</code> is returned. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00100">100</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -439,12 +460,15 @@ template&lt;Container ContainerType, class UnaryPredicate &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00058">58</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned. </p>
+<p>If no objects in the container meet the predicate, then <code>defaultValue</code> is returned. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00086">86</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
-<a id="a0274b772d59a6b8895a83e548c54db6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0274b772d59a6b8895a83e548c54db6e">&#9670;&nbsp;</a></span>contains_or_default()</h2>
+<a id="a787a5069c66574efe3747a4c74046325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a787a5069c66574efe3747a4c74046325">&#9670;&nbsp;</a></span>contains_or_default()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -455,7 +479,7 @@ template&lt;Container ContainerType, class UnaryPredicate &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr LIMES_EXPORT auto alg::contains_or_default </td>
+          <td class="memname">constexpr LIMES_EXPORT <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt;ContainerType&gt; alg::contains_or_default </td>
           <td>(</td>
           <td class="paramtype">const ContainerType &amp;&#160;</td>
           <td class="paramname"><em>container</em>, </td>
@@ -479,87 +503,10 @@ template&lt;Container ContainerType, class UnaryPredicate &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00080">80</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned. </p>
+<p>If no objects in the container meet the predicate, then a default-constructed object is returned. Note that the container's element type must be default constructable! </p>
 
-</div>
-</div>
-<a id="a9490a5f483f3ea2a93e767352d2cc233"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9490a5f483f3ea2a93e767352d2cc233">&#9670;&nbsp;</a></span>contains_or_null() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Container ContainerType, class UnaryPredicate &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const LIMES_EXPORT <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt;ContainerType&gt;* alg::contains_or_null </td>
-          <td>(</td>
-          <td class="paramtype">const ContainerType &amp;&#160;</td>
-          <td class="paramname"><em>container</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">UnaryPredicate &amp;&amp;&#160;</td>
-          <td class="paramname"><em>p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00107">107</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
-
-</div>
-</div>
-<a id="a1ee6f580fa8fd88edeba8b923334e40e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ee6f580fa8fd88edeba8b923334e40e">&#9670;&nbsp;</a></span>contains_or_null() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Container ContainerType, class UnaryPredicate &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr LIMES_EXPORT <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt;ContainerType&gt;* alg::contains_or_null </td>
-          <td>(</td>
-          <td class="paramtype">ContainerType &amp;&#160;</td>
-          <td class="paramname"><em>container</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">UnaryPredicate &amp;&amp;&#160;</td>
-          <td class="paramname"><em>p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00096">96</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00115">115</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -599,7 +546,10 @@ template&lt;Container OutputContainerType, Container InputContainer, class Unary
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00255">255</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>The same as <code><a class="el" href="../../d2/d9f/namespacealg.html#ad17e51dc6ca77a27c4359ce50edfb330" title="Populates output by calling func with each element of input in sequence.">transform()</a></code> , except the output container is default constructed before being populated. </p>
+<p><code>OutputContainerType</code> must be default constructable! </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d2/d9f/namespacealg.html#ad17e51dc6ca77a27c4359ce50edfb330" title="Populates output by calling func with each element of input in sequence.">transform()</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00286">286</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -629,7 +579,13 @@ template&lt;Container ContainerType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00269">269</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>This function allows structured bindings of iterators, similar to Python's <code>enumerate</code>() method. </p>
+<p>Example usage: </p><div class="fragment"><div class="line">std::vector&lt;int&gt; v {7,14,21};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> [idx, val] : <a class="code" href="../../d2/d9f/namespacealg.html#a977caee9e6a4f374dbbb4589c8cfc39e">enumerate</a>(v))</div>
+<div class="line">    <a class="code" href="../../d2/dab/namespaceassert.html">assert</a> ((idx+1)*7 == val);</div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00309">309</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -669,12 +625,14 @@ template&lt;Container ContainerType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00040">40</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Fills the container with the specified value. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00063">63</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
-<a id="aa993a9b75ef39c952ffa1525515dd212"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa993a9b75ef39c952ffa1525515dd212">&#9670;&nbsp;</a></span>find_if()</h2>
+<a id="aef6e921fb66d033398c60d9aa387026a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef6e921fb66d033398c60d9aa387026a">&#9670;&nbsp;</a></span>find_if() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -685,7 +643,7 @@ template&lt;Container ContainerType, class UnaryPredicate &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr LIMES_EXPORT auto* alg::find_if </td>
+          <td class="memname">constexpr LIMES_EXPORT <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt;ContainerType&gt;* alg::find_if </td>
           <td>(</td>
           <td class="paramtype">const ContainerType &amp;&#160;</td>
           <td class="paramname"><em>container</em>, </td>
@@ -709,34 +667,53 @@ template&lt;Container ContainerType, class UnaryPredicate &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00118">118</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned. </p>
+<p>If no objects in the container meet the predicate, then a nullptr is returned. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00134">134</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
-<a id="a2b5ac094c436ed8c63247a52d575d904"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b5ac094c436ed8c63247a52d575d904">&#9670;&nbsp;</a></span>get_rand_engine()</h2>
+<a id="a3f0432bba758bc38ef2b2051c656a544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f0432bba758bc38ef2b2051c656a544">&#9670;&nbsp;</a></span>find_if() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;Container ContainerType, class UnaryPredicate &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static LIMES_NO_EXPORT auto&amp; alg::get_rand_engine </td>
+          <td class="memname">constexpr const LIMES_EXPORT <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt;ContainerType&gt;* alg::find_if </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const ContainerType &amp;&#160;</td>
+          <td class="paramname"><em>container</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">UnaryPredicate &amp;&amp;&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00182">182</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned. </p>
+<p>If no objects in the container meet the predicate, then a nullptr is returned. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00148">148</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -766,7 +743,9 @@ template&lt;Container ContainerType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00217">217</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Returns the maximum value in the container. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00238">238</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -806,7 +785,9 @@ template&lt;Container ContainerType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00223">223</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Returns the maximum value in the container and its index in the container. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00245">245</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -836,7 +817,9 @@ template&lt;Container ContainerType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00233">233</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Returns the minimum value in the container. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00256">256</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -876,7 +859,9 @@ template&lt;Container ContainerType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00239">239</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Returns the minimum value in the container and its index in the container. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00263">263</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -916,77 +901,9 @@ template&lt;Container ContainerType, class UnaryPredicate &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00132">132</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Counts the number of objects in the container that meet the specified predicate. </p>
 
-</div>
-</div>
-<a id="aae9c886f1fa07ab2915bc9a3e5e121c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae9c886f1fa07ab2915bc9a3e5e121c6">&#9670;&nbsp;</a></span>remove()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Container ContainerType&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr LIMES_EXPORT void alg::remove </td>
-          <td>(</td>
-          <td class="paramtype">ContainerType &amp;&#160;</td>
-          <td class="paramname"><em>container</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d2/d9f/namespacealg.html#a7dccb7818bdc5ba28aaff325dd4e715c">ElementType</a>&lt; ContainerType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>object</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00147">147</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
-
-</div>
-</div>
-<a id="a8d2253337fd326084a3bd515bffb057b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d2253337fd326084a3bd515bffb057b">&#9670;&nbsp;</a></span>removeDuplicates()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Container ContainerType&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr LIMES_EXPORT void alg::removeDuplicates </td>
-          <td>(</td>
-          <td class="paramtype">ContainerType &amp;&#160;</td>
-          <td class="paramname"><em>container</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00153">153</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00160">160</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -1016,7 +933,9 @@ template&lt;Container ContainerType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00159">159</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Reverses the objects in the container. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00175">175</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -1038,7 +957,9 @@ template&lt;Container ContainerType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00196">196</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Randomizes the order of the elements in the container. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00205">205</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -1068,7 +989,9 @@ template&lt;Container ContainerType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00138">138</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Counts the number of objects in the container. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00167">167</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -1108,7 +1031,16 @@ template&lt;Container ContainerType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00165">165</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Sorts the objects in the container. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">container</td><td>The container to sort. </td></tr>
+    <tr><td class="paramname">forward</td><td>If false, the container will be reversed after it is sorted. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00185">185</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -1154,7 +1086,9 @@ template&lt;Container ContainerType, class Comparison &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00174">174</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Sorts the container using a custom comparator. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00195">195</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
@@ -1200,41 +1134,22 @@ template&lt;Container InputContainer, Container OutputContainer, class UnaryOp &
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00249">249</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p>Populates <code>output</code> by calling <code>func</code> with each element of <code>input</code> in sequence. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d2/d9f/namespacealg.html#a757811af9ff407f689d49264b212c877" title="The same as transform() , except the output container is default constructed before being populated.">createFromTransform()</a> </dd></dl>
 
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a9280a6b61ef312c80d85e6e0b91e8a00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9280a6b61ef312c80d85e6e0b91e8a00">&#9670;&nbsp;</a></span>Container</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">concept alg::Container</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= requires (T a)</div>
-<div class="line">{</div>
-<div class="line">    { std::begin (a) };</div>
-<div class="line">    { std::end (a) };</div>
-<div class="line">}</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00027">27</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/dda/_algorithm_8h_source.html#l00276">276</a> of file <a class="el" href="../../d8/dda/_algorithm_8h_source.html">Algorithm.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacealg_html_a977caee9e6a4f374dbbb4589c8cfc39e"><div class="ttname"><a href="../../d2/d9f/namespacealg.html#a977caee9e6a4f374dbbb4589c8cfc39e">alg::enumerate</a></div><div class="ttdeci">constexpr LIMES_EXPORT auto enumerate(ContainerType &amp;&amp;iterable)</div><div class="ttdoc">This function allows structured bindings of iterators, similar to Python's enumerate() method.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dda/_algorithm_8h_source.html#l00309">Algorithm.h:309</a></div></div>
+<div class="ttc" id="anamespaceassert_html"><div class="ttname"><a href="../../d2/dab/namespaceassert.html">assert</a></div><div class="ttdoc">This namespace contains utilities for runtime assertions.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbb/limes__assert_8h_source.html#l00039">limes_assert.h:39</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d2/d9f/namespacealg.html">alg</a></li>
-    <li class="footer">Generated on Thu May 26 2022 10:05:02 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 16:10:55 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

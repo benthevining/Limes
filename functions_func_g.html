@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 <li>get()
 : <a class="el" href="dc/df5/classfiles_1_1_c_file.html#a493feb21f1f971df6758ad348624d5d3">files::CFile</a>
 , <a class="el" href="d6/d00/classmath_1_1_matrix.html#a45bd4dd4094d3b98c8b4cde553e64583">math::Matrix&lt; ObjectType, Rows, Columns &gt;</a>
-, <a class="el" href="d8/dc8/classmemory_1_1aligned__pointer.html#a72ade0d19f3bd4e058e0c8c94fab88f3">memory::aligned_pointer&lt; T &gt;</a>
+, <a class="el" href="d8/dc8/classmemory_1_1aligned__pointer.html#acb4c425d36258fbab48339f988e0c433">memory::aligned_pointer&lt; T, UseExceptions &gt;</a>
 , <a class="el" href="d1/d17/classmemory_1_1_memory_pool_pointer.html#af87c683762c785e04c85919ee336740b">memory::MemoryPoolPointer&lt; ObjectType, AllowOverflowAllocation &gt;</a>
 , <a class="el" href="dc/d1a/classmemory_1_1_optional_object.html#af715ccd87f00ad50ebee42b4cdcc2e4a">memory::OptionalObject&lt; T &gt;</a>
 , <a class="el" href="d6/d26/classmemory_1_1_reference_counted_object_ptr.html#a7a2976a523d882b6eefef0a260b2bb89">memory::ReferenceCountedObjectPtr&lt; ObjectType &gt;</a>
@@ -128,9 +128,6 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 </li>
 <li>getBaseAngle()
 : <a class="el" href="dc/da1/classmath_1_1geometry_1_1_triangle.html#a9a07a709034f5d967d24353a958f5e6b">math::geometry::Triangle&lt; ValueType &gt;</a>
-</li>
-<li>getBit()
-: <a class="el" href="d0/dc6/structmisc_1_1_bit_field.html#aa4f2a1a492992ec8390b63422c112345">misc::BitField&lt; StorageType &gt;</a>
 </li>
 <li>getBoolean()
 : <a class="el" href="d7/d3b/classjson_1_1_node.html#a7c138f1bd2082fb6d89e796a7bc034fb">json::Node</a>
@@ -173,6 +170,9 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 </li>
 <li>getChildSymLinks()
 : <a class="el" href="d5/d2a/classfiles_1_1_directory.html#ae01c76e026e92acdef949deb55049888">files::Directory</a>
+</li>
+<li>getChunkSize()
+: <a class="el" href="d7/db7/classmemory_1_1_memory_pool.html#ad6aa8dd28a44fe2acef9f1f2a0d2a0fe">memory::MemoryPool</a>
 </li>
 <li>getColumn()
 : <a class="el" href="d6/d00/classmath_1_1_matrix.html#abc227bdc3b5bd929c90ec7d7c07abc28">math::Matrix&lt; ObjectType, Rows, Columns &gt;</a>
@@ -255,9 +255,6 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 </li>
 <li>getEnharmonicKey()
 : <a class="el" href="de/d99/classmusic_1_1scales_1_1_key_signature.html#abb945bf1a63d9845dd8364b32284c7f9">music::scales::KeySignature</a>
-</li>
-<li>getEntireField()
-: <a class="el" href="d0/dc6/structmisc_1_1_bit_field.html#a474c1db4b265658ac45d5e7454d7eb1d">misc::BitField&lt; StorageType &gt;</a>
 </li>
 <li>getExplement()
 : <a class="el" href="d0/d61/classmath_1_1geometry_1_1_angle.html#af431ac5d20895ff8ab67a208c5660ee4">math::geometry::Angle&lt; ValueType &gt;</a>
@@ -396,7 +393,7 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 : <a class="el" href="da/df7/classds_1_1_linked_list.html#affb09c780528f4a71183365f895f5dbd">ds::LinkedList&lt; ObjectType &gt;</a>
 </li>
 <li>getLastNodeInList()
-: <a class="el" href="df/d16/structds_1_1_linked_list_model.html#aeb3df6a21b7e4d6487b1a59ea7ec468c">ds::LinkedListModel&lt; ObjectType &gt;</a>
+: <a class="el" href="df/d16/structds_1_1_linked_list_model.html#aed9f73495b6f3e0eab6ca13c9b777fa0">ds::LinkedListModel&lt; ObjectType &gt;</a>
 </li>
 <li>getLastNoteInTie()
 : <a class="el" href="db/d92/structmusic_1_1_note_length.html#acf4316118368f42afe26a08f28cddb6f">music::NoteLength</a>
@@ -516,9 +513,6 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 <li>getOctaveNumber()
 : <a class="el" href="de/d6d/classmusic_1_1_pitch.html#a821f0e8902b17d8e67103245af2aa243">music::Pitch</a>
 </li>
-<li>getOwnedObject()
-: <a class="el" href="df/d51/structmemory_1_1_shared_object_owner.html#a83218a24635bc7e742adb5278d5b0d16">memory::SharedObjectOwner&lt; OwnedObjectType &gt;</a>
-</li>
 <li>getParallelKey()
 : <a class="el" href="de/d99/classmusic_1_1scales_1_1_key_signature.html#a8c3b944772b000e10a35c35589169954">music::scales::KeySignature</a>
 </li>
@@ -579,7 +573,7 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 : <a class="el" href="dd/df8/structmusic_1_1_note_duration.html#ae6b6019391022160272790352c849f1c">music::NoteDuration</a>
 </li>
 <li>getRawCoefficients()
-: <a class="el" href="d5/d70/classdsp_1_1filters_1_1_coeffecients.html#aca6a39c95c26f374d0df06320e891b74">dsp::filters::Coeffecients&lt; Sampletype &gt;</a>
+: <a class="el" href="d5/d70/classdsp_1_1filters_1_1_coeffecients.html#a497bc36af36a945e2b7651db680df282">dsp::filters::Coeffecients&lt; Sampletype &gt;</a>
 </li>
 <li>getReciprocal()
 : <a class="el" href="d5/d26/structmath_1_1_fraction.html#a9369a4e1440614d9d7c3740e4e9443d7">math::Fraction&lt; ValueType &gt;</a>
@@ -592,9 +586,6 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 </li>
 <li>getRefCount()
 : <a class="el" href="da/d8c/classmemory_1_1_reference_counted_object.html#a40a5b355c562aa5c235ab48fc3e993ab">memory::ReferenceCountedObject</a>
-</li>
-<li>getReferenceCount()
-: <a class="el" href="df/d51/structmemory_1_1_shared_object_owner.html#a4ab1adeca59930a75a51be4298304b40">memory::SharedObjectOwner&lt; OwnedObjectType &gt;</a>
 </li>
 <li>getRelativeKey()
 : <a class="el" href="de/d99/classmusic_1_1scales_1_1_key_signature.html#a865ed547fff0f853cf5c6b04471bcfca">music::scales::KeySignature</a>
@@ -630,7 +621,7 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 : <a class="el" href="df/d5c/structdsp_1_1_sample_stream.html#a5520f61d0deb5752ab24f64c1f5bc80d">dsp::SampleStream&lt; SampleType &gt;</a>
 </li>
 <li>getSamples()
-: <a class="el" href="d2/d99/classdsp_1_1_circular_buffer.html#a02c87f2de1d9bf95955fb83fd091ea2b">dsp::CircularBuffer&lt; SampleType &gt;</a>
+: <a class="el" href="d2/d99/classdsp_1_1_circular_buffer.html#aef22ff002f9389f465759997adf2e42e">dsp::CircularBuffer&lt; SampleType &gt;</a>
 , <a class="el" href="df/d5c/structdsp_1_1_sample_stream.html#a71de49020f685e073977ef1bf2d32c6c">dsp::SampleStream&lt; SampleType &gt;</a>
 </li>
 <li>getScaleName()
@@ -725,7 +716,7 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu May 26 2022 10:05:03 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 16:10:56 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

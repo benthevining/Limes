@@ -93,6 +93,9 @@ $(document).ready(function(){initNavTree('d1/d2b/classmemory_1_1_stack_allocator
 </div><!--header-->
 <div class="contents">
 
+<p>An STL-style allocator that uses stack space to allocate objects.  
+ <a href="../../d1/d2b/classmemory_1_1_stack_allocator.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -137,8 +140,17 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;class T, std::size_t N, std::size_t Align = alignof (std::max_align_t)&gt;<br />
 class memory::StackAllocator&lt; T, N, Align &gt;</h3>
 
+<p>An STL-style allocator that uses stack space to allocate objects. </p>
+<p>Once the reserved stack space runs out, this allocator falls back to using <code>new</code> calls. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of objects to be allocated </td></tr>
+    <tr><td class="paramname">N</td><td>The number of bytes to reserve on the stack </td></tr>
+    <tr><td class="paramname">Align</td><td>The alignment to use </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00062">62</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00039">39</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a302ceb3b4a59ff7b1a9185c1ba364ed0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a302ceb3b4a59ff7b1a9185c1ba364ed0">&#9670;&nbsp;</a></span>const_pointer</h2>
@@ -154,7 +166,7 @@ template&lt;class T , std::size_t N, std::size_t Align = alignof (std::max_align
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00067">67</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00044">44</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 
 </div>
 </div>
@@ -172,7 +184,7 @@ template&lt;class T , std::size_t N, std::size_t Align = alignof (std::max_align
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00069">69</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00046">46</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 
 </div>
 </div>
@@ -190,7 +202,7 @@ template&lt;class T , std::size_t N, std::size_t Align = alignof (std::max_align
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00072">72</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00049">49</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 
 </div>
 </div>
@@ -208,7 +220,7 @@ template&lt;class T , std::size_t N, std::size_t Align = alignof (std::max_align
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00066">66</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00043">43</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 
 </div>
 </div>
@@ -226,7 +238,7 @@ template&lt;class T , std::size_t N, std::size_t Align = alignof (std::max_align
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00068">68</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00045">45</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 
 </div>
 </div>
@@ -244,7 +256,7 @@ template&lt;class T , std::size_t N, std::size_t Align = alignof (std::max_align
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00071">71</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00048">48</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 
 </div>
 </div>
@@ -262,7 +274,7 @@ template&lt;class T , std::size_t N, std::size_t Align = alignof (std::max_align
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00070">70</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00047">47</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 
 </div>
 </div>
@@ -320,7 +332,7 @@ template&lt;class T , std::size_t N, std::size_t Align = alignof (std::max_align
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00077">77</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00054">54</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 
 </div>
 </div>
@@ -352,7 +364,7 @@ template&lt;class U &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00084">84</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00061">61</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 
 </div>
 </div>
@@ -375,7 +387,7 @@ template&lt;class T , std::size_t N, std::size_t Align&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00126">126</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00135">135</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 
 </div>
 </div>
@@ -415,7 +427,7 @@ template&lt;class T , std::size_t N, std::size_t Align&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00132">132</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00141">141</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 
 </div>
 </div>
@@ -456,7 +468,7 @@ template&lt;class T , std::size_t N, std::size_t Align = alignof (std::max_align
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d4/daf/namespacememory.html">memory</a></li><li class="navelem"><a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html">StackAllocator</a></li>
-    <li class="footer">Generated on Thu May 26 2022 10:05:03 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 16:10:56 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -93,55 +93,78 @@ $(document).ready(function(){initNavTree('dc/d1a/classmemory_1_1_optional_object
 </div><!--header-->
 <div class="contents">
 
+<p>An object that retains its allocated memory, but can be dynamically constructed and destroyed (without deallocating its memory).  
+ <a href="../../dc/d1a/classmemory_1_1_optional_object.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a7a2425befdfe0797767d29d13c39bc8b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a7a2425befdfe0797767d29d13c39bc8b">Type</a> = T</td></tr>
+<tr class="memdesc:a7a2425befdfe0797767d29d13c39bc8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">You can access the type of the owned object with this typedef.  <a href="../../dc/d1a/classmemory_1_1_optional_object.html#a7a2425befdfe0797767d29d13c39bc8b">More...</a><br /></td></tr>
 <tr class="separator:a7a2425befdfe0797767d29d13c39bc8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a9fafb76891ef2eb7dd1c38bbd300075f"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a9fafb76891ef2eb7dd1c38bbd300075f"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a9fafb76891ef2eb7dd1c38bbd300075f">create</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a9fafb76891ef2eb7dd1c38bbd300075f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the object with the given arguments.  <a href="../../dc/d1a/classmemory_1_1_optional_object.html#a9fafb76891ef2eb7dd1c38bbd300075f">More...</a><br /></td></tr>
+<tr class="separator:a9fafb76891ef2eb7dd1c38bbd300075f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf4f2edf40902cbb0aaf8d864e4fa283"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#aaf4f2edf40902cbb0aaf8d864e4fa283">destroy</a> ()</td></tr>
+<tr class="memdesc:aaf4f2edf40902cbb0aaf8d864e4fa283"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the object's destructor, but does not deallocate its memory.  <a href="../../dc/d1a/classmemory_1_1_optional_object.html#aaf4f2edf40902cbb0aaf8d864e4fa283">More...</a><br /></td></tr>
+<tr class="separator:aaf4f2edf40902cbb0aaf8d864e4fa283"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75dd2ddd3c27010c75d647e44528542b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a75dd2ddd3c27010c75d647e44528542b">exists</a> () const noexcept</td></tr>
+<tr class="memdesc:a75dd2ddd3c27010c75d647e44528542b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the object currently exists.  <a href="../../dc/d1a/classmemory_1_1_optional_object.html#a75dd2ddd3c27010c75d647e44528542b">More...</a><br /></td></tr>
+<tr class="separator:a75dd2ddd3c27010c75d647e44528542b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f014c44b88c898d59d61e9b94d37424"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a0f014c44b88c898d59d61e9b94d37424">operator*</a> () const</td></tr>
+<tr class="memdesc:a0f014c44b88c898d59d61e9b94d37424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the owned object.  <a href="../../dc/d1a/classmemory_1_1_optional_object.html#a0f014c44b88c898d59d61e9b94d37424">More...</a><br /></td></tr>
+<tr class="separator:a0f014c44b88c898d59d61e9b94d37424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Constructors</div></td></tr>
 <tr class="memitem:a7b7bf0f69c703aa1313f1381fe0bb741"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a7b7bf0f69c703aa1313f1381fe0bb741">OptionalObject</a> ()=default</td></tr>
+<tr class="memdesc:a7b7bf0f69c703aa1313f1381fe0bb741"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an uninitialized, null object.  <a href="../../dc/d1a/classmemory_1_1_optional_object.html#a7b7bf0f69c703aa1313f1381fe0bb741">More...</a><br /></td></tr>
 <tr class="separator:a7b7bf0f69c703aa1313f1381fe0bb741"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a231a4aa5f8fa327d4067e4e7cf762412"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:a231a4aa5f8fa327d4067e4e7cf762412"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a231a4aa5f8fa327d4067e4e7cf762412">OptionalObject</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a231a4aa5f8fa327d4067e4e7cf762412"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the object with the given arguments.  <a href="../../dc/d1a/classmemory_1_1_optional_object.html#a231a4aa5f8fa327d4067e4e7cf762412">More...</a><br /></td></tr>
 <tr class="separator:a231a4aa5f8fa327d4067e4e7cf762412"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19ac2bf896e9b2519e04033c8da17561"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a19ac2bf896e9b2519e04033c8da17561">OptionalObject</a> (const <a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html">OptionalObject</a> &amp;other)</td></tr>
+<tr class="memdesc:a19ac2bf896e9b2519e04033c8da17561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="../../dc/d1a/classmemory_1_1_optional_object.html#a19ac2bf896e9b2519e04033c8da17561">More...</a><br /></td></tr>
 <tr class="separator:a19ac2bf896e9b2519e04033c8da17561"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f82d128c4c9a5e91bdfe6e7b1ccdf28"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a8f82d128c4c9a5e91bdfe6e7b1ccdf28">OptionalObject</a> (<a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html">OptionalObject</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a8f82d128c4c9a5e91bdfe6e7b1ccdf28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <a href="../../dc/d1a/classmemory_1_1_optional_object.html#a8f82d128c4c9a5e91bdfe6e7b1ccdf28">More...</a><br /></td></tr>
 <tr class="separator:a8f82d128c4c9a5e91bdfe6e7b1ccdf28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a780f1628f40579d830c93afc9393a02b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a780f1628f40579d830c93afc9393a02b">~OptionalObject</a> ()=default</td></tr>
-<tr class="separator:a780f1628f40579d830c93afc9393a02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fafb76891ef2eb7dd1c38bbd300075f"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a9fafb76891ef2eb7dd1c38bbd300075f"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a9fafb76891ef2eb7dd1c38bbd300075f">create</a> (Args &amp;&amp;... args)</td></tr>
-<tr class="separator:a9fafb76891ef2eb7dd1c38bbd300075f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf4f2edf40902cbb0aaf8d864e4fa283"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#aaf4f2edf40902cbb0aaf8d864e4fa283">destroy</a> ()</td></tr>
-<tr class="separator:aaf4f2edf40902cbb0aaf8d864e4fa283"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75dd2ddd3c27010c75d647e44528542b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a75dd2ddd3c27010c75d647e44528542b">exists</a> () const noexcept</td></tr>
-<tr class="separator:a75dd2ddd3c27010c75d647e44528542b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af715ccd87f00ad50ebee42b4cdcc2e4a"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#af715ccd87f00ad50ebee42b4cdcc2e4a">get</a> () const noexcept</td></tr>
-<tr class="separator:af715ccd87f00ad50ebee42b4cdcc2e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f014c44b88c898d59d61e9b94d37424"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a0f014c44b88c898d59d61e9b94d37424">operator*</a> () const</td></tr>
-<tr class="separator:a0f014c44b88c898d59d61e9b94d37424"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6aa90a16e2aab2e0d5def79a17f4bba"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#ae6aa90a16e2aab2e0d5def79a17f4bba">operator-&gt;</a> () const noexcept</td></tr>
-<tr class="separator:ae6aa90a16e2aab2e0d5def79a17f4bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Assignment</div></td></tr>
 <tr class="memitem:a4304be7b1698afa72cbf2bd7b1395b9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html">OptionalObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a4304be7b1698afa72cbf2bd7b1395b9f">operator=</a> (const <a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html">OptionalObject</a> &amp;other)</td></tr>
 <tr class="separator:a4304be7b1698afa72cbf2bd7b1395b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48ea40a952f9763cba7204c0fe167cde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html">OptionalObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#a48ea40a952f9763cba7204c0fe167cde">operator=</a> (<a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html">OptionalObject</a> &amp;&amp;other) noexcept</td></tr>
 <tr class="separator:a48ea40a952f9763cba7204c0fe167cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Accessors</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Returns a pointer to the owned object. </p>
+</div></td></tr>
+<tr class="memitem:af715ccd87f00ad50ebee42b4cdcc2e4a"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#af715ccd87f00ad50ebee42b4cdcc2e4a">get</a> () const noexcept</td></tr>
+<tr class="separator:af715ccd87f00ad50ebee42b4cdcc2e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6aa90a16e2aab2e0d5def79a17f4bba"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#ae6aa90a16e2aab2e0d5def79a17f4bba">operator-&gt;</a> () const noexcept</td></tr>
+<tr class="separator:ae6aa90a16e2aab2e0d5def79a17f4bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aba540126cf53fde553e9842c14ed2d04"><td class="memItemLeft" align="right" valign="top">static consteval size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html#aba540126cf53fde553e9842c14ed2d04">getSize</a> () noexcept</td></tr>
+<tr class="memdesc:aba540126cf53fde553e9842c14ed2d04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size of the owned object (and thus, the preallocated memory), in bytes.  <a href="../../dc/d1a/classmemory_1_1_optional_object.html#aba540126cf53fde553e9842c14ed2d04">More...</a><br /></td></tr>
 <tr class="separator:aba540126cf53fde553e9842c14ed2d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class memory::OptionalObject&lt; T &gt;</h3>
 
+<p>An object that retains its allocated memory, but can be dynamically constructed and destroyed (without deallocating its memory). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of owned object </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00027">27</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00036">36</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a7a2425befdfe0797767d29d13c39bc8b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7a2425befdfe0797767d29d13c39bc8b">&#9670;&nbsp;</a></span>Type</h2>
@@ -157,7 +180,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00031">31</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p>You can access the type of the owned object with this typedef. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00041">41</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 
 </div>
 </div>
@@ -187,32 +212,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a780f1628f40579d830c93afc9393a02b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a780f1628f40579d830c93afc9393a02b">&#9670;&nbsp;</a></span>~OptionalObject()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html">memory::OptionalObject</a>&lt; T &gt;::~<a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html">OptionalObject</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Creates an uninitialized, null object. </p>
 
 </div>
 </div>
@@ -244,7 +244,9 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00074">74</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p>Constructs the object with the given arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00105">105</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 
 </div>
 </div>
@@ -274,7 +276,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00099">99</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p>Copy constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00130">130</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 
 </div>
 </div>
@@ -304,7 +308,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00105">105</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p>Move constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00136">136</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 
 </div>
 </div>
@@ -329,7 +335,10 @@ template&lt;typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00142">142</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p>Constructs the object with the given arguments. </p>
+<p>If the object already existed when this function is called, its destructor will be called. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00174">174</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 
 </div>
 </div>
@@ -347,7 +356,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00154">154</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p>Calls the object's destructor, but does not deallocate its memory. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00186">186</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 
 </div>
 </div>
@@ -373,7 +384,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00164">164</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p>Returns true if the object currently exists. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00196">196</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 
 </div>
 </div>
@@ -399,7 +412,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00080">80</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00111">111</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 
 </div>
 </div>
@@ -425,7 +438,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00170">170</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p>Returns the size of the owned object (and thus, the preallocated memory), in bytes. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00202">202</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 
 </div>
 </div>
@@ -443,7 +458,10 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00092">92</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p>Returns a reference to the owned object. </p>
+<p>Be careful, the owned pointer may be null! </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00123">123</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 
 </div>
 </div>
@@ -469,7 +487,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00086">86</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00117">117</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 
 </div>
 </div>
@@ -491,7 +509,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00111">111</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00142">142</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 
 </div>
 </div>
@@ -521,7 +539,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00132">132</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/dad/_optional_object_8h_source.html#l00164">164</a> of file <a class="el" href="../../d8/dad/_optional_object_8h_source.html">OptionalObject.h</a>.</p>
 
 </div>
 </div>
@@ -534,7 +552,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d4/daf/namespacememory.html">memory</a></li><li class="navelem"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html">OptionalObject</a></li>
-    <li class="footer">Generated on Thu May 26 2022 10:05:03 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 16:10:56 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

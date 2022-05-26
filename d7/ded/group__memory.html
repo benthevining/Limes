@@ -84,9 +84,10 @@ $(document).ready(function(){initNavTree('d7/ded/group__memory.html','../../'); 
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a>  </div>
+<a href="#files">Files</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Memory<div class="ingroups"><a class="el" href="../../da/d07/group__limes__core.html">Limes_core</a></div></div>  </div>
+<div class="title">Memory<div class="ingroups"><a class="el" href="../../da/d07/group__limes__core.html">limes_core</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -95,17 +96,205 @@ $(document).ready(function(){initNavTree('d7/ded/group__memory.html','../../'); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Files</h2></td></tr>
+<tr class="memitem:d4/db8/_aligned_allocator_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db8/_aligned_allocator_8h.html">AlignedAllocator.h</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:db/dad/alignment_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dad/alignment_8h.html">alignment.h</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d2/daa/_memory_pool_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/daa/_memory_pool_8h.html">MemoryPool.h</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d5/d53/_memory_pool_allocator_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d53/_memory_pool_allocator_8h.html">MemoryPoolAllocator.h</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d8/dad/_optional_object_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dad/_optional_object_8h.html">OptionalObject.h</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d2/dea/_raw_data_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dea/_raw_data_8h.html">RawData.h</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d5/d5a/stack__allocator_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5a/stack__allocator_8h.html">stack_allocator.h</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d0/d78/_static_objects_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d78/_static_objects_8h.html">StaticObjects.h</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga898974242418e2b20981a737c5e82410"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
+<tr class="memitem:ga898974242418e2b20981a737c5e82410"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/ded/group__memory.html#ga898974242418e2b20981a737c5e82410">memory::allocate_aligned</a> (std::size_t count=1, std::size_t alignment=32, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="memdesc:ga898974242418e2b20981a737c5e82410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates the desired number of objects with the desired alignment.  <a href="../../d7/ded/group__memory.html#ga898974242418e2b20981a737c5e82410">More...</a><br /></td></tr>
+<tr class="separator:ga898974242418e2b20981a737c5e82410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a001535fbebdaa7499f0d95e2a5cec7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga5a001535fbebdaa7499f0d95e2a5cec7"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/ded/group__memory.html#ga5a001535fbebdaa7499f0d95e2a5cec7">memory::deallocate_aligned</a> (T *ptr) noexcept</td></tr>
+<tr class="memdesc:ga5a001535fbebdaa7499f0d95e2a5cec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a pointer that was previously allocated with <code><a class="el" href="../../d7/ded/group__memory.html#ga898974242418e2b20981a737c5e82410" title="Allocates the desired number of objects with the desired alignment.">allocate_aligned()</a></code> .  <a href="../../d7/ded/group__memory.html#ga5a001535fbebdaa7499f0d95e2a5cec7">More...</a><br /></td></tr>
+<tr class="separator:ga5a001535fbebdaa7499f0d95e2a5cec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6379140bdddcd776d5f4ab92eb64e1bc"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , typename... Args&gt; </td></tr>
+<tr class="memitem:ga6379140bdddcd776d5f4ab92eb64e1bc"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT ObjectType &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/ded/group__memory.html#ga6379140bdddcd776d5f4ab92eb64e1bc">memory::getStaticObject</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:ga6379140bdddcd776d5f4ab92eb64e1bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function retrieves a static object of a specified type.  <a href="../../d7/ded/group__memory.html#ga6379140bdddcd776d5f4ab92eb64e1bc">More...</a><br /></td></tr>
+<tr class="separator:ga6379140bdddcd776d5f4ab92eb64e1bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf83c9457a4906ef4e3d67963fb18418b"><td class="memTemplParams" colspan="2">template&lt;auto Data&gt; </td></tr>
+<tr class="memitem:gaf83c9457a4906ef4e3d67963fb18418b"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT const consteval auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/ded/group__memory.html#gaf83c9457a4906ef4e3d67963fb18418b">memory::make_static</a> () noexcept</td></tr>
+<tr class="memdesc:gaf83c9457a4906ef4e3d67963fb18418b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function forces some data to be evaluated at compile time.  <a href="../../d7/ded/group__memory.html#gaf83c9457a4906ef4e3d67963fb18418b">More...</a><br /></td></tr>
+<tr class="separator:gaf83c9457a4906ef4e3d67963fb18418b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Utilities for memory management. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga898974242418e2b20981a737c5e82410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga898974242418e2b20981a737c5e82410">&#9670;&nbsp;</a></span>allocate_aligned()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_EXPORT T* memory::allocate_aligned </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>count</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>alignment</em> = <code>32</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Allocates the desired number of objects with the desired alignment. </p>
+<p>On Windows or when using MSVC, <code>_aligned_malloc</code> will be used; otherwise, <code>std::aligned_alloc</code> will be used. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of objects to allocate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>The number of objects to allocate </td></tr>
+    <tr><td class="paramname">alignment</td><td>The alignment of the allocation </td></tr>
+    <tr><td class="paramname">args</td><td>Arguments to forward to the constructor of <code>T</code> for each allocated object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/ded/group__memory.html#ga5a001535fbebdaa7499f0d95e2a5cec7" title="Deallocates a pointer that was previously allocated with allocate_aligned() .">deallocate_aligned</a>, <a class="el" href="../../d8/dc8/classmemory_1_1aligned__pointer.html" title="An RAII object that calls allocate_aligned() on construction and deallocate_aligned() on destruction.">aligned_pointer</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/dad/alignment_8h_source.html#l00049">49</a> of file <a class="el" href="../../db/dad/alignment_8h_source.html">alignment.h</a>.</p>
+
+</div>
+</div>
+<a id="ga5a001535fbebdaa7499f0d95e2a5cec7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5a001535fbebdaa7499f0d95e2a5cec7">&#9670;&nbsp;</a></span>deallocate_aligned()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_EXPORT bool memory::deallocate_aligned </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deallocates a pointer that was previously allocated with <code><a class="el" href="../../d7/ded/group__memory.html#ga898974242418e2b20981a737c5e82410" title="Allocates the desired number of objects with the desired alignment.">allocate_aligned()</a></code> . </p>
+<dl class="section return"><dt>Returns</dt><dd>False if deallocation throws an exception, true otherwise </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/ded/group__memory.html#ga898974242418e2b20981a737c5e82410" title="Allocates the desired number of objects with the desired alignment.">allocate_aligned</a>, <a class="el" href="../../d8/dc8/classmemory_1_1aligned__pointer.html" title="An RAII object that calls allocate_aligned() on construction and deallocate_aligned() on destruction.">aligned_pointer</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/dad/alignment_8h_source.html#l00083">83</a> of file <a class="el" href="../../db/dad/alignment_8h_source.html">alignment.h</a>.</p>
+
+</div>
+</div>
+<a id="ga6379140bdddcd776d5f4ab92eb64e1bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6379140bdddcd776d5f4ab92eb64e1bc">&#9670;&nbsp;</a></span>getStaticObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ObjectType , typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_EXPORT ObjectType&amp; memory::getStaticObject </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function retrieves a static object of a specified type. </p>
+<p>If the object hasn't been initialized before, this function call will construct it with the specified constructor arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/d78/_static_objects_8h_source.html#l00044">44</a> of file <a class="el" href="../../d0/d78/_static_objects_8h_source.html">StaticObjects.h</a>.</p>
+
+</div>
+</div>
+<a id="gaf83c9457a4906ef4e3d67963fb18418b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf83c9457a4906ef4e3d67963fb18418b">&#9670;&nbsp;</a></span>make_static()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;auto Data&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_EXPORT const consteval auto&amp; memory::make_static </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This function forces some data to be evaluated at compile time. </p>
+<p>This can be useful in some scenarios to ensure that your data is available at compile time. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/d78/_static_objects_8h_source.html#l00034">34</a> of file <a class="el" href="../../d0/d78/_static_objects_8h_source.html">StaticObjects.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu May 26 2022 10:05:02 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 16:10:55 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -29,9 +29,6 @@ var files_dup =
     [ "basic_vector.h", "d5/d47/basic__vector_8h.html", [
       [ "basic_vector", "df/d63/classds_1_1basic__vector.html", "df/d63/classds_1_1basic__vector" ]
     ] ],
-    [ "bitField.h", "dd/d8f/bit_field_8h.html", [
-      [ "BitField", "d0/dc6/structmisc_1_1_bit_field.html", "d0/dc6/structmisc_1_1_bit_field" ]
-    ] ],
     [ "build_date.h", "dc/db3/build__date_8h.html", "dc/db3/build__date_8h" ],
     [ "CFile.h", "d9/d78/_c_file_8h.html", [
       [ "CFile", "dc/df5/classfiles_1_1_c_file.html", "dc/df5/classfiles_1_1_c_file" ]
@@ -210,7 +207,9 @@ var files_dup =
       [ "iterator_base", "de/dc2/structds_1_1owned__vector_1_1iterator__base.html", "de/dc2/structds_1_1owned__vector_1_1iterator__base" ],
       [ "owned_vector", "de/de5/classds_1_1owned__vector.html", "de/de5/classds_1_1owned__vector" ]
     ] ],
-    [ "PeakFinder.h", "dc/dad/_peak_finder_8h.html", null ],
+    [ "PeakFinder.h", "dc/dad/_peak_finder_8h.html", [
+      [ "PeakFinder", "dc/de3/classdsp_1_1psola_1_1_peak_finder.html", "dc/de3/classdsp_1_1psola_1_1_peak_finder" ]
+    ] ],
     [ "pentagon.h", "dc/d7f/pentagon_8h.html", [
       [ "Pentagon", "d4/d55/classmath_1_1geometry_1_1_pentagon.html", "d4/d55/classmath_1_1geometry_1_1_pentagon" ]
     ] ],
@@ -270,10 +269,6 @@ var files_dup =
     [ "sha256.h", "d5/de3/sha256_8h.html", "d5/de3/sha256_8h" ],
     [ "sha384.h", "d5/de0/sha384_8h.html", "d5/de0/sha384_8h" ],
     [ "sha512.h", "da/d73/sha512_8h.html", "da/d73/sha512_8h" ],
-    [ "SharedObject.h", "d7/de2/_shared_object_8h.html", [
-      [ "SharedObject", "dc/d58/structmemory_1_1_shared_object.html", "dc/d58/structmemory_1_1_shared_object" ],
-      [ "SharedObjectOwner", "df/d51/structmemory_1_1_shared_object_owner.html", "df/d51/structmemory_1_1_shared_object_owner" ]
-    ] ],
     [ "shifter.h", "d7/d4f/shifter_8h.html", [
       [ "Shifter", "dc/d66/classdsp_1_1psola_1_1_shifter.html", "dc/d66/classdsp_1_1psola_1_1_shifter" ]
     ] ],

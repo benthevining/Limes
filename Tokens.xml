@@ -2,28 +2,6 @@
 <Tokens version="1.0">
   <Token>
     <TokenIdentifier>
-      <Name>ElementType</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a7dccb7818bdc5ba28aaff325dd4e715c</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>IteratorType</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>ab08589f26a257d13ba1e706690752d0c</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>call_both</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -31,6 +9,19 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a6c6814ab08f80fede21d3bdddd2ce6e8</Anchor>
+    <Abstract>Calls a function with corresponding pairs of elements from two containers.</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Container</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>de/d29/group__alg.html</Path>
+    <Anchor>ga9280a6b61ef312c80d85e6e0b91e8a00</Anchor>
+    <Abstract>@concept Container This concept requires that a type has begin() and end() functions that return iter...</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -42,6 +33,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>ad811e97da051a2a578697084d10f0681</Anchor>
+    <Abstract>Returns true if the container contains the specified value.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -53,6 +45,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a2d73d5e0ebb7ce07de5de55cbe8fb94d</Anchor>
+    <Abstract>Returns true if the specified predicate is met by at least one object in the container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -64,6 +57,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a65c3a333b7540ccefdbbd29adedf12f2</Anchor>
+    <Abstract>If the specified predicate is met by any object in the container, then the first object to meet the p...</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -75,6 +69,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a8b5e74fd10c9d3e41c0dd79d0a1b7711</Anchor>
+    <Abstract>If the specified predicate is met by any object in the container, then the first object to meet the p...</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -85,29 +80,8 @@
       <Scope>alg</Scope>
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a0274b772d59a6b8895a83e548c54db6e</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>contains_or_null</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a9490a5f483f3ea2a93e767352d2cc233</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>contains_or_null</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a1ee6f580fa8fd88edeba8b923334e40e</Anchor>
+    <Anchor>a787a5069c66574efe3747a4c74046325</Anchor>
+    <Abstract>If the specified predicate is met by any object in the container, then the first object to meet the p...</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -119,6 +93,19 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a757811af9ff407f689d49264b212c877</Anchor>
+    <Abstract>The same as transform() , except the output container is default constructed before being populated.</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ElementType</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>a7dccb7818bdc5ba28aaff325dd4e715c</Anchor>
+    <Abstract>Handy typedef for deducing the type of the objects in a Container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -130,6 +117,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a977caee9e6a4f374dbbb4589c8cfc39e</Anchor>
+    <Abstract>This function allows structured bindings of iterators, similar to Python&apos;s enumerate() method.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -141,6 +129,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a8578202135800da03ad18668933fcb7a</Anchor>
+    <Abstract>Fills the container with the specified value.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -151,18 +140,32 @@
       <Scope>alg</Scope>
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>aa993a9b75ef39c952ffa1525515dd212</Anchor>
+    <Anchor>aef6e921fb66d033398c60d9aa387026a</Anchor>
+    <Abstract>If the specified predicate is met by any object in the container, then the first object to meet the p...</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>get_rand_engine</Name>
+      <Name>find_if</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
       <Scope>alg</Scope>
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a2b5ac094c436ed8c63247a52d575d904</Anchor>
+    <Anchor>a3f0432bba758bc38ef2b2051c656a544</Anchor>
+    <Abstract>If the specified predicate is met by any object in the container, then the first object to meet the p...</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>IteratorType</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>ab08589f26a257d13ba1e706690752d0c</Anchor>
+    <Abstract>Typedef for the type returned by calling begin() or end() on a Container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -174,6 +177,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a3955575ad4fce0e172c08bc3ee849d3b</Anchor>
+    <Abstract>Returns the maximum value in the container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -185,6 +189,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>aaadb9d743ac062dccd1fa8db03f8b6e0</Anchor>
+    <Abstract>Returns the maximum value in the container and its index in the container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -196,6 +201,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>adffc06b89dc20f499a540036f6c59141</Anchor>
+    <Abstract>Returns the minimum value in the container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -207,6 +213,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>aace5a83c7d44d74ccd79d5ed5a015ac6</Anchor>
+    <Abstract>Returns the minimum value in the container and its index in the container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -218,28 +225,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a347b3ccd19983a354d0992a4359c01c2</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>remove</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>aae9c886f1fa07ab2915bc9a3e5e121c6</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>removeDuplicates</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a8d2253337fd326084a3bd515bffb057b</Anchor>
+    <Abstract>Counts the number of objects in the container that meet the specified predicate.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -251,6 +237,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>aab87399b7732eecfc20de2f1c3b6feb7</Anchor>
+    <Abstract>Reverses the objects in the container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -262,6 +249,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a50b7caffcb11cf23485bc228bfa27e4e</Anchor>
+    <Abstract>Randomizes the order of the elements in the container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -273,6 +261,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>aea20a3c576495f7b76380ed04a28b098</Anchor>
+    <Abstract>Counts the number of objects in the container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -284,6 +273,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a5926fcc8887c86f6bdb0c4671c915333</Anchor>
+    <Abstract>Sorts the objects in the container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -295,6 +285,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a83890f0559cb4afdbd69151ddb5851fc</Anchor>
+    <Abstract>Sorts the container using a custom comparator.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -306,17 +297,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>ad17e51dc6ca77a27c4359ce50edfb330</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Container</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a9280a6b61ef312c80d85e6e0b91e8a00</Anchor>
+    <Abstract>Populates output by calling func with each element of input in sequence.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -326,8 +307,9 @@
       <Type>func</Type>
       <Scope>memory</Scope>
     </TokenIdentifier>
-    <Path>d4/daf/namespacememory.html</Path>
-    <Anchor>a898974242418e2b20981a737c5e82410</Anchor>
+    <Path>d7/ded/group__memory.html</Path>
+    <Anchor>ga898974242418e2b20981a737c5e82410</Anchor>
+    <Abstract>Allocates the desired number of objects with the desired alignment.</Abstract>
     <DeclaredIn>alignment.h</DeclaredIn>
   </Token>
   <Token>
@@ -337,8 +319,9 @@
       <Type>func</Type>
       <Scope>memory</Scope>
     </TokenIdentifier>
-    <Path>d4/daf/namespacememory.html</Path>
-    <Anchor>a5a001535fbebdaa7499f0d95e2a5cec7</Anchor>
+    <Path>d7/ded/group__memory.html</Path>
+    <Anchor>ga5a001535fbebdaa7499f0d95e2a5cec7</Anchor>
+    <Abstract>Deallocates a pointer that was previously allocated with allocate_aligned() .</Abstract>
     <DeclaredIn>alignment.h</DeclaredIn>
   </Token>
   <Token>
@@ -2542,8 +2525,9 @@
       <Type>func</Type>
       <Scope>func</Scope>
     </TokenIdentifier>
-    <Path>d9/dd6/namespacefunc.html</Path>
-    <Anchor>a721d87621ab2fa2ff1ab032652d0b035</Anchor>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga721d87621ab2fa2ff1ab032652d0b035</Anchor>
+    <Abstract>Calls the function object exactly once throughout the entire life of the program.</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -2553,8 +2537,9 @@
       <Type>func</Type>
       <Scope>func</Scope>
     </TokenIdentifier>
-    <Path>d9/dd6/namespacefunc.html</Path>
-    <Anchor>aca5e418d69ffceeb71b3ba29e6539e3c</Anchor>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>gaca5e418d69ffceeb71b3ba29e6539e3c</Anchor>
+    <Abstract>Forces a given function to be executed at compile time.</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -2564,8 +2549,9 @@
       <Type>func</Type>
       <Scope>func</Scope>
     </TokenIdentifier>
-    <Path>d9/dd6/namespacefunc.html</Path>
-    <Anchor>a0c20c15a7d3553a54d6fc156280e9705</Anchor>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga0c20c15a7d3553a54d6fc156280e9705</Anchor>
+    <Abstract>Breaks down a function that takes multiple arguments into a series of functions that each take one ar...</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -2575,8 +2561,9 @@
       <Type>func</Type>
       <Scope>func</Scope>
     </TokenIdentifier>
-    <Path>d9/dd6/namespacefunc.html</Path>
-    <Anchor>a2c54695eb338963524e6830107685528</Anchor>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga2c54695eb338963524e6830107685528</Anchor>
+    <Abstract>Executes a potentially-throwing function within a try-catch block, and returns false if an exception ...</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -2586,8 +2573,9 @@
       <Type>data</Type>
       <Scope>func</Scope>
     </TokenIdentifier>
-    <Path>d9/dd6/namespacefunc.html</Path>
-    <Anchor>a3dbd7fc208fe38c48614027d7480df86</Anchor>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga3dbd7fc208fe38c48614027d7480df86</Anchor>
+    <Abstract>@concept Function This concept simply requires that an object is invocable.</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -2633,8 +2621,8 @@
       <Type>func</Type>
       <Scope>misc</Scope>
     </TokenIdentifier>
-    <Path>d9/d37/namespacemisc.html</Path>
-    <Anchor>a4048d6d752c40052344526e820f1d8fc</Anchor>
+    <Path>d1/ded/group__misc.html</Path>
+    <Anchor>ga4048d6d752c40052344526e820f1d8fc</Anchor>
     <Abstract>A utility function to silence unused variable warnings.</Abstract>
     <DeclaredIn>IgnoreUnused.h</DeclaredIn>
   </Token>
@@ -7283,8 +7271,9 @@
       <Type>func</Type>
       <Scope>memory</Scope>
     </TokenIdentifier>
-    <Path>d4/daf/namespacememory.html</Path>
-    <Anchor>a6379140bdddcd776d5f4ab92eb64e1bc</Anchor>
+    <Path>d7/ded/group__memory.html</Path>
+    <Anchor>ga6379140bdddcd776d5f4ab92eb64e1bc</Anchor>
+    <Abstract>This function retrieves a static object of a specified type.</Abstract>
     <DeclaredIn>StaticObjects.h</DeclaredIn>
   </Token>
   <Token>
@@ -7294,8 +7283,9 @@
       <Type>func</Type>
       <Scope>memory</Scope>
     </TokenIdentifier>
-    <Path>d4/daf/namespacememory.html</Path>
-    <Anchor>af83c9457a4906ef4e3d67963fb18418b</Anchor>
+    <Path>d7/ded/group__memory.html</Path>
+    <Anchor>gaf83c9457a4906ef4e3d67963fb18418b</Anchor>
+    <Abstract>This function forces some data to be evaluated at compile time.</Abstract>
     <DeclaredIn>StaticObjects.h</DeclaredIn>
   </Token>
   <Token>
@@ -9093,6 +9083,20 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>lemons_psola</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d6/d74/group__lemons__psola.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>lemons_psola_analysis</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>df/d40/group__lemons__psola__analysis.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>files</Name>
       <APILanguage>c</APILanguage>
     </TokenIdentifier>
@@ -9717,6 +9721,54 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>allocate_aligned</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>memory</Scope>
+    </TokenIdentifier>
+    <Path>d7/ded/group__memory.html</Path>
+    <Anchor>ga898974242418e2b20981a737c5e82410</Anchor>
+    <Abstract>Allocates the desired number of objects with the desired alignment.</Abstract>
+    <DeclaredIn>alignment.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>deallocate_aligned</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>memory</Scope>
+    </TokenIdentifier>
+    <Path>d7/ded/group__memory.html</Path>
+    <Anchor>ga5a001535fbebdaa7499f0d95e2a5cec7</Anchor>
+    <Abstract>Deallocates a pointer that was previously allocated with allocate_aligned() .</Abstract>
+    <DeclaredIn>alignment.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getStaticObject</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>memory</Scope>
+    </TokenIdentifier>
+    <Path>d7/ded/group__memory.html</Path>
+    <Anchor>ga6379140bdddcd776d5f4ab92eb64e1bc</Anchor>
+    <Abstract>This function retrieves a static object of a specified type.</Abstract>
+    <DeclaredIn>StaticObjects.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>make_static</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>memory</Scope>
+    </TokenIdentifier>
+    <Path>d7/ded/group__memory.html</Path>
+    <Anchor>gaf83c9457a4906ef4e3d67963fb18418b</Anchor>
+    <Abstract>This function forces some data to be evaluated at compile time.</Abstract>
+    <DeclaredIn>StaticObjects.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>meta</Name>
       <APILanguage>c</APILanguage>
     </TokenIdentifier>
@@ -9917,11 +9969,111 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>alg</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>de/d29/group__alg.html</Path>
+    <Abstract>Algorithms for manipulating generic container types.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Container</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>de/d29/group__alg.html</Path>
+    <Anchor>ga9280a6b61ef312c80d85e6e0b91e8a00</Anchor>
+    <Abstract>@concept Container This concept requires that a type has begin() and end() functions that return iter...</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>func</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>de/d94/group__func.html</Path>
+    <Abstract>Utilities for working with higher-level functions and functions as objects.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>call_once</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>func</Scope>
+    </TokenIdentifier>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga721d87621ab2fa2ff1ab032652d0b035</Anchor>
+    <Abstract>Calls the function object exactly once throughout the entire life of the program.</Abstract>
+    <DeclaredIn>Functions.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>consteval_invoke</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>func</Scope>
+    </TokenIdentifier>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>gaca5e418d69ffceeb71b3ba29e6539e3c</Anchor>
+    <Abstract>Forces a given function to be executed at compile time.</Abstract>
+    <DeclaredIn>Functions.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>curry</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>func</Scope>
+    </TokenIdentifier>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga0c20c15a7d3553a54d6fc156280e9705</Anchor>
+    <Abstract>Breaks down a function that takes multiple arguments into a series of functions that each take one ar...</Abstract>
+    <DeclaredIn>Functions.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>try_call</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>func</Scope>
+    </TokenIdentifier>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga2c54695eb338963524e6830107685528</Anchor>
+    <Abstract>Executes a potentially-throwing function within a try-catch block, and returns false if an exception ...</Abstract>
+    <DeclaredIn>Functions.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Function</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>func</Scope>
+    </TokenIdentifier>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga3dbd7fc208fe38c48614027d7480df86</Anchor>
+    <Abstract>@concept Function This concept simply requires that an object is invocable.</Abstract>
+    <DeclaredIn>Functions.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>misc</Name>
       <APILanguage>c</APILanguage>
     </TokenIdentifier>
     <Path>d1/ded/group__misc.html</Path>
     <Abstract>Miscellaneous things.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ignore_unused</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>misc</Scope>
+    </TokenIdentifier>
+    <Path>d1/ded/group__misc.html</Path>
+    <Anchor>ga4048d6d752c40052344526e820f1d8fc</Anchor>
+    <Abstract>A utility function to silence unused variable warnings.</Abstract>
+    <DeclaredIn>IgnoreUnused.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -10343,6 +10495,7 @@
       <Scope>alg</Scope>
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
+    <Abstract>This namespace defines various utility algorithms.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -10353,6 +10506,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a7dccb7818bdc5ba28aaff325dd4e715c</Anchor>
+    <Abstract>Handy typedef for deducing the type of the objects in a Container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -10364,116 +10518,19 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>ab08589f26a257d13ba1e706690752d0c</Anchor>
+    <Abstract>Typedef for the type returned by calling begin() or end() on a Container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>call_both</Name>
+      <Name>Container</Name>
       <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
+      <Type>data</Type>
       <Scope>alg</Scope>
     </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a6c6814ab08f80fede21d3bdddd2ce6e8</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>contains</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>ad811e97da051a2a578697084d10f0681</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>contains_if</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a2d73d5e0ebb7ce07de5de55cbe8fb94d</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>contains_or</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a65c3a333b7540ccefdbbd29adedf12f2</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>contains_or</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a8b5e74fd10c9d3e41c0dd79d0a1b7711</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>contains_or_default</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a0274b772d59a6b8895a83e548c54db6e</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>contains_or_null</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a9490a5f483f3ea2a93e767352d2cc233</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>contains_or_null</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a1ee6f580fa8fd88edeba8b923334e40e</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>createFromTransform</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a757811af9ff407f689d49264b212c877</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>enumerate</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a977caee9e6a4f374dbbb4589c8cfc39e</Anchor>
+    <Path>de/d29/group__alg.html</Path>
+    <Anchor>ga9280a6b61ef312c80d85e6e0b91e8a00</Anchor>
+    <Abstract>@concept Container This concept requires that a type has begin() and end() functions that return iter...</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -10485,6 +10542,67 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a8578202135800da03ad18668933fcb7a</Anchor>
+    <Abstract>Fills the container with the specified value.</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>contains</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>ad811e97da051a2a578697084d10f0681</Anchor>
+    <Abstract>Returns true if the container contains the specified value.</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>contains_if</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>a2d73d5e0ebb7ce07de5de55cbe8fb94d</Anchor>
+    <Abstract>Returns true if the specified predicate is met by at least one object in the container.</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>contains_or</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>a8b5e74fd10c9d3e41c0dd79d0a1b7711</Anchor>
+    <Abstract>If the specified predicate is met by any object in the container, then the first object to meet the p...</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>contains_or</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>a65c3a333b7540ccefdbbd29adedf12f2</Anchor>
+    <Abstract>If the specified predicate is met by any object in the container, then the first object to meet the p...</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>contains_or_default</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>a787a5069c66574efe3747a4c74046325</Anchor>
+    <Abstract>If the specified predicate is met by any object in the container, then the first object to meet the p...</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -10495,62 +10613,20 @@
       <Scope>alg</Scope>
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>aa993a9b75ef39c952ffa1525515dd212</Anchor>
+    <Anchor>aef6e921fb66d033398c60d9aa387026a</Anchor>
+    <Abstract>If the specified predicate is met by any object in the container, then the first object to meet the p...</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>get_rand_engine</Name>
+      <Name>find_if</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
       <Scope>alg</Scope>
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a2b5ac094c436ed8c63247a52d575d904</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>max_value</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a3955575ad4fce0e172c08bc3ee849d3b</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>max_value</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>aaadb9d743ac062dccd1fa8db03f8b6e0</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>min_value</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>adffc06b89dc20f499a540036f6c59141</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>min_value</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>aace5a83c7d44d74ccd79d5ed5a015ac6</Anchor>
+    <Anchor>a3f0432bba758bc38ef2b2051c656a544</Anchor>
+    <Abstract>If the specified predicate is met by any object in the container, then the first object to meet the p...</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -10562,50 +10638,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a347b3ccd19983a354d0992a4359c01c2</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>remove</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>aae9c886f1fa07ab2915bc9a3e5e121c6</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>removeDuplicates</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a8d2253337fd326084a3bd515bffb057b</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>reverse</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>aab87399b7732eecfc20de2f1c3b6feb7</Anchor>
-    <DeclaredIn>Algorithm.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>shuffle</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>alg</Scope>
-    </TokenIdentifier>
-    <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a50b7caffcb11cf23485bc228bfa27e4e</Anchor>
+    <Abstract>Counts the number of objects in the container that meet the specified predicate.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -10617,6 +10650,19 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>aea20a3c576495f7b76380ed04a28b098</Anchor>
+    <Abstract>Counts the number of objects in the container.</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>reverse</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>aab87399b7732eecfc20de2f1c3b6feb7</Anchor>
+    <Abstract>Reverses the objects in the container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -10628,6 +10674,7 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a5926fcc8887c86f6bdb0c4671c915333</Anchor>
+    <Abstract>Sorts the objects in the container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -10639,6 +10686,79 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>a83890f0559cb4afdbd69151ddb5851fc</Anchor>
+    <Abstract>Sorts the container using a custom comparator.</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>shuffle</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>a50b7caffcb11cf23485bc228bfa27e4e</Anchor>
+    <Abstract>Randomizes the order of the elements in the container.</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>call_both</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>a6c6814ab08f80fede21d3bdddd2ce6e8</Anchor>
+    <Abstract>Calls a function with corresponding pairs of elements from two containers.</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>max_value</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>a3955575ad4fce0e172c08bc3ee849d3b</Anchor>
+    <Abstract>Returns the maximum value in the container.</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>max_value</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>aaadb9d743ac062dccd1fa8db03f8b6e0</Anchor>
+    <Abstract>Returns the maximum value in the container and its index in the container.</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>min_value</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>adffc06b89dc20f499a540036f6c59141</Anchor>
+    <Abstract>Returns the minimum value in the container.</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>min_value</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>aace5a83c7d44d74ccd79d5ed5a015ac6</Anchor>
+    <Abstract>Returns the minimum value in the container and its index in the container.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -10650,17 +10770,31 @@
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
     <Anchor>ad17e51dc6ca77a27c4359ce50edfb330</Anchor>
+    <Abstract>Populates output by calling func with each element of input in sequence.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>Container</Name>
+      <Name>createFromTransform</Name>
       <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
+      <Type>func</Type>
       <Scope>alg</Scope>
     </TokenIdentifier>
     <Path>d2/d9f/namespacealg.html</Path>
-    <Anchor>a9280a6b61ef312c80d85e6e0b91e8a00</Anchor>
+    <Anchor>a757811af9ff407f689d49264b212c877</Anchor>
+    <Abstract>The same as transform() , except the output container is default constructed before being populated.</Abstract>
+    <DeclaredIn>Algorithm.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>enumerate</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>alg</Scope>
+    </TokenIdentifier>
+    <Path>d2/d9f/namespacealg.html</Path>
+    <Anchor>a977caee9e6a4f374dbbb4589c8cfc39e</Anchor>
+    <Abstract>This function allows structured bindings of iterators, similar to Python&apos;s enumerate() method.</Abstract>
     <DeclaredIn>Algorithm.h</DeclaredIn>
   </Token>
   <Token>
@@ -15908,6 +16042,75 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>dsp::psola::PeakFinder</Name>
+      <APILanguage>c</APILanguage>
+      <Type>tmplt</Type>
+      <Scope>dsp::psola::PeakFinder</Scope>
+    </TokenIdentifier>
+    <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+    <DeclaredIn>PeakFinder.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>PeakFinder</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>dsp::psola::PeakFinder</Scope>
+    </TokenIdentifier>
+    <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+    <Anchor>aaa84ab9445bdc03a77a7282749d943d0</Anchor>
+    <DeclaredIn>PeakFinder.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>findPeaks</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>dsp::psola::PeakFinder</Scope>
+    </TokenIdentifier>
+    <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+    <Anchor>ad1614565ff7b7315af8d8edca5d974f4</Anchor>
+    <Abstract>Analyzes a stream of audio and identifies the best set of pitch peaks to use for PSOLA pitch shifting...</Abstract>
+    <DeclaredIn>PeakFinder.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>prepare</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>dsp::psola::PeakFinder</Scope>
+    </TokenIdentifier>
+    <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+    <Anchor>af27df41f18bda8f046d66eca0caa3012</Anchor>
+    <Abstract>Prepares the analyzer for a new maximum blocksize.</Abstract>
+    <DeclaredIn>PeakFinder.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>releaseResources</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>dsp::psola::PeakFinder</Scope>
+    </TokenIdentifier>
+    <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+    <Anchor>ab759e3941b8bebb355fc33e89e1c38ef</Anchor>
+    <Abstract>Releases all resources used by the analyzer.</Abstract>
+    <DeclaredIn>PeakFinder.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>reset</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>dsp::psola::PeakFinder</Scope>
+    </TokenIdentifier>
+    <Path>dc/de3/classdsp_1_1psola_1_1_peak_finder.html</Path>
+    <Anchor>a883fc981d94ffbd9162d76bfff4168e0</Anchor>
+    <Abstract>Resets the analyzer to its initial state, without freeing any resources.</Abstract>
+    <DeclaredIn>PeakFinder.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>dsp::psola::PitchDetector</Name>
       <APILanguage>c</APILanguage>
       <Type>tmplt</Type>
@@ -21060,8 +21263,9 @@
       <Type>func</Type>
       <Scope>func</Scope>
     </TokenIdentifier>
-    <Path>d9/dd6/namespacefunc.html</Path>
-    <Anchor>a721d87621ab2fa2ff1ab032652d0b035</Anchor>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga721d87621ab2fa2ff1ab032652d0b035</Anchor>
+    <Abstract>Calls the function object exactly once throughout the entire life of the program.</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -21071,8 +21275,9 @@
       <Type>func</Type>
       <Scope>func</Scope>
     </TokenIdentifier>
-    <Path>d9/dd6/namespacefunc.html</Path>
-    <Anchor>aca5e418d69ffceeb71b3ba29e6539e3c</Anchor>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>gaca5e418d69ffceeb71b3ba29e6539e3c</Anchor>
+    <Abstract>Forces a given function to be executed at compile time.</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -21082,8 +21287,9 @@
       <Type>func</Type>
       <Scope>func</Scope>
     </TokenIdentifier>
-    <Path>d9/dd6/namespacefunc.html</Path>
-    <Anchor>a0c20c15a7d3553a54d6fc156280e9705</Anchor>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga0c20c15a7d3553a54d6fc156280e9705</Anchor>
+    <Abstract>Breaks down a function that takes multiple arguments into a series of functions that each take one ar...</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -21093,8 +21299,9 @@
       <Type>func</Type>
       <Scope>func</Scope>
     </TokenIdentifier>
-    <Path>d9/dd6/namespacefunc.html</Path>
-    <Anchor>a2c54695eb338963524e6830107685528</Anchor>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga2c54695eb338963524e6830107685528</Anchor>
+    <Abstract>Executes a potentially-throwing function within a try-catch block, and returns false if an exception ...</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -21104,8 +21311,9 @@
       <Type>data</Type>
       <Scope>func</Scope>
     </TokenIdentifier>
-    <Path>d9/dd6/namespacefunc.html</Path>
-    <Anchor>a3dbd7fc208fe38c48614027d7480df86</Anchor>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga3dbd7fc208fe38c48614027d7480df86</Anchor>
+    <Abstract>@concept Function This concept simply requires that an object is invocable.</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -21116,6 +21324,7 @@
       <Scope>func::CallDeferred</Scope>
     </TokenIdentifier>
     <Path>df/deb/classfunc_1_1_call_deferred.html</Path>
+    <Abstract>This class calls a given function when its destructor is executed.</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -21151,6 +21360,7 @@
     </TokenIdentifier>
     <Path>df/deb/classfunc_1_1_call_deferred.html</Path>
     <Anchor>a982b418c7462946195962fbf737858da</Anchor>
+    <Abstract>The constructor simply stores the function object, it does not execute it.</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -21162,6 +21372,7 @@
     </TokenIdentifier>
     <Path>df/deb/classfunc_1_1_call_deferred.html</Path>
     <Anchor>a34e1511dbf24937e363b0c6485a2db45</Anchor>
+    <Abstract>The destructor executes the stored function.</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -21196,6 +21407,7 @@
       <Scope>func::RAIICaller</Scope>
     </TokenIdentifier>
     <Path>db/d9b/classfunc_1_1_r_a_i_i_caller.html</Path>
+    <Abstract>This generic RAII object allows you to specify a function to be called when it is created and when it...</Abstract>
     <DeclaredIn>Functions.h</DeclaredIn>
   </Token>
   <Token>
@@ -27481,8 +27693,9 @@
       <Type>func</Type>
       <Scope>memory</Scope>
     </TokenIdentifier>
-    <Path>d4/daf/namespacememory.html</Path>
-    <Anchor>a898974242418e2b20981a737c5e82410</Anchor>
+    <Path>d7/ded/group__memory.html</Path>
+    <Anchor>ga898974242418e2b20981a737c5e82410</Anchor>
+    <Abstract>Allocates the desired number of objects with the desired alignment.</Abstract>
     <DeclaredIn>alignment.h</DeclaredIn>
   </Token>
   <Token>
@@ -27503,8 +27716,9 @@
       <Type>func</Type>
       <Scope>memory</Scope>
     </TokenIdentifier>
-    <Path>d4/daf/namespacememory.html</Path>
-    <Anchor>a5a001535fbebdaa7499f0d95e2a5cec7</Anchor>
+    <Path>d7/ded/group__memory.html</Path>
+    <Anchor>ga5a001535fbebdaa7499f0d95e2a5cec7</Anchor>
+    <Abstract>Deallocates a pointer that was previously allocated with allocate_aligned() .</Abstract>
     <DeclaredIn>alignment.h</DeclaredIn>
   </Token>
   <Token>
@@ -27514,8 +27728,9 @@
       <Type>func</Type>
       <Scope>memory</Scope>
     </TokenIdentifier>
-    <Path>d4/daf/namespacememory.html</Path>
-    <Anchor>a6379140bdddcd776d5f4ab92eb64e1bc</Anchor>
+    <Path>d7/ded/group__memory.html</Path>
+    <Anchor>ga6379140bdddcd776d5f4ab92eb64e1bc</Anchor>
+    <Abstract>This function retrieves a static object of a specified type.</Abstract>
     <DeclaredIn>StaticObjects.h</DeclaredIn>
   </Token>
   <Token>
@@ -27525,8 +27740,9 @@
       <Type>func</Type>
       <Scope>memory</Scope>
     </TokenIdentifier>
-    <Path>d4/daf/namespacememory.html</Path>
-    <Anchor>af83c9457a4906ef4e3d67963fb18418b</Anchor>
+    <Path>d7/ded/group__memory.html</Path>
+    <Anchor>gaf83c9457a4906ef4e3d67963fb18418b</Anchor>
+    <Abstract>This function forces some data to be evaluated at compile time.</Abstract>
     <DeclaredIn>StaticObjects.h</DeclaredIn>
   </Token>
   <Token>
@@ -27581,6 +27797,7 @@
       <Scope>memory::aligned_pointer</Scope>
     </TokenIdentifier>
     <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
+    <Abstract>An RAII object that calls allocate_aligned() on construction and deallocate_aligned() on destruction.</Abstract>
     <DeclaredIn>alignment.h</DeclaredIn>
   </Token>
   <Token>
@@ -27591,7 +27808,8 @@
       <Scope>memory::aligned_pointer</Scope>
     </TokenIdentifier>
     <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-    <Anchor>a2781018fd429480d4374540ad7c0fe7a</Anchor>
+    <Anchor>aff39c3fe41222c7ed1026d8b578a602e</Anchor>
+    <Abstract>You can access the type of the owned object using this typdef.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -27601,7 +27819,7 @@
       <Scope>memory::aligned_pointer</Scope>
     </TokenIdentifier>
     <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-    <Anchor>ae6a84432f553d430d3529f02b8662f39</Anchor>
+    <Anchor>a1a31813fc9d3aa560e59293eb44797e9</Anchor>
     <Abstract>aligned_pointer is default movable.</Abstract>
     <DeclaredIn>alignment.h</DeclaredIn>
   </Token>
@@ -27613,7 +27831,7 @@
       <Scope>memory::aligned_pointer</Scope>
     </TokenIdentifier>
     <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-    <Anchor>a7a4c264c1e6d562ea4e7ffebe0fadb65</Anchor>
+    <Anchor>a8daaff2a63e982b8e88f3491761899d1</Anchor>
     <Abstract>aligned_pointer is not copyable.</Abstract>
     <DeclaredIn>alignment.h</DeclaredIn>
   </Token>
@@ -27625,7 +27843,8 @@
       <Scope>memory::aligned_pointer</Scope>
     </TokenIdentifier>
     <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-    <Anchor>aec7bb99d52f0d481f68f1f948dfdea9a</Anchor>
+    <Anchor>aa537f3eb1ce16ce6e66db8280d16e2ab</Anchor>
+    <Abstract>Creates an aligned_pointer.</Abstract>
     <DeclaredIn>alignment.h</DeclaredIn>
   </Token>
   <Token>
@@ -27636,40 +27855,8 @@
       <Scope>memory::aligned_pointer</Scope>
     </TokenIdentifier>
     <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-    <Anchor>a53a40bde9425962df38801e60ec53c30</Anchor>
-    <DeclaredIn>alignment.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>get</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::aligned_pointer</Scope>
-    </TokenIdentifier>
-    <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-    <Anchor>a72ade0d19f3bd4e058e0c8c94fab88f3</Anchor>
-    <DeclaredIn>alignment.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator T*</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::aligned_pointer</Scope>
-    </TokenIdentifier>
-    <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-    <Anchor>a44063e9588d759943bb70e8f2d608ddc</Anchor>
-    <DeclaredIn>alignment.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator()</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::aligned_pointer</Scope>
-    </TokenIdentifier>
-    <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-    <Anchor>a0e4dbeca69770a5ffcd56c9efeb9acb9</Anchor>
+    <Anchor>aaeac6c3ce8c6043064214b9c2bf18c46</Anchor>
+    <Abstract>Destructor.</Abstract>
     <DeclaredIn>alignment.h</DeclaredIn>
   </Token>
   <Token>
@@ -27680,18 +27867,8 @@
       <Scope>memory::aligned_pointer</Scope>
     </TokenIdentifier>
     <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-    <Anchor>a4d16acd03f96bd4f77b2c2b8b4f2d352</Anchor>
-    <DeclaredIn>alignment.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator-&gt;</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::aligned_pointer</Scope>
-    </TokenIdentifier>
-    <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-    <Anchor>a350c383da62265eb97bde2d133a2acc8</Anchor>
+    <Anchor>a2dae8158e8e167b6548e0d03e62d6200</Anchor>
+    <Abstract>Returns a reference to the owned object.</Abstract>
     <DeclaredIn>alignment.h</DeclaredIn>
   </Token>
   <Token>
@@ -27702,7 +27879,7 @@
       <Scope>memory::aligned_pointer</Scope>
     </TokenIdentifier>
     <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-    <Anchor>a842dcecf00c6ba5cf78946cf8d42504b</Anchor>
+    <Anchor>a3aae0e9cc6663f344291568160bb373a</Anchor>
     <Abstract>aligned_pointer is default movable.</Abstract>
     <DeclaredIn>alignment.h</DeclaredIn>
   </Token>
@@ -27714,7 +27891,7 @@
       <Scope>memory::aligned_pointer</Scope>
     </TokenIdentifier>
     <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-    <Anchor>a1f972c2b7758fd0be589d2d7ad569618</Anchor>
+    <Anchor>a5cc6cdf8629bb5b439847a4b88883bf0</Anchor>
     <Abstract>aligned_pointer is not copyable.</Abstract>
     <DeclaredIn>alignment.h</DeclaredIn>
   </Token>
@@ -27726,7 +27903,52 @@
       <Scope>memory::aligned_pointer</Scope>
     </TokenIdentifier>
     <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
-    <Anchor>a86d745bcfc834fffc469b36920d28e40</Anchor>
+    <Anchor>ae2dbeb1fb7171d43e3253e3d85854d9d</Anchor>
+    <Abstract>Indexes into the pointer like a C-style array.</Abstract>
+    <DeclaredIn>alignment.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::aligned_pointer</Scope>
+    </TokenIdentifier>
+    <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
+    <Anchor>acb4c425d36258fbab48339f988e0c433</Anchor>
+    <DeclaredIn>alignment.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator()</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::aligned_pointer</Scope>
+    </TokenIdentifier>
+    <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
+    <Anchor>a0e39ebcc68c4edad1152becd010ff18e</Anchor>
+    <DeclaredIn>alignment.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator T*</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::aligned_pointer</Scope>
+    </TokenIdentifier>
+    <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
+    <Anchor>a08921458737dbca5abefa7692fcb36c3</Anchor>
+    <DeclaredIn>alignment.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator-&gt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::aligned_pointer</Scope>
+    </TokenIdentifier>
+    <Path>d8/dc8/classmemory_1_1aligned__pointer.html</Path>
+    <Anchor>ad098b9b903e23f0cca8b22f376ea4c9e</Anchor>
     <DeclaredIn>alignment.h</DeclaredIn>
   </Token>
   <Token>
@@ -27737,6 +27959,7 @@
       <Scope>memory::AlignedAllocator</Scope>
     </TokenIdentifier>
     <Path>dd/d1c/classmemory_1_1_aligned_allocator.html</Path>
+    <Abstract>An STL-style allocator that allocates aligned pointers.</Abstract>
     <DeclaredIn>AlignedAllocator.h</DeclaredIn>
   </Token>
   <Token>
@@ -28061,6 +28284,7 @@
       <Scope>memory::MemoryPool</Scope>
     </TokenIdentifier>
     <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
+    <Abstract>This class is a pool of preallocated memory that can be doled out in smaller chunks,...</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28096,6 +28320,7 @@
     </TokenIdentifier>
     <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
     <Anchor>a3a3c7c524288c119cdef6acd4d7b2ae9</Anchor>
+    <Abstract>Creates a MemoryPool.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28107,50 +28332,7 @@
     </TokenIdentifier>
     <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
     <Anchor>aa58ea253ac53368ec2c4fb0dc34a61e5</Anchor>
-    <DeclaredIn>MemoryPool.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>allocate</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::MemoryPool</Scope>
-    </TokenIdentifier>
-    <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
-    <Anchor>ac0a943d119043abd0fc464718c76e89f</Anchor>
-    <DeclaredIn>MemoryPool.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>allocate</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::MemoryPool</Scope>
-    </TokenIdentifier>
-    <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
-    <Anchor>a154b4dab932dc354cd517ac5a09938f9</Anchor>
-    <DeclaredIn>MemoryPool.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>construct</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::MemoryPool</Scope>
-    </TokenIdentifier>
-    <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
-    <Anchor>ae5514d12e266debdc23e9bdd87b80064</Anchor>
-    <DeclaredIn>MemoryPool.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>constructOrBust</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::MemoryPool</Scope>
-    </TokenIdentifier>
-    <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
-    <Anchor>a738e23812da135ce40163168ba3320ce</Anchor>
+    <Abstract>Destructor.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28162,39 +28344,19 @@
     </TokenIdentifier>
     <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
     <Anchor>ab2ab3edcb57848218c05ba581a1838eb</Anchor>
+    <Abstract>Returns true if the memory pool&apos;s preallocated memory contains the passed memory location.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>deallocate</Name>
+      <Name>getChunkSize</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>memory::MemoryPool</Scope>
     </TokenIdentifier>
     <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
-    <Anchor>a27186b1031fe082a1348870960cb5677</Anchor>
-    <DeclaredIn>MemoryPool.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>deallocate</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::MemoryPool</Scope>
-    </TokenIdentifier>
-    <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
-    <Anchor>a2b753c3731bc2c4d428617dfc2d4980a</Anchor>
-    <DeclaredIn>MemoryPool.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>destruct</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::MemoryPool</Scope>
-    </TokenIdentifier>
-    <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
-    <Anchor>abc038159ca0b33b93e7eb2fe07fc0f39</Anchor>
+    <Anchor>ad6aa8dd28a44fe2acef9f1f2a0d2a0fe</Anchor>
+    <Abstract>Returns the pool&apos;s internal chunk size, in bytes.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28206,6 +28368,7 @@
     </TokenIdentifier>
     <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
     <Anchor>a9ca2f8e0d574cef5c19bca3f39b77819</Anchor>
+    <Abstract>Returns the start location of the pool&apos;s preallocated memory block.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28217,6 +28380,7 @@
     </TokenIdentifier>
     <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
     <Anchor>ac02613d5e2036a45bd671adb9f70fc33</Anchor>
+    <Abstract>Returns the remaining space in the pool, expressed as the number of additional ObjectType objects it ...</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28228,6 +28392,7 @@
     </TokenIdentifier>
     <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
     <Anchor>aa8d1bf99fb491b8553f10b410304cade</Anchor>
+    <Abstract>Returns the total remaining free space in the memory pool, in bytes.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28239,6 +28404,7 @@
     </TokenIdentifier>
     <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
     <Anchor>ac09a5fe672f16fa5bfdd36065527406f</Anchor>
+    <Abstract>Returns the total size of this memory pool, expressed as the number of ObjectType objects it can hold...</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28250,6 +28416,7 @@
     </TokenIdentifier>
     <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
     <Anchor>ad13c784390a47af9849fa84649f723ac</Anchor>
+    <Abstract>Returns the total size, in bytes, of the memory pool&apos;s preallocated memory.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28285,6 +28452,91 @@
     </TokenIdentifier>
     <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
     <Anchor>abe7fbdd937281bd039d1c4f8dc471c88</Anchor>
+    <Abstract>Returns true if the pool owns the specified object – ie, if the pointer to the object is within the p...</Abstract>
+    <DeclaredIn>MemoryPool.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>allocate</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::MemoryPool</Scope>
+    </TokenIdentifier>
+    <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
+    <Anchor>a154b4dab932dc354cd517ac5a09938f9</Anchor>
+    <Abstract>Allocates the desired number of bytes from the pool&apos;s preallocated memory.</Abstract>
+    <DeclaredIn>MemoryPool.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>allocate</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::MemoryPool</Scope>
+    </TokenIdentifier>
+    <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
+    <Anchor>ac0a943d119043abd0fc464718c76e89f</Anchor>
+    <Abstract>Allocates sizeof(ObjectType) bytes, and returns a typed pointer to the allocated memory location.</Abstract>
+    <DeclaredIn>MemoryPool.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>construct</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::MemoryPool</Scope>
+    </TokenIdentifier>
+    <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
+    <Anchor>a0aaf924c949ad00dcb39475ebd8d685e</Anchor>
+    <Abstract>Allocates space for an object and constructs it in the allocated memory space.</Abstract>
+    <DeclaredIn>MemoryPool.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>constructOrBust</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::MemoryPool</Scope>
+    </TokenIdentifier>
+    <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
+    <Anchor>a738e23812da135ce40163168ba3320ce</Anchor>
+    <Abstract>Similar to construct(), but if allocation from the memory pool fails, falls back to a regular new cal...</Abstract>
+    <DeclaredIn>MemoryPool.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>deallocate</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::MemoryPool</Scope>
+    </TokenIdentifier>
+    <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
+    <Anchor>a2b753c3731bc2c4d428617dfc2d4980a</Anchor>
+    <Abstract>Deallocates a certain number of bytes at a specific location within the pool.</Abstract>
+    <DeclaredIn>MemoryPool.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>deallocate</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::MemoryPool</Scope>
+    </TokenIdentifier>
+    <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
+    <Anchor>a27186b1031fe082a1348870960cb5677</Anchor>
+    <Abstract>Deallocates the passed object.</Abstract>
+    <DeclaredIn>MemoryPool.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>destruct</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::MemoryPool</Scope>
+    </TokenIdentifier>
+    <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
+    <Anchor>abc038159ca0b33b93e7eb2fe07fc0f39</Anchor>
+    <Abstract>Calls an object&apos;s destructor and frees its memory from the pool.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28296,6 +28548,7 @@
     </TokenIdentifier>
     <Path>d7/db7/classmemory_1_1_memory_pool.html</Path>
     <Anchor>a85e6246e9a3189d98b89359c0a198aa7</Anchor>
+    <Abstract>Creates a MemoryPool that can hold a specified number of objects of a certain type.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28306,6 +28559,7 @@
       <Scope>memory::MemoryPoolAllocator</Scope>
     </TokenIdentifier>
     <Path>db/db8/classmemory_1_1_memory_pool_allocator.html</Path>
+    <Abstract>An STL-style allocator that uses an internal MemoryPool to allocate objects.</Abstract>
     <DeclaredIn>MemoryPoolAllocator.h</DeclaredIn>
   </Token>
   <Token>
@@ -28586,6 +28840,7 @@
       <Scope>memory::MemoryPoolPointer</Scope>
     </TokenIdentifier>
     <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
+    <Abstract>A smart pointer to an object that lives within a MemoryPool.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28597,6 +28852,7 @@
     </TokenIdentifier>
     <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
     <Anchor>ad806f766437d35af1ba0bb28cc409c75</Anchor>
+    <Abstract>You can access the type of the owned object via this typedef.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -28618,7 +28874,8 @@
       <Scope>memory::MemoryPoolPointer</Scope>
     </TokenIdentifier>
     <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
-    <Anchor>a29fa9946d224bbc358052f952a929802</Anchor>
+    <Anchor>aff8a522538b6f21bb8ea06b4a4b5d6e7</Anchor>
+    <Abstract>Creates the owned object by allocating its memory from the passed memory pool.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28642,17 +28899,7 @@
     </TokenIdentifier>
     <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
     <Anchor>a18ddd0204a55637168502311e08ad8a3</Anchor>
-    <DeclaredIn>MemoryPool.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>get</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::MemoryPoolPointer</Scope>
-    </TokenIdentifier>
-    <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
-    <Anchor>af87c683762c785e04c85919ee336740b</Anchor>
+    <Abstract>Destructor.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28664,28 +28911,7 @@
     </TokenIdentifier>
     <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
     <Anchor>ac12877ca81ae44676e120319acf16703</Anchor>
-    <DeclaredIn>MemoryPool.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator ObjectType *</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::MemoryPoolPointer</Scope>
-    </TokenIdentifier>
-    <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
-    <Anchor>a3f38d6bc52a88689221298adc80b22f2</Anchor>
-    <DeclaredIn>MemoryPool.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator()</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::MemoryPoolPointer</Scope>
-    </TokenIdentifier>
-    <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
-    <Anchor>ada07e57a5229bfd54dedff83c53f5ac6</Anchor>
+    <Abstract>Returns true if the object exists and was allocated from the memory pool.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28697,17 +28923,7 @@
     </TokenIdentifier>
     <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
     <Anchor>a6239bb0dbec6bb9bf1ca94311dcfe5bc</Anchor>
-    <DeclaredIn>MemoryPool.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator-&gt;</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::MemoryPoolPointer</Scope>
-    </TokenIdentifier>
-    <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
-    <Anchor>a6b829d136efa2c08b0160f920c085e06</Anchor>
+    <Abstract>Returns a reference to the owned object.</Abstract>
     <DeclaredIn>MemoryPool.h</DeclaredIn>
   </Token>
   <Token>
@@ -28736,12 +28952,61 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>get</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::MemoryPoolPointer</Scope>
+    </TokenIdentifier>
+    <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
+    <Anchor>af87c683762c785e04c85919ee336740b</Anchor>
+    <Abstract>Accessors Returns a pointer to the owned object.</Abstract>
+    <DeclaredIn>MemoryPool.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator()</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::MemoryPoolPointer</Scope>
+    </TokenIdentifier>
+    <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
+    <Anchor>ada07e57a5229bfd54dedff83c53f5ac6</Anchor>
+    <Abstract>Accessors Returns a pointer to the owned object.</Abstract>
+    <DeclaredIn>MemoryPool.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator ObjectType *</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::MemoryPoolPointer</Scope>
+    </TokenIdentifier>
+    <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
+    <Anchor>a3f38d6bc52a88689221298adc80b22f2</Anchor>
+    <Abstract>Accessors Returns a pointer to the owned object.</Abstract>
+    <DeclaredIn>MemoryPool.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator-&gt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::MemoryPoolPointer</Scope>
+    </TokenIdentifier>
+    <Path>d1/d17/classmemory_1_1_memory_pool_pointer.html</Path>
+    <Anchor>a6b829d136efa2c08b0160f920c085e06</Anchor>
+    <Abstract>Accessors Returns a pointer to the owned object.</Abstract>
+    <DeclaredIn>MemoryPool.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>memory::OptionalObject</Name>
       <APILanguage>c</APILanguage>
       <Type>tmplt</Type>
       <Scope>memory::OptionalObject</Scope>
     </TokenIdentifier>
     <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
+    <Abstract>An object that retains its allocated memory, but can be dynamically constructed and destroyed (withou...</Abstract>
     <DeclaredIn>OptionalObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -28753,61 +29018,7 @@
     </TokenIdentifier>
     <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
     <Anchor>a7a2425befdfe0797767d29d13c39bc8b</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>OptionalObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::OptionalObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
-    <Anchor>a7b7bf0f69c703aa1313f1381fe0bb741</Anchor>
-    <DeclaredIn>OptionalObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>OptionalObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::OptionalObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
-    <Anchor>a231a4aa5f8fa327d4067e4e7cf762412</Anchor>
-    <DeclaredIn>OptionalObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>OptionalObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::OptionalObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
-    <Anchor>a19ac2bf896e9b2519e04033c8da17561</Anchor>
-    <DeclaredIn>OptionalObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>OptionalObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::OptionalObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
-    <Anchor>a8f82d128c4c9a5e91bdfe6e7b1ccdf28</Anchor>
-    <DeclaredIn>OptionalObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>~OptionalObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::OptionalObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
-    <Anchor>a780f1628f40579d830c93afc9393a02b</Anchor>
-    <DeclaredIn>OptionalObject.h</DeclaredIn>
+    <Abstract>You can access the type of the owned object with this typedef.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -28818,6 +29029,7 @@
     </TokenIdentifier>
     <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
     <Anchor>a9fafb76891ef2eb7dd1c38bbd300075f</Anchor>
+    <Abstract>Constructs the object with the given arguments.</Abstract>
     <DeclaredIn>OptionalObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -28829,6 +29041,7 @@
     </TokenIdentifier>
     <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
     <Anchor>aaf4f2edf40902cbb0aaf8d864e4fa283</Anchor>
+    <Abstract>Calls the object&apos;s destructor, but does not deallocate its memory.</Abstract>
     <DeclaredIn>OptionalObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -28840,17 +29053,7 @@
     </TokenIdentifier>
     <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
     <Anchor>a75dd2ddd3c27010c75d647e44528542b</Anchor>
-    <DeclaredIn>OptionalObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>get</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::OptionalObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
-    <Anchor>af715ccd87f00ad50ebee42b4cdcc2e4a</Anchor>
+    <Abstract>Returns true if the object currently exists.</Abstract>
     <DeclaredIn>OptionalObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -28862,17 +29065,55 @@
     </TokenIdentifier>
     <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
     <Anchor>a0f014c44b88c898d59d61e9b94d37424</Anchor>
+    <Abstract>Returns a reference to the owned object.</Abstract>
     <DeclaredIn>OptionalObject.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>operator-&gt;</Name>
+      <Name>OptionalObject</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>memory::OptionalObject</Scope>
     </TokenIdentifier>
     <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
-    <Anchor>ae6aa90a16e2aab2e0d5def79a17f4bba</Anchor>
+    <Anchor>a7b7bf0f69c703aa1313f1381fe0bb741</Anchor>
+    <Abstract>Creates an uninitialized, null object.</Abstract>
+    <DeclaredIn>OptionalObject.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>OptionalObject</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::OptionalObject</Scope>
+    </TokenIdentifier>
+    <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
+    <Anchor>a231a4aa5f8fa327d4067e4e7cf762412</Anchor>
+    <Abstract>Constructs the object with the given arguments.</Abstract>
+    <DeclaredIn>OptionalObject.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>OptionalObject</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::OptionalObject</Scope>
+    </TokenIdentifier>
+    <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
+    <Anchor>a19ac2bf896e9b2519e04033c8da17561</Anchor>
+    <Abstract>Copy constructor.</Abstract>
+    <DeclaredIn>OptionalObject.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>OptionalObject</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::OptionalObject</Scope>
+    </TokenIdentifier>
+    <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
+    <Anchor>a8f82d128c4c9a5e91bdfe6e7b1ccdf28</Anchor>
+    <Abstract>Move constructor.</Abstract>
     <DeclaredIn>OptionalObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -28899,6 +29140,28 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>get</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::OptionalObject</Scope>
+    </TokenIdentifier>
+    <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
+    <Anchor>af715ccd87f00ad50ebee42b4cdcc2e4a</Anchor>
+    <DeclaredIn>OptionalObject.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator-&gt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::OptionalObject</Scope>
+    </TokenIdentifier>
+    <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
+    <Anchor>ae6aa90a16e2aab2e0d5def79a17f4bba</Anchor>
+    <DeclaredIn>OptionalObject.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>getSize</Name>
       <APILanguage>cpp</APILanguage>
       <Type>clm</Type>
@@ -28906,6 +29169,7 @@
     </TokenIdentifier>
     <Path>dc/d1a/classmemory_1_1_optional_object.html</Path>
     <Anchor>aba540126cf53fde553e9842c14ed2d04</Anchor>
+    <Abstract>Returns the size of the owned object (and thus, the preallocated memory), in bytes.</Abstract>
     <DeclaredIn>OptionalObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -29143,7 +29407,7 @@
       <Scope>memory::RawData</Scope>
     </TokenIdentifier>
     <Path>d1/db0/classmemory_1_1_raw_data.html</Path>
-    <Anchor>a8e08d1e4fec54d4ab4f223571e2e70e4</Anchor>
+    <Anchor>ad9284e2c16a6b12f459bbb80ee28b76a</Anchor>
     <DeclaredIn>RawData.h</DeclaredIn>
   </Token>
   <Token>
@@ -29154,7 +29418,7 @@
       <Scope>memory::RawData</Scope>
     </TokenIdentifier>
     <Path>d1/db0/classmemory_1_1_raw_data.html</Path>
-    <Anchor>ad9284e2c16a6b12f459bbb80ee28b76a</Anchor>
+    <Anchor>a8e08d1e4fec54d4ab4f223571e2e70e4</Anchor>
     <DeclaredIn>RawData.h</DeclaredIn>
   </Token>
   <Token>
@@ -29188,6 +29452,7 @@
     </TokenIdentifier>
     <Path>d1/db0/classmemory_1_1_raw_data.html</Path>
     <Anchor>ade07441396473112c016081ca0d8aa9e</Anchor>
+    <Abstract>Appends some data to the end of this object&apos;s data, reallocating memory if necessary.</Abstract>
     <DeclaredIn>RawData.h</DeclaredIn>
   </Token>
   <Token>
@@ -29199,6 +29464,7 @@
     </TokenIdentifier>
     <Path>d1/db0/classmemory_1_1_raw_data.html</Path>
     <Anchor>a65573b3b9799ea544ff78b6c6054d203</Anchor>
+    <Abstract>Appends some data to the end of this object&apos;s data, reallocating memory if necessary.</Abstract>
     <DeclaredIn>RawData.h</DeclaredIn>
   </Token>
   <Token>
@@ -29210,6 +29476,7 @@
     </TokenIdentifier>
     <Path>d1/db0/classmemory_1_1_raw_data.html</Path>
     <Anchor>a46fedf38d2ce15b989b5e16075078d3e</Anchor>
+    <Abstract>Prepends some data to the beginning of this object&apos;s data, reallocating memory if necessary.</Abstract>
     <DeclaredIn>RawData.h</DeclaredIn>
   </Token>
   <Token>
@@ -29221,6 +29488,7 @@
     </TokenIdentifier>
     <Path>d1/db0/classmemory_1_1_raw_data.html</Path>
     <Anchor>a9b400c433333f288de56869b38598253</Anchor>
+    <Abstract>Prepends some data to the beginning of this object&apos;s data, reallocating memory if necessary.</Abstract>
     <DeclaredIn>RawData.h</DeclaredIn>
   </Token>
   <Token>
@@ -29232,6 +29500,7 @@
     </TokenIdentifier>
     <Path>d1/db0/classmemory_1_1_raw_data.html</Path>
     <Anchor>abe5e24bf036a38edda1a088704fdf415</Anchor>
+    <Abstract>Overwrites this object&apos;s data with the input data, reallocating memory if necessary.</Abstract>
     <DeclaredIn>RawData.h</DeclaredIn>
   </Token>
   <Token>
@@ -29243,6 +29512,7 @@
     </TokenIdentifier>
     <Path>d1/db0/classmemory_1_1_raw_data.html</Path>
     <Anchor>a62965d82eff008b31a2ff736cd92953a</Anchor>
+    <Abstract>Overwrites this object&apos;s data with the input data, reallocating memory if necessary.</Abstract>
     <DeclaredIn>RawData.h</DeclaredIn>
   </Token>
   <Token>
@@ -29757,362 +30027,13 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>memory::SharedObject</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tmplt</Type>
-      <Scope>memory::SharedObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Ptr</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
-      <Scope>memory::SharedObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-    <Anchor>a474fa554698b21c23b0d7d57ed728428</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>SharedObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>memory::SharedObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-    <Anchor>a56c4830e9baab8ae5ee2c76d997be7c0</Anchor>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>~SharedObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>memory::SharedObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-    <Anchor>a422e334706194a43b72f00b28d33835b</Anchor>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>clone</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>memory::SharedObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/d58/structmemory_1_1_shared_object.html</Path>
-    <Anchor>a20f78e9adc9fb1828da126eb1168a7c3</Anchor>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>decRefCount</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::ReferenceCountedObject</Scope>
-    </TokenIdentifier>
-    <Path>da/d8c/classmemory_1_1_reference_counted_object.html</Path>
-    <Anchor>a2ba97995dd88c16cf283fce3d6d53902</Anchor>
-    <DeclaredIn>ReferenceCountedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>decRefCountWithoutDeleting</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::ReferenceCountedObject</Scope>
-    </TokenIdentifier>
-    <Path>da/d8c/classmemory_1_1_reference_counted_object.html</Path>
-    <Anchor>a7243679968d6a41bee91ab40a1c8ebd3</Anchor>
-    <DeclaredIn>ReferenceCountedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getRefCount</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::ReferenceCountedObject</Scope>
-    </TokenIdentifier>
-    <Path>da/d8c/classmemory_1_1_reference_counted_object.html</Path>
-    <Anchor>a40a5b355c562aa5c235ab48fc3e993ab</Anchor>
-    <DeclaredIn>ReferenceCountedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>incRefCount</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::ReferenceCountedObject</Scope>
-    </TokenIdentifier>
-    <Path>da/d8c/classmemory_1_1_reference_counted_object.html</Path>
-    <Anchor>a03e6249927e599af13a7d241a5dc4867</Anchor>
-    <DeclaredIn>ReferenceCountedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>memory::SharedObjectOwner</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tmplt</Type>
-      <Scope>memory::SharedObjectOwner</Scope>
-    </TokenIdentifier>
-    <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>SharedObjectType</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
-      <Scope>memory::SharedObjectOwner</Scope>
-    </TokenIdentifier>
-    <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-    <Anchor>a745f5da067e5dea0d7b55d019f567442</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>SharedObjectOwner</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>memory::SharedObjectOwner</Scope>
-    </TokenIdentifier>
-    <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-    <Anchor>aa45b465b0355baf05a45621e7e0a6d57</Anchor>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>SharedObjectOwner</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>memory::SharedObjectOwner</Scope>
-    </TokenIdentifier>
-    <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-    <Anchor>a01df8a97b802c3a0849a42c5c1bb0fda</Anchor>
-    <Abstract>SharedObjectOwner is default copyable.</Abstract>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>SharedObjectOwner</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>memory::SharedObjectOwner</Scope>
-    </TokenIdentifier>
-    <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-    <Anchor>a2adcf1eadccf32700b5c18b3f9ec4afe</Anchor>
-    <Abstract>SharedObjectOwner is default movable.</Abstract>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>duplicateIfShared</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>memory::SharedObjectOwner</Scope>
-    </TokenIdentifier>
-    <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-    <Anchor>abf165147b86ba372b119e390be585009</Anchor>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getReferenceCount</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>memory::SharedObjectOwner</Scope>
-    </TokenIdentifier>
-    <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-    <Anchor>a4ab1adeca59930a75a51be4298304b40</Anchor>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator=</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>memory::SharedObjectOwner</Scope>
-    </TokenIdentifier>
-    <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-    <Anchor>ad9135a4d0472624308007248edf2411b</Anchor>
-    <Abstract>SharedObjectOwner is default copyable.</Abstract>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator=</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>memory::SharedObjectOwner</Scope>
-    </TokenIdentifier>
-    <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-    <Anchor>ab157d15635f086172e0a7975c0023914</Anchor>
-    <Abstract>SharedObjectOwner is default movable.</Abstract>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getOwnedObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>memory::SharedObjectOwner</Scope>
-    </TokenIdentifier>
-    <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-    <Anchor>a83218a24635bc7e742adb5278d5b0d16</Anchor>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>ownedObjectExists</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>memory::SharedObjectOwner</Scope>
-    </TokenIdentifier>
-    <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-    <Anchor>a28f1cce6f5146a15ba8f4d11ffef4251</Anchor>
-    <DeclaredIn>SharedObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>data</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>memory::SharedObjectOwner</Scope>
-    </TokenIdentifier>
-    <Path>df/d51/structmemory_1_1_shared_object_owner.html</Path>
-    <Anchor>ab46419e4ab9c38827f0d1dd80e2942db</Anchor>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>memory::stack_buffer</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tmplt</Type>
-      <Scope>memory::stack_buffer</Scope>
-    </TokenIdentifier>
-    <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-    <DeclaredIn>stack_allocator.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>stack_buffer</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::stack_buffer</Scope>
-    </TokenIdentifier>
-    <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-    <Anchor>a3283e3acb5d9e1042d204506fa54178c</Anchor>
-    <DeclaredIn>stack_allocator.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>stack_buffer</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::stack_buffer</Scope>
-    </TokenIdentifier>
-    <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-    <Anchor>a7f7cf7d91c6a7f95b77aee6baedb7483</Anchor>
-    <DeclaredIn>stack_allocator.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>~stack_buffer</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::stack_buffer</Scope>
-    </TokenIdentifier>
-    <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-    <Anchor>acd2508efb477499590ec3a5b1dcc7f01</Anchor>
-    <DeclaredIn>stack_allocator.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>allocate</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::stack_buffer</Scope>
-    </TokenIdentifier>
-    <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-    <Anchor>a60ec1a8fd94ce2e7fdecc9b27c6c83f5</Anchor>
-    <DeclaredIn>stack_allocator.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>deallocate</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::stack_buffer</Scope>
-    </TokenIdentifier>
-    <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-    <Anchor>a5d85623aa1076ed44d22003fce4db907</Anchor>
-    <DeclaredIn>stack_allocator.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator=</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::stack_buffer</Scope>
-    </TokenIdentifier>
-    <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-    <Anchor>a80247c8a5cc7b61c7a18e738b535bdb4</Anchor>
-    <DeclaredIn>stack_allocator.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator=</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::stack_buffer</Scope>
-    </TokenIdentifier>
-    <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-    <Anchor>a739b2564806ead1fa8b754222bed19cf</Anchor>
-    <DeclaredIn>stack_allocator.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>reset</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::stack_buffer</Scope>
-    </TokenIdentifier>
-    <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-    <Anchor>a48cd5dc17d215d3c4b6c924dc6f4777a</Anchor>
-    <DeclaredIn>stack_allocator.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>used</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>memory::stack_buffer</Scope>
-    </TokenIdentifier>
-    <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-    <Anchor>aa02ad0bec7228e4cf9e75f9439d24223</Anchor>
-    <DeclaredIn>stack_allocator.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>size</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>clm</Type>
-      <Scope>memory::stack_buffer</Scope>
-    </TokenIdentifier>
-    <Path>d4/da5/classmemory_1_1stack__buffer.html</Path>
-    <Anchor>a0270dcb78742dfe9ad9f8458ce883418</Anchor>
-    <DeclaredIn>stack_allocator.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>memory::StackAllocator</Name>
       <APILanguage>c</APILanguage>
       <Type>tmplt</Type>
       <Scope>memory::StackAllocator</Scope>
     </TokenIdentifier>
     <Path>d1/d2b/classmemory_1_1_stack_allocator.html</Path>
+    <Abstract>An STL-style allocator that uses stack space to allocate objects.</Abstract>
     <DeclaredIn>stack_allocator.h</DeclaredIn>
   </Token>
   <Token>
@@ -31113,53 +31034,10 @@
       <Type>func</Type>
       <Scope>misc</Scope>
     </TokenIdentifier>
-    <Path>d9/d37/namespacemisc.html</Path>
-    <Anchor>a4048d6d752c40052344526e820f1d8fc</Anchor>
+    <Path>d1/ded/group__misc.html</Path>
+    <Anchor>ga4048d6d752c40052344526e820f1d8fc</Anchor>
     <Abstract>A utility function to silence unused variable warnings.</Abstract>
     <DeclaredIn>IgnoreUnused.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>misc::BitField</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tmplt</Type>
-      <Scope>misc::BitField</Scope>
-    </TokenIdentifier>
-    <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-    <DeclaredIn>bitField.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getBit</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>misc::BitField</Scope>
-    </TokenIdentifier>
-    <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-    <Anchor>aa4f2a1a492992ec8390b63422c112345</Anchor>
-    <DeclaredIn>bitField.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getEntireField</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>misc::BitField</Scope>
-    </TokenIdentifier>
-    <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-    <Anchor>a474c1db4b265658ac45d5e7454d7eb1d</Anchor>
-    <DeclaredIn>bitField.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setBit</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>misc::BitField</Scope>
-    </TokenIdentifier>
-    <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-    <Anchor>ae684d2676d5cfbda8d3d7b6834a56350</Anchor>
-    <DeclaredIn>bitField.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -31342,6 +31220,7 @@
       <Scope>misc::ScopedStreamFlags</Scope>
     </TokenIdentifier>
     <Path>dc/d2a/structmisc_1_1_scoped_stream_flags.html</Path>
+    <Abstract>A simple RAII class to save and restore the state of a standard stream&apos;s flags.</Abstract>
     <DeclaredIn>streams.h</DeclaredIn>
   </Token>
   <Token>

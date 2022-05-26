@@ -9,8 +9,5 @@ var namespacememory =
     [ "RawData", "d1/db0/classmemory_1_1_raw_data.html", "d1/db0/classmemory_1_1_raw_data" ],
     [ "ReferenceCountedObject", "da/d8c/classmemory_1_1_reference_counted_object.html", "da/d8c/classmemory_1_1_reference_counted_object" ],
     [ "ReferenceCountedObjectPtr", "d6/d26/classmemory_1_1_reference_counted_object_ptr.html", "d6/d26/classmemory_1_1_reference_counted_object_ptr" ],
-    [ "SharedObject", "dc/d58/structmemory_1_1_shared_object.html", "dc/d58/structmemory_1_1_shared_object" ],
-    [ "SharedObjectOwner", "df/d51/structmemory_1_1_shared_object_owner.html", "df/d51/structmemory_1_1_shared_object_owner" ],
-    [ "stack_buffer", "d4/da5/classmemory_1_1stack__buffer.html", "d4/da5/classmemory_1_1stack__buffer" ],
     [ "StackAllocator", "d1/d2b/classmemory_1_1_stack_allocator.html", "d1/d2b/classmemory_1_1_stack_allocator" ]
 ];

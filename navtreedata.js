@@ -58,21 +58,21 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"d1/d7a/_realtime_type_traits_8h_source.html",
-"d2/dab/namespaceassert.html",
-"d3/d71/classtime_1_1_hour.html#a70ca23f961bbea51b4c2553a6beebba8",
-"d4/d37/group__system.html#ga2c49f64f578f6c0589dab44d41af3e2f",
-"d4/dcb/mipp_8h.html#ae3973eddb1bd6cbeb7738e71af87440c",
-"d5/dab/hour__impl_8h.html",
-"d6/d1a/fallback_8h.html#af0ecc16575c17dfaed0469d07eeaa970",
-"d6/dfa/_interval__impl_8h.html",
-"d9/dd1/_realtime_mutatable_object_8h.html",
-"db/db8/classmemory_1_1_memory_pool_allocator.html#abb2121923539f285a24044610d668f43",
-"dc/dc1/classtime_1_1_month.html#a58f67b582db87152b59a19d9d2ee78bd",
-"dd/df8/structmusic_1_1_note_duration.html#ab26935641d984c9889570ced260fa41e",
-"de/d65/classhash_1_1_hasher.html",
-"de/df9/classmath_1_1geometry_1_1_cube.html#a5512f221f3bacd73afe76aa2c2b74ca0",
-"df/dcc/classfiles_1_1_file.html#aa66e2aabfeab8b02ebba41784d02c3d6"
+"d1/d83/structdsp_1_1_oscillator_1_1_phase.html#a4232ba30b5c02109b634863914d105e5",
+"d2/dde/classdsp_1_1osc_1_1_detunable_model.html",
+"d3/d71/classtime_1_1_hour.html#a7ee84244a213ddd1e7d79f6d5ebe0b7f",
+"d4/d37/group__system.html#ga31004f8beb1bebe164df6461882dbe88",
+"d4/dd5/_type_traits_8h.html#ga292aa323959c2cf1c81898824456f744",
+"d5/db7/classfiles_1_1_temp_file.html#a09b3b1216d8d897947204e31c464b4cf",
+"d6/d26/classmemory_1_1_reference_counted_object_ptr.html#a59a920439f7f7500bfdcafbc45d2eef5",
+"d7/d35/countries_8h.html#ae7c1a8232b30d40da7ca89e408396cb7",
+"da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c",
+"db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html#a7a63ad17b3b2eb010df3c5ec47822d0f",
+"dc/dc1/classtime_1_1_month.html#acb5b8bfe88180b9e5fa2e58f94907a67",
+"dd/dfb/math_helpers_8h.html#ga2c6a4276c506b35b346e1bf5dbc04e15",
+"de/d6d/classmusic_1_1_pitch.html#a97f2726ea580784fc92dc8a358320f1e",
+"df/d16/structds_1_1_linked_list_model.html#a1a015b40cd6efc3b4a62cdc91ad6bc35",
+"df/dcd/classmath_1_1geometry_1_1_pyramid.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -97,16 +97,22 @@ $(document).ready(function(){initNavTree('d4/daf/namespacememory.html','../../')
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dc8/classmemory_1_1aligned__pointer.html">aligned_pointer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An RAII object that calls <code><a class="el" href="../../d7/ded/group__memory.html#ga898974242418e2b20981a737c5e82410" title="Allocates the desired number of objects with the desired alignment.">allocate_aligned()</a></code> on construction and <code><a class="el" href="../../d7/ded/group__memory.html#ga5a001535fbebdaa7499f0d95e2a5cec7" title="Deallocates a pointer that was previously allocated with allocate_aligned() .">deallocate_aligned()</a></code> on destruction.  <a href="../../d8/dc8/classmemory_1_1aligned__pointer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1c/classmemory_1_1_aligned_allocator.html">AlignedAllocator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An STL-style allocator that allocates aligned pointers.  <a href="../../dd/d1c/classmemory_1_1_aligned_allocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is a pool of preallocated memory that can be doled out in smaller chunks, allowing objects to be dynamically created and destroyed without incurring memory allocations.  <a href="../../d7/db7/classmemory_1_1_memory_pool.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db8/classmemory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An STL-style allocator that uses an internal <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html" title="This class is a pool of preallocated memory that can be doled out in smaller chunks,...">MemoryPool</a> to allocate objects.  <a href="../../db/db8/classmemory_1_1_memory_pool_allocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A smart pointer to an object that lives within a <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html" title="This class is a pool of preallocated memory that can be doled out in smaller chunks,...">MemoryPool</a>.  <a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classmemory_1_1_optional_object.html">OptionalObject</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An object that retains its allocated memory, but can be dynamically constructed and destroyed (without deallocating its memory).  <a href="../../dc/d1a/classmemory_1_1_optional_object.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db0/classmemory_1_1_raw_data.html">RawData</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is a wrapper around a pointer to some raw data on the heap.  <a href="../../d1/db0/classmemory_1_1_raw_data.html#details">More...</a><br /></td></tr>
@@ -115,32 +121,31 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d26/classmemory_1_1_reference_counted_object_ptr.html">ReferenceCountedObjectPtr</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d58/structmemory_1_1_shared_object.html">SharedObject</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d51/structmemory_1_1_shared_object_owner.html">SharedObjectOwner</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/da5/classmemory_1_1stack__buffer.html">stack_buffer</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html">StackAllocator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An STL-style allocator that uses stack space to allocate objects.  <a href="../../d1/d2b/classmemory_1_1_stack_allocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a898974242418e2b20981a737c5e82410"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
-<tr class="memitem:a898974242418e2b20981a737c5e82410"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/daf/namespacememory.html#a898974242418e2b20981a737c5e82410">allocate_aligned</a> (std::size_t count=1, std::size_t alignment=32, Args &amp;&amp;... args) noexcept</td></tr>
-<tr class="separator:a898974242418e2b20981a737c5e82410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga898974242418e2b20981a737c5e82410"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
+<tr class="memitem:ga898974242418e2b20981a737c5e82410"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/ded/group__memory.html#ga898974242418e2b20981a737c5e82410">allocate_aligned</a> (std::size_t count=1, std::size_t alignment=32, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="memdesc:ga898974242418e2b20981a737c5e82410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates the desired number of objects with the desired alignment.  <a href="../../d7/ded/group__memory.html#ga898974242418e2b20981a737c5e82410">More...</a><br /></td></tr>
+<tr class="separator:ga898974242418e2b20981a737c5e82410"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5870c91fc3ffdf022b7714afb4e4d63"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType &gt; </td></tr>
 <tr class="memitem:ac5870c91fc3ffdf022b7714afb4e4d63"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/daf/namespacememory.html#ac5870c91fc3ffdf022b7714afb4e4d63">createFor</a> (std::size_t desiredCapacity)</td></tr>
 <tr class="separator:ac5870c91fc3ffdf022b7714afb4e4d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a001535fbebdaa7499f0d95e2a5cec7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a5a001535fbebdaa7499f0d95e2a5cec7"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/daf/namespacememory.html#a5a001535fbebdaa7499f0d95e2a5cec7">deallocate_aligned</a> (T *ptr) noexcept</td></tr>
-<tr class="separator:a5a001535fbebdaa7499f0d95e2a5cec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6379140bdddcd776d5f4ab92eb64e1bc"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , typename... Args&gt; </td></tr>
-<tr class="memitem:a6379140bdddcd776d5f4ab92eb64e1bc"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT ObjectType &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/daf/namespacememory.html#a6379140bdddcd776d5f4ab92eb64e1bc">getStaticObject</a> (Args &amp;&amp;... args)</td></tr>
-<tr class="separator:a6379140bdddcd776d5f4ab92eb64e1bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af83c9457a4906ef4e3d67963fb18418b"><td class="memTemplParams" colspan="2">template&lt;auto Data&gt; </td></tr>
-<tr class="memitem:af83c9457a4906ef4e3d67963fb18418b"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT const consteval auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/daf/namespacememory.html#af83c9457a4906ef4e3d67963fb18418b">make_static</a> () noexcept</td></tr>
-<tr class="separator:af83c9457a4906ef4e3d67963fb18418b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a001535fbebdaa7499f0d95e2a5cec7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga5a001535fbebdaa7499f0d95e2a5cec7"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/ded/group__memory.html#ga5a001535fbebdaa7499f0d95e2a5cec7">deallocate_aligned</a> (T *ptr) noexcept</td></tr>
+<tr class="memdesc:ga5a001535fbebdaa7499f0d95e2a5cec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a pointer that was previously allocated with <code><a class="el" href="../../d7/ded/group__memory.html#ga898974242418e2b20981a737c5e82410" title="Allocates the desired number of objects with the desired alignment.">allocate_aligned()</a></code> .  <a href="../../d7/ded/group__memory.html#ga5a001535fbebdaa7499f0d95e2a5cec7">More...</a><br /></td></tr>
+<tr class="separator:ga5a001535fbebdaa7499f0d95e2a5cec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6379140bdddcd776d5f4ab92eb64e1bc"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , typename... Args&gt; </td></tr>
+<tr class="memitem:ga6379140bdddcd776d5f4ab92eb64e1bc"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT ObjectType &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/ded/group__memory.html#ga6379140bdddcd776d5f4ab92eb64e1bc">getStaticObject</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:ga6379140bdddcd776d5f4ab92eb64e1bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function retrieves a static object of a specified type.  <a href="../../d7/ded/group__memory.html#ga6379140bdddcd776d5f4ab92eb64e1bc">More...</a><br /></td></tr>
+<tr class="separator:ga6379140bdddcd776d5f4ab92eb64e1bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf83c9457a4906ef4e3d67963fb18418b"><td class="memTemplParams" colspan="2">template&lt;auto Data&gt; </td></tr>
+<tr class="memitem:gaf83c9457a4906ef4e3d67963fb18418b"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT const consteval auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/ded/group__memory.html#gaf83c9457a4906ef4e3d67963fb18418b">make_static</a> () noexcept</td></tr>
+<tr class="memdesc:gaf83c9457a4906ef4e3d67963fb18418b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function forces some data to be evaluated at compile time.  <a href="../../d7/ded/group__memory.html#gaf83c9457a4906ef4e3d67963fb18418b">More...</a><br /></td></tr>
+<tr class="separator:gaf83c9457a4906ef4e3d67963fb18418b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad584035846c172918892caa9250985a2"><td class="memTemplParams" colspan="2">template&lt;class T , std::size_t N, std::size_t A1, class U , std::size_t M, std::size_t A2&gt; </td></tr>
 <tr class="memitem:ad584035846c172918892caa9250985a2"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/daf/namespacememory.html#ad584035846c172918892caa9250985a2">operator!=</a> (const <a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html">StackAllocator</a>&lt; T, N, A1 &gt; &amp;x, const <a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html">StackAllocator</a>&lt; U, M, A2 &gt; &amp;y) noexcept</td></tr>
 <tr class="separator:ad584035846c172918892caa9250985a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,52 +162,6 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This namespace contains utilities for working with memory allocation and management. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a898974242418e2b20981a737c5e82410"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a898974242418e2b20981a737c5e82410">&#9670;&nbsp;</a></span>allocate_aligned()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT T* memory::allocate_aligned </td>
-          <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>count</em> = <code>1</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>alignment</em> = <code>32</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../db/dad/alignment_8h_source.html#l00034">34</a> of file <a class="el" href="../../db/dad/alignment_8h_source.html">alignment.h</a>.</p>
-
-</div>
-</div>
 <a id="ac5870c91fc3ffdf022b7714afb4e4d63"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac5870c91fc3ffdf022b7714afb4e4d63">&#9670;&nbsp;</a></span>createFor()</h2>
 
@@ -221,88 +180,7 @@ template&lt;typename ObjectType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00145">145</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
-
-</div>
-</div>
-<a id="a5a001535fbebdaa7499f0d95e2a5cec7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a001535fbebdaa7499f0d95e2a5cec7">&#9670;&nbsp;</a></span>deallocate_aligned()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT bool memory::deallocate_aligned </td>
-          <td>(</td>
-          <td class="paramtype">T *&#160;</td>
-          <td class="paramname"><em>ptr</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../db/dad/alignment_8h_source.html#l00063">63</a> of file <a class="el" href="../../db/dad/alignment_8h_source.html">alignment.h</a>.</p>
-
-</div>
-</div>
-<a id="a6379140bdddcd776d5f4ab92eb64e1bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6379140bdddcd776d5f4ab92eb64e1bc">&#9670;&nbsp;</a></span>getStaticObject()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ObjectType , typename... Args&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT ObjectType&amp; memory::getStaticObject </td>
-          <td>(</td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d0/d78/_static_objects_8h_source.html#l00031">31</a> of file <a class="el" href="../../d0/d78/_static_objects_8h_source.html">StaticObjects.h</a>.</p>
-
-</div>
-</div>
-<a id="af83c9457a4906ef4e3d67963fb18418b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af83c9457a4906ef4e3d67963fb18418b">&#9670;&nbsp;</a></span>make_static()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;auto Data&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT const consteval auto&amp; memory::make_static </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d0/d78/_static_objects_8h_source.html#l00025">25</a> of file <a class="el" href="../../d0/d78/_static_objects_8h_source.html">StaticObjects.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/daa/_memory_pool_8h_source.html#l00226">226</a> of file <a class="el" href="../../d2/daa/_memory_pool_8h_source.html">MemoryPool.h</a>.</p>
 
 </div>
 </div>
@@ -342,7 +220,7 @@ template&lt;class T , std::size_t N, std::size_t A1, class U , std::size_t M, st
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00118">118</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00127">127</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 
 </div>
 </div>
@@ -422,7 +300,7 @@ template&lt;class T , std::size_t N, std::size_t A1, class U , std::size_t M, st
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00112">112</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00121">121</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
 
 </div>
 </div>
@@ -472,7 +350,7 @@ template&lt;typename Type &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d4/daf/namespacememory.html">memory</a></li>
-    <li class="footer">Generated on Thu May 26 2022 10:05:03 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 16:10:55 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
