@@ -58,21 +58,19 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"d1/d83/structdsp_1_1_oscillator_1_1_phase.html#a4232ba30b5c02109b634863914d105e5",
-"d2/dde/classdsp_1_1osc_1_1_detunable_model.html",
-"d3/d71/classtime_1_1_hour.html#a7ee84244a213ddd1e7d79f6d5ebe0b7f",
-"d4/d37/group__system.html#ga31004f8beb1bebe164df6461882dbe88",
-"d4/dd5/_type_traits_8h.html#ga292aa323959c2cf1c81898824456f744",
-"d5/db7/classfiles_1_1_temp_file.html#a09b3b1216d8d897947204e31c464b4cf",
-"d6/d26/classmemory_1_1_reference_counted_object_ptr.html#a59a920439f7f7500bfdcafbc45d2eef5",
-"d7/d35/countries_8h.html#ae7c1a8232b30d40da7ca89e408396cb7",
-"da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c",
-"db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html#a7a63ad17b3b2eb010df3c5ec47822d0f",
-"dc/dc1/classtime_1_1_month.html#acb5b8bfe88180b9e5fa2e58f94907a67",
-"dd/dfb/math_helpers_8h.html#ga2c6a4276c506b35b346e1bf5dbc04e15",
-"de/d6d/classmusic_1_1_pitch.html#a97f2726ea580784fc92dc8a358320f1e",
-"df/d16/structds_1_1_linked_list_model.html#a1a015b40cd6efc3b4a62cdc91ad6bc35",
-"df/dcd/classmath_1_1geometry_1_1_pyramid.html"
+"d1/d2b/classmemory_1_1_stack_allocator.html#aacee795efda1b6324b21ef553f6397e4",
+"d3/d1d/classmath_1_1geometry_1_1_rectangular_prism.html#a5ae050ac9d0963888d8e5ff5e1f21666",
+"d4/d06/classmeta_1_1_type_list.html#aec710093f4b29129508715a40c9b7416",
+"d5/d26/structmath_1_1_fraction.html#ac32eb3987249cb630213f65c10a64fd5",
+"d5/db7/classfiles_1_1_temp_file.html#ad29e63925bc45b2ff88f2e957b604cb0",
+"d6/d89/classmusic_1_1_interval.html#a29c002ce9cee7ed5961c0039951035d9",
+"d8/db6/namespacemeta.html",
+"db/d7d/structds_1_1_linked_list_1_1_node.html",
+"dc/da1/classmath_1_1geometry_1_1_triangle.html#acecb461fd2ad8660cfcacc697de6bbe8ab7cea6b154b83972205d04d8b849065b",
+"dd/d49/classtime_1_1_date.html#a86ac8eef17f2b6631bbb128064c1aaf6",
+"de/d1f/limes__vecops_8h.html#ga55b527f9ebf789195e30604180b5dc35",
+"de/dac/structstd_1_1hash_3_01limes_1_1files_1_1_file_01_4.html#a82d9998e8c695020a705d315818b1af1",
+"df/d63/classds_1_1basic__vector.html#aa7dd8064c2d267a928613d67e35f0c5f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

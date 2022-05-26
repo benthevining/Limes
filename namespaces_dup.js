@@ -16,7 +16,6 @@ var namespaces_dup =
     [ "midi", "da/d3d/namespacemidi.html", null ],
     [ "misc", "d9/d37/namespacemisc.html", null ],
     [ "music", "d3/d28/namespacemusic.html", "d3/d28/namespacemusic" ],
-    [ "pommier", "dc/d2b/namespacepommier.html", null ],
     [ "strings", "df/dcb/namespacestrings.html", null ],
     [ "threads", "d5/d58/namespacethreads.html", "d5/d58/namespacethreads" ],
     [ "time", "d0/dfb/namespacetime.html", null ],

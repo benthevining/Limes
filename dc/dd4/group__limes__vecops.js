@@ -1,0 +1,27 @@
+var group__limes__vecops =
+[
+    [ "Arithmetic functions", "d8/dce/group__vec__arithmetic.html", "d8/dce/group__vec__arithmetic" ],
+    [ "Sorting functions", "d0/d58/group__vec__sorting.html", "d0/d58/group__vec__sorting" ],
+    [ "Squaring functions", "d2/d25/group__vec__squaring.html", "d2/d25/group__vec__squaring" ],
+    [ "Statistical functions", "d0/d70/group__vec__stats.html", "d0/d70/group__vec__stats" ],
+    [ "fallback.h", "d6/d1a/fallback_8h.html", null ],
+    [ "fallback_impl.h", "d3/d3f/fallback__impl_8h.html", null ],
+    [ "ipp.h", "d3/d88/ipp_8h.html", null ],
+    [ "limes_vecops.h", "de/d1f/limes__vecops_8h.html", null ],
+    [ "mipp.h", "d4/dcb/mipp_8h.html", null ],
+    [ "neon_mathfun.h", "d8/d51/neon__mathfun_8h.html", null ],
+    [ "phasor.h", "d1/d15/phasor_8h.html", null ],
+    [ "pommier_wrapper.h", "d4/dda/pommier__wrapper_8h.html", null ],
+    [ "sse_mathfun.h", "d1/dda/sse__mathfun_8h.html", null ],
+    [ "vdsp.h", "d2/d36/vdsp_8h.html", null ],
+    [ "LIMES_VECOPS_USE_IPP", "dc/dd4/group__limes__vecops.html#gaaf4e6c2cb5282672fc67747a8e1f550f", null ],
+    [ "LIMES_VECOPS_USE_MIPP", "dc/dd4/group__limes__vecops.html#ga70b144652ef1412e204a8d4e9c66fef8", null ],
+    [ "LIMES_VECOPS_USE_POMMIER", "dc/dd4/group__limes__vecops.html#gacc1d8c1c278a0ac62eef8c5595503a5a", null ],
+    [ "LIMES_VECOPS_USE_VDSP", "dc/dd4/group__limes__vecops.html#ga5798e2e410bb607a38b777b0f8e7fafa", null ],
+    [ "clear", "dc/dd4/group__limes__vecops.html#ga930277c1a7baf15cad3cea81282f76b5", null ],
+    [ "copy", "dc/dd4/group__limes__vecops.html#ga40ad5c8779f7e96372e87c5fa7889775", null ],
+    [ "fill", "dc/dd4/group__limes__vecops.html#ga5e307f914b980a4e372a91bb46d366ab", null ],
+    [ "swap", "dc/dd4/group__limes__vecops.html#ga058e37a32a17e5b0f4fd908d8aec7438", null ],
+    [ "Integral", "dc/dd4/group__limes__vecops.html#ga501c0a016f50af88ace6897813709129", null ],
+    [ "Scalar", "dc/dd4/group__limes__vecops.html#gada8cae1f0fbf8db713e5e5b89dba8ee8", null ]
+];

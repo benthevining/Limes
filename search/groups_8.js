@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['system_2846',['System',['../d4/d37/group__system.html',1,'']]]
+  ['math_2787',['Math',['../de/df1/group__math.html',1,'']]],
+  ['memory_2788',['Memory',['../d7/ded/group__memory.html',1,'']]],
+  ['metaprogramming_2789',['Metaprogramming',['../d6/db2/group__meta.html',1,'']]],
+  ['miscellaneous_2790',['Miscellaneous',['../d1/ded/group__misc.html',1,'']]],
+  ['multiplication_2791',['Multiplication',['../db/d5e/group__vec__multiplication.html',1,'']]]
 ];

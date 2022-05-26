@@ -88,9 +88,9 @@ var files_dup =
       [ "hash< limes::files::DynamicLibrary >", "d6/d91/structstd_1_1hash_3_01limes_1_1files_1_1_dynamic_library_01_4.html", "d6/d91/structstd_1_1hash_3_01limes_1_1files_1_1_dynamic_library_01_4" ]
     ] ],
     [ "exec_location.h", "df/d3f/exec__location_8h.html", null ],
-    [ "fallback.h", "d6/d1a/fallback_8h.html", "d6/d1a/fallback_8h" ],
+    [ "fallback.h", "d6/d1a/fallback_8h.html", null ],
     [ "fallback_fft.h", "d9/d14/fallback__fft_8h.html", null ],
-    [ "fallback_impl.h", "d3/d3f/fallback__impl_8h.html", "d3/d3f/fallback__impl_8h" ],
+    [ "fallback_impl.h", "d3/d3f/fallback__impl_8h.html", null ],
     [ "fft_common.h", "d6/db4/fft__common_8h.html", null ],
     [ "fftw_fft.h", "dc/d24/fftw__fft_8h.html", null ],
     [ "FIFO.h", "dd/d35/_f_i_f_o_8h.html", [
@@ -121,7 +121,7 @@ var files_dup =
     [ "IgnoreUnused.h", "d1/d57/_ignore_unused_8h.html", "d1/d57/_ignore_unused_8h" ],
     [ "Interval.h", "d1/d6b/_interval_8h.html", "d1/d6b/_interval_8h" ],
     [ "Interval_impl.h", "d6/dfa/_interval__impl_8h.html", null ],
-    [ "ipp.h", "d3/d88/ipp_8h.html", "d3/d88/ipp_8h" ],
+    [ "ipp.h", "d3/d88/ipp_8h.html", null ],
     [ "ipp_fft.h", "d3/d33/ipp__fft_8h.html", null ],
     [ "json.h", "d4/d05/json_8h.html", "d4/d05/json_8h" ],
     [ "KeySignature.h", "dd/d47/_key_signature_8h.html", [
@@ -161,7 +161,7 @@ var files_dup =
       [ "rebind", "d5/d72/structmemory_1_1_memory_pool_allocator_1_1rebind.html", "d5/d72/structmemory_1_1_memory_pool_allocator_1_1rebind" ]
     ] ],
     [ "MicrotonalInterval.h", "d7/da0/_microtonal_interval_8h.html", "d7/da0/_microtonal_interval_8h" ],
-    [ "mipp.h", "d4/dcb/mipp_8h.html", "d4/dcb/mipp_8h" ],
+    [ "mipp.h", "d4/dcb/mipp_8h.html", null ],
     [ "limes_audio/util/Misc.h", "d1/df0/limes__audio_2util_2_misc_8h.html", "d1/df0/limes__audio_2util_2_misc_8h" ],
     [ "limes_core/files/Misc.h", "d1/d28/limes__core_2files_2_misc_8h.html", "d1/d28/limes__core_2files_2_misc_8h" ],
     [ "Mode.h", "d8/daa/_mode_8h.html", [
@@ -175,7 +175,7 @@ var files_dup =
     [ "mts_client.h", "da/d20/mts__client_8h.html", [
       [ "MtsClient", "d6/dc9/classmidi_1_1_mts_client.html", "d6/dc9/classmidi_1_1_mts_client" ]
     ] ],
-    [ "neon_mathfun.h", "d8/d51/neon__mathfun_8h.html", "d8/d51/neon__mathfun_8h" ],
+    [ "neon_mathfun.h", "d8/d51/neon__mathfun_8h.html", null ],
     [ "NonrealtimeMutatableObject.h", "d1/d2e/_nonrealtime_mutatable_object_8h.html", [
       [ "NonRealtimeMutatableObject", "d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html", "d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object" ]
     ] ],
@@ -216,7 +216,7 @@ var files_dup =
     [ "PerlinNoise.h", "d4/d5f/_perlin_noise_8h.html", [
       [ "PerlinNoise", "de/da0/classdsp_1_1_perlin_noise.html", "de/da0/classdsp_1_1_perlin_noise" ]
     ] ],
-    [ "phasor.h", "d1/d15/phasor_8h.html", "d1/d15/phasor_8h" ],
+    [ "phasor.h", "d1/d15/phasor_8h.html", null ],
     [ "Pitch.h", "db/ddf/_pitch_8h.html", [
       [ "Pitch", "de/d6d/classmusic_1_1_pitch.html", "de/d6d/classmusic_1_1_pitch" ]
     ] ],
@@ -230,7 +230,7 @@ var files_dup =
       [ "PitchDetector", "d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html", "d0/dfe/classdsp_1_1psola_1_1_pitch_detector" ]
     ] ],
     [ "PitchUtils.h", "d5/d5b/_pitch_utils_8h.html", "d5/d5b/_pitch_utils_8h" ],
-    [ "pommier_wrapper.h", "d4/dda/pommier__wrapper_8h.html", "d4/dda/pommier__wrapper_8h" ],
+    [ "pommier_wrapper.h", "d4/dda/pommier__wrapper_8h.html", null ],
     [ "preprocessor.h", "d3/d53/preprocessor_8h.html", "d3/d53/preprocessor_8h" ],
     [ "pyramid.h", "dd/d7d/pyramid_8h.html", [
       [ "Pyramid", "df/dcd/classmath_1_1geometry_1_1_pyramid.html", "df/dcd/classmath_1_1geometry_1_1_pyramid" ]
@@ -276,7 +276,7 @@ var files_dup =
       [ "Sphere", "d4/dc0/classmath_1_1geometry_1_1_sphere.html", "d4/dc0/classmath_1_1geometry_1_1_sphere" ]
     ] ],
     [ "square.h", "d7/d3c/square_8h.html", "d7/d3c/square_8h" ],
-    [ "sse_mathfun.h", "d1/dda/sse__mathfun_8h.html", "d1/dda/sse__mathfun_8h" ],
+    [ "sse_mathfun.h", "d1/dda/sse__mathfun_8h.html", null ],
     [ "stack_allocator.h", "d5/d5a/stack__allocator_8h.html", "d5/d5a/stack__allocator_8h" ],
     [ "StaticObjects.h", "d0/d78/_static_objects_8h.html", "d0/d78/_static_objects_8h" ],
     [ "streams.h", "db/d8e/streams_8h.html", [
@@ -315,7 +315,7 @@ var files_dup =
     [ "TypeList.h", "d4/d83/_type_list_8h.html", "d4/d83/_type_list_8h" ],
     [ "TypeList_impl.h", "d7/dfe/_type_list__impl_8h.html", "d7/dfe/_type_list__impl_8h" ],
     [ "TypeTraits.h", "d4/dd5/_type_traits_8h.html", "d4/dd5/_type_traits_8h" ],
-    [ "vdsp.h", "d2/d36/vdsp_8h.html", "d2/d36/vdsp_8h" ],
+    [ "vdsp.h", "d2/d36/vdsp_8h.html", null ],
     [ "vdsp_fft.h", "d8/da3/vdsp__fft_8h.html", null ],
     [ "vector.h", "d6/d68/vector_8h.html", "d6/d68/vector_8h" ],
     [ "VelocityMapper.h", "d0/d0d/_velocity_mapper_8h.html", [
