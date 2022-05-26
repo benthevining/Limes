@@ -95,18 +95,10 @@ $(document).ready(function(){initNavTree('d0/dc6/structmisc_1_1_bit_field.html',
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a509609869c24d96afca4e8c03bb0284f"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html#a509609869c24d96afca4e8c03bb0284f">BitField</a> ()=default</td></tr>
-<tr class="separator:a509609869c24d96afca4e8c03bb0284f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0ecaa4a8eb0f48185569182203dfa39"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html#ac0ecaa4a8eb0f48185569182203dfa39">BitField</a> (<a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a> &amp;&amp;)=default</td></tr>
-<tr class="separator:ac0ecaa4a8eb0f48185569182203dfa39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d48f7d198b5599ba4e5075620754c22"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html#a5d48f7d198b5599ba4e5075620754c22">BitField</a> (const <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a> &amp;)=default</td></tr>
-<tr class="separator:a5d48f7d198b5599ba4e5075620754c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b55ec8285da7b4e25797684b05e4749"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html#a5b55ec8285da7b4e25797684b05e4749">getValue</a> (std::size_t pos) const noexcept</td></tr>
-<tr class="separator:a5b55ec8285da7b4e25797684b05e4749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e4c67edcddb69091a5df48c3beb5f09"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html#a6e4c67edcddb69091a5df48c3beb5f09">operator=</a> (<a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a> &amp;&amp;)=default</td></tr>
-<tr class="separator:a6e4c67edcddb69091a5df48c3beb5f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb01bb4fb4d33309ac15dc1824ae7591"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html#abb01bb4fb4d33309ac15dc1824ae7591">operator=</a> (const <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a> &amp;)=default</td></tr>
-<tr class="separator:abb01bb4fb4d33309ac15dc1824ae7591"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4f2a1a492992ec8390b63422c112345"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html#aa4f2a1a492992ec8390b63422c112345">getBit</a> (std::size_t pos) const noexcept</td></tr>
+<tr class="separator:aa4f2a1a492992ec8390b63422c112345"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a474c1db4b265658ac45d5e7454d7eb1d"><td class="memItemLeft" align="right" valign="top">constexpr StorageType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html#a474c1db4b265658ac45d5e7454d7eb1d">getEntireField</a> () const noexcept</td></tr>
+<tr class="separator:a474c1db4b265658ac45d5e7454d7eb1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae684d2676d5cfbda8d3d7b6834a56350"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html#ae684d2676d5cfbda8d3d7b6834a56350">setBit</a> (std::size_t pos, bool value=true) noexcept</td></tr>
 <tr class="separator:ae684d2676d5cfbda8d3d7b6834a56350"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -116,93 +108,9 @@ struct misc::BitField&lt; StorageType &gt;</h3>
 
 
 <p class="definition">Definition at line <a class="el" href="../../dd/d8f/bit_field_8h_source.html#l00027">27</a> of file <a class="el" href="../../dd/d8f/bit_field_8h_source.html">bitField.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a509609869c24d96afca4e8c03bb0284f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a509609869c24d96afca4e8c03bb0284f">&#9670;&nbsp;</a></span>BitField() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;math::Integral StorageType = std::uint64_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">misc::BitField</a>&lt; StorageType &gt;::<a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5d48f7d198b5599ba4e5075620754c22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d48f7d198b5599ba4e5075620754c22">&#9670;&nbsp;</a></span>BitField() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;math::Integral StorageType = std::uint64_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">misc::BitField</a>&lt; StorageType &gt;::<a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a>&lt; StorageType &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac0ecaa4a8eb0f48185569182203dfa39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0ecaa4a8eb0f48185569182203dfa39">&#9670;&nbsp;</a></span>BitField() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;math::Integral StorageType = std::uint64_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">misc::BitField</a>&lt; StorageType &gt;::<a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a>&lt; StorageType &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5b55ec8285da7b4e25797684b05e4749"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b55ec8285da7b4e25797684b05e4749">&#9670;&nbsp;</a></span>getValue()</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa4f2a1a492992ec8390b63422c112345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4f2a1a492992ec8390b63422c112345">&#9670;&nbsp;</a></span>getBit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -213,7 +121,7 @@ template&lt;math::Integral StorageType&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">misc::BitField</a>&lt; StorageType &gt;::getValue </td>
+          <td class="memname">constexpr bool <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">misc::BitField</a>&lt; StorageType &gt;::getBit </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>pos</em></td><td>)</td>
@@ -227,63 +135,33 @@ template&lt;math::Integral StorageType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d8f/bit_field_8h_source.html#l00057">57</a> of file <a class="el" href="../../dd/d8f/bit_field_8h_source.html">bitField.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d8f/bit_field_8h_source.html#l00054">54</a> of file <a class="el" href="../../dd/d8f/bit_field_8h_source.html">bitField.h</a>.</p>
 
 </div>
 </div>
-<a id="a6e4c67edcddb69091a5df48c3beb5f09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e4c67edcddb69091a5df48c3beb5f09">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a474c1db4b265658ac45d5e7454d7eb1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a474c1db4b265658ac45d5e7454d7eb1d">&#9670;&nbsp;</a></span>getEntireField()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;math::Integral StorageType = std::uint64_t&gt; </div>
+template&lt;math::Integral StorageType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a>&amp; <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">misc::BitField</a>&lt; StorageType &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a>&lt; StorageType &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">constexpr StorageType <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">misc::BitField</a>&lt; StorageType &gt;::getEntireField</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="abb01bb4fb4d33309ac15dc1824ae7591"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb01bb4fb4d33309ac15dc1824ae7591">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;math::Integral StorageType = std::uint64_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a>&amp; <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">misc::BitField</a>&lt; StorageType &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a>&lt; StorageType &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p class="definition">Definition at line <a class="el" href="../../dd/d8f/bit_field_8h_source.html#l00060">60</a> of file <a class="el" href="../../dd/d8f/bit_field_8h_source.html">bitField.h</a>.</p>
 
 </div>
 </div>
@@ -323,7 +201,7 @@ template&lt;math::Integral StorageType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/d8f/bit_field_8h_source.html#l00047">47</a> of file <a class="el" href="../../dd/d8f/bit_field_8h_source.html">bitField.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/d8f/bit_field_8h_source.html#l00044">44</a> of file <a class="el" href="../../dd/d8f/bit_field_8h_source.html">bitField.h</a>.</p>
 
 </div>
 </div>
@@ -336,7 +214,7 @@ template&lt;math::Integral StorageType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d37/namespacemisc.html">misc</a></li><li class="navelem"><a class="el" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a></li>
-    <li class="footer">Generated on Thu May 26 2022 07:42:12 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 10:05:03 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

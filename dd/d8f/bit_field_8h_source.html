@@ -117,50 +117,51 @@ $(document).ready(function(){initNavTree('dd/d8f/bit_field_8h_source.html','../.
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    constexpr <a class="code" href="../../d0/dc6/structmisc_1_1_bit_field.html#a509609869c24d96afca4e8c03bb0284f">BitField</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    constexpr <span class="keywordtype">void</span> <a class="code" href="../../d0/dc6/structmisc_1_1_bit_field.html#ae684d2676d5cfbda8d3d7b6834a56350">setBit</a> (std::size_t pos, <span class="keywordtype">bool</span> value = <span class="keyword">true</span>) noexcept;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="../../d3/d53/preprocessor_8h.html#a397de153f0d2c4a307fa9e150a396a32">LIMES_CONSTEXPR_COPYABLE</a> (<a class="code" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../d3/d53/preprocessor_8h.html#acb481fd22dbb3eae9b409dfbb29fd494">LIMES_CONSTEXPR_MOVABLE</a> (<a class="code" href="../../d0/dc6/structmisc_1_1_bit_field.html">BitField</a>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    constexpr <span class="keywordtype">void</span> <a class="code" href="../../d0/dc6/structmisc_1_1_bit_field.html#ae684d2676d5cfbda8d3d7b6834a56350">setBit</a> (std::size_t pos, <span class="keywordtype">bool</span> value = <span class="keyword">true</span>) noexcept;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc6/structmisc_1_1_bit_field.html#a5b55ec8285da7b4e25797684b05e4749">getValue</a> (std::size_t pos) <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc6/structmisc_1_1_bit_field.html#aa4f2a1a492992ec8390b63422c112345">getBit</a> (std::size_t pos) <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    constexpr StorageType <a class="code" href="../../d0/dc6/structmisc_1_1_bit_field.html#a474c1db4b265658ac45d5e7454d7eb1d">getEntireField</a>() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    StorageType storage { 0 };</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    StorageType storage { 0 };</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">template</span> &lt;math::Integral StorageType&gt;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d0/dc6/structmisc_1_1_bit_field.html#ae684d2676d5cfbda8d3d7b6834a56350">   47</a></span>&#160;constexpr <span class="keywordtype">void</span> <a class="code" href="../../d0/dc6/structmisc_1_1_bit_field.html#ae684d2676d5cfbda8d3d7b6834a56350">BitField&lt;StorageType&gt;::setBit</a> (std::size_t pos, <span class="keywordtype">bool</span> value) noexcept</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">auto</span> baseVal = value ? StorageType (1) : StorageType (0);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    baseVal &lt;&lt; pos;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">template</span> &lt;math::Integral StorageType&gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d0/dc6/structmisc_1_1_bit_field.html#ae684d2676d5cfbda8d3d7b6834a56350">   44</a></span>&#160;constexpr <span class="keywordtype">void</span> <a class="code" href="../../d0/dc6/structmisc_1_1_bit_field.html#ae684d2676d5cfbda8d3d7b6834a56350">BitField&lt;StorageType&gt;::setBit</a> (std::size_t pos, <span class="keywordtype">bool</span> value) noexcept</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">auto</span> baseVal = value ? StorageType (1) : StorageType (0);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    baseVal &lt;&lt; pos;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    storage |= baseVal;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    storage |= baseVal;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">template</span> &lt;math::Integral StorageType&gt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d0/dc6/structmisc_1_1_bit_field.html#a5b55ec8285da7b4e25797684b05e4749">   57</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc6/structmisc_1_1_bit_field.html#a5b55ec8285da7b4e25797684b05e4749">BitField&lt;StorageType&gt;::getValue</a> (std::size_t pos) <span class="keyword">const</span> noexcept</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> (storage &gt;&gt; pos) &amp; StorageType (0x1);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}  <span class="comment">// namespace misc</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">template</span> &lt;math::Integral StorageType&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d0/dc6/structmisc_1_1_bit_field.html#aa4f2a1a492992ec8390b63422c112345">   54</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d0/dc6/structmisc_1_1_bit_field.html#aa4f2a1a492992ec8390b63422c112345">BitField&lt;StorageType&gt;::getBit</a> (std::size_t pos) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> (storage &gt;&gt; pos) &amp; StorageType (1);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">template</span> &lt;math::Integral StorageType&gt;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d0/dc6/structmisc_1_1_bit_field.html#a474c1db4b265658ac45d5e7454d7eb1d">   60</a></span>&#160;constexpr StorageType <a class="code" href="../../d0/dc6/structmisc_1_1_bit_field.html#a474c1db4b265658ac45d5e7454d7eb1d">BitField&lt;StorageType&gt;::getEntireField</a>() const noexcept</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> storage;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}  <span class="comment">// namespace misc</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astructmisc_1_1_bit_field_html_ae684d2676d5cfbda8d3d7b6834a56350"><div class="ttname"><a href="../../d0/dc6/structmisc_1_1_bit_field.html#ae684d2676d5cfbda8d3d7b6834a56350">misc::BitField::setBit</a></div><div class="ttdeci">constexpr void setBit(std::size_t pos, bool value=true) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d8f/bit_field_8h_source.html#l00047">bitField.h:47</a></div></div>
-<div class="ttc" id="apreprocessor_8h_html_a397de153f0d2c4a307fa9e150a396a32"><div class="ttname"><a href="../../d3/d53/preprocessor_8h.html#a397de153f0d2c4a307fa9e150a396a32">LIMES_CONSTEXPR_COPYABLE</a></div><div class="ttdeci">#define LIMES_CONSTEXPR_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00072">preprocessor.h:72</a></div></div>
-<div class="ttc" id="astructmisc_1_1_bit_field_html_a509609869c24d96afca4e8c03bb0284f"><div class="ttname"><a href="../../d0/dc6/structmisc_1_1_bit_field.html#a509609869c24d96afca4e8c03bb0284f">misc::BitField::BitField</a></div><div class="ttdeci">constexpr BitField()=default</div></div>
-<div class="ttc" id="astructmisc_1_1_bit_field_html_a5b55ec8285da7b4e25797684b05e4749"><div class="ttname"><a href="../../d0/dc6/structmisc_1_1_bit_field.html#a5b55ec8285da7b4e25797684b05e4749">misc::BitField::getValue</a></div><div class="ttdeci">constexpr bool getValue(std::size_t pos) const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d8f/bit_field_8h_source.html#l00057">bitField.h:57</a></div></div>
+<div class="ttc" id="astructmisc_1_1_bit_field_html_ae684d2676d5cfbda8d3d7b6834a56350"><div class="ttname"><a href="../../d0/dc6/structmisc_1_1_bit_field.html#ae684d2676d5cfbda8d3d7b6834a56350">misc::BitField::setBit</a></div><div class="ttdeci">constexpr void setBit(std::size_t pos, bool value=true) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d8f/bit_field_8h_source.html#l00044">bitField.h:44</a></div></div>
+<div class="ttc" id="astructmisc_1_1_bit_field_html_aa4f2a1a492992ec8390b63422c112345"><div class="ttname"><a href="../../d0/dc6/structmisc_1_1_bit_field.html#aa4f2a1a492992ec8390b63422c112345">misc::BitField::getBit</a></div><div class="ttdeci">constexpr bool getBit(std::size_t pos) const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d8f/bit_field_8h_source.html#l00054">bitField.h:54</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00039">limes_namespace.h:39</a></div></div>
 <div class="ttc" id="astructmisc_1_1_bit_field_html"><div class="ttname"><a href="../../d0/dc6/structmisc_1_1_bit_field.html">misc::BitField</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d8f/bit_field_8h_source.html#l00027">bitField.h:27</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00027">limes_namespace.h:27</a></div></div>
-<div class="ttc" id="apreprocessor_8h_html_acb481fd22dbb3eae9b409dfbb29fd494"><div class="ttname"><a href="../../d3/d53/preprocessor_8h.html#acb481fd22dbb3eae9b409dfbb29fd494">LIMES_CONSTEXPR_MOVABLE</a></div><div class="ttdeci">#define LIMES_CONSTEXPR_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00076">preprocessor.h:76</a></div></div>
+<div class="ttc" id="astructmisc_1_1_bit_field_html_a474c1db4b265658ac45d5e7454d7eb1d"><div class="ttname"><a href="../../d0/dc6/structmisc_1_1_bit_field.html#a474c1db4b265658ac45d5e7454d7eb1d">misc::BitField::getEntireField</a></div><div class="ttdeci">constexpr StorageType getEntireField() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d8f/bit_field_8h_source.html#l00060">bitField.h:60</a></div></div>
 <div class="ttc" id="anamespacemisc_html"><div class="ttname"><a href="../../d9/d37/namespacemisc.html">misc</a></div><div class="ttdoc">This namespace contains miscellaneous things.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00163">TypeTraits.h:163</a></div></div>
 <div class="ttc" id="apreprocessor_8h_html"><div class="ttname"><a href="../../d3/d53/preprocessor_8h.html">preprocessor.h</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
@@ -168,7 +169,7 @@ $(document).ready(function(){initNavTree('dd/d8f/bit_field_8h_source.html','../.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_b248b318e77e637c1d0c7267e8f84ced.html">misc</a></li><li class="navelem"><a class="el" href="../../dd/d8f/bit_field_8h.html">bitField.h</a></li>
-    <li class="footer">Generated on Thu May 26 2022 07:42:10 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 10:05:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

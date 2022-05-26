@@ -1,5 +1,10 @@
 var NAVTREEINDEX5 =
 {
+"d4/dcb/mipp_8h.html#ae3973eddb1bd6cbeb7738e71af87440c":[10,0,83,2],
+"d4/dcb/mipp_8h.html#aea34bbe520877b0b66fceef660d2a223":[10,0,83,1],
+"d4/dcb/mipp_8h.html#aecbfa634f7859094d8dc0f34411296e1":[10,0,83,83],
+"d4/dcb/mipp_8h.html#aed14075e6467850af3e648b2d1cf9208":[10,0,83,3],
+"d4/dcb/mipp_8h.html#aed552b1d3cc447c2ffc60badedaced27":[10,0,83,33],
 "d4/dcb/mipp_8h.html#af0ecc16575c17dfaed0469d07eeaa970":[10,0,83,21],
 "d4/dcb/mipp_8h.html#af1a02f28d92bb8c9ca204b828d77127c":[10,0,83,73],
 "d4/dcb/mipp_8h.html#afd3ad35e9ef409e0ffdfed20005dd322":[10,0,83,9],
@@ -190,8 +195,8 @@ var NAVTREEINDEX5 =
 "d5/d4a/sphere_8h_source.html":[10,0,134],
 "d5/d53/_memory_pool_allocator_8h.html":[10,0,81],
 "d5/d53/_memory_pool_allocator_8h_source.html":[10,0,81],
-"d5/d58/namespacethreads.html":[8,0,18],
 "d5/d58/namespacethreads.html":[9,0,15],
+"d5/d58/namespacethreads.html":[8,0,18],
 "d5/d5a/stack__allocator_8h.html":[10,0,137],
 "d5/d5a/stack__allocator_8h.html#a8e55766b0cfedf720d471ab0f659bb13":[10,0,137,4],
 "d5/d5a/stack__allocator_8h.html#ad584035846c172918892caa9250985a2":[10,0,137,3],
@@ -244,10 +249,5 @@ var NAVTREEINDEX5 =
 "d5/d84/_sample_stream_8h.html":[10,0,124],
 "d5/d84/_sample_stream_8h_source.html":[10,0,124],
 "d5/d98/year_8h.html":[10,0,163],
-"d5/d98/year_8h_source.html":[10,0,163],
-"d5/dab/hour__impl_8h.html":[10,0,52],
-"d5/dab/hour__impl_8h_source.html":[10,0,52],
-"d5/db6/structlocale_1_1_language.html":[9,0,6,1],
-"d5/db6/structlocale_1_1_language.html#a170827715d8c2242c9e58d046eb7409f":[9,0,6,1,8],
-"d5/db6/structlocale_1_1_language.html#a1b34261eba9c298884d948ba01e1fb7a":[9,0,6,1,3]
+"d5/d98/year_8h_source.html":[10,0,163]
 };

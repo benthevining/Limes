@@ -496,6 +496,16 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>Memory</Name>
+            <Path>d7/ded/group__memory.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>RawData.h</Name>
+              <Path>d2/dea/_raw_data_8h.html</Path>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>Meta</Name>
             <Path>d6/db2/group__meta.html</Path>
             <Subnodes>
@@ -594,6 +604,16 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>Misc</Name>
+            <Path>d1/ded/group__misc.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Version.h</Name>
+              <Path>d0/dd7/_version_8h.html</Path>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>System</Name>
             <Path>d4/d37/group__system.html</Path>
             <Subnodes>
@@ -614,9 +634,18 @@
               <Path>d5/dbb/limes__assert_8h.html</Path>
              </Node>
              <Node>
+              <Name>preprocessor.h</Name>
+              <Path>d3/d53/preprocessor_8h.html</Path>
+             </Node>
+             <Node>
               <Name>LIMES_ASSERT</Name>
               <Path>d4/d37/group__system.html</Path>
               <Anchor>ga06a4bfb323e9f05d2e51a72b21f40e0a</Anchor>
+             </Node>
+             <Node>
+              <Name>LIMES_BLOCK_WITH_FORCED_SEMICOLON</Name>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>gac332d8954bf4665bd2c9b7788d1c81f4</Anchor>
              </Node>
              <Node>
               <Name>LIMES_COMPILER_MESSAGE</Name>
@@ -629,6 +658,26 @@
               <Anchor>ga2db625c65f80ef77802a5f764aebff50</Anchor>
              </Node>
              <Node>
+              <Name>LIMES_CONCATENATE</Name>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>gabae9d06ec283c5bb111b3a0f8d1784ca</Anchor>
+             </Node>
+             <Node>
+              <Name>LIMES_CONSTEXPR_COPYABLE</Name>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>ga397de153f0d2c4a307fa9e150a396a32</Anchor>
+             </Node>
+             <Node>
+              <Name>LIMES_DEFAULT_COPYABLE</Name>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>ga5bf553d96012e220f7715df0a90066da</Anchor>
+             </Node>
+             <Node>
+              <Name>LIMES_DEFAULT_MOVABLE</Name>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>gaa204cf467eb45621b139f7fbf6b0f503</Anchor>
+             </Node>
+             <Node>
               <Name>LIMES_DISABLE_ALL_COMPILER_WARNINGS</Name>
               <Path>d4/d37/group__system.html</Path>
               <Anchor>gac9aaa41f09c0bdac5928138eeb9adb24</Anchor>
@@ -639,9 +688,34 @@
               <Anchor>ga16865b999504e0621f83caecfec93bcc</Anchor>
              </Node>
              <Node>
+              <Name>LIMES_HAS_ATTRIBUTE</Name>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>gac33f41199d77eecdd9be85687d4184c8</Anchor>
+             </Node>
+             <Node>
+              <Name>LIMES_HAS_INCLUDE</Name>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>gaa78f05f215babe3642360840ad6d79b7</Anchor>
+             </Node>
+             <Node>
+              <Name>LIMES_MAKE_STRING</Name>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>ga654264c78a601e3b9f229f10ad807442</Anchor>
+             </Node>
+             <Node>
               <Name>LIMES_NEVER_INLINE</Name>
               <Path>d4/d37/group__system.html</Path>
               <Anchor>ga7bb6ffa325bf2b2ba5d63d565a98aaff</Anchor>
+             </Node>
+             <Node>
+              <Name>LIMES_NON_COPYABLE</Name>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>gaa19294b73467ee63a3601fe2ff636b8c</Anchor>
+             </Node>
+             <Node>
+              <Name>LIMES_NON_MOVABLE</Name>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>ga3c9f53b7d1a99a02600fdbe81a772f82</Anchor>
              </Node>
              <Node>
               <Name>LIMES_PACK</Name>
@@ -9841,34 +9915,14 @@
               <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
               <Subnodes>
                <Node>
-                <Name>BitField</Name>
+                <Name>getBit</Name>
                 <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>a509609869c24d96afca4e8c03bb0284f</Anchor>
+                <Anchor>aa4f2a1a492992ec8390b63422c112345</Anchor>
                </Node>
                <Node>
-                <Name>BitField</Name>
+                <Name>getEntireField</Name>
                 <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>a5d48f7d198b5599ba4e5075620754c22</Anchor>
-               </Node>
-               <Node>
-                <Name>BitField</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>ac0ecaa4a8eb0f48185569182203dfa39</Anchor>
-               </Node>
-               <Node>
-                <Name>getValue</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>a5b55ec8285da7b4e25797684b05e4749</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>a6e4c67edcddb69091a5df48c3beb5f09</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>abb01bb4fb4d33309ac15dc1824ae7591</Anchor>
+                <Anchor>a474c1db4b265658ac45d5e7454d7eb1d</Anchor>
                </Node>
                <Node>
                 <Name>setBit</Name>
@@ -15675,34 +15729,14 @@
               <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
               <Subnodes>
                <Node>
-                <Name>BitField</Name>
+                <Name>getBit</Name>
                 <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>a509609869c24d96afca4e8c03bb0284f</Anchor>
+                <Anchor>aa4f2a1a492992ec8390b63422c112345</Anchor>
                </Node>
                <Node>
-                <Name>BitField</Name>
+                <Name>getEntireField</Name>
                 <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>a5d48f7d198b5599ba4e5075620754c22</Anchor>
-               </Node>
-               <Node>
-                <Name>BitField</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>ac0ecaa4a8eb0f48185569182203dfa39</Anchor>
-               </Node>
-               <Node>
-                <Name>getValue</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>a5b55ec8285da7b4e25797684b05e4749</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>a6e4c67edcddb69091a5df48c3beb5f09</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>d0/dc6/structmisc_1_1_bit_field.html</Path>
-                <Anchor>abb01bb4fb4d33309ac15dc1824ae7591</Anchor>
+                <Anchor>a474c1db4b265658ac45d5e7454d7eb1d</Anchor>
                </Node>
                <Node>
                 <Name>setBit</Name>
@@ -26644,23 +26678,18 @@
             <Subnodes>
              <Node>
               <Name>LIMES_BLOCK_WITH_FORCED_SEMICOLON</Name>
-              <Path>d3/d53/preprocessor_8h.html</Path>
-              <Anchor>ac332d8954bf4665bd2c9b7788d1c81f4</Anchor>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>gac332d8954bf4665bd2c9b7788d1c81f4</Anchor>
              </Node>
              <Node>
               <Name>LIMES_CONCATENATE</Name>
-              <Path>d3/d53/preprocessor_8h.html</Path>
-              <Anchor>abae9d06ec283c5bb111b3a0f8d1784ca</Anchor>
-             </Node>
-             <Node>
-              <Name>LIMES_CONCATENATE_HELPER</Name>
-              <Path>d3/d53/preprocessor_8h.html</Path>
-              <Anchor>ab2c86fde217c5394892482fdfd5abd05</Anchor>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>gabae9d06ec283c5bb111b3a0f8d1784ca</Anchor>
              </Node>
              <Node>
               <Name>LIMES_CONSTEXPR_COPYABLE</Name>
-              <Path>d3/d53/preprocessor_8h.html</Path>
-              <Anchor>a397de153f0d2c4a307fa9e150a396a32</Anchor>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>ga397de153f0d2c4a307fa9e150a396a32</Anchor>
              </Node>
              <Node>
               <Name>LIMES_CONSTEXPR_MOVABLE</Name>
@@ -26669,43 +26698,38 @@
              </Node>
              <Node>
               <Name>LIMES_DEFAULT_COPYABLE</Name>
-              <Path>d3/d53/preprocessor_8h.html</Path>
-              <Anchor>a5bf553d96012e220f7715df0a90066da</Anchor>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>ga5bf553d96012e220f7715df0a90066da</Anchor>
              </Node>
              <Node>
               <Name>LIMES_DEFAULT_MOVABLE</Name>
-              <Path>d3/d53/preprocessor_8h.html</Path>
-              <Anchor>aa204cf467eb45621b139f7fbf6b0f503</Anchor>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>gaa204cf467eb45621b139f7fbf6b0f503</Anchor>
              </Node>
              <Node>
               <Name>LIMES_HAS_ATTRIBUTE</Name>
-              <Path>d3/d53/preprocessor_8h.html</Path>
-              <Anchor>ac33f41199d77eecdd9be85687d4184c8</Anchor>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>gac33f41199d77eecdd9be85687d4184c8</Anchor>
              </Node>
              <Node>
               <Name>LIMES_HAS_INCLUDE</Name>
-              <Path>d3/d53/preprocessor_8h.html</Path>
-              <Anchor>aa78f05f215babe3642360840ad6d79b7</Anchor>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>gaa78f05f215babe3642360840ad6d79b7</Anchor>
              </Node>
              <Node>
               <Name>LIMES_MAKE_STRING</Name>
-              <Path>d3/d53/preprocessor_8h.html</Path>
-              <Anchor>a654264c78a601e3b9f229f10ad807442</Anchor>
-             </Node>
-             <Node>
-              <Name>LIMES_MAKE_STRING_HELPER</Name>
-              <Path>d3/d53/preprocessor_8h.html</Path>
-              <Anchor>adfce4c523a8a63eb2d6c1cc44297a1ce</Anchor>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>ga654264c78a601e3b9f229f10ad807442</Anchor>
              </Node>
              <Node>
               <Name>LIMES_NON_COPYABLE</Name>
-              <Path>d3/d53/preprocessor_8h.html</Path>
-              <Anchor>aa19294b73467ee63a3601fe2ff636b8c</Anchor>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>gaa19294b73467ee63a3601fe2ff636b8c</Anchor>
              </Node>
              <Node>
               <Name>LIMES_NON_MOVABLE</Name>
-              <Path>d3/d53/preprocessor_8h.html</Path>
-              <Anchor>a3c9f53b7d1a99a02600fdbe81a772f82</Anchor>
+              <Path>d4/d37/group__system.html</Path>
+              <Anchor>ga3c9f53b7d1a99a02600fdbe81a772f82</Anchor>
              </Node>
             </Subnodes>
            </Node>
