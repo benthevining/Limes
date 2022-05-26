@@ -92,72 +92,97 @@ $(document).ready(function(){initNavTree('d1/dea/classtime_1_1_time.html','../..
 </div><!--header-->
 <div class="contents">
 
+<p>This class represents a time of day, with a specific <a class="el" href="../../d3/d71/classtime_1_1_hour.html" title="This class represents an hour of the day.">Hour</a>, minute, and second.  
+ <a href="../../d1/dea/classtime_1_1_time.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../de/df7/time_8h_source.html">time.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad50d26ad40f7620b1ad1ca4ca54599a7"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#ad50d26ad40f7620b1ad1ca4ca54599a7">Time</a> ()=default</td></tr>
-<tr class="separator:ad50d26ad40f7620b1ad1ca4ca54599a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a946557615023df7229c357b15e6f78ad"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a946557615023df7229c357b15e6f78ad">Time</a> (const <a class="el" href="../../d3/d71/classtime_1_1_hour.html">Hour</a> &amp;h, int min, int sec) noexcept</td></tr>
-<tr class="separator:a946557615023df7229c357b15e6f78ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36c6b0f0119aeab4299a8dc7c3e1f966"><td class="memTemplParams" colspan="2">template&lt;Clock ClockType&gt; </td></tr>
-<tr class="memitem:a36c6b0f0119aeab4299a8dc7c3e1f966"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a36c6b0f0119aeab4299a8dc7c3e1f966">Time</a> (const <a class="el" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point</a>&lt; ClockType &gt; &amp;timePoint)</td></tr>
-<tr class="separator:a36c6b0f0119aeab4299a8dc7c3e1f966"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19835d46d7949c73acfc67b83edf2a42"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a19835d46d7949c73acfc67b83edf2a42">Time</a> (const std::tm &amp;timeObj) noexcept</td></tr>
-<tr class="separator:a19835d46d7949c73acfc67b83edf2a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc70a5bda4ab3f61cdd2a8978616df6a"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#adc70a5bda4ab3f61cdd2a8978616df6a">Time</a> (const <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;)=default</td></tr>
 <tr class="separator:adc70a5bda4ab3f61cdd2a8978616df6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54109cf8217f47c4ead0fb886d3d4594"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a54109cf8217f47c4ead0fb886d3d4594">Time</a> (int hourIn24HourFormat, int min, int sec) noexcept</td></tr>
-<tr class="separator:a54109cf8217f47c4ead0fb886d3d4594"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcee840e28464c2f6a9a7e37c18ce262"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#abcee840e28464c2f6a9a7e37c18ce262">Time</a> (std::time_t time)</td></tr>
-<tr class="separator:abcee840e28464c2f6a9a7e37c18ce262"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca1b28c168bb109c0711d81a012721f8"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#aca1b28c168bb109c0711d81a012721f8">Time</a> (<a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:aca1b28c168bb109c0711d81a012721f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fc3c722e069f7df1038697f589c5ebf"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d3/d71/classtime_1_1_hour.html">Hour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a8fc3c722e069f7df1038697f589c5ebf">getHour</a> () const noexcept</td></tr>
+<tr class="memdesc:a8fc3c722e069f7df1038697f589c5ebf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="../../d3/d71/classtime_1_1_hour.html" title="This class represents an hour of the day.">Hour</a> of this time.  <a href="../../d1/dea/classtime_1_1_time.html#a8fc3c722e069f7df1038697f589c5ebf">More...</a><br /></td></tr>
 <tr class="separator:a8fc3c722e069f7df1038697f589c5ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7cb02262b1483107f4e4b003ff73ea9"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#ab7cb02262b1483107f4e4b003ff73ea9">getMinute</a> () const noexcept</td></tr>
+<tr class="memdesc:ab7cb02262b1483107f4e4b003ff73ea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minute of the hour of this time.  <a href="../../d1/dea/classtime_1_1_time.html#ab7cb02262b1483107f4e4b003ff73ea9">More...</a><br /></td></tr>
 <tr class="separator:ab7cb02262b1483107f4e4b003ff73ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39bcc3c97ea857e31011261e5fa66fdc"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a39bcc3c97ea857e31011261e5fa66fdc">getSecond</a> () const noexcept</td></tr>
+<tr class="memdesc:a39bcc3c97ea857e31011261e5fa66fdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the second of the minute of this time.  <a href="../../d1/dea/classtime_1_1_time.html#a39bcc3c97ea857e31011261e5fa66fdc">More...</a><br /></td></tr>
 <tr class="separator:a39bcc3c97ea857e31011261e5fa66fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae683b055638d7914c0c4f7331fbcb6d1"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#ae683b055638d7914c0c4f7331fbcb6d1">isAfter</a> (const <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:ae683b055638d7914c0c4f7331fbcb6d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1f67a3425806134e75b8f61cb0f7daf"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#ac1f67a3425806134e75b8f61cb0f7daf">isAM</a> () const noexcept</td></tr>
+<tr class="memdesc:ac1f67a3425806134e75b8f61cb0f7daf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this time is between midnight and noon.  <a href="../../d1/dea/classtime_1_1_time.html#ac1f67a3425806134e75b8f61cb0f7daf">More...</a><br /></td></tr>
 <tr class="separator:ac1f67a3425806134e75b8f61cb0f7daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64f45b2507821d28d57d77b22fe676be"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a64f45b2507821d28d57d77b22fe676be">isBefore</a> (const <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:a64f45b2507821d28d57d77b22fe676be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4cdfa000ce6389a014c14696bc522ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#ad4cdfa000ce6389a014c14696bc522ef">isInFuture</a> () const noexcept</td></tr>
+<tr class="memdesc:ad4cdfa000ce6389a014c14696bc522ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this time is after the current time (agnostic of the date).  <a href="../../d1/dea/classtime_1_1_time.html#ad4cdfa000ce6389a014c14696bc522ef">More...</a><br /></td></tr>
 <tr class="separator:ad4cdfa000ce6389a014c14696bc522ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93178b90d58233928a64e115174d7536"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a93178b90d58233928a64e115174d7536">isInPast</a> () const noexcept</td></tr>
+<tr class="memdesc:a93178b90d58233928a64e115174d7536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this time is before the current time (agnostic of the date).  <a href="../../d1/dea/classtime_1_1_time.html#a93178b90d58233928a64e115174d7536">More...</a><br /></td></tr>
 <tr class="separator:a93178b90d58233928a64e115174d7536"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe839a57d079037dda1e609c4f6e8d44"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#afe839a57d079037dda1e609c4f6e8d44">isOnTheHour</a> () const noexcept</td></tr>
+<tr class="memdesc:afe839a57d079037dda1e609c4f6e8d44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this time is exactly on the hour.  <a href="../../d1/dea/classtime_1_1_time.html#afe839a57d079037dda1e609c4f6e8d44">More...</a><br /></td></tr>
 <tr class="separator:afe839a57d079037dda1e609c4f6e8d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84d90b8762c16344101efc5dfea86fe9"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a84d90b8762c16344101efc5dfea86fe9">isPM</a> () const noexcept</td></tr>
+<tr class="memdesc:a84d90b8762c16344101efc5dfea86fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this time is between noon and midnight.  <a href="../../d1/dea/classtime_1_1_time.html#a84d90b8762c16344101efc5dfea86fe9">More...</a><br /></td></tr>
 <tr class="separator:a84d90b8762c16344101efc5dfea86fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1d533129ecabde03298e465d8376f19"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#ae1d533129ecabde03298e465d8376f19">operator!=</a> (const <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:ae1d533129ecabde03298e465d8376f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a137e2ca547a9d093901a40de144a7ad4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a137e2ca547a9d093901a40de144a7ad4">operator&lt;</a> (const <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:a137e2ca547a9d093901a40de144a7ad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab759bf7c94409fda810508731cad382d"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#ab759bf7c94409fda810508731cad382d">operator=</a> (const <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;)=default</td></tr>
 <tr class="separator:ab759bf7c94409fda810508731cad382d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3139d25845ba60a076dca626e4311d24"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a3139d25845ba60a076dca626e4311d24">operator=</a> (<a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:a3139d25845ba60a076dca626e4311d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ae85946bc10d083669fb43d7939ca9a"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a6ae85946bc10d083669fb43d7939ca9a">operator==</a> (const <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:a6ae85946bc10d083669fb43d7939ca9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1d519185cc65ad7f5ac7279afcd62c0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#af1d519185cc65ad7f5ac7279afcd62c0">toString</a> (bool as24HourTime=true) const</td></tr>
+<tr class="memdesc:af1d519185cc65ad7f5ac7279afcd62c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> represented as a string.  <a href="../../d1/dea/classtime_1_1_time.html#af1d519185cc65ad7f5ac7279afcd62c0">More...</a><br /></td></tr>
+<tr class="separator:af1d519185cc65ad7f5ac7279afcd62c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Constructors</div></td></tr>
+<tr class="memitem:ad50d26ad40f7620b1ad1ca4ca54599a7"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#ad50d26ad40f7620b1ad1ca4ca54599a7">Time</a> ()=default</td></tr>
+<tr class="memdesc:ad50d26ad40f7620b1ad1ca4ca54599a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object representing midnight on the hour.  <a href="../../d1/dea/classtime_1_1_time.html#ad50d26ad40f7620b1ad1ca4ca54599a7">More...</a><br /></td></tr>
+<tr class="separator:ad50d26ad40f7620b1ad1ca4ca54599a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a946557615023df7229c357b15e6f78ad"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a946557615023df7229c357b15e6f78ad">Time</a> (const <a class="el" href="../../d3/d71/classtime_1_1_hour.html">Hour</a> &amp;h, int min, int sec) noexcept</td></tr>
+<tr class="memdesc:a946557615023df7229c357b15e6f78ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object.  <a href="../../d1/dea/classtime_1_1_time.html#a946557615023df7229c357b15e6f78ad">More...</a><br /></td></tr>
+<tr class="separator:a946557615023df7229c357b15e6f78ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54109cf8217f47c4ead0fb886d3d4594"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a54109cf8217f47c4ead0fb886d3d4594">Time</a> (int hourIn24HourFormat, int min, int sec) noexcept</td></tr>
+<tr class="memdesc:a54109cf8217f47c4ead0fb886d3d4594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object.  <a href="../../d1/dea/classtime_1_1_time.html#a54109cf8217f47c4ead0fb886d3d4594">More...</a><br /></td></tr>
+<tr class="separator:a54109cf8217f47c4ead0fb886d3d4594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19835d46d7949c73acfc67b83edf2a42"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a19835d46d7949c73acfc67b83edf2a42">Time</a> (const std::tm &amp;timeObj) noexcept</td></tr>
+<tr class="memdesc:a19835d46d7949c73acfc67b83edf2a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object from the given <code>std::tm</code> object.  <a href="../../d1/dea/classtime_1_1_time.html#a19835d46d7949c73acfc67b83edf2a42">More...</a><br /></td></tr>
+<tr class="separator:a19835d46d7949c73acfc67b83edf2a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcee840e28464c2f6a9a7e37c18ce262"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#abcee840e28464c2f6a9a7e37c18ce262">Time</a> (std::time_t time)</td></tr>
+<tr class="memdesc:abcee840e28464c2f6a9a7e37c18ce262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object from the given <code>std::time_t</code> object.  <a href="../../d1/dea/classtime_1_1_time.html#abcee840e28464c2f6a9a7e37c18ce262">More...</a><br /></td></tr>
+<tr class="separator:abcee840e28464c2f6a9a7e37c18ce262"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36c6b0f0119aeab4299a8dc7c3e1f966"><td class="memTemplParams" colspan="2">template&lt;Clock ClockType&gt; </td></tr>
+<tr class="memitem:a36c6b0f0119aeab4299a8dc7c3e1f966"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a36c6b0f0119aeab4299a8dc7c3e1f966">Time</a> (const <a class="el" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point</a>&lt; ClockType &gt; &amp;timePoint)</td></tr>
+<tr class="memdesc:a36c6b0f0119aeab4299a8dc7c3e1f966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object from a <code>std::chrono::time_point</code> of any Clock type.  <a href="../../d1/dea/classtime_1_1_time.html#a36c6b0f0119aeab4299a8dc7c3e1f966">More...</a><br /></td></tr>
+<tr class="separator:a36c6b0f0119aeab4299a8dc7c3e1f966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Greater/less than comparisons</div></td></tr>
+<tr class="memitem:a64f45b2507821d28d57d77b22fe676be"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a64f45b2507821d28d57d77b22fe676be">isBefore</a> (const <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a64f45b2507821d28d57d77b22fe676be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae683b055638d7914c0c4f7331fbcb6d1"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#ae683b055638d7914c0c4f7331fbcb6d1">isAfter</a> (const <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:ae683b055638d7914c0c4f7331fbcb6d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a05edd1693275d20e3f1fdbf6a53d76"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a2a05edd1693275d20e3f1fdbf6a53d76">operator&gt;</a> (const <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;other) const noexcept</td></tr>
 <tr class="separator:a2a05edd1693275d20e3f1fdbf6a53d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1d519185cc65ad7f5ac7279afcd62c0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#af1d519185cc65ad7f5ac7279afcd62c0">toString</a> (bool as24HourTime=true) const</td></tr>
-<tr class="separator:af1d519185cc65ad7f5ac7279afcd62c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a137e2ca547a9d093901a40de144a7ad4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a137e2ca547a9d093901a40de144a7ad4">operator&lt;</a> (const <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a137e2ca547a9d093901a40de144a7ad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Equality comparisons</div></td></tr>
+<tr class="memitem:a6ae85946bc10d083669fb43d7939ca9a"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a6ae85946bc10d083669fb43d7939ca9a">operator==</a> (const <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a6ae85946bc10d083669fb43d7939ca9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1d533129ecabde03298e465d8376f19"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#ae1d533129ecabde03298e465d8376f19">operator!=</a> (const <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:ae1d533129ecabde03298e465d8376f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a9caad96230064704cc868bca41fc832a"><td class="memItemLeft" align="right" valign="top">static consteval <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a9caad96230064704cc868bca41fc832a">getCompilationTime</a> () noexcept</td></tr>
-<tr class="separator:a9caad96230064704cc868bca41fc832a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2980f80be4e69b363d38105e1eff47e2"><td class="memItemLeft" align="right" valign="top">static consteval <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a2980f80be4e69b363d38105e1eff47e2">getCompilationTime</a> () noexcept</td></tr>
+<tr class="memdesc:a2980f80be4e69b363d38105e1eff47e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object representing the time this code was compiled.  <a href="../../d1/dea/classtime_1_1_time.html#a2980f80be4e69b363d38105e1eff47e2">More...</a><br /></td></tr>
+<tr class="separator:a2980f80be4e69b363d38105e1eff47e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d302cb8f5ef13a8c1ae152d977bcf57"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/classtime_1_1_time.html#a9d302cb8f5ef13a8c1ae152d977bcf57">getCurrent</a> ()</td></tr>
+<tr class="memdesc:a9d302cb8f5ef13a8c1ae152d977bcf57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object representing the current time.  <a href="../../d1/dea/classtime_1_1_time.html#a9d302cb8f5ef13a8c1ae152d977bcf57">More...</a><br /></td></tr>
 <tr class="separator:a9d302cb8f5ef13a8c1ae152d977bcf57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../de/df7/time_8h_source.html#l00029">29</a> of file <a class="el" href="../../de/df7/time_8h_source.html">time.h</a>.</p>
+<div class="textblock"><p>This class represents a time of day, with a specific <a class="el" href="../../d3/d71/classtime_1_1_hour.html" title="This class represents an hour of the day.">Hour</a>, minute, and second. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d3/d71/classtime_1_1_hour.html" title="This class represents an hour of the day.">Hour</a>, <a class="el" href="../../dd/d74/classtime_1_1_date_time.html" title="This class represents both a Date and a Time.">DateTime</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../de/df7/time_8h_source.html#l00038">38</a> of file <a class="el" href="../../de/df7/time_8h_source.html">time.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad50d26ad40f7620b1ad1ca4ca54599a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad50d26ad40f7620b1ad1ca4ca54599a7">&#9670;&nbsp;</a></span>Time() <span class="overload">[1/8]</span></h2>
@@ -181,6 +206,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object representing midnight on the hour. </p>
 
 </div>
 </div>
@@ -224,7 +251,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00023">23</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
+<p>Creates a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object. </p>
 
 </div>
 </div>
@@ -268,7 +295,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00030">30</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
+<p>Creates a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object. </p>
 
 </div>
 </div>
@@ -296,7 +323,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00037">37</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
+<p>Creates a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object from the given <code>std::tm</code> object. </p>
 
 </div>
 </div>
@@ -323,6 +350,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object from the given <code>std::time_t</code> object. </p>
 
 </div>
 </div>
@@ -352,7 +381,7 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00043">43</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
+<p>Creates a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object from a <code>std::chrono::time_point</code> of any Clock type. </p>
 
 </div>
 </div>
@@ -409,8 +438,8 @@ template&lt;Clock ClockType&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9caad96230064704cc868bca41fc832a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9caad96230064704cc868bca41fc832a">&#9670;&nbsp;</a></span>getCompilationTime()</h2>
+<a id="a2980f80be4e69b363d38105e1eff47e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2980f80be4e69b363d38105e1eff47e2">&#9670;&nbsp;</a></span>getCompilationTime()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -419,7 +448,7 @@ template&lt;Clock ClockType&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">consteval <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> time::Time::getCompilationTime </td>
+          <td class="memname">static consteval <a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a> time::Time::getCompilationTime </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -432,7 +461,7 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00120">120</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
+<p>Returns a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object representing the time this code was compiled. </p>
 
 </div>
 </div>
@@ -459,6 +488,8 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> object representing the current time. </p>
+
 </div>
 </div>
 <a id="a8fc3c722e069f7df1038697f589c5ebf"></a>
@@ -484,7 +515,7 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00063">63</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
+<p>Returns the <a class="el" href="../../d3/d71/classtime_1_1_hour.html" title="This class represents an hour of the day.">Hour</a> of this time. </p>
 
 </div>
 </div>
@@ -511,7 +542,7 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00068">68</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
+<p>Returns the minute of the hour of this time. </p>
 
 </div>
 </div>
@@ -538,7 +569,7 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00073">73</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
+<p>Returns the second of the minute of this time. </p>
 
 </div>
 </div>
@@ -566,8 +597,6 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00089">89</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
-
 </div>
 </div>
 <a id="ac1f67a3425806134e75b8f61cb0f7daf"></a>
@@ -593,7 +622,7 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00048">48</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
+<p>Returns true if this time is between midnight and noon. </p>
 
 </div>
 </div>
@@ -621,8 +650,6 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00078">78</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
-
 </div>
 </div>
 <a id="ad4cdfa000ce6389a014c14696bc522ef"></a>
@@ -647,6 +674,8 @@ template&lt;Clock ClockType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if this time is after the current time (agnostic of the date). </p>
 
 </div>
 </div>
@@ -673,6 +702,8 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if this time is before the current time (agnostic of the date). </p>
+
 </div>
 </div>
 <a id="afe839a57d079037dda1e609c4f6e8d44"></a>
@@ -698,7 +729,7 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00058">58</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
+<p>Returns true if this time is exactly on the hour. </p>
 
 </div>
 </div>
@@ -725,7 +756,7 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00053">53</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
+<p>Returns true if this time is between noon and midnight. </p>
 
 </div>
 </div>
@@ -753,8 +784,6 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00115">115</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
-
 </div>
 </div>
 <a id="a137e2ca547a9d093901a40de144a7ad4"></a>
@@ -780,8 +809,6 @@ template&lt;Clock ClockType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00105">105</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
 
 </div>
 </div>
@@ -861,8 +888,6 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00110">110</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
-
 </div>
 </div>
 <a id="a2a05edd1693275d20e3f1fdbf6a53d76"></a>
@@ -889,8 +914,6 @@ template&lt;Clock ClockType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d09/time__impl_8h_source.html#l00100">100</a> of file <a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a>.</p>
-
 </div>
 </div>
 <a id="af1d519185cc65ad7f5ac7279afcd62c0"></a>
@@ -909,11 +932,13 @@ template&lt;Clock ClockType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns this <a class="el" href="../../d1/dea/classtime_1_1_time.html" title="This class represents a time of day, with a specific Hour, minute, and second.">Time</a> represented as a string. </p>
+<p>The format of the string is <code>"HH:MM:SS"</code>, suffixed with "AM" or "PM" if as24HourTime is false. </p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="../../de/df7/time_8h_source.html">time.h</a></li>
-<li><a class="el" href="../../d3/d09/time__impl_8h_source.html">time_impl.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -921,7 +946,7 @@ template&lt;Clock ClockType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/dfb/namespacetime.html">time</a></li><li class="navelem"><a class="el" href="../../d1/dea/classtime_1_1_time.html">Time</a></li>
-    <li class="footer">Generated on Wed May 25 2022 08:41:21 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 07:42:12 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

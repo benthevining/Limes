@@ -137,11 +137,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a706606e50d37f2b8a4f00bf7b24f0ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the pitch in Hz for a frame of audio.  <a href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html#a706606e50d37f2b8a4f00bf7b24f0ad8">More...</a><br /></td></tr>
 <tr class="separator:a706606e50d37f2b8a4f00bf7b24f0ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b7d702070d24107cffbf0a8fca0d79b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html#a4b7d702070d24107cffbf0a8fca0d79b">detectPitch</a> (const <a class="el" href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html#ab72485504614726c9dc1e59a730c3122">SampleVector</a> &amp;inputAudio)</td></tr>
+<tr class="memdesc:a4b7d702070d24107cffbf0a8fca0d79b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the pitch in Hz for a frame of audio.  <a href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html#a4b7d702070d24107cffbf0a8fca0d79b">More...</a><br /></td></tr>
 <tr class="separator:a4b7d702070d24107cffbf0a8fca0d79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace8b484b25aab1a7fa1ecc8c931b8514"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html#ace8b484b25aab1a7fa1ecc8c931b8514">detectPeriod</a> (const SampleType *const inputAudio, int numSamples)</td></tr>
 <tr class="memdesc:ace8b484b25aab1a7fa1ecc8c931b8514"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the period, in samples, for a frame of audio.  <a href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html#ace8b484b25aab1a7fa1ecc8c931b8514">More...</a><br /></td></tr>
 <tr class="separator:ace8b484b25aab1a7fa1ecc8c931b8514"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1353c514f3322982fca1c88c78ccbdc0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html#a1353c514f3322982fca1c88c78ccbdc0">detectPeriod</a> (const <a class="el" href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html#ab72485504614726c9dc1e59a730c3122">SampleVector</a> &amp;inputAudio)</td></tr>
+<tr class="memdesc:a1353c514f3322982fca1c88c78ccbdc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the pitch in Hz for a frame of audio.  <a href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html#a1353c514f3322982fca1c88c78ccbdc0">More...</a><br /></td></tr>
 <tr class="separator:a1353c514f3322982fca1c88c78ccbdc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -271,6 +273,9 @@ template&lt;Sample SampleType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Detects the pitch in Hz for a frame of audio. </p>
+<p>This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one <a class="el" href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a> object for each channel. The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to <a class="el" href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html#a20293ef8cd5a49125497236e2d24f1a1" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a>. </p><dl class="section return"><dt>Returns</dt><dd>The pitch in Hz for this frame of audio, or 0.f if the frame is unpitched. </dd></dl>
+
 </div>
 </div>
 <a id="a706606e50d37f2b8a4f00bf7b24f0ad8"></a>
@@ -323,6 +328,9 @@ template&lt;Sample SampleType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Detects the pitch in Hz for a frame of audio. </p>
+<p>This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one <a class="el" href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a> object for each channel. The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to <a class="el" href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html#a20293ef8cd5a49125497236e2d24f1a1" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a>. </p><dl class="section return"><dt>Returns</dt><dd>The pitch in Hz for this frame of audio, or 0.f if the frame is unpitched. </dd></dl>
 
 </div>
 </div>
@@ -588,7 +596,7 @@ template&lt;Sample SampleType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d41/namespacedsp.html">dsp</a></li><li class="navelem"><a class="el" href="../../d2/dff/namespacedsp_1_1psola.html">psola</a></li><li class="navelem"><a class="el" href="../../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a></li>
-    <li class="footer">Generated on Wed May 25 2022 08:41:20 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 07:42:11 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

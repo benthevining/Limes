@@ -109,93 +109,92 @@ $(document).ready(function(){initNavTree('d5/dd4/time__utils_8h_source.html','..
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../meta/TypeTraits.h&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../system/compiler_defs.h&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/dfb/namespacetime.html">time</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// NB. this is only needed until all compilers support std::is_clock_v</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// clang-format off</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#a4b0bf40dc380c9a5f65d90e15a8471cf">   31</a></span>&#160;concept <a class="code" href="../../d0/dfb/namespacetime.html#a4b0bf40dc380c9a5f65d90e15a8471cf">Clock</a> = requires (T c)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    { c.now() } -&gt; meta::convertible_to&lt;std::chrono::time_point&lt;T&gt;&gt;;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// clang-format on</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">template</span> &lt;Clock ClockType&gt;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">   38</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point</a> = std::chrono::time_point&lt;ClockType&gt;;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#a0e90e4ba487985ed0263ee88f594bd8d">   40</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d0/dfb/namespacetime.html#a0e90e4ba487985ed0263ee88f594bd8d">SystemClock</a> = std::chrono::system_clock;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span> &lt;Clock InputClock, Clock OutputClock&gt;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#a5afe949cfbd908ea08a81491b5f88997">   43</a></span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;OutputClock&gt;</a> <a class="code" href="../../d0/dfb/namespacetime.html#a5afe949cfbd908ea08a81491b5f88997">convertClockTimePoints</a> (<span class="keyword">const</span> <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;InputClock&gt;</a>&amp; inputTime)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;InputClock, OutputClock&gt;)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> inputTime;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> inputNow  = InputClock::now();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> systemNow = OutputClock::now();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">using</span> OutputDuration = <span class="keyword">typename</span> OutputClock::duration;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/dfb/namespacetime.html">time</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">// clang-format off</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#a4b0bf40dc380c9a5f65d90e15a8471cf">   41</a></span>&#160;concept <a class="code" href="../../d0/dfb/namespacetime.html#a4b0bf40dc380c9a5f65d90e15a8471cf">Clock</a> = requires (T c)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    { c.now() } -&gt; meta::convertible_to&lt;std::chrono::time_point&lt;T&gt;&gt;;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// clang-format on</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">template</span> &lt;Clock ClockType&gt;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">   49</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point</a> = std::chrono::time_point&lt;ClockType&gt;;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#a0e90e4ba487985ed0263ee88f594bd8d">   52</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d0/dfb/namespacetime.html#a0e90e4ba487985ed0263ee88f594bd8d">SystemClock</a> = std::chrono::system_clock;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> inputDuration = std::chrono::duration_cast&lt;OutputDuration&gt; (inputTime - inputNow);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> std::chrono::time_point_cast&lt;OutputDuration&gt; (inputDuration + systemNow);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">template</span> &lt;Clock InputClock&gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#a6bca95a102f58cf7c9fd1b393c368c79">   61</a></span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;SystemClock&gt;</a> <a class="code" href="../../d0/dfb/namespacetime.html#a6bca95a102f58cf7c9fd1b393c368c79">toSystemTime</a> (<span class="keyword">const</span> <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;InputClock&gt;</a>&amp; inputTime)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> convertClockTimePoints&lt;InputClock, SystemClock&gt; (inputTime);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">template</span> &lt;Clock ClockType&gt;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#ac979c7ad7b70f0f4a29229d891fc466a">   67</a></span>&#160;LIMES_EXPORT [[nodiscard]] std::tm <a class="code" href="../../d0/dfb/namespacetime.html#ac979c7ad7b70f0f4a29229d891fc466a">toTimeObj</a> (<span class="keyword">const</span> <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;ClockType&gt;</a>&amp; inputTime)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> timeT = SystemClock::to_time_t (<a class="code" href="../../d0/dfb/namespacetime.html#a6bca95a102f58cf7c9fd1b393c368c79">toSystemTime</a> (inputTime));</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> *std::localtime (&amp;timeT);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">template</span> &lt;Clock ClockType&gt;</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#a7859c167538c8ab37cc0736214b0c660">   75</a></span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;ClockType&gt;</a> <a class="code" href="../../d0/dfb/namespacetime.html#a7859c167538c8ab37cc0736214b0c660">fromTimeObj</a> (std::time_t <a class="code" href="../../d0/dfb/namespacetime.html">time</a>)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">template</span> &lt;Clock InputClock, Clock OutputClock&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#a5afe949cfbd908ea08a81491b5f88997">   56</a></span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;OutputClock&gt;</a> <a class="code" href="../../d0/dfb/namespacetime.html#a5afe949cfbd908ea08a81491b5f88997">convertClockTimePoints</a> (<span class="keyword">const</span> <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;InputClock&gt;</a>&amp; inputTime)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_same_v&lt;InputClock, OutputClock&gt;)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> inputTime;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> inputNow  = InputClock::now();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> systemNow = OutputClock::now();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">using</span> OutputDuration = <span class="keyword">typename</span> OutputClock::duration;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> inputDuration = std::chrono::duration_cast&lt;OutputDuration&gt; (inputTime - inputNow);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> std::chrono::time_point_cast&lt;OutputDuration&gt; (inputDuration + systemNow);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">template</span> &lt;Clock InputClock&gt;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#a6bca95a102f58cf7c9fd1b393c368c79">   75</a></span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;SystemClock&gt;</a> <a class="code" href="../../d0/dfb/namespacetime.html#a6bca95a102f58cf7c9fd1b393c368c79">toSystemTime</a> (<span class="keyword">const</span> <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;InputClock&gt;</a>&amp; inputTime)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> systemTimePoint = std::chrono::system_clock::from_time_t (<a class="code" href="../../d0/dfb/namespacetime.html">time</a>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">return</span> convertClockTimePoints&lt;SystemClock, ClockType&gt; (systemTimePoint);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">template</span> &lt;Clock ClockType&gt;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#aabe108664765a936b376d4d324f68f5e">   83</a></span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;ClockType&gt;</a> <a class="code" href="../../d0/dfb/namespacetime.html#a7859c167538c8ab37cc0736214b0c660">fromTimeObj</a> (std::tm&amp; timeObj)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">return</span> fromTimeObj&lt;ClockType&gt; (std::mktime (&amp;timeObj));</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}  <span class="comment">// namespace time</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">return</span> convertClockTimePoints&lt;InputClock, SystemClock&gt; (inputTime);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">template</span> &lt;Clock ClockType&gt;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#ac979c7ad7b70f0f4a29229d891fc466a">   82</a></span>&#160;LIMES_EXPORT [[nodiscard]] std::tm <a class="code" href="../../d0/dfb/namespacetime.html#ac979c7ad7b70f0f4a29229d891fc466a">toTimeObj</a> (<span class="keyword">const</span> <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;ClockType&gt;</a>&amp; inputTime)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> timeT = SystemClock::to_time_t (<a class="code" href="../../d0/dfb/namespacetime.html#a6bca95a102f58cf7c9fd1b393c368c79">toSystemTime</a> (inputTime));</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> *std::localtime (&amp;timeT);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">template</span> &lt;Clock ClockType&gt;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#a7859c167538c8ab37cc0736214b0c660">   91</a></span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;ClockType&gt;</a> <a class="code" href="../../d0/dfb/namespacetime.html#a7859c167538c8ab37cc0736214b0c660">fromTimeObj</a> (std::time_t <a class="code" href="../../d0/dfb/namespacetime.html">time</a>)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> systemTimePoint = std::chrono::system_clock::from_time_t (<a class="code" href="../../d0/dfb/namespacetime.html">time</a>);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> convertClockTimePoints&lt;SystemClock, ClockType&gt; (systemTimePoint);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">template</span> &lt;Clock ClockType&gt;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../d0/dfb/namespacetime.html#aabe108664765a936b376d4d324f68f5e">  100</a></span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">Point&lt;ClockType&gt;</a> <a class="code" href="../../d0/dfb/namespacetime.html#a7859c167538c8ab37cc0736214b0c660">fromTimeObj</a> (std::tm&amp; timeObj)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span> fromTimeObj&lt;ClockType&gt; (std::mktime (&amp;timeObj));</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}  <span class="comment">// namespace time</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacetime_html_ade0327197a2b5a9a6cec5bf4a64426bc"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">time::Point</a></div><div class="ttdeci">std::chrono::time_point&lt; ClockType &gt; Point</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00038">time_utils.h:38</a></div></div>
-<div class="ttc" id="anamespacetime_html_a0e90e4ba487985ed0263ee88f594bd8d"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#a0e90e4ba487985ed0263ee88f594bd8d">time::SystemClock</a></div><div class="ttdeci">std::chrono::system_clock SystemClock</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00040">time_utils.h:40</a></div></div>
-<div class="ttc" id="anamespacetime_html_a5afe949cfbd908ea08a81491b5f88997"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#a5afe949cfbd908ea08a81491b5f88997">time::convertClockTimePoints</a></div><div class="ttdeci">LIMES_EXPORT Point&lt; OutputClock &gt; convertClockTimePoints(const Point&lt; InputClock &gt; &amp;inputTime)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00043">time_utils.h:43</a></div></div>
-<div class="ttc" id="anamespacetime_html_ac979c7ad7b70f0f4a29229d891fc466a"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#ac979c7ad7b70f0f4a29229d891fc466a">time::toTimeObj</a></div><div class="ttdeci">LIMES_EXPORT std::tm toTimeObj(const Point&lt; ClockType &gt; &amp;inputTime)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00067">time_utils.h:67</a></div></div>
+<div class="ttc" id="anamespacetime_html_ade0327197a2b5a9a6cec5bf4a64426bc"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc">time::Point</a></div><div class="ttdeci">std::chrono::time_point&lt; ClockType &gt; Point</div><div class="ttdoc">Convenience typedef for a time point.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00049">time_utils.h:49</a></div></div>
+<div class="ttc" id="anamespacetime_html_a0e90e4ba487985ed0263ee88f594bd8d"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#a0e90e4ba487985ed0263ee88f594bd8d">time::SystemClock</a></div><div class="ttdeci">std::chrono::system_clock SystemClock</div><div class="ttdoc">Convenience typedef for the system clock.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00052">time_utils.h:52</a></div></div>
+<div class="ttc" id="anamespacetime_html_a5afe949cfbd908ea08a81491b5f88997"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#a5afe949cfbd908ea08a81491b5f88997">time::convertClockTimePoints</a></div><div class="ttdeci">LIMES_EXPORT Point&lt; OutputClock &gt; convertClockTimePoints(const Point&lt; InputClock &gt; &amp;inputTime)</div><div class="ttdoc">Converts a time point on one clock to a time point on another clock.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00056">time_utils.h:56</a></div></div>
+<div class="ttc" id="anamespacetime_html_ac979c7ad7b70f0f4a29229d891fc466a"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#ac979c7ad7b70f0f4a29229d891fc466a">time::toTimeObj</a></div><div class="ttdeci">LIMES_EXPORT std::tm toTimeObj(const Point&lt; ClockType &gt; &amp;inputTime)</div><div class="ttdoc">Converts a time point on any Clock type to a std::tm object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00082">time_utils.h:82</a></div></div>
 <div class="ttc" id="agroup__system_html_gabed8f597c61ed37a221c9ae8dccf9e22"><div class="ttname"><a href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a></div><div class="ttdeci">#define LIMES_PURE_FUNCTION</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d00/compiler__defs_8h_source.html#l00041">compiler_defs.h:41</a></div></div>
-<div class="ttc" id="anamespacetime_html"><div class="ttname"><a href="../../d0/dfb/namespacetime.html">time</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db3/build__date_8h_source.html#l00022">build_date.h:22</a></div></div>
-<div class="ttc" id="anamespacetime_html_a6bca95a102f58cf7c9fd1b393c368c79"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#a6bca95a102f58cf7c9fd1b393c368c79">time::toSystemTime</a></div><div class="ttdeci">LIMES_EXPORT Point&lt; SystemClock &gt; toSystemTime(const Point&lt; InputClock &gt; &amp;inputTime)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00061">time_utils.h:61</a></div></div>
+<div class="ttc" id="anamespacetime_html"><div class="ttname"><a href="../../d0/dfb/namespacetime.html">time</a></div><div class="ttdoc">This namespace contains utilities for working with time measurements.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db3/build__date_8h_source.html#l00027">build_date.h:27</a></div></div>
+<div class="ttc" id="anamespacetime_html_a6bca95a102f58cf7c9fd1b393c368c79"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#a6bca95a102f58cf7c9fd1b393c368c79">time::toSystemTime</a></div><div class="ttdeci">LIMES_EXPORT Point&lt; SystemClock &gt; toSystemTime(const Point&lt; InputClock &gt; &amp;inputTime)</div><div class="ttdoc">Converts a time point on any Clock type to a time point on the SystemClock.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00075">time_utils.h:75</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00039">limes_namespace.h:39</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00027">limes_namespace.h:27</a></div></div>
-<div class="ttc" id="anamespacetime_html_a4b0bf40dc380c9a5f65d90e15a8471cf"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#a4b0bf40dc380c9a5f65d90e15a8471cf">time::Clock</a></div><div class="ttdeci">concept Clock</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00031">time_utils.h:31</a></div></div>
+<div class="ttc" id="anamespacetime_html_a4b0bf40dc380c9a5f65d90e15a8471cf"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#a4b0bf40dc380c9a5f65d90e15a8471cf">time::Clock</a></div><div class="ttdeci">concept Clock</div><div class="ttdoc">@concept Clock The same as std::is_clock_v, only implemented here because the standard library concep...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00041">time_utils.h:41</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
-<div class="ttc" id="anamespacetime_html_a7859c167538c8ab37cc0736214b0c660"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#a7859c167538c8ab37cc0736214b0c660">time::fromTimeObj</a></div><div class="ttdeci">LIMES_EXPORT Point&lt; ClockType &gt; fromTimeObj(std::time_t time)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00075">time_utils.h:75</a></div></div>
+<div class="ttc" id="anamespacetime_html_a7859c167538c8ab37cc0736214b0c660"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#a7859c167538c8ab37cc0736214b0c660">time::fromTimeObj</a></div><div class="ttdeci">LIMES_EXPORT Point&lt; ClockType &gt; fromTimeObj(std::time_t time)</div><div class="ttdoc">Converts a std::time_t object to a time point on the given Clock type.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00091">time_utils.h:91</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_c12d511caa08a25cac33eefcbb86c1b0.html">time</a></li><li class="navelem"><a class="el" href="../../d5/dd4/time__utils_8h.html">time_utils.h</a></li>
-    <li class="footer">Generated on Wed May 25 2022 08:41:20 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 07:42:11 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

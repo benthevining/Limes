@@ -153,7 +153,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9b0d354be6d11a48e167f4a8874406f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../de/d90/classfiles_1_1_sym_link.html" title="This class represents a symbolic link on the filesystem.">SymLink</a> object that represents a symbolic link in the current directory with the specified name.  <a href="../../d5/d2a/classfiles_1_1_directory.html#a9b0d354be6d11a48e167f4a8874406f6">More...</a><br /></td></tr>
 <tr class="separator:a9b0d354be6d11a48e167f4a8874406f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a195e1f94fb8a461117eacacd54b5f081"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d2a/classfiles_1_1_directory.html#a195e1f94fb8a461117eacacd54b5f081">createIfDoesntExist</a> () const final</td></tr>
-<tr class="memdesc:a195e1f94fb8a461117eacacd54b5f081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the filesystem entry this object refers to, if it doesn't already exist.  <a href="../../d5/d2a/classfiles_1_1_directory.html#a195e1f94fb8a461117eacacd54b5f081">More...</a><br /></td></tr>
+<tr class="memdesc:a195e1f94fb8a461117eacacd54b5f081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the directory this object refers to, if it doesn't already exist.  <a href="../../d5/d2a/classfiles_1_1_directory.html#a195e1f94fb8a461117eacacd54b5f081">More...</a><br /></td></tr>
 <tr class="separator:a195e1f94fb8a461117eacacd54b5f081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d19dc8965413fe13319b05859e0a62d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d3d/classfiles_1_1_filesystem_entry.html#a0d19dc8965413fe13319b05859e0a62d">deleteIfExists</a> () const</td></tr>
 <tr class="memdesc:a0d19dc8965413fe13319b05859e0a62d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the filesystem entry this object refers to, if it exists.  <a href="../../de/d3d/classfiles_1_1_filesystem_entry.html#a0d19dc8965413fe13319b05859e0a62d">More...</a><br /></td></tr>
@@ -357,7 +357,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d83/_filesystem_entry_8h_source.html#l00060">60</a> of file <a class="el" href="../../d2/d83/_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d83/_filesystem_entry_8h_source.html#l00061">61</a> of file <a class="el" href="../../d2/d83/_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
 
 </div>
 </div>
@@ -429,7 +429,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d83/_filesystem_entry_8h_source.html#l00058">58</a> of file <a class="el" href="../../d2/d83/_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d83/_filesystem_entry_8h_source.html#l00059">59</a> of file <a class="el" href="../../d2/d83/_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
 
 </div>
 </div>
@@ -453,7 +453,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d83/_filesystem_entry_8h_source.html#l00059">59</a> of file <a class="el" href="../../d2/d83/_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d83/_filesystem_entry_8h_source.html#l00060">60</a> of file <a class="el" href="../../d2/d83/_filesystem_entry_8h_source.html">FilesystemEntry.h</a>.</p>
 
 </div>
 </div>
@@ -692,7 +692,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Overwriting Overwrites this filesystem entry by copying from another location. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if copying was successful. </dd></dl>
+<p>Returns true if copying was successful. </p>
 
 </div>
 </div>
@@ -861,8 +861,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the filesystem entry this object refers to, if it doesn't already exist. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the filesystem object needed to be created, and was successfully created. </dd></dl>
+<p>Creates the directory this object refers to, if it doesn't already exist. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the directory needed to be created, and was successfully created. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="../../de/d3d/classfiles_1_1_filesystem_entry.html#afe09a4f9de66b75744fac7352573b729">files::FilesystemEntry</a>.</p>
 
@@ -2682,7 +2682,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d04/namespacefiles.html">files</a></li><li class="navelem"><a class="el" href="../../d5/d2a/classfiles_1_1_directory.html">Directory</a></li>
-    <li class="footer">Generated on Wed May 25 2022 08:41:20 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 07:42:11 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

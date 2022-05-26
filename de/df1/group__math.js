@@ -1,7 +1,11 @@
 var group__math =
 [
     [ "Geometry", "d9/dba/group__geometry.html", "d9/dba/group__geometry" ],
+    [ "Fraction.h", "d3/de1/_fraction_8h.html", null ],
+    [ "Fraction_impl.h", "d3/db2/_fraction__impl_8h.html", null ],
     [ "mathHelpers.h", "dd/dfb/math_helpers_8h.html", null ],
+    [ "matrix.h", "dd/df4/matrix_8h.html", null ],
+    [ "Random.h", "d0/d80/_random_8h.html", null ],
     [ "abs", "de/df1/group__math.html#ga6d262e04bc6f3646fdefa9bdb887f977", null ],
     [ "factorial", "de/df1/group__math.html#ga8f543e20a836b53e34ff51af3c435650", null ],
     [ "freqFromPeriod", "de/df1/group__math.html#ga6bb0f47d78ad031a40afbf364083bb43", null ],

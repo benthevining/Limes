@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="A base class for any kind of 3&#45;dimensional shape.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-147.5 0,-177.5 166,-177.5 166,-147.5 0,-147.5"/>
 <text text-anchor="start" x="8" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">math::geometry::ThreeDShape</text>
 <text text-anchor="middle" x="83" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="../../da/d97/classmath_1_1geometry_1_1_cone.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="../../da/d97/classmath_1_1geometry_1_1_cone.html" target="_top" xlink:title="This class represents a cone.">
 <polygon fill="none" stroke="black" points="219,-294.5 219,-324.5 344,-324.5 344,-294.5 219,-294.5"/>
 <text text-anchor="start" x="227" y="-312.5" font-family="Helvetica,sans-Serif" font-size="10.00">math::geometry::Cone</text>
 <text text-anchor="middle" x="281.5" y="-301.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>
@@ -37,7 +37,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="../../de/df9/classmath_1_1geometry_1_1_cube.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="../../de/df9/classmath_1_1geometry_1_1_cube.html" target="_top" xlink:title="This class represents a cube.">
 <polygon fill="none" stroke="black" points="219,-245.5 219,-275.5 344,-275.5 344,-245.5 219,-245.5"/>
 <text text-anchor="start" x="227" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00">math::geometry::Cube</text>
 <text text-anchor="middle" x="281.5" y="-252.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>
@@ -53,7 +53,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d3/ddb/classmath_1_1geometry_1_1_cylinder.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="../../d3/ddb/classmath_1_1geometry_1_1_cylinder.html" target="_top" xlink:title="This class represents a cylinder.">
 <polygon fill="none" stroke="black" points="211,-196.5 211,-226.5 352,-226.5 352,-196.5 211,-196.5"/>
 <text text-anchor="start" x="219" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">math::geometry::Cylinder</text>
 <text text-anchor="middle" x="281.5" y="-203.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>
@@ -69,7 +69,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="../../df/dcd/classmath_1_1geometry_1_1_pyramid.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="../../df/dcd/classmath_1_1geometry_1_1_pyramid.html" target="_top" xlink:title="This class represents a pyramid.">
 <polygon fill="none" stroke="black" points="211,-147.5 211,-177.5 352,-177.5 352,-147.5 211,-147.5"/>
 <text text-anchor="start" x="219" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">math::geometry::Pyramid</text>
 <text text-anchor="middle" x="281.5" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>
@@ -85,7 +85,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="../../d3/d1d/classmath_1_1geometry_1_1_rectangular_prism.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="../../d3/d1d/classmath_1_1geometry_1_1_rectangular_prism.html" target="_top" xlink:title="This class represents a rectagular prism.">
 <polygon fill="none" stroke="black" points="202,-98.5 202,-128.5 361,-128.5 361,-98.5 202,-98.5"/>
 <text text-anchor="start" x="210" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00">math::geometry::Rectangular</text>
 <text text-anchor="middle" x="281.5" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">Prism&lt; ValueType &gt;</text>
@@ -101,7 +101,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="../../d4/dc0/classmath_1_1geometry_1_1_sphere.html" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="../../d4/dc0/classmath_1_1geometry_1_1_sphere.html" target="_top" xlink:title="This class represents a sphere.">
 <polygon fill="none" stroke="black" points="214.5,-49.5 214.5,-79.5 348.5,-79.5 348.5,-49.5 214.5,-49.5"/>
 <text text-anchor="start" x="222.5" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">math::geometry::Sphere</text>
 <text text-anchor="middle" x="281.5" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>
@@ -117,7 +117,7 @@
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="../../dd/d2c/classmath_1_1geometry_1_1_triangular_prism.html" target="_top" xlink:title=" ">
+<g id="a_node8"><a xlink:href="../../dd/d2c/classmath_1_1geometry_1_1_triangular_prism.html" target="_top" xlink:title="This class represents a triangular prism.">
 <polygon fill="none" stroke="black" points="207,-0.5 207,-30.5 356,-30.5 356,-0.5 207,-0.5"/>
 <text text-anchor="start" x="215" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">math::geometry::Triangular</text>
 <text text-anchor="middle" x="281.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Prism&lt; ValueType &gt;</text>

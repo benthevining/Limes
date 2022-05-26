@@ -8,7 +8,7 @@ var classmath_1_1_matrix =
     [ "getColumn", "d6/d00/classmath_1_1_matrix.html#abc227bdc3b5bd929c90ec7d7c07abc28", null ],
     [ "getNumColumns", "d6/d00/classmath_1_1_matrix.html#adaa62ffca1576b00a9d990ba02abf927", null ],
     [ "getNumRows", "d6/d00/classmath_1_1_matrix.html#a2c2169f006f2a825a672545cf0ee47b7", null ],
-    [ "getSubmatrix", "d6/d00/classmath_1_1_matrix.html#aa0559b47a418ad6ae2daac65274ddfdb", null ],
+    [ "getSubmatrix", "d6/d00/classmath_1_1_matrix.html#a0adb28ed8ff99303f511cf5742ec8e73", null ],
     [ "getTotalNumElements", "d6/d00/classmath_1_1_matrix.html#a246dd53b6741145dee6705925204810f", null ],
     [ "isSquare", "d6/d00/classmath_1_1_matrix.html#ab31a1132e7227a516a685b9ed1c09012", null ],
     [ "operator!=", "d6/d00/classmath_1_1_matrix.html#a72493621ac293dfffa072f9f4c52e16f", null ],

@@ -92,75 +92,108 @@ $(document).ready(function(){initNavTree('dc/da4/classtime_1_1_year.html','../..
 </div><!--header-->
 <div class="contents">
 
+<p>This class represents a calendar year.  
+ <a href="../../dc/da4/classtime_1_1_year.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d5/d98/year_8h_source.html">year.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a08dd45ac3ee89d55940da4db36c8c409"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a08dd45ac3ee89d55940da4db36c8c409">Year</a> ()=default</td></tr>
-<tr class="separator:a08dd45ac3ee89d55940da4db36c8c409"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2265042a435182d9531ceb4b83f20536"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a2265042a435182d9531ceb4b83f20536">Year</a> (const std::tm &amp;timeObj) noexcept</td></tr>
-<tr class="separator:a2265042a435182d9531ceb4b83f20536"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fad9c0390b06c13103a655bc701cf04"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a5fad9c0390b06c13103a655bc701cf04">Year</a> (const <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;)=default</td></tr>
 <tr class="separator:a5fad9c0390b06c13103a655bc701cf04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9b56410fb907fb777fd394a870dd886"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#ae9b56410fb907fb777fd394a870dd886">Year</a> (int yearNumber) noexcept</td></tr>
-<tr class="separator:ae9b56410fb907fb777fd394a870dd886"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31e986779d9443c631228d1849f47c62"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a31e986779d9443c631228d1849f47c62">Year</a> (std::time_t time)</td></tr>
-<tr class="separator:a31e986779d9443c631228d1849f47c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abec1c0e5757ffe21b19cd397fb41c0c8"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#abec1c0e5757ffe21b19cd397fb41c0c8">Year</a> (<a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:abec1c0e5757ffe21b19cd397fb41c0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51437665f42e961d7387778d236f1faf"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a51437665f42e961d7387778d236f1faf">getNumDays</a> () const noexcept</td></tr>
+<tr class="memdesc:a51437665f42e961d7387778d236f1faf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of days in this year.  <a href="../../dc/da4/classtime_1_1_year.html#a51437665f42e961d7387778d236f1faf">More...</a><br /></td></tr>
 <tr class="separator:a51437665f42e961d7387778d236f1faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3efc3acee011c404ba4d3b3cad11f56b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a3efc3acee011c404ba4d3b3cad11f56b">getNumWeeks</a> () const noexcept</td></tr>
+<tr class="memdesc:a3efc3acee011c404ba4d3b3cad11f56b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of ISO weeks in this year.  <a href="../../dc/da4/classtime_1_1_year.html#a3efc3acee011c404ba4d3b3cad11f56b">More...</a><br /></td></tr>
 <tr class="separator:a3efc3acee011c404ba4d3b3cad11f56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0973d672d59559e0117a1169ffe549dd"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a0973d672d59559e0117a1169ffe549dd">getYear</a> () const noexcept</td></tr>
+<tr class="memdesc:a0973d672d59559e0117a1169ffe549dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of this year as an integer.  <a href="../../dc/da4/classtime_1_1_year.html#a0973d672d59559e0117a1169ffe549dd">More...</a><br /></td></tr>
 <tr class="separator:a0973d672d59559e0117a1169ffe549dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38c79e24e8b70bf36e9daf90ac036c00"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a38c79e24e8b70bf36e9daf90ac036c00">isBC</a> () const noexcept</td></tr>
+<tr class="memdesc:a38c79e24e8b70bf36e9daf90ac036c00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this year is before the year 0.  <a href="../../dc/da4/classtime_1_1_year.html#a38c79e24e8b70bf36e9daf90ac036c00">More...</a><br /></td></tr>
 <tr class="separator:a38c79e24e8b70bf36e9daf90ac036c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab91460b93e7f92871a57d205e5496728"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#ab91460b93e7f92871a57d205e5496728">isInFuture</a> () const noexcept</td></tr>
+<tr class="memdesc:ab91460b93e7f92871a57d205e5496728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this year is greater than the current year.  <a href="../../dc/da4/classtime_1_1_year.html#ab91460b93e7f92871a57d205e5496728">More...</a><br /></td></tr>
 <tr class="separator:ab91460b93e7f92871a57d205e5496728"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28b929e61759a791f96970ea8c79bab0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a28b929e61759a791f96970ea8c79bab0">isInPast</a> () const noexcept</td></tr>
+<tr class="memdesc:a28b929e61759a791f96970ea8c79bab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this year is less than the current year.  <a href="../../dc/da4/classtime_1_1_year.html#a28b929e61759a791f96970ea8c79bab0">More...</a><br /></td></tr>
 <tr class="separator:a28b929e61759a791f96970ea8c79bab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9239ddbab6643abe7c8c897ed2392e6"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#aa9239ddbab6643abe7c8c897ed2392e6">isLeap</a> () const noexcept</td></tr>
+<tr class="memdesc:aa9239ddbab6643abe7c8c897ed2392e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this year is a leap year.  <a href="../../dc/da4/classtime_1_1_year.html#aa9239ddbab6643abe7c8c897ed2392e6">More...</a><br /></td></tr>
 <tr class="separator:aa9239ddbab6643abe7c8c897ed2392e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a198c896d31461b04dc2c03aea343deff"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a198c896d31461b04dc2c03aea343deff">operator int</a> () const noexcept</td></tr>
+<tr class="memdesc:a198c896d31461b04dc2c03aea343deff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of this year as an integer.  <a href="../../dc/da4/classtime_1_1_year.html#a198c896d31461b04dc2c03aea343deff">More...</a><br /></td></tr>
 <tr class="separator:a198c896d31461b04dc2c03aea343deff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ac69b3d2a21f4b8935b2cc6fd3553a2"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a9ac69b3d2a21f4b8935b2cc6fd3553a2">operator!=</a> (const <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:a9ac69b3d2a21f4b8935b2cc6fd3553a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a995007430839a6045051b10c45db7db4"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a995007430839a6045051b10c45db7db4">operator+</a> (int numYearsToAdd) const noexcept</td></tr>
-<tr class="separator:a995007430839a6045051b10c45db7db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfdfdda494212419579b4d03562cdcf3"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#adfdfdda494212419579b4d03562cdcf3">operator=</a> (const <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;)=default</td></tr>
+<tr class="separator:adfdfdda494212419579b4d03562cdcf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35594687bee2d080ca5383a4bde184e0"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a35594687bee2d080ca5383a4bde184e0">operator=</a> (int newYear) noexcept</td></tr>
+<tr class="memdesc:a35594687bee2d080ca5383a4bde184e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns this year object to a new year number.  <a href="../../dc/da4/classtime_1_1_year.html#a35594687bee2d080ca5383a4bde184e0">More...</a><br /></td></tr>
+<tr class="separator:a35594687bee2d080ca5383a4bde184e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac718514ffb3ddad8dd764e3274c9b97b"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#ac718514ffb3ddad8dd764e3274c9b97b">operator=</a> (<a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;&amp;)=default</td></tr>
+<tr class="separator:ac718514ffb3ddad8dd764e3274c9b97b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Constructors</div></td></tr>
+<tr class="memitem:a08dd45ac3ee89d55940da4db36c8c409"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a08dd45ac3ee89d55940da4db36c8c409">Year</a> ()=default</td></tr>
+<tr class="memdesc:a08dd45ac3ee89d55940da4db36c8c409"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../dc/da4/classtime_1_1_year.html" title="This class represents a calendar year.">Year</a> object representing the year 0.  <a href="../../dc/da4/classtime_1_1_year.html#a08dd45ac3ee89d55940da4db36c8c409">More...</a><br /></td></tr>
+<tr class="separator:a08dd45ac3ee89d55940da4db36c8c409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9b56410fb907fb777fd394a870dd886"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#ae9b56410fb907fb777fd394a870dd886">Year</a> (int yearNumber) noexcept</td></tr>
+<tr class="memdesc:ae9b56410fb907fb777fd394a870dd886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../dc/da4/classtime_1_1_year.html" title="This class represents a calendar year.">Year</a> object representing the given year.  <a href="../../dc/da4/classtime_1_1_year.html#ae9b56410fb907fb777fd394a870dd886">More...</a><br /></td></tr>
+<tr class="separator:ae9b56410fb907fb777fd394a870dd886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2265042a435182d9531ceb4b83f20536"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a2265042a435182d9531ceb4b83f20536">Year</a> (const std::tm &amp;timeObj) noexcept</td></tr>
+<tr class="memdesc:a2265042a435182d9531ceb4b83f20536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../dc/da4/classtime_1_1_year.html" title="This class represents a calendar year.">Year</a> object from the given <code>std::tm</code> object.  <a href="../../dc/da4/classtime_1_1_year.html#a2265042a435182d9531ceb4b83f20536">More...</a><br /></td></tr>
+<tr class="separator:a2265042a435182d9531ceb4b83f20536"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31e986779d9443c631228d1849f47c62"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a31e986779d9443c631228d1849f47c62">Year</a> (std::time_t time)</td></tr>
+<tr class="memdesc:a31e986779d9443c631228d1849f47c62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../dc/da4/classtime_1_1_year.html" title="This class represents a calendar year.">Year</a> object from the given <code>std::time_t</code> object.  <a href="../../dc/da4/classtime_1_1_year.html#a31e986779d9443c631228d1849f47c62">More...</a><br /></td></tr>
+<tr class="separator:a31e986779d9443c631228d1849f47c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Incrementing</div></td></tr>
 <tr class="memitem:a31307fe35973dab20619df9f32c77c05"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a31307fe35973dab20619df9f32c77c05">operator++</a> () noexcept</td></tr>
 <tr class="separator:a31307fe35973dab20619df9f32c77c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1c47dd0298cfd22e88e41c1aa4e4859"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#ae1c47dd0298cfd22e88e41c1aa4e4859">operator+=</a> (int numYearsToAdd) noexcept</td></tr>
 <tr class="separator:ae1c47dd0298cfd22e88e41c1aa4e4859"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7cf3430a61470f73ac0599dff7c68b8"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#ad7cf3430a61470f73ac0599dff7c68b8">operator-</a> (int numYearsToSubtract) const noexcept</td></tr>
-<tr class="separator:ad7cf3430a61470f73ac0599dff7c68b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a995007430839a6045051b10c45db7db4"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a995007430839a6045051b10c45db7db4">operator+</a> (int numYearsToAdd) const noexcept</td></tr>
+<tr class="separator:a995007430839a6045051b10c45db7db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Decrementing</div></td></tr>
 <tr class="memitem:a532ef0f4a584cec8f9075b4e01d9dac6"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a532ef0f4a584cec8f9075b4e01d9dac6">operator--</a> () noexcept</td></tr>
 <tr class="separator:a532ef0f4a584cec8f9075b4e01d9dac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb5f367f92b4573d89fa6195bccadf53"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#aeb5f367f92b4573d89fa6195bccadf53">operator-=</a> (int numYearsToSubtract) noexcept</td></tr>
 <tr class="separator:aeb5f367f92b4573d89fa6195bccadf53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fc701ecd7f5df47e318f7dfb631185b"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a7fc701ecd7f5df47e318f7dfb631185b">operator&lt;</a> (const <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:a7fc701ecd7f5df47e318f7dfb631185b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfdfdda494212419579b4d03562cdcf3"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#adfdfdda494212419579b4d03562cdcf3">operator=</a> (const <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;)=default</td></tr>
-<tr class="separator:adfdfdda494212419579b4d03562cdcf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35594687bee2d080ca5383a4bde184e0"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a35594687bee2d080ca5383a4bde184e0">operator=</a> (int newYear) noexcept</td></tr>
-<tr class="separator:a35594687bee2d080ca5383a4bde184e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac718514ffb3ddad8dd764e3274c9b97b"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#ac718514ffb3ddad8dd764e3274c9b97b">operator=</a> (<a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;&amp;)=default</td></tr>
-<tr class="separator:ac718514ffb3ddad8dd764e3274c9b97b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95520dfc2ac3d221eaeca95eaa4e48b5"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a95520dfc2ac3d221eaeca95eaa4e48b5">operator==</a> (const <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:a95520dfc2ac3d221eaeca95eaa4e48b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7cf3430a61470f73ac0599dff7c68b8"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#ad7cf3430a61470f73ac0599dff7c68b8">operator-</a> (int numYearsToSubtract) const noexcept</td></tr>
+<tr class="separator:ad7cf3430a61470f73ac0599dff7c68b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Greater/less than comparisons</div></td></tr>
 <tr class="memitem:afe31bfcaf34383b532048f8c27147445"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#afe31bfcaf34383b532048f8c27147445">operator&gt;</a> (const <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;other) const noexcept</td></tr>
 <tr class="separator:afe31bfcaf34383b532048f8c27147445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fc701ecd7f5df47e318f7dfb631185b"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a7fc701ecd7f5df47e318f7dfb631185b">operator&lt;</a> (const <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a7fc701ecd7f5df47e318f7dfb631185b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2b754229fd5d99a8df9650c5801d52c"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#ae2b754229fd5d99a8df9650c5801d52c">operator&gt;</a> (int other) const noexcept</td></tr>
+<tr class="separator:ae2b754229fd5d99a8df9650c5801d52c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09f9877f601cb470c6095880d5fd3ee4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a09f9877f601cb470c6095880d5fd3ee4">operator&lt;</a> (int other) const noexcept</td></tr>
+<tr class="separator:a09f9877f601cb470c6095880d5fd3ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Equality comparisons</div></td></tr>
+<tr class="memitem:a95520dfc2ac3d221eaeca95eaa4e48b5"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a95520dfc2ac3d221eaeca95eaa4e48b5">operator==</a> (const <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a95520dfc2ac3d221eaeca95eaa4e48b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ac69b3d2a21f4b8935b2cc6fd3553a2"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a9ac69b3d2a21f4b8935b2cc6fd3553a2">operator!=</a> (const <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a9ac69b3d2a21f4b8935b2cc6fd3553a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7de037fde3381571819ac49964457053"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a7de037fde3381571819ac49964457053">operator==</a> (int other) const noexcept</td></tr>
+<tr class="separator:a7de037fde3381571819ac49964457053"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac753cf1cab9379f27ad1a20f7ad0f448"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#ac753cf1cab9379f27ad1a20f7ad0f448">operator!=</a> (int other) const noexcept</td></tr>
+<tr class="separator:ac753cf1cab9379f27ad1a20f7ad0f448"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a4cc89e77a5e607341bb1a027f3994bd0"><td class="memItemLeft" align="right" valign="top">static consteval <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#a4cc89e77a5e607341bb1a027f3994bd0">getCompilationYear</a> () noexcept</td></tr>
+<tr class="memdesc:a4cc89e77a5e607341bb1a027f3994bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../dc/da4/classtime_1_1_year.html" title="This class represents a calendar year.">Year</a> object representing the year this code was compiled.  <a href="../../dc/da4/classtime_1_1_year.html#a4cc89e77a5e607341bb1a027f3994bd0">More...</a><br /></td></tr>
 <tr class="separator:a4cc89e77a5e607341bb1a027f3994bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7d08911a9df60ebead2ef9ac1be1a01"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da4/classtime_1_1_year.html#ad7d08911a9df60ebead2ef9ac1be1a01">getCurrent</a> ()</td></tr>
+<tr class="memdesc:ad7d08911a9df60ebead2ef9ac1be1a01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../dc/da4/classtime_1_1_year.html" title="This class represents a calendar year.">Year</a> object representing the current year.  <a href="../../dc/da4/classtime_1_1_year.html#ad7d08911a9df60ebead2ef9ac1be1a01">More...</a><br /></td></tr>
 <tr class="separator:ad7d08911a9df60ebead2ef9ac1be1a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d5/d98/year_8h_source.html#l00026">26</a> of file <a class="el" href="../../d5/d98/year_8h_source.html">year.h</a>.</p>
+<div class="textblock"><p>This class represents a calendar year. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dd/d49/classtime_1_1_date.html" title="This class represents a date on the Gregorian calendar.">Date</a>, <a class="el" href="../../dd/d74/classtime_1_1_date_time.html" title="This class represents both a Date and a Time.">DateTime</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d98/year_8h_source.html#l00035">35</a> of file <a class="el" href="../../d5/d98/year_8h_source.html">year.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a08dd45ac3ee89d55940da4db36c8c409"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a08dd45ac3ee89d55940da4db36c8c409">&#9670;&nbsp;</a></span>Year() <span class="overload">[1/6]</span></h2>
@@ -184,6 +217,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a <a class="el" href="../../dc/da4/classtime_1_1_year.html" title="This class represents a calendar year.">Year</a> object representing the year 0. </p>
 
 </div>
 </div>
@@ -210,6 +245,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a <a class="el" href="../../dc/da4/classtime_1_1_year.html" title="This class represents a calendar year.">Year</a> object representing the given year. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00024">24</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
 
@@ -239,6 +276,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates a <a class="el" href="../../dc/da4/classtime_1_1_year.html" title="This class represents a calendar year.">Year</a> object from the given <code>std::tm</code> object. </p>
+
 <p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00029">29</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
 
 </div>
@@ -266,6 +305,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a <a class="el" href="../../dc/da4/classtime_1_1_year.html" title="This class represents a calendar year.">Year</a> object from the given <code>std::time_t</code> object. </p>
 
 </div>
 </div>
@@ -345,6 +386,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a <a class="el" href="../../dc/da4/classtime_1_1_year.html" title="This class represents a calendar year.">Year</a> object representing the year this code was compiled. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/d7d/group__time.html#gac7081843bdb34b01a752270b940c1d7f" title="Returns the year of compilation, as an integer.">build_year()</a> </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00040">40</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
 
 </div>
@@ -372,6 +416,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a <a class="el" href="../../dc/da4/classtime_1_1_year.html" title="This class represents a calendar year.">Year</a> object representing the current year. </p>
+
 </div>
 </div>
 <a id="a51437665f42e961d7387778d236f1faf"></a>
@@ -396,6 +442,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the number of days in this year. </p>
+<p>This returns 366 if <code><a class="el" href="../../dc/da4/classtime_1_1_year.html#aa9239ddbab6643abe7c8c897ed2392e6" title="Returns true if this year is a leap year.">isLeap()</a></code> returns true, and 365 otherwise. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00056">56</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
 
@@ -424,6 +473,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the number of ISO weeks in this year. </p>
+<p>Most years contain 52 weeks, but some years will contain 53. </p>
+
 </div>
 </div>
 <a id="a0973d672d59559e0117a1169ffe549dd"></a>
@@ -448,6 +500,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the number of this year as an integer. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00069">69</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
 
@@ -476,6 +530,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if this year is before the year 0. </p>
+
 <p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00064">64</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
 
 </div>
@@ -503,6 +559,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if this year is greater than the current year. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/da4/classtime_1_1_year.html#ad7d08911a9df60ebead2ef9ac1be1a01" title="Returns a Year object representing the current year.">getCurrent()</a> </dd></dl>
+
 </div>
 </div>
 <a id="a28b929e61759a791f96970ea8c79bab0"></a>
@@ -528,6 +587,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if this year is less than the current year. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/da4/classtime_1_1_year.html#ad7d08911a9df60ebead2ef9ac1be1a01" title="Returns a Year object representing the current year.">getCurrent()</a> </dd></dl>
+
 </div>
 </div>
 <a id="aa9239ddbab6643abe7c8c897ed2392e6"></a>
@@ -552,6 +614,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if this year is a leap year. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00045">45</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
 
@@ -580,12 +644,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d98/year_8h_source.html#l00053">53</a> of file <a class="el" href="../../d5/d98/year_8h_source.html">year.h</a>.</p>
+<p>Returns the number of this year as an integer. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d98/year_8h_source.html#l00080">80</a> of file <a class="el" href="../../d5/d98/year_8h_source.html">year.h</a>.</p>
 
 </div>
 </div>
 <a id="a9ac69b3d2a21f4b8935b2cc6fd3553a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ac69b3d2a21f4b8935b2cc6fd3553a2">&#9670;&nbsp;</a></span>operator!=()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ac69b3d2a21f4b8935b2cc6fd3553a2">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -608,7 +674,35 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00123">123</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00133">133</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="ac753cf1cab9379f27ad1a20f7ad0f448"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac753cf1cab9379f27ad1a20f7ad0f448">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool time::Year::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00143">143</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
 
 </div>
 </div>
@@ -779,7 +873,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a7fc701ecd7f5df47e318f7dfb631185b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fc701ecd7f5df47e318f7dfb631185b">&#9670;&nbsp;</a></span>operator&lt;()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc701ecd7f5df47e318f7dfb631185b">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -803,6 +897,34 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00113">113</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="a09f9877f601cb470c6095880d5fd3ee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09f9877f601cb470c6095880d5fd3ee4">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool time::Year::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00123">123</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
 
 </div>
 </div>
@@ -856,6 +978,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Assigns this year object to a new year number. </p>
+
 <p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00034">34</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
 
 </div>
@@ -887,7 +1011,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a95520dfc2ac3d221eaeca95eaa4e48b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95520dfc2ac3d221eaeca95eaa4e48b5">&#9670;&nbsp;</a></span>operator==()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a95520dfc2ac3d221eaeca95eaa4e48b5">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -910,12 +1034,40 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00118">118</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00128">128</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="a7de037fde3381571819ac49964457053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7de037fde3381571819ac49964457053">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool time::Year::operator== </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00138">138</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
 
 </div>
 </div>
 <a id="afe31bfcaf34383b532048f8c27147445"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe31bfcaf34383b532048f8c27147445">&#9670;&nbsp;</a></span>operator&gt;()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afe31bfcaf34383b532048f8c27147445">&#9670;&nbsp;</a></span>operator&gt;() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -942,6 +1094,34 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae2b754229fd5d99a8df9650c5801d52c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2b754229fd5d99a8df9650c5801d52c">&#9670;&nbsp;</a></span>operator&gt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool time::Year::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d38/year__impl_8h_source.html#l00118">118</a> of file <a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="../../d5/d98/year_8h_source.html">year.h</a></li>
 <li><a class="el" href="../../d2/d38/year__impl_8h_source.html">year_impl.h</a></li>
@@ -952,7 +1132,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/dfb/namespacetime.html">time</a></li><li class="navelem"><a class="el" href="../../dc/da4/classtime_1_1_year.html">Year</a></li>
-    <li class="footer">Generated on Wed May 25 2022 08:41:21 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 07:42:12 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

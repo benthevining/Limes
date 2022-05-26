@@ -1,12 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"d6/d1a/fallback_8h.html#aed14075e6467850af3e648b2d1cf9208":[10,0,37,3],
-"d6/d1a/fallback_8h.html#aed552b1d3cc447c2ffc60badedaced27":[10,0,37,33],
-"d6/d1a/fallback_8h.html#af0ecc16575c17dfaed0469d07eeaa970":[10,0,37,21],
-"d6/d1a/fallback_8h.html#af1a02f28d92bb8c9ca204b828d77127c":[10,0,37,71],
-"d6/d1a/fallback_8h.html#afd3ad35e9ef409e0ffdfed20005dd322":[10,0,37,9],
-"d6/d1a/fallback_8h.html#afde21b08c9f698213970524d923a2591":[10,0,37,64],
-"d6/d1a/fallback_8h_source.html":[10,0,37],
 "d6/d26/classmemory_1_1_reference_counted_object_ptr.html":[9,0,8,8],
 "d6/d26/classmemory_1_1_reference_counted_object_ptr.html#a077d8fdb0c5ea705b1d6925d1375228c":[9,0,8,8,15],
 "d6/d26/classmemory_1_1_reference_counted_object_ptr.html#a0b0bf7a2a5f27fa21d0c4a148aa25855":[9,0,8,8,2],
@@ -249,5 +242,12 @@ var NAVTREEINDEX7 =
 "d6/dda/structdsp_1_1osc_1_1_triangle.html#a1f07cd640b15feddd8794c2dfb2ebb0c":[9,0,1,1,4,5],
 "d6/dda/structdsp_1_1osc_1_1_triangle.html#a223e68aaa94c330dd077e27f18f239b3":[9,0,1,1,4,0],
 "d6/dda/structdsp_1_1osc_1_1_triangle.html#aa4f3f89c9f33150f7483462424577ffb":[9,0,1,1,4,4],
-"d6/dda/structdsp_1_1osc_1_1_triangle.html#ac9c80b2e8f3baa111be16000b8aa9080":[9,0,1,1,4,3]
+"d6/dda/structdsp_1_1osc_1_1_triangle.html#ac9c80b2e8f3baa111be16000b8aa9080":[9,0,1,1,4,3],
+"d6/dda/structdsp_1_1osc_1_1_triangle.html#aedd9d46f7f2571cb7128af71752d0c6d":[9,0,1,1,4,2],
+"d6/dda/structdsp_1_1osc_1_1_triangle.html#af0c1ab2a48a9f210e56b577f9537e405":[9,0,1,1,4,1],
+"d6/dfa/_interval__impl_8h.html":[10,0,55],
+"d6/dfa/_interval__impl_8h_source.html":[10,0,55],
+"d7/d01/classmidi_1_1_pitchbend_mapper.html":[9,0,10,1],
+"d7/d01/classmidi_1_1_pitchbend_mapper.html#a245352756e26c01251e19597c99d4c70":[9,0,10,1,3],
+"d7/d01/classmidi_1_1_pitchbend_mapper.html#a4ed4d28880f235f533b573d42aabb5d4":[9,0,10,1,2]
 };

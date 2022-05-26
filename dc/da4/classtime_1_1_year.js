@@ -17,6 +17,7 @@ var classtime_1_1_year =
     [ "isLeap", "dc/da4/classtime_1_1_year.html#aa9239ddbab6643abe7c8c897ed2392e6", null ],
     [ "operator int", "dc/da4/classtime_1_1_year.html#a198c896d31461b04dc2c03aea343deff", null ],
     [ "operator!=", "dc/da4/classtime_1_1_year.html#a9ac69b3d2a21f4b8935b2cc6fd3553a2", null ],
+    [ "operator!=", "dc/da4/classtime_1_1_year.html#ac753cf1cab9379f27ad1a20f7ad0f448", null ],
     [ "operator+", "dc/da4/classtime_1_1_year.html#a995007430839a6045051b10c45db7db4", null ],
     [ "operator++", "dc/da4/classtime_1_1_year.html#a31307fe35973dab20619df9f32c77c05", null ],
     [ "operator+=", "dc/da4/classtime_1_1_year.html#ae1c47dd0298cfd22e88e41c1aa4e4859", null ],
@@ -24,9 +25,12 @@ var classtime_1_1_year =
     [ "operator--", "dc/da4/classtime_1_1_year.html#a532ef0f4a584cec8f9075b4e01d9dac6", null ],
     [ "operator-=", "dc/da4/classtime_1_1_year.html#aeb5f367f92b4573d89fa6195bccadf53", null ],
     [ "operator<", "dc/da4/classtime_1_1_year.html#a7fc701ecd7f5df47e318f7dfb631185b", null ],
+    [ "operator<", "dc/da4/classtime_1_1_year.html#a09f9877f601cb470c6095880d5fd3ee4", null ],
     [ "operator=", "dc/da4/classtime_1_1_year.html#adfdfdda494212419579b4d03562cdcf3", null ],
     [ "operator=", "dc/da4/classtime_1_1_year.html#a35594687bee2d080ca5383a4bde184e0", null ],
     [ "operator=", "dc/da4/classtime_1_1_year.html#ac718514ffb3ddad8dd764e3274c9b97b", null ],
     [ "operator==", "dc/da4/classtime_1_1_year.html#a95520dfc2ac3d221eaeca95eaa4e48b5", null ],
-    [ "operator>", "dc/da4/classtime_1_1_year.html#afe31bfcaf34383b532048f8c27147445", null ]
+    [ "operator==", "dc/da4/classtime_1_1_year.html#a7de037fde3381571819ac49964457053", null ],
+    [ "operator>", "dc/da4/classtime_1_1_year.html#afe31bfcaf34383b532048f8c27147445", null ],
+    [ "operator>", "dc/da4/classtime_1_1_year.html#ae2b754229fd5d99a8df9650c5801d52c", null ]
 ];

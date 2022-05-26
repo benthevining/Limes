@@ -1,10 +1,12 @@
 var classmath_1_1geometry_1_1_sphere =
 [
     [ "Sphere", "d4/dc0/classmath_1_1geometry_1_1_sphere.html#af6f6d7649f0c475acc5f8659ec28b945", null ],
+    [ "Sphere", "d4/dc0/classmath_1_1geometry_1_1_sphere.html#a4b518c4a7ea64bb1a696791199f98ac7", null ],
     [ "Sphere", "d4/dc0/classmath_1_1geometry_1_1_sphere.html#ac594cb08adbe759b868e9994c21f7ebd", null ],
     [ "Sphere", "d4/dc0/classmath_1_1geometry_1_1_sphere.html#a2e9889e9a6c94098cca3fa83449dc60e", null ],
     [ "circumference", "d4/dc0/classmath_1_1geometry_1_1_sphere.html#a4a2eae5fce9d2f85bbae6abc63df51bd", null ],
     [ "diameter", "d4/dc0/classmath_1_1geometry_1_1_sphere.html#a9753235cd4632c3616e535b1c6d65093", null ],
+    [ "getGreatCircle", "d4/dc0/classmath_1_1geometry_1_1_sphere.html#a986c66912020de3e3479bbae859ef0f2", null ],
     [ "operator!=", "d4/dc0/classmath_1_1geometry_1_1_sphere.html#a3e1e94a2529ab1a4e28fd851af9dbe98", null ],
     [ "operator<", "d4/dc0/classmath_1_1geometry_1_1_sphere.html#a7d4c769de6817d490ac2a3dc07ce9de4", null ],
     [ "operator=", "d4/dc0/classmath_1_1geometry_1_1_sphere.html#a44b4bf622611503052f7e2f43b250acb", null ],

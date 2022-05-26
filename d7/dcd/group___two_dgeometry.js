@@ -1,4 +1,4 @@
-var group___dgeometry =
+var group___two_dgeometry =
 [
     [ "2Dshape.h", "d8/d23/2_dshape_8h.html", null ],
     [ "angle.h", "da/dac/angle_8h.html", null ],

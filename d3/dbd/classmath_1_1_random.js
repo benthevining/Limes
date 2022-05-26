@@ -9,7 +9,7 @@ var classmath_1_1_random =
     [ "Random", "d3/dbd/classmath_1_1_random.html#a6bc4982e1baf6a6d19580a318c7db126", null ],
     [ "fork", "d3/dbd/classmath_1_1_random.html#aecbe1f0ac426143e04f223d6ef75f0b3", null ],
     [ "getSystem", "d3/dbd/classmath_1_1_random.html#a25ceb431124cacd08ad308ad4c0a9158", null ],
-    [ "next", "d3/dbd/classmath_1_1_random.html#a16040a20091b245b5a43807344b7ea3d", null ],
+    [ "next", "d3/dbd/classmath_1_1_random.html#ab60a512c0fb9c6f511f31e8f55c52b38", null ],
     [ "nextBool", "d3/dbd/classmath_1_1_random.html#ab7eda4eb3d5e3a18aef0eef6d0b971a0", null ],
     [ "nextValue", "d3/dbd/classmath_1_1_random.html#a33ff57ffddd1da234c27da1f60d42b0f", null ],
     [ "operator=", "d3/dbd/classmath_1_1_random.html#a162340ce6ed6c67e47462720df797de2", null ],

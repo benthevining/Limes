@@ -264,7 +264,7 @@
               <Subnodes>
                <Node>
                 <Name>2-D geometry</Name>
-                <Path>d6/d0c/group___dgeometry.html</Path>
+                <Path>d7/dcd/group___two_dgeometry.html</Path>
                 <Subnodes>
                  <Node>
                   <Name>2Dshape.h</Name>
@@ -305,6 +305,44 @@
                 </Subnodes>
                </Node>
                <Node>
+                <Name>3-D geometry</Name>
+                <Path>d4/d2a/group___three_dgeometry.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>3Dshape.h</Name>
+                  <Path>d7/d88/3_dshape_8h.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>cone.h</Name>
+                  <Path>db/df0/cone_8h.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>cube.h</Name>
+                  <Path>d4/dc4/cube_8h.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>cylinder.h</Name>
+                  <Path>d0/d67/cylinder_8h.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>pyramid.h</Name>
+                  <Path>dd/d7d/pyramid_8h.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>rectangular_prism.h</Name>
+                  <Path>db/dba/rectangular__prism_8h.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>sphere.h</Name>
+                  <Path>d5/d4a/sphere_8h.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>triangular_prism.h</Name>
+                  <Path>df/dc4/triangular__prism_8h.html</Path>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
                 <Name>math</Name>
                 <Path>dd/d47/namespacemath.html</Path>
                </Node>
@@ -336,8 +374,24 @@
               </Subnodes>
              </Node>
              <Node>
+              <Name>Fraction.h</Name>
+              <Path>d3/de1/_fraction_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>Fraction_impl.h</Name>
+              <Path>d3/db2/_fraction__impl_8h.html</Path>
+             </Node>
+             <Node>
               <Name>mathHelpers.h</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>matrix.h</Name>
+              <Path>dd/df4/matrix_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>Random.h</Name>
+              <Path>d0/d80/_random_8h.html</Path>
              </Node>
              <Node>
               <Name>abs</Name>
@@ -667,6 +721,99 @@
               <Name>isNewline</Name>
               <Path>d4/d61/group__text.html</Path>
               <Anchor>gabee9ff5a9ca4278f4ca7bbfce0829b6d</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>Time</Name>
+            <Path>d9/d7d/group__time.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>build_date.h</Name>
+              <Path>dc/db3/build__date_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>date.h</Name>
+              <Path>db/d96/date_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>date_impl.h</Name>
+              <Path>d1/d95/date__impl_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>DateTime.h</Name>
+              <Path>df/da8/_date_time_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>hour.h</Name>
+              <Path>d4/d37/hour_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>hour_impl.h</Name>
+              <Path>d5/dab/hour__impl_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>month.h</Name>
+              <Path>d7/d38/month_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>month_impl.h</Name>
+              <Path>da/d19/month__impl_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>time.h</Name>
+              <Path>de/df7/time_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>time_impl.h</Name>
+              <Path>d3/d09/time__impl_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>weekday.h</Name>
+              <Path>d0/ddc/weekday_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>weekday_impl.h</Name>
+              <Path>d4/d9a/weekday__impl_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>year.h</Name>
+              <Path>d5/d98/year_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>TODO_BEFORE</Name>
+              <Path>d9/d7d/group__time.html</Path>
+              <Anchor>gaba800051fa8705e8ec3606d38586f719</Anchor>
+             </Node>
+             <Node>
+              <Name>build_day</Name>
+              <Path>d9/d7d/group__time.html</Path>
+              <Anchor>gaf8b5d86f6591fa7fe1eca0eda805ed7f</Anchor>
+             </Node>
+             <Node>
+              <Name>build_hour</Name>
+              <Path>d9/d7d/group__time.html</Path>
+              <Anchor>gaefbe78efb40677cccb64b22dd6a7f80f</Anchor>
+             </Node>
+             <Node>
+              <Name>build_minute</Name>
+              <Path>d9/d7d/group__time.html</Path>
+              <Anchor>ga091625fe6e395acd0fee1486fd9c1263</Anchor>
+             </Node>
+             <Node>
+              <Name>build_month</Name>
+              <Path>d9/d7d/group__time.html</Path>
+              <Anchor>ga2c9831993f5c1697fa57277ea71e601c</Anchor>
+             </Node>
+             <Node>
+              <Name>build_second</Name>
+              <Path>d9/d7d/group__time.html</Path>
+              <Anchor>gafa1aefe1ad592cec39fa26b653415017</Anchor>
+             </Node>
+             <Node>
+              <Name>build_year</Name>
+              <Path>d9/d7d/group__time.html</Path>
+              <Anchor>gac7081843bdb34b01a752270b940c1d7f</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -6961,6 +7108,11 @@
                  <Node>
                   <Name>Pyramid</Name>
                   <Path>df/dcd/classmath_1_1geometry_1_1_pyramid.html</Path>
+                  <Anchor>a397f0d4242a80a913e66da54ea2ccb74</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Pyramid</Name>
+                  <Path>df/dcd/classmath_1_1geometry_1_1_pyramid.html</Path>
                   <Anchor>af6b26cea58bf1dd1b53405e804508648</Anchor>
                  </Node>
                  <Node>
@@ -6977,6 +7129,11 @@
                   <Name>baseWidth</Name>
                   <Path>df/dcd/classmath_1_1geometry_1_1_pyramid.html</Path>
                   <Anchor>a060c4fe57c4004ad4dab3de947395c07</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getBase</Name>
+                  <Path>df/dcd/classmath_1_1geometry_1_1_pyramid.html</Path>
+                  <Anchor>a35d2b5c5dc61683bdc30b7b1a06b7c1b</Anchor>
                  </Node>
                  <Node>
                   <Name>height</Name>
@@ -7209,6 +7366,11 @@
                  <Node>
                   <Name>Sphere</Name>
                   <Path>d4/dc0/classmath_1_1geometry_1_1_sphere.html</Path>
+                  <Anchor>a4b518c4a7ea64bb1a696791199f98ac7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Sphere</Name>
+                  <Path>d4/dc0/classmath_1_1geometry_1_1_sphere.html</Path>
                   <Anchor>ac594cb08adbe759b868e9994c21f7ebd</Anchor>
                  </Node>
                  <Node>
@@ -7225,6 +7387,11 @@
                   <Name>diameter</Name>
                   <Path>d4/dc0/classmath_1_1geometry_1_1_sphere.html</Path>
                   <Anchor>a9753235cd4632c3616e535b1c6d65093</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getGreatCircle</Name>
+                  <Path>d4/dc0/classmath_1_1geometry_1_1_sphere.html</Path>
+                  <Anchor>a986c66912020de3e3479bbae859ef0f2</Anchor>
                  </Node>
                  <Node>
                   <Name>operator!=</Name>
@@ -7714,7 +7881,7 @@
                <Node>
                 <Name>getReciprocal</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a48504a5a798eae943741b3c7edf44240</Anchor>
+                <Anchor>a9369a4e1440614d9d7c3740e4e9443d7</Anchor>
                </Node>
                <Node>
                 <Name>isEquivalentTo</Name>
@@ -7744,82 +7911,82 @@
                <Node>
                 <Name>operator*</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>ae3d41a0df310296e188a761882406c66</Anchor>
+                <Anchor>a3223e8c54a82a2c26e4480a11c5bf87d</Anchor>
                </Node>
                <Node>
                 <Name>operator*</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a319cc5027c4dccdb27da007150cfa73a</Anchor>
+                <Anchor>a4f1a02d69809facc779d85396e105321</Anchor>
                </Node>
                <Node>
                 <Name>operator*=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a758aa48826a7e3299b8cfa7d50400cd2</Anchor>
+                <Anchor>ab157e209f38724489546ecdfad6f78f1</Anchor>
                </Node>
                <Node>
                 <Name>operator*=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a408e38dc0f7051ed24062298741a3080</Anchor>
+                <Anchor>aa65cd231aaed8b094a3b79534ec8881d</Anchor>
                </Node>
                <Node>
                 <Name>operator+</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a5ce68171f6185dfe48610696caea458c</Anchor>
+                <Anchor>a2e5366f524383ebf61527c42045b3cce</Anchor>
                </Node>
                <Node>
                 <Name>operator+</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a67aa1dd6f12560343664bc9fe829e5d2</Anchor>
+                <Anchor>a74f72c8d4c3edd1fb8358fd9e10134a7</Anchor>
                </Node>
                <Node>
                 <Name>operator+=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>aeda85bd81fd445e85fadd5706caf19f9</Anchor>
+                <Anchor>a7a4046706494035a7bd8f15ea0976f48</Anchor>
                </Node>
                <Node>
                 <Name>operator+=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a6ad232e6880195fb159703051497e2c5</Anchor>
+                <Anchor>aa07fcf60c9f8c013975ca7714368df09</Anchor>
                </Node>
                <Node>
                 <Name>operator-</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>abec4c1f6621f41cb3080db310e617580</Anchor>
+                <Anchor>a8ce830c3b54314c422d302182dc909fd</Anchor>
                </Node>
                <Node>
                 <Name>operator-</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a0becce2c43099631b422dae9cc10fc13</Anchor>
+                <Anchor>a7c19cddf5e83f74849d63d3a84fc3aa7</Anchor>
                </Node>
                <Node>
                 <Name>operator-=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>ae97da38cbd9603d9a3e7599185be00c8</Anchor>
+                <Anchor>a537905d68be4b8f2047389905e31cc02</Anchor>
                </Node>
                <Node>
                 <Name>operator-=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>af7bdf2948a8206e5585524d46a2580d0</Anchor>
+                <Anchor>aad4b9d87816b23d0c03999a0b91044ef</Anchor>
                </Node>
                <Node>
                 <Name>operator/</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>ad620bc26547b3d494c7ff9001ddc04ae</Anchor>
+                <Anchor>a26408dc40c497fc082118b607e89736d</Anchor>
                </Node>
                <Node>
                 <Name>operator/</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>ab725c69ad16835b4c1b19e5c6b63ed2f</Anchor>
+                <Anchor>a3cab38d81dbdadbe6c957a2677666147</Anchor>
                </Node>
                <Node>
                 <Name>operator/=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a024100d5d0ada5d86fc8254b853d7eb1</Anchor>
+                <Anchor>ac34dcc60e2d07e877afe48028992fbf0</Anchor>
                </Node>
                <Node>
                 <Name>operator/=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a9a1f0e2f83d4771f9ee5a53a3161874a</Anchor>
+                <Anchor>ac32eb3987249cb630213f65c10a64fd5</Anchor>
                </Node>
                <Node>
                 <Name>operator&lt;</Name>
@@ -7844,11 +8011,6 @@
                <Node>
                 <Name>operator=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>aa9e052447b1d41564a5c9b5e2bb7ed77</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>d5/d26/structmath_1_1_fraction.html</Path>
                 <Anchor>a2c13714e05572ca44e59da1b64816d46</Anchor>
                </Node>
                <Node>
@@ -7869,12 +8031,12 @@
                <Node>
                 <Name>reduce</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a56e627282c3c12b79e794925309fcfa5</Anchor>
+                <Anchor>a244c46dfe1e9aa89494ecfd892b0156c</Anchor>
                </Node>
                <Node>
                 <Name>withDenominator</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a16d65fdea5844a2ff89b59f61d19cdfe</Anchor>
+                <Anchor>ab9b1a0ddf3c499dd0c529223b0e3cc86</Anchor>
                </Node>
                <Node>
                 <Name>denominator</Name>
@@ -7935,7 +8097,7 @@
                <Node>
                 <Name>getSubmatrix</Name>
                 <Path>d6/d00/classmath_1_1_matrix.html</Path>
-                <Anchor>aa0559b47a418ad6ae2daac65274ddfdb</Anchor>
+                <Anchor>a0adb28ed8ff99303f511cf5742ec8e73</Anchor>
                </Node>
                <Node>
                 <Name>getTotalNumElements</Name>
@@ -8046,7 +8208,7 @@
                <Node>
                 <Name>next</Name>
                 <Path>d3/dbd/classmath_1_1_random.html</Path>
-                <Anchor>a16040a20091b245b5a43807344b7ea3d</Anchor>
+                <Anchor>ab60a512c0fb9c6f511f31e8f55c52b38</Anchor>
                </Node>
                <Node>
                 <Name>nextBool</Name>
@@ -12496,7 +12658,7 @@
                <Node>
                 <Name>getCompilationDate</Name>
                 <Path>dd/d49/classtime_1_1_date.html</Path>
-                <Anchor>ac6931f621ebfab30ec41ae81486d3d53</Anchor>
+                <Anchor>ac5e12d452d56c34b3498caa493931c61</Anchor>
                </Node>
                <Node>
                 <Name>getCurrent</Name>
@@ -12521,7 +12683,7 @@
                <Node>
                 <Name>getWeekday</Name>
                 <Path>dd/d49/classtime_1_1_date.html</Path>
-                <Anchor>aef61cb12546b658f4efdc895a178424e</Anchor>
+                <Anchor>a2cffaaaa7eb226be868032fb1f2a71e6</Anchor>
                </Node>
                <Node>
                 <Name>getWeekNumber</Name>
@@ -12753,7 +12915,7 @@
                <Node>
                 <Name>getCompilationHour</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>ad25490d5c40bdadd38f3a51924a51141</Anchor>
+                <Anchor>a2cc042c78504986028e47291f7fb1911</Anchor>
                </Node>
                <Node>
                 <Name>getCurrent</Name>
@@ -12793,12 +12955,12 @@
                <Node>
                 <Name>midnight</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>aa2d13ec77defc6319f6b9dc48e43deb4</Anchor>
+                <Anchor>a7e0cd7b8fa8f8a50021747871d4edb12</Anchor>
                </Node>
                <Node>
                 <Name>noon</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>ae432bdf627802177ef2095f42c5bb42a</Anchor>
+                <Anchor>ac1e58c1df8dceed29adfd51b2e4f93f4</Anchor>
                </Node>
                <Node>
                 <Name>operator!=</Name>
@@ -12813,12 +12975,12 @@
                <Node>
                 <Name>operator++</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>aa8c6305480a3d666333e1800a8204d17</Anchor>
+                <Anchor>ace934ac4cc5a3761f1b146b459b67e13</Anchor>
                </Node>
                <Node>
                 <Name>operator+=</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>a64da7f36e6f93574f1787c8ccbcbd0fc</Anchor>
+                <Anchor>a006eb246111237856348ba722d7f4acb</Anchor>
                </Node>
                <Node>
                 <Name>operator-</Name>
@@ -12828,12 +12990,12 @@
                <Node>
                 <Name>operator--</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>ac9be378224125c19bfe54b998e9fbdc5</Anchor>
+                <Anchor>a24ce4bc3070e6159cad85833bf90f0ba</Anchor>
                </Node>
                <Node>
                 <Name>operator-=</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>a9c4c8d9b92889ba58f769ebb39aaa5a7</Anchor>
+                <Anchor>a28060bdf164eb5075115abd23e5bd16f</Anchor>
                </Node>
                <Node>
                 <Name>operator&lt;</Name>
@@ -12971,7 +13133,7 @@
                <Node>
                 <Name>getCompilationMonth</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>ad0a5975f43d6a5a30af6df5bb6a8e12f</Anchor>
+                <Anchor>a0d3b7d1e908bec899e251681c2ccfc38</Anchor>
                </Node>
                <Node>
                 <Name>getCurrent</Name>
@@ -12981,7 +13143,7 @@
                <Node>
                 <Name>getMonthName</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a8313f7cfad72001e4887c96510487e6f</Anchor>
+                <Anchor>a025b5ab6c9f23608e340df5d8ac2fe62</Anchor>
                </Node>
                <Node>
                 <Name>getMonthNumber</Name>
@@ -13021,17 +13183,17 @@
                <Node>
                 <Name>operator++</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>aa39af44a1861488bde369721048a21ce</Anchor>
+                <Anchor>a519fff138045329b316bdc4ce9c19232</Anchor>
                </Node>
                <Node>
                 <Name>operator++</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a2d54a7e04f0058edbba0c22091ce0e74</Anchor>
+                <Anchor>adcc18f93f05385d6e3652496e08fe67f</Anchor>
                </Node>
                <Node>
                 <Name>operator+=</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a77f53a130f45a30902418b6335e5d2c4</Anchor>
+                <Anchor>a8d6d5bff368c6edfc0acb537a8fb74ca</Anchor>
                </Node>
                <Node>
                 <Name>operator-</Name>
@@ -13041,17 +13203,17 @@
                <Node>
                 <Name>operator--</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a745d83388765b8402822981b3aa0e711</Anchor>
+                <Anchor>a0a43cd746c34f7ca0618b88bfb73c9a1</Anchor>
                </Node>
                <Node>
                 <Name>operator--</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a8cacc42064076c61be647f662e443706</Anchor>
+                <Anchor>adb46406a5c990f7488c11a86403f3540</Anchor>
                </Node>
                <Node>
                 <Name>operator-=</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a405800add3ce998210288715e24fd114</Anchor>
+                <Anchor>a0facf665e377cd7e41dfcd19d26a7078</Anchor>
                </Node>
                <Node>
                 <Name>operator&lt;</Name>
@@ -13071,7 +13233,7 @@
                <Node>
                 <Name>operator=</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a73eb16924cfe3f1d92669ab01f78bcb0</Anchor>
+                <Anchor>a58f67b582db87152b59a19d9d2ee78bd</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>
@@ -13081,7 +13243,7 @@
                <Node>
                 <Name>operator=</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>ab53ed45244c56f5b4f48ec9664de5b03</Anchor>
+                <Anchor>ad9cd668ad9e7bab7666d9bd1ca3ca8de</Anchor>
                </Node>
                <Node>
                 <Name>operator==</Name>
@@ -13152,7 +13314,7 @@
                <Node>
                 <Name>getCompilationTime</Name>
                 <Path>d1/dea/classtime_1_1_time.html</Path>
-                <Anchor>a9caad96230064704cc868bca41fc832a</Anchor>
+                <Anchor>a2980f80be4e69b363d38105e1eff47e2</Anchor>
                </Node>
                <Node>
                 <Name>getCurrent</Name>
@@ -13348,16 +13510,6 @@
                 <Anchor>a79b2e85fba0e24129edc8caf14b15a84</Anchor>
                </Node>
                <Node>
-                <Name>Weekday</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a8a6b1522269ec30b0c4678d5bea3831d</Anchor>
-               </Node>
-               <Node>
-                <Name>Weekday</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a7c4c64bd5b06d82a02432b5f1a69e6a0</Anchor>
-               </Node>
-               <Node>
                 <Name>daysSinceStartOfWeek</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
                 <Anchor>a524dfcbf9bcc78b6f8def31e5300db5e</Anchor>
@@ -13365,7 +13517,7 @@
                <Node>
                 <Name>getCompilationWeekday</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>add6f2dc0a87ebc22b062be42d75fdede</Anchor>
+                <Anchor>a0b84883ab9d858fffabba911eb0d228d</Anchor>
                </Node>
                <Node>
                 <Name>getCurrent</Name>
@@ -13380,7 +13532,7 @@
                <Node>
                 <Name>getWeekdayName</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a4be1eb836ba36109e9f2bd0ae7e47aef</Anchor>
+                <Anchor>a42da396f60ad59f58a89662410e6c273</Anchor>
                </Node>
                <Node>
                 <Name>isWeekday</Name>
@@ -13405,32 +13557,32 @@
                <Node>
                 <Name>operator+</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a92adfe7b133cb169eb3f4cb6bf466e99</Anchor>
+                <Anchor>a3785c16bc741f879feac06f10ba4ee69</Anchor>
                </Node>
                <Node>
                 <Name>operator++</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>ac8549fabcbeea4045a5cc791cbdb260c</Anchor>
+                <Anchor>a265a00dbac378ec18fefd64807a5b016</Anchor>
                </Node>
                <Node>
                 <Name>operator+=</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a14009dcb24f6c047e7eb0a45f1defa5e</Anchor>
+                <Anchor>afc0eeeb3b690c35f3f77613ffa66f2d4</Anchor>
                </Node>
                <Node>
                 <Name>operator-</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a1ec6211d11c3fc66a8eed73893c0e56d</Anchor>
+                <Anchor>a627a9ac7b8170b08fc98d1309ffabfa9</Anchor>
                </Node>
                <Node>
                 <Name>operator--</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a00f70bcf5a2f67d436042014fb377a01</Anchor>
+                <Anchor>ae07bc9c9493ad6155dfc8660fee65ef3</Anchor>
                </Node>
                <Node>
                 <Name>operator-=</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>aaa7f9e7ca11a341066d8466c7dd99736</Anchor>
+                <Anchor>a39b87143a42a5aba08abd09fda77a98a</Anchor>
                </Node>
                <Node>
                 <Name>operator&lt;</Name>
@@ -13441,16 +13593,6 @@
                 <Name>operator&lt;</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
                 <Anchor>ae01d390921d6e2fc19379a950964ad63</Anchor>
-               </Node>
-               <Node>
-                <Name>operator&lt;</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a5b331d00c209b18711acefaae34a14e1</Anchor>
-               </Node>
-               <Node>
-                <Name>operator&lt;</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>ad9955bcc076528a06b4cf484cd87f10b</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>
@@ -13473,16 +13615,6 @@
                 <Anchor>a7399a41e7cd9a6e6927d5db8c9550a7e</Anchor>
                </Node>
                <Node>
-                <Name>operator==</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>af8ce53e7c39e326e9defa1f159d6f725</Anchor>
-               </Node>
-               <Node>
-                <Name>operator==</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a8b8a357271947528e8e116758960be2e</Anchor>
-               </Node>
-               <Node>
                 <Name>operator&gt;</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
                 <Anchor>a878c6179495fcbed649a95da92718761</Anchor>
@@ -13493,24 +13625,14 @@
                 <Anchor>a0dad5352b580e415cf787dd604071f88</Anchor>
                </Node>
                <Node>
-                <Name>operator&gt;</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a78ee0878c32ee0b84e14f251ab7f5e32</Anchor>
-               </Node>
-               <Node>
-                <Name>operator&gt;</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a5d48db2622591a9162eae80a58a00321</Anchor>
-               </Node>
-               <Node>
                 <Name>startsWeekOnSunday</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a32a1391ae95b338934c46a08fbca6e0b</Anchor>
+                <Anchor>aaf886e2c36e3d19e71cff3fecbf72f2d</Anchor>
                </Node>
                <Node>
                 <Name>toOtherWeekdayType</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>af35044df480bcb5264b7e9af6b6fc005</Anchor>
+                <Anchor>a9a0891c00eb2a9ecdfc7c1153258354c</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -13604,6 +13726,11 @@
                 <Anchor>a9ac69b3d2a21f4b8935b2cc6fd3553a2</Anchor>
                </Node>
                <Node>
+                <Name>operator!=</Name>
+                <Path>dc/da4/classtime_1_1_year.html</Path>
+                <Anchor>ac753cf1cab9379f27ad1a20f7ad0f448</Anchor>
+               </Node>
+               <Node>
                 <Name>operator+</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
                 <Anchor>a995007430839a6045051b10c45db7db4</Anchor>
@@ -13639,6 +13766,11 @@
                 <Anchor>a7fc701ecd7f5df47e318f7dfb631185b</Anchor>
                </Node>
                <Node>
+                <Name>operator&lt;</Name>
+                <Path>dc/da4/classtime_1_1_year.html</Path>
+                <Anchor>a09f9877f601cb470c6095880d5fd3ee4</Anchor>
+               </Node>
+               <Node>
                 <Name>operator=</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
                 <Anchor>adfdfdda494212419579b4d03562cdcf3</Anchor>
@@ -13659,9 +13791,19 @@
                 <Anchor>a95520dfc2ac3d221eaeca95eaa4e48b5</Anchor>
                </Node>
                <Node>
+                <Name>operator==</Name>
+                <Path>dc/da4/classtime_1_1_year.html</Path>
+                <Anchor>a7de037fde3381571819ac49964457053</Anchor>
+               </Node>
+               <Node>
                 <Name>operator&gt;</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
                 <Anchor>afe31bfcaf34383b532048f8c27147445</Anchor>
+               </Node>
+               <Node>
+                <Name>operator&gt;</Name>
+                <Path>dc/da4/classtime_1_1_year.html</Path>
+                <Anchor>ae2b754229fd5d99a8df9650c5801d52c</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -15577,38 +15719,38 @@
             <Subnodes>
              <Node>
               <Name>TODO_BEFORE</Name>
-              <Path>dc/db3/build__date_8h.html</Path>
-              <Anchor>aba800051fa8705e8ec3606d38586f719</Anchor>
+              <Path>d9/d7d/group__time.html</Path>
+              <Anchor>gaba800051fa8705e8ec3606d38586f719</Anchor>
              </Node>
              <Node>
               <Name>build_day</Name>
               <Path>dc/db3/build__date_8h.html</Path>
-              <Anchor>af8b5d86f6591fa7fe1eca0eda805ed7f</Anchor>
+              <Anchor>gaf8b5d86f6591fa7fe1eca0eda805ed7f</Anchor>
              </Node>
              <Node>
               <Name>build_hour</Name>
               <Path>dc/db3/build__date_8h.html</Path>
-              <Anchor>aefbe78efb40677cccb64b22dd6a7f80f</Anchor>
+              <Anchor>gaefbe78efb40677cccb64b22dd6a7f80f</Anchor>
              </Node>
              <Node>
               <Name>build_minute</Name>
               <Path>dc/db3/build__date_8h.html</Path>
-              <Anchor>a091625fe6e395acd0fee1486fd9c1263</Anchor>
+              <Anchor>ga091625fe6e395acd0fee1486fd9c1263</Anchor>
              </Node>
              <Node>
               <Name>build_month</Name>
               <Path>dc/db3/build__date_8h.html</Path>
-              <Anchor>a2c9831993f5c1697fa57277ea71e601c</Anchor>
+              <Anchor>ga2c9831993f5c1697fa57277ea71e601c</Anchor>
              </Node>
              <Node>
               <Name>build_second</Name>
               <Path>dc/db3/build__date_8h.html</Path>
-              <Anchor>afa1aefe1ad592cec39fa26b653415017</Anchor>
+              <Anchor>gafa1aefe1ad592cec39fa26b653415017</Anchor>
              </Node>
              <Node>
               <Name>build_year</Name>
               <Path>dc/db3/build__date_8h.html</Path>
-              <Anchor>ac7081843bdb34b01a752270b940c1d7f</Anchor>
+              <Anchor>gac7081843bdb34b01a752270b940c1d7f</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -16961,7 +17103,7 @@
                <Node>
                 <Name>getCompilationDate</Name>
                 <Path>dd/d49/classtime_1_1_date.html</Path>
-                <Anchor>ac6931f621ebfab30ec41ae81486d3d53</Anchor>
+                <Anchor>ac5e12d452d56c34b3498caa493931c61</Anchor>
                </Node>
                <Node>
                 <Name>getCurrent</Name>
@@ -16986,7 +17128,7 @@
                <Node>
                 <Name>getWeekday</Name>
                 <Path>dd/d49/classtime_1_1_date.html</Path>
-                <Anchor>aef61cb12546b658f4efdc895a178424e</Anchor>
+                <Anchor>a2cffaaaa7eb226be868032fb1f2a71e6</Anchor>
                </Node>
                <Node>
                 <Name>getWeekNumber</Name>
@@ -20173,7 +20315,7 @@
                <Node>
                 <Name>getReciprocal</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a48504a5a798eae943741b3c7edf44240</Anchor>
+                <Anchor>a9369a4e1440614d9d7c3740e4e9443d7</Anchor>
                </Node>
                <Node>
                 <Name>isEquivalentTo</Name>
@@ -20203,82 +20345,82 @@
                <Node>
                 <Name>operator*</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>ae3d41a0df310296e188a761882406c66</Anchor>
+                <Anchor>a3223e8c54a82a2c26e4480a11c5bf87d</Anchor>
                </Node>
                <Node>
                 <Name>operator*</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a319cc5027c4dccdb27da007150cfa73a</Anchor>
+                <Anchor>a4f1a02d69809facc779d85396e105321</Anchor>
                </Node>
                <Node>
                 <Name>operator*=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a758aa48826a7e3299b8cfa7d50400cd2</Anchor>
+                <Anchor>ab157e209f38724489546ecdfad6f78f1</Anchor>
                </Node>
                <Node>
                 <Name>operator*=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a408e38dc0f7051ed24062298741a3080</Anchor>
+                <Anchor>aa65cd231aaed8b094a3b79534ec8881d</Anchor>
                </Node>
                <Node>
                 <Name>operator+</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a5ce68171f6185dfe48610696caea458c</Anchor>
+                <Anchor>a2e5366f524383ebf61527c42045b3cce</Anchor>
                </Node>
                <Node>
                 <Name>operator+</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a67aa1dd6f12560343664bc9fe829e5d2</Anchor>
+                <Anchor>a74f72c8d4c3edd1fb8358fd9e10134a7</Anchor>
                </Node>
                <Node>
                 <Name>operator+=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>aeda85bd81fd445e85fadd5706caf19f9</Anchor>
+                <Anchor>a7a4046706494035a7bd8f15ea0976f48</Anchor>
                </Node>
                <Node>
                 <Name>operator+=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a6ad232e6880195fb159703051497e2c5</Anchor>
+                <Anchor>aa07fcf60c9f8c013975ca7714368df09</Anchor>
                </Node>
                <Node>
                 <Name>operator-</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>abec4c1f6621f41cb3080db310e617580</Anchor>
+                <Anchor>a8ce830c3b54314c422d302182dc909fd</Anchor>
                </Node>
                <Node>
                 <Name>operator-</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a0becce2c43099631b422dae9cc10fc13</Anchor>
+                <Anchor>a7c19cddf5e83f74849d63d3a84fc3aa7</Anchor>
                </Node>
                <Node>
                 <Name>operator-=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>ae97da38cbd9603d9a3e7599185be00c8</Anchor>
+                <Anchor>a537905d68be4b8f2047389905e31cc02</Anchor>
                </Node>
                <Node>
                 <Name>operator-=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>af7bdf2948a8206e5585524d46a2580d0</Anchor>
+                <Anchor>aad4b9d87816b23d0c03999a0b91044ef</Anchor>
                </Node>
                <Node>
                 <Name>operator/</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>ad620bc26547b3d494c7ff9001ddc04ae</Anchor>
+                <Anchor>a26408dc40c497fc082118b607e89736d</Anchor>
                </Node>
                <Node>
                 <Name>operator/</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>ab725c69ad16835b4c1b19e5c6b63ed2f</Anchor>
+                <Anchor>a3cab38d81dbdadbe6c957a2677666147</Anchor>
                </Node>
                <Node>
                 <Name>operator/=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a024100d5d0ada5d86fc8254b853d7eb1</Anchor>
+                <Anchor>ac34dcc60e2d07e877afe48028992fbf0</Anchor>
                </Node>
                <Node>
                 <Name>operator/=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a9a1f0e2f83d4771f9ee5a53a3161874a</Anchor>
+                <Anchor>ac32eb3987249cb630213f65c10a64fd5</Anchor>
                </Node>
                <Node>
                 <Name>operator&lt;</Name>
@@ -20303,11 +20445,6 @@
                <Node>
                 <Name>operator=</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>aa9e052447b1d41564a5c9b5e2bb7ed77</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>d5/d26/structmath_1_1_fraction.html</Path>
                 <Anchor>a2c13714e05572ca44e59da1b64816d46</Anchor>
                </Node>
                <Node>
@@ -20328,12 +20465,12 @@
                <Node>
                 <Name>reduce</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a56e627282c3c12b79e794925309fcfa5</Anchor>
+                <Anchor>a244c46dfe1e9aa89494ecfd892b0156c</Anchor>
                </Node>
                <Node>
                 <Name>withDenominator</Name>
                 <Path>d5/d26/structmath_1_1_fraction.html</Path>
-                <Anchor>a16d65fdea5844a2ff89b59f61d19cdfe</Anchor>
+                <Anchor>ab9b1a0ddf3c499dd0c529223b0e3cc86</Anchor>
                </Node>
                <Node>
                 <Name>denominator</Name>
@@ -20668,7 +20805,7 @@
                <Node>
                 <Name>getCompilationHour</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>ad25490d5c40bdadd38f3a51924a51141</Anchor>
+                <Anchor>a2cc042c78504986028e47291f7fb1911</Anchor>
                </Node>
                <Node>
                 <Name>getCurrent</Name>
@@ -20708,12 +20845,12 @@
                <Node>
                 <Name>midnight</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>aa2d13ec77defc6319f6b9dc48e43deb4</Anchor>
+                <Anchor>a7e0cd7b8fa8f8a50021747871d4edb12</Anchor>
                </Node>
                <Node>
                 <Name>noon</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>ae432bdf627802177ef2095f42c5bb42a</Anchor>
+                <Anchor>ac1e58c1df8dceed29adfd51b2e4f93f4</Anchor>
                </Node>
                <Node>
                 <Name>operator!=</Name>
@@ -20728,12 +20865,12 @@
                <Node>
                 <Name>operator++</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>aa8c6305480a3d666333e1800a8204d17</Anchor>
+                <Anchor>ace934ac4cc5a3761f1b146b459b67e13</Anchor>
                </Node>
                <Node>
                 <Name>operator+=</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>a64da7f36e6f93574f1787c8ccbcbd0fc</Anchor>
+                <Anchor>a006eb246111237856348ba722d7f4acb</Anchor>
                </Node>
                <Node>
                 <Name>operator-</Name>
@@ -20743,12 +20880,12 @@
                <Node>
                 <Name>operator--</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>ac9be378224125c19bfe54b998e9fbdc5</Anchor>
+                <Anchor>a24ce4bc3070e6159cad85833bf90f0ba</Anchor>
                </Node>
                <Node>
                 <Name>operator-=</Name>
                 <Path>d3/d71/classtime_1_1_hour.html</Path>
-                <Anchor>a9c4c8d9b92889ba58f769ebb39aaa5a7</Anchor>
+                <Anchor>a28060bdf164eb5075115abd23e5bd16f</Anchor>
                </Node>
                <Node>
                 <Name>operator&lt;</Name>
@@ -23443,7 +23580,7 @@
                <Node>
                 <Name>getSubmatrix</Name>
                 <Path>d6/d00/classmath_1_1_matrix.html</Path>
-                <Anchor>aa0559b47a418ad6ae2daac65274ddfdb</Anchor>
+                <Anchor>a0adb28ed8ff99303f511cf5742ec8e73</Anchor>
                </Node>
                <Node>
                 <Name>getTotalNumElements</Name>
@@ -24784,7 +24921,7 @@
                <Node>
                 <Name>getCompilationMonth</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>ad0a5975f43d6a5a30af6df5bb6a8e12f</Anchor>
+                <Anchor>a0d3b7d1e908bec899e251681c2ccfc38</Anchor>
                </Node>
                <Node>
                 <Name>getCurrent</Name>
@@ -24794,7 +24931,7 @@
                <Node>
                 <Name>getMonthName</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a8313f7cfad72001e4887c96510487e6f</Anchor>
+                <Anchor>a025b5ab6c9f23608e340df5d8ac2fe62</Anchor>
                </Node>
                <Node>
                 <Name>getMonthNumber</Name>
@@ -24834,17 +24971,17 @@
                <Node>
                 <Name>operator++</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>aa39af44a1861488bde369721048a21ce</Anchor>
+                <Anchor>a519fff138045329b316bdc4ce9c19232</Anchor>
                </Node>
                <Node>
                 <Name>operator++</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a2d54a7e04f0058edbba0c22091ce0e74</Anchor>
+                <Anchor>adcc18f93f05385d6e3652496e08fe67f</Anchor>
                </Node>
                <Node>
                 <Name>operator+=</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a77f53a130f45a30902418b6335e5d2c4</Anchor>
+                <Anchor>a8d6d5bff368c6edfc0acb537a8fb74ca</Anchor>
                </Node>
                <Node>
                 <Name>operator-</Name>
@@ -24854,17 +24991,17 @@
                <Node>
                 <Name>operator--</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a745d83388765b8402822981b3aa0e711</Anchor>
+                <Anchor>a0a43cd746c34f7ca0618b88bfb73c9a1</Anchor>
                </Node>
                <Node>
                 <Name>operator--</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a8cacc42064076c61be647f662e443706</Anchor>
+                <Anchor>adb46406a5c990f7488c11a86403f3540</Anchor>
                </Node>
                <Node>
                 <Name>operator-=</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a405800add3ce998210288715e24fd114</Anchor>
+                <Anchor>a0facf665e377cd7e41dfcd19d26a7078</Anchor>
                </Node>
                <Node>
                 <Name>operator&lt;</Name>
@@ -24884,7 +25021,7 @@
                <Node>
                 <Name>operator=</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>a73eb16924cfe3f1d92669ab01f78bcb0</Anchor>
+                <Anchor>a58f67b582db87152b59a19d9d2ee78bd</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>
@@ -24894,7 +25031,7 @@
                <Node>
                 <Name>operator=</Name>
                 <Path>dc/dc1/classtime_1_1_month.html</Path>
-                <Anchor>ab53ed45244c56f5b4f48ec9664de5b03</Anchor>
+                <Anchor>ad9cd668ad9e7bab7666d9bd1ca3ca8de</Anchor>
                </Node>
                <Node>
                 <Name>operator==</Name>
@@ -26588,6 +26725,11 @@
                <Node>
                 <Name>Pyramid</Name>
                 <Path>df/dcd/classmath_1_1geometry_1_1_pyramid.html</Path>
+                <Anchor>a397f0d4242a80a913e66da54ea2ccb74</Anchor>
+               </Node>
+               <Node>
+                <Name>Pyramid</Name>
+                <Path>df/dcd/classmath_1_1geometry_1_1_pyramid.html</Path>
                 <Anchor>af6b26cea58bf1dd1b53405e804508648</Anchor>
                </Node>
                <Node>
@@ -26604,6 +26746,11 @@
                 <Name>baseWidth</Name>
                 <Path>df/dcd/classmath_1_1geometry_1_1_pyramid.html</Path>
                 <Anchor>a060c4fe57c4004ad4dab3de947395c07</Anchor>
+               </Node>
+               <Node>
+                <Name>getBase</Name>
+                <Path>df/dcd/classmath_1_1geometry_1_1_pyramid.html</Path>
+                <Anchor>a35d2b5c5dc61683bdc30b7b1a06b7c1b</Anchor>
                </Node>
                <Node>
                 <Name>height</Name>
@@ -26710,7 +26857,7 @@
                <Node>
                 <Name>next</Name>
                 <Path>d3/dbd/classmath_1_1_random.html</Path>
-                <Anchor>a16040a20091b245b5a43807344b7ea3d</Anchor>
+                <Anchor>ab60a512c0fb9c6f511f31e8f55c52b38</Anchor>
                </Node>
                <Node>
                 <Name>nextBool</Name>
@@ -28528,6 +28675,11 @@
                <Node>
                 <Name>Sphere</Name>
                 <Path>d4/dc0/classmath_1_1geometry_1_1_sphere.html</Path>
+                <Anchor>a4b518c4a7ea64bb1a696791199f98ac7</Anchor>
+               </Node>
+               <Node>
+                <Name>Sphere</Name>
+                <Path>d4/dc0/classmath_1_1geometry_1_1_sphere.html</Path>
                 <Anchor>ac594cb08adbe759b868e9994c21f7ebd</Anchor>
                </Node>
                <Node>
@@ -28544,6 +28696,11 @@
                 <Name>diameter</Name>
                 <Path>d4/dc0/classmath_1_1geometry_1_1_sphere.html</Path>
                 <Anchor>a9753235cd4632c3616e535b1c6d65093</Anchor>
+               </Node>
+               <Node>
+                <Name>getGreatCircle</Name>
+                <Path>d4/dc0/classmath_1_1geometry_1_1_sphere.html</Path>
+                <Anchor>a986c66912020de3e3479bbae859ef0f2</Anchor>
                </Node>
                <Node>
                 <Name>operator!=</Name>
@@ -29756,7 +29913,7 @@
                <Node>
                 <Name>getCompilationTime</Name>
                 <Path>d1/dea/classtime_1_1_time.html</Path>
-                <Anchor>a9caad96230064704cc868bca41fc832a</Anchor>
+                <Anchor>a2980f80be4e69b363d38105e1eff47e2</Anchor>
                </Node>
                <Node>
                 <Name>getCurrent</Name>
@@ -31297,16 +31454,6 @@
                 <Anchor>a79b2e85fba0e24129edc8caf14b15a84</Anchor>
                </Node>
                <Node>
-                <Name>Weekday</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a8a6b1522269ec30b0c4678d5bea3831d</Anchor>
-               </Node>
-               <Node>
-                <Name>Weekday</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a7c4c64bd5b06d82a02432b5f1a69e6a0</Anchor>
-               </Node>
-               <Node>
                 <Name>daysSinceStartOfWeek</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
                 <Anchor>a524dfcbf9bcc78b6f8def31e5300db5e</Anchor>
@@ -31314,7 +31461,7 @@
                <Node>
                 <Name>getCompilationWeekday</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>add6f2dc0a87ebc22b062be42d75fdede</Anchor>
+                <Anchor>a0b84883ab9d858fffabba911eb0d228d</Anchor>
                </Node>
                <Node>
                 <Name>getCurrent</Name>
@@ -31329,7 +31476,7 @@
                <Node>
                 <Name>getWeekdayName</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a4be1eb836ba36109e9f2bd0ae7e47aef</Anchor>
+                <Anchor>a42da396f60ad59f58a89662410e6c273</Anchor>
                </Node>
                <Node>
                 <Name>isWeekday</Name>
@@ -31354,32 +31501,32 @@
                <Node>
                 <Name>operator+</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a92adfe7b133cb169eb3f4cb6bf466e99</Anchor>
+                <Anchor>a3785c16bc741f879feac06f10ba4ee69</Anchor>
                </Node>
                <Node>
                 <Name>operator++</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>ac8549fabcbeea4045a5cc791cbdb260c</Anchor>
+                <Anchor>a265a00dbac378ec18fefd64807a5b016</Anchor>
                </Node>
                <Node>
                 <Name>operator+=</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a14009dcb24f6c047e7eb0a45f1defa5e</Anchor>
+                <Anchor>afc0eeeb3b690c35f3f77613ffa66f2d4</Anchor>
                </Node>
                <Node>
                 <Name>operator-</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a1ec6211d11c3fc66a8eed73893c0e56d</Anchor>
+                <Anchor>a627a9ac7b8170b08fc98d1309ffabfa9</Anchor>
                </Node>
                <Node>
                 <Name>operator--</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a00f70bcf5a2f67d436042014fb377a01</Anchor>
+                <Anchor>ae07bc9c9493ad6155dfc8660fee65ef3</Anchor>
                </Node>
                <Node>
                 <Name>operator-=</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>aaa7f9e7ca11a341066d8466c7dd99736</Anchor>
+                <Anchor>a39b87143a42a5aba08abd09fda77a98a</Anchor>
                </Node>
                <Node>
                 <Name>operator&lt;</Name>
@@ -31390,16 +31537,6 @@
                 <Name>operator&lt;</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
                 <Anchor>ae01d390921d6e2fc19379a950964ad63</Anchor>
-               </Node>
-               <Node>
-                <Name>operator&lt;</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a5b331d00c209b18711acefaae34a14e1</Anchor>
-               </Node>
-               <Node>
-                <Name>operator&lt;</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>ad9955bcc076528a06b4cf484cd87f10b</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>
@@ -31422,16 +31559,6 @@
                 <Anchor>a7399a41e7cd9a6e6927d5db8c9550a7e</Anchor>
                </Node>
                <Node>
-                <Name>operator==</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>af8ce53e7c39e326e9defa1f159d6f725</Anchor>
-               </Node>
-               <Node>
-                <Name>operator==</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a8b8a357271947528e8e116758960be2e</Anchor>
-               </Node>
-               <Node>
                 <Name>operator&gt;</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
                 <Anchor>a878c6179495fcbed649a95da92718761</Anchor>
@@ -31442,24 +31569,14 @@
                 <Anchor>a0dad5352b580e415cf787dd604071f88</Anchor>
                </Node>
                <Node>
-                <Name>operator&gt;</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a78ee0878c32ee0b84e14f251ab7f5e32</Anchor>
-               </Node>
-               <Node>
-                <Name>operator&gt;</Name>
-                <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a5d48db2622591a9162eae80a58a00321</Anchor>
-               </Node>
-               <Node>
                 <Name>startsWeekOnSunday</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>a32a1391ae95b338934c46a08fbca6e0b</Anchor>
+                <Anchor>aaf886e2c36e3d19e71cff3fecbf72f2d</Anchor>
                </Node>
                <Node>
                 <Name>toOtherWeekdayType</Name>
                 <Path>d3/d61/classtime_1_1_weekday.html</Path>
-                <Anchor>af35044df480bcb5264b7e9af6b6fc005</Anchor>
+                <Anchor>a9a0891c00eb2a9ecdfc7c1153258354c</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -31747,6 +31864,11 @@
                 <Anchor>a9ac69b3d2a21f4b8935b2cc6fd3553a2</Anchor>
                </Node>
                <Node>
+                <Name>operator!=</Name>
+                <Path>dc/da4/classtime_1_1_year.html</Path>
+                <Anchor>ac753cf1cab9379f27ad1a20f7ad0f448</Anchor>
+               </Node>
+               <Node>
                 <Name>operator+</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
                 <Anchor>a995007430839a6045051b10c45db7db4</Anchor>
@@ -31782,6 +31904,11 @@
                 <Anchor>a7fc701ecd7f5df47e318f7dfb631185b</Anchor>
                </Node>
                <Node>
+                <Name>operator&lt;</Name>
+                <Path>dc/da4/classtime_1_1_year.html</Path>
+                <Anchor>a09f9877f601cb470c6095880d5fd3ee4</Anchor>
+               </Node>
+               <Node>
                 <Name>operator=</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
                 <Anchor>adfdfdda494212419579b4d03562cdcf3</Anchor>
@@ -31802,9 +31929,19 @@
                 <Anchor>a95520dfc2ac3d221eaeca95eaa4e48b5</Anchor>
                </Node>
                <Node>
+                <Name>operator==</Name>
+                <Path>dc/da4/classtime_1_1_year.html</Path>
+                <Anchor>a7de037fde3381571819ac49964457053</Anchor>
+               </Node>
+               <Node>
                 <Name>operator&gt;</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
                 <Anchor>afe31bfcaf34383b532048f8c27147445</Anchor>
+               </Node>
+               <Node>
+                <Name>operator&gt;</Name>
+                <Path>dc/da4/classtime_1_1_year.html</Path>
+                <Anchor>ae2b754229fd5d99a8df9650c5801d52c</Anchor>
                </Node>
               </Subnodes>
              </Node>

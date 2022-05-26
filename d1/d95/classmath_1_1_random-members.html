@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('d3/dbd/classmath_1_1_random.html','../
   <tr class="even"><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html#ab1e915b82c303d064089055bf949cfe6">EngineType</a> typedef</td><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html">math::Random</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html#aecbe1f0ac426143e04f223d6ef75f0b3">fork</a>()</td><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html">math::Random</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html#a25ceb431124cacd08ad308ad4c0a9158">getSystem</a>() noexcept</td><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html">math::Random</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html#a16040a20091b245b5a43807344b7ea3d">next</a>(T min=std::numeric_limits&lt; T &gt;::min(), T max=std::numeric_limits&lt; T &gt;::max())</td><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html">math::Random</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html#ab60a512c0fb9c6f511f31e8f55c52b38">next</a>(T min=std::max(std::numeric_limits&lt; T &gt;::min(), static_cast&lt; T &gt;(EngineType::min())), T max=std::min(std::numeric_limits&lt; T &gt;::max(), static_cast&lt; T &gt;(EngineType::max())))</td><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html">math::Random</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html#ab7eda4eb3d5e3a18aef0eef6d0b971a0">nextBool</a>()</td><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html">math::Random</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html#a33ff57ffddd1da234c27da1f60d42b0f">nextValue</a>()</td><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html">math::Random</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html#abca261b3c5b9767af1716e4dc66f6dcb">operator=</a>(Random &amp;&amp;)=default</td><td class="entry"><a class="el" href="../../d3/dbd/classmath_1_1_random.html">math::Random</a></td><td class="entry"></td></tr>
@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('d3/dbd/classmath_1_1_random.html','../
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed May 25 2022 08:41:21 for Limes by
+    <li class="footer">Generated on Thu May 26 2022 07:42:12 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
