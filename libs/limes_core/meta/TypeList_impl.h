@@ -23,8 +23,6 @@
 	@ingroup meta
  */
 
-#ifdef DOXYGEN
-
 LIMES_BEGIN_NAMESPACE
 
 /** This namespace contains implementation details for the TypeList class.
@@ -48,18 +46,7 @@ struct LIMES_EXPORT NullType final
 template <typename T>
 LIMES_EXPORT static constexpr const bool is_null_type = std::is_same_v<T, NullType>;
 
-}  // namespace typelist
-
-LIMES_END_NAMESPACE
-
-#else
-
-/// @cond
-
-LIMES_BEGIN_NAMESPACE
-
-namespace typelist
-{
+/// @cond internals
 
 using std::size_t;
 
@@ -67,13 +54,6 @@ template <size_t Value>
 using SizeConstant = std::integral_constant<size_t, Value>;
 
 LIMES_EXPORT static constinit const size_t invalid_index = static_cast<size_t> (-1);
-
-struct LIMES_EXPORT NullType final
-{
-};
-
-template <typename T>
-LIMES_EXPORT static constexpr const bool is_null_type = std::is_same_v<T, NullType>;
 
 template <typename... Types>
 struct LIMES_NO_EXPORT InternalTypeList final
@@ -948,10 +928,8 @@ public:
 template <class Typelist>
 LIMES_EXPORT using reverse_t = typename reverse<Typelist>::type;
 
+/// @endcond
+
 }  // namespace typelist
 
 LIMES_END_NAMESPACE
-
-/// @endcond
-
-#endif

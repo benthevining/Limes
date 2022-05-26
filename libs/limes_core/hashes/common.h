@@ -21,7 +21,7 @@
 	@ingroup hashes
  */
 
-/// @cond
+/// @cond internals
 
 LIMES_BEGIN_NAMESPACE
 

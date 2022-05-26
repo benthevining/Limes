@@ -28,14 +28,11 @@ struct BitField final
 {
 public:
 
-	constexpr BitField() = default;
-
-	LIMES_CONSTEXPR_COPYABLE (BitField);
-	LIMES_CONSTEXPR_MOVABLE (BitField);
-
 	constexpr void setBit (std::size_t pos, bool value = true) noexcept;
 
-	constexpr bool getValue (std::size_t pos) const noexcept;
+	constexpr bool getBit (std::size_t pos) const noexcept;
+
+	constexpr StorageType getEntireField() const noexcept;
 
 private:
 
@@ -54,9 +51,15 @@ constexpr void BitField<StorageType>::setBit (std::size_t pos, bool value) noexc
 }
 
 template <math::Integral StorageType>
-constexpr bool BitField<StorageType>::getValue (std::size_t pos) const noexcept
+constexpr bool BitField<StorageType>::getBit (std::size_t pos) const noexcept
 {
-	return (storage >> pos) & StorageType (0x1);
+	return (storage >> pos) & StorageType (1);
+}
+
+template <math::Integral StorageType>
+constexpr StorageType BitField<StorageType>::getEntireField() const noexcept
+{
+	return storage;
 }
 
 }  // namespace misc

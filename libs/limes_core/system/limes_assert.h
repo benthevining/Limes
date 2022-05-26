@@ -39,10 +39,18 @@ LIMES_BEGIN_NAMESPACE
 namespace assert
 {
 
-/// @cond
+/// @cond internals
 
+/** The actual implementation of the assertion function.
+	@see fire_assertion, LIMES_ASSERT
+	@ingroup system
+ */
 LIMES_EXPORT void fire_assertion_internal (const char* fileName, const char* functionName, int lineNum, const char* condition) noexcept;
 
+/** This function is called by \c LIMES_ASSERT if its condition fails.
+	This function can be called in constexpr contexts, but does nothing if actually evaluated at compile-time.
+	@ingroup system
+ */
 LIMES_EXPORT constexpr void fire_assertion (const char* fileName, const char* functionName, int lineNum, const char* condition) noexcept
 {
 	if (! std::is_constant_evaluated())

@@ -19,16 +19,31 @@
 #include "preprocessor.h"	  // for LIMES_CONSTEXPR_COPYABLE, LIMES_CONSTEX...
 #include <functional>		  // for std::hash
 
+/** @defgroup misc
+	Miscellaneous things.
+	@ingroup limes_core
+ */
+
+/** @file
+	This file defines the Version class.
+	@ingroup misc
+ */
+
 LIMES_BEGIN_NAMESPACE
 
-/** This namespace contains miscellaneous things. */
+/** This namespace contains miscellaneous things.
+	@ingroup misc
+ */
 namespace misc
 {
 
 /** A class that represents a version of something, with major, minor, and patch numbers.
+	@ingroup misc
  */
 struct LIMES_EXPORT Version final
 {
+	/** @name Constructors */
+	///@{
 	/** Creates a default Version object with the value 0.0.1. */
 	constexpr explicit Version() noexcept = default;
 
@@ -37,22 +52,26 @@ struct LIMES_EXPORT Version final
 		: major (maj), minor (min), patch (p)
 	{
 	}
+	///@}
 
 	LIMES_CONSTEXPR_MOVABLE (Version);
 	LIMES_CONSTEXPR_COPYABLE (Version);
 
-	/** Returns true if this version is the same as the other one. */
+	/** @name Equality comparisons */
+	///@{
 	[[nodiscard]] constexpr bool operator== (const Version& other) const noexcept
 	{
 		return major == other.major && minor == other.minor && patch == other.patch;
 	}
 
-	/** Returns true if this version is not the same as the other one. */
 	[[nodiscard]] constexpr bool operator!= (const Version& other) const noexcept
 	{
 		return ! (*this == other);
 	}
+	///@}
 
+	/** @name Greater/less than comparisons */
+	///@{
 	/** Returns true if this version is newer than the other one. */
 	[[nodiscard]] constexpr bool operator> (const Version& other) const noexcept
 	{
@@ -73,12 +92,6 @@ struct LIMES_EXPORT Version final
 		return patch < other.patch;
 	}
 
-	/** Returns true if this version has the same major release number as the other one. */
-	[[nodiscard]] constexpr bool hasSameMajorVersion (const Version& other) const noexcept
-	{
-		return major == other.major;
-	}
-
 	/** Returns true if this version is newer than the other one. */
 	[[nodiscard]] constexpr bool isNewerThan (const Version& other) const noexcept
 	{
@@ -89,6 +102,13 @@ struct LIMES_EXPORT Version final
 	[[nodiscard]] constexpr bool isOlderThan (const Version& other) const noexcept
 	{
 		return *this < other;
+	}
+	///@}
+
+	/** Returns true if this version has the same major release number as the other one. */
+	[[nodiscard]] constexpr bool hasSameMajorVersion (const Version& other) const noexcept
+	{
+		return major == other.major;
 	}
 
 	/** Increments the major value and sets minor and patch to 0. */
@@ -160,6 +180,7 @@ struct LIMES_EXPORT Version final
 						 patch + 1 };
 	}
 
+	/** Returns a string representation of this Version. */
 	[[nodiscard]] std::string toString (char separator = '.') const;
 
 private:
@@ -173,6 +194,10 @@ LIMES_END_NAMESPACE
 
 namespace std
 {
+
+/** A specialization of \c std::hash for Version objects.
+	@ingroup misc
+ */
 template <>
 struct LIMES_EXPORT hash<limes::misc::Version>
 {

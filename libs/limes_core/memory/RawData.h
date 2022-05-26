@@ -21,17 +21,27 @@
 #include "../misc/preprocessor.h"
 #include <functional>  // for std::hash
 
+/** @defgroup memory
+	Utilities for memory management.
+	@ingroup limes_core
+ */
+
 /** @file
 	This file defines the RawData class.
+	@ingroup memory
  */
 
 LIMES_BEGIN_NAMESPACE
 
-/** This namespace contains utilities for working with memory allocation and management. */
+/** This namespace contains utilities for working with memory allocation and management.
+	@ingroup memory
+ */
 namespace memory
 {
 
-/** This class is a wrapper around a pointer to some raw data on the heap. */
+/** This class is a wrapper around a pointer to some raw data on the heap.
+	@ingroup memory
+ */
 class LIMES_EXPORT RawData final
 {
 public:

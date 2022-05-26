@@ -360,7 +360,7 @@ public:
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
-/// @cond
+/// @cond internals
 
 template <>
 class LIMES_EXPORT TypeList<> final
@@ -502,7 +502,7 @@ LIMES_EXPORT using Empty = TypeList<>;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
-/// @cond
+/// @cond internals
 
 template <typename>
 struct LIMES_EXPORT make_type_list_from;

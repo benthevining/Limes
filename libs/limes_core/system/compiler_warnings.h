@@ -38,6 +38,7 @@
 
 /** @def LIMES_COMPILER_MESSAGE
 	Displays a custom message with the compiler's output. To display a custom warning message, use \c LIMES_COMPILER_WARNING.
+	Some compilers don't support custom messages, so the message may be emitted as a warning.
 	@see LIMES_COMPILER_WARNING
 	@ingroup system
  */

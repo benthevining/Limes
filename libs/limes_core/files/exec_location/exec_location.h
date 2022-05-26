@@ -21,15 +21,21 @@
 	@ingroup files
  */
 
-/// @cond
+/// @cond internals
 
 LIMES_BEGIN_NAMESPACE
 
 namespace files
 {
 
+/** Returns the path of the current executable, as a string.
+	@ingroup files
+ */
 LIMES_NO_EXPORT [[nodiscard]] std::string getExecutablePath();
 
+/** Returns the path of the current module, as a string.
+	@ingroup files
+ */
 LIMES_NO_EXPORT [[nodiscard]] std::string getModulePath();
 
 }  // namespace files

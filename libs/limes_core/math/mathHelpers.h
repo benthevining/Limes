@@ -139,7 +139,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION inline T freqToMidi (T freqHz) no
 namespace constants
 {
 
-#if DOXYGEN || LIMES_HAS_INCLUDE(<numbers>)
+#ifdef DOXYGEN || LIMES_HAS_INCLUDE(<numbers>)
 
 /** Pi. */
 template <Scalar T>
