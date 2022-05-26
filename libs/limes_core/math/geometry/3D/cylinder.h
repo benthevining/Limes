@@ -20,39 +20,64 @@
 #include "../2D/circle.h"
 #include "3Dshape.h"
 
+/** @file
+	This file defines the Cylinder class.
+	@ingroup ThreeDgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
 {
 
+/** This class represents a %cylinder.
+	@ingroup ThreeDgeometry
+ */
 template <Scalar ValueType>
 class LIMES_EXPORT Cylinder final : public ThreeDShape<ValueType>
 {
 public:
 
+	/** @name Constructors */
+	///@{
+	/** Creates a cylinder with the given radius and height. */
 	explicit constexpr Cylinder (ValueType radiusToUse, ValueType heightToUse) noexcept;
 
+	/** Creates a cylinder with the given face and height. */
 	explicit constexpr Cylinder (const Circle<ValueType>& face, ValueType heightToUse) noexcept;
+	///@}
 
 	LIMES_CONSTEXPR_COPYABLE (Cylinder);
 	LIMES_CONSTEXPR_MOVABLE (Cylinder);
 
+	/** Returns the volume of the %cylinder. */
 	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
+	/** Returns the surface area of the %cylinder. */
 	[[nodiscard]] constexpr ValueType surfaceArea() const noexcept final;
 
+	/** Returns the surface perimeter of the %cylinder. */
 	[[nodiscard]] constexpr ValueType surfacePerimeter() const noexcept;
 
+	/** Returns the circumference of the %cylinder. */
 	[[nodiscard]] constexpr ValueType circumference() const noexcept;
 
+	/** Returns the diameter of the %cylinder. */
 	[[nodiscard]] constexpr ValueType diameter() const noexcept;
 
+	/** Returns the radius of the %cylinder. */
 	[[nodiscard]] constexpr ValueType radius() const noexcept;
 
+	/** Returns a Circle representing a face of this %cylinder. */
 	[[nodiscard]] constexpr Circle<ValueType> getFace() const noexcept;
 
+	/** @name Equality comparisons
+		Cylinders are considered equal if their radii and heights are the same.
+	 */
+	///@{
 	[[nodiscard]] constexpr bool operator== (const Cylinder& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Cylinder& other) const noexcept;
+	///@}
 
 private:
 

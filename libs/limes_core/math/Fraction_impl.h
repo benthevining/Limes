@@ -17,6 +17,13 @@
 #include <numeric>
 #include <algorithm>
 
+/** @file
+	This file contains implementation details for the Fraction class.
+	@ingroup math
+ */
+
+/// @cond
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math
@@ -30,14 +37,14 @@ constexpr Fraction<ValueType>::Fraction (ValueType num, ValueType denom) noexcep
 }
 
 template <Scalar ValueType>
-template <typename T>
+template <Scalar T>
 constexpr Fraction<ValueType>::Fraction (const Fraction<T>& other) noexcept
 	: Fraction (static_cast<ValueType> (other.numerator), static_cast<ValueType> (other.denominator))
 {
 }
 
 template <Scalar ValueType>
-template <typename T>
+template <Scalar T>
 constexpr Fraction<ValueType>& Fraction<ValueType>::operator= (const Fraction<T>& other) noexcept
 {
 	numerator	= static_cast<ValueType> (other.numerator);
@@ -46,7 +53,7 @@ constexpr Fraction<ValueType>& Fraction<ValueType>::operator= (const Fraction<T>
 }
 
 template <Scalar ValueType>
-template <typename T>
+template <Scalar T>
 constexpr Fraction<ValueType>::operator T() const noexcept
 {
 	LIMES_ASSERT (denominator != 0);
@@ -55,7 +62,7 @@ constexpr Fraction<ValueType>::operator T() const noexcept
 }
 
 template <Scalar ValueType>
-template <typename T>
+template <Scalar T>
 constexpr bool Fraction<ValueType>::isEquivalentTo (const Fraction<T>& other) const noexcept
 {
 	return (double) *this == (double) other;  // NOLINT
@@ -74,7 +81,7 @@ constexpr bool Fraction<ValueType>::operator!= (const Fraction& other) const noe
 }
 
 template <Scalar ValueType>
-template <typename T>
+template <Scalar T>
 constexpr bool Fraction<ValueType>::operator> (const Fraction<T>& other) const noexcept
 {
 	if (other.isNegative() && ! isNegative())
@@ -84,7 +91,7 @@ constexpr bool Fraction<ValueType>::operator> (const Fraction<T>& other) const n
 }
 
 template <Scalar ValueType>
-template <typename T>
+template <Scalar T>
 constexpr bool Fraction<ValueType>::operator< (const Fraction<T>& other) const noexcept
 {
 	if (isNegative() && ! other.isNegative())
@@ -94,14 +101,14 @@ constexpr bool Fraction<ValueType>::operator< (const Fraction<T>& other) const n
 }
 
 template <Scalar ValueType>
-template <typename T>
+template <Scalar T>
 constexpr bool Fraction<ValueType>::operator> (T value) const noexcept
 {
 	return (T) * this > value;	// NOLINT
 }
 
 template <Scalar ValueType>
-template <typename T>
+template <Scalar T>
 constexpr bool Fraction<ValueType>::operator< (T value) const noexcept
 {
 	return (T) * this < value;	// NOLINT
@@ -280,3 +287,5 @@ constexpr Fraction<ValueType> Fraction<ValueType>::getReciprocal() const noexcep
 }  // namespace math
 
 LIMES_END_NAMESPACE
+
+/// @endcond

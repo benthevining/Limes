@@ -29,7 +29,7 @@ LIMES_BEGIN_NAMESPACE
 namespace hash
 {
 
-/** A Hasher object that calculates a SHA224 hash.
+/** A Hasher object that calculates a %SHA224 hash.
 	@ingroup hashes
  */
 class LIMES_EXPORT SHA224 final : public Hasher	 // cppcheck-suppress noConstructor

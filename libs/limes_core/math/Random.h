@@ -18,42 +18,67 @@
 #include <random>				   // for minstd_rand
 #include "../misc/preprocessor.h"  // for LIMES_DEFAULT_COPYABLE, LIMES_DEFA...
 #include "mathHelpers.h"		   // for map
+#include <algorithm>			   // for max/min
 
+/** @file
+	This file defines the Random class.
+	@ingroup math
+ */
 
 LIMES_BEGIN_NAMESPACE
 
 namespace math
 {
 
+/** This class is a %random number generator.
+	The generator used is \c std::minstd_rand .
+ */
 class LIMES_EXPORT Random final
 {
 public:
 
+	/** The type of %random number generation engine being used internally. */
 	using EngineType = std::minstd_rand;
-	using ValueType	 = EngineType::result_type;
 
+	/** The types of values the %random number engine outputs. */
+	using ValueType = EngineType::result_type;
+
+	/** @name Constructors */
+	///@{
+	/** Creates a %random number generator with a specified seed value. */
 	explicit Random (ValueType seedValue);
 
+	/** Creates a %random number generator with a specified seed value. */
 	template <Scalar T>
 	explicit Random (T seedValue);
 
+	/** Creates a %random number generator with a %random seed value.
+		The seed value will be generated using \c std::random_device .
+	 */
 	Random();
+	///@}
 
 	LIMES_DEFAULT_MOVABLE (Random);
 	LIMES_DEFAULT_COPYABLE (Random);
 
+	/** Returns the next value from the %random number generator. */
 	[[nodiscard]] ValueType nextValue();
 
+	/** Returns the next value from the %random number generator, interpreted as a boolean. */
 	[[nodiscard]] bool nextBool();
 
+	/** Returns the next value from the %random number generator as a specified type, optionally mapped to a specified output range. */
 	template <Scalar T>
-	[[nodiscard]] T next (T min = std::numeric_limits<T>::min(),
-						  T max = std::numeric_limits<T>::max());
+	[[nodiscard]] T next (T min = std::max (std::numeric_limits<T>::min(), static_cast<T> (EngineType::min())),
+						  T max = std::min (std::numeric_limits<T>::max(), static_cast<T> (EngineType::max())));
 
+	/** Sets the seed of the %random number generator. */
 	void setSeed (ValueType newSeed);
 
+	/** Creates a new %random number generator, which is seeded with this generator's next value. */
 	[[nodiscard]] Random fork();
 
+	/** Returns a static, system-wide %random number generator. */
 	[[nodiscard]] static Random& getSystem() noexcept;
 
 private:

@@ -20,14 +20,14 @@
 	@ingroup math
  */
 
-/** @defgroup 2Dgeometry 2-D geometry
+/** @defgroup TwoDgeometry 2-D geometry
 	Two-dimensional geometric shapes.
 	@ingroup geometry
  */
 
 /** @file
 	This file defines the TwoDShape interface class.
-	@ingroup 2Dgeometry
+	@ingroup TwoDgeometry
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -39,7 +39,7 @@ namespace math::geometry
 {
 
 /** A base class for any kind of 2-dimensional shape.
-	@ingroup 2Dgeometry
+	@ingroup TwoDgeometry
  */
 template <Scalar ValueType>
 class LIMES_EXPORT TwoDShape

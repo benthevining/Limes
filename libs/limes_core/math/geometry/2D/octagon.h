@@ -22,7 +22,7 @@
 
 /** @file
 	This file defines the Octagon class.
-	@ingroup 2Dgeometry
+	@ingroup TwoDgeometry
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -30,8 +30,8 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
-/** Represents an octagon.
-	@ingroup 2Dgeometry
+/** Represents an %octagon.
+	@ingroup TwoDgeometry
  */
 template <Scalar ValueType>
 class LIMES_EXPORT Octagon final : public TwoDShape<ValueType>
@@ -44,13 +44,13 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Octagon);
 	LIMES_CONSTEXPR_MOVABLE (Octagon);
 
-	/** Returns the area of the octagon. */
+	/** Returns the area of the %octagon. */
 	[[nodiscard]] ValueType area() const noexcept final;
 
-	/** Returns the perimeter of the octagon. */
+	/** Returns the perimeter of the %octagon. */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
-	/** Returns the side length of the octagon. */
+	/** Returns the side length of the %octagon. */
 	[[nodiscard]] constexpr ValueType sideLength() const noexcept;
 
 	/** @name Equality comparisons
@@ -69,10 +69,10 @@ public:
 	[[nodiscard]] constexpr bool operator< (const Octagon& other) const noexcept;
 	///@}
 
-	/** Returns the interior angle of any octagon (135 degrees). */
+	/** Returns the interior angle of any %octagon (135 degrees). */
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> interiorAngle() noexcept;
 
-	/** Returns the exterior angle of any octagon (45 degrees). */
+	/** Returns the exterior angle of any %octagon (45 degrees). */
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> exteriorAngle() noexcept;
 
 private:

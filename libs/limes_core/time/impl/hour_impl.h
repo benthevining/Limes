@@ -16,6 +16,13 @@
 #include "../../system/limes_assert.h"
 #include "../build_date.h"
 
+/** @file
+	This file contains implementation details for the Hour class.
+	@ingroup time
+ */
+
+/// @cond
+
 LIMES_BEGIN_NAMESPACE
 
 namespace time
@@ -149,3 +156,5 @@ constexpr Hour Hour::midnight() noexcept
 }  // namespace time
 
 LIMES_END_NAMESPACE
+
+/// @endcond

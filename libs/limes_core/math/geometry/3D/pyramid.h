@@ -21,33 +21,59 @@
 #include "3Dshape.h"
 #include <cmath>
 
+/** @file
+	This file defines the Pyramid class.
+	@ingroup ThreeDgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
 {
 
+/** This class represents a %pyramid.
+	@ingroup ThreeDgeometry
+ */
 template <Scalar ValueType>
 class LIMES_EXPORT Pyramid final : public ThreeDShape<ValueType>
 {
 public:
 
+	/** @name Constructors */
+	///@{
+	/** Creates a pyramid with the given dimensions. */
 	explicit constexpr Pyramid (ValueType baseLength, ValueType baseWidth, ValueType height) noexcept;
+
+	/** Creates a pyramid with the given base and height. */
+	explicit constexpr Pyramid (const Rectangle<ValueType>& base, ValueType height) noexcept;
+	///@}
 
 	LIMES_CONSTEXPR_COPYABLE (Pyramid);
 	LIMES_CONSTEXPR_MOVABLE (Pyramid);
 
+	/** Returns the surface area of the %pyramid. */
 	[[nodiscard]] ValueType surfaceArea() const noexcept final;
 
+	/** Returns the volume of the %pyramid. */
 	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
+	/** Returns the length of the pyramid's base. */
 	[[nodiscard]] constexpr ValueType baseLength() const noexcept;
 
+	/** Returns the width of the pyramid's base. */
 	[[nodiscard]] constexpr ValueType baseWidth() const noexcept;
 
+	/** Returns a Rectangle object representing this pyramid's base. */
+	[[nodiscard]] constexpr Rectangle<ValueType> getBase() const noexcept;
+
+	/** Returns the height of the %pyramid. */
 	[[nodiscard]] constexpr ValueType height() const noexcept;
 
+	/** @name Equality comparisons */
+	///@{
 	[[nodiscard]] constexpr bool operator== (const Pyramid& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Pyramid& other) const noexcept;
+	///@}
 
 private:
 
@@ -62,6 +88,12 @@ constexpr Pyramid<ValueType>::Pyramid (ValueType baseLength, ValueType baseWidth
 	LIMES_ASSERT (m_length > 0);
 	LIMES_ASSERT (m_width > 0);
 	LIMES_ASSERT (m_height > 0);
+}
+
+template <Scalar ValueType>
+constexpr Pyramid<ValueType>::Pyramid (const Rectangle<ValueType>& base, ValueType height) noexcept
+	: m_length (base.length()), m_width (base.width()), m_height (height)
+{
 }
 
 template <Scalar ValueType>
@@ -93,6 +125,12 @@ template <Scalar ValueType>
 constexpr ValueType Pyramid<ValueType>::baseWidth() const noexcept
 {
 	return m_width;
+}
+
+template <Scalar ValueType>
+constexpr Rectangle<ValueType> Pyramid<ValueType>::getBase() const noexcept
+{
+	return Rectangle { m_length, m_width };
 }
 
 template <Scalar ValueType>

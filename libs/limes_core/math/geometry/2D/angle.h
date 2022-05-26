@@ -19,7 +19,7 @@
 
 /** @file
 	This file defines the Angle class.
-	@ingroup 2Dgeometry
+	@ingroup TwoDgeometry
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -27,9 +27,9 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
-/** This class represents a geometric angle.
-	Internally, the angle is represented in degrees.
-	@ingroup 2Dgeometry
+/** This class represents a geometric %angle.
+	Internally, the %angle is represented in degrees.
+	@ingroup TwoDgeometry
  */
 template <Scalar ValueType = int>
 class LIMES_EXPORT Angle final
@@ -51,56 +51,56 @@ public:
 	[[nodiscard]] constexpr ValueType radians() const noexcept;
 	///@}
 
-	/** @name Queries of angle type */
+	/** @name Queries of %angle type */
 	///@{
-	/** Returns true if the angle is exactly 90 degrees. */
+	/** Returns true if the %angle is exactly 90 degrees. */
 	[[nodiscard]] constexpr bool isRight() const noexcept;
 
-	/** Returns true if the angle is less than 90 degrees. */
+	/** Returns true if the %angle is less than 90 degrees. */
 	[[nodiscard]] constexpr bool isAcute() const noexcept;
 
-	/** Returns true if the angle is larger than 90 degrees and smaller than 180 degrees. */
+	/** Returns true if the %angle is larger than 90 degrees and smaller than 180 degrees. */
 	[[nodiscard]] constexpr bool isObtuse() const noexcept;
 
-	/** Returns true if the angle is exactly 180 degrees. */
+	/** Returns true if the %angle is exactly 180 degrees. */
 	[[nodiscard]] constexpr bool isStraight() const noexcept;
 
-	/** Returns true if the angle is larger than 180 degrees and smaller than 360 degrees. */
+	/** Returns true if the %angle is larger than 180 degrees and smaller than 360 degrees. */
 	[[nodiscard]] constexpr bool isReflex() const noexcept;
 
-	/** Returns true if the angle is exactly 360 degrees. */
+	/** Returns true if the %angle is exactly 360 degrees. */
 	[[nodiscard]] constexpr bool isFull() const noexcept;
 
 	/** Returns true if the angle's measure in degrees is not divisible by 90. */
 	[[nodiscard]] constexpr bool isOblique() const noexcept;
 	///@}
 
-	/** @name Angle relations */
+	/** @name %Angle relations */
 	///@{
-	/** Returns true if this angle and the other's measures in degrees sum to 90. */
+	/** Returns true if this %angle and the other's measures in degrees sum to 90. */
 	[[nodiscard]] constexpr bool isComplementaryWith (const Angle& other) const noexcept;
 
-	/** Returns an angle object such that the new angle's measure in degrees added to this angle's measure will equal 90. */
+	/** Returns an %angle object such that the new angle's measure in degrees added to this angle's measure will equal 90. */
 	[[nodiscard]] constexpr Angle getComplement() const noexcept;
 
-	/** Returns true if this angle and the other's measures in degrees sum to 180. */
+	/** Returns true if this %angle and the other's measures in degrees sum to 180. */
 	[[nodiscard]] constexpr bool isSupplementaryWith (const Angle& other) const noexcept;
 
-	/** Returns an angle object such that the new angle's measure in degrees added to this angle's measure will equal 180. */
+	/** Returns an %angle object such that the new angle's measure in degrees added to this angle's measure will equal 180. */
 	[[nodiscard]] constexpr Angle getSupplement() const noexcept;
 
-	/** Returns true if this angle and the other's measures in degrees sum to 360. */
+	/** Returns true if this %angle and the other's measures in degrees sum to 360. */
 	[[nodiscard]] constexpr bool isExplementaryWith (const Angle& other) const noexcept;
 
-	/** Returns an angle object such that the new angle's measure in degrees added to this angle's measure will equal 360. */
+	/** Returns an %angle object such that the new angle's measure in degrees added to this angle's measure will equal 360. */
 	[[nodiscard]] constexpr Angle getExplement() const noexcept;
 	///@}
 
-	/** Returns a new angle object representing half of this angle's measure. */
+	/** Returns a new %angle object representing half of this angle's measure. */
 	[[nodiscard]] constexpr Angle bisect() const noexcept;
 
 	/** @name Equality comparisons
-		Returns true if this angle has the same degree measure as the other.
+		Returns true if this %angle has the same degree measure as the other.
 	 */
 	///@{
 	[[nodiscard]] constexpr bool operator== (const Angle& other) const noexcept;
@@ -119,7 +119,7 @@ public:
 	///@}
 
 	/** @name Addition and subtraction
-		Adds or subtracts a specified number of degrees from this angle.
+		Adds or subtracts a specified number of degrees from this %angle.
 	 */
 	///@{
 	[[nodiscard]] constexpr Angle& operator+= (ValueType degreesToAdd) noexcept;
@@ -134,13 +134,13 @@ public:
 
 	/** @name Creation functions */
 	///@{
-	/** Convenience function for creating a right angle object (90 degrees). */
+	/** Convenience function for creating a right %angle object (90 degrees). */
 	[[nodiscard]] static constexpr Angle right() noexcept;
 
-	/** Convenience function for creating a straight angle object (180 degrees). */
+	/** Convenience function for creating a straight %angle object (180 degrees). */
 	[[nodiscard]] static constexpr Angle straight() noexcept;
 
-	/** Convenience function for creating a full angle object (360 degrees). */
+	/** Convenience function for creating a full %angle object (360 degrees). */
 	[[nodiscard]] static constexpr Angle full() noexcept;
 	///@}
 

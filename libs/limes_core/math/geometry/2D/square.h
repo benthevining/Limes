@@ -23,7 +23,7 @@
 
 /** @file
 	This file defines the Square class.
-	@ingroup 2Dgeometry
+	@ingroup TwoDgeometry
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -31,8 +31,9 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
-/** Represents a square.
-	@ingroup 2Dgeometry
+/** Represents a %square.
+	@ingroup TwoDgeometry
+	@see Rectangle
  */
 template <Scalar ValueType>
 class LIMES_EXPORT Square final : public TwoDShape<ValueType>
@@ -47,22 +48,22 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Square);
 	LIMES_CONSTEXPR_MOVABLE (Square);
 
-	/** Returns the area of the square. */
+	/** Returns the area of the %square. */
 	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
-	/** Returns the perimeter of the square. */
+	/** Returns the perimeter of the %square. */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
-	/** Returns the side length of the square. */
+	/** Returns the side length of the %square. */
 	[[nodiscard]] constexpr ValueType sideLength() const noexcept;
 
-	/** Returns a rectangle object with the same dimensions as this square. */
+	/** Returns a Rectangle object with the same dimensions as this %square. */
 	[[nodiscard]] constexpr Rect getRectangle() const noexcept;
 
-	/** Returns the length of the internal diagonal of the rectangle. */
+	/** Returns the length of the internal diagonal of this %square. */
 	[[nodiscard]] ValueType diagonal() const noexcept;
 
-	/** Returns a triangle representing the rectangle bisected along its internal diagonal. */
+	/** Returns a triangle representing this %square bisected along its internal diagonal. */
 	[[nodiscard]] Triangle<ValueType> bisectDiagonal() const noexcept;
 
 	/** @name Equality comparisons

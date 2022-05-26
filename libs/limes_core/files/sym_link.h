@@ -55,7 +55,7 @@ public:
 
 	/** @name Symbolic link creation
 		Creates a symbolic link on the filesystem.
-		@returns True if link creation was successful.
+		Returns true if link creation was successful.
 	 */
 	///@{
 	static bool create (const Path& linkPath, const FilesystemEntry& target) noexcept;

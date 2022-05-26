@@ -19,33 +19,53 @@
 #include "../2D/triangle.h"
 #include "3Dshape.h"
 
+/** @file
+	This file defines the TriangularPrism class.
+	@ingroup ThreeDgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
 {
 
+/** This class represents a triangular prism.
+	@ingroup ThreeDgeometry
+ */
 template <typename ValueType>
 class LIMES_EXPORT TriangularPrism final : public ThreeDShape<ValueType>
 {
 public:
 
+	/** @name Constructors */
+	///@{
+	/** Creates a triangular prism with the given face and length. */
 	explicit constexpr TriangularPrism (const Triangle<ValueType>& face, ValueType length) noexcept;
 
+	/** Creates a triangular prism with the given dimensions. */
 	explicit constexpr TriangularPrism (ValueType face_base, ValueType face_height, ValueType face_hypotenuse, ValueType prismLength) noexcept;
+	///@}
 
 	LIMES_CONSTEXPR_COPYABLE (TriangularPrism);
 	LIMES_CONSTEXPR_MOVABLE (TriangularPrism);
 
+	/** Returns the surface area of the prism. */
 	[[nodiscard]] constexpr ValueType surfaceArea() const noexcept final;
 
+	/** Returns the volume of the prism. */
 	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
+	/** Returns the length of the prism. */
 	[[nodiscard]] constexpr ValueType length() const noexcept;
 
+	/** Returns a Triangle object representing a face of this prism. */
 	[[nodiscard]] constexpr Triangle<ValueType> getFace() const noexcept;
 
+	/** @name Equality comparisons */
+	///@{
 	[[nodiscard]] constexpr bool operator== (const TriangularPrism& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const TriangularPrism& other) const noexcept;
+	///@}
 
 private:
 

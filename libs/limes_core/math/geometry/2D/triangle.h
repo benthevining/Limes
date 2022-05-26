@@ -23,7 +23,7 @@
 
 /** @file
 	This file defines the Triangle class.
-	@ingroup 2Dgeometry
+	@ingroup TwoDgeometry
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -31,8 +31,8 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
-/** Represents a triangle.
-	@ingroup 2Dgeometry
+/** Represents a %triangle.
+	@ingroup TwoDgeometry
  */
 template <Scalar ValueType>
 class LIMES_EXPORT Triangle final : public TwoDShape<ValueType>
@@ -58,13 +58,13 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Triangle);
 	LIMES_CONSTEXPR_MOVABLE (Triangle);
 
-	/** Returns the area of the triangle. */
+	/** Returns the area of the %triangle. */
 	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
-	/** Returns the perimeter of the triangle. */
+	/** Returns the perimeter of the %triangle. */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
-	/** Identifies the sides of a triangle. */
+	/** Identifies the sides of a %triangle. */
 	enum class Side
 	{
 		base,
@@ -90,7 +90,7 @@ public:
 	/** Returns the length of the vertical altitude from the triangle's base to the point opposite the base. */
 	[[nodiscard]] constexpr ValueType altitude() const noexcept;
 
-	/** @name Triangle type queries */
+	/** @name %Triangle type queries */
 	///@{
 	/** Returns true if all three sides are the same length. */
 	constexpr bool isEquilateral() const noexcept;
@@ -137,7 +137,7 @@ public:
 	[[nodiscard]] Angle<ValueType> getAngle (Side side) const noexcept;
 	///@}
 
-	/** Returns a new triangle created by bisecting the requested side of the current triangle. */
+	/** Returns a new %triangle created by bisecting the requested side of the current %triangle. */
 	[[nodiscard]] Triangle bisect (Side side = Side::base) const noexcept;
 
 private:

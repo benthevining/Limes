@@ -47,9 +47,15 @@ namespace math
 	@{
  */
 
+/** @concept Scalar
+	A scalar type.
+ */
 template <typename T>
 concept Scalar = std::is_scalar_v<T>;
 
+/** @concept Integral
+	An integral type.
+ */
 template <typename T>
 concept Integral = std::is_integral_v<T>;
 
@@ -57,49 +63,47 @@ concept Integral = std::is_integral_v<T>;
 template <Scalar T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T abs (T val) noexcept;
 
-
+/** A constexpr-enabled negation function. */
 template <Scalar T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T negate (T val) noexcept;
 
-
+/** A constexpr-enabled rounding function. */
 template <Scalar T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr int round (T val) noexcept;
 
-
+/** A constexpr-enabled clipping function. */
 template <Scalar T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T limit (T input, T min, T max) noexcept;
 
-
+/** A constexpr-enabled power function. */
 template <Integral T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T power (T number, T power) noexcept;
 
-
+/** A constexpr-enabled mapping function. */
 template <Scalar T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T map (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept;
 
-
-/** Returns true if val is 2^something.
- */
+/** Returns true if \c val is 2^something. */
 template <Integral Integer>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr bool isPowerOf2 (Integer val) noexcept;
-
 
 /** Returns true if the number is divisible by the divisor with no remainder. */
 template <Integral Integer>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr bool isDivisibleBy (Integer number, Integer divisor) noexcept;
 
-
 /** Returns true if the number is evenly divisible by 2. */
 template <Integral Integer>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr bool numberIsEven (Integer number) noexcept;
 
-
+/** Returns true if the number is a prime number. */
 template <Integral Integer>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr bool isPrime (Integer number) noexcept;
 
+/** Computes the factorial of the number. */
 template <Integral T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T factorial (T number) noexcept;
 
+/** Returns the median of three values. */
 template <Scalar T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T middleOfThree (T a, T b, T c) noexcept;
 
@@ -110,7 +114,6 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr int periodInSamples (do
 /** Returns the frequency in Hz with a given period in samples at the specified samplerate. */
 template <Scalar PeriodType>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr PeriodType freqFromPeriod (double samplerate, PeriodType period) noexcept;
-
 
 /** Converts a number of samples to milliseconds at the specified samplerate. */
 template <Integral Integer>
@@ -136,8 +139,9 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION inline T freqToMidi (T freqHz) no
 namespace constants
 {
 
-#if LIMES_HAS_INCLUDE(<numbers>)
+#if DOXYGEN || LIMES_HAS_INCLUDE(<numbers>)
 
+/** Pi. */
 template <Scalar T>
 LIMES_EXPORT static constexpr const T pi = std::numbers::pi_v<T>;
 
@@ -148,12 +152,15 @@ LIMES_EXPORT static constexpr const T pi = static_cast<T> (3.1415916);
 
 #endif
 
+/** Two pi. */
 template <Scalar T>
 LIMES_EXPORT static constexpr const T two_pi = pi<T>* T (2.);
 
+/** One-half pi. */
 template <Scalar T>
 LIMES_EXPORT static constexpr const T half_pi = pi<T> / T (2.);
 
+/** The alpha value used for computing default Blackman filters. */
 template <Scalar T>
 LIMES_EXPORT static constexpr const T blackman_alpha = T (0.16);
 

@@ -21,7 +21,7 @@
 
 /** @file
 	This file defines the Circle class.
-	@ingroup 2Dgeometry
+	@ingroup TwoDgeometry
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -29,8 +29,8 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
-/** Represents a circle.
-	@ingroup 2Dgeometry
+/** Represents a %circle.
+	@ingroup TwoDgeometry
  */
 template <Scalar ValueType>
 class LIMES_EXPORT Circle final : public TwoDShape<ValueType>
@@ -43,19 +43,19 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Circle);
 	LIMES_CONSTEXPR_MOVABLE (Circle);
 
-	/** Returns the area of the circle. */
+	/** Returns the area of the %circle. */
 	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
-	/** Returns the perimeter of the circle.
+	/** Returns the perimeter of the %circle.
 		This is the same as \c diameter() .
 		@see diameter()
 	 */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
-	/** Returns the radius of the circle. */
+	/** Returns the radius of the %circle. */
 	[[nodiscard]] constexpr ValueType radius() const noexcept;
 
-	/** Returns the diameter of the circle.
+	/** Returns the diameter of the %circle.
 	 This is the same as \c perimeter() , but is provided for more ergonomic use.
 	 @see perimeter()
 	 */

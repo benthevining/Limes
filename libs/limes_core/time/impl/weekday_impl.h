@@ -16,6 +16,13 @@
 #include <limes_namespace.h>
 #include <limes_platform.h>
 
+/** @file
+	This file contains implementation details for the Weekday class.
+	@ingroup time
+ */
+
+/// @cond
+
 LIMES_BEGIN_NAMESPACE
 
 namespace time
@@ -262,3 +269,5 @@ consteval bool Weekday<StartWeekOnSunday>::startsWeekOnSunday() noexcept
 }  // namespace time
 
 LIMES_END_NAMESPACE
+
+/// @endcond

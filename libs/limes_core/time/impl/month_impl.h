@@ -17,6 +17,13 @@
 #include "../../math/mathHelpers.h"
 #include "../build_date.h"
 
+/** @file
+	This file contains implementation details for the Month class.
+	@ingroup time
+ */
+
+/// @cond
+
 LIMES_BEGIN_NAMESPACE
 
 namespace time
@@ -205,3 +212,5 @@ constexpr std::string_view Month::getString (bool useShort) const noexcept
 }  // namespace time
 
 LIMES_END_NAMESPACE
+
+/// @endcond

@@ -22,7 +22,7 @@
 
 /** @file
 	This file defines the Rectangle class.
-	@ingroup 2Dgeometry
+	@ingroup TwoDgeometry
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -30,9 +30,10 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
-/** Represents a rectangle.
+/** Represents a %rectangle.
 	A rectangle may or may not be square.
-	@ingroup 2Dgeometry
+	@ingroup TwoDgeometry
+	@see Square
  */
 template <Scalar ValueType>
 class LIMES_EXPORT Rectangle final : public TwoDShape<ValueType>
@@ -45,25 +46,25 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Rectangle);
 	LIMES_CONSTEXPR_MOVABLE (Rectangle);
 
-	/** Returns the area of the rectangle. */
+	/** Returns the area of the %rectangle. */
 	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
-	/** Returns the perimeter of the rectangle. */
+	/** Returns the perimeter of the %rectangle. */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
-	/** Returns the length of the rectangle. */
+	/** Returns the length of the %rectangle. */
 	[[nodiscard]] constexpr ValueType length() const noexcept;
 
-	/** Returns the width of the rectangle. */
+	/** Returns the width of the %rectangle. */
 	[[nodiscard]] constexpr ValueType width() const noexcept;
 
-	/** Returns true if the rectangle is square; ie, the length is equal to the width. */
+	/** Returns true if the %rectangle is square; ie, the length is equal to the width. */
 	[[nodiscard]] constexpr bool isSquare() const noexcept;
 
-	/** Returns the length of the internal diagonal of the rectangle. */
+	/** Returns the length of the internal diagonal of the %rectangle. */
 	[[nodiscard]] ValueType diagonal() const noexcept;
 
-	/** Returns a triangle representing the rectangle bisected along its internal diagonal. */
+	/** Returns a triangle representing the %rectangle bisected along its internal diagonal. */
 	[[nodiscard]] Triangle<ValueType> bisectDiagonal() const noexcept;
 
 	/** @name Equality comparisons

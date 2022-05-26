@@ -21,41 +21,70 @@
 #include "3Dshape.h"
 #include <cmath>
 
+/** @file
+	This file defines the Cube class.
+	@ingroup ThreeDgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
 {
 
+/** This class represents a %cube.
+	@ingroup ThreeDgeometry
+	@see RectangularPrism
+ */
 template <Scalar ValueType>
 class LIMES_EXPORT Cube final : public ThreeDShape<ValueType>
 {
 public:
 
+	/** @name Constructors */
+	///@{
+	/** Creates a cube with the given side length. */
 	explicit constexpr Cube (ValueType sideLengthToUse) noexcept;
 
+	/** Creates a cube with the given face. */
 	explicit constexpr Cube (const Square<ValueType>& face) noexcept;
+	///@}
 
 	LIMES_CONSTEXPR_COPYABLE (Cube);
 	LIMES_CONSTEXPR_MOVABLE (Cube);
 
+	/** Returns the volume of the %cube. */
 	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
+	/** Returns the surface area of the %cube. */
 	[[nodiscard]] constexpr ValueType surfaceArea() const noexcept final;
 
+	/** Returns the surface perimeter of the %cube. */
 	[[nodiscard]] constexpr ValueType surfacePerimeter() const noexcept;
 
+	/** Returns the side length of the %cube. */
 	[[nodiscard]] constexpr ValueType sideLength() const noexcept;
 
+	/** Returns the space diagonal of the %cube. */
 	[[nodiscard]] ValueType spaceDiagonal() const noexcept;
 
+	/** @name Equality comparisons */
+	///@{
 	[[nodiscard]] constexpr bool operator== (const Cube& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Cube& other) const noexcept;
+	///@}
 
+	/** @name Greater/less than comparisons
+		Compares cubes based on their side lengths.
+	 */
+	///@{
 	[[nodiscard]] constexpr bool operator> (const Cube& other) const noexcept;
 	[[nodiscard]] constexpr bool operator< (const Cube& other) const noexcept;
+	///@}
 
+	/** Returns a Square object representing a face of this %cube. */
 	[[nodiscard]] constexpr Square<ValueType> getFace() const noexcept;
 
+	/** Returns a RectangularPrism object with the same dimensions as this %cube. */
 	[[nodiscard]] constexpr RectangularPrism<ValueType> getRectangularPrism() const noexcept;
 
 private:

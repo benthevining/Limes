@@ -48,8 +48,9 @@ class SymLink;
 using Path = std::filesystem::path;
 
 /** The base class for any kind of object in the filesystem.
-	This class is essentially a wrapper around \c std::filesystem::path.
+	This class is essentially a wrapper around \c std::filesystem::path .
 	@ingroup files
+	@see File, Directory, SymLink
  */
 class LIMES_EXPORT FilesystemEntry
 {
@@ -136,7 +137,7 @@ public:
 	/** Returns the directory containing this filesystem entry. */
 	[[nodiscard]] Directory getDirectory() const;
 
-	/** Returns the parent directory of this filesystem entry. */
+	/** Returns the parent %directory of this filesystem entry. */
 	[[nodiscard]] Directory getParentDirectory() const;
 
 	/** Returns true if this object holds a valid filesystem path. This is essentially only false if the path is empty. */
@@ -145,10 +146,10 @@ public:
 	/** Returns true if the filesystem object this object refers to exists on disk. */
 	[[nodiscard]] bool exists() const noexcept;
 
-	/** Returns true if this filesystem entry refers to a file. */
+	/** Returns true if this filesystem entry refers to a %file. */
 	[[nodiscard]] bool isFile() const noexcept;
 
-	/** Returns true if this filesystem entry refers to a directory. */
+	/** Returns true if this filesystem entry refers to a %directory. */
 	[[nodiscard]] bool isDirectory() const noexcept;
 
 	/** Returns true if this filesystem entry refers to a symbolic link. */
@@ -173,10 +174,10 @@ public:
 	 */
 	bool makeAbsoluteRelativeToCWD() noexcept;
 
-	/** If this object refers to a file, constructs a File object referring to the same file. Otherwise, returns a nullptr. */
+	/** If this object refers to a %file, constructs a File object referring to the same %file. Otherwise, returns a nullptr. */
 	[[nodiscard]] std::unique_ptr<File> getFileObject() const;
 
-	/** If this object refers to a directory, constructs a Directory object referring to the same directory. Otherwise, returns a nullptr. */
+	/** If this object refers to a %directory, constructs a Directory object referring to the same %directory. Otherwise, returns a nullptr. */
 	[[nodiscard]] std::unique_ptr<Directory> getDirectoryObject() const;
 
 	/** If this object refers to a symbolic link, constructs a SymLink object referring to the same link. Otherwise, returns a nullptr. */
@@ -224,33 +225,33 @@ public:
 	/** Returns the last modification time of the filesystem entry. */
 	[[nodiscard]] time::DateTime getLastModificationTime() const noexcept;
 
-	/** Renames this filesystem object to a new path. This can be used to move the entry to a different directory.
+	/** Renames this filesystem object to a new path. This can be used to move the entry to a different %directory.
 		@returns True if renaming was successful.
 	 */
 	bool rename (const Path& newPath) noexcept;
 
-	/** Renames this filesystem entry to a new filename within its current directory.
+	/** Renames this filesystem entry to a new filename within its current %directory.
 		@returns True if renaming was successful.
 	 */
 	bool rename (const std::string& newFilenameWithinDirectory);
 
 	/**	@name Creating copies
 		Creates a copy of this filesystem entry at a new location.
-		@returns True if copying was successful.
+		Returns true if copying was successful.
 	 */
 	///@{
 	bool copyTo (const Path& dest, CopyOptions options = CopyOptions::update_existing) const noexcept;
 	bool copyTo (const FilesystemEntry& dest, CopyOptions options = CopyOptions::update_existing) const noexcept;
 	///@}
 
-	/** Creates a copy of this filesystem object, with the same filename, in a different directory.
+	/** Creates a copy of this filesystem object, with the same filename, in a different %directory.
 		@returns True if copying was successful.
 	 */
 	bool copyToDirectory (const Path& destDirectory, CopyOptions options = CopyOptions::update_existing) const noexcept;
 
 	/** Overwriting
 		Overwrites this filesystem entry by copying from another location.
-		@returns True if copying was successful.
+		Returns true if copying was successful.
 	 */
 	//@{
 	bool copyFrom (const Path& source, CopyOptions options = CopyOptions::update_existing) const noexcept;

@@ -22,7 +22,7 @@
 
 /** @file
 	This file defines the Pentagon class.
-	@ingroup 2Dgeometry
+	@ingroup TwoDgeometry
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -30,8 +30,8 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
-/** Represents a pentagon.
-	@ingroup 2Dgeometry
+/** Represents a %pentagon.
+	@ingroup TwoDgeometry
  */
 template <Scalar ValueType>
 class LIMES_EXPORT Pentagon final : public TwoDShape<ValueType>
@@ -44,16 +44,16 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Pentagon);
 	LIMES_CONSTEXPR_MOVABLE (Pentagon);
 
-	/** Returns the area of the pentagon. */
+	/** Returns the area of the %pentagon. */
 	[[nodiscard]] ValueType area() const noexcept final;
 
-	/** Returns the perimeter of the pentagon. */
+	/** Returns the perimeter of the %pentagon. */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
-	/** Returns the length of the internal diagonal of the pentagon. */
+	/** Returns the length of the internal diagonal of the %pentagon. */
 	[[nodiscard]] ValueType diagonal() const noexcept;
 
-	/** Returns the side length of the pentagon. */
+	/** Returns the side length of the %pentagon. */
 	[[nodiscard]] constexpr ValueType sideLength() const noexcept;
 
 	/** @name Equality comparisons
@@ -72,10 +72,10 @@ public:
 	[[nodiscard]] constexpr bool operator< (const Pentagon& other) const noexcept;
 	///@}
 
-	/** Returns the interior angle of any pentagon (108 degrees). */
+	/** Returns the interior angle of any %pentagon (108 degrees). */
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> interiorAngle() noexcept;
 
-	/** Returns the exterior angle of any pentagon (72 degrees). */
+	/** Returns the exterior angle of any %pentagon (72 degrees). */
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> exteriorAngle() noexcept;
 
 private:

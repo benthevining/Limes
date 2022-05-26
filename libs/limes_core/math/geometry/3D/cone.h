@@ -20,39 +20,64 @@
 #include "3Dshape.h"
 #include <cmath>
 
+/** @file
+	This file defines the Cone class.
+	@ingroup ThreeDgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
 {
 
+/** This class represents a %cone.
+	@ingroup ThreeDgeometry
+ */
 template <Scalar ValueType>
 class LIMES_EXPORT Cone final : public ThreeDShape<ValueType>
 {
 public:
 
+	/** @name Constructors */
+	///@{
+	/** Creates a %cone with the given radius (of its face) and height. */
 	explicit constexpr Cone (ValueType radius, ValueType height) noexcept;
 
+	/** Creates a %cone with the given face and height. */
 	explicit constexpr Cone (const Circle<ValueType>& face, ValueType height) noexcept;
+	///@}
 
 	LIMES_CONSTEXPR_COPYABLE (Cone);
 	LIMES_CONSTEXPR_MOVABLE (Cone);
 
+	/** Returns the radius of the cone's face. */
 	[[nodiscard]] constexpr ValueType radius() const noexcept;
 
+	/** Returns the diameter of the cone's face. */
 	[[nodiscard]] constexpr ValueType diameter() const noexcept;
 
+	/** Returns the height of the %cone. */
 	[[nodiscard]] constexpr ValueType height() const noexcept;
 
+	/** Returns the volume of the %cone. */
 	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
+	/** Returns the surface area of the %cone. */
 	[[nodiscard]] ValueType surfaceArea() const noexcept final;
 
+	/** Returns the slant height area of the %cone. */
 	[[nodiscard]] ValueType slantHeight() const noexcept;
 
+	/** Returns a Circle object representing the face of this %cone. */
 	[[nodiscard]] constexpr Circle<ValueType> getFace() const noexcept;
 
+	/** @name Equality comparisons
+		Cones are considered equal if their radii and heights are both equal.
+	 */
+	///@{
 	[[nodiscard]] constexpr bool operator== (const Cone& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const Cone& other) const noexcept;
+	///@}
 
 private:
 

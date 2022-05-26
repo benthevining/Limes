@@ -17,11 +17,21 @@
 #include "../misc/preprocessor.h"
 #include "../system/compiler_defs.h"
 
+/** @file
+	This file contains free functions for getting various information about the date and time this code was compiled.
+	@ingroup time
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace time
 {
 
+/** @ingroup time
+	@{
+ */
+
+/** Returns the year of compilation, as an integer. */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_year() noexcept
 {
 	const char* date = __DATE__;
@@ -36,6 +46,9 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_year() noexce
 	return result;
 }
 
+/** Returns the month of compilation, as an integer.
+	January is 1, and December is 12.
+ */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_month() noexcept
 {
 	constexpr const char months[12][4] {
@@ -52,9 +65,12 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_month() noexc
 			return i + 1;
 	}
 
+	LIMES_UNREACHABLE;
+
 	return 0;
 }
 
+/** Returns the day of the month on which this code was compiled, as an integer. */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_day() noexcept
 {
 	const char* date = __DATE__;
@@ -69,6 +85,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_day() noexcep
 	return result + (date[1] - '0');
 }
 
+/** Returns the hour of compilation, as an integer, in 24-hour time. */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_hour() noexcept
 {
 	constexpr const char time[] = __TIME__;
@@ -76,6 +93,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_hour() noexce
 	return (time[0] - '0') * 10 + (time[1] - '0');
 }
 
+/** Returns the minute of compilation as an integer. */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_minute() noexcept
 {
 	constexpr const char time[] = __TIME__;
@@ -83,6 +101,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_minute() noex
 	return (time[3] - '0') * 10 + (time[4] - '0');
 }
 
+/** Returns the second of compilation as an integer. */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_second() noexcept
 {
 	constexpr const char time[] = __TIME__;
@@ -90,15 +109,19 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval int build_second() noex
 	return (time[6] - '0') * 10 + (time[7] - '0');
 }
 
+/** @} */
 
-/// TODO_BEFORE() inserts a compilation "time bomb" that will trigger a "TODO" build error a soon as
-/// the given date is reached.
-///
-/// This is useful to force attention on a specific piece of code that should not been forgotten
-/// among a growing list of many other "TODO" comments...
-///
-/// Example:
-///     TODO_BEFORE(01, 2019, "refactor to use std::optional<> once we compile in C++17 mode");
+/** @def TODO_BEFORE
+	@ingroup time
+	This macro inserts a compilation "time bomb" that will trigger a "TODO" build error a soon as the given date is reached.
+	This is useful to force attention on a specific piece of code that should not been forgotten among a growing list of many other "TODO" comments.
+	A static assertion will fire if you select a date more than 3 years in the future.
+
+	Example usage:
+	@code
+	TODO_BEFORE(01, 2019, "refactor to use std::optional<> once we compile in C++17 mode");
+	@endcode
+ */
 #define TODO_BEFORE(month, year, msg)                                                                                                                                      \
 	LIMES_BLOCK_WITH_FORCED_SEMICOLON (static_assert (year >= ::limes::time::build_year() && year <= ::limes::time::build_year() + 3 && month > 0 && month <= 12,          \
 													  "Invalid date constraint in TODO_BEFORE macro!");                                                                    \

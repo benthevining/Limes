@@ -20,37 +20,58 @@
 #include "3Dshape.h"
 #include <cmath>
 
+/** @file
+	This file defines the RectangularPrism class.
+	@ingroup ThreeDgeometry
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math::geometry
 {
 
+/** This class represents a rectagular prism.
+	Rectangular prisms may or may not be cubes.
+	@see Cube
+	@ingroup ThreeDgeometry
+ */
 template <Scalar ValueType>
 class LIMES_EXPORT RectangularPrism final : public ThreeDShape<ValueType>
 {
 public:
 
+	/** Creates a RectangularPrism with the given dimensions. */
 	explicit constexpr RectangularPrism (ValueType length, ValueType width, ValueType height) noexcept;
 
 	LIMES_CONSTEXPR_COPYABLE (RectangularPrism);
 	LIMES_CONSTEXPR_MOVABLE (RectangularPrism);
 
+	/** Returns the volume of the prism. */
 	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
+	/** Returns the surface area of the prism. */
 	[[nodiscard]] constexpr ValueType surfaceArea() const noexcept final;
 
+	/** Returns the space diagonal of the prism. */
 	[[nodiscard]] ValueType spaceDiagonal() const noexcept;
 
+	/** Returns true if this rectangular prism is a cube. */
 	[[nodiscard]] constexpr bool isCube() const noexcept;
 
+	/** Returns the length of the prism. */
 	[[nodiscard]] constexpr ValueType length() const noexcept;
 
+	/** Returns the width of the prism. */
 	[[nodiscard]] constexpr ValueType width() const noexcept;
 
+	/** Returns the height of the prism. */
 	[[nodiscard]] constexpr ValueType height() const noexcept;
 
+	/** @name Equality comparisons */
+	///@{
 	[[nodiscard]] constexpr bool operator== (const RectangularPrism& other) const noexcept;
 	[[nodiscard]] constexpr bool operator!= (const RectangularPrism& other) const noexcept;
+	///@}
 
 private:
 

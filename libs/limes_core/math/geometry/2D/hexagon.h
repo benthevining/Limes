@@ -22,7 +22,7 @@
 
 /** @file
 	This file defines the Hexagon class.
-	@ingroup 2Dgeometry
+	@ingroup TwoDgeometry
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -30,8 +30,8 @@ LIMES_BEGIN_NAMESPACE
 namespace math::geometry
 {
 
-/** Represents a hexagon.
-	@ingroup 2Dgeometry
+/** Represents a %hexagon.
+	@ingroup TwoDgeometry
  */
 template <Scalar ValueType>
 class LIMES_EXPORT Hexagon final : public TwoDShape<ValueType>
@@ -44,13 +44,13 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Hexagon);
 	LIMES_CONSTEXPR_MOVABLE (Hexagon);
 
-	/** Returns the area of the hexagon. */
+	/** Returns the area of the %hexagon. */
 	[[nodiscard]] ValueType area() const noexcept final;
 
-	/** Returns the perimeter of the hexagon. */
+	/** Returns the perimeter of the %hexagon. */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
-	/** Returns the side length of the hexagon. */
+	/** Returns the side length of the %hexagon. */
 	[[nodiscard]] constexpr ValueType sideLength() const noexcept;
 
 	/** @name Equality comparisons
@@ -69,10 +69,10 @@ public:
 	[[nodiscard]] constexpr bool operator< (const Hexagon& other) const noexcept;
 	///@}
 
-	/** Returns the interior angle of any hexagon (120 degrees). */
+	/** Returns the interior angle of any %hexagon (120 degrees). */
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> interiorAngle() noexcept;
 
-	/** Returns the exterior angle of any hexagon (60 degrees). */
+	/** Returns the exterior angle of any %hexagon (60 degrees). */
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> exteriorAngle() noexcept;
 
 private:

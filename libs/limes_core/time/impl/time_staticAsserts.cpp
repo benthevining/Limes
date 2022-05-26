@@ -76,6 +76,8 @@ static_assert (Hour { 20 }.getIn12HourFormat() == 8);
 static_assert (Hour { 7, true }.hoursSinceMidnight() == 7);
 static_assert (Hour { 5, false }.hoursSinceMidnight() == 17);
 
+static_assert (DateTime::getCompilation().isInPast());
+
 }  // namespace time
 
 LIMES_END_NAMESPACE

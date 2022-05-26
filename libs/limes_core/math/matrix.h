@@ -18,11 +18,23 @@
 #include <array>
 #include <functional>
 
+/** @file
+	This file defines the Matrix class.
+	@ingroup math
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace math
 {
 
+/** This class is a %matrix, a rectangular array of objects arranged in rows and columns.
+	Matrices have a compile-time defined size.
+	@ingroup math
+	@tparam ObjectType The type of objects for the matrix to hold
+	@tparam Rows The number of rows for the matrix to contain
+	@tparam Columns The number of columns for the matrix to contain
+ */
 template <typename ObjectType, size_t Rows, size_t Columns>
 class LIMES_EXPORT Matrix final
 {
@@ -31,38 +43,64 @@ class LIMES_EXPORT Matrix final
 
 public:
 
-	using Row	  = std::array<ObjectType, Columns>;
-	using Column  = std::array<ObjectType, Rows>;
+	using Row	 = std::array<ObjectType, Columns>;
+	using Column = std::array<ObjectType, Rows>;
+
+	/** You can access the stored type of objects through this typedef. */
 	using Element = ObjectType;
 
+	/** Returns the number of rows the %matrix contains. */
 	[[nodiscard]] static consteval size_t getNumRows() noexcept { return Rows; }
+
+	/** Returns the number of columns the %matrix contains. */
 	[[nodiscard]] static consteval size_t getNumColumns() noexcept { return Columns; }
+
+	/** Returns the number of total number of elements the %matrix contains. */
 	[[nodiscard]] static consteval size_t getTotalNumElements() noexcept { return Rows * Columns; }
 
+	/** Returns true if the %matrix is square; ie, its number of rows is equal to its number of columns. */
 	[[nodiscard]] static consteval bool isSquare() noexcept { return Rows == Columns; }
 
+	/** Returns a reference to a row of the %matrix. */
 	[[nodiscard]] Row& operator[] (size_t row) noexcept;
 
+	/** Returns a reference to a row of the %matrix. */
 	[[nodiscard]] const Row& operator[] (size_t row) const noexcept;
 
-	[[nodiscard]] ObjectType&		get (size_t row, size_t column) noexcept;
+	/** Returns a reference to an object at a specified location in the %matrix. */
+	[[nodiscard]] ObjectType& get (size_t row, size_t column) noexcept;
+
+	/** Returns a reference to an object at a specified location in the %matrix. */
 	[[nodiscard]] const ObjectType& get (size_t row, size_t column) const noexcept;
 
+	/** Assigns an object at a specified location in the %matrix to a new value. */
 	void set (size_t row, size_t column, const ObjectType& setTo);
 
+	/** Returns a column of the %matrix.
+		@note This function creates copies of each object! To obtain references, use either \c operator[] or \c get() .
+	 */
 	[[nodiscard]] Column getColumn (size_t columnNumber) const;
 
+	/** Adds each element in \c other to the element at the corresponding position in this %matrix. */
 	Matrix& operator+= (const Matrix& other) noexcept;
+
+	/** Subtracts each element in \c other from the element at the corresponding position in this %matrix. */
 	Matrix& operator-= (const Matrix& other) noexcept;
 
+	/** Adds the \c object to every object in this %matrix. */
 	Matrix& operator+= (const ObjectType& object) noexcept;
+
+	/** Subtracts the \c object from every object in this %matrix. */
 	Matrix& operator-= (const ObjectType& object) noexcept;
 
+	/** Returns true if every object in both matrices is equivalent. */
 	[[nodiscard]] bool operator== (const Matrix& other) const noexcept;
+
+	/** Returns true if not every object in both matrices is equivalent. */
 	[[nodiscard]] bool operator!= (const Matrix& other) const noexcept;
 
-	template <size_t NumRows, size_t NumColumns>
-	[[nodiscard]] Matrix<ObjectType, NumRows, NumColumns> getSubmatrix (size_t startingRow, size_t startingColumn) const noexcept;
+	/** Returns a new %matrix containing copies of a subset of this matrix's objects. */
+	[[nodiscard]] auto getSubmatrix (size_t startingRow, size_t startingColumn) const noexcept;
 
 private:
 
@@ -176,11 +214,10 @@ bool Matrix<ObjectType, Rows, Columns>::operator!= (const Matrix& other) const n
 }
 
 template <typename ObjectType, size_t Rows, size_t Columns>
-template <size_t NumRows, size_t NumColumns>
-Matrix<ObjectType, NumRows, NumColumns> Matrix<ObjectType, Rows, Columns>::getSubmatrix (size_t startingRow, size_t startingColumn) const noexcept
+auto Matrix<ObjectType, Rows, Columns>::getSubmatrix (size_t startingRow, size_t startingColumn) const noexcept
 {
-	LIMES_ASSERT (startingRow + NumRows < Rows);
-	LIMES_ASSERT (startingColumn + NumColumns < Columns);
+	const auto NumRows	  = Rows - startingRow;
+	const auto NumColumns = Columns - startingColumn;
 
 	Matrix<ObjectType, NumRows, NumColumns> newMatrix;
 

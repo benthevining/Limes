@@ -29,8 +29,8 @@ LIMES_BEGIN_NAMESPACE
 namespace hash
 {
 
-/** A Hasher object that calculates a SHA1 hash.
-	SHA1 is considered to be insecure and shouldn't be used for security-critical purposes in new projects, but is provided for backwards compatibility.
+/** A Hasher object that calculates a %SHA1 hash.
+	%SHA1 is considered to be insecure and shouldn't be used for security-critical purposes in new projects, but is provided for backwards compatibility.
 	@ingroup hashes
  */
 class LIMES_EXPORT SHA1 final : public Hasher  // cppcheck-suppress noConstructor
