@@ -14,6 +14,7 @@
 
 #include <limes_platform.h>
 
+/// @cond
 #if ! (LIMES_ARM_NEON || LIMES_SSE)
 #	error
 #endif
@@ -21,9 +22,17 @@
 #if ! LIMES_VECOPS_USE_POMMIER
 #	error
 #endif
+/// @endcond
 
 #include <limes_export.h>
 #include <limes_namespace.h>
+
+/** @file
+	This file is a wrapper around the NEON and SSE Pommier SIMD extension functions.
+	@ingroup limes_vecops
+ */
+
+/// @cond internals
 
 LIMES_BEGIN_NAMESPACE
 
@@ -37,3 +46,5 @@ LIMES_NO_EXPORT void polarToCartesianInterleaved (float* const dest, const float
 }  // namespace vecops::pommier
 
 LIMES_END_NAMESPACE
+
+/// @endcond

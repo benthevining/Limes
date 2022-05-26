@@ -15,6 +15,13 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 
+/** @file
+	This file contains a phasor function used by multiple implementations of the vecops functions.
+	@ingroup limes_vecops
+ */
+
+/// @cond internals
+
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops::detail
@@ -26,3 +33,5 @@ LIMES_NO_EXPORT void phasor (T* const real, T* const imag, T phase);
 }
 
 LIMES_END_NAMESPACE
+
+/// @endcond

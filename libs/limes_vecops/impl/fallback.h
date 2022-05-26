@@ -16,6 +16,14 @@
 #include "fallback_impl.h"
 #include <limes_namespace.h>
 
+/** @file
+	This file includes the fallback implementations of the vecops functions.
+	All the functions in this file simply wrap the functions in fallback_impl.h, which is also included by the other implementations, to cover any functions their libraries may not provide.
+	@ingroup limes_vecops
+ */
+
+/// @cond
+
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
@@ -194,6 +202,7 @@ void divideInvAndCopy (DataType* const dest, const DataType* const origData, Siz
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Squaring functions
 
 template <Scalar DataType, Integral SizeType>
 void square (DataType* const dataAndDest, SizeType size)
@@ -568,3 +577,5 @@ void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* cons
 }  // namespace vecops
 
 LIMES_END_NAMESPACE
+
+/// @endcond

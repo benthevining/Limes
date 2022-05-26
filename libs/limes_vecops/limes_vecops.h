@@ -29,6 +29,16 @@ and/or one of:
 
 */
 
+/** @defgroup limes_vecops limes_vecops
+	The Limes vector operations library.
+	All classes and functions in this group are accessible after linking to the limes_vecops library and including limes_vecops.h.
+ */
+
+/** @file
+	The main header for the limes_vecops library.
+	@ingroup limes_vecops
+ */
+
 #pragma once
 
 #include <type_traits>
@@ -42,6 +52,35 @@ and/or one of:
 static_assert (sizeof (float) == 4, "float is not 32-bits wide");
 static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 
+#ifdef DOXYGEN
+
+/** @def LIMES_VECOPS_USE_VDSP
+	1 if the Apple vDSP library is being used, otherwise 0.
+	@ingroup limes_vecops
+ */
+#	define LIMES_VECOPS_USE_VDSP 0
+
+/** @def LIMES_VECOPS_USE_IPP
+	1 if the Intel IPP library is being used, otherwise 0.
+	@ingroup limes_vecops
+ */
+#	define LIMES_VECOPS_USE_IPP 0
+
+/** @def LIMES_VECOPS_USE_MIPP
+	1 if the MIPP library is being used, otherwise 0.
+	@ingroup limes_vecops
+ */
+#	define LIMES_VECOPS_USE_MIPP 0
+
+/**	@def LIMES_VECOPS_USE_POMMIER
+	1 if the Pommier SIMD extensions are being used, otherwise 0.
+	@ingroup limes_vecops
+ */
+#	define LIMES_VECOPS_USE_POMMIER 0
+
+#endif
+
+/// @cond
 
 #ifndef LIMES_VECOPS_USE_VDSP
 #	if (LIMES_VECOPS_USE_IPP || LIMES_VECOPS_USE_MIPP)
@@ -91,33 +130,53 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 #	endif
 #endif
 
+/// @endcond
+
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains vector operations functions.
+	@ingroup limes_vecops
+ */
 namespace vecops
 {
 
+/** @ingroup limes_vecops
+	@{
+ */
+
+/** @concept Scalar
+	Any scalar type.
+ */
 template <typename T>
 concept Scalar = std::is_scalar_v<T>;
 
+/** @concept Integral
+	Any integral type.
+ */
 template <typename T>
 concept Integral = std::is_integral_v<T>;
 
 #pragma mark Basic functions
 
+/** Fills the vector with the specified value. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void fill (DataType* const data, SizeType size, DataType constantToFill);
 
+/** Fills the vector with zeroes. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void clear (DataType* const data, SizeType size);
 
+/** Copies from one vector to another. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void copy (DataType* const dest, const DataType* const source, SizeType size);
 
+/** Swaps the elements of two vectors. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void swap (DataType* const vecA, DataType* const vecB, SizeType size);
 
+/** @} */
 
 template <Scalar DataType1, Scalar DataType2>
 static void convert (DataType1* const dest, const DataType2* const source, int size)
@@ -136,207 +195,432 @@ static void convert (DataType1* const dest, const DataType2* const source, SizeT
 
 #pragma mark Arithmetic functions
 
+/** @defgroup vec_arithmetic Arithmetic functions
+	Basic arithmetic operations on vectors.
+	@ingroup limes_vecops
+ */
+
 /*-----  ADDITION  -----*/
 
+/** @defgroup vec_addition Addition
+	Vector addition
+	@ingroup vec_arithmetic
+ */
+
+/** @ingroup vec_addition
+	@{
+ */
+
+/** Adds a constant to every element of the vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void add (DataType* const data, SizeType size, DataType constantToAdd);
 
+/** Element-wise addition of two vectors. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void add (DataType* const dataAndDest, SizeType size, const DataType* const dataToAdd);
 
+/** Adds a constant to every element of a vector, writing the output to another vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void addAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToAdd);
 
+/** Element-wise addition of two vectors, writing the output to a third vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void addAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToAdd);
 
+/** @} */
 
 /*-----  SUBTRACTION  -----*/
 
+/** @defgroup vec_subtraction Subtraction
+	Vector subtraction
+	@ingroup vec_arithmetic
+ */
+
+/** @ingroup vec_subtraction
+	@{
+ */
+
+/** Subtracts a constant from every element of the vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void subtract (DataType* const data, SizeType size, DataType constantToSubtract);
 
+/** Element-wise subtraction of two vectors. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void subtract (DataType* const dataAndDest, SizeType size, const DataType* const dataToSubtract);
 
+/** Subtracts a constant from every element of a vector, writing the output to another vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void subtractAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtract);
 
+/** Element-wise subtraction of two vectors, writing the output to a third vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void subtractAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToSubtract);
 
+/** Subtracts every element of a vector from a constant.
+	The operation is:
+	@code
+	for (auto i = 0; i < size; ++i)
+		data[i] = constantToSubtractFrom - data[i];
+	@endcode
+	@see subtractInvAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void subtractInv (DataType* const data, SizeType size, DataType constantToSubtractFrom);
 
+/** Subtracts every element of a vector from a constant, writing the output to another vector.
+	The operation is:
+	@code
+	for (auto i = 0; i < size; ++i)
+		dest[i] = constantToSubtractFrom - origData[i];
+	@endcode
+	@see subtractInv
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void subtractInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtractFrom);
 
+/** @} */
 
 /*-----  MULTIPLICATION  -----*/
 
+/** @defgroup vec_multiplication Multiplication
+	Vector multiplication
+	@ingroup vec_arithmetic
+ */
+
+/** @ingroup vec_multiplication
+	@{
+ */
+
+/** Multiplies every element of a vector by a constant. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void multiply (DataType* const data, SizeType size, DataType constantToMultiply);
 
+/** Element-wise multiplication of two vectors. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void multiply (DataType* const dataAndDest, SizeType size, const DataType* const dataToMultiply);
 
+/** Multiplies every element of a vector by a constant, writing the output to another vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void multiplyAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToMultiply);
 
+/** Element-wise multiplication of two vectors, writing the output to a third vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void multiplyAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToMultiply);
 
+/** Computes the dot product of two vectors.
+	The operation is:
+	@code
+	DataType dotProd { 0 };
+
+	for (auto i = 0; i < size; ++i)
+		dotProd += (vecA[i] * vecB[i]);
+
+	return dotProd;
+	@endcode
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size);
 
+/** @} */
+
 /*-----  DIVISION  -----*/
 
+/** @defgroup vec_division Division
+	Vector division
+	@ingroup vec_arithmetic
+ */
+
+/** @ingroup vec_division
+	@{
+ */
+
+/** Divides every element of a vector by a constant. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void divide (DataType* const data, SizeType size, DataType constantToDivide);
 
+/** Element-wise division of two vectors. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void divide (DataType* const dataAndDest, SizeType size, const DataType* const dataToDivide);
 
+/** Divides every element of a vector by a constant, writing the output to another vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void divideAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivide);
 
+/** Element-wise division of two vectors, writing the output to a third vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void divideAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToDivide);
 
+/** Divides a constant by every element of a vector.
+	The operation is:
+	@code
+	for (auto i = 0; i < size; ++i)
+		data[i] = constantToDivideFrom / data[i];
+	@endcode
+	@see divideInvAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void divideInv (DataType* const data, SizeType size, DataType constantToDivideFrom);
 
+/** Divides a constant by every element of a vector, writing the output to another vector.
+	The operation is:
+	@code
+	for (auto i = 0; i < size; ++i)
+		dest[i] = constantToDivideFrom / origData[i];
+	@endcode
+	@see divideInv
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void divideInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivideFrom);
 
+/** @} */
+
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Squaring functions
 
+/** @defgroup vec_squaring Squaring functions
+	Squaring and square root functions on vectors.
+	@ingroup limes_vecops
+ */
+
+/** @ingroup vec_squaring
+	@{
+ */
+
+/** Squares every element of a vector.
+	@see squareAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void square (DataType* const dataAndDest, SizeType size);
 
+/** Squares every element of a vector, writing the output to another vector.
+	@see square
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void squareAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
+/** Replaces every element in the vector with its square root.
+	@see squareRootAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void squareRoot (DataType* const dataAndDest, SizeType size);
 
+/** Writes the square root of every element in the original vector to the output vector.
+	@see squareRoot
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
+/** Replaces every element in the vector with its inverse square root.
+	@see invSquareRootAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void invSquareRoot (DataType* const dataAndDest, SizeType size);
 
+/** Writes the inverse square root of every element in the original vector to the output vector.
+	@see invSquareRoot
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
+/** @} */
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Sorting and ordering functions
 
+/** @defgroup vec_sorting Sorting functions
+	Sorting and ordering functions on vectors.
+	@ingroup limes_vecops
+ */
+
+/** @ingroup vec_sorting
+	@{
+ */
+
+/** Reverses a vector in-place.
+	@see reverseAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void reverse (DataType* const dataAndDest, SizeType size);
 
+/** Writes a reversed version of the original vector to the output vector.
+	@see reverse
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
+/** Sorts a vector in-place.
+	@see sortAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void sort (DataType* const dataAndDest, SizeType size);
 
+/** Writes a sorted version of the original vector to the output vector.
+	@see sort
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
+/** Sorts a vector in reverse order in-place.
+	@see sortReverseAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void sortReverse (DataType* const dataAndDest, SizeType size);
 
+/** Writes a reverse sorted version of the original vector to the output vector.
+	@see sortReverse
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
+/** Interleaves multichannel data into a single output vector.
+	The size of the output vector must be at least \c numChannels*numSamples .
+	The operation is:
+	@code
+	int idx = 0;
+
+	for (auto i = 0; i < numSamples; ++i)
+		for (auto j = 0; j < numChannels; ++j)
+			output[idx++] = origData[j][i];
+	@endcode
+	@see deinterleave
+ */
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
 LIMES_EXPORT void interleave (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples);
 
+/** Deinterleaves single channel data into multiple output vectors.
+	The operation is:
+	@code
+	int idx = 0;
+
+	for (auto i = 0; i < numSamples; ++i)
+		for (auto j = 0; j < numChannels; ++j)
+			output[j][i] = interleavedData[idx++];
+	@endcode
+	@see interleave
+ */
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
 LIMES_EXPORT void deinterleave (DataType* const * const output, const DataType* const interleavedData, SizeType1 numChannels, SizeType2 numSamples);
 
+/** @} */
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Statistical functions
 
+/** @defgroup vec_stats Statistical functions
+	Statistical functions on vectors.
+	@ingroup limes_vecops
+ */
+
+/** @ingroup vec_stats
+	@{
+ */
+
+/** Replaces each element of the vector with its absolute value.
+	@see absAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void abs (DataType* const dataAndDest, SizeType size);
 
+/** Writes the absolute value of each element of the original vector to the output vector.
+	@see abs
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void absAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
-
+/** Flips the sign of every element of the vector.
+	@see negateAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void negate (DataType* const dataAndDest, SizeType size);
 
+/** Writes the negation of every element of the original vector to the output vector.
+	@see negate
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
-
+/** Clips every element of a vector in-place.
+	Any samples that are less than \c lowClip are replaced with \c lowClip , and any samples that are greater than \c hiClip are replaced with \c hiClip .
+	@see clipAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void clip (DataType* const dataAndDest, SizeType size, DataType lowClip = -1, DataType hiClip = 1);
 
+/** Writes a clipped version of the original vector to the output vector.
+	Any samples that are less than \c lowClip are replaced with \c lowClip , and any samples that are greater than \c hiClip are replaced with \c hiClip .
+	@see clip
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void clipAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip = -1, DataType hiClip = 1);
 
-
+/** Returns the maximum element in a vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType max (const DataType* const data, SizeType size);
 
+/** Finds the maximum element in a vector and its index in the vector. */
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 LIMES_EXPORT void max (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex);
 
+/** Returns the maximum absolute value in a vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType maxAbs (const DataType* const data, SizeType size);
 
+/** Finds the maximum absolute value in a vector and its index in the vector. */
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 LIMES_EXPORT void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex);
 
-
+/** Returns the minimum element in a vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType min (const DataType* const data, SizeType size);
 
+/** Finds the minimum element in a vector and its index in the vector. */
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 LIMES_EXPORT void min (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex);
 
+/** Returns the minimum absolute value in a vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType minAbs (const DataType* const data, SizeType size);
 
+/** Finds the minimum absolute value in a vector and its index in the vector. */
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 LIMES_EXPORT void minAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex);
 
-
+/** Finds both the minimum and maximum values in a vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void minMax (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue);
 
+/** Finds the minimum and maximum values in a vector, and their indices in the vector. */
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 LIMES_EXPORT void minMax (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex);
 
+/** Finds both the minimum and maximum absolute values in a vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue);
 
+/** Finds the minimum and maximum absolute values in a vector, and their indices in the vector. */
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 LIMES_EXPORT void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex);
 
-
+/** Returns the difference between the maximum and minimum values in the vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType range (const DataType* const data, SizeType size);
 
+/** Returns the difference between the maximum and minimum absolute values in the vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType rangeAbs (const DataType* const data, SizeType size);
 
-
+/** Returns the sum of all the values in the vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType sum (const DataType* const data, SizeType size);
 
+/** Returns the mean of the values in the vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType mean (const DataType* const data, SizeType size);
 
+/** @} */
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -525,6 +809,8 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingPommierExte
 
 LIMES_END_NAMESPACE
 
+/// @cond
+
 #include "impl/fallback_impl.h"
 
 // IWYU pragma: begin_exports
@@ -540,3 +826,5 @@ LIMES_END_NAMESPACE
 // IWYU pragma: end_exports
 
 #include "fft/limes_fft.h"
+
+/// @endcond

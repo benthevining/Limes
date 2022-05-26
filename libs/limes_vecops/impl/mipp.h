@@ -14,6 +14,13 @@
 
 #include <limes_core.h>
 
+/** @file
+	This file contains implementations of the vecops functions for the MIPP library.
+	@ingroup limes_vecops
+ */
+
+/// @cond
+
 LIMES_DISABLE_ALL_COMPILER_WARNINGS
 
 #include <mipp.h>
@@ -565,6 +572,7 @@ void divideInvAndCopy (DataType* const dest, const DataType* const origData, Siz
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Squaring functions
 
 template <Scalar DataType, Integral SizeType>
 void square (DataType* const dataAndDest, SizeType size)
@@ -1488,3 +1496,5 @@ void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* cons
 }  // namespace vecops
 
 LIMES_END_NAMESPACE
+
+/// @endcond

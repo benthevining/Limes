@@ -10,6 +10,13 @@
  * ======================================================================================
  */
 
+/** @file
+	This file contains the Pommier SIMD extension functions for SSE.
+	@ingroup limes_vecops
+ */
+
+/// @cond internals
+
 /* SIMD (SSE1+MMX or SSE2) implementation of sin, cos, exp and log
 
 	Inspired by Intel Approximate Math library, and based on the
@@ -173,3 +180,5 @@ v4sf cos_ps (v4sf x);
 void sincos_ps (v4sf x, v4sf* s, v4sf* c);
 
 }  // namespace pommier
+
+/// @endcond

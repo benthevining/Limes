@@ -27,6 +27,15 @@
 #	include "pommier/pommier_wrapper.h"
 #endif
 
+/** @file
+	This file contains the fallback implementations of the vecops functions.
+	This file contains a raw C++ implementation of every function defined in limes_vecops.h.
+	This file is included by every other implementation header file, and any functions not provided by the SIMD libraries will fall back to the functions in this file.
+	@ingroup limes_vecops
+ */
+
+/// @cond internals
+
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops::fb
@@ -246,6 +255,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void divideInvAndCopy (DataType* const dest, 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Squaring functions
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void square (DataType* const dataAndDest, SizeType size)
@@ -943,3 +953,5 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianInterleavedToMagnitudes (DataTy
 }  // namespace vecops::fb
 
 LIMES_END_NAMESPACE
+
+/// @endcond

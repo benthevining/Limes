@@ -10,6 +10,13 @@
  * ======================================================================================
  */
 
+/** @file
+	This file contains the Pommier SIMD extension functions for ARM NEON.
+	@ingroup limes_vecops
+ */
+
+/// @cond internals
+
 /* NEON implementation of sin, cos, exp and log
 
 	Inspired by Intel Approximate Math library, and based on the
@@ -88,3 +95,5 @@ LIMES_NO_EXPORT v4sf sin_ps (v4sf x);
 LIMES_NO_EXPORT v4sf cos_ps (v4sf x);
 
 }  // namespace pommier
+
+/// @endcond
