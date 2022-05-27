@@ -884,6 +884,7 @@ DataType mean (const DataType* const data, SizeType size)
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Audio utility functions
 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
 void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
@@ -917,10 +918,6 @@ int countZeroCrossings (const DataType* const data, SizeType size)
 	}
 }
 
-
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
-
 template <Scalar DataType, Integral SizeType>
 void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue)
 {
@@ -950,6 +947,8 @@ void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeTyp
 	generateRamp (dest, size, startValue, endValue);
 	multiply (dest, size, data);
 }
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Windowing functions
 

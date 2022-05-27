@@ -17,12 +17,17 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 
+/** @file
+	This file contains implementation details common to multiple FFT implementations.
+	@ingroup fft
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
 {
 
-/// @cond
+/// @cond internals
 
 template <Scalar SampleType>
 LIMES_NO_EXPORT constexpr SampleType shiftAmount = SampleType (0.000001);

@@ -675,6 +675,7 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType mean (const DataType* 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Audio utility functions
 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
@@ -728,9 +729,6 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE int countZeroCrossings (const D
 	return numCrossings;
 }
 
-
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue)
 {
@@ -757,6 +755,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyRampAndCopy (DataType* const dest, 
 	for (auto i = SizeType (0); i < size; ++i)
 		dest[i] = data[i] * (startValue + (increment * static_cast<DataType> (i)));
 }
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Windowing functions
 

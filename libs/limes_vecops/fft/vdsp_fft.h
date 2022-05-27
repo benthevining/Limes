@@ -18,6 +18,11 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 
+/** @file
+	This file defines the vDSP FFT implementation.
+	@ingroup fft
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops

@@ -16,6 +16,11 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 
+/** @file
+	This file defines the IPP FFT implementation.
+	@ingroup fft
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops

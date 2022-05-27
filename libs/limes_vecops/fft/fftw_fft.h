@@ -16,6 +16,11 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 
+/** @file
+	This file defines the FFTW FFT implementation.
+	@ingroup fft
+ */
+
 /// @cond
 
 #ifndef FFTW_HEADER_NAME

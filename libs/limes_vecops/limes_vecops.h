@@ -624,62 +624,123 @@ LIMES_EXPORT [[nodiscard]] DataType mean (const DataType* const data, SizeType s
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Audio utility functions
 
+/** @defgroup vec_audio Audio utility functions
+	Audio utility functions for vectors.
+	@ingroup limes_vecops
+ */
+
+/** @ingroup vec_audio
+	@{
+ */
+
+/** Mixes together multiple channels of audio into one output vector. */
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
 LIMES_EXPORT void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples);
 
-
+/** Calculates the RMS value of the vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType rms (const DataType* const data, SizeType size);
 
-
+/** Counts the number of zero crossings present in the vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] int countZeroCrossings (const DataType* const data, SizeType size);
 
-
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
-
+/** Generates a ramp of samples, starting from \c startValue and incrementing by a consistent value until \c endValue is reached.
+	@see applyRamp, applyRampAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue);
 
+/** Applies a gain ramp to the samples in the vector.
+	@see generateRamp, applyRampAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue);
 
+/** Applies a gain ramp to the samples in the vector, writing the output samples to another vector.
+	@see applyRamp, generateRamp
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue);
 
+/** @} */
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
 #pragma mark Windowing functions
 
+/** @defgroup vec_window Windowing functions
+	Windowing functions for vectors.
+	@ingroup limes_vecops
+ */
+
+/** This namespace contains windowing functions.
+	@ingroup vec_window
+ */
 namespace window
 {
 
+/** @ingroup vec_window
+	@{
+ */
+
+/** Generates a Blackman window, writing the output samples to a vector.
+	@see applyBlackman, applyBlackmanAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void generateBlackman (DataType* const output, SizeType size);
 
+/** Applies a Blackman window to the samples in the vector.
+	@see generateBlackman, applyBlackmanAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void applyBlackman (DataType* const dataAndDest, SizeType size);
 
+/** Applies a Blackman window to the samples in the vector, writing the output samples to another vector.
+	@see applyBlackman, generateBlackman
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
+/** Generates a Hamm (Hamming) window, writing the output samples to a vector.
+	@see applyHamm, applyHammAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void generateHamm (DataType* const output, SizeType size);
 
+/** Applies a Hamm (Hamming) window to the samples in the vector.
+	@see generateHamm, applyHammAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void applyHamm (DataType* const dataAndDest, SizeType size);
 
+/** Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another vector.
+	@see applyHamm, generateHamm
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
+/** Generates a Hanning window, writing the output samples to a vector.
+	@see applyHanning, applyHanningAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void generateHanning (DataType* const output, SizeType size);
 
+/** Applies a Hanning window to the samples in the vector.
+	@see generateHanning, applyHanningAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void applyHanning (DataType* const dataAndDest, SizeType size);
 
+/** Applies a Hanning window to the samples in the vector, writing the output samples to another vector.
+	@see applyHanning, generateHanning
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+/** @} */
 
 }  // namespace window
 
@@ -688,38 +749,119 @@ LIMES_EXPORT void applyHanningAndCopy (DataType* const dest, const DataType* con
 
 #pragma mark Complex conversions
 
-/* Only intended for float or double samples */
+/** @defgroup vec_complex Windowing functions
+	Windowing functions for vectors.
+	@ingroup limes_vecops
+ */
+
+/** @ingroup vec_complex
+	@{
+ */
+
+/** Converts polar data to cartesian data.
+	Note that this function is only intended for use with float or double samples.
+	@param real Real signal out
+	@param imag Imaginary signal out
+	@param mag Magnitude in
+	@param phase Phase in
+	@param size Data size
+	@see polarToCartesianInterleaved
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void polarToCartesian (DataType* const real, DataType* const imag, const DataType* const mag, const DataType* const phase, SizeType size);
 
+/** Converts polar data to interleaved cartesian data.
+	Note that this function is only intended for use with float or double samples.
+	@param dest Interleaved cartesian signal out. The size of this vector should be \c 2*size .
+	@param mag Magnitude in
+	@param phase Phase in
+	@size Data size
+	@see polarToCartesian
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void polarToCartesianInterleaved (DataType* const dest, const DataType* const mag, const DataType* const phase, SizeType size);
 
+/** Converts cartesian data to polar data.
+	Note that this function is only intended for use with float or double samples.
+	@param mag Magnitude out
+	@param phase Phase out
+	@param real Real signal in
+	@param imag Imaginary signal in
+	@param size Data size
+	@see catesianInterleavedToPolar
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void cartesianToPolar (DataType* const mag, DataType* const phase, const DataType* const real, const DataType* const imag, SizeType size);
 
+/** Converts interleaved cartesian data to polar data.
+	Note that this function is only intended for use with float or double samples.
+	@param mag Magnitude out
+	@param phase Phase out
+	@param src Interleaved cartesian signal in. The size of this vector should be \c 2*size .
+	@param size Data size
+	@see cartesianToPolar
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void catesianInterleavedToPolar (DataType* const mag, DataType* const phase, const DataType* const src, SizeType size);
 
+/** Converts cartesian data to polar magnitudes.
+	Note that this function is only intended for use with float or double samples.
+	@param mag Magnitude out
+	@param real Real signal in
+	@param imag Imaginary signal in
+	@param size Data size
+	@see cartesianInterleavedToMagnitudes
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void cartesianToMagnitudes (DataType* const mag, const DataType* const real, const DataType* const imag, SizeType size);
 
+/** Converts interleaved cartesian data to polar magnitudes.
+	Note that this function is only intended for use with float or double samples.
+	@param mag Magnitude out
+	@param src Interleaved cartesian signal in. The size of this vector should be \c 2*size .
+	@param size Data size
+	@see cartesianToMagnitudes
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* const src, SizeType size);
+
+/** @} */
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Floating point mode functions
 
+/** @defgroup vec_fpm Floating point mode functions
+	Floating point mode functions.
+	@ingroup limes_vecops
+ */
+
+/** @ingroup vec_fpm
+	@{
+ */
+
+/** Controls whether denormalized numbers are enabled or disabled.
+	@see areDenormalsDisabled
+ */
 LIMES_EXPORT void disableDenormalisedNumberSupport (bool shouldDisable = true) noexcept;
 
+/** Returns true if denormalized numbers are currently enabled.
+	@see disableDenormalisedNumberSupport
+ */
 LIMES_EXPORT [[nodiscard]] bool areDenormalsDisabled() noexcept;
 
+/** Controls whether flush to zero mode is enabled or disabled.
+	@see isFlushToZeroEnabled
+ */
 LIMES_EXPORT void enableFlushToZeroMode (bool shouldEnable = true) noexcept;
 
+/** Returns true if flush to zero mode is enabled.
+	@see enableFlushToZeroMode
+ */
 LIMES_EXPORT [[nodiscard]] bool isFlushToZeroEnabled() noexcept;
 
-
+/** An RAII class that disables denormalized numbers when it is constructed, and resets the denormalized number state when it is destructed.
+ */
 class LIMES_EXPORT ScopedNoDenormals final
 {
 public:
@@ -732,7 +874,8 @@ private:
 	const intptr_t fpsr;
 };
 
-
+/** An RAII class that enables flush to zero mode when it is constructed, and resets the flush to zero state when it is destructed.
+ */
 class LIMES_EXPORT ScopedFlushToZero final
 {
 public:
@@ -745,10 +888,22 @@ private:
 	const intptr_t fpsr;
 };
 
+/** @} */
+
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Implementation kind checking
 
+/** @defgroup vec_impl Implementation kind checking
+	Implementation kind checking functions.
+	@ingroup limes_vecops
+ */
+
+/** @ingroup vec_impl
+	@{
+ */
+
+/** Returns true if the implementation being used is Apple vDSP. */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingVDSP() noexcept
 {
 #if LIMES_VECOPS_USE_VDSP
@@ -758,6 +913,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingVDSP() noex
 #endif
 }
 
+/** Returns true if the implementation being used is Intel IPP. */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingIPP() noexcept
 {
 #if LIMES_VECOPS_USE_IPP
@@ -767,6 +923,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingIPP() noexc
 #endif
 }
 
+/** Returns true if the implementation being used is MIPP. */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingMIPP() noexcept
 {
 #if LIMES_VECOPS_USE_MIPP
@@ -776,6 +933,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingMIPP() noex
 #endif
 }
 
+/** Returns true if the fallback implementation is being used. */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingFallback() noexcept
 {
 	return ! (isUsingVDSP() || isUsingIPP() || isUsingMIPP());	// cppcheck-suppress knownConditionTrueFalse
@@ -783,7 +941,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingFallback() 
 
 static_assert (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingFallback());
 
-
+/** Returns a string literal with the name of the implementation being used. */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION static consteval const char* getImplementationName() noexcept
 {
 	if constexpr (isUsingVDSP())
@@ -796,6 +954,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION static consteval const char* getI
 		return "Fallback";
 }
 
+/** Returns true if the Pommier SIMD extension functions are being used. */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingPommierExtensions() noexcept
 {
 #if LIMES_VECOPS_USE_POMMIER
@@ -804,6 +963,8 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingPommierExte
 	return false;
 #endif
 }
+
+/** @} */
 
 }  // namespace vecops
 
