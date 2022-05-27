@@ -86,10 +86,9 @@ $(document).ready(function(){initNavTree('d4/d39/limes__fft_8h.html','../../'); 
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">limes_fft.h File Reference</div>  </div>
+<div class="title">limes_fft.h File Reference<div class="ingroups"><a class="el" href="../../dc/dd4/group__limes__vecops.html">limes_vecops</a> &raquo; <a class="el" href="../../dc/db6/group__fft.html">FFT</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;memory&gt;</code><br />
@@ -113,8 +112,7 @@ $(document).ready(function(){initNavTree('d4/d39/limes__fft_8h.html','../../'); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html">vecops::FFT&lt; SampleType &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de6/classvecops_1_1_f_f_t_impl.html">vecops::FFTImpl&lt; SampleType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class that performs an <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>.  <a href="../../dc/d1a/classvecops_1_1_f_f_t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -123,60 +121,89 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:d9/d1a/namespacevecops"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains vector operations functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d6/dba/namespacevecops_1_1fft"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dba/namespacevecops_1_1fft.html">vecops::fft</a></td></tr>
+<tr class="memdesc:d6/dba/namespacevecops_1_1fft"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains Fourier transform utilities. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:da/d30/namespacevecops_1_1fftw"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d30/namespacevecops_1_1fftw.html">vecops::fftw</a></td></tr>
+<tr class="memdesc:da/d30/namespacevecops_1_1fftw"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains functions for controlling FFTW wisdom. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a25d4ef2f45323ffac2004347580d93a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d39/limes__fft_8h.html#a25d4ef2f45323ffac2004347580d93a3">LIMES_VECOPS_USE_FFTW</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a25d4ef2f45323ffac2004347580d93a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga25d4ef2f45323ffac2004347580d93a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga25d4ef2f45323ffac2004347580d93a3">LIMES_VECOPS_USE_FFTW</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ga25d4ef2f45323ffac2004347580d93a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab90597bb127479bf13f5bef248f45364"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d30/namespacevecops_1_1fftw.html#ab90597bb127479bf13f5bef248f45364">vecops::fftw::enableWisdom</a> (bool shouldUseWisdom)</td></tr>
-<tr class="separator:ab90597bb127479bf13f5bef248f45364"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17cea7c21dc36ac136f4d29740f44915"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> const consteval char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dba/namespacevecops_1_1fft.html#a17cea7c21dc36ac136f4d29740f44915">vecops::fft::getImplementationName</a> () noexcept</td></tr>
-<tr class="separator:a17cea7c21dc36ac136f4d29740f44915"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d9d6e8f66a7bdc8f78dc15dd589001a"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT <a class="el" href="../../d5/d2a/classfiles_1_1_directory.html">files::Directory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d30/namespacevecops_1_1fftw.html#a6d9d6e8f66a7bdc8f78dc15dd589001a">vecops::fftw::getWisdomFileDir</a> ()</td></tr>
-<tr class="separator:a6d9d6e8f66a7bdc8f78dc15dd589001a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a238d72437257830eeafcd7b56e527711"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dba/namespacevecops_1_1fft.html#a238d72437257830eeafcd7b56e527711">vecops::fft::isUsingFallback</a> () noexcept</td></tr>
-<tr class="separator:a238d72437257830eeafcd7b56e527711"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc139fd4c1c00c51c71537b1e58ca558"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dba/namespacevecops_1_1fft.html#abc139fd4c1c00c51c71537b1e58ca558">vecops::fft::isUsingFFTW</a> () noexcept</td></tr>
-<tr class="separator:abc139fd4c1c00c51c71537b1e58ca558"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17c517cc47213674d63e231f21ea4e84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dba/namespacevecops_1_1fft.html#a17c517cc47213674d63e231f21ea4e84">vecops::fft::isUsingIPP</a> () noexcept</td></tr>
-<tr class="separator:a17c517cc47213674d63e231f21ea4e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a048a1b789b50c9a8e50c59295b20fcbb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dba/namespacevecops_1_1fft.html#a048a1b789b50c9a8e50c59295b20fcbb">vecops::fft::isUsingVDSP</a> () noexcept</td></tr>
-<tr class="separator:a048a1b789b50c9a8e50c59295b20fcbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37c9ecf1af20cdb4a4136daf487222ad"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d30/namespacevecops_1_1fftw.html#a37c9ecf1af20cdb4a4136daf487222ad">vecops::fftw::isUsingWisdom</a> ()</td></tr>
-<tr class="separator:a37c9ecf1af20cdb4a4136daf487222ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19ed4b21c8b71c04ea11c3c1e352d3f9"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d30/namespacevecops_1_1fftw.html#a19ed4b21c8b71c04ea11c3c1e352d3f9">vecops::fftw::setWisdomFileDir</a> (const <a class="el" href="../../d5/d2a/classfiles_1_1_directory.html">files::Directory</a> &amp;directory)</td></tr>
-<tr class="separator:a19ed4b21c8b71c04ea11c3c1e352d3f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga17cea7c21dc36ac136f4d29740f44915"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> const consteval char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga17cea7c21dc36ac136f4d29740f44915">vecops::fft::getImplementationName</a> () noexcept</td></tr>
+<tr class="memdesc:ga17cea7c21dc36ac136f4d29740f44915"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string literal with the name of the <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> implementation being used.  <a href="../../dc/db6/group__fft.html#ga17cea7c21dc36ac136f4d29740f44915">More...</a><br /></td></tr>
+<tr class="separator:ga17cea7c21dc36ac136f4d29740f44915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga238d72437257830eeafcd7b56e527711"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga238d72437257830eeafcd7b56e527711">vecops::fft::isUsingFallback</a> () noexcept</td></tr>
+<tr class="memdesc:ga238d72437257830eeafcd7b56e527711"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the fallback <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> implementation is being used.  <a href="../../dc/db6/group__fft.html#ga238d72437257830eeafcd7b56e527711">More...</a><br /></td></tr>
+<tr class="separator:ga238d72437257830eeafcd7b56e527711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc139fd4c1c00c51c71537b1e58ca558"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#gabc139fd4c1c00c51c71537b1e58ca558">vecops::fft::isUsingFFTW</a> () noexcept</td></tr>
+<tr class="memdesc:gabc139fd4c1c00c51c71537b1e58ca558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the FFTW <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> implementation is being used.  <a href="../../dc/db6/group__fft.html#gabc139fd4c1c00c51c71537b1e58ca558">More...</a><br /></td></tr>
+<tr class="separator:gabc139fd4c1c00c51c71537b1e58ca558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga17c517cc47213674d63e231f21ea4e84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga17c517cc47213674d63e231f21ea4e84">vecops::fft::isUsingIPP</a> () noexcept</td></tr>
+<tr class="memdesc:ga17c517cc47213674d63e231f21ea4e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the Intel IPP <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> implementation is being used.  <a href="../../dc/db6/group__fft.html#ga17c517cc47213674d63e231f21ea4e84">More...</a><br /></td></tr>
+<tr class="separator:ga17c517cc47213674d63e231f21ea4e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga048a1b789b50c9a8e50c59295b20fcbb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga048a1b789b50c9a8e50c59295b20fcbb">vecops::fft::isUsingVDSP</a> () noexcept</td></tr>
+<tr class="memdesc:ga048a1b789b50c9a8e50c59295b20fcbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the Apple vDSP <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> implementation is being used.  <a href="../../dc/db6/group__fft.html#ga048a1b789b50c9a8e50c59295b20fcbb">More...</a><br /></td></tr>
+<tr class="separator:ga048a1b789b50c9a8e50c59295b20fcbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:gab90597bb127479bf13f5bef248f45364"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#gab90597bb127479bf13f5bef248f45364">vecops::fftw::enableWisdom</a> (bool shouldUseWisdom)</td></tr>
+<tr class="memdesc:gab90597bb127479bf13f5bef248f45364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables loading and saving of FFTW wisdom files.  <a href="../../dc/db6/group__fft.html#gab90597bb127479bf13f5bef248f45364">More...</a><br /></td></tr>
+<tr class="separator:gab90597bb127479bf13f5bef248f45364"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d9d6e8f66a7bdc8f78dc15dd589001a"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT <a class="el" href="../../d5/d2a/classfiles_1_1_directory.html">files::Directory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga6d9d6e8f66a7bdc8f78dc15dd589001a">vecops::fftw::getWisdomFileDir</a> ()</td></tr>
+<tr class="memdesc:ga6d9d6e8f66a7bdc8f78dc15dd589001a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the directory being used to save and load FFTW wisdom files.  <a href="../../dc/db6/group__fft.html#ga6d9d6e8f66a7bdc8f78dc15dd589001a">More...</a><br /></td></tr>
+<tr class="separator:ga6d9d6e8f66a7bdc8f78dc15dd589001a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga37c9ecf1af20cdb4a4136daf487222ad"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga37c9ecf1af20cdb4a4136daf487222ad">vecops::fftw::isUsingWisdom</a> ()</td></tr>
+<tr class="memdesc:ga37c9ecf1af20cdb4a4136daf487222ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if loading and saving of FFTW wisdom files is enabled.  <a href="../../dc/db6/group__fft.html#ga37c9ecf1af20cdb4a4136daf487222ad">More...</a><br /></td></tr>
+<tr class="separator:ga37c9ecf1af20cdb4a4136daf487222ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19ed4b21c8b71c04ea11c3c1e352d3f9"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga19ed4b21c8b71c04ea11c3c1e352d3f9">vecops::fftw::setWisdomFileDir</a> (const <a class="el" href="../../d5/d2a/classfiles_1_1_directory.html">files::Directory</a> &amp;directory)</td></tr>
+<tr class="memdesc:ga19ed4b21c8b71c04ea11c3c1e352d3f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the directory that FFTW wisdom files will be read from and saved to.  <a href="../../dc/db6/group__fft.html#ga19ed4b21c8b71c04ea11c3c1e352d3f9">More...</a><br /></td></tr>
+<tr class="separator:ga19ed4b21c8b71c04ea11c3c1e352d3f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:gabc139fd4c1c00c51c71537b1e58ca558"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#gabc139fd4c1c00c51c71537b1e58ca558">vecops::fft::isUsingFFTW</a> () noexcept</td></tr>
+<tr class="memdesc:gabc139fd4c1c00c51c71537b1e58ca558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the FFTW <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> implementation is being used.  <a href="../../dc/db6/group__fft.html#gabc139fd4c1c00c51c71537b1e58ca558">More...</a><br /></td></tr>
+<tr class="separator:gabc139fd4c1c00c51c71537b1e58ca558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga048a1b789b50c9a8e50c59295b20fcbb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga048a1b789b50c9a8e50c59295b20fcbb">vecops::fft::isUsingVDSP</a> () noexcept</td></tr>
+<tr class="memdesc:ga048a1b789b50c9a8e50c59295b20fcbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the Apple vDSP <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> implementation is being used.  <a href="../../dc/db6/group__fft.html#ga048a1b789b50c9a8e50c59295b20fcbb">More...</a><br /></td></tr>
+<tr class="separator:ga048a1b789b50c9a8e50c59295b20fcbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga17c517cc47213674d63e231f21ea4e84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga17c517cc47213674d63e231f21ea4e84">vecops::fft::isUsingIPP</a> () noexcept</td></tr>
+<tr class="memdesc:ga17c517cc47213674d63e231f21ea4e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the Intel IPP <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> implementation is being used.  <a href="../../dc/db6/group__fft.html#ga17c517cc47213674d63e231f21ea4e84">More...</a><br /></td></tr>
+<tr class="separator:ga17c517cc47213674d63e231f21ea4e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga238d72437257830eeafcd7b56e527711"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> consteval bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga238d72437257830eeafcd7b56e527711">vecops::fft::isUsingFallback</a> () noexcept</td></tr>
+<tr class="memdesc:ga238d72437257830eeafcd7b56e527711"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the fallback <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> implementation is being used.  <a href="../../dc/db6/group__fft.html#ga238d72437257830eeafcd7b56e527711">More...</a><br /></td></tr>
+<tr class="separator:ga238d72437257830eeafcd7b56e527711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga17cea7c21dc36ac136f4d29740f44915"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> const consteval char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga17cea7c21dc36ac136f4d29740f44915">vecops::fft::getImplementationName</a> () noexcept</td></tr>
+<tr class="memdesc:ga17cea7c21dc36ac136f4d29740f44915"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string literal with the name of the <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> implementation being used.  <a href="../../dc/db6/group__fft.html#ga17cea7c21dc36ac136f4d29740f44915">More...</a><br /></td></tr>
+<tr class="separator:ga17cea7c21dc36ac136f4d29740f44915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ga19ed4b21c8b71c04ea11c3c1e352d3f9"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga19ed4b21c8b71c04ea11c3c1e352d3f9">vecops::fftw::setWisdomFileDir</a> (const <a class="el" href="../../d5/d2a/classfiles_1_1_directory.html">files::Directory</a> &amp;directory)</td></tr>
+<tr class="memdesc:ga19ed4b21c8b71c04ea11c3c1e352d3f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the directory that FFTW wisdom files will be read from and saved to.  <a href="../../dc/db6/group__fft.html#ga19ed4b21c8b71c04ea11c3c1e352d3f9">More...</a><br /></td></tr>
+<tr class="separator:ga19ed4b21c8b71c04ea11c3c1e352d3f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d9d6e8f66a7bdc8f78dc15dd589001a"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT <a class="el" href="../../d5/d2a/classfiles_1_1_directory.html">files::Directory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga6d9d6e8f66a7bdc8f78dc15dd589001a">vecops::fftw::getWisdomFileDir</a> ()</td></tr>
+<tr class="memdesc:ga6d9d6e8f66a7bdc8f78dc15dd589001a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the directory being used to save and load FFTW wisdom files.  <a href="../../dc/db6/group__fft.html#ga6d9d6e8f66a7bdc8f78dc15dd589001a">More...</a><br /></td></tr>
+<tr class="separator:ga6d9d6e8f66a7bdc8f78dc15dd589001a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab90597bb127479bf13f5bef248f45364"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#gab90597bb127479bf13f5bef248f45364">vecops::fftw::enableWisdom</a> (bool shouldUseWisdom)</td></tr>
+<tr class="memdesc:gab90597bb127479bf13f5bef248f45364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables loading and saving of FFTW wisdom files.  <a href="../../dc/db6/group__fft.html#gab90597bb127479bf13f5bef248f45364">More...</a><br /></td></tr>
+<tr class="separator:gab90597bb127479bf13f5bef248f45364"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga37c9ecf1af20cdb4a4136daf487222ad"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db6/group__fft.html#ga37c9ecf1af20cdb4a4136daf487222ad">vecops::fftw::isUsingWisdom</a> ()</td></tr>
+<tr class="memdesc:ga37c9ecf1af20cdb4a4136daf487222ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if loading and saving of FFTW wisdom files is enabled.  <a href="../../dc/db6/group__fft.html#ga37c9ecf1af20cdb4a4136daf487222ad">More...</a><br /></td></tr>
+<tr class="separator:ga37c9ecf1af20cdb4a4136daf487222ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a25d4ef2f45323ffac2004347580d93a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25d4ef2f45323ffac2004347580d93a3">&#9670;&nbsp;</a></span>LIMES_VECOPS_USE_FFTW</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file defines the interface for the Limes FFT. </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LIMES_VECOPS_USE_FFTW&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d39/limes__fft_8h_source.html#l00027">27</a> of file <a class="el" href="../../d4/d39/limes__fft_8h_source.html">limes_fft.h</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="../../d4/d39/limes__fft_8h_source.html">limes_fft.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_fd627f24d7bb4f56aee54e980d5bfd70.html">limes_vecops</a></li><li class="navelem"><a class="el" href="../../dir_ac9e7747da43d8e5dd5305cf45a38b52.html">fft</a></li><li class="navelem"><a class="el" href="../../d4/d39/limes__fft_8h.html">limes_fft.h</a></li>
-    <li class="footer">Generated on Thu May 26 2022 21:25:41 for Limes by
+    <li class="footer">Generated on Fri May 27 2022 18:50:55 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

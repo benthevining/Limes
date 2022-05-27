@@ -91,41 +91,61 @@ $(document).ready(function(){initNavTree('dc/d1a/classvecops_1_1_f_f_t.html','..
 </div><!--header-->
 <div class="contents">
 
+<p>A class that performs an <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>.  
+ <a href="../../dc/d1a/classvecops_1_1_f_f_t.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d4/d39/limes__fft_8h_source.html">limes_fft.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa8dc647c362d59dd216d4a3d602a54a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#aa8dc647c362d59dd216d4a3d602a54a3">FFT</a> (int size)</td></tr>
+<tr class="memdesc:aa8dc647c362d59dd216d4a3d602a54a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> engine with a specified <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> size.  <a href="../../dc/d1a/classvecops_1_1_f_f_t.html#aa8dc647c362d59dd216d4a3d602a54a3">More...</a><br /></td></tr>
 <tr class="separator:aa8dc647c362d59dd216d4a3d602a54a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add31b8738e186b6548653590c740c730"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#add31b8738e186b6548653590c740c730">forward</a> (const SampleType *realIn, SampleType *realOut, SampleType *imagOut)</td></tr>
-<tr class="separator:add31b8738e186b6548653590c740c730"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2b4d14dcd071a2f88d14ad2ce726092"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#ac2b4d14dcd071a2f88d14ad2ce726092">forwardInterleaved</a> (const SampleType *realIn, SampleType *complexOut)</td></tr>
-<tr class="separator:ac2b4d14dcd071a2f88d14ad2ce726092"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c03198def2ee0314ea9f3471967ffa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#a5c03198def2ee0314ea9f3471967ffa3">forwardMagnitude</a> (const SampleType *realIn, SampleType *magOut)</td></tr>
-<tr class="separator:a5c03198def2ee0314ea9f3471967ffa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f2f5f48aebee9984c22685c224fe074"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#a3f2f5f48aebee9984c22685c224fe074">forwardPolar</a> (const SampleType *realIn, SampleType *magOut, SampleType *phaseOut)</td></tr>
-<tr class="separator:a3f2f5f48aebee9984c22685c224fe074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1815db2848a2c5f923280a8aa208806"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#aa1815db2848a2c5f923280a8aa208806">getSize</a> () const noexcept</td></tr>
+<tr class="memdesc:aa1815db2848a2c5f923280a8aa208806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> size of this engine.  <a href="../../dc/d1a/classvecops_1_1_f_f_t.html#aa1815db2848a2c5f923280a8aa208806">More...</a><br /></td></tr>
 <tr class="separator:aa1815db2848a2c5f923280a8aa208806"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b4f7eb4e3ae243a2472d883aa58fa85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#a7b4f7eb4e3ae243a2472d883aa58fa85">inverse</a> (const SampleType *realIn, const SampleType *imagIn, SampleType *realOut)</td></tr>
-<tr class="separator:a7b4f7eb4e3ae243a2472d883aa58fa85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21105e81bfe44199567b4edb3e8eb444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#a21105e81bfe44199567b4edb3e8eb444">inverseCepstral</a> (const SampleType *magIn, SampleType *cepOut)</td></tr>
-<tr class="separator:a21105e81bfe44199567b4edb3e8eb444"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae86ca8fce404afa92b2aeff46f584404"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#ae86ca8fce404afa92b2aeff46f584404">inverseInterleaved</a> (const SampleType *complexIn, SampleType *realOut)</td></tr>
-<tr class="separator:ae86ca8fce404afa92b2aeff46f584404"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0f358f033c1494c602995b8403673e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#aa0f358f033c1494c602995b8403673e5">inversePolar</a> (const SampleType *magIn, const SampleType *phaseIn, SampleType *realOut)</td></tr>
-<tr class="separator:aa0f358f033c1494c602995b8403673e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa82e1188ef885323f29aba546ba621a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#aa82e1188ef885323f29aba546ba621a9">LIMES_DEFAULT_MOVABLE</a> (<a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html">FFT</a>)</td></tr>
 <tr class="separator:aa82e1188ef885323f29aba546ba621a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a821931a76eb03b009473eb2d4a4ad012"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#a821931a76eb03b009473eb2d4a4ad012">LIMES_NON_COPYABLE</a> (<a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html">FFT</a>)</td></tr>
 <tr class="separator:a821931a76eb03b009473eb2d4a4ad012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Forward</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Perform forward FFTs. </p>
+</div></td></tr>
+<tr class="memitem:add31b8738e186b6548653590c740c730"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#add31b8738e186b6548653590c740c730">forward</a> (const SampleType *realIn, SampleType *realOut, SampleType *imagOut)</td></tr>
+<tr class="memdesc:add31b8738e186b6548653590c740c730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a forward <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, outputting cartesian data.  <a href="../../dc/d1a/classvecops_1_1_f_f_t.html#add31b8738e186b6548653590c740c730">More...</a><br /></td></tr>
+<tr class="separator:add31b8738e186b6548653590c740c730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2b4d14dcd071a2f88d14ad2ce726092"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#ac2b4d14dcd071a2f88d14ad2ce726092">forwardInterleaved</a> (const SampleType *realIn, SampleType *complexOut)</td></tr>
+<tr class="memdesc:ac2b4d14dcd071a2f88d14ad2ce726092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a forward <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, outputting interleaved cartesian data.  <a href="../../dc/d1a/classvecops_1_1_f_f_t.html#ac2b4d14dcd071a2f88d14ad2ce726092">More...</a><br /></td></tr>
+<tr class="separator:ac2b4d14dcd071a2f88d14ad2ce726092"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f2f5f48aebee9984c22685c224fe074"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#a3f2f5f48aebee9984c22685c224fe074">forwardPolar</a> (const SampleType *realIn, SampleType *magOut, SampleType *phaseOut)</td></tr>
+<tr class="memdesc:a3f2f5f48aebee9984c22685c224fe074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a forward <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, outputting polar data.  <a href="../../dc/d1a/classvecops_1_1_f_f_t.html#a3f2f5f48aebee9984c22685c224fe074">More...</a><br /></td></tr>
+<tr class="separator:a3f2f5f48aebee9984c22685c224fe074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c03198def2ee0314ea9f3471967ffa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#a5c03198def2ee0314ea9f3471967ffa3">forwardMagnitude</a> (const SampleType *realIn, SampleType *magOut)</td></tr>
+<tr class="memdesc:a5c03198def2ee0314ea9f3471967ffa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a forward <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, outputting polar magnitudes.  <a href="../../dc/d1a/classvecops_1_1_f_f_t.html#a5c03198def2ee0314ea9f3471967ffa3">More...</a><br /></td></tr>
+<tr class="separator:a5c03198def2ee0314ea9f3471967ffa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Inverse</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Perform inverse FFTs. </p>
+</div></td></tr>
+<tr class="memitem:a7b4f7eb4e3ae243a2472d883aa58fa85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#a7b4f7eb4e3ae243a2472d883aa58fa85">inverse</a> (const SampleType *realIn, const SampleType *imagIn, SampleType *realOut)</td></tr>
+<tr class="memdesc:a7b4f7eb4e3ae243a2472d883aa58fa85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs an inverse <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>.  <a href="../../dc/d1a/classvecops_1_1_f_f_t.html#a7b4f7eb4e3ae243a2472d883aa58fa85">More...</a><br /></td></tr>
+<tr class="separator:a7b4f7eb4e3ae243a2472d883aa58fa85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae86ca8fce404afa92b2aeff46f584404"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#ae86ca8fce404afa92b2aeff46f584404">inverseInterleaved</a> (const SampleType *complexIn, SampleType *realOut)</td></tr>
+<tr class="memdesc:ae86ca8fce404afa92b2aeff46f584404"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs an inverse <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, operating on interleaved input data.  <a href="../../dc/d1a/classvecops_1_1_f_f_t.html#ae86ca8fce404afa92b2aeff46f584404">More...</a><br /></td></tr>
+<tr class="separator:ae86ca8fce404afa92b2aeff46f584404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0f358f033c1494c602995b8403673e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#aa0f358f033c1494c602995b8403673e5">inversePolar</a> (const SampleType *magIn, const SampleType *phaseIn, SampleType *realOut)</td></tr>
+<tr class="memdesc:aa0f358f033c1494c602995b8403673e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs an inverse <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, operating on polar input data.  <a href="../../dc/d1a/classvecops_1_1_f_f_t.html#aa0f358f033c1494c602995b8403673e5">More...</a><br /></td></tr>
+<tr class="separator:aa0f358f033c1494c602995b8403673e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21105e81bfe44199567b4edb3e8eb444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html#a21105e81bfe44199567b4edb3e8eb444">inverseCepstral</a> (const SampleType *magIn, SampleType *cepOut)</td></tr>
+<tr class="memdesc:a21105e81bfe44199567b4edb3e8eb444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs an inverse <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, outputting cepstral data.  <a href="../../dc/d1a/classvecops_1_1_f_f_t.html#a21105e81bfe44199567b4edb3e8eb444">More...</a><br /></td></tr>
+<tr class="separator:a21105e81bfe44199567b4edb3e8eb444"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;Scalar SampleType&gt;<br />
 class vecops::FFT&lt; SampleType &gt;</h3>
 
+<p>A class that performs an <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d39/limes__fft_8h_source.html#l00081">81</a> of file <a class="el" href="../../d4/d39/limes__fft_8h_source.html">limes_fft.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d39/limes__fft_8h_source.html#l00125">125</a> of file <a class="el" href="../../d4/d39/limes__fft_8h_source.html">limes_fft.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa8dc647c362d59dd216d4a3d602a54a3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8dc647c362d59dd216d4a3d602a54a3">&#9670;&nbsp;</a></span>FFT()</h2>
@@ -152,6 +172,8 @@ template&lt;Scalar SampleType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates an <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> engine with a specified <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> size. </p>
 
 </div>
 </div>
@@ -190,6 +212,8 @@ template&lt;Scalar SampleType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Performs a forward <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, outputting cartesian data. </p>
+
 </div>
 </div>
 <a id="ac2b4d14dcd071a2f88d14ad2ce726092"></a>
@@ -220,6 +244,8 @@ template&lt;Scalar SampleType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Performs a forward <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, outputting interleaved cartesian data. </p>
+
 </div>
 </div>
 <a id="a5c03198def2ee0314ea9f3471967ffa3"></a>
@@ -249,6 +275,8 @@ template&lt;Scalar SampleType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Performs a forward <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, outputting polar magnitudes. </p>
 
 </div>
 </div>
@@ -286,6 +314,8 @@ template&lt;Scalar SampleType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Performs a forward <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, outputting polar data. </p>
+
 </div>
 </div>
 <a id="aa1815db2848a2c5f923280a8aa208806"></a>
@@ -312,6 +342,8 @@ template&lt;Scalar SampleType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a> size of this engine. </p>
 
 </div>
 </div>
@@ -349,6 +381,8 @@ template&lt;Scalar SampleType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Performs an inverse <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>. </p>
+
 </div>
 </div>
 <a id="a21105e81bfe44199567b4edb3e8eb444"></a>
@@ -379,6 +413,8 @@ template&lt;Scalar SampleType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Performs an inverse <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, outputting cepstral data. </p>
+
 </div>
 </div>
 <a id="ae86ca8fce404afa92b2aeff46f584404"></a>
@@ -408,6 +444,8 @@ template&lt;Scalar SampleType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Performs an inverse <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, operating on interleaved input data. </p>
 
 </div>
 </div>
@@ -444,6 +482,8 @@ template&lt;Scalar SampleType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Performs an inverse <a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html" title="A class that performs an FFT.">FFT</a>, operating on polar input data. </p>
 
 </div>
 </div>
@@ -496,7 +536,7 @@ template&lt;Scalar SampleType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d1a/namespacevecops.html">vecops</a></li><li class="navelem"><a class="el" href="../../dc/d1a/classvecops_1_1_f_f_t.html">FFT</a></li>
-    <li class="footer">Generated on Thu May 26 2022 21:25:42 for Limes by
+    <li class="footer">Generated on Fri May 27 2022 18:50:56 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

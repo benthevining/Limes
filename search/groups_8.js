@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['math_2787',['Math',['../de/df1/group__math.html',1,'']]],
-  ['memory_2788',['Memory',['../d7/ded/group__memory.html',1,'']]],
-  ['metaprogramming_2789',['Metaprogramming',['../d6/db2/group__meta.html',1,'']]],
-  ['miscellaneous_2790',['Miscellaneous',['../d1/ded/group__misc.html',1,'']]],
-  ['multiplication_2791',['Multiplication',['../db/d5e/group__vec__multiplication.html',1,'']]]
+  ['lemons_5fpsola_2790',['lemons_psola',['../d6/d74/group__lemons__psola.html',1,'']]],
+  ['limes_5fcore_2791',['limes_core',['../da/d07/group__limes__core.html',1,'']]],
+  ['limes_5fvecops_2792',['limes_vecops',['../dc/dd4/group__limes__vecops.html',1,'']]]
 ];

@@ -1,9 +1,15 @@
 var group__limes__vecops =
 [
     [ "Arithmetic functions", "d8/dce/group__vec__arithmetic.html", "d8/dce/group__vec__arithmetic" ],
+    [ "Audio utility functions", "d5/db5/group__vec__audio.html", "d5/db5/group__vec__audio" ],
+    [ "FFT", "dc/db6/group__fft.html", "dc/db6/group__fft" ],
+    [ "Floating point mode functions", "d1/d09/group__vec__fpm.html", "d1/d09/group__vec__fpm" ],
+    [ "Implementation kind checking", "db/db4/group__vec__impl.html", "db/db4/group__vec__impl" ],
     [ "Sorting functions", "d0/d58/group__vec__sorting.html", "d0/d58/group__vec__sorting" ],
     [ "Squaring functions", "d2/d25/group__vec__squaring.html", "d2/d25/group__vec__squaring" ],
     [ "Statistical functions", "d0/d70/group__vec__stats.html", "d0/d70/group__vec__stats" ],
+    [ "Windowing functions", "de/d2a/group__vec__complex.html", "de/d2a/group__vec__complex" ],
+    [ "Windowing functions", "d4/dd9/group__vec__window.html", "d4/dd9/group__vec__window" ],
     [ "fallback.h", "d6/d1a/fallback_8h.html", null ],
     [ "fallback_impl.h", "d3/d3f/fallback__impl_8h.html", null ],
     [ "ipp.h", "d3/d88/ipp_8h.html", null ],

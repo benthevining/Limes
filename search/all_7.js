@@ -1,13 +1,12 @@
 var searchData=
 [
-  ['factorial_270',['factorial',['../de/df1/group__math.html#ga8f543e20a836b53e34ff51af3c435650',1,'math::factorial(T number) noexcept'],['../de/df1/group__math.html#ga8f543e20a836b53e34ff51af3c435650',1,'math::factorial(T number) noexcept']]],
-  ['fallback_2eh_271',['fallback.h',['../d6/d1a/fallback_8h.html',1,'']]],
-  ['fallback_5ffft_2eh_272',['fallback_fft.h',['../d9/d14/fallback__fft_8h.html',1,'']]],
-  ['fallback_5fimpl_2eh_273',['fallback_impl.h',['../d3/d3f/fallback__impl_8h.html',1,'']]],
-  ['february_274',['February',['../dc/dc1/classtime_1_1_month.html#a9b8014e3f80cf7f161260a1e2f4590c9a659e59f062c75f81259d22786d6c44aa',1,'time::Month']]],
-  ['fft_275',['FFT',['../dc/d1a/classvecops_1_1_f_f_t.html',1,'vecops::FFT&lt; SampleType &gt;'],['../dc/d1a/classvecops_1_1_f_f_t.html#aa8dc647c362d59dd216d4a3d602a54a3',1,'vecops::FFT::FFT()']]],
-  ['fft_5fcommon_2eh_276',['fft_common.h',['../d6/db4/fft__common_8h.html',1,'']]],
-  ['fftimpl_277',['FFTImpl',['../dd/de6/classvecops_1_1_f_f_t_impl.html',1,'vecops']]],
+  ['factorial_271',['factorial',['../de/df1/group__math.html#ga8f543e20a836b53e34ff51af3c435650',1,'math::factorial(T number) noexcept'],['../de/df1/group__math.html#ga8f543e20a836b53e34ff51af3c435650',1,'math::factorial(T number) noexcept']]],
+  ['fallback_2eh_272',['fallback.h',['../d6/d1a/fallback_8h.html',1,'']]],
+  ['fallback_5ffft_2eh_273',['fallback_fft.h',['../d9/d14/fallback__fft_8h.html',1,'']]],
+  ['fallback_5fimpl_2eh_274',['fallback_impl.h',['../d3/d3f/fallback__impl_8h.html',1,'']]],
+  ['february_275',['February',['../dc/dc1/classtime_1_1_month.html#a9b8014e3f80cf7f161260a1e2f4590c9a659e59f062c75f81259d22786d6c44aa',1,'time::Month']]],
+  ['fft_276',['FFT',['../dc/d1a/classvecops_1_1_f_f_t.html',1,'vecops::FFT&lt; SampleType &gt;'],['../dc/d1a/classvecops_1_1_f_f_t.html#aa8dc647c362d59dd216d4a3d602a54a3',1,'vecops::FFT::FFT()'],['../dc/db6/group__fft.html',1,'(Global Namespace)']]],
+  ['fft_5fcommon_2eh_277',['fft_common.h',['../d6/db4/fft__common_8h.html',1,'']]],
   ['fftw_5ffft_2eh_278',['fftw_fft.h',['../dc/d24/fftw__fft_8h.html',1,'']]],
   ['fifo_279',['FIFO',['../d1/de6/classds_1_1_f_i_f_o.html',1,'ds::FIFO&lt; ObjectType &gt;'],['../d1/de6/classds_1_1_f_i_f_o.html#aae35dfbef5662e2209c95686fb2e154b',1,'ds::FIFO::FIFO()']]],
   ['fifo_2eh_280',['FIFO.h',['../dd/d35/_f_i_f_o_8h.html',1,'']]],
@@ -54,5 +53,6 @@ var searchData=
   ['full_321',['full',['../d0/d61/classmath_1_1geometry_1_1_angle.html#a0b37243d33015f31fdcd2e588ed78018',1,'math::geometry::Angle']]],
   ['func_322',['func',['../d9/dd6/namespacefunc.html',1,'func'],['../de/d94/group__func.html',1,'(Global Namespace)']]],
   ['function_323',['Function',['../de/d94/group__func.html#ga3dbd7fc208fe38c48614027d7480df86',1,'func']]],
-  ['functions_2eh_324',['Functions.h',['../d6/d9b/_functions_8h.html',1,'']]]
+  ['functions_2eh_324',['Functions.h',['../d6/d9b/_functions_8h.html',1,'']]],
+  ['floating_20point_20mode_20functions_325',['Floating point mode functions',['../d1/d09/group__vec__fpm.html',1,'']]]
 ];

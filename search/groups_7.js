@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['lemons_5fpsola_2784',['lemons_psola',['../d6/d74/group__lemons__psola.html',1,'']]],
-  ['limes_5fcore_2785',['limes_core',['../da/d07/group__limes__core.html',1,'']]],
-  ['limes_5fvecops_2786',['limes_vecops',['../dc/dd4/group__limes__vecops.html',1,'']]]
+  ['implementation_20kind_20checking_2789',['Implementation kind checking',['../db/db4/group__vec__impl.html',1,'']]]
 ];

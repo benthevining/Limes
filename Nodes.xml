@@ -1174,6 +1174,184 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>Audio utility functions</Name>
+            <Path>d5/db5/group__vec__audio.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>applyRamp</Name>
+              <Path>d5/db5/group__vec__audio.html</Path>
+              <Anchor>ga6614fdbae28c320a0f6c6729fb6332d8</Anchor>
+             </Node>
+             <Node>
+              <Name>applyRampAndCopy</Name>
+              <Path>d5/db5/group__vec__audio.html</Path>
+              <Anchor>gaa101b872770f68520fdc51028fc86a76</Anchor>
+             </Node>
+             <Node>
+              <Name>countZeroCrossings</Name>
+              <Path>d5/db5/group__vec__audio.html</Path>
+              <Anchor>gaf5fd7213b9a5bd6d68653b41a0132aaf</Anchor>
+             </Node>
+             <Node>
+              <Name>generateRamp</Name>
+              <Path>d5/db5/group__vec__audio.html</Path>
+              <Anchor>gaa5fd110a645569562ed1b0ff9571d204</Anchor>
+             </Node>
+             <Node>
+              <Name>mix</Name>
+              <Path>d5/db5/group__vec__audio.html</Path>
+              <Anchor>ga3cb05a7bfe9541e878923d7fd1e158a9</Anchor>
+             </Node>
+             <Node>
+              <Name>rms</Name>
+              <Path>d5/db5/group__vec__audio.html</Path>
+              <Anchor>ga8d27dd47c9fcd0cc4fd9cda84b9552b3</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>FFT</Name>
+            <Path>dc/db6/group__fft.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>fallback_fft.h</Name>
+              <Path>d9/d14/fallback__fft_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>fft_common.h</Name>
+              <Path>d6/db4/fft__common_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>fftw_fft.h</Name>
+              <Path>dc/d24/fftw__fft_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>ipp_fft.h</Name>
+              <Path>d3/d33/ipp__fft_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>limes_fft.h</Name>
+              <Path>d4/d39/limes__fft_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>vdsp_fft.h</Name>
+              <Path>d8/da3/vdsp__fft_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>LIMES_VECOPS_USE_FFTW</Name>
+              <Path>dc/db6/group__fft.html</Path>
+              <Anchor>ga25d4ef2f45323ffac2004347580d93a3</Anchor>
+             </Node>
+             <Node>
+              <Name>enableWisdom</Name>
+              <Path>dc/db6/group__fft.html</Path>
+              <Anchor>gab90597bb127479bf13f5bef248f45364</Anchor>
+             </Node>
+             <Node>
+              <Name>getImplementationName</Name>
+              <Path>dc/db6/group__fft.html</Path>
+              <Anchor>ga17cea7c21dc36ac136f4d29740f44915</Anchor>
+             </Node>
+             <Node>
+              <Name>getWisdomFileDir</Name>
+              <Path>dc/db6/group__fft.html</Path>
+              <Anchor>ga6d9d6e8f66a7bdc8f78dc15dd589001a</Anchor>
+             </Node>
+             <Node>
+              <Name>isUsingFallback</Name>
+              <Path>dc/db6/group__fft.html</Path>
+              <Anchor>ga238d72437257830eeafcd7b56e527711</Anchor>
+             </Node>
+             <Node>
+              <Name>isUsingFFTW</Name>
+              <Path>dc/db6/group__fft.html</Path>
+              <Anchor>gabc139fd4c1c00c51c71537b1e58ca558</Anchor>
+             </Node>
+             <Node>
+              <Name>isUsingIPP</Name>
+              <Path>dc/db6/group__fft.html</Path>
+              <Anchor>ga17c517cc47213674d63e231f21ea4e84</Anchor>
+             </Node>
+             <Node>
+              <Name>isUsingVDSP</Name>
+              <Path>dc/db6/group__fft.html</Path>
+              <Anchor>ga048a1b789b50c9a8e50c59295b20fcbb</Anchor>
+             </Node>
+             <Node>
+              <Name>isUsingWisdom</Name>
+              <Path>dc/db6/group__fft.html</Path>
+              <Anchor>ga37c9ecf1af20cdb4a4136daf487222ad</Anchor>
+             </Node>
+             <Node>
+              <Name>setWisdomFileDir</Name>
+              <Path>dc/db6/group__fft.html</Path>
+              <Anchor>ga19ed4b21c8b71c04ea11c3c1e352d3f9</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>Floating point mode functions</Name>
+            <Path>d1/d09/group__vec__fpm.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>areDenormalsDisabled</Name>
+              <Path>d1/d09/group__vec__fpm.html</Path>
+              <Anchor>gaf1b063aaec395fbadd3e3a24bdbd7d3e</Anchor>
+             </Node>
+             <Node>
+              <Name>disableDenormalisedNumberSupport</Name>
+              <Path>d1/d09/group__vec__fpm.html</Path>
+              <Anchor>ga095c013f3d5f68405a075e4c0bcdec66</Anchor>
+             </Node>
+             <Node>
+              <Name>enableFlushToZeroMode</Name>
+              <Path>d1/d09/group__vec__fpm.html</Path>
+              <Anchor>ga455df89d2cef625f239ebd5507fea3d2</Anchor>
+             </Node>
+             <Node>
+              <Name>isFlushToZeroEnabled</Name>
+              <Path>d1/d09/group__vec__fpm.html</Path>
+              <Anchor>ga8c5fce68c3759e785f4778df27012b24</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>Implementation kind checking</Name>
+            <Path>db/db4/group__vec__impl.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>getImplementationName</Name>
+              <Path>db/db4/group__vec__impl.html</Path>
+              <Anchor>ga1a21f574f3d9ec4bcff2d04b4491e364</Anchor>
+             </Node>
+             <Node>
+              <Name>isUsingFallback</Name>
+              <Path>db/db4/group__vec__impl.html</Path>
+              <Anchor>ga467465de51d6f11e720ef4fd5e1bef4b</Anchor>
+             </Node>
+             <Node>
+              <Name>isUsingIPP</Name>
+              <Path>db/db4/group__vec__impl.html</Path>
+              <Anchor>ga6536142f4ae3b7eb733d5446657c7304</Anchor>
+             </Node>
+             <Node>
+              <Name>isUsingMIPP</Name>
+              <Path>db/db4/group__vec__impl.html</Path>
+              <Anchor>gac49ec9d0f787d23c27bc51ec2cbd5bdf</Anchor>
+             </Node>
+             <Node>
+              <Name>isUsingPommierExtensions</Name>
+              <Path>db/db4/group__vec__impl.html</Path>
+              <Anchor>ga6e828d61bfb16fafbdaf77a03870e93d</Anchor>
+             </Node>
+             <Node>
+              <Name>isUsingVDSP</Name>
+              <Path>db/db4/group__vec__impl.html</Path>
+              <Anchor>gaf183d34eeacbd6b3475b5e5a00a547ea</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>Sorting functions</Name>
             <Path>d0/d58/group__vec__sorting.html</Path>
             <Subnodes>
@@ -1368,6 +1546,93 @@
               <Name>sum</Name>
               <Path>d0/d70/group__vec__stats.html</Path>
               <Anchor>ga75cf069da9162bb3e3e019d7325c4286</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>Windowing functions</Name>
+            <Path>de/d2a/group__vec__complex.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>cartesianInterleavedToMagnitudes</Name>
+              <Path>de/d2a/group__vec__complex.html</Path>
+              <Anchor>ga4b5b41c7ed4681603518d8f98c110f97</Anchor>
+             </Node>
+             <Node>
+              <Name>cartesianToMagnitudes</Name>
+              <Path>de/d2a/group__vec__complex.html</Path>
+              <Anchor>ga0df7ec7c7ff3358aec1da9fcaf901876</Anchor>
+             </Node>
+             <Node>
+              <Name>cartesianToPolar</Name>
+              <Path>de/d2a/group__vec__complex.html</Path>
+              <Anchor>ga2e1838d991aea7a17f8c155e8c217daf</Anchor>
+             </Node>
+             <Node>
+              <Name>catesianInterleavedToPolar</Name>
+              <Path>de/d2a/group__vec__complex.html</Path>
+              <Anchor>gae72dc85cafe4ad69f63801cc1197c07c</Anchor>
+             </Node>
+             <Node>
+              <Name>polarToCartesian</Name>
+              <Path>de/d2a/group__vec__complex.html</Path>
+              <Anchor>gab445f6a6f4a335e67425a0f7a56ee4c2</Anchor>
+             </Node>
+             <Node>
+              <Name>polarToCartesianInterleaved</Name>
+              <Path>de/d2a/group__vec__complex.html</Path>
+              <Anchor>ga6893000b39e9cd5f68df3b50782b782c</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>Windowing functions</Name>
+            <Path>d4/dd9/group__vec__window.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>applyBlackman</Name>
+              <Path>d4/dd9/group__vec__window.html</Path>
+              <Anchor>gaba364c54789e790fee311a41081fff54</Anchor>
+             </Node>
+             <Node>
+              <Name>applyBlackmanAndCopy</Name>
+              <Path>d4/dd9/group__vec__window.html</Path>
+              <Anchor>gab21f461fc0412d40d173d00727e355cc</Anchor>
+             </Node>
+             <Node>
+              <Name>applyHamm</Name>
+              <Path>d4/dd9/group__vec__window.html</Path>
+              <Anchor>ga98a439d54ea7e42ceaba0e0ef8f05c6d</Anchor>
+             </Node>
+             <Node>
+              <Name>applyHammAndCopy</Name>
+              <Path>d4/dd9/group__vec__window.html</Path>
+              <Anchor>ga77f84cbc8e7e2ab59c09b4a7b1599bec</Anchor>
+             </Node>
+             <Node>
+              <Name>applyHanning</Name>
+              <Path>d4/dd9/group__vec__window.html</Path>
+              <Anchor>ga58332762474a285514e30b255be86835</Anchor>
+             </Node>
+             <Node>
+              <Name>applyHanningAndCopy</Name>
+              <Path>d4/dd9/group__vec__window.html</Path>
+              <Anchor>gad7afbe4383d3a434289bdd6d4694abc7</Anchor>
+             </Node>
+             <Node>
+              <Name>generateBlackman</Name>
+              <Path>d4/dd9/group__vec__window.html</Path>
+              <Anchor>ga3e484b57ffdf300079b6039e85de7898</Anchor>
+             </Node>
+             <Node>
+              <Name>generateHamm</Name>
+              <Path>d4/dd9/group__vec__window.html</Path>
+              <Anchor>gab41b83147aa9748b2b60ce1eb4244a9d</Anchor>
+             </Node>
+             <Node>
+              <Name>generateHanning</Name>
+              <Path>d4/dd9/group__vec__window.html</Path>
+              <Anchor>ga1f3dd9621252650e890a6f846ee6e3ce</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -14311,10 +14576,6 @@
               </Subnodes>
              </Node>
              <Node>
-              <Name>FFTImpl</Name>
-              <Path>dd/de6/classvecops_1_1_f_f_t_impl.html</Path>
-             </Node>
-             <Node>
               <Name>ScopedFlushToZero</Name>
               <Path>dc/da6/classvecops_1_1_scoped_flush_to_zero.html</Path>
               <Subnodes>
@@ -21302,58 +21563,54 @@
               </Subnodes>
              </Node>
              <Node>
-              <Name>FFTImpl</Name>
-              <Path>dd/de6/classvecops_1_1_f_f_t_impl.html</Path>
-             </Node>
-             <Node>
               <Name>LIMES_VECOPS_USE_FFTW</Name>
-              <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>a25d4ef2f45323ffac2004347580d93a3</Anchor>
+              <Path>dc/db6/group__fft.html</Path>
+              <Anchor>ga25d4ef2f45323ffac2004347580d93a3</Anchor>
              </Node>
              <Node>
               <Name>enableWisdom</Name>
               <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>ab90597bb127479bf13f5bef248f45364</Anchor>
+              <Anchor>gab90597bb127479bf13f5bef248f45364</Anchor>
              </Node>
              <Node>
               <Name>getImplementationName</Name>
               <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>a17cea7c21dc36ac136f4d29740f44915</Anchor>
+              <Anchor>ga17cea7c21dc36ac136f4d29740f44915</Anchor>
              </Node>
              <Node>
               <Name>getWisdomFileDir</Name>
               <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>a6d9d6e8f66a7bdc8f78dc15dd589001a</Anchor>
+              <Anchor>ga6d9d6e8f66a7bdc8f78dc15dd589001a</Anchor>
              </Node>
              <Node>
               <Name>isUsingFallback</Name>
               <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>a238d72437257830eeafcd7b56e527711</Anchor>
+              <Anchor>ga238d72437257830eeafcd7b56e527711</Anchor>
              </Node>
              <Node>
               <Name>isUsingFFTW</Name>
               <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>abc139fd4c1c00c51c71537b1e58ca558</Anchor>
+              <Anchor>gabc139fd4c1c00c51c71537b1e58ca558</Anchor>
              </Node>
              <Node>
               <Name>isUsingIPP</Name>
               <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>a17c517cc47213674d63e231f21ea4e84</Anchor>
+              <Anchor>ga17c517cc47213674d63e231f21ea4e84</Anchor>
              </Node>
              <Node>
               <Name>isUsingVDSP</Name>
               <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>a048a1b789b50c9a8e50c59295b20fcbb</Anchor>
+              <Anchor>ga048a1b789b50c9a8e50c59295b20fcbb</Anchor>
              </Node>
              <Node>
               <Name>isUsingWisdom</Name>
               <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>a37c9ecf1af20cdb4a4136daf487222ad</Anchor>
+              <Anchor>ga37c9ecf1af20cdb4a4136daf487222ad</Anchor>
              </Node>
              <Node>
               <Name>setWisdomFileDir</Name>
               <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>a19ed4b21c8b71c04ea11c3c1e352d3f9</Anchor>
+              <Anchor>ga19ed4b21c8b71c04ea11c3c1e352d3f9</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -21474,67 +21731,67 @@
              <Node>
               <Name>applyBlackman</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>aba364c54789e790fee311a41081fff54</Anchor>
+              <Anchor>gaba364c54789e790fee311a41081fff54</Anchor>
              </Node>
              <Node>
               <Name>applyBlackmanAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ab21f461fc0412d40d173d00727e355cc</Anchor>
+              <Anchor>gab21f461fc0412d40d173d00727e355cc</Anchor>
              </Node>
              <Node>
               <Name>applyHamm</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a98a439d54ea7e42ceaba0e0ef8f05c6d</Anchor>
+              <Anchor>ga98a439d54ea7e42ceaba0e0ef8f05c6d</Anchor>
              </Node>
              <Node>
               <Name>applyHammAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a77f84cbc8e7e2ab59c09b4a7b1599bec</Anchor>
+              <Anchor>ga77f84cbc8e7e2ab59c09b4a7b1599bec</Anchor>
              </Node>
              <Node>
               <Name>applyHanning</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a58332762474a285514e30b255be86835</Anchor>
+              <Anchor>ga58332762474a285514e30b255be86835</Anchor>
              </Node>
              <Node>
               <Name>applyHanningAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ad7afbe4383d3a434289bdd6d4694abc7</Anchor>
+              <Anchor>gad7afbe4383d3a434289bdd6d4694abc7</Anchor>
              </Node>
              <Node>
               <Name>applyRamp</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a6614fdbae28c320a0f6c6729fb6332d8</Anchor>
+              <Anchor>ga6614fdbae28c320a0f6c6729fb6332d8</Anchor>
              </Node>
              <Node>
               <Name>applyRampAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>aa101b872770f68520fdc51028fc86a76</Anchor>
+              <Anchor>gaa101b872770f68520fdc51028fc86a76</Anchor>
              </Node>
              <Node>
               <Name>areDenormalsDisabled</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>af1b063aaec395fbadd3e3a24bdbd7d3e</Anchor>
+              <Anchor>gaf1b063aaec395fbadd3e3a24bdbd7d3e</Anchor>
              </Node>
              <Node>
               <Name>cartesianInterleavedToMagnitudes</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a4b5b41c7ed4681603518d8f98c110f97</Anchor>
+              <Anchor>ga4b5b41c7ed4681603518d8f98c110f97</Anchor>
              </Node>
              <Node>
               <Name>cartesianToMagnitudes</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a0df7ec7c7ff3358aec1da9fcaf901876</Anchor>
+              <Anchor>ga0df7ec7c7ff3358aec1da9fcaf901876</Anchor>
              </Node>
              <Node>
               <Name>cartesianToPolar</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a2e1838d991aea7a17f8c155e8c217daf</Anchor>
+              <Anchor>ga2e1838d991aea7a17f8c155e8c217daf</Anchor>
              </Node>
              <Node>
               <Name>catesianInterleavedToPolar</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ae72dc85cafe4ad69f63801cc1197c07c</Anchor>
+              <Anchor>gae72dc85cafe4ad69f63801cc1197c07c</Anchor>
              </Node>
              <Node>
               <Name>clear</Name>
@@ -21569,7 +21826,7 @@
              <Node>
               <Name>countZeroCrossings</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>af5fd7213b9a5bd6d68653b41a0132aaf</Anchor>
+              <Anchor>gaf5fd7213b9a5bd6d68653b41a0132aaf</Anchor>
              </Node>
              <Node>
               <Name>deinterleave</Name>
@@ -21579,7 +21836,7 @@
              <Node>
               <Name>disableDenormalisedNumberSupport</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a095c013f3d5f68405a075e4c0bcdec66</Anchor>
+              <Anchor>ga095c013f3d5f68405a075e4c0bcdec66</Anchor>
              </Node>
              <Node>
               <Name>divide</Name>
@@ -21619,7 +21876,7 @@
              <Node>
               <Name>enableFlushToZeroMode</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a455df89d2cef625f239ebd5507fea3d2</Anchor>
+              <Anchor>ga455df89d2cef625f239ebd5507fea3d2</Anchor>
              </Node>
              <Node>
               <Name>fill</Name>
@@ -21629,27 +21886,27 @@
              <Node>
               <Name>generateBlackman</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a3e484b57ffdf300079b6039e85de7898</Anchor>
+              <Anchor>ga3e484b57ffdf300079b6039e85de7898</Anchor>
              </Node>
              <Node>
               <Name>generateHamm</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ab41b83147aa9748b2b60ce1eb4244a9d</Anchor>
+              <Anchor>gab41b83147aa9748b2b60ce1eb4244a9d</Anchor>
              </Node>
              <Node>
               <Name>generateHanning</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a1f3dd9621252650e890a6f846ee6e3ce</Anchor>
+              <Anchor>ga1f3dd9621252650e890a6f846ee6e3ce</Anchor>
              </Node>
              <Node>
               <Name>generateRamp</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>aa5fd110a645569562ed1b0ff9571d204</Anchor>
+              <Anchor>gaa5fd110a645569562ed1b0ff9571d204</Anchor>
              </Node>
              <Node>
               <Name>getImplementationName</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a1a21f574f3d9ec4bcff2d04b4491e364</Anchor>
+              <Anchor>ga1a21f574f3d9ec4bcff2d04b4491e364</Anchor>
              </Node>
              <Node>
               <Name>interleave</Name>
@@ -21669,32 +21926,32 @@
              <Node>
               <Name>isFlushToZeroEnabled</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a8c5fce68c3759e785f4778df27012b24</Anchor>
+              <Anchor>ga8c5fce68c3759e785f4778df27012b24</Anchor>
              </Node>
              <Node>
               <Name>isUsingFallback</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a467465de51d6f11e720ef4fd5e1bef4b</Anchor>
+              <Anchor>ga467465de51d6f11e720ef4fd5e1bef4b</Anchor>
              </Node>
              <Node>
               <Name>isUsingIPP</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a6536142f4ae3b7eb733d5446657c7304</Anchor>
+              <Anchor>ga6536142f4ae3b7eb733d5446657c7304</Anchor>
              </Node>
              <Node>
               <Name>isUsingMIPP</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ac49ec9d0f787d23c27bc51ec2cbd5bdf</Anchor>
+              <Anchor>gac49ec9d0f787d23c27bc51ec2cbd5bdf</Anchor>
              </Node>
              <Node>
               <Name>isUsingPommierExtensions</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a6e828d61bfb16fafbdaf77a03870e93d</Anchor>
+              <Anchor>ga6e828d61bfb16fafbdaf77a03870e93d</Anchor>
              </Node>
              <Node>
               <Name>isUsingVDSP</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>af183d34eeacbd6b3475b5e5a00a547ea</Anchor>
+              <Anchor>gaf183d34eeacbd6b3475b5e5a00a547ea</Anchor>
              </Node>
              <Node>
               <Name>max</Name>
@@ -21764,7 +22021,7 @@
              <Node>
               <Name>mix</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a3cb05a7bfe9541e878923d7fd1e158a9</Anchor>
+              <Anchor>ga3cb05a7bfe9541e878923d7fd1e158a9</Anchor>
              </Node>
              <Node>
               <Name>multiply</Name>
@@ -21799,12 +22056,12 @@
              <Node>
               <Name>polarToCartesian</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ab445f6a6f4a335e67425a0f7a56ee4c2</Anchor>
+              <Anchor>gab445f6a6f4a335e67425a0f7a56ee4c2</Anchor>
              </Node>
              <Node>
               <Name>polarToCartesianInterleaved</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a6893000b39e9cd5f68df3b50782b782c</Anchor>
+              <Anchor>ga6893000b39e9cd5f68df3b50782b782c</Anchor>
              </Node>
              <Node>
               <Name>range</Name>
@@ -21829,7 +22086,7 @@
              <Node>
               <Name>rms</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a8d27dd47c9fcd0cc4fd9cda84b9552b3</Anchor>
+              <Anchor>ga8d27dd47c9fcd0cc4fd9cda84b9552b3</Anchor>
              </Node>
              <Node>
               <Name>sort</Name>
