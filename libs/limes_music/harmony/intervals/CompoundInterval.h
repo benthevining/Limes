@@ -71,7 +71,7 @@ public:
 	[[nodiscard]] constexpr bool operator> (const CompoundInterval& other) const noexcept;
 
 	/** Returns true if this interval is semantically smaller than the other one, taking enharmonic spellings into account. */
-	[[nodiscard]] constexpr bool operator< (const CompoundInterval& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const CompoundInterval& other) const noexcept;
 
 	/** Returns the number of octaves contained in this compound interval. */
 	[[nodiscard]] constexpr int getNumOctaves() const noexcept;

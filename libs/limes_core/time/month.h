@@ -129,9 +129,9 @@ public:
 	/** @name Greater/less than comparisons */
 	///@{
 	[[nodiscard]] constexpr bool operator> (const Month& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const Month& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Month& other) const noexcept;
 	[[nodiscard]] constexpr bool operator> (Name other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (Name other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(Name other) const noexcept;
 	///@}
 
 	/** @name Equality comparisons */

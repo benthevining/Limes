@@ -66,7 +66,7 @@ public:
 	 */
 	///@{
 	[[nodiscard]] constexpr bool operator> (const Octagon& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const Octagon& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Octagon& other) const noexcept;
 	///@}
 
 	/** Returns the interior angle of any %octagon (135 degrees). */
@@ -125,7 +125,7 @@ constexpr bool Octagon<ValueType>::operator> (const Octagon& other) const noexce
 }
 
 template <Scalar ValueType>
-constexpr bool Octagon<ValueType>::operator< (const Octagon& other) const noexcept
+constexpr bool Octagon<ValueType>::operator<(const Octagon& other) const noexcept
 {
 	return area() < other.area();
 }

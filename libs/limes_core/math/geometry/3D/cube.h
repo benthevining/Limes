@@ -78,7 +78,7 @@ public:
 	 */
 	///@{
 	[[nodiscard]] constexpr bool operator> (const Cube& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const Cube& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Cube& other) const noexcept;
 	///@}
 
 	/** Returns a Square object representing a face of this %cube. */
@@ -155,7 +155,7 @@ constexpr bool Cube<ValueType>::operator> (const Cube& other) const noexcept
 }
 
 template <Scalar ValueType>
-constexpr bool Cube<ValueType>::operator< (const Cube& other) const noexcept
+constexpr bool Cube<ValueType>::operator<(const Cube& other) const noexcept
 {
 	return side_length < other.side_length;
 }

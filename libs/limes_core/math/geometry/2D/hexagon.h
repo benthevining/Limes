@@ -66,7 +66,7 @@ public:
 	 */
 	///@{
 	[[nodiscard]] constexpr bool operator> (const Hexagon& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const Hexagon& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Hexagon& other) const noexcept;
 	///@}
 
 	/** Returns the interior angle of any %hexagon (120 degrees). */
@@ -125,7 +125,7 @@ constexpr bool Hexagon<ValueType>::operator> (const Hexagon& other) const noexce
 }
 
 template <Scalar ValueType>
-constexpr bool Hexagon<ValueType>::operator< (const Hexagon& other) const noexcept
+constexpr bool Hexagon<ValueType>::operator<(const Hexagon& other) const noexcept
 {
 	return area() < other.area();
 }

@@ -98,7 +98,7 @@ public:
 	/** @name Greater/less than comparisons */
 	///@{
 	[[nodiscard]] constexpr bool operator> (const Hour& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const Hour& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Hour& other) const noexcept;
 	///@}
 
 	/** @name Equality comparisons */

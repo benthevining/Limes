@@ -94,7 +94,7 @@ bool FilesystemEntry::operator!= (const Path& other) const noexcept
 	return ! (*this == other);
 }
 
-bool FilesystemEntry::operator< (const FilesystemEntry& other) const noexcept
+bool FilesystemEntry::operator<(const FilesystemEntry& other) const noexcept
 {
 	return getAbsolutePath() < other.getAbsolutePath();
 }
@@ -104,7 +104,7 @@ bool FilesystemEntry::operator> (const FilesystemEntry& other) const noexcept
 	return getAbsolutePath() > other.getAbsolutePath();
 }
 
-bool FilesystemEntry::operator< (const Path& other) const noexcept
+bool FilesystemEntry::operator<(const Path& other) const noexcept
 {
 	return getAbsolutePath() > std::filesystem::absolute (other);
 }

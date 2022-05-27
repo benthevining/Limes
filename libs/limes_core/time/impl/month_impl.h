@@ -157,7 +157,7 @@ constexpr bool Month::operator> (const Month& other) const noexcept
 	return monthNum > other.monthNum;
 }
 
-constexpr bool Month::operator< (const Month& other) const noexcept
+constexpr bool Month::operator<(const Month& other) const noexcept
 {
 	return monthNum < other.monthNum;
 }
@@ -167,7 +167,7 @@ constexpr bool Month::operator> (Name other) const noexcept
 	return monthNum > static_cast<int> (other);
 }
 
-constexpr bool Month::operator< (Name other) const noexcept
+constexpr bool Month::operator<(Name other) const noexcept
 {
 	return monthNum < static_cast<int> (other);
 }

@@ -74,7 +74,7 @@ public:
 	 */
 	///@{
 	[[nodiscard]] constexpr bool operator> (const Circle& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const Circle& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Circle& other) const noexcept;
 	///@}
 
 private:
@@ -133,7 +133,7 @@ constexpr bool Circle<ValueType>::operator> (const Circle& other) const noexcept
 }
 
 template <Scalar ValueType>
-constexpr bool Circle<ValueType>::operator< (const Circle& other) const noexcept
+constexpr bool Circle<ValueType>::operator<(const Circle& other) const noexcept
 {
 	return m_radius < other.m_radius;
 }
