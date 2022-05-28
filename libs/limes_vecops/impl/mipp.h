@@ -47,7 +47,7 @@ namespace detail
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE constexpr int getVecLoopSize (SizeType size)
 {
-	constinit const auto n = mipp::N<DataType>();
+	constexpr const auto n = mipp::N<DataType>();
 
 	return static_cast<int> ((static_cast<decltype (n)> (size) / n) * n);
 }
@@ -1136,7 +1136,7 @@ DataType standard_deviation (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut)
 {
-	mipp::Reg<DataType> dataRegister sinRegister, cosRegister;
+	mipp::Reg<DataType> dataRegister, sinRegister, cosRegister;
 
 	const auto vecOp = [&dataRegister, &sinRegister, &cosRegister, data, sinesOut, cosinesOut] (auto i)
 	{

@@ -941,6 +941,9 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyRampAndCopy (DataType* const dest, 
 
 #pragma mark Windowing functions
 
+/** This namespace contains the implementations of the windowing functions in raw C++.
+	@ingroup vec_window
+ */
 namespace window
 {
 
@@ -1083,6 +1086,9 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyHanningAndCopy (DataType* const des
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+/** This namespace contains implementation details for the vecops implementations in raw C++.
+	@ingroup limes_vecops
+ */
 namespace detail
 {
 
