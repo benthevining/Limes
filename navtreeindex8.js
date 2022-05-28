@@ -1,5 +1,9 @@
 var NAVTREEINDEX8 =
 {
+"db/d5e/group__vec__multiplication.html#ga3226554923c75524fa63d02845783141":[7,2,0,2,2],
+"db/d5e/group__vec__multiplication.html#ga3651c6c09d21235cd012207b70a893b3":[7,2,0,2,0],
+"db/d5e/group__vec__multiplication.html#gaec8c443b22bdbe7c3db3a160fd54a48e":[7,2,0,2,4],
+"db/d5e/group__vec__multiplication.html#gaef9fe10c7d98a138c6fec14096b87c4f":[7,2,0,2,1],
 "db/d64/classds_1_1_abstract_f_i_f_o.html":[9,0,0,0],
 "db/d64/classds_1_1_abstract_f_i_f_o.html#a020b898759cd30bbe8392df6441a657c":[9,0,0,0,2],
 "db/d64/classds_1_1_abstract_f_i_f_o.html#a1033d83941af546142f5531d38c441bc":[9,0,0,0,10],
@@ -245,9 +249,5 @@ var NAVTREEINDEX8 =
 "dc/da1/classmath_1_1geometry_1_1_triangle.html#a24eff85fd73735e1d78d2b24215020ea":[9,0,7,0,14,3],
 "dc/da1/classmath_1_1geometry_1_1_triangle.html#a2833a4524067256a1d8223f8dec6a97a":[9,0,7,0,14,8],
 "dc/da1/classmath_1_1geometry_1_1_triangle.html#a2a8e824e611975b313a1c361d37af006":[9,0,7,0,14,9],
-"dc/da1/classmath_1_1geometry_1_1_triangle.html#a2b611ebeb28731bda776a2ccdf7c749e":[9,0,7,0,14,2],
-"dc/da1/classmath_1_1geometry_1_1_triangle.html#a34590833c4c5f2d43f8ae8d035842de8":[9,0,7,0,14,23],
-"dc/da1/classmath_1_1geometry_1_1_triangle.html#a35dacfd7e241abfccd9ffb0216120113":[9,0,7,0,14,5],
-"dc/da1/classmath_1_1geometry_1_1_triangle.html#a3d8a1f8d71e78ded2f95ad48fc54e057":[9,0,7,0,14,21],
-"dc/da1/classmath_1_1geometry_1_1_triangle.html#a44c95026b10bc127bc5f04c48af24bcb":[9,0,7,0,14,27]
+"dc/da1/classmath_1_1geometry_1_1_triangle.html#a2b611ebeb28731bda776a2ccdf7c749e":[9,0,7,0,14,2]
 };

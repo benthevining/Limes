@@ -59,19 +59,19 @@ var NAVTREEINDEX =
 [
 ".html",
 "d1/d7a/_realtime_type_traits_8h_source.html",
-"d3/d51/sha224_8h.html",
-"d4/d37/group__system.html#ga4afff37dbba8d8055ea44c9631a50140",
-"d5/d2a/classfiles_1_1_directory.html#a084961d9fc1ed3b6123af23db1fd855f",
-"d5/db7/classfiles_1_1_temp_file.html#ac0a6ea55732b596693321b08ae9cc710",
-"d6/d76/structdsp_1_1osc_1_1_saw.html#ab53ad10db3d9145c127670dfe6333d08",
-"d8/da6/group__vec__addition.html#ga236730b5b58cb80db4109405a1b5ef58",
-"db/d64/classds_1_1_abstract_f_i_f_o.html",
-"dc/da1/classmath_1_1geometry_1_1_triangle.html#a52707af596d110eac4fc60296f29f537",
-"dd/d2c/classmath_1_1geometry_1_1_triangular_prism.html#a67fc88522b0d8188c8e2fb666da3fa42",
-"de/d1f/limes__vecops_8h.html#ga255d7088efb599876e02b7b8abd2a996",
-"de/d90/classfiles_1_1_sym_link.html#aaa2c76039ceced6abb4180413fa5f257",
-"df/d3b/classmusic_1_1_compound_interval.html#a92dfb9d078d6e96c0a56351a0455258ca56cdd7e9e3cef1974f4075c03a80332d",
-"namespacemembers_func.html"
+"d3/d4e/namespaceds.html",
+"d4/d37/group__system.html#ga3c9f53b7d1a99a02600fdbe81a772f82",
+"d5/d2a/classfiles_1_1_directory.html#a0701c63389a63f8bbed51c3aac8b1b6b",
+"d5/db7/classfiles_1_1_temp_file.html#abd6c09d9c465c1c2b1363a6c44385305",
+"d6/d76/structdsp_1_1osc_1_1_saw.html#ab13c9422d7987beb43f5de7ded2801d5",
+"d8/da3/vdsp__fft_8h_source.html",
+"db/d5e/group__vec__multiplication.html#ga3226554923c75524fa63d02845783141",
+"dc/da1/classmath_1_1geometry_1_1_triangle.html#a34590833c4c5f2d43f8ae8d035842de8",
+"dd/d2c/classmath_1_1geometry_1_1_triangular_prism.html#a25865bbe6cbb82cb052e3457d5937070",
+"de/d1f/limes__vecops_8h.html#ga1f3dd9621252650e890a6f846ee6e3ce",
+"de/d90/classfiles_1_1_sym_link.html#a897751bb8c3a7634ec7ed8303e560320",
+"df/d3b/classmusic_1_1_compound_interval.html#a67f47f12c151abeda82716af0b8da170",
+"namespacemembers.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

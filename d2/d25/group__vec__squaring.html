@@ -115,10 +115,90 @@ $(document).ready(function(){initNavTree('d2/d25/group__vec__squaring.html','../
 <tr class="memitem:ga55b527f9ebf789195e30604180b5dc35"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d25/group__vec__squaring.html#ga55b527f9ebf789195e30604180b5dc35">vecops::invSquareRootAndCopy</a> (DataType *const dest, const DataType *const data, SizeType size)</td></tr>
 <tr class="memdesc:ga55b527f9ebf789195e30604180b5dc35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the inverse square root of every element in the original vector to the output vector.  <a href="../../d2/d25/group__vec__squaring.html#ga55b527f9ebf789195e30604180b5dc35">More...</a><br /></td></tr>
 <tr class="separator:ga55b527f9ebf789195e30604180b5dc35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga923e6bc39aa8d95a8544f499fc5aca0d"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga923e6bc39aa8d95a8544f499fc5aca0d"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d25/group__vec__squaring.html#ga923e6bc39aa8d95a8544f499fc5aca0d">vecops::cubeRoot</a> (DataType *const dataAndDest, SizeType size)</td></tr>
+<tr class="memdesc:ga923e6bc39aa8d95a8544f499fc5aca0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces every element in the vector with its cube root.  <a href="../../d2/d25/group__vec__squaring.html#ga923e6bc39aa8d95a8544f499fc5aca0d">More...</a><br /></td></tr>
+<tr class="separator:ga923e6bc39aa8d95a8544f499fc5aca0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8567e5469e2530bb15c29b5a7127a1b4"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga8567e5469e2530bb15c29b5a7127a1b4"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/d25/group__vec__squaring.html#ga8567e5469e2530bb15c29b5a7127a1b4">vecops::cubeRootAndCopy</a> (DataType *const dest, const DataType *const data, SizeType size)</td></tr>
+<tr class="memdesc:ga8567e5469e2530bb15c29b5a7127a1b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the cube root of every element in the original vector to the output vector.  <a href="../../d2/d25/group__vec__squaring.html#ga8567e5469e2530bb15c29b5a7127a1b4">More...</a><br /></td></tr>
+<tr class="separator:ga8567e5469e2530bb15c29b5a7127a1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Squaring and square root functions on vectors. </p>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga923e6bc39aa8d95a8544f499fc5aca0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga923e6bc39aa8d95a8544f499fc5aca0d">&#9670;&nbsp;</a></span>cubeRoot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_EXPORT void vecops::cubeRoot </td>
+          <td>(</td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>dataAndDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Replaces every element in the vector with its cube root. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d2/d25/group__vec__squaring.html#ga8567e5469e2530bb15c29b5a7127a1b4" title="Writes the cube root of every element in the original vector to the output vector.">cubeRootAndCopy</a> </dd></dl>
+
+</div>
+</div>
+<a id="ga8567e5469e2530bb15c29b5a7127a1b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8567e5469e2530bb15c29b5a7127a1b4">&#9670;&nbsp;</a></span>cubeRootAndCopy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_EXPORT void vecops::cubeRootAndCopy </td>
+          <td>(</td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DataType *const&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes the cube root of every element in the original vector to the output vector. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d2/d25/group__vec__squaring.html#ga923e6bc39aa8d95a8544f499fc5aca0d" title="Replaces every element in the vector with its cube root.">cubeRoot</a> </dd></dl>
+
+</div>
+</div>
 <a id="ga80888e96e6a1d2a8effbd788cf866da4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga80888e96e6a1d2a8effbd788cf866da4">&#9670;&nbsp;</a></span>invSquareRoot()</h2>
 
@@ -340,7 +420,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat May 28 2022 22:01:56 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 22:39:12 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

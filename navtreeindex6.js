@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"d6/d76/structdsp_1_1osc_1_1_saw.html#ab13c9422d7987beb43f5de7ded2801d5":[9,0,1,1,1,2],
+"d6/d76/structdsp_1_1osc_1_1_saw.html#ab3724b668055b21c252370a6df4ba648":[9,0,1,1,1,6],
 "d6/d76/structdsp_1_1osc_1_1_saw.html#ab53ad10db3d9145c127670dfe6333d08":[9,0,1,1,1,12],
 "d6/d76/structdsp_1_1osc_1_1_saw.html#acaba78e5e54cafe6dddd94363a4f4b70":[9,0,1,1,1,9],
 "d6/d76/structdsp_1_1osc_1_1_saw.html#af23dbcade157d39d8787ceb7d32f3d16":[9,0,1,1,1,11],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "d8/da2/classmusic_1_1scales_1_1_chromatic.html#ac1b9aa7ad9c3568d755bce52cf4ff731":[9,0,12,0,0,10],
 "d8/da2/classmusic_1_1scales_1_1_chromatic.html#ac2980ae89fa968f5b577b6d47739fe66":[9,0,12,0,0,19],
 "d8/da2/classmusic_1_1scales_1_1_chromatic.html#ac9f0ab4433af31a09865f1e42760058f":[9,0,12,0,0,5],
-"d8/da3/vdsp__fft_8h.html":[10,0,147],
-"d8/da3/vdsp__fft_8h_source.html":[10,0,147],
-"d8/da6/group__vec__addition.html":[7,2,0,0]
+"d8/da3/vdsp__fft_8h.html":[10,0,147]
 };

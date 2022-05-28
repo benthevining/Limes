@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"d8/da3/vdsp__fft_8h_source.html":[10,0,147],
+"d8/da6/group__vec__addition.html":[7,2,0,0],
 "d8/da6/group__vec__addition.html#ga236730b5b58cb80db4109405a1b5ef58":[7,2,0,0,0],
 "d8/da6/group__vec__addition.html#ga54fc8ebf2e9c289ec63f815dbac07d9d":[7,2,0,0,2],
 "d8/da6/group__vec__addition.html#ga6d34827af7d41998b391a3e67fca4d46":[7,2,0,0,3],
@@ -25,6 +27,8 @@ var NAVTREEINDEX7 =
 "d8/dc8/classmemory_1_1aligned__pointer.html#ae2dbeb1fb7171d43e3253e3d85854d9d":[9,0,8,0,12],
 "d8/dc8/classmemory_1_1aligned__pointer.html#aff39c3fe41222c7ed1026d8b578a602e":[9,0,8,0,0],
 "d8/dce/group__vec__arithmetic.html":[7,2,0],
+"d8/dce/group__vec__arithmetic.html#ga5645cd63680c6e5a6974ce985d78627b":[7,2,0,4],
+"d8/dce/group__vec__arithmetic.html#ga6389e1ce8e42772417714ab657ff4aa8":[7,2,0,5],
 "d8/dd4/_note_length__impl_8h.html":[10,0,93],
 "d8/dd4/_note_length__impl_8h_source.html":[10,0,93],
 "d8/dda/_algorithm_8h.html":[10,0,3],
@@ -66,8 +70,8 @@ var NAVTREEINDEX7 =
 "d9/d0f/directory_8h_source.html":[10,0,32],
 "d9/d14/fallback__fft_8h.html":[10,0,36],
 "d9/d14/fallback__fft_8h_source.html":[10,0,36],
-"d9/d1a/namespacevecops.html":[8,0,20],
 "d9/d1a/namespacevecops.html":[9,0,18],
+"d9/d1a/namespacevecops.html":[8,0,20],
 "d9/d37/namespacemisc.html":[9,0,11],
 "d9/d37/namespacemisc.html":[8,0,14],
 "d9/d5e/classhash_1_1_s_h_a512.html":[9,0,4,6],
@@ -124,8 +128,8 @@ var NAVTREEINDEX7 =
 "da/d0a/structthreads_1_1is__realtime__copy__assignable.html":[9,0,15,1],
 "da/d0b/limes__namespace_8h.html":[10,0,69],
 "da/d0b/limes__namespace_8h_source.html":[10,0,69],
-"da/d0b/namespacevecops_1_1fb.html":[9,0,18,0],
 "da/d0b/namespacevecops_1_1fb.html":[8,0,20,2],
+"da/d0b/namespacevecops_1_1fb.html":[9,0,18,0],
 "da/d18/limes__locale_8h.html":[10,0,66],
 "da/d18/limes__locale_8h_source.html":[10,0,66],
 "da/d19/month__impl_8h.html":[10,0,87],
@@ -245,9 +249,5 @@ var NAVTREEINDEX7 =
 "db/d39/structmusic_1_1_time_signature_1_1_subdivision.html#ab99e3de520b2a26e8dd8f4e4d066d063":[9,0,12,9,0,1],
 "db/d4b/namespacedebugger.html":[8,0,2],
 "db/d5e/group__vec__multiplication.html":[7,2,0,2],
-"db/d5e/group__vec__multiplication.html#ga21f9f718a1b835dfe1d645f4f9d9323f":[7,2,0,2,3],
-"db/d5e/group__vec__multiplication.html#ga3226554923c75524fa63d02845783141":[7,2,0,2,2],
-"db/d5e/group__vec__multiplication.html#ga3651c6c09d21235cd012207b70a893b3":[7,2,0,2,0],
-"db/d5e/group__vec__multiplication.html#gaec8c443b22bdbe7c3db3a160fd54a48e":[7,2,0,2,4],
-"db/d5e/group__vec__multiplication.html#gaef9fe10c7d98a138c6fec14096b87c4f":[7,2,0,2,1]
+"db/d5e/group__vec__multiplication.html#ga21f9f718a1b835dfe1d645f4f9d9323f":[7,2,0,2,3]
 };

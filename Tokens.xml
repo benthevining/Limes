@@ -1223,6 +1223,30 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>recip</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d8/dce/group__vec__arithmetic.html</Path>
+    <Anchor>ga5645cd63680c6e5a6974ce985d78627b</Anchor>
+    <Abstract>Replaces each value in the vector with its reciprocal.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>recipAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d8/dce/group__vec__arithmetic.html</Path>
+    <Anchor>ga6389e1ce8e42772417714ab657ff4aa8</Anchor>
+    <Abstract>Writes the reciprocal of each value in the input vector to an output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>add</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -1471,6 +1495,30 @@
     <Path>dc/dc8/group__vec__division.html</Path>
     <Anchor>ga893772bd0b2ab1dd92aceddf06bb7c32</Anchor>
     <Abstract>Divides a constant by every element of a vector, writing the output to another vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>cubeRoot</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d2/d25/group__vec__squaring.html</Path>
+    <Anchor>ga923e6bc39aa8d95a8544f499fc5aca0d</Anchor>
+    <Abstract>Replaces every element in the vector with its cube root.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>cubeRootAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d2/d25/group__vec__squaring.html</Path>
+    <Anchor>ga8567e5469e2530bb15c29b5a7127a1b4</Anchor>
+    <Abstract>Writes the cube root of every element in the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -2579,6 +2627,30 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>recip</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d8/dce/group__vec__arithmetic.html</Path>
+    <Anchor>ga5645cd63680c6e5a6974ce985d78627b</Anchor>
+    <Abstract>Replaces each value in the vector with its reciprocal.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>recipAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d8/dce/group__vec__arithmetic.html</Path>
+    <Anchor>ga6389e1ce8e42772417714ab657ff4aa8</Anchor>
+    <Abstract>Writes the reciprocal of each value in the input vector to an output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>add</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -2899,6 +2971,30 @@
     <Path>d2/d25/group__vec__squaring.html</Path>
     <Anchor>ga55b527f9ebf789195e30604180b5dc35</Anchor>
     <Abstract>Writes the inverse square root of every element in the original vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>cubeRoot</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d2/d25/group__vec__squaring.html</Path>
+    <Anchor>ga923e6bc39aa8d95a8544f499fc5aca0d</Anchor>
+    <Abstract>Replaces every element in the vector with its cube root.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>cubeRootAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d2/d25/group__vec__squaring.html</Path>
+    <Anchor>ga8567e5469e2530bb15c29b5a7127a1b4</Anchor>
+    <Abstract>Writes the cube root of every element in the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -7916,6 +8012,30 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>recip</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d8/dce/group__vec__arithmetic.html</Path>
+    <Anchor>ga5645cd63680c6e5a6974ce985d78627b</Anchor>
+    <Abstract>Replaces each value in the vector with its reciprocal.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>recipAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d8/dce/group__vec__arithmetic.html</Path>
+    <Anchor>ga6389e1ce8e42772417714ab657ff4aa8</Anchor>
+    <Abstract>Writes the reciprocal of each value in the input vector to an output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>vec_addition</Name>
       <APILanguage>c</APILanguage>
     </TokenIdentifier>
@@ -8276,6 +8396,30 @@
     <Path>d2/d25/group__vec__squaring.html</Path>
     <Anchor>ga55b527f9ebf789195e30604180b5dc35</Anchor>
     <Abstract>Writes the inverse square root of every element in the original vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>cubeRoot</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d2/d25/group__vec__squaring.html</Path>
+    <Anchor>ga923e6bc39aa8d95a8544f499fc5aca0d</Anchor>
+    <Abstract>Replaces every element in the vector with its cube root.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>cubeRootAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d2/d25/group__vec__squaring.html</Path>
+    <Anchor>ga8567e5469e2530bb15c29b5a7127a1b4</Anchor>
+    <Abstract>Writes the cube root of every element in the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
