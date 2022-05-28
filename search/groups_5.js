@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['denormalized_20number_20support_2834',['Denormalized number support',['../d0/d49/group__vec__denormals.html',1,'']]],
-  ['division_2835',['Division',['../dc/dc8/group__vec__division.html',1,'']]]
+  ['denormalized_20number_20support_2835',['Denormalized number support',['../d0/d49/group__vec__denormals.html',1,'']]],
+  ['division_2836',['Division',['../dc/dc8/group__vec__division.html',1,'']]]
 ];

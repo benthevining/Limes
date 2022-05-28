@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['factorial_293',['factorial',['../de/df1/group__math.html#ga8f543e20a836b53e34ff51af3c435650',1,'math::factorial(T number) noexcept'],['../de/df1/group__math.html#ga8f543e20a836b53e34ff51af3c435650',1,'math::factorial(T number) noexcept']]],
+  ['factorial_293',['factorial',['../d9/dfc/group__core__math.html#ga8f543e20a836b53e34ff51af3c435650',1,'math::factorial(T number) noexcept'],['../d9/dfc/group__core__math.html#ga8f543e20a836b53e34ff51af3c435650',1,'math::factorial(T number) noexcept']]],
   ['fallback_2eh_294',['fallback.h',['../d6/d1a/fallback_8h.html',1,'']]],
   ['fallback_5ffft_2eh_295',['fallback_fft.h',['../d9/d14/fallback__fft_8h.html',1,'']]],
   ['fallback_5fimpl_2eh_296',['fallback_impl.h',['../d3/d3f/fallback__impl_8h.html',1,'']]],
@@ -41,8 +41,8 @@ var searchData=
   ['fraction_2eh_331',['Fraction.h',['../d3/de1/_fraction_8h.html',1,'']]],
   ['fraction_5fimpl_2eh_332',['Fraction_impl.h',['../d3/db2/_fraction__impl_8h.html',1,'']]],
   ['free_333',['free',['../d1/db0/classmemory_1_1_raw_data.html#a60d729ca22f4a9d7f5bffc5e5f5fc562',1,'memory::RawData']]],
-  ['freqfromperiod_334',['freqFromPeriod',['../de/df1/group__math.html#ga6bb0f47d78ad031a40afbf364083bb43',1,'math::freqFromPeriod(double samplerate, PeriodType period) noexcept'],['../de/df1/group__math.html#ga6bb0f47d78ad031a40afbf364083bb43',1,'math::freqFromPeriod(double samplerate, PeriodType period) noexcept']]],
-  ['freqtomidi_335',['freqToMidi',['../de/df1/group__math.html#gaba5c165d2cb7683000726630f32ff02c',1,'math::freqToMidi(T freqHz) noexcept'],['../de/df1/group__math.html#gaba5c165d2cb7683000726630f32ff02c',1,'math::freqToMidi(T freqHz) noexcept']]],
+  ['freqfromperiod_334',['freqFromPeriod',['../d9/dfc/group__core__math.html#ga6bb0f47d78ad031a40afbf364083bb43',1,'math::freqFromPeriod(double samplerate, PeriodType period) noexcept'],['../d9/dfc/group__core__math.html#ga6bb0f47d78ad031a40afbf364083bb43',1,'math::freqFromPeriod(double samplerate, PeriodType period) noexcept']]],
+  ['freqtomidi_335',['freqToMidi',['../d9/dfc/group__core__math.html#gaba5c165d2cb7683000726630f32ff02c',1,'math::freqToMidi(T freqHz) noexcept'],['../d9/dfc/group__core__math.html#gaba5c165d2cb7683000726630f32ff02c',1,'math::freqToMidi(T freqHz) noexcept']]],
   ['frequencytomidi_336',['frequencyToMidi',['../d6/dc9/classmidi_1_1_mts_client.html#a9384e01133ed828e1d0af9dfe3d7bb14',1,'midi::MtsClient']]],
   ['friday_337',['Friday',['../d3/d61/classtime_1_1_weekday.html#a61e3d5d06fa34f271c0051e51a001272ac33b138a163847cdb6caeeb7c9a126b4',1,'time::Weekday']]],
   ['fromfirstoccurrenceof_338',['fromFirstOccurrenceOf',['../df/dcb/namespacestrings.html#a978efbcde4c3c58ace812c788841ddf6',1,'strings']]],

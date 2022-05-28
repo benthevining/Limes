@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('dc/dd4/group__limes__vecops.html','../
 </div><!--header-->
 <div class="contents">
 
-<p>The Limes vector operations library. All classes and functions in this group are accessible after linking to the limes_vecops library and including <a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>.  
+<p>The Limes vector operations library.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
@@ -212,7 +212,20 @@ Macros</h2></td></tr>
 <tr class="separator:ga058e37a32a17e5b0f4fd908d8aec7438"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>The Limes vector operations library. All classes and functions in this group are accessible after linking to the limes_vecops library and including <a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>. </p>
+<p>The Limes vector operations library. </p>
+<p>All classes and functions in this module are accessible after linking to the <code>limes_vecops</code> library and including <a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>.</p>
+<p>Dependencies:</p><ul>
+<li>limes_core</li>
+</ul>
+<p>Optional dependencies:</p><ul>
+<li><a href="https://www.fftw.org/">FFTW</a> <br  />
+and/or one of:</li>
+<li><a href="https://developer.apple.com/documentation/accelerate?language=objc">Apple's Accelerate framework</a></li>
+<li><a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/ipp.html#gs.25my3g">Intel IPP</a></li>
+<li><a href="https://github.com/aff3ct/MIPP">MIPP</a></li>
+</ul>
+<p>If a SIMD library is not used, then "raw C++" implementations of all the functions defined in this file will be used.</p>
+<p>Additionally, the fallback implementations can optionally call Julien Pommier's SIMD sin and cos functions, written for both NEON and SSE, if the datatype is <code>float</code> . </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="gaaf4e6c2cb5282672fc67747a8e1f550f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaaf4e6c2cb5282672fc67747a8e1f550f">&#9670;&nbsp;</a></span>LIMES_VECOPS_USE_IPP</h2>
@@ -227,7 +240,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 <p>1 if the Intel IPP library is being used, otherwise 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00069">69</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00065">65</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 
 </div>
 </div>
@@ -244,7 +257,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 <p>1 if the MIPP library is being used, otherwise 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00075">75</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00071">71</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 
 </div>
 </div>
@@ -261,7 +274,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 <p>1 if the Pommier SIMD extensions are being used, otherwise 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00081">81</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00077">77</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 
 </div>
 </div>
@@ -278,7 +291,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 <p>1 if the Apple vDSP library is being used, otherwise 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00063">63</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00059">59</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 
 </div>
 </div>
@@ -448,7 +461,7 @@ template&lt;typename T &gt; </div>
 
 <p>@concept Integral Any integral type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00161">161</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00157">157</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 
 </div>
 </div>
@@ -468,7 +481,7 @@ template&lt;typename T &gt; </div>
 
 <p>@concept Scalar Any scalar type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00155">155</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00151">151</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 
 </div>
 </div>
@@ -477,7 +490,7 @@ template&lt;typename T &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat May 28 2022 22:39:12 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 23:00:50 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

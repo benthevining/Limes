@@ -51,7 +51,7 @@ var searchData=
   ['limes_5fvecops_5fuse_5fmipp_801',['LIMES_VECOPS_USE_MIPP',['../dc/dd4/group__limes__vecops.html#ga70b144652ef1412e204a8d4e9c66fef8',1,'limes_vecops.h']]],
   ['limes_5fvecops_5fuse_5fpommier_802',['LIMES_VECOPS_USE_POMMIER',['../dc/dd4/group__limes__vecops.html#gacc1d8c1c278a0ac62eef8c5595503a5a',1,'limes_vecops.h']]],
   ['limes_5fvecops_5fuse_5fvdsp_803',['LIMES_VECOPS_USE_VDSP',['../dc/dd4/group__limes__vecops.html#ga5798e2e410bb607a38b777b0f8e7fafa',1,'limes_vecops.h']]],
-  ['limit_804',['limit',['../de/df1/group__math.html#ga54cdbdfc2b2002ed1b794a8e2e416e35',1,'math::limit(T input, T min, T max) noexcept'],['../de/df1/group__math.html#ga54cdbdfc2b2002ed1b794a8e2e416e35',1,'math::limit(T input, T min, T max) noexcept']]],
+  ['limit_804',['limit',['../d9/dfc/group__core__math.html#ga54cdbdfc2b2002ed1b794a8e2e416e35',1,'math::limit(T input, T min, T max) noexcept'],['../d9/dfc/group__core__math.html#ga54cdbdfc2b2002ed1b794a8e2e416e35',1,'math::limit(T input, T min, T max) noexcept']]],
   ['linkedlist_805',['LinkedList',['../da/df7/classds_1_1_linked_list.html',1,'ds::LinkedList&lt; ObjectType &gt;'],['../da/df7/classds_1_1_linked_list.html#abfb36dbc8538683fe0fefe3940daed41',1,'ds::LinkedList::LinkedList()']]],
   ['linkedlist_2eh_806',['LinkedList.h',['../de/dc6/_linked_list_8h.html',1,'']]],
   ['linkedlist_5fimpl_2eh_807',['LinkedList_impl.h',['../d5/dea/_linked_list__impl_8h.html',1,'']]],

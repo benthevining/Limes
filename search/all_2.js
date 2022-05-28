@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['abs_4',['abs',['../de/df1/group__math.html#ga6d262e04bc6f3646fdefa9bdb887f977',1,'math::abs(T val) noexcept'],['../de/df1/group__math.html#ga6d262e04bc6f3646fdefa9bdb887f977',1,'math::abs(T val) noexcept'],['../d0/d70/group__vec__stats.html#ga74bfc4caf2e8167ca6960fe9acf2c214',1,'vecops::abs()']]],
+  ['abs_4',['abs',['../d9/dfc/group__core__math.html#ga6d262e04bc6f3646fdefa9bdb887f977',1,'math::abs(T val) noexcept'],['../d9/dfc/group__core__math.html#ga6d262e04bc6f3646fdefa9bdb887f977',1,'math::abs(T val) noexcept'],['../d0/d70/group__vec__stats.html#ga74bfc4caf2e8167ca6960fe9acf2c214',1,'vecops::abs()']]],
   ['absandcopy_5',['absAndCopy',['../d0/d70/group__vec__stats.html#ga857ac5f8f89b743a2687cd965dbcc98a',1,'vecops']]],
   ['abstractfifo_6',['AbstractFIFO',['../db/d64/classds_1_1_abstract_f_i_f_o.html',1,'ds::AbstractFIFO'],['../db/d64/classds_1_1_abstract_f_i_f_o.html#a020b898759cd30bbe8392df6441a657c',1,'ds::AbstractFIFO::AbstractFIFO()']]],
   ['abstractfifo_2eh_7',['AbstractFIFO.h',['../d9/daa/_abstract_f_i_f_o_8h.html',1,'']]],

@@ -4,7 +4,7 @@ var group__limes__core =
     [ "Files", "d9/dda/group__files.html", "d9/dda/group__files" ],
     [ "Functional", "de/d94/group__func.html", "de/d94/group__func" ],
     [ "Hashes", "db/d97/group__hashes.html", "db/d97/group__hashes" ],
-    [ "Math", "de/df1/group__math.html", "de/df1/group__math" ],
+    [ "Math", "d9/dfc/group__core__math.html", "d9/dfc/group__core__math" ],
     [ "Memory", "d7/ded/group__memory.html", "d7/ded/group__memory" ],
     [ "Metaprogramming", "d6/db2/group__meta.html", "d6/db2/group__meta" ],
     [ "Miscellaneous", "d1/ded/group__misc.html", "d1/ded/group__misc" ],

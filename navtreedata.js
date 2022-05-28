@@ -65,11 +65,11 @@ var NAVTREEINDEX =
 "d5/db7/classfiles_1_1_temp_file.html#abd6c09d9c465c1c2b1363a6c44385305",
 "d6/d76/structdsp_1_1osc_1_1_saw.html#ab13c9422d7987beb43f5de7ded2801d5",
 "d8/da3/vdsp__fft_8h_source.html",
-"db/d5e/group__vec__multiplication.html#ga3226554923c75524fa63d02845783141",
-"dc/da1/classmath_1_1geometry_1_1_triangle.html#a34590833c4c5f2d43f8ae8d035842de8",
-"dd/d2c/classmath_1_1geometry_1_1_triangular_prism.html#a25865bbe6cbb82cb052e3457d5937070",
-"de/d1f/limes__vecops_8h.html#ga1f3dd9621252650e890a6f846ee6e3ce",
-"de/d90/classfiles_1_1_sym_link.html#a897751bb8c3a7634ec7ed8303e560320",
+"db/d18/structdsp_1_1filters_1_1_coeffecients_1_1_storage.html#a19b5b213f6f26267b75ccec1d4e1ab5f",
+"dc/d70/structdsp_1_1_oscillator.html#aa1e82d44faa4f6f97380e4aef9d6bbfc",
+"dd/d1c/classmemory_1_1_aligned_allocator.html#aa1722542d43324a828fae2cc5700b0e9",
+"de/d1a/structthreads_1_1_threaded_object_writer.html#afc55c7ee01003498027bd133bad7f9ce",
+"de/d90/classfiles_1_1_sym_link.html#a38c2972a24dc4062f8a4c3dfb9ce91da",
 "df/d3b/classmusic_1_1_compound_interval.html#a67f47f12c151abeda82716af0b8da170",
 "namespacemembers.html"
 ];
