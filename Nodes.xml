@@ -1322,6 +1322,42 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>Exponential functions</Name>
+            <Path>d6/d74/group__vec__exp.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>e</Name>
+              <Path>d6/d74/group__vec__exp.html</Path>
+              <Anchor>gaf26d13f5f8fa617ebd9d6569fc335aa5</Anchor>
+             </Node>
+             <Node>
+              <Name>eAndCopy</Name>
+              <Path>d6/d74/group__vec__exp.html</Path>
+              <Anchor>ga0249d187cff7cd560bcc64fe8b660337</Anchor>
+             </Node>
+             <Node>
+              <Name>pow</Name>
+              <Path>d6/d74/group__vec__exp.html</Path>
+              <Anchor>gab0f9de6f680283ad1ec759c1faa728a3</Anchor>
+             </Node>
+             <Node>
+              <Name>powAndCopy</Name>
+              <Path>d6/d74/group__vec__exp.html</Path>
+              <Anchor>ga1138b889dc48e861460a4330d9799222</Anchor>
+             </Node>
+             <Node>
+              <Name>two</Name>
+              <Path>d6/d74/group__vec__exp.html</Path>
+              <Anchor>ga5b878247f5007057e31d4b2401bb1ead</Anchor>
+             </Node>
+             <Node>
+              <Name>twoAndCopy</Name>
+              <Path>d6/d74/group__vec__exp.html</Path>
+              <Anchor>ga0e85455bb8d4385be6476ecc678fb6f0</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>FFT</Name>
             <Path>dc/db6/group__fft.html</Path>
             <Subnodes>
@@ -1472,6 +1508,42 @@
               <Name>isUsingVDSP</Name>
               <Path>db/db4/group__vec__impl.html</Path>
               <Anchor>gaf183d34eeacbd6b3475b5e5a00a547ea</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>Logarithmic functions</Name>
+            <Path>df/dc9/group__vec__log.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>base10</Name>
+              <Path>df/dc9/group__vec__log.html</Path>
+              <Anchor>ga2ec23b2ac119c8637b1bdea7906b4c06</Anchor>
+             </Node>
+             <Node>
+              <Name>base10AndCopy</Name>
+              <Path>df/dc9/group__vec__log.html</Path>
+              <Anchor>ga1742602a49565129cc871a58ed86fd8b</Anchor>
+             </Node>
+             <Node>
+              <Name>base2</Name>
+              <Path>df/dc9/group__vec__log.html</Path>
+              <Anchor>gab6713ddbc205d392b2498c45561ac427</Anchor>
+             </Node>
+             <Node>
+              <Name>base2AndCopy</Name>
+              <Path>df/dc9/group__vec__log.html</Path>
+              <Anchor>ga7c645b417a64572eedc43015f5b34a05</Anchor>
+             </Node>
+             <Node>
+              <Name>nat</Name>
+              <Path>df/dc9/group__vec__log.html</Path>
+              <Anchor>ga10f75ff8b8959e2ee01945d9bdbab7a5</Anchor>
+             </Node>
+             <Node>
+              <Name>natAndCopy</Name>
+              <Path>df/dc9/group__vec__log.html</Path>
+              <Anchor>ga2263e2ba5217fe9539dbcc7fc0dd9f0f</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -2118,6 +2190,10 @@
               <Path>de/d6c/namespacevecops_1_1detail.html</Path>
              </Node>
              <Node>
+              <Name>exp</Name>
+              <Path>de/d92/namespacevecops_1_1exp.html</Path>
+             </Node>
+             <Node>
               <Name>fb</Name>
               <Path>da/d0b/namespacevecops_1_1fb.html</Path>
               <Subnodes>
@@ -2144,6 +2220,10 @@
              <Node>
               <Name>fftw</Name>
               <Path>da/d30/namespacevecops_1_1fftw.html</Path>
+             </Node>
+             <Node>
+              <Name>log</Name>
+              <Path>db/d6e/namespacevecops_1_1log.html</Path>
              </Node>
              <Node>
               <Name>window</Name>
@@ -21850,6 +21930,26 @@
               <Anchor>gaf1b063aaec395fbadd3e3a24bdbd7d3e</Anchor>
              </Node>
              <Node>
+              <Name>base10</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga2ec23b2ac119c8637b1bdea7906b4c06</Anchor>
+             </Node>
+             <Node>
+              <Name>base10AndCopy</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga1742602a49565129cc871a58ed86fd8b</Anchor>
+             </Node>
+             <Node>
+              <Name>base2</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>gab6713ddbc205d392b2498c45561ac427</Anchor>
+             </Node>
+             <Node>
+              <Name>base2AndCopy</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga7c645b417a64572eedc43015f5b34a05</Anchor>
+             </Node>
+             <Node>
               <Name>cartesianInterleavedToMagnitudes</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
               <Anchor>ga4b5b41c7ed4681603518d8f98c110f97</Anchor>
@@ -21958,6 +22058,16 @@
               <Name>dotProduct</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
               <Anchor>ga3651c6c09d21235cd012207b70a893b3</Anchor>
+             </Node>
+             <Node>
+              <Name>e</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>gaf26d13f5f8fa617ebd9d6569fc335aa5</Anchor>
+             </Node>
+             <Node>
+              <Name>eAndCopy</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga0249d187cff7cd560bcc64fe8b660337</Anchor>
              </Node>
              <Node>
               <Name>enableFlushToZeroMode</Name>
@@ -22135,6 +22245,16 @@
               <Anchor>gaec8c443b22bdbe7c3db3a160fd54a48e</Anchor>
              </Node>
              <Node>
+              <Name>nat</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga10f75ff8b8959e2ee01945d9bdbab7a5</Anchor>
+             </Node>
+             <Node>
+              <Name>natAndCopy</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga2263e2ba5217fe9539dbcc7fc0dd9f0f</Anchor>
+             </Node>
+             <Node>
               <Name>negate</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
               <Anchor>gac77b0debd98c1a5818ab4e64d8a7d55f</Anchor>
@@ -22153,6 +22273,16 @@
               <Name>polarToCartesianInterleaved</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
               <Anchor>ga6893000b39e9cd5f68df3b50782b782c</Anchor>
+             </Node>
+             <Node>
+              <Name>pow</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>gab0f9de6f680283ad1ec759c1faa728a3</Anchor>
+             </Node>
+             <Node>
+              <Name>powAndCopy</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga1138b889dc48e861460a4330d9799222</Anchor>
              </Node>
              <Node>
               <Name>range</Name>
@@ -22288,6 +22418,16 @@
               <Name>tanAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
               <Anchor>gaae5ec9c1a5aa45ed11a530c7034de016</Anchor>
+             </Node>
+             <Node>
+              <Name>two</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga5b878247f5007057e31d4b2401bb1ead</Anchor>
+             </Node>
+             <Node>
+              <Name>twoAndCopy</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga0e85455bb8d4385be6476ecc678fb6f0</Anchor>
              </Node>
              <Node>
               <Name>Integral</Name>

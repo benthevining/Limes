@@ -2063,6 +2063,150 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>base10</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga2ec23b2ac119c8637b1bdea7906b4c06</Anchor>
+    <Abstract>Replaces each value in the vector with its base 10 logarithm.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>base10AndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga1742602a49565129cc871a58ed86fd8b</Anchor>
+    <Abstract>Writes the base 10 logarithm of each value in the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>base2</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>gab6713ddbc205d392b2498c45561ac427</Anchor>
+    <Abstract>Replaces each value in the vector with its base 2 logarithm.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>base2AndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga7c645b417a64572eedc43015f5b34a05</Anchor>
+    <Abstract>Writes the base 2 logarithm of each value in the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>nat</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga10f75ff8b8959e2ee01945d9bdbab7a5</Anchor>
+    <Abstract>Replaces each value in the vector with its natural logarithm.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>natAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga2263e2ba5217fe9539dbcc7fc0dd9f0f</Anchor>
+    <Abstract>Writes the natural logarithm of each value in the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>e</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>gaf26d13f5f8fa617ebd9d6569fc335aa5</Anchor>
+    <Abstract>Replaces each value in the vector with eˆvalue .</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>ga0249d187cff7cd560bcc64fe8b660337</Anchor>
+    <Abstract>For each value in the input vector, writes eˆvalue to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>pow</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>gab0f9de6f680283ad1ec759c1faa728a3</Anchor>
+    <Abstract>Raises each value in the input vector to the power of the corresponding element of another vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>powAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>ga1138b889dc48e861460a4330d9799222</Anchor>
+    <Abstract>Raises each value in the input vector to the power of the corresponding element of another vector,...</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>two</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>ga5b878247f5007057e31d4b2401bb1ead</Anchor>
+    <Abstract>Replaces each value in the vector with 2ˆvalue .</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>twoAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>ga0e85455bb8d4385be6476ecc678fb6f0</Anchor>
+    <Abstract>For each value in the input vector, writes 2ˆvalue to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>applyRamp</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -3535,6 +3679,150 @@
     <Path>db/db4/group__vec__impl.html</Path>
     <Anchor>ga6e828d61bfb16fafbdaf77a03870e93d</Anchor>
     <Abstract>Returns true if the Pommier SIMD extension functions are being used.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>e</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>gaf26d13f5f8fa617ebd9d6569fc335aa5</Anchor>
+    <Abstract>Replaces each value in the vector with eˆvalue .</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>ga0249d187cff7cd560bcc64fe8b660337</Anchor>
+    <Abstract>For each value in the input vector, writes eˆvalue to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>two</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>ga5b878247f5007057e31d4b2401bb1ead</Anchor>
+    <Abstract>Replaces each value in the vector with 2ˆvalue .</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>twoAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>ga0e85455bb8d4385be6476ecc678fb6f0</Anchor>
+    <Abstract>For each value in the input vector, writes 2ˆvalue to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>pow</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>gab0f9de6f680283ad1ec759c1faa728a3</Anchor>
+    <Abstract>Raises each value in the input vector to the power of the corresponding element of another vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>powAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>ga1138b889dc48e861460a4330d9799222</Anchor>
+    <Abstract>Raises each value in the input vector to the power of the corresponding element of another vector,...</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>nat</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga10f75ff8b8959e2ee01945d9bdbab7a5</Anchor>
+    <Abstract>Replaces each value in the vector with its natural logarithm.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>natAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga2263e2ba5217fe9539dbcc7fc0dd9f0f</Anchor>
+    <Abstract>Writes the natural logarithm of each value in the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>base2</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>gab6713ddbc205d392b2498c45561ac427</Anchor>
+    <Abstract>Replaces each value in the vector with its base 2 logarithm.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>base2AndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga7c645b417a64572eedc43015f5b34a05</Anchor>
+    <Abstract>Writes the base 2 logarithm of each value in the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>base10</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga2ec23b2ac119c8637b1bdea7906b4c06</Anchor>
+    <Abstract>Replaces each value in the vector with its base 10 logarithm.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>base10AndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga1742602a49565129cc871a58ed86fd8b</Anchor>
+    <Abstract>Writes the base 10 logarithm of each value in the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -8572,6 +8860,166 @@
     <Path>db/d0d/group__vec__tan.html</Path>
     <Anchor>ga96acee7d2976603c30fc1affc172f29d</Anchor>
     <Abstract>Writes the arctangent of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vec_log</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Abstract>Logarithmic functions for vectors.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>nat</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga10f75ff8b8959e2ee01945d9bdbab7a5</Anchor>
+    <Abstract>Replaces each value in the vector with its natural logarithm.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>natAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga2263e2ba5217fe9539dbcc7fc0dd9f0f</Anchor>
+    <Abstract>Writes the natural logarithm of each value in the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>base2</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>gab6713ddbc205d392b2498c45561ac427</Anchor>
+    <Abstract>Replaces each value in the vector with its base 2 logarithm.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>base2AndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga7c645b417a64572eedc43015f5b34a05</Anchor>
+    <Abstract>Writes the base 2 logarithm of each value in the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>base10</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga2ec23b2ac119c8637b1bdea7906b4c06</Anchor>
+    <Abstract>Replaces each value in the vector with its base 10 logarithm.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>base10AndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>df/dc9/group__vec__log.html</Path>
+    <Anchor>ga1742602a49565129cc871a58ed86fd8b</Anchor>
+    <Abstract>Writes the base 10 logarithm of each value in the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vec_exp</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Abstract>Exponential functions for vectors.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>e</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>gaf26d13f5f8fa617ebd9d6569fc335aa5</Anchor>
+    <Abstract>Replaces each value in the vector with eˆvalue .</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>ga0249d187cff7cd560bcc64fe8b660337</Anchor>
+    <Abstract>For each value in the input vector, writes eˆvalue to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>two</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>ga5b878247f5007057e31d4b2401bb1ead</Anchor>
+    <Abstract>Replaces each value in the vector with 2ˆvalue .</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>twoAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>ga0e85455bb8d4385be6476ecc678fb6f0</Anchor>
+    <Abstract>For each value in the input vector, writes 2ˆvalue to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>pow</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>gab0f9de6f680283ad1ec759c1faa728a3</Anchor>
+    <Abstract>Raises each value in the input vector to the power of the corresponding element of another vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>powAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>d6/d74/group__vec__exp.html</Path>
+    <Anchor>ga1138b889dc48e861460a4330d9799222</Anchor>
+    <Abstract>Raises each value in the input vector to the power of the corresponding element of another vector,...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -38924,6 +39372,16 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>vecops::exp</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>vecops::exp</Scope>
+    </TokenIdentifier>
+    <Path>de/d92/namespacevecops_1_1exp.html</Path>
+    <Abstract>This namespace contains exponential functions for vectors.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>vecops::fb</Name>
       <APILanguage>c</APILanguage>
       <Type>ns</Type>
@@ -38981,6 +39439,16 @@
     </TokenIdentifier>
     <Path>da/d30/namespacevecops_1_1fftw.html</Path>
     <Abstract>This namespace contains functions for controlling FFTW wisdom.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vecops::log</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>vecops::log</Scope>
+    </TokenIdentifier>
+    <Path>db/d6e/namespacevecops_1_1log.html</Path>
+    <Abstract>This namespace contains logarithmic functions for vectors.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>

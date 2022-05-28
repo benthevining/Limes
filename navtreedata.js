@@ -63,15 +63,15 @@ var NAVTREEINDEX =
 "d4/d37/group__system.html#ga4afff37dbba8d8055ea44c9631a50140",
 "d5/d2a/classfiles_1_1_directory.html#a084961d9fc1ed3b6123af23db1fd855f",
 "d5/db7/classfiles_1_1_temp_file.html#ac0a6ea55732b596693321b08ae9cc710",
-"d6/d89/classmusic_1_1_interval.html#a2bd4dccaee78cf59e108f61f65526716",
-"d8/dad/_optional_object_8h_source.html",
-"db/d64/classds_1_1_abstract_f_i_f_o.html#a730df8d6e7b20b9162217dc981067941",
-"dc/da1/classmath_1_1geometry_1_1_triangle.html#a92ff5c413570d481e23755a5838e8a70",
-"dd/d35/_f_i_f_o_8h_source.html",
-"de/d1f/limes__vecops_8h.html#ga3e484b57ffdf300079b6039e85de7898",
-"de/d94/group__func.html#ga3dbd7fc208fe38c48614027d7480df86",
-"df/d3f/exec__location_8h_source.html",
-"namespacemembers_p.html"
+"d6/d76/structdsp_1_1osc_1_1_saw.html#ab53ad10db3d9145c127670dfe6333d08",
+"d8/da6/group__vec__addition.html#ga236730b5b58cb80db4109405a1b5ef58",
+"db/d64/classds_1_1_abstract_f_i_f_o.html",
+"dc/da1/classmath_1_1geometry_1_1_triangle.html#a52707af596d110eac4fc60296f29f537",
+"dd/d2c/classmath_1_1geometry_1_1_triangular_prism.html#a67fc88522b0d8188c8e2fb666da3fa42",
+"de/d1f/limes__vecops_8h.html#ga255d7088efb599876e02b7b8abd2a996",
+"de/d90/classfiles_1_1_sym_link.html#aaa2c76039ceced6abb4180413fa5f257",
+"df/d3b/classmusic_1_1_compound_interval.html#a92dfb9d078d6e96c0a56351a0455258ca56cdd7e9e3cef1974f4075c03a80332d",
+"namespacemembers_func.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
