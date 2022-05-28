@@ -101,42 +101,47 @@ $(document).ready(function(){initNavTree('d4/d08/_threading_8h_source.html','../
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;limes_export.h&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a>&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;../misc/preprocessor.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;future&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;limes_export.h&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a>&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;../misc/preprocessor.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../misc/Functions.h&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d5/d58/namespacethreads.html">threads</a></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class </span><a class="code" href="../../de/d94/group__func.html#ga3dbd7fc208fe38c48614027d7480df86">Function</a>, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d5/d58/namespacethreads.html#a6c8345c3377edf4c7f429a3e291851ce">   26</a></span>&#160;LIMES_EXPORT <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d5/d58/namespacethreads.html#a6c8345c3377edf4c7f429a3e291851ce">callInBackground</a> (<a class="code" href="../../de/d94/group__func.html#ga3dbd7fc208fe38c48614027d7480df86">Function</a>&amp;&amp; <span class="keyword">function</span>, Args&amp;&amp;... args)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::thread worker (std::forward&lt;Function&gt; (<span class="keyword">function</span>), std::forward&lt;Args&gt; (args)...);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    worker.detach();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class </span><a class="code" href="../../de/d94/group__func.html#ga3dbd7fc208fe38c48614027d7480df86">Function</a>, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d5/d58/namespacethreads.html#ab736782d17791b2696e060c46fd652af">   33</a></span>&#160;LIMES_EXPORT <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d5/d58/namespacethreads.html#ab736782d17791b2696e060c46fd652af">callAndBlock</a> (<a class="code" href="../../de/d94/group__func.html#ga3dbd7fc208fe38c48614027d7480df86">Function</a>&amp;&amp; <span class="keyword">function</span>, Args&amp;&amp;... args)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::thread worker (std::forward&lt;Function&gt; (<span class="keyword">function</span>), std::forward&lt;Args&gt; (args)...);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    worker.join();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;LIMES_EXPORT [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="../../d5/d58/namespacethreads.html#ad36ea8a69391a84e28749452d0528c07">maxNumThreads</a> (<span class="keywordtype">int</span> defaultVal = 4) noexcept;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}  <span class="comment">// namespace threads</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d5/d58/namespacethreads.html">threads</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">template</span> &lt;<a class="code" href="../../de/d94/group__func.html#ga3dbd7fc208fe38c48614027d7480df86">func::Function</a> Func, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d2/db9/group__threads.html#ga94a8bdf0e635ade7c85f672ee7423c1a">   45</a></span>&#160;LIMES_EXPORT <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="../../d2/db9/group__threads.html#ga94a8bdf0e635ade7c85f672ee7423c1a">callInBackground</a> (Func&amp;&amp; <span class="keyword">function</span>, Args&amp;&amp;... args)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> std::async (std::move (<span class="keyword">function</span>), std::forward&lt;Args&gt; (args)...);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span> &lt;<a class="code" href="../../de/d94/group__func.html#ga3dbd7fc208fe38c48614027d7480df86">func::Function</a> Func, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d2/db9/group__threads.html#ga251c922a2477a65a5ded648c4ce53e6f">   55</a></span>&#160;LIMES_EXPORT <span class="keyword">inline</span> <a class="code" href="../../de/d94/group__func.html#ga734e223214335b499b76e734d6c3771f">func::result_type</a>&lt;Func, Args...&gt; <a class="code" href="../../d2/db9/group__threads.html#ga251c922a2477a65a5ded648c4ce53e6f">callAndBlock</a> (Func&amp;&amp; <span class="keyword">function</span>, Args&amp;&amp;... args)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">auto</span> future = std::async (std::move (<span class="keyword">function</span>), std::forward&lt;Args&gt; (args)...);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    future.wait();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> future.get();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;LIMES_EXPORT [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="../../d2/db9/group__threads.html#gad36ea8a69391a84e28749452d0528c07">maxNumThreads</a> (<span class="keywordtype">int</span> defaultVal = 4) noexcept;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}  <span class="comment">// namespace threads</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacethreads_html_ab736782d17791b2696e060c46fd652af"><div class="ttname"><a href="../../d5/d58/namespacethreads.html#ab736782d17791b2696e060c46fd652af">threads::callAndBlock</a></div><div class="ttdeci">LIMES_EXPORT void callAndBlock(Function &amp;&amp;function, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d08/_threading_8h_source.html#l00033">Threading.h:33</a></div></div>
-<div class="ttc" id="anamespacethreads_html"><div class="ttname"><a href="../../d5/d58/namespacethreads.html">threads</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dcb/_atomic_object_holder_8h_source.html#l00024">AtomicObjectHolder.h:24</a></div></div>
-<div class="ttc" id="anamespacethreads_html_a6c8345c3377edf4c7f429a3e291851ce"><div class="ttname"><a href="../../d5/d58/namespacethreads.html#a6c8345c3377edf4c7f429a3e291851ce">threads::callInBackground</a></div><div class="ttdeci">LIMES_EXPORT void callInBackground(Function &amp;&amp;function, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d08/_threading_8h_source.html#l00026">Threading.h:26</a></div></div>
-<div class="ttc" id="anamespacethreads_html_ad36ea8a69391a84e28749452d0528c07"><div class="ttname"><a href="../../d5/d58/namespacethreads.html#ad36ea8a69391a84e28749452d0528c07">threads::maxNumThreads</a></div><div class="ttdeci">LIMES_EXPORT int maxNumThreads(int defaultVal=4) noexcept</div></div>
+<div class="ttc" id="anamespacethreads_html"><div class="ttname"><a href="../../d5/d58/namespacethreads.html">threads</a></div><div class="ttdoc">This namespace contains threading utilities.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7a/_realtime_type_traits_8h_source.html#l00034">RealtimeTypeTraits.h:34</a></div></div>
 <div class="ttc" id="agroup__func_html_ga3dbd7fc208fe38c48614027d7480df86"><div class="ttname"><a href="../../de/d94/group__func.html#ga3dbd7fc208fe38c48614027d7480df86">func::Function</a></div><div class="ttdeci">concept Function</div><div class="ttdoc">@concept Function This concept simply requires that an object is invocable.</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d9b/_functions_8h_source.html#l00045">Functions.h:45</a></div></div>
+<div class="ttc" id="agroup__threads_html_ga94a8bdf0e635ade7c85f672ee7423c1a"><div class="ttname"><a href="../../d2/db9/group__threads.html#ga94a8bdf0e635ade7c85f672ee7423c1a">threads::callInBackground</a></div><div class="ttdeci">LIMES_EXPORT auto callInBackground(Func &amp;&amp;function, Args &amp;&amp;... args)</div><div class="ttdoc">Launches a function on a background thread and returns immediately.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d08/_threading_8h_source.html#l00045">Threading.h:45</a></div></div>
+<div class="ttc" id="agroup__threads_html_ga251c922a2477a65a5ded648c4ce53e6f"><div class="ttname"><a href="../../d2/db9/group__threads.html#ga251c922a2477a65a5ded648c4ce53e6f">threads::callAndBlock</a></div><div class="ttdeci">LIMES_EXPORT func::result_type&lt; Func, Args... &gt; callAndBlock(Func &amp;&amp;function, Args &amp;&amp;... args)</div><div class="ttdoc">Calls a function on a background thread, blocks until the function finishes executing,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d08/_threading_8h_source.html#l00055">Threading.h:55</a></div></div>
+<div class="ttc" id="agroup__func_html_ga734e223214335b499b76e734d6c3771f"><div class="ttname"><a href="../../de/d94/group__func.html#ga734e223214335b499b76e734d6c3771f">func::result_type</a></div><div class="ttdeci">std::invoke_result_t&lt; std::decay_t&lt; Func &gt;, std::decay_t&lt; Args &gt;... &gt; result_type</div><div class="ttdoc">This typedef evaluates to the result type returned by calling the given function with the given argum...</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d9b/_functions_8h_source.html#l00055">Functions.h:55</a></div></div>
+<div class="ttc" id="agroup__threads_html_gad36ea8a69391a84e28749452d0528c07"><div class="ttname"><a href="../../d2/db9/group__threads.html#gad36ea8a69391a84e28749452d0528c07">threads::maxNumThreads</a></div><div class="ttdeci">LIMES_EXPORT int maxNumThreads(int defaultVal=4) noexcept</div><div class="ttdoc">Tries to detect the number of concurrent threads supported by the current hardware and implementation...</div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00039">limes_namespace.h:39</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00027">limes_namespace.h:27</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
@@ -144,7 +149,7 @@ $(document).ready(function(){initNavTree('d4/d08/_threading_8h_source.html','../
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_f3c3802d3847d937c602d8d473665a27.html">threading</a></li><li class="navelem"><a class="el" href="../../d4/d08/_threading_8h.html">Threading.h</a></li>
-    <li class="footer">Generated on Fri May 27 2022 18:50:55 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 20:15:12 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

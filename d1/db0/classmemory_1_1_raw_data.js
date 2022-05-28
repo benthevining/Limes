@@ -17,6 +17,7 @@ var classmemory_1_1_raw_data =
     [ "copyFrom", "d1/db0/classmemory_1_1_raw_data.html#a62965d82eff008b31a2ff736cd92953a", null ],
     [ "copyTo", "d1/db0/classmemory_1_1_raw_data.html#a2e0bf06d57896ee9529f4b0a5739deae", null ],
     [ "copyTo", "d1/db0/classmemory_1_1_raw_data.html#acbbdcb4d960dc4d07f1ebd765c4ee8d4", null ],
+    [ "createCopy", "d1/db0/classmemory_1_1_raw_data.html#a8c67ee2079ccb3bcf56b5c6ef71b3c78", null ],
     [ "end", "d1/db0/classmemory_1_1_raw_data.html#a8aec7688eca0691d04ac20576a587145", null ],
     [ "end", "d1/db0/classmemory_1_1_raw_data.html#ac720afe9abfaf5ad737c60e66f1f2165", null ],
     [ "fill", "d1/db0/classmemory_1_1_raw_data.html#a43af81207071490e4c75eda48492390d", null ],

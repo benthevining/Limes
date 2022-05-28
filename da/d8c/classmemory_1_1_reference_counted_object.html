@@ -92,17 +92,24 @@ $(document).ready(function(){initNavTree('da/d8c/classmemory_1_1_reference_count
 </div><!--header-->
 <div class="contents">
 
+<p>An object that is reference-counted, and garbage collected once the reference count reaches 0.  
+ <a href="../../da/d8c/classmemory_1_1_reference_counted_object.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../df/dc8/_reference_counted_object_8h_source.html">ReferenceCountedObject.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2ba97995dd88c16cf283fce3d6d53902"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d8c/classmemory_1_1_reference_counted_object.html#a2ba97995dd88c16cf283fce3d6d53902">decRefCount</a> () noexcept</td></tr>
+<tr class="memdesc:a2ba97995dd88c16cf283fce3d6d53902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrements the object's reference count.  <a href="../../da/d8c/classmemory_1_1_reference_counted_object.html#a2ba97995dd88c16cf283fce3d6d53902">More...</a><br /></td></tr>
 <tr class="separator:a2ba97995dd88c16cf283fce3d6d53902"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7243679968d6a41bee91ab40a1c8ebd3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d8c/classmemory_1_1_reference_counted_object.html#a7243679968d6a41bee91ab40a1c8ebd3">decRefCountWithoutDeleting</a> () noexcept</td></tr>
+<tr class="memdesc:a7243679968d6a41bee91ab40a1c8ebd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrements the object's reference count, but doesn't delete the object if the ref count reaches 0.  <a href="../../da/d8c/classmemory_1_1_reference_counted_object.html#a7243679968d6a41bee91ab40a1c8ebd3">More...</a><br /></td></tr>
 <tr class="separator:a7243679968d6a41bee91ab40a1c8ebd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40a5b355c562aa5c235ab48fc3e993ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d8c/classmemory_1_1_reference_counted_object.html#a40a5b355c562aa5c235ab48fc3e993ab">getRefCount</a> () const noexcept</td></tr>
+<tr class="memdesc:a40a5b355c562aa5c235ab48fc3e993ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the object's current reference count.  <a href="../../da/d8c/classmemory_1_1_reference_counted_object.html#a40a5b355c562aa5c235ab48fc3e993ab">More...</a><br /></td></tr>
 <tr class="separator:a40a5b355c562aa5c235ab48fc3e993ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03e6249927e599af13a7d241a5dc4867"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d8c/classmemory_1_1_reference_counted_object.html#a03e6249927e599af13a7d241a5dc4867">incRefCount</a> () noexcept</td></tr>
+<tr class="memdesc:a03e6249927e599af13a7d241a5dc4867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the object's reference count.  <a href="../../da/d8c/classmemory_1_1_reference_counted_object.html#a03e6249927e599af13a7d241a5dc4867">More...</a><br /></td></tr>
 <tr class="separator:a03e6249927e599af13a7d241a5dc4867"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -127,8 +134,10 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a58d7e0f019bb97e193a5d43c98ef1f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../df/dc8/_reference_counted_object_8h_source.html#l00026">26</a> of file <a class="el" href="../../df/dc8/_reference_counted_object_8h_source.html">ReferenceCountedObject.h</a>.</p>
+<div class="textblock"><p>An object that is reference-counted, and garbage collected once the reference count reaches 0. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d6/d26/classmemory_1_1_reference_counted_object_ptr.html">ReferenceCountedObjectPtr</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../df/dc8/_reference_counted_object_8h_source.html#l00037">37</a> of file <a class="el" href="../../df/dc8/_reference_counted_object_8h_source.html">ReferenceCountedObject.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac09f52626220dcde7b3b58c98fba6a41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac09f52626220dcde7b3b58c98fba6a41">&#9670;&nbsp;</a></span>ReferenceCountedObject() <span class="overload">[1/3]</span></h2>
@@ -264,6 +273,10 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Decrements the object's reference count. </p>
+<p>If the reference count reaches 0, the object will be deleted. </p><dl class="section return"><dt>Returns</dt><dd>True if the object was deleted </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../da/d8c/classmemory_1_1_reference_counted_object.html#a7243679968d6a41bee91ab40a1c8ebd3" title="Decrements the object&#39;s reference count, but doesn&#39;t delete the object if the ref count reaches 0.">decRefCountWithoutDeleting</a> </dd></dl>
+
 </div>
 </div>
 <a id="a7243679968d6a41bee91ab40a1c8ebd3"></a>
@@ -288,6 +301,10 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Decrements the object's reference count, but doesn't delete the object if the ref count reaches 0. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the reference count reaches 0. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../da/d8c/classmemory_1_1_reference_counted_object.html#a2ba97995dd88c16cf283fce3d6d53902" title="Decrements the object&#39;s reference count.">decRefCount</a> </dd></dl>
 
 </div>
 </div>
@@ -314,6 +331,8 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the object's current reference count. </p>
+
 </div>
 </div>
 <a id="a03e6249927e599af13a7d241a5dc4867"></a>
@@ -338,6 +357,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Increments the object's reference count. </p>
+<dl class="section return"><dt>Returns</dt><dd>The new reference count, after the increment. </dd></dl>
 
 </div>
 </div>
@@ -406,7 +428,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d4/daf/namespacememory.html">memory</a></li><li class="navelem"><a class="el" href="../../da/d8c/classmemory_1_1_reference_counted_object.html">ReferenceCountedObject</a></li>
-    <li class="footer">Generated on Fri May 27 2022 18:50:55 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 20:15:13 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

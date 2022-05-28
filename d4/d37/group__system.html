@@ -237,7 +237,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Displays a custom message with the compiler's output. To display a custom warning message, use <code>LIMES_COMPILER_WARNING</code>. Some compilers don't support custom messages, so the message may be emitted as a warning. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d4/d37/group__system.html#ga2db625c65f80ef77802a5f764aebff50">LIMES_COMPILER_WARNING</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d02/compiler__warnings_8h_source.html#l00045">45</a> of file <a class="el" href="../../de/d02/compiler__warnings_8h_source.html">compiler_warnings.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d02/compiler__warnings_8h_source.html#l00062">62</a> of file <a class="el" href="../../de/d02/compiler__warnings_8h_source.html">compiler_warnings.h</a>.</p>
 
 </div>
 </div>
@@ -258,7 +258,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>This macro causes the compiler to print the given text as a compilation warning, if available with the currently used compiler. Some compilers don't support user-defined warnings, so the text may just be printed to std::out during compilation with no actual warning issued. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d4/d37/group__system.html#ga5577fed1a9e9f17571205093a090b490">LIMES_COMPILER_MESSAGE</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d02/compiler__warnings_8h_source.html#l00053">53</a> of file <a class="el" href="../../de/d02/compiler__warnings_8h_source.html">compiler_warnings.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d02/compiler__warnings_8h_source.html#l00070">70</a> of file <a class="el" href="../../de/d02/compiler__warnings_8h_source.html">compiler_warnings.h</a>.</p>
 
 </div>
 </div>
@@ -391,9 +391,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This macro disables all compiler warnings from the point in the source code where it is encountered until <code>LIMES_REENABLE_ALL_COMPILER_WARNINGS</code> is encountered. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d4/d37/group__system.html#gad2a89476f519fd1fb29df89e88cb6a93">LIMES_REENABLE_ALL_COMPILER_WARNINGS</a> </dd></dl>
+<p>This macro disables all compiler warnings from the point in the source code where it is encountered until <code>LIMES_REENABLE_ALL_COMPILER_WARNINGS</code> is encountered. This is useful for including external headers that may cause lots of warnings. Example usage: </p><div class="fragment"><div class="line"><a class="code" href="../../d4/d37/group__system.html#gac9aaa41f09c0bdac5928138eeb9adb24">LIMES_DISABLE_ALL_COMPILER_WARNINGS</a></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;someExternalHeader&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="../../d4/d37/group__system.html#gad2a89476f519fd1fb29df89e88cb6a93">LIMES_REENABLE_ALL_COMPILER_WARNINGS</a></div>
+</div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d4/d37/group__system.html#gad2a89476f519fd1fb29df89e88cb6a93">LIMES_REENABLE_ALL_COMPILER_WARNINGS</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d02/compiler__warnings_8h_source.html#l00030">30</a> of file <a class="el" href="../../de/d02/compiler__warnings_8h_source.html">compiler_warnings.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d02/compiler__warnings_8h_source.html#l00039">39</a> of file <a class="el" href="../../de/d02/compiler__warnings_8h_source.html">compiler_warnings.h</a>.</p>
 
 </div>
 </div>
@@ -602,9 +607,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This macro re-enables all compiler warnings after <code>LIMES_DISABLE_ALL_COMPILER_WARNINGS</code> has been issued. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d4/d37/group__system.html#gac9aaa41f09c0bdac5928138eeb9adb24">LIMES_DISABLE_ALL_COMPILER_WARNINGS</a> </dd></dl>
+<p>This macro re-enables all compiler warnings after <code>LIMES_DISABLE_ALL_COMPILER_WARNINGS</code> has been issued. Example usage: </p><div class="fragment"><div class="line"><a class="code" href="../../d4/d37/group__system.html#gac9aaa41f09c0bdac5928138eeb9adb24">LIMES_DISABLE_ALL_COMPILER_WARNINGS</a></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;someExternalHeader&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="../../d4/d37/group__system.html#gad2a89476f519fd1fb29df89e88cb6a93">LIMES_REENABLE_ALL_COMPILER_WARNINGS</a></div>
+</div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d4/d37/group__system.html#gac9aaa41f09c0bdac5928138eeb9adb24">LIMES_DISABLE_ALL_COMPILER_WARNINGS</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d02/compiler__warnings_8h_source.html#l00037">37</a> of file <a class="el" href="../../de/d02/compiler__warnings_8h_source.html">compiler_warnings.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d02/compiler__warnings_8h_source.html#l00054">54</a> of file <a class="el" href="../../de/d02/compiler__warnings_8h_source.html">compiler_warnings.h</a>.</p>
 
 </div>
 </div>
@@ -750,6 +760,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__system_html_ga397de153f0d2c4a307fa9e150a396a32"><div class="ttname"><a href="../../d4/d37/group__system.html#ga397de153f0d2c4a307fa9e150a396a32">LIMES_CONSTEXPR_COPYABLE</a></div><div class="ttdeci">#define LIMES_CONSTEXPR_COPYABLE(ClassName)</div></div>
+<div class="ttc" id="agroup__system_html_gad2a89476f519fd1fb29df89e88cb6a93"><div class="ttname"><a href="../../d4/d37/group__system.html#gad2a89476f519fd1fb29df89e88cb6a93">LIMES_REENABLE_ALL_COMPILER_WARNINGS</a></div><div class="ttdeci">#define LIMES_REENABLE_ALL_COMPILER_WARNINGS</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d02/compiler__warnings_8h_source.html#l00054">compiler_warnings.h:54</a></div></div>
 <div class="ttc" id="agroup__system_html_gaa19294b73467ee63a3601fe2ff636b8c"><div class="ttname"><a href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a></div><div class="ttdeci">#define LIMES_NON_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00122">preprocessor.h:122</a></div></div>
 <div class="ttc" id="agroup__system_html_ga3c9f53b7d1a99a02600fdbe81a772f82"><div class="ttname"><a href="../../d4/d37/group__system.html#ga3c9f53b7d1a99a02600fdbe81a772f82">LIMES_NON_MOVABLE</a></div><div class="ttdeci">#define LIMES_NON_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00139">preprocessor.h:139</a></div></div>
 <div class="ttc" id="agroup__system_html_ga4afff37dbba8d8055ea44c9631a50140"><div class="ttname"><a href="../../d4/d37/group__system.html#ga4afff37dbba8d8055ea44c9631a50140">LIMES_PACK</a></div><div class="ttdeci">#define LIMES_PACK(declaration)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d00/compiler__defs_8h_source.html#l00078">compiler_defs.h:78</a></div></div>
@@ -758,12 +769,13 @@ Functions</h2></td></tr>
 <div class="ttc" id="agroup__system_html_ga16865b999504e0621f83caecfec93bcc"><div class="ttname"><a href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a></div><div class="ttdeci">#define LIMES_FORCE_INLINE</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d00/compiler__defs_8h_source.html#l00033">compiler_defs.h:33</a></div></div>
 <div class="ttc" id="agroup__system_html_gaa204cf467eb45621b139f7fbf6b0f503"><div class="ttname"><a href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a></div><div class="ttdeci">#define LIMES_DEFAULT_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00175">preprocessor.h:175</a></div></div>
 <div class="ttc" id="agroup__system_html_ga7bb6ffa325bf2b2ba5d63d565a98aaff"><div class="ttname"><a href="../../d4/d37/group__system.html#ga7bb6ffa325bf2b2ba5d63d565a98aaff">LIMES_NEVER_INLINE</a></div><div class="ttdeci">#define LIMES_NEVER_INLINE</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d00/compiler__defs_8h_source.html#l00043">compiler_defs.h:43</a></div></div>
+<div class="ttc" id="agroup__system_html_gac9aaa41f09c0bdac5928138eeb9adb24"><div class="ttname"><a href="../../d4/d37/group__system.html#gac9aaa41f09c0bdac5928138eeb9adb24">LIMES_DISABLE_ALL_COMPILER_WARNINGS</a></div><div class="ttdeci">#define LIMES_DISABLE_ALL_COMPILER_WARNINGS</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d02/compiler__warnings_8h_source.html#l00039">compiler_warnings.h:39</a></div></div>
 <div class="ttc" id="apreprocessor_8h_html_acb481fd22dbb3eae9b409dfbb29fd494"><div class="ttname"><a href="../../d3/d53/preprocessor_8h.html#acb481fd22dbb3eae9b409dfbb29fd494">LIMES_CONSTEXPR_MOVABLE</a></div><div class="ttdeci">#define LIMES_CONSTEXPR_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00211">preprocessor.h:211</a></div></div>
 <div class="ttc" id="agroup__system_html_ga31004f8beb1bebe164df6461882dbe88"><div class="ttname"><a href="../../d4/d37/group__system.html#ga31004f8beb1bebe164df6461882dbe88">LIMES_RESTRICT</a></div><div class="ttdeci">#define LIMES_RESTRICT</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d00/compiler__defs_8h_source.html#l00063">compiler_defs.h:63</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri May 27 2022 18:50:55 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 20:15:12 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

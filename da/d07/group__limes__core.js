@@ -10,6 +10,7 @@ var group__limes__core =
     [ "Miscellaneous", "d1/ded/group__misc.html", "d1/ded/group__misc" ],
     [ "System", "d4/d37/group__system.html", "d4/d37/group__system" ],
     [ "Text", "d4/d61/group__text.html", "d4/d61/group__text" ],
+    [ "Threading", "d2/db9/group__threads.html", "d2/db9/group__threads" ],
     [ "Time", "d9/d7d/group__time.html", "d9/d7d/group__time" ],
     [ "limes_core.h", "d9/df8/limes__core_8h.html", null ],
     [ "limes_namespace.h", "da/d0b/limes__namespace_8h.html", null ],

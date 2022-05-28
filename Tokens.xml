@@ -650,6 +650,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>result_type</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>func</Scope>
+    </TokenIdentifier>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga734e223214335b499b76e734d6c3771f</Anchor>
+    <Abstract>This typedef evaluates to the result type returned by calling the given function with the given argum...</Abstract>
+    <DeclaredIn>Functions.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>call_once</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -1199,6 +1211,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>sinCos</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d4/de3/group__vec__trig.html</Path>
+    <Anchor>ga4b00213256c36d9c42e8f60090d05841</Anchor>
+    <Abstract>Simultaneously computes the sin and cosine of every value in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>add</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -1667,54 +1691,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>max</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga2b9ca98d48877ea7a09777202711fd14</Anchor>
-    <Abstract>Returns the maximum element in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>max</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gab7fbdda1d58f33cb333944be0ea90872</Anchor>
-    <Abstract>Finds the maximum element in a vector and its index in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>maxAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga255d7088efb599876e02b7b8abd2a996</Anchor>
-    <Abstract>Returns the maximum absolute value in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>maxAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga8fa776a377b6164dae4889cc89253bbd</Anchor>
-    <Abstract>Finds the maximum absolute value in a vector and its index in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>mean</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -1723,102 +1699,6 @@
     <Path>d0/d70/group__vec__stats.html</Path>
     <Anchor>gab5139f2858fb69eb2ac615991ac5584e</Anchor>
     <Abstract>Returns the mean of the values in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>min</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gac850b880c9ee8106321198dda9dfc89d</Anchor>
-    <Abstract>Returns the minimum element in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>min</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga887ed86c17a7996c351461192bd819aa</Anchor>
-    <Abstract>Finds the minimum element in a vector and its index in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga80feb4cd44aa34ee6ddab2ad51ae7250</Anchor>
-    <Abstract>Returns the minimum absolute value in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gaf8a064acc4a5f97b2e98110cc2ceaae2</Anchor>
-    <Abstract>Finds the minimum absolute value in a vector and its index in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minMax</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga5c8cb588f17f928a0979c3aed56c5993</Anchor>
-    <Abstract>Finds both the minimum and maximum values in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minMax</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga3a2a10d9d0997de372a32ef19e01d68e</Anchor>
-    <Abstract>Finds the minimum and maximum values in a vector, and their indices in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minMaxAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga7d1b7e77fcb133947b6bb048405904e1</Anchor>
-    <Abstract>Finds both the minimum and maximum absolute values in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minMaxAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga4ab5258f412dc03cade0fb58c510a972</Anchor>
-    <Abstract>Finds the minimum and maximum absolute values in a vector, and their indices in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -1847,26 +1727,14 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>range</Name>
+      <Name>standard_deviation</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
       <Scope>vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga1131ff9a6c22f93bf86efe856979eb8d</Anchor>
-    <Abstract>Returns the difference between the maximum and minimum values in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>rangeAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga74bdbe1d40199c226e1fec132b2e5ec3</Anchor>
-    <Abstract>Returns the difference between the maximum and minimum absolute values in the vector.</Abstract>
+    <Anchor>ga327cf469950778c5293615e37eb0f447</Anchor>
+    <Abstract>Returns the standard deviation of the values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -1879,6 +1747,318 @@
     <Path>d0/d70/group__vec__stats.html</Path>
     <Anchor>ga75cf069da9162bb3e3e019d7325c4286</Anchor>
     <Abstract>Returns the sum of all the values in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>max</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga2b9ca98d48877ea7a09777202711fd14</Anchor>
+    <Abstract>Returns the maximum element in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>max</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>gab7fbdda1d58f33cb333944be0ea90872</Anchor>
+    <Abstract>Finds the maximum element in a vector and its index in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>maxAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga255d7088efb599876e02b7b8abd2a996</Anchor>
+    <Abstract>Returns the maximum absolute value in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>maxAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga8fa776a377b6164dae4889cc89253bbd</Anchor>
+    <Abstract>Finds the maximum absolute value in a vector and its index in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>min</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>gac850b880c9ee8106321198dda9dfc89d</Anchor>
+    <Abstract>Returns the minimum element in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>min</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga887ed86c17a7996c351461192bd819aa</Anchor>
+    <Abstract>Finds the minimum element in a vector and its index in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga80feb4cd44aa34ee6ddab2ad51ae7250</Anchor>
+    <Abstract>Returns the minimum absolute value in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>gaf8a064acc4a5f97b2e98110cc2ceaae2</Anchor>
+    <Abstract>Finds the minimum absolute value in a vector and its index in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minMax</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga5c8cb588f17f928a0979c3aed56c5993</Anchor>
+    <Abstract>Finds both the minimum and maximum values in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minMax</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga3a2a10d9d0997de372a32ef19e01d68e</Anchor>
+    <Abstract>Finds the minimum and maximum values in a vector, and their indices in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minMaxAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga7d1b7e77fcb133947b6bb048405904e1</Anchor>
+    <Abstract>Finds both the minimum and maximum absolute values in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minMaxAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga4ab5258f412dc03cade0fb58c510a972</Anchor>
+    <Abstract>Finds the minimum and maximum absolute values in a vector, and their indices in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>range</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga1131ff9a6c22f93bf86efe856979eb8d</Anchor>
+    <Abstract>Returns the difference between the maximum and minimum values in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>rangeAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga74bdbe1d40199c226e1fec132b2e5ec3</Anchor>
+    <Abstract>Returns the difference between the maximum and minimum absolute values in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arcsine</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d9/d09/group__vec__sin.html</Path>
+    <Anchor>gae3c58be834153eb8865b31b6d44ec9a0</Anchor>
+    <Abstract>Replaces every value in the vector with its arcsine.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arcsineAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d9/d09/group__vec__sin.html</Path>
+    <Anchor>gae15618bd5f7738685e4232280264ff94</Anchor>
+    <Abstract>Writes the arcsine of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>sine</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d9/d09/group__vec__sin.html</Path>
+    <Anchor>ga14efdf3f20df88f266d3c644ba451be0</Anchor>
+    <Abstract>Replaces every value in the vector with its sine.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>sineAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d9/d09/group__vec__sin.html</Path>
+    <Anchor>ga70d8db9e6144847e686dab7bc45517c0</Anchor>
+    <Abstract>Writes the sine of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arccos</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>dd/d22/group__vec__cos.html</Path>
+    <Anchor>ga9075633c6116bb64ea13895eb3a5dada</Anchor>
+    <Abstract>Replaces every value in the vector with its arccosine.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arccosAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>dd/d22/group__vec__cos.html</Path>
+    <Anchor>ga5013ba0e6556346fe3409f3dc1ad4cf1</Anchor>
+    <Abstract>Writes the arccosine of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>cos</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>dd/d22/group__vec__cos.html</Path>
+    <Anchor>gae8ffec8c97c1fb02bf8400c27beb3e1e</Anchor>
+    <Abstract>Replaces every value in the vector with its cosine.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>cosAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>dd/d22/group__vec__cos.html</Path>
+    <Anchor>gaab8687cc72b8083a69703af6ce586386</Anchor>
+    <Abstract>Writes the cosine of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arctan</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>db/d0d/group__vec__tan.html</Path>
+    <Anchor>ga0c6c293d12a4ab925bfc4812313bdb00</Anchor>
+    <Abstract>Replaces every value in the vector with its arctangent.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arctanAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>db/d0d/group__vec__tan.html</Path>
+    <Anchor>ga96acee7d2976603c30fc1affc172f29d</Anchor>
+    <Abstract>Writes the arctangent of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>tan</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>db/d0d/group__vec__tan.html</Path>
+    <Anchor>ga5be8d79ab028b1b93e42667eacee85ef</Anchor>
+    <Abstract>Replaces every value in the vector with its tangent.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>tanAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>db/d0d/group__vec__tan.html</Path>
+    <Anchor>gaae5ec9c1a5aa45ed11a530c7034de016</Anchor>
+    <Abstract>Writes the tangent of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -1960,7 +2140,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d4/d9f/group__vec__blackman.html</Path>
     <Anchor>gaba364c54789e790fee311a41081fff54</Anchor>
     <Abstract>Applies a Blackman window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -1972,9 +2152,21 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d4/d9f/group__vec__blackman.html</Path>
     <Anchor>gab21f461fc0412d40d173d00727e355cc</Anchor>
     <Abstract>Applies a Blackman window to the samples in the vector, writing the output samples to another vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>generateBlackman</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d4/d9f/group__vec__blackman.html</Path>
+    <Anchor>ga3e484b57ffdf300079b6039e85de7898</Anchor>
+    <Abstract>Generates a Blackman window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -1984,7 +2176,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d7/d30/group__vec__hamm.html</Path>
     <Anchor>ga98a439d54ea7e42ceaba0e0ef8f05c6d</Anchor>
     <Abstract>Applies a Hamm (Hamming) window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -1996,9 +2188,21 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d7/d30/group__vec__hamm.html</Path>
     <Anchor>ga77f84cbc8e7e2ab59c09b4a7b1599bec</Anchor>
     <Abstract>Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another v...</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>generateHamm</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d7/d30/group__vec__hamm.html</Path>
+    <Anchor>gab41b83147aa9748b2b60ce1eb4244a9d</Anchor>
+    <Abstract>Generates a Hamm (Hamming) window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -2008,7 +2212,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d9/d83/group__vec__hanning.html</Path>
     <Anchor>ga58332762474a285514e30b255be86835</Anchor>
     <Abstract>Applies a Hanning window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -2020,43 +2224,19 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d9/d83/group__vec__hanning.html</Path>
     <Anchor>gad7afbe4383d3a434289bdd6d4694abc7</Anchor>
     <Abstract>Applies a Hanning window to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>generateBlackman</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops::window</Scope>
-    </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
-    <Anchor>ga3e484b57ffdf300079b6039e85de7898</Anchor>
-    <Abstract>Generates a Blackman window, writing the output samples to a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>generateHamm</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops::window</Scope>
-    </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
-    <Anchor>gab41b83147aa9748b2b60ce1eb4244a9d</Anchor>
-    <Abstract>Generates a Hamm (Hamming) window, writing the output samples to a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>generateHanning</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d9/d83/group__vec__hanning.html</Path>
     <Anchor>ga1f3dd9621252650e890a6f846ee6e3ce</Anchor>
     <Abstract>Generates a Hanning window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -2140,7 +2320,7 @@
       <Type>func</Type>
       <Scope>vecops</Scope>
     </TokenIdentifier>
-    <Path>d1/d09/group__vec__fpm.html</Path>
+    <Path>d0/d49/group__vec__denormals.html</Path>
     <Anchor>gaf1b063aaec395fbadd3e3a24bdbd7d3e</Anchor>
     <Abstract>Returns true if denormalized numbers are currently enabled.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -2152,7 +2332,7 @@
       <Type>func</Type>
       <Scope>vecops</Scope>
     </TokenIdentifier>
-    <Path>d1/d09/group__vec__fpm.html</Path>
+    <Path>d0/d49/group__vec__denormals.html</Path>
     <Anchor>ga095c013f3d5f68405a075e4c0bcdec66</Anchor>
     <Abstract>Controls whether denormalized numbers are enabled or disabled.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -2164,7 +2344,7 @@
       <Type>func</Type>
       <Scope>vecops</Scope>
     </TokenIdentifier>
-    <Path>d1/d09/group__vec__fpm.html</Path>
+    <Path>d5/dfa/group__vec__ftz.html</Path>
     <Anchor>ga455df89d2cef625f239ebd5507fea3d2</Anchor>
     <Abstract>Controls whether flush to zero mode is enabled or disabled.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -2176,7 +2356,7 @@
       <Type>func</Type>
       <Scope>vecops</Scope>
     </TokenIdentifier>
-    <Path>d1/d09/group__vec__fpm.html</Path>
+    <Path>d5/dfa/group__vec__ftz.html</Path>
     <Anchor>ga8c5fce68c3759e785f4778df27012b24</Anchor>
     <Abstract>Returns true if flush to zero mode is enabled.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -2747,174 +2927,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>max</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga2b9ca98d48877ea7a09777202711fd14</Anchor>
-    <Abstract>Returns the maximum element in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>max</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gab7fbdda1d58f33cb333944be0ea90872</Anchor>
-    <Abstract>Finds the maximum element in a vector and its index in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>maxAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga255d7088efb599876e02b7b8abd2a996</Anchor>
-    <Abstract>Returns the maximum absolute value in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>maxAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga8fa776a377b6164dae4889cc89253bbd</Anchor>
-    <Abstract>Finds the maximum absolute value in a vector and its index in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>min</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gac850b880c9ee8106321198dda9dfc89d</Anchor>
-    <Abstract>Returns the minimum element in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>min</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga887ed86c17a7996c351461192bd819aa</Anchor>
-    <Abstract>Finds the minimum element in a vector and its index in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga80feb4cd44aa34ee6ddab2ad51ae7250</Anchor>
-    <Abstract>Returns the minimum absolute value in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gaf8a064acc4a5f97b2e98110cc2ceaae2</Anchor>
-    <Abstract>Finds the minimum absolute value in a vector and its index in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minMax</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga5c8cb588f17f928a0979c3aed56c5993</Anchor>
-    <Abstract>Finds both the minimum and maximum values in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minMax</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga3a2a10d9d0997de372a32ef19e01d68e</Anchor>
-    <Abstract>Finds the minimum and maximum values in a vector, and their indices in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minMaxAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga7d1b7e77fcb133947b6bb048405904e1</Anchor>
-    <Abstract>Finds both the minimum and maximum absolute values in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minMaxAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga4ab5258f412dc03cade0fb58c510a972</Anchor>
-    <Abstract>Finds the minimum and maximum absolute values in a vector, and their indices in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>range</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga1131ff9a6c22f93bf86efe856979eb8d</Anchor>
-    <Abstract>Returns the difference between the maximum and minimum values in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>rangeAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga74bdbe1d40199c226e1fec132b2e5ec3</Anchor>
-    <Abstract>Returns the difference between the maximum and minimum absolute values in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>sum</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -2935,6 +2947,330 @@
     <Path>d0/d70/group__vec__stats.html</Path>
     <Anchor>gab5139f2858fb69eb2ac615991ac5584e</Anchor>
     <Abstract>Returns the mean of the values in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>standard_deviation</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d0/d70/group__vec__stats.html</Path>
+    <Anchor>ga327cf469950778c5293615e37eb0f447</Anchor>
+    <Abstract>Returns the standard deviation of the values in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>max</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga2b9ca98d48877ea7a09777202711fd14</Anchor>
+    <Abstract>Returns the maximum element in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>max</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>gab7fbdda1d58f33cb333944be0ea90872</Anchor>
+    <Abstract>Finds the maximum element in a vector and its index in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>maxAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga255d7088efb599876e02b7b8abd2a996</Anchor>
+    <Abstract>Returns the maximum absolute value in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>maxAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga8fa776a377b6164dae4889cc89253bbd</Anchor>
+    <Abstract>Finds the maximum absolute value in a vector and its index in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>min</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>gac850b880c9ee8106321198dda9dfc89d</Anchor>
+    <Abstract>Returns the minimum element in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>min</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga887ed86c17a7996c351461192bd819aa</Anchor>
+    <Abstract>Finds the minimum element in a vector and its index in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga80feb4cd44aa34ee6ddab2ad51ae7250</Anchor>
+    <Abstract>Returns the minimum absolute value in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>gaf8a064acc4a5f97b2e98110cc2ceaae2</Anchor>
+    <Abstract>Finds the minimum absolute value in a vector and its index in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minMax</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga5c8cb588f17f928a0979c3aed56c5993</Anchor>
+    <Abstract>Finds both the minimum and maximum values in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minMax</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga3a2a10d9d0997de372a32ef19e01d68e</Anchor>
+    <Abstract>Finds the minimum and maximum values in a vector, and their indices in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minMaxAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga7d1b7e77fcb133947b6bb048405904e1</Anchor>
+    <Abstract>Finds both the minimum and maximum absolute values in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minMaxAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga4ab5258f412dc03cade0fb58c510a972</Anchor>
+    <Abstract>Finds the minimum and maximum absolute values in a vector, and their indices in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>range</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga1131ff9a6c22f93bf86efe856979eb8d</Anchor>
+    <Abstract>Returns the difference between the maximum and minimum values in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>rangeAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga74bdbe1d40199c226e1fec132b2e5ec3</Anchor>
+    <Abstract>Returns the difference between the maximum and minimum absolute values in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>sine</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d9/d09/group__vec__sin.html</Path>
+    <Anchor>ga14efdf3f20df88f266d3c644ba451be0</Anchor>
+    <Abstract>Replaces every value in the vector with its sine.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>sineAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d9/d09/group__vec__sin.html</Path>
+    <Anchor>ga70d8db9e6144847e686dab7bc45517c0</Anchor>
+    <Abstract>Writes the sine of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arcsine</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d9/d09/group__vec__sin.html</Path>
+    <Anchor>gae3c58be834153eb8865b31b6d44ec9a0</Anchor>
+    <Abstract>Replaces every value in the vector with its arcsine.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arcsineAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d9/d09/group__vec__sin.html</Path>
+    <Anchor>gae15618bd5f7738685e4232280264ff94</Anchor>
+    <Abstract>Writes the arcsine of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>cos</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>dd/d22/group__vec__cos.html</Path>
+    <Anchor>gae8ffec8c97c1fb02bf8400c27beb3e1e</Anchor>
+    <Abstract>Replaces every value in the vector with its cosine.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>cosAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>dd/d22/group__vec__cos.html</Path>
+    <Anchor>gaab8687cc72b8083a69703af6ce586386</Anchor>
+    <Abstract>Writes the cosine of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arccos</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>dd/d22/group__vec__cos.html</Path>
+    <Anchor>ga9075633c6116bb64ea13895eb3a5dada</Anchor>
+    <Abstract>Replaces every value in the vector with its arccosine.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arccosAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>dd/d22/group__vec__cos.html</Path>
+    <Anchor>ga5013ba0e6556346fe3409f3dc1ad4cf1</Anchor>
+    <Abstract>Writes the arccosine of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>tan</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>db/d0d/group__vec__tan.html</Path>
+    <Anchor>ga5be8d79ab028b1b93e42667eacee85ef</Anchor>
+    <Abstract>Replaces every value in the vector with its tangent.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>tanAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>db/d0d/group__vec__tan.html</Path>
+    <Anchor>gaae5ec9c1a5aa45ed11a530c7034de016</Anchor>
+    <Abstract>Writes the tangent of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arctan</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>db/d0d/group__vec__tan.html</Path>
+    <Anchor>ga0c6c293d12a4ab925bfc4812313bdb00</Anchor>
+    <Abstract>Replaces every value in the vector with its arctangent.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arctanAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>db/d0d/group__vec__tan.html</Path>
+    <Anchor>ga96acee7d2976603c30fc1affc172f29d</Anchor>
+    <Abstract>Writes the arctangent of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -3088,7 +3424,7 @@
       <Type>func</Type>
       <Scope>vecops</Scope>
     </TokenIdentifier>
-    <Path>d1/d09/group__vec__fpm.html</Path>
+    <Path>d0/d49/group__vec__denormals.html</Path>
     <Anchor>ga095c013f3d5f68405a075e4c0bcdec66</Anchor>
     <Abstract>Controls whether denormalized numbers are enabled or disabled.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -3100,7 +3436,7 @@
       <Type>func</Type>
       <Scope>vecops</Scope>
     </TokenIdentifier>
-    <Path>d1/d09/group__vec__fpm.html</Path>
+    <Path>d0/d49/group__vec__denormals.html</Path>
     <Anchor>gaf1b063aaec395fbadd3e3a24bdbd7d3e</Anchor>
     <Abstract>Returns true if denormalized numbers are currently enabled.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -3112,7 +3448,7 @@
       <Type>func</Type>
       <Scope>vecops</Scope>
     </TokenIdentifier>
-    <Path>d1/d09/group__vec__fpm.html</Path>
+    <Path>d5/dfa/group__vec__ftz.html</Path>
     <Anchor>ga455df89d2cef625f239ebd5507fea3d2</Anchor>
     <Abstract>Controls whether flush to zero mode is enabled or disabled.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -3124,7 +3460,7 @@
       <Type>func</Type>
       <Scope>vecops</Scope>
     </TokenIdentifier>
-    <Path>d1/d09/group__vec__fpm.html</Path>
+    <Path>d5/dfa/group__vec__ftz.html</Path>
     <Anchor>ga8c5fce68c3759e785f4778df27012b24</Anchor>
     <Abstract>Returns true if flush to zero mode is enabled.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -3208,7 +3544,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d4/d9f/group__vec__blackman.html</Path>
     <Anchor>ga3e484b57ffdf300079b6039e85de7898</Anchor>
     <Abstract>Generates a Blackman window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -3220,7 +3556,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d4/d9f/group__vec__blackman.html</Path>
     <Anchor>gaba364c54789e790fee311a41081fff54</Anchor>
     <Abstract>Applies a Blackman window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -3232,7 +3568,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d4/d9f/group__vec__blackman.html</Path>
     <Anchor>gab21f461fc0412d40d173d00727e355cc</Anchor>
     <Abstract>Applies a Blackman window to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -3244,7 +3580,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d7/d30/group__vec__hamm.html</Path>
     <Anchor>gab41b83147aa9748b2b60ce1eb4244a9d</Anchor>
     <Abstract>Generates a Hamm (Hamming) window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -3256,7 +3592,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d7/d30/group__vec__hamm.html</Path>
     <Anchor>ga98a439d54ea7e42ceaba0e0ef8f05c6d</Anchor>
     <Abstract>Applies a Hamm (Hamming) window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -3268,7 +3604,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d7/d30/group__vec__hamm.html</Path>
     <Anchor>ga77f84cbc8e7e2ab59c09b4a7b1599bec</Anchor>
     <Abstract>Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another v...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -3280,7 +3616,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d9/d83/group__vec__hanning.html</Path>
     <Anchor>ga1f3dd9621252650e890a6f846ee6e3ce</Anchor>
     <Abstract>Generates a Hanning window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -3292,7 +3628,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d9/d83/group__vec__hanning.html</Path>
     <Anchor>ga58332762474a285514e30b255be86835</Anchor>
     <Abstract>Applies a Hanning window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -3304,7 +3640,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d9/d83/group__vec__hanning.html</Path>
     <Anchor>gad7afbe4383d3a434289bdd6d4694abc7</Anchor>
     <Abstract>Applies a Hanning window to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -3379,6 +3715,42 @@
     <Path>dc/dd4/group__limes__vecops.html</Path>
     <Anchor>ga058e37a32a17e5b0f4fd908d8aec7438</Anchor>
     <Abstract>Swaps the elements of two vectors.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>apply</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d4/dd9/group__vec__window.html</Path>
+    <Anchor>ga3d3edac6f20b9509c8bed6fd6187e0e3</Anchor>
+    <Abstract>Applies a window function of the desired type to the samples in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>applyAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d4/dd9/group__vec__window.html</Path>
+    <Anchor>gac33355d3cea76811891aaea5c449fc48</Anchor>
+    <Abstract>Applies a window function of the desired type to the samples in the vector, writing the output sample...</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>generate</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d4/dd9/group__vec__window.html</Path>
+    <Anchor>ga64805b423eab6c813c81db7fbcc3fb39</Anchor>
+    <Abstract>Generates a window function of the desired type , writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -4257,14 +4629,99 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>RealtimeSafeObjectBase</Name>
+      <Name>assignable_tag</Name>
       <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
+      <Type>data</Type>
       <Scope>threads::detail</Scope>
     </TokenIdentifier>
-    <Path>d4/d6d/namespacethreads_1_1detail.html</Path>
-    <Anchor>a04650ec11a8c0d92cbb38f4d0dbf6fa1</Anchor>
-    <DeclaredIn>RealtimeSafeObject.h</DeclaredIn>
+    <Path>dd/d3e/group__rt__safety.html</Path>
+    <Anchor>ga11d8ecdc58cebed16d6de2498688dd33</Anchor>
+    <Abstract>A type tag representing an assignment operation.</Abstract>
+    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>constructible_tag</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>threads::detail</Scope>
+    </TokenIdentifier>
+    <Path>dd/d3e/group__rt__safety.html</Path>
+    <Anchor>ga52f5c8aaa88f7098451611bce93db9fc</Anchor>
+    <Abstract>A type tag representing a type construction operation.</Abstract>
+    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>copy_tag</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>threads::detail</Scope>
+    </TokenIdentifier>
+    <Path>dd/d3e/group__rt__safety.html</Path>
+    <Anchor>gaa35d7d21058ce5a6a5f3d4c1332cacb8</Anchor>
+    <Abstract>A type tag representing a copy operation.</Abstract>
+    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>move_tag</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>threads::detail</Scope>
+    </TokenIdentifier>
+    <Path>dd/d3e/group__rt__safety.html</Path>
+    <Anchor>ga117a1fe1d8cdfdecb9f1c9c18bd5b354</Anchor>
+    <Abstract>A type tag representing a move operation.</Abstract>
+    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>copy_tag</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>threads::detail</Scope>
+    </TokenIdentifier>
+    <Path>dd/d3e/group__rt__safety.html</Path>
+    <Anchor>gaa35d7d21058ce5a6a5f3d4c1332cacb8</Anchor>
+    <Abstract>A type tag representing a copy operation.</Abstract>
+    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>move_tag</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>threads::detail</Scope>
+    </TokenIdentifier>
+    <Path>dd/d3e/group__rt__safety.html</Path>
+    <Anchor>ga117a1fe1d8cdfdecb9f1c9c18bd5b354</Anchor>
+    <Abstract>A type tag representing a move operation.</Abstract>
+    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>constructible_tag</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>threads::detail</Scope>
+    </TokenIdentifier>
+    <Path>dd/d3e/group__rt__safety.html</Path>
+    <Anchor>ga52f5c8aaa88f7098451611bce93db9fc</Anchor>
+    <Abstract>A type tag representing a type construction operation.</Abstract>
+    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>assignable_tag</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>threads::detail</Scope>
+    </TokenIdentifier>
+    <Path>dd/d3e/group__rt__safety.html</Path>
+    <Anchor>ga11d8ecdc58cebed16d6de2498688dd33</Anchor>
+    <Abstract>A type tag representing an assignment operation.</Abstract>
+    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -4274,7 +4731,8 @@
       <Scope>threads</Scope>
     </TokenIdentifier>
     <Path>d5/d58/namespacethreads.html</Path>
-    <Anchor>ae8c689f9be27270a3c45262ac2e6f485</Anchor>
+    <Anchor>aeb10caeeea2e556947271f79cec45918</Anchor>
+    <Abstract>A compile-time boolean constant that evaluates to true if the type T is realtime-safe copy constructa...</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -4285,51 +4743,8 @@
       <Scope>threads</Scope>
     </TokenIdentifier>
     <Path>d5/d58/namespacethreads.html</Path>
-    <Anchor>acc10b30c5bf57aac8bb164091615b03e</Anchor>
-    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>assignable_tag</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>threads::detail</Scope>
-    </TokenIdentifier>
-    <Path>d4/d6d/namespacethreads_1_1detail.html</Path>
-    <Anchor>a11d8ecdc58cebed16d6de2498688dd33</Anchor>
-    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>constructible_tag</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>threads::detail</Scope>
-    </TokenIdentifier>
-    <Path>d4/d6d/namespacethreads_1_1detail.html</Path>
-    <Anchor>a52f5c8aaa88f7098451611bce93db9fc</Anchor>
-    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>copy_tag</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>threads::detail</Scope>
-    </TokenIdentifier>
-    <Path>d4/d6d/namespacethreads_1_1detail.html</Path>
-    <Anchor>aa35d7d21058ce5a6a5f3d4c1332cacb8</Anchor>
-    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>move_tag</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>threads::detail</Scope>
-    </TokenIdentifier>
-    <Path>d4/d6d/namespacethreads_1_1detail.html</Path>
-    <Anchor>a117a1fe1d8cdfdecb9f1c9c18bd5b354</Anchor>
+    <Anchor>adc41f441b0140baa937620d5910c241f</Anchor>
+    <Abstract>A compile-time boolean constant that evaluates to true if the type T is realtime-safe move constructa...</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -4341,6 +4756,7 @@
     </TokenIdentifier>
     <Path>d5/d58/namespacethreads.html</Path>
     <Anchor>ade3995431ab6016d4053cffddd0d2c65</Anchor>
+    <Abstract>@concept RealtimeCopySafe This concept requires that a type is realtime-safe copy constructable and c...</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -4352,6 +4768,7 @@
     </TokenIdentifier>
     <Path>d5/d58/namespacethreads.html</Path>
     <Anchor>af598c41f0e03238805ceccf7da53aee4</Anchor>
+    <Abstract>This concept requires that a type is realtime-safe move constructable and move assignable.</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -4363,6 +4780,7 @@
     </TokenIdentifier>
     <Path>d5/d58/namespacethreads.html</Path>
     <Anchor>adb15c7e72fd6eee6d9cbbadf02048743</Anchor>
+    <Abstract>This concept requires that a type is realtime-safe copy constructable, copy assignable,...</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -4632,7 +5050,7 @@
     </TokenIdentifier>
     <Path>df/dcb/namespacestrings.html</Path>
     <Anchor>adca9725130e0ee777d8c0b82962b221d</Anchor>
-    <Abstract>Returns the platform&apos;s preferred newline separator: \r   on Windows, \n  everywhere else.</Abstract>
+    <Abstract>Returns the platform&apos;s preferred newline separator: \r\n on Windows, \n everywhere else.</Abstract>
     <DeclaredIn>StringUtils.h</DeclaredIn>
   </Token>
   <Token>
@@ -4836,7 +5254,7 @@
     </TokenIdentifier>
     <Path>d4/d61/group__text.html</Path>
     <Anchor>gac664d2d7911285656b6088d0caa46571</Anchor>
-    <Abstract>Returns true if the passed string is \n  or \r   .</Abstract>
+    <Abstract>Returns true if the passed string is \n or \r\n .</Abstract>
     <DeclaredIn>StringUtils.h</DeclaredIn>
   </Token>
   <Token>
@@ -4848,7 +5266,7 @@
     </TokenIdentifier>
     <Path>d4/d61/group__text.html</Path>
     <Anchor>gabee9ff5a9ca4278f4ca7bbfce0829b6d</Anchor>
-    <Abstract>Returns true if the passed string is \n  or \r   .</Abstract>
+    <Abstract>Returns true if the passed string is \n or \r\n .</Abstract>
     <DeclaredIn>StringUtils.h</DeclaredIn>
   </Token>
   <Token>
@@ -4860,7 +5278,7 @@
     </TokenIdentifier>
     <Path>d4/d61/group__text.html</Path>
     <Anchor>gabee9ff5a9ca4278f4ca7bbfce0829b6d</Anchor>
-    <Abstract>Returns true if the passed string is \n  or \r   .</Abstract>
+    <Abstract>Returns true if the passed string is \n or \r\n .</Abstract>
     <DeclaredIn>StringUtils.h</DeclaredIn>
   </Token>
   <Token>
@@ -4896,7 +5314,7 @@
     </TokenIdentifier>
     <Path>d4/d61/group__text.html</Path>
     <Anchor>gac664d2d7911285656b6088d0caa46571</Anchor>
-    <Abstract>Returns true if the passed string is \n  or \r   .</Abstract>
+    <Abstract>Returns true if the passed string is \n or \r\n .</Abstract>
     <DeclaredIn>StringUtils.h</DeclaredIn>
   </Token>
   <Token>
@@ -4918,8 +5336,9 @@
       <Type>func</Type>
       <Scope>threads</Scope>
     </TokenIdentifier>
-    <Path>d5/d58/namespacethreads.html</Path>
-    <Anchor>ab736782d17791b2696e060c46fd652af</Anchor>
+    <Path>d2/db9/group__threads.html</Path>
+    <Anchor>ga251c922a2477a65a5ded648c4ce53e6f</Anchor>
+    <Abstract>Calls a function on a background thread, blocks until the function finishes executing,...</Abstract>
     <DeclaredIn>Threading.h</DeclaredIn>
   </Token>
   <Token>
@@ -4929,8 +5348,9 @@
       <Type>func</Type>
       <Scope>threads</Scope>
     </TokenIdentifier>
-    <Path>d5/d58/namespacethreads.html</Path>
-    <Anchor>a6c8345c3377edf4c7f429a3e291851ce</Anchor>
+    <Path>d2/db9/group__threads.html</Path>
+    <Anchor>ga94a8bdf0e635ade7c85f672ee7423c1a</Anchor>
+    <Abstract>Launches a function on a background thread and returns immediately.</Abstract>
     <DeclaredIn>Threading.h</DeclaredIn>
   </Token>
   <Token>
@@ -4940,8 +5360,9 @@
       <Type>func</Type>
       <Scope>threads</Scope>
     </TokenIdentifier>
-    <Path>d5/d58/namespacethreads.html</Path>
-    <Anchor>ad36ea8a69391a84e28749452d0528c07</Anchor>
+    <Path>d2/db9/group__threads.html</Path>
+    <Anchor>gad36ea8a69391a84e28749452d0528c07</Anchor>
+    <Abstract>Tries to detect the number of concurrent threads supported by the current hardware and implementation...</Abstract>
     <DeclaredIn>Threading.h</DeclaredIn>
   </Token>
   <Token>
@@ -6349,6 +6770,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>result_type</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>func</Scope>
+    </TokenIdentifier>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga734e223214335b499b76e734d6c3771f</Anchor>
+    <Abstract>This typedef evaluates to the result type returned by calling the given function with the given argum...</Abstract>
+    <DeclaredIn>Functions.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>call_once</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -6710,7 +7143,7 @@
     </TokenIdentifier>
     <Path>d4/d61/group__text.html</Path>
     <Anchor>gabee9ff5a9ca4278f4ca7bbfce0829b6d</Anchor>
-    <Abstract>Returns true if the passed string is \n  or \r   .</Abstract>
+    <Abstract>Returns true if the passed string is \n or \r\n .</Abstract>
     <DeclaredIn>StringUtils.h</DeclaredIn>
   </Token>
   <Token>
@@ -6746,8 +7179,108 @@
     </TokenIdentifier>
     <Path>d4/d61/group__text.html</Path>
     <Anchor>gac664d2d7911285656b6088d0caa46571</Anchor>
-    <Abstract>Returns true if the passed string is \n  or \r   .</Abstract>
+    <Abstract>Returns true if the passed string is \n or \r\n .</Abstract>
     <DeclaredIn>StringUtils.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>rt_safety</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>dd/d3e/group__rt__safety.html</Path>
+    <Abstract>Metaprogramming utilities for detecting the realtime safety of certain operations on certain types.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>copy_tag</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>threads::detail</Scope>
+    </TokenIdentifier>
+    <Path>dd/d3e/group__rt__safety.html</Path>
+    <Anchor>gaa35d7d21058ce5a6a5f3d4c1332cacb8</Anchor>
+    <Abstract>A type tag representing a copy operation.</Abstract>
+    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>move_tag</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>threads::detail</Scope>
+    </TokenIdentifier>
+    <Path>dd/d3e/group__rt__safety.html</Path>
+    <Anchor>ga117a1fe1d8cdfdecb9f1c9c18bd5b354</Anchor>
+    <Abstract>A type tag representing a move operation.</Abstract>
+    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>constructible_tag</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>threads::detail</Scope>
+    </TokenIdentifier>
+    <Path>dd/d3e/group__rt__safety.html</Path>
+    <Anchor>ga52f5c8aaa88f7098451611bce93db9fc</Anchor>
+    <Abstract>A type tag representing a type construction operation.</Abstract>
+    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>assignable_tag</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>threads::detail</Scope>
+    </TokenIdentifier>
+    <Path>dd/d3e/group__rt__safety.html</Path>
+    <Anchor>ga11d8ecdc58cebed16d6de2498688dd33</Anchor>
+    <Abstract>A type tag representing an assignment operation.</Abstract>
+    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>threads</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d2/db9/group__threads.html</Path>
+    <Abstract>Threading utilities.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>callAndBlock</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>threads</Scope>
+    </TokenIdentifier>
+    <Path>d2/db9/group__threads.html</Path>
+    <Anchor>ga251c922a2477a65a5ded648c4ce53e6f</Anchor>
+    <Abstract>Calls a function on a background thread, blocks until the function finishes executing,...</Abstract>
+    <DeclaredIn>Threading.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>callInBackground</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>threads</Scope>
+    </TokenIdentifier>
+    <Path>d2/db9/group__threads.html</Path>
+    <Anchor>ga94a8bdf0e635ade7c85f672ee7423c1a</Anchor>
+    <Abstract>Launches a function on a background thread and returns immediately.</Abstract>
+    <DeclaredIn>Threading.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>maxNumThreads</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>threads</Scope>
+    </TokenIdentifier>
+    <Path>d2/db9/group__threads.html</Path>
+    <Anchor>gad36ea8a69391a84e28749452d0528c07</Anchor>
+    <Abstract>Tries to detect the number of concurrent threads supported by the current hardware and implementation...</Abstract>
+    <DeclaredIn>Threading.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -7643,174 +8176,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>max</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga2b9ca98d48877ea7a09777202711fd14</Anchor>
-    <Abstract>Returns the maximum element in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>max</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gab7fbdda1d58f33cb333944be0ea90872</Anchor>
-    <Abstract>Finds the maximum element in a vector and its index in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>maxAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga255d7088efb599876e02b7b8abd2a996</Anchor>
-    <Abstract>Returns the maximum absolute value in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>maxAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga8fa776a377b6164dae4889cc89253bbd</Anchor>
-    <Abstract>Finds the maximum absolute value in a vector and its index in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>min</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gac850b880c9ee8106321198dda9dfc89d</Anchor>
-    <Abstract>Returns the minimum element in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>min</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga887ed86c17a7996c351461192bd819aa</Anchor>
-    <Abstract>Finds the minimum element in a vector and its index in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga80feb4cd44aa34ee6ddab2ad51ae7250</Anchor>
-    <Abstract>Returns the minimum absolute value in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gaf8a064acc4a5f97b2e98110cc2ceaae2</Anchor>
-    <Abstract>Finds the minimum absolute value in a vector and its index in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minMax</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga5c8cb588f17f928a0979c3aed56c5993</Anchor>
-    <Abstract>Finds both the minimum and maximum values in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minMax</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga3a2a10d9d0997de372a32ef19e01d68e</Anchor>
-    <Abstract>Finds the minimum and maximum values in a vector, and their indices in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minMaxAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga7d1b7e77fcb133947b6bb048405904e1</Anchor>
-    <Abstract>Finds both the minimum and maximum absolute values in a vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>minMaxAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga4ab5258f412dc03cade0fb58c510a972</Anchor>
-    <Abstract>Finds the minimum and maximum absolute values in a vector, and their indices in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>range</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga1131ff9a6c22f93bf86efe856979eb8d</Anchor>
-    <Abstract>Returns the difference between the maximum and minimum values in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>rangeAbs</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>vecops</Scope>
-    </TokenIdentifier>
-    <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga74bdbe1d40199c226e1fec132b2e5ec3</Anchor>
-    <Abstract>Returns the difference between the maximum and minimum absolute values in the vector.</Abstract>
-    <DeclaredIn>limes_vecops.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>sum</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -7831,6 +8196,382 @@
     <Path>d0/d70/group__vec__stats.html</Path>
     <Anchor>gab5139f2858fb69eb2ac615991ac5584e</Anchor>
     <Abstract>Returns the mean of the values in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>standard_deviation</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d0/d70/group__vec__stats.html</Path>
+    <Anchor>ga327cf469950778c5293615e37eb0f447</Anchor>
+    <Abstract>Returns the standard deviation of the values in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vec_extrema</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Abstract>Extrema calculation functions for vectors.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>max</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga2b9ca98d48877ea7a09777202711fd14</Anchor>
+    <Abstract>Returns the maximum element in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>max</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>gab7fbdda1d58f33cb333944be0ea90872</Anchor>
+    <Abstract>Finds the maximum element in a vector and its index in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>maxAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga255d7088efb599876e02b7b8abd2a996</Anchor>
+    <Abstract>Returns the maximum absolute value in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>maxAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga8fa776a377b6164dae4889cc89253bbd</Anchor>
+    <Abstract>Finds the maximum absolute value in a vector and its index in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>min</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>gac850b880c9ee8106321198dda9dfc89d</Anchor>
+    <Abstract>Returns the minimum element in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>min</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga887ed86c17a7996c351461192bd819aa</Anchor>
+    <Abstract>Finds the minimum element in a vector and its index in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga80feb4cd44aa34ee6ddab2ad51ae7250</Anchor>
+    <Abstract>Returns the minimum absolute value in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>gaf8a064acc4a5f97b2e98110cc2ceaae2</Anchor>
+    <Abstract>Finds the minimum absolute value in a vector and its index in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minMax</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga5c8cb588f17f928a0979c3aed56c5993</Anchor>
+    <Abstract>Finds both the minimum and maximum values in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minMax</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga3a2a10d9d0997de372a32ef19e01d68e</Anchor>
+    <Abstract>Finds the minimum and maximum values in a vector, and their indices in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minMaxAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga7d1b7e77fcb133947b6bb048405904e1</Anchor>
+    <Abstract>Finds both the minimum and maximum absolute values in a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>minMaxAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga4ab5258f412dc03cade0fb58c510a972</Anchor>
+    <Abstract>Finds the minimum and maximum absolute values in a vector, and their indices in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>range</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga1131ff9a6c22f93bf86efe856979eb8d</Anchor>
+    <Abstract>Returns the difference between the maximum and minimum values in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>rangeAbs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga74bdbe1d40199c226e1fec132b2e5ec3</Anchor>
+    <Abstract>Returns the difference between the maximum and minimum absolute values in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vec_trig</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d4/de3/group__vec__trig.html</Path>
+    <Abstract>Trigonometric functions for vectors.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>sinCos</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d4/de3/group__vec__trig.html</Path>
+    <Anchor>ga4b00213256c36d9c42e8f60090d05841</Anchor>
+    <Abstract>Simultaneously computes the sin and cosine of every value in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vec_sin</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d9/d09/group__vec__sin.html</Path>
+    <Abstract>Sine and arcsine functions for vectors.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>sine</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d9/d09/group__vec__sin.html</Path>
+    <Anchor>ga14efdf3f20df88f266d3c644ba451be0</Anchor>
+    <Abstract>Replaces every value in the vector with its sine.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>sineAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d9/d09/group__vec__sin.html</Path>
+    <Anchor>ga70d8db9e6144847e686dab7bc45517c0</Anchor>
+    <Abstract>Writes the sine of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arcsine</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d9/d09/group__vec__sin.html</Path>
+    <Anchor>gae3c58be834153eb8865b31b6d44ec9a0</Anchor>
+    <Abstract>Replaces every value in the vector with its arcsine.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arcsineAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d9/d09/group__vec__sin.html</Path>
+    <Anchor>gae15618bd5f7738685e4232280264ff94</Anchor>
+    <Abstract>Writes the arcsine of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vec_cos</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>dd/d22/group__vec__cos.html</Path>
+    <Abstract>Cosine and arccosine functions for vectors.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>cos</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>dd/d22/group__vec__cos.html</Path>
+    <Anchor>gae8ffec8c97c1fb02bf8400c27beb3e1e</Anchor>
+    <Abstract>Replaces every value in the vector with its cosine.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>cosAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>dd/d22/group__vec__cos.html</Path>
+    <Anchor>gaab8687cc72b8083a69703af6ce586386</Anchor>
+    <Abstract>Writes the cosine of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arccos</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>dd/d22/group__vec__cos.html</Path>
+    <Anchor>ga9075633c6116bb64ea13895eb3a5dada</Anchor>
+    <Abstract>Replaces every value in the vector with its arccosine.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arccosAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>dd/d22/group__vec__cos.html</Path>
+    <Anchor>ga5013ba0e6556346fe3409f3dc1ad4cf1</Anchor>
+    <Abstract>Writes the arccosine of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vec_tan</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>db/d0d/group__vec__tan.html</Path>
+    <Abstract>Tangent and arctangent functions for vectors.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>tan</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>db/d0d/group__vec__tan.html</Path>
+    <Anchor>ga5be8d79ab028b1b93e42667eacee85ef</Anchor>
+    <Abstract>Replaces every value in the vector with its tangent.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>tanAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>db/d0d/group__vec__tan.html</Path>
+    <Anchor>gaae5ec9c1a5aa45ed11a530c7034de016</Anchor>
+    <Abstract>Writes the tangent of each element of the input vector to the output vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arctan</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>db/d0d/group__vec__tan.html</Path>
+    <Anchor>ga0c6c293d12a4ab925bfc4812313bdb00</Anchor>
+    <Abstract>Replaces every value in the vector with its arctangent.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>arctanAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>db/d0d/group__vec__tan.html</Path>
+    <Anchor>ga96acee7d2976603c30fc1affc172f29d</Anchor>
+    <Abstract>Writes the arctangent of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -7923,12 +8664,86 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>generateBlackman</Name>
+      <Name>generate</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/dd9/group__vec__window.html</Path>
+    <Anchor>ga64805b423eab6c813c81db7fbcc3fb39</Anchor>
+    <Abstract>Generates a window function of the desired type , writing the output samples to a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>apply</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d4/dd9/group__vec__window.html</Path>
+    <Anchor>ga3d3edac6f20b9509c8bed6fd6187e0e3</Anchor>
+    <Abstract>Applies a window function of the desired type to the samples in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>applyAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d4/dd9/group__vec__window.html</Path>
+    <Anchor>gac33355d3cea76811891aaea5c449fc48</Anchor>
+    <Abstract>Applies a window function of the desired type to the samples in the vector, writing the output sample...</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Blackman</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d4/dd9/group__vec__window.html</Path>
+    <Anchor>ggaeeecbe62b31e7d00be7fac5232223f93ab3935d5829173f20d58fc5f0405867b9</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Hamm</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d4/dd9/group__vec__window.html</Path>
+    <Anchor>ggaeeecbe62b31e7d00be7fac5232223f93aea72b9f0db73025c8aaedae0f7b874f8</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Hanning</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d4/dd9/group__vec__window.html</Path>
+    <Anchor>ggaeeecbe62b31e7d00be7fac5232223f93a46cd7c18d353a946c8263515a17662f2</Anchor>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vec_blackman</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d4/d9f/group__vec__blackman.html</Path>
+    <Abstract>Blackman windowing functions.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>generateBlackman</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d4/d9f/group__vec__blackman.html</Path>
     <Anchor>ga3e484b57ffdf300079b6039e85de7898</Anchor>
     <Abstract>Generates a Blackman window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -7940,7 +8755,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d4/d9f/group__vec__blackman.html</Path>
     <Anchor>gaba364c54789e790fee311a41081fff54</Anchor>
     <Abstract>Applies a Blackman window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -7952,10 +8767,18 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d4/d9f/group__vec__blackman.html</Path>
     <Anchor>gab21f461fc0412d40d173d00727e355cc</Anchor>
     <Abstract>Applies a Blackman window to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vec_hamm</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d7/d30/group__vec__hamm.html</Path>
+    <Abstract>Hamm (Hamming) windowing functions.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -7964,7 +8787,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d7/d30/group__vec__hamm.html</Path>
     <Anchor>gab41b83147aa9748b2b60ce1eb4244a9d</Anchor>
     <Abstract>Generates a Hamm (Hamming) window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -7976,7 +8799,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d7/d30/group__vec__hamm.html</Path>
     <Anchor>ga98a439d54ea7e42ceaba0e0ef8f05c6d</Anchor>
     <Abstract>Applies a Hamm (Hamming) window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -7988,10 +8811,18 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d7/d30/group__vec__hamm.html</Path>
     <Anchor>ga77f84cbc8e7e2ab59c09b4a7b1599bec</Anchor>
     <Abstract>Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another v...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vec_hanning</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d9/d83/group__vec__hanning.html</Path>
+    <Abstract>Hanning windowing functions.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -8000,7 +8831,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d9/d83/group__vec__hanning.html</Path>
     <Anchor>ga1f3dd9621252650e890a6f846ee6e3ce</Anchor>
     <Abstract>Generates a Hanning window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -8012,7 +8843,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d9/d83/group__vec__hanning.html</Path>
     <Anchor>ga58332762474a285514e30b255be86835</Anchor>
     <Abstract>Applies a Hanning window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -8024,7 +8855,7 @@
       <Type>func</Type>
       <Scope>vecops::window</Scope>
     </TokenIdentifier>
-    <Path>d4/dd9/group__vec__window.html</Path>
+    <Path>d9/d83/group__vec__hanning.html</Path>
     <Anchor>gad7afbe4383d3a434289bdd6d4694abc7</Anchor>
     <Abstract>Applies a Hanning window to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -8035,7 +8866,7 @@
       <APILanguage>c</APILanguage>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Abstract>Windowing functions for vectors.</Abstract>
+    <Abstract>Complex number conversion functions for vectors.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -8119,12 +8950,20 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>vec_denormals</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d0/d49/group__vec__denormals.html</Path>
+    <Abstract>Denormalized number support utilities.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>disableDenormalisedNumberSupport</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
       <Scope>vecops</Scope>
     </TokenIdentifier>
-    <Path>d1/d09/group__vec__fpm.html</Path>
+    <Path>d0/d49/group__vec__denormals.html</Path>
     <Anchor>ga095c013f3d5f68405a075e4c0bcdec66</Anchor>
     <Abstract>Controls whether denormalized numbers are enabled or disabled.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -8136,10 +8975,18 @@
       <Type>func</Type>
       <Scope>vecops</Scope>
     </TokenIdentifier>
-    <Path>d1/d09/group__vec__fpm.html</Path>
+    <Path>d0/d49/group__vec__denormals.html</Path>
     <Anchor>gaf1b063aaec395fbadd3e3a24bdbd7d3e</Anchor>
     <Abstract>Returns true if denormalized numbers are currently enabled.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vec_ftz</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d5/dfa/group__vec__ftz.html</Path>
+    <Abstract>Flush-to-zero support utilities.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -8148,7 +8995,7 @@
       <Type>func</Type>
       <Scope>vecops</Scope>
     </TokenIdentifier>
-    <Path>d1/d09/group__vec__fpm.html</Path>
+    <Path>d5/dfa/group__vec__ftz.html</Path>
     <Anchor>ga455df89d2cef625f239ebd5507fea3d2</Anchor>
     <Abstract>Controls whether flush to zero mode is enabled or disabled.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -8160,7 +9007,7 @@
       <Type>func</Type>
       <Scope>vecops</Scope>
     </TokenIdentifier>
-    <Path>d1/d09/group__vec__fpm.html</Path>
+    <Path>d5/dfa/group__vec__ftz.html</Path>
     <Anchor>ga8c5fce68c3759e785f4778df27012b24</Anchor>
     <Abstract>Returns true if flush to zero mode is enabled.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
@@ -19016,6 +19863,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>result_type</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>func</Scope>
+    </TokenIdentifier>
+    <Path>de/d94/group__func.html</Path>
+    <Anchor>ga734e223214335b499b76e734d6c3771f</Anchor>
+    <Abstract>This typedef evaluates to the result type returned by calling the given function with the given argum...</Abstract>
+    <DeclaredIn>Functions.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>call_once</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -27297,6 +28156,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>createCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>memory::RawData</Scope>
+    </TokenIdentifier>
+    <Path>d1/db0/classmemory_1_1_raw_data.html</Path>
+    <Anchor>a8c67ee2079ccb3bcf56b5c6ef71b3c78</Anchor>
+    <Abstract>Returns a new RawData object that contains a copy of this object&apos;s data.</Abstract>
+    <DeclaredIn>RawData.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>begin</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -27347,6 +28218,7 @@
       <Scope>memory::ReferenceCountedObject</Scope>
     </TokenIdentifier>
     <Path>da/d8c/classmemory_1_1_reference_counted_object.html</Path>
+    <Abstract>An object that is reference-counted, and garbage collected once the reference count reaches 0.</Abstract>
     <DeclaredIn>ReferenceCountedObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -27358,6 +28230,7 @@
     </TokenIdentifier>
     <Path>da/d8c/classmemory_1_1_reference_counted_object.html</Path>
     <Anchor>a2ba97995dd88c16cf283fce3d6d53902</Anchor>
+    <Abstract>Decrements the object&apos;s reference count.</Abstract>
     <DeclaredIn>ReferenceCountedObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -27369,6 +28242,7 @@
     </TokenIdentifier>
     <Path>da/d8c/classmemory_1_1_reference_counted_object.html</Path>
     <Anchor>a7243679968d6a41bee91ab40a1c8ebd3</Anchor>
+    <Abstract>Decrements the object&apos;s reference count, but doesn&apos;t delete the object if the ref count reaches 0.</Abstract>
     <DeclaredIn>ReferenceCountedObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -27380,6 +28254,7 @@
     </TokenIdentifier>
     <Path>da/d8c/classmemory_1_1_reference_counted_object.html</Path>
     <Anchor>a40a5b355c562aa5c235ab48fc3e993ab</Anchor>
+    <Abstract>Returns the object&apos;s current reference count.</Abstract>
     <DeclaredIn>ReferenceCountedObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -27391,6 +28266,7 @@
     </TokenIdentifier>
     <Path>da/d8c/classmemory_1_1_reference_counted_object.html</Path>
     <Anchor>a03e6249927e599af13a7d241a5dc4867</Anchor>
+    <Abstract>Increments the object&apos;s reference count.</Abstract>
     <DeclaredIn>ReferenceCountedObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -28348,7 +29224,7 @@
       <Scope>meta::TypeList</Scope>
     </TokenIdentifier>
     <Path>d4/d06/classmeta_1_1_type_list.html</Path>
-    <Anchor>abe887fb18028c143a82c5c2555b14e03</Anchor>
+    <Anchor>a498e13cb5e889527e82ca3a8743fcd06</Anchor>
     <Abstract>Calls a templated function once, with the template arguments being the types contained in the list.</Abstract>
     <DeclaredIn>TypeList.h</DeclaredIn>
   </Token>
@@ -33923,7 +34799,7 @@
     </TokenIdentifier>
     <Path>df/dcb/namespacestrings.html</Path>
     <Anchor>adca9725130e0ee777d8c0b82962b221d</Anchor>
-    <Abstract>Returns the platform&apos;s preferred newline separator: \r   on Windows, \n  everywhere else.</Abstract>
+    <Abstract>Returns the platform&apos;s preferred newline separator: \r\n on Windows, \n everywhere else.</Abstract>
     <DeclaredIn>StringUtils.h</DeclaredIn>
   </Token>
   <Token>
@@ -34233,6 +35109,43 @@
       <Scope>threads</Scope>
     </TokenIdentifier>
     <Path>d5/d58/namespacethreads.html</Path>
+    <Abstract>This namespace contains threading utilities.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>callAndBlock</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>threads</Scope>
+    </TokenIdentifier>
+    <Path>d2/db9/group__threads.html</Path>
+    <Anchor>ga251c922a2477a65a5ded648c4ce53e6f</Anchor>
+    <Abstract>Calls a function on a background thread, blocks until the function finishes executing,...</Abstract>
+    <DeclaredIn>Threading.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>callInBackground</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>threads</Scope>
+    </TokenIdentifier>
+    <Path>d2/db9/group__threads.html</Path>
+    <Anchor>ga94a8bdf0e635ade7c85f672ee7423c1a</Anchor>
+    <Abstract>Launches a function on a background thread and returns immediately.</Abstract>
+    <DeclaredIn>Threading.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>maxNumThreads</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>threads</Scope>
+    </TokenIdentifier>
+    <Path>d2/db9/group__threads.html</Path>
+    <Anchor>gad36ea8a69391a84e28749452d0528c07</Anchor>
+    <Abstract>Tries to detect the number of concurrent threads supported by the current hardware and implementation...</Abstract>
+    <DeclaredIn>Threading.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -34242,7 +35155,8 @@
       <Scope>threads</Scope>
     </TokenIdentifier>
     <Path>d5/d58/namespacethreads.html</Path>
-    <Anchor>ae8c689f9be27270a3c45262ac2e6f485</Anchor>
+    <Anchor>aeb10caeeea2e556947271f79cec45918</Anchor>
+    <Abstract>A compile-time boolean constant that evaluates to true if the type T is realtime-safe copy constructa...</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -34253,41 +35167,9 @@
       <Scope>threads</Scope>
     </TokenIdentifier>
     <Path>d5/d58/namespacethreads.html</Path>
-    <Anchor>acc10b30c5bf57aac8bb164091615b03e</Anchor>
+    <Anchor>adc41f441b0140baa937620d5910c241f</Anchor>
+    <Abstract>A compile-time boolean constant that evaluates to true if the type T is realtime-safe move constructa...</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>callAndBlock</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads</Scope>
-    </TokenIdentifier>
-    <Path>d5/d58/namespacethreads.html</Path>
-    <Anchor>ab736782d17791b2696e060c46fd652af</Anchor>
-    <DeclaredIn>Threading.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>callInBackground</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads</Scope>
-    </TokenIdentifier>
-    <Path>d5/d58/namespacethreads.html</Path>
-    <Anchor>a6c8345c3377edf4c7f429a3e291851ce</Anchor>
-    <DeclaredIn>Threading.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>maxNumThreads</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads</Scope>
-    </TokenIdentifier>
-    <Path>d5/d58/namespacethreads.html</Path>
-    <Anchor>ad36ea8a69391a84e28749452d0528c07</Anchor>
-    <DeclaredIn>Threading.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -34298,6 +35180,7 @@
     </TokenIdentifier>
     <Path>d5/d58/namespacethreads.html</Path>
     <Anchor>ade3995431ab6016d4053cffddd0d2c65</Anchor>
+    <Abstract>@concept RealtimeCopySafe This concept requires that a type is realtime-safe copy constructable and c...</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -34309,6 +35192,7 @@
     </TokenIdentifier>
     <Path>d5/d58/namespacethreads.html</Path>
     <Anchor>af598c41f0e03238805ceccf7da53aee4</Anchor>
+    <Abstract>This concept requires that a type is realtime-safe move constructable and move assignable.</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -34320,6 +35204,7 @@
     </TokenIdentifier>
     <Path>d5/d58/namespacethreads.html</Path>
     <Anchor>adb15c7e72fd6eee6d9cbbadf02048743</Anchor>
+    <Abstract>This concept requires that a type is realtime-safe copy constructable, copy assignable,...</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -34330,6 +35215,7 @@
       <Scope>threads::is_realtime_copy_assignable</Scope>
     </TokenIdentifier>
     <Path>da/d0a/structthreads_1_1is__realtime__copy__assignable.html</Path>
+    <Abstract>A compile-time boolean constant that evaluates to true if the type T is realtime-safe copy assignable...</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -34340,6 +35226,7 @@
       <Scope>threads::is_realtime_copy_constructable</Scope>
     </TokenIdentifier>
     <Path>d9/dcb/structthreads_1_1is__realtime__copy__constructable.html</Path>
+    <Abstract>A compile-time boolean constant that evaluates to true if the type T is realtime-safe copy constructa...</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -34350,6 +35237,7 @@
       <Scope>threads::is_realtime_move_assignable</Scope>
     </TokenIdentifier>
     <Path>d4/d56/structthreads_1_1is__realtime__move__assignable.html</Path>
+    <Abstract>A compile-time boolean constant that evaluates to true if the type T is realtime-safe move assignable...</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -34360,109 +35248,8 @@
       <Scope>threads::is_realtime_move_constructable</Scope>
     </TokenIdentifier>
     <Path>d4/d18/structthreads_1_1is__realtime__move__constructable.html</Path>
+    <Abstract>A compile-time boolean constant that evaluates to true if the type T is realtime-safe move constructa...</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>threads::RealtimeSafeObject</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tmplt</Type>
-      <Scope>threads::RealtimeSafeObject</Scope>
-    </TokenIdentifier>
-    <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-    <DeclaredIn>RealtimeSafeObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>RealtimeSafeObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::RealtimeSafeObject</Scope>
-    </TokenIdentifier>
-    <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-    <Anchor>a0d94887fa50d3896f864beb0f91b7d88</Anchor>
-    <Abstract>RealtimeSafeObject is not copyable.</Abstract>
-    <DeclaredIn>RealtimeSafeObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>RealtimeSafeObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::RealtimeSafeObject</Scope>
-    </TokenIdentifier>
-    <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-    <Anchor>a6159032dfa97d335dc1a9d193a8dab9f</Anchor>
-    <Abstract>RealtimeSafeObject is not movable.</Abstract>
-    <DeclaredIn>RealtimeSafeObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>nonRealtime_read</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::RealtimeSafeObject</Scope>
-    </TokenIdentifier>
-    <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-    <Anchor>a059a1934bc046ca1ec4cb4a0a8929ef4</Anchor>
-    <DeclaredIn>RealtimeSafeObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator=</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::RealtimeSafeObject</Scope>
-    </TokenIdentifier>
-    <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-    <Anchor>aec5ae0dc5503db7879372742624d9783</Anchor>
-    <Abstract>RealtimeSafeObject is not copyable.</Abstract>
-    <DeclaredIn>RealtimeSafeObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator=</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::RealtimeSafeObject</Scope>
-    </TokenIdentifier>
-    <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-    <Anchor>a438b1d3bd40ea03ae815bdd1ffa23005</Anchor>
-    <Abstract>RealtimeSafeObject is not movable.</Abstract>
-    <DeclaredIn>RealtimeSafeObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>read</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::RealtimeSafeObject</Scope>
-    </TokenIdentifier>
-    <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-    <Anchor>ac87bd07cae3c9d4feb9d8b3ea89950c3</Anchor>
-    <DeclaredIn>RealtimeSafeObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>realtime_read</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::RealtimeSafeObject</Scope>
-    </TokenIdentifier>
-    <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-    <Anchor>a5b902a3ce670c81008d1a479d856ec62</Anchor>
-    <DeclaredIn>RealtimeSafeObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>write</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::RealtimeSafeObject</Scope>
-    </TokenIdentifier>
-    <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-    <Anchor>a43c33dd6b497cf3ca082f04f8b52c11f</Anchor>
-    <DeclaredIn>RealtimeSafeObject.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -34472,6 +35259,18 @@
       <Scope>threads::ThreadedObjectReader</Scope>
     </TokenIdentifier>
     <Path>dc/d4f/structthreads_1_1_threaded_object_reader.html</Path>
+    <Abstract>An object that holds a const reference to another object.</Abstract>
+    <DeclaredIn>ThreadSafeObject.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ThreadedObjectReader</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>threads::ThreadedObjectReader</Scope>
+    </TokenIdentifier>
+    <Path>dc/d4f/structthreads_1_1_threaded_object_reader.html</Path>
+    <Anchor>a684e7c532c5320480a416a49f00405c7</Anchor>
     <DeclaredIn>ThreadSafeObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -34567,23 +35366,13 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>ThreadedObjectReader</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::ThreadedObjectReader</Scope>
-    </TokenIdentifier>
-    <Path>dc/d4f/structthreads_1_1_threaded_object_reader.html</Path>
-    <Anchor>a684e7c532c5320480a416a49f00405c7</Anchor>
-    <DeclaredIn>ThreadSafeObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>threads::ThreadedObjectWriter</Name>
       <APILanguage>c</APILanguage>
       <Type>tmplt</Type>
       <Scope>threads::ThreadedObjectWriter</Scope>
     </TokenIdentifier>
     <Path>de/d1a/structthreads_1_1_threaded_object_writer.html</Path>
+    <Abstract>An object that holds a non-const reference to another object.</Abstract>
     <DeclaredIn>ThreadSafeObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -34696,7 +35485,30 @@
       <Scope>threads::ThreadSafeObject</Scope>
     </TokenIdentifier>
     <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
+    <Abstract>A wrapper class that makes an object thread safe.</Abstract>
     <DeclaredIn>ThreadSafeObject.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Reader</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>threads::ThreadSafeObject</Scope>
+    </TokenIdentifier>
+    <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
+    <Anchor>a446bd21c5862a798d1ee079f2e4a13c3</Anchor>
+    <Abstract>The type of a reader accessor.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Writer</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>threads::ThreadSafeObject</Scope>
+    </TokenIdentifier>
+    <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
+    <Anchor>afebfd13d1623b7ae198ca5112d532d8a</Anchor>
+    <Abstract>The type of a writer accessor.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -34707,6 +35519,7 @@
     </TokenIdentifier>
     <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
     <Anchor>ac0ce28c408c0219549ff2f43ed4c4061</Anchor>
+    <Abstract>Constructor.</Abstract>
     <DeclaredIn>ThreadSafeObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -34735,35 +35548,14 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>acquire_read</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::ThreadSafeObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-    <Anchor>ad97fe20c52692c463ec98a6b4374cd41</Anchor>
-    <DeclaredIn>ThreadSafeObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>acquire_write</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::ThreadSafeObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-    <Anchor>add04ff9fc30f16595c2d4e3a8a65a93f</Anchor>
-    <DeclaredIn>ThreadSafeObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>isLockFree</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>threads::ThreadSafeObject</Scope>
     </TokenIdentifier>
     <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-    <Anchor>aa80a33d15e4daaaee39cbd13ae667375</Anchor>
+    <Anchor>a74587d3c9495a947d13b687188eda25e</Anchor>
+    <Abstract>Returns true if acquiring read and write accessors for the owned object is lock-free.</Abstract>
     <DeclaredIn>ThreadSafeObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -34798,18 +35590,8 @@
       <Scope>threads::ThreadSafeObject</Scope>
     </TokenIdentifier>
     <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-    <Anchor>ab86b2597d002f597de2c626ba33a61c6</Anchor>
-    <DeclaredIn>ThreadSafeObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>release_write</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::ThreadSafeObject</Scope>
-    </TokenIdentifier>
-    <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-    <Anchor>abc98ca368c0e0b9b6db7de54da619405</Anchor>
+    <Anchor>a61c873b6f7e987e2dcd99ebf2ea9543f</Anchor>
+    <Abstract>Acquires a read-only copy of the owned object.</Abstract>
     <DeclaredIn>ThreadSafeObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -34820,7 +35602,20 @@
       <Scope>threads::ThreadSafeObject</Scope>
     </TokenIdentifier>
     <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-    <Anchor>a4584c1681d00c84dad50d5edb12a525f</Anchor>
+    <Anchor>a6276a775bf66e90b592f9632c83d925c</Anchor>
+    <Abstract>Acquires a writable copy of the owned object.</Abstract>
+    <DeclaredIn>ThreadSafeObject.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isAlwaysLockFree</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>threads::ThreadSafeObject</Scope>
+    </TokenIdentifier>
+    <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
+    <Anchor>a85e0203e049c6eac19506baa52afabec</Anchor>
+    <Abstract>Returns true if acquiring read and write accessors for the owned object is always lock-free.</Abstract>
     <DeclaredIn>ThreadSafeObject.h</DeclaredIn>
   </Token>
   <Token>
@@ -34831,148 +35626,7 @@
       <Scope>threads::detail</Scope>
     </TokenIdentifier>
     <Path>d4/d6d/namespacethreads_1_1detail.html</Path>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>RealtimeSafeObjectBase</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>tdef</Type>
-      <Scope>threads::detail</Scope>
-    </TokenIdentifier>
-    <Path>d4/d6d/namespacethreads_1_1detail.html</Path>
-    <Anchor>a04650ec11a8c0d92cbb38f4d0dbf6fa1</Anchor>
-    <DeclaredIn>RealtimeSafeObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>assignable_tag</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>threads::detail</Scope>
-    </TokenIdentifier>
-    <Path>d4/d6d/namespacethreads_1_1detail.html</Path>
-    <Anchor>a11d8ecdc58cebed16d6de2498688dd33</Anchor>
-    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>constructible_tag</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>threads::detail</Scope>
-    </TokenIdentifier>
-    <Path>d4/d6d/namespacethreads_1_1detail.html</Path>
-    <Anchor>a52f5c8aaa88f7098451611bce93db9fc</Anchor>
-    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>copy_tag</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>threads::detail</Scope>
-    </TokenIdentifier>
-    <Path>d4/d6d/namespacethreads_1_1detail.html</Path>
-    <Anchor>aa35d7d21058ce5a6a5f3d4c1332cacb8</Anchor>
-    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>move_tag</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>data</Type>
-      <Scope>threads::detail</Scope>
-    </TokenIdentifier>
-    <Path>d4/d6d/namespacethreads_1_1detail.html</Path>
-    <Anchor>a117a1fe1d8cdfdecb9f1c9c18bd5b354</Anchor>
-    <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>threads::detail::AtomicObjectBase</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tmplt</Type>
-      <Scope>threads::detail::AtomicObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-    <DeclaredIn>AtomicObjectHolder.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>AtomicObjectBase</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::AtomicObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-    <Anchor>adf4fa815a963ad93fe4a9335eb3d0b38</Anchor>
-    <DeclaredIn>AtomicObjectHolder.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>acquire_read</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::AtomicObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-    <Anchor>a54595f5290858cf778695e569e2f1deb</Anchor>
-    <DeclaredIn>AtomicObjectHolder.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>acquire_write</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::AtomicObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-    <Anchor>a9d7afe8106479d84b4d66ce47e3d611b</Anchor>
-    <DeclaredIn>AtomicObjectHolder.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>isUsingAtomic</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::AtomicObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-    <Anchor>ad1c1933f117a07faff01e6c9fd4ded17</Anchor>
-    <DeclaredIn>AtomicObjectHolder.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>release_read</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::AtomicObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-    <Anchor>a0124ce09b60ae5713c7708faf06c6601</Anchor>
-    <DeclaredIn>AtomicObjectHolder.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>release_write</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::AtomicObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-    <Anchor>a5a75395c44368de8c8a9c3ef78c07ae3</Anchor>
-    <DeclaredIn>AtomicObjectHolder.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>typeUsesAtomic</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::AtomicObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-    <Anchor>a2dab73e840aa06793bf33f226921b242</Anchor>
-    <DeclaredIn>AtomicObjectHolder.h</DeclaredIn>
+    <Abstract>This namespace contains implementation details for the realtime safety metaprogramming utilities.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -34982,6 +35636,7 @@
       <Scope>threads::detail::is_rt_safe</Scope>
     </TokenIdentifier>
     <Path>da/d8b/structthreads_1_1detail_1_1is__rt__safe.html</Path>
+    <Abstract>Represents a query for realtime safety of the operation represented by Tag1 and Tag2 on the type T .</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -34992,6 +35647,7 @@
       <Scope>threads::detail::is_rt_safe&lt; std::map&lt; T, U &gt;, move_tag, Tag &gt;</Scope>
     </TokenIdentifier>
     <Path>d3/da9/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1map_3_01_t_00_01_u_01_4_00_01move__tag_00_01_tag_01_4.html</Path>
+    <Abstract>Specialization of the is_rt_safe class template for move operations within a std::map .</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -35002,6 +35658,7 @@
       <Scope>threads::detail::is_rt_safe&lt; std::set&lt; T &gt;, move_tag, Tag &gt;</Scope>
     </TokenIdentifier>
     <Path>d2/d1b/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html</Path>
+    <Abstract>Specialization of the is_rt_safe class template for move operations within a std::set .</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -35012,6 +35669,7 @@
       <Scope>threads::detail::is_rt_safe&lt; std::unordered_map&lt; T, U &gt;, move_tag, Tag &gt;</Scope>
     </TokenIdentifier>
     <Path>d7/d89/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1unordered__map_3_01_t_00_01_u_01_4_00_01move__tag_00_01_tag_01_4.html</Path>
+    <Abstract>Specialization of the is_rt_safe class template for move operations within a std::unordered_map .</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -35022,6 +35680,7 @@
       <Scope>threads::detail::is_rt_safe&lt; std::unordered_set&lt; T &gt;, move_tag, Tag &gt;</Scope>
     </TokenIdentifier>
     <Path>de/d3c/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1unordered__set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html</Path>
+    <Abstract>Specialization of the is_rt_safe class template for move operations within a std::unordered_set .</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -35032,6 +35691,7 @@
       <Scope>threads::detail::is_rt_safe&lt; std::vector&lt; T &gt;, move_tag, Tag &gt;</Scope>
     </TokenIdentifier>
     <Path>db/d71/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1vector_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html</Path>
+    <Abstract>Specialization of the is_rt_safe class template for move operations within a std::vector .</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -35042,6 +35702,7 @@
       <Scope>threads::detail::is_rt_safe&lt; T, copy_tag, assignable_tag &gt;</Scope>
     </TokenIdentifier>
     <Path>d3/d04/structthreads_1_1detail_1_1is__rt__safe_3_01_t_00_01copy__tag_00_01assignable__tag_01_4.html</Path>
+    <Abstract>Specialization of the is_rt_safe class template for copy assignment operations.</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -35052,6 +35713,7 @@
       <Scope>threads::detail::is_rt_safe&lt; T, copy_tag, constructible_tag &gt;</Scope>
     </TokenIdentifier>
     <Path>d4/da9/structthreads_1_1detail_1_1is__rt__safe_3_01_t_00_01copy__tag_00_01constructible__tag_01_4.html</Path>
+    <Abstract>Specialization of the is_rt_safe class template for copy construction operations.</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -35062,6 +35724,7 @@
       <Scope>threads::detail::is_rt_safe&lt; T, move_tag, assignable_tag &gt;</Scope>
     </TokenIdentifier>
     <Path>d7/ddb/structthreads_1_1detail_1_1is__rt__safe_3_01_t_00_01move__tag_00_01assignable__tag_01_4.html</Path>
+    <Abstract>Specialization of the is_rt_safe class template for move assignment operations.</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
   </Token>
   <Token>
@@ -35072,338 +35735,8 @@
       <Scope>threads::detail::is_rt_safe&lt; T, move_tag, constructible_tag &gt;</Scope>
     </TokenIdentifier>
     <Path>d0/d2d/structthreads_1_1detail_1_1is__rt__safe_3_01_t_00_01move__tag_00_01constructible__tag_01_4.html</Path>
+    <Abstract>Specialization of the is_rt_safe class template for move construction operations.</Abstract>
     <DeclaredIn>RealtimeTypeTraits.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>threads::detail::NonRealtimeMutatableObject</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tmplt</Type>
-      <Scope>threads::detail::NonRealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-    <DeclaredIn>NonrealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>~NonRealtimeMutatableObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::NonRealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-    <Anchor>a34e5ffe91e2698f316069f30ab098814</Anchor>
-    <DeclaredIn>NonrealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>acquire_read</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::NonRealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-    <Anchor>a86616b5a8732abfda192f4e03a69a22c</Anchor>
-    <DeclaredIn>NonrealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>acquire_write</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::NonRealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-    <Anchor>a6a30be68be4f1a02b5c3e64dccd12fd0</Anchor>
-    <DeclaredIn>NonrealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>isUsingAtomic</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::NonRealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-    <Anchor>a9d9ed9e397aca787b57aabae06b010fe</Anchor>
-    <DeclaredIn>NonrealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>release_read</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::NonRealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-    <Anchor>a3e66ee988a76417238139a5e3d4f248d</Anchor>
-    <DeclaredIn>NonrealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>release_write</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::NonRealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-    <Anchor>a9c2ff95a06dab42b8ba2bb58f92d8991</Anchor>
-    <DeclaredIn>NonrealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>typeUsesAtomic</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>clm</Type>
-      <Scope>threads::detail::NonRealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-    <Anchor>ac0b2774637282ee6939c6239d699ee7f</Anchor>
-    <DeclaredIn>NonrealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>threads::detail::ObjectBase</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tmplt</Type>
-      <Scope>threads::detail::ObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-    <DeclaredIn>ObjectBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>ObjectBase</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::ObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-    <Anchor>a180be1f514d0fbaf100deb36914360aa</Anchor>
-    <Abstract>ObjectBase is not copyable.</Abstract>
-    <DeclaredIn>ObjectBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>ObjectBase</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::ObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-    <Anchor>a2f2543682ce83d5383805f4e61193951</Anchor>
-    <Abstract>ObjectBase is not movable.</Abstract>
-    <DeclaredIn>ObjectBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>~ObjectBase</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::ObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-    <Anchor>a16adfaddefe388ae6849a0de88b75514</Anchor>
-    <DeclaredIn>ObjectBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>acquire_read</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::ObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-    <Anchor>aa85ca54e879b7aaf0b1ce094cd5e2e8f</Anchor>
-    <DeclaredIn>ObjectBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>acquire_write</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::ObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-    <Anchor>ad2125ee879a3a75cf62cfb57dd917e22</Anchor>
-    <DeclaredIn>ObjectBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>isUsingAtomic</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::ObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-    <Anchor>a7a0e31aa6a83265be220095906738964</Anchor>
-    <DeclaredIn>ObjectBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator=</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::ObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-    <Anchor>ae53f876194da1f5e5c95ed0904db7fdf</Anchor>
-    <Abstract>ObjectBase is not copyable.</Abstract>
-    <DeclaredIn>ObjectBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator=</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::ObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-    <Anchor>a0a36c6666fc297d0490c140c8550a997</Anchor>
-    <Abstract>ObjectBase is not movable.</Abstract>
-    <DeclaredIn>ObjectBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>release_read</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::ObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-    <Anchor>a7a9cf28dcbf7db286be078ce77447d85</Anchor>
-    <DeclaredIn>ObjectBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>release_write</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>threads::detail::ObjectBase</Scope>
-    </TokenIdentifier>
-    <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-    <Anchor>ae2763a34bef4aaf07e417d0978982188</Anchor>
-    <DeclaredIn>ObjectBase.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>threads::detail::RealtimeMutatableObject</Name>
-      <APILanguage>c</APILanguage>
-      <Type>tmplt</Type>
-      <Scope>threads::detail::RealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-    <DeclaredIn>RealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>RealtimeMutatableObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::RealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-    <Anchor>a87b207736708d12fd40ba48a0814972e</Anchor>
-    <DeclaredIn>RealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>RealtimeMutatableObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::RealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-    <Anchor>a5df076c894dd065ea8198f0c28d4276c</Anchor>
-    <DeclaredIn>RealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>~RealtimeMutatableObject</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::RealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-    <Anchor>a3fe9e81d4b2d0c37575d819fd45683d5</Anchor>
-    <DeclaredIn>RealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>acquire_read</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::RealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-    <Anchor>a4d40f0673fdf64d43a41ff27eb567ba0</Anchor>
-    <DeclaredIn>RealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>acquire_write</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::RealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-    <Anchor>a6929656b9d1005eb2789ad0f54ea2390</Anchor>
-    <DeclaredIn>RealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>isUsingAtomic</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::RealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-    <Anchor>a6f61e3ebf05c04b6c57eda820dbf10f1</Anchor>
-    <DeclaredIn>RealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator=</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::RealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-    <Anchor>a7c954be21300f450c1c47b46a90a565d</Anchor>
-    <DeclaredIn>RealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>operator=</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::RealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-    <Anchor>ab5329bbc5e126a29e41f479a631f1ead</Anchor>
-    <DeclaredIn>RealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>release_read</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::RealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-    <Anchor>a7a63ad17b3b2eb010df3c5ec47822d0f</Anchor>
-    <DeclaredIn>RealtimeMutatableObject.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>release_write</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>threads::detail::RealtimeMutatableObject</Scope>
-    </TokenIdentifier>
-    <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-    <Anchor>a4ebcb711fe3232c9cf4f85ce534d27c0</Anchor>
-    <DeclaredIn>RealtimeMutatableObject.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -37969,7 +38302,7 @@
       <Scope>time::Year</Scope>
     </TokenIdentifier>
     <Path>dc/da4/classtime_1_1_year.html</Path>
-    <Anchor>a35594687bee2d080ca5383a4bde184e0</Anchor>
+    <Anchor>a857369e62275a12336d17357f60f0756</Anchor>
     <Abstract>Assigns this year object to a new year number.</Abstract>
     <DeclaredIn>year.h</DeclaredIn>
   </Token>
@@ -38041,7 +38374,7 @@
       <Scope>time::Year</Scope>
     </TokenIdentifier>
     <Path>dc/da4/classtime_1_1_year.html</Path>
-    <Anchor>a31307fe35973dab20619df9f32c77c05</Anchor>
+    <Anchor>a0403e0268f696581dfa284938ba7179c</Anchor>
     <DeclaredIn>year.h</DeclaredIn>
   </Token>
   <Token>
@@ -38052,7 +38385,7 @@
       <Scope>time::Year</Scope>
     </TokenIdentifier>
     <Path>dc/da4/classtime_1_1_year.html</Path>
-    <Anchor>ae1c47dd0298cfd22e88e41c1aa4e4859</Anchor>
+    <Anchor>a42ac392f94534456b042f6451bdecd15</Anchor>
     <DeclaredIn>year.h</DeclaredIn>
   </Token>
   <Token>
@@ -38074,7 +38407,7 @@
       <Scope>time::Year</Scope>
     </TokenIdentifier>
     <Path>dc/da4/classtime_1_1_year.html</Path>
-    <Anchor>a532ef0f4a584cec8f9075b4e01d9dac6</Anchor>
+    <Anchor>a2138cdbf58800a02b2e9939f2a720339</Anchor>
     <DeclaredIn>year.h</DeclaredIn>
   </Token>
   <Token>
@@ -38085,7 +38418,7 @@
       <Scope>time::Year</Scope>
     </TokenIdentifier>
     <Path>dc/da4/classtime_1_1_year.html</Path>
-    <Anchor>aeb5f367f92b4573d89fa6195bccadf53</Anchor>
+    <Anchor>ac8c7e5028f7a52cd089fd269bd463c31</Anchor>
     <DeclaredIn>year.h</DeclaredIn>
   </Token>
   <Token>
@@ -38195,7 +38528,7 @@
       <Scope>time::Year</Scope>
     </TokenIdentifier>
     <Path>dc/da4/classtime_1_1_year.html</Path>
-    <Anchor>a4cc89e77a5e607341bb1a027f3994bd0</Anchor>
+    <Anchor>a1da6dc47e6254a8fba91b829a120a00d</Anchor>
     <Abstract>Returns a Year object representing the year this code was compiled.</Abstract>
     <DeclaredIn>year.h</DeclaredIn>
   </Token>
@@ -38274,6 +38607,18 @@
     </TokenIdentifier>
     <Path>d9/d1a/namespacevecops.html</Path>
     <Anchor>af89836f48aa4300741fe2893b4db3348</Anchor>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>sinCos</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops</Scope>
+    </TokenIdentifier>
+    <Path>d4/de3/group__vec__trig.html</Path>
+    <Anchor>ga4b00213256c36d9c42e8f60090d05841</Anchor>
+    <Abstract>Simultaneously computes the sin and cosine of every value in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -38569,6 +38914,54 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>vecops::detail</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>vecops::detail</Scope>
+    </TokenIdentifier>
+    <Path>de/d6c/namespacevecops_1_1detail.html</Path>
+    <Abstract>This namespace contains implementation details for the vecops functions.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vecops::fb</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>vecops::fb</Scope>
+    </TokenIdentifier>
+    <Path>da/d0b/namespacevecops_1_1fb.html</Path>
+    <Abstract>This namespace contains raw C++ implementations of all the vecops functions.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vecops::fb::detail</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>vecops::fb::detail</Scope>
+    </TokenIdentifier>
+    <Path>d6/d2a/namespacevecops_1_1fb_1_1detail.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vecops::fb::window</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>vecops::fb::window</Scope>
+    </TokenIdentifier>
+    <Path>d9/d84/namespacevecops_1_1fb_1_1window.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vecops::fb::window::detail</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>vecops::fb::window::detail</Scope>
+    </TokenIdentifier>
+    <Path>da/d91/namespacevecops_1_1fb_1_1window_1_1detail.html</Path>
+    <Abstract>This namespace contains implementation details for windowing functions.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>vecops::fft</Name>
       <APILanguage>c</APILanguage>
       <Type>ns</Type>
@@ -38596,5 +38989,41 @@
     </TokenIdentifier>
     <Path>d0/dc4/namespacevecops_1_1window.html</Path>
     <Abstract>This namespace contains windowing functions.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>generate</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d4/dd9/group__vec__window.html</Path>
+    <Anchor>ga64805b423eab6c813c81db7fbcc3fb39</Anchor>
+    <Abstract>Generates a window function of the desired type , writing the output samples to a vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>apply</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d4/dd9/group__vec__window.html</Path>
+    <Anchor>ga3d3edac6f20b9509c8bed6fd6187e0e3</Anchor>
+    <Abstract>Applies a window function of the desired type to the samples in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>applyAndCopy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>vecops::window</Scope>
+    </TokenIdentifier>
+    <Path>d4/dd9/group__vec__window.html</Path>
+    <Anchor>gac33355d3cea76811891aaea5c449fc48</Anchor>
+    <Abstract>Applies a window function of the desired type to the samples in the vector, writing the output sample...</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
 </Tokens>

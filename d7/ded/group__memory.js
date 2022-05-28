@@ -6,6 +6,7 @@ var group__memory =
     [ "MemoryPoolAllocator.h", "d5/d53/_memory_pool_allocator_8h.html", null ],
     [ "OptionalObject.h", "d8/dad/_optional_object_8h.html", null ],
     [ "RawData.h", "d2/dea/_raw_data_8h.html", null ],
+    [ "ReferenceCountedObject.h", "df/dc8/_reference_counted_object_8h.html", null ],
     [ "stack_allocator.h", "d5/d5a/stack__allocator_8h.html", null ],
     [ "StaticObjects.h", "d0/d78/_static_objects_8h.html", null ],
     [ "allocate_aligned", "d7/ded/group__memory.html#ga898974242418e2b20981a737c5e82410", null ],

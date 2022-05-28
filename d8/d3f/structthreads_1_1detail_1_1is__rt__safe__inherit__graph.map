@@ -1,16 +1,16 @@
 <map id="threads::detail::is_rt_safe&lt; T, Tag1, Tag2 &gt;" name="threads::detail::is_rt_safe&lt; T, Tag1, Tag2 &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="145,318,333,359"/>
+<area shape="rect" id="node1" title="Represents a query for realtime safety of the operation represented by Tag1 and Tag2 on the type T ." alt="" coords="145,318,333,359"/>
 <area shape="rect" id="node3" href="$da/d8b/structthreads_1_1detail_1_1is__rt__safe.html" title=" " alt="" coords="609,109,783,165"/>
 <area shape="rect" id="node7" href="$da/d8b/structthreads_1_1detail_1_1is__rt__safe.html" title=" " alt="" coords="569,231,823,287"/>
 <area shape="rect" id="node9" href="$da/d8b/structthreads_1_1detail_1_1is__rt__safe.html" title=" " alt="" coords="561,311,831,367"/>
 <area shape="rect" id="node11" href="$da/d8b/structthreads_1_1detail_1_1is__rt__safe.html" title=" " alt="" coords="559,391,833,447"/>
 <area shape="rect" id="node13" href="$da/d8b/structthreads_1_1detail_1_1is__rt__safe.html" title=" " alt="" coords="565,471,827,527"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,325,96,352"/>
-<area shape="rect" id="node4" href="$d2/d1b/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html" title=" " alt="" coords="902,5,1069,61"/>
-<area shape="rect" id="node5" href="$de/d3c/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1unordered__set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html" title=" " alt="" coords="883,85,1088,141"/>
-<area shape="rect" id="node6" href="$db/d71/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1vector_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html" title=" " alt="" coords="896,165,1075,221"/>
-<area shape="rect" id="node8" href="$da/d0a/structthreads_1_1is__realtime__copy__assignable.html" title=" " alt="" coords="898,246,1073,287"/>
-<area shape="rect" id="node10" href="$d9/dcb/structthreads_1_1is__realtime__copy__constructable.html" title=" " alt="" coords="889,318,1082,359"/>
-<area shape="rect" id="node12" href="$d4/d18/structthreads_1_1is__realtime__move__constructable.html" title=" " alt="" coords="886,398,1085,439"/>
-<area shape="rect" id="node14" href="$d4/d56/structthreads_1_1is__realtime__move__assignable.html" title=" " alt="" coords="895,478,1076,519"/>
+<area shape="rect" id="node4" href="$d2/d1b/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html" title="Specialization of the is_rt_safe class template for move operations within a std::set ." alt="" coords="902,5,1069,61"/>
+<area shape="rect" id="node5" href="$de/d3c/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1unordered__set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html" title="Specialization of the is_rt_safe class template for move operations within a std::unordered_set ." alt="" coords="883,85,1088,141"/>
+<area shape="rect" id="node6" href="$db/d71/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1vector_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html" title="Specialization of the is_rt_safe class template for move operations within a std::vector ." alt="" coords="896,165,1075,221"/>
+<area shape="rect" id="node8" href="$da/d0a/structthreads_1_1is__realtime__copy__assignable.html" title="A compile&#45;time boolean constant that evaluates to true if the type T is realtime&#45;safe copy assignable..." alt="" coords="898,246,1073,287"/>
+<area shape="rect" id="node10" href="$d9/dcb/structthreads_1_1is__realtime__copy__constructable.html" title="A compile&#45;time boolean constant that evaluates to true if the type T is realtime&#45;safe copy constructa..." alt="" coords="889,318,1082,359"/>
+<area shape="rect" id="node12" href="$d4/d18/structthreads_1_1is__realtime__move__constructable.html" title="A compile&#45;time boolean constant that evaluates to true if the type T is realtime&#45;safe move constructa..." alt="" coords="886,398,1085,439"/>
+<area shape="rect" id="node14" href="$d4/d56/structthreads_1_1is__realtime__move__assignable.html" title="A compile&#45;time boolean constant that evaluates to true if the type T is realtime&#45;safe move assignable..." alt="" coords="895,478,1076,519"/>
 </map>

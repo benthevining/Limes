@@ -58,19 +58,20 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"d1/d2b/classmemory_1_1_stack_allocator.html#a5d2a05c9a04f539e3cdf0eb2d801bf0c",
-"d3/d1d/classmath_1_1geometry_1_1_rectangular_prism.html",
-"d4/d06/classmeta_1_1_type_list.html#ae091b28f06dbd9a2c340ce7c7033f4d8",
-"d5/d26/structmath_1_1_fraction.html#a8ce830c3b54314c422d302182dc909fd",
-"d5/db7/classfiles_1_1_temp_file.html#a8e8cd937c5af3561b965549af27b788a",
-"d6/d68/vector_8h.html#a813f9ca146f6e29fde2f5d40bf2bb870",
-"d8/da2/classmusic_1_1scales_1_1_chromatic.html#a746ee2d31497e7d95ae3acac37c876a4",
-"db/d64/classds_1_1_abstract_f_i_f_o.html#a3b97c730ad407a24f2775c396568be92",
-"dc/da1/classmath_1_1geometry_1_1_triangle.html#a0a3d534da919677322c3d7f053ca2b69",
-"dd/d28/_circular_buffer_8h_source.html",
-"de/d1f/limes__vecops_8h.html#ga32029e6c6600295088165a4cf80fa46e",
-"de/d99/classmusic_1_1scales_1_1_key_signature.html#a1cf3dd70f60a36660070df5870ea597d",
-"df/d5c/structdsp_1_1_sample_stream.html#afb71adb5cac47c193f816c34cafa24ae"
+"d1/d7a/_realtime_type_traits_8h_source.html",
+"d3/d51/sha224_8h.html",
+"d4/d37/group__system.html#ga4afff37dbba8d8055ea44c9631a50140",
+"d5/d2a/classfiles_1_1_directory.html#a084961d9fc1ed3b6123af23db1fd855f",
+"d5/db7/classfiles_1_1_temp_file.html#ac0a6ea55732b596693321b08ae9cc710",
+"d6/d89/classmusic_1_1_interval.html#a2bd4dccaee78cf59e108f61f65526716",
+"d8/dad/_optional_object_8h_source.html",
+"db/d64/classds_1_1_abstract_f_i_f_o.html#a730df8d6e7b20b9162217dc981067941",
+"dc/da1/classmath_1_1geometry_1_1_triangle.html#a92ff5c413570d481e23755a5838e8a70",
+"dd/d35/_f_i_f_o_8h_source.html",
+"de/d1f/limes__vecops_8h.html#ga3e484b57ffdf300079b6039e85de7898",
+"de/d94/group__func.html#ga3dbd7fc208fe38c48614027d7480df86",
+"df/d3f/exec__location_8h_source.html",
+"namespacemembers_p.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

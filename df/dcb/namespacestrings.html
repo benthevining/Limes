@@ -116,8 +116,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a5c4847f86fcb8d4796c802653764509f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Limes library ASCII logo as a string.  <a href="../../df/dcb/namespacestrings.html#a5c4847f86fcb8d4796c802653764509f">More...</a><br /></td></tr>
 <tr class="separator:a5c4847f86fcb8d4796c802653764509f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adca9725130e0ee777d8c0b82962b221d"><td class="memItemLeft" align="right" valign="top">constexpr LIMES_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcb/namespacestrings.html#adca9725130e0ee777d8c0b82962b221d">getNewline</a> () noexcept</td></tr>
-<tr class="memdesc:adca9725130e0ee777d8c0b82962b221d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the platform's preferred newline separator: <code>\r</code> <br  />
- on Windows, <code>\n</code>  everywhere else.  <a href="../../df/dcb/namespacestrings.html#adca9725130e0ee777d8c0b82962b221d">More...</a><br /></td></tr>
+<tr class="memdesc:adca9725130e0ee777d8c0b82962b221d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the platform's preferred newline separator: <code>\r\n</code> on Windows, <code>\n</code> everywhere else.  <a href="../../df/dcb/namespacestrings.html#adca9725130e0ee777d8c0b82962b221d">More...</a><br /></td></tr>
 <tr class="separator:adca9725130e0ee777d8c0b82962b221d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d0abc87d5388e777a455d0bd7eaeb80"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcb/namespacestrings.html#a3d0abc87d5388e777a455d0bd7eaeb80">join</a> (const std::vector&lt; std::string &gt; &amp;strings, const std::string_view &amp;delimiter)</td></tr>
 <tr class="memdesc:a3d0abc87d5388e777a455d0bd7eaeb80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Joins the input strings into one string, placing <code>delimiter</code> between each input string.  <a href="../../df/dcb/namespacestrings.html#a3d0abc87d5388e777a455d0bd7eaeb80">More...</a><br /></td></tr>
@@ -165,7 +164,7 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:aebbfe58099474e9a4fb0f90f78ad2dff"><td class="memItemLeft" align="right" valign="top">static const LIMES_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcb/namespacestrings.html#aebbfe58099474e9a4fb0f90f78ad2dff">new_line</a> { <a class="el" href="../../df/dcb/namespacestrings.html#adca9725130e0ee777d8c0b82962b221d">getNewline</a>() }</td></tr>
-<tr class="memdesc:aebbfe58099474e9a4fb0f90f78ad2dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">A static variable that can be referenced for convenience, instead of needing to call <code><a class="el" href="../../df/dcb/namespacestrings.html#adca9725130e0ee777d8c0b82962b221d" title="Returns the platform&#39;s preferred newline separator: \r   on Windows, \n  everywhere else.">getNewline()</a></code> .  <a href="../../df/dcb/namespacestrings.html#aebbfe58099474e9a4fb0f90f78ad2dff">More...</a><br /></td></tr>
+<tr class="memdesc:aebbfe58099474e9a4fb0f90f78ad2dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">A static variable that can be referenced for convenience, instead of needing to call <code><a class="el" href="../../df/dcb/namespacestrings.html#adca9725130e0ee777d8c0b82962b221d" title="Returns the platform&#39;s preferred newline separator: \r\n on Windows, \n everywhere else.">getNewline()</a></code> .  <a href="../../df/dcb/namespacestrings.html#aebbfe58099474e9a4fb0f90f78ad2dff">More...</a><br /></td></tr>
 <tr class="separator:aebbfe58099474e9a4fb0f90f78ad2dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -319,8 +318,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the platform's preferred newline separator: <code>\r</code> <br  />
- on Windows, <code>\n</code>  everywhere else. </p>
+<p>Returns the platform's preferred newline separator: <code>\r\n</code> on Windows, <code>\n</code> everywhere else. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/dcb/namespacestrings.html#aebbfe58099474e9a4fb0f90f78ad2dff" title="A static variable that can be referenced for convenience, instead of needing to call getNewline() .">new_line</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/dde/_string_utils_8h_source.html#l00147">147</a> of file <a class="el" href="../../de/dde/_string_utils_8h_source.html">StringUtils.h</a>.</p>
@@ -525,8 +523,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Splits the input string into lines. </p>
-<p>The input string can use <code>\n</code>  or <code>\r</code> <br  />
- for its newline characters, or a mixture of both. </p>
+<p>The input string can use <code>\n</code> or <code>\r\n</code> for its newline characters, or a mixture of both. </p>
 
 </div>
 </div>
@@ -689,8 +686,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>A static variable that can be referenced for convenience, instead of needing to call <code><a class="el" href="../../df/dcb/namespacestrings.html#adca9725130e0ee777d8c0b82962b221d" title="Returns the platform&#39;s preferred newline separator: \r   on Windows, \n  everywhere else.">getNewline()</a></code> . </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/dcb/namespacestrings.html#adca9725130e0ee777d8c0b82962b221d" title="Returns the platform&#39;s preferred newline separator: \r   on Windows, \n  everywhere else.">getNewline</a> </dd></dl>
+<p>A static variable that can be referenced for convenience, instead of needing to call <code><a class="el" href="../../df/dcb/namespacestrings.html#adca9725130e0ee777d8c0b82962b221d" title="Returns the platform&#39;s preferred newline separator: \r\n on Windows, \n everywhere else.">getNewline()</a></code> . </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/dcb/namespacestrings.html#adca9725130e0ee777d8c0b82962b221d" title="Returns the platform&#39;s preferred newline separator: \r\n on Windows, \n everywhere else.">getNewline</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../de/dde/_string_utils_8h_source.html#l00134">134</a> of file <a class="el" href="../../de/dde/_string_utils_8h_source.html">StringUtils.h</a>.</p>
 
@@ -702,7 +699,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../df/dcb/namespacestrings.html">strings</a></li>
-    <li class="footer">Generated on Fri May 27 2022 18:50:56 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 20:15:13 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

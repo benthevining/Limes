@@ -84,26 +84,34 @@ $(document).ready(function(){initNavTree('dc/da7/classthreads_1_1_thread_safe_ob
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="../../d8/d89/classthreads_1_1_thread_safe_object-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">threads::ThreadSafeObject&lt; ObjectType, totalNumThreads &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>A wrapper class that makes an object thread safe.  
+ <a href="../../dc/da7/classthreads_1_1_thread_safe_object.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>&gt;</code></p>
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for threads::ThreadSafeObject&lt; ObjectType, totalNumThreads &gt;:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dd/d96/classthreads_1_1_thread_safe_object__inherit__graph.svg" width="256" height="156"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-<center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a446bd21c5862a798d1ee079f2e4a13c3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a446bd21c5862a798d1ee079f2e4a13c3">Reader</a> = <a class="el" href="../../dc/d4f/structthreads_1_1_threaded_object_reader.html">ThreadedObjectReader</a>&lt; ObjectType &gt;</td></tr>
+<tr class="memdesc:a446bd21c5862a798d1ee079f2e4a13c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of a reader accessor.  <a href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a446bd21c5862a798d1ee079f2e4a13c3">More...</a><br /></td></tr>
+<tr class="separator:a446bd21c5862a798d1ee079f2e4a13c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afebfd13d1623b7ae198ca5112d532d8a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#afebfd13d1623b7ae198ca5112d532d8a">Writer</a> = <a class="el" href="../../de/d1a/structthreads_1_1_threaded_object_writer.html">ThreadedObjectWriter</a>&lt; ObjectType &gt;</td></tr>
+<tr class="memdesc:afebfd13d1623b7ae198ca5112d532d8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of a writer accessor.  <a href="../../dc/da7/classthreads_1_1_thread_safe_object.html#afebfd13d1623b7ae198ca5112d532d8a">More...</a><br /></td></tr>
+<tr class="separator:afebfd13d1623b7ae198ca5112d532d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac0ce28c408c0219549ff2f43ed4c4061"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#ac0ce28c408c0219549ff2f43ed4c4061">ThreadSafeObject</a> ()=default</td></tr>
+<tr class="memdesc:ac0ce28c408c0219549ff2f43ed4c4061"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="../../dc/da7/classthreads_1_1_thread_safe_object.html#ac0ce28c408c0219549ff2f43ed4c4061">More...</a><br /></td></tr>
 <tr class="separator:ac0ce28c408c0219549ff2f43ed4c4061"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a6ca29ab61fd73337f496e131dc7963"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a8a6ca29ab61fd73337f496e131dc7963">ThreadSafeObject</a> (const <a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">ThreadSafeObject</a> &amp;)=delete</td></tr>
 <tr class="memdesc:a8a6ca29ab61fd73337f496e131dc7963"><td class="mdescLeft">&#160;</td><td class="mdescRight">ThreadSafeObject is not copyable.  <a href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a8a6ca29ab61fd73337f496e131dc7963">More...</a><br /></td></tr>
@@ -111,32 +119,84 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab7c85b93c4f0e6e47892a4043236e20e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#ab7c85b93c4f0e6e47892a4043236e20e">ThreadSafeObject</a> (<a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">ThreadSafeObject</a> &amp;&amp;)=delete</td></tr>
 <tr class="memdesc:ab7c85b93c4f0e6e47892a4043236e20e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ThreadSafeObject is not movable.  <a href="../../dc/da7/classthreads_1_1_thread_safe_object.html#ab7c85b93c4f0e6e47892a4043236e20e">More...</a><br /></td></tr>
 <tr class="separator:ab7c85b93c4f0e6e47892a4043236e20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad97fe20c52692c463ec98a6b4374cd41"><td class="memItemLeft" align="right" valign="top">const ObjectType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#ad97fe20c52692c463ec98a6b4374cd41">acquire_read</a> (size_t threadIdx)</td></tr>
-<tr class="separator:ad97fe20c52692c463ec98a6b4374cd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add04ff9fc30f16595c2d4e3a8a65a93f"><td class="memItemLeft" align="right" valign="top">ObjectType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#add04ff9fc30f16595c2d4e3a8a65a93f">acquire_write</a> (size_t threadIdx)</td></tr>
-<tr class="separator:add04ff9fc30f16595c2d4e3a8a65a93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa80a33d15e4daaaee39cbd13ae667375"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#aa80a33d15e4daaaee39cbd13ae667375">isLockFree</a> () noexcept</td></tr>
-<tr class="separator:aa80a33d15e4daaaee39cbd13ae667375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74587d3c9495a947d13b687188eda25e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a74587d3c9495a947d13b687188eda25e">isLockFree</a> () const noexcept</td></tr>
+<tr class="memdesc:a74587d3c9495a947d13b687188eda25e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if acquiring read and write accessors for the owned object is lock-free.  <a href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a74587d3c9495a947d13b687188eda25e">More...</a><br /></td></tr>
+<tr class="separator:a74587d3c9495a947d13b687188eda25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c2be8c98ac1f4b153f00910f03276bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">ThreadSafeObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a1c2be8c98ac1f4b153f00910f03276bd">operator=</a> (const <a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">ThreadSafeObject</a> &amp;)=delete</td></tr>
 <tr class="memdesc:a1c2be8c98ac1f4b153f00910f03276bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">ThreadSafeObject is not copyable.  <a href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a1c2be8c98ac1f4b153f00910f03276bd">More...</a><br /></td></tr>
 <tr class="separator:a1c2be8c98ac1f4b153f00910f03276bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c7b26f44d8584e0c2682fafb481ca8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">ThreadSafeObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a5c7b26f44d8584e0c2682fafb481ca8b">operator=</a> (<a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">ThreadSafeObject</a> &amp;&amp;)=delete</td></tr>
 <tr class="memdesc:a5c7b26f44d8584e0c2682fafb481ca8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ThreadSafeObject is not movable.  <a href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a5c7b26f44d8584e0c2682fafb481ca8b">More...</a><br /></td></tr>
 <tr class="separator:a5c7b26f44d8584e0c2682fafb481ca8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab86b2597d002f597de2c626ba33a61c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d4f/structthreads_1_1_threaded_object_reader.html">ThreadedObjectReader</a>&lt; ObjectType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#ab86b2597d002f597de2c626ba33a61c6">read</a> (size_t threadIdx)</td></tr>
-<tr class="separator:ab86b2597d002f597de2c626ba33a61c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc98ca368c0e0b9b6db7de54da619405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#abc98ca368c0e0b9b6db7de54da619405">release_write</a> (size_t threadIdx)</td></tr>
-<tr class="separator:abc98ca368c0e0b9b6db7de54da619405"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4584c1681d00c84dad50d5edb12a525f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d1a/structthreads_1_1_threaded_object_writer.html">ThreadedObjectWriter</a>&lt; ObjectType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a4584c1681d00c84dad50d5edb12a525f">write</a> (size_t threadIdx)</td></tr>
-<tr class="separator:a4584c1681d00c84dad50d5edb12a525f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61c873b6f7e987e2dcd99ebf2ea9543f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a446bd21c5862a798d1ee079f2e4a13c3">Reader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a61c873b6f7e987e2dcd99ebf2ea9543f">read</a> (size_t threadIdx)</td></tr>
+<tr class="memdesc:a61c873b6f7e987e2dcd99ebf2ea9543f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acquires a read-only copy of the owned object.  <a href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a61c873b6f7e987e2dcd99ebf2ea9543f">More...</a><br /></td></tr>
+<tr class="separator:a61c873b6f7e987e2dcd99ebf2ea9543f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6276a775bf66e90b592f9632c83d925c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#afebfd13d1623b7ae198ca5112d532d8a">Writer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a6276a775bf66e90b592f9632c83d925c">write</a> (size_t threadIdx)</td></tr>
+<tr class="memdesc:a6276a775bf66e90b592f9632c83d925c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acquires a writable copy of the owned object.  <a href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a6276a775bf66e90b592f9632c83d925c">More...</a><br /></td></tr>
+<tr class="separator:a6276a775bf66e90b592f9632c83d925c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a85e0203e049c6eac19506baa52afabec"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a85e0203e049c6eac19506baa52afabec">isAlwaysLockFree</a> () noexcept</td></tr>
+<tr class="memdesc:a85e0203e049c6eac19506baa52afabec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if acquiring read and write accessors for the owned object is always lock-free.  <a href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a85e0203e049c6eac19506baa52afabec">More...</a><br /></td></tr>
+<tr class="separator:a85e0203e049c6eac19506baa52afabec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename ObjectType, size_t totalNumThreads = 2&gt;<br />
 class threads::ThreadSafeObject&lt; ObjectType, totalNumThreads &gt;</h3>
 
+<p>A wrapper class that makes an object thread safe. </p>
+<p>Internally, this class holds multiple copies of the owned object, one for each thread, and updates the other threads' copies any time changes are made. Although this class guarantees thread safety, this class does not guarantee realtime safety. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ObjectType</td><td>The type of object to be owned </td></tr>
+    <tr><td class="paramname">totalNumThreads</td><td>The total number of threads that will be accessing the object. This is the number of copies of the object that will be maintained internally, and must be greater than 0. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00073">73</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00088">88</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a446bd21c5862a798d1ee079f2e4a13c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a446bd21c5862a798d1ee079f2e4a13c3">&#9670;&nbsp;</a></span>Reader</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">threads::ThreadSafeObject</a>&lt; ObjectType, totalNumThreads &gt;::<a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a446bd21c5862a798d1ee079f2e4a13c3">Reader</a> =  <a class="el" href="../../dc/d4f/structthreads_1_1_threaded_object_reader.html">ThreadedObjectReader</a>&lt;ObjectType&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The type of a reader accessor. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00093">93</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
+
+</div>
+</div>
+<a id="afebfd13d1623b7ae198ca5112d532d8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afebfd13d1623b7ae198ca5112d532d8a">&#9670;&nbsp;</a></span>Writer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">threads::ThreadSafeObject</a>&lt; ObjectType, totalNumThreads &gt;::<a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#afebfd13d1623b7ae198ca5112d532d8a">Writer</a> =  <a class="el" href="../../de/d1a/structthreads_1_1_threaded_object_writer.html">ThreadedObjectWriter</a>&lt;ObjectType&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The type of a writer accessor. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00096">96</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac0ce28c408c0219549ff2f43ed4c4061"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac0ce28c408c0219549ff2f43ed4c4061">&#9670;&nbsp;</a></span>ThreadSafeObject() <span class="overload">[1/3]</span></h2>
 
@@ -161,6 +221,8 @@ template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructor. </p>
 
 </div>
 </div>
@@ -225,8 +287,8 @@ template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad97fe20c52692c463ec98a6b4374cd41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad97fe20c52692c463ec98a6b4374cd41">&#9670;&nbsp;</a></span>acquire_read()</h2>
+<a id="a85e0203e049c6eac19506baa52afabec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85e0203e049c6eac19506baa52afabec">&#9670;&nbsp;</a></span>isAlwaysLockFree()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -237,56 +299,27 @@ template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const ObjectType&amp; <a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">threads::ThreadSafeObject</a>&lt; ObjectType, totalNumThreads &gt;::acquire_read </td>
+          <td class="memname">static constexpr bool <a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">threads::ThreadSafeObject</a>&lt; ObjectType, totalNumThreads &gt;::isAlwaysLockFree </td>
           <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>threadIdx</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00084">84</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
+<p>Returns true if acquiring read and write accessors for the owned object is always lock-free. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00127">127</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
 
 </div>
 </div>
-<a id="add04ff9fc30f16595c2d4e3a8a65a93f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add04ff9fc30f16595c2d4e3a8a65a93f">&#9670;&nbsp;</a></span>acquire_write()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ObjectType&amp; <a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">threads::ThreadSafeObject</a>&lt; ObjectType, totalNumThreads &gt;::acquire_write </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>threadIdx</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00096">96</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
-
-</div>
-</div>
-<a id="aa80a33d15e4daaaee39cbd13ae667375"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa80a33d15e4daaaee39cbd13ae667375">&#9670;&nbsp;</a></span>isLockFree()</h2>
+<a id="a74587d3c9495a947d13b687188eda25e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74587d3c9495a947d13b687188eda25e">&#9670;&nbsp;</a></span>isLockFree()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -300,7 +333,7 @@ template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
           <td class="memname">bool <a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">threads::ThreadSafeObject</a>&lt; ObjectType, totalNumThreads &gt;::isLockFree </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -310,7 +343,9 @@ template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00132">132</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
+<p>Returns true if acquiring read and write accessors for the owned object is lock-free. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00121">121</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
 
 </div>
 </div>
@@ -374,8 +409,8 @@ template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
 
 </div>
 </div>
-<a id="ab86b2597d002f597de2c626ba33a61c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab86b2597d002f597de2c626ba33a61c6">&#9670;&nbsp;</a></span>read()</h2>
+<a id="a61c873b6f7e987e2dcd99ebf2ea9543f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61c873b6f7e987e2dcd99ebf2ea9543f">&#9670;&nbsp;</a></span>read()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -386,7 +421,7 @@ template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/d4f/structthreads_1_1_threaded_object_reader.html">ThreadedObjectReader</a>&lt;ObjectType&gt; <a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">threads::ThreadSafeObject</a>&lt; ObjectType, totalNumThreads &gt;::read </td>
+          <td class="memname"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#a446bd21c5862a798d1ee079f2e4a13c3">Reader</a> <a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">threads::ThreadSafeObject</a>&lt; ObjectType, totalNumThreads &gt;::read </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>threadIdx</em></td><td>)</td>
@@ -400,12 +435,14 @@ template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00091">91</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
+<p>Acquires a read-only copy of the owned object. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00109">109</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
 
 </div>
 </div>
-<a id="abc98ca368c0e0b9b6db7de54da619405"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc98ca368c0e0b9b6db7de54da619405">&#9670;&nbsp;</a></span>release_write()</h2>
+<a id="a6276a775bf66e90b592f9632c83d925c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6276a775bf66e90b592f9632c83d925c">&#9670;&nbsp;</a></span>write()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -416,7 +453,7 @@ template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">threads::ThreadSafeObject</a>&lt; ObjectType, totalNumThreads &gt;::release_write </td>
+          <td class="memname"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html#afebfd13d1623b7ae198ca5112d532d8a">Writer</a> <a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">threads::ThreadSafeObject</a>&lt; ObjectType, totalNumThreads &gt;::write </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>threadIdx</em></td><td>)</td>
@@ -430,37 +467,9 @@ template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00103">103</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
+<p>Acquires a writable copy of the owned object. </p>
 
-</div>
-</div>
-<a id="a4584c1681d00c84dad50d5edb12a525f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4584c1681d00c84dad50d5edb12a525f">&#9670;&nbsp;</a></span>write()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d1a/structthreads_1_1_threaded_object_writer.html">ThreadedObjectWriter</a>&lt;ObjectType&gt; <a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">threads::ThreadSafeObject</a>&lt; ObjectType, totalNumThreads &gt;::write </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>threadIdx</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00108">108</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html#l00115">115</a> of file <a class="el" href="../../d0/dd5/_thread_safe_object_8h_source.html">ThreadSafeObject.h</a>.</p>
 
 </div>
 </div>
@@ -473,7 +482,7 @@ template&lt;typename ObjectType , size_t totalNumThreads = 2&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d5/d58/namespacethreads.html">threads</a></li><li class="navelem"><a class="el" href="../../dc/da7/classthreads_1_1_thread_safe_object.html">ThreadSafeObject</a></li>
-    <li class="footer">Generated on Fri May 27 2022 18:50:56 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 20:15:13 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

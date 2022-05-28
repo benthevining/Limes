@@ -22,9 +22,6 @@ var files_dup =
     [ "angle.h", "da/dac/angle_8h.html", [
       [ "Angle", "d0/d61/classmath_1_1geometry_1_1_angle.html", "d0/d61/classmath_1_1geometry_1_1_angle" ]
     ] ],
-    [ "AtomicObjectHolder.h", "d5/dcb/_atomic_object_holder_8h.html", [
-      [ "AtomicObjectBase", "d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html", "d0/d59/structthreads_1_1detail_1_1_atomic_object_base" ]
-    ] ],
     [ "basic_oscillators.h", "d8/dee/basic__oscillators_8h.html", "d8/dee/basic__oscillators_8h" ],
     [ "basic_vector.h", "d5/d47/basic__vector_8h.html", [
       [ "basic_vector", "df/d63/classds_1_1basic__vector.html", "df/d63/classds_1_1basic__vector" ]
@@ -176,9 +173,6 @@ var files_dup =
       [ "MtsClient", "d6/dc9/classmidi_1_1_mts_client.html", "d6/dc9/classmidi_1_1_mts_client" ]
     ] ],
     [ "neon_mathfun.h", "d8/d51/neon__mathfun_8h.html", null ],
-    [ "NonrealtimeMutatableObject.h", "d1/d2e/_nonrealtime_mutatable_object_8h.html", [
-      [ "NonRealtimeMutatableObject", "d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html", "d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object" ]
-    ] ],
     [ "NoteDuration.h", "dd/df8/_note_duration_8h.html", [
       [ "NoteDuration", "dd/df8/structmusic_1_1_note_duration.html", "dd/df8/structmusic_1_1_note_duration" ]
     ] ],
@@ -187,9 +181,6 @@ var files_dup =
       [ "NoteLength", "db/d92/structmusic_1_1_note_length.html", "db/d92/structmusic_1_1_note_length" ]
     ] ],
     [ "NoteLength_impl.h", "d8/dd4/_note_length__impl_8h.html", null ],
-    [ "ObjectBase.h", "d5/d73/_object_base_8h.html", [
-      [ "ObjectBase", "d5/dff/structthreads_1_1detail_1_1_object_base.html", "d5/dff/structthreads_1_1detail_1_1_object_base" ]
-    ] ],
     [ "octagon.h", "d0/db7/octagon_8h.html", [
       [ "Octagon", "d3/dc1/classmath_1_1geometry_1_1_octagon.html", "d3/dc1/classmath_1_1geometry_1_1_octagon" ]
     ] ],
@@ -242,11 +233,6 @@ var files_dup =
       [ "hash< limes::memory::RawData >", "df/de4/structstd_1_1hash_3_01limes_1_1memory_1_1_raw_data_01_4.html", "df/de4/structstd_1_1hash_3_01limes_1_1memory_1_1_raw_data_01_4" ],
       [ "RawData", "d1/db0/classmemory_1_1_raw_data.html", "d1/db0/classmemory_1_1_raw_data" ]
     ] ],
-    [ "RealtimeMutatableObject.h", "d9/dd1/_realtime_mutatable_object_8h.html", [
-      [ "RealtimeMutatableObject", "db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html", "db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object" ]
-    ] ],
-    [ "RealtimeSafeObject.h", "d3/df7/_realtime_safe_object_8h.html", "d3/df7/_realtime_safe_object_8h" ],
-    [ "RealtimeSafeObject_impl.h", "d7/dce/_realtime_safe_object__impl_8h.html", null ],
     [ "RealtimeTypeTraits.h", "d1/d7a/_realtime_type_traits_8h.html", "d1/d7a/_realtime_type_traits_8h" ],
     [ "rectangle.h", "db/dd0/rectangle_8h.html", [
       [ "Rectangle", "d0/d60/classmath_1_1geometry_1_1_rectangle.html", "d0/d60/classmath_1_1geometry_1_1_rectangle" ]

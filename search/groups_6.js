@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hashes_2788',['Hashes',['../db/d97/group__hashes.html',1,'']]]
+  ['extrema_20calculation_2798',['Extrema calculation',['../d5/d65/group__vec__extrema.html',1,'']]]
 ];

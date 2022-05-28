@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Represents a query for realtime safety of the operation represented by Tag1 and Tag2 on the type T .">
 <polygon fill="#bfbfbf" stroke="black" points="105,-126 105,-156 246,-156 246,-126 105,-126"/>
 <text text-anchor="start" x="113" y="-144" font-family="Helvetica,sans-Serif" font-size="10.00">threads::detail::is</text>
 <text text-anchor="middle" x="175.5" y="-133" font-family="Helvetica,sans-Serif" font-size="10.00">_rt_safe&lt; T, Tag1, Tag2 &gt;</text>
@@ -130,7 +130,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="../../d2/d1b/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="../../d2/d1b/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html" target="_top" xlink:title="Specialization of the is_rt_safe class template for move operations within a std::set .">
 <polygon fill="none" stroke="black" points="672.5,-349.5 672.5,-390.5 797.5,-390.5 797.5,-349.5 672.5,-349.5"/>
 <text text-anchor="start" x="680.5" y="-378.5" font-family="Helvetica,sans-Serif" font-size="10.00">threads::detail::is</text>
 <text text-anchor="start" x="680.5" y="-367.5" font-family="Helvetica,sans-Serif" font-size="10.00">_rt_safe&lt; std::set&lt;</text>
@@ -147,7 +147,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="../../de/d3c/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1unordered__set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="../../de/d3c/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1unordered__set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html" target="_top" xlink:title="Specialization of the is_rt_safe class template for move operations within a std::unordered_set .">
 <polygon fill="none" stroke="black" points="658,-289.5 658,-330.5 812,-330.5 812,-289.5 658,-289.5"/>
 <text text-anchor="start" x="666" y="-318.5" font-family="Helvetica,sans-Serif" font-size="10.00">threads::detail::is</text>
 <text text-anchor="start" x="666" y="-307.5" font-family="Helvetica,sans-Serif" font-size="10.00">_rt_safe&lt; std::unordered</text>
@@ -164,7 +164,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="../../db/d71/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1vector_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="../../db/d71/structthreads_1_1detail_1_1is__rt__safe_3_01std_1_1vector_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html" target="_top" xlink:title="Specialization of the is_rt_safe class template for move operations within a std::vector .">
 <polygon fill="none" stroke="black" points="668,-229.5 668,-270.5 802,-270.5 802,-229.5 668,-229.5"/>
 <text text-anchor="start" x="676" y="-258.5" font-family="Helvetica,sans-Serif" font-size="10.00">threads::detail::is</text>
 <text text-anchor="start" x="676" y="-247.5" font-family="Helvetica,sans-Serif" font-size="10.00">_rt_safe&lt; std::vector</text>
@@ -181,7 +181,7 @@
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="../../da/d0a/structthreads_1_1is__realtime__copy__assignable.html" target="_top" xlink:title=" ">
+<g id="a_node8"><a xlink:href="../../da/d0a/structthreads_1_1is__realtime__copy__assignable.html" target="_top" xlink:title="A compile&#45;time boolean constant that evaluates to true if the type T is realtime&#45;safe copy assignable...">
 <polygon fill="none" stroke="black" points="669.5,-180 669.5,-210 800.5,-210 800.5,-180 669.5,-180"/>
 <text text-anchor="start" x="677.5" y="-198" font-family="Helvetica,sans-Serif" font-size="10.00">threads::is_realtime</text>
 <text text-anchor="middle" x="735" y="-187" font-family="Helvetica,sans-Serif" font-size="10.00">_copy_assignable&lt; T &gt;</text>
@@ -197,7 +197,7 @@
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
-<g id="a_node10"><a xlink:href="../../d9/dcb/structthreads_1_1is__realtime__copy__constructable.html" target="_top" xlink:title=" ">
+<g id="a_node10"><a xlink:href="../../d9/dcb/structthreads_1_1is__realtime__copy__constructable.html" target="_top" xlink:title="A compile&#45;time boolean constant that evaluates to true if the type T is realtime&#45;safe copy constructa...">
 <polygon fill="none" stroke="black" points="662.5,-126 662.5,-156 807.5,-156 807.5,-126 662.5,-126"/>
 <text text-anchor="start" x="670.5" y="-144" font-family="Helvetica,sans-Serif" font-size="10.00">threads::is_realtime</text>
 <text text-anchor="middle" x="735" y="-133" font-family="Helvetica,sans-Serif" font-size="10.00">_copy_constructable&lt; T &gt;</text>
@@ -213,7 +213,7 @@
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="../../d4/d18/structthreads_1_1is__realtime__move__constructable.html" target="_top" xlink:title=" ">
+<g id="a_node12"><a xlink:href="../../d4/d18/structthreads_1_1is__realtime__move__constructable.html" target="_top" xlink:title="A compile&#45;time boolean constant that evaluates to true if the type T is realtime&#45;safe move constructa...">
 <polygon fill="none" stroke="black" points="660.5,-66 660.5,-96 809.5,-96 809.5,-66 660.5,-66"/>
 <text text-anchor="start" x="668.5" y="-84" font-family="Helvetica,sans-Serif" font-size="10.00">threads::is_realtime</text>
 <text text-anchor="middle" x="735" y="-73" font-family="Helvetica,sans-Serif" font-size="10.00">_move_constructable&lt; T &gt;</text>
@@ -229,7 +229,7 @@
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
-<g id="a_node14"><a xlink:href="../../d4/d56/structthreads_1_1is__realtime__move__assignable.html" target="_top" xlink:title=" ">
+<g id="a_node14"><a xlink:href="../../d4/d56/structthreads_1_1is__realtime__move__assignable.html" target="_top" xlink:title="A compile&#45;time boolean constant that evaluates to true if the type T is realtime&#45;safe move assignable...">
 <polygon fill="none" stroke="black" points="667,-6 667,-36 803,-36 803,-6 667,-6"/>
 <text text-anchor="start" x="675" y="-24" font-family="Helvetica,sans-Serif" font-size="10.00">threads::is_realtime</text>
 <text text-anchor="middle" x="735" y="-13" font-family="Helvetica,sans-Serif" font-size="10.00">_move_assignable&lt; T &gt;</text>

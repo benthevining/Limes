@@ -140,6 +140,11 @@
               <Path>d6/d9b/_functions_8h.html</Path>
              </Node>
              <Node>
+              <Name>result_type</Name>
+              <Path>de/d94/group__func.html</Path>
+              <Anchor>ga734e223214335b499b76e734d6c3771f</Anchor>
+             </Node>
+             <Node>
               <Name>call_once</Name>
               <Path>de/d94/group__func.html</Path>
               <Anchor>ga721d87621ab2fa2ff1ab032652d0b035</Anchor>
@@ -586,6 +591,10 @@
               <Path>d2/dea/_raw_data_8h.html</Path>
              </Node>
              <Node>
+              <Name>ReferenceCountedObject.h</Name>
+              <Path>df/dc8/_reference_counted_object_8h.html</Path>
+             </Node>
+             <Node>
               <Name>stack_allocator.h</Name>
               <Path>d5/d5a/stack__allocator_8h.html</Path>
              </Node>
@@ -922,6 +931,65 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>Threading</Name>
+            <Path>d2/db9/group__threads.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Realtime safety</Name>
+              <Path>dd/d3e/group__rt__safety.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>RealtimeTypeTraits.h</Name>
+                <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>assignable_tag</Name>
+                <Path>dd/d3e/group__rt__safety.html</Path>
+                <Anchor>ga11d8ecdc58cebed16d6de2498688dd33</Anchor>
+               </Node>
+               <Node>
+                <Name>constructible_tag</Name>
+                <Path>dd/d3e/group__rt__safety.html</Path>
+                <Anchor>ga52f5c8aaa88f7098451611bce93db9fc</Anchor>
+               </Node>
+               <Node>
+                <Name>copy_tag</Name>
+                <Path>dd/d3e/group__rt__safety.html</Path>
+                <Anchor>gaa35d7d21058ce5a6a5f3d4c1332cacb8</Anchor>
+               </Node>
+               <Node>
+                <Name>move_tag</Name>
+                <Path>dd/d3e/group__rt__safety.html</Path>
+                <Anchor>ga117a1fe1d8cdfdecb9f1c9c18bd5b354</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>Threading.h</Name>
+              <Path>d4/d08/_threading_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>ThreadSafeObject.h</Name>
+              <Path>d0/dd5/_thread_safe_object_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>callAndBlock</Name>
+              <Path>d2/db9/group__threads.html</Path>
+              <Anchor>ga251c922a2477a65a5ded648c4ce53e6f</Anchor>
+             </Node>
+             <Node>
+              <Name>callInBackground</Name>
+              <Path>d2/db9/group__threads.html</Path>
+              <Anchor>ga94a8bdf0e635ade7c85f672ee7423c1a</Anchor>
+             </Node>
+             <Node>
+              <Name>maxNumThreads</Name>
+              <Path>d2/db9/group__threads.html</Path>
+              <Anchor>gad36ea8a69391a84e28749452d0528c07</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>Time</Name>
             <Path>d9/d7d/group__time.html</Path>
             <Subnodes>
@@ -966,6 +1034,10 @@
               <Path>d3/d09/time__impl_8h.html</Path>
              </Node>
              <Node>
+              <Name>time_utils.h</Name>
+              <Path>d5/dd4/time__utils_8h.html</Path>
+             </Node>
+             <Node>
               <Name>weekday.h</Name>
               <Path>d0/ddc/weekday_8h.html</Path>
              </Node>
@@ -976,6 +1048,10 @@
              <Node>
               <Name>year.h</Name>
               <Path>d5/d98/year_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>year_impl.h</Name>
+              <Path>d2/d38/year__impl_8h.html</Path>
              </Node>
              <Node>
               <Name>TODO_BEFORE</Name>
@@ -1210,6 +1286,42 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>Complex conversions</Name>
+            <Path>de/d2a/group__vec__complex.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>cartesianInterleavedToMagnitudes</Name>
+              <Path>de/d2a/group__vec__complex.html</Path>
+              <Anchor>ga4b5b41c7ed4681603518d8f98c110f97</Anchor>
+             </Node>
+             <Node>
+              <Name>cartesianToMagnitudes</Name>
+              <Path>de/d2a/group__vec__complex.html</Path>
+              <Anchor>ga0df7ec7c7ff3358aec1da9fcaf901876</Anchor>
+             </Node>
+             <Node>
+              <Name>cartesianToPolar</Name>
+              <Path>de/d2a/group__vec__complex.html</Path>
+              <Anchor>ga2e1838d991aea7a17f8c155e8c217daf</Anchor>
+             </Node>
+             <Node>
+              <Name>catesianInterleavedToPolar</Name>
+              <Path>de/d2a/group__vec__complex.html</Path>
+              <Anchor>gae72dc85cafe4ad69f63801cc1197c07c</Anchor>
+             </Node>
+             <Node>
+              <Name>polarToCartesian</Name>
+              <Path>de/d2a/group__vec__complex.html</Path>
+              <Anchor>gab445f6a6f4a335e67425a0f7a56ee4c2</Anchor>
+             </Node>
+             <Node>
+              <Name>polarToCartesianInterleaved</Name>
+              <Path>de/d2a/group__vec__complex.html</Path>
+              <Anchor>ga6893000b39e9cd5f68df3b50782b782c</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>FFT</Name>
             <Path>dc/db6/group__fft.html</Path>
             <Subnodes>
@@ -1294,24 +1406,36 @@
             <Path>d1/d09/group__vec__fpm.html</Path>
             <Subnodes>
              <Node>
-              <Name>areDenormalsDisabled</Name>
-              <Path>d1/d09/group__vec__fpm.html</Path>
-              <Anchor>gaf1b063aaec395fbadd3e3a24bdbd7d3e</Anchor>
+              <Name>Denormalized number support</Name>
+              <Path>d0/d49/group__vec__denormals.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>areDenormalsDisabled</Name>
+                <Path>d0/d49/group__vec__denormals.html</Path>
+                <Anchor>gaf1b063aaec395fbadd3e3a24bdbd7d3e</Anchor>
+               </Node>
+               <Node>
+                <Name>disableDenormalisedNumberSupport</Name>
+                <Path>d0/d49/group__vec__denormals.html</Path>
+                <Anchor>ga095c013f3d5f68405a075e4c0bcdec66</Anchor>
+               </Node>
+              </Subnodes>
              </Node>
              <Node>
-              <Name>disableDenormalisedNumberSupport</Name>
-              <Path>d1/d09/group__vec__fpm.html</Path>
-              <Anchor>ga095c013f3d5f68405a075e4c0bcdec66</Anchor>
-             </Node>
-             <Node>
-              <Name>enableFlushToZeroMode</Name>
-              <Path>d1/d09/group__vec__fpm.html</Path>
-              <Anchor>ga455df89d2cef625f239ebd5507fea3d2</Anchor>
-             </Node>
-             <Node>
-              <Name>isFlushToZeroEnabled</Name>
-              <Path>d1/d09/group__vec__fpm.html</Path>
-              <Anchor>ga8c5fce68c3759e785f4778df27012b24</Anchor>
+              <Name>Flush-to-zero support</Name>
+              <Path>d5/dfa/group__vec__ftz.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>enableFlushToZeroMode</Name>
+                <Path>d5/dfa/group__vec__ftz.html</Path>
+                <Anchor>ga455df89d2cef625f239ebd5507fea3d2</Anchor>
+               </Node>
+               <Node>
+                <Name>isFlushToZeroEnabled</Name>
+                <Path>d5/dfa/group__vec__ftz.html</Path>
+                <Anchor>ga8c5fce68c3759e785f4778df27012b24</Anchor>
+               </Node>
+              </Subnodes>
              </Node>
             </Subnodes>
            </Node>
@@ -1438,6 +1562,82 @@
             <Path>d0/d70/group__vec__stats.html</Path>
             <Subnodes>
              <Node>
+              <Name>Extrema calculation</Name>
+              <Path>d5/d65/group__vec__extrema.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>max</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>ga2b9ca98d48877ea7a09777202711fd14</Anchor>
+               </Node>
+               <Node>
+                <Name>max</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>gab7fbdda1d58f33cb333944be0ea90872</Anchor>
+               </Node>
+               <Node>
+                <Name>maxAbs</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>ga255d7088efb599876e02b7b8abd2a996</Anchor>
+               </Node>
+               <Node>
+                <Name>maxAbs</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>ga8fa776a377b6164dae4889cc89253bbd</Anchor>
+               </Node>
+               <Node>
+                <Name>min</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>gac850b880c9ee8106321198dda9dfc89d</Anchor>
+               </Node>
+               <Node>
+                <Name>min</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>ga887ed86c17a7996c351461192bd819aa</Anchor>
+               </Node>
+               <Node>
+                <Name>minAbs</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>ga80feb4cd44aa34ee6ddab2ad51ae7250</Anchor>
+               </Node>
+               <Node>
+                <Name>minAbs</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>gaf8a064acc4a5f97b2e98110cc2ceaae2</Anchor>
+               </Node>
+               <Node>
+                <Name>minMax</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>ga5c8cb588f17f928a0979c3aed56c5993</Anchor>
+               </Node>
+               <Node>
+                <Name>minMax</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>ga3a2a10d9d0997de372a32ef19e01d68e</Anchor>
+               </Node>
+               <Node>
+                <Name>minMaxAbs</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>ga7d1b7e77fcb133947b6bb048405904e1</Anchor>
+               </Node>
+               <Node>
+                <Name>minMaxAbs</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>ga4ab5258f412dc03cade0fb58c510a972</Anchor>
+               </Node>
+               <Node>
+                <Name>range</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>ga1131ff9a6c22f93bf86efe856979eb8d</Anchor>
+               </Node>
+               <Node>
+                <Name>rangeAbs</Name>
+                <Path>d5/d65/group__vec__extrema.html</Path>
+                <Anchor>ga74bdbe1d40199c226e1fec132b2e5ec3</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>abs</Name>
               <Path>d0/d70/group__vec__stats.html</Path>
               <Anchor>ga74bfc4caf2e8167ca6960fe9acf2c214</Anchor>
@@ -1458,69 +1658,9 @@
               <Anchor>ga1700a43b802f3ad832622ca8a1c9727f</Anchor>
              </Node>
              <Node>
-              <Name>max</Name>
-              <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>ga2b9ca98d48877ea7a09777202711fd14</Anchor>
-             </Node>
-             <Node>
-              <Name>max</Name>
-              <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>gab7fbdda1d58f33cb333944be0ea90872</Anchor>
-             </Node>
-             <Node>
-              <Name>maxAbs</Name>
-              <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>ga255d7088efb599876e02b7b8abd2a996</Anchor>
-             </Node>
-             <Node>
-              <Name>maxAbs</Name>
-              <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>ga8fa776a377b6164dae4889cc89253bbd</Anchor>
-             </Node>
-             <Node>
               <Name>mean</Name>
               <Path>d0/d70/group__vec__stats.html</Path>
               <Anchor>gab5139f2858fb69eb2ac615991ac5584e</Anchor>
-             </Node>
-             <Node>
-              <Name>min</Name>
-              <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>gac850b880c9ee8106321198dda9dfc89d</Anchor>
-             </Node>
-             <Node>
-              <Name>min</Name>
-              <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>ga887ed86c17a7996c351461192bd819aa</Anchor>
-             </Node>
-             <Node>
-              <Name>minAbs</Name>
-              <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>ga80feb4cd44aa34ee6ddab2ad51ae7250</Anchor>
-             </Node>
-             <Node>
-              <Name>minAbs</Name>
-              <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>gaf8a064acc4a5f97b2e98110cc2ceaae2</Anchor>
-             </Node>
-             <Node>
-              <Name>minMax</Name>
-              <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>ga5c8cb588f17f928a0979c3aed56c5993</Anchor>
-             </Node>
-             <Node>
-              <Name>minMax</Name>
-              <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>ga3a2a10d9d0997de372a32ef19e01d68e</Anchor>
-             </Node>
-             <Node>
-              <Name>minMaxAbs</Name>
-              <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>ga7d1b7e77fcb133947b6bb048405904e1</Anchor>
-             </Node>
-             <Node>
-              <Name>minMaxAbs</Name>
-              <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>ga4ab5258f412dc03cade0fb58c510a972</Anchor>
              </Node>
              <Node>
               <Name>negate</Name>
@@ -1533,14 +1673,9 @@
               <Anchor>ga0d03f252a7f4e2f74134cb6bbd6fa756</Anchor>
              </Node>
              <Node>
-              <Name>range</Name>
+              <Name>standard_deviation</Name>
               <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>ga1131ff9a6c22f93bf86efe856979eb8d</Anchor>
-             </Node>
-             <Node>
-              <Name>rangeAbs</Name>
-              <Path>d0/d70/group__vec__stats.html</Path>
-              <Anchor>ga74bdbe1d40199c226e1fec132b2e5ec3</Anchor>
+              <Anchor>ga327cf469950778c5293615e37eb0f447</Anchor>
              </Node>
              <Node>
               <Name>sum</Name>
@@ -1550,38 +1685,91 @@
             </Subnodes>
            </Node>
            <Node>
-            <Name>Windowing functions</Name>
-            <Path>de/d2a/group__vec__complex.html</Path>
+            <Name>Trigonometric functions</Name>
+            <Path>d4/de3/group__vec__trig.html</Path>
             <Subnodes>
              <Node>
-              <Name>cartesianInterleavedToMagnitudes</Name>
-              <Path>de/d2a/group__vec__complex.html</Path>
-              <Anchor>ga4b5b41c7ed4681603518d8f98c110f97</Anchor>
+              <Name>Cosine functions</Name>
+              <Path>dd/d22/group__vec__cos.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>arccos</Name>
+                <Path>dd/d22/group__vec__cos.html</Path>
+                <Anchor>ga9075633c6116bb64ea13895eb3a5dada</Anchor>
+               </Node>
+               <Node>
+                <Name>arccosAndCopy</Name>
+                <Path>dd/d22/group__vec__cos.html</Path>
+                <Anchor>ga5013ba0e6556346fe3409f3dc1ad4cf1</Anchor>
+               </Node>
+               <Node>
+                <Name>cos</Name>
+                <Path>dd/d22/group__vec__cos.html</Path>
+                <Anchor>gae8ffec8c97c1fb02bf8400c27beb3e1e</Anchor>
+               </Node>
+               <Node>
+                <Name>cosAndCopy</Name>
+                <Path>dd/d22/group__vec__cos.html</Path>
+                <Anchor>gaab8687cc72b8083a69703af6ce586386</Anchor>
+               </Node>
+              </Subnodes>
              </Node>
              <Node>
-              <Name>cartesianToMagnitudes</Name>
-              <Path>de/d2a/group__vec__complex.html</Path>
-              <Anchor>ga0df7ec7c7ff3358aec1da9fcaf901876</Anchor>
+              <Name>Sine functions</Name>
+              <Path>d9/d09/group__vec__sin.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>arcsine</Name>
+                <Path>d9/d09/group__vec__sin.html</Path>
+                <Anchor>gae3c58be834153eb8865b31b6d44ec9a0</Anchor>
+               </Node>
+               <Node>
+                <Name>arcsineAndCopy</Name>
+                <Path>d9/d09/group__vec__sin.html</Path>
+                <Anchor>gae15618bd5f7738685e4232280264ff94</Anchor>
+               </Node>
+               <Node>
+                <Name>sine</Name>
+                <Path>d9/d09/group__vec__sin.html</Path>
+                <Anchor>ga14efdf3f20df88f266d3c644ba451be0</Anchor>
+               </Node>
+               <Node>
+                <Name>sineAndCopy</Name>
+                <Path>d9/d09/group__vec__sin.html</Path>
+                <Anchor>ga70d8db9e6144847e686dab7bc45517c0</Anchor>
+               </Node>
+              </Subnodes>
              </Node>
              <Node>
-              <Name>cartesianToPolar</Name>
-              <Path>de/d2a/group__vec__complex.html</Path>
-              <Anchor>ga2e1838d991aea7a17f8c155e8c217daf</Anchor>
+              <Name>Tangent functions</Name>
+              <Path>db/d0d/group__vec__tan.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>arctan</Name>
+                <Path>db/d0d/group__vec__tan.html</Path>
+                <Anchor>ga0c6c293d12a4ab925bfc4812313bdb00</Anchor>
+               </Node>
+               <Node>
+                <Name>arctanAndCopy</Name>
+                <Path>db/d0d/group__vec__tan.html</Path>
+                <Anchor>ga96acee7d2976603c30fc1affc172f29d</Anchor>
+               </Node>
+               <Node>
+                <Name>tan</Name>
+                <Path>db/d0d/group__vec__tan.html</Path>
+                <Anchor>ga5be8d79ab028b1b93e42667eacee85ef</Anchor>
+               </Node>
+               <Node>
+                <Name>tanAndCopy</Name>
+                <Path>db/d0d/group__vec__tan.html</Path>
+                <Anchor>gaae5ec9c1a5aa45ed11a530c7034de016</Anchor>
+               </Node>
+              </Subnodes>
              </Node>
              <Node>
-              <Name>catesianInterleavedToPolar</Name>
-              <Path>de/d2a/group__vec__complex.html</Path>
-              <Anchor>gae72dc85cafe4ad69f63801cc1197c07c</Anchor>
-             </Node>
-             <Node>
-              <Name>polarToCartesian</Name>
-              <Path>de/d2a/group__vec__complex.html</Path>
-              <Anchor>gab445f6a6f4a335e67425a0f7a56ee4c2</Anchor>
-             </Node>
-             <Node>
-              <Name>polarToCartesianInterleaved</Name>
-              <Path>de/d2a/group__vec__complex.html</Path>
-              <Anchor>ga6893000b39e9cd5f68df3b50782b782c</Anchor>
+              <Name>sinCos</Name>
+              <Path>d4/de3/group__vec__trig.html</Path>
+              <Anchor>ga4b00213256c36d9c42e8f60090d05841</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -1590,49 +1778,104 @@
             <Path>d4/dd9/group__vec__window.html</Path>
             <Subnodes>
              <Node>
-              <Name>applyBlackman</Name>
-              <Path>d4/dd9/group__vec__window.html</Path>
-              <Anchor>gaba364c54789e790fee311a41081fff54</Anchor>
+              <Name>Blackman windowing</Name>
+              <Path>d4/d9f/group__vec__blackman.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>applyBlackman</Name>
+                <Path>d4/d9f/group__vec__blackman.html</Path>
+                <Anchor>gaba364c54789e790fee311a41081fff54</Anchor>
+               </Node>
+               <Node>
+                <Name>applyBlackmanAndCopy</Name>
+                <Path>d4/d9f/group__vec__blackman.html</Path>
+                <Anchor>gab21f461fc0412d40d173d00727e355cc</Anchor>
+               </Node>
+               <Node>
+                <Name>generateBlackman</Name>
+                <Path>d4/d9f/group__vec__blackman.html</Path>
+                <Anchor>ga3e484b57ffdf300079b6039e85de7898</Anchor>
+               </Node>
+              </Subnodes>
              </Node>
              <Node>
-              <Name>applyBlackmanAndCopy</Name>
-              <Path>d4/dd9/group__vec__window.html</Path>
-              <Anchor>gab21f461fc0412d40d173d00727e355cc</Anchor>
+              <Name>Hamm windowing</Name>
+              <Path>d7/d30/group__vec__hamm.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>applyHamm</Name>
+                <Path>d7/d30/group__vec__hamm.html</Path>
+                <Anchor>ga98a439d54ea7e42ceaba0e0ef8f05c6d</Anchor>
+               </Node>
+               <Node>
+                <Name>applyHammAndCopy</Name>
+                <Path>d7/d30/group__vec__hamm.html</Path>
+                <Anchor>ga77f84cbc8e7e2ab59c09b4a7b1599bec</Anchor>
+               </Node>
+               <Node>
+                <Name>generateHamm</Name>
+                <Path>d7/d30/group__vec__hamm.html</Path>
+                <Anchor>gab41b83147aa9748b2b60ce1eb4244a9d</Anchor>
+               </Node>
+              </Subnodes>
              </Node>
              <Node>
-              <Name>applyHamm</Name>
-              <Path>d4/dd9/group__vec__window.html</Path>
-              <Anchor>ga98a439d54ea7e42ceaba0e0ef8f05c6d</Anchor>
+              <Name>Hanning windowing</Name>
+              <Path>d9/d83/group__vec__hanning.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>applyHanning</Name>
+                <Path>d9/d83/group__vec__hanning.html</Path>
+                <Anchor>ga58332762474a285514e30b255be86835</Anchor>
+               </Node>
+               <Node>
+                <Name>applyHanningAndCopy</Name>
+                <Path>d9/d83/group__vec__hanning.html</Path>
+                <Anchor>gad7afbe4383d3a434289bdd6d4694abc7</Anchor>
+               </Node>
+               <Node>
+                <Name>generateHanning</Name>
+                <Path>d9/d83/group__vec__hanning.html</Path>
+                <Anchor>ga1f3dd9621252650e890a6f846ee6e3ce</Anchor>
+               </Node>
+              </Subnodes>
              </Node>
              <Node>
-              <Name>applyHammAndCopy</Name>
+              <Name>Type</Name>
               <Path>d4/dd9/group__vec__window.html</Path>
-              <Anchor>ga77f84cbc8e7e2ab59c09b4a7b1599bec</Anchor>
+              <Anchor>gaeeecbe62b31e7d00be7fac5232223f93</Anchor>
+              <Subnodes>
+               <Node>
+                <Name>Blackman</Name>
+                <Path>d4/dd9/group__vec__window.html</Path>
+                <Anchor>ggaeeecbe62b31e7d00be7fac5232223f93ab3935d5829173f20d58fc5f0405867b9</Anchor>
+               </Node>
+               <Node>
+                <Name>Hamm</Name>
+                <Path>d4/dd9/group__vec__window.html</Path>
+                <Anchor>ggaeeecbe62b31e7d00be7fac5232223f93aea72b9f0db73025c8aaedae0f7b874f8</Anchor>
+               </Node>
+               <Node>
+                <Name>Hanning</Name>
+                <Path>d4/dd9/group__vec__window.html</Path>
+                <Anchor>ggaeeecbe62b31e7d00be7fac5232223f93a46cd7c18d353a946c8263515a17662f2</Anchor>
+               </Node>
+              </Subnodes>
              </Node>
              <Node>
-              <Name>applyHanning</Name>
+              <Name>apply</Name>
               <Path>d4/dd9/group__vec__window.html</Path>
-              <Anchor>ga58332762474a285514e30b255be86835</Anchor>
+              <Anchor>ga3d3edac6f20b9509c8bed6fd6187e0e3</Anchor>
              </Node>
              <Node>
-              <Name>applyHanningAndCopy</Name>
+              <Name>applyAndCopy</Name>
               <Path>d4/dd9/group__vec__window.html</Path>
-              <Anchor>gad7afbe4383d3a434289bdd6d4694abc7</Anchor>
+              <Anchor>gac33355d3cea76811891aaea5c449fc48</Anchor>
              </Node>
              <Node>
-              <Name>generateBlackman</Name>
+              <Name>generate</Name>
               <Path>d4/dd9/group__vec__window.html</Path>
-              <Anchor>ga3e484b57ffdf300079b6039e85de7898</Anchor>
-             </Node>
-             <Node>
-              <Name>generateHamm</Name>
-              <Path>d4/dd9/group__vec__window.html</Path>
-              <Anchor>gab41b83147aa9748b2b60ce1eb4244a9d</Anchor>
-             </Node>
-             <Node>
-              <Name>generateHanning</Name>
-              <Path>d4/dd9/group__vec__window.html</Path>
-              <Anchor>ga1f3dd9621252650e890a6f846ee6e3ce</Anchor>
+              <Anchor>ga64805b423eab6c813c81db7fbcc3fb39</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -1657,24 +1900,36 @@
             <Path>d4/dcb/mipp_8h.html</Path>
            </Node>
            <Node>
-            <Name>neon_mathfun.h</Name>
-            <Path>d8/d51/neon__mathfun_8h.html</Path>
-           </Node>
-           <Node>
             <Name>phasor.h</Name>
             <Path>d1/d15/phasor_8h.html</Path>
            </Node>
            <Node>
-            <Name>pommier_wrapper.h</Name>
-            <Path>d4/dda/pommier__wrapper_8h.html</Path>
-           </Node>
-           <Node>
-            <Name>sse_mathfun.h</Name>
-            <Path>d1/dda/sse__mathfun_8h.html</Path>
-           </Node>
-           <Node>
             <Name>vdsp.h</Name>
             <Path>d2/d36/vdsp_8h.html</Path>
+           </Node>
+           <Node>
+            <Name>vecops</Name>
+            <Path>d9/d1a/namespacevecops.html</Path>
+           </Node>
+           <Node>
+            <Name>detail</Name>
+            <Path>de/d6c/namespacevecops_1_1detail.html</Path>
+           </Node>
+           <Node>
+            <Name>fb</Name>
+            <Path>da/d0b/namespacevecops_1_1fb.html</Path>
+           </Node>
+           <Node>
+            <Name>detail</Name>
+            <Path>d6/d2a/namespacevecops_1_1fb_1_1detail.html</Path>
+           </Node>
+           <Node>
+            <Name>window</Name>
+            <Path>d9/d84/namespacevecops_1_1fb_1_1window.html</Path>
+           </Node>
+           <Node>
+            <Name>detail</Name>
+            <Path>da/d91/namespacevecops_1_1fb_1_1window_1_1detail.html</Path>
            </Node>
            <Node>
             <Name>LIMES_VECOPS_USE_IPP</Name>
@@ -1858,6 +2113,30 @@
             <Name>vecops</Name>
             <Path>d9/d1a/namespacevecops.html</Path>
             <Subnodes>
+             <Node>
+              <Name>detail</Name>
+              <Path>de/d6c/namespacevecops_1_1detail.html</Path>
+             </Node>
+             <Node>
+              <Name>fb</Name>
+              <Path>da/d0b/namespacevecops_1_1fb.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>detail</Name>
+                <Path>d6/d2a/namespacevecops_1_1fb_1_1detail.html</Path>
+               </Node>
+               <Node>
+                <Name>window</Name>
+                <Path>d9/d84/namespacevecops_1_1fb_1_1window.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>detail</Name>
+                  <Path>da/d91/namespacevecops_1_1fb_1_1window_1_1detail.html</Path>
+                 </Node>
+                </Subnodes>
+               </Node>
+              </Subnodes>
+             </Node>
              <Node>
               <Name>fft</Name>
               <Path>d6/dba/namespacevecops_1_1fft.html</Path>
@@ -9841,6 +10120,11 @@
                 <Anchor>acbbdcb4d960dc4d07f1ebd765c4ee8d4</Anchor>
                </Node>
                <Node>
+                <Name>createCopy</Name>
+                <Path>d1/db0/classmemory_1_1_raw_data.html</Path>
+                <Anchor>a8c67ee2079ccb3bcf56b5c6ef71b3c78</Anchor>
+               </Node>
+               <Node>
                 <Name>end</Name>
                 <Path>d1/db0/classmemory_1_1_raw_data.html</Path>
                 <Anchor>a8aec7688eca0691d04ac20576a587145</Anchor>
@@ -10369,7 +10653,7 @@
                <Node>
                 <Name>for_all</Name>
                 <Path>d4/d06/classmeta_1_1_type_list.html</Path>
-                <Anchor>abe887fb18028c143a82c5c2555b14e03</Anchor>
+                <Anchor>a498e13cb5e889527e82ca3a8743fcd06</Anchor>
                </Node>
                <Node>
                 <Name>for_each</Name>
@@ -12831,47 +13115,6 @@
               <Path>d4/d6d/namespacethreads_1_1detail.html</Path>
               <Subnodes>
                <Node>
-                <Name>AtomicObjectBase</Name>
-                <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                <Subnodes>
-                 <Node>
-                  <Name>AtomicObjectBase</Name>
-                  <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                  <Anchor>adf4fa815a963ad93fe4a9335eb3d0b38</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>acquire_read</Name>
-                  <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                  <Anchor>a54595f5290858cf778695e569e2f1deb</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>acquire_write</Name>
-                  <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                  <Anchor>a9d7afe8106479d84b4d66ce47e3d611b</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>isUsingAtomic</Name>
-                  <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                  <Anchor>ad1c1933f117a07faff01e6c9fd4ded17</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>release_read</Name>
-                  <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                  <Anchor>a0124ce09b60ae5713c7708faf06c6601</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>release_write</Name>
-                  <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                  <Anchor>a5a75395c44368de8c8a9c3ef78c07ae3</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>typeUsesAtomic</Name>
-                  <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                  <Anchor>a2dab73e840aa06793bf33f226921b242</Anchor>
-                 </Node>
-                </Subnodes>
-               </Node>
-               <Node>
                 <Name>is_rt_safe</Name>
                 <Path>da/d8b/structthreads_1_1detail_1_1is__rt__safe.html</Path>
                </Node>
@@ -12911,159 +13154,6 @@
                 <Name>is_rt_safe&lt; T, move_tag, constructible_tag &gt;</Name>
                 <Path>d0/d2d/structthreads_1_1detail_1_1is__rt__safe_3_01_t_00_01move__tag_00_01constructible__tag_01_4.html</Path>
                </Node>
-               <Node>
-                <Name>NonRealtimeMutatableObject</Name>
-                <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                <Subnodes>
-                 <Node>
-                  <Name>~NonRealtimeMutatableObject</Name>
-                  <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                  <Anchor>a34e5ffe91e2698f316069f30ab098814</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>acquire_read</Name>
-                  <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                  <Anchor>a86616b5a8732abfda192f4e03a69a22c</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>acquire_write</Name>
-                  <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                  <Anchor>a6a30be68be4f1a02b5c3e64dccd12fd0</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>isUsingAtomic</Name>
-                  <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                  <Anchor>a9d9ed9e397aca787b57aabae06b010fe</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>release_read</Name>
-                  <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                  <Anchor>a3e66ee988a76417238139a5e3d4f248d</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>release_write</Name>
-                  <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                  <Anchor>a9c2ff95a06dab42b8ba2bb58f92d8991</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>typeUsesAtomic</Name>
-                  <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                  <Anchor>ac0b2774637282ee6939c6239d699ee7f</Anchor>
-                 </Node>
-                </Subnodes>
-               </Node>
-               <Node>
-                <Name>ObjectBase</Name>
-                <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                <Subnodes>
-                 <Node>
-                  <Name>~ObjectBase</Name>
-                  <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                  <Anchor>a16adfaddefe388ae6849a0de88b75514</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>ObjectBase</Name>
-                  <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                  <Anchor>a180be1f514d0fbaf100deb36914360aa</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>ObjectBase</Name>
-                  <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                  <Anchor>a2f2543682ce83d5383805f4e61193951</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>acquire_read</Name>
-                  <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                  <Anchor>aa85ca54e879b7aaf0b1ce094cd5e2e8f</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>acquire_write</Name>
-                  <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                  <Anchor>ad2125ee879a3a75cf62cfb57dd917e22</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>isUsingAtomic</Name>
-                  <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                  <Anchor>a7a0e31aa6a83265be220095906738964</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>operator=</Name>
-                  <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                  <Anchor>ae53f876194da1f5e5c95ed0904db7fdf</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>operator=</Name>
-                  <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                  <Anchor>a0a36c6666fc297d0490c140c8550a997</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>release_read</Name>
-                  <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                  <Anchor>a7a9cf28dcbf7db286be078ce77447d85</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>release_write</Name>
-                  <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                  <Anchor>ae2763a34bef4aaf07e417d0978982188</Anchor>
-                 </Node>
-                </Subnodes>
-               </Node>
-               <Node>
-                <Name>RealtimeMutatableObject</Name>
-                <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                <Subnodes>
-                 <Node>
-                  <Name>~RealtimeMutatableObject</Name>
-                  <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                  <Anchor>a3fe9e81d4b2d0c37575d819fd45683d5</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>RealtimeMutatableObject</Name>
-                  <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                  <Anchor>a87b207736708d12fd40ba48a0814972e</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>RealtimeMutatableObject</Name>
-                  <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                  <Anchor>a5df076c894dd065ea8198f0c28d4276c</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>acquire_read</Name>
-                  <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                  <Anchor>a4d40f0673fdf64d43a41ff27eb567ba0</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>acquire_write</Name>
-                  <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                  <Anchor>a6929656b9d1005eb2789ad0f54ea2390</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>isUsingAtomic</Name>
-                  <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                  <Anchor>a6f61e3ebf05c04b6c57eda820dbf10f1</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>operator=</Name>
-                  <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                  <Anchor>a7c954be21300f450c1c47b46a90a565d</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>operator=</Name>
-                  <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                  <Anchor>ab5329bbc5e126a29e41f479a631f1ead</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>release_read</Name>
-                  <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                  <Anchor>a7a63ad17b3b2eb010df3c5ec47822d0f</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>release_write</Name>
-                  <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                  <Anchor>a4ebcb711fe3232c9cf4f85ce534d27c0</Anchor>
-                 </Node>
-                </Subnodes>
-               </Node>
               </Subnodes>
              </Node>
              <Node>
@@ -13083,55 +13173,14 @@
               <Path>d4/d18/structthreads_1_1is__realtime__move__constructable.html</Path>
              </Node>
              <Node>
-              <Name>RealtimeSafeObject</Name>
-              <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>RealtimeSafeObject</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>a0d94887fa50d3896f864beb0f91b7d88</Anchor>
-               </Node>
-               <Node>
-                <Name>RealtimeSafeObject</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>a6159032dfa97d335dc1a9d193a8dab9f</Anchor>
-               </Node>
-               <Node>
-                <Name>nonRealtime_read</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>a059a1934bc046ca1ec4cb4a0a8929ef4</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>aec5ae0dc5503db7879372742624d9783</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>a438b1d3bd40ea03ae815bdd1ffa23005</Anchor>
-               </Node>
-               <Node>
-                <Name>read</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>ac87bd07cae3c9d4feb9d8b3ea89950c3</Anchor>
-               </Node>
-               <Node>
-                <Name>realtime_read</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>a5b902a3ce670c81008d1a479d856ec62</Anchor>
-               </Node>
-               <Node>
-                <Name>write</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>a43c33dd6b497cf3ca082f04f8b52c11f</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-             <Node>
               <Name>ThreadedObjectReader</Name>
               <Path>dc/d4f/structthreads_1_1_threaded_object_reader.html</Path>
               <Subnodes>
+               <Node>
+                <Name>ThreadedObjectReader</Name>
+                <Path>dc/d4f/structthreads_1_1_threaded_object_reader.html</Path>
+                <Anchor>a684e7c532c5320480a416a49f00405c7</Anchor>
+               </Node>
                <Node>
                 <Name>~ThreadedObjectReader</Name>
                 <Path>dc/d4f/structthreads_1_1_threaded_object_reader.html</Path>
@@ -13146,11 +13195,6 @@
                 <Name>ThreadedObjectReader</Name>
                 <Path>dc/d4f/structthreads_1_1_threaded_object_reader.html</Path>
                 <Anchor>a730618ab470d4eaa9e1c48be5bcaeaf8</Anchor>
-               </Node>
-               <Node>
-                <Name>ThreadedObjectReader</Name>
-                <Path>dc/d4f/structthreads_1_1_threaded_object_reader.html</Path>
-                <Anchor>a684e7c532c5320480a416a49f00405c7</Anchor>
                </Node>
                <Node>
                 <Name>get</Name>
@@ -13235,6 +13279,16 @@
               <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
               <Subnodes>
                <Node>
+                <Name>Reader</Name>
+                <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
+                <Anchor>a446bd21c5862a798d1ee079f2e4a13c3</Anchor>
+               </Node>
+               <Node>
+                <Name>Writer</Name>
+                <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
+                <Anchor>afebfd13d1623b7ae198ca5112d532d8a</Anchor>
+               </Node>
+               <Node>
                 <Name>ThreadSafeObject</Name>
                 <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
                 <Anchor>ac0ce28c408c0219549ff2f43ed4c4061</Anchor>
@@ -13250,19 +13304,14 @@
                 <Anchor>ab7c85b93c4f0e6e47892a4043236e20e</Anchor>
                </Node>
                <Node>
-                <Name>acquire_read</Name>
+                <Name>isAlwaysLockFree</Name>
                 <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-                <Anchor>ad97fe20c52692c463ec98a6b4374cd41</Anchor>
-               </Node>
-               <Node>
-                <Name>acquire_write</Name>
-                <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-                <Anchor>add04ff9fc30f16595c2d4e3a8a65a93f</Anchor>
+                <Anchor>a85e0203e049c6eac19506baa52afabec</Anchor>
                </Node>
                <Node>
                 <Name>isLockFree</Name>
                 <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-                <Anchor>aa80a33d15e4daaaee39cbd13ae667375</Anchor>
+                <Anchor>a74587d3c9495a947d13b687188eda25e</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>
@@ -13277,17 +13326,12 @@
                <Node>
                 <Name>read</Name>
                 <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-                <Anchor>ab86b2597d002f597de2c626ba33a61c6</Anchor>
-               </Node>
-               <Node>
-                <Name>release_write</Name>
-                <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-                <Anchor>abc98ca368c0e0b9b6db7de54da619405</Anchor>
+                <Anchor>a61c873b6f7e987e2dcd99ebf2ea9543f</Anchor>
                </Node>
                <Node>
                 <Name>write</Name>
                 <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-                <Anchor>a4584c1681d00c84dad50d5edb12a525f</Anchor>
+                <Anchor>a6276a775bf66e90b592f9632c83d925c</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -14359,7 +14403,7 @@
                <Node>
                 <Name>getCompilationYear</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
-                <Anchor>a4cc89e77a5e607341bb1a027f3994bd0</Anchor>
+                <Anchor>a1da6dc47e6254a8fba91b829a120a00d</Anchor>
                </Node>
                <Node>
                 <Name>getCurrent</Name>
@@ -14424,12 +14468,12 @@
                <Node>
                 <Name>operator++</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
-                <Anchor>a31307fe35973dab20619df9f32c77c05</Anchor>
+                <Anchor>a0403e0268f696581dfa284938ba7179c</Anchor>
                </Node>
                <Node>
                 <Name>operator+=</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
-                <Anchor>ae1c47dd0298cfd22e88e41c1aa4e4859</Anchor>
+                <Anchor>a42ac392f94534456b042f6451bdecd15</Anchor>
                </Node>
                <Node>
                 <Name>operator-</Name>
@@ -14439,12 +14483,12 @@
                <Node>
                 <Name>operator--</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
-                <Anchor>a532ef0f4a584cec8f9075b4e01d9dac6</Anchor>
+                <Anchor>a2138cdbf58800a02b2e9939f2a720339</Anchor>
                </Node>
                <Node>
                 <Name>operator-=</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
-                <Anchor>aeb5f367f92b4573d89fa6195bccadf53</Anchor>
+                <Anchor>ac8c7e5028f7a52cd089fd269bd463c31</Anchor>
                </Node>
                <Node>
                 <Name>operator&lt;</Name>
@@ -14464,7 +14508,7 @@
                <Node>
                 <Name>operator=</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
-                <Anchor>a35594687bee2d080ca5383a4bde184e0</Anchor>
+                <Anchor>a857369e62275a12336d17357f60f0756</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>
@@ -14509,6 +14553,18 @@
             <Name>vecops</Name>
             <Path>d9/d1a/namespacevecops.html</Path>
             <Subnodes>
+             <Node>
+              <Name>fb</Name>
+              <Path>da/d0b/namespacevecops_1_1fb.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>window</Name>
+                <Path>d9/d84/namespacevecops_1_1fb_1_1window.html</Path>
+                <Subnodes>
+                </Subnodes>
+               </Node>
+              </Subnodes>
+             </Node>
              <Node>
               <Name>FFT</Name>
               <Path>dc/d1a/classvecops_1_1_f_f_t.html</Path>
@@ -15661,53 +15717,6 @@
                 <Name>straight</Name>
                 <Path>d0/d61/classmath_1_1geometry_1_1_angle.html</Path>
                 <Anchor>ab5410bcad3fe41b06cf67dc21f267dda</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-            </Subnodes>
-           </Node>
-           <Node>
-            <Name>AtomicObjectHolder.h</Name>
-            <Path>d5/dcb/_atomic_object_holder_8h.html</Path>
-            <Subnodes>
-             <Node>
-              <Name>AtomicObjectBase</Name>
-              <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>AtomicObjectBase</Name>
-                <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                <Anchor>adf4fa815a963ad93fe4a9335eb3d0b38</Anchor>
-               </Node>
-               <Node>
-                <Name>acquire_read</Name>
-                <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                <Anchor>a54595f5290858cf778695e569e2f1deb</Anchor>
-               </Node>
-               <Node>
-                <Name>acquire_write</Name>
-                <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                <Anchor>a9d7afe8106479d84b4d66ce47e3d611b</Anchor>
-               </Node>
-               <Node>
-                <Name>isUsingAtomic</Name>
-                <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                <Anchor>ad1c1933f117a07faff01e6c9fd4ded17</Anchor>
-               </Node>
-               <Node>
-                <Name>release_read</Name>
-                <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                <Anchor>a0124ce09b60ae5713c7708faf06c6601</Anchor>
-               </Node>
-               <Node>
-                <Name>release_write</Name>
-                <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                <Anchor>a5a75395c44368de8c8a9c3ef78c07ae3</Anchor>
-               </Node>
-               <Node>
-                <Name>typeUsesAtomic</Name>
-                <Path>d0/d59/structthreads_1_1detail_1_1_atomic_object_base.html</Path>
-                <Anchor>a2dab73e840aa06793bf33f226921b242</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -20316,6 +20325,11 @@
               </Subnodes>
              </Node>
              <Node>
+              <Name>result_type</Name>
+              <Path>d6/d9b/_functions_8h.html</Path>
+              <Anchor>ga734e223214335b499b76e734d6c3771f</Anchor>
+             </Node>
+             <Node>
               <Name>call_once</Name>
               <Path>d6/d9b/_functions_8h.html</Path>
               <Anchor>ga721d87621ab2fa2ff1ab032652d0b035</Anchor>
@@ -21699,6 +21713,28 @@
               <Anchor>ga5798e2e410bb607a38b777b0f8e7fafa</Anchor>
              </Node>
              <Node>
+              <Name>Type</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>gaeeecbe62b31e7d00be7fac5232223f93</Anchor>
+              <Subnodes>
+               <Node>
+                <Name>Blackman</Name>
+                <Path>de/d1f/limes__vecops_8h.html</Path>
+                <Anchor>ggaeeecbe62b31e7d00be7fac5232223f93ab3935d5829173f20d58fc5f0405867b9</Anchor>
+               </Node>
+               <Node>
+                <Name>Hamm</Name>
+                <Path>de/d1f/limes__vecops_8h.html</Path>
+                <Anchor>ggaeeecbe62b31e7d00be7fac5232223f93aea72b9f0db73025c8aaedae0f7b874f8</Anchor>
+               </Node>
+               <Node>
+                <Name>Hanning</Name>
+                <Path>de/d1f/limes__vecops_8h.html</Path>
+                <Anchor>ggaeeecbe62b31e7d00be7fac5232223f93a46cd7c18d353a946c8263515a17662f2</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>abs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
               <Anchor>ga74bfc4caf2e8167ca6960fe9acf2c214</Anchor>
@@ -21727,6 +21763,16 @@
               <Name>addAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
               <Anchor>ga6d34827af7d41998b391a3e67fca4d46</Anchor>
+             </Node>
+             <Node>
+              <Name>apply</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga3d3edac6f20b9509c8bed6fd6187e0e3</Anchor>
+             </Node>
+             <Node>
+              <Name>applyAndCopy</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>gac33355d3cea76811891aaea5c449fc48</Anchor>
              </Node>
              <Node>
               <Name>applyBlackman</Name>
@@ -21767,6 +21813,36 @@
               <Name>applyRampAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
               <Anchor>gaa101b872770f68520fdc51028fc86a76</Anchor>
+             </Node>
+             <Node>
+              <Name>arccos</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga9075633c6116bb64ea13895eb3a5dada</Anchor>
+             </Node>
+             <Node>
+              <Name>arccosAndCopy</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga5013ba0e6556346fe3409f3dc1ad4cf1</Anchor>
+             </Node>
+             <Node>
+              <Name>arcsine</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>gae3c58be834153eb8865b31b6d44ec9a0</Anchor>
+             </Node>
+             <Node>
+              <Name>arcsineAndCopy</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>gae15618bd5f7738685e4232280264ff94</Anchor>
+             </Node>
+             <Node>
+              <Name>arctan</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga0c6c293d12a4ab925bfc4812313bdb00</Anchor>
+             </Node>
+             <Node>
+              <Name>arctanAndCopy</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga96acee7d2976603c30fc1affc172f29d</Anchor>
              </Node>
              <Node>
               <Name>areDenormalsDisabled</Name>
@@ -21822,6 +21898,16 @@
               <Name>copy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
               <Anchor>ga40ad5c8779f7e96372e87c5fa7889775</Anchor>
+             </Node>
+             <Node>
+              <Name>cos</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>gae8ffec8c97c1fb02bf8400c27beb3e1e</Anchor>
+             </Node>
+             <Node>
+              <Name>cosAndCopy</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>gaab8687cc72b8083a69703af6ce586386</Anchor>
              </Node>
              <Node>
               <Name>countZeroCrossings</Name>
@@ -21882,6 +21968,11 @@
               <Name>fill</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
               <Anchor>ga5e307f914b980a4e372a91bb46d366ab</Anchor>
+             </Node>
+             <Node>
+              <Name>generate</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga64805b423eab6c813c81db7fbcc3fb39</Anchor>
              </Node>
              <Node>
               <Name>generateBlackman</Name>
@@ -22089,6 +22180,21 @@
               <Anchor>ga8d27dd47c9fcd0cc4fd9cda84b9552b3</Anchor>
              </Node>
              <Node>
+              <Name>sinCos</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga4b00213256c36d9c42e8f60090d05841</Anchor>
+             </Node>
+             <Node>
+              <Name>sine</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga14efdf3f20df88f266d3c644ba451be0</Anchor>
+             </Node>
+             <Node>
+              <Name>sineAndCopy</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga70d8db9e6144847e686dab7bc45517c0</Anchor>
+             </Node>
+             <Node>
               <Name>sort</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
               <Anchor>ga6ee272a6f2943645a2f6131dce8a78da</Anchor>
@@ -22129,6 +22235,11 @@
               <Anchor>gade8e878085d8840a3b47540f8c46b89f</Anchor>
              </Node>
              <Node>
+              <Name>standard_deviation</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga327cf469950778c5293615e37eb0f447</Anchor>
+             </Node>
+             <Node>
               <Name>subtract</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
               <Anchor>ga2f2262dccf987936d63477419b88efe9</Anchor>
@@ -22167,6 +22278,16 @@
               <Name>swap</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
               <Anchor>ga058e37a32a17e5b0f4fd908d8aec7438</Anchor>
+             </Node>
+             <Node>
+              <Name>tan</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga5be8d79ab028b1b93e42667eacee85ef</Anchor>
+             </Node>
+             <Node>
+              <Name>tanAndCopy</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>gaae5ec9c1a5aa45ed11a530c7034de016</Anchor>
              </Node>
              <Node>
               <Name>Integral</Name>
@@ -23989,53 +24110,6 @@
             <Path>d8/d51/neon__mathfun_8h.html</Path>
            </Node>
            <Node>
-            <Name>NonrealtimeMutatableObject.h</Name>
-            <Path>d1/d2e/_nonrealtime_mutatable_object_8h.html</Path>
-            <Subnodes>
-             <Node>
-              <Name>NonRealtimeMutatableObject</Name>
-              <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>~NonRealtimeMutatableObject</Name>
-                <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                <Anchor>a34e5ffe91e2698f316069f30ab098814</Anchor>
-               </Node>
-               <Node>
-                <Name>acquire_read</Name>
-                <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                <Anchor>a86616b5a8732abfda192f4e03a69a22c</Anchor>
-               </Node>
-               <Node>
-                <Name>acquire_write</Name>
-                <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                <Anchor>a6a30be68be4f1a02b5c3e64dccd12fd0</Anchor>
-               </Node>
-               <Node>
-                <Name>isUsingAtomic</Name>
-                <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                <Anchor>a9d9ed9e397aca787b57aabae06b010fe</Anchor>
-               </Node>
-               <Node>
-                <Name>release_read</Name>
-                <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                <Anchor>a3e66ee988a76417238139a5e3d4f248d</Anchor>
-               </Node>
-               <Node>
-                <Name>release_write</Name>
-                <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                <Anchor>a9c2ff95a06dab42b8ba2bb58f92d8991</Anchor>
-               </Node>
-               <Node>
-                <Name>typeUsesAtomic</Name>
-                <Path>d0/dc1/classthreads_1_1detail_1_1_non_realtime_mutatable_object.html</Path>
-                <Anchor>ac0b2774637282ee6939c6239d699ee7f</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-            </Subnodes>
-           </Node>
-           <Node>
             <Name>NoteDuration.h</Name>
             <Path>dd/df8/_note_duration_8h.html</Path>
             <Subnodes>
@@ -24251,68 +24325,6 @@
            <Node>
             <Name>NoteLength_impl.h</Name>
             <Path>d8/dd4/_note_length__impl_8h.html</Path>
-           </Node>
-           <Node>
-            <Name>ObjectBase.h</Name>
-            <Path>d5/d73/_object_base_8h.html</Path>
-            <Subnodes>
-             <Node>
-              <Name>ObjectBase</Name>
-              <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>~ObjectBase</Name>
-                <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                <Anchor>a16adfaddefe388ae6849a0de88b75514</Anchor>
-               </Node>
-               <Node>
-                <Name>ObjectBase</Name>
-                <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                <Anchor>a180be1f514d0fbaf100deb36914360aa</Anchor>
-               </Node>
-               <Node>
-                <Name>ObjectBase</Name>
-                <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                <Anchor>a2f2543682ce83d5383805f4e61193951</Anchor>
-               </Node>
-               <Node>
-                <Name>acquire_read</Name>
-                <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                <Anchor>aa85ca54e879b7aaf0b1ce094cd5e2e8f</Anchor>
-               </Node>
-               <Node>
-                <Name>acquire_write</Name>
-                <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                <Anchor>ad2125ee879a3a75cf62cfb57dd917e22</Anchor>
-               </Node>
-               <Node>
-                <Name>isUsingAtomic</Name>
-                <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                <Anchor>a7a0e31aa6a83265be220095906738964</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                <Anchor>ae53f876194da1f5e5c95ed0904db7fdf</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                <Anchor>a0a36c6666fc297d0490c140c8550a997</Anchor>
-               </Node>
-               <Node>
-                <Name>release_read</Name>
-                <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                <Anchor>a7a9cf28dcbf7db286be078ce77447d85</Anchor>
-               </Node>
-               <Node>
-                <Name>release_write</Name>
-                <Path>d5/dff/structthreads_1_1detail_1_1_object_base.html</Path>
-                <Anchor>ae2763a34bef4aaf07e417d0978982188</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-            </Subnodes>
            </Node>
            <Node>
             <Name>octagon.h</Name>
@@ -25856,6 +25868,11 @@
                 <Anchor>acbbdcb4d960dc4d07f1ebd765c4ee8d4</Anchor>
                </Node>
                <Node>
+                <Name>createCopy</Name>
+                <Path>d1/db0/classmemory_1_1_raw_data.html</Path>
+                <Anchor>a8c67ee2079ccb3bcf56b5c6ef71b3c78</Anchor>
+               </Node>
+               <Node>
                 <Name>end</Name>
                 <Path>d1/db0/classmemory_1_1_raw_data.html</Path>
                 <Anchor>a8aec7688eca0691d04ac20576a587145</Anchor>
@@ -25945,129 +25962,6 @@
             </Subnodes>
            </Node>
            <Node>
-            <Name>RealtimeMutatableObject.h</Name>
-            <Path>d9/dd1/_realtime_mutatable_object_8h.html</Path>
-            <Subnodes>
-             <Node>
-              <Name>RealtimeMutatableObject</Name>
-              <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>~RealtimeMutatableObject</Name>
-                <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                <Anchor>a3fe9e81d4b2d0c37575d819fd45683d5</Anchor>
-               </Node>
-               <Node>
-                <Name>RealtimeMutatableObject</Name>
-                <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                <Anchor>a87b207736708d12fd40ba48a0814972e</Anchor>
-               </Node>
-               <Node>
-                <Name>RealtimeMutatableObject</Name>
-                <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                <Anchor>a5df076c894dd065ea8198f0c28d4276c</Anchor>
-               </Node>
-               <Node>
-                <Name>acquire_read</Name>
-                <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                <Anchor>a4d40f0673fdf64d43a41ff27eb567ba0</Anchor>
-               </Node>
-               <Node>
-                <Name>acquire_write</Name>
-                <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                <Anchor>a6929656b9d1005eb2789ad0f54ea2390</Anchor>
-               </Node>
-               <Node>
-                <Name>isUsingAtomic</Name>
-                <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                <Anchor>a6f61e3ebf05c04b6c57eda820dbf10f1</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                <Anchor>a7c954be21300f450c1c47b46a90a565d</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                <Anchor>ab5329bbc5e126a29e41f479a631f1ead</Anchor>
-               </Node>
-               <Node>
-                <Name>release_read</Name>
-                <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                <Anchor>a7a63ad17b3b2eb010df3c5ec47822d0f</Anchor>
-               </Node>
-               <Node>
-                <Name>release_write</Name>
-                <Path>db/db8/classthreads_1_1detail_1_1_realtime_mutatable_object.html</Path>
-                <Anchor>a4ebcb711fe3232c9cf4f85ce534d27c0</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-            </Subnodes>
-           </Node>
-           <Node>
-            <Name>RealtimeSafeObject.h</Name>
-            <Path>d3/df7/_realtime_safe_object_8h.html</Path>
-            <Subnodes>
-             <Node>
-              <Name>RealtimeSafeObject</Name>
-              <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>RealtimeSafeObject</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>a0d94887fa50d3896f864beb0f91b7d88</Anchor>
-               </Node>
-               <Node>
-                <Name>RealtimeSafeObject</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>a6159032dfa97d335dc1a9d193a8dab9f</Anchor>
-               </Node>
-               <Node>
-                <Name>nonRealtime_read</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>a059a1934bc046ca1ec4cb4a0a8929ef4</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>aec5ae0dc5503db7879372742624d9783</Anchor>
-               </Node>
-               <Node>
-                <Name>operator=</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>a438b1d3bd40ea03ae815bdd1ffa23005</Anchor>
-               </Node>
-               <Node>
-                <Name>read</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>ac87bd07cae3c9d4feb9d8b3ea89950c3</Anchor>
-               </Node>
-               <Node>
-                <Name>realtime_read</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>a5b902a3ce670c81008d1a479d856ec62</Anchor>
-               </Node>
-               <Node>
-                <Name>write</Name>
-                <Path>db/d66/classthreads_1_1_realtime_safe_object.html</Path>
-                <Anchor>a43c33dd6b497cf3ca082f04f8b52c11f</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
-             <Node>
-              <Name>RealtimeSafeObjectBase</Name>
-              <Path>d3/df7/_realtime_safe_object_8h.html</Path>
-              <Anchor>a04650ec11a8c0d92cbb38f4d0dbf6fa1</Anchor>
-             </Node>
-            </Subnodes>
-           </Node>
-           <Node>
-            <Name>RealtimeSafeObject_impl.h</Name>
-            <Path>d7/dce/_realtime_safe_object__impl_8h.html</Path>
-           </Node>
-           <Node>
             <Name>RealtimeTypeTraits.h</Name>
             <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
             <Subnodes>
@@ -26130,32 +26024,32 @@
              <Node>
               <Name>is_realtime_copy_safe</Name>
               <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
-              <Anchor>ae8c689f9be27270a3c45262ac2e6f485</Anchor>
+              <Anchor>aeb10caeeea2e556947271f79cec45918</Anchor>
              </Node>
              <Node>
               <Name>is_realtime_move_safe</Name>
               <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
-              <Anchor>acc10b30c5bf57aac8bb164091615b03e</Anchor>
+              <Anchor>adc41f441b0140baa937620d5910c241f</Anchor>
              </Node>
              <Node>
               <Name>assignable_tag</Name>
               <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
-              <Anchor>a11d8ecdc58cebed16d6de2498688dd33</Anchor>
+              <Anchor>ga11d8ecdc58cebed16d6de2498688dd33</Anchor>
              </Node>
              <Node>
               <Name>constructible_tag</Name>
               <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
-              <Anchor>a52f5c8aaa88f7098451611bce93db9fc</Anchor>
+              <Anchor>ga52f5c8aaa88f7098451611bce93db9fc</Anchor>
              </Node>
              <Node>
               <Name>copy_tag</Name>
               <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
-              <Anchor>aa35d7d21058ce5a6a5f3d4c1332cacb8</Anchor>
+              <Anchor>gaa35d7d21058ce5a6a5f3d4c1332cacb8</Anchor>
              </Node>
              <Node>
               <Name>move_tag</Name>
               <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
-              <Anchor>a117a1fe1d8cdfdecb9f1c9c18bd5b354</Anchor>
+              <Anchor>ga117a1fe1d8cdfdecb9f1c9c18bd5b354</Anchor>
              </Node>
              <Node>
               <Name>RealtimeCopySafe</Name>
@@ -28306,17 +28200,17 @@
              <Node>
               <Name>callAndBlock</Name>
               <Path>d4/d08/_threading_8h.html</Path>
-              <Anchor>ab736782d17791b2696e060c46fd652af</Anchor>
+              <Anchor>ga251c922a2477a65a5ded648c4ce53e6f</Anchor>
              </Node>
              <Node>
               <Name>callInBackground</Name>
               <Path>d4/d08/_threading_8h.html</Path>
-              <Anchor>a6c8345c3377edf4c7f429a3e291851ce</Anchor>
+              <Anchor>ga94a8bdf0e635ade7c85f672ee7423c1a</Anchor>
              </Node>
              <Node>
               <Name>maxNumThreads</Name>
               <Path>d4/d08/_threading_8h.html</Path>
-              <Anchor>ad36ea8a69391a84e28749452d0528c07</Anchor>
+              <Anchor>gad36ea8a69391a84e28749452d0528c07</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -28328,6 +28222,11 @@
               <Name>ThreadedObjectReader</Name>
               <Path>dc/d4f/structthreads_1_1_threaded_object_reader.html</Path>
               <Subnodes>
+               <Node>
+                <Name>ThreadedObjectReader</Name>
+                <Path>dc/d4f/structthreads_1_1_threaded_object_reader.html</Path>
+                <Anchor>a684e7c532c5320480a416a49f00405c7</Anchor>
+               </Node>
                <Node>
                 <Name>~ThreadedObjectReader</Name>
                 <Path>dc/d4f/structthreads_1_1_threaded_object_reader.html</Path>
@@ -28342,11 +28241,6 @@
                 <Name>ThreadedObjectReader</Name>
                 <Path>dc/d4f/structthreads_1_1_threaded_object_reader.html</Path>
                 <Anchor>a730618ab470d4eaa9e1c48be5bcaeaf8</Anchor>
-               </Node>
-               <Node>
-                <Name>ThreadedObjectReader</Name>
-                <Path>dc/d4f/structthreads_1_1_threaded_object_reader.html</Path>
-                <Anchor>a684e7c532c5320480a416a49f00405c7</Anchor>
                </Node>
                <Node>
                 <Name>get</Name>
@@ -28431,6 +28325,16 @@
               <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
               <Subnodes>
                <Node>
+                <Name>Reader</Name>
+                <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
+                <Anchor>a446bd21c5862a798d1ee079f2e4a13c3</Anchor>
+               </Node>
+               <Node>
+                <Name>Writer</Name>
+                <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
+                <Anchor>afebfd13d1623b7ae198ca5112d532d8a</Anchor>
+               </Node>
+               <Node>
                 <Name>ThreadSafeObject</Name>
                 <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
                 <Anchor>ac0ce28c408c0219549ff2f43ed4c4061</Anchor>
@@ -28446,19 +28350,14 @@
                 <Anchor>ab7c85b93c4f0e6e47892a4043236e20e</Anchor>
                </Node>
                <Node>
-                <Name>acquire_read</Name>
+                <Name>isAlwaysLockFree</Name>
                 <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-                <Anchor>ad97fe20c52692c463ec98a6b4374cd41</Anchor>
-               </Node>
-               <Node>
-                <Name>acquire_write</Name>
-                <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-                <Anchor>add04ff9fc30f16595c2d4e3a8a65a93f</Anchor>
+                <Anchor>a85e0203e049c6eac19506baa52afabec</Anchor>
                </Node>
                <Node>
                 <Name>isLockFree</Name>
                 <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-                <Anchor>aa80a33d15e4daaaee39cbd13ae667375</Anchor>
+                <Anchor>a74587d3c9495a947d13b687188eda25e</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>
@@ -28473,17 +28372,12 @@
                <Node>
                 <Name>read</Name>
                 <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-                <Anchor>ab86b2597d002f597de2c626ba33a61c6</Anchor>
-               </Node>
-               <Node>
-                <Name>release_write</Name>
-                <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-                <Anchor>abc98ca368c0e0b9b6db7de54da619405</Anchor>
+                <Anchor>a61c873b6f7e987e2dcd99ebf2ea9543f</Anchor>
                </Node>
                <Node>
                 <Name>write</Name>
                 <Path>dc/da7/classthreads_1_1_thread_safe_object.html</Path>
-                <Anchor>a4584c1681d00c84dad50d5edb12a525f</Anchor>
+                <Anchor>a6276a775bf66e90b592f9632c83d925c</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -29142,7 +29036,7 @@
                <Node>
                 <Name>for_all</Name>
                 <Path>d4/d06/classmeta_1_1_type_list.html</Path>
-                <Anchor>abe887fb18028c143a82c5c2555b14e03</Anchor>
+                <Anchor>a498e13cb5e889527e82ca3a8743fcd06</Anchor>
                </Node>
                <Node>
                 <Name>for_each</Name>
@@ -30011,7 +29905,7 @@
                <Node>
                 <Name>getCompilationYear</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
-                <Anchor>a4cc89e77a5e607341bb1a027f3994bd0</Anchor>
+                <Anchor>a1da6dc47e6254a8fba91b829a120a00d</Anchor>
                </Node>
                <Node>
                 <Name>getCurrent</Name>
@@ -30076,12 +29970,12 @@
                <Node>
                 <Name>operator++</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
-                <Anchor>a31307fe35973dab20619df9f32c77c05</Anchor>
+                <Anchor>a0403e0268f696581dfa284938ba7179c</Anchor>
                </Node>
                <Node>
                 <Name>operator+=</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
-                <Anchor>ae1c47dd0298cfd22e88e41c1aa4e4859</Anchor>
+                <Anchor>a42ac392f94534456b042f6451bdecd15</Anchor>
                </Node>
                <Node>
                 <Name>operator-</Name>
@@ -30091,12 +29985,12 @@
                <Node>
                 <Name>operator--</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
-                <Anchor>a532ef0f4a584cec8f9075b4e01d9dac6</Anchor>
+                <Anchor>a2138cdbf58800a02b2e9939f2a720339</Anchor>
                </Node>
                <Node>
                 <Name>operator-=</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
-                <Anchor>aeb5f367f92b4573d89fa6195bccadf53</Anchor>
+                <Anchor>ac8c7e5028f7a52cd089fd269bd463c31</Anchor>
                </Node>
                <Node>
                 <Name>operator&lt;</Name>
@@ -30116,7 +30010,7 @@
                <Node>
                 <Name>operator=</Name>
                 <Path>dc/da4/classtime_1_1_year.html</Path>
-                <Anchor>a35594687bee2d080ca5383a4bde184e0</Anchor>
+                <Anchor>a857369e62275a12336d17357f60f0756</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>

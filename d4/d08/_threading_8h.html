@@ -87,19 +87,21 @@ $(document).ready(function(){initNavTree('d4/d08/_threading_8h.html','../../'); 
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Threading.h File Reference</div>  </div>
+<div class="title">Threading.h File Reference<div class="ingroups"><a class="el" href="../../da/d07/group__limes__core.html">limes_core</a> &raquo; <a class="el" href="../../d2/db9/group__threads.html">Threading</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;thread&gt;</code><br />
+<div class="textblock"><code>#include &lt;future&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 <code>#include &lt;limes_export.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="../../da/d0b/limes__namespace_8h_source.html">limes_namespace.h</a>&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../d3/d53/preprocessor_8h_source.html">../misc/preprocessor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d9b/_functions_8h_source.html">../misc/Functions.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Threading.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/dc5/_threading_8h__incl.svg" width="584" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d9/dc5/_threading_8h__incl.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -116,26 +118,34 @@ $(document).ready(function(){initNavTree('d4/d08/_threading_8h.html','../../'); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:d5/d58/namespacethreads"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d58/namespacethreads.html">threads</a></td></tr>
+<tr class="memdesc:d5/d58/namespacethreads"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains threading utilities. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab736782d17791b2696e060c46fd652af"><td class="memTemplParams" colspan="2">template&lt;class Function , typename... Args&gt; </td></tr>
-<tr class="memitem:ab736782d17791b2696e060c46fd652af"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d58/namespacethreads.html#ab736782d17791b2696e060c46fd652af">threads::callAndBlock</a> (Function &amp;&amp;function, Args &amp;&amp;... args)</td></tr>
-<tr class="separator:ab736782d17791b2696e060c46fd652af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c8345c3377edf4c7f429a3e291851ce"><td class="memTemplParams" colspan="2">template&lt;class Function , typename... Args&gt; </td></tr>
-<tr class="memitem:a6c8345c3377edf4c7f429a3e291851ce"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d58/namespacethreads.html#a6c8345c3377edf4c7f429a3e291851ce">threads::callInBackground</a> (Function &amp;&amp;function, Args &amp;&amp;... args)</td></tr>
-<tr class="separator:a6c8345c3377edf4c7f429a3e291851ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad36ea8a69391a84e28749452d0528c07"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d58/namespacethreads.html#ad36ea8a69391a84e28749452d0528c07">threads::maxNumThreads</a> (int defaultVal=4) noexcept</td></tr>
-<tr class="separator:ad36ea8a69391a84e28749452d0528c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga251c922a2477a65a5ded648c4ce53e6f"><td class="memTemplParams" colspan="2">template&lt;func::Function Func, typename... Args&gt; </td></tr>
+<tr class="memitem:ga251c922a2477a65a5ded648c4ce53e6f"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT <a class="el" href="../../de/d94/group__func.html#ga734e223214335b499b76e734d6c3771f">func::result_type</a>&lt; Func, Args... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/db9/group__threads.html#ga251c922a2477a65a5ded648c4ce53e6f">threads::callAndBlock</a> (Func &amp;&amp;function, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:ga251c922a2477a65a5ded648c4ce53e6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function on a background thread, blocks until the function finishes executing, and returns the function result.  <a href="../../d2/db9/group__threads.html#ga251c922a2477a65a5ded648c4ce53e6f">More...</a><br /></td></tr>
+<tr class="separator:ga251c922a2477a65a5ded648c4ce53e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga94a8bdf0e635ade7c85f672ee7423c1a"><td class="memTemplParams" colspan="2">template&lt;func::Function Func, typename... Args&gt; </td></tr>
+<tr class="memitem:ga94a8bdf0e635ade7c85f672ee7423c1a"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d2/db9/group__threads.html#ga94a8bdf0e635ade7c85f672ee7423c1a">threads::callInBackground</a> (Func &amp;&amp;function, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:ga94a8bdf0e635ade7c85f672ee7423c1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Launches a function on a background thread and returns immediately.  <a href="../../d2/db9/group__threads.html#ga94a8bdf0e635ade7c85f672ee7423c1a">More...</a><br /></td></tr>
+<tr class="separator:ga94a8bdf0e635ade7c85f672ee7423c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad36ea8a69391a84e28749452d0528c07"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db9/group__threads.html#gad36ea8a69391a84e28749452d0528c07">threads::maxNumThreads</a> (int defaultVal=4) noexcept</td></tr>
+<tr class="memdesc:gad36ea8a69391a84e28749452d0528c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to detect the number of concurrent threads supported by the current hardware and implementation.  <a href="../../d2/db9/group__threads.html#gad36ea8a69391a84e28749452d0528c07">More...</a><br /></td></tr>
+<tr class="separator:gad36ea8a69391a84e28749452d0528c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file contains general threading utilities. </p>
+
+<p class="definition">Definition in file <a class="el" href="../../d4/d08/_threading_8h_source.html">Threading.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_f3c3802d3847d937c602d8d473665a27.html">threading</a></li><li class="navelem"><a class="el" href="../../d4/d08/_threading_8h.html">Threading.h</a></li>
-    <li class="footer">Generated on Fri May 27 2022 18:50:55 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 20:15:12 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

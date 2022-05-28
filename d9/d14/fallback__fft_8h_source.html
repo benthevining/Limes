@@ -104,78 +104,78 @@ $(document).ready(function(){initNavTree('d9/d14/fallback__fft_8h_source.html','
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a>&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d9/df8/limes__core_8h.html">limes_core.h</a>&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d9/d1a/namespacevecops.html">   25</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d9/d1a/namespacevecops.html">vecops</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span> &lt;Scalar SampleType&gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span>LIMES_NO_EXPORT FallbackFFT final : <span class="keyword">public</span> FFTImpl&lt;SampleType&gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">explicit</span> FallbackFFT (<span class="keywordtype">int</span> <a class="code" href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">size</a>);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (FallbackFFT);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a> (FallbackFFT);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> forward (<span class="keyword">const</span> SampleType* realIn, SampleType* realOut, SampleType* imagOut) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> forwardInterleaved (<span class="keyword">const</span> SampleType* realIn, SampleType* complexOut) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> forwardPolar (<span class="keyword">const</span> SampleType* realIn, SampleType* magOut, SampleType* phaseOut) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> forwardMagnitude (<span class="keyword">const</span> SampleType* realIn, SampleType* magOut) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> inverse (<span class="keyword">const</span> SampleType* realIn, <span class="keyword">const</span> SampleType* imagIn, SampleType* realOut) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> inverseInterleaved (<span class="keyword">const</span> SampleType* complexIn, SampleType* realOut) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> inversePolar (<span class="keyword">const</span> SampleType* magIn, <span class="keyword">const</span> SampleType* phaseIn, SampleType* realOut) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> inverseCepstral (<span class="keyword">const</span> SampleType* magIn, SampleType* cepOut) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// Uses m_a and m_b internally; does not touch m_c or m_d</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> <span class="keywordtype">void</span> transformF (<span class="keyword">const</span> SampleType* ri,</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                        SampleType* ro, SampleType* io);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">// Uses m_c and m_d internally; does not touch m_a or m_b</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> <span class="keywordtype">void</span> transformI (<span class="keyword">const</span> SampleType* ri, <span class="keyword">const</span> SampleType* ii,</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                        SampleType* ro);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> <span class="keywordtype">void</span> transformComplex (<span class="keyword">const</span> SampleType* ri, <span class="keyword">const</span> SampleType* ii,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                              SampleType* ro, SampleType* io,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                              <span class="keywordtype">bool</span> inverse);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> m_blockTableSize = 16;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> m_maxTabledBlock = 1 &lt;&lt; m_blockTableSize;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> m_half { this-&gt;fft_size / 2 };</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="../../d8/dc8/classmemory_1_1aligned__pointer.html">memory::aligned_pointer&lt;int&gt;</a> m_table;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="../../d8/dc8/classmemory_1_1aligned__pointer.html">memory::aligned_pointer&lt;SampleType&gt;</a> m_sincos, m_sincos_r, m_vr, m_vi, m_a, m_b, m_c, m_d;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    SampleType* m_a_and_b[2] { m_a, m_b };</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    SampleType* m_c_and_d[2] { m_c, m_d };</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}  <span class="comment">// namespace vecops</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d9/d1a/namespacevecops.html">   26</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d9/d1a/namespacevecops.html">vecops</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">template</span> &lt;Scalar SampleType&gt;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>LIMES_NO_EXPORT FallbackFFT final : <span class="keyword">public</span> FFTImpl&lt;SampleType&gt;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">explicit</span> FallbackFFT (<span class="keywordtype">int</span> <a class="code" href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">size</a>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (FallbackFFT);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a> (FallbackFFT);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> forward (<span class="keyword">const</span> SampleType* realIn, SampleType* realOut, SampleType* imagOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> forwardInterleaved (<span class="keyword">const</span> SampleType* realIn, SampleType* complexOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> forwardPolar (<span class="keyword">const</span> SampleType* realIn, SampleType* magOut, SampleType* phaseOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> forwardMagnitude (<span class="keyword">const</span> SampleType* realIn, SampleType* magOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> inverse (<span class="keyword">const</span> SampleType* realIn, <span class="keyword">const</span> SampleType* imagIn, SampleType* realOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> inverseInterleaved (<span class="keyword">const</span> SampleType* complexIn, SampleType* realOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> inversePolar (<span class="keyword">const</span> SampleType* magIn, <span class="keyword">const</span> SampleType* phaseIn, SampleType* realOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> inverseCepstral (<span class="keyword">const</span> SampleType* magIn, SampleType* cepOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// Uses m_a and m_b internally; does not touch m_c or m_d</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> <span class="keywordtype">void</span> transformF (<span class="keyword">const</span> SampleType* ri,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                        SampleType* ro, SampleType* io);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// Uses m_c and m_d internally; does not touch m_a or m_b</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> <span class="keywordtype">void</span> transformI (<span class="keyword">const</span> SampleType* ri, <span class="keyword">const</span> SampleType* ii,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                        SampleType* ro);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> <span class="keywordtype">void</span> transformComplex (<span class="keyword">const</span> SampleType* ri, <span class="keyword">const</span> SampleType* ii,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                              SampleType* ro, SampleType* io,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                              <span class="keywordtype">bool</span> inverse);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> m_blockTableSize = 16;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> m_maxTabledBlock = 1 &lt;&lt; m_blockTableSize;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> m_half { this-&gt;fft_size / 2 };</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="../../d8/dc8/classmemory_1_1aligned__pointer.html">memory::aligned_pointer&lt;int&gt;</a> m_table;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="../../d8/dc8/classmemory_1_1aligned__pointer.html">memory::aligned_pointer&lt;SampleType&gt;</a> m_sincos, m_sincos_r, m_vr, m_vi, m_a, m_b, m_c, m_d;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    SampleType* m_a_and_b[2] { m_a, m_b };</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    SampleType* m_c_and_d[2] { m_c, m_d };</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}  <span class="comment">// namespace vecops</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassmemory_1_1aligned__pointer_html"><div class="ttname"><a href="../../d8/dc8/classmemory_1_1aligned__pointer.html">memory::aligned_pointer</a></div><div class="ttdoc">An RAII object that calls allocate_aligned() on construction and deallocate_aligned() on destruction.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dad/alignment_8h_source.html#l00110">alignment.h:110</a></div></div>
+<div class="ttc" id="aclassmemory_1_1aligned__pointer_html"><div class="ttname"><a href="../../d8/dc8/classmemory_1_1aligned__pointer.html">memory::aligned_pointer</a></div><div class="ttdoc">An RAII object that calls allocate_aligned() on construction and deallocate_aligned() on destruction.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dad/alignment_8h_source.html#l00112">alignment.h:112</a></div></div>
 <div class="ttc" id="agroup__system_html_gaa19294b73467ee63a3601fe2ff636b8c"><div class="ttname"><a href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a></div><div class="ttdeci">#define LIMES_NON_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00122">preprocessor.h:122</a></div></div>
 <div class="ttc" id="agroup__system_html_ga16865b999504e0621f83caecfec93bcc"><div class="ttname"><a href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a></div><div class="ttdeci">#define LIMES_FORCE_INLINE</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d00/compiler__defs_8h_source.html#l00033">compiler_defs.h:33</a></div></div>
 <div class="ttc" id="alimes__core_8h_html"><div class="ttname"><a href="../../d9/df8/limes__core_8h.html">limes_core.h</a></div></div>
 <div class="ttc" id="anamespacealg_html_aea20a3c576495f7b76380ed04a28b098"><div class="ttname"><a href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">alg::size</a></div><div class="ttdeci">constexpr LIMES_EXPORT int size(const ContainerType &amp;container)</div><div class="ttdoc">Counts the number of objects in the container.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dda/_algorithm_8h_source.html#l00167">Algorithm.h:167</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00039">limes_namespace.h:39</a></div></div>
-<div class="ttc" id="anamespacevecops_html"><div class="ttname"><a href="../../d9/d1a/namespacevecops.html">vecops</a></div><div class="ttdoc">This namespace contains vector operations functions.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d14/fallback__fft_8h_source.html#l00025">fallback_fft.h:25</a></div></div>
+<div class="ttc" id="anamespacevecops_html"><div class="ttname"><a href="../../d9/d1a/namespacevecops.html">vecops</a></div><div class="ttdoc">This namespace contains vector operations functions.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d14/fallback__fft_8h_source.html#l00026">fallback_fft.h:26</a></div></div>
 <div class="ttc" id="agroup__system_html_gaa204cf467eb45621b139f7fbf6b0f503"><div class="ttname"><a href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a></div><div class="ttdeci">#define LIMES_DEFAULT_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00175">preprocessor.h:175</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00027">limes_namespace.h:27</a></div></div>
 <div class="ttc" id="afft__common_8h_html"><div class="ttname"><a href="../../d6/db4/fft__common_8h.html">fft_common.h</a></div></div>
@@ -184,7 +184,7 @@ $(document).ready(function(){initNavTree('d9/d14/fallback__fft_8h_source.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_fd627f24d7bb4f56aee54e980d5bfd70.html">limes_vecops</a></li><li class="navelem"><a class="el" href="../../dir_ac9e7747da43d8e5dd5305cf45a38b52.html">fft</a></li><li class="navelem"><a class="el" href="../../d9/d14/fallback__fft_8h.html">fallback_fft.h</a></li>
-    <li class="footer">Generated on Fri May 27 2022 18:50:54 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 20:15:11 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

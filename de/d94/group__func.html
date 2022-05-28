@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('de/d94/group__func.html','../../'); in
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -99,6 +100,13 @@ $(document).ready(function(){initNavTree('de/d94/group__func.html','../../'); in
 Files</h2></td></tr>
 <tr class="memitem:d6/d9b/_functions_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d9b/_functions_8h.html">Functions.h</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga734e223214335b499b76e734d6c3771f"><td class="memTemplParams" colspan="2">template&lt;Function Func, typename... Args&gt; </td></tr>
+<tr class="memitem:ga734e223214335b499b76e734d6c3771f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga734e223214335b499b76e734d6c3771f">func::result_type</a> = std::invoke_result_t&lt; std::decay_t&lt; Func &gt;, std::decay_t&lt; Args &gt;... &gt;</td></tr>
+<tr class="memdesc:ga734e223214335b499b76e734d6c3771f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This typedef evaluates to the result type returned by calling the given function with the given arguments.  <a href="../../de/d94/group__func.html#ga734e223214335b499b76e734d6c3771f">More...</a><br /></td></tr>
+<tr class="separator:ga734e223214335b499b76e734d6c3771f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -127,6 +135,27 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Utilities for working with higher-level functions and functions as objects. </p>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga734e223214335b499b76e734d6c3771f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga734e223214335b499b76e734d6c3771f">&#9670;&nbsp;</a></span>result_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Function Func, typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../de/d94/group__func.html#ga734e223214335b499b76e734d6c3771f">func::result_type</a> = typedef std::invoke_result_t&lt;std::decay_t&lt;Func&gt;, std::decay_t&lt;Args&gt;...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This typedef evaluates to the result type returned by calling the given function with the given arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d9b/_functions_8h_source.html#l00055">55</a> of file <a class="el" href="../../d6/d9b/_functions_8h_source.html">Functions.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ga721d87621ab2fa2ff1ab032652d0b035"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga721d87621ab2fa2ff1ab032652d0b035">&#9670;&nbsp;</a></span>call_once()</h2>
@@ -173,7 +202,7 @@ template&lt;Function Func&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d9b/_functions_8h_source.html#l00058">58</a> of file <a class="el" href="../../d6/d9b/_functions_8h_source.html">Functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d9b/_functions_8h_source.html#l00064">64</a> of file <a class="el" href="../../d6/d9b/_functions_8h_source.html">Functions.h</a>.</p>
 
 </div>
 </div>
@@ -205,7 +234,7 @@ template&lt;typename... Param&gt; </div>
 
 <p>Forces a given function to be executed at compile time. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d9b/_functions_8h_source.html#l00174">174</a> of file <a class="el" href="../../d6/d9b/_functions_8h_source.html">Functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d9b/_functions_8h_source.html#l00180">180</a> of file <a class="el" href="../../d6/d9b/_functions_8h_source.html">Functions.h</a>.</p>
 
 </div>
 </div>
@@ -246,7 +275,7 @@ template&lt;typename... Param&gt; </div>
 <p>Breaks down a function that takes multiple arguments into a series of functions that each take one argument. </p>
 <p>Additionally, if the original function is callable with one argument, then this function returns the result of calling that function. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d9b/_functions_8h_source.html#l00156">156</a> of file <a class="el" href="../../d6/d9b/_functions_8h_source.html">Functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d9b/_functions_8h_source.html#l00162">162</a> of file <a class="el" href="../../d6/d9b/_functions_8h_source.html">Functions.h</a>.</p>
 
 </div>
 </div>
@@ -289,7 +318,7 @@ template&lt;Function Func, typename... Args&gt; </div>
 <p>Executes a potentially-throwing function within a try-catch block, and returns false if an exception is thrown and true if no exceptions are thrown. </p>
 <p>This is basically a simple Lippincott function. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d6/d9b/_functions_8h_source.html#l00191">191</a> of file <a class="el" href="../../d6/d9b/_functions_8h_source.html">Functions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d6/d9b/_functions_8h_source.html#l00197">197</a> of file <a class="el" href="../../d6/d9b/_functions_8h_source.html">Functions.h</a>.</p>
 
 </div>
 </div>
@@ -323,7 +352,7 @@ template&lt;typename T &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri May 27 2022 18:50:55 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 20:15:12 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

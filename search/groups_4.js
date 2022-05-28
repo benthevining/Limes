@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['fft_2783',['FFT',['../dc/db6/group__fft.html',1,'']]],
-  ['files_2784',['Files',['../d9/dda/group__files.html',1,'']]],
-  ['functional_2785',['Functional',['../de/d94/group__func.html',1,'']]],
-  ['floating_20point_20mode_20functions_2786',['Floating point mode functions',['../d1/d09/group__vec__fpm.html',1,'']]]
+  ['complex_20conversions_2794',['Complex conversions',['../de/d2a/group__vec__complex.html',1,'']]],
+  ['cosine_20functions_2795',['Cosine functions',['../dd/d22/group__vec__cos.html',1,'']]]
 ];

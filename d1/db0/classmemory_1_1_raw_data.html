@@ -193,6 +193,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2e0bf06d57896ee9529f4b0a5739deae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbbdcb4d960dc4d07f1ebd765c4ee8d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db0/classmemory_1_1_raw_data.html#acbbdcb4d960dc4d07f1ebd765c4ee8d4">copyTo</a> (<a class="el" href="../../d1/db0/classmemory_1_1_raw_data.html">RawData</a> &amp;other, bool allowAllocation=true) const</td></tr>
 <tr class="separator:acbbdcb4d960dc4d07f1ebd765c4ee8d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c67ee2079ccb3bcf56b5c6ef71b3c78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/db0/classmemory_1_1_raw_data.html">RawData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db0/classmemory_1_1_raw_data.html#a8c67ee2079ccb3bcf56b5c6ef71b3c78">createCopy</a> () const</td></tr>
+<tr class="memdesc:a8c67ee2079ccb3bcf56b5c6ef71b3c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new RawData object that contains a copy of this object's data.  <a href="../../d1/db0/classmemory_1_1_raw_data.html#a8c67ee2079ccb3bcf56b5c6ef71b3c78">More...</a><br /></td></tr>
+<tr class="separator:a8c67ee2079ccb3bcf56b5c6ef71b3c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">begin() accessors</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Returns a pointer to the beginning of this object's owned memory.</p>
 <p>The returned pointer may be null if this object is empty. </p>
@@ -725,7 +728,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">allowAllocation</td><td>If this is false, the data may be truncated if the destination object has a smaller preallocated memory size than the data size. </td></tr>
+    <tr><td class="paramname">dest</td><td>The destination to copy this object's data to. </td></tr>
+    <tr><td class="paramname">maxNumBytes</td><td>The maximum number of bytes this function will copy to the output. </td></tr>
   </table>
   </dd>
 </dl>
@@ -759,10 +763,30 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">other</td><td>RawData object to copy this object's memory into. </td></tr>
     <tr><td class="paramname">allowAllocation</td><td>If this is false, the data may be truncated if the destination object has a smaller preallocated memory size than the data size. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a8c67ee2079ccb3bcf56b5c6ef71b3c78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c67ee2079ccb3bcf56b5c6ef71b3c78">&#9670;&nbsp;</a></span>createCopy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/db0/classmemory_1_1_raw_data.html">RawData</a> memory::RawData::createCopy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a new RawData object that contains a copy of this object's data. </p>
 
 </div>
 </div>
@@ -1201,7 +1225,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d4/daf/namespacememory.html">memory</a></li><li class="navelem"><a class="el" href="../../d1/db0/classmemory_1_1_raw_data.html">RawData</a></li>
-    <li class="footer">Generated on Fri May 27 2022 18:50:55 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 20:15:13 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

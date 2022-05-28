@@ -83,6 +83,8 @@ $(document).ready(function(){initNavTree('d1/d09/group__vec__fpm.html','../../')
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#groups">Modules</a>  </div>
   <div class="headertitle">
 <div class="title">Floating point mode functions<div class="ingroups"><a class="el" href="../../dc/dd4/group__limes__vecops.html">limes_vecops</a></div></div>  </div>
 </div><!--header-->
@@ -91,142 +93,23 @@ $(document).ready(function(){initNavTree('d1/d09/group__vec__fpm.html','../../')
 <p>Floating point mode functions.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="memitem:ga095c013f3d5f68405a075e4c0bcdec66"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/group__vec__fpm.html#ga095c013f3d5f68405a075e4c0bcdec66">vecops::disableDenormalisedNumberSupport</a> (bool shouldDisable=true) noexcept</td></tr>
-<tr class="memdesc:ga095c013f3d5f68405a075e4c0bcdec66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls whether denormalized numbers are enabled or disabled.  <a href="../../d1/d09/group__vec__fpm.html#ga095c013f3d5f68405a075e4c0bcdec66">More...</a><br /></td></tr>
-<tr class="separator:ga095c013f3d5f68405a075e4c0bcdec66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf1b063aaec395fbadd3e3a24bdbd7d3e"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/group__vec__fpm.html#gaf1b063aaec395fbadd3e3a24bdbd7d3e">vecops::areDenormalsDisabled</a> () noexcept</td></tr>
-<tr class="memdesc:gaf1b063aaec395fbadd3e3a24bdbd7d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if denormalized numbers are currently enabled.  <a href="../../d1/d09/group__vec__fpm.html#gaf1b063aaec395fbadd3e3a24bdbd7d3e">More...</a><br /></td></tr>
-<tr class="separator:gaf1b063aaec395fbadd3e3a24bdbd7d3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga455df89d2cef625f239ebd5507fea3d2"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/group__vec__fpm.html#ga455df89d2cef625f239ebd5507fea3d2">vecops::enableFlushToZeroMode</a> (bool shouldEnable=true) noexcept</td></tr>
-<tr class="memdesc:ga455df89d2cef625f239ebd5507fea3d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls whether flush to zero mode is enabled or disabled.  <a href="../../d1/d09/group__vec__fpm.html#ga455df89d2cef625f239ebd5507fea3d2">More...</a><br /></td></tr>
-<tr class="separator:ga455df89d2cef625f239ebd5507fea3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8c5fce68c3759e785f4778df27012b24"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/group__vec__fpm.html#ga8c5fce68c3759e785f4778df27012b24">vecops::isFlushToZeroEnabled</a> () noexcept</td></tr>
-<tr class="memdesc:ga8c5fce68c3759e785f4778df27012b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if flush to zero mode is enabled.  <a href="../../d1/d09/group__vec__fpm.html#ga8c5fce68c3759e785f4778df27012b24">More...</a><br /></td></tr>
-<tr class="separator:ga8c5fce68c3759e785f4778df27012b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:d0/d49/group__vec__denormals"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d49/group__vec__denormals.html">Denormalized number support</a></td></tr>
+<tr class="memdesc:d0/d49/group__vec__denormals"><td class="mdescLeft">&#160;</td><td class="mdescRight">Denormalized number support utilities. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d5/dfa/group__vec__ftz"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/dfa/group__vec__ftz.html">Flush-to-zero support</a></td></tr>
+<tr class="memdesc:d5/dfa/group__vec__ftz"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flush-to-zero support utilities. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Floating point mode functions. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="gaf1b063aaec395fbadd3e3a24bdbd7d3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf1b063aaec395fbadd3e3a24bdbd7d3e">&#9670;&nbsp;</a></span>areDenormalsDisabled()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT bool vecops::areDenormalsDisabled </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns true if denormalized numbers are currently enabled. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d1/d09/group__vec__fpm.html#ga095c013f3d5f68405a075e4c0bcdec66" title="Controls whether denormalized numbers are enabled or disabled.">disableDenormalisedNumberSupport</a> </dd></dl>
-
-</div>
-</div>
-<a id="ga095c013f3d5f68405a075e4c0bcdec66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga095c013f3d5f68405a075e4c0bcdec66">&#9670;&nbsp;</a></span>disableDenormalisedNumberSupport()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT void vecops::disableDenormalisedNumberSupport </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>shouldDisable</em> = <code>true</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Controls whether denormalized numbers are enabled or disabled. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d1/d09/group__vec__fpm.html#gaf1b063aaec395fbadd3e3a24bdbd7d3e" title="Returns true if denormalized numbers are currently enabled.">areDenormalsDisabled</a> </dd></dl>
-
-</div>
-</div>
-<a id="ga455df89d2cef625f239ebd5507fea3d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga455df89d2cef625f239ebd5507fea3d2">&#9670;&nbsp;</a></span>enableFlushToZeroMode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT void vecops::enableFlushToZeroMode </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>shouldEnable</em> = <code>true</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Controls whether flush to zero mode is enabled or disabled. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d1/d09/group__vec__fpm.html#ga8c5fce68c3759e785f4778df27012b24" title="Returns true if flush to zero mode is enabled.">isFlushToZeroEnabled</a> </dd></dl>
-
-</div>
-</div>
-<a id="ga8c5fce68c3759e785f4778df27012b24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8c5fce68c3759e785f4778df27012b24">&#9670;&nbsp;</a></span>isFlushToZeroEnabled()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT bool vecops::isFlushToZeroEnabled </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns true if flush to zero mode is enabled. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d1/d09/group__vec__fpm.html#ga455df89d2cef625f239ebd5507fea3d2" title="Controls whether flush to zero mode is enabled or disabled.">enableFlushToZeroMode</a> </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri May 27 2022 18:50:55 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 20:15:12 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

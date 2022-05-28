@@ -83,6 +83,8 @@ $(document).ready(function(){initNavTree('d0/d70/group__vec__stats.html','../../
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#groups">Modules</a>  </div>
   <div class="headertitle">
 <div class="title">Statistical functions<div class="ingroups"><a class="el" href="../../dc/dd4/group__limes__vecops.html">limes_vecops</a></div></div>  </div>
 </div><!--header-->
@@ -91,6 +93,11 @@ $(document).ready(function(){initNavTree('d0/d70/group__vec__stats.html','../../
 <p>Statistical functions on vectors.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:d5/d65/group__vec__extrema"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d65/group__vec__extrema.html">Extrema calculation</a></td></tr>
+<tr class="memdesc:d5/d65/group__vec__extrema"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extrema calculation functions for vectors. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga74bfc4caf2e8167ca6960fe9acf2c214"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
 <tr class="memitem:ga74bfc4caf2e8167ca6960fe9acf2c214"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga74bfc4caf2e8167ca6960fe9acf2c214">vecops::abs</a> (DataType *const dataAndDest, SizeType size)</td></tr>
 <tr class="memdesc:ga74bfc4caf2e8167ca6960fe9acf2c214"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces each element of the vector with its absolute value.  <a href="../../d0/d70/group__vec__stats.html#ga74bfc4caf2e8167ca6960fe9acf2c214">More...</a><br /></td></tr>
@@ -115,62 +122,6 @@ $(document).ready(function(){initNavTree('d0/d70/group__vec__stats.html','../../
 <tr class="memitem:ga1700a43b802f3ad832622ca8a1c9727f"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga1700a43b802f3ad832622ca8a1c9727f">vecops::clipAndCopy</a> (DataType *const dest, const DataType *const data, SizeType size, DataType lowClip=-1, DataType hiClip=1)</td></tr>
 <tr class="memdesc:ga1700a43b802f3ad832622ca8a1c9727f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a clipped version of the original vector to the output vector.  <a href="../../d0/d70/group__vec__stats.html#ga1700a43b802f3ad832622ca8a1c9727f">More...</a><br /></td></tr>
 <tr class="separator:ga1700a43b802f3ad832622ca8a1c9727f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2b9ca98d48877ea7a09777202711fd14"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga2b9ca98d48877ea7a09777202711fd14"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga2b9ca98d48877ea7a09777202711fd14">vecops::max</a> (const DataType *const data, SizeType size)</td></tr>
-<tr class="memdesc:ga2b9ca98d48877ea7a09777202711fd14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum element in a vector.  <a href="../../d0/d70/group__vec__stats.html#ga2b9ca98d48877ea7a09777202711fd14">More...</a><br /></td></tr>
-<tr class="separator:ga2b9ca98d48877ea7a09777202711fd14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab7fbdda1d58f33cb333944be0ea90872"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType, Integral IndexType&gt; </td></tr>
-<tr class="memitem:gab7fbdda1d58f33cb333944be0ea90872"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#gab7fbdda1d58f33cb333944be0ea90872">vecops::max</a> (const DataType *const data, SizeType size, DataType &amp;maxValue, IndexType &amp;maxIndex)</td></tr>
-<tr class="memdesc:gab7fbdda1d58f33cb333944be0ea90872"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the maximum element in a vector and its index in the vector.  <a href="../../d0/d70/group__vec__stats.html#gab7fbdda1d58f33cb333944be0ea90872">More...</a><br /></td></tr>
-<tr class="separator:gab7fbdda1d58f33cb333944be0ea90872"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga255d7088efb599876e02b7b8abd2a996"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga255d7088efb599876e02b7b8abd2a996"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga255d7088efb599876e02b7b8abd2a996">vecops::maxAbs</a> (const DataType *const data, SizeType size)</td></tr>
-<tr class="memdesc:ga255d7088efb599876e02b7b8abd2a996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum absolute value in a vector.  <a href="../../d0/d70/group__vec__stats.html#ga255d7088efb599876e02b7b8abd2a996">More...</a><br /></td></tr>
-<tr class="separator:ga255d7088efb599876e02b7b8abd2a996"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8fa776a377b6164dae4889cc89253bbd"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType, Integral IndexType&gt; </td></tr>
-<tr class="memitem:ga8fa776a377b6164dae4889cc89253bbd"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga8fa776a377b6164dae4889cc89253bbd">vecops::maxAbs</a> (const DataType *const data, SizeType size, DataType &amp;maxValue, IndexType &amp;maxIndex)</td></tr>
-<tr class="memdesc:ga8fa776a377b6164dae4889cc89253bbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the maximum absolute value in a vector and its index in the vector.  <a href="../../d0/d70/group__vec__stats.html#ga8fa776a377b6164dae4889cc89253bbd">More...</a><br /></td></tr>
-<tr class="separator:ga8fa776a377b6164dae4889cc89253bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac850b880c9ee8106321198dda9dfc89d"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:gac850b880c9ee8106321198dda9dfc89d"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#gac850b880c9ee8106321198dda9dfc89d">vecops::min</a> (const DataType *const data, SizeType size)</td></tr>
-<tr class="memdesc:gac850b880c9ee8106321198dda9dfc89d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum element in a vector.  <a href="../../d0/d70/group__vec__stats.html#gac850b880c9ee8106321198dda9dfc89d">More...</a><br /></td></tr>
-<tr class="separator:gac850b880c9ee8106321198dda9dfc89d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga887ed86c17a7996c351461192bd819aa"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType, Integral IndexType&gt; </td></tr>
-<tr class="memitem:ga887ed86c17a7996c351461192bd819aa"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga887ed86c17a7996c351461192bd819aa">vecops::min</a> (const DataType *const data, SizeType size, DataType &amp;minValue, IndexType &amp;minIndex)</td></tr>
-<tr class="memdesc:ga887ed86c17a7996c351461192bd819aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the minimum element in a vector and its index in the vector.  <a href="../../d0/d70/group__vec__stats.html#ga887ed86c17a7996c351461192bd819aa">More...</a><br /></td></tr>
-<tr class="separator:ga887ed86c17a7996c351461192bd819aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga80feb4cd44aa34ee6ddab2ad51ae7250"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga80feb4cd44aa34ee6ddab2ad51ae7250"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga80feb4cd44aa34ee6ddab2ad51ae7250">vecops::minAbs</a> (const DataType *const data, SizeType size)</td></tr>
-<tr class="memdesc:ga80feb4cd44aa34ee6ddab2ad51ae7250"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum absolute value in a vector.  <a href="../../d0/d70/group__vec__stats.html#ga80feb4cd44aa34ee6ddab2ad51ae7250">More...</a><br /></td></tr>
-<tr class="separator:ga80feb4cd44aa34ee6ddab2ad51ae7250"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf8a064acc4a5f97b2e98110cc2ceaae2"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType, Integral IndexType&gt; </td></tr>
-<tr class="memitem:gaf8a064acc4a5f97b2e98110cc2ceaae2"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#gaf8a064acc4a5f97b2e98110cc2ceaae2">vecops::minAbs</a> (const DataType *const data, SizeType size, DataType &amp;minValue, IndexType &amp;minIndex)</td></tr>
-<tr class="memdesc:gaf8a064acc4a5f97b2e98110cc2ceaae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the minimum absolute value in a vector and its index in the vector.  <a href="../../d0/d70/group__vec__stats.html#gaf8a064acc4a5f97b2e98110cc2ceaae2">More...</a><br /></td></tr>
-<tr class="separator:gaf8a064acc4a5f97b2e98110cc2ceaae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5c8cb588f17f928a0979c3aed56c5993"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga5c8cb588f17f928a0979c3aed56c5993"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga5c8cb588f17f928a0979c3aed56c5993">vecops::minMax</a> (const DataType *const data, SizeType size, DataType &amp;minValue, DataType &amp;maxValue)</td></tr>
-<tr class="memdesc:ga5c8cb588f17f928a0979c3aed56c5993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds both the minimum and maximum values in a vector.  <a href="../../d0/d70/group__vec__stats.html#ga5c8cb588f17f928a0979c3aed56c5993">More...</a><br /></td></tr>
-<tr class="separator:ga5c8cb588f17f928a0979c3aed56c5993"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3a2a10d9d0997de372a32ef19e01d68e"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType, Integral IndexType&gt; </td></tr>
-<tr class="memitem:ga3a2a10d9d0997de372a32ef19e01d68e"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga3a2a10d9d0997de372a32ef19e01d68e">vecops::minMax</a> (const DataType *const data, SizeType size, DataType &amp;minValue, IndexType &amp;minIndex, DataType &amp;maxValue, IndexType &amp;maxIndex)</td></tr>
-<tr class="memdesc:ga3a2a10d9d0997de372a32ef19e01d68e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the minimum and maximum values in a vector, and their indices in the vector.  <a href="../../d0/d70/group__vec__stats.html#ga3a2a10d9d0997de372a32ef19e01d68e">More...</a><br /></td></tr>
-<tr class="separator:ga3a2a10d9d0997de372a32ef19e01d68e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7d1b7e77fcb133947b6bb048405904e1"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga7d1b7e77fcb133947b6bb048405904e1"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga7d1b7e77fcb133947b6bb048405904e1">vecops::minMaxAbs</a> (const DataType *const data, SizeType size, DataType &amp;minValue, DataType &amp;maxValue)</td></tr>
-<tr class="memdesc:ga7d1b7e77fcb133947b6bb048405904e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds both the minimum and maximum absolute values in a vector.  <a href="../../d0/d70/group__vec__stats.html#ga7d1b7e77fcb133947b6bb048405904e1">More...</a><br /></td></tr>
-<tr class="separator:ga7d1b7e77fcb133947b6bb048405904e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4ab5258f412dc03cade0fb58c510a972"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType, Integral IndexType&gt; </td></tr>
-<tr class="memitem:ga4ab5258f412dc03cade0fb58c510a972"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga4ab5258f412dc03cade0fb58c510a972">vecops::minMaxAbs</a> (const DataType *const data, SizeType size, DataType &amp;minValue, IndexType &amp;minIndex, DataType &amp;maxValue, IndexType &amp;maxIndex)</td></tr>
-<tr class="memdesc:ga4ab5258f412dc03cade0fb58c510a972"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the minimum and maximum absolute values in a vector, and their indices in the vector.  <a href="../../d0/d70/group__vec__stats.html#ga4ab5258f412dc03cade0fb58c510a972">More...</a><br /></td></tr>
-<tr class="separator:ga4ab5258f412dc03cade0fb58c510a972"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1131ff9a6c22f93bf86efe856979eb8d"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga1131ff9a6c22f93bf86efe856979eb8d"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga1131ff9a6c22f93bf86efe856979eb8d">vecops::range</a> (const DataType *const data, SizeType size)</td></tr>
-<tr class="memdesc:ga1131ff9a6c22f93bf86efe856979eb8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the difference between the maximum and minimum values in the vector.  <a href="../../d0/d70/group__vec__stats.html#ga1131ff9a6c22f93bf86efe856979eb8d">More...</a><br /></td></tr>
-<tr class="separator:ga1131ff9a6c22f93bf86efe856979eb8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga74bdbe1d40199c226e1fec132b2e5ec3"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga74bdbe1d40199c226e1fec132b2e5ec3"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga74bdbe1d40199c226e1fec132b2e5ec3">vecops::rangeAbs</a> (const DataType *const data, SizeType size)</td></tr>
-<tr class="memdesc:ga74bdbe1d40199c226e1fec132b2e5ec3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the difference between the maximum and minimum absolute values in the vector.  <a href="../../d0/d70/group__vec__stats.html#ga74bdbe1d40199c226e1fec132b2e5ec3">More...</a><br /></td></tr>
-<tr class="separator:ga74bdbe1d40199c226e1fec132b2e5ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga75cf069da9162bb3e3e019d7325c4286"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
 <tr class="memitem:ga75cf069da9162bb3e3e019d7325c4286"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga75cf069da9162bb3e3e019d7325c4286">vecops::sum</a> (const DataType *const data, SizeType size)</td></tr>
 <tr class="memdesc:ga75cf069da9162bb3e3e019d7325c4286"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sum of all the values in the vector.  <a href="../../d0/d70/group__vec__stats.html#ga75cf069da9162bb3e3e019d7325c4286">More...</a><br /></td></tr>
@@ -179,6 +130,10 @@ $(document).ready(function(){initNavTree('d0/d70/group__vec__stats.html','../../
 <tr class="memitem:gab5139f2858fb69eb2ac615991ac5584e"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#gab5139f2858fb69eb2ac615991ac5584e">vecops::mean</a> (const DataType *const data, SizeType size)</td></tr>
 <tr class="memdesc:gab5139f2858fb69eb2ac615991ac5584e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the mean of the values in the vector.  <a href="../../d0/d70/group__vec__stats.html#gab5139f2858fb69eb2ac615991ac5584e">More...</a><br /></td></tr>
 <tr class="separator:gab5139f2858fb69eb2ac615991ac5584e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga327cf469950778c5293615e37eb0f447"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga327cf469950778c5293615e37eb0f447"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d0/d70/group__vec__stats.html#ga327cf469950778c5293615e37eb0f447">vecops::standard_deviation</a> (const DataType *const data, SizeType size)</td></tr>
+<tr class="memdesc:ga327cf469950778c5293615e37eb0f447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the standard deviation of the values in the vector.  <a href="../../d0/d70/group__vec__stats.html#ga327cf469950778c5293615e37eb0f447">More...</a><br /></td></tr>
+<tr class="separator:ga327cf469950778c5293615e37eb0f447"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Statistical functions on vectors. </p>
@@ -351,158 +306,6 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 </div>
 </div>
-<a id="ga2b9ca98d48877ea7a09777202711fd14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2b9ca98d48877ea7a09777202711fd14">&#9670;&nbsp;</a></span>max() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar DataType, Integral SizeType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT DataType vecops::max </td>
-          <td>(</td>
-          <td class="paramtype">const DataType *const&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the maximum element in a vector. </p>
-
-</div>
-</div>
-<a id="gab7fbdda1d58f33cb333944be0ea90872"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab7fbdda1d58f33cb333944be0ea90872">&#9670;&nbsp;</a></span>max() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar DataType, Integral SizeType, Integral IndexType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT void vecops::max </td>
-          <td>(</td>
-          <td class="paramtype">const DataType *const&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DataType &amp;&#160;</td>
-          <td class="paramname"><em>maxValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IndexType &amp;&#160;</td>
-          <td class="paramname"><em>maxIndex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Finds the maximum element in a vector and its index in the vector. </p>
-
-</div>
-</div>
-<a id="ga255d7088efb599876e02b7b8abd2a996"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga255d7088efb599876e02b7b8abd2a996">&#9670;&nbsp;</a></span>maxAbs() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar DataType, Integral SizeType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT DataType vecops::maxAbs </td>
-          <td>(</td>
-          <td class="paramtype">const DataType *const&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the maximum absolute value in a vector. </p>
-
-</div>
-</div>
-<a id="ga8fa776a377b6164dae4889cc89253bbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8fa776a377b6164dae4889cc89253bbd">&#9670;&nbsp;</a></span>maxAbs() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar DataType, Integral SizeType, Integral IndexType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT void vecops::maxAbs </td>
-          <td>(</td>
-          <td class="paramtype">const DataType *const&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DataType &amp;&#160;</td>
-          <td class="paramname"><em>maxValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IndexType &amp;&#160;</td>
-          <td class="paramname"><em>maxIndex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Finds the maximum absolute value in a vector and its index in the vector. </p>
-
-</div>
-</div>
 <a id="gab5139f2858fb69eb2ac615991ac5584e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gab5139f2858fb69eb2ac615991ac5584e">&#9670;&nbsp;</a></span>mean()</h2>
 
@@ -532,358 +335,6 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the mean of the values in the vector. </p>
-
-</div>
-</div>
-<a id="gac850b880c9ee8106321198dda9dfc89d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac850b880c9ee8106321198dda9dfc89d">&#9670;&nbsp;</a></span>min() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar DataType, Integral SizeType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT DataType vecops::min </td>
-          <td>(</td>
-          <td class="paramtype">const DataType *const&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the minimum element in a vector. </p>
-
-</div>
-</div>
-<a id="ga887ed86c17a7996c351461192bd819aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga887ed86c17a7996c351461192bd819aa">&#9670;&nbsp;</a></span>min() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar DataType, Integral SizeType, Integral IndexType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT void vecops::min </td>
-          <td>(</td>
-          <td class="paramtype">const DataType *const&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DataType &amp;&#160;</td>
-          <td class="paramname"><em>minValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IndexType &amp;&#160;</td>
-          <td class="paramname"><em>minIndex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Finds the minimum element in a vector and its index in the vector. </p>
-
-</div>
-</div>
-<a id="ga80feb4cd44aa34ee6ddab2ad51ae7250"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga80feb4cd44aa34ee6ddab2ad51ae7250">&#9670;&nbsp;</a></span>minAbs() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar DataType, Integral SizeType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT DataType vecops::minAbs </td>
-          <td>(</td>
-          <td class="paramtype">const DataType *const&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the minimum absolute value in a vector. </p>
-
-</div>
-</div>
-<a id="gaf8a064acc4a5f97b2e98110cc2ceaae2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf8a064acc4a5f97b2e98110cc2ceaae2">&#9670;&nbsp;</a></span>minAbs() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar DataType, Integral SizeType, Integral IndexType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT void vecops::minAbs </td>
-          <td>(</td>
-          <td class="paramtype">const DataType *const&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DataType &amp;&#160;</td>
-          <td class="paramname"><em>minValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IndexType &amp;&#160;</td>
-          <td class="paramname"><em>minIndex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Finds the minimum absolute value in a vector and its index in the vector. </p>
-
-</div>
-</div>
-<a id="ga5c8cb588f17f928a0979c3aed56c5993"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5c8cb588f17f928a0979c3aed56c5993">&#9670;&nbsp;</a></span>minMax() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar DataType, Integral SizeType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT void vecops::minMax </td>
-          <td>(</td>
-          <td class="paramtype">const DataType *const&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DataType &amp;&#160;</td>
-          <td class="paramname"><em>minValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DataType &amp;&#160;</td>
-          <td class="paramname"><em>maxValue</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Finds both the minimum and maximum values in a vector. </p>
-
-</div>
-</div>
-<a id="ga3a2a10d9d0997de372a32ef19e01d68e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3a2a10d9d0997de372a32ef19e01d68e">&#9670;&nbsp;</a></span>minMax() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar DataType, Integral SizeType, Integral IndexType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT void vecops::minMax </td>
-          <td>(</td>
-          <td class="paramtype">const DataType *const&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DataType &amp;&#160;</td>
-          <td class="paramname"><em>minValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IndexType &amp;&#160;</td>
-          <td class="paramname"><em>minIndex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DataType &amp;&#160;</td>
-          <td class="paramname"><em>maxValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IndexType &amp;&#160;</td>
-          <td class="paramname"><em>maxIndex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Finds the minimum and maximum values in a vector, and their indices in the vector. </p>
-
-</div>
-</div>
-<a id="ga7d1b7e77fcb133947b6bb048405904e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7d1b7e77fcb133947b6bb048405904e1">&#9670;&nbsp;</a></span>minMaxAbs() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar DataType, Integral SizeType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT void vecops::minMaxAbs </td>
-          <td>(</td>
-          <td class="paramtype">const DataType *const&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DataType &amp;&#160;</td>
-          <td class="paramname"><em>minValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DataType &amp;&#160;</td>
-          <td class="paramname"><em>maxValue</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Finds both the minimum and maximum absolute values in a vector. </p>
-
-</div>
-</div>
-<a id="ga4ab5258f412dc03cade0fb58c510a972"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4ab5258f412dc03cade0fb58c510a972">&#9670;&nbsp;</a></span>minMaxAbs() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar DataType, Integral SizeType, Integral IndexType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT void vecops::minMaxAbs </td>
-          <td>(</td>
-          <td class="paramtype">const DataType *const&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DataType &amp;&#160;</td>
-          <td class="paramname"><em>minValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IndexType &amp;&#160;</td>
-          <td class="paramname"><em>minIndex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DataType &amp;&#160;</td>
-          <td class="paramname"><em>maxValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IndexType &amp;&#160;</td>
-          <td class="paramname"><em>maxIndex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Finds the minimum and maximum absolute values in a vector, and their indices in the vector. </p>
 
 </div>
 </div>
@@ -959,8 +410,8 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 </div>
 </div>
-<a id="ga1131ff9a6c22f93bf86efe856979eb8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1131ff9a6c22f93bf86efe856979eb8d">&#9670;&nbsp;</a></span>range()</h2>
+<a id="ga327cf469950778c5293615e37eb0f447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga327cf469950778c5293615e37eb0f447">&#9670;&nbsp;</a></span>standard_deviation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -968,7 +419,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 template&lt;Scalar DataType, Integral SizeType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORT DataType vecops::range </td>
+          <td class="memname">LIMES_EXPORT DataType vecops::standard_deviation </td>
           <td>(</td>
           <td class="paramtype">const DataType *const&#160;</td>
           <td class="paramname"><em>data</em>, </td>
@@ -987,39 +438,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the difference between the maximum and minimum values in the vector. </p>
-
-</div>
-</div>
-<a id="ga74bdbe1d40199c226e1fec132b2e5ec3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga74bdbe1d40199c226e1fec132b2e5ec3">&#9670;&nbsp;</a></span>rangeAbs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar DataType, Integral SizeType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_EXPORT DataType vecops::rangeAbs </td>
-          <td>(</td>
-          <td class="paramtype">const DataType *const&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the difference between the maximum and minimum absolute values in the vector. </p>
+<p>Returns the standard deviation of the values in the vector. </p>
 
 </div>
 </div>
@@ -1060,7 +479,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri May 27 2022 18:50:55 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 20:15:12 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
