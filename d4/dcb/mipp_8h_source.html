@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('d4/dcb/mipp_8h_source.html','../../');
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">template</span> &lt;Scalar DataType, Integral SizeType&gt;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;LIMES_NO_EXPORT [[nodiscard]] <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> constexpr <span class="keywordtype">int</span> getVecLoopSize (SizeType <a class="code" href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">size</a>)</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    constinit <span class="keyword">const</span> <span class="keyword">auto</span> n = mipp::N&lt;DataType&gt;();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    constexpr <span class="keyword">const</span> <span class="keyword">auto</span> n = mipp::N&lt;DataType&gt;();</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span> ((<span class="keyword">static_cast&lt;</span>decltype (n)<span class="keyword">&gt;</span> (<a class="code" href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">size</a>) / n) * n);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
@@ -1218,7 +1218,7 @@ $(document).ready(function(){initNavTree('d4/dcb/mipp_8h_source.html','../../');
 <div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160;<span class="keyword">template</span> &lt;Scalar DataType, Integral SizeType&gt;</div>
 <div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/de3/group__vec__trig.html#ga4b00213256c36d9c42e8f60090d05841">sinCos</a> (<span class="keyword">const</span> DataType* <span class="keyword">const</span> data, SizeType <a class="code" href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">size</a>, DataType* <span class="keyword">const</span> sinesOut, DataType* <span class="keyword">const</span> cosinesOut)</div>
 <div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160;{</div>
-<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;    mipp::Reg&lt;DataType&gt; dataRegister sinRegister, cosRegister;</div>
+<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;    mipp::Reg&lt;DataType&gt; dataRegister, sinRegister, cosRegister;</div>
 <div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160; </div>
 <div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> vecOp = [&amp;dataRegister, &amp;sinRegister, &amp;cosRegister, data, sinesOut, cosinesOut] (<span class="keyword">auto</span> i)</div>
 <div class="line"><a name="l01142"></a><span class="lineno"> 1142</span>&#160;    {</div>
@@ -2012,7 +2012,7 @@ $(document).ready(function(){initNavTree('d4/dcb/mipp_8h_source.html','../../');
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_fd627f24d7bb4f56aee54e980d5bfd70.html">limes_vecops</a></li><li class="navelem"><a class="el" href="../../dir_01e70249a0706b97da777b004b779f41.html">impl</a></li><li class="navelem"><a class="el" href="../../d4/dcb/mipp_8h.html">mipp.h</a></li>
-    <li class="footer">Generated on Sat May 28 2022 20:15:11 for Limes by
+    <li class="footer">Generated on Sat May 28 2022 20:39:48 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
