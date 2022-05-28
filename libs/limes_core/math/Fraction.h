@@ -19,7 +19,7 @@
 
 /** @file
 	This file defines the Fraction class.
-	@ingroup math
+	@ingroup core_math
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -28,7 +28,7 @@ namespace math
 {
 
 /** This class represents a %fraction.
-	@ingroup math
+	@ingroup core_math
  */
 template <Scalar ValueType = int>
 struct LIMES_EXPORT Fraction final

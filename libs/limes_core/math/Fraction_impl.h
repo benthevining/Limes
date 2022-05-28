@@ -20,7 +20,7 @@
 /** @file
 	This file contains implementation details for the Fraction class.
 	@see Fraction.h
-	@ingroup math
+	@ingroup core_math
  */
 
 LIMES_BEGIN_NAMESPACE

@@ -17,7 +17,7 @@
 
 /** @defgroup geometry Geometry
 	Classes representing geometric shapes.
-	@ingroup math
+	@ingroup core_math
  */
 
 /** @defgroup TwoDgeometry 2-D geometry

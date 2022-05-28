@@ -10,28 +10,24 @@
  * ======================================================================================
  */
 
-/*
-
-limes_vecops
---------------------
-
-The Limes vector operations library.
-
-Dependencies:
-- limes_core
-
-Optional dependencies:
-- FFTW
-and/or one of:
-- Apple's Accelerate framework
-- Intel IPP
-- MIPP
-
-*/
-
 /** @defgroup limes_vecops limes_vecops
 	The Limes vector operations library.
-	All classes and functions in this group are accessible after linking to the limes_vecops library and including limes_vecops.h.
+
+	All classes and functions in this module are accessible after linking to the \c limes_vecops library and including limes_vecops.h.
+
+	Dependencies:
+	- limes_core
+
+	Optional dependencies:
+	- <a href="https://www.fftw.org/">FFTW</a> \n
+	and/or one of:
+	- <a href="https://developer.apple.com/documentation/accelerate?language=objc">Apple's Accelerate framework</a>
+	- <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/ipp.html#gs.25my3g">Intel IPP</a>
+	- <a href="https://github.com/aff3ct/MIPP">MIPP</a>
+
+	If a SIMD library is not used, then "raw C++" implementations of all the functions defined in this file will be used.
+
+	Additionally, the fallback implementations can optionally call Julien Pommier's SIMD sin and cos functions, written for both NEON and SSE, if the datatype is \c float .
  */
 
 /** @file

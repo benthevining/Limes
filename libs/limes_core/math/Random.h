@@ -22,7 +22,7 @@
 
 /** @file
 	This file defines the Random class.
-	@ingroup math
+	@ingroup core_math
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -32,6 +32,7 @@ namespace math
 
 /** This class is a %random number generator.
 	The generator used is \c std::minstd_rand .
+	@ingroup core_math
  */
 class LIMES_EXPORT Random final
 {

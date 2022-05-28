@@ -70,7 +70,8 @@ Required for Latex builds:
 sudo tlmgr install collection-latexextra wasysym helvetic wasy courier
 ]]
 
-find_program (LATEX_EXECUTABLE NAMES pdflatex DOC "pdflatex tool")
+find_program (LATEX_EXECUTABLE NAMES pdflatex
+			  DOC "pdflatex tool. Not actually used, just checked for existence.")
 
 find_program (MAKE_EXECUTABLE NAMES make nmake gmake
 			  DOC "make executable used for building latex PDF")

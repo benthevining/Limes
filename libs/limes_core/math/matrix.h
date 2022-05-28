@@ -20,7 +20,7 @@
 
 /** @file
 	This file defines the Matrix class.
-	@ingroup math
+	@ingroup core_math
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -30,7 +30,7 @@ namespace math
 
 /** This class is a %matrix, a rectangular array of objects arranged in rows and columns.
 	Matrices have a compile-time defined size.
-	@ingroup math
+	@ingroup core_math
 	@tparam ObjectType The type of objects for the matrix to hold
 	@tparam Rows The number of rows for the matrix to contain
 	@tparam Columns The number of columns for the matrix to contain

@@ -10,20 +10,12 @@
  * ======================================================================================
  */
 
-/*
-
-limes_core
---------------------
-
-The Limes core library of utilities.
-
-Dependencies: None
-
-*/
-
 /** @defgroup limes_core limes_core
 	The Limes core library of utilities.
-	All classes and functions in this group are accessible after linking to the limes_core library and including limes_core.h.
+
+	All classes and functions in this module are accessible after linking to the \c limes_core library and including limes_core.h.
+
+	Dependencies: None
  */
 
 /** @file

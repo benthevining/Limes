@@ -25,25 +25,25 @@
 #	include <numbers>
 #endif
 
-/** @defgroup math Math
+/** @defgroup core_math Math
 	Math utilities.
 	@ingroup limes_core
  */
 
 /** @file
 	This file contains some math utility functions.
-	@ingroup math
+	@ingroup core_math
  */
 
 LIMES_BEGIN_NAMESPACE
 
 /** This namespace contains math utilities.
-	@ingroup math
+	@ingroup core_math
  */
 namespace math
 {
 
-/** @ingroup math
+/** @ingroup core_math
 	@{
  */
 
@@ -134,7 +134,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION inline T freqToMidi (T freqHz) no
 /*---------------------------------------------------------------------------------------------------------------*/
 
 /** This namespace contains some mathematical constants.
-	@ingroup math
+	@ingroup core_math
  */
 namespace constants
 {
