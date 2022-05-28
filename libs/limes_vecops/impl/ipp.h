@@ -302,7 +302,7 @@ void multiplyAndCopy (DataType* const dest, const DataType* const origData, Size
 template <Scalar DataType, Integral SizeType>
 DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size)
 {
-	DataType dotProd { 0 };
+	[[maybe_unused]] DataType dotProd { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		ippsDotProd_32f (vecA, vecB, static_cast<int> (size), &dotProd);
@@ -620,7 +620,7 @@ void clipAndCopy (DataType* const dest, const DataType* const data, SizeType siz
 template <Scalar DataType, Integral SizeType>
 DataType max (const DataType* const data, SizeType size)
 {
-	DataType maxVal { 0 };
+	[[maybe_unused]] DataType maxVal { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		ippsMax_32f (data, static_cast<int> (size), &maxVal);
@@ -637,7 +637,7 @@ DataType max (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 void max (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex)
 {
-	int maxIdx { 0 };
+	[[maybe_unused]] int maxIdx { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		ippsMaxIndx_32f (data, static_cast<int> (size), &maxValue, &maxIdx);
@@ -657,7 +657,7 @@ void max (const DataType* const data, SizeType size, DataType& maxValue, IndexTy
 template <Scalar DataType, Integral SizeType>
 DataType maxAbs (const DataType* const data, SizeType size)
 {
-	DataType maxVal { 0 };
+	[[maybe_unused]] DataType maxVal { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		ippsMaxAbs_32f (data, static_cast<int> (size), &maxVal);
@@ -674,7 +674,7 @@ DataType maxAbs (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex)
 {
-	int maxIdx { 0 };
+	[[maybe_unused]] int maxIdx { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		ippsMaxAbsIndx_32f (data, static_cast<int> (size), &maxValue, &maxIdx);
@@ -694,7 +694,7 @@ void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, Inde
 template <Scalar DataType, Integral SizeType>
 DataType min (const DataType* const data, SizeType size)
 {
-	DataType minVal { 0 };
+	[[maybe_unused]] DataType minVal { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		ippsMin_32f (data, static_cast<int> (size), &minVal);
@@ -711,7 +711,7 @@ DataType min (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 void min (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex)
 {
-	int minIdx { 0 };
+	[[maybe_unused]] int minIdx { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		ippsMinIndx_32f (data, static_cast<int> (size), &minValue, &minIdx);
@@ -731,7 +731,7 @@ void min (const DataType* const data, SizeType size, DataType& minValue, IndexTy
 template <Scalar DataType, Integral SizeType>
 DataType minAbs (const DataType* const data, SizeType size)
 {
-	DataType minVal { 0 };
+	[[maybe_unused]] DataType minVal { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		ippsMinAbs_32f (data, static_cast<int> (size), &minVal);
@@ -748,7 +748,7 @@ DataType minAbs (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 void minAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex)
 {
-	int minIdx { 0 };
+	[[maybe_unused]] int minIdx { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		ippsMinAbsIndx_32f (data, static_cast<int> (size), &minValue, &minIdx);
@@ -812,7 +812,7 @@ void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, D
 template <Scalar DataType, Integral SizeType>
 DataType sum (const DataType* const data, SizeType size)
 {
-	DataType sumVal { 0 };
+	[[maybe_unused]] DataType sumVal { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		ippsSum_32f (data, static_cast<int> (size), &sumVal, alg_hint_type);
@@ -829,7 +829,7 @@ DataType sum (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 DataType mean (const DataType* const data, SizeType size)
 {
-	DataType meanVal { 0 };
+	[[maybe_unused]] DataType meanVal { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		ippsMean_32f (data, static_cast<int> (size), &meanVal, alg_hint_type);
@@ -846,7 +846,7 @@ DataType mean (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 DataType standard_deviation (const DataType* const data, SizeType size)
 {
-	DataType result;
+	[[maybe_unused]] DataType result;
 
 	if constexpr (is_float_type<DataType>())
 		ippsStdDev_32f (data, static_cast<int> (size), &result, alg_hint_type);
@@ -955,6 +955,120 @@ LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const dat
 	else
 		fb::arctanAndCopy (dest, data, size);
 }
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Exponential and logarithmic functions
+
+namespace log
+{
+
+template <Scalar DataType, Integral SizeType>
+void nat (DataType* const data, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsLn_32f_I (data, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsLn_64f_I (data, static_cast<int> (size));
+	else if constexpr (is_signed_int<DataType>())
+		ippsLn_32s_ISfs (data, static_cast<int> (size), integer_scale_factor);
+	else
+		fb::log::nat (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void natAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsLn_32f (data, dest, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsLn_64f (data, dest, static_cast<int> (size));
+	else if constexpr (is_signed_int<DataType>())
+		ippsLn_32s_Sfs (data, dest, static_cast<int> (size), integer_scale_factor);
+	else
+		fb::log::natAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void base2 (DataType* const data, SizeType size)
+{
+	fb::log::base2 (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void base2AndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::log::base2AndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void base10 (DataType* const data, SizeType size)
+{
+	fb::log::base10 (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void base10AndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::log::base10AndCopy (dest, data, size);
+}
+
+}  // namespace log
+
+namespace exp
+{
+
+template <Scalar DataType, Integral SizeType>
+void e (DataType* const data, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsExp_32f_I (data, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsExp_64f_I (data, static_cast<int> (size));
+	else if constexpr (is_signed_int<DataType>())
+		ippsExp_32s_ISfs (data, static_cast<int> (size), integer_scale_factor);
+	else
+		fb::exp::e (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void eAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsExp_32f (data, dest, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsExp_64f (data, dest, static_cast<int> (size));
+	else if constexpr (is_signed_int<DataType>())
+		ippsExp_32s_Sfs (data, dest, static_cast<int> (size), integer_scale_factor);
+	else
+		fb::exp::eAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void two (DataType* const data, SizeType size)
+{
+	fb::exp::two (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void twoAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::exp::twoAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void pow (DataType* const dataAndDest, const DataType* const exponents, SizeType size)
+{
+	fb::exp::pow (dataAndDest, exponents, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void powAndCopy (DataType* const dest, const DataType* const data, const DataType* const exponents, SizeType size)
+{
+	fb::exp::powAndCopy (dest, data, exponents, size);
+}
+
+}  // namespace exp
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 

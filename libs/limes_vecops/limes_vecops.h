@@ -761,6 +761,95 @@ LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const dat
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Exponential and logarithmic functions
+
+/** @defgroup vec_log Logarithmic functions
+	Logarithmic functions for vectors.
+	@ingroup limes_vecops
+ */
+
+/** This namespace contains logarithmic functions for vectors.
+	@ingroup vec_log
+ */
+namespace log
+{
+
+/** @ingroup vec_log
+	@{
+ */
+
+/** Replaces each value in the vector with its natural logarithm. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void nat (DataType* const data, SizeType size);
+
+/** Writes the natural logarithm of each value in the input vector to the output vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void natAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+/** Replaces each value in the vector with its base 2 logarithm. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void base2 (DataType* const data, SizeType size);
+
+/** Writes the base 2 logarithm of each value in the input vector to the output vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void base2AndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+/** Replaces each value in the vector with its base 10 logarithm. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void base10 (DataType* const data, SizeType size);
+
+/** Writes the base 10 logarithm of each value in the input vector to the output vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void base10AndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+/** @} */
+
+}  // namespace log
+
+/** @defgroup vec_exp Exponential functions
+	Exponential functions for vectors.
+	@ingroup limes_vecops
+ */
+
+/** This namespace contains exponential functions for vectors.
+	@ingroup vec_exp
+ */
+namespace exp
+{
+
+/** @ingroup vec_exp
+	@{
+ */
+
+/** Replaces each value in the vector with \c eˆvalue . */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void e (DataType* const data, SizeType size);
+
+/** For each value in the input vector, writes \c eˆvalue to the output vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void eAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+/** Replaces each value in the vector with \c 2ˆvalue . */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void two (DataType* const data, SizeType size);
+
+/** For each value in the input vector, writes \c 2ˆvalue to the output vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void twoAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+/** Raises each value in the input vector to the power of the corresponding element of another vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void pow (DataType* const dataAndDest, const DataType* const exponents, SizeType size);
+
+/** Raises each value in the input vector to the power of the corresponding element of another vector, then writes the result to an output vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void powAndCopy (DataType* const dest, const DataType* const data, const DataType* const exponents, SizeType size);
+
+/** @} */
+}  // namespace exp
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
 #pragma mark Audio utility functions
 
 /** @defgroup vec_audio Audio utility functions

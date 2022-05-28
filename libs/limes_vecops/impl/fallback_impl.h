@@ -850,6 +850,122 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void arctanAndCopy (DataType* const dest, con
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Exponential and logarithmic functions
+
+/** This namespace contains implementations of the logarithmic functions in raw C++.
+	@ingroup vec_log
+ */
+namespace log
+{
+
+/** @ingroup vec_log
+	@{
+ */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void nat (DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		data[i] = std::log (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void natAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = std::log (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void base2 (DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		data[i] = std::log2 (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void base2AndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = std::log2 (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void base10 (DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		data[i] = std::log10 (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void base10AndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = std::log10 (data[i]);
+}
+
+/** @} */
+
+}  // namespace log
+
+/** This namespace contains implementations of the exponential functions in raw C++.
+	@ingroup vec_exp
+ */
+namespace exp
+{
+
+/** @ingroup vec_exp
+	@{
+ */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void e (DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		data[i] = std::exp (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void eAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = std::exp (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void two (DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		data[i] = std::exp2 (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void twoAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = std::exp2 (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void pow (DataType* const dataAndDest, const DataType* const exponents, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dataAndDest[i] = std::pow (dataAndDest[i], exponents[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void powAndCopy (DataType* const dest, const DataType* const data, const DataType* const exponents, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = std::pow (data[i], exponents[i]);
+}
+
+/** @} */
+
+}  // namespace exp
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
 #pragma mark Audio utility functions
 
 /** @ingroup vec_audio

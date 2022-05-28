@@ -266,7 +266,7 @@ void multiplyAndCopy (DataType* const dest, const DataType* const origData, Size
 template <Scalar DataType, Integral SizeType>
 DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size)
 {
-	DataType dotProd { 0 };
+	[[maybe_unused]] DataType dotProd { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_dotpr (vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), &dotProd, vDSP_Length (size));
@@ -375,7 +375,7 @@ void squareAndCopy (DataType* const dest, const DataType* const data, SizeType s
 template <Scalar DataType, Integral SizeType>
 void squareRoot (DataType* const dataAndDest, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvsqrtf (dataAndDest, dataAndDest, &num);
@@ -388,7 +388,7 @@ void squareRoot (DataType* const dataAndDest, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvsqrtf (dest, data, &num);
@@ -401,7 +401,7 @@ void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeTy
 template <Scalar DataType, Integral SizeType>
 void invSquareRoot (DataType* const dataAndDest, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvrsqrtf (dataAndDest, dataAndDest, &num);
@@ -414,7 +414,7 @@ void invSquareRoot (DataType* const dataAndDest, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvrsqrtf (dest, data, &num);
@@ -566,7 +566,7 @@ void clipAndCopy (DataType* const dest, const DataType* const data, SizeType siz
 template <Scalar DataType, Integral SizeType>
 DataType max (const DataType* const data, SizeType size)
 {
-	DataType maxVal { 0 };
+	[[maybe_unused]] DataType maxVal { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_maxv (data, vDSP_Stride (1), &maxVal, vDSP_Length (size));
@@ -581,7 +581,7 @@ DataType max (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 void max (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex)
 {
-	vDSP_Length maxIdx { 0 };
+	[[maybe_unused]] vDSP_Length maxIdx { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_maxvi (data, vDSP_Stride (1), &maxValue, &maxIdx, vDSP_Length (size));
@@ -599,7 +599,7 @@ void max (const DataType* const data, SizeType size, DataType& maxValue, IndexTy
 template <Scalar DataType, Integral SizeType>
 DataType maxAbs (const DataType* const data, SizeType size)
 {
-	DataType maxVal { 0 };
+	[[maybe_unused]] DataType maxVal { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_maxmgv (data, vDSP_Stride (1), &maxVal, vDSP_Length (size));
@@ -614,7 +614,7 @@ DataType maxAbs (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex)
 {
-	vDSP_Length maxIdx { 0 };
+	[[maybe_unused]] vDSP_Length maxIdx { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_maxmgvi (data, vDSP_Stride (1), &maxValue, &maxIdx, vDSP_Length (size));
@@ -632,7 +632,7 @@ void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, Inde
 template <Scalar DataType, Integral SizeType>
 DataType min (const DataType* const data, SizeType size)
 {
-	DataType minVal { 0 };
+	[[maybe_unused]] DataType minVal { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_minv (data, vDSP_Stride (1), &minVal, vDSP_Length (size));
@@ -647,7 +647,7 @@ DataType min (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 void min (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex)
 {
-	vDSP_Length minIdx { 0 };
+	[[maybe_unused]] vDSP_Length minIdx { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_minvi (data, vDSP_Stride (1), &minValue, &minIdx, vDSP_Length (size));
@@ -665,7 +665,7 @@ void min (const DataType* const data, SizeType size, DataType& minValue, IndexTy
 template <Scalar DataType, Integral SizeType>
 DataType minAbs (const DataType* const data, SizeType size)
 {
-	DataType minVal { 0 };
+	[[maybe_unused]] DataType minVal { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_minmgv (data, vDSP_Stride (1), &minVal, vDSP_Length (size));
@@ -680,7 +680,7 @@ DataType minAbs (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType, Integral IndexType>
 void minAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex)
 {
-	vDSP_Length minIdx { 0 };
+	[[maybe_unused]] vDSP_Length minIdx { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_minmgvi (data, vDSP_Stride (1), &minValue, &minIdx, vDSP_Length (size));
@@ -718,7 +718,7 @@ void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, D
 template <Scalar DataType, Integral SizeType>
 DataType sum (const DataType* const data, SizeType size)
 {
-	DataType sumVal { 0 };
+	[[maybe_unused]] DataType sumVal { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_sve (data, vDSP_Stride (1), &sumVal, vDSP_Length (size));
@@ -733,7 +733,7 @@ DataType sum (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 DataType mean (const DataType* const data, SizeType size)
 {
-	DataType meanVal { 0 };
+	[[maybe_unused]] DataType meanVal { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_meanv (data, vDSP_Stride (1), &meanVal, vDSP_Length (size));
@@ -758,7 +758,7 @@ DataType standard_deviation (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvsincosf (sinesOut, cosinesOut, data, &num);
@@ -773,7 +773,7 @@ void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void sine (DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvsinf (data, data, &num);
@@ -786,7 +786,7 @@ LIMES_EXPORT void sine (DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void sineAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvsinf (dest, data, &num);
@@ -799,7 +799,7 @@ LIMES_EXPORT void sineAndCopy (DataType* const dest, const DataType* const data,
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void arcsine (DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvasinf (data, data, &num);
@@ -812,7 +812,7 @@ LIMES_EXPORT void arcsine (DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvasinf (dest, data, &num);
@@ -827,7 +827,7 @@ LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const da
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void cos (DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvacosf (data, data, &num);
@@ -840,7 +840,7 @@ LIMES_EXPORT void cos (DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void cosAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvcosf (dest, data, &num);
@@ -853,7 +853,7 @@ LIMES_EXPORT void cosAndCopy (DataType* const dest, const DataType* const data, 
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void arccos (DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvacosf (data, data, &num);
@@ -866,7 +866,7 @@ LIMES_EXPORT void arccos (DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvacosf (dest, data, &num);
@@ -881,7 +881,7 @@ LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const dat
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void tan (DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvtanf (data, data, &num);
@@ -894,7 +894,7 @@ LIMES_EXPORT void tan (DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void tanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvtanf (data, data, &num);
@@ -907,7 +907,7 @@ LIMES_EXPORT void tanAndCopy (DataType* const dest, const DataType* const data, 
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void arctan (DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvatanf (data, data, &num);
@@ -920,7 +920,7 @@ LIMES_EXPORT void arctan (DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vvatanf (data, data, &num);
@@ -929,6 +929,176 @@ LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const dat
 	else
 		fb::sine (data, size);
 }
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Exponential and logarithmic functions
+
+namespace log
+{
+
+template <Scalar DataType, Integral SizeType>
+void nat (DataType* const data, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvlogf (data, data, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvlog (data, data, &num);
+	else
+		fb::log::nat (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void natAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvlogf (dest, data, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvlog (dest, data, &num);
+	else
+		fb::log::natAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void base2 (DataType* const data, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvlog2f (data, data, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvlog2 (data, data, &num);
+	else
+		fb::log::base2 (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void base2AndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvlog2f (dest, data, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvlog2 (dest, data, &num);
+	else
+		fb::log::base2AndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void base10 (DataType* const data, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvlog10f (data, data, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvlog10 (data, data, &num);
+	else
+		fb::log::base10 (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void base10AndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvlog10f (dest, data, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvlog10 (dest, data, &num);
+	else
+		fb::log::base10AndCopy (dest, data, size);
+}
+
+}  // namespace log
+
+namespace exp
+{
+
+template <Scalar DataType, Integral SizeType>
+void e (DataType* const data, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvexpf (data, data, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvexp (data, data, &num);
+	else
+		fb::exp::e (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void eAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvexpf (dest, data, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvexp (dest, data, &num);
+	else
+		fb::exp::eAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void two (DataType* const data, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvexp2f (data, data, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvexp2 (data, data, &num);
+	else
+		fb::exp::two (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void twoAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvexp2f (dest, data, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvexp2 (dest, data, &num);
+	else
+		fb::exp::twoAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void pow (DataType* const dataAndDest, const DataType* const exponents, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvpowf (dataAndDest, exponents, dataAndDest, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvpow (dataAndDest, exponents, dataAndDest, &num);
+	else
+		fb::exp::pow (dataAndDest, exponents, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void powAndCopy (DataType* const dest, const DataType* const data, const DataType* const exponents, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvpowf (dest, exponents, data, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvpow (dest, exponents, data, &num);
+	else
+		fb::exp::powAndCopy (dest, data, exponents, size);
+}
+
+}  // namespace exp
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -943,7 +1113,7 @@ void mix (DataType* const output, const DataType* const * const origData, SizeTy
 template <Scalar DataType, Integral SizeType>
 DataType rms (const DataType* const data, SizeType size)
 {
-	DataType rms_val { 0 };
+	[[maybe_unused]] DataType rms_val { 0 };
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_rmsqv (data, vDSP_Stride (1), &rms_val, vDSP_Length (size));
@@ -958,7 +1128,7 @@ DataType rms (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 int countZeroCrossings (const DataType* const data, SizeType size)
 {
-	vDSP_Length lastFoundIdx, numCrossings;
+	[[maybe_unused]] vDSP_Length lastFoundIdx, numCrossings;
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_nzcros (data, vDSP_Stride (1), vDSP_Length (size), &lastFoundIdx, &numCrossings, vDSP_Length (size));
@@ -973,7 +1143,7 @@ int countZeroCrossings (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue)
 {
-	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
+	[[maybe_unused]] const auto increment = (endValue - startValue) / static_cast<DataType> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_vramp (&startValue, &increment, output, vDSP_Stride (1), vDSP_Length (size));
@@ -986,7 +1156,7 @@ void generateRamp (DataType* const output, SizeType size, DataType startValue, D
 template <Scalar DataType, Integral SizeType>
 void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue)
 {
-	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
+	[[maybe_unused]] const auto increment = (endValue - startValue) / static_cast<DataType> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_vrampmul (dataAndDest, vDSP_Stride (1), &startValue, &increment, dataAndDest, vDSP_Stride (1), vDSP_Length (size));
@@ -999,7 +1169,7 @@ void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue,
 template <Scalar DataType, Integral SizeType>
 void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
 {
-	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
+	[[maybe_unused]] const auto increment = (endValue - startValue) / static_cast<DataType> (size);
 
 	if constexpr (is_float_type<DataType>())
 		vDSP_vrampmul (data, vDSP_Stride (1), &startValue, &increment, dest, vDSP_Stride (1), vDSP_Length (size));
@@ -1111,7 +1281,7 @@ void polarToCartesianInterleaved (DataType* const dest, const DataType* const ma
 template <Scalar DataType, Integral SizeType>
 void cartesianToPolar (DataType* const mag, DataType* const phase, const DataType* const real, const DataType* const imag, SizeType size)
 {
-	const auto num = static_cast<int> (size);
+	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
 	{

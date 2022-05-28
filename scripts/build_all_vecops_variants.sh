@@ -48,9 +48,9 @@ do
 	cd "$limes_root" || exit 1
 
 	if [ "$define" = "LIMES_USE_VECOPS_FALLBACK" ]; then
-		cmake -B Builds -D LIMES_USE_VECOPS_FALLBACK=ON -D LIMES_IGNORE_POMMIER=ON -D LIMES_IGNORE_FFTW=ON | tee "$config_log"
+		cmake -B Builds -D LIMES_USE_VECOPS_FALLBACK=ON -D LIMES_IGNORE_POMMIER=ON -D LIMES_IGNORE_FFTW=ON -D LIMES_BUILD_DOCS=OFF -D LIMES_BUILD_TESTS=OFF | tee "$config_log"
 	else
-		cmake -B Builds -D "$define=ON" -D LIMES_IGNORE_FFTW=ON | tee "$config_log"
+		cmake -B Builds -D "$define=ON" -D LIMES_IGNORE_FFTW=ON -D LIMES_BUILD_DOCS=OFF -D LIMES_BUILD_TESTS=OFF | tee "$config_log"
 	fi
 
 	if [ $? -eq 0 ]; then

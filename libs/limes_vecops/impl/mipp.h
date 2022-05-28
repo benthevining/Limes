@@ -1455,6 +1455,156 @@ LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const dat
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Exponential and logarithmic functions
+
+namespace log
+{
+
+template <Scalar DataType, Integral SizeType>
+void nat (DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecOp = [&dataRegister, data] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::log (dataRegister);
+
+		dataRegister.store (&data[i]);
+	};
+
+	const auto scalarOp = [data] (auto i)
+	{
+		data[i] = std::log (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+void natAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecOp = [&dataRegister, data, dest] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::log (dataRegister);
+
+		dataRegister.store (&dest[i]);
+	};
+
+	const auto scalarOp = [dest, data] (auto i)
+	{
+		dest[i] = std::log (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+void base2 (DataType* const data, SizeType size)
+{
+	fb::log::base2 (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void base2AndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::log::base2AndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void base10 (DataType* const data, SizeType size)
+{
+	fb::log::base10 (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void base10AndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::log::base10AndCopy (dest, data, size);
+}
+
+}  // namespace log
+
+namespace exp
+{
+
+template <Scalar DataType, Integral SizeType>
+void e (DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecOp = [&dataRegister, data] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::exp (dataRegister);
+
+		dataRegister.store (&data[i]);
+	};
+
+	const auto scalarOp = [data] (auto i)
+	{
+		data[i] = std::exp (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+void eAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecOp = [&dataRegister, data, dest] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::exp (dataRegister);
+
+		dataRegister.store (&dest[i]);
+	};
+
+	const auto scalarOp = [data, dest] (auto i)
+	{
+		dest[i] = std::exp (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+void two (DataType* const data, SizeType size)
+{
+	fb::exp::two (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void twoAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::exp::twoAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void pow (DataType* const dataAndDest, const DataType* const exponents, SizeType size)
+{
+	fb::exp::pow (dataAndDest, exponents, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void powAndCopy (DataType* const dest, const DataType* const data, const DataType* const exponents, SizeType size)
+{
+	fb::exp::powAndCopy (dest, data, exponents, size);
+}
+
+}  // namespace exp
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
 #pragma mark Audio utility functions
 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
