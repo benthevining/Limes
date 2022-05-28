@@ -88,6 +88,38 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void swap (DataType* const vecA, DataType* co
 
 #pragma mark Arithmetic functions
 
+/** @ingroup vec_arithmetic
+	@{
+ */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void recip (DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+	{
+		const auto thisData = data[i];
+
+		if (thisData != DataType (0))
+			data[i] = DataType (1) / thisData;
+	}
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void recipAndCopy (DataType* const dest, const DataType* const origData, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+	{
+		const auto thisData = origData[i];
+
+		if (thisData == DataType (0))
+			dest[i] = DataType (0);
+		else
+			dest[i] = DataType (1) / thisData;
+	}
+}
+
+/** @} */
+
 /*-----  ADDITION  -----*/
 
 /** @ingroup vec_addition
@@ -382,6 +414,20 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void invSquareRootAndCopy (DataType* const de
 		vecops::squareRootAndCopy (dest, data, size);
 		vecops::divideInv (dest, size, DataType (1));
 	}
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void cubeRoot (DataType* const dataAndDest, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dataAndDest[i] = std::cbrt (dataAndDest[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void cubeRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = std::cbrt (data[i]);
 }
 
 /** @} */

@@ -48,6 +48,8 @@ endif
 
 override LIMES_ROOT = $(patsubst %/,%,$(strip $(dir $(realpath $(firstword $(MAKEFILE_LIST))))))
 
+override LIMES_SCRIPTS = $(LIMES_ROOT)/scripts
+
 #
 
 .PHONY: help
@@ -98,6 +100,11 @@ pack: build ## Creates a CPack installer
 .PHONY: test
 test: build ## runs all tests
 	@cd $(LIMES_ROOT) && $(CTEST) --preset default
+
+.PHONY: qc
+qc: ## Runs all qc scripts (takes a while!)
+	bash $(LIMES_SCRIPTS)/build_all.sh
+	bash $(LIMES_SCRIPTS)/build_all_vecops_variants.sh
 
 #
 

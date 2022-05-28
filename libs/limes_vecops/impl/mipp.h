@@ -135,6 +135,66 @@ void swap (DataType* const vecA, DataType* const vecB, SizeType size)
 
 #pragma mark Arithmetic functions
 
+template <Scalar DataType, Integral SizeType>
+void recip (DataType* const data, SizeType size)
+{
+	const auto oneRegister = mipp::set1 (DataType (1));
+
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecOp = [&dataRegister, &oneRegister, data] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = oneRegister / dataRegister;
+
+		dataRegister.store (&data[i]);
+	};
+
+	const auto scalarOp = [data] (auto i)
+	{
+		const auto thisData = data[i];
+
+		if (thisData != DataType (0))
+			data[i] = DataType (1) / thisData;
+	};
+
+	detail::perform<DataType> (size,
+							   std::move (vecOp),
+							   std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+void recipAndCopy (DataType* const dest, const DataType* const origData, SizeType size)
+{
+	const auto oneRegister = mipp::set1 (DataType (1));
+
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecOp = [&dataRegister, &oneRegister, dest, origData] (auto i)
+	{
+		dataRegister.load (&origData[i]);
+
+		dataRegister = oneRegister / dataRegister;
+
+		dataRegister.store (&dest[i]);
+	};
+
+	const auto scalarOp = [dest, origData] (auto i)
+	{
+		const auto thisData = origData[i];
+
+		if (thisData == DataType (0))
+			dest[i] = DataType (0);
+		else
+			dest[i] = DataType (1) / thisData;
+	};
+
+	detail::perform<DataType> (size,
+							   std::move (vecOp),
+							   std::move (scalarOp));
+}
+
 /*-----  ADDITION  -----*/
 
 template <Scalar DataType, Integral SizeType>
@@ -687,6 +747,17 @@ void invSquareRootAndCopy (DataType* const dest, const DataType* const data, Siz
 		fb::invSquareRootAndCopy (dest + vecLoopSize, data + vecLoopSize, numLeft);
 }
 
+template <Scalar DataType, Integral SizeType>
+void cubeRoot (DataType* const dataAndDest, SizeType size)
+{
+	fb::cubeRoot (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void cubeRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::cubeRootAndCopy (dest, data, size);
+}
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 

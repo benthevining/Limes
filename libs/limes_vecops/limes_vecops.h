@@ -162,11 +162,15 @@ concept Integral = std::is_integral_v<T>;
 
 #pragma mark Basic functions
 
-/** Fills the vector with the specified value. */
+/** Fills the vector with the specified value.
+	@see clear
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void fill (DataType* const data, SizeType size, DataType constantToFill);
 
-/** Fills the vector with zeroes. */
+/** Fills the vector with zeroes.
+	@see fill
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void clear (DataType* const data, SizeType size);
 
@@ -201,6 +205,24 @@ static void convert (DataType1* const dest, const DataType2* const source, SizeT
 	Basic arithmetic operations on vectors.
 	@ingroup limes_vecops
  */
+
+/** @ingroup vec_arithmetic
+	@{
+ */
+
+/** Replaces each value in the vector with its reciprocal.
+	@see recipAndCopy
+ */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void recip (DataType* const data, SizeType size);
+
+/** Writes the reciprocal of each value in the input vector to an output vector.
+	@see recip
+ */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void recipAndCopy (DataType* const dest, const DataType* const origData, SizeType size);
+
+/** @} */
 
 /*-----  ADDITION  -----*/
 
@@ -425,6 +447,18 @@ LIMES_EXPORT void invSquareRoot (DataType* const dataAndDest, SizeType size);
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
+/** Replaces every element in the vector with its cube root.
+	@see cubeRootAndCopy
+ */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void cubeRoot (DataType* const dataAndDest, SizeType size);
+
+/** Writes the cube root of every element in the original vector to the output vector.
+	@see cubeRoot
+ */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void cubeRootAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
 /** @} */
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -633,7 +667,9 @@ LIMES_EXPORT void minMaxAbs (const DataType* const data, SizeType size, DataType
 	maxAbs (data, size, maxValue, maxIndex);
 }
 
-/** Returns the difference between the maximum and minimum values in the vector. */
+/** Returns the difference between the maximum and minimum values in the vector.
+	@see rangeAbs
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType range (const DataType* const data, SizeType size)
 {
@@ -644,7 +680,9 @@ LIMES_EXPORT [[nodiscard]] DataType range (const DataType* const data, SizeType 
 	return maxVal - minVal;
 }
 
-/** Returns the difference between the maximum and minimum absolute values in the vector. */
+/** Returns the difference between the maximum and minimum absolute values in the vector.
+	@see range
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType rangeAbs (const DataType* const data, SizeType size)
 {
@@ -668,6 +706,7 @@ LIMES_EXPORT [[nodiscard]] DataType rangeAbs (const DataType* const data, SizeTy
 
 /** Simultaneously computes the sin and cosine of every value in the vector.
 	@ingroup vec_trig
+	@see sineAndCopy, cosAndCopy
  */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut);
@@ -683,19 +722,27 @@ LIMES_EXPORT void sinCos (const DataType* const data, SizeType size, DataType* c
 	@{
  */
 
-/** Replaces every value in the vector with its sine. */
+/** Replaces every value in the vector with its sine.
+	@see sineAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void sine (DataType* const data, SizeType size);
 
-/** Writes the sine of each element of the input vector to the output vector. */
+/** Writes the sine of each element of the input vector to the output vector.
+	@see sine
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void sineAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
-/** Replaces every value in the vector with its arcsine. */
+/** Replaces every value in the vector with its arcsine.
+	@see arcsineAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void arcsine (DataType* const data, SizeType size);
 
-/** Writes the arcsine of each element of the input vector to the output vector. */
+/** Writes the arcsine of each element of the input vector to the output vector.
+	@see arcsine
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
@@ -712,19 +759,27 @@ LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const da
 	@{
  */
 
-/** Replaces every value in the vector with its cosine. */
+/** Replaces every value in the vector with its cosine.
+	@see cosAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void cos (DataType* const data, SizeType size);
 
-/** Writes the cosine of each element of the input vector to the output vector. */
+/** Writes the cosine of each element of the input vector to the output vector.
+	@see cos
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void cosAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
-/** Replaces every value in the vector with its arccosine. */
+/** Replaces every value in the vector with its arccosine.
+	@see arccosAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void arccos (DataType* const data, SizeType size);
 
-/** Writes the arccosine of each element of the input vector to the output vector. */
+/** Writes the arccosine of each element of the input vector to the output vector.
+	@see arccos
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
@@ -741,19 +796,27 @@ LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const dat
 	@{
  */
 
-/** Replaces every value in the vector with its tangent. */
+/** Replaces every value in the vector with its tangent.
+	@see tanAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void tan (DataType* const data, SizeType size);
 
-/** Writes the tangent of each element of the input vector to the output vector. */
+/** Writes the tangent of each element of the input vector to the output vector.
+	@see tan
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void tanAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
-/** Replaces every value in the vector with its arctangent. */
+/** Replaces every value in the vector with its arctangent.
+	@see arctanAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void arctan (DataType* const data, SizeType size);
 
-/** Writes the arctangent of each element of the input vector to the output vector. */
+/** Writes the arctangent of each element of the input vector to the output vector.
+	@see arctan
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
@@ -778,27 +841,39 @@ namespace log
 	@{
  */
 
-/** Replaces each value in the vector with its natural logarithm. */
+/** Replaces each value in the vector with its natural logarithm.
+	@see natAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void nat (DataType* const data, SizeType size);
 
-/** Writes the natural logarithm of each value in the input vector to the output vector. */
+/** Writes the natural logarithm of each value in the input vector to the output vector.
+	@see nat
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void natAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
-/** Replaces each value in the vector with its base 2 logarithm. */
+/** Replaces each value in the vector with its base 2 logarithm.
+	@see base2AndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void base2 (DataType* const data, SizeType size);
 
-/** Writes the base 2 logarithm of each value in the input vector to the output vector. */
+/** Writes the base 2 logarithm of each value in the input vector to the output vector.
+	@see base2
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void base2AndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
-/** Replaces each value in the vector with its base 10 logarithm. */
+/** Replaces each value in the vector with its base 10 logarithm.
+	@see base10AndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void base10 (DataType* const data, SizeType size);
 
-/** Writes the base 10 logarithm of each value in the input vector to the output vector. */
+/** Writes the base 10 logarithm of each value in the input vector to the output vector.
+	@see base10
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void base10AndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
@@ -821,27 +896,39 @@ namespace exp
 	@{
  */
 
-/** Replaces each value in the vector with \c eˆvalue . */
+/** Replaces each value in the vector with \c eˆvalue .
+	@see eAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void e (DataType* const data, SizeType size);
 
-/** For each value in the input vector, writes \c eˆvalue to the output vector. */
+/** For each value in the input vector, writes \c eˆvalue to the output vector.
+	@see s
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void eAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
-/** Replaces each value in the vector with \c 2ˆvalue . */
+/** Replaces each value in the vector with \c 2ˆvalue .
+	@see twoAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void two (DataType* const data, SizeType size);
 
-/** For each value in the input vector, writes \c 2ˆvalue to the output vector. */
+/** For each value in the input vector, writes \c 2ˆvalue to the output vector.
+	@see two
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void twoAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
-/** Raises each value in the input vector to the power of the corresponding element of another vector. */
+/** Raises each value in the input vector to the power of the corresponding element of another vector.
+	@see powAndCopy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void pow (DataType* const dataAndDest, const DataType* const exponents, SizeType size);
 
-/** Raises each value in the input vector to the power of the corresponding element of another vector, then writes the result to an output vector. */
+/** Raises each value in the input vector to the power of the corresponding element of another vector, then writes the result to an output vector.
+	@see pow
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void powAndCopy (DataType* const dest, const DataType* const data, const DataType* const exponents, SizeType size);
 
@@ -1161,7 +1248,7 @@ LIMES_EXPORT void cartesianInterleavedToMagnitudes (DataType* const mag, const D
  */
 
 /** Controls whether denormalized numbers are enabled or disabled.
-	@see areDenormalsDisabled
+	@see areDenormalsDisabled, ScopedNoDenormals
  */
 LIMES_EXPORT void disableDenormalisedNumberSupport (bool shouldDisable = true) noexcept;
 
@@ -1170,7 +1257,9 @@ LIMES_EXPORT void disableDenormalisedNumberSupport (bool shouldDisable = true) n
  */
 LIMES_EXPORT [[nodiscard]] bool areDenormalsDisabled() noexcept;
 
-/** An RAII class that disables denormalized numbers when it is constructed, and resets the denormalized number state when it is destructed. */
+/** An RAII class that disables denormalized numbers when it is constructed, and resets the denormalized number state when it is destructed.
+	@see disableDenormalisedNumberSupport, areDenormalsDisabled
+ */
 class LIMES_EXPORT ScopedNoDenormals final
 {
 public:
@@ -1197,7 +1286,7 @@ private:
  */
 
 /** Controls whether flush to zero mode is enabled or disabled.
-	@see isFlushToZeroEnabled
+	@see isFlushToZeroEnabled, ScopedFlushToZero
  */
 LIMES_EXPORT void enableFlushToZeroMode (bool shouldEnable = true) noexcept;
 
@@ -1207,6 +1296,7 @@ LIMES_EXPORT void enableFlushToZeroMode (bool shouldEnable = true) noexcept;
 LIMES_EXPORT [[nodiscard]] bool isFlushToZeroEnabled() noexcept;
 
 /** An RAII class that enables flush to zero mode when it is constructed, and resets the flush to zero state when it is destructed.
+	@see enableFlushToZeroMode, isFlushToZeroEnabled
  */
 class LIMES_EXPORT ScopedFlushToZero final
 {

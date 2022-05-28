@@ -113,6 +113,32 @@ template <>
 
 #pragma mark Arithmetic functions
 
+template <Scalar DataType, Integral SizeType>
+void recip (DataType* const data, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvrecf (data, data, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvrec (data, data, &num);
+	else
+		fb::recip (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void recipAndCopy (DataType* const dest, const DataType* const origData, SizeType size)
+{
+	[[maybe_unused]] const auto num = static_cast<int> (size);
+
+	if constexpr (is_float_type<DataType>())
+		vvrecf (dest, origData, &num);
+	else if constexpr (is_double_type<DataType>())
+		vvrec (dest, origData, &num);
+	else
+		fb::recipAndCopy (dest, origData, size);
+}
+
 /*-----  ADDITION  -----*/
 
 template <Scalar DataType, Integral SizeType>
@@ -422,6 +448,18 @@ void invSquareRootAndCopy (DataType* const dest, const DataType* const data, Siz
 		vvrsqrt (dest, data, &num);
 	else
 		fb::invSquareRootAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void cubeRoot (DataType* const dataAndDest, SizeType size)
+{
+	fb::cubeRoot (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void cubeRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::cubeRootAndCopy (dest, data, size);
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------*/

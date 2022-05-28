@@ -63,6 +63,18 @@ void swap (DataType* const vecA, DataType* const vecB, SizeType size)
 
 #pragma mark Arithmetic functions
 
+template <Scalar DataType, Integral SizeType>
+void recip (DataType* const data, SizeType size)
+{
+	fb::recip (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void recipAndCopy (DataType* const dest, const DataType* const origData, SizeType size)
+{
+	fb::recipAndCopy (dest, origData, size);
+}
+
 /*-----  ADDITION  -----*/
 
 template <Scalar DataType, Integral SizeType>
@@ -241,6 +253,17 @@ void invSquareRootAndCopy (DataType* const dest, const DataType* const data, Siz
 	fb::invSquareRootAndCopy (dest, data, size);
 }
 
+template <Scalar DataType, Integral SizeType>
+void cubeRoot (DataType* const dataAndDest, SizeType size)
+{
+	fb::cubeRoot (dataAndDest, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+void cubeRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::cubeRootAndCopy (dest, data, size);
+}
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
