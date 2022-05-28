@@ -17,9 +17,8 @@
 /** @file
 	This file contains implementations of the vecops functions for the MIPP library.
 	@ingroup limes_vecops
+	@see limes_vecops.h
  */
-
-/// @cond
 
 LIMES_DISABLE_ALL_COMPILER_WARNINGS
 
@@ -28,6 +27,7 @@ LIMES_DISABLE_ALL_COMPILER_WARNINGS
 LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
 #include <limits>
+#include <cmath>
 #include <limes_vecops.h>
 #include "fallback_impl.h"
 #include <limes_namespace.h>
@@ -37,6 +37,8 @@ LIMES_BEGIN_NAMESPACE
 namespace vecops
 {
 
+/// @cond
+
 static_assert (isUsingMIPP());
 
 namespace detail
@@ -45,7 +47,9 @@ namespace detail
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE constexpr int getVecLoopSize (SizeType size)
 {
-	return static_cast<int> ((static_cast<decltype (mipp::N<DataType>())> (size) / mipp::N<DataType>()) * mipp::N<DataType>());
+	constinit const auto n = mipp::N<DataType>();
+
+	return static_cast<int> ((static_cast<decltype (n)> (size) / n) * n);
 }
 
 
@@ -54,8 +58,9 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void perform (SizeType size, VecorizedOp&& ve
 {
 	const auto vecLoopSize = getVecLoopSize<DataType> (size);
 
-	for (auto i = decltype (vecLoopSize) (0); i < vecLoopSize; i += mipp::N<DataType>())
-		vectorOp (i);
+	if (size >= mipp::N<DataType>())
+		for (auto i = decltype (vecLoopSize) (0); i < vecLoopSize; i += mipp::N<DataType>())
+			vectorOp (i);
 
 	for (auto i = vecLoopSize; i < static_cast<decltype (i)> (size); ++i)
 		scalarOp (i);
@@ -81,7 +86,7 @@ void fill (DataType* const data, SizeType size, DataType constantToFill)
 template <Scalar DataType, Integral SizeType>
 void clear (DataType* const data, SizeType size)
 {
-	fill (data, size, DataType (0));
+	fb::clear (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -696,8 +701,7 @@ void reverse (DataType* const dataAndDest, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	copy (dest, data, size);
-	reverse (dest, size);
+	fb::reverseAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -709,22 +713,19 @@ void sort (DataType* const dataAndDest, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	copy (dest, data, size);
-	sort (dest, size);
+	fb::sortAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void sortReverse (DataType* const dataAndDest, SizeType size)
 {
-	sort (dataAndDest, size);
-	reverse (dataAndDest, size);
+	fb::sortReverse (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	sortAndCopy (dest, data, size);
-	reverse (dest, size);
+	fb::sortReverseAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
@@ -1053,34 +1054,6 @@ void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, D
 							   std::move (scalarOp));
 }
 
-template <Scalar DataType, Integral SizeType, Integral IndexType>
-void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex)
-{
-	fb::minMaxAbs (data, size, minValue, minIndex, maxValue, maxIndex);
-}
-
-
-template <Scalar DataType, Integral SizeType>
-DataType range (const DataType* const data, SizeType size)
-{
-	DataType minValue, maxValue;
-
-	minMax (data, size, minValue, maxValue);
-
-	return maxValue - minValue;
-}
-
-template <Scalar DataType, Integral SizeType>
-DataType rangeAbs (const DataType* const data, SizeType size)
-{
-	DataType minValue, maxValue;
-
-	minMaxAbs (data, size, minValue, maxValue);
-
-	return maxValue - minValue;
-}
-
-
 template <Scalar DataType, Integral SizeType>
 DataType sum (const DataType* const data, SizeType size)
 {
@@ -1123,6 +1096,362 @@ DataType mean (const DataType* const data, SizeType size)
 	return result / static_cast<DataType> (size);
 }
 
+template <Scalar DataType, Integral SizeType>
+DataType standard_deviation (const DataType* const data, SizeType size)
+{
+	const auto meanVal = mean (data, size);
+
+	auto sumVal = DataType { 0 };
+
+	mipp::Reg<DataType> dataRegister;
+
+	const auto meanRegister = mipp::set1<DataType> (meanVal);
+
+	const auto vecOp = [data, &sumVal, &dataRegister, &meanRegister] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister -= meanRegister;
+
+		dataRegister *= dataRegister;
+
+		sumVal += mipp::sum (dataRegister);
+	};
+
+	const auto scalarOp = [data, meanVal, &sumVal] (auto i)
+	{
+		const auto val = data[i] - meanVal;
+		sumVal += (val * val);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+
+	return std::sqrt (sumVal / static_cast<DataType> (size));
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Trigonometric functions
+
+template <Scalar DataType, Integral SizeType>
+void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut)
+{
+	mipp::Reg<DataType> dataRegister sinRegister, cosRegister;
+
+	const auto vecOp = [&dataRegister, &sinRegister, &cosRegister, data, sinesOut, cosinesOut] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		mipp::sincos (dataRegister, sinRegister, cosRegister);
+
+		sinRegister.store (&sinesOut[i]);
+		cosRegister.store (&cosinesOut[i]);
+	};
+
+	const auto scalarOp = [data, sinesOut, cosinesOut] (auto i)
+	{
+		const auto thisData = data[i];
+
+		sinesOut[i]	  = std::sin (thisData);
+		cosinesOut[i] = std::sin (thisData);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+/* --- sin --- */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void sine (DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecOp = [data, &dataRegister] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::sin (dataRegister);
+
+		dataRegister.store (&data[i]);
+	};
+
+	const auto scalarOp = [data] (auto i)
+	{
+		data[i] = std::sin (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void sineAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecOp = [dest, data, &dataRegister] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::sin (dataRegister);
+
+		dataRegister.store (&dest[i]);
+	};
+
+	const auto scalarOp = [dest, data] (auto i)
+	{
+		dest[i] = std::sin (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arcsine (DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto oneRegister = mipp::set1 (DataType (1));
+
+	const auto vecOp = [data, &dataRegister, &oneRegister] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::sin (dataRegister);
+
+		dataRegister = oneRegister / dataRegister;
+
+		dataRegister.store (&data[i]);
+	};
+
+	const auto scalarOp = [data] (auto i)
+	{
+		data[i] = std::asin (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto oneRegister = mipp::set1 (DataType (1));
+
+	const auto vecOp = [dest, data, &dataRegister, &oneRegister] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::sin (dataRegister);
+
+		dataRegister = oneRegister / dataRegister;
+
+		dataRegister.store (&dest[i]);
+	};
+
+	const auto scalarOp = [dest, data] (auto i)
+	{
+		dest[i] = std::asin (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+/* --- cos --- */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void cos (DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecOp = [data, &dataRegister] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::cos (dataRegister);
+
+		dataRegister.store (&data[i]);
+	};
+
+	const auto scalarOp = [data] (auto i)
+	{
+		data[i] = std::cos (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void cosAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecOp = [dest, data, &dataRegister] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::cos (dataRegister);
+
+		dataRegister.store (&dest[i]);
+	};
+
+	const auto scalarOp = [dest, data] (auto i)
+	{
+		dest[i] = std::cos (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arccos (DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto oneRegister = mipp::set1 (DataType (1));
+
+	const auto vecOp = [data, &dataRegister, &oneRegister] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::cos (dataRegister);
+
+		dataRegister = oneRegister / dataRegister;
+
+		dataRegister.store (&data[i]);
+	};
+
+	const auto scalarOp = [data] (auto i)
+	{
+		data[i] = std::acos (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto oneRegister = mipp::set1 (DataType (1));
+
+	const auto vecOp = [dest, data, &dataRegister, &oneRegister] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::cos (dataRegister);
+
+		dataRegister = oneRegister / dataRegister;
+
+		dataRegister.store (&dest[i]);
+	};
+
+	const auto scalarOp = [dest, data] (auto i)
+	{
+		dest[i] = std::acos (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+/* --- tan --- */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void tan (DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecOp = [data, &dataRegister] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::tan (dataRegister);
+
+		dataRegister.store (&data[i]);
+	};
+
+	const auto scalarOp = [data] (auto i)
+	{
+		data[i] = std::tan (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void tanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto vecOp = [dest, data, &dataRegister] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::tan (dataRegister);
+
+		dataRegister.store (&dest[i]);
+	};
+
+	const auto scalarOp = [dest, data] (auto i)
+	{
+		dest[i] = std::tan (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arctan (DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto oneRegister = mipp::set1 (DataType (1));
+
+	const auto vecOp = [data, &dataRegister, &oneRegister] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::tan (dataRegister);
+
+		dataRegister = oneRegister / dataRegister;
+
+		dataRegister.store (&data[i]);
+	};
+
+	const auto scalarOp = [data] (auto i)
+	{
+		data[i] = std::atan (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	mipp::Reg<DataType> dataRegister;
+
+	const auto oneRegister = mipp::set1 (DataType (1));
+
+	const auto vecOp = [dest, data, &dataRegister, &oneRegister] (auto i)
+	{
+		dataRegister.load (&data[i]);
+
+		dataRegister = mipp::tan (dataRegister);
+
+		dataRegister = oneRegister / dataRegister;
+
+		dataRegister.store (&dest[i]);
+	};
+
+	const auto scalarOp = [dest, data] (auto i)
+	{
+		dest[i] = std::atan (data[i]);
+	};
+
+	detail::perform<DataType> (size, std::move (vecOp), std::move (scalarOp));
+}
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -1302,6 +1631,8 @@ void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeTyp
 namespace window
 {
 
+/* --- Blackman --- */
+
 template <Scalar DataType, Integral SizeType>
 void generateBlackman (DataType* const output, SizeType size)
 {
@@ -1354,9 +1685,10 @@ void applyBlackman (DataType* const dataAndDest, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	generateBlackman (dest, size);
-	multiply (dest, size, data);
+	fb::window::applyBlackmanAndCopy (dest, data, size);
 }
+
+/* --- Hamm --- */
 
 template <Scalar DataType, Integral SizeType>
 void generateHamm (DataType* const output, SizeType size)
@@ -1403,9 +1735,10 @@ void applyHamm (DataType* const dataAndDest, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	generateHamm (dest, size);
-	multiply (dest, size, data);
+	fb::window::applyHammAndCopy (dest, data, size);
 }
+
+/* --- Hanning --- */
 
 template <Scalar DataType, Integral SizeType>
 void generateHanning (DataType* const output, SizeType size)
@@ -1448,8 +1781,7 @@ void applyHanning (DataType* const dataAndDest, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	generateHanning (dest, size);
-	multiply (dest, size, data);
+	fb::window::applyHanningAndCopy (dest, data, size);
 }
 
 }  // namespace window
@@ -1492,8 +1824,8 @@ void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* cons
 	fb::cartesianInterleavedToMagnitudes (mag, src, size);
 }
 
+/// @endcond
+
 }  // namespace vecops
 
 LIMES_END_NAMESPACE
-
-/// @endcond

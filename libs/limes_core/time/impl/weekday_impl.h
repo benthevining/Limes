@@ -19,14 +19,15 @@
 /** @file
 	This file contains implementation details for the Weekday class.
 	@ingroup time
+	@see weekday.h
  */
-
-/// @cond
 
 LIMES_BEGIN_NAMESPACE
 
 namespace time
 {
+
+/// @cond
 
 template <bool StartWeekOnSunday>
 constexpr Weekday<StartWeekOnSunday>::Weekday (int daysSinceStartOfWeek) noexcept
@@ -265,9 +266,8 @@ consteval bool Weekday<StartWeekOnSunday>::startsWeekOnSunday() noexcept
 	return StartWeekOnSunday;
 }
 
+/// @endcond
 
 }  // namespace time
 
 LIMES_END_NAMESPACE
-
-/// @endcond

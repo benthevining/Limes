@@ -101,6 +101,8 @@ LIMES_EXPORT bool deallocate_aligned (T* ptr) noexcept
 	}
 }
 
+#pragma mark aligned_pointer
+
 /** An RAII object that calls \c allocate_aligned() on construction and \c deallocate_aligned() on destruction.
 	@tparam T The type of object that will be owned
 	@tparam UseExceptions Whether allocation failure should throw an exception

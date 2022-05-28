@@ -21,6 +21,7 @@
 /** @file
 	This file contains implementation details for the TypeList class.
 	@ingroup meta
+	@see TypeList.h
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -30,6 +31,8 @@ LIMES_BEGIN_NAMESPACE
  */
 namespace typelist
 {
+
+#pragma mark Misc utilities
 
 /** A placeholder class representing a type that is null, invalid, or nonexistent.
 	@ingroup meta
@@ -85,6 +88,8 @@ template <class LHS, class RHS>
 LIMES_EXPORT static constexpr const bool are_same_v = are_same<LHS, RHS>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Contains
 
 template <class Typelist, typename... TypesToFind>
 struct LIMES_EXPORT contains final
@@ -163,6 +168,8 @@ LIMES_EXPORT using add_from_t = typename add_from<List1, List2>::type;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark AddIfAbsent
+
 template <class Typelist, typename... TypesToAdd>
 struct LIMES_EXPORT addIfAbsent;
 
@@ -204,6 +211,8 @@ LIMES_EXPORT using addIfAbsent_t = typename addIfAbsent<Typelist, TypesToAdd...>
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark CommonWith
+
 template <class List1, class List2>
 struct LIMES_EXPORT common_with;
 
@@ -244,6 +253,8 @@ template <class List1, class List2>
 LIMES_EXPORT using common_t = typename common_with<List1, List2>::type;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark NotIn
 
 template <class List1, class List2>
 struct LIMES_EXPORT not_in;
@@ -288,6 +299,8 @@ template <class List1, class List2>
 LIMES_EXPORT static constexpr const bool same_ignoring_order_v = is_empty<not_in_t<List1, List2>>&& is_empty<not_in_t<List2, List1>>;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark InsertAt
 
 template <class Typelist, size_t Index, typename ToInsert>
 struct LIMES_EXPORT insert_at;
@@ -338,6 +351,8 @@ LIMES_EXPORT using append_t = add_t<Typelist, ToAppend>;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Get
+
 template <class Typelist, size_t Index>
 struct LIMES_EXPORT get;
 
@@ -382,6 +397,8 @@ LIMES_EXPORT using get_last_t = get_t<Typelist, size_v<Typelist> - 1>;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Find
+
 template <class Typelist, typename TypeToFind>
 struct LIMES_EXPORT find;
 
@@ -417,6 +434,8 @@ template <class Typelist, typename TypeToFind>
 LIMES_EXPORT static constexpr const size_t find_v = find<Typelist, TypeToFind>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Remove
 
 template <class Typelist, typename... TypesToRemove>
 struct LIMES_EXPORT remove;
@@ -462,6 +481,8 @@ LIMES_EXPORT using remove_null_types_t = remove_t<Typelist, NullType>;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark RemoveAt
+
 template <class Typelist, size_t Index>
 struct LIMES_EXPORT remove_at;
 
@@ -502,6 +523,8 @@ template <class Typelist, size_t Index>
 LIMES_EXPORT using remove_at_t = typename remove_at<Typelist, Index>::type;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark RemoveIf
 
 template <class Typelist, template <typename> class UnaryPredicate>
 struct LIMES_EXPORT remove_if;
@@ -545,6 +568,8 @@ LIMES_EXPORT using remove_if_t = typename remove_if<Typelist, UnaryPredicate>::t
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark RemoveIfNot
+
 template <class Typelist, template <typename> class UnaryPredicate>
 struct LIMES_EXPORT remove_if_not;
 
@@ -587,6 +612,8 @@ LIMES_EXPORT using remove_if_not_t = typename remove_if_not<Typelist, UnaryPredi
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Replace
+
 template <class Typelist, typename ToReplace, typename ReplaceWith>
 struct LIMES_EXPORT replace;
 
@@ -628,6 +655,8 @@ LIMES_EXPORT using replace_t = typename replace<Typelist, ToReplace, ReplaceWith
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark ReplaceAt
+
 template <class Typelist, size_t Index, typename ReplaceWith>
 struct LIMES_EXPORT replace_at;
 
@@ -668,6 +697,8 @@ template <class Typelist, size_t Index, typename ReplaceWith>
 LIMES_EXPORT using replace_at_t = typename replace_at<Typelist, Index, ReplaceWith>::type;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark SwapAt
 
 template <class Typelist, size_t Index1, size_t Index2>
 struct LIMES_EXPORT swap_at;
@@ -719,6 +750,8 @@ LIMES_EXPORT using swap_at_t = typename swap_at<Typelist, Index1, Index2>::type;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Swap
+
 template <class Typelist, typename Type1, typename Type2>
 struct LIMES_EXPORT swap;
 
@@ -745,6 +778,8 @@ template <class Typelist, typename Type1, typename Type2>
 LIMES_EXPORT using swap_t = typename swap<Typelist, Type1, Type2>::type;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Count
 
 template <class Typelist, typename ToCount>
 struct LIMES_EXPORT count;
@@ -781,6 +816,8 @@ template <class Typelist, typename ToCount>
 LIMES_EXPORT static constexpr const size_t count_v = count<Typelist, ToCount>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark CountIf
 
 template <class Typelist, template <typename> class UnaryPredicate>
 struct LIMES_EXPORT count_if;
@@ -829,6 +866,8 @@ template <class Typelist, template <typename> class UnaryPredicate>
 LIMES_EXPORT static constexpr const size_t count_if_not_v = count_if_not<Typelist, UnaryPredicate>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark RemoveDuplicates
 
 template <class Typelist>
 struct LIMES_EXPORT remove_duplicates;
@@ -887,6 +926,8 @@ template <class Typelist>
 LIMES_EXPORT static constexpr const bool contains_duplicates_v = contains_duplicates<Typelist>::value;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Reverse
 
 template <class Typelist>
 struct LIMES_EXPORT reverse;

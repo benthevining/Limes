@@ -19,21 +19,24 @@
 /** @file
 	This file defines the FFTW FFT implementation.
 	@ingroup fft
+	@see limes_fft.h
  */
+
+/// @cond internals
+#if defined(DOXYGEN) || ! defined(FFTW_HEADER_NAME)
+#	define FFTW_HEADER_NAME <fftw3.h>
+#endif
+/// @endcond
 
 /// @cond
 
-#ifndef FFTW_HEADER_NAME
-#	define FFTW_HEADER_NAME <fftw3.h>
-#endif
-
 #include FFTW_HEADER_NAME
 
-#ifndef FFTW_SINGLE_ONLY
+#if defined(DOXYGEN) || ! defined(FFTW_SINGLE_ONLY)
 #	define FFTW_SINGLE_ONLY 0
 #endif
 
-#ifndef FFTW_DOUBLE_ONLY
+#if defined(DOXYGEN) || ! defined(FFTW_DOUBLE_ONLY)
 #	define FFTW_DOUBLE_ONLY 0
 #endif
 
@@ -41,10 +44,14 @@
 #	error FFTW_SINGLE_ONLY and FFTW_DOUBLE_ONLY cannot both be defined to 1!
 #endif
 
+/// @endcond
+
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
 {
+
+/// @cond internals
 
 template <bool IsDouble>
 LIMES_NO_EXPORT void fftw_save_wisdom();
@@ -114,8 +121,8 @@ private:
 	static int m_extant;
 };
 
+/// @endcond
+
 }  // namespace vecops
 
 LIMES_END_NAMESPACE
-
-/// @endcond

@@ -33,6 +33,8 @@ LIMES_BEGIN_NAMESPACE
 namespace memory
 {
 
+#pragma mark MemoryPool
+
 /** This class is a pool of preallocated memory that can be doled out in smaller chunks, allowing objects to be dynamically created and destroyed without incurring memory allocations.
 	The pool's total size must be declared upon construction.
 	Internally, the pool manages its memory using the concept of "chunks" -- each time some memory from the pool is requested, the pool rounds the requested number of bytes up to the next multiple of its chunk size, then it finds the first occurrence of the needed number of contiguous available chunks.
@@ -161,6 +163,8 @@ private:
 
 /*-----------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark MemoryPoolPointer
+
 /** A smart pointer to an object that lives within a MemoryPool.
 	@tparam ObjectType The type of the owned object
 	@tparam AllowOverflowAllocation If true, then if allocating from the memory pool fails, this class will fall back to using a regular \c new call. If this parameter is false, then if allocating from the pool fails, this object will be in a null state.
@@ -221,6 +225,8 @@ private:
 };
 
 /*-----------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark MemoryPool implementation
 
 template <typename ObjectType>
 std::unique_ptr<MemoryPool> createFor (std::size_t desiredCapacity)
@@ -297,6 +303,7 @@ bool MemoryPool::owns (const ObjectType& object) const noexcept
 
 /*-----------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark MemoryPoolPointer implementation
 
 template <typename ObjectType, bool AllowOverflowAllocation>
 template <typename... Args>

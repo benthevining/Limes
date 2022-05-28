@@ -16,10 +16,18 @@
 #include "../../math/mathHelpers.h"
 #include "../build_date.h"
 
+/** @file
+	This file contains implementation details for the Year class.
+	@ingroup time
+	@see year.h
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace time
 {
+
+/// @cond
 
 constexpr Year::Year (int yearNumber) noexcept
 	: year (yearNumber)
@@ -144,6 +152,8 @@ constexpr bool Year::operator!= (int other) const noexcept
 {
 	return year != other;
 }
+
+/// @endcond
 
 }  // namespace time
 

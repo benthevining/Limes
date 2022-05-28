@@ -20,18 +20,21 @@
 	@ingroup limes_vecops
  */
 
-/// @cond internals
-
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains implementation details for the vecops functions.
+	@ingroup limes_vecops
+ */
 namespace vecops::detail
 {
+
+/// @cond internals
 
 template <typename T>
 LIMES_NO_EXPORT void phasor (T* const real, T* const imag, T phase);
 
-}
+/// @endcond
+
+}  // namespace vecops::detail
 
 LIMES_END_NAMESPACE
-
-/// @endcond

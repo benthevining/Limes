@@ -31,6 +31,8 @@ LIMES_BEGIN_NAMESPACE
 namespace meta
 {
 
+#pragma mark TypeList
+
 /**
 	A compile-time list of types that can be manipulated.
 
@@ -352,7 +354,7 @@ public:
 	 */
 	template <func::Function Func, typename... Args>
 	static constexpr auto for_all (Func&& f, Args&&... args) noexcept (noexcept (f().template operator()<Types...> (std::forward<Args> (args)...)))
-		-> std::invoke_result_t<Func, Args...>
+		-> func::result_type<Func, Args...>
 	{
 		return f().template operator()<Types...> (std::forward<Args> (args)...);
 	}
@@ -361,6 +363,8 @@ public:
 /*----------------------------------------------------------------------------------------------------------------------*/
 
 /// @cond internals
+
+#pragma mark Empty TypeList specialization
 
 template <>
 class LIMES_EXPORT TypeList<> final
@@ -487,13 +491,15 @@ public:
 
 	template <func::Function Func, typename... Args>
 	static constexpr auto for_all (Func&& f, Args&&... args) noexcept (noexcept (f().template operator()<> (std::forward<Args> (args)...)))
-		-> std::invoke_result_t<Func, Args...>
+		-> func::result_type<Func, Args...>
 	{
 		return f().template operator()<> (std::forward<Args> (args)...);
 	}
 };
 
 /// @endcond
+
+#pragma mark Misc utilities
 
 /** A utility typedef for an empty TypeList.
 	@ingroup meta

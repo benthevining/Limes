@@ -52,6 +52,8 @@ and/or one of:
 static_assert (sizeof (float) == 4, "float is not 32-bits wide");
 static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 
+#pragma mark Macros
+
 #ifdef DOXYGEN
 
 /** @def LIMES_VECOPS_USE_VDSP
@@ -556,6 +558,29 @@ LIMES_EXPORT void clip (DataType* const dataAndDest, SizeType size, DataType low
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void clipAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip = -1, DataType hiClip = 1);
 
+/** Returns the sum of all the values in the vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT [[nodiscard]] DataType sum (const DataType* const data, SizeType size);
+
+/** Returns the mean of the values in the vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT [[nodiscard]] DataType mean (const DataType* const data, SizeType size);
+
+/** Returns the standard deviation of the values in the vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT [[nodiscard]] DataType standard_deviation (const DataType* const data, SizeType size);
+
+/** @} */
+
+/** @defgroup vec_extrema Extrema calculation
+	Extrema calculation functions for vectors.
+	@ingroup vec_stats
+ */
+
+/** @ingroup vec_extrema
+	@{
+ */
+
 /** Returns the maximum element in a vector. */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType max (const DataType* const data, SizeType size);
@@ -602,23 +627,135 @@ LIMES_EXPORT void minMaxAbs (const DataType* const data, SizeType size, DataType
 
 /** Finds the minimum and maximum absolute values in a vector, and their indices in the vector. */
 template <Scalar DataType, Integral SizeType, Integral IndexType>
-LIMES_EXPORT void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex);
+LIMES_EXPORT void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex)
+{
+	minAbs (data, size, minValue, minIndex);
+	maxAbs (data, size, maxValue, maxIndex);
+}
 
 /** Returns the difference between the maximum and minimum values in the vector. */
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT [[nodiscard]] DataType range (const DataType* const data, SizeType size);
+LIMES_EXPORT [[nodiscard]] DataType range (const DataType* const data, SizeType size)
+{
+	DataType minVal, maxVal;
+
+	minMax (data, size, minVal, maxVal);
+
+	return maxVal - minVal;
+}
 
 /** Returns the difference between the maximum and minimum absolute values in the vector. */
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT [[nodiscard]] DataType rangeAbs (const DataType* const data, SizeType size);
+LIMES_EXPORT [[nodiscard]] DataType rangeAbs (const DataType* const data, SizeType size)
+{
+	DataType minVal, maxVal;
 
-/** Returns the sum of all the values in the vector. */
-template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT [[nodiscard]] DataType sum (const DataType* const data, SizeType size);
+	minMaxAbs (data, size, minVal, maxVal);
 
-/** Returns the mean of the values in the vector. */
+	return maxVal - minVal;
+}
+
+/** @} */
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Trigonometric functions
+
+/** @defgroup vec_trig Trigonometric functions
+	Trigonometric functions for vectors.
+	@ingroup limes_vecops
+ */
+
+/** Simultaneously computes the sin and cosine of every value in the vector.
+	@ingroup vec_trig
+ */
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT [[nodiscard]] DataType mean (const DataType* const data, SizeType size);
+LIMES_EXPORT void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut);
+
+/* --- sin --- */
+
+/** @defgroup vec_sin Sine functions
+	Sine and arcsine functions for vectors.
+	@ingroup vec_trig
+ */
+
+/** @ingroup vec_sin
+	@{
+ */
+
+/** Replaces every value in the vector with its sine. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void sine (DataType* const data, SizeType size);
+
+/** Writes the sine of each element of the input vector to the output vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void sineAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+/** Replaces every value in the vector with its arcsine. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arcsine (DataType* const data, SizeType size);
+
+/** Writes the arcsine of each element of the input vector to the output vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+/** @} */
+
+/* --- cos --- */
+
+/** @defgroup vec_cos Cosine functions
+	Cosine and arccosine functions for vectors.
+	@ingroup vec_trig
+ */
+
+/** @ingroup vec_cos
+	@{
+ */
+
+/** Replaces every value in the vector with its cosine. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void cos (DataType* const data, SizeType size);
+
+/** Writes the cosine of each element of the input vector to the output vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void cosAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+/** Replaces every value in the vector with its arccosine. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arccos (DataType* const data, SizeType size);
+
+/** Writes the arccosine of each element of the input vector to the output vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+/** @} */
+
+/* --- tan --- */
+
+/** @defgroup vec_tan Tangent functions
+	Tangent and arctangent functions for vectors.
+	@ingroup vec_trig
+ */
+
+/** @ingroup vec_tan
+	@{
+ */
+
+/** Replaces every value in the vector with its tangent. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void tan (DataType* const data, SizeType size);
+
+/** Writes the tangent of each element of the input vector to the output vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void tanAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+/** Replaces every value in the vector with its arctangent. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arctan (DataType* const data, SizeType size);
+
+/** Writes the arctangent of each element of the input vector to the output vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
 /** @} */
 
@@ -682,7 +819,14 @@ LIMES_EXPORT void applyRampAndCopy (DataType* const dest, const DataType* const 
 namespace window
 {
 
-/** @ingroup vec_window
+/* --- Blackman --- */
+
+/** @defgroup vec_blackman Blackman windowing
+	Blackman windowing functions.
+	@ingroup vec_window
+ */
+
+/** @ingroup vec_blackman
 	@{
  */
 
@@ -704,6 +848,19 @@ LIMES_EXPORT void applyBlackman (DataType* const dataAndDest, SizeType size);
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size);
 
+/** @} */
+
+/* --- Hamm --- */
+
+/** @defgroup vec_hamm Hamm windowing
+	Hamm (Hamming) windowing functions.
+	@ingroup vec_window
+ */
+
+/** @ingroup vec_hamm
+	@{
+ */
+
 /** Generates a Hamm (Hamming) window, writing the output samples to a vector.
 	@see applyHamm, applyHammAndCopy
  */
@@ -721,6 +878,19 @@ LIMES_EXPORT void applyHamm (DataType* const dataAndDest, SizeType size);
  */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size);
+
+/** @} */
+
+/* --- Hanning --- */
+
+/** @defgroup vec_hanning Hanning windowing
+	Hanning windowing functions.
+	@ingroup vec_window
+ */
+
+/** @ingroup vec_hanning
+	@{
+ */
 
 /** Generates a Hanning window, writing the output samples to a vector.
 	@see applyHanning, applyHanningAndCopy
@@ -742,6 +912,60 @@ LIMES_EXPORT void applyHanningAndCopy (DataType* const dest, const DataType* con
 
 /** @} */
 
+/* --- General --- */
+
+/** @ingroup vec_window
+	@{
+ */
+
+/** Represents a type of windowing function. */
+LIMES_EXPORT enum class Type {
+	Blackman,
+	Hamm,
+	Hanning
+};
+
+/** Generates a %window function of the desired \c type , writing the output samples to a vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void generate (DataType* const output, SizeType size, Type type)
+{
+	switch (type)
+	{
+		case (Type::Blackman) : return generateBlackman (output, size);
+		case (Type::Hamm) : return generateHamm (output, size);
+		case (Type::Hanning) : return generateHanning (output, size);
+		default : LIMES_UNREACHABLE;
+	}
+}
+
+/** Applies a %window function of the desired \c type to the samples in the vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void apply (DataType* const output, SizeType size, Type type)
+{
+	switch (type)
+	{
+		case (Type::Blackman) : return applyBlackman (output, size);
+		case (Type::Hamm) : return applyHamm (output, size);
+		case (Type::Hanning) : return applyHanning (output, size);
+		default : LIMES_UNREACHABLE;
+	}
+}
+
+/** Applies a %window function of the desired \c type to the samples in the vector, writing the output samples to another vector. */
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void applyAndCopy (DataType* const dest, const DataType* const data, SizeType size, Type type)
+{
+	switch (type)
+	{
+		case (Type::Blackman) : return applyBlackmanAndCopy (dest, data, size);
+		case (Type::Hamm) : return applyHammAndCopy (dest, data, size);
+		case (Type::Hanning) : return applyHanningAndCopy (dest, data, size);
+		default : LIMES_UNREACHABLE;
+	}
+}
+
+/** @} */
+
 }  // namespace window
 
 
@@ -749,8 +973,8 @@ LIMES_EXPORT void applyHanningAndCopy (DataType* const dest, const DataType* con
 
 #pragma mark Complex conversions
 
-/** @defgroup vec_complex Windowing functions
-	Windowing functions for vectors.
+/** @defgroup vec_complex Complex conversions
+	Complex number conversion functions for vectors.
 	@ingroup limes_vecops
  */
 
@@ -775,7 +999,7 @@ LIMES_EXPORT void polarToCartesian (DataType* const real, DataType* const imag, 
 	@param dest Interleaved cartesian signal out. The size of this vector should be \c 2*size .
 	@param mag Magnitude in
 	@param phase Phase in
-	@size Data size
+	@param size Data size
 	@see polarToCartesian
  */
 template <Scalar DataType, Integral SizeType>
@@ -836,7 +1060,14 @@ LIMES_EXPORT void cartesianInterleavedToMagnitudes (DataType* const mag, const D
 	@ingroup limes_vecops
  */
 
-/** @ingroup vec_fpm
+/* --- Denormals --- */
+
+/** @defgroup vec_denormals Denormalized number support
+	Denormalized number support utilities.
+	@ingroup vec_fpm
+ */
+
+/** @ingroup vec_denormals
 	@{
  */
 
@@ -850,18 +1081,7 @@ LIMES_EXPORT void disableDenormalisedNumberSupport (bool shouldDisable = true) n
  */
 LIMES_EXPORT [[nodiscard]] bool areDenormalsDisabled() noexcept;
 
-/** Controls whether flush to zero mode is enabled or disabled.
-	@see isFlushToZeroEnabled
- */
-LIMES_EXPORT void enableFlushToZeroMode (bool shouldEnable = true) noexcept;
-
-/** Returns true if flush to zero mode is enabled.
-	@see enableFlushToZeroMode
- */
-LIMES_EXPORT [[nodiscard]] bool isFlushToZeroEnabled() noexcept;
-
-/** An RAII class that disables denormalized numbers when it is constructed, and resets the denormalized number state when it is destructed.
- */
+/** An RAII class that disables denormalized numbers when it is constructed, and resets the denormalized number state when it is destructed. */
 class LIMES_EXPORT ScopedNoDenormals final
 {
 public:
@@ -873,6 +1093,29 @@ private:
 
 	const intptr_t fpsr;
 };
+
+/** @} */
+
+/* --- Flush-to-zero --- */
+
+/** @defgroup vec_ftz Flush-to-zero support
+	Flush-to-zero support utilities.
+	@ingroup vec_fpm
+ */
+
+/** @ingroup vec_ftz
+	@{
+ */
+
+/** Controls whether flush to zero mode is enabled or disabled.
+	@see isFlushToZeroEnabled
+ */
+LIMES_EXPORT void enableFlushToZeroMode (bool shouldEnable = true) noexcept;
+
+/** Returns true if flush to zero mode is enabled.
+	@see enableFlushToZeroMode
+ */
+LIMES_EXPORT [[nodiscard]] bool isFlushToZeroEnabled() noexcept;
 
 /** An RAII class that enables flush to zero mode when it is constructed, and resets the flush to zero state when it is destructed.
  */

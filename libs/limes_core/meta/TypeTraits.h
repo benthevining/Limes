@@ -64,6 +64,8 @@ concept same_as = std::is_same_v<A, B>;
 template <class ClassToTest, typename RequiredBase>
 concept inherits_from = std::is_base_of_v<RequiredBase, ClassToTest>;
 
+#pragma mark is_specialization
+
 /// @cond
 
 template <class T, template <class...> class Template>
@@ -93,6 +95,8 @@ concept specializes = requires
 {
 	is_specialization_v<ClassToTest, Template>;
 };
+
+#pragma mark Covariance check
 
 /// @cond
 
@@ -124,7 +128,9 @@ concept covariant_subtype_of = requires
 	is_covariant_v<Derived, Base>;
 };
 
-/// @cond
+	/// @cond
+
+#pragma mark is_one_of & is_none_of
 
 template <typename Test, typename... Types>
 struct LIMES_EXPORT is_one_of final : std::disjunction<std::is_same<Test, Types>...>
@@ -162,6 +168,8 @@ static constexpr const bool is_none_of_v = is_none_of<Test, Types...>::value;
 
 namespace misc
 {
+
+#pragma mark getDemangledTypeName
 
 /** Returns the demangled name of the type of the passed object.
 	@ingroup meta

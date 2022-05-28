@@ -48,6 +48,12 @@ concept Function = requires (T f)
 };
 // clang-format on
 
+/** This typedef evaluates to the result type returned by calling the given function with the given arguments.
+	@ingroup func
+ */
+template <Function Func, typename... Args>
+LIMES_EXPORT using result_type = std::invoke_result_t<std::decay_t<Func>, std::decay_t<Args>...>;
+
 /** Calls the function object exactly once throughout the entire life of the program.
 	Note that the call counter is specific to this process.
 	@param func Function to call

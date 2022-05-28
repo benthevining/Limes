@@ -42,7 +42,7 @@ namespace strings
 	@{
  */
 
-/** Returns true if the passed string is \c \n or \c \r\n . */
+/** Returns true if the passed string is \c \\n or \c \\r\\n . */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION bool isNewline (const std::string_view& string) noexcept;
 
 /** Returns true if the two strings contain exactly the same characters. */
@@ -107,7 +107,7 @@ LIMES_EXPORT [[nodiscard]] std::vector<std::string> split (const std::string_vie
 LIMES_EXPORT [[nodiscard]] std::vector<std::string> splitAtWhitespace (const std::string_view& stringToSplit);
 
 /** Splits the input string into lines.
-	The input string can use \c \n or \c \r\n for its newline characters, or a mixture of both.
+	The input string can use \c \\n or \c \\r\\n for its newline characters, or a mixture of both.
  */
 LIMES_EXPORT [[nodiscard]] std::vector<std::string> splitAtNewlines (const std::string_view& stringToSplit);
 
@@ -123,7 +123,7 @@ LIMES_EXPORT [[nodiscard]] std::string joinWithWhitespace (const std::vector<std
 /** Joins the strings together, using the platform's preferred newline character as the token delimiter. */
 LIMES_EXPORT [[nodiscard]] std::string joinWithNewlines (const std::vector<std::string>& strings);
 
-/** Returns the platform's preferred newline separator: \c \r\n on Windows, \c \n everywhere else.
+/** Returns the platform's preferred newline separator: \c \\r\\n on Windows, \c \\n everywhere else.
 	@see new_line
  */
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr std::string_view getNewline() noexcept;

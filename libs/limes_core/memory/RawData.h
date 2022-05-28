@@ -170,11 +170,19 @@ public:
 		Copies this object's data to the specified destination.
 	 */
 	///@{
+	/**
+		@param dest The destination to copy this object's data to.
+		@param maxNumBytes The maximum number of bytes this function will copy to the output.
+	 */
 	void copyTo (char* const dest, std::size_t maxNumBytes) const;
 
-	/** @param allowAllocation If this is false, the data may be truncated if the destination object has a smaller preallocated memory size than the data size.
+	/** @param other %RawData object to copy this object's memory into.
+		@param allowAllocation If this is false, the data may be truncated if the destination object has a smaller preallocated memory size than the data size.
 	 */
 	void copyTo (RawData& other, bool allowAllocation = true) const;
+
+	/** Returns a new %RawData object that contains a copy of this object's data. */
+	[[nodiscard]] RawData createCopy() const;
 	///@}
 
 	/** Writes the specified value to every byte in this object's owned memory. */

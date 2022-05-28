@@ -20,14 +20,15 @@
 	This file includes the fallback implementations of the vecops functions.
 	All the functions in this file simply wrap the functions in fallback_impl.h, which is also included by the other implementations, to cover any functions their libraries may not provide.
 	@ingroup limes_vecops
+	@see limes_vecops.h
  */
-
-/// @cond
 
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
 {
+
+/// @cond
 
 #pragma mark Basic functions
 
@@ -430,6 +431,112 @@ DataType mean (const DataType* const data, SizeType size)
 	return fb::mean (data, size);
 }
 
+template <Scalar DataType, Integral SizeType>
+DataType median (const DataType* const data, SizeType size)
+{
+	return fb::median (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType mode (const DataType* const data, SizeType size)
+{
+	return fb::mode (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+DataType standard_deviation (const DataType* const data, SizeType size)
+{
+	return fb::standard_deviation (data, size);
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Trigonometric functions
+
+template <Scalar DataType, Integral SizeType>
+void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut)
+{
+	fb::sinCos (data, size, sinesOut, cosinesOut);
+}
+
+/* --- sin --- */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void sine (DataType* const data, SizeType size)
+{
+	fb::sine (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void sineAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::sineAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arcsine (DataType* const data, SizeType size)
+{
+	fb::sine (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::arcsineAndCopy (dest, data, size);
+}
+
+/* --- cos --- */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void cos (DataType* const data, SizeType size)
+{
+	fb::cos (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void cosAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::cosAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arccos (DataType* const data, SizeType size)
+{
+	fb::arccos (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::arccosAndCopy (dest, data, size);
+}
+
+/* --- tan --- */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void tan (DataType* const data, SizeType size)
+{
+	fb::tan (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void tanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::tanAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arctan (DataType* const data, SizeType size)
+{
+	fb::arctan (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::arctanAndCopy (dest, data, size);
+}
+
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Audio utility functions
@@ -571,9 +678,8 @@ void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* cons
 	fb::cartesianInterleavedToMagnitudes (mag, src, size);
 }
 
+/// @endcond
 
 }  // namespace vecops
 
 LIMES_END_NAMESPACE
-
-/// @endcond

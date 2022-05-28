@@ -33,6 +33,8 @@ LIMES_BEGIN_NAMESPACE
 namespace files
 {
 
+#pragma mark File
+
 File& File::operator= (const Path& newPath)
 {
 	assignPath (newPath);
@@ -212,6 +214,8 @@ CFile File::getCfile (CFile::Mode mode) const noexcept
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark TempFile
 
 TempFile::TempFile (const std::string_view& filename, bool destroyOnDelete)
 	: File (Directory::getTempFileDirectory().getAbsolutePath() / filename), shouldDelete (destroyOnDelete)

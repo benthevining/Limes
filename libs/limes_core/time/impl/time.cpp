@@ -38,6 +38,8 @@ namespace time
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Year
+
 Year Year::getCurrent()
 {
 	if (const auto* localtime = getCurrentLocalTime())
@@ -81,6 +83,8 @@ int Year::getNumWeeks() const noexcept
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Month
+
 Month::Month (std::time_t time)
 	: Month (*std::localtime (&time))
 {
@@ -95,6 +99,8 @@ Month Month::getCurrent()
 }
 
 /*-------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Weekday
 
 template <bool StartWeekOnSunday>
 Weekday<StartWeekOnSunday> Weekday<StartWeekOnSunday>::getCurrent()
@@ -115,6 +121,8 @@ template class Weekday<true>;
 template class Weekday<false>;
 
 /*-------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Date
 
 Date::Date (std::time_t time)
 	: Date (*std::localtime (&time))
@@ -153,6 +161,8 @@ std::string Date::toString (bool shortMonthName) const
 
 /*-------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Hour
+
 Hour::Hour (std::time_t time)
 	: Hour (*std::localtime (&time))
 {
@@ -167,6 +177,8 @@ Hour Hour::getCurrent()
 }
 
 /*-------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Time
 
 Time::Time (std::time_t time)
 	: Time (*std::localtime (&time))
@@ -226,6 +238,8 @@ std::string Time::toString (bool as24HourTime) const
 }
 
 /*-------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark DateTime
 
 DateTime::DateTime (std::time_t t)
 	: DateTime (*std::localtime (&t))

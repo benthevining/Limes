@@ -20,14 +20,15 @@
 /** @file
 	This file contains implementation details for the Month class.
 	@ingroup time
+	@see month.h
  */
-
-/// @cond
 
 LIMES_BEGIN_NAMESPACE
 
 namespace time
 {
+
+/// @cond
 
 constexpr Month::Month (int number) noexcept
 	: monthNum (number)
@@ -209,8 +210,8 @@ constexpr std::string_view Month::getString (bool useShort) const noexcept
 	return result;
 }
 
+/// @endcond
+
 }  // namespace time
 
 LIMES_END_NAMESPACE
-
-/// @endcond

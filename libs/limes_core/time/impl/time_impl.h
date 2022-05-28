@@ -18,14 +18,15 @@
 /** @file
 	This file contains implementation details for the Time class.
 	@ingroup time
+	@see time.h
  */
-
-/// @cond
 
 LIMES_BEGIN_NAMESPACE
 
 namespace time
 {
+
+/// @cond
 
 constexpr Time::Time (const Hour& h, int min, int sec) noexcept
 	: hour (h), minute (min), second (sec)
@@ -129,8 +130,8 @@ consteval Time Time::getCompilationTime() noexcept
 	return Time { build_hour(), build_minute(), build_second() };
 }
 
+/// @endcond
+
 }  // namespace time
 
 LIMES_END_NAMESPACE
-
-/// @endcond

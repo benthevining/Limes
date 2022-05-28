@@ -10,12 +10,13 @@
  * ======================================================================================
  */
 
+/// @cond internals
+
 /** @file
 	This file contains the Pommier SIMD extension functions for SSE.
-	@ingroup limes_vecops
+	@ingroup vec_pommier
+	@see pommier_wrapper.h
  */
-
-/// @cond internals
 
 /* SIMD (SSE1+MMX or SSE2) implementation of sin, cos, exp and log
 
@@ -77,7 +78,6 @@ using v4si = __m128i;  // vector of 4 int (sse2)
 #else
 using v2si = __m64;	 // vector of 2 int (mmx)
 #endif
-
 
 #if defined(__MINGW32__)
 

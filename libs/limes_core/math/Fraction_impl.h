@@ -19,15 +19,16 @@
 
 /** @file
 	This file contains implementation details for the Fraction class.
+	@see Fraction.h
 	@ingroup math
  */
-
-/// @cond
 
 LIMES_BEGIN_NAMESPACE
 
 namespace math
 {
+
+/// @cond
 
 template <Scalar ValueType>
 constexpr Fraction<ValueType>::Fraction (ValueType num, ValueType denom) noexcept
@@ -284,8 +285,8 @@ constexpr Fraction<ValueType> Fraction<ValueType>::getReciprocal() const noexcep
 	return Fraction { denominator, numerator };
 }
 
+/// @endcond
+
 }  // namespace math
 
 LIMES_END_NAMESPACE
-
-/// @endcond

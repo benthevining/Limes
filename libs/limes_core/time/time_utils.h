@@ -25,6 +25,11 @@
 	@ingroup limes_core
  */
 
+/** @file
+	This file contains general time utilities.
+	@ingroup time
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 /** This namespace contains utilities for working with time measurements.

@@ -35,6 +35,8 @@ LIMES_BEGIN_NAMESPACE
 namespace files
 {
 
+#pragma mark File
+
 /** This class represents a %file on the filesystem.
 	@ingroup files
 	@see CFile
@@ -145,6 +147,8 @@ private:
 };
 
 /*-------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark TempFile
 
 /** Represents a temporary %file.
 	This object will create the temporary %file when the object is constructed, and by default destroy the %file when the object is destroyed (though this behavior can be turned off).

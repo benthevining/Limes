@@ -27,21 +27,40 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 
-/** @file
-	This file is a wrapper around the NEON and SSE Pommier SIMD extension functions.
+/// @cond internals
+
+/** @defgroup vec_pommier Pommier SIMD extension functions
+	Pommier SIMD extension functions.
 	@ingroup limes_vecops
  */
 
-/// @cond internals
+/** @file
+	This file is a wrapper around the NEON and SSE Pommier SIMD extension functions.
+	@ingroup vec_pommier
+ */
 
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains the Pommier SIMD extension function wrappers, which call the NEON or SSE implementations found in the pommier namespace.
+	@see pommier
+	@ingroup vec_pommier
+ */
 namespace vecops::pommier
 {
 
 LIMES_NO_EXPORT void polarToCartesian (float* const real, float* const imag, const float* const mag, const float* const phase, int size);
 
 LIMES_NO_EXPORT void polarToCartesianInterleaved (float* const dest, const float* const mag, const float* const phase, int size);
+
+LIMES_NO_EXPORT void sine (float* const data, int size);
+
+LIMES_NO_EXPORT void sineAndCopy (float* const dest, const float* const data, int size);
+
+LIMES_NO_EXPORT void cos (float* const data, int size);
+
+LIMES_NO_EXPORT void cosAndCopy (float* const dest, const float* const data, int size);
+
+LIMES_NO_EXPORT void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut);
 
 }  // namespace vecops::pommier
 

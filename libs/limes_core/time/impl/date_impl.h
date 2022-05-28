@@ -19,14 +19,15 @@
 /** @file
 	This file contains implementation details for the Date class.
 	@ingroup time
+	@see date.h
  */
-
-/// @cond
 
 LIMES_BEGIN_NAMESPACE
 
 namespace time
 {
+
+/// @cond
 
 constexpr Date::Date (const Year& y, const Month& m, int d) noexcept
 	: year (y), month (m), dayOfMonth (d)
@@ -179,8 +180,8 @@ consteval Date Date::getCompilationDate() noexcept
 	return Date { build_year(), build_month(), build_day() };
 }
 
+/// @endcond
+
 }  // namespace time
 
 LIMES_END_NAMESPACE
-
-/// @endcond

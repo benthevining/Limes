@@ -254,6 +254,11 @@ void RawData::copyTo (RawData& other, bool allowAllocation) const
 	copyTo (other.data, std::min (size, other.size));
 }
 
+RawData RawData::createCopy() const
+{
+	return RawData { *this };
+}
+
 void RawData::fill (char fillWith)
 {
 	std::memset (static_cast<void*> (data), static_cast<int> (fillWith), size);

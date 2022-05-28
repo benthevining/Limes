@@ -32,16 +32,25 @@
 	This file contains a raw C++ implementation of every function defined in limes_vecops.h.
 	This file is included by every other implementation header file, and any functions not provided by the SIMD libraries will fall back to the functions in this file.
 	@ingroup limes_vecops
+	@see limes_vecops.h
  */
-
-/// @cond internals
 
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains raw C++ implementations of all the vecops functions.
+	Any implementation whose SIMD library doesn't provide a function will fall back to using the function from this namespace.
+	@ingroup limes_vecops
+ */
 namespace vecops::fb
 {
 
+/// @cond internals
+
 #pragma mark Basic functions
+
+/** @ingroup limes_vecops
+	@{
+ */
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void fill (DataType* const data, SizeType size, DataType constantToFill)
@@ -52,7 +61,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void fill (DataType* const data, SizeType siz
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void clear (DataType* const data, SizeType size)
 {
-	fill (data, size, DataType (0));
+	vecops::fill (data, size, DataType (0));
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -73,12 +82,17 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void swap (DataType* const vecA, DataType* co
 	}
 }
 
+/** @} */
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Arithmetic functions
 
 /*-----  ADDITION  -----*/
+
+/** @ingroup vec_addition
+	@{
+ */
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void add (DataType* const data, SizeType size, DataType constantToAdd)
@@ -108,8 +122,13 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void addAndCopy (DataType* const dest, const 
 		dest[i] = origData[i] + dataToAdd[i];
 }
 
+/** @} */
 
 /*-----  SUBTRACTION  -----*/
+
+/** @ingroup vec_subtraction
+	@{
+ */
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void subtract (DataType* const data, SizeType size, DataType constantToSubtract)
@@ -153,8 +172,13 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void subtractInvAndCopy (DataType* const dest
 		dest[i] = constantToSubtractFrom - origData[i];
 }
 
+/** @} */
 
 /*-----  MULTIPLICATION  -----*/
+
+/** @ingroup vec_multiplication
+	@{
+ */
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void multiply (DataType* const data, SizeType size, DataType constantToMultiply)
@@ -195,8 +219,13 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType dotProduct (const Data
 	return dotProd;
 }
 
+/** @} */
 
 /*-----  DIVISION  -----*/
+
+/** @ingroup vec_division
+	@{
+ */
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void divide (DataType* const data, SizeType size, DataType constantToDivide)
@@ -252,10 +281,15 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void divideInvAndCopy (DataType* const dest, 
 	}
 }
 
+/** @} */
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Squaring functions
+
+/** @ingroup vec_squaring
+	@{
+ */
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void square (DataType* const dataAndDest, SizeType size)
@@ -345,22 +379,20 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void invSquareRootAndCopy (DataType* const de
 	}
 	else
 	{
-		for (auto i = SizeType (0); i < size; ++i)
-		{
-			const auto denom = static_cast<DataType> (std::sqrt (data[i]));
-
-			if (denom == DataType (0))
-				dest[i] = DataType (0);
-			else
-				dest[i] = DataType (1) / denom;
-		}
+		vecops::squareRootAndCopy (dest, data, size);
+		vecops::divideInv (dest, size, DataType (1));
 	}
 }
 
+/** @} */
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Sorting and ordering functions
+
+/** @ingroup vec_sorting
+	@{
+ */
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void reverse (DataType* const dataAndDest, SizeType size)
@@ -371,8 +403,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void reverse (DataType* const dataAndDest, Si
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	copy (dest, data, size);
-	reverse (dest, size);
+	vecops::copy (dest, data, size);
+	vecops::reverse (dest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -384,8 +416,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void sort (DataType* const dataAndDest, SizeT
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	copy (dest, data, size);
-	sort (dest, size);
+	vecops::copy (dest, data, size);
+	vecops::sort (dest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -398,8 +430,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void sortReverse (DataType* const dataAndDest
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	copy (dest, data, size);
-	sortReverse (dest, size);
+	vecops::copy (dest, data, size);
+	vecops::sortReverse (dest, size);
 }
 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
@@ -420,7 +452,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void interleave (DataType* const output, cons
 		}
 		case 1 :
 		{
-			copy (output, origData[0], numSamples);
+			vecops::copy (output, origData[0], numSamples);
 			return;
 		}
 		default :
@@ -450,7 +482,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void deinterleave (DataType* const * const ou
 		}
 		case 1 :
 		{
-			copy (output[0], interleavedData, numSamples);
+			vecops::copy (output[0], interleavedData, numSamples);
 			return;
 		}
 		default :
@@ -462,10 +494,15 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void deinterleave (DataType* const * const ou
 	}
 }
 
+/** @} */
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Statistical functions
+
+/** @ingroup vec_stats
+	@{
+ */
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void abs (DataType* const dataAndDest, SizeType size)
@@ -484,15 +521,13 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void absAndCopy (DataType* const dest, const 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void negate (DataType* const dataAndDest, SizeType size)
 {
-	for (auto i = SizeType (0); i < size; ++i)
-		dataAndDest[i] = -dataAndDest[i];
+	vecops::multiply (dataAndDest, size, DataType (-1));
 }
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	for (auto i = SizeType (0); i < size; ++i)
-		dest[i] = -data[i];
+	vecops::multiplyAndCopy (dest, data, size, DataType (-1));
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -629,35 +664,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void minMax (const DataType* const data, Size
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue)
 {
-	minValue = minAbs (data, size);
-	maxValue = maxAbs (data, size);
-}
-
-template <Scalar DataType, Integral SizeType, Integral IndexType>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex)
-{
-	minAbs (data, size, minValue, minIndex);
-	maxAbs (data, size, maxValue, maxIndex);
-}
-
-template <Scalar DataType, Integral SizeType>
-LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType range (const DataType* const data, SizeType size)
-{
-	DataType minVal, maxVal;
-
-	minMax (data, size, minVal, maxVal);
-
-	return maxVal - minVal;
-}
-
-template <Scalar DataType, Integral SizeType>
-LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType rangeAbs (const DataType* const data, SizeType size)
-{
-	DataType minVal, maxVal;
-
-	minMaxAbs (data, size, minVal, maxVal);
-
-	return maxVal - minVal;
+	minValue = vecops::minAbs (data, size);
+	maxValue = vecops::maxAbs (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -669,26 +677,197 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType sum (const DataType* c
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType mean (const DataType* const data, SizeType size)
 {
-	return sum (data, size) / static_cast<DataType> (size);
+	return vecops::sum (data, size) / static_cast<DataType> (size);
 }
 
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType standard_deviation (const DataType* const data, SizeType size)
+{
+	const auto meanVal = vecops::mean (data, size);
+
+	auto sumVal = DataType { 0 };
+
+	for (auto i = SizeType (0); i < size; ++i)
+	{
+		const auto val = data[i] - meanVal;
+		sumVal += (val * val);
+	}
+
+	return std::sqrt (sumVal / static_cast<DataType> (size));
+}
+
+/** @} */
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Trigonometric functions
+
+/** @ingroup vec_trig */
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut)
+{
+#if LIMES_VECOPS_USE_POMMIER
+	if constexpr (std::is_same_v<DataType, float>)
+		pommier::sinCos (data, size, sinesOut, cosinesOut);
+	else
+#endif
+		for (auto i = SizeType (0); i < size; ++i)
+		{
+			const auto thisData = data[i];
+
+			sinesOut[i]	  = std::sin (thisData);
+			cosinesOut[i] = std::sin (thisData);
+		}
+}
+
+/* --- sin --- */
+
+/** @ingroup vec_sin
+	@{
+ */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void sine (DataType* const data, SizeType size)
+{
+#if LIMES_VECOPS_USE_POMMIER
+	if constexpr (std::is_same_v<DataType, float>)
+		pommier::sine (data, size);
+	else
+#endif
+		for (auto i = SizeType (0); i < size; ++i)
+			data[i] = std::sin (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void sineAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+#if LIMES_VECOPS_USE_POMMIER
+	if constexpr (std::is_same_v<DataType, float>)
+		pommier::sineAndCopy (dest, data, size);
+	else
+#endif
+		for (auto i = SizeType (0); i < size; ++i)
+			dest[i] = std::sin (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void arcsine (DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		data[i] = std::asin (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void arcsineAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = std::asin (data[i]);
+}
+
+/** @} */
+
+/* --- cos --- */
+
+/** @ingroup vec_cos
+	@{
+ */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void cos (DataType* const data, SizeType size)
+{
+#if LIMES_VECOPS_USE_POMMIER
+	if constexpr (std::is_same_v<DataType, float>)
+		pommier::cos (data, size);
+	else
+#endif
+		for (auto i = SizeType (0); i < size; ++i)
+			data[i] = std::cos (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void cosAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+#if LIMES_VECOPS_USE_POMMIER
+	if constexpr (std::is_same_v<DataType, float>)
+		pommier::cosAndCopy (data, size);
+	else
+#endif
+		for (auto i = SizeType (0); i < size; ++i)
+			dest[i] = std::cos (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void arccos (DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		data[i] = std::acos (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void arccosAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = std::acos (data[i]);
+}
+
+/** @} */
+
+/* --- tan --- */
+
+/** @ingroup vec_tan
+	@{
+ */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void tan (DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		data[i] = std::tan (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void tanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = std::tan (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void arctan (DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		data[i] = std::atan (data[i]);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void arctanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	for (auto i = SizeType (0); i < size; ++i)
+		dest[i] = std::atan (data[i]);
+}
+
+/** @} */
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Audio utility functions
 
+/** @ingroup vec_audio
+	@{
+ */
+
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
 {
-	copy (output, origData[0], numSamples);
+	vecops::copy (output, origData[0], numSamples);
 
 	if (numChannels == 1)
 		return;
 
 	for (auto c = 1; c < static_cast<int> (numChannels); ++c)
-		add (output, numSamples, origData[c]);
+		vecops::add (output, numSamples, origData[c]);
 
-	multiply (output, numSamples, DataType (1.) / static_cast<DataType> (numChannels));
+	vecops::multiply (output, numSamples, DataType (1.) / static_cast<DataType> (numChannels));
 }
 
 
@@ -750,11 +929,13 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyRamp (DataType* const dataAndDest, 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
 {
-	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
-
-	for (auto i = SizeType (0); i < size; ++i)
-		dest[i] = data[i] * (startValue + (increment * static_cast<DataType> (i)));
+	vecops::generateRamp (dest, size, startValue, endValue);
+	vecops::multiply (dest, size, data);
 }
+
+/** @} */
+
+/// @endcond
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -763,9 +944,15 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyRampAndCopy (DataType* const dest, 
 namespace window
 {
 
+/** This namespace contains implementation details for windowing functions.
+	@ingroup vec_window
+ */
 namespace detail
 {
 
+/// @cond internals
+
+/** @ingroup vec_window */
 template <Scalar ValueType, Integral SizeType>
 LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE ValueType ncos (SizeType order, SizeType i, SizeType size) noexcept
 {
@@ -773,6 +960,7 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE ValueType ncos (SizeType order,
 					 * math::constants::pi<ValueType> / static_cast<ValueType> (size - 1));
 }
 
+/** @ingroup vec_blackman */
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType getBlackmanSample (SizeType size, SizeType i) noexcept
 {
@@ -782,19 +970,31 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType getBlackmanSample (Siz
 	return static_cast<DataType> (0.5 * (1. - math::constants::blackman_alpha<DataType>) -0.5 * cos2 + 0.5 * math::constants::blackman_alpha<DataType> * cos4);
 }
 
+/** @ingroup vec_hamm */
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType getHammSample (SizeType size, SizeType i) noexcept
 {
 	return static_cast<DataType> (0.54 - 0.46 * ncos<DataType> (SizeType (2), i, size));
 }
 
+/** @ingroup vec_hanning */
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType getHanningSample (SizeType size, SizeType i) noexcept
 {
 	return static_cast<DataType> (0.5 - 0.5 * detail::ncos<DataType> (SizeType (2), i, size));
 }
 
+/// @endcond
+
 }  // namespace detail
+
+/// @cond internals
+
+/* --- Blackman --- */
+
+/** @ingroup vec_blackman
+	@{
+ */
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void generateBlackman (DataType* const output, SizeType size)
@@ -813,9 +1013,17 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyBlackman (DataType* const dataAndDe
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	for (auto i = SizeType (0); i < size; ++i)
-		dest[i] = data[i] * detail::getBlackmanSample<DataType> (size, i);
+	vecops::window::generateBlackman (dest, size);
+	vecops::multiply (dest, size, data);
 }
+
+/** @} */
+
+/* --- Hamm --- */
+
+/** @ingroup vec_hamm
+	@{
+ */
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void generateHamm (DataType* const output, SizeType size)
@@ -834,9 +1042,17 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyHamm (DataType* const dataAndDest, 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	for (auto i = SizeType (0); i < size; ++i)
-		dest[i] = data[i] * detail::getHammSample<DataType> (size, i);
+	vecops::window::generateHamm (dest, size);
+	vecops::multiply (dest, size, data);
 }
+
+/** @} */
+
+/* --- Hanning --- */
+
+/** @ingroup vec_hanning
+	@{
+ */
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void generateHanning (DataType* const output, SizeType size)
@@ -855,9 +1071,13 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyHanning (DataType* const dataAndDes
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	for (auto i = SizeType (0); i < size; ++i)
-		dest[i] = data[i] * detail::getHanningSample<DataType> (size, i);
+	vecops::window::generateHanning (dest, size);
+	vecops::multiply (dest, size, data);
 }
+
+/** @} */
+
+/// @endcond
 
 }  // namespace window
 
@@ -866,10 +1086,21 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyHanningAndCopy (DataType* const des
 namespace detail
 {
 
+/// @cond internals
+
+/** @ingroup limes_vecops */
 template <Scalar T>
 LIMES_NO_EXPORT void magphase (T* const mag, T* const phase, T real, T imag);
 
+/// @endcond
+
 }  // namespace detail
+
+/// @cond internals
+
+/** @ingroup vec_complex
+	@{
+ */
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesian (DataType* const real, DataType* const imag, const DataType* const mag, const DataType* const phase, SizeType size)
@@ -950,8 +1181,10 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void cartesianInterleavedToMagnitudes (DataTy
 	}
 }
 
+/** @} */
+
+/// @endcond
+
 }  // namespace vecops::fb
 
 LIMES_END_NAMESPACE
-
-/// @endcond

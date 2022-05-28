@@ -18,6 +18,7 @@
 /** @file
 	This file defines the fallback FFT implementation.
 	@ingroup fft
+	@see limes_fft.h
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -25,7 +26,7 @@ LIMES_BEGIN_NAMESPACE
 namespace vecops
 {
 
-/// @cond
+/// @cond internals
 
 template <Scalar SampleType>
 class LIMES_NO_EXPORT FallbackFFT final : public FFTImpl<SampleType>

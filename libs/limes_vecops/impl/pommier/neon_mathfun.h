@@ -10,12 +10,13 @@
  * ======================================================================================
  */
 
+/// @cond internals
+
 /** @file
 	This file contains the Pommier SIMD extension functions for ARM NEON.
-	@ingroup limes_vecops
+	@ingroup vec_pommier
+	@see pommier_wrapper.h
  */
-
-/// @cond internals
 
 /* NEON implementation of sin, cos, exp and log
 
@@ -55,6 +56,10 @@
 #include <arm_neon.h>
 #include <limes_export.h>
 
+/** This namespace contains the implementations of the Pommier SIMD extension functions.
+	@see vecops::pommier
+	@ingroup vec_pommier
+ */
 namespace pommier
 {
 

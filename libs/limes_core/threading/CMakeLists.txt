@@ -8,7 +8,7 @@
 #
 # ======================================================================================
 
-add_subdirectory (RealtimeSafeObject)
+# add_subdirectory (RealtimeSafeObject)
 
 include (OrangesSourceFileUtils)
 
@@ -18,6 +18,6 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  RealtimeSafeObject.h RealtimeTypeTraits.h Threading.cpp Threading.h ThreadSafeObject.h)
+		  RealtimeTypeTraits.h Threading.cpp Threading.h ThreadSafeObject.h)
 
 set (threading_files ${threading_files} ${rtso_files} PARENT_SCOPE)

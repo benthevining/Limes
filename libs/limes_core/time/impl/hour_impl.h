@@ -19,14 +19,15 @@
 /** @file
 	This file contains implementation details for the Hour class.
 	@ingroup time
+	@see hour.h
  */
-
-/// @cond
 
 LIMES_BEGIN_NAMESPACE
 
 namespace time
 {
+
+/// @cond
 
 constexpr Hour::Hour (int hoursSinceMidnight) noexcept
 	: hour (hoursSinceMidnight)
@@ -153,8 +154,8 @@ constexpr Hour Hour::midnight() noexcept
 	return Hour { 0 };
 }
 
+/// @endcond
+
 }  // namespace time
 
 LIMES_END_NAMESPACE
-
-/// @endcond

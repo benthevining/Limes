@@ -18,21 +18,45 @@
 #include <limes_platform.h>		 // for LIMES_ASSERT
 #include "../meta/TypeTraits.h"	 // for concept inherits_from
 
+/** @file
+	This file defines the ReferenceCountedObject class.
+	@ingroup memory
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace memory
 {
 
+#pragma mark ReferenceCountedObject
+
+/** An object that is reference-counted, and garbage collected once the reference count reaches 0.
+	@ingroup memory
+	@see ReferenceCountedObjectPtr
+ */
 class LIMES_EXPORT ReferenceCountedObject
 {
 public:
 
+	/** Increments the object's reference count.
+		@returns The new reference count, after the increment.
+	 */
 	int incRefCount() noexcept;
 
+	/** Decrements the object's reference count.
+		If the reference count reaches 0, the object will be deleted.
+		@returns True if the object was deleted
+		@see decRefCountWithoutDeleting
+	 */
 	bool decRefCount() noexcept;
 
+	/** Decrements the object's reference count, but doesn't delete the object if the ref count reaches 0.
+		@returns True if the reference count reaches 0.
+		@see decRefCount
+	 */
 	bool decRefCountWithoutDeleting() noexcept;
 
+	/** Returns the object's current reference count. */
 	[[nodiscard]] int getRefCount() const noexcept;
 
 protected:
@@ -61,6 +85,8 @@ private:
 };
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark ReferenceCountedObjectPtr
 
 template <meta::inherits_from<ReferenceCountedObject> ObjectType>
 class LIMES_EXPORT ReferenceCountedObjectPtr final
@@ -253,6 +279,8 @@ private:
 			o->decRefCount();
 	}
 };
+
+#pragma mark Free functions
 
 template <typename Type>
 LIMES_EXPORT bool operator== (const Type* object1, const memory::ReferenceCountedObjectPtr<Type>& object2) noexcept

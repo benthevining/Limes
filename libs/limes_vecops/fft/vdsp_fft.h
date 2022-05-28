@@ -21,6 +21,7 @@
 /** @file
 	This file defines the vDSP FFT implementation.
 	@ingroup fft
+	@see limes_vecops.h
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -28,7 +29,7 @@ LIMES_BEGIN_NAMESPACE
 namespace vecops
 {
 
-/// @cond
+/// @cond internals
 
 template <Scalar SampleType>
 class LIMES_NO_EXPORT vDSP_FFT final : public FFTImpl<SampleType>

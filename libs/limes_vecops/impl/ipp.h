@@ -21,14 +21,15 @@
 /** @file
 	This file contains implementations of the vecops functions for the Intel IPP library.
 	@ingroup limes_vecops
+	@see limes_vecops.h
  */
-
-/// @cond
 
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
 {
+
+/// @cond
 
 static_assert (isUsingIPP());
 
@@ -442,8 +443,7 @@ void invSquareRoot (DataType* const dataAndDest, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	squareRootAndCopy (dest, data, size);
-	divideInv (dest, size, DataType (1));
+	fb::invSquareRootAndCopy (dest, data, size);
 }
 
 
@@ -470,10 +470,7 @@ void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType 
 	else if constexpr (is_double_type<DataType>())
 		ippsFlip_64f (data, dest, static_cast<int> (size));
 	else
-	{
-		copy (dest, data, size);
-		reverse (dest, size);
-	}
+		fb::reverseAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -492,8 +489,7 @@ void sort (DataType* const dataAndDest, SizeType size)
 template <Scalar DataType, Integral SizeType>
 void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	copy (dest, data, size);
-	sort (dest, size);
+	fb::sortAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -506,17 +502,13 @@ void sortReverse (DataType* const dataAndDest, SizeType size)
 	else if constexpr (is_signed_int<DataType>())
 		ippsSortDescend_32s_I (dataAndDest, static_cast<int> (size));
 	else
-	{
-		sort (dataAndDest, size);
-		reverse (dataAndDest, size);
-	}
+		fb::sortReverse (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	sortAndCopy (dest, data, size);
-	reverse (dest, size);
+	fb::sortReverseAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
@@ -546,9 +538,7 @@ void abs (DataType* const dataAndDest, SizeType size)
 	else if constexpr (is_signed_int<DataType>())
 		ippsAbs_32s_I (dataAndDest, static_cast<int> (size));
 	else
-	{
 		fb::abs (dataAndDest, size);
-	}
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -568,13 +558,13 @@ void absAndCopy (DataType* const dest, const DataType* const data, SizeType size
 template <Scalar DataType, Integral SizeType>
 void negate (DataType* const dataAndDest, SizeType size)
 {
-	multiply (dataAndDest, size, DataType (-1));
+	fb::negate (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 {
-	multiplyAndCopy (dest, data, size, DataType (-1));
+	fb::negateAndCopy (dest, data, size);
 }
 
 
@@ -816,35 +806,7 @@ void minMax (const DataType* const data, SizeType size, DataType& minValue, Inde
 template <Scalar DataType, Integral SizeType>
 void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue)
 {
-	minValue = minAbs (data, size);
-	maxValue = maxAbs (data, size);
-}
-
-template <Scalar DataType, Integral SizeType, Integral IndexType>
-void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex)
-{
-	minAbs (data, size, minValue, minIndex);
-	maxAbs (data, size, maxValue, maxIndex);
-}
-
-template <Scalar DataType, Integral SizeType>
-DataType range (const DataType* const data, SizeType size)
-{
-	DataType minVal, maxVal;
-
-	minMax (data, size, minVal, maxVal);
-
-	return maxVal - minVal;
-}
-
-template <Scalar DataType, Integral SizeType>
-DataType rangeAbs (const DataType* const data, SizeType size)
-{
-	DataType minVal, maxVal;
-
-	minMaxAbs (data, size, minVal, maxVal);
-
-	return maxVal - minVal;
+	fb::minMaxAbs (data, size, minValue, maxValue);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -881,6 +843,118 @@ DataType mean (const DataType* const data, SizeType size)
 	return meanVal;
 }
 
+template <Scalar DataType, Integral SizeType>
+DataType standard_deviation (const DataType* const data, SizeType size)
+{
+	DataType result;
+
+	if constexpr (is_float_type<DataType>())
+		ippsStdDev_32f (data, static_cast<int> (size), &result, alg_hint_type);
+	else if constexpr (is_double_type<DataType>())
+		ippsStdDev_64f (data, static_cast<int> (size), &result, alg_hint_type);
+	else
+		return fb::standard_deviation (data, size);
+
+	return result;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Trigonometric functions
+
+template <Scalar DataType, Integral SizeType>
+void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut)
+{
+	fb::sinCos (data, size, sinesOut, cosinesOut);
+}
+
+/* --- sin --- */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void sine (DataType* const data, SizeType size)
+{
+	fb::sine (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void sineAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::sineAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arcsine (DataType* const data, SizeType size)
+{
+	fb::arcsine (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::arcsineAndCopy (dest, data, size);
+}
+
+/* --- cos --- */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void cos (DataType* const data, SizeType size)
+{
+	fb::cos (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void cosAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::cosAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arccos (DataType* const data, SizeType size)
+{
+	fb::arccos (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::arccosAndCopy (dest, data, size);
+}
+
+/* --- tan --- */
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void tan (DataType* const data, SizeType size)
+{
+	fb::tan (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void tanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	fb::tanAndCopy (dest, data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arctan (DataType* const data, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsArctan_32f_I (data, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsArctan_64f_I (data, static_cast<int> (size));
+	else
+		fb::arctan (data, size);
+}
+
+template <Scalar DataType, Integral SizeType>
+LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+{
+	if constexpr (is_float_type<DataType>())
+		ippsArctan_32f (data, dest, static_cast<int> (size));
+	else if constexpr (is_double_type<DataType>())
+		ippsArctan_64f (data, dest, static_cast<int> (size));
+	else
+		fb::arctanAndCopy (dest, data, size);
+}
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -889,12 +963,7 @@ DataType mean (const DataType* const data, SizeType size)
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
 void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
 {
-	clear (output, numSamples);
-
-	for (int c = 0; c < static_cast<int> (numChannels); ++c)
-		add (output, numSamples, origData[c]);
-
-	multiply (output, numSamples, DataType (1.0) / static_cast<DataType> (numChannels));
+	fb::mix (output, origData, numChannels, numSamples);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -944,8 +1013,7 @@ void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue,
 template <Scalar DataType, Integral SizeType>
 void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
 {
-	generateRamp (dest, size, startValue, endValue);
-	multiply (dest, size, data);
+	fb::applyRampAndCopy (dest, data, size, startValue, endValue);
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -954,6 +1022,8 @@ void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeTyp
 
 namespace window
 {
+
+/* --- Blackman --- */
 
 template <Scalar DataType, Integral SizeType>
 void generateBlackman (DataType* const output, SizeType size)
@@ -993,11 +1063,10 @@ void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, Siz
 	else if constexpr (is_double_type<DataType>())
 		ippsWinBlackman_64f (data, dest, static_cast<int> (size), math::constants::blackman_alpha<DataType>);
 	else
-	{
-		generateBlackman (dest, size);
-		multiply (dest, size, data);
-	}
+		fb::window::applyBlackmanAndCopy (dest, data, size);
 }
+
+/* --- Hamm --- */
 
 template <Scalar DataType, Integral SizeType>
 void generateHamm (DataType* const output, SizeType size)
@@ -1037,11 +1106,10 @@ void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeTyp
 	else if constexpr (is_double_type<DataType>())
 		ippsWinHamming_64f (data, dest, static_cast<int> (size));
 	else
-	{
-		generateHamm (dest, size);
-		multiply (dest, size, data);
-	}
+		fb::window::applyHammAndCopy (dest, data, size);
 }
+
+/* --- Hanning --- */
 
 template <Scalar DataType, Integral SizeType>
 void generateHanning (DataType* const output, SizeType size)
@@ -1081,10 +1149,7 @@ void applyHanningAndCopy (DataType* const dest, const DataType* const data, Size
 	else if constexpr (is_double_type<DataType>())
 		ippsWinHann_64f (data, dest, static_cast<int> (size));
 	else
-	{
-		generateHanning (dest, size);
-		multiply (dest, size, data);
-	}
+		fb::window::applyHanningAndCopy (dest, data, size);
 }
 
 }  // namespace window
@@ -1157,8 +1222,8 @@ void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* cons
 		fb::cartesianInterleavedToMagnitudes (mag, src, size);
 }
 
+/// @endcond
+
 }  // namespace vecops
 
 LIMES_END_NAMESPACE
-
-/// @endcond

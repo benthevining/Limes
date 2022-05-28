@@ -22,6 +22,9 @@
 
 #include "../phasor.h"
 #include <limes_namespace.h>
+#include <limes_core.h>
+#include <utility>
+#include <cmath>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -48,11 +51,24 @@ typedef ALIGN16_BEG union
 
 #endif
 
+template <typename VecorizedOp, typename ScalarOp>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void perform (int size, VecorizedOp&& vectorOp, ScalarOp&& scalarOp)
+{
+	int i = 0;
+
+	if (size >= 4)
+		for (; i + 4 < size; i += 4)
+			vectorOp (i);
+
+	for (; i < size; ++i)
+		scalarOp (i);
+}
+
 void polarToCartesian_pommier (float* const real, float* const imag, const float* const mag, const float* const phase, int size)
 {
-	int i = 0, idx = 0, tidx = 0;
+	int idx = 0, tidx = 0;
 
-	for (; i + 4 < size; i += 4)
+	const auto vecOp = [&idx, &tidx, mag, phase, real, imag] (int i)
 	{
 		V4SF fmag, fphase, fre, fim;
 
@@ -69,22 +85,24 @@ void polarToCartesian_pommier (float* const real, float* const imag, const float
 			real[tidx]	 = fre.f[j] * fmag.f[j];
 			imag[tidx++] = fim.f[j] * fmag.f[j];
 		}
-	}
+	};
 
-	for (; i < size; ++i)
+	const auto scalarOp = [&tidx, phase, real, imag, mag] (int i)
 	{
 		float re, im;
 		detail::phasor (&re, &im, phase[i]);
 		real[tidx]	 = re * mag[i];
 		imag[tidx++] = im * mag[i];
-	}
+	};
+
+	perform (size, std::move (vecOp), std::move (scalarOp));
 }
 
 void polarToCartesianInterleaved_pommier (float* const dest, const float* const mag, const float* const phase, int size)
 {
-	int i = 0, idx = 0, tidx = 0;
+	int idx = 0, tidx = 0;
 
-	for (; i + 4 <= size; i += 4)
+	const auto vecOp = [&idx, &tidx, mag, phase, dest] (int i)
 	{
 		V4SF fmag, fphase, fre, fim;
 
@@ -102,15 +120,140 @@ void polarToCartesianInterleaved_pommier (float* const dest, const float* const 
 			dest[tidx++] = fre.f[j] * fmag.f[j];
 			dest[tidx++] = fim.f[j] * fmag.f[j];
 		}
-	}
+	};
 
-	for (; i < size; ++i)
+	const auto scalarOp = [&tidx, phase, dest, mag] (int i)
 	{
 		float real, imag;
 		detail::phasor (&real, &imag, phase[i]);
 		dest[tidx++] = real * mag[i];
 		dest[tidx++] = imag * mag[i];
-	}
+	};
+
+	perform (size, std::move (vecOp), std::move (scalarOp));
+}
+
+void sine (float* const data, int size)
+{
+	const auto vecOp = [data] (int i)
+	{
+		V4SF reg;
+
+		for (auto j = 0; j < 4; ++j)
+			reg.f[j] = data[i + j];
+
+		const auto result = ::pommier::sin_ps (reg.v);
+
+		for (auto j = 0; j < 4; ++j)
+			data[i + j] = result.f[j];
+	};
+
+	const auto scalarOp = [data] (int i)
+	{
+		data[i] = std::sin (data[i]);
+	};
+
+	perform (size, std::move (vecOp), std::move (scalarOp));
+}
+
+void sineAndCopy (float* const dest, const float* const data, int size)
+{
+	const auto vecOp = [dest, data] (int i)
+	{
+		V4SF reg;
+
+		for (auto j = 0; j < 4; ++j)
+			reg.f[j] = data[i + j];
+
+		const auto result = ::pommier::sin_ps (reg.v);
+
+		for (auto j = 0; j < 4; ++j)
+			dest[i + j] = result.f[j];
+	};
+
+	const auto scalarOp = [dest, data] (int i)
+	{
+		dest[i] = std::sin (data[i]);
+	};
+
+	perform (size, std::move (vecOp), std::move (scalarOp));
+}
+
+void cos (float* const data, int size)
+{
+	const auto vecOp = [data] (int i)
+	{
+		V4SF reg;
+
+		for (auto j = 0; j < 4; ++j)
+			reg.f[j] = data[i + j];
+
+		const auto result = ::pommier::cos_ps (reg.v);
+
+		for (auto j = 0; j < 4; ++j)
+			data[i + j] = result.f[j];
+	};
+
+	const auto scalarOp = [data] (int i)
+	{
+		data[i] = std::cos (data[i]);
+	};
+
+	perform (size, std::move (vecOp), std::move (scalarOp));
+}
+
+void cosAndCopy (float* const dest, const float* const data, int size)
+{
+	const auto vecOp = [dest, data] (int i)
+	{
+		V4SF reg;
+
+		for (auto j = 0; j < 4; ++j)
+			reg.f[j] = data[i + j];
+
+		const auto result = ::pommier::cos_ps (reg.v);
+
+		for (auto j = 0; j < 4; ++j)
+			dest[i + j] = result.f[j];
+	};
+
+	const auto scalarOp = [dest, data] (int i)
+	{
+		dest[i] = std::cos (data[i]);
+	};
+
+	perform (size, std::move (vecOp), std::move (scalarOp));
+}
+
+void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut)
+{
+	const auto vecOp = [data, sinesOut, cosinesOut] (int i)
+	{
+		V4SF reg, sin, cos;
+
+		for (auto j = 0; j < 4; ++j)
+			reg.f[j] = data[i + j];
+
+		::pommier::sincos_ps (reg, &sin, &cos);
+
+		for (auto j = 0; j < 4; ++j)
+		{
+			const auto idx = i + j;
+
+			sinesOut[idx]	= sin.f[j];
+			cosinesOut[idx] = cos.f[j];
+		}
+	};
+
+	const auto scalarOp = [data, sinesOut, cosinesOut] (int i)
+	{
+		const auto thisData = data[i];
+
+		sinesOut[i]	  = std::sin (thisData);
+		cosinesOut[i] = std::cos (thisData);
+	};
+
+	perform (size, std::move (vecOp), std::move (scalarOp));
 }
 
 }  // namespace vecops::pommier

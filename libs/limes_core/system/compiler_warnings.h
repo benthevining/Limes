@@ -24,6 +24,15 @@
 
 /** @def LIMES_DISABLE_ALL_COMPILER_WARNINGS
 	This macro disables all compiler warnings from the point in the source code where it is encountered until \c LIMES_REENABLE_ALL_COMPILER_WARNINGS is encountered.
+	This is useful for including external headers that may cause lots of warnings.
+	Example usage:
+	@code
+	LIMES_DISABLE_ALL_COMPILER_WARNINGS
+
+	#include <someExternalHeader>
+
+	LIMES_REENABLE_ALL_COMPILER_WARNINGS
+	@endcode
 	@see LIMES_REENABLE_ALL_COMPILER_WARNINGS
 	@ingroup system
  */
@@ -31,6 +40,14 @@
 
 /** @def LIMES_REENABLE_ALL_COMPILER_WARNINGS
 	This macro re-enables all compiler warnings after \c LIMES_DISABLE_ALL_COMPILER_WARNINGS has been issued.
+	Example usage:
+	@code
+	LIMES_DISABLE_ALL_COMPILER_WARNINGS
+
+	#include <someExternalHeader>
+
+	LIMES_REENABLE_ALL_COMPILER_WARNINGS
+	@endcode
 	@see LIMES_DISABLE_ALL_COMPILER_WARNINGS
 	@ingroup system
  */

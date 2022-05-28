@@ -19,14 +19,15 @@
 /** @file
 	This file contains implementation details for retrieving the executable's location (used by the File class).
 	@ingroup files
+	@see File
  */
-
-/// @cond internals
 
 LIMES_BEGIN_NAMESPACE
 
 namespace files
 {
+
+/// @cond internals
 
 /** Returns the path of the current executable, as a string.
 	@ingroup files
@@ -38,8 +39,8 @@ LIMES_NO_EXPORT [[nodiscard]] std::string getExecutablePath();
  */
 LIMES_NO_EXPORT [[nodiscard]] std::string getModulePath();
 
+/// @endcond
+
 }  // namespace files
 
 LIMES_END_NAMESPACE
-
-/// @endcond
