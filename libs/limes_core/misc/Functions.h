@@ -191,6 +191,7 @@ LIMES_EXPORT consteval decltype (auto) consteval_invoke (Param&&... param) noexc
 
 /** Executes a potentially-throwing function within a try-catch block, and returns false if an exception is thrown and true if no exceptions are thrown.
 	This is basically a simple Lippincott function.
+	If the return type of the function is bool, then the value it returns will be returned by \c %try_call if the function does not throw an exception.
 	@ingroup func
  */
 template <Function Func, typename... Args>
@@ -205,8 +206,13 @@ LIMES_EXPORT constexpr bool try_call (Func&& func, Args&&... args) noexcept
 	{
 		try
 		{
-			func (std::forward<Args> (args)...);
-			return true;
+			if constexpr (std::is_same_v<bool, result_type<Func, Args...>>)
+				return func (std::forward<Args> (args)...);
+			else
+			{
+				func (std::forward<Args> (args)...);
+				return true;
+			}
 		}
 		catch (const std::exception&)
 		{

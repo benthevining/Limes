@@ -27,6 +27,7 @@
 #include "../memory/RawData.h"			  // for RawData
 #include <cstdio>
 #include <atomic>
+#include "../system/limes_assert.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -146,6 +147,47 @@ bool File::prepend (const std::string_view& text) const noexcept
 	data = std::string { text } + data;
 
 	return overwrite (data);
+}
+
+File File::duplicate() const noexcept
+{
+	const auto dir = getDirectory();
+
+	const auto newFilename = [filename = getFilename (false), extension = getFileExtension(), &dir] -> std::string
+	{
+		auto newName = filename + "_copy." + extension;
+
+		if (! dir.contains (newName))
+			return newName;
+
+		for (auto copyNum = 2; copyNum < 999; ++copyNum)
+		{
+			newName = filename + "_copy" + std::to_string (copyNum) + "." + extension;
+
+			if (! dir.contains (newName))
+				return newName;
+		}
+
+		return {};
+	}();
+
+	if (newFilename.empty())
+		return {};
+
+	File newFile { dir.getAbsolutePath() / newFilename };
+
+	LIMES_ASSERT (! newFile.exists());
+
+	if (! newFile.createIfDoesntExist())
+		return {};
+
+	if (! newFile.overwrite (loadAsData()))
+	{
+		newFile.deleteIfExists();
+		return {};
+	}
+
+	return newFile;
 }
 
 memory::RawData File::loadAsData() const noexcept

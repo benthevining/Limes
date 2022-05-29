@@ -80,53 +80,103 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 
 /// @cond
 
+// LIMES_VECOPS_USE_VDSP
+
 #ifndef LIMES_VECOPS_USE_VDSP
 #	if (LIMES_VECOPS_USE_IPP || LIMES_VECOPS_USE_MIPP)
 #		define LIMES_VECOPS_USE_VDSP 0
+#	elif LIMES_APPLE
+#		define LIMES_VECOPS_USE_VDSP 1
 #	else
-#		if LIMES_APPLE
-#			define LIMES_VECOPS_USE_VDSP 1
-#		else
-#			define LIMES_VECOPS_USE_VDSP 0
-#		endif
+#		define LIMES_VECOPS_USE_VDSP 0
 #	endif
+#endif
+
+// LIMES_VECOPS_USE_IPP
+
+// clang-format off
+#if LIMES_VECOPS_USE_VDSP
+#	if LIMES_VECOPS_USE_IPP
+	LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_IPP evaluated to true, when LIMES_VECOPS_USE_VDSP was already on!")
+#	endif
+// clang-format on
+
+#	undef LIMES_VECOPS_USE_IPP
+#	define LIMES_VECOPS_USE_IPP 0
 #endif
 
 #ifndef LIMES_VECOPS_USE_IPP
 #	if (LIMES_VECOPS_USE_VDSP || LIMES_VECOPS_USE_MIPP)
 #		define LIMES_VECOPS_USE_IPP 0
+#	elif LIMES_INTEL && LIMES_HAS_INCLUDE(<ipps.h>)
+#		define LIMES_VECOPS_USE_IPP 1
 #	else
-#		if LIMES_INTEL && LIMES_HAS_INCLUDE(<ipps.h>)
-#			define LIMES_VECOPS_USE_IPP 1
-#		else
-#			define LIMES_VECOPS_USE_IPP 0
-#		endif
+#		define LIMES_VECOPS_USE_IPP 0
 #	endif
+#endif
+
+// LIMES_VECOPS_USE_MIPP
+
+// clang-format off
+#if (LIMES_VECOPS_USE_VDSP || LIMES_VECOPS_USE_IPP)
+#	if LIMES_VECOPS_USE_MIPP
+	LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_MIPP evaluated to true, when LIMES_VECOPS_USE_VDSP or LIMES_VECOPS_USE_IPP was already on!")
+#	endif
+// clang-format on
+
+#	undef LIMES_VECOPS_USE_MIPP
+#	define LIMES_VECOPS_USE_MIPP 0
 #endif
 
 #ifndef LIMES_VECOPS_USE_MIPP
 #	if (LIMES_VECOPS_USE_VDSP || LIMES_VECOPS_USE_IPP)
 #		define LIMES_VECOPS_USE_MIPP 0
+#	elif (LIMES_SSE || LIMES_AVX || LIMES_AVX_512 || LIMES_ARM_NEON) && LIMES_HAS_INCLUDE(<mipp.h>)
+#		define LIMES_VECOPS_USE_MIPP 1
 #	else
-#		if (LIMES_SSE || LIMES_AVX || LIMES_AVX_512 || LIMES_ARM_NEON) && LIMES_HAS_INCLUDE(<mipp.h>)
-#			define LIMES_VECOPS_USE_MIPP 1
-#		else
-#			define LIMES_VECOPS_USE_MIPP 0
-#		endif
+#		define LIMES_VECOPS_USE_MIPP 0
 #	endif
 #endif
 
-#if (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_IPP) || (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_MIPP) || (LIMES_VECOPS_USE_IPP && LIMES_VECOPS_USE_MIPP)
+// wrapup
+
+#if ((LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_IPP)     \
+	 || (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_MIPP) \
+	 || (LIMES_VECOPS_USE_IPP && LIMES_VECOPS_USE_MIPP))
 #	error "Only one of LIMES_VECOPS_USE_VDSP, LIMES_VECOPS_USE_IPP, or LIMES_VECOPS_USE_MIPP may be set to 1!"
 #endif
 
-#ifndef LIMES_VECOPS_USE_POMMIER
-#	if LIMES_ARM_NEON || (LIMES_SSE && ! LIMES_MSVC)  // MSVC doesn't like to compile MMX intrinsics
+// clang-format off
+#if LIMES_VECOPS_USE_VDSP
+	LIMES_COMPILER_MESSAGE ("limes_vecops: using Apple vDSP backend")
+#elif LIMES_VECOPS_USE_IPP
+	LIMES_COMPILER_MESSAGE ("limes_vecops: using Intel IPP backend")
+#elif LIMES_VECOPS_USE_MIPP
+	LIMES_COMPILER_MESSAGE ("limes_vecops: using MIPP backend")
+#else
+	LIMES_COMPILER_MESSAGE ("limes_vecops: using fallback backend")
+#endif
+// clang-format on
+
+// LIMES_VECOPS_USE_POMMIER
+
+#ifdef LIMES_VECOPS_USE_POMMIER
+#	if ! (LIMES_ARM_NEON || LIMES_SSE)
+#		error Pommier extensions cannot be used if neither NEON nor SSE is available!
+#	endif
+#else
+#	if (LIMES_ARM_NEON || (LIMES_SSE && ! LIMES_MSVC))	 // MSVC doesn't like to compile MMX intrinsics
 #		define LIMES_VECOPS_USE_POMMIER 1
 #	else
 #		define LIMES_VECOPS_USE_POMMIER 0
 #	endif
 #endif
+
+// clang-format off
+#if LIMES_VECOPS_USE_POMMIER
+	LIMES_COMPILER_MESSAGE ("limes_vecops: using Pommier SIMD functions")
+#endif
+// clang-format on
 
 /// @endcond
 

@@ -35,79 +35,58 @@ void generateHeaderFile (const Options& options)
 	std::cout << "Generating " << fileName.generic_string() << "...\n";
 	std::ofstream stream { fileName };
 
-	if (stream)
-	{
-		stream << "#pragma once\n";
-		stream << "\n";
-		stream << "#include <string>\n";
-		stream << "\n";
+	if (! stream)
+		throw std::runtime_error { "Failed to create header file!" };
 
-		if (! options.namespaceName.empty())
-		{
-			stream << "namespace\n"
-				   << options.namespaceName << " {\n";
-			stream << "\n";
-		}
+	stream << "#pragma once\n";
+	stream << "\n";
+	stream << "#include <string>\n";
+	stream << "#include <string_view>\n";
+	stream << "#include <limes_core.h>\n";
+	stream << "\n";
 
-		static constexpr char s_headerContent[] = R"raw(
-	struct FileInfo final
-	{
-		const char * const fileName;
-		const char * const fileData;
+	if (! options.namespaceName.empty())
+		stream << "namespace " << options.namespaceName << "\n{\n";
 
-		const unsigned int fileDataSize;
+	static constexpr char s_headerContent[] = R"raw(
+struct FileInfo final
+{
+	const char* const fileName;
+	const char* const fileData;
 
-		[[nodiscard]] std::string name() const
-		{
-			return { fileName };
-		}
+	const std::size_t fileDataSize;
 
-		[[nodiscard]] std::string content() const
-		{
-			return std::string { fileData, fileDataSize };
-		}
-	};
+	[[nodiscard]] std::string name() const;
 
-	extern const unsigned int fileInfoListSize;
+	[[nodiscard]] std::string string() const;
 
-	extern const FileInfo fileInfoList[];
+	[[nodiscard]] limes::memory::RawData data() const;
+};
 
-	struct FileInfoRange final
-	{
-		[[nodiscard]] const FileInfo * begin() const
-		{
-			return &fileInfoList[0];
-		}
+extern const std::size_t fileInfoListSize;
 
-		[[nodiscard]] const FileInfo * end() const
-		{
-			return begin() + fileInfoListSize;
-		}
+extern const FileInfo fileInfoList[];
 
-		[[nodiscard]] const std::size_t size() const
-		{
-			return fileInfoListSize;
-		}
-	};
+struct FileInfoList final
+{
+	[[nodiscard]] const FileInfo* begin() const noexcept;
 
-	[[nodiscard]] inline FileInfoRange fileList()
-	{
-		return FileInfoRange{};
-	}
+	[[nodiscard]] const FileInfo* end() const noexcept;
+
+	[[nodiscard]] const std::size_t size() const noexcept;
+
+	[[nodiscard]] const FileInfo* findFile (const std::string_view& fileName) const noexcept;
+};
+
+[[nodiscard]] FileInfoList fileList() noexcept;
+
+[[nodiscard]] limes::memory::RawData loadFile (const std::string_view& fileName);
 )raw";
 
-		stream << s_headerContent;
+	stream << s_headerContent;
 
-		if (! options.namespaceName.empty())
-		{
-			stream << "\n";
-			stream << "}\n";
-		}
-	}
-	else
-	{
-		throw std::runtime_error { "Failed to create header file!" };
-	}
+	if (! options.namespaceName.empty())
+		stream << "\n} // namespace " << options.namespaceName << "\n";
 }
 
 
@@ -128,8 +107,8 @@ void generateBodyFile (const Options& options)
 
 		const auto fileLen = static_cast<unsigned int> (fileName.sizeInBytes());
 
-		stream << "\tconst char * " << fileId << "_name = \"" << fileName.getFilename() << "\";\n";
-		stream << "\tconst unsigned int " << fileId << "_data_size = " << fileLen << ";\n";
+		stream << "\tconst char * " << fileId << "_name = \"" << fileName.getFilename (true) << "\";\n";
+		stream << "\tconst std::size_t " << fileId << "_data_size = " << fileLen << ";\n";
 		stream << "\tconst unsigned char " << fileId << "_data[" << fileId << "_data_size] = {";
 
 		size_t char_count { 0 };
@@ -163,50 +142,103 @@ void generateBodyFile (const Options& options)
 
 	std::ofstream stream { fileName };
 
-	if (stream)
-	{
-		stream << "#include \"" << options.headerFileName << "\"\n";
-		stream << "\n";
-
-		stream << "namespace /* anonymous */ {\n";
-
-		std::vector<std::string> fileIds;
-
-		for (const auto& path : options.inputFiles)
-		{
-			const std::string fileId = "file" + std::to_string (fileIds.size());
-
-			std::cout << "  " << path.getAbsolutePath().string() << "\n";
-			convertFileDataToCppSource (path, fileId, stream);
-			fileIds.emplace_back (fileId);
-		}
-
-		stream << "}\n";
-		stream << "\n";
-
-		if (! options.namespaceName.empty())
-		{
-			stream << "namespace " << options.namespaceName << " {\n";
-		}
-
-		stream << "\tconst unsigned int fileInfoListSize = " << fileIds.size() << ";\n";
-		stream << "\tconst FileInfo fileInfoList[fileInfoListSize] = {\n";
-
-		for (const auto& id : fileIds)
-		{
-			stream << "\t\t{ " << id << "_name, reinterpret_cast<const char*>(" << id << "_data), " << id << "_data_size },\n";
-		}
-
-		stream << "\t};\n";
-
-		if (! options.namespaceName.empty())
-		{
-			stream << "}\n";
-		}
-	}
-	else
-	{
+	if (! stream)
 		throw std::runtime_error { "Failed to create cpp file!" };
+
+	stream << "#include \"" << options.headerFileName << "\"\n";
+	stream << "#include <limes_core.h>\n";
+	stream << "#include <string>\n";
+	stream << "#include <string_view>\n";
+	stream << "\n";
+
+	stream << "namespace /* anonymous */ {\n";
+
+	std::vector<std::string> fileIds;
+
+	for (const auto& path : options.inputFiles)
+	{
+		const std::string fileId = "file" + std::to_string (fileIds.size());
+
+		std::cout << "  " << path.getAbsolutePath().string() << "\n";
+		convertFileDataToCppSource (path, fileId, stream);
+		fileIds.emplace_back (fileId);
+	}
+
+	stream << "}\n";
+	stream << "\n";
+
+	if (! options.namespaceName.empty())
+	{
+		stream << "namespace " << options.namespaceName << " {\n";
+	}
+
+	stream << "\tconst std::size_t fileInfoListSize = " << fileIds.size() << ";\n";
+	stream << "\tconst FileInfo fileInfoList[fileInfoListSize] = {\n";
+
+	for (const auto& id : fileIds)
+	{
+		stream << "\t\t{ " << id << "_name, reinterpret_cast<const char*>(" << id << "_data), " << id << "_data_size },\n";
+	}
+
+	stream << "\t};\n";
+
+	stream << R"raw(
+	std::string FileInfo::name() const
+	{
+		return { fileName };
+	}
+
+	std::string FileInfo::string() const
+	{
+		return std::string { fileData, fileDataSize };
+	}
+
+	limes::memory::RawData FileInfo::data() const
+	{
+		return limes::memory::RawData { string() };
+	}
+
+	const FileInfo* FileInfoList::begin() const noexcept
+	{
+		return &fileInfoList[0];
+	}
+
+	const FileInfo* FileInfoList::end() const noexcept
+	{
+		return begin() + fileInfoListSize;
+	}
+
+	const std::size_t FileInfoList::size() const noexcept
+	{
+		return fileInfoListSize;
+	}
+
+	const FileInfo* FileInfoList::findFile (const std::string_view& fileName) const noexcept
+	{
+		for (const auto& info : fileInfoList)
+			if (info.fileName == fileName)
+				return &info;
+
+		return nullptr;
+	}
+
+	FileInfoList fileList() noexcept
+	{
+		return FileInfoList{};
+	}
+
+	limes::memory::RawData loadFile (const std::string_view& fileName)
+	{
+		if (const auto* file = fileList().findFile(fileName))
+			return file->data();
+
+		return {};
+	}
+	)raw";
+
+	if (! options.namespaceName.empty())
+	{
+		stream << "}\n";
 	}
 }
 

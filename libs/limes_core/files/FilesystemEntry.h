@@ -186,12 +186,12 @@ public:
 	/** Creates the filesystem entry this object refers to, if it doesn't already exist.
 		@returns True if the filesystem object needed to be created, and was successfully created.
 	 */
-	virtual bool createIfDoesntExist() const;
+	virtual bool createIfDoesntExist() const noexcept;
 
 	/** Deletes the filesystem entry this object refers to, if it exists.
 		@returns True if the object existed and was successfully deleted.
 	 */
-	bool deleteIfExists() const;
+	bool deleteIfExists() const noexcept;
 
 	/** If the filesystem entry this object refers do doesn't exist, this function creates it.
 		If it did already exist, this function updates its modification time to the current system time.

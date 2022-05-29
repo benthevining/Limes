@@ -108,6 +108,13 @@ public:
 	bool prepend (const std::string_view& text) const noexcept;
 	///@}
 
+	/** Duplicates this file within its directory.
+		This creates a new file containing the same content as this file, in this file's directory, and automatically names the new file.
+		The new file will be named \c \<thisFileName\>_copy.\<thisFileXtn\> , unless a file with that name already exists, in which case it will be named \c \<thisFileName\>_copy2.\<thisFileXtn\> , and so on, until a unique name in the current directory is reached.
+		@returns The new file that was created, or a null file object if duplication fails.
+	 */
+	File duplicate() const noexcept;
+
 	/** @name Loading the file */
 	///@{
 	/** Loads the file's contents as a RawData object. */

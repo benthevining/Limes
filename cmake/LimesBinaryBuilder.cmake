@@ -82,7 +82,8 @@ function (limes_add_binary_data_target)
 
 	add_library ("${LIMES_ARG_TARGET_NAME}" STATIC)
 
-	target_link_libraries ("${LIMES_ARG_TARGET_NAME}" PRIVATE Oranges::OrangesDefaultTarget)
+	target_link_libraries ("${LIMES_ARG_TARGET_NAME}" PRIVATE Oranges::OrangesDefaultTarget
+															  Limes::limes_core)
 
 	if (NOT LIMES_ARG_HEADER_NAME)
 		set (LIMES_ARG_HEADER_NAME BinaryData)

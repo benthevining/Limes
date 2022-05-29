@@ -71,7 +71,7 @@ public:
 	/** Creates the %directory this object refers to, if it doesn't already exist.
 		@returns True if the %directory needed to be created, and was successfully created.
 	 */
-	bool createIfDoesntExist() const final;
+	bool createIfDoesntExist() const noexcept final;
 
 	/** Returns true if this %directory contains no children. */
 	[[nodiscard]] bool isEmpty() const;

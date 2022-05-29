@@ -22,6 +22,7 @@
 #include "sym_link.h"		  // for SymLink
 #include "misc.h"			  // for PATHseparator
 #include "../misc/Algorithm.h"
+#include "../misc/Functions.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -51,7 +52,7 @@ bool Directory::contains (const std::string_view& childName) const
 							 { return e.getName() == childName; });
 }
 
-bool Directory::createIfDoesntExist() const
+bool Directory::createIfDoesntExist() const noexcept
 {
 	if (! isValid())
 		return false;
@@ -59,7 +60,8 @@ bool Directory::createIfDoesntExist() const
 	if (exists())
 		return false;
 
-	return std::filesystem::create_directories (getAbsolutePath());
+	return func::try_call ([p = getAbsolutePath()]
+						   { return std::filesystem::create_directories (p); });
 }
 
 Path Directory::getRelativePath (const Path& inputPath) const

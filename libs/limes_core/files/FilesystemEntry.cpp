@@ -241,7 +241,7 @@ bool FilesystemEntry::makeAbsoluteRelativeToCWD() noexcept
 	return makeAbsoluteRelativeTo (Directory::getCurrentWorkingDirectory().getAbsolutePath());
 }
 
-bool FilesystemEntry::createIfDoesntExist() const
+bool FilesystemEntry::createIfDoesntExist() const noexcept
 {
 	if (! isValid())
 		return false;
@@ -259,21 +259,26 @@ bool FilesystemEntry::createIfDoesntExist() const
 		return false;
 
 	if (isDirectory())
-		return std::filesystem::create_directories (path);
+		return func::try_call ([p = getAbsolutePath()]
+							   { return std::filesystem::create_directories (p); });
 
-	std::ofstream output (getAbsolutePath());
+	return func::try_call ([this]
+						   {
+			std::ofstream output (getAbsolutePath());
 
-	return exists();
+			return exists(); });
 }
 
-bool FilesystemEntry::deleteIfExists() const
+bool FilesystemEntry::deleteIfExists() const noexcept
 {
 	if (! exists() || ! isValid())
 		return false;
 
-	const auto filesRemoved = std::filesystem::remove_all (path);
+	return func::try_call ([p = getAbsolutePath()]
+						   {
+			const auto filesRemoved = std::filesystem::remove_all (p);
 
-	return filesRemoved > 0;
+			return filesRemoved > 0; });
 }
 
 void FilesystemEntry::touch() const
