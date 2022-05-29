@@ -16,6 +16,13 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -152,19 +159,19 @@ Classes</h2></td></tr>
 <tr class="separator:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
 <tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#ga9e117ca50dccbf636d7a04e110a08df8">isDivisibleBy</a> (Integer number, Integer divisor) noexcept</td></tr>
-<tr class="memdesc:ga9e117ca50dccbf636d7a04e110a08df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is divisible by the divisor with no remainder.  <a href="../../d9/dfc/group__core__math.html#ga9e117ca50dccbf636d7a04e110a08df8">More...</a><br /></td></tr>
+<tr class="memdesc:ga9e117ca50dccbf636d7a04e110a08df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the <code>number</code> is divisible by the <code>divisor</code> with no remainder.  <a href="../../d9/dfc/group__core__math.html#ga9e117ca50dccbf636d7a04e110a08df8">More...</a><br /></td></tr>
 <tr class="separator:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
 <tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#ga548a17542294fda4e35f822965eef21d">numberIsEven</a> (Integer number) noexcept</td></tr>
-<tr class="memdesc:ga548a17542294fda4e35f822965eef21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is evenly divisible by 2.  <a href="../../d9/dfc/group__core__math.html#ga548a17542294fda4e35f822965eef21d">More...</a><br /></td></tr>
+<tr class="memdesc:ga548a17542294fda4e35f822965eef21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the <code>number</code> is evenly divisible by 2.  <a href="../../d9/dfc/group__core__math.html#ga548a17542294fda4e35f822965eef21d">More...</a><br /></td></tr>
 <tr class="separator:ga548a17542294fda4e35f822965eef21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
 <tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#gaa7aecc12e23fb531f845fdf32f2588cf">isPrime</a> (Integer number) noexcept</td></tr>
-<tr class="memdesc:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is a prime number.  <a href="../../d9/dfc/group__core__math.html#gaa7aecc12e23fb531f845fdf32f2588cf">More...</a><br /></td></tr>
+<tr class="memdesc:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the <code>number</code> is a prime number.  <a href="../../d9/dfc/group__core__math.html#gaa7aecc12e23fb531f845fdf32f2588cf">More...</a><br /></td></tr>
 <tr class="separator:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplParams" colspan="2">template&lt;Integral T&gt; </td></tr>
 <tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#ga8f543e20a836b53e34ff51af3c435650">factorial</a> (T number) noexcept</td></tr>
-<tr class="memdesc:ga8f543e20a836b53e34ff51af3c435650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the factorial of the number.  <a href="../../d9/dfc/group__core__math.html#ga8f543e20a836b53e34ff51af3c435650">More...</a><br /></td></tr>
+<tr class="memdesc:ga8f543e20a836b53e34ff51af3c435650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the factorial of the <code>number</code>.  <a href="../../d9/dfc/group__core__math.html#ga8f543e20a836b53e34ff51af3c435650">More...</a><br /></td></tr>
 <tr class="separator:ga8f543e20a836b53e34ff51af3c435650"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
 <tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#ga09f140aa9f0323bb7cbb299cfd4be28f">middleOfThree</a> (T a, T b, T c) noexcept</td></tr>
@@ -224,19 +231,19 @@ Classes</h2></td></tr>
 <tr class="separator:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
 <tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#ga9e117ca50dccbf636d7a04e110a08df8">isDivisibleBy</a> (Integer number, Integer divisor) noexcept</td></tr>
-<tr class="memdesc:ga9e117ca50dccbf636d7a04e110a08df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is divisible by the divisor with no remainder.  <a href="../../d9/dfc/group__core__math.html#ga9e117ca50dccbf636d7a04e110a08df8">More...</a><br /></td></tr>
+<tr class="memdesc:ga9e117ca50dccbf636d7a04e110a08df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the <code>number</code> is divisible by the <code>divisor</code> with no remainder.  <a href="../../d9/dfc/group__core__math.html#ga9e117ca50dccbf636d7a04e110a08df8">More...</a><br /></td></tr>
 <tr class="separator:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
 <tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#ga548a17542294fda4e35f822965eef21d">numberIsEven</a> (Integer number) noexcept</td></tr>
-<tr class="memdesc:ga548a17542294fda4e35f822965eef21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is evenly divisible by 2.  <a href="../../d9/dfc/group__core__math.html#ga548a17542294fda4e35f822965eef21d">More...</a><br /></td></tr>
+<tr class="memdesc:ga548a17542294fda4e35f822965eef21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the <code>number</code> is evenly divisible by 2.  <a href="../../d9/dfc/group__core__math.html#ga548a17542294fda4e35f822965eef21d">More...</a><br /></td></tr>
 <tr class="separator:ga548a17542294fda4e35f822965eef21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
 <tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#gaa7aecc12e23fb531f845fdf32f2588cf">isPrime</a> (Integer number) noexcept</td></tr>
-<tr class="memdesc:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is a prime number.  <a href="../../d9/dfc/group__core__math.html#gaa7aecc12e23fb531f845fdf32f2588cf">More...</a><br /></td></tr>
+<tr class="memdesc:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the <code>number</code> is a prime number.  <a href="../../d9/dfc/group__core__math.html#gaa7aecc12e23fb531f845fdf32f2588cf">More...</a><br /></td></tr>
 <tr class="separator:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplParams" colspan="2">template&lt;Integral T&gt; </td></tr>
 <tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#ga8f543e20a836b53e34ff51af3c435650">factorial</a> (T number) noexcept</td></tr>
-<tr class="memdesc:ga8f543e20a836b53e34ff51af3c435650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the factorial of the number.  <a href="../../d9/dfc/group__core__math.html#ga8f543e20a836b53e34ff51af3c435650">More...</a><br /></td></tr>
+<tr class="memdesc:ga8f543e20a836b53e34ff51af3c435650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the factorial of the <code>number</code>.  <a href="../../d9/dfc/group__core__math.html#ga8f543e20a836b53e34ff51af3c435650">More...</a><br /></td></tr>
 <tr class="separator:ga8f543e20a836b53e34ff51af3c435650"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
 <tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#ga09f140aa9f0323bb7cbb299cfd4be28f">middleOfThree</a> (T a, T b, T c) noexcept</td></tr>
@@ -275,7 +282,7 @@ Classes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dd/d47/namespacemath.html">math</a></li>
-    <li class="footer">Generated on Sun May 29 2022 00:57:03 for Limes by
+    <li class="footer">Generated on Sun May 29 2022 05:51:44 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

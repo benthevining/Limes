@@ -16,6 +16,13 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -205,7 +212,7 @@ template&lt;Scalar ValueType&gt; </div>
 
 <p>Creates a rectangle with the specified length and width (in unspecified units). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00093">93</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00099">99</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
 
 </div>
 </div>
@@ -293,10 +300,11 @@ template&lt;Scalar ValueType&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the area of the rectangle. </p>
+<p>The formula is \( A=length*width \). </p>
 
 <p>Implements <a class="el" href="../../d7/d47/classmath_1_1geometry_1_1_two_d_shape.html#a50c6bec0ea940e4121beaea9a0a482db">math::geometry::TwoDShape&lt; ValueType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00101">101</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00107">107</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
 
 </div>
 </div>
@@ -324,7 +332,7 @@ template&lt;Scalar ValueType&gt; </div>
 
 <p>Returns a triangle representing the rectangle bisected along its internal diagonal. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00137">137</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00143">143</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
 
 </div>
 </div>
@@ -351,8 +359,9 @@ template&lt;Scalar ValueType&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the length of the internal diagonal of the rectangle. </p>
+<p>The formula is \( d=\sqrt{length^2+width^2} \). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00131">131</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00137">137</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
 
 </div>
 </div>
@@ -380,7 +389,7 @@ template&lt;Scalar ValueType&gt; </div>
 
 <p>Returns true if the rectangle is square; ie, the length is equal to the width. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00125">125</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00131">131</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
 
 </div>
 </div>
@@ -408,7 +417,7 @@ template&lt;Scalar ValueType&gt; </div>
 
 <p>Returns the length of the rectangle. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00113">113</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00119">119</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
 
 </div>
 </div>
@@ -438,7 +447,7 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00149">149</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00155">155</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
 
 </div>
 </div>
@@ -468,7 +477,7 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00161">161</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00167">167</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
 
 </div>
 </div>
@@ -558,7 +567,7 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00143">143</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00149">149</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
 
 </div>
 </div>
@@ -588,7 +597,7 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00155">155</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00161">161</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
 
 </div>
 </div>
@@ -615,10 +624,11 @@ template&lt;Scalar ValueType&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the perimeter of the rectangle. </p>
+<p>The formula is \( A=2*(length+width) \). </p>
 
 <p>Implements <a class="el" href="../../d7/d47/classmath_1_1geometry_1_1_two_d_shape.html#aee84170522fdabeb5548afc4915321a9">math::geometry::TwoDShape&lt; ValueType &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00107">107</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00113">113</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
 
 </div>
 </div>
@@ -646,7 +656,7 @@ template&lt;Scalar ValueType&gt; </div>
 
 <p>Returns the width of the rectangle. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00119">119</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dd0/rectangle_8h_source.html#l00125">125</a> of file <a class="el" href="../../db/dd0/rectangle_8h_source.html">rectangle.h</a>.</p>
 
 </div>
 </div>
@@ -659,7 +669,7 @@ template&lt;Scalar ValueType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dd/d47/namespacemath.html">math</a></li><li class="navelem"><a class="el" href="../../d9/d9a/namespacemath_1_1geometry.html">geometry</a></li><li class="navelem"><a class="el" href="../../d0/d60/classmath_1_1geometry_1_1_rectangle.html">Rectangle</a></li>
-    <li class="footer">Generated on Sun May 29 2022 00:57:03 for Limes by
+    <li class="footer">Generated on Sun May 29 2022 05:51:44 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

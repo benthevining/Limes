@@ -16,6 +16,13 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -207,7 +214,7 @@ template&lt;Scalar ValueType&gt; </div>
 
 <p>Creates a <a class="el" href="../../d3/d1d/classmath_1_1geometry_1_1_rectangular_prism.html" title="This class represents a rectagular prism.">RectangularPrism</a> with the given dimensions. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00083">83</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00089">89</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
 
 </div>
 </div>
@@ -296,7 +303,7 @@ template&lt;Scalar ValueType&gt; </div>
 
 <p>Returns the height of the prism. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00128">128</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00134">134</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
 
 </div>
 </div>
@@ -324,7 +331,7 @@ template&lt;Scalar ValueType&gt; </div>
 
 <p>Returns true if this rectangular prism is a cube. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00110">110</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00116">116</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
 
 </div>
 </div>
@@ -352,7 +359,7 @@ template&lt;Scalar ValueType&gt; </div>
 
 <p>Returns the length of the prism. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00116">116</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00122">122</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
 
 </div>
 </div>
@@ -382,7 +389,7 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00140">140</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00146">146</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
 
 </div>
 </div>
@@ -472,7 +479,7 @@ template&lt;Scalar ValueType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00134">134</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00140">140</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
 
 </div>
 </div>
@@ -499,8 +506,9 @@ template&lt;Scalar ValueType&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the space diagonal of the prism. </p>
+<p>The formula is \( d=\sqrt{length^2+width^2+height^2} \). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00104">104</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00110">110</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
 
 </div>
 </div>
@@ -527,8 +535,9 @@ template&lt;Scalar ValueType&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the surface area of the prism. </p>
+<p>The formula is \( A=2*((length*width)+(length*height)+(height*width)) \). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00098">98</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00104">104</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
 
 </div>
 </div>
@@ -584,8 +593,9 @@ template&lt;Scalar ValueType&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the volume of the prism. </p>
+<p>The formula is \( V=length*width*height \). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00092">92</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00098">98</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
 
 </div>
 </div>
@@ -642,7 +652,7 @@ template&lt;Scalar ValueType&gt; </div>
 
 <p>Returns the width of the prism. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00122">122</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dba/rectangular__prism_8h_source.html#l00128">128</a> of file <a class="el" href="../../db/dba/rectangular__prism_8h_source.html">rectangular_prism.h</a>.</p>
 
 </div>
 </div>
@@ -655,7 +665,7 @@ template&lt;Scalar ValueType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dd/d47/namespacemath.html">math</a></li><li class="navelem"><a class="el" href="../../d9/d9a/namespacemath_1_1geometry.html">geometry</a></li><li class="navelem"><a class="el" href="../../d3/d1d/classmath_1_1geometry_1_1_rectangular_prism.html">RectangularPrism</a></li>
-    <li class="footer">Generated on Sun May 29 2022 00:57:03 for Limes by
+    <li class="footer">Generated on Sun May 29 2022 05:51:44 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

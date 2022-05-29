@@ -16,6 +16,13 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -150,19 +157,19 @@ Files</h2></td></tr>
 <tr class="separator:ga2c6a4276c506b35b346e1bf5dbc04e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
 <tr class="memitem:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#ga9e117ca50dccbf636d7a04e110a08df8">math::isDivisibleBy</a> (Integer number, Integer divisor) noexcept</td></tr>
-<tr class="memdesc:ga9e117ca50dccbf636d7a04e110a08df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is divisible by the divisor with no remainder.  <a href="../../d9/dfc/group__core__math.html#ga9e117ca50dccbf636d7a04e110a08df8">More...</a><br /></td></tr>
+<tr class="memdesc:ga9e117ca50dccbf636d7a04e110a08df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the <code>number</code> is divisible by the <code>divisor</code> with no remainder.  <a href="../../d9/dfc/group__core__math.html#ga9e117ca50dccbf636d7a04e110a08df8">More...</a><br /></td></tr>
 <tr class="separator:ga9e117ca50dccbf636d7a04e110a08df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
 <tr class="memitem:ga548a17542294fda4e35f822965eef21d"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#ga548a17542294fda4e35f822965eef21d">math::numberIsEven</a> (Integer number) noexcept</td></tr>
-<tr class="memdesc:ga548a17542294fda4e35f822965eef21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is evenly divisible by 2.  <a href="../../d9/dfc/group__core__math.html#ga548a17542294fda4e35f822965eef21d">More...</a><br /></td></tr>
+<tr class="memdesc:ga548a17542294fda4e35f822965eef21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the <code>number</code> is evenly divisible by 2.  <a href="../../d9/dfc/group__core__math.html#ga548a17542294fda4e35f822965eef21d">More...</a><br /></td></tr>
 <tr class="separator:ga548a17542294fda4e35f822965eef21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplParams" colspan="2">template&lt;Integral Integer&gt; </td></tr>
 <tr class="memitem:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#gaa7aecc12e23fb531f845fdf32f2588cf">math::isPrime</a> (Integer number) noexcept</td></tr>
-<tr class="memdesc:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the number is a prime number.  <a href="../../d9/dfc/group__core__math.html#gaa7aecc12e23fb531f845fdf32f2588cf">More...</a><br /></td></tr>
+<tr class="memdesc:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the <code>number</code> is a prime number.  <a href="../../d9/dfc/group__core__math.html#gaa7aecc12e23fb531f845fdf32f2588cf">More...</a><br /></td></tr>
 <tr class="separator:gaa7aecc12e23fb531f845fdf32f2588cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplParams" colspan="2">template&lt;Integral T&gt; </td></tr>
 <tr class="memitem:ga8f543e20a836b53e34ff51af3c435650"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#ga8f543e20a836b53e34ff51af3c435650">math::factorial</a> (T number) noexcept</td></tr>
-<tr class="memdesc:ga8f543e20a836b53e34ff51af3c435650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the factorial of the number.  <a href="../../d9/dfc/group__core__math.html#ga8f543e20a836b53e34ff51af3c435650">More...</a><br /></td></tr>
+<tr class="memdesc:ga8f543e20a836b53e34ff51af3c435650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the factorial of the <code>number</code>.  <a href="../../d9/dfc/group__core__math.html#ga8f543e20a836b53e34ff51af3c435650">More...</a><br /></td></tr>
 <tr class="separator:ga8f543e20a836b53e34ff51af3c435650"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplParams" colspan="2">template&lt;Scalar T&gt; </td></tr>
 <tr class="memitem:ga09f140aa9f0323bb7cbb299cfd4be28f"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#ga09f140aa9f0323bb7cbb299cfd4be28f">math::middleOfThree</a> (T a, T b, T c) noexcept</td></tr>
@@ -224,7 +231,7 @@ template&lt;Scalar T&gt; </div>
 
 <p>A constexpr-enabled absolute value function. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00172">172</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00192">192</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -254,9 +261,9 @@ template&lt;Integral T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the factorial of the number. </p>
+<p>Computes the factorial of the <code>number</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00285">285</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00305">305</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -297,8 +304,9 @@ template&lt;Scalar PeriodType&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the frequency in Hz with a given period in samples at the specified samplerate. </p>
+<p>The formula is \( f=\frac{samplerate}{period} \). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/dfc/group__core__math.html#ga1a6dc5f37f6bc00737b62629958fd0ab" title="Returns the period in samples of a frequency at the specified samplerate.">periodInSamples</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00314">314</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00334">334</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -329,8 +337,9 @@ template&lt;Scalar T&gt; </div>
 </div><div class="memdoc">
 
 <p>Converts a frequency in Hz to a MIDI note. </p>
+<p>The formula is \( midi=69+12*\log_2\frac{freqHz}{440} \). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/dfc/group__core__math.html#ga1d25879e95bcdc91434efb4fe91bda13" title="Converts a MIDI note to a frequency in Hz.">midiToFreq</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00358">358</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00378">378</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -370,9 +379,9 @@ template&lt;Integral Integer&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns true if the number is divisible by the divisor with no remainder. </p>
+<p>Returns true if the <code>number</code> is divisible by the <code>divisor</code> with no remainder. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00254">254</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00274">274</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -404,7 +413,7 @@ template&lt;Integral Integer&gt; </div>
 
 <p>Returns true if <code>val</code> is 2^something. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00248">248</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00268">268</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -434,9 +443,9 @@ template&lt;Integral Integer&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns true if the number is a prime number. </p>
+<p>Returns true if the <code>number</code> is a prime number. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00266">266</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00286">286</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -484,7 +493,7 @@ template&lt;Scalar T&gt; </div>
 
 <p>A constexpr-enabled clipping function. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00209">209</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00229">229</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -544,7 +553,7 @@ template&lt;Scalar T&gt; </div>
 
 <p>A constexpr-enabled mapping function. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00239">239</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00259">259</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -592,7 +601,7 @@ template&lt;Scalar T&gt; </div>
 
 <p>Returns the median of three values. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00296">296</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00316">316</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -623,8 +632,9 @@ template&lt;Scalar T&gt; </div>
 </div><div class="memdoc">
 
 <p>Converts a MIDI note to a frequency in Hz. </p>
+<p>The formula is \( f=440*2^{\frac{midiNote-69}{12}} \). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/dfc/group__core__math.html#gaba5c165d2cb7683000726630f32ff02c" title="Converts a frequency in Hz to a MIDI note.">freqToMidi</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00345">345</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00365">365</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -665,8 +675,9 @@ template&lt;Scalar msType&gt; </div>
 </div><div class="memdoc">
 
 <p>Converts a number of milliseconds to the closest integer number of samples at the specified samplerate. </p>
+<p>The formula is \( s=\frac{samplerate}{1000}*ms \). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/dfc/group__core__math.html#ga03e0609c4a16e5500a587ca9bafe7f87" title="Converts a number of samples to milliseconds at the specified samplerate.">sampsToMs</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00337">337</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00357">357</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -698,7 +709,7 @@ template&lt;Scalar T&gt; </div>
 
 <p>A constexpr-enabled negation function. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00186">186</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00206">206</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -728,9 +739,9 @@ template&lt;Integral Integer&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns true if the number is evenly divisible by 2. </p>
+<p>Returns true if the <code>number</code> is evenly divisible by 2. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00260">260</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00280">280</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -771,8 +782,9 @@ template&lt;Scalar FreqType&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the period in samples of a frequency at the specified samplerate. </p>
+<p>The formula is \( T=\frac{samplerate}{freqHz} \). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/dfc/group__core__math.html#ga6bb0f47d78ad031a40afbf364083bb43" title="Returns the frequency in Hz with a given period in samples at the specified samplerate.">freqFromPeriod</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00304">304</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00324">324</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -813,8 +825,9 @@ template&lt;Integral T&gt; </div>
 </div><div class="memdoc">
 
 <p>A constexpr-enabled power function. </p>
+<p>The formula is \( n=number^{power} \). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00219">219</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00239">239</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -846,7 +859,7 @@ template&lt;Scalar T&gt; </div>
 
 <p>A constexpr-enabled rounding function. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00195">195</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00215">215</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -887,8 +900,9 @@ template&lt;Integral Integer&gt; </div>
 </div><div class="memdoc">
 
 <p>Converts a number of samples to milliseconds at the specified samplerate. </p>
+<p>The formula is \( ms=\frac{numSamples}{samplerate}*1000 \). </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/dfc/group__core__math.html#ga95da7fc1fb96ae78716e0faf3b1dc0a0" title="Converts a number of milliseconds to the closest integer number of samples at the specified samplerat...">msToSamps</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00327">327</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/dfb/math_helpers_8h_source.html#l00347">347</a> of file <a class="el" href="../../dd/dfb/math_helpers_8h_source.html">mathHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -938,7 +952,7 @@ template&lt;typename T &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun May 29 2022 00:57:02 for Limes by
+    <li class="footer">Generated on Sun May 29 2022 05:51:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

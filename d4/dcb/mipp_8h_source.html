@@ -16,6 +16,13 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -2209,7 +2216,7 @@ $(document).ready(function(){initNavTree('d4/dcb/mipp_8h_source.html','../../');
 <div class="ttc" id="agroup__vec__arithmetic_html_ga6389e1ce8e42772417714ab657ff4aa8"><div class="ttname"><a href="../../d8/dce/group__vec__arithmetic.html#ga6389e1ce8e42772417714ab657ff4aa8">vecops::recipAndCopy</a></div><div class="ttdeci">LIMES_EXPORT void recipAndCopy(DataType *const dest, const DataType *const origData, SizeType size)</div><div class="ttdoc">Writes the reciprocal of each value in the input vector to an output vector.</div></div>
 <div class="ttc" id="agroup__vec__impl_html_gac49ec9d0f787d23c27bc51ec2cbd5bdf"><div class="ttname"><a href="../../db/db4/group__vec__impl.html#gac49ec9d0f787d23c27bc51ec2cbd5bdf">vecops::isUsingMIPP</a></div><div class="ttdeci">LIMES_EXPORT LIMES_PURE_FUNCTION consteval bool isUsingMIPP() noexcept</div><div class="ttdoc">Returns true if the implementation being used is MIPP.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d1f/limes__vecops_8h_source.html#l01395">limes_vecops.h:1395</a></div></div>
 <div class="ttc" id="anamespacevecops_html"><div class="ttname"><a href="../../d9/d1a/namespacevecops.html">vecops</a></div><div class="ttdoc">This namespace contains vector operations functions.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d14/fallback__fft_8h_source.html#l00026">fallback_fft.h:26</a></div></div>
-<div class="ttc" id="agroup__core__math_html_ga6d262e04bc6f3646fdefa9bdb887f977"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#ga6d262e04bc6f3646fdefa9bdb887f977">math::abs</a></div><div class="ttdeci">constexpr LIMES_EXPORT T abs(T val) noexcept</div><div class="ttdoc">A constexpr-enabled absolute value function.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/math_helpers_8h_source.html#l00172">mathHelpers.h:172</a></div></div>
+<div class="ttc" id="agroup__core__math_html_ga6d262e04bc6f3646fdefa9bdb887f977"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#ga6d262e04bc6f3646fdefa9bdb887f977">math::abs</a></div><div class="ttdeci">constexpr LIMES_EXPORT T abs(T val) noexcept</div><div class="ttdoc">A constexpr-enabled absolute value function.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/math_helpers_8h_source.html#l00192">mathHelpers.h:192</a></div></div>
 <div class="ttc" id="agroup__vec__squaring_html_ga8567e5469e2530bb15c29b5a7127a1b4"><div class="ttname"><a href="../../d2/d25/group__vec__squaring.html#ga8567e5469e2530bb15c29b5a7127a1b4">vecops::cubeRootAndCopy</a></div><div class="ttdeci">LIMES_EXPORT void cubeRootAndCopy(DataType *const dest, const DataType *const data, SizeType size)</div><div class="ttdoc">Writes the cube root of every element in the original vector to the output vector.</div></div>
 <div class="ttc" id="agroup__vec__extrema_html_gac850b880c9ee8106321198dda9dfc89d"><div class="ttname"><a href="../../d5/d65/group__vec__extrema.html#gac850b880c9ee8106321198dda9dfc89d">vecops::min</a></div><div class="ttdeci">LIMES_EXPORT DataType min(const DataType *const data, SizeType size)</div><div class="ttdoc">Returns the minimum element in a vector.</div></div>
 <div class="ttc" id="agroup__vec__sorting_html_gad020ceb892c3eace839d6eabfab76608"><div class="ttname"><a href="../../d0/d58/group__vec__sorting.html#gad020ceb892c3eace839d6eabfab76608">vecops::sortReverse</a></div><div class="ttdeci">LIMES_EXPORT void sortReverse(DataType *const dataAndDest, SizeType size)</div><div class="ttdoc">Sorts a vector in reverse order in-place.</div></div>
@@ -2249,7 +2256,7 @@ $(document).ready(function(){initNavTree('d4/dcb/mipp_8h_source.html','../../');
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_fd627f24d7bb4f56aee54e980d5bfd70.html">limes_vecops</a></li><li class="navelem"><a class="el" href="../../dir_01e70249a0706b97da777b004b779f41.html">impl</a></li><li class="navelem"><a class="el" href="../../d4/dcb/mipp_8h.html">mipp.h</a></li>
-    <li class="footer">Generated on Sun May 29 2022 00:57:02 for Limes by
+    <li class="footer">Generated on Sun May 29 2022 05:51:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

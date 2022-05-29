@@ -16,6 +16,13 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -224,7 +231,7 @@ $(document).ready(function(){initNavTree('d1/d7a/_realtime_type_traits_8h_source
 <div class="ttc" id="anamespacethreads_html_adc41f441b0140baa937620d5910c241f"><div class="ttname"><a href="../../d5/d58/namespacethreads.html#adc41f441b0140baa937620d5910c241f">threads::is_realtime_move_safe</a></div><div class="ttdeci">std::bool_constant&lt; is_realtime_move_assignable&lt; T &gt;::value &amp;&amp;is_realtime_move_constructable&lt; T &gt;::value &gt; is_realtime_move_safe</div><div class="ttdoc">A compile-time boolean constant that evaluates to true if the type T is realtime-safe move constructa...</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7a/_realtime_type_traits_8h_source.html#l00169">RealtimeTypeTraits.h:169</a></div></div>
 <div class="ttc" id="astructthreads_1_1detail_1_1is__rt__safe_html"><div class="ttname"><a href="../../da/d8b/structthreads_1_1detail_1_1is__rt__safe.html">threads::detail::is_rt_safe</a></div><div class="ttdoc">Represents a query for realtime safety of the operation represented by Tag1 and Tag2 on the type T .</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7a/_realtime_type_traits_8h_source.html#l00065">RealtimeTypeTraits.h:65</a></div></div>
 <div class="ttc" id="agroup__rt__safety_html_ga52f5c8aaa88f7098451611bce93db9fc"><div class="ttname"><a href="../../dd/d3e/group__rt__safety.html#ga52f5c8aaa88f7098451611bce93db9fc">threads::detail::constructible_tag</a></div><div class="ttdeci">struct LIMES_EXPORT constructible_tag</div><div class="ttdoc">A type tag representing a type construction operation.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7a/_realtime_type_traits_8h_source.html#l00056">RealtimeTypeTraits.h:56</a></div></div>
-<div class="ttc" id="agroup__core__math_html_gad0e5a71d2f701efa07a804945876b122"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#gad0e5a71d2f701efa07a804945876b122">math::map</a></div><div class="ttdeci">constexpr LIMES_EXPORT T map(T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept</div><div class="ttdoc">A constexpr-enabled mapping function.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/math_helpers_8h_source.html#l00239">mathHelpers.h:239</a></div></div>
+<div class="ttc" id="agroup__core__math_html_gad0e5a71d2f701efa07a804945876b122"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#gad0e5a71d2f701efa07a804945876b122">math::map</a></div><div class="ttdeci">constexpr LIMES_EXPORT T map(T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept</div><div class="ttdoc">A constexpr-enabled mapping function.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/math_helpers_8h_source.html#l00259">mathHelpers.h:259</a></div></div>
 <div class="ttc" id="anamespacethreads_html_aeb10caeeea2e556947271f79cec45918"><div class="ttname"><a href="../../d5/d58/namespacethreads.html#aeb10caeeea2e556947271f79cec45918">threads::is_realtime_copy_safe</a></div><div class="ttdeci">std::bool_constant&lt; is_realtime_copy_assignable&lt; T &gt;::value &amp;&amp;is_realtime_copy_constructable&lt; T &gt;::value &gt; is_realtime_copy_safe</div><div class="ttdoc">A compile-time boolean constant that evaluates to true if the type T is realtime-safe copy constructa...</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7a/_realtime_type_traits_8h_source.html#l00147">RealtimeTypeTraits.h:147</a></div></div>
 <div class="ttc" id="agroup__rt__safety_html_ga11d8ecdc58cebed16d6de2498688dd33"><div class="ttname"><a href="../../dd/d3e/group__rt__safety.html#ga11d8ecdc58cebed16d6de2498688dd33">threads::detail::assignable_tag</a></div><div class="ttdeci">struct LIMES_EXPORT assignable_tag</div><div class="ttdoc">A type tag representing an assignment operation.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7a/_realtime_type_traits_8h_source.html#l00059">RealtimeTypeTraits.h:59</a></div></div>
 <div class="ttc" id="anamespacethreads_html_adb15c7e72fd6eee6d9cbbadf02048743"><div class="ttname"><a href="../../d5/d58/namespacethreads.html#adb15c7e72fd6eee6d9cbbadf02048743">threads::RealtimeSafe</a></div><div class="ttdeci">concept RealtimeSafe</div><div class="ttdoc">This concept requires that a type is realtime-safe copy constructable, copy assignable,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d7a/_realtime_type_traits_8h_source.html#l00177">RealtimeTypeTraits.h:177</a></div></div>
@@ -244,7 +251,7 @@ $(document).ready(function(){initNavTree('d1/d7a/_realtime_type_traits_8h_source
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_f3c3802d3847d937c602d8d473665a27.html">threading</a></li><li class="navelem"><a class="el" href="../../d1/d7a/_realtime_type_traits_8h.html">RealtimeTypeTraits.h</a></li>
-    <li class="footer">Generated on Sun May 29 2022 00:57:02 for Limes by
+    <li class="footer">Generated on Sun May 29 2022 05:51:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

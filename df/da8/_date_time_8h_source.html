@@ -16,6 +16,13 @@
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -267,7 +274,7 @@ $(document).ready(function(){initNavTree('df/da8/_date_time_8h_source.html','../
 <div class="ttc" id="aclasstime_1_1_time_html_a2980f80be4e69b363d38105e1eff47e2"><div class="ttname"><a href="../../d1/dea/classtime_1_1_time.html#a2980f80be4e69b363d38105e1eff47e2">time::Time::getCompilationTime</a></div><div class="ttdeci">static consteval Time getCompilationTime() noexcept</div><div class="ttdoc">Returns a Time object representing the time this code was compiled.</div></div>
 <div class="ttc" id="aclasstime_1_1_date_html_af19c5cfd2b8a6488864e9c2ba75445f6"><div class="ttname"><a href="../../dd/d49/classtime_1_1_date.html#af19c5cfd2b8a6488864e9c2ba75445f6">time::Date::getMonth</a></div><div class="ttdeci">constexpr Month getMonth() const noexcept</div><div class="ttdoc">Returns the month of this date.</div></div>
 <div class="ttc" id="aclasstime_1_1_date_time_html_a434427796c2e899dea3751c2c409e013"><div class="ttname"><a href="../../dd/d74/classtime_1_1_date_time.html#a434427796c2e899dea3751c2c409e013">time::DateTime::isAfter</a></div><div class="ttdeci">constexpr bool isAfter(const DateTime &amp;other) const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../df/da8/_date_time_8h_source.html#l00164">DateTime.h:164</a></div></div>
-<div class="ttc" id="anamespacemath_1_1geometry_html_a2396d30ac8dc8dc734b4aa53fb53c6e5"><div class="ttname"><a href="../../d9/d9a/namespacemath_1_1geometry.html#a2396d30ac8dc8dc734b4aa53fb53c6e5">math::geometry::operator==</a></div><div class="ttdeci">constexpr LIMES_EXPORT bool operator==(const Rectangle&lt; ValueType &gt; &amp;rect, const Square&lt; ValueType &gt; &amp;square) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3c/square_8h_source.html#l00096">square.h:96</a></div></div>
+<div class="ttc" id="anamespacemath_1_1geometry_html_a2396d30ac8dc8dc734b4aa53fb53c6e5"><div class="ttname"><a href="../../d9/d9a/namespacemath_1_1geometry.html#a2396d30ac8dc8dc734b4aa53fb53c6e5">math::geometry::operator==</a></div><div class="ttdeci">constexpr LIMES_EXPORT bool operator==(const Rectangle&lt; ValueType &gt; &amp;rect, const Square&lt; ValueType &gt; &amp;square) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3c/square_8h_source.html#l00102">square.h:102</a></div></div>
 <div class="ttc" id="aclasstime_1_1_date_time_html_ad67a596fed0453e1ad66b1bd413aba19"><div class="ttname"><a href="../../dd/d74/classtime_1_1_date_time.html#ad67a596fed0453e1ad66b1bd413aba19">time::DateTime::isBefore</a></div><div class="ttdeci">constexpr bool isBefore(const DateTime &amp;other) const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../df/da8/_date_time_8h_source.html#l00156">DateTime.h:156</a></div></div>
 <div class="ttc" id="aclasstime_1_1_date_html_a98cde46cf0c937e37351e6c4369bf8b6"><div class="ttname"><a href="../../dd/d49/classtime_1_1_date.html#a98cde46cf0c937e37351e6c4369bf8b6">time::Date::getDayOfMonth</a></div><div class="ttdeci">constexpr int getDayOfMonth() const noexcept</div><div class="ttdoc">Returns the day of the month of this date.</div></div>
 <div class="ttc" id="anamespacetime_html_ac979c7ad7b70f0f4a29229d891fc466a"><div class="ttname"><a href="../../d0/dfb/namespacetime.html#ac979c7ad7b70f0f4a29229d891fc466a">time::toTimeObj</a></div><div class="ttdeci">LIMES_EXPORT std::tm toTimeObj(const Point&lt; ClockType &gt; &amp;inputTime)</div><div class="ttdoc">Converts a time point on any Clock type to a std::tm object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dd4/time__utils_8h_source.html#l00087">time_utils.h:87</a></div></div>
@@ -290,13 +297,13 @@ $(document).ready(function(){initNavTree('df/da8/_date_time_8h_source.html','../
 <div class="ttc" id="aclasstime_1_1_date_time_html_aa08b76c2d5431ab319b768fca0d9be63"><div class="ttname"><a href="../../dd/d74/classtime_1_1_date_time.html#aa08b76c2d5431ab319b768fca0d9be63">time::DateTime::getTimePoint</a></div><div class="ttdeci">Point&lt; ClockType &gt; getTimePoint() const</div><div class="ttdoc">Converts this DateTime to a std::chrono::time_point object for the given Clock type.</div><div class="ttdef"><b>Definition:</b> <a href="../../df/da8/_date_time_8h_source.html#l00151">DateTime.h:151</a></div></div>
 <div class="ttc" id="aclasstime_1_1_date_html_a2cffaaaa7eb226be868032fb1f2a71e6"><div class="ttname"><a href="../../dd/d49/classtime_1_1_date.html#a2cffaaaa7eb226be868032fb1f2a71e6">time::Date::getWeekday</a></div><div class="ttdeci">constexpr Weekday&lt; StartWeekOnSunday &gt; getWeekday() const noexcept</div><div class="ttdoc">Returns a Weekday object representing this date.</div></div>
 <div class="ttc" id="aclasstime_1_1_date_time_html_ab9ac12b2d0c9fbf1f62791967ffaf32f"><div class="ttname"><a href="../../dd/d74/classtime_1_1_date_time.html#ab9ac12b2d0c9fbf1f62791967ffaf32f">time::DateTime::getStdTime</a></div><div class="ttdeci">constexpr std::tm getStdTime() const noexcept</div><div class="ttdoc">Converts this DateTime to a std::tm object.</div><div class="ttdef"><b>Definition:</b> <a href="../../df/da8/_date_time_8h_source.html#l00131">DateTime.h:131</a></div></div>
-<div class="ttc" id="anamespacemath_1_1geometry_html_a317e9900bc8f2c083ad6d6c8fafc5df8"><div class="ttname"><a href="../../d9/d9a/namespacemath_1_1geometry.html#a317e9900bc8f2c083ad6d6c8fafc5df8">math::geometry::operator!=</a></div><div class="ttdeci">constexpr LIMES_EXPORT bool operator!=(const Rectangle&lt; ValueType &gt; &amp;rect, const Square&lt; ValueType &gt; &amp;square) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3c/square_8h_source.html#l00105">square.h:105</a></div></div>
+<div class="ttc" id="anamespacemath_1_1geometry_html_a317e9900bc8f2c083ad6d6c8fafc5df8"><div class="ttname"><a href="../../d9/d9a/namespacemath_1_1geometry.html#a317e9900bc8f2c083ad6d6c8fafc5df8">math::geometry::operator!=</a></div><div class="ttdeci">constexpr LIMES_EXPORT bool operator!=(const Rectangle&lt; ValueType &gt; &amp;rect, const Square&lt; ValueType &gt; &amp;square) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3c/square_8h_source.html#l00111">square.h:111</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_c12d511caa08a25cac33eefcbb86c1b0.html">time</a></li><li class="navelem"><a class="el" href="../../df/da8/_date_time_8h.html">DateTime.h</a></li>
-    <li class="footer">Generated on Sun May 29 2022 00:57:01 for Limes by
+    <li class="footer">Generated on Sun May 29 2022 05:51:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
