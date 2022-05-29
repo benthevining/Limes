@@ -16,7 +16,7 @@ var searchData=
   ['decrefcountwithoutdeleting_233',['decRefCountWithoutDeleting',['../da/d8c/classmemory_1_1_reference_counted_object.html#a7243679968d6a41bee91ab40a1c8ebd3',1,'memory::ReferenceCountedObject']]],
   ['degrees_234',['degrees',['../d0/d61/classmath_1_1geometry_1_1_angle.html#ad3357d37f05df78ae570764b1bba0172',1,'math::geometry::Angle']]],
   ['deinterleave_235',['deinterleave',['../d0/d58/group__vec__sorting.html#gae5d0820b0e96989fcce9f3f26f38e1fe',1,'vecops']]],
-  ['deleteifexists_236',['deleteIfExists',['../de/d3d/classfiles_1_1_filesystem_entry.html#a0d19dc8965413fe13319b05859e0a62d',1,'files::FilesystemEntry']]],
+  ['deleteifexists_236',['deleteIfExists',['../de/d3d/classfiles_1_1_filesystem_entry.html#ad58e2731fc8305342086694ae82fb060',1,'files::FilesystemEntry']]],
   ['denominator_237',['denominator',['../d5/d26/structmath_1_1_fraction.html#ab55494cd5e967e722dd88d9a363464a3',1,'math::Fraction']]],
   ['destroy_238',['destroy',['../dd/d1c/classmemory_1_1_aligned_allocator.html#ad12d41fbbd286ce6a9476924ea574a61',1,'memory::AlignedAllocator::destroy()'],['../db/db8/classmemory_1_1_memory_pool_allocator.html#a2272af12104212c790f95bf2887a16b0',1,'memory::MemoryPoolAllocator::destroy()'],['../dc/d1a/classmemory_1_1_optional_object.html#aaf4f2edf40902cbb0aaf8d864e4fa283',1,'memory::OptionalObject::destroy()']]],
   ['destruct_239',['destruct',['../d7/db7/classmemory_1_1_memory_pool.html#abc038159ca0b33b93e7eb2fe07fc0f39',1,'memory::MemoryPool']]],
@@ -48,11 +48,12 @@ var searchData=
   ['droplastchars_265',['dropLastChars',['../df/dcb/namespacestrings.html#a8158cf75c9842b20d6b8727c4184663e',1,'strings']]],
   ['ds_266',['ds',['../d3/d4e/namespaceds.html',1,'']]],
   ['dsp_267',['dsp',['../d0/d41/namespacedsp.html',1,'']]],
-  ['dynamiclibrary_268',['DynamicLibrary',['../d5/d80/classfiles_1_1_dynamic_library.html',1,'files::DynamicLibrary'],['../d5/d80/classfiles_1_1_dynamic_library.html#a4e11abde2173839853903907ecb00713',1,'files::DynamicLibrary::DynamicLibrary()=default'],['../d5/d80/classfiles_1_1_dynamic_library.html#aa64824f52c3e45fb4a7852f0fe617cf3',1,'files::DynamicLibrary::DynamicLibrary(const std::string_view &amp;nameOrPath) noexcept'],['../d5/d80/classfiles_1_1_dynamic_library.html#a5f9a695c914c30c090d7d70c042e40f3',1,'files::DynamicLibrary::DynamicLibrary(const DynamicLibrary &amp;)=default'],['../d5/d80/classfiles_1_1_dynamic_library.html#ad393c9e890a7679e9db2bb638eee71aa',1,'files::DynamicLibrary::DynamicLibrary(DynamicLibrary &amp;&amp;)=default']]],
-  ['dynamiclibrary_2eh_269',['DynamicLibrary.h',['../d3/d36/_dynamic_library_8h.html',1,'']]],
-  ['filters_270',['filters',['../db/ded/namespacedsp_1_1filters.html',1,'dsp']]],
-  ['osc_271',['osc',['../d8/d1b/namespacedsp_1_1osc.html',1,'dsp']]],
-  ['psola_272',['psola',['../d2/dff/namespacedsp_1_1psola.html',1,'dsp']]],
-  ['denormalized_20number_20support_273',['Denormalized number support',['../d0/d49/group__vec__denormals.html',1,'']]],
-  ['division_274',['Division',['../dc/dc8/group__vec__division.html',1,'']]]
+  ['duplicate_268',['duplicate',['../df/dcc/classfiles_1_1_file.html#a99c52ca9ad5e511b5cf78c7d5fcc4046',1,'files::File']]],
+  ['dynamiclibrary_269',['DynamicLibrary',['../d5/d80/classfiles_1_1_dynamic_library.html',1,'files::DynamicLibrary'],['../d5/d80/classfiles_1_1_dynamic_library.html#a4e11abde2173839853903907ecb00713',1,'files::DynamicLibrary::DynamicLibrary()=default'],['../d5/d80/classfiles_1_1_dynamic_library.html#aa64824f52c3e45fb4a7852f0fe617cf3',1,'files::DynamicLibrary::DynamicLibrary(const std::string_view &amp;nameOrPath) noexcept'],['../d5/d80/classfiles_1_1_dynamic_library.html#a5f9a695c914c30c090d7d70c042e40f3',1,'files::DynamicLibrary::DynamicLibrary(const DynamicLibrary &amp;)=default'],['../d5/d80/classfiles_1_1_dynamic_library.html#ad393c9e890a7679e9db2bb638eee71aa',1,'files::DynamicLibrary::DynamicLibrary(DynamicLibrary &amp;&amp;)=default']]],
+  ['dynamiclibrary_2eh_270',['DynamicLibrary.h',['../d3/d36/_dynamic_library_8h.html',1,'']]],
+  ['filters_271',['filters',['../db/ded/namespacedsp_1_1filters.html',1,'dsp']]],
+  ['osc_272',['osc',['../d8/d1b/namespacedsp_1_1osc.html',1,'dsp']]],
+  ['psola_273',['psola',['../d2/dff/namespacedsp_1_1psola.html',1,'dsp']]],
+  ['denormalized_20number_20support_274',['Denormalized number support',['../d0/d49/group__vec__denormals.html',1,'']]],
+  ['division_275',['Division',['../dc/dc8/group__vec__division.html',1,'']]]
 ];

@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"d6/d76/structdsp_1_1osc_1_1_saw.html#aa1e82d44faa4f6f97380e4aef9d6bbfc":[9,0,1,1,1,8],
 "d6/d76/structdsp_1_1osc_1_1_saw.html#ab13c9422d7987beb43f5de7ded2801d5":[9,0,1,1,1,2],
 "d6/d76/structdsp_1_1osc_1_1_saw.html#ab3724b668055b21c252370a6df4ba648":[9,0,1,1,1,6],
 "d6/d76/structdsp_1_1osc_1_1_saw.html#ab53ad10db3d9145c127670dfe6333d08":[9,0,1,1,1,12],
@@ -216,8 +217,8 @@ var NAVTREEINDEX6 =
 "d8/d06/sym__link_8h.html":[10,0,133],
 "d8/d06/sym__link_8h_source.html":[10,0,133],
 "d8/d0f/namespacemath_1_1constants.html":[8,0,10,0],
-"d8/d1b/namespacedsp_1_1osc.html":[8,0,4,1],
 "d8/d1b/namespacedsp_1_1osc.html":[9,0,1,1],
+"d8/d1b/namespacedsp_1_1osc.html":[8,0,4,1],
 "d8/d1d/limes__data__structures_8h.html":[10,0,64],
 "d8/d1d/limes__data__structures_8h_source.html":[10,0,64],
 "d8/d23/2_dshape_8h.html":[10,0,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "d8/da2/classmusic_1_1scales_1_1_chromatic.html#ac097c9edc85bdf128966f17ecb320a8d":[9,0,12,0,0,2],
 "d8/da2/classmusic_1_1scales_1_1_chromatic.html#ac1b9aa7ad9c3568d755bce52cf4ff731":[9,0,12,0,0,10],
 "d8/da2/classmusic_1_1scales_1_1_chromatic.html#ac2980ae89fa968f5b577b6d47739fe66":[9,0,12,0,0,19],
-"d8/da2/classmusic_1_1scales_1_1_chromatic.html#ac9f0ab4433af31a09865f1e42760058f":[9,0,12,0,0,5],
-"d8/da3/vdsp__fft_8h.html":[10,0,147]
+"d8/da2/classmusic_1_1scales_1_1_chromatic.html#ac9f0ab4433af31a09865f1e42760058f":[9,0,12,0,0,5]
 };

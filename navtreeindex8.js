@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"db/d18/structdsp_1_1filters_1_1_coeffecients_1_1_storage.html#a10a10af12e62c43ec84644be2f364258":[9,0,1,0,0,0,6],
 "db/d18/structdsp_1_1filters_1_1_coeffecients_1_1_storage.html#a19b5b213f6f26267b75ccec1d4e1ab5f":[9,0,1,0,0,0,3],
 "db/d18/structdsp_1_1filters_1_1_coeffecients_1_1_storage.html#a61c8936697cca94a713cf39f5fa8e9c9":[9,0,1,0,0,0,2],
 "db/d18/structdsp_1_1filters_1_1_coeffecients_1_1_storage.html#a633ca253714724cbc7c3436dd0201c06":[9,0,1,0,0,0,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "dc/d70/structdsp_1_1_oscillator.html#a2cf012c13f489c6fe7c90d1691d5b7d7":[9,0,1,5,8],
 "dc/d70/structdsp_1_1_oscillator.html#a35e57580377f6becd8683001e4ef4c13":[9,0,1,5,5],
 "dc/d70/structdsp_1_1_oscillator.html#a5520f61d0deb5752ab24f64c1f5bc80d":[9,0,1,5,3],
-"dc/d70/structdsp_1_1_oscillator.html#a71de49020f685e073977ef1bf2d32c6c":[9,0,1,5,4],
-"dc/d70/structdsp_1_1_oscillator.html#a88de4e92ff1f42398d24bae0aa3d56ac":[9,0,1,5,9]
+"dc/d70/structdsp_1_1_oscillator.html#a71de49020f685e073977ef1bf2d32c6c":[9,0,1,5,4]
 };

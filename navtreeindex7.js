@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"d8/da3/vdsp__fft_8h.html":[10,0,147],
 "d8/da3/vdsp__fft_8h_source.html":[10,0,147],
 "d8/da6/group__vec__addition.html":[7,2,0,0],
 "d8/da6/group__vec__addition.html#ga236730b5b58cb80db4109405a1b5ef58":[7,2,0,0,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "db/d0d/group__vec__tan.html#ga5be8d79ab028b1b93e42667eacee85ef":[7,2,11,2,2],
 "db/d0d/group__vec__tan.html#ga96acee7d2976603c30fc1affc172f29d":[7,2,11,2,1],
 "db/d0d/group__vec__tan.html#gaae5ec9c1a5aa45ed11a530c7034de016":[7,2,11,2,3],
-"db/d18/structdsp_1_1filters_1_1_coeffecients_1_1_storage.html":[9,0,1,0,0,0],
-"db/d18/structdsp_1_1filters_1_1_coeffecients_1_1_storage.html#a10a10af12e62c43ec84644be2f364258":[9,0,1,0,0,0,6]
+"db/d18/structdsp_1_1filters_1_1_coeffecients_1_1_storage.html":[9,0,1,0,0,0]
 };
