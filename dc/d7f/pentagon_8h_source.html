@@ -143,7 +143,7 @@ $(document).ready(function(){initNavTree('dc/d7f/pentagon_8h_source.html','../..
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d9/d9a/namespacemath_1_1geometry.html#a317e9900bc8f2c083ad6d6c8fafc5df8">operator!= </a>(<span class="keyword">const</span> <a class="code" href="../../d4/d55/classmath_1_1geometry_1_1_pentagon.html">Pentagon</a>&amp; other) <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&gt; (<span class="keyword">const</span> <a class="code" href="../../d4/d55/classmath_1_1geometry_1_1_pentagon.html">Pentagon</a>&amp; other) <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&lt; (<span class="keyword">const</span> <a class="code" href="../../d4/d55/classmath_1_1geometry_1_1_pentagon.html">Pentagon</a>&amp; other) <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="../../d4/d55/classmath_1_1geometry_1_1_pentagon.html">Pentagon</a>&amp; other) <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    [[nodiscard]] <a class="code" href="../../d4/d37/group__system.html#gabed8f597c61ed37a221c9ae8dccf9e22">LIMES_PURE_FUNCTION</a> <span class="keyword">static</span> constexpr <a class="code" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html">Angle&lt;ValueType&gt;</a> interiorAngle() noexcept;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
@@ -207,7 +207,7 @@ $(document).ready(function(){initNavTree('dc/d7f/pentagon_8h_source.html','../..
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;}</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="keyword">template</span> &lt;Scalar ValueType&gt;</div>
-<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="../../d4/d55/classmath_1_1geometry_1_1_pentagon.html#a15a6560a5b2ad210961a78f7954d59ac">  145</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d4/d55/classmath_1_1geometry_1_1_pentagon.html#a15a6560a5b2ad210961a78f7954d59ac">Pentagon&lt;ValueType&gt;::operator&lt; </a>(<span class="keyword">const</span> <a class="code" href="../../d4/d55/classmath_1_1geometry_1_1_pentagon.html">Pentagon</a>&amp; other) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="../../d4/d55/classmath_1_1geometry_1_1_pentagon.html#a15a6560a5b2ad210961a78f7954d59ac">  145</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d4/d55/classmath_1_1geometry_1_1_pentagon.html#a15a6560a5b2ad210961a78f7954d59ac">Pentagon&lt;ValueType&gt;::operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d55/classmath_1_1geometry_1_1_pentagon.html">Pentagon</a>&amp; other) <span class="keyword">const</span> noexcept</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;{</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">return</span> area() &lt; other.area();</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;}</div>
@@ -258,7 +258,7 @@ $(document).ready(function(){initNavTree('dc/d7f/pentagon_8h_source.html','../..
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_f0d4ec8d2337f2081e409df54f3b2ddf.html">math</a></li><li class="navelem"><a class="el" href="../../dir_7140950f1f12ade351ea2627e3234f7b.html">geometry</a></li><li class="navelem"><a class="el" href="../../dir_f6b4e38534f9a667c6237b2038e3eb3e.html">2D</a></li><li class="navelem"><a class="el" href="../../dc/d7f/pentagon_8h.html">pentagon.h</a></li>
-    <li class="footer">Generated on Sun May 29 2022 05:51:43 for Limes by
+    <li class="footer">Generated on Sun May 29 2022 20:44:04 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

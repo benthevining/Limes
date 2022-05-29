@@ -168,9 +168,9 @@ $(document).ready(function(){initNavTree('da/dac/angle_8h_source.html','../../')
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d9/d9a/namespacemath_1_1geometry.html#a317e9900bc8f2c083ad6d6c8fafc5df8">operator!= </a>(ValueType other) <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&gt; (<span class="keyword">const</span> <a class="code" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html">Angle</a>&amp; other) <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&lt; (<span class="keyword">const</span> <a class="code" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html">Angle</a>&amp; other) <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html">Angle</a>&amp; other) <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&gt; (ValueType other) <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&lt; (ValueType other) <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&lt;(ValueType other) <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    [[nodiscard]] constexpr <a class="code" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html">Angle</a>&amp; operator+= (ValueType degreesToAdd) noexcept;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    [[nodiscard]] constexpr <a class="code" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html">Angle</a>&amp; operator-= (ValueType degreesToSubtract) noexcept;</div>
@@ -334,7 +334,7 @@ $(document).ready(function(){initNavTree('da/dac/angle_8h_source.html','../../')
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;}</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="keyword">template</span> &lt;Scalar ValueType&gt;</div>
-<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html#acca5b429b194e65b8a3c691382ae4667">  293</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html#acca5b429b194e65b8a3c691382ae4667">Angle&lt;ValueType&gt;::operator&lt; </a>(<span class="keyword">const</span> <a class="code" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html">Angle</a>&amp; other) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html#acca5b429b194e65b8a3c691382ae4667">  293</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html#acca5b429b194e65b8a3c691382ae4667">Angle&lt;ValueType&gt;::operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html">Angle</a>&amp; other) <span class="keyword">const</span> noexcept</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;{</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keywordflow">return</span> m_degrees &lt; other.m_degrees;</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;}</div>
@@ -346,7 +346,7 @@ $(document).ready(function(){initNavTree('da/dac/angle_8h_source.html','../../')
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;}</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="keyword">template</span> &lt;Scalar ValueType&gt;</div>
-<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html#a12be89c49cd347fc52edd0542a8277d0">  305</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html#acca5b429b194e65b8a3c691382ae4667">Angle&lt;ValueType&gt;::operator&lt; </a>(ValueType other) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html#a12be89c49cd347fc52edd0542a8277d0">  305</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d0/d61/classmath_1_1geometry_1_1_angle.html#acca5b429b194e65b8a3c691382ae4667">Angle&lt;ValueType&gt;::operator&lt;</a>(ValueType other) <span class="keyword">const</span> noexcept</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;{</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordflow">return</span> m_degrees &lt; other;</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;}</div>
@@ -469,7 +469,7 @@ $(document).ready(function(){initNavTree('da/dac/angle_8h_source.html','../../')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_f0d4ec8d2337f2081e409df54f3b2ddf.html">math</a></li><li class="navelem"><a class="el" href="../../dir_7140950f1f12ade351ea2627e3234f7b.html">geometry</a></li><li class="navelem"><a class="el" href="../../dir_f6b4e38534f9a667c6237b2038e3eb3e.html">2D</a></li><li class="navelem"><a class="el" href="../../da/dac/angle_8h.html">angle.h</a></li>
-    <li class="footer">Generated on Sun May 29 2022 05:51:43 for Limes by
+    <li class="footer">Generated on Sun May 29 2022 20:44:04 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
