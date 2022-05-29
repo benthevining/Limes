@@ -42,7 +42,7 @@ constexpr bool NoteDuration::operator> (const NoteDuration& other) const noexcep
 	return duration > other.duration;
 }
 
-constexpr bool NoteDuration::operator<(const NoteDuration& other) const noexcept
+constexpr bool NoteDuration::operator< (const NoteDuration& other) const noexcept
 {
 	return duration < other.duration;
 }

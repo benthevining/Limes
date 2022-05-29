@@ -25,6 +25,11 @@ ds::vector<Language> Country::getLanguages() const
 	return getLanguagesForCountry (countryCode);
 }
 
+bool Country::isValid() const noexcept
+{
+	return (! countryName.empty()) && (! countryCode.empty());
+}
+
 
 struct KnownCountries final
 {
@@ -50,7 +55,7 @@ struct KnownCountries final
 										 { return country.countryName == countryName; });
 	}
 
-	[[nodiscard]] ds::vector<Country> getAll() const
+	[[nodiscard]] const ds::vector<Country>& getAll() const
 	{
 		return countries;
 	}
@@ -79,7 +84,7 @@ Country getCountryByName (const std::string_view& countryName)
 	return getCountries().getCountryByName (std::string { countryName });
 }
 
-ds::vector<Country> getAllCountries()
+const ds::vector<Country>& getAllCountries()
 {
 	return getCountries().getAll();
 }

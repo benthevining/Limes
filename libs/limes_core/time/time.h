@@ -88,7 +88,7 @@ public:
 	[[nodiscard]] constexpr bool isBefore (const Time& other) const noexcept;
 	[[nodiscard]] constexpr bool isAfter (const Time& other) const noexcept;
 	[[nodiscard]] constexpr bool operator> (const Time& other) const noexcept;
-	[[nodiscard]] constexpr bool operator<(const Time& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Time& other) const noexcept;
 	///@}
 
 	/** @name Equality comparisons */

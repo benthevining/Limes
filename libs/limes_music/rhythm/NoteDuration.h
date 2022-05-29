@@ -40,7 +40,7 @@ public:
 
 	[[nodiscard]] constexpr bool operator> (const NoteDuration& other) const noexcept;
 
-	[[nodiscard]] constexpr bool operator<(const NoteDuration& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const NoteDuration& other) const noexcept;
 
 	constexpr NoteDuration& operator++() noexcept;
 

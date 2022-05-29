@@ -10,24 +10,24 @@
  * ======================================================================================
  */
 
-/*
+/** @defgroup limes_locale limes_locale
+	The Limes library of localization utilities.
 
-limes_locale
------------------------
+	All classes and functions in this module are accessible after linking to the \c limes_locale library and including limes_locale.h.
 
-The Limes library of localization utilities.
+	Dependencies: limes_data_structures
+ */
 
-Dependencies:
-- limes_data_structures
-	- limes_vecops
-		- limes_core
-
-*/
+/** @file
+	The main header for the limes_locale library.
+	@ingroup limes_locale
+ */
 
 #pragma once
 
 // IWYU pragma: begin_exports
 
 #include "languages/languages.h"
+#include "countries/countries.h"
 
 // IWYU pragma: end_exports

@@ -76,13 +76,13 @@ struct LIMES_EXPORT Fraction final
 	[[nodiscard]] constexpr bool operator> (const Fraction<T>& other) const noexcept;
 
 	template <Scalar T>
-	[[nodiscard]] constexpr bool operator<(const Fraction<T>& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Fraction<T>& other) const noexcept;
 
 	template <Scalar T>
 	[[nodiscard]] constexpr bool operator> (T value) const noexcept;
 
 	template <Scalar T>
-	[[nodiscard]] constexpr bool operator<(T value) const noexcept;
+	[[nodiscard]] constexpr bool operator< (T value) const noexcept;
 	///@}
 
 	/** @name Addition */

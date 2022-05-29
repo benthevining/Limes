@@ -86,7 +86,7 @@ public:
 	 */
 	///@{
 	[[nodiscard]] constexpr bool operator> (const Rectangle& other) const noexcept;
-	[[nodiscard]] constexpr bool operator<(const Rectangle& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Rectangle& other) const noexcept;
 	///@}
 
 private:
@@ -164,7 +164,7 @@ constexpr bool Rectangle<ValueType>::operator> (const Rectangle& other) const no
 }
 
 template <Scalar ValueType>
-constexpr bool Rectangle<ValueType>::operator<(const Rectangle& other) const noexcept
+constexpr bool Rectangle<ValueType>::operator< (const Rectangle& other) const noexcept
 {
 	return area() < other.area();
 }

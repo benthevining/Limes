@@ -15,27 +15,45 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 
+/** @file
+	This file defines the VelocityMapper class.
+	@ingroup limes_midi
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace midi
 {
 
+/** This class allows you to impose a "sensitivity" parameter on MIDI messages velocities.
+	If the sensitivity is set to full (100), then the velocity is not changed at all.
+	If the sensitivity is set to off (0), then the velocity is always output as 127, regardless of what the input velocity was.
+	@ingroup limes_midi
+ */
 class LIMES_EXPORT VelocityMapper final
 {
 public:
 
-	void setSensitivity (float newSensitivity);
+	/** Sets the sensitivity of incoming velocity messages.
+		If the sensitivity is set to full (100), then the velocity is not changed at all.
+		If the sensitivity is set to off (0), then the velocity is always output as 127, regardless of what the input velocity was.
+	 */
 	void setSensitivity (int newSensitivity);
 
+	/** Returns the sensitivity that was set. */
+	[[nodiscard]] int getSensitivity() const noexcept;
+
+	/** @name Mapping incoming velocities
+		Maps an incoming MIDI velocity value to an output gain value between 0 and 1, based on the sensitivity that's been set.
+	 */
+	///@{
 	[[nodiscard]] float getGainForVelocity (float midiVelocity);
 	[[nodiscard]] float getGainForVelocity (int midiVelocity);
-
-	[[nodiscard]] float getSensitivity() const noexcept;
-	[[nodiscard]] int	getIntSensitivity() const noexcept;
+	///@}
 
 private:
 
-	float sensitivity { 1.f };
+	int sensitivity { 100 };
 };
 
 }  // namespace midi

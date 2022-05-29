@@ -10,24 +10,25 @@
  * ======================================================================================
  */
 
-/*
+/** @defgroup limes_midi limes_midi
+	The Limes library of MIDI utilities.
 
-limes_midi
------------------
+	All classes and functions in this module are accessible after linking to the \c limes_midi library and including limes_midi.h.
 
-The Limes library of MIDI utilities.
+	Dependencies: limes_core
+ */
 
-Dependencies:
-- limes_core
-
-*/
+/** @file
+	The main header for the limes_midi library.
+	@ingroup limes_midi
+ */
 
 #pragma once
 
 // IWYU pragma: begin_exports
 
-#include "utilities/VelocityMapper.h"
 #include "utilities/PitchbendMapper.h"
+#include "utilities/VelocityMapper.h"
 
 //#include "tuning/mts_client.h"
 

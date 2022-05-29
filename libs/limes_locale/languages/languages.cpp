@@ -49,6 +49,11 @@ ds::vector<Country> Language::getCountries() const
 	return countries;
 }
 
+bool Language::isValid() const noexcept
+{
+	return (! languageName.empty()) && ((! ISO639_1.empty()) || (! ISO639_2.empty()));
+}
+
 
 /** Note that ISO639-2/B codes are used instead of ISO639-2/T codes.
 	See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
@@ -488,7 +493,7 @@ struct KnownLanguages final
 		return langs;
 	}
 
-	[[nodiscard]] ds::vector<Language> getAll() const
+	[[nodiscard]] const ds::vector<Language>& getAll() const
 	{
 		return languages;
 	}
@@ -530,7 +535,7 @@ ds::vector<Language> getLanguagesForCountry (const std::string_view& countryCode
 	return getLanguages().getLanguagesForCountryCode (std::string { countryCode });
 }
 
-ds::vector<Language> getAllKnownLanguages()
+const ds::vector<Language>& getAllKnownLanguages()
 {
 	return getLanguages().getAll();
 }

@@ -118,7 +118,7 @@ constexpr bool Year::operator> (const Year& other) const noexcept
 	return year > other.year;
 }
 
-constexpr bool Year::operator<(const Year& other) const noexcept
+constexpr bool Year::operator< (const Year& other) const noexcept
 {
 	return year < other.year;
 }
@@ -128,7 +128,7 @@ constexpr bool Year::operator> (int other) const noexcept
 	return year > other;
 }
 
-constexpr bool Year::operator<(int other) const noexcept
+constexpr bool Year::operator< (int other) const noexcept
 {
 	return year < other;
 }

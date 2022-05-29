@@ -20,22 +20,25 @@ LIMES_BEGIN_NAMESPACE
 namespace midi
 {
 
-void VelocityMapper::setSensitivity (float newSensitivity)
+void VelocityMapper::setSensitivity (int newSensitivity)
 {
-	LIMES_ASSERT (newSensitivity >= 0.f && newSensitivity <= 1.f);
+	LIMES_ASSERT (newSensitivity >= 0 && newSensitivity <= 100);
+
 	sensitivity = newSensitivity;
 }
 
-void VelocityMapper::setSensitivity (int newSensitivity)
+int VelocityMapper::getSensitivity() const noexcept
 {
-	setSensitivity (static_cast<float> (newSensitivity) * 0.01f);
+	return sensitivity;
 }
 
 float VelocityMapper::getGainForVelocity (float midiVelocity)
 {
-	LIMES_ASSERT (midiVelocity >= 0.f && midiVelocity <= 1.f && sensitivity >= 0.f && sensitivity <= 1.f);
+	LIMES_ASSERT (midiVelocity >= 0.f && midiVelocity <= 1.f)
 
-	return (1.f - midiVelocity) * (1.f - sensitivity) + midiVelocity;
+	const auto sens = static_cast<float> (sensitivity) * 0.01f;
+
+	return (1.f - midiVelocity) * (1.f - sens) + midiVelocity;
 }
 
 float VelocityMapper::getGainForVelocity (int midiVelocity)
@@ -47,15 +50,6 @@ float VelocityMapper::getGainForVelocity (int midiVelocity)
 	return getGainForVelocity (static_cast<float> (midiVelocity) * inv127);
 }
 
-float VelocityMapper::getSensitivity() const noexcept
-{
-	return sensitivity;
-}
-
-int VelocityMapper::getIntSensitivity() const noexcept
-{
-	return math::round (sensitivity * 100.f);
-}
 }  // namespace midi
 
 LIMES_END_NAMESPACE
