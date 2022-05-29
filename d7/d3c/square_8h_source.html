@@ -152,9 +152,9 @@ $(document).ready(function(){initNavTree('d7/d3c/square_8h_source.html','../../'
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator!= (const <a class="code" href="../../d0/d60/classmath_1_1geometry_1_1_rectangle.html">Rect</a>&amp; other) const noexcept;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&gt; (const <a class="code" href="../../d3/d06/classmath_1_1geometry_1_1_square.html">Square</a>&amp; other) const noexcept;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&lt;(const <a class="code" href="../../d3/d06/classmath_1_1geometry_1_1_square.html">Square</a>&amp; other) const noexcept;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&lt; (const <a class="code" href="../../d3/d06/classmath_1_1geometry_1_1_square.html">Square</a>&amp; other) const noexcept;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&gt; (const <a class="code" href="../../d0/d60/classmath_1_1geometry_1_1_rectangle.html">Rect</a>&amp; other) const noexcept;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&lt;(const <a class="code" href="../../d0/d60/classmath_1_1geometry_1_1_rectangle.html">Rect</a>&amp; other) const noexcept;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> operator&lt; (const <a class="code" href="../../d0/d60/classmath_1_1geometry_1_1_rectangle.html">Rect</a>&amp; other) const noexcept;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;private:</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
@@ -222,7 +222,7 @@ $(document).ready(function(){initNavTree('d7/d3c/square_8h_source.html','../../'
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;}</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keyword">template</span> &lt;Scalar ValueType&gt;</div>
-<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="../../d3/d06/classmath_1_1geometry_1_1_square.html#afce33b8c2ee32a07248c6bc8a7986638">  161</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d3/d06/classmath_1_1geometry_1_1_square.html#afce33b8c2ee32a07248c6bc8a7986638">Square&lt;ValueType&gt;::operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="../../d3/d06/classmath_1_1geometry_1_1_square.html">Square</a>&amp; other) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="../../d3/d06/classmath_1_1geometry_1_1_square.html#afce33b8c2ee32a07248c6bc8a7986638">  161</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d3/d06/classmath_1_1geometry_1_1_square.html#afce33b8c2ee32a07248c6bc8a7986638">Square&lt;ValueType&gt;::operator&lt; </a>(<span class="keyword">const</span> <a class="code" href="../../d3/d06/classmath_1_1geometry_1_1_square.html">Square</a>&amp; other) <span class="keyword">const</span> noexcept</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;{</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">return</span> side_length &lt; other.side_length;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
@@ -234,7 +234,7 @@ $(document).ready(function(){initNavTree('d7/d3c/square_8h_source.html','../../'
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;}</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keyword">template</span> &lt;Scalar ValueType&gt;</div>
-<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="../../d3/d06/classmath_1_1geometry_1_1_square.html#a307296196e3d99976a9a2de30a254d9e">  173</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d3/d06/classmath_1_1geometry_1_1_square.html#afce33b8c2ee32a07248c6bc8a7986638">Square&lt;ValueType&gt;::operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="../../d0/d60/classmath_1_1geometry_1_1_rectangle.html">Rect</a>&amp; other) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="../../d3/d06/classmath_1_1geometry_1_1_square.html#a307296196e3d99976a9a2de30a254d9e">  173</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d3/d06/classmath_1_1geometry_1_1_square.html#afce33b8c2ee32a07248c6bc8a7986638">Square&lt;ValueType&gt;::operator&lt; </a>(<span class="keyword">const</span> <a class="code" href="../../d0/d60/classmath_1_1geometry_1_1_rectangle.html">Rect</a>&amp; other) <span class="keyword">const</span> noexcept</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;{</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">return</span> area() &lt; other.area();</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
@@ -313,7 +313,7 @@ $(document).ready(function(){initNavTree('d7/d3c/square_8h_source.html','../../'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_f0d4ec8d2337f2081e409df54f3b2ddf.html">math</a></li><li class="navelem"><a class="el" href="../../dir_7140950f1f12ade351ea2627e3234f7b.html">geometry</a></li><li class="navelem"><a class="el" href="../../dir_f6b4e38534f9a667c6237b2038e3eb3e.html">2D</a></li><li class="navelem"><a class="el" href="../../d7/d3c/square_8h.html">square.h</a></li>
-    <li class="footer">Generated on Sun May 29 2022 20:44:04 for Limes by
+    <li class="footer">Generated on Sun May 29 2022 21:23:28 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

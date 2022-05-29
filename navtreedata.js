@@ -58,20 +58,20 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"d1/d7a/_realtime_type_traits_8h_source.html",
-"d3/d4e/namespaceds.html",
-"d4/d37/group__system.html#ga3c9f53b7d1a99a02600fdbe81a772f82",
-"d5/d2a/classfiles_1_1_directory.html#a0701c63389a63f8bbed51c3aac8b1b6b",
-"d5/db7/classfiles_1_1_temp_file.html#abc11552c6afcbc5a4db364a1ec6c3a7f",
-"d6/d76/structdsp_1_1osc_1_1_saw.html#aa1e82d44faa4f6f97380e4aef9d6bbfc",
-"d8/da3/vdsp__fft_8h.html",
-"db/d18/structdsp_1_1filters_1_1_coeffecients_1_1_storage.html#a10a10af12e62c43ec84644be2f364258",
-"dc/d70/structdsp_1_1_oscillator.html#a88de4e92ff1f42398d24bae0aa3d56ac",
-"dd/d1c/classmemory_1_1_aligned_allocator.html#a98466b02e3c087f9770682fad9ed1d75",
-"de/d1a/structthreads_1_1_threaded_object_writer.html#ab730998420af8cdb823b33ebed58f5ad",
-"de/d90/classfiles_1_1_sym_link.html#a30b265a1ff9708e8e259227c95783aa7",
-"df/d3b/classmusic_1_1_compound_interval.html#a669310c4d44f141bf2e30c6c308d95db",
-"modules.html"
+"d1/d7a/_realtime_type_traits_8h.html#gaa35d7d21058ce5a6a5f3d4c1332cacb8",
+"d3/d36/_dynamic_library_8h_source.html",
+"d4/d37/group__system.html#ga397de153f0d2c4a307fa9e150a396a32",
+"d5/d2a/classfiles_1_1_directory.html",
+"d5/db7/classfiles_1_1_temp_file.html#a9c282fc86537288306de9a3a79a76c0e",
+"d6/d76/structdsp_1_1osc_1_1_saw.html#a35e57580377f6becd8683001e4ef4c13",
+"d8/da2/classmusic_1_1scales_1_1_chromatic.html#ab6d9031632e24f06195598060367fb6b",
+"db/d0d/group__vec__tan.html#ga0c6c293d12a4ab925bfc4812313bdb00",
+"dc/d70/structdsp_1_1_oscillator.html#a1e5b8a154ca74d2c469f92c24fe55fab",
+"dd/d1c/classmemory_1_1_aligned_allocator.html#a7847538e78482abaee24d0a2dc9e654f",
+"de/d1a/structthreads_1_1_threaded_object_writer.html#a194e7ff2c8f0644e2671c7c4666e9d26",
+"de/d90/classfiles_1_1_sym_link.html#a1a72fa462a280d1c5d625e9b1d1dac0e",
+"df/d3b/classmusic_1_1_compound_interval.html#a4a6d20033eb954b8de344bc805cbbe71",
+"df/deb/classfunc_1_1_call_deferred.html#a982b418c7462946195962fbf737858da"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

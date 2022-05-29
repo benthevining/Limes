@@ -113,58 +113,61 @@ $(document).ready(function(){initNavTree('d7/d35/countries_8h_source.html','../.
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a>&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../de/d31/namespacelocale.html">   22</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../de/d31/namespacelocale.html">locale</a></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">struct </span><a class="code" href="../../d5/db6/structlocale_1_1_language.html">Language</a>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d5/d47/structlocale_1_1_country.html">   28</a></span>&#160;<span class="keyword">struct </span>LIMES_EXPORT <a class="code" href="../../d5/d47/structlocale_1_1_country.html">Country</a> final</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    [[nodiscard]] <a class="code" href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector&lt;Language&gt;</a> getLanguages() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d5/d47/structlocale_1_1_country.html#a1933ee8c6b678464de1170ad55424c97">   32</a></span>&#160;    std::string countryCode, <a class="code" href="../../d5/d47/structlocale_1_1_country.html#a1933ee8c6b678464de1170ad55424c97">countryName</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">    - continent</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">    - web domain</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">    - phone code</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">    - drives on right</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">    - currency</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;[[nodiscard]] <a class="code" href="../../d5/d47/structlocale_1_1_country.html">Country</a> <a class="code" href="../../de/d31/namespacelocale.html#aab2be6b035e835729dd69bf96b645ce6">getCountryByCode</a> (<span class="keyword">const</span> std::string_view&amp; countryCode);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;[[nodiscard]] <a class="code" href="../../d5/d47/structlocale_1_1_country.html">Country</a> <a class="code" href="../../de/d31/namespacelocale.html#a6d6478b3f2a31fa30dd3a97860411b95">getCountryByName</a> (<span class="keyword">const</span> std::string_view&amp; countryName);</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../de/d31/namespacelocale.html">   32</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../de/d31/namespacelocale.html">locale</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">struct </span><a class="code" href="../../d5/db6/structlocale_1_1_language.html">Language</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d5/d47/structlocale_1_1_country.html">   40</a></span>&#160;<span class="keyword">struct </span>LIMES_EXPORT <a class="code" href="../../d5/d47/structlocale_1_1_country.html">Country</a> final</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    [[nodiscard]] <a class="code" href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector&lt;Language&gt;</a> getLanguages() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> isValid() <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;[[nodiscard]] <a class="code" href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector&lt;Country&gt;</a> <a class="code" href="../../de/d31/namespacelocale.html#ae7c1a8232b30d40da7ca89e408396cb7">getAllCountries</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}  <span class="comment">// namespace locale</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d5/d47/structlocale_1_1_country.html#a1933ee8c6b678464de1170ad55424c97">   49</a></span>&#160;    std::string <a class="code" href="../../d5/d47/structlocale_1_1_country.html#a1933ee8c6b678464de1170ad55424c97">countryName</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d5/d47/structlocale_1_1_country.html#a2e3cb971b1232f468e96ae008bdf2c62">   52</a></span>&#160;    std::string <a class="code" href="../../d5/d47/structlocale_1_1_country.html#a2e3cb971b1232f468e96ae008bdf2c62">countryCode</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">    - continent</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">    - web domain</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">    - phone code</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">    - drives on right</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">    - currency</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;[[nodiscard]] <a class="code" href="../../d5/d47/structlocale_1_1_country.html">Country</a> <a class="code" href="../../d2/d91/group__loc__country.html#gaab2be6b035e835729dd69bf96b645ce6">getCountryByCode</a> (<span class="keyword">const</span> std::string_view&amp; countryCode);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;[[nodiscard]] <a class="code" href="../../d5/d47/structlocale_1_1_country.html">Country</a> <a class="code" href="../../d2/d91/group__loc__country.html#ga6d6478b3f2a31fa30dd3a97860411b95">getCountryByName</a> (<span class="keyword">const</span> std::string_view&amp; countryName);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;[[nodiscard]] <span class="keyword">const</span> <a class="code" href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector&lt;Country&gt;</a>&amp; <a class="code" href="../../d2/d91/group__loc__country.html#ga262099b4b3f19c978f7b41e80a6e6b80">getAllCountries</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}  <span class="comment">// namespace locale</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astructlocale_1_1_language_html"><div class="ttname"><a href="../../d5/db6/structlocale_1_1_language.html">locale::Language</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d0f/languages_8h_source.html#l00029">languages.h:29</a></div></div>
-<div class="ttc" id="anamespacelocale_html_aab2be6b035e835729dd69bf96b645ce6"><div class="ttname"><a href="../../de/d31/namespacelocale.html#aab2be6b035e835729dd69bf96b645ce6">locale::getCountryByCode</a></div><div class="ttdeci">Country getCountryByCode(const std::string_view &amp;countryCode)</div></div>
-<div class="ttc" id="anamespacelocale_html_a6d6478b3f2a31fa30dd3a97860411b95"><div class="ttname"><a href="../../de/d31/namespacelocale.html#a6d6478b3f2a31fa30dd3a97860411b95">locale::getCountryByName</a></div><div class="ttdeci">Country getCountryByName(const std::string_view &amp;countryName)</div></div>
-<div class="ttc" id="anamespacelocale_html"><div class="ttname"><a href="../../de/d31/namespacelocale.html">locale</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d35/countries_8h_source.html#l00022">countries.h:22</a></div></div>
-<div class="ttc" id="astructlocale_1_1_country_html_a1933ee8c6b678464de1170ad55424c97"><div class="ttname"><a href="../../d5/d47/structlocale_1_1_country.html#a1933ee8c6b678464de1170ad55424c97">locale::Country::countryName</a></div><div class="ttdeci">std::string countryName</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d35/countries_8h_source.html#l00032">countries.h:32</a></div></div>
+<div class="ttc" id="astructlocale_1_1_language_html"><div class="ttname"><a href="../../d5/db6/structlocale_1_1_language.html">locale::Language</a></div><div class="ttdoc">This struct represents metadata about a spoken human language.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d0f/languages_8h_source.html#l00044">languages.h:44</a></div></div>
+<div class="ttc" id="anamespacelocale_html"><div class="ttname"><a href="../../de/d31/namespacelocale.html">locale</a></div><div class="ttdoc">This namespace contains utilities for localization and internationalization.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d35/countries_8h_source.html#l00032">countries.h:32</a></div></div>
+<div class="ttc" id="astructlocale_1_1_country_html_a1933ee8c6b678464de1170ad55424c97"><div class="ttname"><a href="../../d5/d47/structlocale_1_1_country.html#a1933ee8c6b678464de1170ad55424c97">locale::Country::countryName</a></div><div class="ttdeci">std::string countryName</div><div class="ttdoc">The full name of this country.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d35/countries_8h_source.html#l00049">countries.h:49</a></div></div>
+<div class="ttc" id="agroup__loc__country_html_ga262099b4b3f19c978f7b41e80a6e6b80"><div class="ttname"><a href="../../d2/d91/group__loc__country.html#ga262099b4b3f19c978f7b41e80a6e6b80">locale::getAllCountries</a></div><div class="ttdeci">const ds::vector&lt; Country &gt; &amp; getAllCountries()</div><div class="ttdoc">Returns a vector of all known Country objects.</div></div>
+<div class="ttc" id="astructlocale_1_1_country_html_a2e3cb971b1232f468e96ae008bdf2c62"><div class="ttname"><a href="../../d5/d47/structlocale_1_1_country.html#a2e3cb971b1232f468e96ae008bdf2c62">locale::Country::countryCode</a></div><div class="ttdeci">std::string countryCode</div><div class="ttdoc">The ISO country code for this country.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d35/countries_8h_source.html#l00052">countries.h:52</a></div></div>
 <div class="ttc" id="alimes__data__structures_8h_html"><div class="ttname"><a href="../../d8/d1d/limes__data__structures_8h.html">limes_data_structures.h</a></div></div>
-<div class="ttc" id="astructlocale_1_1_country_html"><div class="ttname"><a href="../../d5/d47/structlocale_1_1_country.html">locale::Country</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d35/countries_8h_source.html#l00028">countries.h:28</a></div></div>
-<div class="ttc" id="anamespacelocale_html_ae7c1a8232b30d40da7ca89e408396cb7"><div class="ttname"><a href="../../de/d31/namespacelocale.html#ae7c1a8232b30d40da7ca89e408396cb7">locale::getAllCountries</a></div><div class="ttdeci">ds::vector&lt; Country &gt; getAllCountries()</div></div>
+<div class="ttc" id="astructlocale_1_1_country_html"><div class="ttname"><a href="../../d5/d47/structlocale_1_1_country.html">locale::Country</a></div><div class="ttdoc">This struct represents metadata about a country.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d35/countries_8h_source.html#l00040">countries.h:40</a></div></div>
 <div class="ttc" id="anamespaceds_html_a813f9ca146f6e29fde2f5d40bf2bb870"><div class="ttname"><a href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector</a></div><div class="ttdeci">std::conditional_t&lt; std::is_scalar_v&lt; ObjectType &gt; &amp;&amp;! std::is_pointer_v&lt; ObjectType &gt;, scalar_vector&lt; ObjectType, Allocator &gt;, basic_vector&lt; ObjectType, Allocator &gt; &gt; vector</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d68/vector_8h_source.html#l00029">vector.h:29</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00039">limes_namespace.h:39</a></div></div>
+<div class="ttc" id="agroup__loc__country_html_ga6d6478b3f2a31fa30dd3a97860411b95"><div class="ttname"><a href="../../d2/d91/group__loc__country.html#ga6d6478b3f2a31fa30dd3a97860411b95">locale::getCountryByName</a></div><div class="ttdeci">Country getCountryByName(const std::string_view &amp;countryName)</div><div class="ttdoc">Returns the Country object representing the country with the given name.</div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00027">limes_namespace.h:27</a></div></div>
+<div class="ttc" id="agroup__loc__country_html_gaab2be6b035e835729dd69bf96b645ce6"><div class="ttname"><a href="../../d2/d91/group__loc__country.html#gaab2be6b035e835729dd69bf96b645ce6">locale::getCountryByCode</a></div><div class="ttdeci">Country getCountryByCode(const std::string_view &amp;countryCode)</div><div class="ttdoc">Returns the Country object representing the given ISO country code.</div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_8be6f37dbc74117fadbac95decbd80e0.html">limes_locale</a></li><li class="navelem"><a class="el" href="../../dir_43174777caae6e3bfa4eadf6bc607c9c.html">countries</a></li><li class="navelem"><a class="el" href="../../d7/d35/countries_8h.html">countries.h</a></li>
-    <li class="footer">Generated on Sun May 29 2022 20:44:04 for Limes by
+    <li class="footer">Generated on Sun May 29 2022 21:23:27 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

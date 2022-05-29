@@ -101,6 +101,7 @@ var searchData=
   ['curry_215',['curry',['../de/d94/group__func.html#ga0c20c15a7d3553a54d6fc156280e9705',1,'func']]],
   ['cylinder_216',['Cylinder',['../d3/ddb/classmath_1_1geometry_1_1_cylinder.html',1,'math::geometry::Cylinder&lt; ValueType &gt;'],['../d3/ddb/classmath_1_1geometry_1_1_cylinder.html#ac14e0199ffb5bf8e5a0ec2245ba50af7',1,'math::geometry::Cylinder::Cylinder(ValueType radiusToUse, ValueType heightToUse) noexcept'],['../d3/ddb/classmath_1_1geometry_1_1_cylinder.html#ad9b74e839c8a96b46ffe08c763dcc92e',1,'math::geometry::Cylinder::Cylinder(const Circle&lt; ValueType &gt; &amp;face, ValueType heightToUse) noexcept'],['../d3/ddb/classmath_1_1geometry_1_1_cylinder.html#ab822474aa16e09feed41ee2ff53804d3',1,'math::geometry::Cylinder::Cylinder(const Cylinder &amp;)=default'],['../d3/ddb/classmath_1_1geometry_1_1_cylinder.html#aab0e211d8a1b36ce6653caa9ccbd8ce1',1,'math::geometry::Cylinder::Cylinder(Cylinder &amp;&amp;)=default']]],
   ['cylinder_2eh_217',['cylinder.h',['../d0/d67/cylinder_8h.html',1,'']]],
-  ['complex_20conversions_218',['Complex conversions',['../de/d2a/group__vec__complex.html',1,'']]],
-  ['cosine_20functions_219',['Cosine functions',['../dd/d22/group__vec__cos.html',1,'']]]
+  ['countries_218',['Countries',['../d2/d91/group__loc__country.html',1,'']]],
+  ['complex_20conversions_219',['Complex conversions',['../de/d2a/group__vec__complex.html',1,'']]],
+  ['cosine_20functions_220',['Cosine functions',['../dd/d22/group__vec__cos.html',1,'']]]
 ];

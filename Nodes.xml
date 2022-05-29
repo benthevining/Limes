@@ -1111,6 +1111,89 @@
           </Subnodes>
          </Node>
          <Node>
+          <Name>limes_locale</Name>
+          <Path>dd/d74/group__limes__locale.html</Path>
+          <Subnodes>
+           <Node>
+            <Name>Countries</Name>
+            <Path>d2/d91/group__loc__country.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>countries.h</Name>
+              <Path>d7/d35/countries_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>getAllCountries</Name>
+              <Path>d2/d91/group__loc__country.html</Path>
+              <Anchor>ga262099b4b3f19c978f7b41e80a6e6b80</Anchor>
+             </Node>
+             <Node>
+              <Name>getCountryByCode</Name>
+              <Path>d2/d91/group__loc__country.html</Path>
+              <Anchor>gaab2be6b035e835729dd69bf96b645ce6</Anchor>
+             </Node>
+             <Node>
+              <Name>getCountryByName</Name>
+              <Path>d2/d91/group__loc__country.html</Path>
+              <Anchor>ga6d6478b3f2a31fa30dd3a97860411b95</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>Languages</Name>
+            <Path>df/dfc/group__loc__lang.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>languages.h</Name>
+              <Path>d0/d0f/languages_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>getAllKnownLanguages</Name>
+              <Path>df/dfc/group__loc__lang.html</Path>
+              <Anchor>gae47ba49b20a945e9d925d71610c1183e</Anchor>
+             </Node>
+             <Node>
+              <Name>getLanguage</Name>
+              <Path>df/dfc/group__loc__lang.html</Path>
+              <Anchor>gace306aa0dfcae7ac36db5bd2047e664a</Anchor>
+             </Node>
+             <Node>
+              <Name>getLanguageForCode</Name>
+              <Path>df/dfc/group__loc__lang.html</Path>
+              <Anchor>gae2a4889b42da4f8cc121814805e3b775</Anchor>
+             </Node>
+             <Node>
+              <Name>getLanguagesForCountry</Name>
+              <Path>df/dfc/group__loc__lang.html</Path>
+              <Anchor>ga5a9ca617c05af633b214fe6043698e6e</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>limes_locale.h</Name>
+            <Path>da/d18/limes__locale_8h.html</Path>
+           </Node>
+          </Subnodes>
+         </Node>
+         <Node>
+          <Name>limes_midi</Name>
+          <Path>d1/d3f/group__limes__midi.html</Path>
+          <Subnodes>
+           <Node>
+            <Name>limes_midi.h</Name>
+            <Path>dc/d5f/limes__midi_8h.html</Path>
+           </Node>
+           <Node>
+            <Name>PitchbendMapper.h</Name>
+            <Path>d1/df2/_pitchbend_mapper_8h.html</Path>
+           </Node>
+           <Node>
+            <Name>VelocityMapper.h</Name>
+            <Path>d0/d0d/_velocity_mapper_8h.html</Path>
+           </Node>
+          </Subnodes>
+         </Node>
+         <Node>
           <Name>limes_vecops</Name>
           <Path>dc/dd4/group__limes__vecops.html</Path>
           <Subnodes>
@@ -7525,6 +7608,11 @@
                 <Anchor>a065fe6395113459cb09797ef43cd21b7</Anchor>
                </Node>
                <Node>
+                <Name>isValid</Name>
+                <Path>d5/d47/structlocale_1_1_country.html</Path>
+                <Anchor>a37aac4f0d2e7066425a96add065e5e69</Anchor>
+               </Node>
+               <Node>
                 <Name>countryCode</Name>
                 <Path>d5/d47/structlocale_1_1_country.html</Path>
                 <Anchor>a2e3cb971b1232f468e96ae008bdf2c62</Anchor>
@@ -7559,6 +7647,11 @@
                 <Name>isForCountry</Name>
                 <Path>d5/db6/structlocale_1_1_language.html</Path>
                 <Anchor>a1b34261eba9c298884d948ba01e1fb7a</Anchor>
+               </Node>
+               <Node>
+                <Name>isValid</Name>
+                <Path>d5/db6/structlocale_1_1_language.html</Path>
+                <Anchor>aab9bfadb4209b8ec1e3eb8fface780dd</Anchor>
                </Node>
                <Node>
                 <Name>countryCodes</Name>
@@ -10930,19 +11023,9 @@
                 <Anchor>a0168d7d5199435b33d352219920313cb</Anchor>
                </Node>
                <Node>
-                <Name>getIntSensitivity</Name>
-                <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
-                <Anchor>a6358ca4299f9e16d2b47fdbf8d71b5b8</Anchor>
-               </Node>
-               <Node>
                 <Name>getSensitivity</Name>
                 <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
-                <Anchor>af714f73a990d4b2d9d0c0b74c6f5573b</Anchor>
-               </Node>
-               <Node>
-                <Name>setSensitivity</Name>
-                <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
-                <Anchor>a185b68048d4e7bbd11bd1037195122b4</Anchor>
+                <Anchor>aa6640ebeb15f862e50ca71ec93bf7ce6</Anchor>
                </Node>
                <Node>
                 <Name>setSensitivity</Name>
@@ -17542,6 +17625,11 @@
                 <Anchor>a065fe6395113459cb09797ef43cd21b7</Anchor>
                </Node>
                <Node>
+                <Name>isValid</Name>
+                <Path>d5/d47/structlocale_1_1_country.html</Path>
+                <Anchor>a37aac4f0d2e7066425a96add065e5e69</Anchor>
+               </Node>
+               <Node>
                 <Name>countryCode</Name>
                 <Path>d5/d47/structlocale_1_1_country.html</Path>
                 <Anchor>a2e3cb971b1232f468e96ae008bdf2c62</Anchor>
@@ -17556,17 +17644,17 @@
              <Node>
               <Name>getAllCountries</Name>
               <Path>d7/d35/countries_8h.html</Path>
-              <Anchor>ae7c1a8232b30d40da7ca89e408396cb7</Anchor>
+              <Anchor>ga262099b4b3f19c978f7b41e80a6e6b80</Anchor>
              </Node>
              <Node>
               <Name>getCountryByCode</Name>
               <Path>d7/d35/countries_8h.html</Path>
-              <Anchor>aab2be6b035e835729dd69bf96b645ce6</Anchor>
+              <Anchor>gaab2be6b035e835729dd69bf96b645ce6</Anchor>
              </Node>
              <Node>
               <Name>getCountryByName</Name>
               <Path>d7/d35/countries_8h.html</Path>
-              <Anchor>a6d6478b3f2a31fa30dd3a97860411b95</Anchor>
+              <Anchor>ga6d6478b3f2a31fa30dd3a97860411b95</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -21531,6 +21619,11 @@
                 <Anchor>a1b34261eba9c298884d948ba01e1fb7a</Anchor>
                </Node>
                <Node>
+                <Name>isValid</Name>
+                <Path>d5/db6/structlocale_1_1_language.html</Path>
+                <Anchor>aab9bfadb4209b8ec1e3eb8fface780dd</Anchor>
+               </Node>
+               <Node>
                 <Name>countryCodes</Name>
                 <Path>d5/db6/structlocale_1_1_language.html</Path>
                 <Anchor>a700670c2ff28836efd571e95d19a46f6</Anchor>
@@ -21560,22 +21653,22 @@
              <Node>
               <Name>getAllKnownLanguages</Name>
               <Path>d0/d0f/languages_8h.html</Path>
-              <Anchor>a0a4fffa9ecde73148de5240e2e73d034</Anchor>
+              <Anchor>gae47ba49b20a945e9d925d71610c1183e</Anchor>
              </Node>
              <Node>
               <Name>getLanguage</Name>
               <Path>d0/d0f/languages_8h.html</Path>
-              <Anchor>ace306aa0dfcae7ac36db5bd2047e664a</Anchor>
+              <Anchor>gace306aa0dfcae7ac36db5bd2047e664a</Anchor>
              </Node>
              <Node>
               <Name>getLanguageForCode</Name>
               <Path>d0/d0f/languages_8h.html</Path>
-              <Anchor>ae2a4889b42da4f8cc121814805e3b775</Anchor>
+              <Anchor>gae2a4889b42da4f8cc121814805e3b775</Anchor>
              </Node>
              <Node>
               <Name>getLanguagesForCountry</Name>
               <Path>d0/d0f/languages_8h.html</Path>
-              <Anchor>a5a9ca617c05af633b214fe6043698e6e</Anchor>
+              <Anchor>ga5a9ca617c05af633b214fe6043698e6e</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -29456,19 +29549,9 @@
                 <Anchor>a0168d7d5199435b33d352219920313cb</Anchor>
                </Node>
                <Node>
-                <Name>getIntSensitivity</Name>
-                <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
-                <Anchor>a6358ca4299f9e16d2b47fdbf8d71b5b8</Anchor>
-               </Node>
-               <Node>
                 <Name>getSensitivity</Name>
                 <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
-                <Anchor>af714f73a990d4b2d9d0c0b74c6f5573b</Anchor>
-               </Node>
-               <Node>
-                <Name>setSensitivity</Name>
-                <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
-                <Anchor>a185b68048d4e7bbd11bd1037195122b4</Anchor>
+                <Anchor>aa6640ebeb15f862e50ca71ec93bf7ce6</Anchor>
                </Node>
                <Node>
                 <Name>setSensitivity</Name>

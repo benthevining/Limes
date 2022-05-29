@@ -98,28 +98,40 @@ $(document).ready(function(){initNavTree('d7/d01/classmidi_1_1_pitchbend_mapper.
 </div><!--header-->
 <div class="contents">
 
+<p>This class maps MIDI pitchbend values and note numbers to fractional MIDI note numbers.  
+ <a href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d1/df2/_pitchbend_mapper_8h_source.html">PitchbendMapper.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a52dc5e73f5f0f9e8339ad3203fa4304a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a52dc5e73f5f0f9e8339ad3203fa4304a">getAdjustedMidiPitch</a> (float inputMidiPitch) const</td></tr>
+<tr class="memdesc:a52dc5e73f5f0f9e8339ad3203fa4304a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an adjusted MIDI pitch for an incoming MIDI pitch.  <a href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a52dc5e73f5f0f9e8339ad3203fa4304a">More...</a><br /></td></tr>
 <tr class="separator:a52dc5e73f5f0f9e8339ad3203fa4304a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1447b242182800e32f6f5573eb32472"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#ad1447b242182800e32f6f5573eb32472">getLastReceivedPitchbend</a> () const noexcept</td></tr>
+<tr class="memdesc:ad1447b242182800e32f6f5573eb32472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last pitchbend value that was set via <code><a class="el" href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a872f4612445b7b9766e35324257b5534" title="Each incoming pitchbend value from the pitch wheel should be sent to this function.">newPitchbendReceived()</a></code> .  <a href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#ad1447b242182800e32f6f5573eb32472">More...</a><br /></td></tr>
 <tr class="separator:ad1447b242182800e32f6f5573eb32472"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ed4d28880f235f533b573d42aabb5d4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a4ed4d28880f235f533b573d42aabb5d4">getRangeDown</a> () const noexcept</td></tr>
+<tr class="memdesc:a4ed4d28880f235f533b573d42aabb5d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the pitchbend range down in semitones.  <a href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a4ed4d28880f235f533b573d42aabb5d4">More...</a><br /></td></tr>
 <tr class="separator:a4ed4d28880f235f533b573d42aabb5d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a245352756e26c01251e19597c99d4c70"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a245352756e26c01251e19597c99d4c70">getRangeUp</a> () const noexcept</td></tr>
+<tr class="memdesc:a245352756e26c01251e19597c99d4c70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the pitchbend range up in semitones.  <a href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a245352756e26c01251e19597c99d4c70">More...</a><br /></td></tr>
 <tr class="separator:a245352756e26c01251e19597c99d4c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a872f4612445b7b9766e35324257b5534"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a872f4612445b7b9766e35324257b5534">newPitchbendReceived</a> (int newPitchbend) noexcept</td></tr>
+<tr class="memdesc:a872f4612445b7b9766e35324257b5534"><td class="mdescLeft">&#160;</td><td class="mdescRight">Each incoming pitchbend value from the pitch wheel should be sent to this function.  <a href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a872f4612445b7b9766e35324257b5534">More...</a><br /></td></tr>
 <tr class="separator:a872f4612445b7b9766e35324257b5534"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87bf8debfc8b05b957d5e591d4140f0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a87bf8debfc8b05b957d5e591d4140f0d">resetPitchbend</a> () noexcept</td></tr>
+<tr class="memdesc:a87bf8debfc8b05b957d5e591d4140f0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the state of the internal pitchbend to 64 (neutral).  <a href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a87bf8debfc8b05b957d5e591d4140f0d">More...</a><br /></td></tr>
 <tr class="separator:a87bf8debfc8b05b957d5e591d4140f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f2e4c9661cdd382f7f707c61c4af4c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a4f2e4c9661cdd382f7f707c61c4af4c3">setRange</a> (float newStUp, float newStDown) noexcept</td></tr>
+<tr class="memdesc:a4f2e4c9661cdd382f7f707c61c4af4c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the range up and down in semitones.  <a href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a4f2e4c9661cdd382f7f707c61c4af4c3">More...</a><br /></td></tr>
 <tr class="separator:a4f2e4c9661cdd382f7f707c61c4af4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d1/df2/_pitchbend_mapper_8h_source.html#l00023">23</a> of file <a class="el" href="../../d1/df2/_pitchbend_mapper_8h_source.html">PitchbendMapper.h</a>.</p>
+<div class="textblock"><p>This class maps MIDI pitchbend values and note numbers to fractional MIDI note numbers. </p>
+<p>You can set separate ranges up and down in semitones, then for each MIDI note that comes in, you can call <code><a class="el" href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a52dc5e73f5f0f9e8339ad3203fa4304a" title="Returns an adjusted MIDI pitch for an incoming MIDI pitch.">getAdjustedMidiPitch()</a></code> to get the original note's mapped pitch, based on the last received pitchbend value and the pitchbend range. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/df2/_pitchbend_mapper_8h_source.html#l00035">35</a> of file <a class="el" href="../../d1/df2/_pitchbend_mapper_8h_source.html">PitchbendMapper.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a52dc5e73f5f0f9e8339ad3203fa4304a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a52dc5e73f5f0f9e8339ad3203fa4304a">&#9670;&nbsp;</a></span>getAdjustedMidiPitch()</h2>
@@ -136,6 +148,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns an adjusted MIDI pitch for an incoming MIDI pitch. </p>
+<p>The input pitch is adjusted based on the current pitchbend value, and the pitchbend range that's been set. </p>
 
 </div>
 </div>
@@ -162,6 +177,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the last pitchbend value that was set via <code><a class="el" href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html#a872f4612445b7b9766e35324257b5534" title="Each incoming pitchbend value from the pitch wheel should be sent to this function.">newPitchbendReceived()</a></code> . </p>
+
 </div>
 </div>
 <a id="a4ed4d28880f235f533b573d42aabb5d4"></a>
@@ -187,6 +204,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the pitchbend range down in semitones. </p>
+
 </div>
 </div>
 <a id="a245352756e26c01251e19597c99d4c70"></a>
@@ -211,6 +230,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the pitchbend range up in semitones. </p>
 
 </div>
 </div>
@@ -238,6 +259,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Each incoming pitchbend value from the pitch wheel should be sent to this function. </p>
+<p>The pitchbend values should be between 0 and 127, with 0 being bent down the lowest, 127 being bent up the highest, and 64 being no bend. </p>
+
 </div>
 </div>
 <a id="a87bf8debfc8b05b957d5e591d4140f0d"></a>
@@ -262,6 +286,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Resets the state of the internal pitchbend to 64 (neutral). </p>
 
 </div>
 </div>
@@ -299,6 +325,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Sets the range up and down in semitones. </p>
+<p>If the pitchbend value is 0, each incoming note will be mapped to <code>note-stDown</code> , and if the pitchbend value is 127, each note will be mapped to <code>note+stUp</code> . </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -310,7 +339,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/d3d/namespacemidi.html">midi</a></li><li class="navelem"><a class="el" href="../../d7/d01/classmidi_1_1_pitchbend_mapper.html">PitchbendMapper</a></li>
-    <li class="footer">Generated on Sun May 29 2022 20:44:05 for Limes by
+    <li class="footer">Generated on Sun May 29 2022 21:23:29 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

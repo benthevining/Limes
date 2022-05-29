@@ -98,26 +98,32 @@ $(document).ready(function(){initNavTree('d3/d01/classmidi_1_1_velocity_mapper.h
 </div><!--header-->
 <div class="contents">
 
+<p>This class allows you to impose a "sensitivity" parameter on MIDI messages velocities.  
+ <a href="../../d3/d01/classmidi_1_1_velocity_mapper.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d0/d0d/_velocity_mapper_8h_source.html">VelocityMapper.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aa6640ebeb15f862e50ca71ec93bf7ce6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d01/classmidi_1_1_velocity_mapper.html#aa6640ebeb15f862e50ca71ec93bf7ce6">getSensitivity</a> () const noexcept</td></tr>
+<tr class="memdesc:aa6640ebeb15f862e50ca71ec93bf7ce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sensitivity that was set.  <a href="../../d3/d01/classmidi_1_1_velocity_mapper.html#aa6640ebeb15f862e50ca71ec93bf7ce6">More...</a><br /></td></tr>
+<tr class="separator:aa6640ebeb15f862e50ca71ec93bf7ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaadefc5e81e6f9bbe41684c51c6146ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d01/classmidi_1_1_velocity_mapper.html#aaadefc5e81e6f9bbe41684c51c6146ae">setSensitivity</a> (int newSensitivity)</td></tr>
+<tr class="memdesc:aaadefc5e81e6f9bbe41684c51c6146ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the sensitivity of incoming velocity messages.  <a href="../../d3/d01/classmidi_1_1_velocity_mapper.html#aaadefc5e81e6f9bbe41684c51c6146ae">More...</a><br /></td></tr>
+<tr class="separator:aaadefc5e81e6f9bbe41684c51c6146ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Mapping incoming velocities</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Maps an incoming MIDI velocity value to an output gain value between 0 and 1, based on the sensitivity that's been set. </p>
+</div></td></tr>
 <tr class="memitem:a25d823c6d2c515c6a7fa5bff9f6f77fd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d01/classmidi_1_1_velocity_mapper.html#a25d823c6d2c515c6a7fa5bff9f6f77fd">getGainForVelocity</a> (float midiVelocity)</td></tr>
 <tr class="separator:a25d823c6d2c515c6a7fa5bff9f6f77fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0168d7d5199435b33d352219920313cb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d01/classmidi_1_1_velocity_mapper.html#a0168d7d5199435b33d352219920313cb">getGainForVelocity</a> (int midiVelocity)</td></tr>
 <tr class="separator:a0168d7d5199435b33d352219920313cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6358ca4299f9e16d2b47fdbf8d71b5b8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d01/classmidi_1_1_velocity_mapper.html#a6358ca4299f9e16d2b47fdbf8d71b5b8">getIntSensitivity</a> () const noexcept</td></tr>
-<tr class="separator:a6358ca4299f9e16d2b47fdbf8d71b5b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af714f73a990d4b2d9d0c0b74c6f5573b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d01/classmidi_1_1_velocity_mapper.html#af714f73a990d4b2d9d0c0b74c6f5573b">getSensitivity</a> () const noexcept</td></tr>
-<tr class="separator:af714f73a990d4b2d9d0c0b74c6f5573b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a185b68048d4e7bbd11bd1037195122b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d01/classmidi_1_1_velocity_mapper.html#a185b68048d4e7bbd11bd1037195122b4">setSensitivity</a> (float newSensitivity)</td></tr>
-<tr class="separator:a185b68048d4e7bbd11bd1037195122b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaadefc5e81e6f9bbe41684c51c6146ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d01/classmidi_1_1_velocity_mapper.html#aaadefc5e81e6f9bbe41684c51c6146ae">setSensitivity</a> (int newSensitivity)</td></tr>
-<tr class="separator:aaadefc5e81e6f9bbe41684c51c6146ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d0/d0d/_velocity_mapper_8h_source.html#l00023">23</a> of file <a class="el" href="../../d0/d0d/_velocity_mapper_8h_source.html">VelocityMapper.h</a>.</p>
+<div class="textblock"><p>This class allows you to impose a "sensitivity" parameter on MIDI messages velocities. </p>
+<p>If the sensitivity is set to full (100), then the velocity is not changed at all. If the sensitivity is set to off (0), then the velocity is always output as 127, regardless of what the input velocity was. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/d0d/_velocity_mapper_8h_source.html#l00033">33</a> of file <a class="el" href="../../d0/d0d/_velocity_mapper_8h_source.html">VelocityMapper.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a25d823c6d2c515c6a7fa5bff9f6f77fd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a25d823c6d2c515c6a7fa5bff9f6f77fd">&#9670;&nbsp;</a></span>getGainForVelocity() <span class="overload">[1/2]</span></h2>
@@ -155,8 +161,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6358ca4299f9e16d2b47fdbf8d71b5b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6358ca4299f9e16d2b47fdbf8d71b5b8">&#9670;&nbsp;</a></span>getIntSensitivity()</h2>
+<a id="aa6640ebeb15f862e50ca71ec93bf7ce6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6640ebeb15f862e50ca71ec93bf7ce6">&#9670;&nbsp;</a></span>getSensitivity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,7 +171,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int midi::VelocityMapper::getIntSensitivity </td>
+          <td class="memname">int midi::VelocityMapper::getSensitivity </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -178,53 +184,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="af714f73a990d4b2d9d0c0b74c6f5573b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af714f73a990d4b2d9d0c0b74c6f5573b">&#9670;&nbsp;</a></span>getSensitivity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float midi::VelocityMapper::getSensitivity </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a185b68048d4e7bbd11bd1037195122b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a185b68048d4e7bbd11bd1037195122b4">&#9670;&nbsp;</a></span>setSensitivity() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void midi::VelocityMapper::setSensitivity </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>newSensitivity</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Returns the sensitivity that was set. </p>
 
 </div>
 </div>
 <a id="aaadefc5e81e6f9bbe41684c51c6146ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaadefc5e81e6f9bbe41684c51c6146ae">&#9670;&nbsp;</a></span>setSensitivity() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaadefc5e81e6f9bbe41684c51c6146ae">&#9670;&nbsp;</a></span>setSensitivity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,6 +204,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the sensitivity of incoming velocity messages. </p>
+<p>If the sensitivity is set to full (100), then the velocity is not changed at all. If the sensitivity is set to off (0), then the velocity is always output as 127, regardless of what the input velocity was. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -250,7 +218,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/d3d/namespacemidi.html">midi</a></li><li class="navelem"><a class="el" href="../../d3/d01/classmidi_1_1_velocity_mapper.html">VelocityMapper</a></li>
-    <li class="footer">Generated on Sun May 29 2022 20:44:05 for Limes by
+    <li class="footer">Generated on Sun May 29 2022 21:23:29 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -586,8 +586,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>ae7c1a8232b30d40da7ca89e408396cb7</Anchor>
+    <Path>d2/d91/group__loc__country.html</Path>
+    <Anchor>ga262099b4b3f19c978f7b41e80a6e6b80</Anchor>
+    <Abstract>Returns a vector of all known Country objects.</Abstract>
     <DeclaredIn>countries.h</DeclaredIn>
   </Token>
   <Token>
@@ -597,8 +598,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>aab2be6b035e835729dd69bf96b645ce6</Anchor>
+    <Path>d2/d91/group__loc__country.html</Path>
+    <Anchor>gaab2be6b035e835729dd69bf96b645ce6</Anchor>
+    <Abstract>Returns the Country object representing the given ISO country code.</Abstract>
     <DeclaredIn>countries.h</DeclaredIn>
   </Token>
   <Token>
@@ -608,8 +610,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>a6d6478b3f2a31fa30dd3a97860411b95</Anchor>
+    <Path>d2/d91/group__loc__country.html</Path>
+    <Anchor>ga6d6478b3f2a31fa30dd3a97860411b95</Anchor>
+    <Abstract>Returns the Country object representing the country with the given name.</Abstract>
     <DeclaredIn>countries.h</DeclaredIn>
   </Token>
   <Token>
@@ -810,8 +813,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>a0a4fffa9ecde73148de5240e2e73d034</Anchor>
+    <Path>df/dfc/group__loc__lang.html</Path>
+    <Anchor>gae47ba49b20a945e9d925d71610c1183e</Anchor>
+    <Abstract>Returns all known Language objects in Limes&apos;s internal database.</Abstract>
     <DeclaredIn>languages.h</DeclaredIn>
   </Token>
   <Token>
@@ -821,8 +825,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>ace306aa0dfcae7ac36db5bd2047e664a</Anchor>
+    <Path>df/dfc/group__loc__lang.html</Path>
+    <Anchor>gace306aa0dfcae7ac36db5bd2047e664a</Anchor>
+    <Abstract>Returns the Language object representing the language with the given name.</Abstract>
     <DeclaredIn>languages.h</DeclaredIn>
   </Token>
   <Token>
@@ -832,8 +837,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>ae2a4889b42da4f8cc121814805e3b775</Anchor>
+    <Path>df/dfc/group__loc__lang.html</Path>
+    <Anchor>gae2a4889b42da4f8cc121814805e3b775</Anchor>
+    <Abstract>Returns the Language object representing the given ISO language code.</Abstract>
     <DeclaredIn>languages.h</DeclaredIn>
   </Token>
   <Token>
@@ -843,8 +849,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>a5a9ca617c05af633b214fe6043698e6e</Anchor>
+    <Path>df/dfc/group__loc__lang.html</Path>
+    <Anchor>ga5a9ca617c05af633b214fe6043698e6e</Anchor>
+    <Abstract>Returns a vector of Language objects representing languages that may be spoken in the given country.</Abstract>
     <DeclaredIn>languages.h</DeclaredIn>
   </Token>
   <Token>
@@ -7755,6 +7762,122 @@
     <Anchor>gafa1aefe1ad592cec39fa26b653415017</Anchor>
     <Abstract>Returns the second of compilation as an integer.</Abstract>
     <DeclaredIn>build_date.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>loc_country</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d2/d91/group__loc__country.html</Path>
+    <Abstract>Utilities for working with different countries.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getAllCountries</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>locale</Scope>
+    </TokenIdentifier>
+    <Path>d2/d91/group__loc__country.html</Path>
+    <Anchor>ga262099b4b3f19c978f7b41e80a6e6b80</Anchor>
+    <Abstract>Returns a vector of all known Country objects.</Abstract>
+    <DeclaredIn>countries.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getCountryByCode</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>locale</Scope>
+    </TokenIdentifier>
+    <Path>d2/d91/group__loc__country.html</Path>
+    <Anchor>gaab2be6b035e835729dd69bf96b645ce6</Anchor>
+    <Abstract>Returns the Country object representing the given ISO country code.</Abstract>
+    <DeclaredIn>countries.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getCountryByName</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>locale</Scope>
+    </TokenIdentifier>
+    <Path>d2/d91/group__loc__country.html</Path>
+    <Anchor>ga6d6478b3f2a31fa30dd3a97860411b95</Anchor>
+    <Abstract>Returns the Country object representing the country with the given name.</Abstract>
+    <DeclaredIn>countries.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>loc_lang</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>df/dfc/group__loc__lang.html</Path>
+    <Abstract>Utilities for working with spoken human languages.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getAllKnownLanguages</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>locale</Scope>
+    </TokenIdentifier>
+    <Path>df/dfc/group__loc__lang.html</Path>
+    <Anchor>gae47ba49b20a945e9d925d71610c1183e</Anchor>
+    <Abstract>Returns all known Language objects in Limes&apos;s internal database.</Abstract>
+    <DeclaredIn>languages.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getLanguage</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>locale</Scope>
+    </TokenIdentifier>
+    <Path>df/dfc/group__loc__lang.html</Path>
+    <Anchor>gace306aa0dfcae7ac36db5bd2047e664a</Anchor>
+    <Abstract>Returns the Language object representing the language with the given name.</Abstract>
+    <DeclaredIn>languages.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getLanguageForCode</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>locale</Scope>
+    </TokenIdentifier>
+    <Path>df/dfc/group__loc__lang.html</Path>
+    <Anchor>gae2a4889b42da4f8cc121814805e3b775</Anchor>
+    <Abstract>Returns the Language object representing the given ISO language code.</Abstract>
+    <DeclaredIn>languages.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getLanguagesForCountry</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>locale</Scope>
+    </TokenIdentifier>
+    <Path>df/dfc/group__loc__lang.html</Path>
+    <Anchor>ga5a9ca617c05af633b214fe6043698e6e</Anchor>
+    <Abstract>Returns a vector of Language objects representing languages that may be spoken in the given country.</Abstract>
+    <DeclaredIn>languages.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>limes_locale</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>dd/d74/group__limes__locale.html</Path>
+    <Abstract>The Limes library of localization utilities.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>limes_midi</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d1/d3f/group__limes__midi.html</Path>
+    <Abstract>The Limes library of MIDI utilities.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -21717,6 +21840,7 @@
       <Scope>locale</Scope>
     </TokenIdentifier>
     <Path>de/d31/namespacelocale.html</Path>
+    <Abstract>This namespace contains utilities for localization and internationalization.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -21725,8 +21849,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>ae7c1a8232b30d40da7ca89e408396cb7</Anchor>
+    <Path>d2/d91/group__loc__country.html</Path>
+    <Anchor>ga262099b4b3f19c978f7b41e80a6e6b80</Anchor>
+    <Abstract>Returns a vector of all known Country objects.</Abstract>
     <DeclaredIn>countries.h</DeclaredIn>
   </Token>
   <Token>
@@ -21736,8 +21861,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>a0a4fffa9ecde73148de5240e2e73d034</Anchor>
+    <Path>df/dfc/group__loc__lang.html</Path>
+    <Anchor>gae47ba49b20a945e9d925d71610c1183e</Anchor>
+    <Abstract>Returns all known Language objects in Limes&apos;s internal database.</Abstract>
     <DeclaredIn>languages.h</DeclaredIn>
   </Token>
   <Token>
@@ -21747,8 +21873,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>aab2be6b035e835729dd69bf96b645ce6</Anchor>
+    <Path>d2/d91/group__loc__country.html</Path>
+    <Anchor>gaab2be6b035e835729dd69bf96b645ce6</Anchor>
+    <Abstract>Returns the Country object representing the given ISO country code.</Abstract>
     <DeclaredIn>countries.h</DeclaredIn>
   </Token>
   <Token>
@@ -21758,8 +21885,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>a6d6478b3f2a31fa30dd3a97860411b95</Anchor>
+    <Path>d2/d91/group__loc__country.html</Path>
+    <Anchor>ga6d6478b3f2a31fa30dd3a97860411b95</Anchor>
+    <Abstract>Returns the Country object representing the country with the given name.</Abstract>
     <DeclaredIn>countries.h</DeclaredIn>
   </Token>
   <Token>
@@ -21769,8 +21897,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>ace306aa0dfcae7ac36db5bd2047e664a</Anchor>
+    <Path>df/dfc/group__loc__lang.html</Path>
+    <Anchor>gace306aa0dfcae7ac36db5bd2047e664a</Anchor>
+    <Abstract>Returns the Language object representing the language with the given name.</Abstract>
     <DeclaredIn>languages.h</DeclaredIn>
   </Token>
   <Token>
@@ -21780,8 +21909,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>ae2a4889b42da4f8cc121814805e3b775</Anchor>
+    <Path>df/dfc/group__loc__lang.html</Path>
+    <Anchor>gae2a4889b42da4f8cc121814805e3b775</Anchor>
+    <Abstract>Returns the Language object representing the given ISO language code.</Abstract>
     <DeclaredIn>languages.h</DeclaredIn>
   </Token>
   <Token>
@@ -21791,8 +21921,9 @@
       <Type>func</Type>
       <Scope>locale</Scope>
     </TokenIdentifier>
-    <Path>de/d31/namespacelocale.html</Path>
-    <Anchor>a5a9ca617c05af633b214fe6043698e6e</Anchor>
+    <Path>df/dfc/group__loc__lang.html</Path>
+    <Anchor>ga5a9ca617c05af633b214fe6043698e6e</Anchor>
+    <Abstract>Returns a vector of Language objects representing languages that may be spoken in the given country.</Abstract>
     <DeclaredIn>languages.h</DeclaredIn>
   </Token>
   <Token>
@@ -21803,6 +21934,7 @@
       <Scope>locale::Country</Scope>
     </TokenIdentifier>
     <Path>d5/d47/structlocale_1_1_country.html</Path>
+    <Abstract>This struct represents metadata about a country.</Abstract>
     <DeclaredIn>countries.h</DeclaredIn>
   </Token>
   <Token>
@@ -21814,6 +21946,19 @@
     </TokenIdentifier>
     <Path>d5/d47/structlocale_1_1_country.html</Path>
     <Anchor>a065fe6395113459cb09797ef43cd21b7</Anchor>
+    <Abstract>Returns a vector of Language objects representing languages that may be spoken in this country.</Abstract>
+    <DeclaredIn>countries.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isValid</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>locale::Country</Scope>
+    </TokenIdentifier>
+    <Path>d5/d47/structlocale_1_1_country.html</Path>
+    <Anchor>a37aac4f0d2e7066425a96add065e5e69</Anchor>
+    <Abstract>Returns true if all the metadata fields contain valid data.</Abstract>
     <DeclaredIn>countries.h</DeclaredIn>
   </Token>
   <Token>
@@ -21825,6 +21970,7 @@
     </TokenIdentifier>
     <Path>d5/d47/structlocale_1_1_country.html</Path>
     <Anchor>a2e3cb971b1232f468e96ae008bdf2c62</Anchor>
+    <Abstract>The ISO country code for this country.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -21835,6 +21981,7 @@
     </TokenIdentifier>
     <Path>d5/d47/structlocale_1_1_country.html</Path>
     <Anchor>a1933ee8c6b678464de1170ad55424c97</Anchor>
+    <Abstract>The full name of this country.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -21844,28 +21991,7 @@
       <Scope>locale::Language</Scope>
     </TokenIdentifier>
     <Path>d5/db6/structlocale_1_1_language.html</Path>
-    <DeclaredIn>languages.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Language</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>locale::Language</Scope>
-    </TokenIdentifier>
-    <Path>d5/db6/structlocale_1_1_language.html</Path>
-    <Anchor>a353b90740f3947a7bf33b40baf9e8ae3</Anchor>
-    <DeclaredIn>languages.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>Language</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>locale::Language</Scope>
-    </TokenIdentifier>
-    <Path>d5/db6/structlocale_1_1_language.html</Path>
-    <Anchor>ae4b83134df7b2ef9ffbef25a4c58cf12</Anchor>
+    <Abstract>This struct represents metadata about a spoken human language.</Abstract>
     <DeclaredIn>languages.h</DeclaredIn>
   </Token>
   <Token>
@@ -21877,6 +22003,7 @@
     </TokenIdentifier>
     <Path>d5/db6/structlocale_1_1_language.html</Path>
     <Anchor>a46c70cc805b12ed20c691ab9e9dbbb82</Anchor>
+    <Abstract>Returns a vector of Country objects representing countries in which a meaningful proportion of the po...</Abstract>
     <DeclaredIn>languages.h</DeclaredIn>
   </Token>
   <Token>
@@ -21888,6 +22015,43 @@
     </TokenIdentifier>
     <Path>d5/db6/structlocale_1_1_language.html</Path>
     <Anchor>a1b34261eba9c298884d948ba01e1fb7a</Anchor>
+    <Abstract>Returns true if this language is likely to be spoken by a meaningful proportion of the given country&apos;...</Abstract>
+    <DeclaredIn>languages.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isValid</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>locale::Language</Scope>
+    </TokenIdentifier>
+    <Path>d5/db6/structlocale_1_1_language.html</Path>
+    <Anchor>aab9bfadb4209b8ec1e3eb8fface780dd</Anchor>
+    <Abstract>Returns true if all the metadata fields contain valid data.</Abstract>
+    <DeclaredIn>languages.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Language</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>locale::Language</Scope>
+    </TokenIdentifier>
+    <Path>d5/db6/structlocale_1_1_language.html</Path>
+    <Anchor>ae4b83134df7b2ef9ffbef25a4c58cf12</Anchor>
+    <Abstract>This library contains an internal database of known languages; you should rarely need to construct on...</Abstract>
+    <DeclaredIn>languages.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Language</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>locale::Language</Scope>
+    </TokenIdentifier>
+    <Path>d5/db6/structlocale_1_1_language.html</Path>
+    <Anchor>a353b90740f3947a7bf33b40baf9e8ae3</Anchor>
+    <Abstract>Constructs a null language object containing no metadata.</Abstract>
     <DeclaredIn>languages.h</DeclaredIn>
   </Token>
   <Token>
@@ -21899,6 +22063,7 @@
     </TokenIdentifier>
     <Path>d5/db6/structlocale_1_1_language.html</Path>
     <Anchor>a700670c2ff28836efd571e95d19a46f6</Anchor>
+    <Abstract>A vector of ISO country codes identifying countries where a meaningful proportion of the population m...</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -21909,6 +22074,7 @@
     </TokenIdentifier>
     <Path>d5/db6/structlocale_1_1_language.html</Path>
     <Anchor>a696237a2aca2cb7627ca784980833d46</Anchor>
+    <Abstract>The 2-digit ISO 639-1 code identifying this language.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -21919,6 +22085,7 @@
     </TokenIdentifier>
     <Path>d5/db6/structlocale_1_1_language.html</Path>
     <Anchor>a3237e588a12871d96a5a2f7c8423a04f</Anchor>
+    <Abstract>The 3-digit ISO 639-2 code identifying this language.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -21929,6 +22096,7 @@
     </TokenIdentifier>
     <Path>d5/db6/structlocale_1_1_language.html</Path>
     <Anchor>ae172bcc498b78e911304d47febddf397</Anchor>
+    <Abstract>True if this language is written right to left.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -21939,6 +22107,7 @@
     </TokenIdentifier>
     <Path>d5/db6/structlocale_1_1_language.html</Path>
     <Anchor>a170827715d8c2242c9e58d046eb7409f</Anchor>
+    <Abstract>The full name of the language.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -29997,6 +30166,7 @@
       <Scope>midi</Scope>
     </TokenIdentifier>
     <Path>da/d3d/namespacemidi.html</Path>
+    <Abstract>This namespace contains utilities for working with MIDI.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -30088,6 +30258,7 @@
       <Scope>midi::PitchbendMapper</Scope>
     </TokenIdentifier>
     <Path>d7/d01/classmidi_1_1_pitchbend_mapper.html</Path>
+    <Abstract>This class maps MIDI pitchbend values and note numbers to fractional MIDI note numbers.</Abstract>
     <DeclaredIn>PitchbendMapper.h</DeclaredIn>
   </Token>
   <Token>
@@ -30099,6 +30270,7 @@
     </TokenIdentifier>
     <Path>d7/d01/classmidi_1_1_pitchbend_mapper.html</Path>
     <Anchor>a52dc5e73f5f0f9e8339ad3203fa4304a</Anchor>
+    <Abstract>Returns an adjusted MIDI pitch for an incoming MIDI pitch.</Abstract>
     <DeclaredIn>PitchbendMapper.h</DeclaredIn>
   </Token>
   <Token>
@@ -30110,6 +30282,7 @@
     </TokenIdentifier>
     <Path>d7/d01/classmidi_1_1_pitchbend_mapper.html</Path>
     <Anchor>ad1447b242182800e32f6f5573eb32472</Anchor>
+    <Abstract>Returns the last pitchbend value that was set via newPitchbendReceived() .</Abstract>
     <DeclaredIn>PitchbendMapper.h</DeclaredIn>
   </Token>
   <Token>
@@ -30121,6 +30294,7 @@
     </TokenIdentifier>
     <Path>d7/d01/classmidi_1_1_pitchbend_mapper.html</Path>
     <Anchor>a4ed4d28880f235f533b573d42aabb5d4</Anchor>
+    <Abstract>Returns the pitchbend range down in semitones.</Abstract>
     <DeclaredIn>PitchbendMapper.h</DeclaredIn>
   </Token>
   <Token>
@@ -30132,6 +30306,7 @@
     </TokenIdentifier>
     <Path>d7/d01/classmidi_1_1_pitchbend_mapper.html</Path>
     <Anchor>a245352756e26c01251e19597c99d4c70</Anchor>
+    <Abstract>Returns the pitchbend range up in semitones.</Abstract>
     <DeclaredIn>PitchbendMapper.h</DeclaredIn>
   </Token>
   <Token>
@@ -30143,6 +30318,7 @@
     </TokenIdentifier>
     <Path>d7/d01/classmidi_1_1_pitchbend_mapper.html</Path>
     <Anchor>a872f4612445b7b9766e35324257b5534</Anchor>
+    <Abstract>Each incoming pitchbend value from the pitch wheel should be sent to this function.</Abstract>
     <DeclaredIn>PitchbendMapper.h</DeclaredIn>
   </Token>
   <Token>
@@ -30154,6 +30330,7 @@
     </TokenIdentifier>
     <Path>d7/d01/classmidi_1_1_pitchbend_mapper.html</Path>
     <Anchor>a87bf8debfc8b05b957d5e591d4140f0d</Anchor>
+    <Abstract>Resets the state of the internal pitchbend to 64 (neutral).</Abstract>
     <DeclaredIn>PitchbendMapper.h</DeclaredIn>
   </Token>
   <Token>
@@ -30165,6 +30342,7 @@
     </TokenIdentifier>
     <Path>d7/d01/classmidi_1_1_pitchbend_mapper.html</Path>
     <Anchor>a4f2e4c9661cdd382f7f707c61c4af4c3</Anchor>
+    <Abstract>Sets the range up and down in semitones.</Abstract>
     <DeclaredIn>PitchbendMapper.h</DeclaredIn>
   </Token>
   <Token>
@@ -30175,6 +30353,31 @@
       <Scope>midi::VelocityMapper</Scope>
     </TokenIdentifier>
     <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
+    <Abstract>This class allows you to impose a &quot;sensitivity&quot; parameter on MIDI messages velocities.</Abstract>
+    <DeclaredIn>VelocityMapper.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSensitivity</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>midi::VelocityMapper</Scope>
+    </TokenIdentifier>
+    <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
+    <Anchor>aa6640ebeb15f862e50ca71ec93bf7ce6</Anchor>
+    <Abstract>Returns the sensitivity that was set.</Abstract>
+    <DeclaredIn>VelocityMapper.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setSensitivity</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>midi::VelocityMapper</Scope>
+    </TokenIdentifier>
+    <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
+    <Anchor>aaadefc5e81e6f9bbe41684c51c6146ae</Anchor>
+    <Abstract>Sets the sensitivity of incoming velocity messages.</Abstract>
     <DeclaredIn>VelocityMapper.h</DeclaredIn>
   </Token>
   <Token>
@@ -30197,50 +30400,6 @@
     </TokenIdentifier>
     <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
     <Anchor>a0168d7d5199435b33d352219920313cb</Anchor>
-    <DeclaredIn>VelocityMapper.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getIntSensitivity</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>midi::VelocityMapper</Scope>
-    </TokenIdentifier>
-    <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
-    <Anchor>a6358ca4299f9e16d2b47fdbf8d71b5b8</Anchor>
-    <DeclaredIn>VelocityMapper.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getSensitivity</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>midi::VelocityMapper</Scope>
-    </TokenIdentifier>
-    <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
-    <Anchor>af714f73a990d4b2d9d0c0b74c6f5573b</Anchor>
-    <DeclaredIn>VelocityMapper.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setSensitivity</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>midi::VelocityMapper</Scope>
-    </TokenIdentifier>
-    <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
-    <Anchor>a185b68048d4e7bbd11bd1037195122b4</Anchor>
-    <DeclaredIn>VelocityMapper.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>setSensitivity</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>midi::VelocityMapper</Scope>
-    </TokenIdentifier>
-    <Path>d3/d01/classmidi_1_1_velocity_mapper.html</Path>
-    <Anchor>aaadefc5e81e6f9bbe41684c51c6146ae</Anchor>
     <DeclaredIn>VelocityMapper.h</DeclaredIn>
   </Token>
   <Token>
