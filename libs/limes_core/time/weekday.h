@@ -111,9 +111,9 @@ public:
 	/** @name Greater/less than comparisons */
 	///@{
 	[[nodiscard]] constexpr bool operator> (const Weekday& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const Weekday& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Weekday& other) const noexcept;
 	[[nodiscard]] constexpr bool operator> (const OtherWeekdayType& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const OtherWeekdayType& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const OtherWeekdayType& other) const noexcept;
 	///@}
 
 	/** @name Equality comparisons */
