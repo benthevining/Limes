@@ -44,10 +44,14 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Hexagon);
 	LIMES_CONSTEXPR_MOVABLE (Hexagon);
 
-	/** Returns the area of the %hexagon. */
+	/** Returns the area of the %hexagon.
+		The formula is @f$ A=side^2*3*\sqrt{\frac{3}{2}} @f$.
+	 */
 	[[nodiscard]] ValueType area() const noexcept final;
 
-	/** Returns the perimeter of the %hexagon. */
+	/** Returns the perimeter of the %hexagon.
+		The formula is @f$ P=side*6 @f$.
+	 */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
 	/** Returns the side length of the %hexagon. */

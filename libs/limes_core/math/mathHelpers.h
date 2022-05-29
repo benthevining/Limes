@@ -75,7 +75,9 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr int round (T val) noexc
 template <Scalar T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T limit (T input, T min, T max) noexcept;
 
-/** A constexpr-enabled power function. */
+/** A constexpr-enabled power function.
+	The formula is @f$ n=number^{power} @f$.
+ */
 template <Integral T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T power (T number, T power) noexcept;
 
@@ -87,19 +89,19 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T map (T input, T sourc
 template <Integral Integer>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr bool isPowerOf2 (Integer val) noexcept;
 
-/** Returns true if the number is divisible by the divisor with no remainder. */
+/** Returns true if the \c number is divisible by the \c divisor with no remainder. */
 template <Integral Integer>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr bool isDivisibleBy (Integer number, Integer divisor) noexcept;
 
-/** Returns true if the number is evenly divisible by 2. */
+/** Returns true if the \c number is evenly divisible by 2. */
 template <Integral Integer>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr bool numberIsEven (Integer number) noexcept;
 
-/** Returns true if the number is a prime number. */
+/** Returns true if the \c number is a prime number. */
 template <Integral Integer>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr bool isPrime (Integer number) noexcept;
 
-/** Computes the factorial of the number. */
+/** Computes the factorial of the \c number. */
 template <Integral T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T factorial (T number) noexcept;
 
@@ -107,27 +109,45 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T factorial (T number) 
 template <Scalar T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T middleOfThree (T a, T b, T c) noexcept;
 
-/** Returns the period in samples of a frequency at the specified samplerate. */
+/** Returns the period in samples of a frequency at the specified samplerate.
+	The formula is @f$ T=\frac{samplerate}{freqHz} @f$.
+	@see freqFromPeriod
+ */
 template <Scalar FreqType>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr int periodInSamples (double samplerate, FreqType freqHz) noexcept;
 
-/** Returns the frequency in Hz with a given period in samples at the specified samplerate. */
+/** Returns the frequency in Hz with a given period in samples at the specified samplerate.
+	The formula is @f$ f=\frac{samplerate}{period} @f$.
+	@see periodInSamples
+ */
 template <Scalar PeriodType>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr PeriodType freqFromPeriod (double samplerate, PeriodType period) noexcept;
 
-/** Converts a number of samples to milliseconds at the specified samplerate. */
+/** Converts a number of samples to milliseconds at the specified samplerate.
+	The formula is @f$ ms=\frac{numSamples}{samplerate}*1000 @f$.
+	@see msToSamps
+ */
 template <Integral Integer>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr double sampsToMs (double samplerate, Integer numSamples) noexcept;
 
-/** Converts a number of milliseconds to the closest integer number of samples at the specified samplerate. */
+/** Converts a number of milliseconds to the closest integer number of samples at the specified samplerate.
+	The formula is @f$ s=\frac{samplerate}{1000}*ms @f$.
+	@see sampsToMs
+ */
 template <Scalar msType>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr int msToSamps (double samplerate, msType ms) noexcept;
 
-/** Converts a MIDI note to a frequency in Hz. */
+/** Converts a MIDI note to a frequency in Hz.
+	The formula is @f$ f=440*2^{\frac{midiNote-69}{12}} @f$.
+	@see freqToMidi
+ */
 template <Scalar T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T midiToFreq (T midiNote) noexcept;
 
-/** Converts a frequency in Hz to a MIDI note. */
+/** Converts a frequency in Hz to a MIDI note.
+	The formula is @f$ midi=69+12*\log_2\frac{freqHz}{440} @f$.
+	@see midiToFreq
+ */
 template <Scalar T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION inline T freqToMidi (T freqHz) noexcept;
 

@@ -40,11 +40,6 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
-if (TARGET Limes::limes_music)
-	message (WARNING "Target Limes::limes_music already exists!")
-	return ()
-endif ()
-
 project (
 	LimesMusic
 	VERSION "${Limes_VERSION}"

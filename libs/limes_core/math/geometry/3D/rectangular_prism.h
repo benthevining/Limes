@@ -46,13 +46,19 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (RectangularPrism);
 	LIMES_CONSTEXPR_MOVABLE (RectangularPrism);
 
-	/** Returns the volume of the prism. */
+	/** Returns the volume of the prism.
+		The formula is @f$ V=length*width*height @f$.
+	 */
 	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
-	/** Returns the surface area of the prism. */
+	/** Returns the surface area of the prism.
+		The formula is @f$ A=2*((length*width)+(length*height)+(height*width)) @f$.
+	 */
 	[[nodiscard]] constexpr ValueType surfaceArea() const noexcept final;
 
-	/** Returns the space diagonal of the prism. */
+	/** Returns the space diagonal of the prism.
+		The formula is @f$ d=\sqrt{length^2+width^2+height^2} @f$.
+	 */
 	[[nodiscard]] ValueType spaceDiagonal() const noexcept;
 
 	/** Returns true if this rectangular prism is a cube. */

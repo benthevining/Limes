@@ -49,10 +49,14 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (TriangularPrism);
 	LIMES_CONSTEXPR_MOVABLE (TriangularPrism);
 
-	/** Returns the surface area of the prism. */
+	/** Returns the surface area of the prism.
+		The formula is @f$ A=(length*(base+height+hypot))+(base*2*\frac{base*height}{2*base}) @f$.
+	 */
 	[[nodiscard]] constexpr ValueType surfaceArea() const noexcept final;
 
-	/** Returns the volume of the prism. */
+	/** Returns the volume of the prism.
+		The formula is @f$ V=length*\frac{base*height}{2} @f$.
+	 */
 	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
 	/** Returns the length of the prism. */

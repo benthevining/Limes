@@ -21,14 +21,12 @@ Dependencies
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- LIMES_IGNORE_VDSP
-- LIMES_IGNORE_IPP
-- LIMES_IGNORE_MIPP
+- LIMES_USE_VDSP
 - LIMES_USE_IPP
 - LIMES_USE_MIPP
 - LIMES_USE_VECOPS_FALLBACK
-- LIMES_IGNORE_POMMIER
-- LIMES_IGNORE_FFTW
+- LIMES_USE_POMMIER
+- LIMES_USE_FFTW
 
 Cache variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -57,11 +55,6 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
-if (TARGET Limes::limes_vecops)
-	message (WARNING "Target Limes::limes_vecops already exists!")
-	return ()
-endif ()
-
 define_property (
 	GLOBAL
 	PROPERTY LIMES_VECOPS_IMPLEMENTATION
@@ -78,30 +71,25 @@ define_property (
 		"Name of the underlying FFT implementation library used by limes_vecops. May be vDSP, IPP, FFTW, or Fallback."
 	)
 
-option (LIMES_IGNORE_VDSP "Ignore vDSP for vecops" OFF)
-option (LIMES_IGNORE_IPP "Ignore Intel IPP for vecops" OFF)
-option (LIMES_IGNORE_MIPP "Ignore MIPP for vecops" OFF)
-option (LIMES_IGNORE_POMMIER "Ignore the Pommier SIMD extensions" OFF)
-option (LIMES_IGNORE_FFTW "Ignore FFTW for limes_vecops" OFF)
-option (LIMES_USE_VECOPS_FALLBACK "Use the vecops fallback implementation" OFF)
+include ("${CMAKE_CURRENT_LIST_DIR}/impl/SetVarDefaults.cmake")
 
-include (CMakeDependentOption)
-
-cmake_dependent_option (LIMES_USE_IPP "Use IPP for vecops, if available" OFF "NOT LIMES_IGNORE_IPP"
-						OFF)
-cmake_dependent_option (LIMES_USE_MIPP "Use MIPP for vecops, if available" OFF
-						"NOT LIMES_IGNORE_MIPP" OFF)
+option (LIMES_USE_VDSP "Use vDSP for limes_vecops" "${__limes_use_vdsp}")
+option (LIMES_USE_IPP "Use IPP for limes_vecops" "${__limes_use_ipp}")
+option (LIMES_USE_MIPP "Use MIPP for limes_vecops" "${__limes_use_mipp}")
+option (LIMES_USE_VECOPS_FALLBACK "Use the limes_vecops fallback implementation"
+		"${__limes_use_vecops_fallback}")
+option (LIMES_USE_POMMIER "Use the Pommier SIMD extensions for limes_vecops (SSE or NEON)"
+		"${__limes_use_pommier}")
+option (LIMES_USE_FFTW "Use FFTW for limes_vecops" "${__limes_use_fftw}")
 
 mark_as_advanced (
 	FORCE
-	LIMES_IGNORE_VDSP
-	LIMES_IGNORE_IPP
-	LIMES_IGNORE_MIPP
-	LIMES_IGNORE_POMMIER
-	LIMES_IGNORE_FFTW
-	LIMES_USE_VECOPS_FALLBACK
+	LIMES_USE_VDSP
 	LIMES_USE_IPP
-	LIMES_USE_MIPP)
+	LIMES_USE_MIPP
+	LIMES_USE_VECOPS_FALLBACK
+	LIMES_USE_POMMIER
+	LIMES_USE_FFTW)
 
 #
 

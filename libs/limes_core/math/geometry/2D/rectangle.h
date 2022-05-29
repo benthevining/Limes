@@ -46,10 +46,14 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Rectangle);
 	LIMES_CONSTEXPR_MOVABLE (Rectangle);
 
-	/** Returns the area of the %rectangle. */
+	/** Returns the area of the %rectangle.
+		The formula is @f$ A=length*width @f$.
+	 */
 	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
-	/** Returns the perimeter of the %rectangle. */
+	/** Returns the perimeter of the %rectangle.
+		The formula is @f$ A=2*(length+width) @f$.
+	 */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
 	/** Returns the length of the %rectangle. */
@@ -61,7 +65,9 @@ public:
 	/** Returns true if the %rectangle is square; ie, the length is equal to the width. */
 	[[nodiscard]] constexpr bool isSquare() const noexcept;
 
-	/** Returns the length of the internal diagonal of the %rectangle. */
+	/** Returns the length of the internal diagonal of the %rectangle.
+		The formula is @f$ d=\sqrt{length^2+width^2} @f$.
+	 */
 	[[nodiscard]] ValueType diagonal() const noexcept;
 
 	/** Returns a triangle representing the %rectangle bisected along its internal diagonal. */

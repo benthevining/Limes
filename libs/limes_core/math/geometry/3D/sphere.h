@@ -50,16 +50,26 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Sphere);
 	LIMES_CONSTEXPR_MOVABLE (Sphere);
 
-	/** Returns the volume of the %sphere. */
+	/** Returns the volume of the %sphere.
+		The formula is @f$ V=\pi*radius^3*\frac{4}{3} @f$.
+	 */
 	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
-	/** Returns the surface area of the %sphere. */
+	/** Returns the surface area of the %sphere.
+		The formula is @f$ A=4*\pi*radius^2 @f$.
+	 */
 	[[nodiscard]] constexpr ValueType surfaceArea() const noexcept final;
 
-	/** Returns the circumference of the %sphere. */
+	/** Returns the circumference of the %sphere.
+		The formula is @f$ C=2*\pi*radius @f$.
+		@see Circle::circumference
+	 */
 	[[nodiscard]] constexpr ValueType circumference() const noexcept;
 
-	/** Returns the diameter of the %sphere. */
+	/** Returns the diameter of the %sphere.
+		The formula is @f$ d=2*radius @f$.
+		@see Circle::diameter
+	 */
 	[[nodiscard]] constexpr ValueType diameter() const noexcept;
 
 	/** Returns the radius of the %sphere. */

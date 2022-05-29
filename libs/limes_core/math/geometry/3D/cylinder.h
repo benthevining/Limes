@@ -50,19 +50,31 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Cylinder);
 	LIMES_CONSTEXPR_MOVABLE (Cylinder);
 
-	/** Returns the volume of the %cylinder. */
+	/** Returns the volume of the %cylinder.
+		The formula is @f$ V=\pi*radius^2*height @f$.
+	 */
 	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
-	/** Returns the surface area of the %cylinder. */
+	/** Returns the surface area of the %cylinder.
+		The formula is @f$ A=2*\pi*radius*height+2*\pi*radius^2 @f$.
+	 */
 	[[nodiscard]] constexpr ValueType surfaceArea() const noexcept final;
 
-	/** Returns the surface perimeter of the %cylinder. */
+	/** Returns the surface perimeter of the %cylinder.
+		The formula is @f$ P=(2*radius)+(2*height) @f$.
+	 */
 	[[nodiscard]] constexpr ValueType surfacePerimeter() const noexcept;
 
-	/** Returns the circumference of the %cylinder. */
+	/** Returns the circumference of the %cylinder.
+		The formula is @f$ C=2*\pi*radius @f$.
+		@see Circle::circumference
+	 */
 	[[nodiscard]] constexpr ValueType circumference() const noexcept;
 
-	/** Returns the diameter of the %cylinder. */
+	/** Returns the diameter of the %cylinder.
+		The formula is @f$ D=2*radius @f$.
+		@see Circle::diameter
+	 */
 	[[nodiscard]] constexpr ValueType diameter() const noexcept;
 
 	/** Returns the radius of the %cylinder. */

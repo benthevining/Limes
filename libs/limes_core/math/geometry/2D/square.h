@@ -48,10 +48,14 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Square);
 	LIMES_CONSTEXPR_MOVABLE (Square);
 
-	/** Returns the area of the %square. */
+	/** Returns the area of the %square.
+		The formula is @f$ A=side^2 @f$.
+	 */
 	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
-	/** Returns the perimeter of the %square. */
+	/** Returns the perimeter of the %square.
+		The formula is @f$ P=side*4 @f$.
+	 */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
 	/** Returns the side length of the %square. */
@@ -60,7 +64,9 @@ public:
 	/** Returns a Rectangle object with the same dimensions as this %square. */
 	[[nodiscard]] constexpr Rect getRectangle() const noexcept;
 
-	/** Returns the length of the internal diagonal of this %square. */
+	/** Returns the length of the internal diagonal of this %square.
+		The formula is @f$ d=\sqrt{side*side*2} @f$.
+	 */
 	[[nodiscard]] ValueType diagonal() const noexcept;
 
 	/** Returns a triangle representing this %square bisected along its internal diagonal. */

@@ -38,11 +38,6 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
-if (TARGET Limes::limes_midi)
-	message (WARNING "Target Limes::limes_midi already exists!")
-	return ()
-endif ()
-
 project (
 	LimesMIDI
 	VERSION "${Limes_VERSION}"

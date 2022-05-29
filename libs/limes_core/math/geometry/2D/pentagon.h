@@ -44,13 +44,19 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Pentagon);
 	LIMES_CONSTEXPR_MOVABLE (Pentagon);
 
-	/** Returns the area of the %pentagon. */
+	/** Returns the area of the %pentagon.
+		The formula is @f$ A=\frac{\sqrt{5*side^2*(5+(2*\sqrt{5}))}}{4} @f$.
+	 */
 	[[nodiscard]] ValueType area() const noexcept final;
 
-	/** Returns the perimeter of the %pentagon. */
+	/** Returns the perimeter of the %pentagon.
+		The formula is @f$ P=side*5 @f$.
+	 */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
-	/** Returns the length of the internal diagonal of the %pentagon. */
+	/** Returns the length of the internal diagonal of the %pentagon.
+		The formula is @f$ d=side*\frac{1+\sqrt{5}}{2} @f$.
+	 */
 	[[nodiscard]] ValueType diagonal() const noexcept;
 
 	/** Returns the side length of the %pentagon. */

@@ -68,6 +68,7 @@ set_target_properties (LimesDocs PROPERTIES FOLDER Utility LABELS "Limes;Utility
 Required for Latex builds:
 
 sudo tlmgr install collection-latexextra wasysym helvetic wasy courier
+brew install gs
 ]]
 
 find_program (LATEX_EXECUTABLE NAMES pdflatex

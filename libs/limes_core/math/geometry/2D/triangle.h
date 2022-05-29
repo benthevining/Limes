@@ -58,10 +58,14 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Triangle);
 	LIMES_CONSTEXPR_MOVABLE (Triangle);
 
-	/** Returns the area of the %triangle. */
+	/** Returns the area of the %triangle.
+		The formula is @f$ A=\frac{base*height}{2} @f$.
+	 */
 	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
-	/** Returns the perimeter of the %triangle. */
+	/** Returns the perimeter of the %triangle.
+		The formula is @f$ P=base+height+hypot @f$.
+	 */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
 	/** Identifies the sides of a %triangle. */
@@ -87,7 +91,9 @@ public:
 	[[nodiscard]] ValueType getSide (Side side) const noexcept;
 	///@}
 
-	/** Returns the length of the vertical altitude from the triangle's base to the point opposite the base. */
+	/** Returns the length of the vertical altitude from the triangle's base to the point opposite the base.
+		The formula is @f$ a=2*\frac{base*height}{2*base} @f$.
+	 */
 	[[nodiscard]] constexpr ValueType altitude() const noexcept;
 
 	/** @name %Triangle type queries */

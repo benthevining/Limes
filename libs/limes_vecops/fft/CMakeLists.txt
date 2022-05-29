@@ -78,9 +78,7 @@ cmake_language (DEFER CALL _limes_fft_end_callback)
 
 #
 
-if (NOT LIMES_IGNORE_FFTW)
-	find_package (FFTW MODULE QUIET)
-
+if (LIMES_USE_FFTW)
 	if (TARGET FFTW::FFTW)
 		message (DEBUG " -- limes_vecops - using FFTW for FFT")
 		target_link_libraries (limes_vecops PRIVATE FFTW::FFTW)

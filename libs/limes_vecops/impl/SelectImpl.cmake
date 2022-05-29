@@ -27,69 +27,83 @@ cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 include (FeatureSummary)
 
 if (LIMES_VECOPS_BACKEND)
-	if ("${LIMES_VECOPS_BACKEND}" MATCHES vDSP)
-		set (LIMES_IGNORE_VDSP OFF)
-		set (LIMES_USE_IPP OFF)
-		set (LIMES_USE_MIPP OFF)
-	elseif ("${LIMES_VECOPS_BACKEND}" STREQUAL IPP OR "${LIMES_VECOPS_BACKEND}" STREQUAL ipp)
-		set (LIMES_IGNORE_IPP OFF)
-		set (LIMES_USE_IPP ON)
+	macro (__lvo_impl_set_not impl)
+		set (LIMES_IGNORE_${impl} ON)
+		set (LIMES_USE_${impl} OFF)
+	endmacro ()
+
+	macro (__lvo_impl_set_yes)
+		set (LIMES_IGNORE_${impl} OFF)
+		set (LIMES_USE_${impl} ON)
+	endmacro ()
+
+	if ("${LIMES_VECOPS_BACKEND}" MATCHES VDSP)
+		__lvo_impl_set_yes (VDSP)
+		__lvo_impl_set_not (IPP)
+		__lvo_impl_set_not (MIPP)
+		set (LIMES_USE_VECOPS_FALLBACK OFF)
+	elseif (("${LIMES_VECOPS_BACKEND}" MATCHES IPP) AND (NOT "${LIMES_VECOPS_BACKEND}" MATCHES MIPP
+														))
+		__lvo_impl_set_yes (IPP)
+		__lvo_impl_set_not (VDSP)
+		__lvo_impl_set_not (MIPP)
+		set (LIMES_USE_VECOPS_FALLBACK OFF)
 	elseif ("${LIMES_VECOPS_BACKEND}" MATCHES MIPP)
-		set (LIMES_IGNORE_MIPP OFF)
-		set (LIMES_USE_MIPP ON)
+		__lvo_impl_set_yes (MIPP)
+		__lvo_impl_set_not (VDSP)
+		__lvo_impl_set_not (IPP)
+		set (LIMES_USE_VECOPS_FALLBACK OFF)
 	elseif ("${LIMES_VECOPS_BACKEND}" MATCHES Fallback)
 		set (LIMES_USE_VECOPS_FALLBACK ON)
+		__lvo_impl_set_not (VDSP)
+		__lvo_impl_set_not (IPP)
+		__lvo_impl_set_not (MIPP)
 	else ()
 		message (WARNING "Unknown vecops backend requested: ${LIMES_VECOPS_BACKEND}")
 	endif ()
 endif ()
 
-# at_most_one (more_than_one LIMES_USE_IPP LIMES_USE_MIPP LIMES_USE_VECOPS_FALLBACK)
-
-# if (more_than_one) message ( WARNING "Defining more than one of LIMES_USE_IPP, LIMES_USE_MIPP, or
-# LIMES_USE_VECOPS_FALLBACK to truthy values is non-deterministic behavior!" ) endif ()
-
-# unset (more_than_one)
-
 #
 
-# cmake-lint: disable=C0103
-function (_limes_vecops_impl_set_properties)
+function (__limes_vecops_impl_set_properties impl)
+
+	string (TOLOWER "${impl}" header_name)
+
+	set (header_name "${header_name}.h")
 
 	target_sources (
 		limes_vecops
-		PRIVATE
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/${LIMES_VECOPS_IMPL_HEADER_NAME}>
-			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/${LIMES_VECOPS_IMPL_HEADER_NAME}>
-		)
+		PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/${header_name}>
+				$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/${header_name}>)
 
-	install (FILES "${LIMES_VECOPS_IMPL_HEADER_NAME}"
-			 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl" COMPONENT limes_vecops_dev)
+	install (FILES "${header_name}" DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl"
+			 COMPONENT limes_vecops_dev)
 
-	set_property (GLOBAL PROPERTY LIMES_VECOPS_IMPLEMENTATION "${LIMES_VECOPS_IMPL_NAME}")
+	set_property (GLOBAL PROPERTY LIMES_VECOPS_IMPLEMENTATION "${impl}")
 
-	add_feature_info (vecops_accelerated "NOT ${LIMES_VECOPS_IMPL_NAME} MATCHES Fallback"
-					  "Using the ${LIMES_VECOPS_IMPL_NAME} backend for the vecops library")
+	add_feature_info (vecops_accelerated "NOT ${impl} MATCHES Fallback"
+					  "Using the ${impl} backend for the vecops library")
 
-	message (VERBOSE "limes_vecops -- using ${LIMES_VECOPS_IMPL_NAME}")
+	if (NOT "${impl}" STREQUAL Fallback)
+		target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_${impl}=1)
 
-	set (LIMES_VECOPS_BACKEND "${LIMES_VECOPS_IMPL_NAME}"
+		set (LIMES_VECOPS_USING_${impl} ON CACHE INTERNAL "")
+	endif ()
+
+	message (VERBOSE "limes_vecops -- using ${impl}")
+
+	set (LIMES_VECOPS_BACKEND "${impl}"
 		 CACHE STRING "Backend being used for the vector operations library" FORCE)
 
 	mark_as_advanced (FORCE LIMES_VECOPS_BACKEND)
 
 	set_property (CACHE LIMES_VECOPS_BACKEND PROPERTY STRINGS "vDSP;IPP;MIPP;Fallback")
 
-	unset (LIMES_VECOPS_IMPL_NAME)
-	unset (LIMES_VECOPS_IMPL_HEADER_NAME)
-
 endfunction ()
-
-cmake_language (DEFER CALL _limes_vecops_impl_set_properties)
 
 #
 
-# editorconfig-checker-disable
+# vDSP editorconfig-checker-disable
 if (APPLE
 	AND NOT LIMES_IGNORE_VDSP
 	AND NOT LIMES_USE_IPP
@@ -99,24 +113,25 @@ if (APPLE
 
 	# find_package (Accelerate MODULE COMPONENTS vDSP vForce BLAS)
 
-	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_VDSP=1)
-
 	# target_link_libraries (limes_vecops PUBLIC Apple::Accelerate)
 
-	set (LIMES_VECOPS_IMPL_HEADER_NAME vdsp.h)
-	set (LIMES_VECOPS_IMPL_NAME vDSP)
+	__limes_vecops_impl_set_properties (VDSP)
 
 	return ()
 endif ()
 
 #
 
-if (NOT LIMES_IGNORE_IPP AND NOT LIMES_USE_MIPP AND NOT LIMES_USE_VECOPS_FALLBACK)
+include (OrangesGeneratePlatformHeader)
 
-	# check if we're on an Intel platform
-	include (OrangesGeneratePlatformHeader)
+# IPP
+# cmake-format: off
+if (NOT LIMES_IGNORE_IPP
+	AND NOT LIMES_USE_MIPP
+	AND NOT LIMES_USE_VECOPS_FALLBACK)
+# cmake-format: on
 
-	if (PLAT_INTEL OR LIMES_USE_IPP)
+	if (LIMES_USE_IPP OR PLAT_INTEL)
 
 		find_package (IPP MODULE QUIET COMPONENTS CORE S VM)
 
@@ -133,12 +148,7 @@ if (NOT LIMES_IGNORE_IPP AND NOT LIMES_USE_MIPP AND NOT LIMES_USE_VECOPS_FALLBAC
 
 			target_link_libraries (limes_vecops PUBLIC Intel::IntelIPP)
 
-			target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_IPP=1)
-
-			set (LIMES_VECOPS_IMPL_HEADER_NAME ipp.h)
-			set (LIMES_VECOPS_IMPL_NAME IPP)
-
-			set (LIMES_VECOPS_USING_IPP TRUE CACHE INTERNAL "")
+			__limes_vecops_impl_set_properties (IPP)
 
 			return ()
 
@@ -150,31 +160,33 @@ endif ()
 
 #
 
-if (NOT LIMES_IGNORE_MIPP AND NOT LIMES_USE_VECOPS_FALLBACK)
+# MIPP
+# cmake-format: off
+if (NOT LIMES_IGNORE_MIPP
+	AND NOT LIMES_USE_VECOPS_FALLBACK)
 
-	find_package (MIPP MODULE QUIET)
+	if (LIMES_USE_MIPP
+		OR (PLAT_SSE OR PLAT_AVX OR PLAT_AVX512 OR PLAT_ARM_NEON))
+# cmake-format: on
 
-	set_package_properties (MIPP PROPERTIES TYPE RECOMMENDED
-							PURPOSE "SIMD vector math acceleration")
+		find_package (MIPP MODULE QUIET)
 
-	if (TARGET aff3ct::MIPP)
-		target_link_libraries (limes_vecops PUBLIC aff3ct::MIPP)
+		set_package_properties (MIPP PROPERTIES TYPE RECOMMENDED
+								PURPOSE "SIMD vector math acceleration")
 
-		target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_MIPP=1)
+		if (TARGET aff3ct::MIPP)
+			target_link_libraries (limes_vecops PUBLIC aff3ct::MIPP)
 
-		set (LIMES_VECOPS_IMPL_HEADER_NAME mipp.h)
-		set (LIMES_VECOPS_IMPL_NAME MIPP)
+			__limes_vecops_impl_set_properties (MIPP)
 
-		set (LIMES_VECOPS_USING_MIPP TRUE CACHE INTERNAL "")
+			return ()
 
-		return ()
-
-	elseif (LIMES_USE_MIPP)
-		message (WARNING "MIPP could not be found!")
+		elseif (LIMES_USE_MIPP)
+			message (WARNING "MIPP could not be found!")
+		endif ()
 	endif ()
 endif ()
 
 #
 
-set (LIMES_VECOPS_IMPL_HEADER_NAME fallback.h)
-set (LIMES_VECOPS_IMPL_NAME Fallback)
+__limes_vecops_impl_set_properties (Fallback)

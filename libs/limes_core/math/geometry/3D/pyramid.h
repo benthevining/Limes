@@ -51,10 +51,14 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Pyramid);
 	LIMES_CONSTEXPR_MOVABLE (Pyramid);
 
-	/** Returns the surface area of the %pyramid. */
+	/** Returns the surface area of the %pyramid.
+		The formula is @f$ A=(length*width)+(length*\sqrt{\frac{width}{2}^2+height^2+width})+(width*\sqrt{\frac{length}{2}^2+height^2}) @f$.
+	 */
 	[[nodiscard]] ValueType surfaceArea() const noexcept final;
 
-	/** Returns the volume of the %pyramid. */
+	/** Returns the volume of the %pyramid.
+		The formula is @f$ V=\frac{length*width*height}{3} @f$.
+	 */
 	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
 	/** Returns the length of the pyramid's base. */

@@ -44,10 +44,14 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Octagon);
 	LIMES_CONSTEXPR_MOVABLE (Octagon);
 
-	/** Returns the area of the %octagon. */
+	/** Returns the area of the %octagon.
+		The formula is @f$ A=side^2*2*(1+\sqrt{2}) @f$.
+	 */
 	[[nodiscard]] ValueType area() const noexcept final;
 
-	/** Returns the perimeter of the %octagon. */
+	/** Returns the perimeter of the %octagon.
+		The formula is @f$ P=side*8 @f$.
+	 */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
 
 	/** Returns the side length of the %octagon. */

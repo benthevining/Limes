@@ -53,19 +53,28 @@ public:
 	/** Returns the radius of the cone's face. */
 	[[nodiscard]] constexpr ValueType radius() const noexcept;
 
-	/** Returns the diameter of the cone's face. */
+	/** Returns the diameter of the cone's face.
+		The formula is @f$ P=2*radius @f$.
+		@see Circle::diameter
+	 */
 	[[nodiscard]] constexpr ValueType diameter() const noexcept;
 
 	/** Returns the height of the %cone. */
 	[[nodiscard]] constexpr ValueType height() const noexcept;
 
-	/** Returns the volume of the %cone. */
+	/** Returns the volume of the %cone.
+		The formula is @f$ V=radius^2*\pi*\frac{height}{3} @f$.
+	 */
 	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
-	/** Returns the surface area of the %cone. */
+	/** Returns the surface area of the %cone.
+		The formula is @f$ A=\pi*radius*(radius+\sqrt{\frac{radius^2}{m_height^2}}) @f$.
+	 */
 	[[nodiscard]] ValueType surfaceArea() const noexcept final;
 
-	/** Returns the slant height area of the %cone. */
+	/** Returns the slant height area of the %cone.
+		The formula is @f$ h=\sqrt{\frac{radius^2}{height^2}} @f$.
+	 */
 	[[nodiscard]] ValueType slantHeight() const noexcept;
 
 	/** Returns a Circle object representing the face of this %cone. */

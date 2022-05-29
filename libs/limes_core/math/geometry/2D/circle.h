@@ -43,11 +43,14 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Circle);
 	LIMES_CONSTEXPR_MOVABLE (Circle);
 
-	/** Returns the area of the %circle. */
+	/** Returns the area of the %circle.
+		The formula is @f$ A=\pi*radius^2 @f$.
+	 */
 	[[nodiscard]] constexpr ValueType area() const noexcept final;
 
 	/** Returns the perimeter of the %circle.
 		This is the same as \c diameter() .
+		The formula is @f$ P=2*radius @f$.
 		@see diameter()
 	 */
 	[[nodiscard]] constexpr ValueType perimeter() const noexcept final;
@@ -57,6 +60,7 @@ public:
 
 	/** Returns the diameter of the %circle.
 	 This is the same as \c perimeter() , but is provided for more ergonomic use.
+	 The formula is @f$ P=2*radius @f$.
 	 @see perimeter()
 	 */
 	[[nodiscard]] constexpr ValueType diameter() const noexcept;

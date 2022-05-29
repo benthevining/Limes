@@ -52,19 +52,27 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (Cube);
 	LIMES_CONSTEXPR_MOVABLE (Cube);
 
-	/** Returns the volume of the %cube. */
+	/** Returns the volume of the %cube.
+		The formula is @f$ V=side^3 @f$.
+	 */
 	[[nodiscard]] constexpr ValueType volume() const noexcept final;
 
-	/** Returns the surface area of the %cube. */
+	/** Returns the surface area of the %cube.
+		The formula is @f$ A=6*side^2 @f$.
+	 */
 	[[nodiscard]] constexpr ValueType surfaceArea() const noexcept final;
 
-	/** Returns the surface perimeter of the %cube. */
+	/** Returns the surface perimeter of the %cube.
+		The formula is @f$ P=12*side @f$.
+	 */
 	[[nodiscard]] constexpr ValueType surfacePerimeter() const noexcept;
 
 	/** Returns the side length of the %cube. */
 	[[nodiscard]] constexpr ValueType sideLength() const noexcept;
 
-	/** Returns the space diagonal of the %cube. */
+	/** Returns the space diagonal of the %cube.
+		The formula is @f$ side*\sqrt{3} @f$.
+	 */
 	[[nodiscard]] ValueType spaceDiagonal() const noexcept;
 
 	/** @name Equality comparisons */

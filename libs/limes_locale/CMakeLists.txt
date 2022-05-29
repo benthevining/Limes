@@ -40,11 +40,6 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
-if (TARGET Limes::limes_locale)
-	message (WARNING "Target Limes::limes_locale already exists!")
-	return ()
-endif ()
-
 project (
 	LimesLocale
 	VERSION "${Limes_VERSION}"
