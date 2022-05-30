@@ -77,8 +77,8 @@ private:
 
 	bool		operator== (const PeakFinder& other) const = delete;
 	bool		operator!= (const PeakFinder& other) const = delete;
-	PeakFinder& operator= (const PeakFinder& other) = delete;
-	PeakFinder (const PeakFinder& other)			= delete;
+	PeakFinder& operator= (const PeakFinder& other)		   = delete;
+	PeakFinder (const PeakFinder& other)				   = delete;
 
 	[[nodiscard]] int findNextPeak (int frameStart, int frameEnd, int predictedPeak,
 									const SampleType* const inputSamples, int period, int grainSize) noexcept;
