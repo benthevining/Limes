@@ -13,28 +13,7 @@
 /** @defgroup limes Limes
 	The Limes library.
 
-	@version 4.8.1
-	@author Ben Vining
-	@date 2020 - 2022
-
 	This group includes all component libraries of Limes.
-
-	Limes consists of the following libraries:
-
-	Name                  | Description                 | Dependencies
-	--------------------- | --------------------------- | ------------------------
-	limes_core            | Core utilities              | None
-	limes_vecops          | SIMD operations for vectors | limes_core
-	limes_data_structures | Data structures             | limes_vecops
-	limes_locale          | Localization utilities      | limes_data_structures
-	limes_music           | Music theory utilities      | limes_data_structures
-	limes_midi            | MIDI utilities              | limes_core
-	limes_audio           | Realtime audio utilities    | limes_data_structures
-
-	Here is the dependency graph for Limes:
-	@image html deps_graph.png
-	@image latex deps_graph.png
-	@image xml deps_graph.png
  */
 
 /** @dir libs
