@@ -17,7 +17,8 @@
 #include <cstddef>			  // for size_t
 #include <iostream>			  // for basic_istream, basic_ostream
 #include <string>			  // for string
-#include "../hashes/hash.h"	  // for hash::Type
+#include <string_view>
+#include "../hashes/hash.h"	 // for hash::Type
 #include "../misc/preprocessor.h"
 #include <functional>  // for std::hash
 
@@ -75,7 +76,7 @@ public:
 	/** Constructs a RawData object whose memory is initialized with the contents of the string.
 		@throws std::bad_alloc An exception is thrown if the allocation of this object's internal memory fails.
 	 */
-	explicit RawData (const std::string& string);
+	explicit RawData (const std::string_view& string);
 
 	/** Copy constructor.
 		@throws std::bad_alloc An exception is thrown if the allocation of this object's internal memory fails.

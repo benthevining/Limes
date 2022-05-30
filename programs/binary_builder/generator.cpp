@@ -40,8 +40,6 @@ void generateHeaderFile (const Options& options)
 
 	stream << "#pragma once\n";
 	stream << "\n";
-	stream << "#include <string>\n";
-	stream << "#include <string_view>\n";
 	stream << "#include <limes_core.h>\n";
 	stream << "\n";
 
@@ -49,38 +47,14 @@ void generateHeaderFile (const Options& options)
 		stream << "namespace " << options.namespaceName << "\n{\n";
 
 	static constexpr char s_headerContent[] = R"raw(
-struct FileInfo final
-{
-	const char* const fileName;
-	const char* const fileData;
-
-	const std::size_t fileDataSize;
-
-	[[nodiscard]] std::string name() const;
-
-	[[nodiscard]] std::string string() const;
-
-	[[nodiscard]] limes::memory::RawData data() const;
-};
-
 extern const std::size_t fileInfoListSize;
 
-extern const FileInfo fileInfoList[];
+extern const ::limes::binaries::FileInfo fileInfoList[];
 
-struct FileInfoList final
+[[nodiscard]] constexpr ::limes::binaries::FileInfoList fileList() noexcept
 {
-	[[nodiscard]] const FileInfo* begin() const noexcept;
-
-	[[nodiscard]] const FileInfo* end() const noexcept;
-
-	[[nodiscard]] const std::size_t size() const noexcept;
-
-	[[nodiscard]] const FileInfo* findFile (const std::string_view& fileName) const noexcept;
-};
-
-[[nodiscard]] FileInfoList fileList() noexcept;
-
-[[nodiscard]] limes::memory::RawData loadFile (const std::string_view& fileName);
+	return ::limes::binaries::FileInfoList { &fileInfoList[0], fileInfoListSize };
+}
 )raw";
 
 	stream << s_headerContent;
@@ -99,15 +73,14 @@ void generateBodyFile (const Options& options)
 		std::ifstream inputFile { fileName.getAbsolutePath(), std::ios_base::in | std::ios_base::binary };
 
 		if (! inputFile)
-		{
 			throw std::runtime_error { std::string ("Failed to open file ") + fileName.getAbsolutePath().string() };
-		}
 
 		limes::misc::ScopedStreamFlags flags { stream };
 
 		const auto fileLen = static_cast<unsigned int> (fileName.sizeInBytes());
 
-		stream << "\tconst char * " << fileId << "_name = \"" << fileName.getFilename (true) << "\";\n";
+		stream << "\tconst char * " << fileId << "_name = \"" << fileName.getFilename (false) << "\";\n";
+		stream << "\tconst char * " << fileId << "_xtn = \"" << fileName.getFileExtension() << "\";\n";
 		stream << "\tconst std::size_t " << fileId << "_data_size = " << fileLen << ";\n";
 		stream << "\tconst unsigned char " << fileId << "_data[" << fileId << "_data_size] = {";
 
@@ -147,8 +120,6 @@ void generateBodyFile (const Options& options)
 
 	stream << "#include \"" << options.headerFileName << "\"\n";
 	stream << "#include <limes_core.h>\n";
-	stream << "#include <string>\n";
-	stream << "#include <string_view>\n";
 	stream << "\n";
 
 	stream << "namespace /* anonymous */ {\n";
@@ -164,82 +135,22 @@ void generateBodyFile (const Options& options)
 		fileIds.emplace_back (fileId);
 	}
 
-	stream << "}\n";
+	stream << "} // anonymous namespace\n";
 	stream << "\n";
 
 	if (! options.namespaceName.empty())
-	{
 		stream << "namespace " << options.namespaceName << " {\n";
-	}
 
 	stream << "\tconst std::size_t fileInfoListSize = " << fileIds.size() << ";\n";
 	stream << "\tconst FileInfo fileInfoList[fileInfoListSize] = {\n";
 
 	for (const auto& id : fileIds)
-	{
-		stream << "\t\t{ " << id << "_name, reinterpret_cast<const char*>(" << id << "_data), " << id << "_data_size },\n";
-	}
+		stream << "\t\t{ " << id << "_name, " << id << "_xtn, reinterpret_cast<const char*>(" << id << "_data), " << id << "_data_size },\n";
 
 	stream << "\t};\n";
 
-	stream << R"raw(
-	std::string FileInfo::name() const
-	{
-		return { fileName };
-	}
-
-	std::string FileInfo::string() const
-	{
-		return std::string { fileData, fileDataSize };
-	}
-
-	limes::memory::RawData FileInfo::data() const
-	{
-		return limes::memory::RawData { string() };
-	}
-
-	const FileInfo* FileInfoList::begin() const noexcept
-	{
-		return &fileInfoList[0];
-	}
-
-	const FileInfo* FileInfoList::end() const noexcept
-	{
-		return begin() + fileInfoListSize;
-	}
-
-	const std::size_t FileInfoList::size() const noexcept
-	{
-		return fileInfoListSize;
-	}
-
-	const FileInfo* FileInfoList::findFile (const std::string_view& fileName) const noexcept
-	{
-		for (const auto& info : fileInfoList)
-			if (info.fileName == fileName)
-				return &info;
-
-		return nullptr;
-	}
-
-	FileInfoList fileList() noexcept
-	{
-		return FileInfoList{};
-	}
-
-	limes::memory::RawData loadFile (const std::string_view& fileName)
-	{
-		if (const auto* file = fileList().findFile(fileName))
-			return file->data();
-
-		return {};
-	}
-	)raw";
-
 	if (! options.namespaceName.empty())
-	{
 		stream << "}\n";
-	}
 }
 
 }  // namespace binary_builder

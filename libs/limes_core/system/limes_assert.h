@@ -20,6 +20,7 @@
 #include "../misc/IgnoreUnused.h"
 #include <limes_platform.h>
 #include <filesystem>
+#include "compiler_defs.h"
 
 /** @defgroup system System
 	Utilities that may be OS- or compiler-specific.
@@ -82,6 +83,7 @@ LIMES_EXPORT [[nodiscard]] std::filesystem::path getAssertionLogFile();
 
 LIMES_END_NAMESPACE
 
+
 #ifdef DOXYGEN
 
 /** @def LIMES_ASSERT_FALSE
@@ -111,24 +113,13 @@ LIMES_END_NAMESPACE
  */
 #	define LIMES_UNREACHABLE
 
-#endif
+#endif /* DOXYGEN */
 
 /// @cond
 
-#if LIMES_CLANG || defined(__GNUC__)
-#	define LIMES_ASSERT_GET_FUNC_NAME __PRETTY_FUNCTION__
-#elif LIMES_MSVC
-#	define LIMES_ASSERT_GET_FUNC_NAME __FUNCSIG__
-#elif defined(__SUNPRO_CC)
-#	define LIMES_ASSERT_GET_FUNC_NAME __func__
-#else
-#	define LIMES_ASSERT_GET_FUNC_NAME __FUNCTION__
-#endif
-
 #if LIMES_DEBUG
-#	define LIMES_ASSERT_FALSE LIMES_BLOCK_WITH_FORCED_SEMICOLON (::limes::assert::fire_assertion (__FILE__, LIMES_ASSERT_GET_FUNC_NAME, __LINE__, nullptr);)
-
-#	define LIMES_ASSERT(condition) LIMES_BLOCK_WITH_FORCED_SEMICOLON (if (! (condition))::limes::assert::fire_assertion (__FILE__, LIMES_ASSERT_GET_FUNC_NAME, __LINE__, LIMES_MAKE_STRING (condition));)
+#	define LIMES_ASSERT_FALSE		LIMES_BLOCK_WITH_FORCED_SEMICOLON (::limes::assert::fire_assertion (__FILE__, LIMES_CURRENT_FUNCTION_NAME, __LINE__, nullptr);)
+#	define LIMES_ASSERT(condition) LIMES_BLOCK_WITH_FORCED_SEMICOLON (if (! (condition))::limes::assert::fire_assertion (__FILE__, LIMES_CURRENT_FUNCTION_NAME, __LINE__, LIMES_MAKE_STRING (condition));)
 #else
 #	define LIMES_ASSERT_FALSE
 #	define LIMES_ASSERT(x) LIMES_BLOCK_WITH_FORCED_SEMICOLON ([[maybe_unused]] auto limes_assert_result = (x); ::limes::misc::ignore_unused (limes_assert_result);)

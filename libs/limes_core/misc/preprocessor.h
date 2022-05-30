@@ -196,8 +196,8 @@
 	/** %##ClassName is default copyable at compile time. */ \
 	constexpr ClassName& operator= (const ClassName&) = default
 
-/** @def LIMES_CONSTEXPR_COPYABLE
-	Similar to \c LIMES_DEFAULT_MOVABLE, this macro can be placed into a class definition to default its move constructor and move assignment operator, but they will also be declared constexpr.
+/** @def LIMES_CONSTEXPR_MOVABLE
+	Similar to \c LIMES_CONSTEXPR_COPYABLE, this macro can be placed into a class definition to default its move constructor and move assignment operator, but they will also be declared constexpr.
 	Example usage:
 	@code
 	struct MyStruct

@@ -31,6 +31,8 @@ oranges_add_source_files (
 		  DynamicLibrary.h
 		  DynamicLibrary.cpp
 		  CFile.h
-		  CFile.cpp)
+		  CFile.cpp
+		  EmbeddedBinaries.cpp
+		  EmbeddedBinaries.h)
 
 set (files_files ${files_files} ${exec_files} PARENT_SCOPE)

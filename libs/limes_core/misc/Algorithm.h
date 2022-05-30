@@ -131,6 +131,20 @@ LIMES_EXPORT [[nodiscard]] constexpr ElementType<ContainerType> contains_or_defa
 	If no objects in the container meet the predicate, then a nullptr is returned.
  */
 template <Container ContainerType, class UnaryPredicate>
+LIMES_EXPORT [[nodiscard]] constexpr ElementType<ContainerType>* contains_or_null (const ContainerType& container, UnaryPredicate&& p)
+{
+	const auto res = std::find_if (std::begin (container), std::end (container), std::forward<UnaryPredicate> (p));
+
+	if (res == std::end (container))
+		return nullptr;
+
+	return res;
+}
+
+/** If the specified predicate is met by any object in the container, then the first object to meet the predicate is returned.
+	If no objects in the container meet the predicate, then a nullptr is returned.
+ */
+template <Container ContainerType, class UnaryPredicate>
 LIMES_EXPORT [[nodiscard]] constexpr ElementType<ContainerType>* find_if (const ContainerType& container, UnaryPredicate&& p)
 {
 	const auto res = std::find_if (std::begin (container), std::end (container), std::forward<UnaryPredicate> (p));

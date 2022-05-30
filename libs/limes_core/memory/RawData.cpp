@@ -17,7 +17,8 @@
 #include <cstring>			  // for memcpy, memset
 #include <new>				  // for bad_alloc
 #include <string>			  // for char_traits
-#include "../hashes/hash.h"	  // for hash
+#include <string_view>
+#include "../hashes/hash.h"	 // for hash
 #include <exception>
 
 LIMES_BEGIN_NAMESPACE
@@ -43,7 +44,7 @@ RawData::RawData (std::basic_istream<char>& inputStream)
 {
 }
 
-RawData::RawData (const std::string& string)
+RawData::RawData (const std::string_view& string)
 	: size (static_cast<std::size_t> (string.size())),
 	  data (static_cast<char*> (std::malloc (size)))
 {

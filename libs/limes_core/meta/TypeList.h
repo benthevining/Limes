@@ -48,7 +48,7 @@ namespace meta
 	static_assert (FloatingPointTypes::equal<TypeList<float, double>>);
 	@endcode
 
-	Most operations on %TypeLists are done with using statements, as illustrated above. Once declared, a %TypeList is immutable; it can only create permutations of itself as new specializations of %TypeList.
+	Most operations on TypeLists are done with using statements, as illustrated above. Once declared, a %TypeList is immutable; it can only create permutations of itself as new specializations of %TypeList.
 
 	@tparam Types The list of types for the %TypeList to hold.
 	@ingroup meta
@@ -367,6 +367,7 @@ public:
 
 #pragma mark Empty TypeList specialization
 
+/** The empty specialization of TypeList requires some special implementation. */
 template <>
 class LIMES_EXPORT TypeList<> final
 {

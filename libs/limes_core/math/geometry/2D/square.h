@@ -98,6 +98,9 @@ private:
 };
 
 
+/** Returns true if the Rectangle and Square have equal dimensions.
+	@ingroup TwoDgeometry
+ */
 template <Scalar ValueType>
 LIMES_EXPORT [[nodiscard]] constexpr bool operator== (const Rectangle<ValueType>& rect, const Square<ValueType>& square) noexcept
 {
@@ -107,6 +110,9 @@ LIMES_EXPORT [[nodiscard]] constexpr bool operator== (const Rectangle<ValueType>
 	return rect.length() == square.sideLength();
 }
 
+/** Returns true if the Rectangle and Square do not have equal dimensions.
+	@ingroup TwoDgeometry
+ */
 template <Scalar ValueType>
 LIMES_EXPORT [[nodiscard]] constexpr bool operator!= (const Rectangle<ValueType>& rect, const Square<ValueType>& square) noexcept
 {

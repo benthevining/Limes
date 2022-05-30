@@ -56,9 +56,10 @@ public:
 
 	/** Creates a MemoryPool that can hold a specified number of objects of a certain type.
 		The created pool's total size will be \c  desiredCapacity*sizeof(ObjectType) and its chunk size will be \c sizeof(ObjectType) .
+		If initial memory allocation fails, a nullptr will be returned.
 	 */
 	template <typename ObjectType>
-	static std::unique_ptr<MemoryPool> createFor (std::size_t desiredCapacity);
+	static std::unique_ptr<MemoryPool> createFor (std::size_t desiredCapacity) noexcept;
 
 	/** Destructor. */
 	~MemoryPool();
@@ -229,9 +230,16 @@ private:
 #pragma mark MemoryPool implementation
 
 template <typename ObjectType>
-std::unique_ptr<MemoryPool> createFor (std::size_t desiredCapacity)
+std::unique_ptr<MemoryPool> MemoryPool::createFor (std::size_t desiredCapacity) noexcept
 {
-	return std::make_unique<MemoryPool> (desiredCapacity * sizeof (ObjectType), sizeof (ObjectType));
+	try
+	{
+		return std::make_unique<MemoryPool> (desiredCapacity * sizeof (ObjectType), sizeof (ObjectType));
+	}
+	catch (std::exception&)
+	{
+		return nullptr;
+	}
 }
 
 template <typename ObjectType>

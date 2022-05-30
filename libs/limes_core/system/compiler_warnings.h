@@ -69,7 +69,7 @@
  */
 #	define LIMES_COMPILER_WARNING(text)
 
-#endif
+#endif /* DOXYGEN */
 
 /// @cond
 
@@ -152,7 +152,11 @@
 #endif
 
 #ifndef LIMES_COMPILER_MESSAGE
-#	define LIMES_COMPILER_MESSAGE(text)
+#	ifdef LIMES_COMPILER_WARNING
+#		define LIMES_COMPILER_MESSAGE(text) LIMES_COMPILER_WARNING (text)
+#	else
+#		define LIMES_COMPILER_MESSAGE(text)
+#	endif
 #endif
 
 #ifndef LIMES_COMPILER_WARNING

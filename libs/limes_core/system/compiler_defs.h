@@ -22,6 +22,11 @@
 
 #ifdef DOXYGEN
 
+/** @def LIMES_CURRENT_FUNCTION_NAME
+	A string-literal that expands to the current function name, pretty-printed if supported by the compiler.
+ */
+#	define LIMES_CURRENT_FUNCTION_NAME
+
 /** @def LIMES_FORCE_INLINE
 	Forces a function to always be inlined.
 	Example usage:
@@ -77,9 +82,19 @@
  */
 #	define LIMES_PACK(declaration)
 
-#endif
+#endif /* DOXYGEN */
 
 /// @cond
+
+#if LIMES_CLANG || defined(__GNUC__)
+#	define LIMES_CURRENT_FUNCTION_NAME __PRETTY_FUNCTION__
+#elif LIMES_MSVC
+#	define LIMES_CURRENT_FUNCTION_NAME __FUNCSIG__
+#elif defined(__SUNPRO_CC)
+#	define LIMES_CURRENT_FUNCTION_NAME __func__
+#else
+#	define LIMES_CURRENT_FUNCTION_NAME __FUNCTION__
+#endif
 
 #if LIMES_MSVC
 #	define LIMES_FORCE_INLINE __forceinline
@@ -91,7 +106,7 @@
 			declaration             \
 			__pragma (pack (pop))
 
-#else
+#else /* MSVC */
 
 #	if LIMES_HAS_ATTRIBUTE(pure)
 #		define LIMES_PURE_FUNCTION __attribute__ ((pure))
@@ -129,7 +144,7 @@
 #		define LIMES_NEVER_INLINE _Pragma ("_CRI inline_never")
 #	endif
 
-#endif
+#endif /* MSVC */
 
 
 #ifndef LIMES_FORCE_INLINE

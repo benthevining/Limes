@@ -74,6 +74,7 @@
 
 #include "files/FilesystemEntry.h"
 #include "files/CFile.h"
+#include "files/EmbeddedBinaries.h"
 #include "files/file.h"
 #include "files/directory.h"
 #include "files/sym_link.h"

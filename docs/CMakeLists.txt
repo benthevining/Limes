@@ -24,8 +24,7 @@ project (
 	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}")
 
 option (LIMES_INTERNAL_DOCS
-		"Display documentation meant for internal usage in development of Limes"
-		"${Limes_IS_TOP_LEVEL}")
+		"Display documentation meant for internal usage in development of Limes" OFF)
 
 include (OrangesGraphviz)
 
@@ -59,6 +58,8 @@ else ()
 	set (LIMES_ENABLED_SECTIONS "")
 endif ()
 
+set (LIMES_LOG_FILE "${docs_output}/doxygen.log")
+
 set (configured_doxyfile "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile")
 
 configure_file ("${CMAKE_CURRENT_LIST_DIR}/Doxyfile" "${configured_doxyfile}" @ONLY
@@ -75,6 +76,8 @@ add_custom_target (
 	LimesDoxygen
 	${all_flag}
 	COMMAND Doxygen::doxygen --version
+	COMMAND "${CMAKE_COMMAND}" -E rm -f "${LIMES_LOG_FILE}"
+	COMMAND "${CMAKE_COMMAND}" -E make_directory "${docs_output}"
 	COMMAND Doxygen::doxygen "${configured_doxyfile}"
 	WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 	VERBATIM USES_TERMINAL
@@ -82,6 +85,7 @@ add_custom_target (
 	COMMENT "Building Limes Doxygen documentation..."
 	SOURCES Doxyfile DoxygenLayout.xml)
 
+unset (LIMES_LOG_FILE)
 unset (all_flag)
 unset (configured_doxyfile)
 
