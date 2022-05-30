@@ -161,14 +161,11 @@ Public Member Functions</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>copyFrom</b> (const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;source, CopyOptions options=CopyOptions::update_existing) const noexcept</td></tr>
 <tr class="separator:aa8da006f6f8d3631a9eb973bf5463b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc1630a2ca11608817afc45b7259a192"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#afc1630a2ca11608817afc45b7259a192">copyFrom</a> (const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;source, CopyOptions options=CopyOptions::update_existing) const noexcept</td></tr>
-<tr class="memdesc:afc1630a2ca11608817afc45b7259a192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwriting Overwrites this filesystem entry by copying from another location.  <a href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#afc1630a2ca11608817afc45b7259a192">More...</a><br /></td></tr>
+<tr class="memdesc:afc1630a2ca11608817afc45b7259a192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwriting.  <a href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#afc1630a2ca11608817afc45b7259a192">More...</a><br /></td></tr>
 <tr class="separator:afc1630a2ca11608817afc45b7259a192"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e0e0d1f66621a1d3d02dcd435c710d3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a2e0e0d1f66621a1d3d02dcd435c710d3">copyToDirectory</a> (const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;destDirectory, CopyOptions options=CopyOptions::update_existing) const noexcept</td></tr>
 <tr class="memdesc:a2e0e0d1f66621a1d3d02dcd435c710d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a copy of this filesystem object, with the same filename, in a different directory.  <a href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a2e0e0d1f66621a1d3d02dcd435c710d3">More...</a><br /></td></tr>
 <tr class="separator:a2e0e0d1f66621a1d3d02dcd435c710d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafc7549e4cadae2e99b141ad7ee19d56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/db4/classlimes_1_1files_1_1_sym_link.html">SymLink</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#aafc7549e4cadae2e99b141ad7ee19d56">createChildSymLink</a> (const std::string_view &amp;symLinkName, const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;symLinkTarget) const</td></tr>
-<tr class="memdesc:aafc7549e4cadae2e99b141ad7ee19d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../d8/db4/classlimes_1_1files_1_1_sym_link.html" title="This class represents a symbolic link on the filesystem.">SymLink</a> object that represents a symbolic link in the current directory with the specified name.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#aafc7549e4cadae2e99b141ad7ee19d56">More...</a><br /></td></tr>
-<tr class="separator:aafc7549e4cadae2e99b141ad7ee19d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48c3c4d086f8638b3c8d82528975a185"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a48c3c4d086f8638b3c8d82528975a185">createIfDoesntExist</a> () const noexcept final</td></tr>
 <tr class="memdesc:a48c3c4d086f8638b3c8d82528975a185"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the directory this object refers to, if it doesn't already exist.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a48c3c4d086f8638b3c8d82528975a185">More...</a><br /></td></tr>
 <tr class="separator:a48c3c4d086f8638b3c8d82528975a185"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -199,21 +196,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>copyFrom</b> (const <
 <tr class="memitem:a5dc7acf9df160ac077676d52619d8e5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a5dc7acf9df160ac077676d52619d8e5d">getChild</a> (const std::string_view &amp;childName, bool createIfNeeded=false) const</td></tr>
 <tr class="memdesc:a5dc7acf9df160ac077676d52619d8e5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a type-erased <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html" title="The base class for any kind of object in the filesystem.">FilesystemEntry</a> representing a filesystem object in this directory with the specified name.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a5dc7acf9df160ac077676d52619d8e5d">More...</a><br /></td></tr>
 <tr class="separator:a5dc7acf9df160ac077676d52619d8e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54876728766643404da3d353914026e8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html">Directory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a54876728766643404da3d353914026e8">getChildDirectories</a> (bool recurse=true) const</td></tr>
-<tr class="memdesc:a54876728766643404da3d353914026e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all child directories that exist in this directory.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a54876728766643404da3d353914026e8">More...</a><br /></td></tr>
-<tr class="separator:a54876728766643404da3d353914026e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33b17e6246d1e2ec14a73a95043fef92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html">Directory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a33b17e6246d1e2ec14a73a95043fef92">getChildDirectory</a> (const std::string_view &amp;subdirectoryName, bool createIfNeeded=false) const</td></tr>
-<tr class="memdesc:a33b17e6246d1e2ec14a73a95043fef92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html" title="This class represents a directory on the filesystem.">Directory</a> object that represents a subdirectory of this one with the specified name.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a33b17e6246d1e2ec14a73a95043fef92">More...</a><br /></td></tr>
-<tr class="separator:a33b17e6246d1e2ec14a73a95043fef92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bf7234a8b52b6a0bfa929e6273052ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d1e/classlimes_1_1files_1_1_file.html">File</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a4bf7234a8b52b6a0bfa929e6273052ec">getChildFile</a> (const std::string_view &amp;filename, bool createIfNeeded=false) const</td></tr>
-<tr class="memdesc:a4bf7234a8b52b6a0bfa929e6273052ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../df/d1e/classlimes_1_1files_1_1_file.html" title="This class represents a file on the filesystem.">File</a> object representing a file in this directory with the specified name.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a4bf7234a8b52b6a0bfa929e6273052ec">More...</a><br /></td></tr>
-<tr class="separator:a4bf7234a8b52b6a0bfa929e6273052ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a502e2ed4ea1d963528458c1a75af1f90"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../df/d1e/classlimes_1_1files_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a502e2ed4ea1d963528458c1a75af1f90">getChildFiles</a> (bool recurse=true) const</td></tr>
-<tr class="memdesc:a502e2ed4ea1d963528458c1a75af1f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all child files that exist in this directory.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a502e2ed4ea1d963528458c1a75af1f90">More...</a><br /></td></tr>
-<tr class="separator:a502e2ed4ea1d963528458c1a75af1f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abef982393515259484aee3aee35c8ff7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d8/db4/classlimes_1_1files_1_1_sym_link.html">SymLink</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#abef982393515259484aee3aee35c8ff7">getChildSymLinks</a> (bool recurse=true) const</td></tr>
-<tr class="memdesc:abef982393515259484aee3aee35c8ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all child symbolic links that exist in this directory.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#abef982393515259484aee3aee35c8ff7">More...</a><br /></td></tr>
-<tr class="separator:abef982393515259484aee3aee35c8ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c6d40629d81eca75a5d6d7e4715cdef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html">Directory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a2c6d40629d81eca75a5d6d7e4715cdef">getDirectory</a> () const</td></tr>
 <tr class="memdesc:a2c6d40629d81eca75a5d6d7e4715cdef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the directory containing this filesystem entry.  <a href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a2c6d40629d81eca75a5d6d7e4715cdef">More...</a><br /></td></tr>
 <tr class="separator:a2c6d40629d81eca75a5d6d7e4715cdef"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -277,15 +259,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>copyFrom</b> (const <
 <tr class="memitem:a2d6d86b8814339a8e6def300703aa2a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a2d6d86b8814339a8e6def300703aa2a2">iterateAllChildren</a> (FilesystemEntryCallback &amp;&amp;callback, bool recurse=true) const</td></tr>
 <tr class="memdesc:a2d6d86b8814339a8e6def300703aa2a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates through all child objects of this directory, calling a single type-erased callback for each one.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a2d6d86b8814339a8e6def300703aa2a2">More...</a><br /></td></tr>
 <tr class="separator:a2d6d86b8814339a8e6def300703aa2a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1b82ccc286441381ea9c5d2743d822b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#af1b82ccc286441381ea9c5d2743d822b">iterateDirectories</a> (DirectoryCallback &amp;&amp;callback, bool recurse=true) const</td></tr>
-<tr class="memdesc:af1b82ccc286441381ea9c5d2743d822b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function for each child directory that exists in this directory.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#af1b82ccc286441381ea9c5d2743d822b">More...</a><br /></td></tr>
-<tr class="separator:af1b82ccc286441381ea9c5d2743d822b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45693142f7e26c517757557dea9b1dc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a45693142f7e26c517757557dea9b1dc7">iterateFiles</a> (FileCallback &amp;&amp;callback, bool recurse=true) const</td></tr>
-<tr class="memdesc:a45693142f7e26c517757557dea9b1dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function for each child file that exists in this directory.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a45693142f7e26c517757557dea9b1dc7">More...</a><br /></td></tr>
-<tr class="separator:a45693142f7e26c517757557dea9b1dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a943d23a7f5d62cb82ad496d3abb634af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a943d23a7f5d62cb82ad496d3abb634af">iterateSymLinks</a> (SymLinkCallback &amp;&amp;callback, bool recurse=true) const</td></tr>
-<tr class="memdesc:a943d23a7f5d62cb82ad496d3abb634af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function for each child symbolic link that exists in this directory.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a943d23a7f5d62cb82ad496d3abb634af">More...</a><br /></td></tr>
-<tr class="separator:a943d23a7f5d62cb82ad496d3abb634af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8edaa47b3ec229af6f96ee2457e633d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a8edaa47b3ec229af6f96ee2457e633d2">makeAbsoluteRelativeTo</a> (const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;basePath) noexcept</td></tr>
 <tr class="memdesc:a8edaa47b3ec229af6f96ee2457e633d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the path this object holds is already absolute, this function does nothing.  <a href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a8edaa47b3ec229af6f96ee2457e633d2">More...</a><br /></td></tr>
 <tr class="separator:a8edaa47b3ec229af6f96ee2457e633d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -329,14 +302,42 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>copyFrom</b> (const <
 <tr class="memdesc:a2e495352f79252fa9ed62845e78c5c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a7fa4cd4b03de7654ad7be7b026e45da6" title="If the filesystem entry this object refers do doesn&#39;t exist, this function creates it.">touch()</a>, except this function does not create the filesystem entry if it didn't already exist.  <a href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a2e495352f79252fa9ed62845e78c5c99">More...</a><br /></td></tr>
 <tr class="separator:a2e495352f79252fa9ed62845e78c5c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Assignment</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>Assigns this object to refer to a new path. </p>
-</div></td></tr>
-<tr class="memitem:a3019832824cd0fbd324e23825af214b5"><td class="memItemLeft" align="right" valign="top"><a id="a3019832824cd0fbd324e23825af214b5"></a>
-<a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html">Directory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;newPath)</td></tr>
+<tr class="memitem:a3019832824cd0fbd324e23825af214b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html">Directory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a3019832824cd0fbd324e23825af214b5">operator=</a> (const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;newPath)</td></tr>
+<tr class="memdesc:a3019832824cd0fbd324e23825af214b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns this object to refer to a new path.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a3019832824cd0fbd324e23825af214b5">More...</a><br /></td></tr>
 <tr class="separator:a3019832824cd0fbd324e23825af214b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad308913b72b186171ee4e5fd1058a3a5"><td class="memItemLeft" align="right" valign="top"><a id="ad308913b72b186171ee4e5fd1058a3a5"></a>
-<a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html">Directory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const std::string_view &amp;newPath)</td></tr>
+<tr class="memitem:ad308913b72b186171ee4e5fd1058a3a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html">Directory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#ad308913b72b186171ee4e5fd1058a3a5">operator=</a> (const std::string_view &amp;newPath)</td></tr>
+<tr class="memdesc:ad308913b72b186171ee4e5fd1058a3a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns this object to refer to a new path.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#ad308913b72b186171ee4e5fd1058a3a5">More...</a><br /></td></tr>
 <tr class="separator:ad308913b72b186171ee4e5fd1058a3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Child files</div></td></tr>
+<tr class="memitem:a4bf7234a8b52b6a0bfa929e6273052ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d1e/classlimes_1_1files_1_1_file.html">File</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a4bf7234a8b52b6a0bfa929e6273052ec">getChildFile</a> (const std::string_view &amp;filename, bool createIfNeeded=false) const</td></tr>
+<tr class="memdesc:a4bf7234a8b52b6a0bfa929e6273052ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../df/d1e/classlimes_1_1files_1_1_file.html" title="This class represents a file on the filesystem.">File</a> object representing a file in this directory with the specified name.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a4bf7234a8b52b6a0bfa929e6273052ec">More...</a><br /></td></tr>
+<tr class="separator:a4bf7234a8b52b6a0bfa929e6273052ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502e2ed4ea1d963528458c1a75af1f90"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../df/d1e/classlimes_1_1files_1_1_file.html">File</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a502e2ed4ea1d963528458c1a75af1f90">getChildFiles</a> (bool recurse=true) const</td></tr>
+<tr class="memdesc:a502e2ed4ea1d963528458c1a75af1f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all child files that exist in this directory.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a502e2ed4ea1d963528458c1a75af1f90">More...</a><br /></td></tr>
+<tr class="separator:a502e2ed4ea1d963528458c1a75af1f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45693142f7e26c517757557dea9b1dc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a45693142f7e26c517757557dea9b1dc7">iterateFiles</a> (FileCallback &amp;&amp;callback, bool recurse=true) const</td></tr>
+<tr class="memdesc:a45693142f7e26c517757557dea9b1dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function for each child file that exists in this directory.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a45693142f7e26c517757557dea9b1dc7">More...</a><br /></td></tr>
+<tr class="separator:a45693142f7e26c517757557dea9b1dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Child subdirectories</div></td></tr>
+<tr class="memitem:a33b17e6246d1e2ec14a73a95043fef92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html">Directory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a33b17e6246d1e2ec14a73a95043fef92">getChildDirectory</a> (const std::string_view &amp;subdirectoryName, bool createIfNeeded=false) const</td></tr>
+<tr class="memdesc:a33b17e6246d1e2ec14a73a95043fef92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html" title="This class represents a directory on the filesystem.">Directory</a> object that represents a subdirectory of this one with the specified name.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a33b17e6246d1e2ec14a73a95043fef92">More...</a><br /></td></tr>
+<tr class="separator:a33b17e6246d1e2ec14a73a95043fef92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54876728766643404da3d353914026e8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html">Directory</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a54876728766643404da3d353914026e8">getChildDirectories</a> (bool recurse=true) const</td></tr>
+<tr class="memdesc:a54876728766643404da3d353914026e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all child directories that exist in this directory.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a54876728766643404da3d353914026e8">More...</a><br /></td></tr>
+<tr class="separator:a54876728766643404da3d353914026e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1b82ccc286441381ea9c5d2743d822b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#af1b82ccc286441381ea9c5d2743d822b">iterateDirectories</a> (DirectoryCallback &amp;&amp;callback, bool recurse=true) const</td></tr>
+<tr class="memdesc:af1b82ccc286441381ea9c5d2743d822b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function for each child directory that exists in this directory.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#af1b82ccc286441381ea9c5d2743d822b">More...</a><br /></td></tr>
+<tr class="separator:af1b82ccc286441381ea9c5d2743d822b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:aafc7549e4cadae2e99b141ad7ee19d56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/db4/classlimes_1_1files_1_1_sym_link.html">SymLink</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#aafc7549e4cadae2e99b141ad7ee19d56">createChildSymLink</a> (const std::string_view &amp;symLinkName, const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;symLinkTarget) const</td></tr>
+<tr class="memdesc:aafc7549e4cadae2e99b141ad7ee19d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Child symbolic links.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#aafc7549e4cadae2e99b141ad7ee19d56">More...</a><br /></td></tr>
+<tr class="separator:aafc7549e4cadae2e99b141ad7ee19d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abef982393515259484aee3aee35c8ff7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d8/db4/classlimes_1_1files_1_1_sym_link.html">SymLink</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#abef982393515259484aee3aee35c8ff7">getChildSymLinks</a> (bool recurse=true) const</td></tr>
+<tr class="memdesc:abef982393515259484aee3aee35c8ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all child symbolic links that exist in this directory.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#abef982393515259484aee3aee35c8ff7">More...</a><br /></td></tr>
+<tr class="separator:abef982393515259484aee3aee35c8ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a943d23a7f5d62cb82ad496d3abb634af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a943d23a7f5d62cb82ad496d3abb634af">iterateSymLinks</a> (SymLinkCallback &amp;&amp;callback, bool recurse=true) const</td></tr>
+<tr class="memdesc:a943d23a7f5d62cb82ad496d3abb634af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function for each child symbolic link that exists in this directory.  <a href="../../db/de1/classlimes_1_1files_1_1_directory.html#a943d23a7f5d62cb82ad496d3abb634af">More...</a><br /></td></tr>
+<tr class="separator:a943d23a7f5d62cb82ad496d3abb634af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -419,6 +420,34 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrentWork
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8eb71ce03cdc6c9a6f6859cde8ec8f51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eb71ce03cdc6c9a6f6859cde8ec8f51">&#9670;&nbsp;</a></span>assignPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a>&amp; limes::files::FilesystemEntry::assignPath </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>newPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assigns the path this filesystem entry represents. </p>
+
+</div>
+</div>
 <a id="a813c5e74f5f7748392abf59e450b032f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a813c5e74f5f7748392abf59e450b032f">&#9670;&nbsp;</a></span>changeName()</h2>
 
@@ -521,8 +550,86 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrentWork
 </table>
 </div><div class="memdoc">
 
-<p>Overwriting Overwrites this filesystem entry by copying from another location. </p>
-<p>Returns true if copying was successful. </p>
+<p>Overwriting. </p>
+<p>Overwrites this filesystem entry by copying from another location. </p><dl class="section return"><dt>Returns</dt><dd>True if copying was successful. </dd></dl>
+
+</div>
+</div>
+<a id="a5dd6965a59f27e87a2411f9ad7a5785b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dd6965a59f27e87a2411f9ad7a5785b">&#9670;&nbsp;</a></span>copyTo() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::copyTo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CopyOptions&#160;</td>
+          <td class="paramname"><em>options</em> = <code>CopyOptions::update_existing</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a copy of this filesystem entry at a new location. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if copying was successful </dd></dl>
+
+</div>
+</div>
+<a id="ab8c363b25e6797b1376afa26c5687081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8c363b25e6797b1376afa26c5687081">&#9670;&nbsp;</a></span>copyTo() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::copyTo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CopyOptions&#160;</td>
+          <td class="paramname"><em>options</em> = <code>CopyOptions::update_existing</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a copy of this filesystem entry at a new location. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if copying was successful </dd></dl>
 
 </div>
 </div>
@@ -591,8 +698,8 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrentWork
       </table>
 </div><div class="memdoc">
 
-<p>Returns a <a class="el" href="../../d8/db4/classlimes_1_1files_1_1_sym_link.html" title="This class represents a symbolic link on the filesystem.">SymLink</a> object that represents a symbolic link in the current directory with the specified name. </p>
-<p>Note that this function always creates the symbolic link if it doesn't exist. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a5dc7acf9df160ac077676d52619d8e5d" title="Returns a type-erased FilesystemEntry representing a filesystem object in this directory with the spe...">getChild()</a> </dd></dl>
+<p>Child symbolic links. </p>
+<p>Returns a <a class="el" href="../../d8/db4/classlimes_1_1files_1_1_sym_link.html" title="This class represents a symbolic link on the filesystem.">SymLink</a> object that represents a symbolic link in the current directory with the specified name. Note that this function always creates the symbolic link if it doesn't exist. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a5dc7acf9df160ac077676d52619d8e5d" title="Returns a type-erased FilesystemEntry representing a filesystem object in this directory with the spe...">getChild()</a> </dd></dl>
 
 </div>
 </div>
@@ -865,7 +972,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrentWork
 </div><div class="memdoc">
 
 <p>Returns a type-erased <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html" title="The base class for any kind of object in the filesystem.">FilesystemEntry</a> representing a filesystem object in this directory with the specified name. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a4bf7234a8b52b6a0bfa929e6273052ec" title="Returns a File object representing a file in this directory with the specified name.">getChildFile()</a>, <a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a33b17e6246d1e2ec14a73a95043fef92" title="Returns a Directory object that represents a subdirectory of this one with the specified name.">getChildDirectory()</a>, <a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#aafc7549e4cadae2e99b141ad7ee19d56" title="Returns a SymLink object that represents a symbolic link in the current directory with the specified ...">createChildSymLink()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a4bf7234a8b52b6a0bfa929e6273052ec" title="Returns a File object representing a file in this directory with the specified name.">getChildFile()</a>, <a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#a33b17e6246d1e2ec14a73a95043fef92" title="Returns a Directory object that represents a subdirectory of this one with the specified name.">getChildDirectory()</a>, <a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html#aafc7549e4cadae2e99b141ad7ee19d56" title="Child symbolic links.">createChildSymLink()</a> </dd></dl>
 
 </div>
 </div>
@@ -1829,6 +1936,62 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrentWork
 
 </div>
 </div>
+<a id="a7f37e70f24765041c8a77eb8cb0c0906"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f37e70f24765041c8a77eb8cb0c0906">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares this filesystem entry's absolute path with the other one's for equality. </p>
+
+</div>
+</div>
+<a id="ae0684b1ecf571d09ecbb44573f16e752"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0684b1ecf571d09ecbb44573f16e752">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares this filesystem entry's absolute path with the other one's for equality. </p>
+
+</div>
+</div>
 <a id="a6d38b6b295518d14632f03457276e9a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d38b6b295518d14632f03457276e9a5">&#9670;&nbsp;</a></span>operator/()</h2>
 
@@ -1885,8 +2048,64 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrentWork
 
 </div>
 </div>
+<a id="a3fe23b8c2c82839d273f9c685873a188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe23b8c2c82839d273f9c685873a188">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lexicographically compares this filesystem entry's absolute path with another path. </p>
+
+</div>
+</div>
+<a id="ae9c29f7de3d159afc471cbf407d205d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c29f7de3d159afc471cbf407d205d4">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lexicographically compares this filesystem entry's absolute path with another path. </p>
+
+</div>
+</div>
 <a id="a30260d960a65ab762be51dbbdb30dc72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30260d960a65ab762be51dbbdb30dc72">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a30260d960a65ab762be51dbbdb30dc72">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1913,8 +2132,48 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrentWork
 
 </div>
 </div>
+<a id="a3019832824cd0fbd324e23825af214b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3019832824cd0fbd324e23825af214b5">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html">Directory</a>&amp; limes::files::Directory::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>newPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assigns this object to refer to a new path. </p>
+
+</div>
+</div>
+<a id="ad308913b72b186171ee4e5fd1058a3a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad308913b72b186171ee4e5fd1058a3a5">&#9670;&nbsp;</a></span>operator=() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html">Directory</a>&amp; limes::files::Directory::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>newPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assigns this object to refer to a new path. </p>
+
+</div>
+</div>
 <a id="ae1cc63bb6ac43e7cb66324445935b331"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1cc63bb6ac43e7cb66324445935b331">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1cc63bb6ac43e7cb66324445935b331">&#9670;&nbsp;</a></span>operator=() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1938,6 +2197,118 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrentWork
 </div><div class="memdoc">
 
 <p>Directory is default movable. </p>
+
+</div>
+</div>
+<a id="a9769e7f27fea1f1b437c6b4ae1517a7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9769e7f27fea1f1b437c6b4ae1517a7f">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares this filesystem entry's absolute path with the other one's for equality. </p>
+
+</div>
+</div>
+<a id="a740503af22b77d69386a2a9ef5e647ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740503af22b77d69386a2a9ef5e647ef">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares this filesystem entry's absolute path with the other one's for equality. </p>
+
+</div>
+</div>
+<a id="a463f060f5862bcdf7c5e7337c40d5335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a463f060f5862bcdf7c5e7337c40d5335">&#9670;&nbsp;</a></span>operator&gt;() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lexicographically compares this filesystem entry's absolute path with another path. </p>
+
+</div>
+</div>
+<a id="ad0368132a8d1738f99c67aef72c7a4fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0368132a8d1738f99c67aef72c7a4fd">&#9670;&nbsp;</a></span>operator&gt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lexicographically compares this filesystem entry's absolute path with another path. </p>
 
 </div>
 </div>
@@ -2151,8 +2522,8 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrentWork
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>limes</b></li><li class="navelem"><a class="el" href="../../d4/d2f/namespacelimes_1_1files.html">files</a></li><li class="navelem"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html">Directory</a></li>
-    <li class="footer">Generated on Mon May 30 2022 10:15:21 for Limes by
+    <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d2f/namespacelimes_1_1files.html">files</a></li><li class="navelem"><a class="el" href="../../db/de1/classlimes_1_1files_1_1_directory.html">Directory</a></li>
+    <li class="footer">Generated on Mon May 30 2022 14:39:44 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['fftw_5fdouble_5fonly_2299',['FFTW_DOUBLE_ONLY',['../dc/d24/fftw__fft_8h.html#a09e13e7bc904f98333229f65792654dc',1,'fftw_fft.h']]],
-  ['fftw_5fsingle_5fonly_2300',['FFTW_SINGLE_ONLY',['../dc/d24/fftw__fft_8h.html#afc2bf4398dc8eb9ce229e5548eb4d17a',1,'fftw_fft.h']]]
+  ['limes_5fcurrent_5ffunction_5fname_2350',['LIMES_CURRENT_FUNCTION_NAME',['../d0/d00/compiler__defs_8h.html#ace80ce41b99ab7b67eb6c8907e5b1980',1,'compiler_defs.h']]]
 ];

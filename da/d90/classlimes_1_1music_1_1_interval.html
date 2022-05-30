@@ -200,9 +200,64 @@ Cents measurements</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class that represents a musical interval between two pitches. </p>
 <p>This class is meant for intervals that are an octave or smaller, and that can be expressed as a whole number of semitones. (Technically, the largest interval representable by this class is an augmented octave.) To represent intervals larger than an octave, use the <a class="el" href="../../d5/dce/classlimes_1_1music_1_1_compound_interval.html" title="A class for representing intervals larger than an octave.">CompoundInterval</a> class.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/dce/classlimes_1_1music_1_1_compound_interval.html" title="A class for representing intervals larger than an octave.">CompoundInterval</a>, <a class="el" href="../../dc/d2c/classlimes_1_1music_1_1_microtonal_interval.html" title="A class that can represent intervals that are not whole numbers of semitones.">MicrotonalInterval</a> </dd></dl>
+<p>An interval is represented as a kind (unison, second, third, etc) and a quality (major, minor, perfect, augmented, or diminished). Note that not every quality is valid for every kind &ndash; a "perfect third" or a "major fifth" do not exist.</p>
+<p>Here is a table of all valid kind/quality combinations:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Kind as integer </th><th class="markdownTableHeadNone">Name </th><th class="markdownTableHeadNone">Valid qualities  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">0 </td><td class="markdownTableBodyNone">Unison </td><td class="markdownTableBodyNone">Perfect, augmented  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">2 </td><td class="markdownTableBodyNone">Second </td><td class="markdownTableBodyNone">Diminished, minor, major, augmented  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">3 </td><td class="markdownTableBodyNone">Third </td><td class="markdownTableBodyNone">Diminished, minor, major, augmented  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">4 </td><td class="markdownTableBodyNone">Fourth </td><td class="markdownTableBodyNone">Diminished, perfect, augmented  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">5 </td><td class="markdownTableBodyNone">Fifth </td><td class="markdownTableBodyNone">Diminished, perfect, augmented  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">6 </td><td class="markdownTableBodyNone">Sixth </td><td class="markdownTableBodyNone">Diminished, minor, major, augmented  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">7 </td><td class="markdownTableBodyNone">Seventh </td><td class="markdownTableBodyNone">Diminished, minor, major, augmented  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">8 </td><td class="markdownTableBodyNone">Octave </td><td class="markdownTableBodyNone">Diminished, perfect, augmented  </td></tr>
+</table>
+<p>And here is a listing of all possible intervals that this class can represent:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Name(s) </th><th class="markdownTableHeadNone">Semitones  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Perfect unison, diminished second </td><td class="markdownTableBodyNone">0  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Minor second, augmented unison </td><td class="markdownTableBodyNone">1  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Major second, diminished third </td><td class="markdownTableBodyNone">2  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Minor third, augmented second </td><td class="markdownTableBodyNone">3  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Major third, diminished fourth </td><td class="markdownTableBodyNone">4  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Perfect fourth, augmented third </td><td class="markdownTableBodyNone">5  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Diminished fifth, augmented fourth </td><td class="markdownTableBodyNone">6  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Perfect fifth, diminished sixth </td><td class="markdownTableBodyNone">7  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Minor sixth, augmented fifth </td><td class="markdownTableBodyNone">8  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Major sixth, diminished seventh </td><td class="markdownTableBodyNone">9  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Minor seventh, augmented sixth </td><td class="markdownTableBodyNone">10  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Major seventh, diminished octave </td><td class="markdownTableBodyNone">11  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Perfect octave, augmented seventh </td><td class="markdownTableBodyNone">12  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Augmented octave </td><td class="markdownTableBodyNone">13  </td></tr>
+</table>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/dce/classlimes_1_1music_1_1_compound_interval.html" title="A class for representing intervals larger than an octave.">CompoundInterval</a>, <a class="el" href="../../dc/d2c/classlimes_1_1music_1_1_microtonal_interval.html" title="A class that can represent intervals that are not whole numbers of semitones.">MicrotonalInterval</a>, <a class="el" href="../../da/d90/classlimes_1_1music_1_1_interval.html#a85bda49f7643404f55dfe12a681700fb" title="Returns true if the quality is valid for the given kind of interval.">isValidQualityForKind()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d6b/_interval_8h_source.html#l00048">48</a> of file <a class="el" href="../../d1/d6b/_interval_8h_source.html">Interval.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d6b/_interval_8h_source.html#l00085">85</a> of file <a class="el" href="../../d1/d6b/_interval_8h_source.html">Interval.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a5bbd36b4b8812aa179a90c459dbcf7be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5bbd36b4b8812aa179a90c459dbcf7be">&#9670;&nbsp;</a></span>Quality</h2>
@@ -227,7 +282,7 @@ Cents measurements</h2></td></tr>
 <p>Describes the quality of the interval. </p>
 <p>Note that not all possible quality values are valid for every possible interval type; a "major fifth" or a "perfect third" do not exist. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../da/d90/classlimes_1_1music_1_1_interval.html#a85bda49f7643404f55dfe12a681700fb" title="Returns true if the quality is valid for the given kind of interval.">isValidQualityForKind()</a>, <a class="el" href="../../da/d90/classlimes_1_1music_1_1_interval.html#ad6b0bf1b30654cda4f29cae5a1ea5869" title="Returns the quality of this interval.">getQuality()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d6b/_interval_8h_source.html#l00062">62</a> of file <a class="el" href="../../d1/d6b/_interval_8h_source.html">Interval.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d6b/_interval_8h_source.html#l00099">99</a> of file <a class="el" href="../../d1/d6b/_interval_8h_source.html">Interval.h</a>.</p>
 
 </div>
 </div>
@@ -745,7 +800,7 @@ Cents measurements</h2></td></tr>
 
 <p>Returns true if the quality is valid for the given kind of interval. </p>
 <p>For example, a perfect fourth or fifth is valid, while a perfect third or perfect second is not. A major or minor third is valid, while a major fourth or minor fifth is not. Note the special case that a diminished unison is invalid; unisons can only be perfect or augmented. Note that a kind of 1 is invalid.</p>
-<p>Here is a table of all valid kind/quality combinations</p>
+<p>Here is a table of all valid kind/quality combinations:</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Kind as integer </th><th class="markdownTableHeadNone">Name </th><th class="markdownTableHeadNone">Valid qualities  </th></tr>
@@ -1173,8 +1228,8 @@ Cents measurements</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>limes</b></li><li class="navelem"><a class="el" href="../../db/ddd/namespacelimes_1_1music.html">music</a></li><li class="navelem"><a class="el" href="../../da/d90/classlimes_1_1music_1_1_interval.html">Interval</a></li>
-    <li class="footer">Generated on Mon May 30 2022 10:15:22 for Limes by
+    <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../db/ddd/namespacelimes_1_1music.html">music</a></li><li class="navelem"><a class="el" href="../../da/d90/classlimes_1_1music_1_1_interval.html">Interval</a></li>
+    <li class="footer">Generated on Mon May 30 2022 14:39:45 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

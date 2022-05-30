@@ -130,6 +130,9 @@ Modules</h2></td></tr>
 <tr class="memitem:df/dc9/group__vec__log"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc9/group__vec__log.html">Logarithmic functions</a></td></tr>
 <tr class="memdesc:df/dc9/group__vec__log"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logarithmic functions for vectors. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d5/d50/group__vec__pommier"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d50/group__vec__pommier.html">Pommier SIMD extension functions</a></td></tr>
+<tr class="memdesc:d5/d50/group__vec__pommier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pommier SIMD extension functions. This group contains sin and cos SIMD functions written by Julien Pommier for NEON and SSE. Limes contains a simple wrapper that forwards function calls to the appropriate Pommier function. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d0/d58/group__vec__sorting"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d58/group__vec__sorting.html">Sorting functions</a></td></tr>
 <tr class="memdesc:d0/d58/group__vec__sorting"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorting and ordering functions on vectors. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -229,7 +232,9 @@ Macros</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>The Limes vector operations library. </p>
 <p>All classes and functions in this module are accessible after linking to the <code>limes_vecops</code> library and including <a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>.</p>
-<p>This library provides functions operating on vectors of scalar data, accelerated with SIMD where possible. Because many vendor- or platform-specific libraries exist for such tasks, this library aims to provide a common API that can be implemented with any such 'backend'. This library currently supports using Apple vDSP, Intel IPP, or the MIPP library as backends, though more may be added in the future. This library also provides plain C++ implementations of all its functions, so it can be used without dependencies on any external libraries.</p>
+<p>This library provides functions operating on vectors of scalar data, accelerated with SIMD where possible.</p>
+<p>Because many vendor- or platform-specific libraries exist for such tasks, this library aims to provide a common API that can be implemented with any such 'backend'. This library currently supports using Apple vDSP, Intel IPP, or the MIPP library as backends, though more may be added in the future.</p>
+<p>This library also provides plain C++ implementations of all its functions, so it can be used without dependencies on any external libraries. Additionally, these fallback implementations can optionally call Julien Pommier's SIMD sin and cos functions, written for both NEON and SSE, if the datatype is <code>float</code> . These functions can be explicitly enabled or disabled using the <code>LIMES_VECOPS_USE_POMMIER</code> preprocessor macro. The Pommier source code is included in Limes, but using it requires your adherence to its original license; see <a class="el" href="../../d8/d51/neon__mathfun_8h.html">neon_mathfun.h</a> for a copy of it.</p>
 <p>Dependencies:</p><ul>
 <li>limes_core</li>
 </ul>
@@ -246,7 +251,7 @@ and/or one of:</li>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Name </th><th class="markdownTableHeadNone">Vendor </th><th class="markdownTableHeadNone">Preprocessor macro </th><th class="markdownTableHeadNone">Notes  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">vDSP (Accelerate) </td><td class="markdownTableBodyNone">Apple </td><td class="markdownTableBodyNone">LIMES_VECOPS_USE_VDSP </td><td class="markdownTableBodyNone">The best choice for Apple platforms  </td></tr>
+<td class="markdownTableBodyNone">vDSP (Accelerate) </td><td class="markdownTableBodyNone">Apple </td><td class="markdownTableBodyNone">LIMES_VECOPS_USE_VDSP </td><td class="markdownTableBodyNone">The best choice on Apple platforms  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Integrated Performance Primitives </td><td class="markdownTableBodyNone">Intel </td><td class="markdownTableBodyNone">LIMES_VECOPS_USE_IPP </td><td class="markdownTableBodyNone">The best choice on Intel platforms  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -254,7 +259,6 @@ and/or one of:</li>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Fallback (non-SIMD code) </td><td class="markdownTableBodyNone">Limes </td><td class="markdownTableBodyNone">None - absence of the other 3 </td><td class="markdownTableBodyNone">Non-SIMD C++ implementations  </td></tr>
 </table>
-<p>Additionally, the fallback implementations can optionally call Julien Pommier's SIMD sin and cos functions, written for both NEON and SSE, if the datatype is <code>float</code> . These functions can be explicitly enabled or disabled using the <code>LIMES_VECOPS_USE_POMMIER</code> preprocessor macro. </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="gaaf4e6c2cb5282672fc67747a8e1f550f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaaf4e6c2cb5282672fc67747a8e1f550f">&#9670;&nbsp;</a></span>LIMES_VECOPS_USE_IPP</h2>
@@ -269,9 +273,10 @@ and/or one of:</li>
 </div><div class="memdoc">
 
 <p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
-<p>1 if the Intel IPP library is being used, otherwise 0. </p>
+<p>1 if the Intel IPP library is being used, otherwise 0. If this is undefined, then if neither <code>LIMES_VECOPS_USE_VDSP</code> or <code>LIMES_VECOPS_USE_MIPP</code> are defined, the default is to define <code>LIMES_VECOPS_USE_IPP</code> to 1 if on an Intel platform and the IPP header can be included, and 0 otherwise. If either <code>LIMES_VECOPS_USE_VDSP</code> or <code>LIMES_VECOPS_USE_MIPP</code> are defined, <code>LIMES_VECOPS_USE_IPP</code> will be defined to 0 and a warning will be issued if it was defined to 1.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/dd4/group__limes__vecops.html#ga5798e2e410bb607a38b777b0f8e7fafa">LIMES_VECOPS_USE_VDSP</a>, <a class="el" href="../../dc/dd4/group__limes__vecops.html#ga70b144652ef1412e204a8d4e9c66fef8">LIMES_VECOPS_USE_MIPP</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00086">86</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00099">99</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 
 </div>
 </div>
@@ -288,9 +293,10 @@ and/or one of:</li>
 </div><div class="memdoc">
 
 <p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
-<p>1 if the MIPP library is being used, otherwise 0. </p>
+<p>1 if the MIPP library is being used, otherwise 0. If this is undefined, then if neither <code>LIMES_VECOPS_USE_VDSP</code> or <code>LIMES_VECOPS_USE_IPP</code> are defined, the default is to define <code>LIMES_VECOPS_USE_MIPP</code> to 1 if on an Intel platform and the IPP header can be included, and 0 otherwise. If either <code>LIMES_VECOPS_USE_VDSP</code> or <code>LIMES_VECOPS_USE_IPP</code> are defined, <code>LIMES_VECOPS_USE_MIPP</code> will be defined to 0 and a warning will be issued if it was defined to 1.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/dd4/group__limes__vecops.html#ga5798e2e410bb607a38b777b0f8e7fafa">LIMES_VECOPS_USE_VDSP</a>, <a class="el" href="../../dc/dd4/group__limes__vecops.html#gaaf4e6c2cb5282672fc67747a8e1f550f">LIMES_VECOPS_USE_IPP</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00092">92</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00110">110</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 
 </div>
 </div>
@@ -307,9 +313,9 @@ and/or one of:</li>
 </div><div class="memdoc">
 
 <p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
-<p>1 if the Pommier SIMD extensions are being used, otherwise 0. </p>
+<p>1 if the Pommier SIMD extensions are being used, otherwise 0. See <a class="el" href="../../d8/d51/neon__mathfun_8h.html">neon_mathfun.h</a> for the original license that accompanies these functions. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00098">98</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00117">117</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 
 </div>
 </div>
@@ -326,9 +332,10 @@ and/or one of:</li>
 </div><div class="memdoc">
 
 <p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
-<p>1 if the Apple vDSP library is being used, otherwise 0. </p>
+<p>1 if the Apple vDSP library is being used, otherwise 0. If this is undefined, then if neither <code>LIMES_VECOPS_USE_IPP</code> or <code>LIMES_VECOPS_USE_MIPP</code> are defined, the default is to define <code>LIMES_VECOPS_USE_VDSP</code> to 1 if on an Apple platform, and 0 otherwise. If either <code>LIMES_VECOPS_USE_IPP</code> or <code>LIMES_VECOPS_USE_MIPP</code> are defined, <code>LIMES_VECOPS_USE_VDSP</code> will be defined to 0 and a warning will be issued if it was defined to 1.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/dd4/group__limes__vecops.html#gaaf4e6c2cb5282672fc67747a8e1f550f">LIMES_VECOPS_USE_IPP</a>, <a class="el" href="../../dc/dd4/group__limes__vecops.html#ga70b144652ef1412e204a8d4e9c66fef8">LIMES_VECOPS_USE_MIPP</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00080">80</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00088">88</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 
 </div>
 </div>
@@ -405,6 +412,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 <p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
 
 <p>Copies from one vector to another. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/dd4/group__limes__vecops.html#gab42abc8b29b1736676df151e7f2d3858" title="Swaps the elements of two vectors.">swap</a> </dd></dl>
 
 </div>
 </div>
@@ -486,6 +494,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 <p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
 
 <p>Swaps the elements of two vectors. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/dd4/group__limes__vecops.html#ga9d8da6b79472277b93a875ab43f24714" title="Copies from one vector to another.">copy</a> </dd></dl>
 
 </div>
 </div>
@@ -508,7 +517,7 @@ template&lt;typename T &gt; </div>
 
 <p>@concept Integral Any integral type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00228">228</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00247">247</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 
 </div>
 </div>
@@ -530,7 +539,7 @@ template&lt;typename T &gt; </div>
 
 <p>@concept Scalar Any scalar type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00222">222</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00241">241</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 
 </div>
 </div>
@@ -539,7 +548,7 @@ template&lt;typename T &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 10:15:21 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 14:39:44 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -128,9 +128,9 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A base class representing an object that calculates a hash function. </p>
-<p>You should call the <code><a class="el" href="../../d9/da7/classlimes_1_1hash_1_1_hasher.html#aee5a61d5d23d32f1ae6972f9a215fcaf" title="Updates the internal state of the hasher with some new data.">update()</a></code> method with any data that needs to be hashed, and then call <code><a class="el" href="../../d9/da7/classlimes_1_1hash_1_1_hasher.html#a907915e1f3fb947c46c0ca8bb9eeed1c" title="Retrieves the calculated hash value as a string.">getHash()</a></code> to finalize the internal calculations and retrieve the final hash value. You shouldn't call <code><a class="el" href="../../d9/da7/classlimes_1_1hash_1_1_hasher.html#aee5a61d5d23d32f1ae6972f9a215fcaf" title="Updates the internal state of the hasher with some new data.">update()</a></code> again after calling <code><a class="el" href="../../d9/da7/classlimes_1_1hash_1_1_hasher.html#a907915e1f3fb947c46c0ca8bb9eeed1c" title="Retrieves the calculated hash value as a string.">getHash()</a></code> . </p>
+<p>You should call the <code><a class="el" href="../../d9/da7/classlimes_1_1hash_1_1_hasher.html#aee5a61d5d23d32f1ae6972f9a215fcaf" title="Updates the internal state of the hasher with some new data.">update()</a></code> method with any data that needs to be hashed, and then call <code><a class="el" href="../../d9/da7/classlimes_1_1hash_1_1_hasher.html#a907915e1f3fb947c46c0ca8bb9eeed1c" title="Retrieves the calculated hash value as a string.">getHash()</a></code> to finalize the internal calculations and retrieve the final hash value. You shouldn't call <code><a class="el" href="../../d9/da7/classlimes_1_1hash_1_1_hasher.html#aee5a61d5d23d32f1ae6972f9a215fcaf" title="Updates the internal state of the hasher with some new data.">update()</a></code> again after calling <code><a class="el" href="../../d9/da7/classlimes_1_1hash_1_1_hasher.html#a907915e1f3fb947c46c0ca8bb9eeed1c" title="Retrieves the calculated hash value as a string.">getHash()</a></code> . </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../db/de7/classlimes_1_1hash_1_1_m_d5.html" title="A Hasher object that calculates an MD5 hash.">MD5</a>, <a class="el" href="../../df/dd8/classlimes_1_1hash_1_1_s_h_a1.html" title="A Hasher object that calculates a SHA1 hash.">SHA1</a>, <a class="el" href="../../dc/ddb/classlimes_1_1hash_1_1_s_h_a224.html" title="A Hasher object that calculates a SHA224 hash.">SHA224</a>, <a class="el" href="../../d9/d97/classlimes_1_1hash_1_1_s_h_a256.html" title="A Hasher object that calculates a SHA256 hash.">SHA256</a>, <a class="el" href="../../df/d93/classlimes_1_1hash_1_1_s_h_a384.html" title="A Hasher object that calculates a SHA384 hash.">SHA384</a>, <a class="el" href="../../d0/d61/classlimes_1_1hash_1_1_s_h_a512.html" title="A Hasher object that calculates a SHA512 hash.">SHA512</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/dfb/hash_8h_source.html#l00065">65</a> of file <a class="el" href="../../db/dfb/hash_8h_source.html">hash.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/dfb/hash_8h_source.html#l00066">66</a> of file <a class="el" href="../../db/dfb/hash_8h_source.html">hash.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad6902b33b3439b7fa884acf0d409b2e7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad6902b33b3439b7fa884acf0d409b2e7">&#9670;&nbsp;</a></span>~Hasher()</h2>
@@ -184,6 +184,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retrieves the calculated hash value as a string. </p>
+<p>You shouldn't call <code><a class="el" href="../../d9/da7/classlimes_1_1hash_1_1_hasher.html#aee5a61d5d23d32f1ae6972f9a215fcaf" title="Updates the internal state of the hasher with some new data.">update()</a></code> again after calling this function. </p>
 
 <p>Implemented in <a class="el" href="../../db/de7/classlimes_1_1hash_1_1_m_d5.html#a4767ff88fb188b2872e1ad1a796a4bf3">limes::hash::MD5</a>, <a class="el" href="../../df/dd8/classlimes_1_1hash_1_1_s_h_a1.html#a636dcbc7da086eb278097e2c2a5d4e48">limes::hash::SHA1</a>, <a class="el" href="../../dc/ddb/classlimes_1_1hash_1_1_s_h_a224.html#ac053ea0a1e76e791fa975c99dbbd73f9">limes::hash::SHA224</a>, <a class="el" href="../../d9/d97/classlimes_1_1hash_1_1_s_h_a256.html#a27049075b5cfe25b5420faae5e44ddb8">limes::hash::SHA256</a>, <a class="el" href="../../df/d93/classlimes_1_1hash_1_1_s_h_a384.html#a98b73983b222a5414b9b34fe054c4fdd">limes::hash::SHA384</a>, and <a class="el" href="../../d0/d61/classlimes_1_1hash_1_1_s_h_a512.html#ae99a3107844b431b56683a6696f42551">limes::hash::SHA512</a>.</p>
 
@@ -257,8 +258,8 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>limes</b></li><li class="navelem"><a class="el" href="../../d4/d1f/namespacelimes_1_1hash.html">hash</a></li><li class="navelem"><a class="el" href="../../d9/da7/classlimes_1_1hash_1_1_hasher.html">Hasher</a></li>
-    <li class="footer">Generated on Mon May 30 2022 10:15:22 for Limes by
+    <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d1f/namespacelimes_1_1hash.html">hash</a></li><li class="navelem"><a class="el" href="../../d9/da7/classlimes_1_1hash_1_1_hasher.html">Hasher</a></li>
+    <li class="footer">Generated on Mon May 30 2022 14:39:44 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

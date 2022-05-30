@@ -656,8 +656,8 @@
       <APILanguage>unknown</APILanguage>
       <Type>macro</Type>
     </TokenIdentifier>
-    <Path>dc/d24/fftw__fft_8h.html</Path>
-    <Anchor>a09e13e7bc904f98333229f65792654dc</Anchor>
+    <Path>d2/d6a/group__fftw.html</Path>
+    <Anchor>ga09e13e7bc904f98333229f65792654dc</Anchor>
     <DeclaredIn>fftw_fft.h</DeclaredIn>
   </Token>
   <Token>
@@ -666,7 +666,7 @@
       <APILanguage>unknown</APILanguage>
       <Type>macro</Type>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>gaf0f842cd586876ba9d1b4872b1bb4f08</Anchor>
     <DeclaredIn>fftw_fft.h</DeclaredIn>
   </Token>
@@ -676,8 +676,8 @@
       <APILanguage>unknown</APILanguage>
       <Type>macro</Type>
     </TokenIdentifier>
-    <Path>dc/d24/fftw__fft_8h.html</Path>
-    <Anchor>afc2bf4398dc8eb9ce229e5548eb4d17a</Anchor>
+    <Path>d2/d6a/group__fftw.html</Path>
+    <Anchor>gafc2bf4398dc8eb9ce229e5548eb4d17a</Anchor>
     <DeclaredIn>fftw_fft.h</DeclaredIn>
   </Token>
   <Token>
@@ -944,7 +944,7 @@
       <APILanguage>unknown</APILanguage>
       <Type>macro</Type>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>ga25d4ef2f45323ffac2004347580d93a3</Anchor>
     <DeclaredIn>limes_fft.h</DeclaredIn>
   </Token>
@@ -1015,7 +1015,7 @@
       <Type>func</Type>
       <Scope>limes::vecops::fftw</Scope>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>ga939bfce415205091c7808f0cc4d71dea</Anchor>
     <Abstract>Enables or disables loading and saving of FFTW wisdom files.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
@@ -1027,7 +1027,7 @@
       <Type>func</Type>
       <Scope>limes::vecops::fftw</Scope>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>gaff20964c03f09d6a0c5f2c2c879da8da</Anchor>
     <Abstract>Returns the directory being used to save and load FFTW wisdom files.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
@@ -1039,7 +1039,7 @@
       <Type>func</Type>
       <Scope>limes::vecops::fftw</Scope>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>ga8748afcaad7c030c938654966ff70a92</Anchor>
     <Abstract>Returns true if loading and saving of FFTW wisdom files is enabled.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
@@ -1051,7 +1051,7 @@
       <Type>func</Type>
       <Scope>limes::vecops::fftw</Scope>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>ga2125ae4827739fa347af1abad300134a</Anchor>
     <Abstract>Sets the directory that FFTW wisdom files will be read from and saved to.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
@@ -1123,7 +1123,7 @@
       <Type>func</Type>
       <Scope>limes::vecops::fftw</Scope>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>ga2125ae4827739fa347af1abad300134a</Anchor>
     <Abstract>Sets the directory that FFTW wisdom files will be read from and saved to.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
@@ -1135,7 +1135,7 @@
       <Type>func</Type>
       <Scope>limes::vecops::fftw</Scope>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>gaff20964c03f09d6a0c5f2c2c879da8da</Anchor>
     <Abstract>Returns the directory being used to save and load FFTW wisdom files.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
@@ -1147,7 +1147,7 @@
       <Type>func</Type>
       <Scope>limes::vecops::fftw</Scope>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>ga939bfce415205091c7808f0cc4d71dea</Anchor>
     <Abstract>Enables or disables loading and saving of FFTW wisdom files.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
@@ -1159,7 +1159,7 @@
       <Type>func</Type>
       <Scope>limes::vecops::fftw</Scope>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>ga8748afcaad7c030c938654966ff70a92</Anchor>
     <Abstract>Returns true if loading and saving of FFTW wisdom files is enabled.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
@@ -4706,6 +4706,30 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>inverseRootTwo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>limes::dsp</Scope>
+    </TokenIdentifier>
+    <Path>d0/d7b/group__limes__audio.html</Path>
+    <Anchor>ga381c062c894875fa7da629056ea4d9d2</Anchor>
+    <Abstract>An inverse root 2 constant, useful for default filter Q values.</Abstract>
+    <DeclaredIn>limes_audio/util/Misc.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Sample</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>limes::dsp</Scope>
+    </TokenIdentifier>
+    <Path>d0/d7b/group__limes__audio.html</Path>
+    <Anchor>ga0f08d1dca089a2e844bd4e709588b58f</Anchor>
+    <Abstract>@concept Sample Either float or double .</Abstract>
+    <DeclaredIn>limes_audio/util/Misc.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>dirSeparator</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -6144,6 +6168,13 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>citelist</Name>
+      <APILanguage>unknown</APILanguage>
+    </TokenIdentifier>
+    <Path>d0/de3/citelist.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>limes</Name>
       <APILanguage>c</APILanguage>
     </TokenIdentifier>
@@ -6152,17 +6183,43 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>lemons_psola</Name>
+      <Name>limes_audio</Name>
       <APILanguage>c</APILanguage>
     </TokenIdentifier>
-    <Path>d6/d74/group__lemons__psola.html</Path>
+    <Path>d0/d7b/group__limes__audio.html</Path>
+    <Abstract>The Limes library of realtime audio utilities.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>lemons_psola_analysis</Name>
+      <Name>inverseRootTwo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>limes::dsp</Scope>
+    </TokenIdentifier>
+    <Path>d0/d7b/group__limes__audio.html</Path>
+    <Anchor>ga381c062c894875fa7da629056ea4d9d2</Anchor>
+    <Abstract>An inverse root 2 constant, useful for default filter Q values.</Abstract>
+    <DeclaredIn>limes_audio/util/Misc.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Sample</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>limes::dsp</Scope>
+    </TokenIdentifier>
+    <Path>d0/d7b/group__limes__audio.html</Path>
+    <Anchor>ga0f08d1dca089a2e844bd4e709588b58f</Anchor>
+    <Abstract>@concept Sample Either float or double .</Abstract>
+    <DeclaredIn>limes_audio/util/Misc.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>psola</Name>
       <APILanguage>c</APILanguage>
     </TokenIdentifier>
-    <Path>df/d40/group__lemons__psola__analysis.html</Path>
+    <Path>d2/d79/group__psola.html</Path>
+    <Abstract>Utilities for working with PSOLA-like algorithms.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -7778,6 +7835,14 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>midi_tuning</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d3/d6d/group__midi__tuning.html</Path>
+    <Abstract>Utilities for working with MIDI tuning systems. Limes provides C++ wrappers for the MTS-ESP client an...</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>music_intervals</Name>
       <APILanguage>c</APILanguage>
     </TokenIdentifier>
@@ -7934,26 +7999,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>FFTW_HEADER_NAME</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>macro</Type>
-    </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
-    <Anchor>gaf0f842cd586876ba9d1b4872b1bb4f08</Anchor>
-    <DeclaredIn>fftw_fft.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>LIMES_VECOPS_USE_FFTW</Name>
-      <APILanguage>unknown</APILanguage>
-      <Type>macro</Type>
-    </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
-    <Anchor>ga25d4ef2f45323ffac2004347580d93a3</Anchor>
-    <DeclaredIn>limes_fft.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>isUsingFFTW</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -8014,12 +8059,60 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>fftw</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d2/d6a/group__fftw.html</Path>
+    <Abstract>Classes and functions related to integrating the FFTW library.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FFTW_DOUBLE_ONLY</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>d2/d6a/group__fftw.html</Path>
+    <Anchor>ga09e13e7bc904f98333229f65792654dc</Anchor>
+    <DeclaredIn>fftw_fft.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FFTW_HEADER_NAME</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>d2/d6a/group__fftw.html</Path>
+    <Anchor>gaf0f842cd586876ba9d1b4872b1bb4f08</Anchor>
+    <DeclaredIn>fftw_fft.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FFTW_SINGLE_ONLY</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>d2/d6a/group__fftw.html</Path>
+    <Anchor>gafc2bf4398dc8eb9ce229e5548eb4d17a</Anchor>
+    <DeclaredIn>fftw_fft.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>LIMES_VECOPS_USE_FFTW</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>d2/d6a/group__fftw.html</Path>
+    <Anchor>ga25d4ef2f45323ffac2004347580d93a3</Anchor>
+    <DeclaredIn>limes_fft.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>setWisdomFileDir</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
       <Scope>limes::vecops::fftw</Scope>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>ga2125ae4827739fa347af1abad300134a</Anchor>
     <Abstract>Sets the directory that FFTW wisdom files will be read from and saved to.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
@@ -8031,7 +8124,7 @@
       <Type>func</Type>
       <Scope>limes::vecops::fftw</Scope>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>gaff20964c03f09d6a0c5f2c2c879da8da</Anchor>
     <Abstract>Returns the directory being used to save and load FFTW wisdom files.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
@@ -8043,7 +8136,7 @@
       <Type>func</Type>
       <Scope>limes::vecops::fftw</Scope>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>ga939bfce415205091c7808f0cc4d71dea</Anchor>
     <Abstract>Enables or disables loading and saving of FFTW wisdom files.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
@@ -8055,10 +8148,18 @@
       <Type>func</Type>
       <Scope>limes::vecops::fftw</Scope>
     </TokenIdentifier>
-    <Path>dc/db6/group__fft.html</Path>
+    <Path>d2/d6a/group__fftw.html</Path>
     <Anchor>ga8748afcaad7c030c938654966ff70a92</Anchor>
     <Abstract>Returns true if loading and saving of FFTW wisdom files is enabled.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>vec_pommier</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d5/d50/group__vec__pommier.html</Path>
+    <Abstract>Pommier SIMD extension functions. This group contains sin and cos SIMD functions written by Julien Po...</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -9834,6 +9935,15 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>limes</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>limes</Scope>
+    </TokenIdentifier>
+    <Path>d9/d44/namespacelimes.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>limes::alg</Name>
       <APILanguage>c</APILanguage>
       <Type>ns</Type>
@@ -10679,6 +10789,73 @@
       <Scope>limes::ds::scalar_vector</Scope>
     </TokenIdentifier>
     <Path>df/d0d/classlimes_1_1ds_1_1scalar__vector.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>limes::dsp</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>limes::dsp</Scope>
+    </TokenIdentifier>
+    <Path>d4/d00/namespacelimes_1_1dsp.html</Path>
+    <Abstract>This namespace contains utilities for working with realtime audio.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>inverseRootTwo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>limes::dsp</Scope>
+    </TokenIdentifier>
+    <Path>d0/d7b/group__limes__audio.html</Path>
+    <Anchor>ga381c062c894875fa7da629056ea4d9d2</Anchor>
+    <Abstract>An inverse root 2 constant, useful for default filter Q values.</Abstract>
+    <DeclaredIn>limes_audio/util/Misc.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Sample</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>limes::dsp</Scope>
+    </TokenIdentifier>
+    <Path>d0/d7b/group__limes__audio.html</Path>
+    <Anchor>ga0f08d1dca089a2e844bd4e709588b58f</Anchor>
+    <Abstract>@concept Sample Either float or double .</Abstract>
+    <DeclaredIn>limes_audio/util/Misc.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>leftOnly</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>limes::dsp</Scope>
+    </TokenIdentifier>
+    <Path>d4/d00/namespacelimes_1_1dsp.html</Path>
+    <Anchor>ab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182</Anchor>
+    <Abstract>In this mode, a MonoStereoConverter will output only the left channel of a stereo signal as its mono ...</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>rightOnly</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>limes::dsp</Scope>
+    </TokenIdentifier>
+    <Path>d4/d00/namespacelimes_1_1dsp.html</Path>
+    <Anchor>ab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d</Anchor>
+    <Abstract>In this mode, a MonoStereoConverter will output only the right channel of a stereo signal as its mono...</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>mixToMono</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>limes::dsp</Scope>
+    </TokenIdentifier>
+    <Path>d4/d00/namespacelimes_1_1dsp.html</Path>
+    <Anchor>ab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22</Anchor>
+    <Abstract>In this mode, a MonoStereoConverter will mix together the two channels of a stereo signal to create i...</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -11724,12 +11901,23 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>limes::dsp::psola</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>limes::dsp::psola</Scope>
+    </TokenIdentifier>
+    <Path>d6/d4e/namespacelimes_1_1dsp_1_1psola.html</Path>
+    <Abstract>This namespace provides classes for implementing a PSOLA algorithm.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>limes::dsp::psola::Analyzer</Name>
       <APILanguage>c</APILanguage>
       <Type>tmplt</Type>
       <Scope>limes::dsp::psola::Analyzer</Scope>
     </TokenIdentifier>
     <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+    <Abstract>A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.</Abstract>
     <DeclaredIn>analyzer.h</DeclaredIn>
   </Token>
   <Token>
@@ -11836,6 +12024,7 @@
       <Scope>limes::dsp::psola::PeakFinder</Scope>
     </TokenIdentifier>
     <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+    <Abstract>A class that identifies pitch peaks for PSOLA pitch shifting.</Abstract>
     <DeclaredIn>PeakFinder.h</DeclaredIn>
   </Token>
   <Token>
@@ -11894,6 +12083,7 @@
       <Scope>limes::dsp::psola::PitchDetector</Scope>
     </TokenIdentifier>
     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+    <Abstract>A pitch detector based on the YIN algorithm.</Abstract>
     <DeclaredIn>PitchDetector.h</DeclaredIn>
   </Token>
   <Token>
@@ -12049,7 +12239,7 @@
     </TokenIdentifier>
     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
     <Anchor>a20d6a0ff25bba66d1afffe3d78b06688</Anchor>
-    <Abstract>Detects the pitch in Hz for a frame of audio.</Abstract>
+    <Abstract>Detects the period, in samples, for a frame of audio.</Abstract>
     <DeclaredIn>PitchDetector.h</DeclaredIn>
   </Token>
   <Token>
@@ -12404,7 +12594,7 @@
     </TokenIdentifier>
     <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
     <Anchor>afc1630a2ca11608817afc45b7259a192</Anchor>
-    <Abstract>Overwriting Overwrites this filesystem entry by copying from another location.</Abstract>
+    <Abstract>Overwriting.</Abstract>
     <DeclaredIn>FilesystemEntry.h</DeclaredIn>
   </Token>
   <Token>
@@ -12418,18 +12608,6 @@
     <Anchor>a2e0e0d1f66621a1d3d02dcd435c710d3</Anchor>
     <Abstract>Creates a copy of this filesystem object, with the same filename, in a different directory.</Abstract>
     <DeclaredIn>FilesystemEntry.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>createChildSymLink</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::files::Directory</Scope>
-    </TokenIdentifier>
-    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
-    <Anchor>aafc7549e4cadae2e99b141ad7ee19d56</Anchor>
-    <Abstract>Returns a SymLink object that represents a symbolic link in the current directory with the specified ...</Abstract>
-    <DeclaredIn>directory.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -12545,66 +12723,6 @@
     <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
     <Anchor>a5dc7acf9df160ac077676d52619d8e5d</Anchor>
     <Abstract>Returns a type-erased FilesystemEntry representing a filesystem object in this directory with the spe...</Abstract>
-    <DeclaredIn>directory.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getChildDirectories</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::files::Directory</Scope>
-    </TokenIdentifier>
-    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
-    <Anchor>a54876728766643404da3d353914026e8</Anchor>
-    <Abstract>Returns all child directories that exist in this directory.</Abstract>
-    <DeclaredIn>directory.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getChildDirectory</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::files::Directory</Scope>
-    </TokenIdentifier>
-    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
-    <Anchor>a33b17e6246d1e2ec14a73a95043fef92</Anchor>
-    <Abstract>Returns a Directory object that represents a subdirectory of this one with the specified name.</Abstract>
-    <DeclaredIn>directory.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getChildFile</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::files::Directory</Scope>
-    </TokenIdentifier>
-    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
-    <Anchor>a4bf7234a8b52b6a0bfa929e6273052ec</Anchor>
-    <Abstract>Returns a File object representing a file in this directory with the specified name.</Abstract>
-    <DeclaredIn>directory.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getChildFiles</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::files::Directory</Scope>
-    </TokenIdentifier>
-    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
-    <Anchor>a502e2ed4ea1d963528458c1a75af1f90</Anchor>
-    <Abstract>Returns all child files that exist in this directory.</Abstract>
-    <DeclaredIn>directory.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getChildSymLinks</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::files::Directory</Scope>
-    </TokenIdentifier>
-    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
-    <Anchor>abef982393515259484aee3aee35c8ff7</Anchor>
-    <Abstract>Returns all child symbolic links that exist in this directory.</Abstract>
     <DeclaredIn>directory.h</DeclaredIn>
   </Token>
   <Token>
@@ -12861,42 +12979,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>iterateDirectories</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::files::Directory</Scope>
-    </TokenIdentifier>
-    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
-    <Anchor>af1b82ccc286441381ea9c5d2743d822b</Anchor>
-    <Abstract>Calls a function for each child directory that exists in this directory.</Abstract>
-    <DeclaredIn>directory.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>iterateFiles</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::files::Directory</Scope>
-    </TokenIdentifier>
-    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
-    <Anchor>a45693142f7e26c517757557dea9b1dc7</Anchor>
-    <Abstract>Calls a function for each child file that exists in this directory.</Abstract>
-    <DeclaredIn>directory.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>iterateSymLinks</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::files::Directory</Scope>
-    </TokenIdentifier>
-    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
-    <Anchor>a943d23a7f5d62cb82ad496d3abb634af</Anchor>
-    <Abstract>Calls a function for each child symbolic link that exists in this directory.</Abstract>
-    <DeclaredIn>directory.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>makeAbsoluteRelativeTo</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -13062,6 +13144,138 @@
     <Anchor>a2e495352f79252fa9ed62845e78c5c99</Anchor>
     <Abstract>The same as touch(), except this function does not create the filesystem entry if it didn&apos;t already e...</Abstract>
     <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::Directory</Scope>
+    </TokenIdentifier>
+    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
+    <Anchor>a3019832824cd0fbd324e23825af214b5</Anchor>
+    <Abstract>Assigns this object to refer to a new path.</Abstract>
+    <DeclaredIn>directory.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::Directory</Scope>
+    </TokenIdentifier>
+    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
+    <Anchor>ad308913b72b186171ee4e5fd1058a3a5</Anchor>
+    <Abstract>Assigns this object to refer to a new path.</Abstract>
+    <DeclaredIn>directory.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getChildFile</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::Directory</Scope>
+    </TokenIdentifier>
+    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
+    <Anchor>a4bf7234a8b52b6a0bfa929e6273052ec</Anchor>
+    <Abstract>Returns a File object representing a file in this directory with the specified name.</Abstract>
+    <DeclaredIn>directory.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getChildFiles</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::Directory</Scope>
+    </TokenIdentifier>
+    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
+    <Anchor>a502e2ed4ea1d963528458c1a75af1f90</Anchor>
+    <Abstract>Returns all child files that exist in this directory.</Abstract>
+    <DeclaredIn>directory.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>iterateFiles</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::Directory</Scope>
+    </TokenIdentifier>
+    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
+    <Anchor>a45693142f7e26c517757557dea9b1dc7</Anchor>
+    <Abstract>Calls a function for each child file that exists in this directory.</Abstract>
+    <DeclaredIn>directory.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getChildDirectory</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::Directory</Scope>
+    </TokenIdentifier>
+    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
+    <Anchor>a33b17e6246d1e2ec14a73a95043fef92</Anchor>
+    <Abstract>Returns a Directory object that represents a subdirectory of this one with the specified name.</Abstract>
+    <DeclaredIn>directory.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getChildDirectories</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::Directory</Scope>
+    </TokenIdentifier>
+    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
+    <Anchor>a54876728766643404da3d353914026e8</Anchor>
+    <Abstract>Returns all child directories that exist in this directory.</Abstract>
+    <DeclaredIn>directory.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>iterateDirectories</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::Directory</Scope>
+    </TokenIdentifier>
+    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
+    <Anchor>af1b82ccc286441381ea9c5d2743d822b</Anchor>
+    <Abstract>Calls a function for each child directory that exists in this directory.</Abstract>
+    <DeclaredIn>directory.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>createChildSymLink</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::Directory</Scope>
+    </TokenIdentifier>
+    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
+    <Anchor>aafc7549e4cadae2e99b141ad7ee19d56</Anchor>
+    <Abstract>Child symbolic links.</Abstract>
+    <DeclaredIn>directory.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getChildSymLinks</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::Directory</Scope>
+    </TokenIdentifier>
+    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
+    <Anchor>abef982393515259484aee3aee35c8ff7</Anchor>
+    <Abstract>Returns all child symbolic links that exist in this directory.</Abstract>
+    <DeclaredIn>directory.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>iterateSymLinks</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::Directory</Scope>
+    </TokenIdentifier>
+    <Path>db/de1/classlimes_1_1files_1_1_directory.html</Path>
+    <Anchor>a943d23a7f5d62cb82ad496d3abb634af</Anchor>
+    <Abstract>Calls a function for each child symbolic link that exists in this directory.</Abstract>
+    <DeclaredIn>directory.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -13358,7 +13572,7 @@
     </TokenIdentifier>
     <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
     <Anchor>afc1630a2ca11608817afc45b7259a192</Anchor>
-    <Abstract>Overwriting Overwrites this filesystem entry by copying from another location.</Abstract>
+    <Abstract>Overwriting.</Abstract>
     <DeclaredIn>FilesystemEntry.h</DeclaredIn>
   </Token>
   <Token>
@@ -13911,6 +14125,30 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>a223fafd66672d5003d821870036539da</Anchor>
+    <Abstract>Assigns this object to refer to a new path.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>a52eb39edc95d049e8e83bb1b43f7f017</Anchor>
+    <Abstract>Assigns this object to refer to a new path.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>getCurrentExecutable</Name>
       <APILanguage>cpp</APILanguage>
       <Type>clm</Type>
@@ -14001,7 +14239,7 @@
     </TokenIdentifier>
     <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
     <Anchor>afc1630a2ca11608817afc45b7259a192</Anchor>
-    <Abstract>Overwriting Overwrites this filesystem entry by copying from another location.</Abstract>
+    <Abstract>Overwriting.</Abstract>
     <DeclaredIn>FilesystemEntry.h</DeclaredIn>
   </Token>
   <Token>
@@ -14438,6 +14676,42 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a5c18b0e61674dcfc66c586f5635b3e4c</Anchor>
+    <Abstract>Assigns the path this filesystem entry represents.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a1eda638315d79819fede26b8b821949c</Anchor>
+    <Abstract>Assigns the path this filesystem entry represents.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>assignPath</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a8eb71ce03cdc6c9a6f6859cde8ec8f51</Anchor>
+    <Abstract>Assigns the path this filesystem entry represents.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>limes::files::SymLink</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -14504,7 +14778,7 @@
     </TokenIdentifier>
     <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
     <Anchor>afc1630a2ca11608817afc45b7259a192</Anchor>
-    <Abstract>Overwriting Overwrites this filesystem entry by copying from another location.</Abstract>
+    <Abstract>Overwriting.</Abstract>
     <DeclaredIn>FilesystemEntry.h</DeclaredIn>
   </Token>
   <Token>
@@ -14997,6 +15271,30 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>create</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>limes::files::SymLink</Scope>
+    </TokenIdentifier>
+    <Path>d8/db4/classlimes_1_1files_1_1_sym_link.html</Path>
+    <Anchor>ab2b53effba988e24a7e7ea4a713b220d</Anchor>
+    <Abstract>Creates a symbolic link on the filesystem.</Abstract>
+    <DeclaredIn>sym_link.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>create</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>limes::files::SymLink</Scope>
+    </TokenIdentifier>
+    <Path>d8/db4/classlimes_1_1files_1_1_sym_link.html</Path>
+    <Anchor>aa3ec6430d0f16c0500c676039d7d94d4</Anchor>
+    <Abstract>Creates a symbolic link on the filesystem.</Abstract>
+    <DeclaredIn>sym_link.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>limes::files::TempFile</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -15032,6 +15330,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>TempFile</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::TempFile</Scope>
+    </TokenIdentifier>
+    <Path>d7/df8/classlimes_1_1files_1_1_temp_file.html</Path>
+    <Anchor>a5b6e033362982e36f03a8121f205a454</Anchor>
+    <Abstract>Move constructor.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>~TempFile</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -15063,7 +15373,7 @@
     </TokenIdentifier>
     <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
     <Anchor>afc1630a2ca11608817afc45b7259a192</Anchor>
-    <Abstract>Overwriting Overwrites this filesystem entry by copying from another location.</Abstract>
+    <Abstract>Overwriting.</Abstract>
     <DeclaredIn>FilesystemEntry.h</DeclaredIn>
   </Token>
   <Token>
@@ -15520,6 +15830,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::TempFile</Scope>
+    </TokenIdentifier>
+    <Path>d7/df8/classlimes_1_1files_1_1_temp_file.html</Path>
+    <Anchor>a4750cea6719e7f97c4316c59e2305bcf</Anchor>
+    <Abstract>Move assignment operator.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>rename</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -15604,6 +15926,246 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>assignPath</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a8eb71ce03cdc6c9a6f6859cde8ec8f51</Anchor>
+    <Abstract>Assigns the path this filesystem entry represents.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator==</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a9769e7f27fea1f1b437c6b4ae1517a7f</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator==</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a740503af22b77d69386a2a9ef5e647ef</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator!=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a7f37e70f24765041c8a77eb8cb0c0906</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator!=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ae0684b1ecf571d09ecbb44573f16e752</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&lt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a3fe23b8c2c82839d273f9c685873a188</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&lt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ae9c29f7de3d159afc471cbf407d205d4</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&gt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a463f060f5862bcdf7c5e7337c40d5335</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&gt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ad0368132a8d1738f99c67aef72c7a4fd</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>copyTo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ab8c363b25e6797b1376afa26c5687081</Anchor>
+    <Abstract>Creates a copy of this filesystem entry at a new location.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>copyTo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a5dd6965a59f27e87a2411f9ad7a5785b</Anchor>
+    <Abstract>Creates a copy of this filesystem entry at a new location.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>overwrite</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>a99e21b761aac363f1641d37a954eee03</Anchor>
+    <Abstract>Replaces the file&apos;s contents with the given data.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>overwrite</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>a8e6a359a45514bcebc4c49ae06c3528b</Anchor>
+    <Abstract>Replaces the file&apos;s contents with the given data.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>overwrite</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>aa88d052b619925e53f1722487349724a</Anchor>
+    <Abstract>Replaces the file&apos;s contents with the given data.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>append</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>abafe9417760772ff67daa0f36541f467</Anchor>
+    <Abstract>Appends the given data to the file&apos;s current contents.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>append</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>ab540948b17653fb59ce4e0eb684f8968</Anchor>
+    <Abstract>Appends the given data to the file&apos;s current contents.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>append</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>a3a634c1fd085bc646e86b763b5837eaf</Anchor>
+    <Abstract>Appends the given data to the file&apos;s current contents.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>prepend</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>acdce777670b6cc7697d63d2b8ecb93f4</Anchor>
+    <Abstract>Prepends the given data to the file&apos;s current contents.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>prepend</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>abcfca3cd7424b8a0bdfe371742767d48</Anchor>
+    <Abstract>Prepends the given data to the file&apos;s current contents.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>prepend</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>aef7a1e45f76236a9971e2041eeae8d9f</Anchor>
+    <Abstract>Prepends the given data to the file&apos;s current contents.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>loadAsData</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -15640,6 +16202,498 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>assignPath</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a8eb71ce03cdc6c9a6f6859cde8ec8f51</Anchor>
+    <Abstract>Assigns the path this filesystem entry represents.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator==</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a9769e7f27fea1f1b437c6b4ae1517a7f</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator==</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a740503af22b77d69386a2a9ef5e647ef</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator!=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a7f37e70f24765041c8a77eb8cb0c0906</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator!=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ae0684b1ecf571d09ecbb44573f16e752</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&lt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a3fe23b8c2c82839d273f9c685873a188</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&lt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ae9c29f7de3d159afc471cbf407d205d4</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&gt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a463f060f5862bcdf7c5e7337c40d5335</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&gt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ad0368132a8d1738f99c67aef72c7a4fd</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>copyTo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ab8c363b25e6797b1376afa26c5687081</Anchor>
+    <Abstract>Creates a copy of this filesystem entry at a new location.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>copyTo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a5dd6965a59f27e87a2411f9ad7a5785b</Anchor>
+    <Abstract>Creates a copy of this filesystem entry at a new location.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator==</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a9769e7f27fea1f1b437c6b4ae1517a7f</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator==</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a740503af22b77d69386a2a9ef5e647ef</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator!=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a7f37e70f24765041c8a77eb8cb0c0906</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator!=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ae0684b1ecf571d09ecbb44573f16e752</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&lt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a3fe23b8c2c82839d273f9c685873a188</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&gt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a463f060f5862bcdf7c5e7337c40d5335</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&lt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ae9c29f7de3d159afc471cbf407d205d4</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&gt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ad0368132a8d1738f99c67aef72c7a4fd</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>copyTo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ab8c363b25e6797b1376afa26c5687081</Anchor>
+    <Abstract>Creates a copy of this filesystem entry at a new location.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>copyTo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a5dd6965a59f27e87a2411f9ad7a5785b</Anchor>
+    <Abstract>Creates a copy of this filesystem entry at a new location.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>assignPath</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a8eb71ce03cdc6c9a6f6859cde8ec8f51</Anchor>
+    <Abstract>Assigns the path this filesystem entry represents.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator==</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a9769e7f27fea1f1b437c6b4ae1517a7f</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator==</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a740503af22b77d69386a2a9ef5e647ef</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator!=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a7f37e70f24765041c8a77eb8cb0c0906</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator!=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ae0684b1ecf571d09ecbb44573f16e752</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&lt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a3fe23b8c2c82839d273f9c685873a188</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&lt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ae9c29f7de3d159afc471cbf407d205d4</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&gt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a463f060f5862bcdf7c5e7337c40d5335</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&gt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ad0368132a8d1738f99c67aef72c7a4fd</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>copyTo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ab8c363b25e6797b1376afa26c5687081</Anchor>
+    <Abstract>Creates a copy of this filesystem entry at a new location.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>copyTo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a5dd6965a59f27e87a2411f9ad7a5785b</Anchor>
+    <Abstract>Creates a copy of this filesystem entry at a new location.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>overwrite</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>a99e21b761aac363f1641d37a954eee03</Anchor>
+    <Abstract>Replaces the file&apos;s contents with the given data.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>overwrite</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>a8e6a359a45514bcebc4c49ae06c3528b</Anchor>
+    <Abstract>Replaces the file&apos;s contents with the given data.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>overwrite</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>aa88d052b619925e53f1722487349724a</Anchor>
+    <Abstract>Replaces the file&apos;s contents with the given data.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>append</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>abafe9417760772ff67daa0f36541f467</Anchor>
+    <Abstract>Appends the given data to the file&apos;s current contents.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>append</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>ab540948b17653fb59ce4e0eb684f8968</Anchor>
+    <Abstract>Appends the given data to the file&apos;s current contents.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>append</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>a3a634c1fd085bc646e86b763b5837eaf</Anchor>
+    <Abstract>Appends the given data to the file&apos;s current contents.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>prepend</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>acdce777670b6cc7697d63d2b8ecb93f4</Anchor>
+    <Abstract>Prepends the given data to the file&apos;s current contents.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>prepend</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>abcfca3cd7424b8a0bdfe371742767d48</Anchor>
+    <Abstract>Prepends the given data to the file&apos;s current contents.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>prepend</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::File</Scope>
+    </TokenIdentifier>
+    <Path>df/d1e/classlimes_1_1files_1_1_file.html</Path>
+    <Anchor>aef7a1e45f76236a9971e2041eeae8d9f</Anchor>
+    <Abstract>Prepends the given data to the file&apos;s current contents.</Abstract>
+    <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>loadAsData</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -15673,6 +16727,138 @@
     <Anchor>a7cb6395e979d5eaac38fa38b509c8966</Anchor>
     <Abstract>Loads the file&apos;s contents as a vector of strings, with each string containing the contents of one lin...</Abstract>
     <DeclaredIn>file.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>assignPath</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a8eb71ce03cdc6c9a6f6859cde8ec8f51</Anchor>
+    <Abstract>Assigns the path this filesystem entry represents.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator==</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a9769e7f27fea1f1b437c6b4ae1517a7f</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator==</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a740503af22b77d69386a2a9ef5e647ef</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator!=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a7f37e70f24765041c8a77eb8cb0c0906</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator!=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ae0684b1ecf571d09ecbb44573f16e752</Anchor>
+    <Abstract>Compares this filesystem entry&apos;s absolute path with the other one&apos;s for equality.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&lt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a3fe23b8c2c82839d273f9c685873a188</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&lt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ae9c29f7de3d159afc471cbf407d205d4</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&gt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a463f060f5862bcdf7c5e7337c40d5335</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator&gt;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ad0368132a8d1738f99c67aef72c7a4fd</Anchor>
+    <Abstract>Lexicographically compares this filesystem entry&apos;s absolute path with another path.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>copyTo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>ab8c363b25e6797b1376afa26c5687081</Anchor>
+    <Abstract>Creates a copy of this filesystem entry at a new location.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>copyTo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::files::FilesystemEntry</Scope>
+    </TokenIdentifier>
+    <Path>df/d73/classlimes_1_1files_1_1_filesystem_entry.html</Path>
+    <Anchor>a5dd6965a59f27e87a2411f9ad7a5785b</Anchor>
+    <Abstract>Creates a copy of this filesystem entry at a new location.</Abstract>
+    <DeclaredIn>FilesystemEntry.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -16464,6 +17650,16 @@
     <Anchor>ae551da25af066484e6e77244e4160c76</Anchor>
     <Abstract>Updates the internal state of the hasher with new data.</Abstract>
     <DeclaredIn>sha512.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>limes::hash::util</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>limes::hash::util</Scope>
+    </TokenIdentifier>
+    <Path>da/d6d/namespacelimes_1_1hash_1_1util.html</Path>
+    <Abstract>This namespace contains implementation details for the hash functions.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -22958,87 +24154,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>limes::midi::MtsClient</Name>
-      <APILanguage>c</APILanguage>
-      <Type>cl</Type>
-      <Scope>limes::midi::MtsClient</Scope>
-    </TokenIdentifier>
-    <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>frequencyToMidi</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::midi::MtsClient</Scope>
-    </TokenIdentifier>
-    <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
-    <Anchor>ab7e87a3671b13dc8299021db4fa885be</Anchor>
-    <Abstract>Converts a given frequency in Hz to a MIDI note, using the master tuning table.</Abstract>
-    <DeclaredIn>mts_client.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getScaleName</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::midi::MtsClient</Scope>
-    </TokenIdentifier>
-    <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
-    <Anchor>ad105a827e04a91b801c833b3d7311087</Anchor>
-    <Abstract>Returns the scale name specified by the MTS-ESP session master.</Abstract>
-    <DeclaredIn>mts_client.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>isConnected</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::midi::MtsClient</Scope>
-    </TokenIdentifier>
-    <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
-    <Anchor>a59b2b0ca914c0d7e25d41b87fb0b7918</Anchor>
-    <Abstract>Returns true if this client is currently connected to an MTS-ESP session master.</Abstract>
-    <DeclaredIn>mts_client.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>midiToFrequency</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::midi::MtsClient</Scope>
-    </TokenIdentifier>
-    <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
-    <Anchor>a8b090d5a4b7c8b7f8ec3aceacb59942e</Anchor>
-    <Abstract>Converts a given MIDI note to a frequency in Hz, using the master tuning table.</Abstract>
-    <DeclaredIn>mts_client.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>retuneAmountInSemitones</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::midi::MtsClient</Scope>
-    </TokenIdentifier>
-    <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
-    <Anchor>acbcc7676ecf0b83b8e22f7dffbad34df</Anchor>
-    <Abstract>Returns the retune amount in semitones for a given MIDI pitch.</Abstract>
-    <DeclaredIn>mts_client.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>shouldFilterNote</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::midi::MtsClient</Scope>
-    </TokenIdentifier>
-    <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
-    <Anchor>ac70ed14f58efbb83ef0a011c51432df3</Anchor>
-    <Abstract>MTS-ESP supports &quot;filtering&quot; some notes out of tuning tables.</Abstract>
-    <DeclaredIn>mts_client.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>limes::midi::PitchbendMapper</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -23166,6 +24281,99 @@
     <Anchor>aea4754b9d7f6af517fb0fd9b8c3fd160</Anchor>
     <Abstract>Sets the sensitivity of incoming velocity messages.</Abstract>
     <DeclaredIn>VelocityMapper.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>limes::midi::tuning</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>limes::midi::tuning</Scope>
+    </TokenIdentifier>
+    <Path>d2/d1e/namespacelimes_1_1midi_1_1tuning.html</Path>
+    <Abstract>This namespace contains utilities for working with MIDI tuning systems.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>limes::midi::tuning::Client</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>limes::midi::tuning::Client</Scope>
+    </TokenIdentifier>
+    <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+    <Abstract>This class is a simple wrapper around the MTS-ESP MIDI tuning library.</Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>frequencyToMidi</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::midi::tuning::Client</Scope>
+    </TokenIdentifier>
+    <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+    <Anchor>a275256ff65b21b545531800329a8a0ec</Anchor>
+    <Abstract>Converts a given frequency in Hz to a MIDI note, using the master tuning table.</Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getScaleName</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::midi::tuning::Client</Scope>
+    </TokenIdentifier>
+    <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+    <Anchor>a61e2fca38259edc63796ef912255d8d7</Anchor>
+    <Abstract>Returns the scale name specified by the MTS-ESP session master.</Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>isConnected</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::midi::tuning::Client</Scope>
+    </TokenIdentifier>
+    <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+    <Anchor>ad1f0455830999a47f4fa3e925331713e</Anchor>
+    <Abstract>Returns true if this client is currently connected to an MTS-ESP session master.</Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>midiToFrequency</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::midi::tuning::Client</Scope>
+    </TokenIdentifier>
+    <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+    <Anchor>abb19d354eb0ff55df5cd5a8fa4299282</Anchor>
+    <Abstract>Converts a given MIDI note to a frequency in Hz, using the master tuning table.</Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>retuneAmountInSemitones</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::midi::tuning::Client</Scope>
+    </TokenIdentifier>
+    <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+    <Anchor>ad29870a5f57e704d54bf35b3b6efab1b</Anchor>
+    <Abstract>Returns the retune amount in semitones for a given MIDI pitch.</Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>shouldFilterNote</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::midi::tuning::Client</Scope>
+    </TokenIdentifier>
+    <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+    <Anchor>a9600c213c9a6c014f2b1c45b403367ef</Anchor>
+    <Abstract>MTS-ESP supports &quot;filtering&quot; some notes out of tuning tables.</Abstract>
+    <DeclaredIn>client.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -25067,7 +26275,7 @@
       <Scope>limes::music::Pitch</Scope>
     </TokenIdentifier>
     <Path>d6/d5f/classlimes_1_1music_1_1_pitch.html</Path>
-    <Abstract>This class represents a specific pitch, with a specific octave and enharmonic spelling.</Abstract>
+    <Abstract>This class represents a pitch class in a specific octave.</Abstract>
     <DeclaredIn>Pitch.h</DeclaredIn>
   </Token>
   <Token>
@@ -25115,7 +26323,7 @@
     </TokenIdentifier>
     <Path>d6/d5f/classlimes_1_1music_1_1_pitch.html</Path>
     <Anchor>a815b92e767b8001aac67b35fd5ef4bcb</Anchor>
-    <Abstract>Returns this pitch object&apos;s pitch class as an integer from 0 to 11, with 0 being C and 11 being B.</Abstract>
+    <Abstract>Returns this pitch object&apos;s pitch class.</Abstract>
     <DeclaredIn>Pitch.h</DeclaredIn>
   </Token>
   <Token>
@@ -26561,6 +27769,18 @@
     <Path>d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html</Path>
     <Anchor>a872bf59beb846c87c53f50873e504677</Anchor>
     <Abstract>Returns true if this octatonic scale starts with a half step.</Abstract>
+    <DeclaredIn>Octatonic.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>startsWithWholeStep</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::music::scales::Octatonic</Scope>
+    </TokenIdentifier>
+    <Path>d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html</Path>
+    <Anchor>a1486f49a83df85db4cb3b643a9e3691f</Anchor>
+    <Abstract>Returns true if this octatonic scale starts with a whole step.</Abstract>
     <DeclaredIn>Octatonic.h</DeclaredIn>
   </Token>
   <Token>
@@ -30078,6 +31298,16 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>limes::vecops::pommier</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>limes::vecops::pommier</Scope>
+    </TokenIdentifier>
+    <Path>db/df7/namespacelimes_1_1vecops_1_1pommier.html</Path>
+    <Abstract>This namespace contains the Pommier SIMD extension function wrappers, which call the NEON or SSE impl...</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>limes::vecops::window</Name>
       <APILanguage>c</APILanguage>
       <Type>ns</Type>
@@ -30121,6 +31351,16 @@
     <Anchor>gaa2e3dc8415ebcfbc3b0521e1dd4de509</Anchor>
     <Abstract>Applies a window function of the desired type to the samples in the vector, writing the output sample...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>pommier</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>pommier</Scope>
+    </TokenIdentifier>
+    <Path>dc/d2b/namespacepommier.html</Path>
+    <Abstract>This namespace contains the implementations of the Pommier SIMD extension functions.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>

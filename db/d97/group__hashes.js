@@ -9,6 +9,8 @@ var group__hashes =
     [ "sha256.h", "d5/de3/sha256_8h.html", null ],
     [ "sha384.h", "d5/de0/sha384_8h.html", null ],
     [ "sha512.h", "da/d73/sha512_8h.html", null ],
+    [ "hash", "d4/d1f/namespacelimes_1_1hash.html", null ],
+    [ "util", "da/d6d/namespacelimes_1_1hash_1_1util.html", null ],
     [ "Type", "db/d97/group__hashes.html#ga7290f29c6f9b58018db0de3e25e0475d", null ],
     [ "createHasherForType", "db/d97/group__hashes.html#gac8deecc8bd4e0cce2c9e132da00acb29", null ],
     [ "hash", "db/d97/group__hashes.html#gaa9d33df5883f11ad921575c87c9044a6", null ],

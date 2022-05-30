@@ -142,7 +142,7 @@ Public Member Functions</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>copyFrom</b> (const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;source, CopyOptions options=CopyOptions::update_existing) const noexcept</td></tr>
 <tr class="separator:aa8da006f6f8d3631a9eb973bf5463b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc1630a2ca11608817afc45b7259a192"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#afc1630a2ca11608817afc45b7259a192">copyFrom</a> (const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;source, CopyOptions options=CopyOptions::update_existing) const noexcept</td></tr>
-<tr class="memdesc:afc1630a2ca11608817afc45b7259a192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwriting Overwrites this filesystem entry by copying from another location.  <a href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#afc1630a2ca11608817afc45b7259a192">More...</a><br /></td></tr>
+<tr class="memdesc:afc1630a2ca11608817afc45b7259a192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwriting.  <a href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#afc1630a2ca11608817afc45b7259a192">More...</a><br /></td></tr>
 <tr class="separator:afc1630a2ca11608817afc45b7259a192"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e0e0d1f66621a1d3d02dcd435c710d3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a2e0e0d1f66621a1d3d02dcd435c710d3">copyToDirectory</a> (const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;destDirectory, CopyOptions options=CopyOptions::update_existing) const noexcept</td></tr>
 <tr class="memdesc:a2e0e0d1f66621a1d3d02dcd435c710d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a copy of this filesystem object, with the same filename, in a different directory.  <a href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a2e0e0d1f66621a1d3d02dcd435c710d3">More...</a><br /></td></tr>
@@ -271,14 +271,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>copyFrom</b> (const <
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Symbolic link creation</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>Creates a symbolic link on the filesystem.</p>
-<p>Returns true if link creation was successful. </p>
-</div></td></tr>
-<tr class="memitem:ab2b53effba988e24a7e7ea4a713b220d"><td class="memItemLeft" align="right" valign="top"><a id="ab2b53effba988e24a7e7ea4a713b220d"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;linkPath, const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;target) noexcept</td></tr>
+<tr class="memitem:ab2b53effba988e24a7e7ea4a713b220d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/db4/classlimes_1_1files_1_1_sym_link.html#ab2b53effba988e24a7e7ea4a713b220d">create</a> (const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;linkPath, const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;target) noexcept</td></tr>
+<tr class="memdesc:ab2b53effba988e24a7e7ea4a713b220d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a symbolic link on the filesystem.  <a href="../../d8/db4/classlimes_1_1files_1_1_sym_link.html#ab2b53effba988e24a7e7ea4a713b220d">More...</a><br /></td></tr>
 <tr class="separator:ab2b53effba988e24a7e7ea4a713b220d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3ec6430d0f16c0500c676039d7d94d4"><td class="memItemLeft" align="right" valign="top"><a id="aa3ec6430d0f16c0500c676039d7d94d4"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;linkPath, const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;target) noexcept</td></tr>
+<tr class="memitem:aa3ec6430d0f16c0500c676039d7d94d4"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/db4/classlimes_1_1files_1_1_sym_link.html#aa3ec6430d0f16c0500c676039d7d94d4">create</a> (const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;linkPath, const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;target) noexcept</td></tr>
+<tr class="memdesc:aa3ec6430d0f16c0500c676039d7d94d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a symbolic link on the filesystem.  <a href="../../d8/db4/classlimes_1_1files_1_1_sym_link.html#aa3ec6430d0f16c0500c676039d7d94d4">More...</a><br /></td></tr>
 <tr class="separator:aa3ec6430d0f16c0500c676039d7d94d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -381,6 +378,34 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (co
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8eb71ce03cdc6c9a6f6859cde8ec8f51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eb71ce03cdc6c9a6f6859cde8ec8f51">&#9670;&nbsp;</a></span>assignPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a>&amp; limes::files::FilesystemEntry::assignPath </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>newPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assigns the path this filesystem entry represents. </p>
+
+</div>
+</div>
 <a id="a813c5e74f5f7748392abf59e450b032f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a813c5e74f5f7748392abf59e450b032f">&#9670;&nbsp;</a></span>changeName()</h2>
 
@@ -443,8 +468,86 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (co
 </table>
 </div><div class="memdoc">
 
-<p>Overwriting Overwrites this filesystem entry by copying from another location. </p>
-<p>Returns true if copying was successful. </p>
+<p>Overwriting. </p>
+<p>Overwrites this filesystem entry by copying from another location. </p><dl class="section return"><dt>Returns</dt><dd>True if copying was successful. </dd></dl>
+
+</div>
+</div>
+<a id="a5dd6965a59f27e87a2411f9ad7a5785b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dd6965a59f27e87a2411f9ad7a5785b">&#9670;&nbsp;</a></span>copyTo() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::copyTo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CopyOptions&#160;</td>
+          <td class="paramname"><em>options</em> = <code>CopyOptions::update_existing</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a copy of this filesystem entry at a new location. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if copying was successful </dd></dl>
+
+</div>
+</div>
+<a id="ab8c363b25e6797b1376afa26c5687081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8c363b25e6797b1376afa26c5687081">&#9670;&nbsp;</a></span>copyTo() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::copyTo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CopyOptions&#160;</td>
+          <td class="paramname"><em>options</em> = <code>CopyOptions::update_existing</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a copy of this filesystem entry at a new location. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if copying was successful </dd></dl>
 
 </div>
 </div>
@@ -484,6 +587,84 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (co
 
 <p>Creates a copy of this filesystem object, with the same filename, in a different directory. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if copying was successful. </dd></dl>
+
+</div>
+</div>
+<a id="ab2b53effba988e24a7e7ea4a713b220d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2b53effba988e24a7e7ea4a713b220d">&#9670;&nbsp;</a></span>create() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool limes::files::SymLink::create </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>linkPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a symbolic link on the filesystem. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if link creation was successful </dd></dl>
+
+</div>
+</div>
+<a id="aa3ec6430d0f16c0500c676039d7d94d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3ec6430d0f16c0500c676039d7d94d4">&#9670;&nbsp;</a></span>create() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool limes::files::SymLink::create </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>linkPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a symbolic link on the filesystem. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if link creation was successful </dd></dl>
 
 </div>
 </div>
@@ -1267,6 +1448,62 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (co
 
 </div>
 </div>
+<a id="a7f37e70f24765041c8a77eb8cb0c0906"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f37e70f24765041c8a77eb8cb0c0906">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares this filesystem entry's absolute path with the other one's for equality. </p>
+
+</div>
+</div>
+<a id="ae0684b1ecf571d09ecbb44573f16e752"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0684b1ecf571d09ecbb44573f16e752">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares this filesystem entry's absolute path with the other one's for equality. </p>
+
+</div>
+</div>
 <a id="a6d38b6b295518d14632f03457276e9a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d38b6b295518d14632f03457276e9a5">&#9670;&nbsp;</a></span>operator/()</h2>
 
@@ -1323,6 +1560,62 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (co
 
 </div>
 </div>
+<a id="a3fe23b8c2c82839d273f9c685873a188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe23b8c2c82839d273f9c685873a188">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lexicographically compares this filesystem entry's absolute path with another path. </p>
+
+</div>
+</div>
+<a id="ae9c29f7de3d159afc471cbf407d205d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c29f7de3d159afc471cbf407d205d4">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lexicographically compares this filesystem entry's absolute path with another path. </p>
+
+</div>
+</div>
 <a id="a5354c2a21f6f44b533048ead160f8909"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5354c2a21f6f44b533048ead160f8909">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
@@ -1376,6 +1669,118 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (co
 </div><div class="memdoc">
 
 <p>SymLink is default movable. </p>
+
+</div>
+</div>
+<a id="a9769e7f27fea1f1b437c6b4ae1517a7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9769e7f27fea1f1b437c6b4ae1517a7f">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares this filesystem entry's absolute path with the other one's for equality. </p>
+
+</div>
+</div>
+<a id="a740503af22b77d69386a2a9ef5e647ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740503af22b77d69386a2a9ef5e647ef">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares this filesystem entry's absolute path with the other one's for equality. </p>
+
+</div>
+</div>
+<a id="a463f060f5862bcdf7c5e7337c40d5335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a463f060f5862bcdf7c5e7337c40d5335">&#9670;&nbsp;</a></span>operator&gt;() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d73/classlimes_1_1files_1_1_filesystem_entry.html">FilesystemEntry</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lexicographically compares this filesystem entry's absolute path with another path. </p>
+
+</div>
+</div>
+<a id="ad0368132a8d1738f99c67aef72c7a4fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0368132a8d1738f99c67aef72c7a4fd">&#9670;&nbsp;</a></span>operator&gt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool limes::files::FilesystemEntry::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d2f/namespacelimes_1_1files.html#a9b369c605632b7d321ac920bd06b57bc">Path</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lexicographically compares this filesystem entry's absolute path with another path. </p>
 
 </div>
 </div>
@@ -1611,8 +2016,8 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (co
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>limes</b></li><li class="navelem"><a class="el" href="../../d4/d2f/namespacelimes_1_1files.html">files</a></li><li class="navelem"><a class="el" href="../../d8/db4/classlimes_1_1files_1_1_sym_link.html">SymLink</a></li>
-    <li class="footer">Generated on Mon May 30 2022 10:15:21 for Limes by
+    <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d2f/namespacelimes_1_1files.html">files</a></li><li class="navelem"><a class="el" href="../../d8/db4/classlimes_1_1files_1_1_sym_link.html">SymLink</a></li>
+    <li class="footer">Generated on Mon May 30 2022 14:39:44 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

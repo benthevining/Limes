@@ -118,62 +118,62 @@ $(document).ready(function(){initNavTree('d3/d33/ipp__fft_8h_source.html','../..
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">template</span> &lt;Scalar SampleType&gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span>LIMES_NO_EXPORT IPP_FFT final : <span class="keyword">public</span> FFTImpl&lt;SampleType&gt;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">explicit</span> IPP_FFT (<span class="keywordtype">int</span> <a class="code" href="../../dc/dcc/namespacelimes_1_1alg.html#ac8914ffa7e73015a22777b8e8d0b7581">size</a>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    ~IPP_FFT() final;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;Scalar SampleType&gt;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">class </span>LIMES_NO_EXPORT IPP_FFT final : <span class="keyword">public</span> FFTImpl&lt;SampleType&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (IPP_FFT);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a> (IPP_FFT);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;private:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) final;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">explicit</span> IPP_FFT (<span class="keywordtype">int</span> <a class="code" href="../../dc/dcc/namespacelimes_1_1alg.html#ac8914ffa7e73015a22777b8e8d0b7581">size</a>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    ~IPP_FFT() final;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (IPP_FFT);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a> (IPP_FFT);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> forwardInterleaved (const SampleType* realIn, SampleType* complexOut) final;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;private:</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) final;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) final;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> forwardMagnitude (const SampleType* realIn, SampleType* magOut) final;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> forwardInterleaved (const SampleType* realIn, SampleType* complexOut) final;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) final;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) final;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> inverseInterleaved (const SampleType* complexIn, SampleType* realOut) final;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> forwardMagnitude (const SampleType* realIn, SampleType* magOut) final;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) final;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) final;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> inverseCepstral (const SampleType* magIn, SampleType* cepOut) final;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> inverseInterleaved (const SampleType* complexIn, SampleType* realOut) final;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> <span class="keywordtype">void</span> ipp_pack (const SampleType* re, const SampleType* im);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) final;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> <span class="keywordtype">void</span> ipp_unpack (SampleType* const re, SampleType* const im) const;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> inverseCepstral (const SampleType* magIn, SampleType* cepOut) final;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    using FFTSpecType = std::conditional_t&lt;std::is_same_v&lt;SampleType, <span class="keywordtype">float</span>&gt;,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                           IppsFFTSpec_R_32f,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                           IppsFFTSpec_R_64f&gt;;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> <span class="keywordtype">void</span> ipp_pack (const SampleType* re, const SampleType* im);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> <span class="keywordtype">void</span> ipp_unpack (SampleType* const re, SampleType* const im) const;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    FFTSpecType* m_spec;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    Ipp8u*       m_specbuf;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    Ipp8u*       m_buf;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    SampleType*  m_packed;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    SampleType*  m_spare;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}  <span class="comment">// namespace vecops</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    using FFTSpecType = std::conditional_t&lt;std::is_same_v&lt;SampleType, <span class="keywordtype">float</span>&gt;,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                           IppsFFTSpec_R_32f,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                           IppsFFTSpec_R_64f&gt;;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    FFTSpecType* m_spec;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    Ipp8u*       m_specbuf;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    Ipp8u*       m_buf;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    SampleType*  m_packed;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    SampleType*  m_spare;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}  <span class="comment">// namespace vecops</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__system_html_gaa19294b73467ee63a3601fe2ff636b8c"><div class="ttname"><a href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a></div><div class="ttdeci">#define LIMES_NON_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00122">preprocessor.h:122</a></div></div>
 <div class="ttc" id="agroup__system_html_ga16865b999504e0621f83caecfec93bcc"><div class="ttname"><a href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a></div><div class="ttdeci">#define LIMES_FORCE_INLINE</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d00/compiler__defs_8h_source.html#l00038">compiler_defs.h:38</a></div></div>
-<div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00039">limes_namespace.h:39</a></div></div>
+<div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00052">limes_namespace.h:52</a></div></div>
 <div class="ttc" id="agroup__system_html_gaa204cf467eb45621b139f7fbf6b0f503"><div class="ttname"><a href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a></div><div class="ttdeci">#define LIMES_DEFAULT_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00175">preprocessor.h:175</a></div></div>
-<div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00027">limes_namespace.h:27</a></div></div>
+<div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00040">limes_namespace.h:40</a></div></div>
 <div class="ttc" id="anamespacelimes_1_1alg_html_ac8914ffa7e73015a22777b8e8d0b7581"><div class="ttname"><a href="../../dc/dcc/namespacelimes_1_1alg.html#ac8914ffa7e73015a22777b8e8d0b7581">limes::alg::size</a></div><div class="ttdeci">constexpr LIMES_EXPORT int size(const ContainerType &amp;container)</div><div class="ttdoc">Counts the number of objects in the container.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dda/_algorithm_8h_source.html#l00181">Algorithm.h:181</a></div></div>
 <div class="ttc" id="afft__common_8h_html"><div class="ttname"><a href="../../d6/db4/fft__common_8h.html">fft_common.h</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
@@ -181,7 +181,7 @@ $(document).ready(function(){initNavTree('d3/d33/ipp__fft_8h_source.html','../..
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_fd627f24d7bb4f56aee54e980d5bfd70.html">limes_vecops</a></li><li class="navelem"><a class="el" href="../../dir_ac9e7747da43d8e5dd5305cf45a38b52.html">fft</a></li><li class="navelem"><a class="el" href="../../d3/d33/ipp__fft_8h.html">ipp_fft.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 10:15:21 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 14:39:43 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

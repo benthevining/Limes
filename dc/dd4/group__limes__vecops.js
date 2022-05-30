@@ -8,6 +8,7 @@ var group__limes__vecops =
     [ "Floating point mode functions", "d1/d09/group__vec__fpm.html", "d1/d09/group__vec__fpm" ],
     [ "Implementation kind checking", "db/db4/group__vec__impl.html", "db/db4/group__vec__impl" ],
     [ "Logarithmic functions", "df/dc9/group__vec__log.html", "df/dc9/group__vec__log" ],
+    [ "Pommier SIMD extension functions", "d5/d50/group__vec__pommier.html", "d5/d50/group__vec__pommier" ],
     [ "Sorting functions", "d0/d58/group__vec__sorting.html", "d0/d58/group__vec__sorting" ],
     [ "Squaring functions", "d2/d25/group__vec__squaring.html", "d2/d25/group__vec__squaring" ],
     [ "Statistical functions", "d0/d70/group__vec__stats.html", "d0/d70/group__vec__stats" ],

@@ -28,5 +28,6 @@ var searchData=
   ['bumpmajor_81',['bumpMajor',['../d2/dfb/structlimes_1_1misc_1_1_version.html#a0771c7978fd00044dae7c8b9e649619d',1,'limes::misc::Version']]],
   ['bumpminor_82',['bumpMinor',['../d2/dfb/structlimes_1_1misc_1_1_version.html#ae0d8ee8f0c4b15219cbbcefab6531a64',1,'limes::misc::Version']]],
   ['bumppatch_83',['bumpPatch',['../d2/dfb/structlimes_1_1misc_1_1_version.html#ac77266d702e4abd723108eb59dec8f9f',1,'limes::misc::Version']]],
-  ['blackman_20windowing_84',['Blackman windowing',['../d4/d9f/group__vec__blackman.html',1,'']]]
+  ['bibliography_84',['Bibliography',['../d0/de3/citelist.html',1,'']]],
+  ['blackman_20windowing_85',['Blackman windowing',['../d4/d9f/group__vec__blackman.html',1,'']]]
 ];

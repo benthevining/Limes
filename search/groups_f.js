@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['text_2353',['Text',['../d4/d61/group__text.html',1,'']]],
-  ['threading_2354',['Threading',['../d2/db9/group__threads.html',1,'']]],
-  ['time_2355',['Time',['../d9/d7d/group__time.html',1,'']]],
-  ['tangent_20functions_2356',['Tangent functions',['../db/d0d/group__vec__tan.html',1,'']]],
-  ['trigonometric_20functions_2357',['Trigonometric functions',['../d4/de3/group__vec__trig.html',1,'']]]
+  ['scales_2397',['Scales',['../dc/dab/group__music__scales.html',1,'']]],
+  ['system_2398',['System',['../d4/d37/group__system.html',1,'']]],
+  ['sine_20functions_2399',['Sine functions',['../d9/d09/group__vec__sin.html',1,'']]],
+  ['sorting_20functions_2400',['Sorting functions',['../d0/d58/group__vec__sorting.html',1,'']]],
+  ['squaring_20functions_2401',['Squaring functions',['../d2/d25/group__vec__squaring.html',1,'']]],
+  ['statistical_20functions_2402',['Statistical functions',['../d0/d70/group__vec__stats.html',1,'']]],
+  ['subtraction_2403',['Subtraction',['../db/d1b/group__vec__subtraction.html',1,'']]]
 ];

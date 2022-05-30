@@ -20,5 +20,6 @@ var classlimes_1_1music_1_1scales_1_1_octatonic =
     [ "operator!=", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a6a3f61c64ae5f1e1f8cacd49a2c8584a", null ],
     [ "operator==", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#ad556101fa5ab232c0eaebca628060c0e", null ],
     [ "operator==", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a7e41dab3eee3479e41c975da6a9b8668", null ],
-    [ "startsWithHalfStep", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a872bf59beb846c87c53f50873e504677", null ]
+    [ "startsWithHalfStep", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a872bf59beb846c87c53f50873e504677", null ],
+    [ "startsWithWholeStep", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a1486f49a83df85db4cb3b643a9e3691f", null ]
 ];

@@ -38,6 +38,10 @@
         <Path>d4/df6/test.html</Path>
        </Node>
        <Node>
+        <Name>Bibliography</Name>
+        <Path>d0/de3/citelist.html</Path>
+       </Node>
+       <Node>
         <Name>Modules</Name>
         <Path>modules.html</Path>
         <Subnodes>
@@ -45,6 +49,142 @@
           <Name>Limes</Name>
           <Path>d1/dbd/group__limes.html</Path>
           <Subnodes>
+           <Node>
+            <Name>limes_audio</Name>
+            <Path>d0/d7b/group__limes__audio.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>PSOLA</Name>
+              <Path>d2/d79/group__psola.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>PitchDetector.h</Name>
+                <Path>dc/ddf/_pitch_detector_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>dsp</Name>
+                <Path>d4/d00/namespacelimes_1_1dsp.html</Path>
+               </Node>
+               <Node>
+                <Name>psola</Name>
+                <Path>d6/d4e/namespacelimes_1_1dsp_1_1psola.html</Path>
+               </Node>
+               <Node>
+                <Name>PitchDetector</Name>
+                <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>SampleVector</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>a1febe22aa26291b78b1959fd9cbb08e7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>PitchDetector</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>a2c6f9aea5333c7a1a221305cffe27955</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>detectPeriod</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>a54a15802151ce0f746cc673fa5fe73c4</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>detectPeriod</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>a20d6a0ff25bba66d1afffe3d78b06688</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>detectPitch</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>ae1abb0f7245ddd7fac6d61b514c4afab</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>detectPitch</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>a9020b73668801b0d1a7eab148442095d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getCurrentLegalPeriodRange</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>ac6d6a32c0d29c4728c0cf422132e58a2</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getLatencySamples</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>a4cf882fe60d48ddd3beaf278db212ef7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getMinHz</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>a9107221fa4c44e8c75374ddc89ceb222</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>LIMES_DEFAULT_COPYABLE</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>abe943fba1a43addc2315f070c2dc7560</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>LIMES_DEFAULT_MOVABLE</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>a15576f97d4d4cd944866f20ebc1b9f25</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>releaseResources</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>a3c566764e1431c5bda0002634366b9f9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>reset</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>a5a61964bfda0a3ede52d6f74d63c09be</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setConfidenceThresh</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>a590978d795d1c10924e5f9f4b90f01ab</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setMinHz</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>ae80853bc6dc61a8e568b677a0e352be1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setSamplerate</Name>
+                  <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
+                  <Anchor>a8cad6007fd0a2c642b4aa47af41c5e26</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>limes_audio</Name>
+              <Path>dir_a9e7e74a9fa95c9d0d5d9012ba9e5673.html</Path>
+             </Node>
+             <Node>
+              <Name>util</Name>
+              <Path>dir_8b092633fdcca3f15d4a308be51fefa9.html</Path>
+             </Node>
+             <Node>
+              <Name>limes_audio.h</Name>
+              <Path>d6/d15/limes__audio_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>limes_audio/util/Misc.h</Name>
+              <Path>d1/df0/limes__audio_2util_2_misc_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>inverseRootTwo</Name>
+              <Path>d0/d7b/group__limes__audio.html</Path>
+              <Anchor>ga381c062c894875fa7da629056ea4d9d2</Anchor>
+             </Node>
+             <Node>
+              <Name>Sample</Name>
+              <Path>d0/d7b/group__limes__audio.html</Path>
+              <Anchor>ga0f08d1dca089a2e844bd4e709588b58f</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
            <Node>
             <Name>limes_core</Name>
             <Path>da/d07/group__limes__core.html</Path>
@@ -224,6 +364,14 @@
                <Node>
                 <Name>sha512.h</Name>
                 <Path>da/d73/sha512_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>hash</Name>
+                <Path>d4/d1f/namespacelimes_1_1hash.html</Path>
+               </Node>
+               <Node>
+                <Name>util</Name>
+                <Path>da/d6d/namespacelimes_1_1hash_1_1util.html</Path>
                </Node>
                <Node>
                 <Name>Type</Name>
@@ -1252,6 +1400,68 @@
             <Path>d1/d3f/group__limes__midi.html</Path>
             <Subnodes>
              <Node>
+              <Name>Tuning</Name>
+              <Path>d3/d6d/group__midi__tuning.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>tuning</Name>
+                <Path>dir_9d83ce007a596d4add4c0335373e2f66.html</Path>
+               </Node>
+               <Node>
+                <Name>client.h</Name>
+                <Path>d8/de1/client_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>master.h</Name>
+                <Path>d9/df3/master_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>midi</Name>
+                <Path>d2/d5a/namespacelimes_1_1midi.html</Path>
+               </Node>
+               <Node>
+                <Name>tuning</Name>
+                <Path>d2/d1e/namespacelimes_1_1midi_1_1tuning.html</Path>
+               </Node>
+               <Node>
+                <Name>Client</Name>
+                <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>frequencyToMidi</Name>
+                  <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                  <Anchor>a275256ff65b21b545531800329a8a0ec</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getScaleName</Name>
+                  <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                  <Anchor>a61e2fca38259edc63796ef912255d8d7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>isConnected</Name>
+                  <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                  <Anchor>ad1f0455830999a47f4fa3e925331713e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>midiToFrequency</Name>
+                  <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                  <Anchor>abb19d354eb0ff55df5cd5a8fa4299282</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>retuneAmountInSemitones</Name>
+                  <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                  <Anchor>ad29870a5f57e704d54bf35b3b6efab1b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>shouldFilterNote</Name>
+                  <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                  <Anchor>a9600c213c9a6c014f2b1c45b403367ef</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>limes_midi</Name>
               <Path>dir_5f5305c68938315ab1f51bf51a211c1d.html</Path>
              </Node>
@@ -1800,6 +2010,52 @@
               <Path>dc/db6/group__fft.html</Path>
               <Subnodes>
                <Node>
+                <Name>FFTW</Name>
+                <Path>d2/d6a/group__fftw.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>FFTW_DOUBLE_ONLY</Name>
+                  <Path>d2/d6a/group__fftw.html</Path>
+                  <Anchor>ga09e13e7bc904f98333229f65792654dc</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>FFTW_HEADER_NAME</Name>
+                  <Path>d2/d6a/group__fftw.html</Path>
+                  <Anchor>gaf0f842cd586876ba9d1b4872b1bb4f08</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>FFTW_SINGLE_ONLY</Name>
+                  <Path>d2/d6a/group__fftw.html</Path>
+                  <Anchor>gafc2bf4398dc8eb9ce229e5548eb4d17a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>LIMES_VECOPS_USE_FFTW</Name>
+                  <Path>d2/d6a/group__fftw.html</Path>
+                  <Anchor>ga25d4ef2f45323ffac2004347580d93a3</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>enableWisdom</Name>
+                  <Path>d2/d6a/group__fftw.html</Path>
+                  <Anchor>ga939bfce415205091c7808f0cc4d71dea</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getWisdomFileDir</Name>
+                  <Path>d2/d6a/group__fftw.html</Path>
+                  <Anchor>gaff20964c03f09d6a0c5f2c2c879da8da</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>isUsingWisdom</Name>
+                  <Path>d2/d6a/group__fftw.html</Path>
+                  <Anchor>ga8748afcaad7c030c938654966ff70a92</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setWisdomFileDir</Name>
+                  <Path>d2/d6a/group__fftw.html</Path>
+                  <Anchor>ga2125ae4827739fa347af1abad300134a</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
                 <Name>fft</Name>
                 <Path>dir_ac9e7747da43d8e5dd5305cf45a38b52.html</Path>
                </Node>
@@ -1828,29 +2084,9 @@
                 <Path>d8/da3/vdsp__fft_8h.html</Path>
                </Node>
                <Node>
-                <Name>FFTW_HEADER_NAME</Name>
-                <Path>dc/db6/group__fft.html</Path>
-                <Anchor>gaf0f842cd586876ba9d1b4872b1bb4f08</Anchor>
-               </Node>
-               <Node>
-                <Name>LIMES_VECOPS_USE_FFTW</Name>
-                <Path>dc/db6/group__fft.html</Path>
-                <Anchor>ga25d4ef2f45323ffac2004347580d93a3</Anchor>
-               </Node>
-               <Node>
-                <Name>enableWisdom</Name>
-                <Path>dc/db6/group__fft.html</Path>
-                <Anchor>ga939bfce415205091c7808f0cc4d71dea</Anchor>
-               </Node>
-               <Node>
                 <Name>getImplementationName</Name>
                 <Path>dc/db6/group__fft.html</Path>
                 <Anchor>ga81a24c44587354cba913179bea459d2e</Anchor>
-               </Node>
-               <Node>
-                <Name>getWisdomFileDir</Name>
-                <Path>dc/db6/group__fft.html</Path>
-                <Anchor>gaff20964c03f09d6a0c5f2c2c879da8da</Anchor>
                </Node>
                <Node>
                 <Name>isUsingFallback</Name>
@@ -1871,16 +2107,6 @@
                 <Name>isUsingVDSP</Name>
                 <Path>dc/db6/group__fft.html</Path>
                 <Anchor>ga78554bf05742bbff654330926a1d261e</Anchor>
-               </Node>
-               <Node>
-                <Name>isUsingWisdom</Name>
-                <Path>dc/db6/group__fft.html</Path>
-                <Anchor>ga8748afcaad7c030c938654966ff70a92</Anchor>
-               </Node>
-               <Node>
-                <Name>setWisdomFileDir</Name>
-                <Path>dc/db6/group__fft.html</Path>
-                <Anchor>ga2125ae4827739fa347af1abad300134a</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1991,6 +2217,36 @@
                 <Name>natAndCopy</Name>
                 <Path>df/dc9/group__vec__log.html</Path>
                 <Anchor>gaa7c9ad70b2c40172fa0ee1c5a894674b</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>Pommier SIMD extension functions</Name>
+              <Path>d5/d50/group__vec__pommier.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>pommier</Name>
+                <Path>dir_91ee4a264e77f4d2d806daeee7e52487.html</Path>
+               </Node>
+               <Node>
+                <Name>neon_mathfun.h</Name>
+                <Path>d8/d51/neon__mathfun_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>pommier_wrapper.h</Name>
+                <Path>d4/dda/pommier__wrapper_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>sse_mathfun.h</Name>
+                <Path>d1/dda/sse__mathfun_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>vecops</Name>
+                <Path>d4/dea/namespacelimes_1_1vecops.html</Path>
+               </Node>
+               <Node>
+                <Name>pommier</Name>
+                <Path>db/df7/namespacelimes_1_1vecops_1_1pommier.html</Path>
                </Node>
               </Subnodes>
              </Node>
@@ -2513,17 +2769,9 @@
             <Name>limes.h</Name>
             <Path>d2/d8d/limes_8h.html</Path>
            </Node>
-          </Subnodes>
-         </Node>
-         <Node>
-          <Name>lemons_psola</Name>
-          <Path>d6/d74/group__lemons__psola.html</Path>
-          <Subnodes>
            <Node>
-            <Name>Analysis</Name>
-            <Path>df/d40/group__lemons__psola__analysis.html</Path>
-            <Subnodes>
-            </Subnodes>
+            <Name>limes</Name>
+            <Path>d9/d44/namespacelimes.html</Path>
            </Node>
           </Subnodes>
          </Node>
@@ -2539,7 +2787,7 @@
           <Subnodes>
            <Node>
             <Name>limes</Name>
-            <Path></Path>
+            <Path>d9/d44/namespacelimes.html</Path>
             <Subnodes>
              <Node>
               <Name>alg</Name>
@@ -2562,6 +2810,16 @@
               <Path>d7/d23/namespacelimes_1_1ds.html</Path>
              </Node>
              <Node>
+              <Name>dsp</Name>
+              <Path>d4/d00/namespacelimes_1_1dsp.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>psola</Name>
+                <Path>d6/d4e/namespacelimes_1_1dsp_1_1psola.html</Path>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>files</Name>
               <Path>d4/d2f/namespacelimes_1_1files.html</Path>
              </Node>
@@ -2572,6 +2830,12 @@
              <Node>
               <Name>hash</Name>
               <Path>d4/d1f/namespacelimes_1_1hash.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>util</Name>
+                <Path>da/d6d/namespacelimes_1_1hash_1_1util.html</Path>
+               </Node>
+              </Subnodes>
              </Node>
              <Node>
               <Name>json</Name>
@@ -2606,6 +2870,12 @@
              <Node>
               <Name>midi</Name>
               <Path>d2/d5a/namespacelimes_1_1midi.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>tuning</Name>
+                <Path>d2/d1e/namespacelimes_1_1midi_1_1tuning.html</Path>
+               </Node>
+              </Subnodes>
              </Node>
              <Node>
               <Name>misc</Name>
@@ -2688,12 +2958,20 @@
                 <Path>db/de8/namespacelimes_1_1vecops_1_1log.html</Path>
                </Node>
                <Node>
+                <Name>pommier</Name>
+                <Path>db/df7/namespacelimes_1_1vecops_1_1pommier.html</Path>
+               </Node>
+               <Node>
                 <Name>window</Name>
                 <Path>dc/dbd/namespacelimes_1_1vecops_1_1window.html</Path>
                </Node>
               </Subnodes>
              </Node>
             </Subnodes>
+           </Node>
+           <Node>
+            <Name>pommier</Name>
+            <Path>dc/d2b/namespacepommier.html</Path>
            </Node>
           </Subnodes>
          </Node>
@@ -2899,7 +3177,7 @@
           <Subnodes>
            <Node>
             <Name>limes</Name>
-            <Path></Path>
+            <Path>d9/d44/namespacelimes.html</Path>
             <Subnodes>
              <Node>
               <Name>binaries</Name>
@@ -4509,7 +4787,7 @@
              </Node>
              <Node>
               <Name>dsp</Name>
-              <Path></Path>
+              <Path>d4/d00/namespacelimes_1_1dsp.html</Path>
               <Subnodes>
                <Node>
                 <Name>filters</Name>
@@ -4998,7 +5276,7 @@
                </Node>
                <Node>
                 <Name>psola</Name>
-                <Path></Path>
+                <Path>d6/d4e/namespacelimes_1_1dsp_1_1psola.html</Path>
                 <Subnodes>
                  <Node>
                   <Name>Analyzer</Name>
@@ -11444,38 +11722,49 @@
               <Path>d2/d5a/namespacelimes_1_1midi.html</Path>
               <Subnodes>
                <Node>
-                <Name>MtsClient</Name>
-                <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
+                <Name>tuning</Name>
+                <Path>d2/d1e/namespacelimes_1_1midi_1_1tuning.html</Path>
                 <Subnodes>
                  <Node>
-                  <Name>frequencyToMidi</Name>
-                  <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
-                  <Anchor>ab7e87a3671b13dc8299021db4fa885be</Anchor>
+                  <Name>Client</Name>
+                  <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                  <Subnodes>
+                   <Node>
+                    <Name>frequencyToMidi</Name>
+                    <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                    <Anchor>a275256ff65b21b545531800329a8a0ec</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getScaleName</Name>
+                    <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                    <Anchor>a61e2fca38259edc63796ef912255d8d7</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>isConnected</Name>
+                    <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                    <Anchor>ad1f0455830999a47f4fa3e925331713e</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>midiToFrequency</Name>
+                    <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                    <Anchor>abb19d354eb0ff55df5cd5a8fa4299282</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>retuneAmountInSemitones</Name>
+                    <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                    <Anchor>ad29870a5f57e704d54bf35b3b6efab1b</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>shouldFilterNote</Name>
+                    <Path>d5/dba/classlimes_1_1midi_1_1tuning_1_1_client.html</Path>
+                    <Anchor>a9600c213c9a6c014f2b1c45b403367ef</Anchor>
+                   </Node>
+                  </Subnodes>
                  </Node>
                  <Node>
-                  <Name>getScaleName</Name>
-                  <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
-                  <Anchor>ad105a827e04a91b801c833b3d7311087</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>isConnected</Name>
-                  <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
-                  <Anchor>a59b2b0ca914c0d7e25d41b87fb0b7918</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>midiToFrequency</Name>
-                  <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
-                  <Anchor>a8b090d5a4b7c8b7f8ec3aceacb59942e</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>retuneAmountInSemitones</Name>
-                  <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
-                  <Anchor>acbcc7676ecf0b83b8e22f7dffbad34df</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>shouldFilterNote</Name>
-                  <Path>d1/dff/classlimes_1_1midi_1_1_mts_client.html</Path>
-                  <Anchor>ac70ed14f58efbb83ef0a011c51432df3</Anchor>
+                  <Name>Master</Name>
+                  <Path>d2/d1e/namespacelimes_1_1midi_1_1tuning.html</Path>
+                  <Anchor>d7/d18/classlimes_1_1midi_1_1tuning_1_1_master</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -12400,6 +12689,11 @@
                     <Name>startsWithHalfStep</Name>
                     <Path>d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html</Path>
                     <Anchor>a872bf59beb846c87c53f50873e504677</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>startsWithWholeStep</Name>
+                    <Path>d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html</Path>
+                    <Anchor>a1486f49a83df85db4cb3b643a9e3691f</Anchor>
                    </Node>
                   </Subnodes>
                  </Node>
@@ -16482,6 +16776,12 @@
             <Path>dd/d28/_circular_buffer_8h_source.html</Path>
            </Node>
            <Node>
+            <Name>client.h</Name>
+            <Path>d8/de1/client_8h.html</Path>
+            <Subnodes>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>Coeffecients.h</Name>
             <Path>d7/d56/_coeffecients_8h_source.html</Path>
            </Node>
@@ -18203,18 +18503,18 @@
             <Subnodes>
              <Node>
               <Name>FFTW_DOUBLE_ONLY</Name>
-              <Path>dc/d24/fftw__fft_8h.html</Path>
-              <Anchor>a09e13e7bc904f98333229f65792654dc</Anchor>
+              <Path>d2/d6a/group__fftw.html</Path>
+              <Anchor>ga09e13e7bc904f98333229f65792654dc</Anchor>
              </Node>
              <Node>
               <Name>FFTW_HEADER_NAME</Name>
-              <Path>dc/db6/group__fft.html</Path>
+              <Path>d2/d6a/group__fftw.html</Path>
               <Anchor>gaf0f842cd586876ba9d1b4872b1bb4f08</Anchor>
              </Node>
              <Node>
               <Name>FFTW_SINGLE_ONLY</Name>
-              <Path>dc/d24/fftw__fft_8h.html</Path>
-              <Anchor>afc2bf4398dc8eb9ce229e5548eb4d17a</Anchor>
+              <Path>d2/d6a/group__fftw.html</Path>
+              <Anchor>gafc2bf4398dc8eb9ce229e5548eb4d17a</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -20687,7 +20987,7 @@
            </Node>
            <Node>
             <Name>limes_audio.h</Name>
-            <Path>d6/d15/limes__audio_8h_source.html</Path>
+            <Path>d6/d15/limes__audio_8h.html</Path>
            </Node>
            <Node>
             <Name>limes_core.h</Name>
@@ -20769,7 +21069,7 @@
              </Node>
              <Node>
               <Name>LIMES_VECOPS_USE_FFTW</Name>
-              <Path>dc/db6/group__fft.html</Path>
+              <Path>d2/d6a/group__fftw.html</Path>
               <Anchor>ga25d4ef2f45323ffac2004347580d93a3</Anchor>
              </Node>
              <Node>
@@ -21589,6 +21889,17 @@
             <Path>d3/da1/_linked_list_model__impl_8h_source.html</Path>
            </Node>
            <Node>
+            <Name>master.h</Name>
+            <Path>d9/df3/master_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Master</Name>
+              <Path>d2/d1e/namespacelimes_1_1midi_1_1tuning.html</Path>
+              <Anchor>d7/d18/classlimes_1_1midi_1_1tuning_1_1_master</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>mathHelpers.h</Name>
             <Path>dd/dfb/math_helpers_8h.html</Path>
             <Subnodes>
@@ -22380,7 +22691,19 @@
            </Node>
            <Node>
             <Name>limes_audio/util/Misc.h</Name>
-            <Path>d1/df0/limes__audio_2util_2_misc_8h_source.html</Path>
+            <Path>d1/df0/limes__audio_2util_2_misc_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>inverseRootTwo</Name>
+              <Path>d1/df0/limes__audio_2util_2_misc_8h.html</Path>
+              <Anchor>ga381c062c894875fa7da629056ea4d9d2</Anchor>
+             </Node>
+             <Node>
+              <Name>Sample</Name>
+              <Path>d1/df0/limes__audio_2util_2_misc_8h.html</Path>
+              <Anchor>ga0f08d1dca089a2e844bd4e709588b58f</Anchor>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>limes_core/files/Misc.h</Name>
@@ -22840,12 +23163,8 @@
             <Path>da/d19/month__impl_8h.html</Path>
            </Node>
            <Node>
-            <Name>mts_client.h</Name>
-            <Path>da/d20/mts__client_8h_source.html</Path>
-           </Node>
-           <Node>
             <Name>neon_mathfun.h</Name>
-            <Path>d8/d51/neon__mathfun_8h_source.html</Path>
+            <Path>d8/d51/neon__mathfun_8h.html</Path>
            </Node>
            <Node>
             <Name>NoteDuration.h</Name>
@@ -23135,6 +23454,11 @@
                 <Name>startsWithHalfStep</Name>
                 <Path>d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html</Path>
                 <Anchor>a872bf59beb846c87c53f50873e504677</Anchor>
+               </Node>
+               <Node>
+                <Name>startsWithWholeStep</Name>
+                <Path>d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html</Path>
+                <Anchor>a1486f49a83df85db4cb3b643a9e3691f</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -23552,7 +23876,9 @@
            </Node>
            <Node>
             <Name>PitchDetector.h</Name>
-            <Path>dc/ddf/_pitch_detector_8h_source.html</Path>
+            <Path>dc/ddf/_pitch_detector_8h.html</Path>
+            <Subnodes>
+            </Subnodes>
            </Node>
            <Node>
             <Name>PitchUtils.h</Name>
@@ -23587,7 +23913,7 @@
            </Node>
            <Node>
             <Name>pommier_wrapper.h</Name>
-            <Path>d4/dda/pommier__wrapper_8h_source.html</Path>
+            <Path>d4/dda/pommier__wrapper_8h.html</Path>
            </Node>
            <Node>
             <Name>preprocessor.h</Name>
@@ -24980,7 +25306,7 @@
            </Node>
            <Node>
             <Name>sse_mathfun.h</Name>
-            <Path>d1/dda/sse__mathfun_8h_source.html</Path>
+            <Path>d1/dda/sse__mathfun_8h.html</Path>
            </Node>
            <Node>
             <Name>stack_allocator.h</Name>

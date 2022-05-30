@@ -33,6 +33,7 @@ var files_dup =
       [ "Circle", "de/ddf/classlimes_1_1math_1_1geometry_1_1_circle.html", "de/ddf/classlimes_1_1math_1_1geometry_1_1_circle" ]
     ] ],
     [ "CircularBuffer.h", "dd/d28/_circular_buffer_8h_source.html", null ],
+    [ "client.h", "d8/de1/client_8h.html", null ],
     [ "Coeffecients.h", "d7/d56/_coeffecients_8h_source.html", null ],
     [ "common.h", "dc/d54/common_8h.html", null ],
     [ "compiler_defs.h", "d0/d00/compiler__defs_8h.html", "d0/d00/compiler__defs_8h" ],
@@ -112,7 +113,7 @@ var files_dup =
     [ "languages.h", "d0/d0f/languages_8h.html", "d0/d0f/languages_8h" ],
     [ "limes.h", "d2/d8d/limes_8h.html", null ],
     [ "limes_assert.h", "d5/dbb/limes__assert_8h.html", "d5/dbb/limes__assert_8h" ],
-    [ "limes_audio.h", "d6/d15/limes__audio_8h_source.html", null ],
+    [ "limes_audio.h", "d6/d15/limes__audio_8h.html", null ],
     [ "limes_core.h", "d9/df8/limes__core_8h.html", null ],
     [ "limes_data_structures.h", "d8/d1d/limes__data__structures_8h_source.html", null ],
     [ "limes_fft.h", "d4/d39/limes__fft_8h.html", "d4/d39/limes__fft_8h" ],
@@ -125,6 +126,9 @@ var files_dup =
     [ "LinkedList_impl.h", "d5/dea/_linked_list__impl_8h_source.html", null ],
     [ "LinkedListModel.h", "d1/d4c/_linked_list_model_8h_source.html", null ],
     [ "LinkedListModel_impl.h", "d3/da1/_linked_list_model__impl_8h_source.html", null ],
+    [ "master.h", "d9/df3/master_8h.html", [
+      [ "Master", "d2/d1e/namespacelimes_1_1midi_1_1tuning.html#d7/d18/classlimes_1_1midi_1_1tuning_1_1_master", null ]
+    ] ],
     [ "mathHelpers.h", "dd/dfb/math_helpers_8h.html", "dd/dfb/math_helpers_8h" ],
     [ "matrix.h", "dd/df4/matrix_8h.html", [
       [ "Matrix", "d6/d5d/classlimes_1_1math_1_1_matrix.html", "d6/d5d/classlimes_1_1math_1_1_matrix" ]
@@ -142,7 +146,7 @@ var files_dup =
     ] ],
     [ "MicrotonalInterval.h", "d7/da0/_microtonal_interval_8h.html", "d7/da0/_microtonal_interval_8h" ],
     [ "mipp.h", "d4/dcb/mipp_8h.html", null ],
-    [ "limes_audio/util/Misc.h", "d1/df0/limes__audio_2util_2_misc_8h_source.html", null ],
+    [ "limes_audio/util/Misc.h", "d1/df0/limes__audio_2util_2_misc_8h.html", "d1/df0/limes__audio_2util_2_misc_8h" ],
     [ "limes_core/files/Misc.h", "d1/d28/limes__core_2files_2_misc_8h.html", "d1/d28/limes__core_2files_2_misc_8h" ],
     [ "Mode.h", "d8/daa/_mode_8h.html", [
       [ "Mode", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode" ]
@@ -152,8 +156,7 @@ var files_dup =
       [ "Month", "d4/dc2/classlimes_1_1time_1_1_month.html", "d4/dc2/classlimes_1_1time_1_1_month" ]
     ] ],
     [ "month_impl.h", "da/d19/month__impl_8h.html", null ],
-    [ "mts_client.h", "da/d20/mts__client_8h_source.html", null ],
-    [ "neon_mathfun.h", "d8/d51/neon__mathfun_8h_source.html", null ],
+    [ "neon_mathfun.h", "d8/d51/neon__mathfun_8h.html", null ],
     [ "NoteDuration.h", "dd/df8/_note_duration_8h.html", [
       [ "NoteDuration", "d3/d97/structlimes_1_1music_1_1_note_duration.html", "d3/d97/structlimes_1_1music_1_1_note_duration" ]
     ] ],
@@ -186,9 +189,9 @@ var files_dup =
     [ "PitchClass.h", "d4/dc3/_pitch_class_8h.html", [
       [ "PitchClass", "dc/dd9/structlimes_1_1music_1_1_pitch_class.html", "dc/dd9/structlimes_1_1music_1_1_pitch_class" ]
     ] ],
-    [ "PitchDetector.h", "dc/ddf/_pitch_detector_8h_source.html", null ],
+    [ "PitchDetector.h", "dc/ddf/_pitch_detector_8h.html", null ],
     [ "PitchUtils.h", "d5/d5b/_pitch_utils_8h.html", "d5/d5b/_pitch_utils_8h" ],
-    [ "pommier_wrapper.h", "d4/dda/pommier__wrapper_8h_source.html", null ],
+    [ "pommier_wrapper.h", "d4/dda/pommier__wrapper_8h.html", null ],
     [ "preprocessor.h", "d3/d53/preprocessor_8h.html", "d3/d53/preprocessor_8h" ],
     [ "pyramid.h", "dd/d7d/pyramid_8h.html", [
       [ "Pyramid", "de/d43/classlimes_1_1math_1_1geometry_1_1_pyramid.html", "de/d43/classlimes_1_1math_1_1geometry_1_1_pyramid" ]
@@ -221,7 +224,7 @@ var files_dup =
       [ "Sphere", "da/dbb/classlimes_1_1math_1_1geometry_1_1_sphere.html", "da/dbb/classlimes_1_1math_1_1geometry_1_1_sphere" ]
     ] ],
     [ "square.h", "d7/d3c/square_8h.html", "d7/d3c/square_8h" ],
-    [ "sse_mathfun.h", "d1/dda/sse__mathfun_8h_source.html", null ],
+    [ "sse_mathfun.h", "d1/dda/sse__mathfun_8h.html", null ],
     [ "stack_allocator.h", "d5/d5a/stack__allocator_8h.html", "d5/d5a/stack__allocator_8h" ],
     [ "StaticObjects.h", "d0/d78/_static_objects_8h.html", "d0/d78/_static_objects_8h" ],
     [ "streams.h", "db/d8e/streams_8h.html", [

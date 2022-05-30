@@ -1,7 +1,7 @@
 var limes__fft_8h =
 [
     [ "FFT", "dd/d37/classlimes_1_1vecops_1_1_f_f_t.html", "dd/d37/classlimes_1_1vecops_1_1_f_f_t" ],
-    [ "LIMES_VECOPS_USE_FFTW", "dc/db6/group__fft.html#ga25d4ef2f45323ffac2004347580d93a3", null ],
+    [ "LIMES_VECOPS_USE_FFTW", "d2/d6a/group__fftw.html#ga25d4ef2f45323ffac2004347580d93a3", null ],
     [ "enableWisdom", "d4/d39/limes__fft_8h.html#ga939bfce415205091c7808f0cc4d71dea", null ],
     [ "getImplementationName", "d4/d39/limes__fft_8h.html#ga81a24c44587354cba913179bea459d2e", null ],
     [ "getWisdomFileDir", "d4/d39/limes__fft_8h.html#gaff20964c03f09d6a0c5f2c2c879da8da", null ],

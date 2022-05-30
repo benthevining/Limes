@@ -101,6 +101,9 @@ $(document).ready(function(){initNavTree('df/d7d/classlimes_1_1dsp_1_1psola_1_1_
 </div><!--header-->
 <div class="contents">
 
+<p>A class that analyzes and stores a stream of audio, so that <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects can repitch it.  
+ <a href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d3/d19/analyzer_8h_source.html">analyzer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -112,7 +115,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>SampleVector</b> = <
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a181cdad3fd10c66f300e9bd59d348b62"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a181cdad3fd10c66f300e9bd59d348b62">Analyzer</a> (int minFreqHz=60)</td></tr>
-<tr class="memdesc:a181cdad3fd10c66f300e9bd59d348b62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a> with an initial minimum detectable frequency.  <a href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a181cdad3fd10c66f300e9bd59d348b62">More...</a><br /></td></tr>
+<tr class="memdesc:a181cdad3fd10c66f300e9bd59d348b62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> with an initial minimum detectable frequency.  <a href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a181cdad3fd10c66f300e9bd59d348b62">More...</a><br /></td></tr>
 <tr class="separator:a181cdad3fd10c66f300e9bd59d348b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2134d6890493018d981cbbed5aaefb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#ae2134d6890493018d981cbbed5aaefb1">analyzeInput</a> (const SampleType *const inputAudio, int numSamples)</td></tr>
 <tr class="memdesc:ae2134d6890493018d981cbbed5aaefb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyzes a frame of audio.  <a href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#ae2134d6890493018d981cbbed5aaefb1">More...</a><br /></td></tr>
@@ -130,16 +133,16 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>LIMES_NON_COPYABLE</b> (<a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a>)</td></tr>
 <tr class="separator:a2c829de84720b28fe10c965f54ffeb49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ee1d873d7d00e084a6eaf667ad862d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a1ee1d873d7d00e084a6eaf667ad862d8">releaseResources</a> ()</td></tr>
-<tr class="memdesc:a1ee1d873d7d00e084a6eaf667ad862d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all resources used by the <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a> object.  <a href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a1ee1d873d7d00e084a6eaf667ad862d8">More...</a><br /></td></tr>
+<tr class="memdesc:a1ee1d873d7d00e084a6eaf667ad862d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all resources used by the <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> object.  <a href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a1ee1d873d7d00e084a6eaf667ad862d8">More...</a><br /></td></tr>
 <tr class="separator:a1ee1d873d7d00e084a6eaf667ad862d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15a448757c741a98e335fe3e9d8e8a85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a15a448757c741a98e335fe3e9d8e8a85">reset</a> ()</td></tr>
 <tr class="memdesc:a15a448757c741a98e335fe3e9d8e8a85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the analyzer to its initial state, without releasing any resources.  <a href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a15a448757c741a98e335fe3e9d8e8a85">More...</a><br /></td></tr>
 <tr class="separator:a15a448757c741a98e335fe3e9d8e8a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6de0625d975279355114602aeac84fd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#ad6de0625d975279355114602aeac84fd">setMinInputFreq</a> (int minFreqHz)</td></tr>
-<tr class="memdesc:ad6de0625d975279355114602aeac84fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the minimum frequency detectable as pitched by the internal <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a> object.  <a href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#ad6de0625d975279355114602aeac84fd">More...</a><br /></td></tr>
+<tr class="memdesc:ad6de0625d975279355114602aeac84fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the minimum frequency detectable as pitched by the internal <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html" title="A pitch detector based on the YIN algorithm.">PitchDetector</a> object.  <a href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#ad6de0625d975279355114602aeac84fd">More...</a><br /></td></tr>
 <tr class="separator:ad6de0625d975279355114602aeac84fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16408aa216e67149a59d211548a38775"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a16408aa216e67149a59d211548a38775">setSamplerate</a> (double newSamplerate)</td></tr>
-<tr class="memdesc:a16408aa216e67149a59d211548a38775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the samplerate, and informs any <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects that are using this <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a>.  <a href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a16408aa216e67149a59d211548a38775">More...</a><br /></td></tr>
+<tr class="memdesc:a16408aa216e67149a59d211548a38775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the samplerate, and informs any <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects that are using this <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a>.  <a href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a16408aa216e67149a59d211548a38775">More...</a><br /></td></tr>
 <tr class="separator:a16408aa216e67149a59d211548a38775"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -152,9 +155,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Shifter&lt; SampleTy
 <div class="textblock"><h3>template&lt;Sample SampleType&gt;<br />
 class limes::dsp::psola::Analyzer&lt; SampleType &gt;</h3>
 
-<p>A class that analyzes and stores a stream of audio, so that <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects can repitch it. This process is separated so that multiple shifter instances can be used simultaneously while only needing to do the expensive analysis step once. <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects reference an <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a> for the duration of their lifetimes, and can be thought of as clients of the <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a> &ndash; things that affect the entire PSOLA algorithm, such as changing the samplerate, are only done through the <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a>. This PSOLA algorithm is only suitable for monophonic pitched audio. If you want to shift more than one channel of audio, you'll need separate <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a> and <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects for each channel. </p>
+<p>A class that analyzes and stores a stream of audio, so that <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects can repitch it. </p>
+<p>This process is separated so that multiple shifter instances can be used simultaneously while only needing to do the expensive analysis step once. <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects reference an <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> for the duration of their lifetimes, and can be thought of as clients of the <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> &ndash; things that affect the entire PSOLA algorithm, such as changing the samplerate, are only done through the <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a>. This PSOLA algorithm is only suitable for monophonic pitched audio. If you want to shift more than one channel of audio, you'll need separate <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> and <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects for each channel. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d19/analyzer_8h_source.html#l00038">38</a> of file <a class="el" href="../../d3/d19/analyzer_8h_source.html">analyzer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d19/analyzer_8h_source.html#l00037">37</a> of file <a class="el" href="../../d3/d19/analyzer_8h_source.html">analyzer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a181cdad3fd10c66f300e9bd59d348b62"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a181cdad3fd10c66f300e9bd59d348b62">&#9670;&nbsp;</a></span>Analyzer()</h2>
@@ -182,7 +186,7 @@ template&lt;Sample SampleType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Creates an <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a> with an initial minimum detectable frequency. </p>
+<p>Creates an <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> with an initial minimum detectable frequency. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#ad6de0625d975279355114602aeac84fd" title="Sets the minimum frequency detectable as pitched by the internal PitchDetector object.">setMinInputFreq()</a> </dd></dl>
 
 </div>
@@ -276,7 +280,7 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the latency in samples of the PSOLA algorithm. </p>
-<p>The latency is the same as the latency of the analyzer's internal <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a> object, so you can see that documentation for more details. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#ad6de0625d975279355114602aeac84fd" title="Sets the minimum frequency detectable as pitched by the internal PitchDetector object.">setMinInputFreq()</a>, dsp::PitchDetector </dd></dl>
+<p>The latency is the same as the latency of the analyzer's internal <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html" title="A pitch detector based on the YIN algorithm.">PitchDetector</a> object, so you can see that documentation for more details. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#ad6de0625d975279355114602aeac84fd" title="Sets the minimum frequency detectable as pitched by the internal PitchDetector object.">setMinInputFreq()</a>, dsp::PitchDetector </dd></dl>
 
 </div>
 </div>
@@ -297,8 +301,8 @@ template&lt;Sample SampleType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Releases all resources used by the <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a> object. </p>
-<p>This also calls <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a1ee1d873d7d00e084a6eaf667ad862d8" title="Releases all resources used by the Analyzer object.">releaseResources()</a> on all <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects using this <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a>. </p>
+<p>Releases all resources used by the <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> object. </p>
+<p>This also calls <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a1ee1d873d7d00e084a6eaf667ad862d8" title="Releases all resources used by the Analyzer object.">releaseResources()</a> on all <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects using this <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a>. </p>
 
 </div>
 </div>
@@ -320,7 +324,7 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Resets the analyzer to its initial state, without releasing any resources. </p>
-<p>This also calls <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a15a448757c741a98e335fe3e9d8e8a85" title="Resets the analyzer to its initial state, without releasing any resources.">reset()</a> on all <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects using this <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a>. </p>
+<p>This also calls <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a15a448757c741a98e335fe3e9d8e8a85" title="Resets the analyzer to its initial state, without releasing any resources.">reset()</a> on all <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects using this <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a>. </p>
 
 </div>
 </div>
@@ -342,7 +346,7 @@ template&lt;Sample SampleType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the minimum frequency detectable as pitched by the internal <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a> object. </p>
+<p>Sets the minimum frequency detectable as pitched by the internal <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html" title="A pitch detector based on the YIN algorithm.">PitchDetector</a> object. </p>
 <p>The latency of the PSOLA algorithm is equal to 2 times the period of the minimum detectable frequency; thus, setting a higher minimum input frequency will lower the latency of the algorithm. </p><dl class="section return"><dt>Returns</dt><dd>The new latency, in samples, of the PSOLA algorithm with the new minimum frequency. </dd></dl>
 
 </div>
@@ -365,7 +369,7 @@ template&lt;Sample SampleType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the samplerate, and informs any <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects that are using this <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a>. </p>
+<p>Sets the samplerate, and informs any <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> objects that are using this <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>The new latency, in samples, of the PSOLA algorithm at the new samplerate. </dd></dl>
 
 </div>
@@ -378,8 +382,8 @@ template&lt;Sample SampleType&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>limes</b></li><li class="navelem"><b>dsp</b></li><li class="navelem"><b>psola</b></li><li class="navelem"><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a></li>
-    <li class="footer">Generated on Mon May 30 2022 10:15:21 for Limes by
+    <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d00/namespacelimes_1_1dsp.html">dsp</a></li><li class="navelem"><a class="el" href="../../d6/d4e/namespacelimes_1_1dsp_1_1psola.html">psola</a></li><li class="navelem"><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a></li>
+    <li class="footer">Generated on Mon May 30 2022 14:39:44 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

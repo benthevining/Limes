@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['rhythm_2344',['Rhythm',['../d9/d76/group__music__rhythm.html',1,'']]],
-  ['realtime_20safety_2345',['Realtime safety',['../dd/d3e/group__rt__safety.html',1,'']]]
+  ['psola_2393',['PSOLA',['../d2/d79/group__psola.html',1,'']]],
+  ['pommier_20simd_20extension_20functions_2394',['Pommier SIMD extension functions',['../d5/d50/group__vec__pommier.html',1,'']]]
 ];

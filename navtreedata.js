@@ -31,6 +31,7 @@ var NAVTREE =
     [ "README", "dd/d73/md_libs_limes_music__r_e_a_d_m_e.html", null ],
     [ "README", "d0/dfb/md_libs_limes_vecops__r_e_a_d_m_e.html", null ],
     [ "Test List", "d4/df6/test.html", null ],
+    [ "Bibliography", "d0/de3/citelist.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -60,19 +61,19 @@ var NAVTREEINDEX =
 [
 ".html",
 "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a7146794c0c6219a799bb7efc761a2afa",
-"d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html#a6d028538f33bd28034da44b3c5ee4d83",
-"d4/d87/classlimes_1_1ds_1_1_abstract_f_i_f_o_1_1_scoped_write.html#a637cdda83fd2571cbf05908e84e7cbf8",
-"d5/d0e/classlimes_1_1music_1_1scales_1_1_key_signature.html#ad4c5ea0bb3b2315eedf615cbbeca176c",
-"d6/d5b/classlimes_1_1math_1_1geometry_1_1_rectangle.html#a9d35a78c50f419646e365472ac5a602e",
-"d7/d9f/classlimes_1_1math_1_1geometry_1_1_cone.html#a7eed383f74adbe4ade9d28bafb03d815",
-"d8/db4/classlimes_1_1files_1_1_sym_link.html#ade7c64e7c3f1519c8cc031af0c9bd1e0",
-"d9/dfc/group__core__math.html#gaeabf4346ca0cbe661a26a9297d906592",
-"db/dad/alignment_8h_source.html",
-"dc/d5e/classlimes_1_1func_1_1_call_deferred.html#a8783934958df2ebc3662a5b7e7867416",
-"dd/dbe/classlimes_1_1ds_1_1basic__vector.html#a90e003bc0585d50ee1d1342453b3a5d5",
-"de/d1f/limes__vecops_8h.html#ga9d8da6b79472277b93a875ab43f24714",
-"df/d0e/structlimes_1_1locale_1_1_country.html#a2d498d8781f9d3fc442d9d5b7e63635e",
-"df/dfc/group__loc__lang.html#gad9bb163218bee484386b5f917327c64c"
+"d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html",
+"d4/d61/group__text.html#ga7f948f5ab899d81a7db8b85f79be6993",
+"d5/d0e/classlimes_1_1music_1_1scales_1_1_key_signature.html#a63f197ef602029e7083247db45852d4ba3b329734e45b57e60f3df64c2cf412a9",
+"d5/de3/sha256_8h_source.html",
+"d7/d8b/classlimes_1_1math_1_1geometry_1_1_three_d_shape.html#a31d7aff3f2453719bdc9bf0700a17053",
+"d8/db4/classlimes_1_1files_1_1_sym_link.html#a55827ee7992dcc8a26a31ef2d4fa7337",
+"d9/dda/group__files.html#ga23aeaa8d0ffe3057490e7a90fcd29c3f",
+"db/d97/group__hashes.html#gab6d60602a0f8b35b010477f601a1fbed",
+"dc/d2c/classlimes_1_1music_1_1_microtonal_interval.html#a55b952b642f6515dc7d76564f4c70470",
+"dd/dbe/classlimes_1_1ds_1_1basic__vector.html#a0e803a49b150b19c559cc99e67a64a5f",
+"de/d1f/limes__vecops_8h.html#ga5b711a2ab615fd16769f73e49e07488a",
+"df/d0d/classlimes_1_1ds_1_1scalar__vector.html#ab4e532c15e368e1615b865146c52531e",
+"df/dc8/_reference_counted_object_8h.html#af8deb9f03ae3d20ea1ba2dda726ae8de"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

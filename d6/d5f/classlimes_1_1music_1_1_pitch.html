@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('d6/d5f/classlimes_1_1music_1_1_pitch.h
 </div><!--header-->
 <div class="contents">
 
-<p>This class represents a specific pitch, with a specific octave and enharmonic spelling.  
+<p>This class represents a pitch class in a specific octave.  
  <a href="../../d6/d5f/classlimes_1_1music_1_1_pitch.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>&gt;</code></p>
@@ -115,7 +115,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac357295a6117137a476e49c1b80d4d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch object's MIDI octave number.  <a href="../../d6/d5f/classlimes_1_1music_1_1_pitch.html#ac357295a6117137a476e49c1b80d4d10">More...</a><br /></td></tr>
 <tr class="separator:ac357295a6117137a476e49c1b80d4d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a815b92e767b8001aac67b35fd5ef4bcb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dd9/structlimes_1_1music_1_1_pitch_class.html">PitchClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5f/classlimes_1_1music_1_1_pitch.html#a815b92e767b8001aac67b35fd5ef4bcb">getPitchClass</a> () const noexcept</td></tr>
-<tr class="memdesc:a815b92e767b8001aac67b35fd5ef4bcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch object's pitch class as an integer from 0 to 11, with 0 being C and 11 being B.  <a href="../../d6/d5f/classlimes_1_1music_1_1_pitch.html#a815b92e767b8001aac67b35fd5ef4bcb">More...</a><br /></td></tr>
+<tr class="memdesc:a815b92e767b8001aac67b35fd5ef4bcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch object's pitch class.  <a href="../../d6/d5f/classlimes_1_1music_1_1_pitch.html#a815b92e767b8001aac67b35fd5ef4bcb">More...</a><br /></td></tr>
 <tr class="separator:a815b92e767b8001aac67b35fd5ef4bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2de861b20fac576599b340a567f9db8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5f/classlimes_1_1music_1_1_pitch.html#aa2de861b20fac576599b340a567f9db8">getRoundedFreqHz</a> () const noexcept</td></tr>
 <tr class="memdesc:aa2de861b20fac576599b340a567f9db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this pitch as a frequency in Hz, rounded to the nearest integer.  <a href="../../d6/d5f/classlimes_1_1music_1_1_pitch.html#aa2de861b20fac576599b340a567f9db8">More...</a><br /></td></tr>
@@ -170,11 +170,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afe44b9237b684918358f12d84b4736a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class represents a specific pitch, with a specific octave and enharmonic spelling. </p>
-<p>This class is a simple wrapper around a MIDI pitch, with some convenient functions for representing it certain ways.</p>
+<div class="textblock"><p>This class represents a pitch class in a specific octave. </p>
+<p>This class is essentially a simple wrapper around a MIDI pitch, with some convenient functions for representing it certain ways. This class is agnostic to enharmonic spellings.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/dd9/structlimes_1_1music_1_1_pitch_class.html" title="A struct that represents a pitch class.">PitchClass</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00038">38</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00041">41</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a79ae7fed8d7049f546f4f7a144c6ac24"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a79ae7fed8d7049f546f4f7a144c6ac24">&#9670;&nbsp;</a></span>Pitch() <span class="overload">[1/2]</span></h2>
@@ -204,7 +204,7 @@ template&lt;math::Scalar T&gt; </div>
 
 <p>Creates a pitch object from a MIDI pitch, which can be passed to the constructor as any scalar arithmetic type. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00046">46</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00049">49</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
 
 </div>
 </div>
@@ -243,8 +243,9 @@ template&lt;math::Scalar T&gt; </div>
 </div><div class="memdoc">
 
 <p>Creates a pitch object from a pitch class and a MIDI octave number. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d1/de7/group__music__harmony.html#gae713466e94e8709880d2c88be98e81f0" title="Returns the lowest note of a given MIDI octave number (that octave&#39;s C key).">lowestNoteOfMidiOctave()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00052">52</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00057">57</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
 
 </div>
 </div>
@@ -330,7 +331,7 @@ template&lt;math::Scalar T&gt; </div>
 
 <p>Returns the MIDI pitch that this pitch object represents. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00104">104</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00109">109</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
 
 </div>
 </div>
@@ -385,7 +386,7 @@ template&lt;math::Scalar T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns this pitch object's pitch class as an integer from 0 to 11, with 0 being C and 11 being B. </p>
+<p>Returns this pitch object's pitch class. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/dd9/structlimes_1_1music_1_1_pitch_class.html" title="A struct that represents a pitch class.">PitchClass</a> </dd></dl>
 
 </div>
@@ -579,7 +580,7 @@ template&lt;math::Scalar T&gt; </div>
 
 <p>Returns true if the two pitch objects are not exactly equal. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00070">70</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00075">75</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
 
 </div>
 </div>
@@ -637,7 +638,7 @@ template&lt;math::Scalar T&gt; </div>
 
 <p>Returns true if this pitch is lower than the other one. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00086">86</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00091">91</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
 
 </div>
 </div>
@@ -667,7 +668,7 @@ template&lt;math::Scalar T&gt; </div>
 
 <p>Returns true if the two pitch objects are exactly equal. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00064">64</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00069">69</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
 
 </div>
 </div>
@@ -697,7 +698,7 @@ template&lt;math::Scalar T&gt; </div>
 
 <p>Returns true if this pitch is higher than the other one. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00080">80</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/ddf/_pitch_8h_source.html#l00085">85</a> of file <a class="el" href="../../db/ddf/_pitch_8h_source.html">Pitch.h</a>.</p>
 
 </div>
 </div>
@@ -709,8 +710,8 @@ template&lt;math::Scalar T&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>limes</b></li><li class="navelem"><a class="el" href="../../db/ddd/namespacelimes_1_1music.html">music</a></li><li class="navelem"><a class="el" href="../../d6/d5f/classlimes_1_1music_1_1_pitch.html">Pitch</a></li>
-    <li class="footer">Generated on Mon May 30 2022 10:15:22 for Limes by
+    <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../db/ddd/namespacelimes_1_1music.html">music</a></li><li class="navelem"><a class="el" href="../../d6/d5f/classlimes_1_1music_1_1_pitch.html">Pitch</a></li>
+    <li class="footer">Generated on Mon May 30 2022 14:39:45 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
