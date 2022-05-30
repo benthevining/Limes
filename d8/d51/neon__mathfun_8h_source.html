@@ -145,22 +145,22 @@ $(document).ready(function(){initNavTree('d8/d51/neon__mathfun_8h_source.html','
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#include &lt;arm_neon.h&gt;</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#include &lt;limes_export.h&gt;</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">namespace </span>pommier</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../dc/d2b/namespacepommier.html">   63</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/d2b/namespacepommier.html">pommier</a></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">using</span> v4sf = float32x4_t;  <span class="comment">// vector of 4 float</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">using</span> v4su = uint32x4_t;   <span class="comment">// vector of 4 uint32</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">using</span> v4si = int32x4_t;    <span class="comment">// vector of 4 uint32</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">   66</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">v4sf</a> = float32x4_t;  <span class="comment">// vector of 4 float</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../dc/d2b/namespacepommier.html#acb6d2cbc874da232bcc4028f436ac2fe">   67</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../dc/d2b/namespacepommier.html#acb6d2cbc874da232bcc4028f436ac2fe">v4su</a> = uint32x4_t;   <span class="comment">// vector of 4 uint32</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../dc/d2b/namespacepommier.html#a7929bd98d4b4a6252dd3a315fb9f2261">   68</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../dc/d2b/namespacepommier.html#a7929bd98d4b4a6252dd3a315fb9f2261">v4si</a> = int32x4_t;    <span class="comment">// vector of 4 uint32</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">/* natural logarithm computed for 4 simultaneous float</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">    return NaN for x &lt;= 0</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;LIMES_NO_EXPORT v4sf log_ps (v4sf x);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;LIMES_NO_EXPORT <a class="code" href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">v4sf</a> <a class="code" href="../../dc/d2b/namespacepommier.html#ac6f37f6557759031e393285acecc9a66">log_ps</a> (<a class="code" href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">v4sf</a> x);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">/* exp() computed for 4 float at once */</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;LIMES_NO_EXPORT v4sf exp_ps (v4sf x);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;LIMES_NO_EXPORT <a class="code" href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">v4sf</a> <a class="code" href="../../dc/d2b/namespacepommier.html#a2a08007af13e7ac302c6d1d873e84320">exp_ps</a> (<a class="code" href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">v4sf</a> x);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">/* evaluation of 4 sines &amp; cosines at once.</span></div>
@@ -178,21 +178,30 @@ $(document).ready(function(){initNavTree('d8/d51/neon__mathfun_8h_source.html','
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">    almost no extra price so both sin_ps and cos_ps make use of</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">    sincos_ps..</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;LIMES_NO_EXPORT <span class="keywordtype">void</span> sincos_ps (v4sf x, v4sf* ysin, v4sf* ycos);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;LIMES_NO_EXPORT <span class="keywordtype">void</span> <a class="code" href="../../dc/d2b/namespacepommier.html#a66ab536242d413ada93611c0129fb2dd">sincos_ps</a> (<a class="code" href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">v4sf</a> x, <a class="code" href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">v4sf</a>* ysin, <a class="code" href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">v4sf</a>* ycos);</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;LIMES_NO_EXPORT v4sf sin_ps (v4sf x);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;LIMES_NO_EXPORT <a class="code" href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">v4sf</a> <a class="code" href="../../dc/d2b/namespacepommier.html#a437458949f05f83f70c795536f079027">sin_ps</a> (<a class="code" href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">v4sf</a> x);</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;LIMES_NO_EXPORT v4sf cos_ps (v4sf x);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;LIMES_NO_EXPORT <a class="code" href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">v4sf</a> <a class="code" href="../../dc/d2b/namespacepommier.html#a7111e52cd95baaa0b4ea1fc8778ef279">cos_ps</a> (<a class="code" href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">v4sf</a> x);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}  <span class="comment">// namespace pommier</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="anamespacepommier_html_a437458949f05f83f70c795536f079027"><div class="ttname"><a href="../../dc/d2b/namespacepommier.html#a437458949f05f83f70c795536f079027">pommier::sin_ps</a></div><div class="ttdeci">LIMES_NO_EXPORT v4sf sin_ps(v4sf x)</div></div>
+<div class="ttc" id="anamespacepommier_html_af4c9241aa2bcf285c894c58b26dde657"><div class="ttname"><a href="../../dc/d2b/namespacepommier.html#af4c9241aa2bcf285c894c58b26dde657">pommier::v4sf</a></div><div class="ttdeci">float32x4_t v4sf</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d51/neon__mathfun_8h_source.html#l00066">neon_mathfun.h:66</a></div></div>
+<div class="ttc" id="anamespacepommier_html_a2a08007af13e7ac302c6d1d873e84320"><div class="ttname"><a href="../../dc/d2b/namespacepommier.html#a2a08007af13e7ac302c6d1d873e84320">pommier::exp_ps</a></div><div class="ttdeci">LIMES_NO_EXPORT v4sf exp_ps(v4sf x)</div></div>
+<div class="ttc" id="anamespacepommier_html_a7929bd98d4b4a6252dd3a315fb9f2261"><div class="ttname"><a href="../../dc/d2b/namespacepommier.html#a7929bd98d4b4a6252dd3a315fb9f2261">pommier::v4si</a></div><div class="ttdeci">int32x4_t v4si</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d51/neon__mathfun_8h_source.html#l00068">neon_mathfun.h:68</a></div></div>
+<div class="ttc" id="anamespacepommier_html_ac6f37f6557759031e393285acecc9a66"><div class="ttname"><a href="../../dc/d2b/namespacepommier.html#ac6f37f6557759031e393285acecc9a66">pommier::log_ps</a></div><div class="ttdeci">LIMES_NO_EXPORT v4sf log_ps(v4sf x)</div></div>
+<div class="ttc" id="anamespacepommier_html"><div class="ttname"><a href="../../dc/d2b/namespacepommier.html">pommier</a></div><div class="ttdoc">This namespace contains the implementations of the Pommier SIMD extension functions.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d51/neon__mathfun_8h_source.html#l00063">neon_mathfun.h:63</a></div></div>
+<div class="ttc" id="anamespacepommier_html_acb6d2cbc874da232bcc4028f436ac2fe"><div class="ttname"><a href="../../dc/d2b/namespacepommier.html#acb6d2cbc874da232bcc4028f436ac2fe">pommier::v4su</a></div><div class="ttdeci">uint32x4_t v4su</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d51/neon__mathfun_8h_source.html#l00067">neon_mathfun.h:67</a></div></div>
+<div class="ttc" id="anamespacepommier_html_a7111e52cd95baaa0b4ea1fc8778ef279"><div class="ttname"><a href="../../dc/d2b/namespacepommier.html#a7111e52cd95baaa0b4ea1fc8778ef279">pommier::cos_ps</a></div><div class="ttdeci">LIMES_NO_EXPORT v4sf cos_ps(v4sf x)</div></div>
+<div class="ttc" id="anamespacepommier_html_a66ab536242d413ada93611c0129fb2dd"><div class="ttname"><a href="../../dc/d2b/namespacepommier.html#a66ab536242d413ada93611c0129fb2dd">pommier::sincos_ps</a></div><div class="ttdeci">LIMES_NO_EXPORT void sincos_ps(v4sf x, v4sf *ysin, v4sf *ycos)</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_fd627f24d7bb4f56aee54e980d5bfd70.html">limes_vecops</a></li><li class="navelem"><a class="el" href="../../dir_01e70249a0706b97da777b004b779f41.html">impl</a></li><li class="navelem"><a class="el" href="../../dir_91ee4a264e77f4d2d806daeee7e52487.html">pommier</a></li><li class="navelem"><a class="el" href="../../d8/d51/neon__mathfun_8h.html">neon_mathfun.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:00 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

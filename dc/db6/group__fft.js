@@ -1,11 +1,28 @@
 var group__fft =
 [
+    [ "fft", "dir_ac9e7747da43d8e5dd5305cf45a38b52.html", null ],
     [ "fallback_fft.h", "d9/d14/fallback__fft_8h.html", null ],
     [ "fft_common.h", "d6/db4/fft__common_8h.html", null ],
     [ "fftw_fft.h", "dc/d24/fftw__fft_8h.html", null ],
     [ "ipp_fft.h", "d3/d33/ipp__fft_8h.html", null ],
     [ "limes_fft.h", "d4/d39/limes__fft_8h.html", null ],
     [ "vdsp_fft.h", "d8/da3/vdsp__fft_8h.html", null ],
+    [ "FFTImpl", "dd/de6/classvecops_1_1_f_f_t_impl.html", [
+      [ "FFTImpl", "dd/de6/classvecops_1_1_f_f_t_impl.html#ac3dc70bfa509f41406de9c92dc98bb28", null ],
+      [ "~FFTImpl", "dd/de6/classvecops_1_1_f_f_t_impl.html#ae1077bbd1841d13e3af18657387d55a5", null ],
+      [ "forward", "dd/de6/classvecops_1_1_f_f_t_impl.html#aa474f87499bfe9f13197d73cd15590b5", null ],
+      [ "forwardInterleaved", "dd/de6/classvecops_1_1_f_f_t_impl.html#a91e5c14dfbf546ab50de3be745d81f23", null ],
+      [ "forwardMagnitude", "dd/de6/classvecops_1_1_f_f_t_impl.html#a65e1864f56b560c693bba2c2d2f06719", null ],
+      [ "forwardPolar", "dd/de6/classvecops_1_1_f_f_t_impl.html#ab3daa14857eedaa9718aef9328c39e63", null ],
+      [ "getSize", "dd/de6/classvecops_1_1_f_f_t_impl.html#ab5562352b686c55dd80acdb4a750c0cb", null ],
+      [ "inverse", "dd/de6/classvecops_1_1_f_f_t_impl.html#a17a47f1300837365640fe501caa134fe", null ],
+      [ "inverseCepstral", "dd/de6/classvecops_1_1_f_f_t_impl.html#abfbb372dc8fa3a6584066fa65d419e5a", null ],
+      [ "inverseInterleaved", "dd/de6/classvecops_1_1_f_f_t_impl.html#abb5d7085787e556417f087db7bda99f3", null ],
+      [ "inversePolar", "dd/de6/classvecops_1_1_f_f_t_impl.html#a8da241ebda8c01206a8c9b9c1386ee1a", null ],
+      [ "fft_size", "dd/de6/classvecops_1_1_f_f_t_impl.html#a271a69c6f1046ab95f6697974c3bb932", null ],
+      [ "m_order", "dd/de6/classvecops_1_1_f_f_t_impl.html#a78b9769af7390b5f3447f1862a30ef01", null ]
+    ] ],
+    [ "FFTW_HEADER_NAME", "dc/db6/group__fft.html#gaf0f842cd586876ba9d1b4872b1bb4f08", null ],
     [ "LIMES_VECOPS_USE_FFTW", "dc/db6/group__fft.html#ga25d4ef2f45323ffac2004347580d93a3", null ],
     [ "enableWisdom", "dc/db6/group__fft.html#gab90597bb127479bf13f5bef248f45364", null ],
     [ "getImplementationName", "dc/db6/group__fft.html#ga17cea7c21dc36ac136f4d29740f44915", null ],

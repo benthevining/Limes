@@ -94,11 +94,11 @@ $(document).ready(function(){initNavTree('d3/d66/structmusic_1_1scales_1_1_scale
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../d6/d33/structmusic_1_1scales_1_1_scale-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">music::scales::Scale Struct Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">music::scales::Scale Struct Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../d6/dfd/group__limes__music.html">limes_music</a> &raquo; <a class="el" href="../../d1/de7/group__music__harmony.html">Harmony</a> &raquo; <a class="el" href="../../dc/dab/group__music__scales.html">Scales</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A base class for any kind of scale.  
+<p>A base class for any kind of musical scale.  
  <a href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d4/d81/_scale_8h_source.html">Scale.h</a>&gt;</code></p>
@@ -141,7 +141,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac5ade06890850caf9e0c23d951588623"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subclasses must implement this to return the pitch class of the root (or tonic) note of the scale.  <a href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#ac5ade06890850caf9e0c23d951588623">More...</a><br /></td></tr>
 <tr class="separator:ac5ade06890850caf9e0c23d951588623"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1b9aa7ad9c3568d755bce52cf4ff731"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d8c/structmusic_1_1_pitch_class.html">PitchClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#ac1b9aa7ad9c3568d755bce52cf4ff731">getPitchClassOfScaleDegree</a> (int scaleDegree) const noexcept</td></tr>
-<tr class="memdesc:ac1b9aa7ad9c3568d755bce52cf4ff731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string description of the root of this scale.  <a href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#ac1b9aa7ad9c3568d755bce52cf4ff731">More...</a><br /></td></tr>
+<tr class="memdesc:ac1b9aa7ad9c3568d755bce52cf4ff731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the pitch class of a given scale degree.  <a href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#ac1b9aa7ad9c3568d755bce52cf4ff731">More...</a><br /></td></tr>
 <tr class="separator:ac1b9aa7ad9c3568d755bce52cf4ff731"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8de4c6a22393ccbf78b5c690d7252586"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector</a>&lt; <a class="el" href="../../de/d6d/classmusic_1_1_pitch.html">Pitch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#a8de4c6a22393ccbf78b5c690d7252586">getPitches</a> (int lowestMidiNote, int highestMidiNote) const</td></tr>
 <tr class="memdesc:a8de4c6a22393ccbf78b5c690d7252586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of pitch objects representing this scale between a lowest and highest MIDI pitch.  <a href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#a8de4c6a22393ccbf78b5c690d7252586">More...</a><br /></td></tr>
@@ -153,7 +153,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a71fb8ccd2bd9defb856c2c6e1f4fb361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pitch object representing the root of this scale in the specified MIDI octave number.  <a href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#a71fb8ccd2bd9defb856c2c6e1f4fb361">More...</a><br /></td></tr>
 <tr class="separator:a71fb8ccd2bd9defb856c2c6e1f4fb361"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a546828875f47c985f7d017de2899218a"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#a546828875f47c985f7d017de2899218a">notesPerOctave</a> () const noexcept=0</td></tr>
-<tr class="memdesc:a546828875f47c985f7d017de2899218a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subclasses must implement this to return a string description of this scale, ideally one that will allow the scale to be reconstructed later from only this string.  <a href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#a546828875f47c985f7d017de2899218a">More...</a><br /></td></tr>
+<tr class="memdesc:a546828875f47c985f7d017de2899218a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subclasses must implement this to return the number of notes per octave in this scale.  <a href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#a546828875f47c985f7d017de2899218a">More...</a><br /></td></tr>
 <tr class="separator:a546828875f47c985f7d017de2899218a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a237ac3c6c63475899aed39a9311dceda"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#a237ac3c6c63475899aed39a9311dceda">operator!=</a> (const <a class="el" href="../../d3/d66/structmusic_1_1scales_1_1_scale.html">Scale</a> &amp;other) const</td></tr>
 <tr class="memdesc:a237ac3c6c63475899aed39a9311dceda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the other scale's root pitch class or interval set are different than this one's.  <a href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#a237ac3c6c63475899aed39a9311dceda">More...</a><br /></td></tr>
@@ -163,10 +163,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac2980ae89fa968f5b577b6d47739fe66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A base class for any kind of scale. </p>
-<p>This class is intended for scales that are symmetrical in any octave, and are symmetrical whether ascending or descending. </p>
+<div class="textblock"><p>A base class for any kind of musical scale. </p>
+<p>This class is intended for scales that are symmetrical in any octave, are symmetrical whether ascending or descending, and contain only intervals with whole numbers of semitones (ie, no microtones). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d81/_scale_8h_source.html#l00035">35</a> of file <a class="el" href="../../d4/d81/_scale_8h_source.html">Scale.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d81/_scale_8h_source.html#l00054">54</a> of file <a class="el" href="../../d4/d81/_scale_8h_source.html">Scale.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac9e5b1d465057124f70839c7ec538f72"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac9e5b1d465057124f70839c7ec538f72">&#9670;&nbsp;</a></span>Scale()</h2>
@@ -327,7 +327,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Subclasses must implement this to return an array of integers representing the intervals in this scale as a series of semitone steps. </p>
 
-<p>Implemented in <a class="el" href="../../de/d99/classmusic_1_1scales_1_1_key_signature.html#a16d1b53f55d379ab4a61370e2543ea8d">music::scales::KeySignature</a>, <a class="el" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a2eea6d041b02f95a0abb429fe6332193">music::scales::Mode</a>, <a class="el" href="../../de/d0a/classmusic_1_1scales_1_1_octatonic.html#aa0938172fe795c08d7707ca60e4343fc">music::scales::Octatonic</a>, <a class="el" href="../../d5/d24/classmusic_1_1scales_1_1_whole_tone.html#a9967c02dbe4dbb840b5a3e01dbeff147">music::scales::WholeTone</a>, and <a class="el" href="../../d8/da2/classmusic_1_1scales_1_1_chromatic.html#a847de27892cfc134f4b38493e5c40e89">music::scales::Chromatic</a>.</p>
+<p>Implemented in <a class="el" href="../../de/d99/classmusic_1_1scales_1_1_key_signature.html#a16d1b53f55d379ab4a61370e2543ea8d">music::scales::KeySignature</a>, <a class="el" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a2eea6d041b02f95a0abb429fe6332193">music::scales::Mode</a>, <a class="el" href="../../de/d0a/classmusic_1_1scales_1_1_octatonic.html#aa0938172fe795c08d7707ca60e4343fc">music::scales::Octatonic</a>, <a class="el" href="../../d8/da2/classmusic_1_1scales_1_1_chromatic.html#a847de27892cfc134f4b38493e5c40e89">music::scales::Chromatic</a>, and <a class="el" href="../../d5/d24/classmusic_1_1scales_1_1_whole_tone.html#a9967c02dbe4dbb840b5a3e01dbeff147">music::scales::WholeTone</a>.</p>
 
 </div>
 </div>
@@ -375,7 +375,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Subclasses must implement this to return the pitch class of the root (or tonic) note of the scale. </p>
 
-<p>Implemented in <a class="el" href="../../de/d99/classmusic_1_1scales_1_1_key_signature.html#a6b1295571b442e7ac340221c3404f06a">music::scales::KeySignature</a>, <a class="el" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a2181cb1044b1c7772572656548db2138">music::scales::Mode</a>, <a class="el" href="../../de/d0a/classmusic_1_1scales_1_1_octatonic.html#a40b37961796499077fb23615d9ebb74b">music::scales::Octatonic</a>, <a class="el" href="../../d5/d24/classmusic_1_1scales_1_1_whole_tone.html#a225880d126caaa1fb28782ffa1a73413">music::scales::WholeTone</a>, and <a class="el" href="../../d8/da2/classmusic_1_1scales_1_1_chromatic.html#a1486c5b4e951b22885bff44494c7921c">music::scales::Chromatic</a>.</p>
+<p>Implemented in <a class="el" href="../../de/d99/classmusic_1_1scales_1_1_key_signature.html#a6b1295571b442e7ac340221c3404f06a">music::scales::KeySignature</a>, <a class="el" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a2181cb1044b1c7772572656548db2138">music::scales::Mode</a>, <a class="el" href="../../de/d0a/classmusic_1_1scales_1_1_octatonic.html#a40b37961796499077fb23615d9ebb74b">music::scales::Octatonic</a>, <a class="el" href="../../d8/da2/classmusic_1_1scales_1_1_chromatic.html#a1486c5b4e951b22885bff44494c7921c">music::scales::Chromatic</a>, and <a class="el" href="../../d5/d24/classmusic_1_1scales_1_1_whole_tone.html#a225880d126caaa1fb28782ffa1a73413">music::scales::WholeTone</a>.</p>
 
 </div>
 </div>
@@ -403,8 +403,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a string description of the root of this scale. </p>
-<dl class="section see"><dt>See also</dt><dd>pitchClassToString() Returns the pitch class of a given scale degree. If the passed scale degree is greater than the value returned by <a class="el" href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#a546828875f47c985f7d017de2899218a" title="Subclasses must implement this to return a string description of this scale, ideally one that will al...">notesPerOctave()</a>, it will be truncated using the modulus operator. </dd></dl>
+<p>Returns the pitch class of a given scale degree. </p>
+<p>If the passed scale degree is greater than the value returned by <a class="el" href="../../d3/d66/structmusic_1_1scales_1_1_scale.html#a546828875f47c985f7d017de2899218a" title="Subclasses must implement this to return the number of notes per octave in this scale.">notesPerOctave()</a>, it will be truncated using the modulus operator. </p>
 
 </div>
 </div>
@@ -461,6 +461,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d1/de7/group__music__harmony.html#gaa75a87e33982f923a3b683fdd6cfcee1" title="Returns the lowest note of a given MIDI octave number (that octave&#39;s C key).">lowestNoteOfMidiOctave()</a> </dd></dl>
 
 </div>
 </div>
@@ -515,10 +516,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Subclasses must implement this to return a string description of this scale, ideally one that will allow the scale to be reconstructed later from only this string. </p>
 <p>Subclasses must implement this to return the number of notes per octave in this scale. </p>
 
-<p>Implemented in <a class="el" href="../../de/d99/classmusic_1_1scales_1_1_key_signature.html#a1929ec1c9a396bdc63e7f21d81040ba7">music::scales::KeySignature</a>, <a class="el" href="../../de/d0a/classmusic_1_1scales_1_1_octatonic.html#a12c7ac79bb8fb7c1e016725b11228118">music::scales::Octatonic</a>, <a class="el" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a521631907a23229879e5e99fb7a6b228">music::scales::Mode</a>, <a class="el" href="../../d5/d24/classmusic_1_1scales_1_1_whole_tone.html#a00b7a635fdb2d54c1aa8683790ba276d">music::scales::WholeTone</a>, and <a class="el" href="../../d8/da2/classmusic_1_1scales_1_1_chromatic.html#a47b2fe576d8a0192e06105a1451b3379">music::scales::Chromatic</a>.</p>
+<p>Implemented in <a class="el" href="../../de/d99/classmusic_1_1scales_1_1_key_signature.html#a1929ec1c9a396bdc63e7f21d81040ba7">music::scales::KeySignature</a>, <a class="el" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a521631907a23229879e5e99fb7a6b228">music::scales::Mode</a>, <a class="el" href="../../de/d0a/classmusic_1_1scales_1_1_octatonic.html#a12c7ac79bb8fb7c1e016725b11228118">music::scales::Octatonic</a>, <a class="el" href="../../d8/da2/classmusic_1_1scales_1_1_chromatic.html#a47b2fe576d8a0192e06105a1451b3379">music::scales::Chromatic</a>, and <a class="el" href="../../d5/d24/classmusic_1_1scales_1_1_whole_tone.html#a00b7a635fdb2d54c1aa8683790ba276d">music::scales::WholeTone</a>.</p>
 
 </div>
 </div>
@@ -571,7 +571,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/d28/namespacemusic.html">music</a></li><li class="navelem"><a class="el" href="../../d3/d88/namespacemusic_1_1scales.html">scales</a></li><li class="navelem"><a class="el" href="../../d3/d66/structmusic_1_1scales_1_1_scale.html">Scale</a></li>
-    <li class="footer">Generated on Mon May 30 2022 00:56:42 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:02 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

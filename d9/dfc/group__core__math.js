@@ -1,6 +1,7 @@
 var group__core__math =
 [
     [ "Geometry", "d9/dba/group__geometry.html", "d9/dba/group__geometry" ],
+    [ "math", "dir_f0d4ec8d2337f2081e409df54f3b2ddf.html", null ],
     [ "Fraction.h", "d3/de1/_fraction_8h.html", null ],
     [ "Fraction_impl.h", "d3/db2/_fraction__impl_8h.html", null ],
     [ "mathHelpers.h", "dd/dfb/math_helpers_8h.html", null ],

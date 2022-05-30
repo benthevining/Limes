@@ -91,13 +91,33 @@ $(document).ready(function(){initNavTree('db/d5e/group__vec__multiplication.html
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Multiplication<div class="ingroups"><a class="el" href="../../dc/dd4/group__limes__vecops.html">limes_vecops</a> &raquo; <a class="el" href="../../d8/dce/group__vec__arithmetic.html">Arithmetic functions</a></div></div>  </div>
+<div class="title">Multiplication<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../dc/dd4/group__limes__vecops.html">limes_vecops</a> &raquo; <a class="el" href="../../d8/dce/group__vec__arithmetic.html">Arithmetic functions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Vector multiplication.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="memitem:ga002f3972dd3bc6fca3b4402b7e2291c8"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga002f3972dd3bc6fca3b4402b7e2291c8"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d5e/group__vec__multiplication.html#ga002f3972dd3bc6fca3b4402b7e2291c8">vecops::fb::multiply</a> (DataType *const data, SizeType size, DataType constantToMultiply)</td></tr>
+<tr class="memdesc:ga002f3972dd3bc6fca3b4402b7e2291c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies every element of a vector by a constant.  <a href="../../db/d5e/group__vec__multiplication.html#ga002f3972dd3bc6fca3b4402b7e2291c8">More...</a><br /></td></tr>
+<tr class="separator:ga002f3972dd3bc6fca3b4402b7e2291c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd7095e06dfa938934bd87df2405acea"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:gafd7095e06dfa938934bd87df2405acea"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d5e/group__vec__multiplication.html#gafd7095e06dfa938934bd87df2405acea">vecops::fb::multiply</a> (DataType *const dataAndDest, SizeType size, const DataType *const dataToMultiply)</td></tr>
+<tr class="memdesc:gafd7095e06dfa938934bd87df2405acea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element-wise multiplication of two vectors.  <a href="../../db/d5e/group__vec__multiplication.html#gafd7095e06dfa938934bd87df2405acea">More...</a><br /></td></tr>
+<tr class="separator:gafd7095e06dfa938934bd87df2405acea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5c08e3a71baa8f8ffe42e65cbe3854b4"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga5c08e3a71baa8f8ffe42e65cbe3854b4"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d5e/group__vec__multiplication.html#ga5c08e3a71baa8f8ffe42e65cbe3854b4">vecops::fb::multiplyAndCopy</a> (DataType *const dest, const DataType *const origData, SizeType size, DataType constantToMultiply)</td></tr>
+<tr class="memdesc:ga5c08e3a71baa8f8ffe42e65cbe3854b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies every element of a vector by a constant, writing the output to another vector.  <a href="../../db/d5e/group__vec__multiplication.html#ga5c08e3a71baa8f8ffe42e65cbe3854b4">More...</a><br /></td></tr>
+<tr class="separator:ga5c08e3a71baa8f8ffe42e65cbe3854b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga84a322147913b917944563f9d88b609a"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga84a322147913b917944563f9d88b609a"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d5e/group__vec__multiplication.html#ga84a322147913b917944563f9d88b609a">vecops::fb::multiplyAndCopy</a> (DataType *const dest, const DataType *const origData, SizeType size, const DataType *const dataToMultiply)</td></tr>
+<tr class="memdesc:ga84a322147913b917944563f9d88b609a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element-wise multiplication of two vectors, writing the output to a third vector.  <a href="../../db/d5e/group__vec__multiplication.html#ga84a322147913b917944563f9d88b609a">More...</a><br /></td></tr>
+<tr class="separator:ga84a322147913b917944563f9d88b609a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa93346daef9468088b0f5ed76c726041"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:gaa93346daef9468088b0f5ed76c726041"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d5e/group__vec__multiplication.html#gaa93346daef9468088b0f5ed76c726041">vecops::fb::dotProduct</a> (const DataType *const vecA, const DataType *const vecB, SizeType size)</td></tr>
+<tr class="memdesc:gaa93346daef9468088b0f5ed76c726041"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the dot product of two vectors.  <a href="../../db/d5e/group__vec__multiplication.html#gaa93346daef9468088b0f5ed76c726041">More...</a><br /></td></tr>
+<tr class="separator:gaa93346daef9468088b0f5ed76c726041"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaef9fe10c7d98a138c6fec14096b87c4f"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
 <tr class="memitem:gaef9fe10c7d98a138c6fec14096b87c4f"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d5e/group__vec__multiplication.html#gaef9fe10c7d98a138c6fec14096b87c4f">vecops::multiply</a> (DataType *const data, SizeType size, DataType constantToMultiply)</td></tr>
 <tr class="memdesc:gaef9fe10c7d98a138c6fec14096b87c4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies every element of a vector by a constant.  <a href="../../db/d5e/group__vec__multiplication.html#gaef9fe10c7d98a138c6fec14096b87c4f">More...</a><br /></td></tr>
@@ -122,8 +142,56 @@ $(document).ready(function(){initNavTree('db/d5e/group__vec__multiplication.html
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Vector multiplication. </p>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="gaa93346daef9468088b0f5ed76c726041"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa93346daef9468088b0f5ed76c726041">&#9670;&nbsp;</a></span>dotProduct() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> DataType vecops::fb::dotProduct </td>
+          <td>(</td>
+          <td class="paramtype">const DataType *const&#160;</td>
+          <td class="paramname"><em>vecA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DataType *const&#160;</td>
+          <td class="paramname"><em>vecB</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p>Computes the dot product of two vectors. </p>
+<p>The operation is: </p><div class="fragment"><div class="line">DataType dotProd { 0 };</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; <a class="code" href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">size</a>; ++i)</div>
+<div class="line">    dotProd += (vecA[i] * vecB[i]);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">return</span> dotProd;</div>
+</div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l00244">244</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
 <a id="ga3651c6c09d21235cd012207b70a893b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3651c6c09d21235cd012207b70a893b3">&#9670;&nbsp;</a></span>dotProduct()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3651c6c09d21235cd012207b70a893b3">&#9670;&nbsp;</a></span>dotProduct() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,6 +224,8 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
+
 <p>Computes the dot product of two vectors. </p>
 <p>The operation is: </p><div class="fragment"><div class="line">DataType dotProd { 0 };</div>
 <div class="line"> </div>
@@ -164,10 +234,54 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 <div class="line"> </div>
 <div class="line"><span class="keywordflow">return</span> dotProd;</div>
 </div><!-- fragment --> 
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l00244">244</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="ga002f3972dd3bc6fca3b4402b7e2291c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga002f3972dd3bc6fca3b4402b7e2291c8">&#9670;&nbsp;</a></span>multiply() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void vecops::fb::multiply </td>
+          <td>(</td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DataType&#160;</td>
+          <td class="paramname"><em>constantToMultiply</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p>Multiplies every element of a vector by a constant. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l00216">216</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
 </div>
 </div>
 <a id="gaef9fe10c7d98a138c6fec14096b87c4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaef9fe10c7d98a138c6fec14096b87c4f">&#9670;&nbsp;</a></span>multiply() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#gaef9fe10c7d98a138c6fec14096b87c4f">&#9670;&nbsp;</a></span>multiply() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,12 +314,58 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
+
 <p>Multiplies every element of a vector by a constant. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l00216">216</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="gafd7095e06dfa938934bd87df2405acea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafd7095e06dfa938934bd87df2405acea">&#9670;&nbsp;</a></span>multiply() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void vecops::fb::multiply </td>
+          <td>(</td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>dataAndDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DataType *const&#160;</td>
+          <td class="paramname"><em>dataToMultiply</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p>Element-wise multiplication of two vectors. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l00223">223</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
 
 </div>
 </div>
 <a id="ga3226554923c75524fa63d02845783141"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3226554923c75524fa63d02845783141">&#9670;&nbsp;</a></span>multiply() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3226554923c75524fa63d02845783141">&#9670;&nbsp;</a></span>multiply() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -238,12 +398,64 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
+
 <p>Element-wise multiplication of two vectors. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l00223">223</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="ga84a322147913b917944563f9d88b609a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga84a322147913b917944563f9d88b609a">&#9670;&nbsp;</a></span>multiplyAndCopy() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void vecops::fb::multiplyAndCopy </td>
+          <td>(</td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DataType *const&#160;</td>
+          <td class="paramname"><em>origData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DataType *const&#160;</td>
+          <td class="paramname"><em>dataToMultiply</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p>Element-wise multiplication of two vectors, writing the output to a third vector. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l00237">237</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
 
 </div>
 </div>
 <a id="ga21f9f718a1b835dfe1d645f4f9d9323f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga21f9f718a1b835dfe1d645f4f9d9323f">&#9670;&nbsp;</a></span>multiplyAndCopy() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga21f9f718a1b835dfe1d645f4f9d9323f">&#9670;&nbsp;</a></span>multiplyAndCopy() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,12 +494,64 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
+
 <p>Element-wise multiplication of two vectors, writing the output to a third vector. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l00237">237</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="ga5c08e3a71baa8f8ffe42e65cbe3854b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5c08e3a71baa8f8ffe42e65cbe3854b4">&#9670;&nbsp;</a></span>multiplyAndCopy() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void vecops::fb::multiplyAndCopy </td>
+          <td>(</td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DataType *const&#160;</td>
+          <td class="paramname"><em>origData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DataType&#160;</td>
+          <td class="paramname"><em>constantToMultiply</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p>Multiplies every element of a vector by a constant, writing the output to another vector. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l00230">230</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
 
 </div>
 </div>
 <a id="gaec8c443b22bdbe7c3db3a160fd54a48e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaec8c443b22bdbe7c3db3a160fd54a48e">&#9670;&nbsp;</a></span>multiplyAndCopy() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#gaec8c443b22bdbe7c3db3a160fd54a48e">&#9670;&nbsp;</a></span>multiplyAndCopy() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -326,7 +590,11 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
+
 <p>Multiplies every element of a vector by a constant, writing the output to another vector. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l00230">230</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
 
 </div>
 </div>
@@ -336,7 +604,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

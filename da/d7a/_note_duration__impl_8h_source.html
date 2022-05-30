@@ -112,116 +112,141 @@ $(document).ready(function(){initNavTree('da/d7a/_note_duration__impl_8h_source.
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/df8/_note_duration_8h.html">NoteDuration.h</a>&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a>&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d3/d28/namespacemusic.html">music</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../dd/df8/structmusic_1_1_note_duration.html#a372bd392d1f1015f1ce140dc5635bc08">   24</a></span>&#160;constexpr <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a372bd392d1f1015f1ce140dc5635bc08">NoteDuration::NoteDuration</a> (<span class="keywordtype">int</span> kind)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    : duration (kind)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (duration &gt; 0 &amp;&amp; (duration == 1 || <a class="code" href="../../d9/dfc/group__core__math.html#ga2c6a4276c506b35b346e1bf5dbc04e15">math::isPowerOf2</a> (duration)));</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../dd/df8/structmusic_1_1_note_duration.html#a4b39076b00e9e14eaa575e23fb751fc0">   30</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a4b39076b00e9e14eaa575e23fb751fc0">NoteDuration::operator== </a>(<span class="keyword">const</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html">NoteDuration</a>&amp; other) <span class="keyword">const</span> noexcept</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> duration == other.duration;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../dd/df8/structmusic_1_1_note_duration.html#a3c140ec42801bfd7d13a6efe122bcb46">   35</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a3c140ec42801bfd7d13a6efe122bcb46">NoteDuration::operator!= </a>(<span class="keyword">const</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html">NoteDuration</a>&amp; other) <span class="keyword">const</span> noexcept</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> ! (*<span class="keyword">this</span> == other);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../dd/df8/structmusic_1_1_note_duration.html#a164201393e17dbc83ee5e852efd5ecc4">   40</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a164201393e17dbc83ee5e852efd5ecc4">NoteDuration::operator&gt; </a>(<span class="keyword">const</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html">NoteDuration</a>&amp; other) <span class="keyword">const</span> noexcept</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span> duration &gt; other.duration;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../dd/df8/structmusic_1_1_note_duration.html#a96bdccb65ef7664b24c36098081150a4">   45</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a96bdccb65ef7664b24c36098081150a4">NoteDuration::operator&lt; </a>(<span class="keyword">const</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html">NoteDuration</a>&amp; other) <span class="keyword">const</span> noexcept</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> duration &lt; other.duration;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../dd/df8/structmusic_1_1_note_duration.html#a2a11aa051d5f9acba81f22daac44c9e5">   50</a></span>&#160;constexpr <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html">NoteDuration</a>&amp; <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a2a11aa051d5f9acba81f22daac44c9e5">NoteDuration::operator++</a>() noexcept</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    duration = [dur = duration]() -&gt; <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span> (dur == 1)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">return</span> 2;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> dur * 2;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../dd/df8/structmusic_1_1_note_duration.html#ab26935641d984c9889570ced260fa41e">   63</a></span>&#160;constexpr <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html">NoteDuration</a>&amp; <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#ab26935641d984c9889570ced260fa41e">NoteDuration::operator--</a>() noexcept</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    duration = [dur = duration]() -&gt; <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">if</span> (dur == 1)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">return</span> dur;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span> (dur == 2)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> dur / 2;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../dd/df8/structmusic_1_1_note_duration.html#a77fc8dd5d575c89fe9fabc20e241acd2">   79</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a77fc8dd5d575c89fe9fabc20e241acd2">NoteDuration::hasStem</a>() const noexcept</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> duration &gt; 1;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d3/d28/namespacemusic.html">music</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;constexpr <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a7aef4d2fa584a0d9d0bc4ca2a8d472ef">NoteDuration::NoteDuration</a> (<span class="keywordtype">int</span> kind, <span class="keywordtype">int</span> dots)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    : duration (kind), numDots (dots)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (duration &gt; 0 &amp;&amp; (duration == 1 || <a class="code" href="../../d9/dfc/group__core__math.html#ga2c6a4276c506b35b346e1bf5dbc04e15">math::isPowerOf2</a> (duration)));</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (numDots &gt;= 0);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a4b39076b00e9e14eaa575e23fb751fc0">NoteDuration::operator== </a>(<span class="keyword">const</span> NoteDuration&amp; other) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> duration == other.duration &amp;&amp; numDots == other.numDots;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a3c140ec42801bfd7d13a6efe122bcb46">NoteDuration::operator!= </a>(<span class="keyword">const</span> NoteDuration&amp; other) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> ! (*<span class="keyword">this</span> == other);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a164201393e17dbc83ee5e852efd5ecc4">NoteDuration::operator&gt; </a>(<span class="keyword">const</span> NoteDuration&amp; other) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span> (duration == other.duration)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> numDots &gt; other.numDots;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> duration &gt; other.duration;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a96bdccb65ef7664b24c36098081150a4">NoteDuration::operator&lt; </a>(<span class="keyword">const</span> NoteDuration&amp; other) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> (duration == other.duration)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> numDots &lt; other.numDots;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> duration &lt; other.duration;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;constexpr NoteDuration&amp; <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a42fafae274474b132c4499bf74dda8aa">NoteDuration::operator++</a>() noexcept</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    duration = [dur = duration]() -&gt; <span class="keywordtype">int</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">if</span> (dur == 1)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">return</span> 2;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> dur * 2;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;constexpr NoteDuration&amp; <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#aa4b76e267b815ef394c942e091653bf2">NoteDuration::operator--</a>() noexcept</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    duration = [dur = duration]() -&gt; <span class="keywordtype">int</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span> (dur == 1)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">return</span> dur;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../dd/df8/structmusic_1_1_note_duration.html#add0fdb4cd2b46aa1047b035fb8d29bcf">   84</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#add0fdb4cd2b46aa1047b035fb8d29bcf">NoteDuration::noteHeadIsFilled</a>() const noexcept</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> duration &gt; 2;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../dd/df8/structmusic_1_1_note_duration.html#af38a2ee80e6fbfd394af0b6f61652d59">   89</a></span>&#160;constexpr <span class="keywordtype">int</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#af38a2ee80e6fbfd394af0b6f61652d59">NoteDuration::getDuration</a>() const noexcept</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">return</span> duration;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../dd/df8/structmusic_1_1_note_duration.html#ae6b6019391022160272790352c849f1c">   94</a></span>&#160;constexpr <span class="keywordtype">double</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#ae6b6019391022160272790352c849f1c">NoteDuration::getRatioToOtherDuration</a> (<span class="keyword">const</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html">NoteDuration</a>&amp; other) <span class="keyword">const</span> noexcept</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (other.duration) / <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (duration);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}  <span class="comment">// namespace music</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">if</span> (dur == 2)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> dur / 2;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a77fc8dd5d575c89fe9fabc20e241acd2">NoteDuration::hasStem</a>() const noexcept</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> duration &gt; 1;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#add0fdb4cd2b46aa1047b035fb8d29bcf">NoteDuration::noteHeadIsFilled</a>() const noexcept</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> duration &gt; 2;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;constexpr <span class="keywordtype">int</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#a9f8db171f44898df52ab7a26a891415e">NoteDuration::getNumDots</a>() const noexcept</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">return</span> numDots;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;constexpr <span class="keywordtype">double</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#ac5a3e5c5f403ed9f9970d951e6f84d44">NoteDuration::getDuration</a>() const noexcept</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">auto</span> dur = 1. / <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (duration);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">auto</span> multiple = 0.5;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; numDots; ++i)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        dur *= (1. + multiple);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        multiple /= 2.;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">return</span> dur;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;constexpr <span class="keywordtype">double</span> <a class="code" href="../../dd/df8/structmusic_1_1_note_duration.html#ae6b6019391022160272790352c849f1c">NoteDuration::getRatioToOtherDuration</a> (<span class="keyword">const</span> NoteDuration&amp; other) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> other.getDuration() / getDuration();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}  <span class="comment">// namespace music</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacemusic_html"><div class="ttname"><a href="../../d3/d28/namespacemusic.html">music</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d57/_chord_8h_source.html#l00024">Chord.h:24</a></div></div>
-<div class="ttc" id="astructmusic_1_1_note_duration_html_ab26935641d984c9889570ced260fa41e"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#ab26935641d984c9889570ced260fa41e">music::NoteDuration::operator--</a></div><div class="ttdeci">constexpr NoteDuration &amp; operator--() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d7a/_note_duration__impl_8h_source.html#l00063">NoteDuration_impl.h:63</a></div></div>
-<div class="ttc" id="agroup__core__math_html_ga2c6a4276c506b35b346e1bf5dbc04e15"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#ga2c6a4276c506b35b346e1bf5dbc04e15">math::isPowerOf2</a></div><div class="ttdeci">constexpr LIMES_EXPORT bool isPowerOf2(Integer val) noexcept</div><div class="ttdoc">Returns true if val is 2^something.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/math_helpers_8h_source.html#l00268">mathHelpers.h:268</a></div></div>
-<div class="ttc" id="agroup__system_html_ga06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbb/limes__assert_8h_source.html#l00098">limes_assert.h:98</a></div></div>
-<div class="ttc" id="astructmusic_1_1_note_duration_html_a4b39076b00e9e14eaa575e23fb751fc0"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a4b39076b00e9e14eaa575e23fb751fc0">music::NoteDuration::operator==</a></div><div class="ttdeci">constexpr bool operator==(const NoteDuration &amp;other) const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d7a/_note_duration__impl_8h_source.html#l00030">NoteDuration_impl.h:30</a></div></div>
-<div class="ttc" id="astructmusic_1_1_note_duration_html_a2a11aa051d5f9acba81f22daac44c9e5"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a2a11aa051d5f9acba81f22daac44c9e5">music::NoteDuration::operator++</a></div><div class="ttdeci">constexpr NoteDuration &amp; operator++() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d7a/_note_duration__impl_8h_source.html#l00050">NoteDuration_impl.h:50</a></div></div>
+<div class="ttc" id="astructmusic_1_1_note_duration_html_ac5a3e5c5f403ed9f9970d951e6f84d44"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#ac5a3e5c5f403ed9f9970d951e6f84d44">music::NoteDuration::getDuration</a></div><div class="ttdeci">constexpr double getDuration() const noexcept</div><div class="ttdoc">Returns the percentage of a whole note represented by this object.</div></div>
+<div class="ttc" id="anamespacemusic_html"><div class="ttname"><a href="../../d3/d28/namespacemusic.html">music</a></div><div class="ttdoc">This namespace contains music theory utilities.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d57/_chord_8h_source.html#l00029">Chord.h:29</a></div></div>
+<div class="ttc" id="agroup__core__math_html_ga2c6a4276c506b35b346e1bf5dbc04e15"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#ga2c6a4276c506b35b346e1bf5dbc04e15">math::isPowerOf2</a></div><div class="ttdeci">constexpr LIMES_EXPORT bool isPowerOf2(Integer val) noexcept</div><div class="ttdoc">Returns true if val is 2^something.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/math_helpers_8h_source.html#l00273">mathHelpers.h:273</a></div></div>
+<div class="ttc" id="astructmusic_1_1_note_duration_html_a7aef4d2fa584a0d9d0bc4ca2a8d472ef"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a7aef4d2fa584a0d9d0bc4ca2a8d472ef">music::NoteDuration::NoteDuration</a></div><div class="ttdeci">constexpr NoteDuration(int kind, int dots=0)</div><div class="ttdoc">Creates a NoteDuration of the desired kind.</div></div>
+<div class="ttc" id="agroup__system_html_ga06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbb/limes__assert_8h_source.html#l00103">limes_assert.h:103</a></div></div>
+<div class="ttc" id="astructmusic_1_1_note_duration_html_a4b39076b00e9e14eaa575e23fb751fc0"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a4b39076b00e9e14eaa575e23fb751fc0">music::NoteDuration::operator==</a></div><div class="ttdeci">constexpr bool operator==(const NoteDuration &amp;other) const noexcept</div><div class="ttdoc">Returns true if the two note durations are equal.</div></div>
+<div class="ttc" id="astructmusic_1_1_note_duration_html_a42fafae274474b132c4499bf74dda8aa"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a42fafae274474b132c4499bf74dda8aa">music::NoteDuration::operator++</a></div><div class="ttdeci">constexpr NoteDuration &amp; operator++() noexcept</div><div class="ttdoc">Increments the duration value to the next shortest notehead kind.</div></div>
 <div class="ttc" id="alimes__core_8h_html"><div class="ttname"><a href="../../d9/df8/limes__core_8h.html">limes_core.h</a></div></div>
-<div class="ttc" id="astructmusic_1_1_note_duration_html_a372bd392d1f1015f1ce140dc5635bc08"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a372bd392d1f1015f1ce140dc5635bc08">music::NoteDuration::NoteDuration</a></div><div class="ttdeci">constexpr NoteDuration(int kind)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d7a/_note_duration__impl_8h_source.html#l00024">NoteDuration_impl.h:24</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00039">limes_namespace.h:39</a></div></div>
-<div class="ttc" id="astructmusic_1_1_note_duration_html_ae6b6019391022160272790352c849f1c"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#ae6b6019391022160272790352c849f1c">music::NoteDuration::getRatioToOtherDuration</a></div><div class="ttdeci">constexpr double getRatioToOtherDuration(const NoteDuration &amp;other) const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d7a/_note_duration__impl_8h_source.html#l00094">NoteDuration_impl.h:94</a></div></div>
-<div class="ttc" id="astructmusic_1_1_note_duration_html_add0fdb4cd2b46aa1047b035fb8d29bcf"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#add0fdb4cd2b46aa1047b035fb8d29bcf">music::NoteDuration::noteHeadIsFilled</a></div><div class="ttdeci">constexpr bool noteHeadIsFilled() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d7a/_note_duration__impl_8h_source.html#l00084">NoteDuration_impl.h:84</a></div></div>
+<div class="ttc" id="astructmusic_1_1_note_duration_html_ae6b6019391022160272790352c849f1c"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#ae6b6019391022160272790352c849f1c">music::NoteDuration::getRatioToOtherDuration</a></div><div class="ttdeci">constexpr double getRatioToOtherDuration(const NoteDuration &amp;other) const noexcept</div><div class="ttdoc">Returns the ratio of this duration to the other one.</div></div>
+<div class="ttc" id="astructmusic_1_1_note_duration_html_add0fdb4cd2b46aa1047b035fb8d29bcf"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#add0fdb4cd2b46aa1047b035fb8d29bcf">music::NoteDuration::noteHeadIsFilled</a></div><div class="ttdeci">constexpr bool noteHeadIsFilled() const noexcept</div><div class="ttdoc">Returns true if the notehead representing this duration is filled.</div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00027">limes_namespace.h:27</a></div></div>
-<div class="ttc" id="astructmusic_1_1_note_duration_html_a77fc8dd5d575c89fe9fabc20e241acd2"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a77fc8dd5d575c89fe9fabc20e241acd2">music::NoteDuration::hasStem</a></div><div class="ttdeci">constexpr bool hasStem() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d7a/_note_duration__impl_8h_source.html#l00079">NoteDuration_impl.h:79</a></div></div>
+<div class="ttc" id="astructmusic_1_1_note_duration_html_a77fc8dd5d575c89fe9fabc20e241acd2"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a77fc8dd5d575c89fe9fabc20e241acd2">music::NoteDuration::hasStem</a></div><div class="ttdeci">constexpr bool hasStem() const noexcept</div><div class="ttdoc">Returns true if the notehead representing this duration has a stem.</div></div>
 <div class="ttc" id="a_note_duration_8h_html"><div class="ttname"><a href="../../dd/df8/_note_duration_8h.html">NoteDuration.h</a></div></div>
-<div class="ttc" id="astructmusic_1_1_note_duration_html_af38a2ee80e6fbfd394af0b6f61652d59"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#af38a2ee80e6fbfd394af0b6f61652d59">music::NoteDuration::getDuration</a></div><div class="ttdeci">constexpr int getDuration() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d7a/_note_duration__impl_8h_source.html#l00089">NoteDuration_impl.h:89</a></div></div>
-<div class="ttc" id="astructmusic_1_1_note_duration_html"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html">music::NoteDuration</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df8/_note_duration_8h_source.html#l00024">NoteDuration.h:24</a></div></div>
-<div class="ttc" id="astructmusic_1_1_note_duration_html_a96bdccb65ef7664b24c36098081150a4"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a96bdccb65ef7664b24c36098081150a4">music::NoteDuration::operator&lt;</a></div><div class="ttdeci">constexpr bool operator&lt;(const NoteDuration &amp;other) const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d7a/_note_duration__impl_8h_source.html#l00045">NoteDuration_impl.h:45</a></div></div>
-<div class="ttc" id="astructmusic_1_1_note_duration_html_a164201393e17dbc83ee5e852efd5ecc4"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a164201393e17dbc83ee5e852efd5ecc4">music::NoteDuration::operator&gt;</a></div><div class="ttdeci">constexpr bool operator&gt;(const NoteDuration &amp;other) const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d7a/_note_duration__impl_8h_source.html#l00040">NoteDuration_impl.h:40</a></div></div>
+<div class="ttc" id="astructmusic_1_1_note_duration_html_a96bdccb65ef7664b24c36098081150a4"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a96bdccb65ef7664b24c36098081150a4">music::NoteDuration::operator&lt;</a></div><div class="ttdeci">constexpr bool operator&lt;(const NoteDuration &amp;other) const noexcept</div><div class="ttdoc">Returns true if this duration is shorter than the other one.</div></div>
+<div class="ttc" id="astructmusic_1_1_note_duration_html_a164201393e17dbc83ee5e852efd5ecc4"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a164201393e17dbc83ee5e852efd5ecc4">music::NoteDuration::operator&gt;</a></div><div class="ttdeci">constexpr bool operator&gt;(const NoteDuration &amp;other) const noexcept</div><div class="ttdoc">Returns true if this duration is longer than the other one.</div></div>
+<div class="ttc" id="astructmusic_1_1_note_duration_html_aa4b76e267b815ef394c942e091653bf2"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#aa4b76e267b815ef394c942e091653bf2">music::NoteDuration::operator--</a></div><div class="ttdeci">constexpr NoteDuration &amp; operator--() noexcept</div><div class="ttdoc">Decrements the duration value to the next longest notehead kind.</div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
-<div class="ttc" id="astructmusic_1_1_note_duration_html_a3c140ec42801bfd7d13a6efe122bcb46"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a3c140ec42801bfd7d13a6efe122bcb46">music::NoteDuration::operator!=</a></div><div class="ttdeci">constexpr bool operator!=(const NoteDuration &amp;other) const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d7a/_note_duration__impl_8h_source.html#l00035">NoteDuration_impl.h:35</a></div></div>
+<div class="ttc" id="astructmusic_1_1_note_duration_html_a3c140ec42801bfd7d13a6efe122bcb46"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a3c140ec42801bfd7d13a6efe122bcb46">music::NoteDuration::operator!=</a></div><div class="ttdeci">constexpr bool operator!=(const NoteDuration &amp;other) const noexcept</div><div class="ttdoc">Returns true if the two note durations are not equal.</div></div>
+<div class="ttc" id="astructmusic_1_1_note_duration_html_a9f8db171f44898df52ab7a26a891415e"><div class="ttname"><a href="../../dd/df8/structmusic_1_1_note_duration.html#a9f8db171f44898df52ab7a26a891415e">music::NoteDuration::getNumDots</a></div><div class="ttdeci">constexpr int getNumDots() const noexcept</div><div class="ttdoc">Returns the number of dots this note duration has.</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_4e10961ee4a74add6c88e3fe5a05001b.html">limes_music</a></li><li class="navelem"><a class="el" href="../../dir_9566b8a64367f9b31b3e32168de5a46e.html">rhythm</a></li><li class="navelem"><a class="el" href="../../da/d7a/_note_duration__impl_8h.html">NoteDuration_impl.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:00 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

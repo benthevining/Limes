@@ -12,7 +12,9 @@ var files_dup =
     [ "Algorithm.h", "d8/dda/_algorithm_8h.html", "d8/dda/_algorithm_8h" ],
     [ "AlignedAllocator.h", "d4/db8/_aligned_allocator_8h.html", [
       [ "AlignedAllocator", "dd/d1c/classmemory_1_1_aligned_allocator.html", "dd/d1c/classmemory_1_1_aligned_allocator" ],
-      [ "rebind", "dd/d18/structmemory_1_1_aligned_allocator_1_1rebind.html", "dd/d18/structmemory_1_1_aligned_allocator_1_1rebind" ]
+      [ "rebind", "dd/d1c/classmemory_1_1_aligned_allocator.html#dd/d18/structmemory_1_1_aligned_allocator_1_1rebind", [
+        [ "other", "dd/d1c/classmemory_1_1_aligned_allocator.html#acda34fd988505bd5d3398ae00121cc7a", null ]
+      ] ]
     ] ],
     [ "alignment.h", "db/dad/alignment_8h.html", "db/dad/alignment_8h" ],
     [ "analyzer.h", "d3/d19/analyzer_8h.html", [
@@ -46,7 +48,7 @@ var files_dup =
       [ "Coeffecients", "d5/d70/classdsp_1_1filters_1_1_coeffecients.html", "d5/d70/classdsp_1_1filters_1_1_coeffecients" ],
       [ "Storage", "db/d18/structdsp_1_1filters_1_1_coeffecients_1_1_storage.html", "db/d18/structdsp_1_1filters_1_1_coeffecients_1_1_storage" ]
     ] ],
-    [ "common.h", "dc/d54/common_8h.html", null ],
+    [ "common.h", "dc/d54/common_8h.html", "dc/d54/common_8h" ],
     [ "compiler_defs.h", "d0/d00/compiler__defs_8h.html", "d0/d00/compiler__defs_8h" ],
     [ "compiler_warnings.h", "de/d02/compiler__warnings_8h.html", "de/d02/compiler__warnings_8h" ],
     [ "CompoundInterval.h", "d4/d61/_compound_interval_8h.html", [
@@ -84,19 +86,21 @@ var files_dup =
       [ "DynamicLibrary", "d5/d80/classfiles_1_1_dynamic_library.html", "d5/d80/classfiles_1_1_dynamic_library" ],
       [ "hash< limes::files::DynamicLibrary >", "d6/d91/structstd_1_1hash_3_01limes_1_1files_1_1_dynamic_library_01_4.html", "d6/d91/structstd_1_1hash_3_01limes_1_1files_1_1_dynamic_library_01_4" ]
     ] ],
-    [ "exec_location.h", "df/d3f/exec__location_8h.html", null ],
+    [ "exec_location.h", "df/d3f/exec__location_8h.html", "df/d3f/exec__location_8h" ],
     [ "fallback.h", "d6/d1a/fallback_8h.html", null ],
-    [ "fallback_fft.h", "d9/d14/fallback__fft_8h.html", null ],
-    [ "fallback_impl.h", "d3/d3f/fallback__impl_8h.html", null ],
-    [ "fft_common.h", "d6/db4/fft__common_8h.html", null ],
-    [ "fftw_fft.h", "dc/d24/fftw__fft_8h.html", null ],
+    [ "fallback_fft.h", "d9/d14/fallback__fft_8h.html", [
+      [ "FallbackFFT", "da/de1/classvecops_1_1_fallback_f_f_t.html", "da/de1/classvecops_1_1_fallback_f_f_t" ]
+    ] ],
+    [ "fallback_impl.h", "d3/d3f/fallback__impl_8h.html", "d3/d3f/fallback__impl_8h" ],
+    [ "fft_common.h", "d6/db4/fft__common_8h.html", "d6/db4/fft__common_8h" ],
+    [ "fftw_fft.h", "dc/d24/fftw__fft_8h.html", "dc/d24/fftw__fft_8h" ],
     [ "FIFO.h", "dd/d35/_f_i_f_o_8h.html", [
       [ "FIFO", "d1/de6/classds_1_1_f_i_f_o.html", "d1/de6/classds_1_1_f_i_f_o" ]
     ] ],
     [ "file.h", "d2/d4d/file_8h.html", [
       [ "File", "df/dcc/classfiles_1_1_file.html", "df/dcc/classfiles_1_1_file" ],
-      [ "hash< limes::files::File >", "de/dac/structstd_1_1hash_3_01limes_1_1files_1_1_file_01_4.html", "de/dac/structstd_1_1hash_3_01limes_1_1files_1_1_file_01_4" ],
-      [ "TempFile", "d5/db7/classfiles_1_1_temp_file.html", "d5/db7/classfiles_1_1_temp_file" ]
+      [ "TempFile", "d5/db7/classfiles_1_1_temp_file.html", "d5/db7/classfiles_1_1_temp_file" ],
+      [ "hash< limes::files::File >", "de/dac/structstd_1_1hash_3_01limes_1_1files_1_1_file_01_4.html", "de/dac/structstd_1_1hash_3_01limes_1_1files_1_1_file_01_4" ]
     ] ],
     [ "FilesystemEntry.h", "d2/d83/_filesystem_entry_8h.html", "d2/d83/_filesystem_entry_8h" ],
     [ "Filter.h", "da/d2d/_filter_8h.html", [
@@ -119,7 +123,9 @@ var files_dup =
     [ "Interval.h", "d1/d6b/_interval_8h.html", "d1/d6b/_interval_8h" ],
     [ "Interval_impl.h", "d6/dfa/_interval__impl_8h.html", null ],
     [ "ipp.h", "d3/d88/ipp_8h.html", null ],
-    [ "ipp_fft.h", "d3/d33/ipp__fft_8h.html", null ],
+    [ "ipp_fft.h", "d3/d33/ipp__fft_8h.html", [
+      [ "IPP_FFT", "dd/dec/classvecops_1_1_i_p_p___f_f_t.html", "dd/dec/classvecops_1_1_i_p_p___f_f_t" ]
+    ] ],
     [ "json.h", "d4/d05/json_8h.html", "d4/d05/json_8h" ],
     [ "KeySignature.h", "dd/d47/_key_signature_8h.html", [
       [ "KeySignature", "de/d99/classmusic_1_1scales_1_1_key_signature.html", "de/d99/classmusic_1_1scales_1_1_key_signature" ]
@@ -143,8 +149,8 @@ var files_dup =
     ] ],
     [ "LinkedList_impl.h", "d5/dea/_linked_list__impl_8h.html", null ],
     [ "LinkedListModel.h", "d1/d4c/_linked_list_model_8h.html", [
-      [ "Iterator", "dd/dd5/structds_1_1_linked_list_model_1_1_iterator.html", "dd/dd5/structds_1_1_linked_list_model_1_1_iterator" ],
-      [ "LinkedListModel", "df/d16/structds_1_1_linked_list_model.html", "df/d16/structds_1_1_linked_list_model" ]
+      [ "LinkedListModel", "df/d16/structds_1_1_linked_list_model.html", "df/d16/structds_1_1_linked_list_model" ],
+      [ "Iterator", "dd/dd5/structds_1_1_linked_list_model_1_1_iterator.html", "dd/dd5/structds_1_1_linked_list_model_1_1_iterator" ]
     ] ],
     [ "LinkedListModel_impl.h", "d3/da1/_linked_list_model__impl_8h.html", null ],
     [ "mathHelpers.h", "dd/dfb/math_helpers_8h.html", "dd/dfb/math_helpers_8h" ],
@@ -155,7 +161,9 @@ var files_dup =
     [ "MemoryPool.h", "d2/daa/_memory_pool_8h.html", "d2/daa/_memory_pool_8h" ],
     [ "MemoryPoolAllocator.h", "d5/d53/_memory_pool_allocator_8h.html", [
       [ "MemoryPoolAllocator", "db/db8/classmemory_1_1_memory_pool_allocator.html", "db/db8/classmemory_1_1_memory_pool_allocator" ],
-      [ "rebind", "d5/d72/structmemory_1_1_memory_pool_allocator_1_1rebind.html", "d5/d72/structmemory_1_1_memory_pool_allocator_1_1rebind" ]
+      [ "rebind", "db/db8/classmemory_1_1_memory_pool_allocator.html#d5/d72/structmemory_1_1_memory_pool_allocator_1_1rebind", [
+        [ "other", "db/db8/classmemory_1_1_memory_pool_allocator.html#aa8268550c5287fc389fbe49286ca4b6d", null ]
+      ] ]
     ] ],
     [ "MicrotonalInterval.h", "d7/da0/_microtonal_interval_8h.html", "d7/da0/_microtonal_interval_8h" ],
     [ "mipp.h", "d4/dcb/mipp_8h.html", null ],
@@ -172,7 +180,7 @@ var files_dup =
     [ "mts_client.h", "da/d20/mts__client_8h.html", [
       [ "MtsClient", "d6/dc9/classmidi_1_1_mts_client.html", "d6/dc9/classmidi_1_1_mts_client" ]
     ] ],
-    [ "neon_mathfun.h", "d8/d51/neon__mathfun_8h.html", null ],
+    [ "neon_mathfun.h", "d8/d51/neon__mathfun_8h.html", "d8/d51/neon__mathfun_8h" ],
     [ "NoteDuration.h", "dd/df8/_note_duration_8h.html", [
       [ "NoteDuration", "dd/df8/structmusic_1_1_note_duration.html", "dd/df8/structmusic_1_1_note_duration" ]
     ] ],
@@ -195,8 +203,8 @@ var files_dup =
       [ "Phase", "d1/d83/structdsp_1_1_oscillator_1_1_phase.html", "d1/d83/structdsp_1_1_oscillator_1_1_phase" ]
     ] ],
     [ "owned_vector.h", "d2/dd0/owned__vector_8h.html", [
-      [ "iterator_base", "de/dc2/structds_1_1owned__vector_1_1iterator__base.html", "de/dc2/structds_1_1owned__vector_1_1iterator__base" ],
-      [ "owned_vector", "de/de5/classds_1_1owned__vector.html", "de/de5/classds_1_1owned__vector" ]
+      [ "owned_vector", "de/de5/classds_1_1owned__vector.html", "de/de5/classds_1_1owned__vector" ],
+      [ "iterator_base", "de/dc2/structds_1_1owned__vector_1_1iterator__base.html", "de/dc2/structds_1_1owned__vector_1_1iterator__base" ]
     ] ],
     [ "PeakFinder.h", "dc/dad/_peak_finder_8h.html", [
       [ "PeakFinder", "dc/de3/classdsp_1_1psola_1_1_peak_finder.html", "dc/de3/classdsp_1_1psola_1_1_peak_finder" ]
@@ -207,7 +215,7 @@ var files_dup =
     [ "PerlinNoise.h", "d4/d5f/_perlin_noise_8h.html", [
       [ "PerlinNoise", "de/da0/classdsp_1_1_perlin_noise.html", "de/da0/classdsp_1_1_perlin_noise" ]
     ] ],
-    [ "phasor.h", "d1/d15/phasor_8h.html", null ],
+    [ "phasor.h", "d1/d15/phasor_8h.html", "d1/d15/phasor_8h" ],
     [ "Pitch.h", "db/ddf/_pitch_8h.html", [
       [ "Pitch", "de/d6d/classmusic_1_1_pitch.html", "de/d6d/classmusic_1_1_pitch" ]
     ] ],
@@ -221,7 +229,7 @@ var files_dup =
       [ "PitchDetector", "d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html", "d0/dfe/classdsp_1_1psola_1_1_pitch_detector" ]
     ] ],
     [ "PitchUtils.h", "d5/d5b/_pitch_utils_8h.html", "d5/d5b/_pitch_utils_8h" ],
-    [ "pommier_wrapper.h", "d4/dda/pommier__wrapper_8h.html", null ],
+    [ "pommier_wrapper.h", "d4/dda/pommier__wrapper_8h.html", "d4/dda/pommier__wrapper_8h" ],
     [ "preprocessor.h", "d3/d53/preprocessor_8h.html", "d3/d53/preprocessor_8h" ],
     [ "pyramid.h", "dd/d7d/pyramid_8h.html", [
       [ "Pyramid", "df/dcd/classmath_1_1geometry_1_1_pyramid.html", "df/dcd/classmath_1_1geometry_1_1_pyramid" ]
@@ -230,8 +238,8 @@ var files_dup =
       [ "Random", "d3/dbd/classmath_1_1_random.html", "d3/dbd/classmath_1_1_random" ]
     ] ],
     [ "RawData.h", "d2/dea/_raw_data_8h.html", [
-      [ "hash< limes::memory::RawData >", "df/de4/structstd_1_1hash_3_01limes_1_1memory_1_1_raw_data_01_4.html", "df/de4/structstd_1_1hash_3_01limes_1_1memory_1_1_raw_data_01_4" ],
-      [ "RawData", "d1/db0/classmemory_1_1_raw_data.html", "d1/db0/classmemory_1_1_raw_data" ]
+      [ "RawData", "d1/db0/classmemory_1_1_raw_data.html", "d1/db0/classmemory_1_1_raw_data" ],
+      [ "hash< limes::memory::RawData >", "df/de4/structstd_1_1hash_3_01limes_1_1memory_1_1_raw_data_01_4.html", "df/de4/structstd_1_1hash_3_01limes_1_1memory_1_1_raw_data_01_4" ]
     ] ],
     [ "RealtimeTypeTraits.h", "d1/d7a/_realtime_type_traits_8h.html", "d1/d7a/_realtime_type_traits_8h" ],
     [ "rectangle.h", "db/dd0/rectangle_8h.html", [
@@ -247,9 +255,7 @@ var files_dup =
     [ "scalar_vector.h", "d2/d8d/scalar__vector_8h.html", [
       [ "scalar_vector", "d6/d5d/classds_1_1scalar__vector.html", "d6/d5d/classds_1_1scalar__vector" ]
     ] ],
-    [ "Scale.h", "d4/d81/_scale_8h.html", [
-      [ "Scale", "d3/d66/structmusic_1_1scales_1_1_scale.html", "d3/d66/structmusic_1_1scales_1_1_scale" ]
-    ] ],
+    [ "Scale.h", "d4/d81/_scale_8h.html", null ],
     [ "sha1.h", "db/db5/sha1_8h.html", "db/db5/sha1_8h" ],
     [ "sha224.h", "d3/d51/sha224_8h.html", "d3/d51/sha224_8h" ],
     [ "sha256.h", "d5/de3/sha256_8h.html", "d5/de3/sha256_8h" ],
@@ -262,7 +268,7 @@ var files_dup =
       [ "Sphere", "d4/dc0/classmath_1_1geometry_1_1_sphere.html", "d4/dc0/classmath_1_1geometry_1_1_sphere" ]
     ] ],
     [ "square.h", "d7/d3c/square_8h.html", "d7/d3c/square_8h" ],
-    [ "sse_mathfun.h", "d1/dda/sse__mathfun_8h.html", null ],
+    [ "sse_mathfun.h", "d1/dda/sse__mathfun_8h.html", "d1/dda/sse__mathfun_8h" ],
     [ "stack_allocator.h", "d5/d5a/stack__allocator_8h.html", "d5/d5a/stack__allocator_8h" ],
     [ "StaticObjects.h", "d0/d78/_static_objects_8h.html", "d0/d78/_static_objects_8h" ],
     [ "streams.h", "db/d8e/streams_8h.html", [
@@ -287,9 +293,15 @@ var files_dup =
     [ "time_impl.h", "d3/d09/time__impl_8h.html", null ],
     [ "time_utils.h", "d5/dd4/time__utils_8h.html", "d5/dd4/time__utils_8h" ],
     [ "TimeSignature.h", "d7/db8/_time_signature_8h.html", [
-      [ "Subdivision", "db/d39/structmusic_1_1_time_signature_1_1_subdivision.html", "db/d39/structmusic_1_1_time_signature_1_1_subdivision" ],
-      [ "TimeSignature", "db/d6d/structmusic_1_1_time_signature.html", [
-        [ "Subdivision", "db/d39/structmusic_1_1_time_signature_1_1_subdivision.html", "db/d39/structmusic_1_1_time_signature_1_1_subdivision" ]
+      [ "TimeSignature", "d3/d28/namespacemusic.html#db/d6d/structmusic_1_1_time_signature", [
+        [ "Subdivision", "d3/d28/namespacemusic.html#db/d39/structmusic_1_1_time_signature_1_1_subdivision", [
+          [ "beatKind", "d3/d28/namespacemusic.html#a1372aae2f1a9d249b6fc38d9d5c12a96", null ],
+          [ "numBeats", "d3/d28/namespacemusic.html#ab99e3de520b2a26e8dd8f4e4d066d063", null ]
+        ] ]
+      ] ],
+      [ "Subdivision", "d3/d28/namespacemusic.html#db/d39/structmusic_1_1_time_signature_1_1_subdivision", [
+        [ "beatKind", "d3/d28/namespacemusic.html#a1372aae2f1a9d249b6fc38d9d5c12a96", null ],
+        [ "numBeats", "d3/d28/namespacemusic.html#ab99e3de520b2a26e8dd8f4e4d066d063", null ]
       ] ]
     ] ],
     [ "triangle.h", "dd/d6a/triangle_8h.html", [
@@ -302,14 +314,16 @@ var files_dup =
     [ "TypeList_impl.h", "d7/dfe/_type_list__impl_8h.html", "d7/dfe/_type_list__impl_8h" ],
     [ "TypeTraits.h", "d4/dd5/_type_traits_8h.html", "d4/dd5/_type_traits_8h" ],
     [ "vdsp.h", "d2/d36/vdsp_8h.html", null ],
-    [ "vdsp_fft.h", "d8/da3/vdsp__fft_8h.html", null ],
+    [ "vdsp_fft.h", "d8/da3/vdsp__fft_8h.html", [
+      [ "vDSP_FFT", "da/d63/classvecops_1_1v_d_s_p___f_f_t.html", "da/d63/classvecops_1_1v_d_s_p___f_f_t" ]
+    ] ],
     [ "vector.h", "d6/d68/vector_8h.html", "d6/d68/vector_8h" ],
     [ "VelocityMapper.h", "d0/d0d/_velocity_mapper_8h.html", [
       [ "VelocityMapper", "d3/d01/classmidi_1_1_velocity_mapper.html", "d3/d01/classmidi_1_1_velocity_mapper" ]
     ] ],
     [ "Version.h", "d0/dd7/_version_8h.html", [
-      [ "hash< limes::misc::Version >", "d6/d13/structstd_1_1hash_3_01limes_1_1misc_1_1_version_01_4.html", "d6/d13/structstd_1_1hash_3_01limes_1_1misc_1_1_version_01_4" ],
-      [ "Version", "d0/dec/structmisc_1_1_version.html", "d0/dec/structmisc_1_1_version" ]
+      [ "Version", "d0/dec/structmisc_1_1_version.html", "d0/dec/structmisc_1_1_version" ],
+      [ "hash< limes::misc::Version >", "d6/d13/structstd_1_1hash_3_01limes_1_1misc_1_1_version_01_4.html", "d6/d13/structstd_1_1hash_3_01limes_1_1misc_1_1_version_01_4" ]
     ] ],
     [ "weekday.h", "d0/ddc/weekday_8h.html", [
       [ "Weekday", "d3/d61/classtime_1_1_weekday.html", "d3/d61/classtime_1_1_weekday" ]

@@ -1,20 +1,11 @@
 var searchData=
 [
-  ['reader_2727',['Reader',['../dc/da7/classthreads_1_1_thread_safe_object.html#a446bd21c5862a798d1ee079f2e4a13c3',1,'threads::ThreadSafeObject']]],
-  ['rect_2728',['Rect',['../d3/d06/classmath_1_1geometry_1_1_square.html#a6dcde90c0aef498c783d8e31f9ad53c7',1,'math::geometry::Square']]],
-  ['reference_2729',['reference',['../dd/d1c/classmemory_1_1_aligned_allocator.html#a96ba19f5c7e90e461d404d34e62cdf1c',1,'memory::AlignedAllocator::reference()'],['../db/db8/classmemory_1_1_memory_pool_allocator.html#a279dd42ea1c16f9ac08f13395206fc96',1,'memory::MemoryPoolAllocator::reference()'],['../d1/d2b/classmemory_1_1_stack_allocator.html#a60a0b08cc9a694eea83a74cbfed9b2fb',1,'memory::StackAllocator::reference()'],['../dd/dd5/structds_1_1_linked_list_model_1_1_iterator.html#a51ccf53dce28023423862c45eca57a62',1,'ds::LinkedListModel::Iterator::reference()'],['../de/dc2/structds_1_1owned__vector_1_1iterator__base.html#a7efe0ff892505f91c6bdfd905c4d0565',1,'ds::owned_vector::iterator_base::reference()']]],
-  ['referencedtype_2730',['ReferencedType',['../d6/d26/classmemory_1_1_reference_counted_object_ptr.html#a4ef3977d138964fb21ac812e9632bd51',1,'memory::ReferenceCountedObjectPtr']]],
-  ['remove_2731',['remove',['../d4/d06/classmeta_1_1_type_list.html#a96fe33567c0c519098b0a70c42d7d0fd',1,'meta::TypeList']]],
-  ['remove_5fat_2732',['remove_at',['../d4/d06/classmeta_1_1_type_list.html#a11f8c1cd75d74466a6bcbde4e68dd5cb',1,'meta::TypeList']]],
-  ['remove_5fduplicates_2733',['remove_duplicates',['../d4/d06/classmeta_1_1_type_list.html#ae091b28f06dbd9a2c340ce7c7033f4d8',1,'meta::TypeList']]],
-  ['remove_5ffirst_2734',['remove_first',['../d4/d06/classmeta_1_1_type_list.html#a51ed45ad6fba302a0521c40f850a6fa9',1,'meta::TypeList']]],
-  ['remove_5fif_2735',['remove_if',['../d4/d06/classmeta_1_1_type_list.html#a0ff6fdc23539c764e1718a91e5a5072f',1,'meta::TypeList']]],
-  ['remove_5fif_5fnot_2736',['remove_if_not',['../d4/d06/classmeta_1_1_type_list.html#ab01b40f367f1bfe0d384b4355ea4351c',1,'meta::TypeList']]],
-  ['remove_5flast_2737',['remove_last',['../d4/d06/classmeta_1_1_type_list.html#ae9da1e6d4d6b90f7b9b08463c0553cfa',1,'meta::TypeList']]],
-  ['remove_5fnull_5ftypes_2738',['remove_null_types',['../d4/d06/classmeta_1_1_type_list.html#ae2e483efb883df412e1aa30c3fc4f944',1,'meta::TypeList']]],
-  ['replace_2739',['replace',['../d4/d06/classmeta_1_1_type_list.html#afa399e60f7699a3c402cdec27cff9e42',1,'meta::TypeList']]],
-  ['replace_5fat_2740',['replace_at',['../d4/d06/classmeta_1_1_type_list.html#ad97e8449cd5e24f4d23c26d77d98a63d',1,'meta::TypeList']]],
-  ['result_5ftype_2741',['result_type',['../de/d94/group__func.html#ga734e223214335b499b76e734d6c3771f',1,'func']]],
-  ['reverse_2742',['reverse',['../d4/d06/classmeta_1_1_type_list.html#a54c2c46b73b85991d04cd8559076379e',1,'meta::TypeList']]],
-  ['row_2743',['Row',['../d6/d00/classmath_1_1_matrix.html#aa0d0b9a5cc8c4a6b64bdfdbbb0ddbfa7',1,'math::Matrix']]]
+  ['path_3007',['Path',['../d6/d04/namespacefiles.html#a794b8ca19b6b9e9045a70663a9c3416c',1,'files']]],
+  ['permissions_3008',['Permissions',['../de/d3d/classfiles_1_1_filesystem_entry.html#afd61b18fdf61fdaa9503289065c7dd89',1,'files::FilesystemEntry']]],
+  ['permoptions_3009',['PermOptions',['../de/d3d/classfiles_1_1_filesystem_entry.html#ac5040d9cc3d3ba7f641ab25e89c18b80',1,'files::FilesystemEntry']]],
+  ['point_3010',['Point',['../d0/dfb/namespacetime.html#ade0327197a2b5a9a6cec5bf4a64426bc',1,'time']]],
+  ['pointer_3011',['pointer',['../dd/d1c/classmemory_1_1_aligned_allocator.html#a771e6435302455ea831bf499e8542256',1,'memory::AlignedAllocator::pointer()'],['../db/db8/classmemory_1_1_memory_pool_allocator.html#a51bdbc4d319b9af147030d8b47198512',1,'memory::MemoryPoolAllocator::pointer()'],['../d1/d2b/classmemory_1_1_stack_allocator.html#af8b4595e15b00bb4f15c4eeba13e5e57',1,'memory::StackAllocator::pointer()'],['../dd/dd5/structds_1_1_linked_list_model_1_1_iterator.html#a044218247de79c9c0fb9c36881ca9003',1,'ds::LinkedListModel::Iterator::pointer()'],['../de/dc2/structds_1_1owned__vector_1_1iterator__base.html#a0c3cef3096dbe8d131f8ab56bd98b31e',1,'ds::owned_vector::iterator_base::pointer()']]],
+  ['poolvector_3012',['PoolVector',['../d3/d4e/namespaceds.html#a3142f6ef83d2aad2bdb2d96d49bf6afd',1,'ds']]],
+  ['prepend_3013',['prepend',['../d4/d06/classmeta_1_1_type_list.html#ac3107b564759c17110c888f516c4b893',1,'meta::TypeList::prepend()'],['../dc/de3/classmeta_1_1_type_list_3_4.html#a0ca8b41efcceecdbec25585e75f1aa34',1,'meta::TypeList&lt;&gt;::prepend()']]],
+  ['prepend_5ft_3014',['prepend_t',['../dd/d4b/namespacetypelist.html#a217abe0bd33ddaffdd251c94c480b915',1,'typelist']]]
 ];

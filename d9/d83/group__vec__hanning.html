@@ -90,14 +90,33 @@ $(document).ready(function(){initNavTree('d9/d83/group__vec__hanning.html','../.
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Hanning windowing<div class="ingroups"><a class="el" href="../../dc/dd4/group__limes__vecops.html">limes_vecops</a> &raquo; <a class="el" href="../../d4/dd9/group__vec__window.html">Windowing functions</a></div></div>  </div>
+<div class="title">Hanning windowing<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../dc/dd4/group__limes__vecops.html">limes_vecops</a> &raquo; <a class="el" href="../../d4/dd9/group__vec__window.html">Windowing functions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Hanning windowing functions.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga753a3c1ed50535df993aa994a3aa983f"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga753a3c1ed50535df993aa994a3aa983f"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d83/group__vec__hanning.html#ga753a3c1ed50535df993aa994a3aa983f">vecops::fb::window::detail::getHanningSample</a> (SizeType size, SizeType i) noexcept</td></tr>
+<tr class="separator:ga753a3c1ed50535df993aa994a3aa983f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga475f60cb9dcd055eff11500f02848591"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga475f60cb9dcd055eff11500f02848591"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d83/group__vec__hanning.html#ga475f60cb9dcd055eff11500f02848591">vecops::fb::window::generateHanning</a> (DataType *const output, SizeType size)</td></tr>
+<tr class="memdesc:ga475f60cb9dcd055eff11500f02848591"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a Hanning window, writing the output samples to a vector.  <a href="../../d9/d83/group__vec__hanning.html#ga475f60cb9dcd055eff11500f02848591">More...</a><br /></td></tr>
+<tr class="separator:ga475f60cb9dcd055eff11500f02848591"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga44e4bd2d9551f8f165689a0d201856dc"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga44e4bd2d9551f8f165689a0d201856dc"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d83/group__vec__hanning.html#ga44e4bd2d9551f8f165689a0d201856dc">vecops::fb::window::applyHanning</a> (DataType *const dataAndDest, SizeType size)</td></tr>
+<tr class="memdesc:ga44e4bd2d9551f8f165689a0d201856dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a Hanning window to the samples in the vector.  <a href="../../d9/d83/group__vec__hanning.html#ga44e4bd2d9551f8f165689a0d201856dc">More...</a><br /></td></tr>
+<tr class="separator:ga44e4bd2d9551f8f165689a0d201856dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5145d014c50cb9137965a4e1001675af"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga5145d014c50cb9137965a4e1001675af"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d83/group__vec__hanning.html#ga5145d014c50cb9137965a4e1001675af">vecops::fb::window::applyHanningAndCopy</a> (DataType *const dest, const DataType *const data, SizeType size)</td></tr>
+<tr class="memdesc:ga5145d014c50cb9137965a4e1001675af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a Hanning window to the samples in the vector, writing the output samples to another vector.  <a href="../../d9/d83/group__vec__hanning.html#ga5145d014c50cb9137965a4e1001675af">More...</a><br /></td></tr>
+<tr class="separator:ga5145d014c50cb9137965a4e1001675af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1f3dd9621252650e890a6f846ee6e3ce"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
 <tr class="memitem:ga1f3dd9621252650e890a6f846ee6e3ce"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d83/group__vec__hanning.html#ga1f3dd9621252650e890a6f846ee6e3ce">vecops::window::generateHanning</a> (DataType *const output, SizeType size)</td></tr>
 <tr class="memdesc:ga1f3dd9621252650e890a6f846ee6e3ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a Hanning window, writing the output samples to a vector.  <a href="../../d9/d83/group__vec__hanning.html#ga1f3dd9621252650e890a6f846ee6e3ce">More...</a><br /></td></tr>
@@ -115,7 +134,7 @@ $(document).ready(function(){initNavTree('d9/d83/group__vec__hanning.html','../.
 <p>Hanning windowing functions. </p>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ga58332762474a285514e30b255be86835"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga58332762474a285514e30b255be86835">&#9670;&nbsp;</a></span>applyHanning()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga58332762474a285514e30b255be86835">&#9670;&nbsp;</a></span>applyHanning() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,13 +161,54 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
+
 <p>Applies a Hanning window to the samples in the vector. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/d83/group__vec__hanning.html#ga1f3dd9621252650e890a6f846ee6e3ce" title="Generates a Hanning window, writing the output samples to a vector.">generateHanning</a>, <a class="el" href="../../d9/d83/group__vec__hanning.html#gad7afbe4383d3a434289bdd6d4694abc7" title="Applies a Hanning window to the samples in the vector, writing the output samples to another vector.">applyHanningAndCopy</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01230">1230</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="ga44e4bd2d9551f8f165689a0d201856dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga44e4bd2d9551f8f165689a0d201856dc">&#9670;&nbsp;</a></span>applyHanning() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void vecops::fb::window::applyHanning </td>
+          <td>(</td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>dataAndDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p>Applies a Hanning window to the samples in the vector. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/d83/group__vec__hanning.html#ga475f60cb9dcd055eff11500f02848591" title="Generates a Hanning window, writing the output samples to a vector.">generateHanning</a>, <a class="el" href="../../d9/d83/group__vec__hanning.html#ga5145d014c50cb9137965a4e1001675af" title="Applies a Hanning window to the samples in the vector, writing the output samples to another vector.">applyHanningAndCopy</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01230">1230</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
 
 </div>
 </div>
 <a id="gad7afbe4383d3a434289bdd6d4694abc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad7afbe4383d3a434289bdd6d4694abc7">&#9670;&nbsp;</a></span>applyHanningAndCopy()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#gad7afbe4383d3a434289bdd6d4694abc7">&#9670;&nbsp;</a></span>applyHanningAndCopy() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,13 +241,60 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
+
 <p>Applies a Hanning window to the samples in the vector, writing the output samples to another vector. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/d83/group__vec__hanning.html#ga58332762474a285514e30b255be86835" title="Applies a Hanning window to the samples in the vector.">applyHanning</a>, <a class="el" href="../../d9/d83/group__vec__hanning.html#ga1f3dd9621252650e890a6f846ee6e3ce" title="Generates a Hanning window, writing the output samples to a vector.">generateHanning</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01237">1237</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="ga5145d014c50cb9137965a4e1001675af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5145d014c50cb9137965a4e1001675af">&#9670;&nbsp;</a></span>applyHanningAndCopy() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void vecops::fb::window::applyHanningAndCopy </td>
+          <td>(</td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DataType *const&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p>Applies a Hanning window to the samples in the vector, writing the output samples to another vector. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/d83/group__vec__hanning.html#ga44e4bd2d9551f8f165689a0d201856dc" title="Applies a Hanning window to the samples in the vector.">applyHanning</a>, <a class="el" href="../../d9/d83/group__vec__hanning.html#ga475f60cb9dcd055eff11500f02848591" title="Generates a Hanning window, writing the output samples to a vector.">generateHanning</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01237">1237</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
 
 </div>
 </div>
 <a id="ga1f3dd9621252650e890a6f846ee6e3ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1f3dd9621252650e890a6f846ee6e3ce">&#9670;&nbsp;</a></span>generateHanning()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1f3dd9621252650e890a6f846ee6e3ce">&#9670;&nbsp;</a></span>generateHanning() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,8 +321,91 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
+
 <p>Generates a Hanning window, writing the output samples to a vector. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/d83/group__vec__hanning.html#ga58332762474a285514e30b255be86835" title="Applies a Hanning window to the samples in the vector.">applyHanning</a>, <a class="el" href="../../d9/d83/group__vec__hanning.html#gad7afbe4383d3a434289bdd6d4694abc7" title="Applies a Hanning window to the samples in the vector, writing the output samples to another vector.">applyHanningAndCopy</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01223">1223</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="ga475f60cb9dcd055eff11500f02848591"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga475f60cb9dcd055eff11500f02848591">&#9670;&nbsp;</a></span>generateHanning() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void vecops::fb::window::generateHanning </td>
+          <td>(</td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p>Generates a Hanning window, writing the output samples to a vector. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/d83/group__vec__hanning.html#ga44e4bd2d9551f8f165689a0d201856dc" title="Applies a Hanning window to the samples in the vector.">applyHanning</a>, <a class="el" href="../../d9/d83/group__vec__hanning.html#ga5145d014c50cb9137965a4e1001675af" title="Applies a Hanning window to the samples in the vector, writing the output samples to another vector.">applyHanningAndCopy</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01223">1223</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="ga753a3c1ed50535df993aa994a3aa983f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga753a3c1ed50535df993aa994a3aa983f">&#9670;&nbsp;</a></span>getHanningSample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> DataType vecops::fb::window::detail::getHanningSample </td>
+          <td>(</td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01147">1147</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
 
 </div>
 </div>
@@ -224,7 +414,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -114,103 +114,95 @@ $(document).ready(function(){initNavTree('d8/daa/_mode_8h_source.html','../../')
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;../PitchClass.h&quot;</span>          <span class="comment">// for PitchClass</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d8/d1d/limes__data__structures_8h.html">limes_data_structures.h</a>&gt;</span>  <span class="comment">// for vector</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a>&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d3/d88/namespacemusic_1_1scales.html">music::scales</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">   29</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">Mode</a> final : <span class="keyword">public</span> <a class="code" href="../../d3/d66/structmusic_1_1scales_1_1_scale.html">Scale</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d9/df8/limes__core_8h.html">limes_core.h</a>&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d3/d88/namespacemusic_1_1scales.html">music::scales</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a21d99d5c4373dcf7cd222335cf32bfad">   34</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a21d99d5c4373dcf7cd222335cf32bfad">Type</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        Ionian,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        Dorian,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        Phrygian,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        Lydian,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        Mixolydian,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        Aeolian,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        Locrian</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    };</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a844d71fb0920b63d2ed5a4ea1a4eac73">   46</a></span>&#160;    constexpr <span class="keyword">explicit</span> <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a844d71fb0920b63d2ed5a4ea1a4eac73">Mode</a> (<a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a21d99d5c4373dcf7cd222335cf32bfad">Type</a> typeToUse, <span class="keyword">const</span> <a class="code" href="../../d4/d8c/structmusic_1_1_pitch_class.html">PitchClass</a>&amp; pitchClassOfRoot) noexcept</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        : type (typeToUse), rootPitchClass (pitchClassOfRoot)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a2677484cdd96cffc32a0f1d7d098b29c">   52</a></span>&#160;    constexpr <span class="keyword">explicit</span> <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a2677484cdd96cffc32a0f1d7d098b29c">Mode</a> (<a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a21d99d5c4373dcf7cd222335cf32bfad">Type</a> typeToUse, <span class="keywordtype">int</span> rootNote) noexcept</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        : type (typeToUse), rootPitchClass (rootNote)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a0f1e49ddf44361be78877c42bdaca7ad">   58</a></span>&#160;    constexpr <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a0f1e49ddf44361be78877c42bdaca7ad">Mode</a> (<span class="keyword">const</span> <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">Mode</a>&amp; other) noexcept</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        : type (other.type), rootPitchClass (other.rootPitchClass)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#afb12d08853aea373de0d47fcee83ac29">   64</a></span>&#160;    constexpr <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">Mode</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">Mode</a>&amp; other) noexcept</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        type           = other.type;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        rootPitchClass = other.rootPitchClass;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">//  [[nodiscard]] static Mode fromStringDescription (const String&amp; description);</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a306f621b1a2e5632ff5e61bfddc8a0de">   77</a></span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d9/d9a/namespacemath_1_1geometry.html#a2396d30ac8dc8dc734b4aa53fb53c6e5">operator== </a>(<span class="keyword">const</span> <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">Mode</a>&amp; other) <span class="keyword">const</span> noexcept</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span> type == other.type &amp;&amp; rootPitchClass == other.rootPitchClass;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">   49</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">Mode</a> final : <span class="keyword">public</span> <a class="code" href="../../d3/d66/structmusic_1_1scales_1_1_scale.html">Scale</a></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a21d99d5c4373dcf7cd222335cf32bfad">   54</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a21d99d5c4373dcf7cd222335cf32bfad">Type</a></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        Ionian,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        Dorian,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        Phrygian,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        Lydian,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        Mixolydian,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        Aeolian,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        Locrian</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    };</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a844d71fb0920b63d2ed5a4ea1a4eac73">   69</a></span>&#160;    constexpr <span class="keyword">explicit</span> <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a844d71fb0920b63d2ed5a4ea1a4eac73">Mode</a> (<a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a21d99d5c4373dcf7cd222335cf32bfad">Type</a> typeToUse, <span class="keyword">const</span> <a class="code" href="../../d4/d8c/structmusic_1_1_pitch_class.html">PitchClass</a>&amp; pitchClassOfRoot) noexcept</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        : type (typeToUse), rootPitchClass (pitchClassOfRoot)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a2677484cdd96cffc32a0f1d7d098b29c">   75</a></span>&#160;    constexpr <span class="keyword">explicit</span> <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a2677484cdd96cffc32a0f1d7d098b29c">Mode</a> (<a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a21d99d5c4373dcf7cd222335cf32bfad">Type</a> typeToUse, <span class="keywordtype">int</span> rootNote) noexcept</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        : type (typeToUse), rootPitchClass (rootNote)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#ac165e0d0c6759df88e2c20fd9c091f71">   83</a></span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d9/d9a/namespacemath_1_1geometry.html#a317e9900bc8f2c083ad6d6c8fafc5df8">operator!= </a>(<span class="keyword">const</span> <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">Mode</a>&amp; other) <span class="keyword">const</span> noexcept</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">return</span> ! (*<span class="keyword">this</span> == other);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    [[nodiscard]] <a class="code" href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector&lt;int&gt;</a> getIntervalsAsSemitones() const final;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga5bf553d96012e220f7715df0a90066da">LIMES_DEFAULT_COPYABLE</a> (<a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">Mode</a>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a> (<a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">Mode</a>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a306f621b1a2e5632ff5e61bfddc8a0de">   86</a></span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d9/d9a/namespacemath_1_1geometry.html#a2396d30ac8dc8dc734b4aa53fb53c6e5">operator== </a>(<span class="keyword">const</span> <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">Mode</a>&amp; other) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> type == other.type &amp;&amp; rootPitchClass == other.rootPitchClass;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    [[nodiscard]] <a class="code" href="../../d4/d8c/structmusic_1_1_pitch_class.html">PitchClass</a> getPitchClassOfRoot() const noexcept final;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">//  [[nodiscard]] String getStringDescription() const final;</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#ac165e0d0c6759df88e2c20fd9c091f71">   92</a></span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d9/d9a/namespacemath_1_1geometry.html#a317e9900bc8f2c083ad6d6c8fafc5df8">operator!= </a>(<span class="keyword">const</span> <a class="code" href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">Mode</a>&amp; other) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> ! (*<span class="keyword">this</span> == other);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> notesPerOctave() const noexcept final;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    [[nodiscard]] <a class="code" href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector&lt;int&gt;</a> getIntervalsAsSemitones() const final;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> getNumSharps() const noexcept;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    [[nodiscard]] <a class="code" href="../../d4/d8c/structmusic_1_1_pitch_class.html">PitchClass</a> getPitchClassOfRoot() const noexcept final;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> getNumFlats() const noexcept;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> notesPerOctave() const noexcept final;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    [[nodiscard]] <a class="code" href="../../de/d99/classmusic_1_1scales_1_1_key_signature.html">KeySignature</a> getKeySignature() const noexcept;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> getNumSharps() const noexcept;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;private:</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="../../db/d97/group__hashes.html#gadd3ce0ac3d3c8404d1b002ab4e064db9">Type</a> type { Type::Ionian };</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="../../d4/d8c/structmusic_1_1_pitch_class.html">PitchClass</a> rootPitchClass { 0 };</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;};</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}  <span class="comment">// namespace music::scales</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> getNumFlats() const noexcept;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    [[nodiscard]] <a class="code" href="../../de/d99/classmusic_1_1scales_1_1_key_signature.html">KeySignature</a> getKeySignature() const noexcept;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;private:</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <a class="code" href="../../db/d97/group__hashes.html#gadd3ce0ac3d3c8404d1b002ab4e064db9">Type</a> type { Type::Ionian };</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="../../d4/d8c/structmusic_1_1_pitch_class.html">PitchClass</a> rootPitchClass { 0 };</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}  <span class="comment">// namespace music::scales</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassmusic_1_1scales_1_1_mode_html_a0f1e49ddf44361be78877c42bdaca7ad"><div class="ttname"><a href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a0f1e49ddf44361be78877c42bdaca7ad">music::scales::Mode::Mode</a></div><div class="ttdeci">constexpr Mode(const Mode &amp;other) noexcept</div><div class="ttdoc">Copy constructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/daa/_mode_8h_source.html#l00058">Mode.h:58</a></div></div>
-<div class="ttc" id="agroup__hashes_html_gadd3ce0ac3d3c8404d1b002ab4e064db9"><div class="ttname"><a href="../../db/d97/group__hashes.html#gadd3ce0ac3d3c8404d1b002ab4e064db9">hash::Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">Represents a type of hash function that comes with the Limes library.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dfb/hash_8h_source.html#l00046">hash.h:46</a></div></div>
-<div class="ttc" id="anamespacemusic_1_1scales_html"><div class="ttname"><a href="../../d3/d88/namespacemusic_1_1scales.html">music::scales</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d57/_chord_8h_source.html#l00029">Chord.h:29</a></div></div>
+<div class="ttc" id="agroup__hashes_html_gadd3ce0ac3d3c8404d1b002ab4e064db9"><div class="ttname"><a href="../../db/d97/group__hashes.html#gadd3ce0ac3d3c8404d1b002ab4e064db9">hash::Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">Represents a type of hash function that comes with the Limes library.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dfb/hash_8h_source.html#l00051">hash.h:51</a></div></div>
+<div class="ttc" id="anamespacemusic_1_1scales_html"><div class="ttname"><a href="../../d3/d88/namespacemusic_1_1scales.html">music::scales</a></div><div class="ttdoc">This namespace contains utilities for working with musical scales.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d57/_chord_8h_source.html#l00034">Chord.h:34</a></div></div>
 <div class="ttc" id="a_key_signature_8h_html"><div class="ttname"><a href="../../dd/d47/_key_signature_8h.html">KeySignature.h</a></div></div>
-<div class="ttc" id="aclassmusic_1_1scales_1_1_mode_html_a21d99d5c4373dcf7cd222335cf32bfad"><div class="ttname"><a href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a21d99d5c4373dcf7cd222335cf32bfad">music::scales::Mode::Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">Represents which kind of mode this scale is.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/daa/_mode_8h_source.html#l00034">Mode.h:34</a></div></div>
-<div class="ttc" id="astructmusic_1_1_pitch_class_html"><div class="ttname"><a href="../../d4/d8c/structmusic_1_1_pitch_class.html">music::PitchClass</a></div><div class="ttdoc">A struct that represents a pitch class.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dc3/_pitch_class_8h_source.html#l00028">PitchClass.h:28</a></div></div>
+<div class="ttc" id="aclassmusic_1_1scales_1_1_mode_html_a21d99d5c4373dcf7cd222335cf32bfad"><div class="ttname"><a href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a21d99d5c4373dcf7cd222335cf32bfad">music::scales::Mode::Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">Represents which kind of mode this scale is.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/daa/_mode_8h_source.html#l00054">Mode.h:54</a></div></div>
+<div class="ttc" id="astructmusic_1_1_pitch_class_html"><div class="ttname"><a href="../../d4/d8c/structmusic_1_1_pitch_class.html">music::PitchClass</a></div><div class="ttdoc">A struct that represents a pitch class.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dc3/_pitch_class_8h_source.html#l00054">PitchClass.h:54</a></div></div>
 <div class="ttc" id="anamespacemath_1_1geometry_html_a2396d30ac8dc8dc734b4aa53fb53c6e5"><div class="ttname"><a href="../../d9/d9a/namespacemath_1_1geometry.html#a2396d30ac8dc8dc734b4aa53fb53c6e5">math::geometry::operator==</a></div><div class="ttdeci">constexpr LIMES_EXPORT bool operator==(const Rectangle&lt; ValueType &gt; &amp;rect, const Square&lt; ValueType &gt; &amp;square) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3c/square_8h_source.html#l00102">square.h:102</a></div></div>
-<div class="ttc" id="aclassmusic_1_1scales_1_1_mode_html_a2677484cdd96cffc32a0f1d7d098b29c"><div class="ttname"><a href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a2677484cdd96cffc32a0f1d7d098b29c">music::scales::Mode::Mode</a></div><div class="ttdeci">constexpr Mode(Type typeToUse, int rootNote) noexcept</div><div class="ttdoc">Creates a modal scale of the given type, starting on the given MIDI note.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/daa/_mode_8h_source.html#l00052">Mode.h:52</a></div></div>
+<div class="ttc" id="aclassmusic_1_1scales_1_1_mode_html_a2677484cdd96cffc32a0f1d7d098b29c"><div class="ttname"><a href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a2677484cdd96cffc32a0f1d7d098b29c">music::scales::Mode::Mode</a></div><div class="ttdeci">constexpr Mode(Type typeToUse, int rootNote) noexcept</div><div class="ttdoc">Creates a modal scale of the given type, starting on the given MIDI note.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/daa/_mode_8h_source.html#l00075">Mode.h:75</a></div></div>
 <div class="ttc" id="alimes__data__structures_8h_html"><div class="ttname"><a href="../../d8/d1d/limes__data__structures_8h.html">limes_data_structures.h</a></div></div>
-<div class="ttc" id="astructmusic_1_1scales_1_1_scale_html"><div class="ttname"><a href="../../d3/d66/structmusic_1_1scales_1_1_scale.html">music::scales::Scale</a></div><div class="ttdoc">A base class for any kind of scale.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d81/_scale_8h_source.html#l00035">Scale.h:35</a></div></div>
+<div class="ttc" id="agroup__system_html_ga5bf553d96012e220f7715df0a90066da"><div class="ttname"><a href="../../d4/d37/group__system.html#ga5bf553d96012e220f7715df0a90066da">LIMES_DEFAULT_COPYABLE</a></div><div class="ttdeci">#define LIMES_DEFAULT_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00157">preprocessor.h:157</a></div></div>
+<div class="ttc" id="astructmusic_1_1scales_1_1_scale_html"><div class="ttname"><a href="../../d3/d66/structmusic_1_1scales_1_1_scale.html">music::scales::Scale</a></div><div class="ttdoc">A base class for any kind of musical scale.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d81/_scale_8h_source.html#l00054">Scale.h:54</a></div></div>
+<div class="ttc" id="alimes__core_8h_html"><div class="ttname"><a href="../../d9/df8/limes__core_8h.html">limes_core.h</a></div></div>
 <div class="ttc" id="a_scale_8h_html"><div class="ttname"><a href="../../d4/d81/_scale_8h.html">Scale.h</a></div></div>
-<div class="ttc" id="aclassmusic_1_1scales_1_1_mode_html_a844d71fb0920b63d2ed5a4ea1a4eac73"><div class="ttname"><a href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a844d71fb0920b63d2ed5a4ea1a4eac73">music::scales::Mode::Mode</a></div><div class="ttdeci">constexpr Mode(Type typeToUse, const PitchClass &amp;pitchClassOfRoot) noexcept</div><div class="ttdoc">Creates a modal scale object with the given type and root.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/daa/_mode_8h_source.html#l00046">Mode.h:46</a></div></div>
+<div class="ttc" id="aclassmusic_1_1scales_1_1_mode_html_a844d71fb0920b63d2ed5a4ea1a4eac73"><div class="ttname"><a href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html#a844d71fb0920b63d2ed5a4ea1a4eac73">music::scales::Mode::Mode</a></div><div class="ttdeci">constexpr Mode(Type typeToUse, const PitchClass &amp;pitchClassOfRoot) noexcept</div><div class="ttdoc">Creates a modal scale object with the given type and root.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/daa/_mode_8h_source.html#l00069">Mode.h:69</a></div></div>
 <div class="ttc" id="anamespaceds_html_a813f9ca146f6e29fde2f5d40bf2bb870"><div class="ttname"><a href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector</a></div><div class="ttdeci">std::conditional_t&lt; std::is_scalar_v&lt; ObjectType &gt; &amp;&amp;! std::is_pointer_v&lt; ObjectType &gt;, scalar_vector&lt; ObjectType, Allocator &gt;, basic_vector&lt; ObjectType, Allocator &gt; &gt; vector</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d68/vector_8h_source.html#l00029">vector.h:29</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00039">limes_namespace.h:39</a></div></div>
-<div class="ttc" id="aclassmusic_1_1scales_1_1_key_signature_html"><div class="ttname"><a href="../../de/d99/classmusic_1_1scales_1_1_key_signature.html">music::scales::KeySignature</a></div><div class="ttdoc">This class represents any traditional Western key signature (eg, major, natural minor,...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d47/_key_signature_8h_source.html#l00029">KeySignature.h:29</a></div></div>
-<div class="ttc" id="aclassmusic_1_1scales_1_1_mode_html"><div class="ttname"><a href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">music::scales::Mode</a></div><div class="ttdoc">Represents a modal scale.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/daa/_mode_8h_source.html#l00029">Mode.h:29</a></div></div>
+<div class="ttc" id="aclassmusic_1_1scales_1_1_key_signature_html"><div class="ttname"><a href="../../de/d99/classmusic_1_1scales_1_1_key_signature.html">music::scales::KeySignature</a></div><div class="ttdoc">This class represents any traditional Western key signature (eg, major, natural minor,...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d47/_key_signature_8h_source.html#l00067">KeySignature.h:67</a></div></div>
+<div class="ttc" id="aclassmusic_1_1scales_1_1_mode_html"><div class="ttname"><a href="../../d1/d0e/classmusic_1_1scales_1_1_mode.html">music::scales::Mode</a></div><div class="ttdoc">This class represents a church mode scale.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/daa/_mode_8h_source.html#l00049">Mode.h:49</a></div></div>
+<div class="ttc" id="agroup__system_html_gaa204cf467eb45621b139f7fbf6b0f503"><div class="ttname"><a href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a></div><div class="ttdeci">#define LIMES_DEFAULT_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00175">preprocessor.h:175</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00027">limes_namespace.h:27</a></div></div>
 <div class="ttc" id="anamespacemath_1_1geometry_html_a317e9900bc8f2c083ad6d6c8fafc5df8"><div class="ttname"><a href="../../d9/d9a/namespacemath_1_1geometry.html#a317e9900bc8f2c083ad6d6c8fafc5df8">math::geometry::operator!=</a></div><div class="ttdeci">constexpr LIMES_EXPORT bool operator!=(const Rectangle&lt; ValueType &gt; &amp;rect, const Square&lt; ValueType &gt; &amp;square) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3c/square_8h_source.html#l00111">square.h:111</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
@@ -218,7 +210,7 @@ $(document).ready(function(){initNavTree('d8/daa/_mode_8h_source.html','../../')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_4e10961ee4a74add6c88e3fe5a05001b.html">limes_music</a></li><li class="navelem"><a class="el" href="../../dir_4570ad735756a8778838de071b89d154.html">harmony</a></li><li class="navelem"><a class="el" href="../../dir_0249f5b5f1f2e13b6952655a0d0ba9e5.html">scales</a></li><li class="navelem"><a class="el" href="../../d8/daa/_mode_8h.html">Mode.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:00 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -10,5 +10,6 @@ var group__vec__window =
     ] ],
     [ "apply", "d4/dd9/group__vec__window.html#ga3d3edac6f20b9509c8bed6fd6187e0e3", null ],
     [ "applyAndCopy", "d4/dd9/group__vec__window.html#gac33355d3cea76811891aaea5c449fc48", null ],
-    [ "generate", "d4/dd9/group__vec__window.html#ga64805b423eab6c813c81db7fbcc3fb39", null ]
+    [ "generate", "d4/dd9/group__vec__window.html#ga64805b423eab6c813c81db7fbcc3fb39", null ],
+    [ "ncos", "d4/dd9/group__vec__window.html#ga8ab157fe4613e75312485819c047ab56", null ]
 ];

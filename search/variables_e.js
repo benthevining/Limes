@@ -1,11 +1,14 @@
 var searchData=
 [
-  ['same_5fas_2668',['same_as',['../d6/db2/group__meta.html#ga0d12e4fdee21a131b2561b8c61fd572a',1,'meta']]],
-  ['sample_2669',['Sample',['../d0/d41/namespacedsp.html#aba42c13b1022431b2261219fe38c2ced',1,'dsp']]],
-  ['scalar_2670',['Scalar',['../d9/dfc/group__core__math.html#ga85112aca5e58028e5a710f98adde3f40',1,'math::Scalar()'],['../dc/dd4/group__limes__vecops.html#gada8cae1f0fbf8db713e5e5b89dba8ee8',1,'vecops::Scalar()']]],
-  ['semitonesinoctave_2671',['semitonesInOctave',['../d3/d28/namespacemusic.html#af758677fad728f5861259a0dfce0e411',1,'music']]],
-  ['size_2672',['size',['../d4/d06/classmeta_1_1_type_list.html#ab787551fd9dab3277cb8f9b0a374b547',1,'meta::TypeList']]],
-  ['specializes_2673',['specializes',['../d6/db2/group__meta.html#ga1cef158dc43897c440f6dd045fdaef77',1,'meta']]],
-  ['startindex1_2674',['startIndex1',['../d4/d4f/classds_1_1_abstract_f_i_f_o_1_1_scoped_read.html#a7c50cab520d61173393445917ab445f2',1,'ds::AbstractFIFO::ScopedRead::startIndex1()'],['../d4/d90/classds_1_1_abstract_f_i_f_o_1_1_scoped_write.html#a9bd0698f6a4114d66802dd729ac5d0f4',1,'ds::AbstractFIFO::ScopedWrite::startIndex1()']]],
-  ['startindex2_2675',['startIndex2',['../d4/d4f/classds_1_1_abstract_f_i_f_o_1_1_scoped_read.html#a6bf0be4288ebe458156652e0b051119d',1,'ds::AbstractFIFO::ScopedRead::startIndex2()'],['../d4/d90/classds_1_1_abstract_f_i_f_o_1_1_scoped_write.html#a39f4d4b49e674e6f6dc9810dfd8db993',1,'ds::AbstractFIFO::ScopedWrite::startIndex2()']]]
+  ['realtimecopysafe_2925',['RealtimeCopySafe',['../d5/d58/namespacethreads.html#ade3995431ab6016d4053cffddd0d2c65',1,'threads']]],
+  ['realtimemovesafe_2926',['RealtimeMoveSafe',['../d5/d58/namespacethreads.html#af598c41f0e03238805ceccf7da53aee4',1,'threads']]],
+  ['realtimesafe_2927',['RealtimeSafe',['../d5/d58/namespacethreads.html#adb15c7e72fd6eee6d9cbbadf02048743',1,'threads']]],
+  ['remove_2928',['remove',['../dd/d4b/namespacetypelist.html#af5bb5766219457d195d8a84cebcfa953',1,'typelist']]],
+  ['remove_5fat_2929',['remove_at',['../dd/d4b/namespacetypelist.html#a48591930388cb1116b98f4d444a7e306',1,'typelist']]],
+  ['remove_5fduplicates_2930',['remove_duplicates',['../dd/d4b/namespacetypelist.html#ac097c461ac96b7d6e20ee11799535c5f',1,'typelist']]],
+  ['remove_5fif_2931',['remove_if',['../dd/d4b/namespacetypelist.html#ab7b0497d5573846cb9d5109b20dbfe2b',1,'typelist']]],
+  ['remove_5fif_5fnot_2932',['remove_if_not',['../dd/d4b/namespacetypelist.html#a516e49676025f1987dbe8f1dde97cbaa',1,'typelist']]],
+  ['replace_2933',['replace',['../dd/d4b/namespacetypelist.html#adb588e4338d17e720aea492d4aa68dc8',1,'typelist']]],
+  ['replace_5fat_2934',['replace_at',['../dd/d4b/namespacetypelist.html#a35e00df5d9ca812a2ad6409e14b69711',1,'typelist']]],
+  ['reverse_2935',['reverse',['../dd/d4b/namespacetypelist.html#adccff6a219135425c9ddcd40cd76ae9f',1,'typelist']]]
 ];

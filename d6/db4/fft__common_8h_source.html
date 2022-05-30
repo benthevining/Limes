@@ -120,22 +120,22 @@ $(document).ready(function(){initNavTree('d6/db4/fft__common_8h_source.html','..
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">template</span> &lt;Scalar SampleType&gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;LIMES_NO_EXPORT constexpr SampleType shiftAmount = SampleType (0.000001);</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d9/d1a/namespacevecops.html#a5263c6baf08903625d2f2c56bc51e65d">   33</a></span>&#160;LIMES_NO_EXPORT constexpr SampleType <a class="code" href="../../d9/d1a/namespacevecops.html#a5263c6baf08903625d2f2c56bc51e65d">shiftAmount</a> = SampleType (0.000001);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;Scalar SampleType&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">class </span>LIMES_NO_EXPORT FFTImpl</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dd/de6/classvecops_1_1_f_f_t_impl.html">   37</a></span>&#160;<span class="keyword">class </span>LIMES_NO_EXPORT <a class="code" href="../../dd/de6/classvecops_1_1_f_f_t_impl.html">FFTImpl</a></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">explicit</span> FFTImpl (<span class="keywordtype">int</span> <a class="code" href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">size</a>)</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../dd/de6/classvecops_1_1_f_f_t_impl.html#ac3dc70bfa509f41406de9c92dc98bb28">   41</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../dd/de6/classvecops_1_1_f_f_t_impl.html#ac3dc70bfa509f41406de9c92dc98bb28">FFTImpl</a> (<span class="keywordtype">int</span> <a class="code" href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">size</a>)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        : fft_size (<a class="code" href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">size</a>), m_order (orderFromFFTSize (<a class="code" href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">size</a>))</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> ~FFTImpl() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../dd/de6/classvecops_1_1_f_f_t_impl.html">FFTImpl</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> getSize() const noexcept</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../dd/de6/classvecops_1_1_f_f_t_impl.html#ab5562352b686c55dd80acdb4a750c0cb">   48</a></span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="../../dd/de6/classvecops_1_1_f_f_t_impl.html#ab5562352b686c55dd80acdb4a750c0cb">getSize</a>() const noexcept</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> fft_size;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
@@ -158,8 +158,8 @@ $(document).ready(function(){initNavTree('d6/db4/fft__common_8h_source.html','..
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> fft_size;  <span class="comment">// NOLINT</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> m_order;   <span class="comment">// NOLINT</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../dd/de6/classvecops_1_1_f_f_t_impl.html#a271a69c6f1046ab95f6697974c3bb932">   71</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="../../dd/de6/classvecops_1_1_f_f_t_impl.html#a271a69c6f1046ab95f6697974c3bb932">fft_size</a>;  <span class="comment">// NOLINT</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../dd/de6/classvecops_1_1_f_f_t_impl.html#a78b9769af7390b5f3447f1862a30ef01">   72</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="../../dd/de6/classvecops_1_1_f_f_t_impl.html#a78b9769af7390b5f3447f1862a30ef01">m_order</a>;   <span class="comment">// NOLINT</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
@@ -180,19 +180,25 @@ $(document).ready(function(){initNavTree('d6/db4/fft__common_8h_source.html','..
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agroup__system_html_gad16dd0041c15feb8b68d38dc707f9595"><div class="ttname"><a href="../../d4/d37/group__system.html#gad16dd0041c15feb8b68d38dc707f9595">LIMES_UNREACHABLE</a></div><div class="ttdeci">#define LIMES_UNREACHABLE</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbb/limes__assert_8h_source.html#l00107">limes_assert.h:107</a></div></div>
+<div class="ttc" id="agroup__system_html_gad16dd0041c15feb8b68d38dc707f9595"><div class="ttname"><a href="../../d4/d37/group__system.html#gad16dd0041c15feb8b68d38dc707f9595">LIMES_UNREACHABLE</a></div><div class="ttdeci">#define LIMES_UNREACHABLE</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbb/limes__assert_8h_source.html#l00112">limes_assert.h:112</a></div></div>
+<div class="ttc" id="anamespacevecops_html_a5263c6baf08903625d2f2c56bc51e65d"><div class="ttname"><a href="../../d9/d1a/namespacevecops.html#a5263c6baf08903625d2f2c56bc51e65d">vecops::shiftAmount</a></div><div class="ttdeci">constexpr LIMES_NO_EXPORT SampleType shiftAmount</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/fft__common_8h_source.html#l00033">fft_common.h:33</a></div></div>
 <div class="ttc" id="alimes__vecops_8h_html"><div class="ttname"><a href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a></div></div>
 <div class="ttc" id="alimes__core_8h_html"><div class="ttname"><a href="../../d9/df8/limes__core_8h.html">limes_core.h</a></div></div>
 <div class="ttc" id="anamespacealg_html_aea20a3c576495f7b76380ed04a28b098"><div class="ttname"><a href="../../d2/d9f/namespacealg.html#aea20a3c576495f7b76380ed04a28b098">alg::size</a></div><div class="ttdeci">constexpr LIMES_EXPORT int size(const ContainerType &amp;container)</div><div class="ttdoc">Counts the number of objects in the container.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dda/_algorithm_8h_source.html#l00167">Algorithm.h:167</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00039">limes_namespace.h:39</a></div></div>
 <div class="ttc" id="anamespacevecops_html"><div class="ttname"><a href="../../d9/d1a/namespacevecops.html">vecops</a></div><div class="ttdoc">This namespace contains vector operations functions.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d14/fallback__fft_8h_source.html#l00026">fallback_fft.h:26</a></div></div>
+<div class="ttc" id="aclassvecops_1_1_f_f_t_impl_html_ac3dc70bfa509f41406de9c92dc98bb28"><div class="ttname"><a href="../../dd/de6/classvecops_1_1_f_f_t_impl.html#ac3dc70bfa509f41406de9c92dc98bb28">vecops::FFTImpl::FFTImpl</a></div><div class="ttdeci">FFTImpl(int size)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/fft__common_8h_source.html#l00041">fft_common.h:41</a></div></div>
+<div class="ttc" id="aclassvecops_1_1_f_f_t_impl_html_ab5562352b686c55dd80acdb4a750c0cb"><div class="ttname"><a href="../../dd/de6/classvecops_1_1_f_f_t_impl.html#ab5562352b686c55dd80acdb4a750c0cb">vecops::FFTImpl::getSize</a></div><div class="ttdeci">int getSize() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/fft__common_8h_source.html#l00048">fft_common.h:48</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00027">limes_namespace.h:27</a></div></div>
+<div class="ttc" id="aclassvecops_1_1_f_f_t_impl_html"><div class="ttname"><a href="../../dd/de6/classvecops_1_1_f_f_t_impl.html">vecops::FFTImpl</a></div><div class="ttdoc">An implementation class for FFT.</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/fft__common_8h_source.html#l00037">fft_common.h:37</a></div></div>
+<div class="ttc" id="aclassvecops_1_1_f_f_t_impl_html_a271a69c6f1046ab95f6697974c3bb932"><div class="ttname"><a href="../../dd/de6/classvecops_1_1_f_f_t_impl.html#a271a69c6f1046ab95f6697974c3bb932">vecops::FFTImpl::fft_size</a></div><div class="ttdeci">const int fft_size</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/fft__common_8h_source.html#l00071">fft_common.h:71</a></div></div>
+<div class="ttc" id="aclassvecops_1_1_f_f_t_impl_html_a78b9769af7390b5f3447f1862a30ef01"><div class="ttname"><a href="../../dd/de6/classvecops_1_1_f_f_t_impl.html#a78b9769af7390b5f3447f1862a30ef01">vecops::FFTImpl::m_order</a></div><div class="ttdeci">const int m_order</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/fft__common_8h_source.html#l00072">fft_common.h:72</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_fd627f24d7bb4f56aee54e980d5bfd70.html">limes_vecops</a></li><li class="navelem"><a class="el" href="../../dir_ac9e7747da43d8e5dd5305cf45a38b52.html">fft</a></li><li class="navelem"><a class="el" href="../../d6/db4/fft__common_8h.html">fft_common.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 00:56:40 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:00 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -98,46 +98,67 @@ $(document).ready(function(){initNavTree('d6/d44/classmusic_1_1_chord.html','../
 </div><!--header-->
 <div class="contents">
 
+<p>This class represents a musical chord.  
+ <a href="../../d6/d44/classmusic_1_1_chord.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d8/d57/_chord_8h_source.html">Chord.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af82c403038c3a1f70a1318577fcb5fb8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#af82c403038c3a1f70a1318577fcb5fb8">Chord</a> (const std::initializer_list&lt; int &gt; &amp;midiNotes)</td></tr>
-<tr class="separator:af82c403038c3a1f70a1318577fcb5fb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40b52d496e631a79c6c020e6828f2d2d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#a40b52d496e631a79c6c020e6828f2d2d">Chord</a> (const std::initializer_list&lt; <a class="el" href="../../de/d6d/classmusic_1_1_pitch.html">Pitch</a> &gt; &amp;midiNotes)</td></tr>
-<tr class="separator:a40b52d496e631a79c6c020e6828f2d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99fa08e17dac5af03277f2d4f7aa784c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html">Chord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#a99fa08e17dac5af03277f2d4f7aa784c">applyInterval</a> (const <a class="el" href="../../d6/d89/classmusic_1_1_interval.html">Interval</a> &amp;interval, bool above)</td></tr>
+<tr class="memdesc:a99fa08e17dac5af03277f2d4f7aa784c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new chord with each pitch shifted by a given interval.  <a href="../../d6/d44/classmusic_1_1_chord.html#a99fa08e17dac5af03277f2d4f7aa784c">More...</a><br /></td></tr>
 <tr class="separator:a99fa08e17dac5af03277f2d4f7aa784c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e123e8f8ecd09d27ff2f062eba687a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#a9e123e8f8ecd09d27ff2f062eba687a8">contains</a> (const <a class="el" href="../../de/d6d/classmusic_1_1_pitch.html">Pitch</a> &amp;pitch) const noexcept</td></tr>
-<tr class="separator:a9e123e8f8ecd09d27ff2f062eba687a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2b8f14c3eb1c0cff5d7dcc9ceb50a90"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#af2b8f14c3eb1c0cff5d7dcc9ceb50a90">contains</a> (const <a class="el" href="../../d4/d8c/structmusic_1_1_pitch_class.html">PitchClass</a> &amp;pitchClass) const noexcept</td></tr>
-<tr class="separator:af2b8f14c3eb1c0cff5d7dcc9ceb50a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83ffa040e6fd483d3150c9471796b4d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#a83ffa040e6fd483d3150c9471796b4d0">contains</a> (int midiNote) const noexcept</td></tr>
-<tr class="separator:a83ffa040e6fd483d3150c9471796b4d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1967e6ef5db8a4c278ab432224afc8d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#af1967e6ef5db8a4c278ab432224afc8d">fitsInScale</a> (const <a class="el" href="../../d3/d66/structmusic_1_1scales_1_1_scale.html">scales::Scale</a> &amp;scale) const noexcept</td></tr>
+<tr class="memdesc:af1967e6ef5db8a4c278ab432224afc8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if all of this chord's pitches are present in the given scale without using accidentals.  <a href="../../d6/d44/classmusic_1_1_chord.html#af1967e6ef5db8a4c278ab432224afc8d">More...</a><br /></td></tr>
 <tr class="separator:af1967e6ef5db8a4c278ab432224afc8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a242c630e2d8c79e054a2a506d96e5cdd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d6d/classmusic_1_1_pitch.html">Pitch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#a242c630e2d8c79e054a2a506d96e5cdd">getHighestPitch</a> () const</td></tr>
+<tr class="memdesc:a242c630e2d8c79e054a2a506d96e5cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the highest pitch in the chord.  <a href="../../d6/d44/classmusic_1_1_chord.html#a242c630e2d8c79e054a2a506d96e5cdd">More...</a><br /></td></tr>
 <tr class="separator:a242c630e2d8c79e054a2a506d96e5cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c5737a83529c59be35ea6ba22b4bb1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector</a>&lt; <a class="el" href="../../d6/d89/classmusic_1_1_interval.html">Interval</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#a9c5737a83529c59be35ea6ba22b4bb1b">getIntervals</a> () const</td></tr>
+<tr class="memdesc:a9c5737a83529c59be35ea6ba22b4bb1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of intervals between each consecutive pair of notes in this chord.  <a href="../../d6/d44/classmusic_1_1_chord.html#a9c5737a83529c59be35ea6ba22b4bb1b">More...</a><br /></td></tr>
 <tr class="separator:a9c5737a83529c59be35ea6ba22b4bb1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afadfeef3ae16ddd726f288724ae6d41e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d6d/classmusic_1_1_pitch.html">Pitch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#afadfeef3ae16ddd726f288724ae6d41e">getLowestPitch</a> () const</td></tr>
+<tr class="memdesc:afadfeef3ae16ddd726f288724ae6d41e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the lowest pitch in the chord.  <a href="../../d6/d44/classmusic_1_1_chord.html#afadfeef3ae16ddd726f288724ae6d41e">More...</a><br /></td></tr>
 <tr class="separator:afadfeef3ae16ddd726f288724ae6d41e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae74f5fad8e35d05c41b31ab125c271ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#ae74f5fad8e35d05c41b31ab125c271ab">getNumPitches</a> () const</td></tr>
+<tr class="memdesc:ae74f5fad8e35d05c41b31ab125c271ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of unique pitches in this chord.  <a href="../../d6/d44/classmusic_1_1_chord.html#ae74f5fad8e35d05c41b31ab125c271ab">More...</a><br /></td></tr>
 <tr class="separator:ae74f5fad8e35d05c41b31ab125c271ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad58f6fe3e080486a35ea73881db8e15e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#ad58f6fe3e080486a35ea73881db8e15e">getNumUniquePitchClasses</a> () const</td></tr>
+<tr class="memdesc:ad58f6fe3e080486a35ea73881db8e15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of unique pitch classes present in this chord.  <a href="../../d6/d44/classmusic_1_1_chord.html#ad58f6fe3e080486a35ea73881db8e15e">More...</a><br /></td></tr>
 <tr class="separator:ad58f6fe3e080486a35ea73881db8e15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bd5dfcda5f339335fc880f0e6d4178b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector</a>&lt; <a class="el" href="../../d4/d8c/structmusic_1_1_pitch_class.html">PitchClass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#a5bd5dfcda5f339335fc880f0e6d4178b">getPitchClasses</a> () const</td></tr>
+<tr class="memdesc:a5bd5dfcda5f339335fc880f0e6d4178b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of pitch classes present in this chord.  <a href="../../d6/d44/classmusic_1_1_chord.html#a5bd5dfcda5f339335fc880f0e6d4178b">More...</a><br /></td></tr>
 <tr class="separator:a5bd5dfcda5f339335fc880f0e6d4178b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef7a5dc24d60d19cdf10e1bd28082cb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector</a>&lt; <a class="el" href="../../de/d6d/classmusic_1_1_pitch.html">Pitch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#aef7a5dc24d60d19cdf10e1bd28082cb2">getPitches</a> () const</td></tr>
+<tr class="memdesc:aef7a5dc24d60d19cdf10e1bd28082cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a copy of the list of pitches present in this chord.  <a href="../../d6/d44/classmusic_1_1_chord.html#aef7a5dc24d60d19cdf10e1bd28082cb2">More...</a><br /></td></tr>
 <tr class="separator:aef7a5dc24d60d19cdf10e1bd28082cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b7fc918b45a1095a0bfbf6b376a439e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#a4b7fc918b45a1095a0bfbf6b376a439e">LIMES_DEFAULT_COPYABLE</a> (<a class="el" href="../../d6/d44/classmusic_1_1_chord.html">Chord</a>)</td></tr>
 <tr class="separator:a4b7fc918b45a1095a0bfbf6b376a439e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f804cd312f01f35670475853ad9da80"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#a5f804cd312f01f35670475853ad9da80">LIMES_DEFAULT_MOVABLE</a> (<a class="el" href="../../d6/d44/classmusic_1_1_chord.html">Chord</a>)</td></tr>
 <tr class="separator:a5f804cd312f01f35670475853ad9da80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Constructors</div></td></tr>
+<tr class="memitem:af82c403038c3a1f70a1318577fcb5fb8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#af82c403038c3a1f70a1318577fcb5fb8">Chord</a> (const std::initializer_list&lt; int &gt; &amp;midiNotes)</td></tr>
+<tr class="memdesc:af82c403038c3a1f70a1318577fcb5fb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a chord from a list of pitches.  <a href="../../d6/d44/classmusic_1_1_chord.html#af82c403038c3a1f70a1318577fcb5fb8">More...</a><br /></td></tr>
+<tr class="separator:af82c403038c3a1f70a1318577fcb5fb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40b52d496e631a79c6c020e6828f2d2d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#a40b52d496e631a79c6c020e6828f2d2d">Chord</a> (const std::initializer_list&lt; <a class="el" href="../../de/d6d/classmusic_1_1_pitch.html">Pitch</a> &gt; &amp;midiNotes)</td></tr>
+<tr class="memdesc:a40b52d496e631a79c6c020e6828f2d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a chord from a list of pitches.  <a href="../../d6/d44/classmusic_1_1_chord.html#a40b52d496e631a79c6c020e6828f2d2d">More...</a><br /></td></tr>
+<tr class="separator:a40b52d496e631a79c6c020e6828f2d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Contains queries</div></td></tr>
+<tr class="memitem:af2b8f14c3eb1c0cff5d7dcc9ceb50a90"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#af2b8f14c3eb1c0cff5d7dcc9ceb50a90">contains</a> (const <a class="el" href="../../d4/d8c/structmusic_1_1_pitch_class.html">PitchClass</a> &amp;pitchClass) const noexcept</td></tr>
+<tr class="memdesc:af2b8f14c3eb1c0cff5d7dcc9ceb50a90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this chord contains the given pitch or pitch class.  <a href="../../d6/d44/classmusic_1_1_chord.html#af2b8f14c3eb1c0cff5d7dcc9ceb50a90">More...</a><br /></td></tr>
+<tr class="separator:af2b8f14c3eb1c0cff5d7dcc9ceb50a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e123e8f8ecd09d27ff2f062eba687a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#a9e123e8f8ecd09d27ff2f062eba687a8">contains</a> (const <a class="el" href="../../de/d6d/classmusic_1_1_pitch.html">Pitch</a> &amp;pitch) const noexcept</td></tr>
+<tr class="memdesc:a9e123e8f8ecd09d27ff2f062eba687a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this chord contains the given pitch or pitch class.  <a href="../../d6/d44/classmusic_1_1_chord.html#a9e123e8f8ecd09d27ff2f062eba687a8">More...</a><br /></td></tr>
+<tr class="separator:a9e123e8f8ecd09d27ff2f062eba687a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83ffa040e6fd483d3150c9471796b4d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html#a83ffa040e6fd483d3150c9471796b4d0">contains</a> (int midiNote) const noexcept</td></tr>
+<tr class="memdesc:a83ffa040e6fd483d3150c9471796b4d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this chord contains the given pitch or pitch class.  <a href="../../d6/d44/classmusic_1_1_chord.html#a83ffa040e6fd483d3150c9471796b4d0">More...</a><br /></td></tr>
+<tr class="separator:a83ffa040e6fd483d3150c9471796b4d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d8/d57/_chord_8h_source.html#l00039">39</a> of file <a class="el" href="../../d8/d57/_chord_8h_source.html">Chord.h</a>.</p>
+<div class="textblock"><p>This class represents a musical chord. </p>
+<p>A chord is simply represented as a collection of <a class="el" href="../../de/d6d/classmusic_1_1_pitch.html" title="This class represents a specific pitch, with a specific octave and enharmonic spelling.">Pitch</a> objects. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d57/_chord_8h_source.html#l00048">48</a> of file <a class="el" href="../../d8/d57/_chord_8h_source.html">Chord.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af82c403038c3a1f70a1318577fcb5fb8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af82c403038c3a1f70a1318577fcb5fb8">&#9670;&nbsp;</a></span>Chord() <span class="overload">[1/2]</span></h2>
@@ -162,6 +183,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a chord from a list of pitches. </p>
+<p>Duplicate pitches will only be counted once in the constructed chord. </p>
 
 </div>
 </div>
@@ -188,6 +212,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a chord from a list of pitches. </p>
+<p>Duplicate pitches will only be counted once in the constructed chord. </p>
 
 </div>
 </div>
@@ -218,6 +245,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a new chord with each pitch shifted by a given interval. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interval</td><td>The interval to shift each pitch by </td></tr>
+    <tr><td class="paramname">above</td><td>If true, each pitch will be shifted up. If false, each pitch will be shifted down. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a9e123e8f8ecd09d27ff2f062eba687a8"></a>
@@ -243,6 +279,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if this chord contains the given pitch or pitch class. </p>
 
 </div>
 </div>
@@ -270,6 +308,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if this chord contains the given pitch or pitch class. </p>
+
 </div>
 </div>
 <a id="a83ffa040e6fd483d3150c9471796b4d0"></a>
@@ -295,6 +335,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if this chord contains the given pitch or pitch class. </p>
 
 </div>
 </div>
@@ -322,6 +364,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if all of this chord's pitches are present in the given scale without using accidentals. </p>
+
 </div>
 </div>
 <a id="a242c630e2d8c79e054a2a506d96e5cdd"></a>
@@ -338,6 +382,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the highest pitch in the chord. </p>
 
 </div>
 </div>
@@ -356,6 +402,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a list of intervals between each consecutive pair of notes in this chord. </p>
+
 </div>
 </div>
 <a id="afadfeef3ae16ddd726f288724ae6d41e"></a>
@@ -372,6 +420,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the lowest pitch in the chord. </p>
 
 </div>
 </div>
@@ -390,6 +440,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the number of unique pitches in this chord. </p>
+
 </div>
 </div>
 <a id="ad58f6fe3e080486a35ea73881db8e15e"></a>
@@ -406,6 +458,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the number of unique pitch classes present in this chord. </p>
+<p>The same pitch class present in multiple octaves will only be tallied once by this function. </p>
 
 </div>
 </div>
@@ -424,6 +479,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a list of pitch classes present in this chord. </p>
+
 </div>
 </div>
 <a id="aef7a5dc24d60d19cdf10e1bd28082cb2"></a>
@@ -440,6 +497,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a copy of the list of pitches present in this chord. </p>
 
 </div>
 </div>
@@ -488,7 +547,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/d28/namespacemusic.html">music</a></li><li class="navelem"><a class="el" href="../../d6/d44/classmusic_1_1_chord.html">Chord</a></li>
-    <li class="footer">Generated on Mon May 30 2022 00:56:42 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

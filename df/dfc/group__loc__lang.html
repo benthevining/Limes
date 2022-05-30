@@ -91,16 +91,22 @@ $(document).ready(function(){initNavTree('df/dfc/group__loc__lang.html','../../'
 
 <div class="header">
   <div class="summary">
+<a href="#dirs">Directories</a> &#124;
 <a href="#files">Files</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Languages<div class="ingroups"><a class="el" href="../../dd/d74/group__limes__locale.html">limes_locale</a></div></div>  </div>
+<div class="title">Languages<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../dd/d74/group__limes__locale.html">limes_locale</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Utilities for working with spoken human languages.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="dirs"></a>
+Directories</h2></td></tr>
+<tr class="memitem:dir_47b0ae583f3ed7f7ec46ec3091da6450"><td class="memItemLeft" align="right" valign="top">directory&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dir_47b0ae583f3ed7f7ec46ec3091da6450.html">languages</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Files</h2></td></tr>
 <tr class="memitem:d0/d0f/languages_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0f/languages_8h.html">languages.h</a></td></tr>
@@ -139,6 +145,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../d0/d0f/languages_8h.html">languages.h</a>&gt;</code></p>
+
 <p>Returns all known <a class="el" href="../../d5/db6/structlocale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> objects in Limes's internal database. </p>
 <p>These should not be mutated! </p>
 
@@ -159,6 +167,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d0/d0f/languages_8h.html">languages.h</a>&gt;</code></p>
 
 <p>Returns the <a class="el" href="../../d5/db6/structlocale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> object representing the language with the given name. </p>
 <p>If the passed language name is empty, an assertion is thrown. A null <a class="el" href="../../d5/db6/structlocale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> object may be returned if no known language matches the given language name; you should check <code>isValid</code>() on the returned Language object before using it. </p>
@@ -181,6 +191,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../d0/d0f/languages_8h.html">languages.h</a>&gt;</code></p>
+
 <p>Returns the <a class="el" href="../../d5/db6/structlocale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> object representing the given ISO language code. </p>
 <p>If the given language code is 2 characters, it is interpreted as an ISO 639-1 code. If it is 3 characters, it's interpreted as an ISO 639-2 code. Otherwise, an assertion is thrown. A null <a class="el" href="../../d5/db6/structlocale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> object may be returned if no known language matches the given ISO language code; you should check <code>isValid</code>() on the returned Language object before using it. </p>
 
@@ -202,6 +214,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../d0/d0f/languages_8h.html">languages.h</a>&gt;</code></p>
+
 <p>Returns a vector of <a class="el" href="../../d5/db6/structlocale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> objects representing languages that may be spoken in the given country. </p>
 
 </div>
@@ -211,7 +225,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

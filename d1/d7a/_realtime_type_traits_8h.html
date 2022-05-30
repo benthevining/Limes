@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('d1/d7a/_realtime_type_traits_8h.html',
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">RealtimeTypeTraits.h File Reference<div class="ingroups"><a class="el" href="../../da/d07/group__limes__core.html">limes_core</a> &raquo; <a class="el" href="../../d2/db9/group__threads.html">Threading</a> &raquo; <a class="el" href="../../dd/d3e/group__rt__safety.html">Realtime safety</a></div></div>  </div>
+<div class="title">RealtimeTypeTraits.h File Reference<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../da/d07/group__limes__core.html">limes_core</a> &raquo; <a class="el" href="../../d2/db9/group__threads.html">Threading</a> &raquo; <a class="el" href="../../dd/d3e/group__rt__safety.html">Realtime safety</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;set&gt;</code><br />
@@ -124,18 +124,6 @@ $(document).ready(function(){initNavTree('d1/d7a/_realtime_type_traits_8h.html',
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d0a/structthreads_1_1is__realtime__copy__assignable.html">threads::is_realtime_copy_assignable&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A compile-time boolean constant that evaluates to true if the type <code>T</code> is realtime-safe copy assignable.  <a href="../../da/d0a/structthreads_1_1is__realtime__copy__assignable.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcb/structthreads_1_1is__realtime__copy__constructable.html">threads::is_realtime_copy_constructable&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A compile-time boolean constant that evaluates to true if the type <code>T</code> is realtime-safe copy constructable.  <a href="../../d9/dcb/structthreads_1_1is__realtime__copy__constructable.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d56/structthreads_1_1is__realtime__move__assignable.html">threads::is_realtime_move_assignable&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A compile-time boolean constant that evaluates to true if the type <code>T</code> is realtime-safe move assignable.  <a href="../../d4/d56/structthreads_1_1is__realtime__move__assignable.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/structthreads_1_1is__realtime__move__constructable.html">threads::is_realtime_move_constructable&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A compile-time boolean constant that evaluates to true if the type <code>T</code> is realtime-safe move constructable.  <a href="../../d4/d18/structthreads_1_1is__realtime__move__constructable.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d8b/structthreads_1_1detail_1_1is__rt__safe.html">threads::detail::is_rt_safe&lt; T, Tag1, Tag2 &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a query for realtime safety of the operation represented by <code>Tag1</code> and <code>Tag2</code> on the type <code>T</code> .  <a href="../../da/d8b/structthreads_1_1detail_1_1is__rt__safe.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,6 +153,18 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2d/structthreads_1_1detail_1_1is__rt__safe_3_01_t_00_01move__tag_00_01constructible__tag_01_4.html">threads::detail::is_rt_safe&lt; T, move_tag, constructible_tag &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of the <code>is_rt_safe</code> class template for move construction operations.  <a href="../../d0/d2d/structthreads_1_1detail_1_1is__rt__safe_3_01_t_00_01move__tag_00_01constructible__tag_01_4.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d0a/structthreads_1_1is__realtime__copy__assignable.html">threads::is_realtime_copy_assignable&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A compile-time boolean constant that evaluates to true if the type <code>T</code> is realtime-safe copy assignable.  <a href="../../da/d0a/structthreads_1_1is__realtime__copy__assignable.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dcb/structthreads_1_1is__realtime__copy__constructable.html">threads::is_realtime_copy_constructable&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A compile-time boolean constant that evaluates to true if the type <code>T</code> is realtime-safe copy constructable.  <a href="../../d9/dcb/structthreads_1_1is__realtime__copy__constructable.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d56/structthreads_1_1is__realtime__move__assignable.html">threads::is_realtime_move_assignable&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A compile-time boolean constant that evaluates to true if the type <code>T</code> is realtime-safe move assignable.  <a href="../../d4/d56/structthreads_1_1is__realtime__move__assignable.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d18/structthreads_1_1is__realtime__move__constructable.html">threads::is_realtime_move_constructable&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A compile-time boolean constant that evaluates to true if the type <code>T</code> is realtime-safe move constructable.  <a href="../../d4/d18/structthreads_1_1is__realtime__move__constructable.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -235,7 +235,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_f3c3802d3847d937c602d8d473665a27.html">threading</a></li><li class="navelem"><a class="el" href="../../d1/d7a/_realtime_type_traits_8h.html">RealtimeTypeTraits.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:00 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -23,13 +23,14 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "Limes", "index.html", [
-    [ "README", "da/d04/md__home_runner_work__limes__limes_libs_limes_audio__r_e_a_d_m_e.html", null ],
-    [ "README", "d2/df6/md__home_runner_work__limes__limes_libs_limes_core__r_e_a_d_m_e.html", null ],
-    [ "README", "d7/da2/md__home_runner_work__limes__limes_libs_limes_data_structures__r_e_a_d_m_e.html", null ],
-    [ "README", "d2/d46/md__home_runner_work__limes__limes_libs_limes_locale__r_e_a_d_m_e.html", null ],
-    [ "README", "de/d00/md__home_runner_work__limes__limes_libs_limes_midi__r_e_a_d_m_e.html", null ],
-    [ "README", "da/dc3/md__home_runner_work__limes__limes_libs_limes_music__r_e_a_d_m_e.html", null ],
-    [ "README", "d5/d67/md__home_runner_work__limes__limes_libs_limes_vecops__r_e_a_d_m_e.html", null ],
+    [ "README", "dd/de3/md_libs_limes_audio__r_e_a_d_m_e.html", null ],
+    [ "README", "db/d97/md_libs_limes_core__r_e_a_d_m_e.html", null ],
+    [ "README", "d1/db4/md_libs_limes_data_structures__r_e_a_d_m_e.html", null ],
+    [ "README", "d6/d07/md_libs_limes_locale__r_e_a_d_m_e.html", null ],
+    [ "README", "d8/da8/md_libs_limes_midi__r_e_a_d_m_e.html", null ],
+    [ "README", "dd/d73/md_libs_limes_music__r_e_a_d_m_e.html", null ],
+    [ "README", "d0/dfb/md_libs_limes_vecops__r_e_a_d_m_e.html", null ],
+    [ "Test List", "d4/df6/test.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -58,20 +59,22 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"d1/d7a/_realtime_type_traits_8h.html#gaa35d7d21058ce5a6a5f3d4c1332cacb8",
-"d3/d36/_dynamic_library_8h_source.html",
-"d4/d37/group__system.html#ga397de153f0d2c4a307fa9e150a396a32",
-"d5/d2a/classfiles_1_1_directory.html",
-"d5/db7/classfiles_1_1_temp_file.html#a9c282fc86537288306de9a3a79a76c0e",
-"d6/d76/structdsp_1_1osc_1_1_saw.html#a35e57580377f6becd8683001e4ef4c13",
-"d8/da2/classmusic_1_1scales_1_1_chromatic.html#ab6d9031632e24f06195598060367fb6b",
-"db/d0d/group__vec__tan.html#ga0c6c293d12a4ab925bfc4812313bdb00",
-"dc/d70/structdsp_1_1_oscillator.html#a1e5b8a154ca74d2c469f92c24fe55fab",
-"dd/d1c/classmemory_1_1_aligned_allocator.html#a7847538e78482abaee24d0a2dc9e654f",
-"de/d1a/structthreads_1_1_threaded_object_writer.html#a194e7ff2c8f0644e2671c7c4666e9d26",
-"de/d90/classfiles_1_1_sym_link.html#a1a72fa462a280d1c5d625e9b1d1dac0e",
-"df/d3b/classmusic_1_1_compound_interval.html#a4a6d20033eb954b8de344bc805cbbe71",
-"df/deb/classfunc_1_1_call_deferred.html#a982b418c7462946195962fbf737858da"
+"d1/d28/limes__core_2files_2_misc_8h.html#ga417867e598a5bccc6135cfe5e202356c",
+"d2/dc2/structtypelist_1_1count__if_3_01_typelist_3_01_args_8_8_8_01_4_00_01_unary_predicate_01_4.html",
+"d3/d61/classtime_1_1_weekday.html#ac83927473de94a6e0331dafbd7ea0088",
+"d4/d39/limes__fft_8h.html#ga37c9ecf1af20cdb4a4136daf487222ad",
+"d5/d2a/classfiles_1_1_directory.html#a4b8ae8f254c6c9b17abdafb92c64b450",
+"d5/db7/classfiles_1_1_temp_file.html#aead7f35a2ef3d7af169bf3643972885e",
+"d6/d76/structdsp_1_1osc_1_1_saw.html#ab3724b668055b21c252370a6df4ba648",
+"d7/dfe/_type_list__impl_8h.html#a6eaa8a9b28e9788cc5468611461017f2",
+"da/d0a/classhash_1_1_s_h_a384.html#a21edb89665b60700c7c85430d900637d",
+"db/db4/group__vec__impl.html#ga1a21f574f3d9ec4bcff2d04b4491e364",
+"dc/da7/classthreads_1_1_thread_safe_object.html#a61c873b6f7e987e2dcd99ebf2ea9543f",
+"dd/d2c/classmath_1_1geometry_1_1_triangular_prism.html#a07820810fba6fbb799949288cb5cd520",
+"de/d0a/classmusic_1_1scales_1_1_octatonic.html#ac1b9aa7ad9c3568d755bce52cf4ff731",
+"de/d6d/classmusic_1_1_pitch.html#abdbd23f6b2d2efe36b44772c197eea39",
+"df/d16/structds_1_1_linked_list_model.html#ae793eb9e0164d1147f70bd23f32f25ca",
+"df/dcd/classmath_1_1geometry_1_1_pyramid.html#a0fbc67b2fd5df3032bf9608ccbdb5b82"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

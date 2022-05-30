@@ -9,7 +9,10 @@ var namespacemusic =
     [ "NoteLength", "db/d92/structmusic_1_1_note_length.html", "db/d92/structmusic_1_1_note_length" ],
     [ "Pitch", "de/d6d/classmusic_1_1_pitch.html", "de/d6d/classmusic_1_1_pitch" ],
     [ "PitchClass", "d4/d8c/structmusic_1_1_pitch_class.html", "d4/d8c/structmusic_1_1_pitch_class" ],
-    [ "TimeSignature", "db/d6d/structmusic_1_1_time_signature.html", [
-      [ "Subdivision", "db/d39/structmusic_1_1_time_signature_1_1_subdivision.html", "db/d39/structmusic_1_1_time_signature_1_1_subdivision" ]
+    [ "TimeSignature", "d3/d28/namespacemusic.html#db/d6d/structmusic_1_1_time_signature", [
+      [ "Subdivision", "d3/d28/namespacemusic.html#db/d39/structmusic_1_1_time_signature_1_1_subdivision", [
+        [ "beatKind", "d3/d28/namespacemusic.html#a1372aae2f1a9d249b6fc38d9d5c12a96", null ],
+        [ "numBeats", "d3/d28/namespacemusic.html#ab99e3de520b2a26e8dd8f4e4d066d063", null ]
+      ] ]
     ] ]
 ];

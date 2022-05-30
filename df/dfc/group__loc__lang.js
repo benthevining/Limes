@@ -1,5 +1,6 @@
 var group__loc__lang =
 [
+    [ "languages", "dir_47b0ae583f3ed7f7ec46ec3091da6450.html", null ],
     [ "languages.h", "d0/d0f/languages_8h.html", null ],
     [ "getAllKnownLanguages", "df/dfc/group__loc__lang.html#gae47ba49b20a945e9d925d71610c1183e", null ],
     [ "getLanguage", "df/dfc/group__loc__lang.html#gace306aa0dfcae7ac36db5bd2047e664a", null ],

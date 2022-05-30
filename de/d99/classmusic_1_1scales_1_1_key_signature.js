@@ -6,12 +6,10 @@ var classmusic_1_1scales_1_1_key_signature =
       [ "HarmonicMinor", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a86c125eacdf13feff21a88a3cab6d321ae61508e9a3d1f13ff47ad5b65b34de32", null ]
     ] ],
     [ "KeySignature", "de/d99/classmusic_1_1scales_1_1_key_signature.html#ac27613c296b88fa8d8eba6f1d9f780f0", null ],
-    [ "KeySignature", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a361fb4772b7c991c429465b0ab1542e5", null ],
     [ "KeySignature", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a42823ea97ebb7acd7ae3fe3f6ff227ad", null ],
     [ "KeySignature", "de/d99/classmusic_1_1scales_1_1_key_signature.html#aaed24654cd2e5d801a284650ed99313a", null ],
     [ "KeySignature", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a32f2502bb00e4ac23947eeb7e88450cd", null ],
     [ "KeySignature", "de/d99/classmusic_1_1scales_1_1_key_signature.html#ad5b077e834e9a0ffae2ba0639d2fccd9", null ],
-    [ "KeySignature", "de/d99/classmusic_1_1scales_1_1_key_signature.html#aec8657fd3bcb927ecc38f1dab9b82582", null ],
     [ "containsPitch", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a1601a80abe457022043486acc275a170", null ],
     [ "containsPitch", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a8a6d8521a8ded5be37c24aa366dde11c", null ],
     [ "containsPitchClass", "de/d99/classmusic_1_1scales_1_1_key_signature.html#ac9f0ab4433af31a09865f1e42760058f", null ],
@@ -19,7 +17,7 @@ var classmusic_1_1scales_1_1_key_signature =
     [ "getEnharmonicKey", "de/d99/classmusic_1_1scales_1_1_key_signature.html#abb945bf1a63d9845dd8364b32284c7f9", null ],
     [ "getIntervals", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a06e0f538703b06c6330145cf54e70d56", null ],
     [ "getIntervalsAsSemitones", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a16d1b53f55d379ab4a61370e2543ea8d", null ],
-    [ "getKeyType", "de/d99/classmusic_1_1scales_1_1_key_signature.html#ab8a9a6c169b31a3aecccc1f47a9225b4", null ],
+    [ "getKeyType", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a7d7cce1248b519a2fb3f9981e8affde2", null ],
     [ "getNumFlats", "de/d99/classmusic_1_1scales_1_1_key_signature.html#adb519d36df3a60b5214cf13b70a0e825", null ],
     [ "getNumSharps", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a40eb63e357b73ebb17797d61ceb18c7d", null ],
     [ "getParallelKey", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a8c3b944772b000e10a35c35589169954", null ],
@@ -39,10 +37,12 @@ var classmusic_1_1scales_1_1_key_signature =
     [ "isParallelKeyOf", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a1f12f464a6db721a9fc6c9df194e7058", null ],
     [ "isRelativeKeyOf", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a1cf3dd70f60a36660070df5870ea597d", null ],
     [ "isSharpKey", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a25448b840a9e9a748a8fd8ef2175a0f1", null ],
+    [ "LIMES_DEFAULT_COPYABLE", "de/d99/classmusic_1_1scales_1_1_key_signature.html#af9164b99f623772fe472fb45797b815f", null ],
+    [ "LIMES_DEFAULT_MOVABLE", "de/d99/classmusic_1_1scales_1_1_key_signature.html#aa56a2cb24f75b5fcb84b058062f90d42", null ],
     [ "notesPerOctave", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a1929ec1c9a396bdc63e7f21d81040ba7", null ],
     [ "operator!=", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a0dc8590507c6b3f7a7f967f0b3877910", null ],
     [ "operator!=", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a237ac3c6c63475899aed39a9311dceda", null ],
-    [ "operator=", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a1f5b779e6f2b6b674da8a742d18a144c", null ],
     [ "operator==", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a82b3702a195e2b136b56fad94b6cbbf5", null ],
-    [ "operator==", "de/d99/classmusic_1_1scales_1_1_key_signature.html#ac2980ae89fa968f5b577b6d47739fe66", null ]
+    [ "operator==", "de/d99/classmusic_1_1scales_1_1_key_signature.html#ac2980ae89fa968f5b577b6d47739fe66", null ],
+    [ "Mode", "de/d99/classmusic_1_1scales_1_1_key_signature.html#a5541490d150e6fd99cda579a8d4cd43a", null ]
 ];

@@ -91,16 +91,24 @@ $(document).ready(function(){initNavTree('d9/d7d/group__time.html','../../'); in
 
 <div class="header">
   <div class="summary">
+<a href="#dirs">Directories</a> &#124;
 <a href="#files">Files</a> &#124;
 <a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">Time<div class="ingroups"><a class="el" href="../../da/d07/group__limes__core.html">limes_core</a></div></div>  </div>
+<div class="title">Time<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../da/d07/group__limes__core.html">limes_core</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Utilities for working with time measurements.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="dirs"></a>
+Directories</h2></td></tr>
+<tr class="memitem:dir_5e229baf842be576fb2795115ff44ce4"><td class="memItemLeft" align="right" valign="top">directory&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dir_5e229baf842be576fb2795115ff44ce4.html">impl</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dir_c12d511caa08a25cac33eefcbb86c1b0"><td class="memItemLeft" align="right" valign="top">directory&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dir_c12d511caa08a25cac33eefcbb86c1b0.html">time</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Files</h2></td></tr>
 <tr class="memitem:dc/db3/build__date_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db3/build__date_8h.html">build_date.h</a></td></tr>
@@ -191,6 +199,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../dc/db3/build__date_8h.html">build_date.h</a>&gt;</code></p>
 <b>Value:</b><div class="fragment"><div class="line">    <a class="code" href="../../d4/d37/group__system.html#gac332d8954bf4665bd2c9b7788d1c81f4">LIMES_BLOCK_WITH_FORCED_SEMICOLON</a> (static_assert (year &gt;= ::<a class="code" href="../../d9/d7d/group__time.html#gac7081843bdb34b01a752270b940c1d7f">limes::time::build_year</a>() &amp;&amp; year &lt;= ::<a class="code" href="../../d9/d7d/group__time.html#gac7081843bdb34b01a752270b940c1d7f">limes::time::build_year</a>() + 3 &amp;&amp; month &gt; 0 &amp;&amp; month &lt;= 12,          \</div>
 <div class="line">                                                      <span class="stringliteral">&quot;Invalid date constraint in TODO_BEFORE macro!&quot;</span>);                                                                    \</div>
 <div class="line">                                       static_assert (::<a class="code" href="../../d9/d7d/group__time.html#gac7081843bdb34b01a752270b940c1d7f">limes::time::build_year</a>() &lt; year || (::<a class="code" href="../../d9/d7d/group__time.html#gac7081843bdb34b01a752270b940c1d7f">limes::time::build_year</a>() == year &amp;&amp; ::<a class="code" href="../../d9/d7d/group__time.html#ga2c9831993f5c1697fa57277ea71e601c">limes::time::build_month</a>() &lt; month), \</div>
@@ -226,6 +236,8 @@ Macros</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../dc/db3/build__date_8h.html">build_date.h</a>&gt;</code></p>
+
 <p>Returns the day of the month on which this code was compiled, as an integer. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/db3/build__date_8h_source.html#l00074">74</a> of file <a class="el" href="../../dc/db3/build__date_8h_source.html">build_date.h</a>.</p>
@@ -254,6 +266,8 @@ Macros</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../dc/db3/build__date_8h.html">build_date.h</a>&gt;</code></p>
 
 <p>Returns the hour of compilation, as an integer, in 24-hour time. </p>
 
@@ -284,6 +298,8 @@ Macros</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../dc/db3/build__date_8h.html">build_date.h</a>&gt;</code></p>
+
 <p>Returns the minute of compilation as an integer. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/db3/build__date_8h_source.html#l00097">97</a> of file <a class="el" href="../../dc/db3/build__date_8h_source.html">build_date.h</a>.</p>
@@ -312,6 +328,8 @@ Macros</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../dc/db3/build__date_8h.html">build_date.h</a>&gt;</code></p>
 
 <p>Returns the month of compilation, as an integer. </p>
 <p>January is 1, and December is 12. </p>
@@ -343,6 +361,8 @@ Macros</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../dc/db3/build__date_8h.html">build_date.h</a>&gt;</code></p>
+
 <p>Returns the second of compilation as an integer. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/db3/build__date_8h_source.html#l00105">105</a> of file <a class="el" href="../../dc/db3/build__date_8h_source.html">build_date.h</a>.</p>
@@ -372,6 +392,8 @@ Macros</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../dc/db3/build__date_8h.html">build_date.h</a>&gt;</code></p>
+
 <p>Returns the year of compilation, as an integer. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/db3/build__date_8h_source.html#l00035">35</a> of file <a class="el" href="../../dc/db3/build__date_8h_source.html">build_date.h</a>.</p>
@@ -387,7 +409,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

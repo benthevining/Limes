@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('d4/de3/group__vec__trig.html','../../'
 <a href="#groups">Modules</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Trigonometric functions<div class="ingroups"><a class="el" href="../../dc/dd4/group__limes__vecops.html">limes_vecops</a></div></div>  </div>
+<div class="title">Trigonometric functions<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../dc/dd4/group__limes__vecops.html">limes_vecops</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -115,6 +115,10 @@ Modules</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ga6a9e1da0d8c77f44cb0cb53b01fed2ae"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga6a9e1da0d8c77f44cb0cb53b01fed2ae"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/de3/group__vec__trig.html#ga6a9e1da0d8c77f44cb0cb53b01fed2ae">vecops::fb::sinCos</a> (const DataType *const data, SizeType size, DataType *const sinesOut, DataType *const cosinesOut)</td></tr>
+<tr class="memdesc:ga6a9e1da0d8c77f44cb0cb53b01fed2ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simultaneously computes the sin and cosine of every value in the vector.  <a href="../../d4/de3/group__vec__trig.html#ga6a9e1da0d8c77f44cb0cb53b01fed2ae">More...</a><br /></td></tr>
+<tr class="separator:ga6a9e1da0d8c77f44cb0cb53b01fed2ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4b00213256c36d9c42e8f60090d05841"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
 <tr class="memitem:ga4b00213256c36d9c42e8f60090d05841"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/de3/group__vec__trig.html#ga4b00213256c36d9c42e8f60090d05841">vecops::sinCos</a> (const DataType *const data, SizeType size, DataType *const sinesOut, DataType *const cosinesOut)</td></tr>
 <tr class="memdesc:ga4b00213256c36d9c42e8f60090d05841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simultaneously computes the sin and cosine of every value in the vector.  <a href="../../d4/de3/group__vec__trig.html#ga4b00213256c36d9c42e8f60090d05841">More...</a><br /></td></tr>
@@ -123,8 +127,57 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Trigonometric functions for vectors. </p>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga6a9e1da0d8c77f44cb0cb53b01fed2ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6a9e1da0d8c77f44cb0cb53b01fed2ae">&#9670;&nbsp;</a></span>sinCos() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void vecops::fb::sinCos </td>
+          <td>(</td>
+          <td class="paramtype">const DataType *const&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>sinesOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>cosinesOut</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p>Simultaneously computes the sin and cosine of every value in the vector. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/d09/group__vec__sin.html#ga756f4bbaf104041299cd2714ebaf1a65" title="Writes the sine of each element of the input vector to the output vector.">sineAndCopy</a>, <a class="el" href="../../dd/d22/group__vec__cos.html#ga6446bb417be8a7d5121295cba269a2c1" title="Writes the cosine of each element of the input vector to the output vector.">cosAndCopy</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l00753">753</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
 <a id="ga4b00213256c36d9c42e8f60090d05841"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4b00213256c36d9c42e8f60090d05841">&#9670;&nbsp;</a></span>sinCos()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4b00213256c36d9c42e8f60090d05841">&#9670;&nbsp;</a></span>sinCos() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,8 +216,12 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
+
 <p>Simultaneously computes the sin and cosine of every value in the vector. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/d09/group__vec__sin.html#ga70d8db9e6144847e686dab7bc45517c0" title="Writes the sine of each element of the input vector to the output vector.">sineAndCopy</a>, <a class="el" href="../../dd/d22/group__vec__cos.html#gaab8687cc72b8083a69703af6ce586386" title="Writes the cosine of each element of the input vector to the output vector.">cosAndCopy</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l00753">753</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
 
 </div>
 </div>
@@ -173,7 +230,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

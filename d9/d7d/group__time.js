@@ -1,5 +1,7 @@
 var group__time =
 [
+    [ "impl", "dir_5e229baf842be576fb2795115ff44ce4.html", null ],
+    [ "time", "dir_c12d511caa08a25cac33eefcbb86c1b0.html", null ],
     [ "build_date.h", "dc/db3/build__date_8h.html", null ],
     [ "date.h", "db/d96/date_8h.html", null ],
     [ "date_impl.h", "d1/d95/date__impl_8h.html", null ],

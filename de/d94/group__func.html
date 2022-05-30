@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('de/d94/group__func.html','../../'); in
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">Functional<div class="ingroups"><a class="el" href="../../da/d07/group__limes__core.html">limes_core</a></div></div>  </div>
+<div class="title">Functional<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../da/d07/group__limes__core.html">limes_core</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -157,6 +157,8 @@ template&lt;Function Func, typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../d6/d9b/_functions_8h.html">Functions.h</a>&gt;</code></p>
+
 <p>This typedef evaluates to the result type returned by calling the given function with the given arguments. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d6/d9b/_functions_8h_source.html#l00055">55</a> of file <a class="el" href="../../d6/d9b/_functions_8h_source.html">Functions.h</a>.</p>
@@ -200,6 +202,8 @@ template&lt;Function Func&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../d6/d9b/_functions_8h.html">Functions.h</a>&gt;</code></p>
+
 <p>Calls the function object exactly once throughout the entire life of the program. </p>
 <p>Note that the call counter is specific to this process. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -238,6 +242,8 @@ template&lt;typename... Param&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d6/d9b/_functions_8h.html">Functions.h</a>&gt;</code></p>
 
 <p>Forces a given function to be executed at compile time. </p>
 
@@ -278,6 +284,8 @@ template&lt;typename... Param&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d6/d9b/_functions_8h.html">Functions.h</a>&gt;</code></p>
 
 <p>Breaks down a function that takes multiple arguments into a series of functions that each take one argument. </p>
 <p>Additionally, if the original function is callable with one argument, then this function returns the result of calling that function. </p>
@@ -322,6 +330,8 @@ template&lt;Function Func, typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../d6/d9b/_functions_8h.html">Functions.h</a>&gt;</code></p>
+
 <p>Executes a potentially-throwing function within a try-catch block, and returns false if an exception is thrown and true if no exceptions are thrown. </p>
 <p>This is basically a simple Lippincott function. If the return type of the function is bool, then the value it returns will be returned by <code>try_call</code> if the function does not throw an exception. </p>
 
@@ -343,6 +353,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d6/d9b/_functions_8h.html">Functions.h</a>&gt;</code></p>
 <b>Initial value:</b><div class="fragment"><div class="line">= requires (T f)</div>
 <div class="line">{</div>
 <div class="line">    { std::invoke (f) };</div>
@@ -359,7 +371,7 @@ template&lt;typename T &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

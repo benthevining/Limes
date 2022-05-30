@@ -1,6 +1,8 @@
 var classmemory_1_1_aligned_allocator =
 [
-    [ "rebind", "dd/d18/structmemory_1_1_aligned_allocator_1_1rebind.html", "dd/d18/structmemory_1_1_aligned_allocator_1_1rebind" ],
+    [ "rebind", "dd/d1c/classmemory_1_1_aligned_allocator.html#dd/d18/structmemory_1_1_aligned_allocator_1_1rebind", [
+      [ "other", "dd/d1c/classmemory_1_1_aligned_allocator.html#acda34fd988505bd5d3398ae00121cc7a", null ]
+    ] ],
     [ "const_pointer", "dd/d1c/classmemory_1_1_aligned_allocator.html#ae624283bb042d93c67fc6db71baece21", null ],
     [ "const_reference", "dd/d1c/classmemory_1_1_aligned_allocator.html#a2f8bcb70926ea1fb1ed1bd7841be1002", null ],
     [ "difference_type", "dd/d1c/classmemory_1_1_aligned_allocator.html#ac7b3b4ca669608c9b689db4b8493cf4f", null ],

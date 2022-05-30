@@ -92,10 +92,11 @@ $(document).ready(function(){initNavTree('d2/db9/group__threads.html','../../');
 <div class="header">
   <div class="summary">
 <a href="#groups">Modules</a> &#124;
+<a href="#dirs">Directories</a> &#124;
 <a href="#files">Files</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Threading<div class="ingroups"><a class="el" href="../../da/d07/group__limes__core.html">limes_core</a></div></div>  </div>
+<div class="title">Threading<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../da/d07/group__limes__core.html">limes_core</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -106,6 +107,11 @@ $(document).ready(function(){initNavTree('d2/db9/group__threads.html','../../');
 Modules</h2></td></tr>
 <tr class="memitem:dd/d3e/group__rt__safety"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d3e/group__rt__safety.html">Realtime safety</a></td></tr>
 <tr class="memdesc:dd/d3e/group__rt__safety"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metaprogramming utilities for detecting the realtime safety of certain operations on certain types. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="dirs"></a>
+Directories</h2></td></tr>
+<tr class="memitem:dir_f3c3802d3847d937c602d8d473665a27"><td class="memItemLeft" align="right" valign="top">directory&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dir_f3c3802d3847d937c602d8d473665a27.html">threading</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
@@ -168,10 +174,12 @@ template&lt;func::Function Func, typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../d4/d08/_threading_8h.html">Threading.h</a>&gt;</code></p>
+
 <p>Calls a function on a background thread, blocks until the function finishes executing, and returns the function result. </p>
 <dl class="section return"><dt>Returns</dt><dd>Result of calling the function </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d08/_threading_8h_source.html#l00055">55</a> of file <a class="el" href="../../d4/d08/_threading_8h_source.html">Threading.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/_threading_8h_source.html#l00060">60</a> of file <a class="el" href="../../d4/d08/_threading_8h_source.html">Threading.h</a>.</p>
 
 </div>
 </div>
@@ -211,10 +219,12 @@ template&lt;func::Function Func, typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../d4/d08/_threading_8h.html">Threading.h</a>&gt;</code></p>
+
 <p>Launches a function on a background thread and returns immediately. </p>
 <dl class="section return"><dt>Returns</dt><dd>A <code>std::future</code> that will eventually hold the result of the called function. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d08/_threading_8h_source.html#l00045">45</a> of file <a class="el" href="../../d4/d08/_threading_8h_source.html">Threading.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d08/_threading_8h_source.html#l00050">50</a> of file <a class="el" href="../../d4/d08/_threading_8h_source.html">Threading.h</a>.</p>
 
 </div>
 </div>
@@ -242,6 +252,8 @@ template&lt;func::Function Func, typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../d4/d08/_threading_8h.html">Threading.h</a>&gt;</code></p>
+
 <p>Tries to detect the number of concurrent threads supported by the current hardware and implementation. </p>
 <p>If the detection fails, <code>defaultVal</code> will be returned. </p>
 
@@ -252,7 +264,7 @@ template&lt;func::Function Func, typename... Args&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

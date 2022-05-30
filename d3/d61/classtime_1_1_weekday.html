@@ -239,12 +239,51 @@ class time::Weekday&lt; StartWeekOnSunday &gt;</h3>
 <p>This class represents a day of the week in the Gregorian calendar. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">StartWeekOnSunday</td><td>If true, "day 0" of a week is Sunday; otherwise, "day 0" is Monday. The ISO standard starts weeks on Monday, so this is false by default, but you can use either type of weekday. </td></tr>
+    <tr><td class="paramname">StartWeekOnSunday</td><td>If true, "day 0" of a week is Sunday; otherwise, "day 0" is Monday. The ISO standard starts weeks on Monday, so this is false by default, but you can use either type of weekday.</td></tr>
   </table>
   </dd>
 </dl>
+<p>If the <code>StartWeekOnSunday</code> template parameter is <code>true</code> , a week looks like this:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Day # </th><th class="markdownTableHeadNone">Name  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">0 </td><td class="markdownTableBodyNone">Sunday  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">1 </td><td class="markdownTableBodyNone">Monday  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">2 </td><td class="markdownTableBodyNone">Tuesday  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">3 </td><td class="markdownTableBodyNone">Wednesday  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">4 </td><td class="markdownTableBodyNone">Thursday  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">5 </td><td class="markdownTableBodyNone">Friday  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">6 </td><td class="markdownTableBodyNone">Saturday  </td></tr>
+</table>
+<p>However, if this parameter is <code>false</code> , then a week looks like this:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Day # </th><th class="markdownTableHeadNone">Name  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">0 </td><td class="markdownTableBodyNone">Monday  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">1 </td><td class="markdownTableBodyNone">Tuesday  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">2 </td><td class="markdownTableBodyNone">Wednesday  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">3 </td><td class="markdownTableBodyNone">Thursday  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">4 </td><td class="markdownTableBodyNone">Friday  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">5 </td><td class="markdownTableBodyNone">Saturday  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">6 </td><td class="markdownTableBodyNone">Sunday  </td></tr>
+</table>
+<dl class="test"><dt><b><a class="el" href="../../d4/df6/test.html#_test000007">Test:</a></b></dt><dd>This class's API is tested with static assertions at compile-time. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/ddc/weekday_8h_source.html#l00040">40</a> of file <a class="el" href="../../d0/ddc/weekday_8h_source.html">weekday.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/ddc/weekday_8h_source.html#l00066">66</a> of file <a class="el" href="../../d0/ddc/weekday_8h_source.html">weekday.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aab9b905f48c1e6ea68cb6371dc7a478a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aab9b905f48c1e6ea68cb6371dc7a478a">&#9670;&nbsp;</a></span>OtherWeekdayType</h2>
@@ -262,7 +301,7 @@ template&lt;bool StartWeekOnSunday = false&gt; </div>
 
 <p>Convenience typdef for the other template specialization of <a class="el" href="../../d3/d61/classtime_1_1_weekday.html" title="This class represents a day of the week in the Gregorian calendar.">Weekday</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/ddc/weekday_8h_source.html#l00057">57</a> of file <a class="el" href="../../d0/ddc/weekday_8h_source.html">weekday.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/ddc/weekday_8h_source.html#l00083">83</a> of file <a class="el" href="../../d0/ddc/weekday_8h_source.html">weekday.h</a>.</p>
 
 </div>
 </div>
@@ -300,7 +339,7 @@ template&lt;bool StartWeekOnSunday = false&gt; </div>
 <tr><td class="fieldname"><a id="a61e3d5d06fa34f271c0051e51a001272a8b7051187b9191cdcdae6ed5a10e5adc"></a>Saturday&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/ddc/weekday_8h_source.html#l00045">45</a> of file <a class="el" href="../../d0/ddc/weekday_8h_source.html">weekday.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/ddc/weekday_8h_source.html#l00071">71</a> of file <a class="el" href="../../d0/ddc/weekday_8h_source.html">weekday.h</a>.</p>
 
 </div>
 </div>
@@ -1365,7 +1404,7 @@ template&lt;bool StartWeekOnSunday = false&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/dfb/namespacetime.html">time</a></li><li class="navelem"><a class="el" href="../../d3/d61/classtime_1_1_weekday.html">Weekday</a></li>
-    <li class="footer">Generated on Mon May 30 2022 00:56:42 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:02 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

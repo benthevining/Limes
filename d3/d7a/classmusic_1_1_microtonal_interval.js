@@ -1,6 +1,7 @@
 var classmusic_1_1_microtonal_interval =
 [
     [ "MicrotonalInterval", "d3/d7a/classmusic_1_1_microtonal_interval.html#a11c3086f92504cdb61b481cd8bea06d1", null ],
+    [ "MicrotonalInterval", "d3/d7a/classmusic_1_1_microtonal_interval.html#ad4ccae957c0d9686d2685b2a848352a1", null ],
     [ "applyToPitch", "d3/d7a/classmusic_1_1_microtonal_interval.html#a680f4edc160dae31e898fb61bf3baeb1", null ],
     [ "getCents", "d3/d7a/classmusic_1_1_microtonal_interval.html#afaa58b20f0bbacce181e5cb4911330e5", null ],
     [ "getSemitones", "d3/d7a/classmusic_1_1_microtonal_interval.html#ad78d4948b854480cd8f9ef637d23a7ff", null ],

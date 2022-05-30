@@ -95,12 +95,13 @@ $(document).ready(function(){initNavTree('d7/da0/_microtonal_interval_8h.html','
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">MicrotonalInterval.h File Reference</div>  </div>
+<div class="title">MicrotonalInterval.h File Reference<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../d6/dfd/group__limes__music.html">limes_music</a> &raquo; <a class="el" href="../../d1/de7/group__music__harmony.html">Harmony</a> &raquo; <a class="el" href="../../d8/d49/group__music__intervals.html">Intervals</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;limes_export.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="../../da/d0b/limes__namespace_8h_source.html">limes_namespace.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="../../d9/df8/limes__core_8h_source.html">limes_core.h</a>&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for MicrotonalInterval.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -123,29 +124,35 @@ $(document).ready(function(){initNavTree('d7/da0/_microtonal_interval_8h.html','
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d7a/classmusic_1_1_microtonal_interval.html">music::MicrotonalInterval</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class that can represent intervals that are not whole numbers of semitones.  <a href="../../d3/d7a/classmusic_1_1_microtonal_interval.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:d3/d28/namespacemusic"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d28/namespacemusic.html">music</a></td></tr>
+<tr class="memdesc:d3/d28/namespacemusic"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains music theory utilities. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae475ee52bf8520cc51cf51b561b5de77"><td class="memItemLeft" align="right" valign="top">constexpr LIMES_EXPORT Pitch&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d28/namespacemusic.html#ae475ee52bf8520cc51cf51b561b5de77">music::operator+</a> (const Pitch &amp;pitch, const MicrotonalInterval &amp;interval) noexcept</td></tr>
-<tr class="memdesc:ae475ee52bf8520cc51cf51b561b5de77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an interval to the given pitch and returns a new pitch object at the resulting pitch.  <a href="../../d3/d28/namespacemusic.html#ae475ee52bf8520cc51cf51b561b5de77">More...</a><br /></td></tr>
-<tr class="separator:ae475ee52bf8520cc51cf51b561b5de77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a240a833f0d12f505e8151aa992c585a1"><td class="memItemLeft" align="right" valign="top">constexpr LIMES_EXPORT Pitch&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d28/namespacemusic.html#a240a833f0d12f505e8151aa992c585a1">music::operator-</a> (const Pitch &amp;pitch, const MicrotonalInterval &amp;interval) noexcept</td></tr>
-<tr class="memdesc:a240a833f0d12f505e8151aa992c585a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts an interval from the given pitch and returns a new pitch object at the resulting pitch.  <a href="../../d3/d28/namespacemusic.html#a240a833f0d12f505e8151aa992c585a1">More...</a><br /></td></tr>
-<tr class="separator:a240a833f0d12f505e8151aa992c585a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae475ee52bf8520cc51cf51b561b5de77"><td class="memItemLeft" align="right" valign="top">constexpr LIMES_EXPORT Pitch&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d49/group__music__intervals.html#gae475ee52bf8520cc51cf51b561b5de77">music::operator+</a> (const Pitch &amp;pitch, const MicrotonalInterval &amp;interval) noexcept</td></tr>
+<tr class="memdesc:gae475ee52bf8520cc51cf51b561b5de77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an interval to the given pitch and returns a new pitch object at the resulting pitch.  <a href="../../d8/d49/group__music__intervals.html#gae475ee52bf8520cc51cf51b561b5de77">More...</a><br /></td></tr>
+<tr class="separator:gae475ee52bf8520cc51cf51b561b5de77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga240a833f0d12f505e8151aa992c585a1"><td class="memItemLeft" align="right" valign="top">constexpr LIMES_EXPORT Pitch&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d49/group__music__intervals.html#ga240a833f0d12f505e8151aa992c585a1">music::operator-</a> (const Pitch &amp;pitch, const MicrotonalInterval &amp;interval) noexcept</td></tr>
+<tr class="memdesc:ga240a833f0d12f505e8151aa992c585a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts an interval from the given pitch and returns a new pitch object at the resulting pitch.  <a href="../../d8/d49/group__music__intervals.html#ga240a833f0d12f505e8151aa992c585a1">More...</a><br /></td></tr>
+<tr class="separator:ga240a833f0d12f505e8151aa992c585a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file defines the MicrotonalInterval class. </p>
+
+<p class="definition">Definition in file <a class="el" href="../../d7/da0/_microtonal_interval_8h_source.html">MicrotonalInterval.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_4e10961ee4a74add6c88e3fe5a05001b.html">limes_music</a></li><li class="navelem"><a class="el" href="../../dir_4570ad735756a8778838de071b89d154.html">harmony</a></li><li class="navelem"><a class="el" href="../../dir_927fe58fb482dcf27508c41128d4a2f3.html">intervals</a></li><li class="navelem"><a class="el" href="../../d7/da0/_microtonal_interval_8h.html">MicrotonalInterval.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:00 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -90,14 +90,33 @@ $(document).ready(function(){initNavTree('d7/d30/group__vec__hamm.html','../../'
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Hamm windowing<div class="ingroups"><a class="el" href="../../dc/dd4/group__limes__vecops.html">limes_vecops</a> &raquo; <a class="el" href="../../d4/dd9/group__vec__window.html">Windowing functions</a></div></div>  </div>
+<div class="title">Hamm windowing<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../dc/dd4/group__limes__vecops.html">limes_vecops</a> &raquo; <a class="el" href="../../d4/dd9/group__vec__window.html">Windowing functions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Hamm (Hamming) windowing functions.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga0cdf0423f096eb62dedfb262fc261ed6"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga0cdf0423f096eb62dedfb262fc261ed6"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d30/group__vec__hamm.html#ga0cdf0423f096eb62dedfb262fc261ed6">vecops::fb::window::detail::getHammSample</a> (SizeType size, SizeType i) noexcept</td></tr>
+<tr class="separator:ga0cdf0423f096eb62dedfb262fc261ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa7fe4a5869b6f4a0d8a07a58056e4ca4"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:gaa7fe4a5869b6f4a0d8a07a58056e4ca4"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d30/group__vec__hamm.html#gaa7fe4a5869b6f4a0d8a07a58056e4ca4">vecops::fb::window::generateHamm</a> (DataType *const output, SizeType size)</td></tr>
+<tr class="memdesc:gaa7fe4a5869b6f4a0d8a07a58056e4ca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a Hamm (Hamming) window, writing the output samples to a vector.  <a href="../../d7/d30/group__vec__hamm.html#gaa7fe4a5869b6f4a0d8a07a58056e4ca4">More...</a><br /></td></tr>
+<tr class="separator:gaa7fe4a5869b6f4a0d8a07a58056e4ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab16d13175c3454d0230e5367edcdd985"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:gab16d13175c3454d0230e5367edcdd985"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d30/group__vec__hamm.html#gab16d13175c3454d0230e5367edcdd985">vecops::fb::window::applyHamm</a> (DataType *const dataAndDest, SizeType size)</td></tr>
+<tr class="memdesc:gab16d13175c3454d0230e5367edcdd985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a Hamm (Hamming) window to the samples in the vector.  <a href="../../d7/d30/group__vec__hamm.html#gab16d13175c3454d0230e5367edcdd985">More...</a><br /></td></tr>
+<tr class="separator:gab16d13175c3454d0230e5367edcdd985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0e8a2bc8f94e35682725b5ee0464b8fe"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga0e8a2bc8f94e35682725b5ee0464b8fe"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d30/group__vec__hamm.html#ga0e8a2bc8f94e35682725b5ee0464b8fe">vecops::fb::window::applyHammAndCopy</a> (DataType *const dest, const DataType *const data, SizeType size)</td></tr>
+<tr class="memdesc:ga0e8a2bc8f94e35682725b5ee0464b8fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another vector.  <a href="../../d7/d30/group__vec__hamm.html#ga0e8a2bc8f94e35682725b5ee0464b8fe">More...</a><br /></td></tr>
+<tr class="separator:ga0e8a2bc8f94e35682725b5ee0464b8fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab41b83147aa9748b2b60ce1eb4244a9d"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
 <tr class="memitem:gab41b83147aa9748b2b60ce1eb4244a9d"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/d30/group__vec__hamm.html#gab41b83147aa9748b2b60ce1eb4244a9d">vecops::window::generateHamm</a> (DataType *const output, SizeType size)</td></tr>
 <tr class="memdesc:gab41b83147aa9748b2b60ce1eb4244a9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a Hamm (Hamming) window, writing the output samples to a vector.  <a href="../../d7/d30/group__vec__hamm.html#gab41b83147aa9748b2b60ce1eb4244a9d">More...</a><br /></td></tr>
@@ -115,7 +134,7 @@ $(document).ready(function(){initNavTree('d7/d30/group__vec__hamm.html','../../'
 <p>Hamm (Hamming) windowing functions. </p>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ga98a439d54ea7e42ceaba0e0ef8f05c6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga98a439d54ea7e42ceaba0e0ef8f05c6d">&#9670;&nbsp;</a></span>applyHamm()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga98a439d54ea7e42ceaba0e0ef8f05c6d">&#9670;&nbsp;</a></span>applyHamm() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,13 +161,54 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
+
 <p>Applies a Hamm (Hamming) window to the samples in the vector. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d30/group__vec__hamm.html#gab41b83147aa9748b2b60ce1eb4244a9d" title="Generates a Hamm (Hamming) window, writing the output samples to a vector.">generateHamm</a>, <a class="el" href="../../d7/d30/group__vec__hamm.html#ga77f84cbc8e7e2ab59c09b4a7b1599bec" title="Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another v...">applyHammAndCopy</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01201">1201</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="gab16d13175c3454d0230e5367edcdd985"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab16d13175c3454d0230e5367edcdd985">&#9670;&nbsp;</a></span>applyHamm() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void vecops::fb::window::applyHamm </td>
+          <td>(</td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>dataAndDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p>Applies a Hamm (Hamming) window to the samples in the vector. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d30/group__vec__hamm.html#gaa7fe4a5869b6f4a0d8a07a58056e4ca4" title="Generates a Hamm (Hamming) window, writing the output samples to a vector.">generateHamm</a>, <a class="el" href="../../d7/d30/group__vec__hamm.html#ga0e8a2bc8f94e35682725b5ee0464b8fe" title="Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another v...">applyHammAndCopy</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01201">1201</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
 
 </div>
 </div>
 <a id="ga77f84cbc8e7e2ab59c09b4a7b1599bec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga77f84cbc8e7e2ab59c09b4a7b1599bec">&#9670;&nbsp;</a></span>applyHammAndCopy()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga77f84cbc8e7e2ab59c09b4a7b1599bec">&#9670;&nbsp;</a></span>applyHammAndCopy() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,13 +241,60 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
+
 <p>Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another vector. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d30/group__vec__hamm.html#ga98a439d54ea7e42ceaba0e0ef8f05c6d" title="Applies a Hamm (Hamming) window to the samples in the vector.">applyHamm</a>, <a class="el" href="../../d7/d30/group__vec__hamm.html#gab41b83147aa9748b2b60ce1eb4244a9d" title="Generates a Hamm (Hamming) window, writing the output samples to a vector.">generateHamm</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01208">1208</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="ga0e8a2bc8f94e35682725b5ee0464b8fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0e8a2bc8f94e35682725b5ee0464b8fe">&#9670;&nbsp;</a></span>applyHammAndCopy() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void vecops::fb::window::applyHammAndCopy </td>
+          <td>(</td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const DataType *const&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p>Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another vector. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d30/group__vec__hamm.html#gab16d13175c3454d0230e5367edcdd985" title="Applies a Hamm (Hamming) window to the samples in the vector.">applyHamm</a>, <a class="el" href="../../d7/d30/group__vec__hamm.html#gaa7fe4a5869b6f4a0d8a07a58056e4ca4" title="Generates a Hamm (Hamming) window, writing the output samples to a vector.">generateHamm</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01208">1208</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
 
 </div>
 </div>
 <a id="gab41b83147aa9748b2b60ce1eb4244a9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab41b83147aa9748b2b60ce1eb4244a9d">&#9670;&nbsp;</a></span>generateHamm()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#gab41b83147aa9748b2b60ce1eb4244a9d">&#9670;&nbsp;</a></span>generateHamm() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,8 +321,91 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
+
 <p>Generates a Hamm (Hamming) window, writing the output samples to a vector. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d30/group__vec__hamm.html#ga98a439d54ea7e42ceaba0e0ef8f05c6d" title="Applies a Hamm (Hamming) window to the samples in the vector.">applyHamm</a>, <a class="el" href="../../d7/d30/group__vec__hamm.html#ga77f84cbc8e7e2ab59c09b4a7b1599bec" title="Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another v...">applyHammAndCopy</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01194">1194</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="gaa7fe4a5869b6f4a0d8a07a58056e4ca4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa7fe4a5869b6f4a0d8a07a58056e4ca4">&#9670;&nbsp;</a></span>generateHamm() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> void vecops::fb::window::generateHamm </td>
+          <td>(</td>
+          <td class="paramtype">DataType *const&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p>Generates a Hamm (Hamming) window, writing the output samples to a vector. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d30/group__vec__hamm.html#gab16d13175c3454d0230e5367edcdd985" title="Applies a Hamm (Hamming) window to the samples in the vector.">applyHamm</a>, <a class="el" href="../../d7/d30/group__vec__hamm.html#ga0e8a2bc8f94e35682725b5ee0464b8fe" title="Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another v...">applyHammAndCopy</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01194">1194</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
+
+</div>
+</div>
+<a id="ga0cdf0423f096eb62dedfb262fc261ed6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0cdf0423f096eb62dedfb262fc261ed6">&#9670;&nbsp;</a></span>getHammSample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Scalar DataType, Integral SizeType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> DataType vecops::fb::window::detail::getHammSample </td>
+          <td>(</td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeType&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01140">1140</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
 
 </div>
 </div>
@@ -224,7 +414,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

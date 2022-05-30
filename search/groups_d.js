@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['realtime_20safety_2866',['Realtime safety',['../dd/d3e/group__rt__safety.html',1,'']]]
+  ['pommier_20simd_20extension_20functions_3183',['Pommier SIMD extension functions',['../d5/d50/group__vec__pommier.html',1,'']]]
 ];

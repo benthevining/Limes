@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['object_2662',['object',['../de/d1a/structthreads_1_1_threaded_object_writer.html#a90c00f8c8bb7b37ffafb960af1268fe0',1,'threads::ThreadedObjectWriter::object()'],['../dc/d4f/structthreads_1_1_threaded_object_reader.html#acbd78b4835e5541baeeb9b6a71731cce',1,'threads::ThreadedObjectReader::object()'],['../db/d7d/structds_1_1_linked_list_1_1_node.html#a6cb30aac2fb8b45cacf42322453105bc',1,'ds::LinkedList::Node::object()']]],
-  ['objects_2663',['objects',['../df/d63/classds_1_1basic__vector.html#ac2f2cd2288e8e8be15dcd249d3d3645b',1,'ds::basic_vector']]]
+  ['new_5fline_2917',['new_line',['../df/dcb/namespacestrings.html#aebbfe58099474e9a4fb0f90f78ad2dff',1,'strings']]],
+  ['not_5fin_2918',['not_in',['../dd/d4b/namespacetypelist.html#ae228a280dc62f1becda725d2ce77710a',1,'typelist']]],
+  ['num_5fof_2919',['num_of',['../d4/d06/classmeta_1_1_type_list.html#a9203351b53902bf7c988751d61474f53',1,'meta::TypeList::num_of()'],['../dc/de3/classmeta_1_1_type_list_3_4.html#a7958fa9fe37d753f435cdc049d61544d',1,'meta::TypeList&lt;&gt;::num_of()']]],
+  ['numbeats_2920',['numBeats',['../d3/d28/namespacemusic.html#ab99e3de520b2a26e8dd8f4e4d066d063',1,'music::TimeSignature::Subdivision']]],
+  ['numerator_2921',['numerator',['../d5/d26/structmath_1_1_fraction.html#a9115de78ddfbccc985672a5c93f1164c',1,'math::Fraction']]]
 ];

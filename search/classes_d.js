@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['raiicaller_1484',['RAIICaller',['../db/d9b/classfunc_1_1_r_a_i_i_caller.html',1,'func']]],
-  ['random_1485',['Random',['../d3/dbd/classmath_1_1_random.html',1,'math']]],
-  ['rawdata_1486',['RawData',['../d1/db0/classmemory_1_1_raw_data.html',1,'memory']]],
-  ['rebind_1487',['rebind',['../dd/d18/structmemory_1_1_aligned_allocator_1_1rebind.html',1,'memory::AlignedAllocator&lt; T, Alignment, UseExceptions &gt;::rebind&lt; U &gt;'],['../de/dca/structmemory_1_1_stack_allocator_1_1rebind.html',1,'memory::StackAllocator&lt; T, N, Align &gt;::rebind&lt; _Up &gt;'],['../d5/d72/structmemory_1_1_memory_pool_allocator_1_1rebind.html',1,'memory::MemoryPoolAllocator&lt; T, MaxCapacity &gt;::rebind&lt; U &gt;']]],
-  ['rectangle_1488',['Rectangle',['../d0/d60/classmath_1_1geometry_1_1_rectangle.html',1,'math::geometry']]],
-  ['rectangularprism_1489',['RectangularPrism',['../d3/d1d/classmath_1_1geometry_1_1_rectangular_prism.html',1,'math::geometry']]],
-  ['referencecountedobject_1490',['ReferenceCountedObject',['../da/d8c/classmemory_1_1_reference_counted_object.html',1,'memory']]],
-  ['referencecountedobjectptr_1491',['ReferenceCountedObjectPtr',['../d6/d26/classmemory_1_1_reference_counted_object_ptr.html',1,'memory']]]
+  ['peakfinder_1653',['PeakFinder',['../dc/de3/classdsp_1_1psola_1_1_peak_finder.html',1,'dsp::psola']]],
+  ['pentagon_1654',['Pentagon',['../d4/d55/classmath_1_1geometry_1_1_pentagon.html',1,'math::geometry']]],
+  ['perlinnoise_1655',['PerlinNoise',['../de/da0/classdsp_1_1_perlin_noise.html',1,'dsp']]],
+  ['phase_1656',['Phase',['../d1/d83/structdsp_1_1_oscillator_1_1_phase.html',1,'dsp::Oscillator']]],
+  ['pitch_1657',['Pitch',['../de/d6d/classmusic_1_1_pitch.html',1,'music']]],
+  ['pitchbendmapper_1658',['PitchbendMapper',['../d7/d01/classmidi_1_1_pitchbend_mapper.html',1,'midi']]],
+  ['pitchclass_1659',['PitchClass',['../d4/d8c/structmusic_1_1_pitch_class.html',1,'music']]],
+  ['pitchdetector_1660',['PitchDetector',['../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html',1,'dsp::psola']]],
+  ['pyramid_1661',['Pyramid',['../df/dcd/classmath_1_1geometry_1_1_pyramid.html',1,'math::geometry']]]
 ];

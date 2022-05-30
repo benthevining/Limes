@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['weekday_1531',['Weekday',['../d3/d61/classtime_1_1_weekday.html',1,'time']]],
-  ['whitenoisegenerator_1532',['WhiteNoiseGenerator',['../dd/d77/structdsp_1_1_white_noise_generator.html',1,'dsp']]],
-  ['wholetone_1533',['WholeTone',['../d5/d24/classmusic_1_1scales_1_1_whole_tone.html',1,'music::scales']]]
+  ['vdsp_5ffft_1721',['vDSP_FFT',['../da/d63/classvecops_1_1v_d_s_p___f_f_t.html',1,'vecops']]],
+  ['velocitymapper_1722',['VelocityMapper',['../d3/d01/classmidi_1_1_velocity_mapper.html',1,'midi']]],
+  ['version_1723',['Version',['../d0/dec/structmisc_1_1_version.html',1,'misc']]]
 ];

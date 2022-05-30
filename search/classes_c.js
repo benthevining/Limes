@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['peakfinder_1475',['PeakFinder',['../dc/de3/classdsp_1_1psola_1_1_peak_finder.html',1,'dsp::psola']]],
-  ['pentagon_1476',['Pentagon',['../d4/d55/classmath_1_1geometry_1_1_pentagon.html',1,'math::geometry']]],
-  ['perlinnoise_1477',['PerlinNoise',['../de/da0/classdsp_1_1_perlin_noise.html',1,'dsp']]],
-  ['phase_1478',['Phase',['../d1/d83/structdsp_1_1_oscillator_1_1_phase.html',1,'dsp::Oscillator']]],
-  ['pitch_1479',['Pitch',['../de/d6d/classmusic_1_1_pitch.html',1,'music']]],
-  ['pitchbendmapper_1480',['PitchbendMapper',['../d7/d01/classmidi_1_1_pitchbend_mapper.html',1,'midi']]],
-  ['pitchclass_1481',['PitchClass',['../d4/d8c/structmusic_1_1_pitch_class.html',1,'music']]],
-  ['pitchdetector_1482',['PitchDetector',['../d0/dfe/classdsp_1_1psola_1_1_pitch_detector.html',1,'dsp::psola']]],
-  ['pyramid_1483',['Pyramid',['../df/dcd/classmath_1_1geometry_1_1_pyramid.html',1,'math::geometry']]]
+  ['octagon_1646',['Octagon',['../d3/dc1/classmath_1_1geometry_1_1_octagon.html',1,'math::geometry']]],
+  ['octatonic_1647',['Octatonic',['../de/d0a/classmusic_1_1scales_1_1_octatonic.html',1,'music::scales']]],
+  ['optionalobject_1648',['OptionalObject',['../dc/d1a/classmemory_1_1_optional_object.html',1,'memory']]],
+  ['oscillator_1649',['Oscillator',['../dc/d70/structdsp_1_1_oscillator.html',1,'dsp']]],
+  ['owned_5fvector_1650',['owned_vector',['../de/de5/classds_1_1owned__vector.html',1,'ds']]],
+  ['owned_5fvector_3c_20ds_3a_3alinkedlist_3a_3anode_20_3e_1651',['owned_vector&lt; ds::LinkedList::Node &gt;',['../de/de5/classds_1_1owned__vector.html',1,'ds']]],
+  ['owned_5fvector_3c_20grain_20_3e_1652',['owned_vector&lt; Grain &gt;',['../de/de5/classds_1_1owned__vector.html',1,'ds']]]
 ];

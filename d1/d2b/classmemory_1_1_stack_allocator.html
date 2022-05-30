@@ -94,6 +94,7 @@ $(document).ready(function(){initNavTree('d1/d2b/classmemory_1_1_stack_allocator
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="../../d0/d48/classmemory_1_1_stack_allocator-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">memory::StackAllocator&lt; T, N, Align &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
@@ -107,8 +108,8 @@ $(document).ready(function(){initNavTree('d1/d2b/classmemory_1_1_stack_allocator
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dca/structmemory_1_1_stack_allocator_1_1rebind.html">rebind</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:de/dca/structmemory_1_1_stack_allocator_1_1rebind"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html#de/dca/structmemory_1_1_stack_allocator_1_1rebind">rebind</a></td></tr>
+<tr class="separator:de/dca/structmemory_1_1_stack_allocator_1_1rebind"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -142,6 +143,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0c26fd4453b75dbbf899e54bd0702f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacee795efda1b6324b21ef553f6397e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html">StackAllocator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html#aacee795efda1b6324b21ef553f6397e4">operator=</a> (const <a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html">StackAllocator</a> &amp;)=delete</td></tr>
 <tr class="separator:aacee795efda1b6324b21ef553f6397e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:affacd3179ff0a5a62862d4a5cf3cde1a"><td class="memTemplParams" colspan="2">template&lt;class U , std::size_t M, std::size_t A&gt; </td></tr>
+<tr class="memitem:affacd3179ff0a5a62862d4a5cf3cde1a"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html#affacd3179ff0a5a62862d4a5cf3cde1a">StackAllocator</a></td></tr>
+<tr class="separator:affacd3179ff0a5a62862d4a5cf3cde1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d2a05c9a04f539e3cdf0eb2d801bf0c"><td class="memTemplParams" colspan="2">template&lt;class T1 , std::size_t N1, std::size_t A1, class U , std::size_t M, std::size_t A2&gt; </td></tr>
+<tr class="memitem:a5d2a05c9a04f539e3cdf0eb2d801bf0c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html#a5d2a05c9a04f539e3cdf0eb2d801bf0c">operator==</a> (const <a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html">StackAllocator</a>&lt; T1, N1, A1 &gt; &amp;x, const <a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html">StackAllocator</a>&lt; U, M, A2 &gt; &amp;y) noexcept</td></tr>
+<tr class="separator:a5d2a05c9a04f539e3cdf0eb2d801bf0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T, std::size_t N, std::size_t Align = alignof (std::max_align_t)&gt;<br />
@@ -158,7 +168,37 @@ class memory::StackAllocator&lt; T, N, Align &gt;</h3>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00039">39</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
+</div><hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="de/dca/structmemory_1_1_stack_allocator_1_1rebind" id="de/dca/structmemory_1_1_stack_allocator_1_1rebind"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#de/dca/structmemory_1_1_stack_allocator_1_1rebind">&#9670;&nbsp;</a></span>memory::StackAllocator::rebind</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct memory::StackAllocator::rebind</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;class T, std::size_t N, std::size_t Align = alignof (std::max_align_t)&gt;<br />
+template&lt;class _Up&gt;<br />
+struct memory::StackAllocator&lt; T, N, Align &gt;::rebind&lt; _Up &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00067">67</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a062cdffc020cc216a2135c19e1027632"></a>typedef <a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html">StackAllocator</a>&lt; _Up, N, Align &gt;</td>
+<td class="fieldname">
+other</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a302ceb3b4a59ff7b1a9185c1ba364ed0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a302ceb3b4a59ff7b1a9185c1ba364ed0">&#9670;&nbsp;</a></span>const_pointer</h2>
 
@@ -466,6 +506,75 @@ template&lt;class T , std::size_t N, std::size_t Align = alignof (std::max_align
 
 </div>
 </div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="affacd3179ff0a5a62862d4a5cf3cde1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affacd3179ff0a5a62862d4a5cf3cde1a">&#9670;&nbsp;</a></span>StackAllocator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , std::size_t N, std::size_t Align = alignof (std::max_align_t)&gt; </div>
+<div class="memtemplate">
+template&lt;class U , std::size_t M, std::size_t A&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html">StackAllocator</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html#l00081">81</a> of file <a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a>.</p>
+
+</div>
+</div>
+<a id="a5d2a05c9a04f539e3cdf0eb2d801bf0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d2a05c9a04f539e3cdf0eb2d801bf0c">&#9670;&nbsp;</a></span>operator==</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , std::size_t N, std::size_t Align = alignof (std::max_align_t)&gt; </div>
+<div class="memtemplate">
+template&lt;class T1 , std::size_t N1, std::size_t A1, class U , std::size_t M, std::size_t A2&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html">StackAllocator</a>&lt; T1, N1, A1 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html">StackAllocator</a>&lt; U, M, A2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="../../d5/d5a/stack__allocator_8h_source.html">stack_allocator.h</a></li>
 </ul>
@@ -475,7 +584,7 @@ template&lt;class T , std::size_t N, std::size_t Align = alignof (std::max_align
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d4/daf/namespacememory.html">memory</a></li><li class="navelem"><a class="el" href="../../d1/d2b/classmemory_1_1_stack_allocator.html">StackAllocator</a></li>
-    <li class="footer">Generated on Mon May 30 2022 00:56:42 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

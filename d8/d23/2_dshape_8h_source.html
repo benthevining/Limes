@@ -111,30 +111,30 @@ $(document).ready(function(){initNavTree('d8/d23/2_dshape_8h_source.html','../..
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a>&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;limes_export.h&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d9/d9a/namespacemath_1_1geometry.html">   38</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d9/d9a/namespacemath_1_1geometry.html">math::geometry</a></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">template</span> &lt;Scalar ValueType&gt;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d7/d47/classmath_1_1geometry_1_1_two_d_shape.html">   45</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="../../d7/d47/classmath_1_1geometry_1_1_two_d_shape.html">TwoDShape</a></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../d7/d47/classmath_1_1geometry_1_1_two_d_shape.html">TwoDShape</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    [[nodiscard]] ValueType area() <span class="keyword">const</span> noexcept = 0;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    [[nodiscard]] ValueType perimeter() <span class="keyword">const</span> noexcept = 0;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d9/d9a/namespacemath_1_1geometry.html">   48</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d9/d9a/namespacemath_1_1geometry.html">math::geometry</a></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span> &lt;Scalar ValueType&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d7/d47/classmath_1_1geometry_1_1_two_d_shape.html">   55</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="../../d7/d47/classmath_1_1geometry_1_1_two_d_shape.html">TwoDShape</a></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}  <span class="comment">// namespace math::geometry</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../d7/d47/classmath_1_1geometry_1_1_two_d_shape.html">TwoDShape</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    [[nodiscard]] ValueType area() <span class="keyword">const</span> noexcept = 0;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    [[nodiscard]] ValueType perimeter() <span class="keyword">const</span> noexcept = 0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}  <span class="comment">// namespace math::geometry</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacemath_1_1geometry_html"><div class="ttname"><a href="../../d9/d9a/namespacemath_1_1geometry.html">math::geometry</a></div><div class="ttdoc">This namespace contains utilities for working with geometric shapes and calculations.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d23/2_dshape_8h_source.html#l00038">2Dshape.h:38</a></div></div>
-<div class="ttc" id="aclassmath_1_1geometry_1_1_two_d_shape_html"><div class="ttname"><a href="../../d7/d47/classmath_1_1geometry_1_1_two_d_shape.html">math::geometry::TwoDShape</a></div><div class="ttdoc">A base class for any kind of 2-dimensional shape.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d23/2_dshape_8h_source.html#l00045">2Dshape.h:45</a></div></div>
+<div class="ttc" id="anamespacemath_1_1geometry_html"><div class="ttname"><a href="../../d9/d9a/namespacemath_1_1geometry.html">math::geometry</a></div><div class="ttdoc">This namespace contains utilities for working with geometric shapes and calculations.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d23/2_dshape_8h_source.html#l00048">2Dshape.h:48</a></div></div>
+<div class="ttc" id="aclassmath_1_1geometry_1_1_two_d_shape_html"><div class="ttname"><a href="../../d7/d47/classmath_1_1geometry_1_1_two_d_shape.html">math::geometry::TwoDShape</a></div><div class="ttdoc">A base class for any kind of 2-dimensional shape.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d23/2_dshape_8h_source.html#l00055">2Dshape.h:55</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00039">limes_namespace.h:39</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00027">limes_namespace.h:27</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
@@ -142,7 +142,7 @@ $(document).ready(function(){initNavTree('d8/d23/2_dshape_8h_source.html','../..
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_f0d4ec8d2337f2081e409df54f3b2ddf.html">math</a></li><li class="navelem"><a class="el" href="../../dir_7140950f1f12ade351ea2627e3234f7b.html">geometry</a></li><li class="navelem"><a class="el" href="../../dir_f6b4e38534f9a667c6237b2038e3eb3e.html">2D</a></li><li class="navelem"><a class="el" href="../../d8/d23/2_dshape_8h.html">2Dshape.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 00:56:40 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:03:59 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

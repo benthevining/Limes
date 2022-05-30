@@ -91,15 +91,24 @@ $(document).ready(function(){initNavTree('d9/dda/group__files.html','../../'); i
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a>  </div>
+<a href="#dirs">Directories</a> &#124;
+<a href="#files">Files</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Files<div class="ingroups"><a class="el" href="../../da/d07/group__limes__core.html">limes_core</a></div></div>  </div>
+<div class="title">Files<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../da/d07/group__limes__core.html">limes_core</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Utilities for working with the filesystem.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="dirs"></a>
+Directories</h2></td></tr>
+<tr class="memitem:dir_3aa82088844b4756d08c70a556e97c81"><td class="memItemLeft" align="right" valign="top">directory&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dir_3aa82088844b4756d08c70a556e97c81.html">exec_location</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dir_22e0f3de6e8710dbfc7b879383088d23"><td class="memItemLeft" align="right" valign="top">directory&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dir_22e0f3de6e8710dbfc7b879383088d23.html">files</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Files</h2></td></tr>
 <tr class="memitem:d9/d78/_c_file_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d78/_c_file_8h.html">CFile.h</a></td></tr>
@@ -118,6 +127,15 @@ Files</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d8/d06/sym__link_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d06/sym__link_8h.html">sym_link.h</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga60f08b0e2e66b004beac62e8edb85765"><td class="memItemLeft" align="right" valign="top">LIMES_NO_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dda/group__files.html#ga60f08b0e2e66b004beac62e8edb85765">files::getExecutablePath</a> ()</td></tr>
+<tr class="memdesc:ga60f08b0e2e66b004beac62e8edb85765"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the path of the current executable, as a string.  <a href="../../d9/dda/group__files.html#ga60f08b0e2e66b004beac62e8edb85765">More...</a><br /></td></tr>
+<tr class="separator:ga60f08b0e2e66b004beac62e8edb85765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff709ef716d9a2d98819bd95a56b6ade"><td class="memItemLeft" align="right" valign="top">LIMES_NO_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dda/group__files.html#gaff709ef716d9a2d98819bd95a56b6ade">files::getModulePath</a> ()</td></tr>
+<tr class="memdesc:gaff709ef716d9a2d98819bd95a56b6ade"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the path of the current module, as a string.  <a href="../../d9/dda/group__files.html#gaff709ef716d9a2d98819bd95a56b6ade">More...</a><br /></td></tr>
+<tr class="separator:gaff709ef716d9a2d98819bd95a56b6ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4471cdb2bad95eac219a7de790f6fa33"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT std::uintmax_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dda/group__files.html#ga4471cdb2bad95eac219a7de790f6fa33">files::getAvailableSpaceOnFilesystem</a> ()</td></tr>
 <tr class="memdesc:ga4471cdb2bad95eac219a7de790f6fa33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the available space on the filesystem, in bytes.  <a href="../../d9/dda/group__files.html#ga4471cdb2bad95eac219a7de790f6fa33">More...</a><br /></td></tr>
 <tr class="separator:ga4471cdb2bad95eac219a7de790f6fa33"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -160,6 +178,8 @@ Files</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../d1/d28/limes__core_2files_2_misc_8h.html">misc.h</a>&gt;</code></p>
+
 <p>Returns the platform's preferred separator: <code>\</code> on Windows, and <code>/</code> everywhere else. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d1/d28/limes__core_2files_2_misc_8h_source.html#l00043">43</a> of file <a class="el" href="../../d1/d28/limes__core_2files_2_misc_8h_source.html">limes_core/files/Misc.h</a>.</p>
@@ -189,6 +209,8 @@ Files</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../d1/d28/limes__core_2files_2_misc_8h.html">misc.h</a>&gt;</code></p>
+
 <p>Returns true if the current platform's filesystem is case-sensitive. </p>
 <p>True on Linux, false everywhere else. </p>
 
@@ -211,7 +233,51 @@ Files</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../d1/d28/limes__core_2files_2_misc_8h.html">misc.h</a>&gt;</code></p>
+
 <p>Returns the available space on the filesystem, in bytes. </p>
+
+</div>
+</div>
+<a id="ga60f08b0e2e66b004beac62e8edb85765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga60f08b0e2e66b004beac62e8edb85765">&#9670;&nbsp;</a></span>getExecutablePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT std::string files::getExecutablePath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../df/d3f/exec__location_8h.html">exec_location.h</a>&gt;</code></p>
+
+<p>Returns the path of the current executable, as a string. </p>
+
+</div>
+</div>
+<a id="gaff709ef716d9a2d98819bd95a56b6ade"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaff709ef716d9a2d98819bd95a56b6ade">&#9670;&nbsp;</a></span>getModulePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LIMES_NO_EXPORT std::string files::getModulePath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../df/d3f/exec__location_8h.html">exec_location.h</a>&gt;</code></p>
+
+<p>Returns the path of the current module, as a string. </p>
 
 </div>
 </div>
@@ -229,6 +295,8 @@ Files</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d1/d28/limes__core_2files_2_misc_8h.html">misc.h</a>&gt;</code></p>
 
 <p>Returns the total size of the filesystem, in bytes. </p>
 
@@ -257,6 +325,8 @@ Files</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p><code>#include &lt;<a class="el" href="../../d1/d28/limes__core_2files_2_misc_8h.html">misc.h</a>&gt;</code></p>
+
 <p>Returns the platform's separator char for the <code>PATH</code> environment variable: <code></code>; on Windows, and <code></code>: everywhere else. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d1/d28/limes__core_2files_2_misc_8h_source.html#l00049">49</a> of file <a class="el" href="../../d1/d28/limes__core_2files_2_misc_8h_source.html">limes_core/files/Misc.h</a>.</p>
@@ -268,7 +338,7 @@ Files</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

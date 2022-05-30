@@ -93,9 +93,10 @@ $(document).ready(function(){initNavTree('d7/dfe/_type_list__impl_8h.html','../.
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">TypeList_impl.h File Reference<div class="ingroups"><a class="el" href="../../da/d07/group__limes__core.html">limes_core</a> &raquo; <a class="el" href="../../d6/db2/group__meta.html">Metaprogramming</a></div></div>  </div>
+<div class="title">TypeList_impl.h File Reference<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../da/d07/group__limes__core.html">limes_core</a> &raquo; <a class="el" href="../../d6/db2/group__meta.html">Metaprogramming</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;limes_export.h&gt;</code><br />
@@ -124,8 +125,68 @@ $(document).ready(function(){initNavTree('d7/dfe/_type_list__impl_8h.html','../.
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d6c/structtypelist_1_1_null_type.html">typelist::NullType</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A placeholder class representing a type that is null, invalid, or nonexistent.  <a href="../../dd/d6c/structtypelist_1_1_null_type.html#details">More...</a><br /></td></tr>
+<tr class="memitem:dd/dd5/structtypelist_1_1add_3_01_typelist_3_01_args_8_8_8_01_4_00_01_types_to_add_8_8_8_01_4"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#dd/dd5/structtypelist_1_1add_3_01_typelist_3_01_args_8_8_8_01_4_00_01_types_to_add_8_8_8_01_4">typelist::add&lt; Typelist&lt; Args... &gt;, TypesToAdd... &gt;</a></td></tr>
+<tr class="separator:dd/dd5/structtypelist_1_1add_3_01_typelist_3_01_args_8_8_8_01_4_00_01_types_to_add_8_8_8_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dd/deb/structtypelist_1_1add__from_3_01_list1_3_01_list1_args_8_8_8_01_4_00_01_list2_3_01_list2_args_8_8_8_01_4_01_4"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#dd/deb/structtypelist_1_1add__from_3_01_list1_3_01_list1_args_8_8_8_01_4_00_01_list2_3_01_list2_args_8_8_8_01_4_01_4">typelist::add_from&lt; List1&lt; List1Args... &gt;, List2&lt; List2Args... &gt; &gt;</a></td></tr>
+<tr class="separator:dd/deb/structtypelist_1_1add__from_3_01_list1_3_01_list1_args_8_8_8_01_4_00_01_list2_3_01_list2_args_8_8_8_01_4_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dcb/structtypelist_1_1add_if_absent_3_01_typelist_3_01_args_8_8_8_01_4_00_01_types_to_add_8_8_8_01_4.html">typelist::addIfAbsent&lt; Typelist&lt; Args... &gt;, TypesToAdd... &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dba/structtypelist_1_1are__same.html">typelist::are_same&lt; LHS, RHS &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d67/structtypelist_1_1are__same_3_01_l_h_s_3_01_args_8_8_8_01_4_00_01_r_h_s_3_01_args_8_8_8_01_4_01_4.html">typelist::are_same&lt; LHS&lt; Args... &gt;, RHS&lt; Args... &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db2/structtypelist_1_1common__with_3_01_list1_3_01_list1_types_8_8_8_01_4_00_01_list2_3_01_list2_types_8_8_8_01_4_01_4.html">typelist::common_with&lt; List1&lt; List1Types... &gt;, List2&lt; List2Types... &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dea/structtypelist_1_1contains.html">typelist::contains&lt; Typelist, TypesToFind &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d22/structtypelist_1_1contains__duplicates_3_01_typelist_3_01_args_8_8_8_01_4_01_4.html">typelist::contains_duplicates&lt; Typelist&lt; Args... &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d73/structtypelist_1_1contains__or.html">typelist::contains_or&lt; Typelist, TypesToFind &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d17/structtypelist_1_1count_3_01_typelist_3_01_args_8_8_8_01_4_00_01_to_count_01_4.html">typelist::count&lt; Typelist&lt; Args... &gt;, ToCount &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dc2/structtypelist_1_1count__if_3_01_typelist_3_01_args_8_8_8_01_4_00_01_unary_predicate_01_4.html">typelist::count_if&lt; Typelist&lt; Args... &gt;, UnaryPredicate &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d75/structtypelist_1_1count__if__not.html">typelist::count_if_not&lt; Typelist, UnaryPredicate &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd2/structtypelist_1_1find_3_01_typelist_3_01_args_8_8_8_01_4_00_01_type_to_find_01_4.html">typelist::find&lt; Typelist&lt; Args... &gt;, TypeToFind &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d1/dd4/structtypelist_1_1get_3_01_typelist_3_01_args_8_8_8_01_4_00_01_index_01_4"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#d1/dd4/structtypelist_1_1get_3_01_typelist_3_01_args_8_8_8_01_4_00_01_index_01_4">typelist::get&lt; Typelist&lt; Args... &gt;, Index &gt;</a></td></tr>
+<tr class="separator:d1/dd4/structtypelist_1_1get_3_01_typelist_3_01_args_8_8_8_01_4_00_01_index_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dfb/structtypelist_1_1insert__at_3_01_typelist_3_01_args_8_8_8_01_4_00_01_index_00_01_to_insert_01_4.html">typelist::insert_at&lt; Typelist&lt; Args... &gt;, Index, ToInsert &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d1/d6b/structtypelist_1_1_internal_type_list"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#d1/d6b/structtypelist_1_1_internal_type_list">typelist::InternalTypeList&lt; Types &gt;</a></td></tr>
+<tr class="separator:d1/d6b/structtypelist_1_1_internal_type_list"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d4b/structtypelist_1_1not__in_3_01_list1_3_01_list1_types_8_8_8_01_4_00_01_list2_3_01_list2_types_8_8_8_01_4_01_4.html">typelist::not_in&lt; List1&lt; List1Types... &gt;, List2&lt; List2Types... &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dd/d6c/structtypelist_1_1_null_type"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#dd/d6c/structtypelist_1_1_null_type">typelist::NullType</a></td></tr>
+<tr class="memdesc:dd/d6c/structtypelist_1_1_null_type"><td class="mdescLeft">&#160;</td><td class="mdescRight">A placeholder class representing a type that is null, invalid, or nonexistent.  <a href="../../dd/d4b/namespacetypelist.html#dd/d6c/structtypelist_1_1_null_type">More...</a><br /></td></tr>
+<tr class="separator:dd/d6c/structtypelist_1_1_null_type"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d9d/structtypelist_1_1remove_3_01_typelist_3_01_args_8_8_8_01_4_00_01_types_to_remove_8_8_8_01_4.html">typelist::remove&lt; Typelist&lt; Args... &gt;, TypesToRemove... &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d3b/structtypelist_1_1remove__at_3_01_typelist_3_01_args_8_8_8_01_4_00_01_index_01_4.html">typelist::remove_at&lt; Typelist&lt; Args... &gt;, Index &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dbe/structtypelist_1_1remove__duplicates_3_01_typelist_3_01_args_8_8_8_01_4_01_4.html">typelist::remove_duplicates&lt; Typelist&lt; Args... &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d33/structtypelist_1_1remove__if_3_01_typelist_3_01_args_8_8_8_01_4_00_01_unary_predicate_01_4.html">typelist::remove_if&lt; Typelist&lt; Args... &gt;, UnaryPredicate &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de1/structtypelist_1_1remove__if__not_3_01_typelist_3_01_args_8_8_8_01_4_00_01_unary_predicate_01_4.html">typelist::remove_if_not&lt; Typelist&lt; Args... &gt;, UnaryPredicate &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/da6/structtypelist_1_1replace_3_01_typelist_3_01_args_8_8_8_01_4_00_01_to_replace_00_01_replace_with_01_4.html">typelist::replace&lt; Typelist&lt; Args... &gt;, ToReplace, ReplaceWith &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d69/structtypelist_1_1replace__at_3_01_typelist_3_01_args_8_8_8_01_4_00_01_index_00_01_replace_with_01_4.html">typelist::replace_at&lt; Typelist&lt; Args... &gt;, Index, ReplaceWith &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:da/d79/structtypelist_1_1reverse_3_01_typelist_3_01_args_8_8_8_01_4_01_4"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#da/d79/structtypelist_1_1reverse_3_01_typelist_3_01_args_8_8_8_01_4_01_4">typelist::reverse&lt; Typelist&lt; Args... &gt; &gt;</a></td></tr>
+<tr class="separator:da/d79/structtypelist_1_1reverse_3_01_typelist_3_01_args_8_8_8_01_4_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/de0/structtypelist_1_1size.html">typelist::size&lt; Typelist &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d61/structtypelist_1_1size_3_01_typelist_3_01_args_8_8_8_01_4_01_4.html">typelist::size&lt; Typelist&lt; Args... &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/df1/structtypelist_1_1swap_3_01_typelist_3_01_args_8_8_8_01_4_00_01_type1_00_01_type2_01_4.html">typelist::swap&lt; Typelist&lt; Args... &gt;, Type1, Type2 &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/deb/structtypelist_1_1swap__at_3_01_typelist_3_01_args_8_8_8_01_4_00_01_index1_00_01_index2_01_4.html">typelist::swap_at&lt; Typelist&lt; Args... &gt;, Index1, Index2 &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d3d/structtypelist_1_1_type_erased_unary_predicate.html">typelist::TypeErasedUnaryPredicate&lt; Condition &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -134,25 +195,353 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:dd/d4b/namespacetypelist"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains implementation details for the TypeList class. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a3057d87f2af05b7be9837a274bd6143d"><td class="memTemplParams" colspan="2">template&lt;class List1 , class List2 &gt; </td></tr>
+<tr class="memitem:a3057d87f2af05b7be9837a274bd6143d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a3057d87f2af05b7be9837a274bd6143d">typelist::add_from_t</a> = typename add_from&lt; List1, List2 &gt;::type</td></tr>
+<tr class="separator:a3057d87f2af05b7be9837a274bd6143d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e3690b617525f94f0dc0f60ef1d664f"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename... TypesToAdd&gt; </td></tr>
+<tr class="memitem:a3e3690b617525f94f0dc0f60ef1d664f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a3e3690b617525f94f0dc0f60ef1d664f">typelist::add_t</a> = typename add&lt; Typelist, TypesToAdd... &gt;::type</td></tr>
+<tr class="separator:a3e3690b617525f94f0dc0f60ef1d664f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfb3e14124bdf47f747f776dd04f8a37"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename... TypesToAdd&gt; </td></tr>
+<tr class="memitem:adfb3e14124bdf47f747f776dd04f8a37"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#adfb3e14124bdf47f747f776dd04f8a37">typelist::addIfAbsent_t</a> = typename addIfAbsent&lt; Typelist, TypesToAdd... &gt;::type</td></tr>
+<tr class="separator:adfb3e14124bdf47f747f776dd04f8a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac035a339a1dc7061c6d9fc466a28ddd"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename ToAppend &gt; </td></tr>
+<tr class="memitem:aac035a339a1dc7061c6d9fc466a28ddd"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#aac035a339a1dc7061c6d9fc466a28ddd">typelist::append_t</a> = add_t&lt; Typelist, ToAppend &gt;</td></tr>
+<tr class="separator:aac035a339a1dc7061c6d9fc466a28ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae153376f3b013aa49521f6ba7f3f5b5d"><td class="memTemplParams" colspan="2">template&lt;class List1 , class List2 &gt; </td></tr>
+<tr class="memitem:ae153376f3b013aa49521f6ba7f3f5b5d"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#ae153376f3b013aa49521f6ba7f3f5b5d">typelist::common_t</a> = typename common_with&lt; List1, List2 &gt;::type</td></tr>
+<tr class="separator:ae153376f3b013aa49521f6ba7f3f5b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63a4448ac0ecb85b13cf04e39d3f7d88"><td class="memTemplParams" colspan="2">template&lt;class Typelist &gt; </td></tr>
+<tr class="memitem:a63a4448ac0ecb85b13cf04e39d3f7d88"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a63a4448ac0ecb85b13cf04e39d3f7d88">typelist::get_first_t</a> = get_t&lt; Typelist, 0 &gt;</td></tr>
+<tr class="separator:a63a4448ac0ecb85b13cf04e39d3f7d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3f307a6566248037e12ed3f791d3c59"><td class="memTemplParams" colspan="2">template&lt;class Typelist &gt; </td></tr>
+<tr class="memitem:ac3f307a6566248037e12ed3f791d3c59"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#ac3f307a6566248037e12ed3f791d3c59">typelist::get_last_t</a> = get_t&lt; Typelist, size_v&lt; Typelist &gt; - 1 &gt;</td></tr>
+<tr class="separator:ac3f307a6566248037e12ed3f791d3c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa160203bcf1a3723d15a6da6d945fe96"><td class="memTemplParams" colspan="2">template&lt;class Typelist , size_t Index&gt; </td></tr>
+<tr class="memitem:aa160203bcf1a3723d15a6da6d945fe96"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#aa160203bcf1a3723d15a6da6d945fe96">typelist::get_t</a> = typename get&lt; Typelist, Index &gt;::type</td></tr>
+<tr class="separator:aa160203bcf1a3723d15a6da6d945fe96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a201bf723f4b50b7568cf11eedd0da2c7"><td class="memTemplParams" colspan="2">template&lt;class Typelist , size_t Index, typename ToInsert &gt; </td></tr>
+<tr class="memitem:a201bf723f4b50b7568cf11eedd0da2c7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a201bf723f4b50b7568cf11eedd0da2c7">typelist::insert_at_t</a> = typename insert_at&lt; Typelist, Index, ToInsert &gt;::type</td></tr>
+<tr class="separator:a201bf723f4b50b7568cf11eedd0da2c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5ccc3dd87e82647b88028d44d0371f7"><td class="memTemplParams" colspan="2">template&lt;class List1 , class List2 &gt; </td></tr>
+<tr class="memitem:af5ccc3dd87e82647b88028d44d0371f7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#af5ccc3dd87e82647b88028d44d0371f7">typelist::not_in_t</a> = typename not_in&lt; List1, List2 &gt;::type</td></tr>
+<tr class="separator:af5ccc3dd87e82647b88028d44d0371f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a217abe0bd33ddaffdd251c94c480b915"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename ToPrepend &gt; </td></tr>
+<tr class="memitem:a217abe0bd33ddaffdd251c94c480b915"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a217abe0bd33ddaffdd251c94c480b915">typelist::prepend_t</a> = insert_at_t&lt; Typelist, 0, ToPrepend &gt;</td></tr>
+<tr class="separator:a217abe0bd33ddaffdd251c94c480b915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ee0f2d6f565cc3b17fda3c8c2a6575a"><td class="memTemplParams" colspan="2">template&lt;class Typelist , size_t Index&gt; </td></tr>
+<tr class="memitem:a9ee0f2d6f565cc3b17fda3c8c2a6575a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a9ee0f2d6f565cc3b17fda3c8c2a6575a">typelist::remove_at_t</a> = typename remove_at&lt; Typelist, Index &gt;::type</td></tr>
+<tr class="separator:a9ee0f2d6f565cc3b17fda3c8c2a6575a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97ec2f9326d31756d059529ce3c2c31e"><td class="memTemplParams" colspan="2">template&lt;class Typelist &gt; </td></tr>
+<tr class="memitem:a97ec2f9326d31756d059529ce3c2c31e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a97ec2f9326d31756d059529ce3c2c31e">typelist::remove_duplicates_t</a> = typename remove_duplicates&lt; Typelist &gt;::type</td></tr>
+<tr class="separator:a97ec2f9326d31756d059529ce3c2c31e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fdc46f17a2b0a4c938d2eb02d88fc81"><td class="memTemplParams" colspan="2">template&lt;class Typelist , template&lt; typename &gt; class UnaryPredicate&gt; </td></tr>
+<tr class="memitem:a8fdc46f17a2b0a4c938d2eb02d88fc81"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a8fdc46f17a2b0a4c938d2eb02d88fc81">typelist::remove_if_not_t</a> = typename remove_if_not&lt; Typelist, UnaryPredicate &gt;::type</td></tr>
+<tr class="separator:a8fdc46f17a2b0a4c938d2eb02d88fc81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63d3451c4670f41205d777107cd1a864"><td class="memTemplParams" colspan="2">template&lt;class Typelist , template&lt; typename &gt; class UnaryPredicate&gt; </td></tr>
+<tr class="memitem:a63d3451c4670f41205d777107cd1a864"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a63d3451c4670f41205d777107cd1a864">typelist::remove_if_t</a> = typename remove_if&lt; Typelist, UnaryPredicate &gt;::type</td></tr>
+<tr class="separator:a63d3451c4670f41205d777107cd1a864"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cdef6ab418bd7972b6c01146894fc1b"><td class="memTemplParams" colspan="2">template&lt;class Typelist &gt; </td></tr>
+<tr class="memitem:a4cdef6ab418bd7972b6c01146894fc1b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a4cdef6ab418bd7972b6c01146894fc1b">typelist::remove_null_types_t</a> = remove_t&lt; Typelist, NullType &gt;</td></tr>
+<tr class="separator:a4cdef6ab418bd7972b6c01146894fc1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eaa8a9b28e9788cc5468611461017f2"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename... TypesToRemove&gt; </td></tr>
+<tr class="memitem:a6eaa8a9b28e9788cc5468611461017f2"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a6eaa8a9b28e9788cc5468611461017f2">typelist::remove_t</a> = typename remove&lt; Typelist, TypesToRemove... &gt;::type</td></tr>
+<tr class="separator:a6eaa8a9b28e9788cc5468611461017f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94bd21a4358d822199aeb5547236fff1"><td class="memTemplParams" colspan="2">template&lt;class Typelist , size_t Index, typename ReplaceWith &gt; </td></tr>
+<tr class="memitem:a94bd21a4358d822199aeb5547236fff1"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a94bd21a4358d822199aeb5547236fff1">typelist::replace_at_t</a> = typename replace_at&lt; Typelist, Index, ReplaceWith &gt;::type</td></tr>
+<tr class="separator:a94bd21a4358d822199aeb5547236fff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79872e66a5120c6598b2580c2b3e9d1e"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename ToReplace , typename ReplaceWith &gt; </td></tr>
+<tr class="memitem:a79872e66a5120c6598b2580c2b3e9d1e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a79872e66a5120c6598b2580c2b3e9d1e">typelist::replace_t</a> = typename replace&lt; Typelist, ToReplace, ReplaceWith &gt;::type</td></tr>
+<tr class="separator:a79872e66a5120c6598b2580c2b3e9d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afad5c039d525d26ef1cd52fa9bd5718b"><td class="memTemplParams" colspan="2">template&lt;class Typelist &gt; </td></tr>
+<tr class="memitem:afad5c039d525d26ef1cd52fa9bd5718b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#afad5c039d525d26ef1cd52fa9bd5718b">typelist::reverse_t</a> = typename reverse&lt; Typelist &gt;::type</td></tr>
+<tr class="separator:afad5c039d525d26ef1cd52fa9bd5718b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a497001114206df535fa717ca7cc8f55c"><td class="memTemplParams" colspan="2">template&lt;size_t Value&gt; </td></tr>
+<tr class="memitem:a497001114206df535fa717ca7cc8f55c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a497001114206df535fa717ca7cc8f55c">typelist::SizeConstant</a> = std::integral_constant&lt; size_t, Value &gt;</td></tr>
+<tr class="separator:a497001114206df535fa717ca7cc8f55c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae47d638837f0a66f71a12e3d5c599d1f"><td class="memTemplParams" colspan="2">template&lt;class Typelist , size_t Index1, size_t Index2&gt; </td></tr>
+<tr class="memitem:ae47d638837f0a66f71a12e3d5c599d1f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#ae47d638837f0a66f71a12e3d5c599d1f">typelist::swap_at_t</a> = typename swap_at&lt; Typelist, Index1, Index2 &gt;::type</td></tr>
+<tr class="separator:ae47d638837f0a66f71a12e3d5c599d1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff4a9912702617e3d8472023c6f5298f"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename Type1 , typename Type2 &gt; </td></tr>
+<tr class="memitem:aff4a9912702617e3d8472023c6f5298f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#aff4a9912702617e3d8472023c6f5298f">typelist::swap_t</a> = typename swap&lt; Typelist, Type1, Type2 &gt;::type</td></tr>
+<tr class="separator:aff4a9912702617e3d8472023c6f5298f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a0671c219e500d1241baebb5862f4cb3b"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename... TypesToAdd&gt; </td></tr>
+<tr class="memitem:a0671c219e500d1241baebb5862f4cb3b"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a0671c219e500d1241baebb5862f4cb3b">typelist::add</a></td></tr>
+<tr class="separator:a0671c219e500d1241baebb5862f4cb3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c2d6aedb9899e5582b8cc429c05b88b"><td class="memTemplParams" colspan="2">template&lt;class List1 , class List2 &gt; </td></tr>
+<tr class="memitem:a3c2d6aedb9899e5582b8cc429c05b88b"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a3c2d6aedb9899e5582b8cc429c05b88b">typelist::add_from</a></td></tr>
+<tr class="separator:a3c2d6aedb9899e5582b8cc429c05b88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46df99eea489b4916b43f6a451fc1700"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename... TypesToAdd&gt; </td></tr>
+<tr class="memitem:a46df99eea489b4916b43f6a451fc1700"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a46df99eea489b4916b43f6a451fc1700">typelist::addIfAbsent</a></td></tr>
+<tr class="separator:a46df99eea489b4916b43f6a451fc1700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52470c14cec4309b4d9bd622d5d31336"><td class="memTemplParams" colspan="2">template&lt;class LHS , class RHS &gt; </td></tr>
+<tr class="memitem:a52470c14cec4309b4d9bd622d5d31336"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a52470c14cec4309b4d9bd622d5d31336">typelist::are_same_v</a> = are_same&lt;LHS, RHS&gt;::value</td></tr>
+<tr class="separator:a52470c14cec4309b4d9bd622d5d31336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc3c2b6ff403f65f06bd45da1f737071"><td class="memTemplParams" colspan="2">template&lt;class List1 , class List2 &gt; </td></tr>
+<tr class="memitem:afc3c2b6ff403f65f06bd45da1f737071"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#afc3c2b6ff403f65f06bd45da1f737071">typelist::common_with</a></td></tr>
+<tr class="separator:afc3c2b6ff403f65f06bd45da1f737071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31f892dfd6c05b822c92902680f0d72c"><td class="memTemplParams" colspan="2">template&lt;class Typelist &gt; </td></tr>
+<tr class="memitem:a31f892dfd6c05b822c92902680f0d72c"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a31f892dfd6c05b822c92902680f0d72c">typelist::contains_duplicates</a></td></tr>
+<tr class="separator:a31f892dfd6c05b822c92902680f0d72c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83e4ea9747553b878eabd093d2576589"><td class="memTemplParams" colspan="2">template&lt;class Typelist &gt; </td></tr>
+<tr class="memitem:a83e4ea9747553b878eabd093d2576589"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a83e4ea9747553b878eabd093d2576589">typelist::contains_duplicates_v</a> = contains_duplicates&lt;Typelist&gt;::value</td></tr>
+<tr class="separator:a83e4ea9747553b878eabd093d2576589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac4adf0724e816aa91cd4672a3c01397"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename... TypesToFind&gt; </td></tr>
+<tr class="memitem:aac4adf0724e816aa91cd4672a3c01397"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#aac4adf0724e816aa91cd4672a3c01397">typelist::contains_or_v</a> = contains_or&lt;Typelist, TypesToFind...&gt;::value</td></tr>
+<tr class="separator:aac4adf0724e816aa91cd4672a3c01397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94f83d653fdbfa8e2399e2f8b9d91def"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename... TypesToFind&gt; </td></tr>
+<tr class="memitem:a94f83d653fdbfa8e2399e2f8b9d91def"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a94f83d653fdbfa8e2399e2f8b9d91def">typelist::contains_v</a> = contains&lt;Typelist, TypesToFind...&gt;::value</td></tr>
+<tr class="separator:a94f83d653fdbfa8e2399e2f8b9d91def"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99b7520dc5370f7ea4bfab7e37d94050"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename ToCount &gt; </td></tr>
+<tr class="memitem:a99b7520dc5370f7ea4bfab7e37d94050"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a99b7520dc5370f7ea4bfab7e37d94050">typelist::count</a></td></tr>
+<tr class="separator:a99b7520dc5370f7ea4bfab7e37d94050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47946d4ad7f3822ea85a8b119d06022b"><td class="memTemplParams" colspan="2">template&lt;class Typelist , template&lt; typename &gt; class UnaryPredicate&gt; </td></tr>
+<tr class="memitem:a47946d4ad7f3822ea85a8b119d06022b"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a47946d4ad7f3822ea85a8b119d06022b">typelist::count_if</a></td></tr>
+<tr class="separator:a47946d4ad7f3822ea85a8b119d06022b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a184a1e76bf6b2f42a908780fc3a579c4"><td class="memTemplParams" colspan="2">template&lt;class Typelist , template&lt; typename &gt; class UnaryPredicate&gt; </td></tr>
+<tr class="memitem:a184a1e76bf6b2f42a908780fc3a579c4"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a184a1e76bf6b2f42a908780fc3a579c4">typelist::count_if_not_v</a> = count_if_not&lt;Typelist, UnaryPredicate&gt;::value</td></tr>
+<tr class="separator:a184a1e76bf6b2f42a908780fc3a579c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a01e7736cd8b63e7ea6fdea42e35667"><td class="memTemplParams" colspan="2">template&lt;class Typelist , template&lt; typename &gt; class UnaryPredicate&gt; </td></tr>
+<tr class="memitem:a9a01e7736cd8b63e7ea6fdea42e35667"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a9a01e7736cd8b63e7ea6fdea42e35667">typelist::count_if_v</a> = count_if&lt;Typelist, UnaryPredicate&gt;::value</td></tr>
+<tr class="separator:a9a01e7736cd8b63e7ea6fdea42e35667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93810c3e164eb5635dac0478aad72bd3"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename ToCount &gt; </td></tr>
+<tr class="memitem:a93810c3e164eb5635dac0478aad72bd3"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a93810c3e164eb5635dac0478aad72bd3">typelist::count_v</a> = count&lt;Typelist, ToCount&gt;::value</td></tr>
+<tr class="separator:a93810c3e164eb5635dac0478aad72bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0361816ccc45567fb665bd4ec5ecced"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename TypeToFind &gt; </td></tr>
+<tr class="memitem:af0361816ccc45567fb665bd4ec5ecced"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#af0361816ccc45567fb665bd4ec5ecced">typelist::find</a></td></tr>
+<tr class="separator:af0361816ccc45567fb665bd4ec5ecced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe883be906e0d8fae84e5c8545428f07"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename TypeToFind &gt; </td></tr>
+<tr class="memitem:afe883be906e0d8fae84e5c8545428f07"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#afe883be906e0d8fae84e5c8545428f07">typelist::find_v</a> = find&lt;Typelist, TypeToFind&gt;::value</td></tr>
+<tr class="separator:afe883be906e0d8fae84e5c8545428f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0d5d67704d5ae1b86f03eb4c0b566df"><td class="memTemplParams" colspan="2">template&lt;class Typelist , size_t Index&gt; </td></tr>
+<tr class="memitem:ac0d5d67704d5ae1b86f03eb4c0b566df"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#ac0d5d67704d5ae1b86f03eb4c0b566df">typelist::get</a></td></tr>
+<tr class="separator:ac0d5d67704d5ae1b86f03eb4c0b566df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a144100ba281020aa8049e9df98e3e6"><td class="memTemplParams" colspan="2">template&lt;class Typelist , size_t Index, typename ToInsert &gt; </td></tr>
+<tr class="memitem:a4a144100ba281020aa8049e9df98e3e6"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a4a144100ba281020aa8049e9df98e3e6">typelist::insert_at</a></td></tr>
+<tr class="separator:a4a144100ba281020aa8049e9df98e3e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4b5ac8a2ff0c19b06b0f6a7176912d6"><td class="memItemLeft" align="right" valign="top">static LIMES_EXPORT const constinit size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#af4b5ac8a2ff0c19b06b0f6a7176912d6">typelist::invalid_index</a> = static_cast&lt;size_t&gt; (-1)</td></tr>
+<tr class="separator:af4b5ac8a2ff0c19b06b0f6a7176912d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8700ce8a7fb7d1363e38deb97f4405c"><td class="memTemplParams" colspan="2">template&lt;class Typelist &gt; </td></tr>
+<tr class="memitem:ab8700ce8a7fb7d1363e38deb97f4405c"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#ab8700ce8a7fb7d1363e38deb97f4405c">typelist::is_empty</a> = (size_v&lt;Typelist&gt; == 0)</td></tr>
+<tr class="separator:ab8700ce8a7fb7d1363e38deb97f4405c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafd018480f3762b41345e04b87f360f57"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:gafd018480f3762b41345e04b87f360f57"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/db2/group__meta.html#gafd018480f3762b41345e04b87f360f57">typelist::is_null_type</a> = std::is_same_v&lt;T, NullType&gt;</td></tr>
-<tr class="memdesc:gafd018480f3762b41345e04b87f360f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if <code>T</code> is a <code><a class="el" href="../../dd/d6c/structtypelist_1_1_null_type.html" title="A placeholder class representing a type that is null, invalid, or nonexistent.">NullType</a></code> .  <a href="../../d6/db2/group__meta.html#gafd018480f3762b41345e04b87f360f57">More...</a><br /></td></tr>
+<tr class="memdesc:gafd018480f3762b41345e04b87f360f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if <code>T</code> is a <code><a class="el" href="../../dd/d4b/namespacetypelist.html#dd/d6c/structtypelist_1_1_null_type" title="A placeholder class representing a type that is null, invalid, or nonexistent.">NullType</a></code> .  <a href="../../d6/db2/group__meta.html#gafd018480f3762b41345e04b87f360f57">More...</a><br /></td></tr>
 <tr class="separator:gafd018480f3762b41345e04b87f360f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae228a280dc62f1becda725d2ce77710a"><td class="memTemplParams" colspan="2">template&lt;class List1 , class List2 &gt; </td></tr>
+<tr class="memitem:ae228a280dc62f1becda725d2ce77710a"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#ae228a280dc62f1becda725d2ce77710a">typelist::not_in</a></td></tr>
+<tr class="separator:ae228a280dc62f1becda725d2ce77710a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5bb5766219457d195d8a84cebcfa953"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename... TypesToRemove&gt; </td></tr>
+<tr class="memitem:af5bb5766219457d195d8a84cebcfa953"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#af5bb5766219457d195d8a84cebcfa953">typelist::remove</a></td></tr>
+<tr class="separator:af5bb5766219457d195d8a84cebcfa953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48591930388cb1116b98f4d444a7e306"><td class="memTemplParams" colspan="2">template&lt;class Typelist , size_t Index&gt; </td></tr>
+<tr class="memitem:a48591930388cb1116b98f4d444a7e306"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a48591930388cb1116b98f4d444a7e306">typelist::remove_at</a></td></tr>
+<tr class="separator:a48591930388cb1116b98f4d444a7e306"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac097c461ac96b7d6e20ee11799535c5f"><td class="memTemplParams" colspan="2">template&lt;class Typelist &gt; </td></tr>
+<tr class="memitem:ac097c461ac96b7d6e20ee11799535c5f"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#ac097c461ac96b7d6e20ee11799535c5f">typelist::remove_duplicates</a></td></tr>
+<tr class="separator:ac097c461ac96b7d6e20ee11799535c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7b0497d5573846cb9d5109b20dbfe2b"><td class="memTemplParams" colspan="2">template&lt;class Typelist , template&lt; typename &gt; class UnaryPredicate&gt; </td></tr>
+<tr class="memitem:ab7b0497d5573846cb9d5109b20dbfe2b"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#ab7b0497d5573846cb9d5109b20dbfe2b">typelist::remove_if</a></td></tr>
+<tr class="separator:ab7b0497d5573846cb9d5109b20dbfe2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a516e49676025f1987dbe8f1dde97cbaa"><td class="memTemplParams" colspan="2">template&lt;class Typelist , template&lt; typename &gt; class UnaryPredicate&gt; </td></tr>
+<tr class="memitem:a516e49676025f1987dbe8f1dde97cbaa"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a516e49676025f1987dbe8f1dde97cbaa">typelist::remove_if_not</a></td></tr>
+<tr class="separator:a516e49676025f1987dbe8f1dde97cbaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb588e4338d17e720aea492d4aa68dc8"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename ToReplace , typename ReplaceWith &gt; </td></tr>
+<tr class="memitem:adb588e4338d17e720aea492d4aa68dc8"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#adb588e4338d17e720aea492d4aa68dc8">typelist::replace</a></td></tr>
+<tr class="separator:adb588e4338d17e720aea492d4aa68dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35e00df5d9ca812a2ad6409e14b69711"><td class="memTemplParams" colspan="2">template&lt;class Typelist , size_t Index, typename ReplaceWith &gt; </td></tr>
+<tr class="memitem:a35e00df5d9ca812a2ad6409e14b69711"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a35e00df5d9ca812a2ad6409e14b69711">typelist::replace_at</a></td></tr>
+<tr class="separator:a35e00df5d9ca812a2ad6409e14b69711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adccff6a219135425c9ddcd40cd76ae9f"><td class="memTemplParams" colspan="2">template&lt;class Typelist &gt; </td></tr>
+<tr class="memitem:adccff6a219135425c9ddcd40cd76ae9f"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#adccff6a219135425c9ddcd40cd76ae9f">typelist::reverse</a></td></tr>
+<tr class="separator:adccff6a219135425c9ddcd40cd76ae9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d2abcd629ccb8b019e22712fae28cc0"><td class="memTemplParams" colspan="2">template&lt;class List1 , class List2 &gt; </td></tr>
+<tr class="memitem:a3d2abcd629ccb8b019e22712fae28cc0"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a3d2abcd629ccb8b019e22712fae28cc0">typelist::same_ignoring_order_v</a> = is_empty&lt;not_in_t&lt;List1, List2&gt;&gt;&amp;&amp; is_empty&lt;not_in_t&lt;List2, List1&gt;&gt;</td></tr>
+<tr class="separator:a3d2abcd629ccb8b019e22712fae28cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10cd7f4b3899c32f53798c2c25f9585d"><td class="memTemplParams" colspan="2">template&lt;class Typelist &gt; </td></tr>
+<tr class="memitem:a10cd7f4b3899c32f53798c2c25f9585d"><td class="memTemplItemLeft" align="right" valign="top">static constexpr const LIMES_EXPORT size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a10cd7f4b3899c32f53798c2c25f9585d">typelist::size_v</a> = size&lt;Typelist&gt;::value</td></tr>
+<tr class="separator:a10cd7f4b3899c32f53798c2c25f9585d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3e3bb0906a4cb3c32c4c9cb55f240a9"><td class="memTemplParams" colspan="2">template&lt;class Typelist , typename Type1 , typename Type2 &gt; </td></tr>
+<tr class="memitem:ae3e3bb0906a4cb3c32c4c9cb55f240a9"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#ae3e3bb0906a4cb3c32c4c9cb55f240a9">typelist::swap</a></td></tr>
+<tr class="separator:ae3e3bb0906a4cb3c32c4c9cb55f240a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a355ed2d2a493252587bcaf8bbe920836"><td class="memTemplParams" colspan="2">template&lt;class Typelist , size_t Index1, size_t Index2&gt; </td></tr>
+<tr class="memitem:a355ed2d2a493252587bcaf8bbe920836"><td class="memTemplItemLeft" align="right" valign="top">struct LIMES_EXPORT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/d4b/namespacetypelist.html#a355ed2d2a493252587bcaf8bbe920836">typelist::swap_at</a></td></tr>
+<tr class="separator:a355ed2d2a493252587bcaf8bbe920836"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains implementation details for the TypeList class.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d4/d83/_type_list_8h.html">TypeList.h</a> </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="../../d7/dfe/_type_list__impl_8h_source.html">TypeList_impl.h</a>.</p>
-</div></div><!-- contents -->
+</div><hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="dd/dd5/structtypelist_1_1add_3_01_typelist_3_01_args_8_8_8_01_4_00_01_types_to_add_8_8_8_01_4" id="dd/dd5/structtypelist_1_1add_3_01_typelist_3_01_args_8_8_8_01_4_00_01_types_to_add_8_8_8_01_4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#dd/dd5/structtypelist_1_1add_3_01_typelist_3_01_args_8_8_8_01_4_00_01_types_to_add_8_8_8_01_4">&#9670;&nbsp;</a></span>typelist::add&lt; Typelist&lt; Args... &gt;, TypesToAdd... &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct typelist::add&lt; Typelist&lt; Args... &gt;, TypesToAdd... &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;template&lt; typename... &gt; class Typelist, typename... TypesToAdd, typename... Args&gt;<br />
+struct typelist::add&lt; Typelist&lt; Args... &gt;, TypesToAdd... &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/_type_list__impl_8h_source.html#l00147">147</a> of file <a class="el" href="../../d7/dfe/_type_list__impl_8h_source.html">TypeList_impl.h</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="ab7bcb3f781a517707d5c8f473437bea1"></a></td>
+<td class="fieldname">
+type</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="dd/deb/structtypelist_1_1add__from_3_01_list1_3_01_list1_args_8_8_8_01_4_00_01_list2_3_01_list2_args_8_8_8_01_4_01_4" id="dd/deb/structtypelist_1_1add__from_3_01_list1_3_01_list1_args_8_8_8_01_4_00_01_list2_3_01_list2_args_8_8_8_01_4_01_4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#dd/deb/structtypelist_1_1add__from_3_01_list1_3_01_list1_args_8_8_8_01_4_00_01_list2_3_01_list2_args_8_8_8_01_4_01_4">&#9670;&nbsp;</a></span>typelist::add_from&lt; List1&lt; List1Args... &gt;, List2&lt; List2Args... &gt; &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct typelist::add_from&lt; List1&lt; List1Args... &gt;, List2&lt; List2Args... &gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;template&lt; typename... &gt; class List1, template&lt; typename... &gt; class List2, typename... List1Args, typename... List2Args&gt;<br />
+struct typelist::add_from&lt; List1&lt; List1Args... &gt;, List2&lt; List2Args... &gt; &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/_type_list__impl_8h_source.html#l00161">161</a> of file <a class="el" href="../../d7/dfe/_type_list__impl_8h_source.html">TypeList_impl.h</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a20a015e1997e37e9e36a7cd0c3dd7533"></a></td>
+<td class="fieldname">
+type</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="d1/dd4/structtypelist_1_1get_3_01_typelist_3_01_args_8_8_8_01_4_00_01_index_01_4" id="d1/dd4/structtypelist_1_1get_3_01_typelist_3_01_args_8_8_8_01_4_00_01_index_01_4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#d1/dd4/structtypelist_1_1get_3_01_typelist_3_01_args_8_8_8_01_4_00_01_index_01_4">&#9670;&nbsp;</a></span>typelist::get&lt; Typelist&lt; Args... &gt;, Index &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct typelist::get&lt; Typelist&lt; Args... &gt;, Index &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;template&lt; typename... &gt; class Typelist, size_t Index, typename... Args&gt;<br />
+struct typelist::get&lt; Typelist&lt; Args... &gt;, Index &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/_type_list__impl_8h_source.html#l00360">360</a> of file <a class="el" href="../../d7/dfe/_type_list__impl_8h_source.html">TypeList_impl.h</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a41aadc88c2eb383f6cb5b033f0e93745"></a></td>
+<td class="fieldname">
+type</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="d1/d6b/structtypelist_1_1_internal_type_list" id="d1/d6b/structtypelist_1_1_internal_type_list"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#d1/d6b/structtypelist_1_1_internal_type_list">&#9670;&nbsp;</a></span>typelist::InternalTypeList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct typelist::InternalTypeList</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;typename... Types&gt;<br />
+struct typelist::InternalTypeList&lt; Types &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/_type_list__impl_8h_source.html#l00062">62</a> of file <a class="el" href="../../d7/dfe/_type_list__impl_8h_source.html">TypeList_impl.h</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="afbf5954e565109789b6c51d6a80a9f9c"></a></td>
+<td class="fieldname">
+makeTypelist</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="dd/d6c/structtypelist_1_1_null_type" id="dd/d6c/structtypelist_1_1_null_type"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#dd/d6c/structtypelist_1_1_null_type">&#9670;&nbsp;</a></span>typelist::NullType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct typelist::NullType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>A placeholder class representing a type that is null, invalid, or nonexistent. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/_type_list__impl_8h_source.html#l00040">40</a> of file <a class="el" href="../../d7/dfe/_type_list__impl_8h_source.html">TypeList_impl.h</a>.</p>
+</div>
+</div>
+</div>
+<a name="da/d79/structtypelist_1_1reverse_3_01_typelist_3_01_args_8_8_8_01_4_01_4" id="da/d79/structtypelist_1_1reverse_3_01_typelist_3_01_args_8_8_8_01_4_01_4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#da/d79/structtypelist_1_1reverse_3_01_typelist_3_01_args_8_8_8_01_4_01_4">&#9670;&nbsp;</a></span>typelist::reverse&lt; Typelist&lt; Args... &gt; &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct typelist::reverse&lt; Typelist&lt; Args... &gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><h3>template&lt;template&lt; typename... &gt; class Typelist, typename... Args&gt;<br />
+struct typelist::reverse&lt; Typelist&lt; Args... &gt; &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="../../d7/dfe/_type_list__impl_8h_source.html#l00936">936</a> of file <a class="el" href="../../d7/dfe/_type_list__impl_8h_source.html">TypeList_impl.h</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a77127bf7f2133d4b5b959b59b1892c40"></a></td>
+<td class="fieldname">
+type</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_db1624377dd76a589c108b2ad61e06f8.html">meta</a></li><li class="navelem"><a class="el" href="../../d7/dfe/_type_list__impl_8h.html">TypeList_impl.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 00:56:41 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 07:04:00 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

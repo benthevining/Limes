@@ -11,7 +11,6 @@ var classmusic_1_1scales_1_1_mode =
     ] ],
     [ "Mode", "d1/d0e/classmusic_1_1scales_1_1_mode.html#a844d71fb0920b63d2ed5a4ea1a4eac73", null ],
     [ "Mode", "d1/d0e/classmusic_1_1scales_1_1_mode.html#a2677484cdd96cffc32a0f1d7d098b29c", null ],
-    [ "Mode", "d1/d0e/classmusic_1_1scales_1_1_mode.html#a0f1e49ddf44361be78877c42bdaca7ad", null ],
     [ "containsPitch", "d1/d0e/classmusic_1_1scales_1_1_mode.html#a1601a80abe457022043486acc275a170", null ],
     [ "containsPitch", "d1/d0e/classmusic_1_1scales_1_1_mode.html#a8a6d8521a8ded5be37c24aa366dde11c", null ],
     [ "containsPitchClass", "d1/d0e/classmusic_1_1scales_1_1_mode.html#ac9f0ab4433af31a09865f1e42760058f", null ],
@@ -26,10 +25,11 @@ var classmusic_1_1scales_1_1_mode =
     [ "getPitches", "d1/d0e/classmusic_1_1scales_1_1_mode.html#a8de4c6a22393ccbf78b5c690d7252586", null ],
     [ "getPitches", "d1/d0e/classmusic_1_1scales_1_1_mode.html#a164667f2eb1b1706806819a48500d1e0", null ],
     [ "getRoot", "d1/d0e/classmusic_1_1scales_1_1_mode.html#a71fb8ccd2bd9defb856c2c6e1f4fb361", null ],
+    [ "LIMES_DEFAULT_COPYABLE", "d1/d0e/classmusic_1_1scales_1_1_mode.html#a4b786ecabbc12366880dedbf3f126b4b", null ],
+    [ "LIMES_DEFAULT_MOVABLE", "d1/d0e/classmusic_1_1scales_1_1_mode.html#a617f7b7e8c0d9a7b5aaf687acd945c55", null ],
     [ "notesPerOctave", "d1/d0e/classmusic_1_1scales_1_1_mode.html#a521631907a23229879e5e99fb7a6b228", null ],
     [ "operator!=", "d1/d0e/classmusic_1_1scales_1_1_mode.html#ac165e0d0c6759df88e2c20fd9c091f71", null ],
     [ "operator!=", "d1/d0e/classmusic_1_1scales_1_1_mode.html#a237ac3c6c63475899aed39a9311dceda", null ],
-    [ "operator=", "d1/d0e/classmusic_1_1scales_1_1_mode.html#afb12d08853aea373de0d47fcee83ac29", null ],
     [ "operator==", "d1/d0e/classmusic_1_1scales_1_1_mode.html#a306f621b1a2e5632ff5e61bfddc8a0de", null ],
     [ "operator==", "d1/d0e/classmusic_1_1scales_1_1_mode.html#ac2980ae89fa968f5b577b6d47739fe66", null ]
 ];

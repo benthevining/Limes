@@ -1,5 +1,6 @@
 var group__text =
 [
+    [ "text", "dir_39c4531bb332ab2fb7914284ac583f02.html", null ],
     [ "StringUtils.h", "de/dde/_string_utils_8h.html", null ],
     [ "TextTable.h", "dc/d28/_text_table_8h.html", null ],
     [ "areSame", "d4/d61/group__text.html#gae10f4755523ad3a3d40c303df5209746", null ],
