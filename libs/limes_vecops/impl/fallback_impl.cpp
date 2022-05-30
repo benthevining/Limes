@@ -21,7 +21,7 @@ namespace vecops::fb::detail
 {
 
 template <Scalar DataType>
-LIMES_FORCE_INLINE DataType approximate_atan2 (DataType real, DataType imag)
+LIMES_FORCE_INLINE DataType approximate_atan2 (DataType real, DataType imag) noexcept
 {
 	if (real == DataType (0.))
 	{
@@ -68,7 +68,7 @@ LIMES_FORCE_INLINE DataType approximate_atan2 (DataType real, DataType imag)
 }
 
 template <Scalar T>
-void magphase (T* const mag, T* const phase, T real, T imag)
+void magphase (T* const mag, T* const phase, T real, T imag) noexcept
 {
 	*phase = approximate_atan2 (real, imag);
 

@@ -50,7 +50,7 @@ int Analyzer<SampleType>::getLastInputPitch() const noexcept
 }
 
 template <Sample SampleType>
-void Analyzer<SampleType>::analyzeInput (const SampleType* const inputAudio, int numSamples)
+void Analyzer<SampleType>::analyzeInput (const SampleType* const inputAudio, int numSamples) noexcept
 {
 	LIMES_ASSERT (samplerate > 0.);
 	LIMES_ASSERT (numSamples >= getLatencySamples());
@@ -155,7 +155,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* const inputAudio, int
 }
 
 template <Sample SampleType>
-typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn()
+typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn() noexcept
 {
 	for (auto& grain : grains)
 		if (grain.getRefCount() == 0)
@@ -167,7 +167,7 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn()
 }
 
 template <Sample SampleType>
-void Analyzer<SampleType>::makeWindow (int size)
+void Analyzer<SampleType>::makeWindow (int size) noexcept
 {
 	LIMES_ASSERT (size > 2);
 
@@ -182,7 +182,7 @@ void Analyzer<SampleType>::makeWindow (int size)
 }
 
 template <Sample SampleType>
-typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int placeInBlock)
+typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int placeInBlock) noexcept
 {
 	LIMES_ASSERT (! grains.isEmpty());
 	LIMES_ASSERT (placeInBlock >= 0);
@@ -285,7 +285,7 @@ int Analyzer<SampleType>::latencyChanged()
 }
 
 template <Sample SampleType>
-void Analyzer<SampleType>::reset()
+void Analyzer<SampleType>::reset() noexcept
 {
 	peakFinder.reset();
 
@@ -329,7 +329,7 @@ SampleType Analyzer<SampleType>::Grain::getSample (int index) const noexcept
 
 template <Sample SampleType>
 void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* const origSamples, int startIndex,
-												 const SampleVector& windowSamples, int numSamples)
+												 const SampleVector& windowSamples, int numSamples) noexcept
 {
 	storeNewGrain (origSamples, startIndex, numSamples, nullptr, 0, windowSamples, numSamples, startIndex);
 }
@@ -338,7 +338,7 @@ template <Sample SampleType>
 void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* const origSamples1, int startIndex1, int blocksize1,
 												 const SampleType* const origSamples2, int blocksize2,
 												 const SampleVector& windowSamples, int totalNumSamples,
-												 int grainStartIdx)
+												 int grainStartIdx) noexcept
 {
 	LIMES_ASSERT (getRefCount() == 0);
 	LIMES_ASSERT (totalNumSamples == blocksize1 + blocksize2);
@@ -365,7 +365,7 @@ void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* const origSam
 template <Sample SampleType>
 void Analyzer<SampleType>::Grain::storeNewGrainWithZeroesAtStart (int					  numZeroes,
 																  const SampleType* const origSamples, int numSamples,
-																  const SampleVector& windowSamples, int totalNumSamples, int grainStartIdx)
+																  const SampleVector& windowSamples, int totalNumSamples, int grainStartIdx) noexcept
 {
 	LIMES_ASSERT (getRefCount() == 0);
 	LIMES_ASSERT (numZeroes > 0 && numSamples > 0);

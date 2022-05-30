@@ -12,6 +12,7 @@
 
 #include "Filter.h"
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -19,14 +20,14 @@ namespace dsp::filters
 {
 
 template <Sample SampleType>
-inline void snapToZero (SampleType& sample) noexcept
+LIMES_FORCE_INLINE void snapToZero (SampleType& sample) noexcept
 {
 	if (! (sample < SampleType (-1.0e-8) || sample > SampleType (1.0e-8)))
 		sample = SampleType (0);
 }
 
 template <Sample SampleType>
-void Filter<SampleType>::reset (SampleType resetToValue)
+void Filter<SampleType>::reset (SampleType resetToValue) noexcept
 {
 	order = coefs.getFilterOrder();
 	state.reserveAndZero (order);
@@ -40,7 +41,7 @@ void Filter<SampleType>::prepare() noexcept
 }
 
 template <Sample SampleType>
-void Filter<SampleType>::processOrder1 (SampleType* buffer, int numSamples)
+void Filter<SampleType>::processOrder1 (SampleType* buffer, int numSamples) noexcept
 {
 	const auto* const coeffs = coefs.getRawCoefficients();
 
@@ -66,7 +67,7 @@ void Filter<SampleType>::processOrder1 (SampleType* buffer, int numSamples)
 }
 
 template <Sample SampleType>
-void Filter<SampleType>::processOrder2 (SampleType* buffer, int numSamples)
+void Filter<SampleType>::processOrder2 (SampleType* buffer, int numSamples) noexcept
 {
 	const auto* const coeffs = coefs.getRawCoefficients();
 
@@ -98,7 +99,7 @@ void Filter<SampleType>::processOrder2 (SampleType* buffer, int numSamples)
 }
 
 template <Sample SampleType>
-void Filter<SampleType>::processOrder3 (SampleType* buffer, int numSamples)
+void Filter<SampleType>::processOrder3 (SampleType* buffer, int numSamples) noexcept
 {
 	const auto* const coeffs = coefs.getRawCoefficients();
 
@@ -136,7 +137,7 @@ void Filter<SampleType>::processOrder3 (SampleType* buffer, int numSamples)
 }
 
 template <Sample SampleType>
-void Filter<SampleType>::processDefault (SampleType* buffer, int numSamples)
+void Filter<SampleType>::processDefault (SampleType* buffer, int numSamples) noexcept
 {
 	const auto* const coeffs = coefs.getRawCoefficients();
 
@@ -159,7 +160,7 @@ void Filter<SampleType>::processDefault (SampleType* buffer, int numSamples)
 }
 
 template <Sample SampleType>
-void Filter<SampleType>::process (SampleType* buffer, int numSamples)
+void Filter<SampleType>::process (SampleType* buffer, int numSamples) noexcept
 {
 	if (order != coefs.getFilterOrder())
 		reset();
@@ -193,7 +194,7 @@ void Filter<SampleType>::process (SampleType* buffer, int numSamples)
 }
 
 template <Sample SampleType>
-void Filter<SampleType>::process (SampleVector& buffer)
+void Filter<SampleType>::process (SampleVector& buffer) noexcept
 {
 	process (buffer.data(), buffer.numObjects());
 }

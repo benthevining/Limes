@@ -17,7 +17,7 @@
 namespace pommier
 {
 
-v4sf log_ps (v4sf x)
+v4sf log_ps (v4sf x) noexcept
 {
 	static constexpr auto c_inv_mant_mask = ~0x7f800000u;
 	static constexpr auto c_cephes_SQRTHF = 0.707106781186547524;
@@ -101,7 +101,7 @@ v4sf log_ps (v4sf x)
 	return vreinterpretq_f32_u32 (vorrq_u32 (vreinterpretq_u32_f32 (x), invalid_mask));	 // negative arg will be NAN
 }
 
-v4sf exp_ps (v4sf x)
+v4sf exp_ps (v4sf x) noexcept
 {
 	static constexpr auto c_exp_hi		  = 88.3762626647949f;
 	static constexpr auto c_exp_lo		  = -88.3762626647949f;
@@ -185,7 +185,7 @@ v4sf exp_ps (v4sf x)
 	return vmulq_f32 (y, pow2n);
 }
 
-void sincos_ps (v4sf x, v4sf* ysin, v4sf* ycos)
+void sincos_ps (v4sf x, v4sf* ysin, v4sf* ycos) noexcept
 {
 	static constexpr auto c_minus_cephes_DP1 = -0.78515625;
 	static constexpr auto c_minus_cephes_DP2 = -2.4187564849853515625e-4;
@@ -267,14 +267,14 @@ void sincos_ps (v4sf x, v4sf* ysin, v4sf* ycos)
 	*ycos = vbslq_f32 (sign_mask_cos, yc, vnegq_f32 (yc));
 }
 
-v4sf sin_ps (v4sf x)
+v4sf sin_ps (v4sf x) noexcept
 {
 	v4sf ysin, ycos;
 	sincos_ps (x, &ysin, &ycos);
 	return ysin;
 }
 
-v4sf cos_ps (v4sf x)
+v4sf cos_ps (v4sf x) noexcept
 {
 	v4sf ysin, ycos;
 	sincos_ps (x, &ysin, &ycos);

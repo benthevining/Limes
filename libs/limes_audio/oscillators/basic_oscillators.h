@@ -20,21 +20,36 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 
+/** @dir libs/limes_audio/oscillators
+	This directory contains some basic oscillator classes.
+	@ingroup oscillators
+ */
+
+/** @file
+	This file defines basic oscillator classes.
+	@ingroup oscillators
+ */
+
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains basic oscillator classes.
+	@ingroup oscillators
+ */
 namespace dsp::osc
 {
 
 template <Sample SampleType>
 struct Triangle;
 
+/** Convenience typedef for the oscillator base class. */
 template <Sample T>
 using Oscillator = dsp::Oscillator<T>;
 
 #pragma mark Sine
 
 /** A basic sine wave oscillator.
-	@see Oscillator, Phase
+	@see Oscillator
+	@ingroup oscillators
  */
 template <Sample SampleType>
 struct LIMES_EXPORT Sine final : public Oscillator<SampleType>
@@ -65,7 +80,8 @@ private:
 #pragma mark Saw
 
 /** A basic sawtooth wave oscillator.
-	@see SuperSaw, Oscillator, Phase
+	@see Oscillator
+	@ingroup oscillators
  */
 template <Sample SampleType>
 struct LIMES_EXPORT Saw final : public Oscillator<SampleType>
@@ -96,7 +112,8 @@ private:
 #pragma mark Square
 
 /** A basic square wave oscillator.
-	@see Oscillator, Phase
+	@see Oscillator
+	@ingroup oscillators
  */
 template <Sample SampleType>
 struct LIMES_EXPORT Square final : public Oscillator<SampleType>
@@ -129,7 +146,8 @@ private:
 #pragma mark Triangle
 
 /** A basic triangle wave oscillator.
-	@see Square, Oscillator, Phase
+	@see Oscillator
+	@ingroup oscillators
  */
 template <Sample SampleType>
 struct LIMES_EXPORT Triangle final : public Oscillator<SampleType>

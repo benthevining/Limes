@@ -53,21 +53,21 @@ public:
 		return fft_size;
 	}
 
-	virtual void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) = 0;
+	virtual void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept = 0;
 
-	virtual void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) = 0;
+	virtual void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) noexcept = 0;
 
-	virtual void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) = 0;
+	virtual void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) noexcept = 0;
 
-	virtual void forwardMagnitude (const SampleType* realIn, SampleType* magOut) = 0;
+	virtual void forwardMagnitude (const SampleType* realIn, SampleType* magOut) noexcept = 0;
 
-	virtual void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) = 0;
+	virtual void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) noexcept = 0;
 
-	virtual void inverseInterleaved (const SampleType* complexIn, SampleType* realOut) = 0;
+	virtual void inverseInterleaved (const SampleType* complexIn, SampleType* realOut) noexcept = 0;
 
-	virtual void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) = 0;
+	virtual void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) noexcept = 0;
 
-	virtual void inverseCepstral (const SampleType* magIn, SampleType* cepOut) = 0;
+	virtual void inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept = 0;
 
 protected:
 
@@ -76,9 +76,9 @@ protected:
 
 private:
 
-	[[nodiscard]] static inline int orderFromFFTSize (int size)
+	[[nodiscard]] static LIMES_FORCE_INLINE int orderFromFFTSize (int size) noexcept
 	{
-		for (int i = 0;; ++i)
+		for (auto i = 0;; ++i)
 			if ((size & (1 << i)) != 0)
 				return i;
 

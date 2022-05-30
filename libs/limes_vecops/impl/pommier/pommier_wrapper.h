@@ -56,19 +56,19 @@ namespace vecops::pommier
 
 /// @cond internals
 
-LIMES_NO_EXPORT void polarToCartesian (float* const real, float* const imag, const float* const mag, const float* const phase, int size);
+LIMES_NO_EXPORT void polarToCartesian (float* const real, float* const imag, const float* const mag, const float* const phase, int size) noexcept;
 
-LIMES_NO_EXPORT void polarToCartesianInterleaved (float* const dest, const float* const mag, const float* const phase, int size);
+LIMES_NO_EXPORT void polarToCartesianInterleaved (float* const dest, const float* const mag, const float* const phase, int size) noexcept;
 
-LIMES_NO_EXPORT void sine (float* const data, int size);
+LIMES_NO_EXPORT void sine (float* const data, int size) noexcept;
 
-LIMES_NO_EXPORT void sineAndCopy (float* const dest, const float* const data, int size);
+LIMES_NO_EXPORT void sineAndCopy (float* const dest, const float* const data, int size) noexcept;
 
-LIMES_NO_EXPORT void cos (float* const data, int size);
+LIMES_NO_EXPORT void cos (float* const data, int size) noexcept;
 
-LIMES_NO_EXPORT void cosAndCopy (float* const dest, const float* const data, int size);
+LIMES_NO_EXPORT void cosAndCopy (float* const dest, const float* const data, int size) noexcept;
 
-LIMES_NO_EXPORT void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut);
+LIMES_NO_EXPORT void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut) noexcept;
 
 /// @endcond
 

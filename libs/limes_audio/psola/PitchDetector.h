@@ -15,7 +15,7 @@
 
 #include <limes_export.h>			// for LIMES_EXPORT
 #include <limes_data_structures.h>	// for vector
-#include "Misc.h"					// for concept Sample - IWYU pragma: keep
+#include "../util/Misc.h"			// for concept Sample - IWYU pragma: keep
 #include <limes_namespace.h>
 #include <limes_core.h>
 
@@ -26,6 +26,11 @@
 	This module provides classes for implementing a basic PSOLA algorithm.
 
 	@ingroup limes_audio
+ */
+
+/** @dir libs/limes_audio/psola
+	This directory contains classes for implementing a PSOLA algorithm.
+	@ingroup psola
  */
 
 /** @file
@@ -43,7 +48,7 @@ namespace dsp::psola
 
 /** A pitch detector based on the YIN algorithm.
 
-	A pitch detection algorithm based on the influential YIN @cite de_cheveigné_kawahara_2002 paper, with a few alterations of my own.
+	A pitch detection algorithm based on the influential YIN @cite de_cheveigne_kawahara_2002 paper, with a few alterations of my own.
 
 	@section algorithm The algorithm
 
@@ -138,23 +143,32 @@ public:
 	*/
 	explicit PitchDetector (int minFreqHz = 60, float confidenceThreshold = 0.15f);
 
+	/** @name Moving and copying
+		I don't really see a use case for copying these objects around, but there's no reason to prevent you from doing so.
+		PitchDetectors are stateful, but their state can easily be copied and moved between objects.
+	 */
+	///@{
 	LIMES_DEFAULT_MOVABLE (PitchDetector);
 	LIMES_DEFAULT_COPYABLE (PitchDetector);
+	///@}
 
-	/** @name Pitch detection */
+	/** @name Pitch detection
+		Detect the pitch in Hz
+	 */
 	///@{
-
 	/** Detects the pitch in Hz for a frame of audio.
 		This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
 		The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to \c getLatencySamples().
 		@note You must call \c setSamplerate() to prepare the pitch detector before calling this function!
 		@return The pitch in Hz for this frame of audio, or 0 if the frame is unpitched.
 	*/
-	[[nodiscard]] float detectPitch (const SampleType* const inputAudio, int numSamples);
-	[[nodiscard]] float detectPitch (const SampleVector& inputAudio);
+	[[nodiscard]] float detectPitch (const SampleType* const inputAudio, int numSamples) noexcept;
+	[[nodiscard]] float detectPitch (const SampleVector& inputAudio) noexcept;
 	///@}
 
-	/** @name Period detection */
+	/** @name Period detection
+		Detect the period in samples
+	 */
 	///@{
 	/** Detects the period, in samples, for a frame of audio.
 		This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
@@ -162,8 +176,8 @@ public:
 		@note You must call \c setSamplerate() to prepare the pitch detector before calling this function!
 		@return The period, in samples, of the fundamental frequency for this frame of audio, or 0 if the frame is unpitched.
 	*/
-	[[nodiscard]] float detectPeriod (const SampleType* const inputAudio, int numSamples);
-	[[nodiscard]] float detectPeriod (const SampleVector& inputAudio);
+	[[nodiscard]] float detectPeriod (const SampleType* const inputAudio, int numSamples) noexcept;
+	[[nodiscard]] float detectPeriod (const SampleVector& inputAudio) noexcept;
 	///@}
 
 	/** Returns the latency in samples of the detection algorithm.
@@ -202,12 +216,13 @@ public:
 	/** Resets the internal state of the pitch detector without releasing any resources.
 		The pitch detector assumes that the input pitch will not halve or double between consecutive pitched frames of audio,
 		so if your input audio is expected to make jumps that large in its pitch, you can call reset() before analyzing the next input frame of audio.
+		This function is safe to call from a realtime thread.
 	*/
-	void reset();
+	void reset() noexcept;
 
 	/** Releases all of the pitch detector's internal resources.
 		After calling this function, you must call \c setSamplerate() to re-prepare the detector before calling any of the pitch detection functions.
-		This function may deallocate memory, so should not be called from a realtime thread.
+		@note This function may deallocate memory, so should not be called from a realtime thread.
 	 */
 	void releaseResources();
 
@@ -215,15 +230,15 @@ public:
 		Because the detector assumes that the input pitch should not halve or double between consecutive pitched frames, this can be used to introspect the range of valid periods that the detector has actually considered for the most recent frame.
 		Note that you must call one of the pitch detection functions before calling this function.
 	*/
-	void getCurrentLegalPeriodRange (int& min, int& max) const;
+	void getCurrentLegalPeriodRange (int& min, int& max) const noexcept;
 
 private:
 
-	inline void updatePeriodBounds();
+	inline void updatePeriodBounds() noexcept;
 
-	[[nodiscard]] inline int absoluteThreshold() const;
+	[[nodiscard]] inline int absoluteThreshold() const noexcept;
 
-	[[nodiscard]] inline float parabolicInterpolation (int periodEstimate) const;
+	[[nodiscard]] inline float parabolicInterpolation (int periodEstimate) const noexcept;
 
 	bool operator== (const PitchDetector& other) const = delete;
 	bool operator!= (const PitchDetector& other) const = delete;

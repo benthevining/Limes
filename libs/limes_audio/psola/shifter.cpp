@@ -71,7 +71,7 @@ void Shifter<SampleType>::newBlockStarting() noexcept
 }
 
 template <Sample SampleType>
-SampleType Shifter<SampleType>::getNextSample()
+SampleType Shifter<SampleType>::getNextSample() noexcept
 {
 	// did you call setPitch() first?
 	LIMES_ASSERT (targetPeriod > 0.f);
@@ -95,7 +95,7 @@ SampleType Shifter<SampleType>::getNextSample()
 }
 
 template <Sample SampleType>
-typename Shifter<SampleType>::Grain& Shifter<SampleType>::getGrainToStart()
+typename Shifter<SampleType>::Grain& Shifter<SampleType>::getGrainToStart() noexcept
 {
 	for (auto& grain : grains)
 		if (! grain.isActive())

@@ -30,9 +30,10 @@ namespace vecops::detail
 {
 
 template <typename T>
-void phasor (T* const real, T* const imag, T phase)
+void phasor (T* const real, T* const imag, T phase) noexcept
 {
 #if LIMES_VECOPS_USE_VDSP
+
 	constexpr int one = 1;
 
 	if constexpr (std::is_same_v<T, float>)
@@ -41,6 +42,7 @@ void phasor (T* const real, T* const imag, T phase)
 		vvsincos (static_cast<double*> (imag), static_cast<double*> (real), static_cast<const double*> (&phase), &one);
 
 #elif (defined __GNUC__) && (! LACK_SINCOS)
+
 #	if LIMES_APPLE
 #		define sincos	__sincos
 #		define sincosf __sincosf
@@ -57,6 +59,7 @@ void phasor (T* const real, T* const imag, T phase)
 #	endif
 
 #else
+
 	if constexpr (std::is_same_v<T, float>)
 	{
 		*real = std::cosf (phase);
@@ -67,6 +70,7 @@ void phasor (T* const real, T* const imag, T phase)
 		*real = std::cos (phase);
 		*imag = std::sin (phase);
 	}
+
 #endif
 }
 

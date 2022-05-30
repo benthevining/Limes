@@ -19,6 +19,21 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 
+/** @defgroup samplestreams Streams
+	Classes that can produce a continuous stream of output samples with no input.
+	@ingroup limes_audio
+ */
+
+/** @dir libs/limes_audio/streams
+	This directory contains classes that can produce a continuous stream of output samples with no input.
+	@ingroup samplestreams
+ */
+
+/** @file
+	This file defines the SampleStream class.
+	@ingroup samplestreams
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace dsp
@@ -26,6 +41,7 @@ namespace dsp
 
 /** Base class for any object that can output a stream of audio samples, with no audio or MIDI input.
 	The constructor takes a lambda that must produce the next sample value when called with no arguments.
+	@ingroup samplestreams
  */
 template <Sample SampleType>
 struct LIMES_EXPORT SampleStream
@@ -46,10 +62,11 @@ public:
 	/** Returns the next output sample from the stream. */
 	[[nodiscard]] SampleType getSample() const;
 
+	///@{
 	/** Returns a stream of samples. */
 	void getSamples (SampleType* output, int numSamples) const;
-
 	void getSamples (SampleVector& output);
+	///@}
 
 	/** Skips a number of samples in the stream. */
 	void skipSamples (int numToSkip) const;

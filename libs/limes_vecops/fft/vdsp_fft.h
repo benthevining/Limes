@@ -49,31 +49,31 @@ public:
 
 private:
 
-	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) final;
+	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept final;
 
-	void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) final;
+	void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) noexcept final;
 
-	void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) final;
+	void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) noexcept final;
 
-	void forwardMagnitude (const SampleType* realIn, SampleType* magOut) final;
+	void forwardMagnitude (const SampleType* realIn, SampleType* magOut) noexcept final;
 
-	void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) final;
+	void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) noexcept final;
 
-	void inverseInterleaved (const SampleType* complexIn, SampleType* realOut) final;
+	void inverseInterleaved (const SampleType* complexIn, SampleType* realOut) noexcept final;
 
-	void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) final;
+	void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) noexcept final;
 
-	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) final;
+	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept final;
 
-	LIMES_FORCE_INLINE void packReal (const SampleType* const re);
+	LIMES_FORCE_INLINE void packReal (const SampleType* const re) noexcept;
 
-	LIMES_FORCE_INLINE void unpackReal (SampleType* const re);
+	LIMES_FORCE_INLINE void unpackReal (SampleType* const re) noexcept;
 
-	LIMES_FORCE_INLINE void unpackComplex (SampleType* const re, SampleType* const im);
+	LIMES_FORCE_INLINE void unpackComplex (SampleType* const re, SampleType* const im) noexcept;
 
-	LIMES_FORCE_INLINE void vDSP_nyq (SampleType* real, SampleType* imag) const;
+	LIMES_FORCE_INLINE void vDSP_nyq (SampleType* real, SampleType* imag) const noexcept;
 
-	LIMES_FORCE_INLINE void vDSP_denyq (SampleType* real, SampleType* imag) const;
+	LIMES_FORCE_INLINE void vDSP_denyq (SampleType* real, SampleType* imag) const noexcept;
 
 	using FFTSetupType = std::conditional_t<std::is_same_v<SampleType, float>,
 											FFTSetup,

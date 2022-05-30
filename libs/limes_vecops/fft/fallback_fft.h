@@ -44,33 +44,33 @@ public:
 
 private:
 
-	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) final;
+	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept final;
 
-	void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) final;
+	void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) noexcept final;
 
-	void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) final;
+	void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) noexcept final;
 
-	void forwardMagnitude (const SampleType* realIn, SampleType* magOut) final;
+	void forwardMagnitude (const SampleType* realIn, SampleType* magOut) noexcept final;
 
-	void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) final;
+	void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) noexcept final;
 
-	void inverseInterleaved (const SampleType* complexIn, SampleType* realOut) final;
+	void inverseInterleaved (const SampleType* complexIn, SampleType* realOut) noexcept final;
 
-	void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) final;
+	void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) noexcept final;
 
-	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) final;
+	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept final;
 
 	// Uses m_a and m_b internally; does not touch m_c or m_d
 	LIMES_FORCE_INLINE void transformF (const SampleType* ri,
-										SampleType* ro, SampleType* io);
+										SampleType* ro, SampleType* io) noexcept;
 
 	// Uses m_c and m_d internally; does not touch m_a or m_b
 	LIMES_FORCE_INLINE void transformI (const SampleType* ri, const SampleType* ii,
-										SampleType* ro);
+										SampleType* ro) noexcept;
 
 	LIMES_FORCE_INLINE void transformComplex (const SampleType* ri, const SampleType* ii,
 											  SampleType* ro, SampleType* io,
-											  bool inverse);
+											  bool inverse) noexcept;
 
 	static constexpr auto m_blockTableSize = 16;
 	static constexpr auto m_maxTabledBlock = 1 << m_blockTableSize;

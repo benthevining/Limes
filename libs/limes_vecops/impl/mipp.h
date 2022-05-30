@@ -45,7 +45,7 @@ namespace detail
 {
 
 template <Scalar DataType, Integral SizeType>
-LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE constexpr int getVecLoopSize (SizeType size)
+LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE constexpr int getVecLoopSize (SizeType size) noexcept
 {
 	constexpr const auto n = mipp::N<DataType>();
 
@@ -54,7 +54,7 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE constexpr int getVecLoopSize (S
 
 
 template <typename DataType, typename VecorizedOp, typename ScalarOp, Integral SizeType>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void perform (SizeType size, VecorizedOp&& vectorOp, ScalarOp&& scalarOp)
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void perform (SizeType size, VecorizedOp&& vectorOp, ScalarOp&& scalarOp) noexcept
 {
 	const auto vecLoopSize = getVecLoopSize<DataType> (size);
 
@@ -71,7 +71,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void perform (SizeType size, VecorizedOp&& ve
 #pragma mark Basic functions
 
 template <Scalar DataType, Integral SizeType>
-void fill (DataType* const data, SizeType size, DataType constantToFill)
+void fill (DataType* const data, SizeType size, DataType constantToFill) noexcept
 {
 	const auto constant = mipp::set1<DataType> (constantToFill);
 
@@ -84,13 +84,13 @@ void fill (DataType* const data, SizeType size, DataType constantToFill)
 }
 
 template <Scalar DataType, Integral SizeType>
-void clear (DataType* const data, SizeType size)
+void clear (DataType* const data, SizeType size) noexcept
 {
 	fb::clear (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void copy (DataType* const dest, const DataType* const source, SizeType size)
+void copy (DataType* const dest, const DataType* const source, SizeType size) noexcept
 {
 	mipp::Reg<DataType> data;
 
@@ -104,7 +104,7 @@ void copy (DataType* const dest, const DataType* const source, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void swap (DataType* const vecA, DataType* const vecB, SizeType size)
+void swap (DataType* const vecA, DataType* const vecB, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataA, dataB;
 
@@ -136,7 +136,7 @@ void swap (DataType* const vecA, DataType* const vecB, SizeType size)
 #pragma mark Arithmetic functions
 
 template <Scalar DataType, Integral SizeType>
-void recip (DataType* const data, SizeType size)
+void recip (DataType* const data, SizeType size) noexcept
 {
 	const auto oneRegister = mipp::set1 (DataType (1));
 
@@ -165,7 +165,7 @@ void recip (DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void recipAndCopy (DataType* const dest, const DataType* const origData, SizeType size)
+void recipAndCopy (DataType* const dest, const DataType* const origData, SizeType size) noexcept
 {
 	const auto oneRegister = mipp::set1 (DataType (1));
 
@@ -198,7 +198,7 @@ void recipAndCopy (DataType* const dest, const DataType* const origData, SizeTyp
 /*-----  ADDITION  -----*/
 
 template <Scalar DataType, Integral SizeType>
-void add (DataType* const data, SizeType size, DataType constantToAdd)
+void add (DataType* const data, SizeType size, DataType constantToAdd) noexcept
 {
 	const auto constant = mipp::set1<DataType> (constantToAdd);
 
@@ -217,7 +217,7 @@ void add (DataType* const data, SizeType size, DataType constantToAdd)
 }
 
 template <Scalar DataType, Integral SizeType>
-void add (DataType* const dataAndDest, SizeType size, const DataType* const dataToAdd)
+void add (DataType* const dataAndDest, SizeType size, const DataType* const dataToAdd) noexcept
 {
 	mipp::Reg<DataType> dataInOut, dataAdding;
 
@@ -237,7 +237,7 @@ void add (DataType* const dataAndDest, SizeType size, const DataType* const data
 }
 
 template <Scalar DataType, Integral SizeType>
-void addAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToAdd)
+void addAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToAdd) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -256,7 +256,7 @@ void addAndCopy (DataType* const dest, const DataType* const origData, SizeType 
 }
 
 template <Scalar DataType, Integral SizeType>
-void addAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToAdd)
+void addAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToAdd) noexcept
 {
 	mipp::Reg<DataType> dataIn, dataAdding;
 
@@ -279,7 +279,7 @@ void addAndCopy (DataType* const dest, const DataType* const origData, SizeType 
 /*-----  SUBTRACTION  -----*/
 
 template <Scalar DataType, Integral SizeType>
-void subtract (DataType* const data, SizeType size, DataType constantToSubtract)
+void subtract (DataType* const data, SizeType size, DataType constantToSubtract) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -298,7 +298,7 @@ void subtract (DataType* const data, SizeType size, DataType constantToSubtract)
 }
 
 template <Scalar DataType, Integral SizeType>
-void subtract (DataType* const dataAndDest, SizeType size, const DataType* const dataToSubtract)
+void subtract (DataType* const dataAndDest, SizeType size, const DataType* const dataToSubtract) noexcept
 {
 	mipp::Reg<DataType> dataInOut, dataAdding;
 
@@ -318,7 +318,7 @@ void subtract (DataType* const dataAndDest, SizeType size, const DataType* const
 }
 
 template <Scalar DataType, Integral SizeType>
-void subtractAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtract)
+void subtractAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtract) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -337,7 +337,7 @@ void subtractAndCopy (DataType* const dest, const DataType* const origData, Size
 }
 
 template <Scalar DataType, Integral SizeType>
-void subtractAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToSubtract)
+void subtractAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToSubtract) noexcept
 {
 	mipp::Reg<DataType> dataIn, dataAdding;
 
@@ -357,7 +357,7 @@ void subtractAndCopy (DataType* const dest, const DataType* const origData, Size
 }
 
 template <Scalar DataType, Integral SizeType>
-void subtractInv (DataType* const data, SizeType size, DataType constantToSubtractFrom)
+void subtractInv (DataType* const data, SizeType size, DataType constantToSubtractFrom) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -376,7 +376,7 @@ void subtractInv (DataType* const data, SizeType size, DataType constantToSubtra
 }
 
 template <Scalar DataType, Integral SizeType>
-void subtractInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtractFrom)
+void subtractInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToSubtractFrom) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -398,7 +398,7 @@ void subtractInvAndCopy (DataType* const dest, const DataType* const origData, S
 /*-----  MULTIPLICATION  -----*/
 
 template <Scalar DataType, Integral SizeType>
-void multiply (DataType* const data, SizeType size, DataType constantToMultiply)
+void multiply (DataType* const data, SizeType size, DataType constantToMultiply) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -417,7 +417,7 @@ void multiply (DataType* const data, SizeType size, DataType constantToMultiply)
 }
 
 template <Scalar DataType, Integral SizeType>
-void multiply (DataType* const dataAndDest, SizeType size, const DataType* const dataToMultiply)
+void multiply (DataType* const dataAndDest, SizeType size, const DataType* const dataToMultiply) noexcept
 {
 	mipp::Reg<DataType> dataInOut, dataAdding;
 
@@ -437,7 +437,7 @@ void multiply (DataType* const dataAndDest, SizeType size, const DataType* const
 }
 
 template <Scalar DataType, Integral SizeType>
-void multiplyAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToMultiply)
+void multiplyAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToMultiply) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -456,7 +456,7 @@ void multiplyAndCopy (DataType* const dest, const DataType* const origData, Size
 }
 
 template <Scalar DataType, Integral SizeType>
-void multiplyAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToMultiply)
+void multiplyAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToMultiply) noexcept
 {
 	mipp::Reg<DataType> dataIn, dataAdding;
 
@@ -476,7 +476,7 @@ void multiplyAndCopy (DataType* const dest, const DataType* const origData, Size
 }
 
 template <Scalar DataType, Integral SizeType>
-DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size)
+DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size) noexcept
 {
 	DataType dotProd { 0 };
 
@@ -503,7 +503,7 @@ DataType dotProduct (const DataType* const vecA, const DataType* const vecB, Siz
 /*-----  DIVISION  -----*/
 
 template <Scalar DataType, Integral SizeType>
-void divide (DataType* const data, SizeType size, DataType constantToDivide)
+void divide (DataType* const data, SizeType size, DataType constantToDivide) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -522,7 +522,7 @@ void divide (DataType* const data, SizeType size, DataType constantToDivide)
 }
 
 template <Scalar DataType, Integral SizeType>
-void divide (DataType* const dataAndDest, SizeType size, const DataType* const dataToDivide)
+void divide (DataType* const dataAndDest, SizeType size, const DataType* const dataToDivide) noexcept
 {
 	mipp::Reg<DataType> dataInOut, dataAdding;
 
@@ -542,7 +542,7 @@ void divide (DataType* const dataAndDest, SizeType size, const DataType* const d
 }
 
 template <Scalar DataType, Integral SizeType>
-void divideAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivide)
+void divideAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivide) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -561,7 +561,7 @@ void divideAndCopy (DataType* const dest, const DataType* const origData, SizeTy
 }
 
 template <Scalar DataType, Integral SizeType>
-void divideAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToDivide)
+void divideAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToDivide) noexcept
 {
 	mipp::Reg<DataType> dataIn, dataAdding;
 
@@ -581,7 +581,7 @@ void divideAndCopy (DataType* const dest, const DataType* const origData, SizeTy
 }
 
 template <Scalar DataType, Integral SizeType>
-void divideInv (DataType* const data, SizeType size, DataType constantToDivideFrom)
+void divideInv (DataType* const data, SizeType size, DataType constantToDivideFrom) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -608,7 +608,7 @@ void divideInv (DataType* const data, SizeType size, DataType constantToDivideFr
 }
 
 template <Scalar DataType, Integral SizeType>
-void divideInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivideFrom)
+void divideInvAndCopy (DataType* const dest, const DataType* const origData, SizeType size, DataType constantToDivideFrom) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -640,7 +640,7 @@ void divideInvAndCopy (DataType* const dest, const DataType* const origData, Siz
 #pragma mark Squaring functions
 
 template <Scalar DataType, Integral SizeType>
-void square (DataType* const dataAndDest, SizeType size)
+void square (DataType* const dataAndDest, SizeType size) noexcept
 {
 	mipp::Reg<DataType> data;
 
@@ -657,7 +657,7 @@ void square (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void squareAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void squareAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -674,7 +674,7 @@ void squareAndCopy (DataType* const dest, const DataType* const data, SizeType s
 }
 
 template <Scalar DataType, Integral SizeType>
-void squareRoot (DataType* const dataAndDest, SizeType size)
+void squareRoot (DataType* const dataAndDest, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -691,7 +691,7 @@ void squareRoot (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -708,7 +708,7 @@ void squareRootAndCopy (DataType* const dest, const DataType* const data, SizeTy
 }
 
 template <Scalar DataType, Integral SizeType>
-void invSquareRoot (DataType* const dataAndDest, SizeType size)
+void invSquareRoot (DataType* const dataAndDest, SizeType size) noexcept
 {
 	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
 
@@ -728,7 +728,7 @@ void invSquareRoot (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void invSquareRootAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	const auto vecLoopSize = detail::getVecLoopSize<DataType> (size);
 
@@ -748,7 +748,7 @@ void invSquareRootAndCopy (DataType* const dest, const DataType* const data, Siz
 }
 
 template <Scalar DataType, Integral SizeType>
-void cubeRoot (DataType* const dataAndDest, SizeType size)
+void cubeRoot (DataType* const dataAndDest, SizeType size) noexcept
 {
 	fb::cubeRoot (dataAndDest, size);
 }
@@ -764,50 +764,50 @@ void cubeRootAndCopy (DataType* const dest, const DataType* const data, SizeType
 #pragma mark Sorting and ordering functions
 
 template <Scalar DataType, Integral SizeType>
-void reverse (DataType* const dataAndDest, SizeType size)
+void reverse (DataType* const dataAndDest, SizeType size) noexcept
 {
 	fb::reverse (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void reverseAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	fb::reverseAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void sort (DataType* const dataAndDest, SizeType size)
+void sort (DataType* const dataAndDest, SizeType size) noexcept
 {
 	fb::sort (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void sortAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	fb::sortAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void sortReverse (DataType* const dataAndDest, SizeType size)
+void sortReverse (DataType* const dataAndDest, SizeType size) noexcept
 {
 	fb::sortReverse (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void sortReverseAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	fb::sortReverseAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
-void interleave (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
+void interleave (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples) noexcept
 {
 	// TO DO: MIPP does provide interleave/deinterleave operations, but it's a bit complex to wrap my head around how to implement it properly...
 	fb::interleave (output, origData, numChannels, numSamples);
 }
 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
-void deinterleave (DataType* const * const output, const DataType* const interleavedData, SizeType1 numChannels, SizeType2 numSamples)
+void deinterleave (DataType* const * const output, const DataType* const interleavedData, SizeType1 numChannels, SizeType2 numSamples) noexcept
 {
 	fb::deinterleave (output, interleavedData, numChannels, numSamples);
 }
@@ -818,7 +818,7 @@ void deinterleave (DataType* const * const output, const DataType* const interle
 #pragma mark Statistical functions
 
 template <Scalar DataType, Integral SizeType>
-void abs (DataType* const dataAndDest, SizeType size)
+void abs (DataType* const dataAndDest, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -835,7 +835,7 @@ void abs (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void absAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void absAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -853,7 +853,7 @@ void absAndCopy (DataType* const dest, const DataType* const data, SizeType size
 
 
 template <Scalar DataType, Integral SizeType>
-void negate (DataType* const dataAndDest, SizeType size)
+void negate (DataType* const dataAndDest, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -874,7 +874,7 @@ void negate (DataType* const dataAndDest, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void negateAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -896,7 +896,7 @@ void negateAndCopy (DataType* const dest, const DataType* const data, SizeType s
 
 
 template <Scalar DataType, Integral SizeType>
-void clip (DataType* const dataAndDest, SizeType size, DataType lowClip, DataType hiClip)
+void clip (DataType* const dataAndDest, SizeType size, DataType lowClip, DataType hiClip) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -923,7 +923,7 @@ void clip (DataType* const dataAndDest, SizeType size, DataType lowClip, DataTyp
 }
 
 template <Scalar DataType, Integral SizeType>
-void clipAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip, DataType hiClip)
+void clipAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType lowClip, DataType hiClip) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -951,7 +951,7 @@ void clipAndCopy (DataType* const dest, const DataType* const data, SizeType siz
 
 
 template <Scalar DataType, Integral SizeType>
-DataType max (const DataType* const data, SizeType size)
+DataType max (const DataType* const data, SizeType size) noexcept
 {
 	DataType result { 0 };
 
@@ -972,7 +972,7 @@ DataType max (const DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
-void max (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex)
+void max (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex) noexcept
 {
 	fb::max (data, size, maxValue, maxIndex);
 }
@@ -1000,7 +1000,7 @@ DataType maxAbs (const DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
-void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex)
+void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, IndexType& maxIndex) noexcept
 {
 	fb::maxAbs (data, size, maxValue, maxIndex);
 }
@@ -1028,13 +1028,13 @@ DataType min (const DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
-void min (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex)
+void min (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex) noexcept
 {
 	fb::min (data, size, minValue, minIndex);
 }
 
 template <Scalar DataType, Integral SizeType>
-DataType minAbs (const DataType* const data, SizeType size)
+DataType minAbs (const DataType* const data, SizeType size) noexcept
 {
 	DataType result { std::numeric_limits<DataType>::max() };
 
@@ -1056,14 +1056,14 @@ DataType minAbs (const DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
-void minAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex)
+void minAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex) noexcept
 {
 	fb::maxAbs (data, size, minValue, minIndex);
 }
 
 
 template <Scalar DataType, Integral SizeType>
-void minMax (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue)
+void minMax (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue) noexcept
 {
 	maxValue = 0;
 	minValue = std::numeric_limits<DataType>::max();
@@ -1091,13 +1091,13 @@ void minMax (const DataType* const data, SizeType size, DataType& minValue, Data
 }
 
 template <Scalar DataType, Integral SizeType, Integral IndexType>
-void minMax (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex)
+void minMax (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex) noexcept
 {
 	fb::minMax (data, size, minValue, minIndex, maxValue, maxIndex);
 }
 
 template <Scalar DataType, Integral SizeType>
-void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue)
+void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, DataType& maxValue) noexcept
 {
 	maxValue = 0;
 	minValue = std::numeric_limits<DataType>::max();
@@ -1126,7 +1126,7 @@ void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, D
 }
 
 template <Scalar DataType, Integral SizeType>
-DataType sum (const DataType* const data, SizeType size)
+DataType sum (const DataType* const data, SizeType size) noexcept
 {
 	DataType result { 0 };
 
@@ -1147,7 +1147,7 @@ DataType sum (const DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-DataType mean (const DataType* const data, SizeType size)
+DataType mean (const DataType* const data, SizeType size) noexcept
 {
 	DataType result { 0 };
 
@@ -1168,7 +1168,7 @@ DataType mean (const DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-DataType standard_deviation (const DataType* const data, SizeType size)
+DataType standard_deviation (const DataType* const data, SizeType size) noexcept
 {
 	const auto meanVal = mean (data, size);
 
@@ -1205,7 +1205,7 @@ DataType standard_deviation (const DataType* const data, SizeType size)
 #pragma mark Trigonometric functions
 
 template <Scalar DataType, Integral SizeType>
-void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut)
+void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut) noexcept
 {
 	mipp::Reg<DataType> dataRegister, sinRegister, cosRegister;
 
@@ -1233,7 +1233,7 @@ void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut
 /* --- sin --- */
 
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT void sine (DataType* const data, SizeType size)
+LIMES_EXPORT void sine (DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1255,7 +1255,7 @@ LIMES_EXPORT void sine (DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT void sineAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+LIMES_EXPORT void sineAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1277,7 +1277,7 @@ LIMES_EXPORT void sineAndCopy (DataType* const dest, const DataType* const data,
 }
 
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT void arcsine (DataType* const data, SizeType size)
+LIMES_EXPORT void arcsine (DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1303,7 +1303,7 @@ LIMES_EXPORT void arcsine (DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1331,7 +1331,7 @@ LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const da
 /* --- cos --- */
 
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT void cos (DataType* const data, SizeType size)
+LIMES_EXPORT void cos (DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1353,7 +1353,7 @@ LIMES_EXPORT void cos (DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT void cosAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+LIMES_EXPORT void cosAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1375,7 +1375,7 @@ LIMES_EXPORT void cosAndCopy (DataType* const dest, const DataType* const data, 
 }
 
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT void arccos (DataType* const data, SizeType size)
+LIMES_EXPORT void arccos (DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1401,7 +1401,7 @@ LIMES_EXPORT void arccos (DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1429,7 +1429,7 @@ LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const dat
 /* --- tan --- */
 
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT void tan (DataType* const data, SizeType size)
+LIMES_EXPORT void tan (DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1451,7 +1451,7 @@ LIMES_EXPORT void tan (DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT void tanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+LIMES_EXPORT void tanAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1473,7 +1473,7 @@ LIMES_EXPORT void tanAndCopy (DataType* const dest, const DataType* const data, 
 }
 
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT void arctan (DataType* const data, SizeType size)
+LIMES_EXPORT void arctan (DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1499,7 +1499,7 @@ LIMES_EXPORT void arctan (DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1532,7 +1532,7 @@ namespace log
 {
 
 template <Scalar DataType, Integral SizeType>
-void nat (DataType* const data, SizeType size)
+void nat (DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1554,7 +1554,7 @@ void nat (DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void natAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void natAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1576,25 +1576,25 @@ void natAndCopy (DataType* const dest, const DataType* const data, SizeType size
 }
 
 template <Scalar DataType, Integral SizeType>
-void base2 (DataType* const data, SizeType size)
+void base2 (DataType* const data, SizeType size) noexcept
 {
 	fb::log::base2 (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void base2AndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void base2AndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	fb::log::base2AndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void base10 (DataType* const data, SizeType size)
+void base10 (DataType* const data, SizeType size) noexcept
 {
 	fb::log::base10 (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void base10AndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void base10AndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	fb::log::base10AndCopy (dest, data, size);
 }
@@ -1605,7 +1605,7 @@ namespace exp
 {
 
 template <Scalar DataType, Integral SizeType>
-void e (DataType* const data, SizeType size)
+void e (DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1627,7 +1627,7 @@ void e (DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void eAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void eAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	mipp::Reg<DataType> dataRegister;
 
@@ -1649,25 +1649,25 @@ void eAndCopy (DataType* const dest, const DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void two (DataType* const data, SizeType size)
+void two (DataType* const data, SizeType size) noexcept
 {
 	fb::exp::two (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void twoAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void twoAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	fb::exp::twoAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void pow (DataType* const dataAndDest, const DataType* const exponents, SizeType size)
+void pow (DataType* const dataAndDest, const DataType* const exponents, SizeType size) noexcept
 {
 	fb::exp::pow (dataAndDest, exponents, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void powAndCopy (DataType* const dest, const DataType* const data, const DataType* const exponents, SizeType size)
+void powAndCopy (DataType* const dest, const DataType* const data, const DataType* const exponents, SizeType size) noexcept
 {
 	fb::exp::powAndCopy (dest, data, exponents, size);
 }
@@ -1679,7 +1679,7 @@ void powAndCopy (DataType* const dest, const DataType* const data, const DataTyp
 #pragma mark Audio utility functions
 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
-void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples)
+void mix (DataType* const output, const DataType* const * const origData, SizeType1 numChannels, SizeType2 numSamples) noexcept
 {
 	const auto multiplier = DataType (1.0) / static_cast<DataType> (numChannels);
 
@@ -1721,7 +1721,7 @@ void mix (DataType* const output, const DataType* const * const origData, SizeTy
 }
 
 template <Scalar DataType, Integral SizeType>
-DataType rms (const DataType* const data, SizeType size)
+DataType rms (const DataType* const data, SizeType size) noexcept
 {
 	if (size == 0) return 0;
 
@@ -1746,13 +1746,13 @@ DataType rms (const DataType* const data, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-int countZeroCrossings (const DataType* const data, SizeType size)
+int countZeroCrossings (const DataType* const data, SizeType size) noexcept
 {
 	return fb::countZeroCrossings (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue)
+void generateRamp (DataType* const output, SizeType size, DataType startValue, DataType endValue) noexcept
 {
 	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
 
@@ -1780,7 +1780,7 @@ void generateRamp (DataType* const output, SizeType size, DataType startValue, D
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue)
+void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue, DataType endValue) noexcept
 {
 	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
 
@@ -1813,7 +1813,7 @@ void applyRamp (DataType* const dataAndDest, SizeType size, DataType startValue,
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue)
+void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeType size, DataType startValue, DataType endValue) noexcept
 {
 	const auto increment = (endValue - startValue) / static_cast<DataType> (size);
 
@@ -1855,7 +1855,7 @@ namespace window
 /* --- Blackman --- */
 
 template <Scalar DataType, Integral SizeType>
-void generateBlackman (DataType* const output, SizeType size)
+void generateBlackman (DataType* const output, SizeType size) noexcept
 {
 	const auto pi_register		= mipp::set1<DataType> (math::constants::pi<DataType>);
 	const auto size_register	= mipp::set1<DataType> (static_cast<DataType> (size - 1));
@@ -1898,13 +1898,13 @@ void generateBlackman (DataType* const output, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyBlackman (DataType* const dataAndDest, SizeType size)
+void applyBlackman (DataType* const dataAndDest, SizeType size) noexcept
 {
 	fb::window::applyBlackman (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	fb::window::applyBlackmanAndCopy (dest, data, size);
 }
@@ -1912,7 +1912,7 @@ void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, Siz
 /* --- Hamm --- */
 
 template <Scalar DataType, Integral SizeType>
-void generateHamm (DataType* const output, SizeType size)
+void generateHamm (DataType* const output, SizeType size) noexcept
 {
 	const auto pnt_54_register = mipp::set1<DataType> (DataType (0.54));
 	const auto pnt_46_register = mipp::set1<DataType> (DataType (0.46));
@@ -1948,13 +1948,13 @@ void generateHamm (DataType* const output, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyHamm (DataType* const dataAndDest, SizeType size)
+void applyHamm (DataType* const dataAndDest, SizeType size) noexcept
 {
 	fb::window::applyHamm (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	fb::window::applyHammAndCopy (dest, data, size);
 }
@@ -1962,7 +1962,7 @@ void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeTyp
 /* --- Hanning --- */
 
 template <Scalar DataType, Integral SizeType>
-void generateHanning (DataType* const output, SizeType size)
+void generateHanning (DataType* const output, SizeType size) noexcept
 {
 	// NB. MIPP had compiler errors when declaring these as 'auto', for some reason......
 	const mipp::Reg<DataType> order_register = mipp::set1<DataType> (DataType (2));
@@ -1994,13 +1994,13 @@ void generateHanning (DataType* const output, SizeType size)
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyHanning (DataType* const dataAndDest, SizeType size)
+void applyHanning (DataType* const dataAndDest, SizeType size) noexcept
 {
 	fb::window::applyHanning (dataAndDest, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	fb::window::applyHanningAndCopy (dest, data, size);
 }
@@ -2010,37 +2010,37 @@ void applyHanningAndCopy (DataType* const dest, const DataType* const data, Size
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 template <Scalar DataType, Integral SizeType>
-void polarToCartesian (DataType* const real, DataType* const imag, const DataType* const mag, const DataType* const phase, SizeType size)
+void polarToCartesian (DataType* const real, DataType* const imag, const DataType* const mag, const DataType* const phase, SizeType size) noexcept
 {
 	fb::polarToCartesian (real, imag, mag, phase, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void polarToCartesianInterleaved (DataType* const dest, const DataType* const mag, const DataType* const phase, SizeType size)
+void polarToCartesianInterleaved (DataType* const dest, const DataType* const mag, const DataType* const phase, SizeType size) noexcept
 {
 	fb::polarToCartesianInterleaved (dest, mag, phase, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void cartesianToPolar (DataType* const mag, DataType* const phase, const DataType* const real, const DataType* const imag, SizeType size)
+void cartesianToPolar (DataType* const mag, DataType* const phase, const DataType* const real, const DataType* const imag, SizeType size) noexcept
 {
 	fb::cartesianToPolar (mag, phase, real, imag, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void catesianInterleavedToPolar (DataType* const mag, DataType* const phase, const DataType* const src, SizeType size)
+void catesianInterleavedToPolar (DataType* const mag, DataType* const phase, const DataType* const src, SizeType size) noexcept
 {
 	fb::catesianInterleavedToPolar (mag, phase, src, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void cartesianToMagnitudes (DataType* const mag, const DataType* const real, const DataType* const imag, SizeType size)
+void cartesianToMagnitudes (DataType* const mag, const DataType* const real, const DataType* const imag, SizeType size) noexcept
 {
 	fb::cartesianToMagnitudes (mag, real, imag, size);
 }
 
 template <Scalar DataType, Integral SizeType>
-void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* const src, SizeType size)
+void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* const src, SizeType size) noexcept
 {
 	fb::cartesianInterleavedToMagnitudes (mag, src, size);
 }

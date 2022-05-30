@@ -66,11 +66,11 @@ using v4si = int32x4_t;
 /** Natural logarithm computed for 4 simultaneous floats
 	@return NaN for x <= 0
 */
-LIMES_NO_EXPORT v4sf log_ps (v4sf x);
+LIMES_NO_EXPORT v4sf log_ps (v4sf x) noexcept;
 
 
 /** %exp() computed for 4 floats at once */
-LIMES_NO_EXPORT v4sf exp_ps (v4sf x);
+LIMES_NO_EXPORT v4sf exp_ps (v4sf x) noexcept;
 
 
 /** Evaluation of 4 sines & cosines at once.
@@ -88,11 +88,11 @@ LIMES_NO_EXPORT v4sf exp_ps (v4sf x);
 	almost no extra price so both sin_ps and cos_ps make use of
 	sincos_ps..
 */
-LIMES_NO_EXPORT void sincos_ps (v4sf x, v4sf* ysin, v4sf* ycos);
+LIMES_NO_EXPORT void sincos_ps (v4sf x, v4sf* ysin, v4sf* ycos) noexcept;
 
-LIMES_NO_EXPORT v4sf sin_ps (v4sf x);
+LIMES_NO_EXPORT v4sf sin_ps (v4sf x) noexcept;
 
-LIMES_NO_EXPORT v4sf cos_ps (v4sf x);
+LIMES_NO_EXPORT v4sf cos_ps (v4sf x) noexcept;
 
 /// @endcond
 

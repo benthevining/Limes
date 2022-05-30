@@ -31,7 +31,7 @@ namespace vecops::detail
 /// @cond internals
 
 template <typename T>
-LIMES_NO_EXPORT void phasor (T* const real, T* const imag, T phase);
+LIMES_NO_EXPORT void phasor (T* const real, T* const imag, T phase) noexcept;
 
 /// @endcond
 

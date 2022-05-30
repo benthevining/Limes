@@ -18,12 +18,18 @@
 #include <limes_data_structures.h>
 #include <limes_namespace.h>
 
+/** @file
+	This file defines the Filter class.
+	@ingroup dsp_filters
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace dsp::filters
 {
 
 /** A basic IIR filter with coefficients that can be reassigned during realtime playback.
+	@ingroup dsp_filters
  */
 template <Sample SampleType>
 class LIMES_EXPORT Filter final
@@ -33,15 +39,16 @@ public:
 	using SampleVector = ds::scalar_vector<SampleType>;
 
 	/** Resets the internal state of the filter. */
-	void reset (SampleType resetToValue = SampleType (0));
+	void reset (SampleType resetToValue = SampleType (0)) noexcept;
 
 	/** Prepares the filter to process audio. */
 	void prepare() noexcept;
 
+	///@{
 	/** Applies the filter to a stream of audio samples. */
-	void process (SampleType* buffer, int numSamples);
-
-	void process (SampleVector& buffer);
+	void process (SampleType* buffer, int numSamples) noexcept;
+	void process (SampleVector& buffer) noexcept;
+	///@}
 
 	/** The filter's coefficients.
 		You can call various methods of this object to create different kinds of filters.
@@ -50,10 +57,10 @@ public:
 
 private:
 
-	void processOrder1 (SampleType* buffer, int numSamples);
-	void processOrder2 (SampleType* buffer, int numSamples);
-	void processOrder3 (SampleType* buffer, int numSamples);
-	void processDefault (SampleType* buffer, int numSamples);
+	void processOrder1 (SampleType* buffer, int numSamples) noexcept;
+	void processOrder2 (SampleType* buffer, int numSamples) noexcept;
+	void processOrder3 (SampleType* buffer, int numSamples) noexcept;
+	void processDefault (SampleType* buffer, int numSamples) noexcept;
 
 	SampleVector state;
 	int			 order = 0;

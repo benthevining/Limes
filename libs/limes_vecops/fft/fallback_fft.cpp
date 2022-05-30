@@ -83,13 +83,13 @@ FallbackFFT<SampleType>::FallbackFFT (int size)
 }
 
 template <Scalar SampleType>
-void FallbackFFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut)
+void FallbackFFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept
 {
 	transformF (realIn, realOut, imagOut);
 }
 
 template <Scalar SampleType>
-void FallbackFFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleType* complexOut)
+void FallbackFFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleType* complexOut) noexcept
 {
 	transformF (realIn, m_c, m_d);
 
@@ -97,7 +97,7 @@ void FallbackFFT<SampleType>::forwardInterleaved (const SampleType* realIn, Samp
 }
 
 template <Scalar SampleType>
-void FallbackFFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut)
+void FallbackFFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) noexcept
 {
 	transformF (realIn, m_c, m_d);
 
@@ -105,7 +105,7 @@ void FallbackFFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType
 }
 
 template <Scalar SampleType>
-void FallbackFFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType* magOut)
+void FallbackFFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType* magOut) noexcept
 {
 	transformF (realIn, m_c, m_d);
 
@@ -113,13 +113,13 @@ void FallbackFFT<SampleType>::forwardMagnitude (const SampleType* realIn, Sample
 }
 
 template <Scalar SampleType>
-void FallbackFFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut)
+void FallbackFFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) noexcept
 {
 	transformI (realIn, imagIn, realOut);
 }
 
 template <Scalar SampleType>
-void FallbackFFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut)
+void FallbackFFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut) noexcept
 {
 	vecops::deinterleave (m_a_and_b, complexIn, 2, m_half + 1);
 
@@ -127,7 +127,7 @@ void FallbackFFT<SampleType>::inverseInterleaved (const SampleType* complexIn, S
 }
 
 template <Scalar SampleType>
-void FallbackFFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut)
+void FallbackFFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) noexcept
 {
 	vecops::polarToCartesian (m_a.get(), m_b.get(), magIn, phaseIn, m_half + 1);
 
@@ -135,7 +135,7 @@ void FallbackFFT<SampleType>::inversePolar (const SampleType* magIn, const Sampl
 }
 
 template <Scalar SampleType>
-void FallbackFFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut)
+void FallbackFFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept
 {
 	for (std::size_t i = 0; i <= static_cast<std::size_t> (m_half); ++i)
 	{
@@ -149,7 +149,7 @@ void FallbackFFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleTy
 // Uses m_a and m_b internally; does not touch m_c or m_d
 template <Scalar SampleType>
 LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformF (const SampleType* ri,
-															 SampleType* ro, SampleType* io)
+															 SampleType* ro, SampleType* io) noexcept
 {
 	const auto half_size = static_cast<std::size_t> (m_half);
 
@@ -189,7 +189,7 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformF (const SampleType* r
 // Uses m_c and m_d internally; does not touch m_a or m_b
 template <Scalar SampleType>
 LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformI (const SampleType* ri, const SampleType* ii,
-															 SampleType* ro)
+															 SampleType* ro) noexcept
 {
 	m_vr[0] = ri[0] + ri[m_half];
 	m_vi[0] = ri[0] - ri[m_half];
@@ -228,7 +228,7 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformI (const SampleType* r
 template <Scalar SampleType>
 LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformComplex (const SampleType* ri, const SampleType* ii,
 																   SampleType* ro, SampleType* io,
-																   bool inverse)
+																   bool inverse) noexcept
 {
 	// Following Don Cross's 1998 implementation, described by its author as public domain.
 

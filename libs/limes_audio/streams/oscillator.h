@@ -17,6 +17,16 @@
 #include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
 #include <limes_namespace.h>
 
+/** @defgroup oscillators Oscillators
+	Sample streams that produce a pitched, periodic output.
+	@ingroup samplestreams
+ */
+
+/** @file
+	This file defines the Oscillator class.
+	@ingroup oscillators
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace dsp
@@ -24,6 +34,7 @@ namespace dsp
 
 /** Base class for any kind of oscillator.
 	Oscillators process only a single channel of samples at a time.
+	@ingroup oscillators
  */
 template <Sample SampleType>
 struct LIMES_EXPORT Oscillator : public SampleStream<SampleType>
@@ -40,8 +51,7 @@ struct LIMES_EXPORT Oscillator : public SampleStream<SampleType>
 	/** Returns the oscillator's frequency. */
 	[[nodiscard]] virtual SampleType getFrequency() const noexcept = 0;
 
-	/** Represents the phase of an oscillator.
-	 */
+	/** Represents the phase of an oscillator. */
 	struct LIMES_EXPORT Phase final
 	{
 		/** Resets the phase, */

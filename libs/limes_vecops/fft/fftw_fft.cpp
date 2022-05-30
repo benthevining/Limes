@@ -53,7 +53,7 @@ namespace vecops
 
 template <Scalar SampleType, typename ComplexType>
 LIMES_FORCE_INLINE void fftw_pack (const SampleType* re, const SampleType* im,
-								   ComplexType* m_packed, int fft_size)
+								   ComplexType* m_packed, int fft_size) noexcept
 {
 	const auto hs = fft_size / 2;
 
@@ -70,7 +70,7 @@ LIMES_FORCE_INLINE void fftw_pack (const SampleType* re, const SampleType* im,
 
 template <Scalar SampleType, typename ComplexType>
 LIMES_FORCE_INLINE void fftw_unpack (SampleType* re, SampleType* im,
-									 ComplexType* m_packed, int fft_size)
+									 ComplexType* m_packed, int fft_size) noexcept
 {
 	const auto hs = fft_size / 2;
 
@@ -156,7 +156,7 @@ FFTW_FFT<SampleType>::~FFTW_FFT()
 }
 
 template <Scalar SampleType>
-void FFTW_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut)
+void FFTW_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept
 {
 	if (realIn != m_buf)
 		vecops::copy (m_buf, realIn, this->fft_size);
@@ -170,7 +170,7 @@ void FFTW_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOu
 }
 
 template <Scalar SampleType>
-void FFTW_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleType* complexOut)
+void FFTW_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleType* complexOut) noexcept
 {
 	if (realIn != m_buf)
 		vecops::copy (m_buf, realIn, this->fft_size);
@@ -184,7 +184,7 @@ void FFTW_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleT
 }
 
 template <Scalar SampleType>
-void FFTW_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut)
+void FFTW_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) noexcept
 {
 	if (realIn != m_buf)
 		vecops::copy (m_buf, realIn, this->fft_size);
@@ -198,7 +198,7 @@ void FFTW_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* m
 }
 
 template <Scalar SampleType>
-void FFTW_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType* magOut)
+void FFTW_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType* magOut) noexcept
 {
 	if (realIn != m_buf)
 		vecops::copy (m_buf, realIn, this->fft_size);
@@ -212,7 +212,7 @@ void FFTW_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleTyp
 }
 
 template <Scalar SampleType>
-void FFTW_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut)
+void FFTW_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) noexcept
 {
 	fftw_pack (realIn, imagIn, m_packed, this->fft_size);
 
@@ -226,7 +226,7 @@ void FFTW_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* 
 }
 
 template <Scalar SampleType>
-void FFTW_FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut)
+void FFTW_FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut) noexcept
 {
 	vecops::copy (reinterpret_cast<SampleType*> (m_packed), complexIn, this->fft_size + 2);
 
@@ -240,7 +240,7 @@ void FFTW_FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, Samp
 }
 
 template <Scalar SampleType>
-void FFTW_FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut)
+void FFTW_FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) noexcept
 {
 	vecops::polarToCartesianInterleaved ((float_type*) m_packed, magIn, phaseIn, this->fft_size / 2 + 1);  // NOLINT
 
@@ -254,7 +254,7 @@ void FFTW_FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleTy
 }
 
 template <Scalar SampleType>
-void FFTW_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut)
+void FFTW_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept
 {
 	for (auto i = 0; i <= this->fft_size / 2; ++i)
 	{

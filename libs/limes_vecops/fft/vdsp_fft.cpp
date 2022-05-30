@@ -57,7 +57,7 @@ vDSP_FFT<SampleType>::~vDSP_FFT()
 }
 
 template <Scalar SampleType>
-void vDSP_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut)
+void vDSP_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept
 {
 	packReal (realIn);
 
@@ -72,7 +72,7 @@ void vDSP_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOu
 }
 
 template <Scalar SampleType>
-void vDSP_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleType* complexOut)
+void vDSP_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleType* complexOut) noexcept
 {
 	packReal (realIn);
 
@@ -97,7 +97,7 @@ void vDSP_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleT
 }
 
 template <Scalar SampleType>
-void vDSP_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut)
+void vDSP_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) noexcept
 {
 	packReal (realIn);
 
@@ -128,7 +128,7 @@ void vDSP_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* m
 }
 
 template <Scalar SampleType>
-void vDSP_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType* magOut)
+void vDSP_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType* magOut) noexcept
 {
 	packReal (realIn);
 
@@ -159,7 +159,7 @@ void vDSP_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleTyp
 }
 
 template <Scalar SampleType>
-void vDSP_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut)
+void vDSP_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) noexcept
 {
 	// pack
 	{
@@ -187,7 +187,7 @@ void vDSP_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* 
 }
 
 template <Scalar SampleType>
-void vDSP_FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut)
+void vDSP_FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut) noexcept
 {
 	SampleType* f[2] = { m_packed.realp, m_packed.imagp };	// NOLINT
 
@@ -204,7 +204,7 @@ void vDSP_FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, Samp
 }
 
 template <Scalar SampleType>
-void vDSP_FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut)
+void vDSP_FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) noexcept
 {
 	const auto hs1 = this->fft_size / 2 + 1;
 
@@ -234,7 +234,7 @@ void vDSP_FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleTy
 }
 
 template <Scalar SampleType>
-void vDSP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut)
+void vDSP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept
 {
 	const auto hs1 = this->fft_size / 2 + 1;
 
@@ -255,7 +255,7 @@ void vDSP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType*
 }
 
 template <Scalar SampleType>
-LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::packReal (const SampleType* const re)
+LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::packReal (const SampleType* const re) noexcept
 {
 	if constexpr (std::is_same_v<SampleType, float>)
 	{
@@ -270,7 +270,7 @@ LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::packReal (const SampleType* const 
 }
 
 template <Scalar SampleType>
-LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::unpackReal (SampleType* const re)
+LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::unpackReal (SampleType* const re) noexcept
 {
 	if constexpr (std::is_same_v<SampleType, float>)
 	{
@@ -285,7 +285,7 @@ LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::unpackReal (SampleType* const re)
 }
 
 template <Scalar SampleType>
-LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::unpackComplex (SampleType* const re, SampleType* const im)
+LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::unpackComplex (SampleType* const re, SampleType* const im) noexcept
 {
 	// vDSP forward FFTs are scaled 2x (for some reason)
 	constexpr auto two = SampleType (2.);
@@ -303,7 +303,7 @@ LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::unpackComplex (SampleType* const r
 }
 
 template <Scalar SampleType>
-LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::vDSP_nyq (SampleType* real, SampleType* imag) const
+LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::vDSP_nyq (SampleType* real, SampleType* imag) const noexcept
 {
 	// for ifft input in packed form, pack the DC and Nyquist bins
 	const auto hs = this->fft_size / 2;
@@ -314,7 +314,7 @@ LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::vDSP_nyq (SampleType* real, Sample
 }
 
 template <Scalar SampleType>
-LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::vDSP_denyq (SampleType* real, SampleType* imag) const
+LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::vDSP_denyq (SampleType* real, SampleType* imag) const noexcept
 {
 	// for fft result in packed form, unpack the DC and Nyquist bins
 	const auto hs = this->fft_size / 2;

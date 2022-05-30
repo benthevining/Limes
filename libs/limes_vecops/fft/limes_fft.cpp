@@ -50,49 +50,49 @@ int FFT<SampleType>::getSize() const noexcept
 }
 
 template <Scalar SampleType>
-void FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut)
+void FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept
 {
 	pimpl->forward (realIn, realOut, imagOut);
 }
 
 template <Scalar SampleType>
-void FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleType* complexOut)
+void FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleType* complexOut) noexcept
 {
 	pimpl->forwardInterleaved (realIn, complexOut);
 }
 
 template <Scalar SampleType>
-void FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut)
+void FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) noexcept
 {
 	pimpl->forwardPolar (realIn, magOut, phaseOut);
 }
 
 template <Scalar SampleType>
-void FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType* magOut)
+void FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType* magOut) noexcept
 {
 	pimpl->forwardMagnitude (realIn, magOut);
 }
 
 template <Scalar SampleType>
-void FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut)
+void FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) noexcept
 {
 	pimpl->inverse (realIn, imagIn, realOut);
 }
 
 template <Scalar SampleType>
-void FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut)
+void FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut) noexcept
 {
 	pimpl->inverseInterleaved (complexIn, realOut);
 }
 
 template <Scalar SampleType>
-void FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut)
+void FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) noexcept
 {
 	pimpl->inversePolar (magIn, phaseIn, realOut);
 }
 
 template <Scalar SampleType>
-void FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut)
+void FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept
 {
 	pimpl->inverseCepstral (magIn, cepOut);
 }

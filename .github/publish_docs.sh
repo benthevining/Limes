@@ -39,7 +39,7 @@ readonly limes_root="$script_dir/.."
 
 cd "$limes_root"
 
-cmake --preset default
+cmake --preset default -D LIMES_INTERNAL_DOCS=OFF
 
 cmake --build --preset docs
 

@@ -15,10 +15,15 @@
 #include <limes_export.h>
 #include <limes_core.h>
 #include <limes_data_structures.h>
-#include "../util/PitchDetector.h"
+#include "PitchDetector.h"
 #include "PeakFinder.h"
 #include "../util/Misc.h"
 #include <limes_namespace.h>
+
+/** @file
+	This file defines the Analyzer class.
+	@ingroup psola
+ */
 
 LIMES_BEGIN_NAMESPACE
 
@@ -29,9 +34,16 @@ template <Sample SampleType>
 class Shifter;
 
 /** A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.
+
 	This process is separated so that multiple shifter instances can be used simultaneously while only needing to do the expensive analysis step once.
 	Shifter objects reference an Analyzer for the duration of their lifetimes, and can be thought of as clients of the Analyzer -- things that affect the entire PSOLA algorithm, such as changing the samplerate, are only done through the Analyzer.
+
 	This PSOLA algorithm is only suitable for monophonic pitched audio. If you want to shift more than one channel of audio, you'll need separate Analyzer and Shifter objects for each channel.
+
+	The latency of the PSOLA algorithm is equal to 2 times the period of the minimum detectable frequency; thus, setting a higher minimum input frequency will lower the latency of the algorithm.
+
+	@ingroup psola
+	@see Shifter
  */
 template <Sample SampleType>
 class LIMES_EXPORT Analyzer final
@@ -41,6 +53,7 @@ public:
 	using SampleVector = ds::scalar_vector<SampleType>;
 
 	/** Creates an Analyzer with an initial minimum detectable frequency.
+		The latency of the PSOLA algorithm is equal to 2 times the period of the minimum detectable frequency; thus, setting a higher minimum input frequency will lower the latency of the algorithm.
 		@see setMinInputFreq()
 	*/
 	explicit Analyzer (int minFreqHz = 60);
@@ -49,13 +62,15 @@ public:
 	LIMES_DEFAULT_MOVABLE (Analyzer);
 
 	/**
-		Analyzes a frame of audio. This must be called before Shifter::getSamples(), and should be called consistently.
-		The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to getLatencySamples().
+		Analyzes a frame of audio. This must be called before \c Shifter::getSamples() , and should be called consistently.
+		The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to \c getLatencySamples() .
+		@see getLatencySamples()
 	*/
-	void analyzeInput (const SampleType* const inputAudio, int numSamples);
+	void analyzeInput (const SampleType* const inputAudio, int numSamples) noexcept;
 
-	/** Returns the latency in samples of the PSOLA algorithm. The latency is the same as the latency of the analyzer's internal PitchDetector object, so you can see that documentation for more details.
-		@see setMinInputFreq(), dsp::PitchDetector
+	/** Returns the latency in samples of the PSOLA algorithm.
+		The latency is the same as the latency of the analyzer's internal PitchDetector object, so you can see that documentation for more details.
+		@see setMinInputFreq(), PitchDetector
 	*/
 	[[nodiscard]] int getLatencySamples() const noexcept;
 
@@ -64,13 +79,14 @@ public:
 	*/
 	int setSamplerate (double newSamplerate);
 
-	/** Sets the minimum frequency detectable as pitched by the internal PitchDetector object. The latency of the PSOLA algorithm is equal to 2 times the period of the minimum detectable frequency; thus, setting a higher minimum input frequency will lower the latency of the algorithm.
+	/** Sets the minimum frequency detectable as pitched by the internal PitchDetector object.
+		The latency of the PSOLA algorithm is equal to 2 times the period of the minimum detectable frequency; thus, setting a higher minimum input frequency will lower the latency of the algorithm.
 		@returns The new latency, in samples, of the PSOLA algorithm with the new minimum frequency.
 	*/
 	int setMinInputFreq (int minFreqHz);
 
 	/** Resets the analyzer to its initial state, without releasing any resources. This also calls reset() on all Shifter objects using this Analyzer. */
-	void reset();
+	void reset() noexcept;
 
 	/** Releases all resources used by the Analyzer object. This also calls releaseResources() on all Shifter objects using this Analyzer. */
 	void releaseResources();
@@ -88,7 +104,7 @@ private:
 
 	[[nodiscard]] int latencyChanged();
 
-	void makeWindow (int size);
+	void makeWindow (int size) noexcept;
 
 	/*-----------------------------------------------------------------------------------*/
 
@@ -102,15 +118,15 @@ private:
 
 		void newBlockStarting (int last_blocksize) noexcept;
 
-		void storeNewGrain (const SampleType* const origSamples, int startIndex, const SampleVector& windowSamples, int numSamples);
+		void storeNewGrain (const SampleType* const origSamples, int startIndex, const SampleVector& windowSamples, int numSamples) noexcept;
 
 		void storeNewGrain (const SampleType* const origSamples1, int startIndex1, int blocksize1,
 							const SampleType* const origSamples2, int blocksize2,
-							const SampleVector& windowSamples, int totalNumSamples, int grainStartIdx);
+							const SampleVector& windowSamples, int totalNumSamples, int grainStartIdx) noexcept;
 
 		void storeNewGrainWithZeroesAtStart (int					 numZeroes,
 											 const SampleType* const origSamples, int numSamples,
-											 const SampleVector& windowSamples, int totalNumSamples, int grainStartIdx);
+											 const SampleVector& windowSamples, int totalNumSamples, int grainStartIdx) noexcept;
 
 		void reserveSize (int numSamples);
 
@@ -123,9 +139,9 @@ private:
 		SampleVector samples;
 	};
 
-	[[nodiscard]] Grain& getClosestGrain (int placeInBlock);
+	[[nodiscard]] Grain& getClosestGrain (int placeInBlock) noexcept;
 
-	[[nodiscard]] Grain& getGrainToStoreIn();
+	[[nodiscard]] Grain& getGrainToStoreIn() noexcept;
 
 	/*-----------------------------------------------------------------------------------*/
 

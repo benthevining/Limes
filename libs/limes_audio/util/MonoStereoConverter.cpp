@@ -34,9 +34,14 @@ void MonoStereoConverter<SampleType>::prepare (int blocksize)
 	monoStorage.reserveAndZero (blocksize);
 }
 
+template <Sample SampleType>
+void MonoStereoConverter<SampleType>::releaseResources()
+{
+	monoStorage.clearAndFree();
+}
 
 template <Sample SampleType>
-void MonoStereoConverter<SampleType>::setStereoReductionMode (StereoReductionMode newmode)
+void MonoStereoConverter<SampleType>::setStereoReductionMode (StereoReductionMode newmode) noexcept
 {
 	toMonoMode = newmode;
 }
@@ -44,7 +49,7 @@ void MonoStereoConverter<SampleType>::setStereoReductionMode (StereoReductionMod
 template <Sample SampleType>
 void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleVector& leftIn,
 														   const SampleVector& rightIn,
-														   SampleVector&	   monoOut)
+														   SampleVector&	   monoOut) noexcept
 {
 	LIMES_ASSERT (leftIn.numObjects() == rightIn.numObjects());
 	LIMES_ASSERT (leftIn.numObjects() == monoOut.numObjects());
@@ -56,7 +61,7 @@ template <Sample SampleType>
 void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* const leftIn,
 														   const SampleType* const rightIn,
 														   SampleType* const	   monoOut,
-														   int					   numSamples)
+														   int					   numSamples) noexcept
 {
 	switch (toMonoMode)
 	{
@@ -83,9 +88,9 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* con
 }
 
 template <Sample SampleType>
-void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleVector& monoIn,
-														   SampleVector&	   leftOut,
-														   SampleVector&	   rightOut)
+static void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleVector& monoIn,
+																  SampleVector&		  leftOut,
+																  SampleVector&		  rightOut) noexcept
 {
 	LIMES_ASSERT (leftOut.numObjects() == rightOut.numObjects());
 	LIMES_ASSERT (leftOut.numObjects() == monoIn.numObjects());
@@ -94,10 +99,10 @@ void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleVector& m
 }
 
 template <Sample SampleType>
-void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleType* const monoIn,
-														   SampleType* const	   leftOut,
-														   SampleType* const	   rightOut,
-														   int					   numSamples)
+static void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleType* const monoIn,
+																  SampleType* const		  leftOut,
+																  SampleType* const		  rightOut,
+																  int					  numSamples) noexcept
 {
 	vecops::copy (leftOut, monoIn, numSamples);
 	vecops::copy (rightOut, monoIn, numSamples);

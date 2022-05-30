@@ -158,16 +158,16 @@ public:
 	///@{
 
 	/** Performs a forward FFT, outputting cartesian data. */
-	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut);
+	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept;
 
 	/** Performs a forward FFT, outputting interleaved cartesian data. */
-	void forwardInterleaved (const SampleType* realIn, SampleType* complexOut);
+	void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) noexcept;
 
 	/** Performs a forward FFT, outputting polar data. */
-	void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut);
+	void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) noexcept;
 
 	/** Performs a forward FFT, outputting polar magnitudes. */
-	void forwardMagnitude (const SampleType* realIn, SampleType* magOut);
+	void forwardMagnitude (const SampleType* realIn, SampleType* magOut) noexcept;
 
 	///@}
 
@@ -177,16 +177,16 @@ public:
 	///@{
 
 	/** Performs an inverse FFT. */
-	void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut);
+	void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) noexcept;
 
 	/** Performs an inverse FFT, operating on interleaved input data. */
-	void inverseInterleaved (const SampleType* complexIn, SampleType* realOut);
+	void inverseInterleaved (const SampleType* complexIn, SampleType* realOut) noexcept;
 
 	/** Performs an inverse FFT, operating on polar input data. */
-	void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut);
+	void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) noexcept;
 
 	/** Performs an inverse FFT, outputting cepstral data. */
-	void inverseCepstral (const SampleType* magIn, SampleType* cepOut);
+	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept;
 
 	///@}
 

@@ -14,6 +14,7 @@
 #include <limes_platform.h>	 // for LIMES_SSE, LIMES_ARM_NEON, LIMES_INTEL
 #include <cstdint>			 // for intptr_t
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 #if LIMES_INTEL && LIMES_SSE
 #	include <xmmintrin.h>
@@ -28,7 +29,7 @@ LIMES_BEGIN_NAMESPACE
 namespace vecops
 {
 
-[[nodiscard]] inline intptr_t getFpStatusRegister() noexcept
+[[nodiscard]] LIMES_FORCE_INLINE intptr_t getFpStatusRegister() noexcept
 {
 	intptr_t fpsr = 0;
 
@@ -48,7 +49,7 @@ namespace vecops
 	return fpsr;
 }
 
-inline void setFpStatusRegister (intptr_t fpsr) noexcept
+LIMES_FORCE_INLINE void setFpStatusRegister (intptr_t fpsr) noexcept
 {
 #if LIMES_INTEL && LIMES_SSE
 	_mm_setcsr (static_cast<uint32_t> (fpsr));
@@ -68,7 +69,7 @@ inline void setFpStatusRegister (intptr_t fpsr) noexcept
 #endif
 }
 
-[[nodiscard]] constexpr intptr_t getDenormalsMask() noexcept
+[[nodiscard]] consteval intptr_t getDenormalsMask() noexcept
 {
 #if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
 #	if LIMES_SSE

@@ -84,7 +84,7 @@ typedef union xmm_mm_union
 #endif	// USE_SSE2
 
 
-v4sf log_ps (v4sf x)
+v4sf log_ps (v4sf x) noexcept
 {
 #ifdef USE_SSE2
 	v4si emm0;
@@ -190,7 +190,7 @@ _PS_CONST (cephes_exp_p4, 1.6666665459E-1);
 _PS_CONST (cephes_exp_p5, 5.0000001201E-1);
 
 
-v4sf exp_ps (v4sf x)
+v4sf exp_ps (v4sf x) noexcept
 {
 	v4sf tmp = _mm_setzero_ps(), fx;
 
@@ -289,7 +289,7 @@ _PS_CONST (cephes_FOPI, 1.27323954473516);	// 4 / M_PI
 #undef _PS_CONST
 
 
-v4sf sin_ps (v4sf x)
+v4sf sin_ps (v4sf x) noexcept
 {
 	v4sf xmm1, xmm2 = _mm_setzero_ps(), xmm3, sign_bit = x, y;
 
@@ -417,7 +417,7 @@ v4sf sin_ps (v4sf x)
 }
 
 
-v4sf cos_ps (v4sf x)
+v4sf cos_ps (v4sf x) noexcept
 {
 	v4sf xmm1, xmm2 = _mm_setzero_ps(), xmm3, y;
 
@@ -541,7 +541,7 @@ v4sf cos_ps (v4sf x)
 }
 
 
-void sincos_ps (v4sf x, v4sf* s, v4sf* c)
+void sincos_ps (v4sf x, v4sf* s, v4sf* c) noexcept
 {
 	v4sf xmm1, xmm2, xmm3 = _mm_setzero_ps(), sign_bit_sin, y;
 

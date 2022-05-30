@@ -80,7 +80,7 @@ using v2si = __m64;	 // vector of 2 int (mmx)
 	Note that the bug on _mm_cmp* does occur only at -O0 optimization level
 */
 
-inline __m128 my_movehl_ps (__m128 a, const __m128 b)
+inline __m128 my_movehl_ps (__m128 a, const __m128 b) noexcept
 {
 	asm(
 		"movhlps %2,%0\n\t"
@@ -91,7 +91,7 @@ inline __m128 my_movehl_ps (__m128 a, const __m128 b)
 #	warning "redefined _mm_movehl_ps (see gcc bug 21179)"
 #	define _mm_movehl_ps my_movehl_ps
 
-inline __m128 my_cmplt_ps (__m128 a, const __m128 b)
+inline __m128 my_cmplt_ps (__m128 a, const __m128 b) noexcept
 {
 	asm(
 		"cmpltps %2,%0\n\t"
@@ -100,7 +100,7 @@ inline __m128 my_cmplt_ps (__m128 a, const __m128 b)
 	return a;
 }
 
-inline __m128 my_cmpgt_ps (__m128 a, const __m128 b)
+inline __m128 my_cmpgt_ps (__m128 a, const __m128 b) noexcept
 {
 	asm(
 		"cmpnleps %2,%0\n\t"
@@ -109,7 +109,7 @@ inline __m128 my_cmpgt_ps (__m128 a, const __m128 b)
 	return a;
 }
 
-inline __m128 my_cmpeq_ps (__m128 a, const __m128 b)
+inline __m128 my_cmpeq_ps (__m128 a, const __m128 b) noexcept
 {
 	asm(
 		"cmpeqps %2,%0\n\t"
@@ -128,10 +128,10 @@ inline __m128 my_cmpeq_ps (__m128 a, const __m128 b)
 /** natural logarithm computed for 4 simultaneous floats
 	@returns NaN for x <= 0
 */
-v4sf log_ps (v4sf x);
+v4sf log_ps (v4sf x) noexcept;
 
 
-v4sf exp_ps (v4sf x);
+v4sf exp_ps (v4sf x) noexcept;
 
 
 /** Evaluation of 4 sines at once, using only SSE1+MMX intrinsics so
@@ -161,15 +161,15 @@ v4sf exp_ps (v4sf x);
 	Since it is based on SSE intrinsics, it has to be compiled at -O2 to
 	deliver full speed.
 */
-v4sf sin_ps (v4sf x);
+v4sf sin_ps (v4sf x) noexcept;
 
 
 /** almost the same as sin_ps */
-v4sf cos_ps (v4sf x);
+v4sf cos_ps (v4sf x) noexcept;
 
 /** Since sin_ps and cos_ps are almost identical, sincos_ps could replace both of them.
 	It is almost as fast, and gives you a free cosine with your sine */
-void sincos_ps (v4sf x, v4sf* s, v4sf* c);
+void sincos_ps (v4sf x, v4sf* s, v4sf* c) noexcept;
 
 /// @endcond
 

@@ -73,7 +73,7 @@ IPP_FFT<SampleType>::~IPP_FFT()
 }
 
 template <Scalar SampleType>
-void IPP_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut)
+void IPP_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept
 {
 	if constexpr (std::is_same_v<SampleType, float>)
 		ippsFFTFwd_RToCCS_32f (realIn, m_packed, m_spec, m_buf);
@@ -84,7 +84,7 @@ void IPP_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOut
 }
 
 template <Scalar SampleType>
-void IPP_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleType* complexOut)
+void IPP_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleType* complexOut) noexcept
 {
 	if constexpr (std::is_same_v<SampleType, float>)
 		ippsFFTFwd_RToCCS_32f (realIn, complexOut, m_spec, m_buf);
@@ -93,7 +93,7 @@ void IPP_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleTy
 }
 
 template <Scalar SampleType>
-void IPP_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut)
+void IPP_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) noexcept
 {
 	if constexpr (std::is_same_v<SampleType, float>)
 		ippsFFTFwd_RToCCS_32f (realIn, m_packed, m_spec, m_buf);
@@ -109,7 +109,7 @@ void IPP_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* ma
 }
 
 template <Scalar SampleType>
-void IPP_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType* magOut)
+void IPP_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType* magOut) noexcept
 {
 	if constexpr (std::is_same_v<SampleType, float>)
 		ippsFFTFwd_RToCCS_32f (realIn, m_packed, m_spec, m_buf);
@@ -125,7 +125,7 @@ void IPP_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleType
 }
 
 template <Scalar SampleType>
-void IPP_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut)
+void IPP_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) noexcept
 {
 	ipp_pack (realIn, imagIn);
 
@@ -136,7 +136,7 @@ void IPP_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* i
 }
 
 template <Scalar SampleType>
-void IPP_FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut)
+void IPP_FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut) noexcept
 {
 	if constexpr (std::is_same_v<SampleType, float>)
 		ippsFFTInv_CCSToR_32f (complexIn, realOut, m_spec, m_buf);
@@ -145,7 +145,7 @@ void IPP_FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, Sampl
 }
 
 template <Scalar SampleType>
-void IPP_FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut)
+void IPP_FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) noexcept
 {
 	if constexpr (std::is_same_v<SampleType, float>)
 		ippsPolarToCart_32f (magIn, phaseIn, realOut, m_spare, this->fft_size / 2 + 1);
@@ -161,7 +161,7 @@ void IPP_FFT<SampleType>::inversePolar (const SampleType* magIn, const SampleTyp
 }
 
 template <Scalar SampleType>
-void IPP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut)
+void IPP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept
 {
 	const auto hs1 = this->fft_size / 2 + 1;
 
@@ -187,7 +187,7 @@ void IPP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* 
 }
 
 template <Scalar SampleType>
-LIMES_FORCE_INLINE void IPP_FFT<SampleType>::ipp_pack (const SampleType* re, const SampleType* im)
+LIMES_FORCE_INLINE void IPP_FFT<SampleType>::ipp_pack (const SampleType* re, const SampleType* im) noexcept
 {
 	const auto hs = this->fft_size / 2;
 
@@ -216,7 +216,7 @@ LIMES_FORCE_INLINE void IPP_FFT<SampleType>::ipp_pack (const SampleType* re, con
 }
 
 template <Scalar SampleType>
-LIMES_FORCE_INLINE void IPP_FFT<SampleType>::ipp_unpack (SampleType* const re, SampleType* const im) const
+LIMES_FORCE_INLINE void IPP_FFT<SampleType>::ipp_unpack (SampleType* const re, SampleType* const im) const noexcept
 {
 	const auto hs = this->fft_size / 2;
 

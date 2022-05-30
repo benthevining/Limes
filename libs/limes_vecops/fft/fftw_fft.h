@@ -118,21 +118,21 @@ public:
 
 private:
 
-	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) final;
+	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept final;
 
-	void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) final;
+	void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) noexcept final;
 
-	void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) final;
+	void forwardPolar (const SampleType* realIn, SampleType* magOut, SampleType* phaseOut) noexcept final;
 
-	void forwardMagnitude (const SampleType* realIn, SampleType* magOut) final;
+	void forwardMagnitude (const SampleType* realIn, SampleType* magOut) noexcept final;
 
-	void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) final;
+	void inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) noexcept final;
 
-	void inverseInterleaved (const SampleType* complexIn, SampleType* realOut) final;
+	void inverseInterleaved (const SampleType* complexIn, SampleType* realOut) noexcept final;
 
-	void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) final;
+	void inversePolar (const SampleType* magIn, const SampleType* phaseIn, SampleType* realOut) noexcept final;
 
-	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) final;
+	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept final;
 
 	void init();
 

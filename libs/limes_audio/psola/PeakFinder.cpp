@@ -61,7 +61,7 @@ void PeakFinder<SampleType>::releaseResources()
 }
 
 template <Sample SampleType>
-const ds::scalar_vector<int>& PeakFinder<SampleType>::findPeaks (const SampleType* const inputSamples, int numSamples, float period)
+const ds::scalar_vector<int>& PeakFinder<SampleType>::findPeaks (const SampleType* const inputSamples, int numSamples, float period) noexcept
 {
 	LIMES_ASSERT (period > 0.f && numSamples > 0);
 
@@ -121,7 +121,7 @@ const ds::scalar_vector<int>& PeakFinder<SampleType>::findPeaks (const SampleTyp
 
 template <Sample SampleType>
 int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int predictedPeak,
-										  const SampleType* const inputSamples, int period, int grainSize)
+										  const SampleType* const inputSamples, int period, int grainSize) noexcept
 {
 	LIMES_ASSERT (predictedPeak >= frameStart && predictedPeak <= frameEnd);
 
@@ -164,7 +164,7 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 
 template <Sample SampleType>
 int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* const inputSamples,
-													 int startSample, int endSample, int predictedPeak) const
+													 int startSample, int endSample, int predictedPeak) const noexcept
 {
 	LIMES_ASSERT (peakSearchingOrder.isNotEmpty());
 
@@ -213,7 +213,7 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* const inp
 }
 
 template <Sample SampleType>
-int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* const inputSamples) const
+int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* const inputSamples) const noexcept
 {
 	auto strongestPeakIndex = peakCandidates[0];
 	auto strongestPeak		= std::abs (inputSamples[strongestPeakIndex]);	// NOLINT
@@ -234,7 +234,7 @@ int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* const
 
 
 template <Sample SampleType>
-int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const inputSamples, int deltaTarget1, int deltaTarget2)
+int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const inputSamples, int deltaTarget1, int deltaTarget2) noexcept
 {
 	finalHandful.clear();
 	finalHandfulDeltas.clear();
@@ -306,7 +306,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const in
 }
 
 template <Sample SampleType>
-void PeakFinder<SampleType>::sortSampleIndicesForPeakSearching (int startSample, int endSample, int predictedPeak)
+void PeakFinder<SampleType>::sortSampleIndicesForPeakSearching (int startSample, int endSample, int predictedPeak) noexcept
 {
 	LIMES_ASSERT (predictedPeak >= startSample && predictedPeak <= endSample);
 	LIMES_ASSERT (endSample > startSample);

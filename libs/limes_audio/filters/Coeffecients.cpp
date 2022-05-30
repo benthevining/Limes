@@ -39,7 +39,7 @@ const ds::scalar_vector<Sampletype>* Coeffecients<Sampletype>::Storage::operator
 }
 
 template <Sample Sampletype>
-typename Coeffecients<Sampletype>::Storage& Coeffecients<Sampletype>::Storage::operator= (std::initializer_list<Sampletype> list)
+typename Coeffecients<Sampletype>::Storage& Coeffecients<Sampletype>::Storage::operator= (std::initializer_list<Sampletype> list) noexcept
 {
 	coefficients.clear();
 
@@ -79,7 +79,7 @@ typename Coeffecients<Sampletype>::Storage& Coeffecients<Sampletype>::Storage::o
 
 template <Sample Sampletype>
 void Coeffecients<Sampletype>::makeFirstOrderLowPass (double	 sampleRate,
-													  Sampletype frequency)
+													  Sampletype frequency) noexcept
 {
 	LIMES_ASSERT (sampleRate > 0.0);
 	LIMES_ASSERT (frequency > 0 && frequency <= static_cast<float> (sampleRate * 0.5));
@@ -92,7 +92,7 @@ void Coeffecients<Sampletype>::makeFirstOrderLowPass (double	 sampleRate,
 
 template <Sample Sampletype>
 void Coeffecients<Sampletype>::makeFirstOrderHighPass (double	  sampleRate,
-													   Sampletype frequency)
+													   Sampletype frequency) noexcept
 {
 	LIMES_ASSERT (sampleRate > 0.0);
 	LIMES_ASSERT (frequency > 0 && frequency <= static_cast<float> (sampleRate * 0.5));
@@ -105,7 +105,7 @@ void Coeffecients<Sampletype>::makeFirstOrderHighPass (double	  sampleRate,
 
 template <Sample Sampletype>
 void Coeffecients<Sampletype>::makeFirstOrderAllPass (double	 sampleRate,
-													  Sampletype frequency)
+													  Sampletype frequency) noexcept
 {
 	LIMES_ASSERT (sampleRate > 0.0);
 	LIMES_ASSERT (frequency > 0 && frequency <= static_cast<float> (sampleRate * 0.5));
@@ -119,7 +119,7 @@ void Coeffecients<Sampletype>::makeFirstOrderAllPass (double	 sampleRate,
 template <Sample Sampletype>
 void Coeffecients<Sampletype>::makeLowPass (double	   sampleRate,
 											Sampletype frequency,
-											Sampletype Q)
+											Sampletype Q) noexcept
 {
 	const auto n = 1
 				 / std::tan (math::constants::pi<Sampletype> * frequency
@@ -136,7 +136,7 @@ void Coeffecients<Sampletype>::makeLowPass (double	   sampleRate,
 template <Sample Sampletype>
 void Coeffecients<Sampletype>::makeHighPass (double		sampleRate,
 											 Sampletype frequency,
-											 Sampletype Q)
+											 Sampletype Q) noexcept
 {
 	const auto n		= std::tan (math::constants::pi<Sampletype> * frequency
 									/ static_cast<Sampletype> (sampleRate));
@@ -152,7 +152,7 @@ void Coeffecients<Sampletype>::makeHighPass (double		sampleRate,
 template <Sample Sampletype>
 void Coeffecients<Sampletype>::makeBandPass (double		sampleRate,
 											 Sampletype frequency,
-											 Sampletype Q)
+											 Sampletype Q) noexcept
 {
 	LIMES_ASSERT (sampleRate > 0.0);
 	LIMES_ASSERT (frequency > 0 && frequency <= static_cast<float> (sampleRate * 0.5));
@@ -176,7 +176,7 @@ void Coeffecients<Sampletype>::makeBandPass (double		sampleRate,
 template <Sample Sampletype>
 void Coeffecients<Sampletype>::makeNotch (double	 sampleRate,
 										  Sampletype frequency,
-										  Sampletype Q)
+										  Sampletype Q) noexcept
 {
 	LIMES_ASSERT (sampleRate > 0.0);
 	LIMES_ASSERT (frequency > 0 && frequency <= static_cast<float> (sampleRate * 0.5));
@@ -198,7 +198,7 @@ void Coeffecients<Sampletype>::makeNotch (double	 sampleRate,
 template <Sample Sampletype>
 void Coeffecients<Sampletype>::makeAllPass (double	   sampleRate,
 											Sampletype frequency,
-											Sampletype Q)
+											Sampletype Q) noexcept
 {
 	LIMES_ASSERT (sampleRate > 0);
 	LIMES_ASSERT (frequency > 0 && frequency <= sampleRate * 0.5);
@@ -221,7 +221,7 @@ template <Sample Sampletype>
 void Coeffecients<Sampletype>::makeLowShelf (double		sampleRate,
 											 Sampletype cutOffFrequency,
 											 Sampletype Q,
-											 Sampletype gainFactor)
+											 Sampletype gainFactor) noexcept
 {
 	LIMES_ASSERT (sampleRate > 0.0);
 	LIMES_ASSERT (cutOffFrequency > 0.0 && cutOffFrequency <= sampleRate * 0.5);
@@ -249,7 +249,7 @@ template <Sample Sampletype>
 void Coeffecients<Sampletype>::makeHighShelf (double	 sampleRate,
 											  Sampletype cutOffFrequency,
 											  Sampletype Q,
-											  Sampletype gainFactor)
+											  Sampletype gainFactor) noexcept
 {
 	LIMES_ASSERT (sampleRate > 0);
 	LIMES_ASSERT (cutOffFrequency > 0
@@ -278,7 +278,7 @@ template <Sample Sampletype>
 void Coeffecients<Sampletype>::makePeakFilter (double	  sampleRate,
 											   Sampletype frequency,
 											   Sampletype Q,
-											   Sampletype gainFactor)
+											   Sampletype gainFactor) noexcept
 {
 	LIMES_ASSERT (sampleRate > 0);
 	LIMES_ASSERT (frequency > 0

@@ -22,8 +22,6 @@ oranges_add_source_files (
 		  MonoStereoConverter.cpp
 		  MonoStereoConverter.h
 		  PerlinNoise.cpp
-		  PerlinNoise.h
-		  PitchDetector.cpp
-		  PitchDetector.h)
+		  PerlinNoise.h)
 
 set (util_files ${util_files} PARENT_SCOPE)

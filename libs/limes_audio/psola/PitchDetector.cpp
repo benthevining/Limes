@@ -31,13 +31,13 @@ PitchDetector<SampleType>::PitchDetector (int minFreqHz, float confidenceThresho
 }
 
 template <Sample SampleType>
-float PitchDetector<SampleType>::detectPitch (const SampleVector& inputAudio)
+float PitchDetector<SampleType>::detectPitch (const SampleVector& inputAudio) noexcept
 {
 	return detectPitch (inputAudio.data(), inputAudio.numObjects());
 }
 
 template <Sample SampleType>
-float PitchDetector<SampleType>::detectPitch (const SampleType* const inputAudio, int numSamples)
+float PitchDetector<SampleType>::detectPitch (const SampleType* const inputAudio, int numSamples) noexcept
 {
 	const auto period = detectPeriod (inputAudio, numSamples);
 
@@ -48,13 +48,13 @@ float PitchDetector<SampleType>::detectPitch (const SampleType* const inputAudio
 }
 
 template <Sample SampleType>
-float PitchDetector<SampleType>::detectPeriod (const SampleVector& inputAudio)
+float PitchDetector<SampleType>::detectPeriod (const SampleVector& inputAudio) noexcept
 {
 	return detectPeriod (inputAudio.data(), inputAudio.numObjects());
 }
 
 template <Sample SampleType>
-float PitchDetector<SampleType>::detectPeriod (const SampleType* const inputAudio, int numSamples)
+float PitchDetector<SampleType>::detectPeriod (const SampleType* const inputAudio, int numSamples) noexcept
 {
 	LIMES_ASSERT (samplerate > 0.);					   // pitch detector hasn't been prepared before calling this function!
 	LIMES_ASSERT (numSamples >= getLatencySamples());  // not enough samples in this frame to do analysis
@@ -71,7 +71,7 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* const inputAudi
 
 		for (auto tau = minPeriod; tau <= maxPeriod; ++tau)
 		{
-			const auto yinIdx = tau - minPeriod;
+			const auto yinIdx = tau - minPeriod;  // offset by minPeriod, since that's the lowest tau value we're testing, so put it at index 0 in the buffer
 
 			// difference function
 			for (auto i = 0; i + tau < numSamples; ++i)
@@ -110,7 +110,7 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* const inputAudi
 }
 
 template <Sample SampleType>
-void PitchDetector<SampleType>::updatePeriodBounds()
+void PitchDetector<SampleType>::updatePeriodBounds() noexcept
 {
 	LIMES_ASSERT (minHz > 0);
 
@@ -121,8 +121,8 @@ void PitchDetector<SampleType>::updatePeriodBounds()
 	{
 		const auto freqLastFrame = math::freqFromPeriod (samplerate, periodLastFrame);
 
-		maxPeriod = std::min (periodUpperBound, math::periodInSamples (samplerate, freqLastFrame * 0.5f));
-		minPeriod = std::max (periodLowerBound, math::periodInSamples (samplerate, freqLastFrame * 2.f));
+		maxPeriod = math::min (periodUpperBound, math::periodInSamples (samplerate, freqLastFrame * 0.5f));
+		minPeriod = math::max (periodLowerBound, math::periodInSamples (samplerate, freqLastFrame * 2.f));
 	}
 	else
 	{
@@ -135,7 +135,7 @@ void PitchDetector<SampleType>::updatePeriodBounds()
 }
 
 template <Sample SampleType>
-int PitchDetector<SampleType>::absoluteThreshold() const
+int PitchDetector<SampleType>::absoluteThreshold() const noexcept
 {
 	const auto maxYinIdx = maxPeriod - minPeriod;
 
@@ -164,7 +164,7 @@ int PitchDetector<SampleType>::absoluteThreshold() const
 }
 
 template <Sample SampleType>
-float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) const
+float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) const noexcept
 {
 	LIMES_ASSERT (periodEstimate > 0);
 
@@ -259,7 +259,7 @@ int PitchDetector<SampleType>::getLatencySamples() const noexcept
 }
 
 template <Sample SampleType>
-void PitchDetector<SampleType>::reset()
+void PitchDetector<SampleType>::reset() noexcept
 {
 	periodLastFrame = 0.f;
 	minPeriod		= 0;
@@ -277,7 +277,7 @@ void PitchDetector<SampleType>::releaseResources()
 }
 
 template <Sample SampleType>
-void PitchDetector<SampleType>::getCurrentLegalPeriodRange (int& min, int& max) const
+void PitchDetector<SampleType>::getCurrentLegalPeriodRange (int& min, int& max) const noexcept
 {
 	// Did you call one of the pitch detection functions first?
 	LIMES_ASSERT (maxPeriod > minPeriod);

@@ -52,7 +52,7 @@ typedef ALIGN16_BEG union
 #endif
 
 template <typename VecorizedOp, typename ScalarOp>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void perform (int size, VecorizedOp&& vectorOp, ScalarOp&& scalarOp)
+LIMES_NO_EXPORT LIMES_FORCE_INLINE void perform (int size, VecorizedOp&& vectorOp, ScalarOp&& scalarOp) noexcept
 {
 	int i = 0;
 
@@ -64,7 +64,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void perform (int size, VecorizedOp&& vectorO
 		scalarOp (i);
 }
 
-void polarToCartesian_pommier (float* const real, float* const imag, const float* const mag, const float* const phase, int size)
+void polarToCartesian_pommier (float* const real, float* const imag, const float* const mag, const float* const phase, int size) noexcept
 {
 	int idx = 0, tidx = 0;
 
@@ -98,7 +98,7 @@ void polarToCartesian_pommier (float* const real, float* const imag, const float
 	perform (size, std::move (vecOp), std::move (scalarOp));
 }
 
-void polarToCartesianInterleaved_pommier (float* const dest, const float* const mag, const float* const phase, int size)
+void polarToCartesianInterleaved_pommier (float* const dest, const float* const mag, const float* const phase, int size) noexcept
 {
 	int idx = 0, tidx = 0;
 
@@ -133,7 +133,7 @@ void polarToCartesianInterleaved_pommier (float* const dest, const float* const 
 	perform (size, std::move (vecOp), std::move (scalarOp));
 }
 
-void sine (float* const data, int size)
+void sine (float* const data, int size) noexcept
 {
 	const auto vecOp = [data] (int i)
 	{
@@ -156,7 +156,7 @@ void sine (float* const data, int size)
 	perform (size, std::move (vecOp), std::move (scalarOp));
 }
 
-void sineAndCopy (float* const dest, const float* const data, int size)
+void sineAndCopy (float* const dest, const float* const data, int size) noexcept
 {
 	const auto vecOp = [dest, data] (int i)
 	{
@@ -179,7 +179,7 @@ void sineAndCopy (float* const dest, const float* const data, int size)
 	perform (size, std::move (vecOp), std::move (scalarOp));
 }
 
-void cos (float* const data, int size)
+void cos (float* const data, int size) noexcept
 {
 	const auto vecOp = [data] (int i)
 	{
@@ -202,7 +202,7 @@ void cos (float* const data, int size)
 	perform (size, std::move (vecOp), std::move (scalarOp));
 }
 
-void cosAndCopy (float* const dest, const float* const data, int size)
+void cosAndCopy (float* const dest, const float* const data, int size) noexcept
 {
 	const auto vecOp = [dest, data] (int i)
 	{
@@ -225,7 +225,7 @@ void cosAndCopy (float* const dest, const float* const data, int size)
 	perform (size, std::move (vecOp), std::move (scalarOp));
 }
 
-void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut)
+void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut) noexcept
 {
 	const auto vecOp = [data, sinesOut, cosinesOut] (int i)
 	{

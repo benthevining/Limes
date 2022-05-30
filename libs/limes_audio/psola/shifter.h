@@ -20,6 +20,11 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 
+/** @file
+	This file defines the Shifter class.
+	@ingroup psola
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace dsp::psola
@@ -27,6 +32,8 @@ namespace dsp::psola
 
 /** A class that repitches a stream of monophonic audio using PSOLA-like techniques.
 	This class is essentially a "client" of an Analyzer object, which allows multiple Shifters to be used simultaneously without requiring the expensive analysis process to be repeated.
+	@ingroup psola
+	@see Analyzer
  */
 template <Sample SampleType>
 class LIMES_EXPORT Shifter : public SampleStream<SampleType>
@@ -44,27 +51,29 @@ public:
 	LIMES_DEFAULT_COPYABLE (Shifter);
 
 	/** Sets the pitch, in Hz, of the shifter's output.
-		Note that before calling this, you must set the samplerate of the algorithm using Analyzer::setSamplerate()!
+		Note that before calling this, you must set the samplerate of the algorithm using \c Analyzer::setSamplerate() !
 	*/
 	void setPitchHz (int pitchHz) noexcept;
 
+	/** Returns the pitch, in Hz, this shifter is outputting. */
 	[[nodiscard]] float getPitchHz() const noexcept;
 
-	/** Resets the shifter to its initial state, without releasing any resources. Note that this is called for you if you call Analyzer::reset(). */
+	/** Resets the shifter to its initial state, without releasing any resources. Note that this is called for you if you call \c Analyzer::reset() . */
 	void reset() noexcept;
 
-	/** Releases all the resources used by the Shifter. Note that this is called for you if you call Analyzer::releaseResources(). */
+	/** Releases all the resources used by the Shifter. Note that this is called for you if you call \c Analyzer::releaseResources() . */
 	void releaseResources();
 
 protected:
 
+	/** The parent Analyzer object that this shifter is a client of. */
 	Analyzer<SampleType>& analyzer;
 
 private:
 
 	friend class Analyzer<SampleType>;
 
-	[[nodiscard]] SampleType getNextSample();
+	[[nodiscard]] SampleType getNextSample() noexcept;
 
 	void newBlockStarting() noexcept;
 
@@ -103,7 +112,7 @@ private:
 		int sampleIdx { 0 };
 	};
 
-	[[nodiscard]] Grain& getGrainToStart();
+	[[nodiscard]] Grain& getGrainToStart() noexcept;
 
 	/*-----------------------------------------------------------------------------------*/
 

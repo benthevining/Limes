@@ -37,7 +37,6 @@
 // IWYU pragma: begin_exports
 
 #include "util/Misc.h"
-#include "util/PitchDetector.h"
 #include "util/MonoStereoConverter.h"
 #include "util/CircularBuffer.h"
 #include "util/PerlinNoise.h"
@@ -51,6 +50,7 @@
 
 #include "filters/Filter.h"
 
+#include "psola/PitchDetector.h"
 #include "psola/analyzer.h"
 #include "psola/shifter.h"
 

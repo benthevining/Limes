@@ -17,80 +17,106 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 
+/** @defgroup dsp_filters Filters
+	Classes for filtering realtime audio signals.
+	@ingroup limes_audio
+ */
+
+/** @dir libs/limes_audio/filters
+	This directory contains classes for filtering realtime audio signals.
+	@ingroup dsp_filters
+ */
+
+/** @file
+	This file defines the Coeffecients class.
+	@ingroup dsp_filters
+ */
+
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains classes for filtering realtime audio signals.
+	@ingroup dsp_filters
+ */
 namespace dsp::filters
 {
 
 /** A filter coefficients class, with lots of methods for creating various filter topologies.
 	This class is designed so that coefficients can be recreated and reassigned during realtime playback; no allocations should occur.
+	@ingroup dsp_filters
  */
 template <Sample Sampletype>
 class LIMES_EXPORT Coeffecients final
 {
 public:
 
+	/** @name First-order filter creation */
+	///@{
 	/** Creates the coefficients for a first order low pass filter. */
-	void makeFirstOrderLowPass (double sampleRate, Sampletype frequency);
+	void makeFirstOrderLowPass (double sampleRate, Sampletype frequency) noexcept;
 
 	/** Creates the coefficients for a first order high pass filter. */
-	void makeFirstOrderHighPass (double sampleRate, Sampletype frequency);
+	void makeFirstOrderHighPass (double sampleRate, Sampletype frequency) noexcept;
 
 	/** Creates the coefficients for a first order all-pass filter. */
-	void makeFirstOrderAllPass (double sampleRate, Sampletype frequency);
+	void makeFirstOrderAllPass (double sampleRate, Sampletype frequency) noexcept;
+	///@}
 
+	/** @name Filter creation with variable Q */
+	///@{
 	/** Creates the coefficients for a low pass filter, with variable Q. */
-	void makeLowPass (double sampleRate, Sampletype frequency, Sampletype Q = inverseRootTwo<Sampletype>);
+	void makeLowPass (double sampleRate, Sampletype frequency, Sampletype Q = inverseRootTwo<Sampletype>) noexcept;
 
 	/** Creates the coefficients for a high pass filter, with variable Q. */
-	void makeHighPass (double sampleRate, Sampletype frequency, Sampletype Q = inverseRootTwo<Sampletype>);
+	void makeHighPass (double sampleRate, Sampletype frequency, Sampletype Q = inverseRootTwo<Sampletype>) noexcept;
 
 	/** Creates the coefficients for a band pass filter, with variable Q. */
-	void makeBandPass (double sampleRate, Sampletype frequency, Sampletype Q = inverseRootTwo<Sampletype>);
+	void makeBandPass (double sampleRate, Sampletype frequency, Sampletype Q = inverseRootTwo<Sampletype>) noexcept;
 
 	/** Creates the coefficients for a notch filter, with variable Q. */
-	void makeNotch (double sampleRate, Sampletype frequency, Sampletype Q = inverseRootTwo<Sampletype>);
+	void makeNotch (double sampleRate, Sampletype frequency, Sampletype Q = inverseRootTwo<Sampletype>) noexcept;
 
 	/** Creates the coefficients for an all-pass filter, with variable Q. */
-	void makeAllPass (double sampleRate, Sampletype frequency, Sampletype Q = inverseRootTwo<Sampletype>);
+	void makeAllPass (double sampleRate, Sampletype frequency, Sampletype Q = inverseRootTwo<Sampletype>) noexcept;
+	///@}
 
-	//==============================================================================
-	/** Creates the coefficients for a low-pass shelf filter with variable Q and gain.
+	/** @name Filter creation with variable Q and gain
 		The gain is a scale factor that the low frequencies are multiplied by, so values greater than 1.0 will boost the low frequencies, values less than 1.0 will attenuate them.
-	*/
+	 */
+	///@{
+	/** Creates the coefficients for a low-pass shelf filter with variable Q and gain. */
 	void makeLowShelf (double	  sampleRate,
 					   Sampletype cutOffFrequency,
 					   Sampletype Q			 = inverseRootTwo<Sampletype>,
-					   Sampletype gainFactor = Sampletype (1.));
+					   Sampletype gainFactor = Sampletype (1.)) noexcept;
 
-	/** Creates the coefficients for a high-pass shelf filter with variable Q and gain.
-		The gain is a scale factor that the high frequencies are multiplied by, so values greater than 1.0 will boost the high frequencies, values less than 1.0 will attenuate them.
-	*/
+	/** Creates the coefficients for a high-pass shelf filter with variable Q and gain. */
 	void makeHighShelf (double	   sampleRate,
 						Sampletype cutOffFrequency,
 						Sampletype Q		  = inverseRootTwo<Sampletype>,
-						Sampletype gainFactor = Sampletype (1.));
+						Sampletype gainFactor = Sampletype (1.)) noexcept;
 
-	/** Creates the coefficients for a peak filter centred around a given frequency, with a variable Q and gain.
-		The gain is a scale factor that the centre frequencies are multiplied by, so values greater than 1.0 will boost the centre frequencies, values less than 1.0 will attenuate them.
-	*/
+	/** Creates the coefficients for a peak filter centred around a given frequency, with a variable Q and gain. */
 	void makePeakFilter (double		sampleRate,
 						 Sampletype centreFrequency,
 						 Sampletype Q		   = inverseRootTwo<Sampletype>,
-						 Sampletype gainFactor = Sampletype (1.));
+						 Sampletype gainFactor = Sampletype (1.)) noexcept;
+	///@}
 
-	//==============================================================================
-	/** Returns the filter order associated with the coefficients */
+	/** Returns the filter order associated with the coefficients. */
 	int getFilterOrder() const noexcept;
 
-	//==============================================================================
+	/** @name Raw coefficient access */
+	///@{
 	/** The raw coefficients.
-		You should leave these numbers alone unless you really know what you're doing.
-	*/
-
+		@warning You should leave these numbers alone unless you really know what you're doing.
+	 */
 	Sampletype*		  getRawCoefficients() noexcept;
 	const Sampletype* getRawCoefficients() const noexcept;
+	///@}
 
+	/** A simple wrapper around a vector, to be used to hold the actual filter coeffecients.
+		This class is designed to be assignable with \c operator= without allocating.
+	 */
 	struct LIMES_EXPORT Storage final
 	{
 		Storage();
@@ -102,11 +128,15 @@ public:
 
 		const ds::scalar_vector<Sampletype>* operator->() const noexcept;
 
-		Storage& operator= (std::initializer_list<Sampletype> list);
+		Storage& operator= (std::initializer_list<Sampletype> list) noexcept;
 
+		/** The actual storage. */
 		ds::scalar_vector<Sampletype> coefficients;
 	};
 
+	/** The raw coefficients.
+		@warning You should leave these numbers alone unless you really know what you're doing.
+	 */
 	Storage coefficients;
 };
 

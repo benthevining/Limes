@@ -19,27 +19,43 @@
 #include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
 #include <limes_namespace.h>
 
+/** @file
+	This file defines the WhiteNoiseGenerator class.
+	@ingroup samplestreams
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace dsp
 {
 
+/** A class that produces white noise.
+	@see math::Random
+	@ingroup samplestreams
+ */
 template <Sample SampleType>
 struct LIMES_EXPORT WhiteNoiseGenerator final : public SampleStream<SampleType>
 {
 public:
 
+	/** @name Constructors */
+	///@{
+	/** Constructs a white noise generator with a random seed. */
 	WhiteNoiseGenerator();
 
+	/** Constructs a white noise generator with an explicit seed. */
 	explicit WhiteNoiseGenerator (int64_t randomSeed);
 
+	/** Constructs a white noise generator with a seed initialized by forking the given Random object. */
 	explicit WhiteNoiseGenerator (math::Random& randomToFork);
+	///@}
 
 	LIMES_DEFAULT_MOVABLE (WhiteNoiseGenerator);
 	LIMES_DEFAULT_COPYABLE (WhiteNoiseGenerator);
 
 private:
 
+	/** Returns the next white noise sample. */
 	[[nodiscard]] SampleType getNextSampleValue() noexcept;
 
 	math::Random random;
