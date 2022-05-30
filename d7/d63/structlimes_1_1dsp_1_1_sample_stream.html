@@ -129,12 +129,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a93eb1b866027c610d3d29b49adbd1a3c"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html#a93eb1b866027c610d3d29b49adbd1a3c">getSample</a> () const</td></tr>
 <tr class="memdesc:a93eb1b866027c610d3d29b49adbd1a3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next output sample from the stream.  <a href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html#a93eb1b866027c610d3d29b49adbd1a3c">More...</a><br /></td></tr>
 <tr class="separator:a93eb1b866027c610d3d29b49adbd1a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a789a074b5645ad9c7bec1d9acf4e8795"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html#a789a074b5645ad9c7bec1d9acf4e8795">getSamples</a> (SampleType *output, int numSamples) const</td></tr>
-<tr class="memdesc:a789a074b5645ad9c7bec1d9acf4e8795"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a stream of samples.  <a href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html#a789a074b5645ad9c7bec1d9acf4e8795">More...</a><br /></td></tr>
-<tr class="separator:a789a074b5645ad9c7bec1d9acf4e8795"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec53b83b3d8893f57e6355866e4d75ae"><td class="memItemLeft" align="right" valign="top"><a id="aec53b83b3d8893f57e6355866e4d75ae"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getSamples</b> (<a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a> &amp;output)</td></tr>
-<tr class="separator:aec53b83b3d8893f57e6355866e4d75ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94095bca6e0a30446f71348e8063788c"><td class="memItemLeft" align="right" valign="top"><a id="a94095bca6e0a30446f71348e8063788c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>LIMES_DEFAULT_COPYABLE</b> (<a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html">SampleStream</a>)</td></tr>
 <tr class="separator:a94095bca6e0a30446f71348e8063788c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,7 +146,7 @@ struct limes::dsp::SampleStream&lt; SampleType &gt;</h3>
 <p>Base class for any object that can output a stream of audio samples, with no audio or MIDI input. </p>
 <p>The constructor takes a lambda that must produce the next sample value when called with no arguments. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d84/_sample_stream_8h_source.html#l00031">31</a> of file <a class="el" href="../../d5/d84/_sample_stream_8h_source.html">SampleStream.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d84/_sample_stream_8h_source.html#l00047">47</a> of file <a class="el" href="../../d5/d84/_sample_stream_8h_source.html">SampleStream.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a43ef2ff3e941bcf7ce6b27b5d4a213ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a43ef2ff3e941bcf7ce6b27b5d4a213ba">&#9670;&nbsp;</a></span>SampleStream()</h2>
@@ -236,7 +230,7 @@ template&lt;Sample SampleType&gt; </div>
 </div>
 </div>
 <a id="a789a074b5645ad9c7bec1d9acf4e8795"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a789a074b5645ad9c7bec1d9acf4e8795">&#9670;&nbsp;</a></span>getSamples()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a789a074b5645ad9c7bec1d9acf4e8795">&#9670;&nbsp;</a></span>getSamples() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,6 +253,28 @@ template&lt;Sample SampleType&gt; </div>
           <td></td>
           <td>)</td>
           <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a stream of samples. </p>
+
+</div>
+</div>
+<a id="aec53b83b3d8893f57e6355866e4d75ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec53b83b3d8893f57e6355866e4d75ae">&#9670;&nbsp;</a></span>getSamples() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Sample SampleType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html">limes::dsp::SampleStream</a>&lt; SampleType &gt;::getSamples </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>output</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -298,7 +314,7 @@ template&lt;Sample SampleType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d00/namespacelimes_1_1dsp.html">dsp</a></li><li class="navelem"><a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html">SampleStream</a></li>
-    <li class="footer">Generated on Mon May 30 2022 14:39:44 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 18:46:37 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

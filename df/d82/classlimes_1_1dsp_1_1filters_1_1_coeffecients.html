@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('df/d82/classlimes_1_1dsp_1_1filters_1_
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="../../d1/d29/classlimes_1_1dsp_1_1filters_1_1_coeffecients-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">limes::dsp::filters::Coeffecients&lt; Sampletype &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
+<div class="title">limes::dsp::filters::Coeffecients&lt; Sampletype &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../d0/d7b/group__limes__audio.html">limes_audio</a> &raquo; <a class="el" href="../../dc/d4e/group__dsp__filters.html">Filters</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -116,6 +116,7 @@ $(document).ready(function(){initNavTree('df/d82/classlimes_1_1dsp_1_1filters_1_
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html">Storage</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple wrapper around a vector, to be used to hold the actual filter coeffecients.  <a href="../../d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -123,50 +124,56 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af0cd78a91266dfcb51f922904a693627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#af0cd78a91266dfcb51f922904a693627">getFilterOrder</a> () const noexcept</td></tr>
 <tr class="memdesc:af0cd78a91266dfcb51f922904a693627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the filter order associated with the coefficients.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#af0cd78a91266dfcb51f922904a693627">More...</a><br /></td></tr>
 <tr class="separator:af0cd78a91266dfcb51f922904a693627"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0eb02531373ef486d27eeb51d36369f"><td class="memItemLeft" align="right" valign="top"><a id="aa0eb02531373ef486d27eeb51d36369f"></a>
-const Sampletype *&#160;</td><td class="memItemRight" valign="bottom"><b>getRawCoefficients</b> () const noexcept</td></tr>
-<tr class="separator:aa0eb02531373ef486d27eeb51d36369f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">First-order filter creation</div></td></tr>
+<tr class="memitem:a27651d2912a78297830abe274d34a344"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a27651d2912a78297830abe274d34a344">makeFirstOrderLowPass</a> (double sampleRate, Sampletype frequency) noexcept</td></tr>
+<tr class="memdesc:a27651d2912a78297830abe274d34a344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a first order low pass filter.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a27651d2912a78297830abe274d34a344">More...</a><br /></td></tr>
+<tr class="separator:a27651d2912a78297830abe274d34a344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a024e5cbfd05ddd52a6c23525650706a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a024e5cbfd05ddd52a6c23525650706a3">makeFirstOrderHighPass</a> (double sampleRate, Sampletype frequency) noexcept</td></tr>
+<tr class="memdesc:a024e5cbfd05ddd52a6c23525650706a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a first order high pass filter.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a024e5cbfd05ddd52a6c23525650706a3">More...</a><br /></td></tr>
+<tr class="separator:a024e5cbfd05ddd52a6c23525650706a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cabf3218498433f43788f303edb6a3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a5cabf3218498433f43788f303edb6a3d">makeFirstOrderAllPass</a> (double sampleRate, Sampletype frequency) noexcept</td></tr>
+<tr class="memdesc:a5cabf3218498433f43788f303edb6a3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a first order all-pass filter.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a5cabf3218498433f43788f303edb6a3d">More...</a><br /></td></tr>
+<tr class="separator:a5cabf3218498433f43788f303edb6a3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Filter creation with variable Q</div></td></tr>
+<tr class="memitem:ae32d6e8d7b9460790e6e44234c32a4e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#ae32d6e8d7b9460790e6e44234c32a4e6">makeLowPass</a> (double sampleRate, Sampletype frequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;) noexcept</td></tr>
+<tr class="memdesc:ae32d6e8d7b9460790e6e44234c32a4e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a low pass filter, with variable Q.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#ae32d6e8d7b9460790e6e44234c32a4e6">More...</a><br /></td></tr>
+<tr class="separator:ae32d6e8d7b9460790e6e44234c32a4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6366cf30ba36b19510443bdbb7a509b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a6366cf30ba36b19510443bdbb7a509b6">makeHighPass</a> (double sampleRate, Sampletype frequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;) noexcept</td></tr>
+<tr class="memdesc:a6366cf30ba36b19510443bdbb7a509b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a high pass filter, with variable Q.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a6366cf30ba36b19510443bdbb7a509b6">More...</a><br /></td></tr>
+<tr class="separator:a6366cf30ba36b19510443bdbb7a509b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08af32d3a59efee7ea73f8bda5313d10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a08af32d3a59efee7ea73f8bda5313d10">makeBandPass</a> (double sampleRate, Sampletype frequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;) noexcept</td></tr>
+<tr class="memdesc:a08af32d3a59efee7ea73f8bda5313d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a band pass filter, with variable Q.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a08af32d3a59efee7ea73f8bda5313d10">More...</a><br /></td></tr>
+<tr class="separator:a08af32d3a59efee7ea73f8bda5313d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7e356ea2d67172e6d40f42f058962db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#af7e356ea2d67172e6d40f42f058962db">makeNotch</a> (double sampleRate, Sampletype frequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;) noexcept</td></tr>
+<tr class="memdesc:af7e356ea2d67172e6d40f42f058962db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a notch filter, with variable Q.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#af7e356ea2d67172e6d40f42f058962db">More...</a><br /></td></tr>
+<tr class="separator:af7e356ea2d67172e6d40f42f058962db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2811ba1407655a88a176538ed892123d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a2811ba1407655a88a176538ed892123d">makeAllPass</a> (double sampleRate, Sampletype frequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;) noexcept</td></tr>
+<tr class="memdesc:a2811ba1407655a88a176538ed892123d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for an all-pass filter, with variable Q.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a2811ba1407655a88a176538ed892123d">More...</a><br /></td></tr>
+<tr class="separator:a2811ba1407655a88a176538ed892123d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Filter creation with variable Q and gain</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>The gain is a scale factor that the low frequencies are multiplied by, so values greater than 1.0 will boost the low frequencies, values less than 1.0 will attenuate them. </p>
+</div></td></tr>
+<tr class="memitem:aab4f06950878f9cd757a4fe5fceba10e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#aab4f06950878f9cd757a4fe5fceba10e">makeLowShelf</a> (double sampleRate, Sampletype cutOffFrequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;, Sampletype gainFactor=Sampletype(1.)) noexcept</td></tr>
+<tr class="memdesc:aab4f06950878f9cd757a4fe5fceba10e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a low-pass shelf filter with variable Q and gain.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#aab4f06950878f9cd757a4fe5fceba10e">More...</a><br /></td></tr>
+<tr class="separator:aab4f06950878f9cd757a4fe5fceba10e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed56b5bd021fd7f9ee620d5c1b6703c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#aed56b5bd021fd7f9ee620d5c1b6703c7">makeHighShelf</a> (double sampleRate, Sampletype cutOffFrequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;, Sampletype gainFactor=Sampletype(1.)) noexcept</td></tr>
+<tr class="memdesc:aed56b5bd021fd7f9ee620d5c1b6703c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a high-pass shelf filter with variable Q and gain.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#aed56b5bd021fd7f9ee620d5c1b6703c7">More...</a><br /></td></tr>
+<tr class="separator:aed56b5bd021fd7f9ee620d5c1b6703c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d3607f27afe32281fce12bc78742322"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a8d3607f27afe32281fce12bc78742322">makePeakFilter</a> (double sampleRate, Sampletype centreFrequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;, Sampletype gainFactor=Sampletype(1.)) noexcept</td></tr>
+<tr class="memdesc:a8d3607f27afe32281fce12bc78742322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a peak filter centred around a given frequency, with a variable Q and gain.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a8d3607f27afe32281fce12bc78742322">More...</a><br /></td></tr>
+<tr class="separator:a8d3607f27afe32281fce12bc78742322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Raw coefficient access</div></td></tr>
 <tr class="memitem:ad11f91a2d90c8abd8d941415d7029956"><td class="memItemLeft" align="right" valign="top">Sampletype *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#ad11f91a2d90c8abd8d941415d7029956">getRawCoefficients</a> () noexcept</td></tr>
 <tr class="memdesc:ad11f91a2d90c8abd8d941415d7029956"><td class="mdescLeft">&#160;</td><td class="mdescRight">The raw coefficients.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#ad11f91a2d90c8abd8d941415d7029956">More...</a><br /></td></tr>
 <tr class="separator:ad11f91a2d90c8abd8d941415d7029956"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4aa7a30040d173c42e404450e74403a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a4aa7a30040d173c42e404450e74403a3">makeAllPass</a> (double sampleRate, Sampletype frequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;)</td></tr>
-<tr class="memdesc:a4aa7a30040d173c42e404450e74403a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for an all-pass filter, with variable Q.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a4aa7a30040d173c42e404450e74403a3">More...</a><br /></td></tr>
-<tr class="separator:a4aa7a30040d173c42e404450e74403a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d361dd8f8d4e3ff1b1799de35e8758c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a2d361dd8f8d4e3ff1b1799de35e8758c">makeBandPass</a> (double sampleRate, Sampletype frequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;)</td></tr>
-<tr class="memdesc:a2d361dd8f8d4e3ff1b1799de35e8758c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a band pass filter, with variable Q.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a2d361dd8f8d4e3ff1b1799de35e8758c">More...</a><br /></td></tr>
-<tr class="separator:a2d361dd8f8d4e3ff1b1799de35e8758c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d95033233e387c5f4eef696e747c31a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a5d95033233e387c5f4eef696e747c31a">makeFirstOrderAllPass</a> (double sampleRate, Sampletype frequency)</td></tr>
-<tr class="memdesc:a5d95033233e387c5f4eef696e747c31a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a first order all-pass filter.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a5d95033233e387c5f4eef696e747c31a">More...</a><br /></td></tr>
-<tr class="separator:a5d95033233e387c5f4eef696e747c31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa13eb2de4ee5819d21a1fcc98adc18ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#aa13eb2de4ee5819d21a1fcc98adc18ea">makeFirstOrderHighPass</a> (double sampleRate, Sampletype frequency)</td></tr>
-<tr class="memdesc:aa13eb2de4ee5819d21a1fcc98adc18ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a first order high pass filter.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#aa13eb2de4ee5819d21a1fcc98adc18ea">More...</a><br /></td></tr>
-<tr class="separator:aa13eb2de4ee5819d21a1fcc98adc18ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2884e096e5565326e96f46497ff01eac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a2884e096e5565326e96f46497ff01eac">makeFirstOrderLowPass</a> (double sampleRate, Sampletype frequency)</td></tr>
-<tr class="memdesc:a2884e096e5565326e96f46497ff01eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a first order low pass filter.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a2884e096e5565326e96f46497ff01eac">More...</a><br /></td></tr>
-<tr class="separator:a2884e096e5565326e96f46497ff01eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58f957adbb8a70e982c6f2f733e14e08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a58f957adbb8a70e982c6f2f733e14e08">makeHighPass</a> (double sampleRate, Sampletype frequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;)</td></tr>
-<tr class="memdesc:a58f957adbb8a70e982c6f2f733e14e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a high pass filter, with variable Q.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a58f957adbb8a70e982c6f2f733e14e08">More...</a><br /></td></tr>
-<tr class="separator:a58f957adbb8a70e982c6f2f733e14e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac465beda6052a585ab5a9da2ef576ee4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#ac465beda6052a585ab5a9da2ef576ee4">makeHighShelf</a> (double sampleRate, Sampletype cutOffFrequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;, Sampletype gainFactor=Sampletype(1.))</td></tr>
-<tr class="memdesc:ac465beda6052a585ab5a9da2ef576ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a high-pass shelf filter with variable Q and gain.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#ac465beda6052a585ab5a9da2ef576ee4">More...</a><br /></td></tr>
-<tr class="separator:ac465beda6052a585ab5a9da2ef576ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03f5b0d4ca70a7344c1c25bfd9d94f13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a03f5b0d4ca70a7344c1c25bfd9d94f13">makeLowPass</a> (double sampleRate, Sampletype frequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;)</td></tr>
-<tr class="memdesc:a03f5b0d4ca70a7344c1c25bfd9d94f13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a low pass filter, with variable Q.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a03f5b0d4ca70a7344c1c25bfd9d94f13">More...</a><br /></td></tr>
-<tr class="separator:a03f5b0d4ca70a7344c1c25bfd9d94f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a49e71c98a1eca9d84730e19e2cc24a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a9a49e71c98a1eca9d84730e19e2cc24a">makeLowShelf</a> (double sampleRate, Sampletype cutOffFrequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;, Sampletype gainFactor=Sampletype(1.))</td></tr>
-<tr class="memdesc:a9a49e71c98a1eca9d84730e19e2cc24a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a low-pass shelf filter with variable Q and gain.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a9a49e71c98a1eca9d84730e19e2cc24a">More...</a><br /></td></tr>
-<tr class="separator:a9a49e71c98a1eca9d84730e19e2cc24a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25b3cba128f09dde64f4e42a6c8f0e04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a25b3cba128f09dde64f4e42a6c8f0e04">makeNotch</a> (double sampleRate, Sampletype frequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;)</td></tr>
-<tr class="memdesc:a25b3cba128f09dde64f4e42a6c8f0e04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a notch filter, with variable Q.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a25b3cba128f09dde64f4e42a6c8f0e04">More...</a><br /></td></tr>
-<tr class="separator:a25b3cba128f09dde64f4e42a6c8f0e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab77e0cd2d75dbf990f12340b2e2bbfc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#ab77e0cd2d75dbf990f12340b2e2bbfc5">makePeakFilter</a> (double sampleRate, Sampletype centreFrequency, Sampletype Q=<a class="el" href="../../d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2">inverseRootTwo</a>&lt; Sampletype &gt;, Sampletype gainFactor=Sampletype(1.))</td></tr>
-<tr class="memdesc:ab77e0cd2d75dbf990f12340b2e2bbfc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the coefficients for a peak filter centred around a given frequency, with a variable Q and gain.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#ab77e0cd2d75dbf990f12340b2e2bbfc5">More...</a><br /></td></tr>
-<tr class="separator:ab77e0cd2d75dbf990f12340b2e2bbfc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0eb02531373ef486d27eeb51d36369f"><td class="memItemLeft" align="right" valign="top">const Sampletype *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#aa0eb02531373ef486d27eeb51d36369f">getRawCoefficients</a> () const noexcept</td></tr>
+<tr class="memdesc:aa0eb02531373ef486d27eeb51d36369f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The raw coefficients.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#aa0eb02531373ef486d27eeb51d36369f">More...</a><br /></td></tr>
+<tr class="separator:aa0eb02531373ef486d27eeb51d36369f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aeb239f56b7da16795c7ddb2e963e624c"><td class="memItemLeft" align="right" valign="top"><a id="aeb239f56b7da16795c7ddb2e963e624c"></a>
-<a class="el" href="../../d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html">Storage</a>&#160;</td><td class="memItemRight" valign="bottom"><b>coefficients</b></td></tr>
+<tr class="memitem:aeb239f56b7da16795c7ddb2e963e624c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html">Storage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#aeb239f56b7da16795c7ddb2e963e624c">coefficients</a></td></tr>
+<tr class="memdesc:aeb239f56b7da16795c7ddb2e963e624c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The raw coefficients.  <a href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#aeb239f56b7da16795c7ddb2e963e624c">More...</a><br /></td></tr>
 <tr class="separator:aeb239f56b7da16795c7ddb2e963e624c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -176,7 +183,7 @@ class limes::dsp::filters::Coeffecients&lt; Sampletype &gt;</h3>
 <p>A filter coefficients class, with lots of methods for creating various filter topologies. </p>
 <p>This class is designed so that coefficients can be recreated and reassigned during realtime playback; no allocations should occur. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d56/_coeffecients_8h_source.html#l00029">29</a> of file <a class="el" href="../../d7/d56/_coeffecients_8h_source.html">Coeffecients.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d56/_coeffecients_8h_source.html#l00048">48</a> of file <a class="el" href="../../d7/d56/_coeffecients_8h_source.html">Coeffecients.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af0cd78a91266dfcb51f922904a693627"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af0cd78a91266dfcb51f922904a693627">&#9670;&nbsp;</a></span>getFilterOrder()</h2>
@@ -207,8 +214,38 @@ template&lt;Sample Sampletype&gt; </div>
 
 </div>
 </div>
+<a id="aa0eb02531373ef486d27eeb51d36369f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0eb02531373ef486d27eeb51d36369f">&#9670;&nbsp;</a></span>getRawCoefficients() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Sample Sampletype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Sampletype* <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::getRawCoefficients </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The raw coefficients. </p>
+<dl class="section warning"><dt>Warning</dt><dd>You should leave these numbers alone unless you really know what you're doing. </dd></dl>
+
+</div>
+</div>
 <a id="ad11f91a2d90c8abd8d941415d7029956"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad11f91a2d90c8abd8d941415d7029956">&#9670;&nbsp;</a></span>getRawCoefficients()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad11f91a2d90c8abd8d941415d7029956">&#9670;&nbsp;</a></span>getRawCoefficients() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,17 +270,20 @@ template&lt;Sample Sampletype&gt; </div>
 </div><div class="memdoc">
 
 <p>The raw coefficients. </p>
-<p>You should leave these numbers alone unless you really know what you're doing. </p>
+<dl class="section warning"><dt>Warning</dt><dd>You should leave these numbers alone unless you really know what you're doing. </dd></dl>
 
 </div>
 </div>
-<a id="a4aa7a30040d173c42e404450e74403a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4aa7a30040d173c42e404450e74403a3">&#9670;&nbsp;</a></span>makeAllPass()</h2>
+<a id="a2811ba1407655a88a176538ed892123d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2811ba1407655a88a176538ed892123d">&#9670;&nbsp;</a></span>makeAllPass()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Sample Sampletype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::makeAllPass </td>
@@ -269,19 +309,27 @@ template&lt;Sample Sampletype&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates the coefficients for an all-pass filter, with variable Q. </p>
 
 </div>
 </div>
-<a id="a2d361dd8f8d4e3ff1b1799de35e8758c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d361dd8f8d4e3ff1b1799de35e8758c">&#9670;&nbsp;</a></span>makeBandPass()</h2>
+<a id="a08af32d3a59efee7ea73f8bda5313d10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08af32d3a59efee7ea73f8bda5313d10">&#9670;&nbsp;</a></span>makeBandPass()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Sample Sampletype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::makeBandPass </td>
@@ -307,19 +355,27 @@ template&lt;Sample Sampletype&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates the coefficients for a band pass filter, with variable Q. </p>
 
 </div>
 </div>
-<a id="a5d95033233e387c5f4eef696e747c31a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d95033233e387c5f4eef696e747c31a">&#9670;&nbsp;</a></span>makeFirstOrderAllPass()</h2>
+<a id="a5cabf3218498433f43788f303edb6a3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cabf3218498433f43788f303edb6a3d">&#9670;&nbsp;</a></span>makeFirstOrderAllPass()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Sample Sampletype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::makeFirstOrderAllPass </td>
@@ -339,19 +395,27 @@ template&lt;Sample Sampletype&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates the coefficients for a first order all-pass filter. </p>
 
 </div>
 </div>
-<a id="aa13eb2de4ee5819d21a1fcc98adc18ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa13eb2de4ee5819d21a1fcc98adc18ea">&#9670;&nbsp;</a></span>makeFirstOrderHighPass()</h2>
+<a id="a024e5cbfd05ddd52a6c23525650706a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a024e5cbfd05ddd52a6c23525650706a3">&#9670;&nbsp;</a></span>makeFirstOrderHighPass()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Sample Sampletype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::makeFirstOrderHighPass </td>
@@ -371,19 +435,27 @@ template&lt;Sample Sampletype&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates the coefficients for a first order high pass filter. </p>
 
 </div>
 </div>
-<a id="a2884e096e5565326e96f46497ff01eac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2884e096e5565326e96f46497ff01eac">&#9670;&nbsp;</a></span>makeFirstOrderLowPass()</h2>
+<a id="a27651d2912a78297830abe274d34a344"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27651d2912a78297830abe274d34a344">&#9670;&nbsp;</a></span>makeFirstOrderLowPass()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Sample Sampletype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::makeFirstOrderLowPass </td>
@@ -403,19 +475,27 @@ template&lt;Sample Sampletype&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates the coefficients for a first order low pass filter. </p>
 
 </div>
 </div>
-<a id="a58f957adbb8a70e982c6f2f733e14e08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58f957adbb8a70e982c6f2f733e14e08">&#9670;&nbsp;</a></span>makeHighPass()</h2>
+<a id="a6366cf30ba36b19510443bdbb7a509b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6366cf30ba36b19510443bdbb7a509b6">&#9670;&nbsp;</a></span>makeHighPass()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Sample Sampletype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::makeHighPass </td>
@@ -441,19 +521,27 @@ template&lt;Sample Sampletype&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates the coefficients for a high pass filter, with variable Q. </p>
 
 </div>
 </div>
-<a id="ac465beda6052a585ab5a9da2ef576ee4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac465beda6052a585ab5a9da2ef576ee4">&#9670;&nbsp;</a></span>makeHighShelf()</h2>
+<a id="aed56b5bd021fd7f9ee620d5c1b6703c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed56b5bd021fd7f9ee620d5c1b6703c7">&#9670;&nbsp;</a></span>makeHighShelf()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Sample Sampletype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::makeHighShelf </td>
@@ -485,20 +573,27 @@ template&lt;Sample Sampletype&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates the coefficients for a high-pass shelf filter with variable Q and gain. </p>
-<p>The gain is a scale factor that the high frequencies are multiplied by, so values greater than 1.0 will boost the high frequencies, values less than 1.0 will attenuate them. </p>
 
 </div>
 </div>
-<a id="a03f5b0d4ca70a7344c1c25bfd9d94f13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03f5b0d4ca70a7344c1c25bfd9d94f13">&#9670;&nbsp;</a></span>makeLowPass()</h2>
+<a id="ae32d6e8d7b9460790e6e44234c32a4e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae32d6e8d7b9460790e6e44234c32a4e6">&#9670;&nbsp;</a></span>makeLowPass()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Sample Sampletype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::makeLowPass </td>
@@ -524,19 +619,27 @@ template&lt;Sample Sampletype&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates the coefficients for a low pass filter, with variable Q. </p>
 
 </div>
 </div>
-<a id="a9a49e71c98a1eca9d84730e19e2cc24a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a49e71c98a1eca9d84730e19e2cc24a">&#9670;&nbsp;</a></span>makeLowShelf()</h2>
+<a id="aab4f06950878f9cd757a4fe5fceba10e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab4f06950878f9cd757a4fe5fceba10e">&#9670;&nbsp;</a></span>makeLowShelf()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Sample Sampletype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::makeLowShelf </td>
@@ -568,20 +671,27 @@ template&lt;Sample Sampletype&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates the coefficients for a low-pass shelf filter with variable Q and gain. </p>
-<p>The gain is a scale factor that the low frequencies are multiplied by, so values greater than 1.0 will boost the low frequencies, values less than 1.0 will attenuate them. </p>
 
 </div>
 </div>
-<a id="a25b3cba128f09dde64f4e42a6c8f0e04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25b3cba128f09dde64f4e42a6c8f0e04">&#9670;&nbsp;</a></span>makeNotch()</h2>
+<a id="af7e356ea2d67172e6d40f42f058962db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7e356ea2d67172e6d40f42f058962db">&#9670;&nbsp;</a></span>makeNotch()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Sample Sampletype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::makeNotch </td>
@@ -607,19 +717,27 @@ template&lt;Sample Sampletype&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates the coefficients for a notch filter, with variable Q. </p>
 
 </div>
 </div>
-<a id="ab77e0cd2d75dbf990f12340b2e2bbfc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab77e0cd2d75dbf990f12340b2e2bbfc5">&#9670;&nbsp;</a></span>makePeakFilter()</h2>
+<a id="a8d3607f27afe32281fce12bc78742322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d3607f27afe32281fce12bc78742322">&#9670;&nbsp;</a></span>makePeakFilter()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Sample Sampletype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::makePeakFilter </td>
@@ -651,10 +769,36 @@ template&lt;Sample Sampletype&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Creates the coefficients for a peak filter centred around a given frequency, with a variable Q and gain. </p>
-<p>The gain is a scale factor that the centre frequencies are multiplied by, so values greater than 1.0 will boost the centre frequencies, values less than 1.0 will attenuate them. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aeb239f56b7da16795c7ddb2e963e624c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb239f56b7da16795c7ddb2e963e624c">&#9670;&nbsp;</a></span>coefficients</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Sample Sampletype&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html">Storage</a> <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::coefficients</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The raw coefficients. </p>
+<dl class="section warning"><dt>Warning</dt><dd>You should leave these numbers alone unless you really know what you're doing. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d56/_coeffecients_8h_source.html#l00140">140</a> of file <a class="el" href="../../d7/d56/_coeffecients_8h_source.html">Coeffecients.h</a>.</p>
 
 </div>
 </div>
@@ -666,8 +810,8 @@ template&lt;Sample Sampletype&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d00/namespacelimes_1_1dsp.html">dsp</a></li><li class="navelem"><b>filters</b></li><li class="navelem"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">Coeffecients</a></li>
-    <li class="footer">Generated on Mon May 30 2022 14:39:44 for Limes by
+    <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d00/namespacelimes_1_1dsp.html">dsp</a></li><li class="navelem"><a class="el" href="../../d8/de5/namespacelimes_1_1dsp_1_1filters.html">filters</a></li><li class="navelem"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">Coeffecients</a></li>
+    <li class="footer">Generated on Mon May 30 2022 18:46:37 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

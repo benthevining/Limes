@@ -94,6 +94,7 @@ $(document).ready(function(){initNavTree('d0/d7b/group__limes__audio.html','../.
 <a href="#groups">Modules</a> &#124;
 <a href="#dirs">Directories</a> &#124;
 <a href="#files">Files</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">limes_audio<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a></div></div>  </div>
@@ -105,8 +106,14 @@ $(document).ready(function(){initNavTree('d0/d7b/group__limes__audio.html','../.
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
 Modules</h2></td></tr>
+<tr class="memitem:dc/d4e/group__dsp__filters"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d4e/group__dsp__filters.html">Filters</a></td></tr>
+<tr class="memdesc:dc/d4e/group__dsp__filters"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classes for filtering realtime audio signals. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d2/d79/group__psola"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/group__psola.html">PSOLA</a></td></tr>
 <tr class="memdesc:d2/d79/group__psola"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for working with PSOLA-like algorithms. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d5/db5/group__samplestreams"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db5/group__samplestreams.html">Streams</a></td></tr>
+<tr class="memdesc:d5/db5/group__samplestreams"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classes that can produce a continuous stream of output samples with no input. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="dirs"></a>
@@ -122,6 +129,17 @@ Files</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d1/df0/limes__audio_2util_2_misc_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/df0/limes__audio_2util_2_misc_8h.html">limes_audio/util/Misc.h</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d5/d33/_mono_stereo_converter_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d33/_mono_stereo_converter_8h.html">MonoStereoConverter.h</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gab22891c08ff38fff51e3eebded597949"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d7b/group__limes__audio.html#gab22891c08ff38fff51e3eebded597949">limes::dsp::StereoReductionMode</a> { <a class="el" href="../../d0/d7b/group__limes__audio.html#ggab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182">limes::dsp::StereoReductionMode::leftOnly</a>, 
+<a class="el" href="../../d0/d7b/group__limes__audio.html#ggab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d">limes::dsp::StereoReductionMode::rightOnly</a>, 
+<a class="el" href="../../d0/d7b/group__limes__audio.html#ggab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22">limes::dsp::StereoReductionMode::mixToMono</a>
+ }</td></tr>
+<tr class="memdesc:gab22891c08ff38fff51e3eebded597949"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enum used to describe how a MonoStereoConverter will convert stereo signals to mono.  <a href="../../d0/d7b/group__limes__audio.html#gab22891c08ff38fff51e3eebded597949">More...</a><br /></td></tr>
+<tr class="separator:gab22891c08ff38fff51e3eebded597949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -139,6 +157,44 @@ Variables</h2></td></tr>
 <p>All classes and functions in this module are accessible after linking to the <code>limes_audio</code> library and including <a class="el" href="../../d6/d15/limes__audio_8h.html">limes_audio.h</a>.</p>
 <p>This library provides classes for processing and analysis of realtime audio signals.</p>
 <p>Dependencies: limes_data_structures </p>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="gab22891c08ff38fff51e3eebded597949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab22891c08ff38fff51e3eebded597949">&#9670;&nbsp;</a></span>StereoReductionMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="../../d0/d7b/group__limes__audio.html#gab22891c08ff38fff51e3eebded597949">limes::dsp::StereoReductionMode</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../d5/d33/_mono_stereo_converter_8h.html">MonoStereoConverter.h</a>&gt;</code></p>
+
+<p>An enum used to describe how a <a class="el" href="../../d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html" title="A utility class for converting mono signals to stereo, or stereo signals to mono.">MonoStereoConverter</a> will convert stereo signals to mono. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html" title="A utility class for converting mono signals to stereo, or stereo signals to mono.">MonoStereoConverter</a> </dd></dl>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182"></a>leftOnly&#160;</td><td class="fielddoc"><p>In this mode, a <a class="el" href="../../d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html" title="A utility class for converting mono signals to stereo, or stereo signals to mono.">MonoStereoConverter</a> will output only the left channel of a stereo signal as its mono reduction. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d"></a>rightOnly&#160;</td><td class="fielddoc"><p>In this mode, a <a class="el" href="../../d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html" title="A utility class for converting mono signals to stereo, or stereo signals to mono.">MonoStereoConverter</a> will output only the right channel of a stereo signal as its mono reduction. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22"></a>mixToMono&#160;</td><td class="fielddoc"><p>In this mode, a <a class="el" href="../../d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html" title="A utility class for converting mono signals to stereo, or stereo signals to mono.">MonoStereoConverter</a> will mix together the two channels of a stereo signal to create its mono reduction. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d33/_mono_stereo_converter_8h_source.html#l00035">35</a> of file <a class="el" href="../../d5/d33/_mono_stereo_converter_8h_source.html">MonoStereoConverter.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="ga381c062c894875fa7da629056ea4d9d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga381c062c894875fa7da629056ea4d9d2">&#9670;&nbsp;</a></span>inverseRootTwo</h2>
@@ -197,7 +253,7 @@ template&lt;typename T &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 14:39:44 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 18:46:37 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

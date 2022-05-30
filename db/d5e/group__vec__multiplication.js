@@ -1,8 +1,8 @@
 var group__vec__multiplication =
 [
-    [ "dotProduct", "db/d5e/group__vec__multiplication.html#ga742b3bf8da890335f5076283ede1bffd", null ],
-    [ "multiply", "db/d5e/group__vec__multiplication.html#ga56926bb051862438c0a0757f48bba1a1", null ],
-    [ "multiply", "db/d5e/group__vec__multiplication.html#ga9e6ffaa500ede915aca99c8093c36f30", null ],
-    [ "multiplyAndCopy", "db/d5e/group__vec__multiplication.html#ga102ba37b1e175c77fcd6c5dd7d536454", null ],
-    [ "multiplyAndCopy", "db/d5e/group__vec__multiplication.html#ga134b25c94db4e3da7185750667f9258a", null ]
+    [ "dotProduct", "db/d5e/group__vec__multiplication.html#gaf0f5c8fe0cea2baa676bdc386a5d0540", null ],
+    [ "multiply", "db/d5e/group__vec__multiplication.html#gaaae47b2eff0299658f34471cd9cd1970", null ],
+    [ "multiply", "db/d5e/group__vec__multiplication.html#ga63864c635a4cae5c20c5a1ae77233edc", null ],
+    [ "multiplyAndCopy", "db/d5e/group__vec__multiplication.html#ga475d2e0141d013e86c051864dff93a94", null ],
+    [ "multiplyAndCopy", "db/d5e/group__vec__multiplication.html#gaf6f1d361d99e4c5c8256861b0c2bb85e", null ]
 ];

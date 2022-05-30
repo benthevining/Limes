@@ -4,6 +4,6 @@ var group__vec__arithmetic =
     [ "Division", "dc/dc8/group__vec__division.html", "dc/dc8/group__vec__division" ],
     [ "Multiplication", "db/d5e/group__vec__multiplication.html", "db/d5e/group__vec__multiplication" ],
     [ "Subtraction", "db/d1b/group__vec__subtraction.html", "db/d1b/group__vec__subtraction" ],
-    [ "recip", "d8/dce/group__vec__arithmetic.html#ga3f666c5959c3a5455307e934bf128e66", null ],
-    [ "recipAndCopy", "d8/dce/group__vec__arithmetic.html#ga429841ddd26f24e59cf5e6a9c81051a0", null ]
+    [ "recip", "d8/dce/group__vec__arithmetic.html#ga9e13bec3651f5fd337ba190bd68d0cd5", null ],
+    [ "recipAndCopy", "d8/dce/group__vec__arithmetic.html#ga9118787b8f725138b24494d4b7c1b9b9", null ]
 ];

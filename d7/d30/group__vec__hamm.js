@@ -1,6 +1,6 @@
 var group__vec__hamm =
 [
-    [ "applyHamm", "d7/d30/group__vec__hamm.html#ga052d8375d4a5e844a27e7abea2e02562", null ],
-    [ "applyHammAndCopy", "d7/d30/group__vec__hamm.html#ga3b90420209afa1e064057d7312d75e6d", null ],
-    [ "generateHamm", "d7/d30/group__vec__hamm.html#ga9a6c812ab585e48574ac46b723f5e9ce", null ]
+    [ "applyHamm", "d7/d30/group__vec__hamm.html#gaa6c221520ae691de3f03b457e14985f3", null ],
+    [ "applyHammAndCopy", "d7/d30/group__vec__hamm.html#gaa2a5bc8396e436023448317b64327c4b", null ],
+    [ "generateHamm", "d7/d30/group__vec__hamm.html#ga77f6ab1f7183e38dc861320603993132", null ]
 ];

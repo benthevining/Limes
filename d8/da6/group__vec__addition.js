@@ -1,7 +1,7 @@
 var group__vec__addition =
 [
-    [ "add", "d8/da6/group__vec__addition.html#ga66ba5c80ed76fa00d4e88f6d4956353e", null ],
-    [ "add", "d8/da6/group__vec__addition.html#gaf27735eef1dc3a62a3d101542f7ff04b", null ],
-    [ "addAndCopy", "d8/da6/group__vec__addition.html#ga1b3fb3713b274169af0afd6b3200df35", null ],
-    [ "addAndCopy", "d8/da6/group__vec__addition.html#ga5a46824e44372ed098c56ee93a9464c8", null ]
+    [ "add", "d8/da6/group__vec__addition.html#ga3a024446ad19d145afb726ebbb5af8c0", null ],
+    [ "add", "d8/da6/group__vec__addition.html#ga667f4f92b16f4b8d06e37f77341d4c61", null ],
+    [ "addAndCopy", "d8/da6/group__vec__addition.html#ga5d09da7900434c5006c6e6a9684205a4", null ],
+    [ "addAndCopy", "d8/da6/group__vec__addition.html#ga1426d96a68724d3c304100b04945cce9", null ]
 ];

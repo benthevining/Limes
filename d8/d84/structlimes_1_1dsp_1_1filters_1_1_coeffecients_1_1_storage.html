@@ -95,9 +95,14 @@ $(document).ready(function(){initNavTree('d8/d84/structlimes_1_1dsp_1_1filters_1
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="../../d4/d17/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">limes::dsp::filters::Coeffecients&lt; Sampletype &gt;::Storage Struct Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
+<div class="title">limes::dsp::filters::Coeffecients&lt; Sampletype &gt;::Storage Struct Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../d0/d7b/group__limes__audio.html">limes_audio</a> &raquo; <a class="el" href="../../dc/d4e/group__dsp__filters.html">Filters</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A simple wrapper around a vector, to be used to hold the actual filter coeffecients.  
+ <a href="../../d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d7/d56/_coeffecients_8h_source.html">Coeffecients.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -113,23 +118,46 @@ const <a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">
 <tr class="memitem:ac50582d5c4b84c99f5476e2f04d5467b"><td class="memItemLeft" align="right" valign="top"><a id="ac50582d5c4b84c99f5476e2f04d5467b"></a>
 <a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">ds::scalar_vector</a>&lt; Sampletype &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>operator-&gt;</b> () noexcept</td></tr>
 <tr class="separator:ac50582d5c4b84c99f5476e2f04d5467b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adabebaa44a0dc93173ab505318d29ee5"><td class="memItemLeft" align="right" valign="top"><a id="adabebaa44a0dc93173ab505318d29ee5"></a>
-<a class="el" href="../../d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html">Storage</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (std::initializer_list&lt; Sampletype &gt; list)</td></tr>
-<tr class="separator:adabebaa44a0dc93173ab505318d29ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3e12313b4fae947fc91d613484da637"><td class="memItemLeft" align="right" valign="top"><a id="af3e12313b4fae947fc91d613484da637"></a>
+<a class="el" href="../../d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html">Storage</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (std::initializer_list&lt; Sampletype &gt; list) noexcept</td></tr>
+<tr class="separator:af3e12313b4fae947fc91d613484da637"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a8d285ef1e09d96ac7d488e6a2cb738f0"><td class="memItemLeft" align="right" valign="top"><a id="a8d285ef1e09d96ac7d488e6a2cb738f0"></a>
-<a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">ds::scalar_vector</a>&lt; Sampletype &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>coefficients</b></td></tr>
+<tr class="memitem:a8d285ef1e09d96ac7d488e6a2cb738f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">ds::scalar_vector</a>&lt; Sampletype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html#a8d285ef1e09d96ac7d488e6a2cb738f0">coefficients</a></td></tr>
+<tr class="memdesc:a8d285ef1e09d96ac7d488e6a2cb738f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The actual storage.  <a href="../../d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html#a8d285ef1e09d96ac7d488e6a2cb738f0">More...</a><br /></td></tr>
 <tr class="separator:a8d285ef1e09d96ac7d488e6a2cb738f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;Sample Sampletype&gt;<br />
 struct limes::dsp::filters::Coeffecients&lt; Sampletype &gt;::Storage</h3>
 
+<p>A simple wrapper around a vector, to be used to hold the actual filter coeffecients. </p>
+<p>This class is designed to be assignable with <code>operator=</code> without allocating. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d56/_coeffecients_8h_source.html#l00094">94</a> of file <a class="el" href="../../d7/d56/_coeffecients_8h_source.html">Coeffecients.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="../../d7/d56/_coeffecients_8h_source.html#l00120">120</a> of file <a class="el" href="../../d7/d56/_coeffecients_8h_source.html">Coeffecients.h</a>.</p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a8d285ef1e09d96ac7d488e6a2cb738f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d285ef1e09d96ac7d488e6a2cb738f0">&#9670;&nbsp;</a></span>coefficients</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Sample Sampletype&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">ds::scalar_vector</a>&lt;Sampletype&gt; <a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">limes::dsp::filters::Coeffecients</a>&lt; Sampletype &gt;::Storage::coefficients</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The actual storage. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d7/d56/_coeffecients_8h_source.html#l00134">134</a> of file <a class="el" href="../../d7/d56/_coeffecients_8h_source.html">Coeffecients.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="../../d7/d56/_coeffecients_8h_source.html">Coeffecients.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -137,8 +165,8 @@ struct limes::dsp::filters::Coeffecients&lt; Sampletype &gt;::Storage</h3>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d00/namespacelimes_1_1dsp.html">dsp</a></li><li class="navelem"><b>filters</b></li><li class="navelem"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">Coeffecients</a></li><li class="navelem"><a class="el" href="../../d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html">Storage</a></li>
-    <li class="footer">Generated on Mon May 30 2022 14:39:44 for Limes by
+    <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d00/namespacelimes_1_1dsp.html">dsp</a></li><li class="navelem"><a class="el" href="../../d8/de5/namespacelimes_1_1dsp_1_1filters.html">filters</a></li><li class="navelem"><a class="el" href="../../df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html">Coeffecients</a></li><li class="navelem"><a class="el" href="../../d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html">Storage</a></li>
+    <li class="footer">Generated on Mon May 30 2022 18:46:37 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

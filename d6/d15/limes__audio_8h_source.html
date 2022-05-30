@@ -111,33 +111,42 @@ $(document).ready(function(){initNavTree('d6/d15/limes__audio_8h_source.html','.
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">// IWYU pragma: begin_exports</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/df0/limes__audio_2util_2_misc_8h.html">util/Misc.h</a>&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/ddf/_pitch_detector_8h.html">util/PitchDetector.h</a>&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;util/MonoStereoConverter.h&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;util/CircularBuffer.h&quot;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;util/PerlinNoise.h&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;streams/SampleStream.h&quot;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;streams/oscillator.h&quot;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;streams/WhiteNoiseGenerator.h&quot;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;oscillators/basic_oscillators.h&quot;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &quot;oscillators/DetunableModel.h&quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#include &quot;filters/Filter.h&quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#include &quot;psola/analyzer.h&quot;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#include &quot;psola/shifter.h&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d33/_mono_stereo_converter_8h.html">util/MonoStereoConverter.h</a>&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;util/CircularBuffer.h&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;util/PerlinNoise.h&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d84/_sample_stream_8h.html">streams/SampleStream.h</a>&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/da4/oscillator_8h.html">streams/oscillator.h</a>&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/db1/_white_noise_generator_8h.html">streams/WhiteNoiseGenerator.h</a>&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/dee/basic__oscillators_8h.html">oscillators/basic_oscillators.h</a>&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/ddb/_detunable_model_8h.html">oscillators/DetunableModel.h</a>&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d2d/_filter_8h.html">filters/Filter.h</a>&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/ddf/_pitch_detector_8h.html">psola/PitchDetector.h</a>&quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d19/analyzer_8h.html">psola/analyzer.h</a>&quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d4f/shifter_8h.html">psola/shifter.h</a>&quot;</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">// IWYU pragma: end_exports</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aanalyzer_8h_html"><div class="ttname"><a href="../../d3/d19/analyzer_8h.html">analyzer.h</a></div></div>
+<div class="ttc" id="aoscillator_8h_html"><div class="ttname"><a href="../../dc/da4/oscillator_8h.html">oscillator.h</a></div></div>
+<div class="ttc" id="a_white_noise_generator_8h_html"><div class="ttname"><a href="../../d6/db1/_white_noise_generator_8h.html">WhiteNoiseGenerator.h</a></div></div>
+<div class="ttc" id="a_sample_stream_8h_html"><div class="ttname"><a href="../../d5/d84/_sample_stream_8h.html">SampleStream.h</a></div></div>
+<div class="ttc" id="a_filter_8h_html"><div class="ttname"><a href="../../da/d2d/_filter_8h.html">Filter.h</a></div></div>
+<div class="ttc" id="abasic__oscillators_8h_html"><div class="ttname"><a href="../../d8/dee/basic__oscillators_8h.html">basic_oscillators.h</a></div></div>
+<div class="ttc" id="a_detunable_model_8h_html"><div class="ttname"><a href="../../d7/ddb/_detunable_model_8h.html">DetunableModel.h</a></div></div>
+<div class="ttc" id="a_mono_stereo_converter_8h_html"><div class="ttname"><a href="../../d5/d33/_mono_stereo_converter_8h.html">MonoStereoConverter.h</a></div></div>
 <div class="ttc" id="a_pitch_detector_8h_html"><div class="ttname"><a href="../../dc/ddf/_pitch_detector_8h.html">PitchDetector.h</a></div></div>
 <div class="ttc" id="alimes__audio_2util_2_misc_8h_html"><div class="ttname"><a href="../../d1/df0/limes__audio_2util_2_misc_8h.html">Misc.h</a></div></div>
+<div class="ttc" id="ashifter_8h_html"><div class="ttname"><a href="../../d7/d4f/shifter_8h.html">shifter.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_a9e7e74a9fa95c9d0d5d9012ba9e5673.html">limes_audio</a></li><li class="navelem"><a class="el" href="../../d6/d15/limes__audio_8h.html">limes_audio.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 14:39:43 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 18:46:36 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

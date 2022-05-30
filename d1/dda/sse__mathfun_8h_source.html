@@ -146,7 +146,7 @@ $(document).ready(function(){initNavTree('d1/dda/sse__mathfun_8h_source.html','.
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">    Note that the bug on _mm_cmp* does occur only at -O0 optimization level</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">inline</span> __m128 my_movehl_ps (__m128 a, <span class="keyword">const</span> __m128 b)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">inline</span> __m128 my_movehl_ps (__m128 a, <span class="keyword">const</span> __m128 b) noexcept</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">asm</span>(</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="stringliteral">&quot;movhlps %2,%0\n\t&quot;</span></div>
@@ -157,7 +157,7 @@ $(document).ready(function(){initNavTree('d1/dda/sse__mathfun_8h_source.html','.
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#   warning &quot;redefined _mm_movehl_ps (see gcc bug 21179)&quot;</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#   define _mm_movehl_ps my_movehl_ps</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">inline</span> __m128 my_cmplt_ps (__m128 a, <span class="keyword">const</span> __m128 b)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">inline</span> __m128 my_cmplt_ps (__m128 a, <span class="keyword">const</span> __m128 b) noexcept</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">asm</span>(</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="stringliteral">&quot;cmpltps %2,%0\n\t&quot;</span></div>
@@ -166,7 +166,7 @@ $(document).ready(function(){initNavTree('d1/dda/sse__mathfun_8h_source.html','.
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> a;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">inline</span> __m128 my_cmpgt_ps (__m128 a, <span class="keyword">const</span> __m128 b)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">inline</span> __m128 my_cmpgt_ps (__m128 a, <span class="keyword">const</span> __m128 b) noexcept</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">asm</span>(</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="stringliteral">&quot;cmpnleps %2,%0\n\t&quot;</span></div>
@@ -175,7 +175,7 @@ $(document).ready(function(){initNavTree('d1/dda/sse__mathfun_8h_source.html','.
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> a;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">inline</span> __m128 my_cmpeq_ps (__m128 a, <span class="keyword">const</span> __m128 b)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">inline</span> __m128 my_cmpeq_ps (__m128 a, <span class="keyword">const</span> __m128 b) noexcept</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;{</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">asm</span>(</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="stringliteral">&quot;cmpeqps %2,%0\n\t&quot;</span></div>
@@ -191,18 +191,18 @@ $(document).ready(function(){initNavTree('d1/dda/sse__mathfun_8h_source.html','.
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __MINGW32__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;v4sf log_ps (v4sf x);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;v4sf log_ps (v4sf x) noexcept;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;v4sf exp_ps (v4sf x);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;v4sf exp_ps (v4sf x) noexcept;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;v4sf sin_ps (v4sf x);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;v4sf sin_ps (v4sf x) noexcept;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;v4sf cos_ps (v4sf x);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;v4sf cos_ps (v4sf x) noexcept;</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keywordtype">void</span> sincos_ps (v4sf x, v4sf* s, v4sf* c);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keywordtype">void</span> sincos_ps (v4sf x, v4sf* s, v4sf* c) noexcept;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}  <span class="comment">// namespace pommier</span></div>
@@ -213,7 +213,7 @@ $(document).ready(function(){initNavTree('d1/dda/sse__mathfun_8h_source.html','.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_fd627f24d7bb4f56aee54e980d5bfd70.html">limes_vecops</a></li><li class="navelem"><a class="el" href="../../dir_01e70249a0706b97da777b004b779f41.html">impl</a></li><li class="navelem"><a class="el" href="../../dir_91ee4a264e77f4d2d806daeee7e52487.html">pommier</a></li><li class="navelem"><a class="el" href="../../d1/dda/sse__mathfun_8h.html">sse_mathfun.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 14:39:43 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 18:46:36 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

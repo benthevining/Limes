@@ -1,17 +1,19 @@
 var group__vec__extrema =
 [
-    [ "max", "d5/d65/group__vec__extrema.html#ga3207a49d4eb5a8f6987e178c5dbd9370", null ],
-    [ "max", "d5/d65/group__vec__extrema.html#gab9b4c8e02bbf434e1a7f7ae69ac0e087", null ],
-    [ "maxAbs", "d5/d65/group__vec__extrema.html#ga7a38c8827814ea1b34db01bab093f7d8", null ],
-    [ "maxAbs", "d5/d65/group__vec__extrema.html#ga337bb51945804cb53069150fc654c369", null ],
-    [ "min", "d5/d65/group__vec__extrema.html#ga8db5010d14385445a322bc713aa91bdc", null ],
-    [ "min", "d5/d65/group__vec__extrema.html#gaa9a753d50b7bde96e9f490c890d6f5c9", null ],
-    [ "minAbs", "d5/d65/group__vec__extrema.html#ga71eaaa0279c952cdba690faab21af70b", null ],
-    [ "minAbs", "d5/d65/group__vec__extrema.html#gad1335ff22597aafeb9ed83e9189106d7", null ],
-    [ "minMax", "d5/d65/group__vec__extrema.html#gacfdcb0cc73e0ae32f3c54f864d917601", null ],
-    [ "minMax", "d5/d65/group__vec__extrema.html#gaff7e9c76aef26d80400ab980d2e03b82", null ],
-    [ "minMaxAbs", "d5/d65/group__vec__extrema.html#ga853b7319809c8d614e7a92e0689e821e", null ],
-    [ "minMaxAbs", "d5/d65/group__vec__extrema.html#gaa16aac01d52b55804c35a1c43c240722", null ],
-    [ "range", "d5/d65/group__vec__extrema.html#gaa141140bec853742916f7095838174f2", null ],
-    [ "rangeAbs", "d5/d65/group__vec__extrema.html#ga4f16ce14de7be970efaa3ca131343cfd", null ]
+    [ "getAbsVectorExtremaInfo", "d5/d65/group__vec__extrema.html#ga1a3cc804d477d233599086f86558aa36", null ],
+    [ "getVectorExtremaInfo", "d5/d65/group__vec__extrema.html#ga379d47a07fa42f3c41f5171758990555", null ],
+    [ "max", "d5/d65/group__vec__extrema.html#ga7e741640b08aaa13c2c37ab0d4c8acd8", null ],
+    [ "max", "d5/d65/group__vec__extrema.html#ga847e933eec75e5853e47865f41e071fe", null ],
+    [ "maxAbs", "d5/d65/group__vec__extrema.html#gaa6df91ebaade90faa4555262c6875d49", null ],
+    [ "maxAbs", "d5/d65/group__vec__extrema.html#gabe7285b7b9b9d46229150ea80bc9ad50", null ],
+    [ "min", "d5/d65/group__vec__extrema.html#ga605ed52218b5ec5df543eed606d0f0d7", null ],
+    [ "min", "d5/d65/group__vec__extrema.html#ga436fbda048b0ff68d5f2e5a9952a5f0f", null ],
+    [ "minAbs", "d5/d65/group__vec__extrema.html#gab5ebd45f2963c36c18dd6d768349275f", null ],
+    [ "minAbs", "d5/d65/group__vec__extrema.html#ga0ce938eaa12c73f120485fa2eb5f7415", null ],
+    [ "minMax", "d5/d65/group__vec__extrema.html#ga219248fe15b7f5b82c6c338641c5a557", null ],
+    [ "minMax", "d5/d65/group__vec__extrema.html#gaa2af652aec26b69e562e4477ae27e81b", null ],
+    [ "minMaxAbs", "d5/d65/group__vec__extrema.html#ga5da07c6b14483410d44bb3fa81b53320", null ],
+    [ "minMaxAbs", "d5/d65/group__vec__extrema.html#ga6f9efb710d0503059914715942101e20", null ],
+    [ "range", "d5/d65/group__vec__extrema.html#ga2723e9d8f177c8389fae159bb075f196", null ],
+    [ "rangeAbs", "d5/d65/group__vec__extrema.html#gaf838401785666d1131bc732e6c320b72", null ]
 ];

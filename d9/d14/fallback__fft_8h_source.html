@@ -129,33 +129,33 @@ $(document).ready(function(){initNavTree('d9/d14/fallback__fft_8h_source.html','
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> forward (<span class="keyword">const</span> SampleType* realIn, SampleType* realOut, SampleType* imagOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> forward (<span class="keyword">const</span> SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> forwardInterleaved (<span class="keyword">const</span> SampleType* realIn, SampleType* complexOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> forwardInterleaved (<span class="keyword">const</span> SampleType* realIn, SampleType* complexOut) noexcept <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> forwardPolar (<span class="keyword">const</span> SampleType* realIn, SampleType* magOut, SampleType* phaseOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> forwardPolar (<span class="keyword">const</span> SampleType* realIn, SampleType* magOut, SampleType* phaseOut) noexcept <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> forwardMagnitude (<span class="keyword">const</span> SampleType* realIn, SampleType* magOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> forwardMagnitude (<span class="keyword">const</span> SampleType* realIn, SampleType* magOut) noexcept <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> inverse (<span class="keyword">const</span> SampleType* realIn, <span class="keyword">const</span> SampleType* imagIn, SampleType* realOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> inverse (<span class="keyword">const</span> SampleType* realIn, <span class="keyword">const</span> SampleType* imagIn, SampleType* realOut) noexcept <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> inverseInterleaved (<span class="keyword">const</span> SampleType* complexIn, SampleType* realOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> inverseInterleaved (<span class="keyword">const</span> SampleType* complexIn, SampleType* realOut) noexcept <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> inversePolar (<span class="keyword">const</span> SampleType* magIn, <span class="keyword">const</span> SampleType* phaseIn, SampleType* realOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> inversePolar (<span class="keyword">const</span> SampleType* magIn, <span class="keyword">const</span> SampleType* phaseIn, SampleType* realOut) noexcept <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> inverseCepstral (<span class="keyword">const</span> SampleType* magIn, SampleType* cepOut) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> inverseCepstral (<span class="keyword">const</span> SampleType* magIn, SampleType* cepOut) noexcept <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// Uses m_a and m_b internally; does not touch m_c or m_d</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> <span class="keywordtype">void</span> transformF (<span class="keyword">const</span> SampleType* ri,</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                        SampleType* ro, SampleType* io);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                        SampleType* ro, SampleType* io) noexcept;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">// Uses m_c and m_d internally; does not touch m_a or m_b</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> <span class="keywordtype">void</span> transformI (<span class="keyword">const</span> SampleType* ri, <span class="keyword">const</span> SampleType* ii,</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                        SampleType* ro);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                        SampleType* ro) noexcept;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> <span class="keywordtype">void</span> transformComplex (<span class="keyword">const</span> SampleType* ri, <span class="keyword">const</span> SampleType* ii,</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                              SampleType* ro, SampleType* io,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                              <span class="keywordtype">bool</span> inverse);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                              <span class="keywordtype">bool</span> inverse) noexcept;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> m_blockTableSize = 16;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> m_maxTabledBlock = 1 &lt;&lt; m_blockTableSize;</div>
@@ -190,7 +190,7 @@ $(document).ready(function(){initNavTree('d9/d14/fallback__fft_8h_source.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_fd627f24d7bb4f56aee54e980d5bfd70.html">limes_vecops</a></li><li class="navelem"><a class="el" href="../../dir_ac9e7747da43d8e5dd5305cf45a38b52.html">fft</a></li><li class="navelem"><a class="el" href="../../d9/d14/fallback__fft_8h.html">fallback_fft.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 14:39:43 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 18:46:36 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

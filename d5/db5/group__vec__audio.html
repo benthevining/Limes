@@ -98,41 +98,44 @@ $(document).ready(function(){initNavTree('d5/db5/group__vec__audio.html','../../
 <p>Audio utility functions for vectors.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="memitem:ga40b324557eef47d1e22ce1fb471ce9ee"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType1, Integral SizeType2&gt; </td></tr>
-<tr class="memitem:ga40b324557eef47d1e22ce1fb471ce9ee"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db5/group__vec__audio.html#ga40b324557eef47d1e22ce1fb471ce9ee">limes::vecops::mix</a> (DataType *const output, const DataType *const *const origData, SizeType1 numChannels, SizeType2 numSamples)</td></tr>
-<tr class="memdesc:ga40b324557eef47d1e22ce1fb471ce9ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mixes together multiple channels of audio into one output vector.  <a href="../../d5/db5/group__vec__audio.html#ga40b324557eef47d1e22ce1fb471ce9ee">More...</a><br /></td></tr>
-<tr class="separator:ga40b324557eef47d1e22ce1fb471ce9ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2a4cee5fed3d9bcb224cf2a25699aa8e"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga2a4cee5fed3d9bcb224cf2a25699aa8e"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db5/group__vec__audio.html#ga2a4cee5fed3d9bcb224cf2a25699aa8e">limes::vecops::rms</a> (const DataType *const data, SizeType size)</td></tr>
-<tr class="memdesc:ga2a4cee5fed3d9bcb224cf2a25699aa8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the RMS value of the vector.  <a href="../../d5/db5/group__vec__audio.html#ga2a4cee5fed3d9bcb224cf2a25699aa8e">More...</a><br /></td></tr>
-<tr class="separator:ga2a4cee5fed3d9bcb224cf2a25699aa8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga73e0c358db62e2c63a24a750e32d43f8"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga73e0c358db62e2c63a24a750e32d43f8"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db5/group__vec__audio.html#ga73e0c358db62e2c63a24a750e32d43f8">limes::vecops::countZeroCrossings</a> (const DataType *const data, SizeType size)</td></tr>
-<tr class="memdesc:ga73e0c358db62e2c63a24a750e32d43f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of zero crossings present in the vector.  <a href="../../d5/db5/group__vec__audio.html#ga73e0c358db62e2c63a24a750e32d43f8">More...</a><br /></td></tr>
-<tr class="separator:ga73e0c358db62e2c63a24a750e32d43f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaac272d40d8af712c634e636ecbd45165"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:gaac272d40d8af712c634e636ecbd45165"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db5/group__vec__audio.html#gaac272d40d8af712c634e636ecbd45165">limes::vecops::generateRamp</a> (DataType *const output, SizeType size, DataType startValue, DataType endValue)</td></tr>
-<tr class="memdesc:gaac272d40d8af712c634e636ecbd45165"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a ramp of samples, starting from <code>startValue</code> and incrementing by a consistent value until <code>endValue</code> is reached.  <a href="../../d5/db5/group__vec__audio.html#gaac272d40d8af712c634e636ecbd45165">More...</a><br /></td></tr>
-<tr class="separator:gaac272d40d8af712c634e636ecbd45165"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadd082208b7129d87962dbccaa91197ff"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:gadd082208b7129d87962dbccaa91197ff"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db5/group__vec__audio.html#gadd082208b7129d87962dbccaa91197ff">limes::vecops::applyRamp</a> (DataType *const dataAndDest, SizeType size, DataType startValue, DataType endValue)</td></tr>
-<tr class="memdesc:gadd082208b7129d87962dbccaa91197ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a gain ramp to the samples in the vector.  <a href="../../d5/db5/group__vec__audio.html#gadd082208b7129d87962dbccaa91197ff">More...</a><br /></td></tr>
-<tr class="separator:gadd082208b7129d87962dbccaa91197ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga15e7252236b09e97d60ee51b7f8c3fd8"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga15e7252236b09e97d60ee51b7f8c3fd8"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db5/group__vec__audio.html#ga15e7252236b09e97d60ee51b7f8c3fd8">limes::vecops::applyRampAndCopy</a> (DataType *const dest, const DataType *const data, SizeType size, DataType startValue, DataType endValue)</td></tr>
-<tr class="memdesc:ga15e7252236b09e97d60ee51b7f8c3fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a gain ramp to the samples in the vector, writing the output samples to another vector.  <a href="../../d5/db5/group__vec__audio.html#ga15e7252236b09e97d60ee51b7f8c3fd8">More...</a><br /></td></tr>
-<tr class="separator:ga15e7252236b09e97d60ee51b7f8c3fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4bbd806aba2959761022a9ec12dd80bd"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType1, Integral SizeType2&gt; </td></tr>
+<tr class="memitem:ga4bbd806aba2959761022a9ec12dd80bd"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db5/group__vec__audio.html#ga4bbd806aba2959761022a9ec12dd80bd">limes::vecops::mix</a> (DataType *const output, const DataType *const *const origData, SizeType1 numChannels, SizeType2 numSamples) noexcept</td></tr>
+<tr class="memdesc:ga4bbd806aba2959761022a9ec12dd80bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mixes together multiple channels of audio into one output vector.  <a href="../../d5/db5/group__vec__audio.html#ga4bbd806aba2959761022a9ec12dd80bd">More...</a><br /></td></tr>
+<tr class="separator:ga4bbd806aba2959761022a9ec12dd80bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5c3ae4cdc62f16c05a5f837ff3d0411b"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga5c3ae4cdc62f16c05a5f837ff3d0411b"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT DataType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db5/group__vec__audio.html#ga5c3ae4cdc62f16c05a5f837ff3d0411b">limes::vecops::rms</a> (const DataType *const data, SizeType size) noexcept</td></tr>
+<tr class="memdesc:ga5c3ae4cdc62f16c05a5f837ff3d0411b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the RMS value of the vector.  <a href="../../d5/db5/group__vec__audio.html#ga5c3ae4cdc62f16c05a5f837ff3d0411b">More...</a><br /></td></tr>
+<tr class="separator:ga5c3ae4cdc62f16c05a5f837ff3d0411b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba849b93dcaac4be3ae9592eb0979d6e"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:gaba849b93dcaac4be3ae9592eb0979d6e"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db5/group__vec__audio.html#gaba849b93dcaac4be3ae9592eb0979d6e">limes::vecops::countZeroCrossings</a> (const DataType *const data, SizeType size) noexcept</td></tr>
+<tr class="memdesc:gaba849b93dcaac4be3ae9592eb0979d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of zero crossings present in the vector.  <a href="../../d5/db5/group__vec__audio.html#gaba849b93dcaac4be3ae9592eb0979d6e">More...</a><br /></td></tr>
+<tr class="separator:gaba849b93dcaac4be3ae9592eb0979d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga08d1fec4ef1c205281ed1c9e0db6700a"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga08d1fec4ef1c205281ed1c9e0db6700a"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db5/group__vec__audio.html#ga08d1fec4ef1c205281ed1c9e0db6700a">limes::vecops::generateRamp</a> (DataType *const output, SizeType size, DataType startValue, DataType endValue) noexcept</td></tr>
+<tr class="memdesc:ga08d1fec4ef1c205281ed1c9e0db6700a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a ramp of samples, starting from <code>startValue</code> and incrementing by a consistent value until <code>endValue</code> is reached.  <a href="../../d5/db5/group__vec__audio.html#ga08d1fec4ef1c205281ed1c9e0db6700a">More...</a><br /></td></tr>
+<tr class="separator:ga08d1fec4ef1c205281ed1c9e0db6700a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7af1a4acd71d9716be5342daffab37a"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:gad7af1a4acd71d9716be5342daffab37a"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db5/group__vec__audio.html#gad7af1a4acd71d9716be5342daffab37a">limes::vecops::applyRamp</a> (DataType *const dataAndDest, SizeType size, DataType startValue, DataType endValue) noexcept</td></tr>
+<tr class="memdesc:gad7af1a4acd71d9716be5342daffab37a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a gain ramp to the samples in the vector.  <a href="../../d5/db5/group__vec__audio.html#gad7af1a4acd71d9716be5342daffab37a">More...</a><br /></td></tr>
+<tr class="separator:gad7af1a4acd71d9716be5342daffab37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga987b8430bbb4870efa4ecab21f68469c"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga987b8430bbb4870efa4ecab21f68469c"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/db5/group__vec__audio.html#ga987b8430bbb4870efa4ecab21f68469c">limes::vecops::applyRampAndCopy</a> (DataType *const dest, const DataType *const data, SizeType size, DataType startValue, DataType endValue) noexcept</td></tr>
+<tr class="memdesc:ga987b8430bbb4870efa4ecab21f68469c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a gain ramp to the samples in the vector, writing the output samples to another vector.  <a href="../../d5/db5/group__vec__audio.html#ga987b8430bbb4870efa4ecab21f68469c">More...</a><br /></td></tr>
+<tr class="separator:ga987b8430bbb4870efa4ecab21f68469c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Audio utility functions for vectors. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gadd082208b7129d87962dbccaa91197ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadd082208b7129d87962dbccaa91197ff">&#9670;&nbsp;</a></span>applyRamp()</h2>
+<a id="gad7af1a4acd71d9716be5342daffab37a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad7af1a4acd71d9716be5342daffab37a">&#9670;&nbsp;</a></span>applyRamp()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Scalar DataType, Integral SizeType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">LIMES_EXPORT void limes::vecops::applyRamp </td>
@@ -164,22 +167,30 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
 
 <p>Applies a gain ramp to the samples in the vector. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/db5/group__vec__audio.html#gaac272d40d8af712c634e636ecbd45165" title="Generates a ramp of samples, starting from startValue and incrementing by a consistent value until en...">generateRamp</a>, <a class="el" href="../../d5/db5/group__vec__audio.html#ga15e7252236b09e97d60ee51b7f8c3fd8" title="Applies a gain ramp to the samples in the vector, writing the output samples to another vector.">applyRampAndCopy</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/db5/group__vec__audio.html#ga08d1fec4ef1c205281ed1c9e0db6700a" title="Generates a ramp of samples, starting from startValue and incrementing by a consistent value until en...">generateRamp</a>, <a class="el" href="../../d5/db5/group__vec__audio.html#ga987b8430bbb4870efa4ecab21f68469c" title="Applies a gain ramp to the samples in the vector, writing the output samples to another vector.">applyRampAndCopy</a> </dd></dl>
 
 </div>
 </div>
-<a id="ga15e7252236b09e97d60ee51b7f8c3fd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga15e7252236b09e97d60ee51b7f8c3fd8">&#9670;&nbsp;</a></span>applyRampAndCopy()</h2>
+<a id="ga987b8430bbb4870efa4ecab21f68469c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga987b8430bbb4870efa4ecab21f68469c">&#9670;&nbsp;</a></span>applyRampAndCopy()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Scalar DataType, Integral SizeType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">LIMES_EXPORT void limes::vecops::applyRampAndCopy </td>
@@ -217,22 +228,30 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
 
 <p>Applies a gain ramp to the samples in the vector, writing the output samples to another vector. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/db5/group__vec__audio.html#gadd082208b7129d87962dbccaa91197ff" title="Applies a gain ramp to the samples in the vector.">applyRamp</a>, <a class="el" href="../../d5/db5/group__vec__audio.html#gaac272d40d8af712c634e636ecbd45165" title="Generates a ramp of samples, starting from startValue and incrementing by a consistent value until en...">generateRamp</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/db5/group__vec__audio.html#gad7af1a4acd71d9716be5342daffab37a" title="Applies a gain ramp to the samples in the vector.">applyRamp</a>, <a class="el" href="../../d5/db5/group__vec__audio.html#ga08d1fec4ef1c205281ed1c9e0db6700a" title="Generates a ramp of samples, starting from startValue and incrementing by a consistent value until en...">generateRamp</a> </dd></dl>
 
 </div>
 </div>
-<a id="ga73e0c358db62e2c63a24a750e32d43f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga73e0c358db62e2c63a24a750e32d43f8">&#9670;&nbsp;</a></span>countZeroCrossings()</h2>
+<a id="gaba849b93dcaac4be3ae9592eb0979d6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaba849b93dcaac4be3ae9592eb0979d6e">&#9670;&nbsp;</a></span>countZeroCrossings()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Scalar DataType, Integral SizeType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">LIMES_EXPORT int limes::vecops::countZeroCrossings </td>
@@ -252,6 +271,11 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
@@ -260,13 +284,16 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 </div>
 </div>
-<a id="gaac272d40d8af712c634e636ecbd45165"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaac272d40d8af712c634e636ecbd45165">&#9670;&nbsp;</a></span>generateRamp()</h2>
+<a id="ga08d1fec4ef1c205281ed1c9e0db6700a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga08d1fec4ef1c205281ed1c9e0db6700a">&#9670;&nbsp;</a></span>generateRamp()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Scalar DataType, Integral SizeType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">LIMES_EXPORT void limes::vecops::generateRamp </td>
@@ -298,22 +325,30 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
 
 <p>Generates a ramp of samples, starting from <code>startValue</code> and incrementing by a consistent value until <code>endValue</code> is reached. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/db5/group__vec__audio.html#gadd082208b7129d87962dbccaa91197ff" title="Applies a gain ramp to the samples in the vector.">applyRamp</a>, <a class="el" href="../../d5/db5/group__vec__audio.html#ga15e7252236b09e97d60ee51b7f8c3fd8" title="Applies a gain ramp to the samples in the vector, writing the output samples to another vector.">applyRampAndCopy</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/db5/group__vec__audio.html#gad7af1a4acd71d9716be5342daffab37a" title="Applies a gain ramp to the samples in the vector.">applyRamp</a>, <a class="el" href="../../d5/db5/group__vec__audio.html#ga987b8430bbb4870efa4ecab21f68469c" title="Applies a gain ramp to the samples in the vector, writing the output samples to another vector.">applyRampAndCopy</a> </dd></dl>
 
 </div>
 </div>
-<a id="ga40b324557eef47d1e22ce1fb471ce9ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga40b324557eef47d1e22ce1fb471ce9ee">&#9670;&nbsp;</a></span>mix()</h2>
+<a id="ga4bbd806aba2959761022a9ec12dd80bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4bbd806aba2959761022a9ec12dd80bd">&#9670;&nbsp;</a></span>mix()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Scalar DataType, Integral SizeType1, Integral SizeType2&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">LIMES_EXPORT void limes::vecops::mix </td>
@@ -345,6 +380,11 @@ template&lt;Scalar DataType, Integral SizeType1, Integral SizeType2&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
@@ -353,13 +393,16 @@ template&lt;Scalar DataType, Integral SizeType1, Integral SizeType2&gt; </div>
 
 </div>
 </div>
-<a id="ga2a4cee5fed3d9bcb224cf2a25699aa8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2a4cee5fed3d9bcb224cf2a25699aa8e">&#9670;&nbsp;</a></span>rms()</h2>
+<a id="ga5c3ae4cdc62f16c05a5f837ff3d0411b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5c3ae4cdc62f16c05a5f837ff3d0411b">&#9670;&nbsp;</a></span>rms()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Scalar DataType, Integral SizeType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">LIMES_EXPORT DataType limes::vecops::rms </td>
@@ -379,6 +422,11 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
@@ -392,7 +440,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 14:39:44 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 18:46:37 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

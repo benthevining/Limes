@@ -54,12 +54,176 @@
             <Path>d0/d7b/group__limes__audio.html</Path>
             <Subnodes>
              <Node>
+              <Name>Filters</Name>
+              <Path>dc/d4e/group__dsp__filters.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>filters</Name>
+                <Path>dir_1671455ddf4d2b3412faebba57b351bd.html</Path>
+               </Node>
+               <Node>
+                <Name>Coeffecients.h</Name>
+                <Path>d7/d56/_coeffecients_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>Filter.h</Name>
+                <Path>da/d2d/_filter_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>dsp</Name>
+                <Path>d4/d00/namespacelimes_1_1dsp.html</Path>
+               </Node>
+               <Node>
+                <Name>filters</Name>
+                <Path>d8/de5/namespacelimes_1_1dsp_1_1filters.html</Path>
+               </Node>
+               <Node>
+                <Name>Coeffecients</Name>
+                <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>getFilterOrder</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>af0cd78a91266dfcb51f922904a693627</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getRawCoefficients</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>aa0eb02531373ef486d27eeb51d36369f</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getRawCoefficients</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>ad11f91a2d90c8abd8d941415d7029956</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>makeAllPass</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>a2811ba1407655a88a176538ed892123d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>makeBandPass</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>a08af32d3a59efee7ea73f8bda5313d10</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>makeFirstOrderAllPass</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>a5cabf3218498433f43788f303edb6a3d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>makeFirstOrderHighPass</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>a024e5cbfd05ddd52a6c23525650706a3</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>makeFirstOrderLowPass</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>a27651d2912a78297830abe274d34a344</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>makeHighPass</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>a6366cf30ba36b19510443bdbb7a509b6</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>makeHighShelf</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>aed56b5bd021fd7f9ee620d5c1b6703c7</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>makeLowPass</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>ae32d6e8d7b9460790e6e44234c32a4e6</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>makeLowShelf</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>aab4f06950878f9cd757a4fe5fceba10e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>makeNotch</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>af7e356ea2d67172e6d40f42f058962db</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>makePeakFilter</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>a8d3607f27afe32281fce12bc78742322</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>coefficients</Name>
+                  <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+                  <Anchor>aeb239f56b7da16795c7ddb2e963e624c</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>Storage</Name>
+                <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>Storage</Name>
+                  <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
+                  <Anchor>afb9b27dda3713f5884bdd89f9d7c01eb</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>LIMES_DEFAULT_COPYABLE</Name>
+                  <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
+                  <Anchor>a90def11be1fdf6e15f09e77a6fd03fa4</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>LIMES_DEFAULT_MOVABLE</Name>
+                  <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
+                  <Anchor>adaa9c3f5c560991161b74edec60d0577</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator-&gt;</Name>
+                  <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
+                  <Anchor>a0ef8316cbfa999cb879916defc0212ca</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator-&gt;</Name>
+                  <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
+                  <Anchor>ac50582d5c4b84c99f5476e2f04d5467b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>operator=</Name>
+                  <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
+                  <Anchor>af3e12313b4fae947fc91d613484da637</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>coefficients</Name>
+                  <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
+                  <Anchor>a8d285ef1e09d96ac7d488e6a2cb738f0</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>PSOLA</Name>
               <Path>d2/d79/group__psola.html</Path>
               <Subnodes>
                <Node>
+                <Name>psola</Name>
+                <Path>dir_5f2619b35e3d8a42e6fd60afb4e1326b.html</Path>
+               </Node>
+               <Node>
+                <Name>analyzer.h</Name>
+                <Path>d3/d19/analyzer_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>PeakFinder.h</Name>
+                <Path>dc/dad/_peak_finder_8h.html</Path>
+               </Node>
+               <Node>
                 <Name>PitchDetector.h</Name>
                 <Path>dc/ddf/_pitch_detector_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>shifter.h</Name>
+                <Path>d7/d4f/shifter_8h.html</Path>
                </Node>
                <Node>
                 <Name>dsp</Name>
@@ -86,27 +250,27 @@
                  <Node>
                   <Name>detectPeriod</Name>
                   <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-                  <Anchor>a54a15802151ce0f746cc673fa5fe73c4</Anchor>
+                  <Anchor>ac47c8d598df64de8bf9da025ab97de30</Anchor>
                  </Node>
                  <Node>
                   <Name>detectPeriod</Name>
                   <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-                  <Anchor>a20d6a0ff25bba66d1afffe3d78b06688</Anchor>
+                  <Anchor>aeee84dd862849f24519eb846fa615ecc</Anchor>
                  </Node>
                  <Node>
                   <Name>detectPitch</Name>
                   <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-                  <Anchor>ae1abb0f7245ddd7fac6d61b514c4afab</Anchor>
+                  <Anchor>a6649faa218eb48a9c1a779d8f05800d2</Anchor>
                  </Node>
                  <Node>
                   <Name>detectPitch</Name>
                   <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-                  <Anchor>a9020b73668801b0d1a7eab148442095d</Anchor>
+                  <Anchor>a3eab04a43808d8c9feb73bfa1682542e</Anchor>
                  </Node>
                  <Node>
                   <Name>getCurrentLegalPeriodRange</Name>
                   <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-                  <Anchor>ac6d6a32c0d29c4728c0cf422132e58a2</Anchor>
+                  <Anchor>afecb34f51d61ea6083fe1cf20750442d</Anchor>
                  </Node>
                  <Node>
                   <Name>getLatencySamples</Name>
@@ -136,7 +300,7 @@
                  <Node>
                   <Name>reset</Name>
                   <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-                  <Anchor>a5a61964bfda0a3ede52d6f74d63c09be</Anchor>
+                  <Anchor>ac96adde0c5cebf27e7798fb0716bcb8f</Anchor>
                  </Node>
                  <Node>
                   <Name>setConfidenceThresh</Name>
@@ -158,6 +322,308 @@
               </Subnodes>
              </Node>
              <Node>
+              <Name>Streams</Name>
+              <Path>d5/db5/group__samplestreams.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Oscillators</Name>
+                <Path>d5/d0f/group__oscillators.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>oscillators</Name>
+                  <Path>dir_5c339f3431aa7d027ad67394f65a8849.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>basic_oscillators.h</Name>
+                  <Path>d8/dee/basic__oscillators_8h.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>DetunableModel.h</Name>
+                  <Path>d7/ddb/_detunable_model_8h.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>oscillator.h</Name>
+                  <Path>dc/da4/oscillator_8h.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>dsp</Name>
+                  <Path>d4/d00/namespacelimes_1_1dsp.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>osc</Name>
+                  <Path>d1/d0a/namespacelimes_1_1dsp_1_1osc.html</Path>
+                 </Node>
+                 <Node>
+                  <Name>Saw</Name>
+                  <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                  <Subnodes>
+                   <Node>
+                    <Name>SampleVector</Name>
+                    <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                    <Anchor>a6f037c48e547c0d708e75444a223c641</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>Saw</Name>
+                    <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                    <Anchor>a800dac1166e433bf988d686a8cc49d4d</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getFrequency</Name>
+                    <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                    <Anchor>a2554249f4e5049696a63ca1203bd3032</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getSample</Name>
+                    <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                    <Anchor>a93eb1b866027c610d3d29b49adbd1a3c</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getSamples</Name>
+                    <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                    <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getSamples</Name>
+                    <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                    <Anchor>aec53b83b3d8893f57e6355866e4d75ae</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_COPYABLE</Name>
+                    <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                    <Anchor>a94095bca6e0a30446f71348e8063788c</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_COPYABLE</Name>
+                    <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                    <Anchor>a6568b020da21e1a5b91483cf7cf5c3b9</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_MOVABLE</Name>
+                    <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                    <Anchor>a34b908cd15c144735a5a6e54e079daad</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_MOVABLE</Name>
+                    <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                    <Anchor>a9f88e0138328be6b39937fc07fbc3291</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>resetPhase</Name>
+                    <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                    <Anchor>ab12ebd7063b5ffe547d42b6e86deed37</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>setFrequency</Name>
+                    <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                    <Anchor>a14521eccac6e130dadfce392674c4ee2</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>skipSamples</Name>
+                    <Path>d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html</Path>
+                    <Anchor>add9247129b2eedf867eb07f84e24a9e9</Anchor>
+                   </Node>
+                  </Subnodes>
+                 </Node>
+                 <Node>
+                  <Name>Sine</Name>
+                  <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                  <Subnodes>
+                   <Node>
+                    <Name>SampleVector</Name>
+                    <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                    <Anchor>a6f037c48e547c0d708e75444a223c641</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>Sine</Name>
+                    <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                    <Anchor>ac4eec1e314ae785a1eb450a97a7e540b</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getFrequency</Name>
+                    <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                    <Anchor>aa049f7d07650076ffb8ad09f145d8314</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getSample</Name>
+                    <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                    <Anchor>a93eb1b866027c610d3d29b49adbd1a3c</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getSamples</Name>
+                    <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                    <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getSamples</Name>
+                    <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                    <Anchor>aec53b83b3d8893f57e6355866e4d75ae</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_COPYABLE</Name>
+                    <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                    <Anchor>a94095bca6e0a30446f71348e8063788c</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_COPYABLE</Name>
+                    <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                    <Anchor>adcaf8e9bcb9cb503b5eefd33975d4e86</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_MOVABLE</Name>
+                    <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                    <Anchor>a34b908cd15c144735a5a6e54e079daad</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_MOVABLE</Name>
+                    <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                    <Anchor>a2bb7f80f152f26f8d546ef554e800c23</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>resetPhase</Name>
+                    <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                    <Anchor>ad27336174971f03a91e969bfecfe9a08</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>setFrequency</Name>
+                    <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                    <Anchor>aa5626009a5027d93d08827c67d843d70</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>skipSamples</Name>
+                    <Path>d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html</Path>
+                    <Anchor>add9247129b2eedf867eb07f84e24a9e9</Anchor>
+                   </Node>
+                  </Subnodes>
+                 </Node>
+                 <Node>
+                  <Name>Square</Name>
+                  <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                  <Subnodes>
+                   <Node>
+                    <Name>SampleVector</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>a6f037c48e547c0d708e75444a223c641</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>Square</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>ad21aaae6227d7858f3b87a6457fc7e94</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getFrequency</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>ae1d2eb8b1dc455e7a54f777901889316</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getSample</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>a93eb1b866027c610d3d29b49adbd1a3c</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getSamples</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getSamples</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>aec53b83b3d8893f57e6355866e4d75ae</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_COPYABLE</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>a94095bca6e0a30446f71348e8063788c</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_COPYABLE</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>aaeed15af1ca2a298690e147140be020a</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_MOVABLE</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>a34b908cd15c144735a5a6e54e079daad</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_MOVABLE</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>ae9af739bc890fd7dc7158ad1f82f0041</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>resetPhase</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>a3d78b6880d8456a8732fdd07a5be767d</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>setFrequency</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>acac8729b35871a3b556105eacf9f4489</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>skipSamples</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>add9247129b2eedf867eb07f84e24a9e9</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>Triangle&lt; SampleType &gt;</Name>
+                    <Path>dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html</Path>
+                    <Anchor>aa097fa88ccabac97b5fdd8498653f4f0</Anchor>
+                   </Node>
+                  </Subnodes>
+                 </Node>
+                 <Node>
+                  <Name>Triangle</Name>
+                  <Path>d4/d24/structlimes_1_1dsp_1_1osc_1_1_triangle.html</Path>
+                  <Subnodes>
+                   <Node>
+                    <Name>Triangle</Name>
+                    <Path>d4/d24/structlimes_1_1dsp_1_1osc_1_1_triangle.html</Path>
+                    <Anchor>ab46c9e7ecb44933254fcc9fdb8af28d0</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>getFrequency</Name>
+                    <Path>d4/d24/structlimes_1_1dsp_1_1osc_1_1_triangle.html</Path>
+                    <Anchor>a6e4f26e990d45ac7d9257bff93e3ea7d</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_COPYABLE</Name>
+                    <Path>d4/d24/structlimes_1_1dsp_1_1osc_1_1_triangle.html</Path>
+                    <Anchor>a2a068b596c58363101ac4b66ceedf5da</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>LIMES_DEFAULT_MOVABLE</Name>
+                    <Path>d4/d24/structlimes_1_1dsp_1_1osc_1_1_triangle.html</Path>
+                    <Anchor>ab8f2267071d5ce35268b27bba75c5c20</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>resetPhase</Name>
+                    <Path>d4/d24/structlimes_1_1dsp_1_1osc_1_1_triangle.html</Path>
+                    <Anchor>aa0108ba771b355b28ab3f97a6819ec1a</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>setFrequency</Name>
+                    <Path>d4/d24/structlimes_1_1dsp_1_1osc_1_1_triangle.html</Path>
+                    <Anchor>afa5dc4bd7cbb6171e4ba1632c8375f7e</Anchor>
+                   </Node>
+                  </Subnodes>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>streams</Name>
+                <Path>dir_059a48f91de41ff766d8b3c649d9eab9.html</Path>
+               </Node>
+               <Node>
+                <Name>SampleStream.h</Name>
+                <Path>d5/d84/_sample_stream_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>WhiteNoiseGenerator.h</Name>
+                <Path>d6/db1/_white_noise_generator_8h.html</Path>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>limes_audio</Name>
               <Path>dir_a9e7e74a9fa95c9d0d5d9012ba9e5673.html</Path>
              </Node>
@@ -172,6 +638,32 @@
              <Node>
               <Name>limes_audio/util/Misc.h</Name>
               <Path>d1/df0/limes__audio_2util_2_misc_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>MonoStereoConverter.h</Name>
+              <Path>d5/d33/_mono_stereo_converter_8h.html</Path>
+             </Node>
+             <Node>
+              <Name>StereoReductionMode</Name>
+              <Path>d0/d7b/group__limes__audio.html</Path>
+              <Anchor>gab22891c08ff38fff51e3eebded597949</Anchor>
+              <Subnodes>
+               <Node>
+                <Name>leftOnly</Name>
+                <Path>d0/d7b/group__limes__audio.html</Path>
+                <Anchor>ggab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182</Anchor>
+               </Node>
+               <Node>
+                <Name>rightOnly</Name>
+                <Path>d0/d7b/group__limes__audio.html</Path>
+                <Anchor>ggab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d</Anchor>
+               </Node>
+               <Node>
+                <Name>mixToMono</Name>
+                <Path>d0/d7b/group__limes__audio.html</Path>
+                <Anchor>ggab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22</Anchor>
+               </Node>
+              </Subnodes>
              </Node>
              <Node>
               <Name>inverseRootTwo</Name>
@@ -668,6 +1160,11 @@
                 <Anchor>ga74beca8445e7ff26ad22eeb316c3c4ec</Anchor>
                </Node>
                <Node>
+                <Name>max</Name>
+                <Path>d9/dfc/group__core__math.html</Path>
+                <Anchor>gae436ab6d92c1f3ad5e56b55fabb0f4c2</Anchor>
+               </Node>
+               <Node>
                 <Name>middleOfThree</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
                 <Anchor>gad73729ffdebc10e62644aa49d6e1870c</Anchor>
@@ -676,6 +1173,11 @@
                 <Name>midiToFreq</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
                 <Anchor>ga998ba48f12008bbf935a910be8f4cc7b</Anchor>
+               </Node>
+               <Node>
+                <Name>min</Name>
+                <Path>d9/dfc/group__core__math.html</Path>
+                <Anchor>ga25ae5da0ee08068735854a1e935be370</Anchor>
                </Node>
                <Node>
                 <Name>msToSamps</Name>
@@ -1763,22 +2265,22 @@
                  <Node>
                   <Name>add</Name>
                   <Path>d8/da6/group__vec__addition.html</Path>
-                  <Anchor>ga66ba5c80ed76fa00d4e88f6d4956353e</Anchor>
+                  <Anchor>ga3a024446ad19d145afb726ebbb5af8c0</Anchor>
                  </Node>
                  <Node>
                   <Name>add</Name>
                   <Path>d8/da6/group__vec__addition.html</Path>
-                  <Anchor>gaf27735eef1dc3a62a3d101542f7ff04b</Anchor>
+                  <Anchor>ga667f4f92b16f4b8d06e37f77341d4c61</Anchor>
                  </Node>
                  <Node>
                   <Name>addAndCopy</Name>
                   <Path>d8/da6/group__vec__addition.html</Path>
-                  <Anchor>ga1b3fb3713b274169af0afd6b3200df35</Anchor>
+                  <Anchor>ga5d09da7900434c5006c6e6a9684205a4</Anchor>
                  </Node>
                  <Node>
                   <Name>addAndCopy</Name>
                   <Path>d8/da6/group__vec__addition.html</Path>
-                  <Anchor>ga5a46824e44372ed098c56ee93a9464c8</Anchor>
+                  <Anchor>ga1426d96a68724d3c304100b04945cce9</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -1789,32 +2291,32 @@
                  <Node>
                   <Name>divide</Name>
                   <Path>dc/dc8/group__vec__division.html</Path>
-                  <Anchor>ga1cc6f3e67f608c7d1fa0f6d3147d990f</Anchor>
+                  <Anchor>gaadc0439e237e20f07a4b5f943e823ad9</Anchor>
                  </Node>
                  <Node>
                   <Name>divide</Name>
                   <Path>dc/dc8/group__vec__division.html</Path>
-                  <Anchor>ga380ecd440c4d992fb339c5cf4b3ace2f</Anchor>
+                  <Anchor>ga99caeed6d8faf1ee3ef87748a4fd6533</Anchor>
                  </Node>
                  <Node>
                   <Name>divideAndCopy</Name>
                   <Path>dc/dc8/group__vec__division.html</Path>
-                  <Anchor>ga0b6ebde731b9e8a74fe17e8e64e8dda8</Anchor>
+                  <Anchor>ga16030e4c778234c88cf971305a712374</Anchor>
                  </Node>
                  <Node>
                   <Name>divideAndCopy</Name>
                   <Path>dc/dc8/group__vec__division.html</Path>
-                  <Anchor>gada4072b434b5ab68372504827ae65f2f</Anchor>
+                  <Anchor>gae548ef3044eae9a712a510439e87bb0d</Anchor>
                  </Node>
                  <Node>
                   <Name>divideInv</Name>
                   <Path>dc/dc8/group__vec__division.html</Path>
-                  <Anchor>ga067f89307594a2d62a2a295de8b0fa56</Anchor>
+                  <Anchor>gaada175046515b6502c99b363e2748ba6</Anchor>
                  </Node>
                  <Node>
                   <Name>divideInvAndCopy</Name>
                   <Path>dc/dc8/group__vec__division.html</Path>
-                  <Anchor>ga7c70b819aecbbf3401393a00c73b3d40</Anchor>
+                  <Anchor>ga7b9c0fb4b7d0e5484e1ebaf9d8ed4649</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -1825,27 +2327,27 @@
                  <Node>
                   <Name>dotProduct</Name>
                   <Path>db/d5e/group__vec__multiplication.html</Path>
-                  <Anchor>ga742b3bf8da890335f5076283ede1bffd</Anchor>
+                  <Anchor>gaf0f5c8fe0cea2baa676bdc386a5d0540</Anchor>
                  </Node>
                  <Node>
                   <Name>multiply</Name>
                   <Path>db/d5e/group__vec__multiplication.html</Path>
-                  <Anchor>ga56926bb051862438c0a0757f48bba1a1</Anchor>
+                  <Anchor>gaaae47b2eff0299658f34471cd9cd1970</Anchor>
                  </Node>
                  <Node>
                   <Name>multiply</Name>
                   <Path>db/d5e/group__vec__multiplication.html</Path>
-                  <Anchor>ga9e6ffaa500ede915aca99c8093c36f30</Anchor>
+                  <Anchor>ga63864c635a4cae5c20c5a1ae77233edc</Anchor>
                  </Node>
                  <Node>
                   <Name>multiplyAndCopy</Name>
                   <Path>db/d5e/group__vec__multiplication.html</Path>
-                  <Anchor>ga102ba37b1e175c77fcd6c5dd7d536454</Anchor>
+                  <Anchor>ga475d2e0141d013e86c051864dff93a94</Anchor>
                  </Node>
                  <Node>
                   <Name>multiplyAndCopy</Name>
                   <Path>db/d5e/group__vec__multiplication.html</Path>
-                  <Anchor>ga134b25c94db4e3da7185750667f9258a</Anchor>
+                  <Anchor>gaf6f1d361d99e4c5c8256861b0c2bb85e</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -1856,44 +2358,44 @@
                  <Node>
                   <Name>subtract</Name>
                   <Path>db/d1b/group__vec__subtraction.html</Path>
-                  <Anchor>ga3cfcdbfcfcc7eddd88976b492a07cdcd</Anchor>
+                  <Anchor>gaf0bd89ff06267a8145bf087e061137de</Anchor>
                  </Node>
                  <Node>
                   <Name>subtract</Name>
                   <Path>db/d1b/group__vec__subtraction.html</Path>
-                  <Anchor>gaaf87038b8dbebbcf9f1f0d437626d240</Anchor>
+                  <Anchor>ga9f4c1c0a71fbd7339fa2fc1fc4bfd087</Anchor>
                  </Node>
                  <Node>
                   <Name>subtractAndCopy</Name>
                   <Path>db/d1b/group__vec__subtraction.html</Path>
-                  <Anchor>gafe7b83f1d03472b68d797e73d8383436</Anchor>
+                  <Anchor>ga6c7a7263ad1427ad0f9ba15785c7c74b</Anchor>
                  </Node>
                  <Node>
                   <Name>subtractAndCopy</Name>
                   <Path>db/d1b/group__vec__subtraction.html</Path>
-                  <Anchor>gab4ada87267e7d3c876927c103644b7d2</Anchor>
+                  <Anchor>ga33c404fa92f28a495234c5ea7bb3cfe3</Anchor>
                  </Node>
                  <Node>
                   <Name>subtractInv</Name>
                   <Path>db/d1b/group__vec__subtraction.html</Path>
-                  <Anchor>gaa1b8bfd9af3ad4fd855302f928389b87</Anchor>
+                  <Anchor>ga75c4ee421b6ab6f8828eeb459a7e55b8</Anchor>
                  </Node>
                  <Node>
                   <Name>subtractInvAndCopy</Name>
                   <Path>db/d1b/group__vec__subtraction.html</Path>
-                  <Anchor>gabbd47335c741634bea817338ced935fb</Anchor>
+                  <Anchor>ga7b5798461a596936a8495233b4ddb924</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
                <Node>
                 <Name>recip</Name>
                 <Path>d8/dce/group__vec__arithmetic.html</Path>
-                <Anchor>ga3f666c5959c3a5455307e934bf128e66</Anchor>
+                <Anchor>ga9e13bec3651f5fd337ba190bd68d0cd5</Anchor>
                </Node>
                <Node>
                 <Name>recipAndCopy</Name>
                 <Path>d8/dce/group__vec__arithmetic.html</Path>
-                <Anchor>ga429841ddd26f24e59cf5e6a9c81051a0</Anchor>
+                <Anchor>ga9118787b8f725138b24494d4b7c1b9b9</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1904,32 +2406,32 @@
                <Node>
                 <Name>applyRamp</Name>
                 <Path>d5/db5/group__vec__audio.html</Path>
-                <Anchor>gadd082208b7129d87962dbccaa91197ff</Anchor>
+                <Anchor>gad7af1a4acd71d9716be5342daffab37a</Anchor>
                </Node>
                <Node>
                 <Name>applyRampAndCopy</Name>
                 <Path>d5/db5/group__vec__audio.html</Path>
-                <Anchor>ga15e7252236b09e97d60ee51b7f8c3fd8</Anchor>
+                <Anchor>ga987b8430bbb4870efa4ecab21f68469c</Anchor>
                </Node>
                <Node>
                 <Name>countZeroCrossings</Name>
                 <Path>d5/db5/group__vec__audio.html</Path>
-                <Anchor>ga73e0c358db62e2c63a24a750e32d43f8</Anchor>
+                <Anchor>gaba849b93dcaac4be3ae9592eb0979d6e</Anchor>
                </Node>
                <Node>
                 <Name>generateRamp</Name>
                 <Path>d5/db5/group__vec__audio.html</Path>
-                <Anchor>gaac272d40d8af712c634e636ecbd45165</Anchor>
+                <Anchor>ga08d1fec4ef1c205281ed1c9e0db6700a</Anchor>
                </Node>
                <Node>
                 <Name>mix</Name>
                 <Path>d5/db5/group__vec__audio.html</Path>
-                <Anchor>ga40b324557eef47d1e22ce1fb471ce9ee</Anchor>
+                <Anchor>ga4bbd806aba2959761022a9ec12dd80bd</Anchor>
                </Node>
                <Node>
                 <Name>rms</Name>
                 <Path>d5/db5/group__vec__audio.html</Path>
-                <Anchor>ga2a4cee5fed3d9bcb224cf2a25699aa8e</Anchor>
+                <Anchor>ga5c3ae4cdc62f16c05a5f837ff3d0411b</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1940,32 +2442,32 @@
                <Node>
                 <Name>cartesianInterleavedToMagnitudes</Name>
                 <Path>de/d2a/group__vec__complex.html</Path>
-                <Anchor>ga69834fd5c18b4beafeda7bdc4663f8a2</Anchor>
+                <Anchor>gacdc92d474c64af679980ec7532f5ec3b</Anchor>
                </Node>
                <Node>
                 <Name>cartesianToMagnitudes</Name>
                 <Path>de/d2a/group__vec__complex.html</Path>
-                <Anchor>ga2c83cf38aa5f1f9f07f52b87c7c25f8f</Anchor>
+                <Anchor>gab6f32d9c00fe32f00114748c21488ec8</Anchor>
                </Node>
                <Node>
                 <Name>cartesianToPolar</Name>
                 <Path>de/d2a/group__vec__complex.html</Path>
-                <Anchor>gac5d3fd6b0ab571fa0196710a01dde79e</Anchor>
+                <Anchor>gade84ac99b54758f4370cbb3f384406df</Anchor>
                </Node>
                <Node>
                 <Name>catesianInterleavedToPolar</Name>
                 <Path>de/d2a/group__vec__complex.html</Path>
-                <Anchor>ga2e506a2e9e7d04e309e81cecaaf6c1a7</Anchor>
+                <Anchor>ga5d0b289d61ce925d188af90564e49751</Anchor>
                </Node>
                <Node>
                 <Name>polarToCartesian</Name>
                 <Path>de/d2a/group__vec__complex.html</Path>
-                <Anchor>gade42bcc01d9102f9d379f183c30e3a6a</Anchor>
+                <Anchor>ga989e3a6c3c3b49df5becadcab05769b2</Anchor>
                </Node>
                <Node>
                 <Name>polarToCartesianInterleaved</Name>
                 <Path>de/d2a/group__vec__complex.html</Path>
-                <Anchor>ga6fd0a7960c7c40b919b49dbcb96b8770</Anchor>
+                <Anchor>ga9c23c53828298d02ce27d61a4356a8f5</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1976,32 +2478,32 @@
                <Node>
                 <Name>e</Name>
                 <Path>d6/d74/group__vec__exp.html</Path>
-                <Anchor>gab91088ab252f21e7216193f73997f9ff</Anchor>
+                <Anchor>gad34a1d7c0d781b6ebb09686a7d0893ce</Anchor>
                </Node>
                <Node>
                 <Name>eAndCopy</Name>
                 <Path>d6/d74/group__vec__exp.html</Path>
-                <Anchor>gafb2352b2f8525d3b25a5922612e7730e</Anchor>
+                <Anchor>gab7f11320810a0aed60bc686bcc49c064</Anchor>
                </Node>
                <Node>
                 <Name>pow</Name>
                 <Path>d6/d74/group__vec__exp.html</Path>
-                <Anchor>ga445ebb83b74c766118b5a14e8522f439</Anchor>
+                <Anchor>gacfbfe381b5da23ca34c3e9c8d26b38c0</Anchor>
                </Node>
                <Node>
                 <Name>powAndCopy</Name>
                 <Path>d6/d74/group__vec__exp.html</Path>
-                <Anchor>gae8c84fe775901da74285573cfec8dad2</Anchor>
+                <Anchor>gab43c275630d45f98cb1d12f09f6b1c3c</Anchor>
                </Node>
                <Node>
                 <Name>two</Name>
                 <Path>d6/d74/group__vec__exp.html</Path>
-                <Anchor>gaf5d8b28918e205bbbd3e7f63d8a881a9</Anchor>
+                <Anchor>ga065914500fce876c3cee37cbbb4cf5eb</Anchor>
                </Node>
                <Node>
                 <Name>twoAndCopy</Name>
                 <Path>d6/d74/group__vec__exp.html</Path>
-                <Anchor>ga2cdbc0777792c72b7b13626bed9c9f72</Anchor>
+                <Anchor>ga4f9e598e6fb6243787149bdd4cb1e168</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2191,32 +2693,32 @@
                <Node>
                 <Name>base10</Name>
                 <Path>df/dc9/group__vec__log.html</Path>
-                <Anchor>gafeeeefc3ff02635214587d7b1bddfabb</Anchor>
+                <Anchor>ga2bd502c7dd4a6f5804ed1c967e3dccd9</Anchor>
                </Node>
                <Node>
                 <Name>base10AndCopy</Name>
                 <Path>df/dc9/group__vec__log.html</Path>
-                <Anchor>ga27f359ab55cb9bdeb9bc896037ca7971</Anchor>
+                <Anchor>gaf4d52993ec0f582f9c198aae893caff2</Anchor>
                </Node>
                <Node>
                 <Name>base2</Name>
                 <Path>df/dc9/group__vec__log.html</Path>
-                <Anchor>ga84c312792ededa69e74bbed3d51e88c2</Anchor>
+                <Anchor>ga2b524a2a0efcafcd98ce0922394caebb</Anchor>
                </Node>
                <Node>
                 <Name>base2AndCopy</Name>
                 <Path>df/dc9/group__vec__log.html</Path>
-                <Anchor>gae2c8537854c400257ea114cf1a64a3d0</Anchor>
+                <Anchor>gae3b4330086bcfc18cd4187fba10d4687</Anchor>
                </Node>
                <Node>
                 <Name>nat</Name>
                 <Path>df/dc9/group__vec__log.html</Path>
-                <Anchor>ga955f22d2e33f9746c063827fd1c11e37</Anchor>
+                <Anchor>gaba505eb13846fd46259783da1db133a2</Anchor>
                </Node>
                <Node>
                 <Name>natAndCopy</Name>
                 <Path>df/dc9/group__vec__log.html</Path>
-                <Anchor>gaa7c9ad70b2c40172fa0ee1c5a894674b</Anchor>
+                <Anchor>ga0f545789bb24b3f69f14af7604dc3b31</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2257,42 +2759,42 @@
                <Node>
                 <Name>deinterleave</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>gac290bad09c7f2dcc7dafb54dd1659c09</Anchor>
+                <Anchor>ga8fc2171aa245734cea2eab71fe7813bb</Anchor>
                </Node>
                <Node>
                 <Name>interleave</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>gab0be2861b5335cd117e42334e8183be5</Anchor>
+                <Anchor>gadee227aae33b5acd81eed3658d9bc95f</Anchor>
                </Node>
                <Node>
                 <Name>reverse</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>gac2f79de8e98cb16c00dfc44f95493cd6</Anchor>
+                <Anchor>ga3174c7d255cfa8cdbd32e7845562bb73</Anchor>
                </Node>
                <Node>
                 <Name>reverseAndCopy</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>ga8836f4ab0adcb32a11ecb1d050caafcd</Anchor>
+                <Anchor>gaa0e5fe9cf32d0f1afd852e34865bef4c</Anchor>
                </Node>
                <Node>
                 <Name>sort</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>ga3f50457ce64ef4c7315272e7393dc731</Anchor>
+                <Anchor>ga502969ed94a7b9dc418cfd0d57d72d2b</Anchor>
                </Node>
                <Node>
                 <Name>sortAndCopy</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>ga7686ad6fadf7708b396c1e950381763a</Anchor>
+                <Anchor>ga4365df111ef0deddbf49f64bef41daf0</Anchor>
                </Node>
                <Node>
                 <Name>sortReverse</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>ga2d2e0cc334202389d34d0cdff2311a93</Anchor>
+                <Anchor>gac81290ecb1e18ef23d69b3e63fb6c53a</Anchor>
                </Node>
                <Node>
                 <Name>sortReverseAndCopy</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>ga87182039217238fd656427bf2fe20d71</Anchor>
+                <Anchor>ga2e3da938605f8b09c3337e4cebf87e03</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2303,42 +2805,42 @@
                <Node>
                 <Name>cubeRoot</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>ga8afca66dd52ffe6fb79389021a534a52</Anchor>
+                <Anchor>ga8a9f8db1b30f6c6b82bb281d0ee3f9af</Anchor>
                </Node>
                <Node>
                 <Name>cubeRootAndCopy</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>gae042318396457c01f6fada5ed1d0a30a</Anchor>
+                <Anchor>ga854955b00a0234e94976c2d4d1090296</Anchor>
                </Node>
                <Node>
                 <Name>invSquareRoot</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>gafe23c2bdb127365eaa45a44756e27a7c</Anchor>
+                <Anchor>gacb7663a80b1a6411753c91f6d5b7da6c</Anchor>
                </Node>
                <Node>
                 <Name>invSquareRootAndCopy</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>ga4eeef47e715d3f013bc4bf422aae4513</Anchor>
+                <Anchor>ga629169f67eb95bdf2c3bf126dbd99bc6</Anchor>
                </Node>
                <Node>
                 <Name>square</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>ga7ffe4dc4bfb026764ded43505808ea05</Anchor>
+                <Anchor>ga208c95b83be5880a5277c296b698a693</Anchor>
                </Node>
                <Node>
                 <Name>squareAndCopy</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>ga2b86c5812869f9349b4514d7688779aa</Anchor>
+                <Anchor>gaff1a5ee7566b9158065b6a677e3f47b1</Anchor>
                </Node>
                <Node>
                 <Name>squareRoot</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>ga767390a3685bf96f8881c589fd3d0af6</Anchor>
+                <Anchor>gacd4943ba3289038942de00b6262bb23c</Anchor>
                </Node>
                <Node>
                 <Name>squareRootAndCopy</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>ga6958c4eb21cba4deae2df260b2aa0168</Anchor>
+                <Anchor>ga172282de70eec2bf8d7ac52cce414fe5</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2351,121 +2853,131 @@
                 <Path>d5/d65/group__vec__extrema.html</Path>
                 <Subnodes>
                  <Node>
-                  <Name>max</Name>
+                  <Name>getAbsVectorExtremaInfo</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga3207a49d4eb5a8f6987e178c5dbd9370</Anchor>
+                  <Anchor>ga1a3cc804d477d233599086f86558aa36</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getVectorExtremaInfo</Name>
+                  <Path>d5/d65/group__vec__extrema.html</Path>
+                  <Anchor>ga379d47a07fa42f3c41f5171758990555</Anchor>
                  </Node>
                  <Node>
                   <Name>max</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>gab9b4c8e02bbf434e1a7f7ae69ac0e087</Anchor>
+                  <Anchor>ga7e741640b08aaa13c2c37ab0d4c8acd8</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>max</Name>
+                  <Path>d5/d65/group__vec__extrema.html</Path>
+                  <Anchor>ga847e933eec75e5853e47865f41e071fe</Anchor>
                  </Node>
                  <Node>
                   <Name>maxAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga7a38c8827814ea1b34db01bab093f7d8</Anchor>
+                  <Anchor>gaa6df91ebaade90faa4555262c6875d49</Anchor>
                  </Node>
                  <Node>
                   <Name>maxAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga337bb51945804cb53069150fc654c369</Anchor>
+                  <Anchor>gabe7285b7b9b9d46229150ea80bc9ad50</Anchor>
                  </Node>
                  <Node>
                   <Name>min</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga8db5010d14385445a322bc713aa91bdc</Anchor>
+                  <Anchor>ga605ed52218b5ec5df543eed606d0f0d7</Anchor>
                  </Node>
                  <Node>
                   <Name>min</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>gaa9a753d50b7bde96e9f490c890d6f5c9</Anchor>
+                  <Anchor>ga436fbda048b0ff68d5f2e5a9952a5f0f</Anchor>
                  </Node>
                  <Node>
                   <Name>minAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga71eaaa0279c952cdba690faab21af70b</Anchor>
+                  <Anchor>gab5ebd45f2963c36c18dd6d768349275f</Anchor>
                  </Node>
                  <Node>
                   <Name>minAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>gad1335ff22597aafeb9ed83e9189106d7</Anchor>
+                  <Anchor>ga0ce938eaa12c73f120485fa2eb5f7415</Anchor>
                  </Node>
                  <Node>
                   <Name>minMax</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>gacfdcb0cc73e0ae32f3c54f864d917601</Anchor>
+                  <Anchor>ga219248fe15b7f5b82c6c338641c5a557</Anchor>
                  </Node>
                  <Node>
                   <Name>minMax</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>gaff7e9c76aef26d80400ab980d2e03b82</Anchor>
+                  <Anchor>gaa2af652aec26b69e562e4477ae27e81b</Anchor>
                  </Node>
                  <Node>
                   <Name>minMaxAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga853b7319809c8d614e7a92e0689e821e</Anchor>
+                  <Anchor>ga5da07c6b14483410d44bb3fa81b53320</Anchor>
                  </Node>
                  <Node>
                   <Name>minMaxAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>gaa16aac01d52b55804c35a1c43c240722</Anchor>
+                  <Anchor>ga6f9efb710d0503059914715942101e20</Anchor>
                  </Node>
                  <Node>
                   <Name>range</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>gaa141140bec853742916f7095838174f2</Anchor>
+                  <Anchor>ga2723e9d8f177c8389fae159bb075f196</Anchor>
                  </Node>
                  <Node>
                   <Name>rangeAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga4f16ce14de7be970efaa3ca131343cfd</Anchor>
+                  <Anchor>gaf838401785666d1131bc732e6c320b72</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
                <Node>
                 <Name>abs</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>gaea77f3fca59a186157d4ec9186fd4aef</Anchor>
+                <Anchor>gad21e9bb4bd863a7433cbc0d0d082c7e1</Anchor>
                </Node>
                <Node>
                 <Name>absAndCopy</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>ga237a1f46d447efa5ff5b0c87b27d5c1d</Anchor>
+                <Anchor>ga2a6a53a470f1f882e1bbba6ee0449060</Anchor>
                </Node>
                <Node>
                 <Name>clip</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>gac398f6db71a95724f8b1397e0625dbc9</Anchor>
+                <Anchor>gaef34a7abfcb2ba9369dc75343b0c4c5a</Anchor>
                </Node>
                <Node>
                 <Name>clipAndCopy</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>ga8d5e0f98136d66678751b4e4f7a6c75b</Anchor>
+                <Anchor>gaaa678dbf9d6d6884756ad76a7bbf3daa</Anchor>
                </Node>
                <Node>
                 <Name>mean</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>ga8718d42502840dacd0526af810246535</Anchor>
+                <Anchor>ga1f5417592c6e8d68a04566dd2428cde5</Anchor>
                </Node>
                <Node>
                 <Name>negate</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>gaf2cf9ed44455874ee33ee41be90ea92b</Anchor>
+                <Anchor>ga0b6017272155894c64975f76349cea19</Anchor>
                </Node>
                <Node>
                 <Name>negateAndCopy</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>ga7c83c80afca79e911f58a946cefb9bb4</Anchor>
+                <Anchor>ga3b6e43a027ee0bc91a0f59678b03d0ff</Anchor>
                </Node>
                <Node>
                 <Name>standard_deviation</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>gac764291362ee108017d7f2fb6a553e4b</Anchor>
+                <Anchor>gaebef10f895380fa0de309304af33878d</Anchor>
                </Node>
                <Node>
                 <Name>sum</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>gabe15561e57a389ece031d1999fcced7c</Anchor>
+                <Anchor>ga0a7b3fbae1d35e850b7322264c0b5cff</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2480,22 +2992,22 @@
                  <Node>
                   <Name>arccos</Name>
                   <Path>dd/d22/group__vec__cos.html</Path>
-                  <Anchor>ga99da45fcefe45e733e46593ad63c0d17</Anchor>
+                  <Anchor>gae0764ad036561cfa66bb6a08bedd69bf</Anchor>
                  </Node>
                  <Node>
                   <Name>arccosAndCopy</Name>
                   <Path>dd/d22/group__vec__cos.html</Path>
-                  <Anchor>ga48a0d852db4b3d9a20f11e590b7c3660</Anchor>
+                  <Anchor>ga1a26d7c204eb7f95b4b659337dee0325</Anchor>
                  </Node>
                  <Node>
                   <Name>cos</Name>
                   <Path>dd/d22/group__vec__cos.html</Path>
-                  <Anchor>gac6b49fb5d7f55051360040676548e51d</Anchor>
+                  <Anchor>ga231ccf8f8ffc8267a333aa912e259cae</Anchor>
                  </Node>
                  <Node>
                   <Name>cosAndCopy</Name>
                   <Path>dd/d22/group__vec__cos.html</Path>
-                  <Anchor>ga41edc84e495ab9148da97dae4d68452a</Anchor>
+                  <Anchor>ga6724350269a20b880de0969bde2405d6</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -2506,22 +3018,22 @@
                  <Node>
                   <Name>arcsine</Name>
                   <Path>d9/d09/group__vec__sin.html</Path>
-                  <Anchor>gab8f7571b7d63a6bc762bcca1e07dac7e</Anchor>
+                  <Anchor>gaca9a612b58b50484ba4e02592e4f46f7</Anchor>
                  </Node>
                  <Node>
                   <Name>arcsineAndCopy</Name>
                   <Path>d9/d09/group__vec__sin.html</Path>
-                  <Anchor>ga016da50b803c883507599906c16c2362</Anchor>
+                  <Anchor>ga7474c1ae64d9c38707e715daf651490b</Anchor>
                  </Node>
                  <Node>
                   <Name>sine</Name>
                   <Path>d9/d09/group__vec__sin.html</Path>
-                  <Anchor>ga70f8edfe55ee492aa54d1a45e6002390</Anchor>
+                  <Anchor>ga0c6029a1aa1f59316d1680bb8f41ec5a</Anchor>
                  </Node>
                  <Node>
                   <Name>sineAndCopy</Name>
                   <Path>d9/d09/group__vec__sin.html</Path>
-                  <Anchor>gab7bffe4cd6d37396902f6758c9415f16</Anchor>
+                  <Anchor>ga25e52cc19a67743b74746189126196c0</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -2532,29 +3044,29 @@
                  <Node>
                   <Name>arctan</Name>
                   <Path>db/d0d/group__vec__tan.html</Path>
-                  <Anchor>gacd1d20855d2c38285293886a6bdfc912</Anchor>
+                  <Anchor>ga398978e25f59930d3ef1a58707fd889d</Anchor>
                  </Node>
                  <Node>
                   <Name>arctanAndCopy</Name>
                   <Path>db/d0d/group__vec__tan.html</Path>
-                  <Anchor>gae11646657e70d2ddc83f24736d616f3c</Anchor>
+                  <Anchor>gaedf349fe7e558d8b436534afcec800eb</Anchor>
                  </Node>
                  <Node>
                   <Name>tan</Name>
                   <Path>db/d0d/group__vec__tan.html</Path>
-                  <Anchor>ga513069ac6021cc619336a5196bfb7d25</Anchor>
+                  <Anchor>gaeed48026d7586d096bce4c0b93e725b8</Anchor>
                  </Node>
                  <Node>
                   <Name>tanAndCopy</Name>
                   <Path>db/d0d/group__vec__tan.html</Path>
-                  <Anchor>gaeb99567aadd1ef547a55f85917cd29d6</Anchor>
+                  <Anchor>ga8ca2ca9f9899123ac65447f3acf196ff</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
                <Node>
                 <Name>sinCos</Name>
                 <Path>d4/de3/group__vec__trig.html</Path>
-                <Anchor>ga99c0aff0af15ed2fa40caba9a694b875</Anchor>
+                <Anchor>gaaf5e6700040b35b379073259d5778eab</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2569,17 +3081,17 @@
                  <Node>
                   <Name>applyBlackman</Name>
                   <Path>d4/d9f/group__vec__blackman.html</Path>
-                  <Anchor>gad47b2158334c8a352eb30fd03ca027d8</Anchor>
+                  <Anchor>ga56b8fd4bb9dbba98ea45c1fec4e03098</Anchor>
                  </Node>
                  <Node>
                   <Name>applyBlackmanAndCopy</Name>
                   <Path>d4/d9f/group__vec__blackman.html</Path>
-                  <Anchor>ga4bf12b40d174a506df3ade1bccf2ae23</Anchor>
+                  <Anchor>gac2490b24ab53aff68a7f60e484071cd9</Anchor>
                  </Node>
                  <Node>
                   <Name>generateBlackman</Name>
                   <Path>d4/d9f/group__vec__blackman.html</Path>
-                  <Anchor>ga431d64e3516e35c62510f1b7d1ebe53f</Anchor>
+                  <Anchor>ga651c8a212639d0f84307b7b2af1ed02b</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -2590,17 +3102,17 @@
                  <Node>
                   <Name>applyHamm</Name>
                   <Path>d7/d30/group__vec__hamm.html</Path>
-                  <Anchor>ga052d8375d4a5e844a27e7abea2e02562</Anchor>
+                  <Anchor>gaa6c221520ae691de3f03b457e14985f3</Anchor>
                  </Node>
                  <Node>
                   <Name>applyHammAndCopy</Name>
                   <Path>d7/d30/group__vec__hamm.html</Path>
-                  <Anchor>ga3b90420209afa1e064057d7312d75e6d</Anchor>
+                  <Anchor>gaa2a5bc8396e436023448317b64327c4b</Anchor>
                  </Node>
                  <Node>
                   <Name>generateHamm</Name>
                   <Path>d7/d30/group__vec__hamm.html</Path>
-                  <Anchor>ga9a6c812ab585e48574ac46b723f5e9ce</Anchor>
+                  <Anchor>ga77f6ab1f7183e38dc861320603993132</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -2611,17 +3123,17 @@
                  <Node>
                   <Name>applyHanning</Name>
                   <Path>d9/d83/group__vec__hanning.html</Path>
-                  <Anchor>gab164431464ba4fc42511f8009cf786be</Anchor>
+                  <Anchor>gaf9f62171dfff05be0973337c59963b80</Anchor>
                  </Node>
                  <Node>
                   <Name>applyHanningAndCopy</Name>
                   <Path>d9/d83/group__vec__hanning.html</Path>
-                  <Anchor>gaac38bcbff3f6154e7f04b9a765d9fe53</Anchor>
+                  <Anchor>gaa8faf60f3ca7f8dfc797eb9803af97ae</Anchor>
                  </Node>
                  <Node>
                   <Name>generateHanning</Name>
                   <Path>d9/d83/group__vec__hanning.html</Path>
-                  <Anchor>gad6a1dd72f8e103b57a9dda19155952c9</Anchor>
+                  <Anchor>gaa33d842e9f88484ae6bdf329eec4ded6</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -2635,17 +3147,17 @@
                <Node>
                 <Name>apply</Name>
                 <Path>d4/dd9/group__vec__window.html</Path>
-                <Anchor>ga03c34103e0ff42a0d56e83131eda1eaa</Anchor>
+                <Anchor>gac728e1af0a779b89e4dd342eb50554c4</Anchor>
                </Node>
                <Node>
                 <Name>applyAndCopy</Name>
                 <Path>d4/dd9/group__vec__window.html</Path>
-                <Anchor>gaa2e3dc8415ebcfbc3b0521e1dd4de509</Anchor>
+                <Anchor>ga38d11ff25d554cb6bc3d54c224d41ad1</Anchor>
                </Node>
                <Node>
                 <Name>generate</Name>
                 <Path>d4/dd9/group__vec__window.html</Path>
-                <Anchor>ga1068019ee279ba3015817085dac383eb</Anchor>
+                <Anchor>ga6c7815bba84d3469f66b66cf02dbd6a3</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2732,22 +3244,22 @@
              <Node>
               <Name>clear</Name>
               <Path>dc/dd4/group__limes__vecops.html</Path>
-              <Anchor>ga144190e611f48721235c9434fd71cd89</Anchor>
+              <Anchor>ga6e80a5f6f3b343ab9aed4c4c1f6e4e93</Anchor>
              </Node>
              <Node>
               <Name>copy</Name>
               <Path>dc/dd4/group__limes__vecops.html</Path>
-              <Anchor>ga9d8da6b79472277b93a875ab43f24714</Anchor>
+              <Anchor>ga4fa56b30a4dc9647f323135c6ac5ed47</Anchor>
              </Node>
              <Node>
               <Name>fill</Name>
               <Path>dc/dd4/group__limes__vecops.html</Path>
-              <Anchor>ga1df20f4bc96e6b2b218e914fe054c79d</Anchor>
+              <Anchor>ga82fb1c966bbad1669fca5eced15be9d8</Anchor>
              </Node>
              <Node>
               <Name>swap</Name>
               <Path>dc/dd4/group__limes__vecops.html</Path>
-              <Anchor>gab42abc8b29b1736676df151e7f2d3858</Anchor>
+              <Anchor>gae47eab43ceb281664589422b69e264ed</Anchor>
              </Node>
              <Node>
               <Name>Integral</Name>
@@ -2813,6 +3325,14 @@
               <Name>dsp</Name>
               <Path>d4/d00/namespacelimes_1_1dsp.html</Path>
               <Subnodes>
+               <Node>
+                <Name>filters</Name>
+                <Path>d8/de5/namespacelimes_1_1dsp_1_1filters.html</Path>
+               </Node>
+               <Node>
+                <Name>osc</Name>
+                <Path>d1/d0a/namespacelimes_1_1dsp_1_1osc.html</Path>
+               </Node>
                <Node>
                 <Name>psola</Name>
                 <Path>d6/d4e/namespacelimes_1_1dsp_1_1psola.html</Path>
@@ -4791,53 +5311,12 @@
               <Subnodes>
                <Node>
                 <Name>filters</Name>
-                <Path></Path>
+                <Path>d8/de5/namespacelimes_1_1dsp_1_1filters.html</Path>
                 <Subnodes>
                  <Node>
                   <Name>Coeffecients</Name>
                   <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
                   <Subnodes>
-                   <Node>
-                    <Name>Storage</Name>
-                    <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
-                    <Subnodes>
-                     <Node>
-                      <Name>Storage</Name>
-                      <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
-                      <Anchor>afb9b27dda3713f5884bdd89f9d7c01eb</Anchor>
-                     </Node>
-                     <Node>
-                      <Name>LIMES_DEFAULT_COPYABLE</Name>
-                      <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
-                      <Anchor>a90def11be1fdf6e15f09e77a6fd03fa4</Anchor>
-                     </Node>
-                     <Node>
-                      <Name>LIMES_DEFAULT_MOVABLE</Name>
-                      <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
-                      <Anchor>adaa9c3f5c560991161b74edec60d0577</Anchor>
-                     </Node>
-                     <Node>
-                      <Name>operator-&gt;</Name>
-                      <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
-                      <Anchor>a0ef8316cbfa999cb879916defc0212ca</Anchor>
-                     </Node>
-                     <Node>
-                      <Name>operator-&gt;</Name>
-                      <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
-                      <Anchor>ac50582d5c4b84c99f5476e2f04d5467b</Anchor>
-                     </Node>
-                     <Node>
-                      <Name>operator=</Name>
-                      <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
-                      <Anchor>adabebaa44a0dc93173ab505318d29ee5</Anchor>
-                     </Node>
-                     <Node>
-                      <Name>coefficients</Name>
-                      <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
-                      <Anchor>a8d285ef1e09d96ac7d488e6a2cb738f0</Anchor>
-                     </Node>
-                    </Subnodes>
-                   </Node>
                    <Node>
                     <Name>getFilterOrder</Name>
                     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
@@ -4856,57 +5335,57 @@
                    <Node>
                     <Name>makeAllPass</Name>
                     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-                    <Anchor>a4aa7a30040d173c42e404450e74403a3</Anchor>
+                    <Anchor>a2811ba1407655a88a176538ed892123d</Anchor>
                    </Node>
                    <Node>
                     <Name>makeBandPass</Name>
                     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-                    <Anchor>a2d361dd8f8d4e3ff1b1799de35e8758c</Anchor>
+                    <Anchor>a08af32d3a59efee7ea73f8bda5313d10</Anchor>
                    </Node>
                    <Node>
                     <Name>makeFirstOrderAllPass</Name>
                     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-                    <Anchor>a5d95033233e387c5f4eef696e747c31a</Anchor>
+                    <Anchor>a5cabf3218498433f43788f303edb6a3d</Anchor>
                    </Node>
                    <Node>
                     <Name>makeFirstOrderHighPass</Name>
                     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-                    <Anchor>aa13eb2de4ee5819d21a1fcc98adc18ea</Anchor>
+                    <Anchor>a024e5cbfd05ddd52a6c23525650706a3</Anchor>
                    </Node>
                    <Node>
                     <Name>makeFirstOrderLowPass</Name>
                     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-                    <Anchor>a2884e096e5565326e96f46497ff01eac</Anchor>
+                    <Anchor>a27651d2912a78297830abe274d34a344</Anchor>
                    </Node>
                    <Node>
                     <Name>makeHighPass</Name>
                     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-                    <Anchor>a58f957adbb8a70e982c6f2f733e14e08</Anchor>
+                    <Anchor>a6366cf30ba36b19510443bdbb7a509b6</Anchor>
                    </Node>
                    <Node>
                     <Name>makeHighShelf</Name>
                     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-                    <Anchor>ac465beda6052a585ab5a9da2ef576ee4</Anchor>
+                    <Anchor>aed56b5bd021fd7f9ee620d5c1b6703c7</Anchor>
                    </Node>
                    <Node>
                     <Name>makeLowPass</Name>
                     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-                    <Anchor>a03f5b0d4ca70a7344c1c25bfd9d94f13</Anchor>
+                    <Anchor>ae32d6e8d7b9460790e6e44234c32a4e6</Anchor>
                    </Node>
                    <Node>
                     <Name>makeLowShelf</Name>
                     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-                    <Anchor>a9a49e71c98a1eca9d84730e19e2cc24a</Anchor>
+                    <Anchor>aab4f06950878f9cd757a4fe5fceba10e</Anchor>
                    </Node>
                    <Node>
                     <Name>makeNotch</Name>
                     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-                    <Anchor>a25b3cba128f09dde64f4e42a6c8f0e04</Anchor>
+                    <Anchor>af7e356ea2d67172e6d40f42f058962db</Anchor>
                    </Node>
                    <Node>
                     <Name>makePeakFilter</Name>
                     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-                    <Anchor>ab77e0cd2d75dbf990f12340b2e2bbfc5</Anchor>
+                    <Anchor>a8d3607f27afe32281fce12bc78742322</Anchor>
                    </Node>
                    <Node>
                     <Name>coefficients</Name>
@@ -4932,17 +5411,17 @@
                    <Node>
                     <Name>process</Name>
                     <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
-                    <Anchor>a0ede155b0f6ec1ecb778698ed6b88c5a</Anchor>
+                    <Anchor>a2750288bf850dd06508091c49a816c6e</Anchor>
                    </Node>
                    <Node>
                     <Name>process</Name>
                     <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
-                    <Anchor>a17c5eb4b071b4b6f349b90e16e05428c</Anchor>
+                    <Anchor>a01c975d48511bf4757d211be47bb5aa3</Anchor>
                    </Node>
                    <Node>
                     <Name>reset</Name>
                     <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
-                    <Anchor>a1ffbf28baa3b5ada5c16788b753cb578</Anchor>
+                    <Anchor>a6e6384876eae3a466ad20dfcd825d0fb</Anchor>
                    </Node>
                    <Node>
                     <Name>coefs</Name>
@@ -4955,7 +5434,7 @@
                </Node>
                <Node>
                 <Name>osc</Name>
-                <Path></Path>
+                <Path>d1/d0a/namespacelimes_1_1dsp_1_1osc.html</Path>
                 <Subnodes>
                  <Node>
                   <Name>DetunableModel</Name>
@@ -5295,7 +5774,7 @@
                    <Node>
                     <Name>analyzeInput</Name>
                     <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>ae2134d6890493018d981cbbed5aaefb1</Anchor>
+                    <Anchor>afe5c0eb4d8dee48b4616fd0fa6106f09</Anchor>
                    </Node>
                    <Node>
                     <Name>getLastInputPitch</Name>
@@ -5325,7 +5804,7 @@
                    <Node>
                     <Name>reset</Name>
                     <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>a15a448757c741a98e335fe3e9d8e8a85</Anchor>
+                    <Anchor>a2b4f4121169faed5618980a531f8ee31</Anchor>
                    </Node>
                    <Node>
                     <Name>setMinInputFreq</Name>
@@ -5356,7 +5835,7 @@
                    <Node>
                     <Name>findPeaks</Name>
                     <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
-                    <Anchor>a41c808a242f63abfea0a78adefece90b</Anchor>
+                    <Anchor>a42b1862be4650d287290de0c22af0be4</Anchor>
                    </Node>
                    <Node>
                     <Name>prepare</Name>
@@ -5392,27 +5871,27 @@
                    <Node>
                     <Name>detectPeriod</Name>
                     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-                    <Anchor>a54a15802151ce0f746cc673fa5fe73c4</Anchor>
+                    <Anchor>ac47c8d598df64de8bf9da025ab97de30</Anchor>
                    </Node>
                    <Node>
                     <Name>detectPeriod</Name>
                     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-                    <Anchor>a20d6a0ff25bba66d1afffe3d78b06688</Anchor>
+                    <Anchor>aeee84dd862849f24519eb846fa615ecc</Anchor>
                    </Node>
                    <Node>
                     <Name>detectPitch</Name>
                     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-                    <Anchor>ae1abb0f7245ddd7fac6d61b514c4afab</Anchor>
+                    <Anchor>a6649faa218eb48a9c1a779d8f05800d2</Anchor>
                    </Node>
                    <Node>
                     <Name>detectPitch</Name>
                     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-                    <Anchor>a9020b73668801b0d1a7eab148442095d</Anchor>
+                    <Anchor>a3eab04a43808d8c9feb73bfa1682542e</Anchor>
                    </Node>
                    <Node>
                     <Name>getCurrentLegalPeriodRange</Name>
                     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-                    <Anchor>ac6d6a32c0d29c4728c0cf422132e58a2</Anchor>
+                    <Anchor>afecb34f51d61ea6083fe1cf20750442d</Anchor>
                    </Node>
                    <Node>
                     <Name>getLatencySamples</Name>
@@ -5442,7 +5921,7 @@
                    <Node>
                     <Name>reset</Name>
                     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-                    <Anchor>a5a61964bfda0a3ede52d6f74d63c09be</Anchor>
+                    <Anchor>ac96adde0c5cebf27e7798fb0716bcb8f</Anchor>
                    </Node>
                    <Node>
                     <Name>setConfidenceThresh</Name>
@@ -5607,22 +6086,22 @@
                  <Node>
                   <Name>convertMonoToStereo</Name>
                   <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
-                  <Anchor>a9c876271fa1ea0b65240ca7fa2d33381</Anchor>
+                  <Anchor>ab572c37801ce3e23bfa3f37f392cff52</Anchor>
                  </Node>
                  <Node>
                   <Name>convertMonoToStereo</Name>
                   <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
-                  <Anchor>a64403f3dc608730b133f3b8b79357310</Anchor>
+                  <Anchor>a417bf7d8b5f9ed3756123a75445342b7</Anchor>
                  </Node>
                  <Node>
                   <Name>convertStereoToMono</Name>
                   <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
-                  <Anchor>a64a5028f6561a1fd36048db589341c77</Anchor>
+                  <Anchor>a2a0088ecb2cbe2ea6541a03f00db3262</Anchor>
                  </Node>
                  <Node>
                   <Name>convertStereoToMono</Name>
                   <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
-                  <Anchor>a9c4d04bb94ff35ea5e6a679218669750</Anchor>
+                  <Anchor>a6c9cdd82939fdaa0e653c56dc010349c</Anchor>
                  </Node>
                  <Node>
                   <Name>getStereoReductionMode</Name>
@@ -5635,9 +6114,14 @@
                   <Anchor>a5e4dfa5ae78e68ccc7fba9fbf23ba097</Anchor>
                  </Node>
                  <Node>
+                  <Name>releaseResources</Name>
+                  <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+                  <Anchor>a9728c80f577bc17feaff02347281eaec</Anchor>
+                 </Node>
+                 <Node>
                   <Name>setStereoReductionMode</Name>
                   <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
-                  <Anchor>ad1543d37b04991c17659613b4ed2e3bf</Anchor>
+                  <Anchor>ae83747827ceb0dc55c90fc74d7e88483</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -15398,22 +15882,22 @@
                  <Node>
                   <Name>forward</Name>
                   <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                  <Anchor>ad13b10030b09cda7961a52bdd8cf0796</Anchor>
+                  <Anchor>a2488774c8043ec13c95cdc1e9df712a2</Anchor>
                  </Node>
                  <Node>
                   <Name>forwardInterleaved</Name>
                   <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                  <Anchor>a89ad7df88ecdf663f01ccf9941a2964f</Anchor>
+                  <Anchor>a963a29cbebacc9793ef2670728f8e679</Anchor>
                  </Node>
                  <Node>
                   <Name>forwardMagnitude</Name>
                   <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                  <Anchor>a4833133c858da465822149d5e0068029</Anchor>
+                  <Anchor>aef8b66259dc9251671798713391740f6</Anchor>
                  </Node>
                  <Node>
                   <Name>forwardPolar</Name>
                   <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                  <Anchor>a3e954f323feec3081dddd2e1b4ff4728</Anchor>
+                  <Anchor>a75c93865ad2535a7d11e3cbd2d0e2c5f</Anchor>
                  </Node>
                  <Node>
                   <Name>getSize</Name>
@@ -15423,22 +15907,22 @@
                  <Node>
                   <Name>inverse</Name>
                   <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                  <Anchor>a36a0a2bf78f796359fad6bf27f4b4161</Anchor>
+                  <Anchor>a39bfa9d26d2785fd15adb134488a8483</Anchor>
                  </Node>
                  <Node>
                   <Name>inverseCepstral</Name>
                   <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                  <Anchor>a455894852ba86ea583ce6c6b3e7aba58</Anchor>
+                  <Anchor>a86aef233f521ba6a8f5a5ff03494c441</Anchor>
                  </Node>
                  <Node>
                   <Name>inverseInterleaved</Name>
                   <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                  <Anchor>ac349d4a80f1ef9fa0f2b4722b9de414d</Anchor>
+                  <Anchor>a6116294ee0b2756fb091bf5ceb8e722d</Anchor>
                  </Node>
                  <Node>
                   <Name>inversePolar</Name>
                   <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                  <Anchor>aa21fa1fe1e4c766a14dd5f9aaaa61ef2</Anchor>
+                  <Anchor>af0b393941ce867c8f2f1c2b05d87f36f</Anchor>
                  </Node>
                  <Node>
                   <Name>LIMES_DEFAULT_MOVABLE</Name>
@@ -15481,6 +15965,33 @@
                   <Name>~ScopedNoDenormals</Name>
                   <Path>d9/d23/classlimes_1_1vecops_1_1_scoped_no_denormals.html</Path>
                   <Anchor>ab0a619fe2d2ee03acda68f352bfb7f28</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>VectorExtremaInfo</Name>
+                <Path>d4/dea/namespacelimes_1_1vecops.html</Path>
+                <Anchor>db/d29/structlimes_1_1vecops_1_1_vector_extrema_info</Anchor>
+                <Subnodes>
+                 <Node>
+                  <Name>max</Name>
+                  <Path>d4/dea/namespacelimes_1_1vecops.html</Path>
+                  <Anchor>ab9f01f1db217b1e5b4739ba3db4ae74b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>maxIdx</Name>
+                  <Path>d4/dea/namespacelimes_1_1vecops.html</Path>
+                  <Anchor>a92046cf239a2e2b9099eca34e0f5c71d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>min</Name>
+                  <Path>d4/dea/namespacelimes_1_1vecops.html</Path>
+                  <Anchor>ac8d5fe7b0a943e8fea8adc8835d1d055</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>minIdx</Name>
+                  <Path>d4/dea/namespacelimes_1_1vecops.html</Path>
+                  <Anchor>ab054a091c4e35a5e3fd0de8c8315068e</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -16123,7 +16634,141 @@
            </Node>
            <Node>
             <Name>analyzer.h</Name>
-            <Path>d3/d19/analyzer_8h_source.html</Path>
+            <Path>d3/d19/analyzer_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Analyzer</Name>
+              <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>SampleVector</Name>
+                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+                <Anchor>a3d871dfedb4f94d3afed6bf6dde8e5dc</Anchor>
+               </Node>
+               <Node>
+                <Name>Analyzer</Name>
+                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+                <Anchor>a181cdad3fd10c66f300e9bd59d348b62</Anchor>
+               </Node>
+               <Node>
+                <Name>analyzeInput</Name>
+                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+                <Anchor>afe5c0eb4d8dee48b4616fd0fa6106f09</Anchor>
+               </Node>
+               <Node>
+                <Name>getLastInputPitch</Name>
+                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+                <Anchor>a2619eeab17eaf395206cc9be01864ab9</Anchor>
+               </Node>
+               <Node>
+                <Name>getLatencySamples</Name>
+                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+                <Anchor>aea63215db86d9cae211795b370b81138</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_MOVABLE</Name>
+                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+                <Anchor>acd6a3834b496126c2dbcab493e124f51</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_NON_COPYABLE</Name>
+                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+                <Anchor>a2c829de84720b28fe10c965f54ffeb49</Anchor>
+               </Node>
+               <Node>
+                <Name>releaseResources</Name>
+                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+                <Anchor>a1ee1d873d7d00e084a6eaf667ad862d8</Anchor>
+               </Node>
+               <Node>
+                <Name>reset</Name>
+                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+                <Anchor>a2b4f4121169faed5618980a531f8ee31</Anchor>
+               </Node>
+               <Node>
+                <Name>setMinInputFreq</Name>
+                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+                <Anchor>ad6de0625d975279355114602aeac84fd</Anchor>
+               </Node>
+               <Node>
+                <Name>setSamplerate</Name>
+                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+                <Anchor>a16408aa216e67149a59d211548a38775</Anchor>
+               </Node>
+               <Node>
+                <Name>Shifter&lt; SampleType &gt;</Name>
+                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
+                <Anchor>ab0c6bf0dc83509d935bf350d9dace989</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>Shifter</Name>
+              <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Shifter</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>aed7aae0a2c2a21a210612ed319bd984d</Anchor>
+               </Node>
+               <Node>
+                <Name>~Shifter</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>abd9dd9677e9e92d099c1031017e1d00a</Anchor>
+               </Node>
+               <Node>
+                <Name>getPitchHz</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>a828d821a12795e3172c32b2352a8d18d</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_COPYABLE</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>a651c7296930d38234c31f02e677927a4</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_MOVABLE</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>a80e474b96db26b808037c5da2d3d6892</Anchor>
+               </Node>
+               <Node>
+                <Name>onNewBlock</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>aff40c8173b02c3035e0c2fb290810e44</Anchor>
+               </Node>
+               <Node>
+                <Name>pitchHzChanged</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>aef03e7c28f192e2ddb880443973c35dc</Anchor>
+               </Node>
+               <Node>
+                <Name>releaseResources</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>aa84c5c1774346e603ef015ae83d534d3</Anchor>
+               </Node>
+               <Node>
+                <Name>reset</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>a55d21b21d51c60cb8ffec8c88e3cd402</Anchor>
+               </Node>
+               <Node>
+                <Name>setPitchHz</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>a28168c68db4288d0cc0b13b591ea838b</Anchor>
+               </Node>
+               <Node>
+                <Name>Analyzer&lt; SampleType &gt;</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>a22bbc3f7f1466d647e7b5eb3e4b39204</Anchor>
+               </Node>
+               <Node>
+                <Name>analyzer</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>ab00f0a27448593aa5d009533b91964e5</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>angle.h</Name>
@@ -16324,7 +16969,14 @@
            </Node>
            <Node>
             <Name>basic_oscillators.h</Name>
-            <Path>d8/dee/basic__oscillators_8h_source.html</Path>
+            <Path>d8/dee/basic__oscillators_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Oscillator</Name>
+              <Path>d8/dee/basic__oscillators_8h.html</Path>
+              <Anchor>aec519f4cfbe85e2c5bc56130bc6552fa</Anchor>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>basic_vector.h</Name>
@@ -16783,7 +17435,9 @@
            </Node>
            <Node>
             <Name>Coeffecients.h</Name>
-            <Path>d7/d56/_coeffecients_8h_source.html</Path>
+            <Path>d7/d56/_coeffecients_8h.html</Path>
+            <Subnodes>
+            </Subnodes>
            </Node>
            <Node>
             <Name>common.h</Name>
@@ -17748,7 +18402,70 @@
            </Node>
            <Node>
             <Name>DetunableModel.h</Name>
-            <Path>d7/ddb/_detunable_model_8h_source.html</Path>
+            <Path>d7/ddb/_detunable_model_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>DetunableModel</Name>
+              <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>DetunableModel</Name>
+                <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+                <Anchor>a6296d65f4878f239605194c1fc97e2b5</Anchor>
+               </Node>
+               <Node>
+                <Name>applyFrequencies</Name>
+                <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+                <Anchor>ac5840f490b81cebd9a13800b5400b635</Anchor>
+               </Node>
+               <Node>
+                <Name>changeNumVoices</Name>
+                <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+                <Anchor>ae225dfc60f09796cd121015b58dbda23</Anchor>
+               </Node>
+               <Node>
+                <Name>getCenterFrequency</Name>
+                <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+                <Anchor>afc13ed5d5432229f567ff79bb59b4d17</Anchor>
+               </Node>
+               <Node>
+                <Name>getFrequency</Name>
+                <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+                <Anchor>aeb7bfa0a3b78bc48a80cfd991146d700</Anchor>
+               </Node>
+               <Node>
+                <Name>getNumVoices</Name>
+                <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+                <Anchor>ae0db0d4c305a9c069167f75790473484</Anchor>
+               </Node>
+               <Node>
+                <Name>getPitchSpreadCents</Name>
+                <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+                <Anchor>a1dc28c56cb5f6b4f0627d1e5a0875a2e</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_COPYABLE</Name>
+                <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+                <Anchor>a4079e70241caa8c94105de29f8d34e71</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_MOVABLE</Name>
+                <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+                <Anchor>a271a008b6498b01a1ab78ae054fa6d0a</Anchor>
+               </Node>
+               <Node>
+                <Name>setDetuneAmount</Name>
+                <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+                <Anchor>ac9535601d40917facc93c747cef5ff81</Anchor>
+               </Node>
+               <Node>
+                <Name>setFrequency</Name>
+                <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+                <Anchor>a30f9600a5ab472373ec127419deb38b5</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>Dimensions.h</Name>
@@ -19736,7 +20453,45 @@
            </Node>
            <Node>
             <Name>Filter.h</Name>
-            <Path>da/d2d/_filter_8h_source.html</Path>
+            <Path>da/d2d/_filter_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Filter</Name>
+              <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>SampleVector</Name>
+                <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
+                <Anchor>afd183c45ee8ee3bdd5157bc6d33e9c5a</Anchor>
+               </Node>
+               <Node>
+                <Name>prepare</Name>
+                <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
+                <Anchor>a585e6e0e27899242fa85c46a3b60f9e5</Anchor>
+               </Node>
+               <Node>
+                <Name>process</Name>
+                <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
+                <Anchor>a2750288bf850dd06508091c49a816c6e</Anchor>
+               </Node>
+               <Node>
+                <Name>process</Name>
+                <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
+                <Anchor>a01c975d48511bf4757d211be47bb5aa3</Anchor>
+               </Node>
+               <Node>
+                <Name>reset</Name>
+                <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
+                <Anchor>a6e6384876eae3a466ad20dfcd825d0fb</Anchor>
+               </Node>
+               <Node>
+                <Name>coefs</Name>
+                <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
+                <Anchor>a09a334e3ceb53f43fd28f6cf026d12fb</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>Fraction.h</Name>
@@ -21013,22 +21768,22 @@
                <Node>
                 <Name>forward</Name>
                 <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                <Anchor>ad13b10030b09cda7961a52bdd8cf0796</Anchor>
+                <Anchor>a2488774c8043ec13c95cdc1e9df712a2</Anchor>
                </Node>
                <Node>
                 <Name>forwardInterleaved</Name>
                 <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                <Anchor>a89ad7df88ecdf663f01ccf9941a2964f</Anchor>
+                <Anchor>a963a29cbebacc9793ef2670728f8e679</Anchor>
                </Node>
                <Node>
                 <Name>forwardMagnitude</Name>
                 <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                <Anchor>a4833133c858da465822149d5e0068029</Anchor>
+                <Anchor>aef8b66259dc9251671798713391740f6</Anchor>
                </Node>
                <Node>
                 <Name>forwardPolar</Name>
                 <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                <Anchor>a3e954f323feec3081dddd2e1b4ff4728</Anchor>
+                <Anchor>a75c93865ad2535a7d11e3cbd2d0e2c5f</Anchor>
                </Node>
                <Node>
                 <Name>getSize</Name>
@@ -21038,22 +21793,22 @@
                <Node>
                 <Name>inverse</Name>
                 <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                <Anchor>a36a0a2bf78f796359fad6bf27f4b4161</Anchor>
+                <Anchor>a39bfa9d26d2785fd15adb134488a8483</Anchor>
                </Node>
                <Node>
                 <Name>inverseCepstral</Name>
                 <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                <Anchor>a455894852ba86ea583ce6c6b3e7aba58</Anchor>
+                <Anchor>a86aef233f521ba6a8f5a5ff03494c441</Anchor>
                </Node>
                <Node>
                 <Name>inverseInterleaved</Name>
                 <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                <Anchor>ac349d4a80f1ef9fa0f2b4722b9de414d</Anchor>
+                <Anchor>a6116294ee0b2756fb091bf5ceb8e722d</Anchor>
                </Node>
                <Node>
                 <Name>inversePolar</Name>
                 <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-                <Anchor>aa21fa1fe1e4c766a14dd5f9aaaa61ef2</Anchor>
+                <Anchor>af0b393941ce867c8f2f1c2b05d87f36f</Anchor>
                </Node>
                <Node>
                 <Name>LIMES_DEFAULT_MOVABLE</Name>
@@ -21184,6 +21939,33 @@
               </Subnodes>
              </Node>
              <Node>
+              <Name>VectorExtremaInfo</Name>
+              <Path>d4/dea/namespacelimes_1_1vecops.html</Path>
+              <Anchor>db/d29/structlimes_1_1vecops_1_1_vector_extrema_info</Anchor>
+              <Subnodes>
+               <Node>
+                <Name>max</Name>
+                <Path>d4/dea/namespacelimes_1_1vecops.html</Path>
+                <Anchor>ab9f01f1db217b1e5b4739ba3db4ae74b</Anchor>
+               </Node>
+               <Node>
+                <Name>maxIdx</Name>
+                <Path>d4/dea/namespacelimes_1_1vecops.html</Path>
+                <Anchor>a92046cf239a2e2b9099eca34e0f5c71d</Anchor>
+               </Node>
+               <Node>
+                <Name>min</Name>
+                <Path>d4/dea/namespacelimes_1_1vecops.html</Path>
+                <Anchor>ac8d5fe7b0a943e8fea8adc8835d1d055</Anchor>
+               </Node>
+               <Node>
+                <Name>minIdx</Name>
+                <Path>d4/dea/namespacelimes_1_1vecops.html</Path>
+                <Anchor>ab054a091c4e35a5e3fd0de8c8315068e</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>LIMES_VECOPS_USE_IPP</Name>
               <Path>dc/dd4/group__limes__vecops.html</Path>
               <Anchor>gaaf4e6c2cb5282672fc67747a8e1f550f</Anchor>
@@ -21228,112 +22010,112 @@
              <Node>
               <Name>abs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaea77f3fca59a186157d4ec9186fd4aef</Anchor>
+              <Anchor>gad21e9bb4bd863a7433cbc0d0d082c7e1</Anchor>
              </Node>
              <Node>
               <Name>absAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga237a1f46d447efa5ff5b0c87b27d5c1d</Anchor>
+              <Anchor>ga2a6a53a470f1f882e1bbba6ee0449060</Anchor>
              </Node>
              <Node>
               <Name>add</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga66ba5c80ed76fa00d4e88f6d4956353e</Anchor>
+              <Anchor>ga3a024446ad19d145afb726ebbb5af8c0</Anchor>
              </Node>
              <Node>
               <Name>add</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaf27735eef1dc3a62a3d101542f7ff04b</Anchor>
+              <Anchor>ga667f4f92b16f4b8d06e37f77341d4c61</Anchor>
              </Node>
              <Node>
               <Name>addAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga1b3fb3713b274169af0afd6b3200df35</Anchor>
+              <Anchor>ga5d09da7900434c5006c6e6a9684205a4</Anchor>
              </Node>
              <Node>
               <Name>addAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga5a46824e44372ed098c56ee93a9464c8</Anchor>
+              <Anchor>ga1426d96a68724d3c304100b04945cce9</Anchor>
              </Node>
              <Node>
               <Name>apply</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga03c34103e0ff42a0d56e83131eda1eaa</Anchor>
+              <Anchor>gac728e1af0a779b89e4dd342eb50554c4</Anchor>
              </Node>
              <Node>
               <Name>applyAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa2e3dc8415ebcfbc3b0521e1dd4de509</Anchor>
+              <Anchor>ga38d11ff25d554cb6bc3d54c224d41ad1</Anchor>
              </Node>
              <Node>
               <Name>applyBlackman</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gad47b2158334c8a352eb30fd03ca027d8</Anchor>
+              <Anchor>ga56b8fd4bb9dbba98ea45c1fec4e03098</Anchor>
              </Node>
              <Node>
               <Name>applyBlackmanAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga4bf12b40d174a506df3ade1bccf2ae23</Anchor>
+              <Anchor>gac2490b24ab53aff68a7f60e484071cd9</Anchor>
              </Node>
              <Node>
               <Name>applyHamm</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga052d8375d4a5e844a27e7abea2e02562</Anchor>
+              <Anchor>gaa6c221520ae691de3f03b457e14985f3</Anchor>
              </Node>
              <Node>
               <Name>applyHammAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga3b90420209afa1e064057d7312d75e6d</Anchor>
+              <Anchor>gaa2a5bc8396e436023448317b64327c4b</Anchor>
              </Node>
              <Node>
               <Name>applyHanning</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gab164431464ba4fc42511f8009cf786be</Anchor>
+              <Anchor>gaf9f62171dfff05be0973337c59963b80</Anchor>
              </Node>
              <Node>
               <Name>applyHanningAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaac38bcbff3f6154e7f04b9a765d9fe53</Anchor>
+              <Anchor>gaa8faf60f3ca7f8dfc797eb9803af97ae</Anchor>
              </Node>
              <Node>
               <Name>applyRamp</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gadd082208b7129d87962dbccaa91197ff</Anchor>
+              <Anchor>gad7af1a4acd71d9716be5342daffab37a</Anchor>
              </Node>
              <Node>
               <Name>applyRampAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga15e7252236b09e97d60ee51b7f8c3fd8</Anchor>
+              <Anchor>ga987b8430bbb4870efa4ecab21f68469c</Anchor>
              </Node>
              <Node>
               <Name>arccos</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga99da45fcefe45e733e46593ad63c0d17</Anchor>
+              <Anchor>gae0764ad036561cfa66bb6a08bedd69bf</Anchor>
              </Node>
              <Node>
               <Name>arccosAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga48a0d852db4b3d9a20f11e590b7c3660</Anchor>
+              <Anchor>ga1a26d7c204eb7f95b4b659337dee0325</Anchor>
              </Node>
              <Node>
               <Name>arcsine</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gab8f7571b7d63a6bc762bcca1e07dac7e</Anchor>
+              <Anchor>gaca9a612b58b50484ba4e02592e4f46f7</Anchor>
              </Node>
              <Node>
               <Name>arcsineAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga016da50b803c883507599906c16c2362</Anchor>
+              <Anchor>ga7474c1ae64d9c38707e715daf651490b</Anchor>
              </Node>
              <Node>
               <Name>arctan</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gacd1d20855d2c38285293886a6bdfc912</Anchor>
+              <Anchor>ga398978e25f59930d3ef1a58707fd889d</Anchor>
              </Node>
              <Node>
               <Name>arctanAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gae11646657e70d2ddc83f24736d616f3c</Anchor>
+              <Anchor>gaedf349fe7e558d8b436534afcec800eb</Anchor>
              </Node>
              <Node>
               <Name>areDenormalsDisabled</Name>
@@ -21343,102 +22125,102 @@
              <Node>
               <Name>base10</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gafeeeefc3ff02635214587d7b1bddfabb</Anchor>
+              <Anchor>ga2bd502c7dd4a6f5804ed1c967e3dccd9</Anchor>
              </Node>
              <Node>
               <Name>base10AndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga27f359ab55cb9bdeb9bc896037ca7971</Anchor>
+              <Anchor>gaf4d52993ec0f582f9c198aae893caff2</Anchor>
              </Node>
              <Node>
               <Name>base2</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga84c312792ededa69e74bbed3d51e88c2</Anchor>
+              <Anchor>ga2b524a2a0efcafcd98ce0922394caebb</Anchor>
              </Node>
              <Node>
               <Name>base2AndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gae2c8537854c400257ea114cf1a64a3d0</Anchor>
+              <Anchor>gae3b4330086bcfc18cd4187fba10d4687</Anchor>
              </Node>
              <Node>
               <Name>cartesianInterleavedToMagnitudes</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga69834fd5c18b4beafeda7bdc4663f8a2</Anchor>
+              <Anchor>gacdc92d474c64af679980ec7532f5ec3b</Anchor>
              </Node>
              <Node>
               <Name>cartesianToMagnitudes</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga2c83cf38aa5f1f9f07f52b87c7c25f8f</Anchor>
+              <Anchor>gab6f32d9c00fe32f00114748c21488ec8</Anchor>
              </Node>
              <Node>
               <Name>cartesianToPolar</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gac5d3fd6b0ab571fa0196710a01dde79e</Anchor>
+              <Anchor>gade84ac99b54758f4370cbb3f384406df</Anchor>
              </Node>
              <Node>
               <Name>catesianInterleavedToPolar</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga2e506a2e9e7d04e309e81cecaaf6c1a7</Anchor>
+              <Anchor>ga5d0b289d61ce925d188af90564e49751</Anchor>
              </Node>
              <Node>
               <Name>clear</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga144190e611f48721235c9434fd71cd89</Anchor>
+              <Anchor>ga6e80a5f6f3b343ab9aed4c4c1f6e4e93</Anchor>
              </Node>
              <Node>
               <Name>clip</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gac398f6db71a95724f8b1397e0625dbc9</Anchor>
+              <Anchor>gaef34a7abfcb2ba9369dc75343b0c4c5a</Anchor>
              </Node>
              <Node>
               <Name>clipAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga8d5e0f98136d66678751b4e4f7a6c75b</Anchor>
+              <Anchor>gaaa678dbf9d6d6884756ad76a7bbf3daa</Anchor>
              </Node>
              <Node>
               <Name>convert</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ac491996b28f7a72bb3e186fc33c5b176</Anchor>
+              <Anchor>aeaa933c0e2e6c05dc693bb3f76eae6a6</Anchor>
              </Node>
              <Node>
               <Name>convert</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>a810ac323cb54a3f36853c6a81c232a4c</Anchor>
+              <Anchor>adfc96171557d1c9111c05b1875898aee</Anchor>
              </Node>
              <Node>
               <Name>copy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga9d8da6b79472277b93a875ab43f24714</Anchor>
+              <Anchor>ga4fa56b30a4dc9647f323135c6ac5ed47</Anchor>
              </Node>
              <Node>
               <Name>cos</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gac6b49fb5d7f55051360040676548e51d</Anchor>
+              <Anchor>ga231ccf8f8ffc8267a333aa912e259cae</Anchor>
              </Node>
              <Node>
               <Name>cosAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga41edc84e495ab9148da97dae4d68452a</Anchor>
+              <Anchor>ga6724350269a20b880de0969bde2405d6</Anchor>
              </Node>
              <Node>
               <Name>countZeroCrossings</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga73e0c358db62e2c63a24a750e32d43f8</Anchor>
+              <Anchor>gaba849b93dcaac4be3ae9592eb0979d6e</Anchor>
              </Node>
              <Node>
               <Name>cubeRoot</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga8afca66dd52ffe6fb79389021a534a52</Anchor>
+              <Anchor>ga8a9f8db1b30f6c6b82bb281d0ee3f9af</Anchor>
              </Node>
              <Node>
               <Name>cubeRootAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gae042318396457c01f6fada5ed1d0a30a</Anchor>
+              <Anchor>ga854955b00a0234e94976c2d4d1090296</Anchor>
              </Node>
              <Node>
               <Name>deinterleave</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gac290bad09c7f2dcc7dafb54dd1659c09</Anchor>
+              <Anchor>ga8fc2171aa245734cea2eab71fe7813bb</Anchor>
              </Node>
              <Node>
               <Name>disableDenormalisedNumberSupport</Name>
@@ -21448,47 +22230,47 @@
              <Node>
               <Name>divide</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga1cc6f3e67f608c7d1fa0f6d3147d990f</Anchor>
+              <Anchor>gaadc0439e237e20f07a4b5f943e823ad9</Anchor>
              </Node>
              <Node>
               <Name>divide</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga380ecd440c4d992fb339c5cf4b3ace2f</Anchor>
+              <Anchor>ga99caeed6d8faf1ee3ef87748a4fd6533</Anchor>
              </Node>
              <Node>
               <Name>divideAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga0b6ebde731b9e8a74fe17e8e64e8dda8</Anchor>
+              <Anchor>ga16030e4c778234c88cf971305a712374</Anchor>
              </Node>
              <Node>
               <Name>divideAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gada4072b434b5ab68372504827ae65f2f</Anchor>
+              <Anchor>gae548ef3044eae9a712a510439e87bb0d</Anchor>
              </Node>
              <Node>
               <Name>divideInv</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga067f89307594a2d62a2a295de8b0fa56</Anchor>
+              <Anchor>gaada175046515b6502c99b363e2748ba6</Anchor>
              </Node>
              <Node>
               <Name>divideInvAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga7c70b819aecbbf3401393a00c73b3d40</Anchor>
+              <Anchor>ga7b9c0fb4b7d0e5484e1ebaf9d8ed4649</Anchor>
              </Node>
              <Node>
               <Name>dotProduct</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga742b3bf8da890335f5076283ede1bffd</Anchor>
+              <Anchor>gaf0f5c8fe0cea2baa676bdc386a5d0540</Anchor>
              </Node>
              <Node>
               <Name>e</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gab91088ab252f21e7216193f73997f9ff</Anchor>
+              <Anchor>gad34a1d7c0d781b6ebb09686a7d0893ce</Anchor>
              </Node>
              <Node>
               <Name>eAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gafb2352b2f8525d3b25a5922612e7730e</Anchor>
+              <Anchor>gab7f11320810a0aed60bc686bcc49c064</Anchor>
              </Node>
              <Node>
               <Name>enableFlushToZeroMode</Name>
@@ -21498,32 +22280,37 @@
              <Node>
               <Name>fill</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga1df20f4bc96e6b2b218e914fe054c79d</Anchor>
+              <Anchor>ga82fb1c966bbad1669fca5eced15be9d8</Anchor>
              </Node>
              <Node>
               <Name>generate</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga1068019ee279ba3015817085dac383eb</Anchor>
+              <Anchor>ga6c7815bba84d3469f66b66cf02dbd6a3</Anchor>
              </Node>
              <Node>
               <Name>generateBlackman</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga431d64e3516e35c62510f1b7d1ebe53f</Anchor>
+              <Anchor>ga651c8a212639d0f84307b7b2af1ed02b</Anchor>
              </Node>
              <Node>
               <Name>generateHamm</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga9a6c812ab585e48574ac46b723f5e9ce</Anchor>
+              <Anchor>ga77f6ab1f7183e38dc861320603993132</Anchor>
              </Node>
              <Node>
               <Name>generateHanning</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gad6a1dd72f8e103b57a9dda19155952c9</Anchor>
+              <Anchor>gaa33d842e9f88484ae6bdf329eec4ded6</Anchor>
              </Node>
              <Node>
               <Name>generateRamp</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaac272d40d8af712c634e636ecbd45165</Anchor>
+              <Anchor>ga08d1fec4ef1c205281ed1c9e0db6700a</Anchor>
+             </Node>
+             <Node>
+              <Name>getAbsVectorExtremaInfo</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga1a3cc804d477d233599086f86558aa36</Anchor>
              </Node>
              <Node>
               <Name>getImplementationName</Name>
@@ -21531,19 +22318,24 @@
               <Anchor>gabc56122dde2bafda9811cac992710534</Anchor>
              </Node>
              <Node>
+              <Name>getVectorExtremaInfo</Name>
+              <Path>de/d1f/limes__vecops_8h.html</Path>
+              <Anchor>ga379d47a07fa42f3c41f5171758990555</Anchor>
+             </Node>
+             <Node>
               <Name>interleave</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gab0be2861b5335cd117e42334e8183be5</Anchor>
+              <Anchor>gadee227aae33b5acd81eed3658d9bc95f</Anchor>
              </Node>
              <Node>
               <Name>invSquareRoot</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gafe23c2bdb127365eaa45a44756e27a7c</Anchor>
+              <Anchor>gacb7663a80b1a6411753c91f6d5b7da6c</Anchor>
              </Node>
              <Node>
               <Name>invSquareRootAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga4eeef47e715d3f013bc4bf422aae4513</Anchor>
+              <Anchor>ga629169f67eb95bdf2c3bf126dbd99bc6</Anchor>
              </Node>
              <Node>
               <Name>isFlushToZeroEnabled</Name>
@@ -21578,287 +22370,287 @@
              <Node>
               <Name>max</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga3207a49d4eb5a8f6987e178c5dbd9370</Anchor>
+              <Anchor>ga7e741640b08aaa13c2c37ab0d4c8acd8</Anchor>
              </Node>
              <Node>
               <Name>max</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gab9b4c8e02bbf434e1a7f7ae69ac0e087</Anchor>
+              <Anchor>ga847e933eec75e5853e47865f41e071fe</Anchor>
              </Node>
              <Node>
               <Name>maxAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga7a38c8827814ea1b34db01bab093f7d8</Anchor>
+              <Anchor>gaa6df91ebaade90faa4555262c6875d49</Anchor>
              </Node>
              <Node>
               <Name>maxAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga337bb51945804cb53069150fc654c369</Anchor>
+              <Anchor>gabe7285b7b9b9d46229150ea80bc9ad50</Anchor>
              </Node>
              <Node>
               <Name>mean</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga8718d42502840dacd0526af810246535</Anchor>
+              <Anchor>ga1f5417592c6e8d68a04566dd2428cde5</Anchor>
              </Node>
              <Node>
               <Name>min</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga8db5010d14385445a322bc713aa91bdc</Anchor>
+              <Anchor>ga605ed52218b5ec5df543eed606d0f0d7</Anchor>
              </Node>
              <Node>
               <Name>min</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa9a753d50b7bde96e9f490c890d6f5c9</Anchor>
+              <Anchor>ga436fbda048b0ff68d5f2e5a9952a5f0f</Anchor>
              </Node>
              <Node>
               <Name>minAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga71eaaa0279c952cdba690faab21af70b</Anchor>
+              <Anchor>gab5ebd45f2963c36c18dd6d768349275f</Anchor>
              </Node>
              <Node>
               <Name>minAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gad1335ff22597aafeb9ed83e9189106d7</Anchor>
+              <Anchor>ga0ce938eaa12c73f120485fa2eb5f7415</Anchor>
              </Node>
              <Node>
               <Name>minMax</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gacfdcb0cc73e0ae32f3c54f864d917601</Anchor>
+              <Anchor>ga219248fe15b7f5b82c6c338641c5a557</Anchor>
              </Node>
              <Node>
               <Name>minMax</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaff7e9c76aef26d80400ab980d2e03b82</Anchor>
+              <Anchor>gaa2af652aec26b69e562e4477ae27e81b</Anchor>
              </Node>
              <Node>
               <Name>minMaxAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga853b7319809c8d614e7a92e0689e821e</Anchor>
+              <Anchor>ga5da07c6b14483410d44bb3fa81b53320</Anchor>
              </Node>
              <Node>
               <Name>minMaxAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa16aac01d52b55804c35a1c43c240722</Anchor>
+              <Anchor>ga6f9efb710d0503059914715942101e20</Anchor>
              </Node>
              <Node>
               <Name>mix</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga40b324557eef47d1e22ce1fb471ce9ee</Anchor>
+              <Anchor>ga4bbd806aba2959761022a9ec12dd80bd</Anchor>
              </Node>
              <Node>
               <Name>multiply</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga56926bb051862438c0a0757f48bba1a1</Anchor>
+              <Anchor>gaaae47b2eff0299658f34471cd9cd1970</Anchor>
              </Node>
              <Node>
               <Name>multiply</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga9e6ffaa500ede915aca99c8093c36f30</Anchor>
+              <Anchor>ga63864c635a4cae5c20c5a1ae77233edc</Anchor>
              </Node>
              <Node>
               <Name>multiplyAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga102ba37b1e175c77fcd6c5dd7d536454</Anchor>
+              <Anchor>ga475d2e0141d013e86c051864dff93a94</Anchor>
              </Node>
              <Node>
               <Name>multiplyAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga134b25c94db4e3da7185750667f9258a</Anchor>
+              <Anchor>gaf6f1d361d99e4c5c8256861b0c2bb85e</Anchor>
              </Node>
              <Node>
               <Name>nat</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga955f22d2e33f9746c063827fd1c11e37</Anchor>
+              <Anchor>gaba505eb13846fd46259783da1db133a2</Anchor>
              </Node>
              <Node>
               <Name>natAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa7c9ad70b2c40172fa0ee1c5a894674b</Anchor>
+              <Anchor>ga0f545789bb24b3f69f14af7604dc3b31</Anchor>
              </Node>
              <Node>
               <Name>negate</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaf2cf9ed44455874ee33ee41be90ea92b</Anchor>
+              <Anchor>ga0b6017272155894c64975f76349cea19</Anchor>
              </Node>
              <Node>
               <Name>negateAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga7c83c80afca79e911f58a946cefb9bb4</Anchor>
+              <Anchor>ga3b6e43a027ee0bc91a0f59678b03d0ff</Anchor>
              </Node>
              <Node>
               <Name>polarToCartesian</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gade42bcc01d9102f9d379f183c30e3a6a</Anchor>
+              <Anchor>ga989e3a6c3c3b49df5becadcab05769b2</Anchor>
              </Node>
              <Node>
               <Name>polarToCartesianInterleaved</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga6fd0a7960c7c40b919b49dbcb96b8770</Anchor>
+              <Anchor>ga9c23c53828298d02ce27d61a4356a8f5</Anchor>
              </Node>
              <Node>
               <Name>pow</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga445ebb83b74c766118b5a14e8522f439</Anchor>
+              <Anchor>gacfbfe381b5da23ca34c3e9c8d26b38c0</Anchor>
              </Node>
              <Node>
               <Name>powAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gae8c84fe775901da74285573cfec8dad2</Anchor>
+              <Anchor>gab43c275630d45f98cb1d12f09f6b1c3c</Anchor>
              </Node>
              <Node>
               <Name>range</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa141140bec853742916f7095838174f2</Anchor>
+              <Anchor>ga2723e9d8f177c8389fae159bb075f196</Anchor>
              </Node>
              <Node>
               <Name>rangeAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga4f16ce14de7be970efaa3ca131343cfd</Anchor>
+              <Anchor>gaf838401785666d1131bc732e6c320b72</Anchor>
              </Node>
              <Node>
               <Name>recip</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga3f666c5959c3a5455307e934bf128e66</Anchor>
+              <Anchor>ga9e13bec3651f5fd337ba190bd68d0cd5</Anchor>
              </Node>
              <Node>
               <Name>recipAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga429841ddd26f24e59cf5e6a9c81051a0</Anchor>
+              <Anchor>ga9118787b8f725138b24494d4b7c1b9b9</Anchor>
              </Node>
              <Node>
               <Name>reverse</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gac2f79de8e98cb16c00dfc44f95493cd6</Anchor>
+              <Anchor>ga3174c7d255cfa8cdbd32e7845562bb73</Anchor>
              </Node>
              <Node>
               <Name>reverseAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga8836f4ab0adcb32a11ecb1d050caafcd</Anchor>
+              <Anchor>gaa0e5fe9cf32d0f1afd852e34865bef4c</Anchor>
              </Node>
              <Node>
               <Name>rms</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga2a4cee5fed3d9bcb224cf2a25699aa8e</Anchor>
+              <Anchor>ga5c3ae4cdc62f16c05a5f837ff3d0411b</Anchor>
              </Node>
              <Node>
               <Name>sinCos</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga99c0aff0af15ed2fa40caba9a694b875</Anchor>
+              <Anchor>gaaf5e6700040b35b379073259d5778eab</Anchor>
              </Node>
              <Node>
               <Name>sine</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga70f8edfe55ee492aa54d1a45e6002390</Anchor>
+              <Anchor>ga0c6029a1aa1f59316d1680bb8f41ec5a</Anchor>
              </Node>
              <Node>
               <Name>sineAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gab7bffe4cd6d37396902f6758c9415f16</Anchor>
+              <Anchor>ga25e52cc19a67743b74746189126196c0</Anchor>
              </Node>
              <Node>
               <Name>sort</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga3f50457ce64ef4c7315272e7393dc731</Anchor>
+              <Anchor>ga502969ed94a7b9dc418cfd0d57d72d2b</Anchor>
              </Node>
              <Node>
               <Name>sortAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga7686ad6fadf7708b396c1e950381763a</Anchor>
+              <Anchor>ga4365df111ef0deddbf49f64bef41daf0</Anchor>
              </Node>
              <Node>
               <Name>sortReverse</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga2d2e0cc334202389d34d0cdff2311a93</Anchor>
+              <Anchor>gac81290ecb1e18ef23d69b3e63fb6c53a</Anchor>
              </Node>
              <Node>
               <Name>sortReverseAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga87182039217238fd656427bf2fe20d71</Anchor>
+              <Anchor>ga2e3da938605f8b09c3337e4cebf87e03</Anchor>
              </Node>
              <Node>
               <Name>square</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga7ffe4dc4bfb026764ded43505808ea05</Anchor>
+              <Anchor>ga208c95b83be5880a5277c296b698a693</Anchor>
              </Node>
              <Node>
               <Name>squareAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga2b86c5812869f9349b4514d7688779aa</Anchor>
+              <Anchor>gaff1a5ee7566b9158065b6a677e3f47b1</Anchor>
              </Node>
              <Node>
               <Name>squareRoot</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga767390a3685bf96f8881c589fd3d0af6</Anchor>
+              <Anchor>gacd4943ba3289038942de00b6262bb23c</Anchor>
              </Node>
              <Node>
               <Name>squareRootAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga6958c4eb21cba4deae2df260b2aa0168</Anchor>
+              <Anchor>ga172282de70eec2bf8d7ac52cce414fe5</Anchor>
              </Node>
              <Node>
               <Name>standard_deviation</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gac764291362ee108017d7f2fb6a553e4b</Anchor>
+              <Anchor>gaebef10f895380fa0de309304af33878d</Anchor>
              </Node>
              <Node>
               <Name>subtract</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga3cfcdbfcfcc7eddd88976b492a07cdcd</Anchor>
+              <Anchor>gaf0bd89ff06267a8145bf087e061137de</Anchor>
              </Node>
              <Node>
               <Name>subtract</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaaf87038b8dbebbcf9f1f0d437626d240</Anchor>
+              <Anchor>ga9f4c1c0a71fbd7339fa2fc1fc4bfd087</Anchor>
              </Node>
              <Node>
               <Name>subtractAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gafe7b83f1d03472b68d797e73d8383436</Anchor>
+              <Anchor>ga6c7a7263ad1427ad0f9ba15785c7c74b</Anchor>
              </Node>
              <Node>
               <Name>subtractAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gab4ada87267e7d3c876927c103644b7d2</Anchor>
+              <Anchor>ga33c404fa92f28a495234c5ea7bb3cfe3</Anchor>
              </Node>
              <Node>
               <Name>subtractInv</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa1b8bfd9af3ad4fd855302f928389b87</Anchor>
+              <Anchor>ga75c4ee421b6ab6f8828eeb459a7e55b8</Anchor>
              </Node>
              <Node>
               <Name>subtractInvAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gabbd47335c741634bea817338ced935fb</Anchor>
+              <Anchor>ga7b5798461a596936a8495233b4ddb924</Anchor>
              </Node>
              <Node>
               <Name>sum</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gabe15561e57a389ece031d1999fcced7c</Anchor>
+              <Anchor>ga0a7b3fbae1d35e850b7322264c0b5cff</Anchor>
              </Node>
              <Node>
               <Name>swap</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gab42abc8b29b1736676df151e7f2d3858</Anchor>
+              <Anchor>gae47eab43ceb281664589422b69e264ed</Anchor>
              </Node>
              <Node>
               <Name>tan</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga513069ac6021cc619336a5196bfb7d25</Anchor>
+              <Anchor>gaeed48026d7586d096bce4c0b93e725b8</Anchor>
              </Node>
              <Node>
               <Name>tanAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaeb99567aadd1ef547a55f85917cd29d6</Anchor>
+              <Anchor>ga8ca2ca9f9899123ac65447f3acf196ff</Anchor>
              </Node>
              <Node>
               <Name>two</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaf5d8b28918e205bbbd3e7f63d8a881a9</Anchor>
+              <Anchor>ga065914500fce876c3cee37cbbb4cf5eb</Anchor>
              </Node>
              <Node>
               <Name>twoAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga2cdbc0777792c72b7b13626bed9c9f72</Anchor>
+              <Anchor>ga4f9e598e6fb6243787149bdd4cb1e168</Anchor>
              </Node>
              <Node>
               <Name>Integral</Name>
@@ -21994,6 +22786,11 @@
               <Anchor>ga74beca8445e7ff26ad22eeb316c3c4ec</Anchor>
              </Node>
              <Node>
+              <Name>max</Name>
+              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Anchor>gae436ab6d92c1f3ad5e56b55fabb0f4c2</Anchor>
+             </Node>
+             <Node>
               <Name>middleOfThree</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
               <Anchor>gad73729ffdebc10e62644aa49d6e1870c</Anchor>
@@ -22012,6 +22809,11 @@
               <Name>midiToFreq</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
               <Anchor>ga998ba48f12008bbf935a910be8f4cc7b</Anchor>
+             </Node>
+             <Node>
+              <Name>min</Name>
+              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Anchor>ga25ae5da0ee08068735854a1e935be370</Anchor>
              </Node>
              <Node>
               <Name>msToSamps</Name>
@@ -22907,7 +23709,82 @@
            </Node>
            <Node>
             <Name>MonoStereoConverter.h</Name>
-            <Path>d5/d33/_mono_stereo_converter_8h_source.html</Path>
+            <Path>d5/d33/_mono_stereo_converter_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>MonoStereoConverter</Name>
+              <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>SampleVector</Name>
+                <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+                <Anchor>a77e45f0af4b0b48f81a927803296627e</Anchor>
+               </Node>
+               <Node>
+                <Name>convertMonoToStereo</Name>
+                <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+                <Anchor>ab572c37801ce3e23bfa3f37f392cff52</Anchor>
+               </Node>
+               <Node>
+                <Name>convertMonoToStereo</Name>
+                <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+                <Anchor>a417bf7d8b5f9ed3756123a75445342b7</Anchor>
+               </Node>
+               <Node>
+                <Name>convertStereoToMono</Name>
+                <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+                <Anchor>a2a0088ecb2cbe2ea6541a03f00db3262</Anchor>
+               </Node>
+               <Node>
+                <Name>convertStereoToMono</Name>
+                <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+                <Anchor>a6c9cdd82939fdaa0e653c56dc010349c</Anchor>
+               </Node>
+               <Node>
+                <Name>getStereoReductionMode</Name>
+                <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+                <Anchor>ad4cb87ceaedb9778d826f73d0c0f9ea9</Anchor>
+               </Node>
+               <Node>
+                <Name>prepare</Name>
+                <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+                <Anchor>a5e4dfa5ae78e68ccc7fba9fbf23ba097</Anchor>
+               </Node>
+               <Node>
+                <Name>releaseResources</Name>
+                <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+                <Anchor>a9728c80f577bc17feaff02347281eaec</Anchor>
+               </Node>
+               <Node>
+                <Name>setStereoReductionMode</Name>
+                <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+                <Anchor>ae83747827ceb0dc55c90fc74d7e88483</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>StereoReductionMode</Name>
+              <Path>d5/d33/_mono_stereo_converter_8h.html</Path>
+              <Anchor>gab22891c08ff38fff51e3eebded597949</Anchor>
+              <Subnodes>
+               <Node>
+                <Name>leftOnly</Name>
+                <Path>d5/d33/_mono_stereo_converter_8h.html</Path>
+                <Anchor>ggab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182</Anchor>
+               </Node>
+               <Node>
+                <Name>rightOnly</Name>
+                <Path>d5/d33/_mono_stereo_converter_8h.html</Path>
+                <Anchor>ggab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d</Anchor>
+               </Node>
+               <Node>
+                <Name>mixToMono</Name>
+                <Path>d5/d33/_mono_stereo_converter_8h.html</Path>
+                <Anchor>ggab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>month.h</Name>
@@ -23548,7 +24425,117 @@
            </Node>
            <Node>
             <Name>oscillator.h</Name>
-            <Path>dc/da4/oscillator_8h_source.html</Path>
+            <Path>dc/da4/oscillator_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Oscillator</Name>
+              <Path>d3/d36/structlimes_1_1dsp_1_1_oscillator.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Phase</Name>
+                <Path>d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>getIncrement</Name>
+                  <Path>d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase.html</Path>
+                  <Anchor>a10a063999e490292d7c2c50559871a2a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>next</Name>
+                  <Path>d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase.html</Path>
+                  <Anchor>a2f9f7c833d64998db095c78aed385adb</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>resetPhase</Name>
+                  <Path>d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase.html</Path>
+                  <Anchor>a28696219087548d6824ee8d1fb830ea4</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>setFrequency</Name>
+                  <Path>d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase.html</Path>
+                  <Anchor>af88f71f4a3e6cc1b323a5a914c6abd56</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>SampleVector</Name>
+                <Path>d3/d36/structlimes_1_1dsp_1_1_oscillator.html</Path>
+                <Anchor>a6f037c48e547c0d708e75444a223c641</Anchor>
+               </Node>
+               <Node>
+                <Name>getFrequency</Name>
+                <Path>d3/d36/structlimes_1_1dsp_1_1_oscillator.html</Path>
+                <Anchor>a4084dca544f6e9845e8787e1590fcfd4</Anchor>
+               </Node>
+               <Node>
+                <Name>getSample</Name>
+                <Path>d3/d36/structlimes_1_1dsp_1_1_oscillator.html</Path>
+                <Anchor>a93eb1b866027c610d3d29b49adbd1a3c</Anchor>
+               </Node>
+               <Node>
+                <Name>getSamples</Name>
+                <Path>d3/d36/structlimes_1_1dsp_1_1_oscillator.html</Path>
+                <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
+               </Node>
+               <Node>
+                <Name>getSamples</Name>
+                <Path>d3/d36/structlimes_1_1dsp_1_1_oscillator.html</Path>
+                <Anchor>aec53b83b3d8893f57e6355866e4d75ae</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_COPYABLE</Name>
+                <Path>d3/d36/structlimes_1_1dsp_1_1_oscillator.html</Path>
+                <Anchor>a94095bca6e0a30446f71348e8063788c</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_MOVABLE</Name>
+                <Path>d3/d36/structlimes_1_1dsp_1_1_oscillator.html</Path>
+                <Anchor>a34b908cd15c144735a5a6e54e079daad</Anchor>
+               </Node>
+               <Node>
+                <Name>resetPhase</Name>
+                <Path>d3/d36/structlimes_1_1dsp_1_1_oscillator.html</Path>
+                <Anchor>a54eeae5a5358f074c6de93de072d6c2e</Anchor>
+               </Node>
+               <Node>
+                <Name>setFrequency</Name>
+                <Path>d3/d36/structlimes_1_1dsp_1_1_oscillator.html</Path>
+                <Anchor>a544ee47db145618c2c88f09d956488bb</Anchor>
+               </Node>
+               <Node>
+                <Name>skipSamples</Name>
+                <Path>d3/d36/structlimes_1_1dsp_1_1_oscillator.html</Path>
+                <Anchor>add9247129b2eedf867eb07f84e24a9e9</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>Phase</Name>
+              <Path>d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>getIncrement</Name>
+                <Path>d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase.html</Path>
+                <Anchor>a10a063999e490292d7c2c50559871a2a</Anchor>
+               </Node>
+               <Node>
+                <Name>next</Name>
+                <Path>d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase.html</Path>
+                <Anchor>a2f9f7c833d64998db095c78aed385adb</Anchor>
+               </Node>
+               <Node>
+                <Name>resetPhase</Name>
+                <Path>d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase.html</Path>
+                <Anchor>a28696219087548d6824ee8d1fb830ea4</Anchor>
+               </Node>
+               <Node>
+                <Name>setFrequency</Name>
+                <Path>d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase.html</Path>
+                <Anchor>af88f71f4a3e6cc1b323a5a914c6abd56</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>owned_vector.h</Name>
@@ -23556,7 +24543,40 @@
            </Node>
            <Node>
             <Name>PeakFinder.h</Name>
-            <Path>dc/dad/_peak_finder_8h_source.html</Path>
+            <Path>dc/dad/_peak_finder_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>PeakFinder</Name>
+              <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>PeakFinder</Name>
+                <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+                <Anchor>a8f25caf391d138794c0849b40d8dd9ba</Anchor>
+               </Node>
+               <Node>
+                <Name>findPeaks</Name>
+                <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+                <Anchor>a42b1862be4650d287290de0c22af0be4</Anchor>
+               </Node>
+               <Node>
+                <Name>prepare</Name>
+                <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+                <Anchor>a28e5fbc5c919ee69e2e7ef26b1c6c1e5</Anchor>
+               </Node>
+               <Node>
+                <Name>releaseResources</Name>
+                <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+                <Anchor>a003bd2109db0ff54237f27e6de2b7883</Anchor>
+               </Node>
+               <Node>
+                <Name>reset</Name>
+                <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+                <Anchor>adb00d0c87150523d6f3a31833f6dcf5c</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>pentagon.h</Name>
@@ -24879,7 +25899,60 @@
            </Node>
            <Node>
             <Name>SampleStream.h</Name>
-            <Path>d5/d84/_sample_stream_8h_source.html</Path>
+            <Path>d5/d84/_sample_stream_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>SampleStream</Name>
+              <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>SampleVector</Name>
+                <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+                <Anchor>a6f037c48e547c0d708e75444a223c641</Anchor>
+               </Node>
+               <Node>
+                <Name>SampleStream</Name>
+                <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+                <Anchor>a43ef2ff3e941bcf7ce6b27b5d4a213ba</Anchor>
+               </Node>
+               <Node>
+                <Name>~SampleStream</Name>
+                <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+                <Anchor>a60506cd0bf3e4702c41094b223015ad7</Anchor>
+               </Node>
+               <Node>
+                <Name>getSample</Name>
+                <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+                <Anchor>a93eb1b866027c610d3d29b49adbd1a3c</Anchor>
+               </Node>
+               <Node>
+                <Name>getSamples</Name>
+                <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+                <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
+               </Node>
+               <Node>
+                <Name>getSamples</Name>
+                <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+                <Anchor>aec53b83b3d8893f57e6355866e4d75ae</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_COPYABLE</Name>
+                <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+                <Anchor>a94095bca6e0a30446f71348e8063788c</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_MOVABLE</Name>
+                <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+                <Anchor>a34b908cd15c144735a5a6e54e079daad</Anchor>
+               </Node>
+               <Node>
+                <Name>skipSamples</Name>
+                <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+                <Anchor>add9247129b2eedf867eb07f84e24a9e9</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>scalar_vector.h</Name>
@@ -25078,7 +26151,75 @@
            </Node>
            <Node>
             <Name>shifter.h</Name>
-            <Path>d7/d4f/shifter_8h_source.html</Path>
+            <Path>d7/d4f/shifter_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Shifter</Name>
+              <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Shifter</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>aed7aae0a2c2a21a210612ed319bd984d</Anchor>
+               </Node>
+               <Node>
+                <Name>~Shifter</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>abd9dd9677e9e92d099c1031017e1d00a</Anchor>
+               </Node>
+               <Node>
+                <Name>getPitchHz</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>a828d821a12795e3172c32b2352a8d18d</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_COPYABLE</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>a651c7296930d38234c31f02e677927a4</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_MOVABLE</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>a80e474b96db26b808037c5da2d3d6892</Anchor>
+               </Node>
+               <Node>
+                <Name>onNewBlock</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>aff40c8173b02c3035e0c2fb290810e44</Anchor>
+               </Node>
+               <Node>
+                <Name>pitchHzChanged</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>aef03e7c28f192e2ddb880443973c35dc</Anchor>
+               </Node>
+               <Node>
+                <Name>releaseResources</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>aa84c5c1774346e603ef015ae83d534d3</Anchor>
+               </Node>
+               <Node>
+                <Name>reset</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>a55d21b21d51c60cb8ffec8c88e3cd402</Anchor>
+               </Node>
+               <Node>
+                <Name>setPitchHz</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>a28168c68db4288d0cc0b13b591ea838b</Anchor>
+               </Node>
+               <Node>
+                <Name>Analyzer&lt; SampleType &gt;</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>a22bbc3f7f1466d647e7b5eb3e4b39204</Anchor>
+               </Node>
+               <Node>
+                <Name>analyzer</Name>
+                <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+                <Anchor>ab00f0a27448593aa5d009533b91964e5</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>sphere.h</Name>
@@ -27415,7 +28556,75 @@
            </Node>
            <Node>
             <Name>WhiteNoiseGenerator.h</Name>
-            <Path>d6/db1/_white_noise_generator_8h_source.html</Path>
+            <Path>d6/db1/_white_noise_generator_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>WhiteNoiseGenerator</Name>
+              <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>SampleVector</Name>
+                <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+                <Anchor>a6f037c48e547c0d708e75444a223c641</Anchor>
+               </Node>
+               <Node>
+                <Name>WhiteNoiseGenerator</Name>
+                <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+                <Anchor>ac98705b71d955693ab6d53034ff018df</Anchor>
+               </Node>
+               <Node>
+                <Name>WhiteNoiseGenerator</Name>
+                <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+                <Anchor>ac3b7f7e709c0bc3dac71404dde7e004a</Anchor>
+               </Node>
+               <Node>
+                <Name>WhiteNoiseGenerator</Name>
+                <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+                <Anchor>ac5a2b691b4bd3746aecdb818976ebc3c</Anchor>
+               </Node>
+               <Node>
+                <Name>getSample</Name>
+                <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+                <Anchor>a93eb1b866027c610d3d29b49adbd1a3c</Anchor>
+               </Node>
+               <Node>
+                <Name>getSamples</Name>
+                <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+                <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
+               </Node>
+               <Node>
+                <Name>getSamples</Name>
+                <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+                <Anchor>aec53b83b3d8893f57e6355866e4d75ae</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_COPYABLE</Name>
+                <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+                <Anchor>a94095bca6e0a30446f71348e8063788c</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_COPYABLE</Name>
+                <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+                <Anchor>a96a5f7fd55650c4b5df8d70c257c9e9c</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_MOVABLE</Name>
+                <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+                <Anchor>a34b908cd15c144735a5a6e54e079daad</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_MOVABLE</Name>
+                <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+                <Anchor>ab98f985bfa5bf3b6f0ab8d62f900a32a</Anchor>
+               </Node>
+               <Node>
+                <Name>skipSamples</Name>
+                <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+                <Anchor>add9247129b2eedf867eb07f84e24a9e9</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>WholeTone.h</Name>

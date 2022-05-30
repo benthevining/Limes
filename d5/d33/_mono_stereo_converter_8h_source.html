@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('d5/d33/_mono_stereo_converter_8h_sourc
 <div class="title">MonoStereoConverter.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<a href="../../d5/d33/_mono_stereo_converter_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * ======================================================================================</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  __    ____  __  __  ____  ___</span></div>
@@ -114,79 +114,82 @@ $(document).ready(function(){initNavTree('d5/d33/_mono_stereo_converter_8h_sourc
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/df0/limes__audio_2util_2_misc_8h.html">Misc.h</a>&quot;</span>                   <span class="comment">// for concept Sample - IWYU pragma: keep</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a>&gt;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span>dsp</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d4/d00/namespacelimes_1_1dsp.html#ab22891c08ff38fff51e3eebded597949">   27</a></span>&#160;LIMES_EXPORT <span class="keyword">enum class</span> <a class="code" href="../../d4/d00/namespacelimes_1_1dsp.html#ab22891c08ff38fff51e3eebded597949">StereoReductionMode</a> {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="../../d4/d00/namespacelimes_1_1dsp.html#ab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182">leftOnly</a>,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>dsp</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="../../d4/d00/namespacelimes_1_1dsp.html#ab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d">rightOnly</a>,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="../../d4/d00/namespacelimes_1_1dsp.html#ab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22">mixToMono</a></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">template</span> &lt;Sample SampleType&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html">   41</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="../../d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html">MonoStereoConverter</a> final</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">using</span> <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a> = <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">ds::scalar_vector&lt;SampleType&gt;</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> prepare (<span class="keywordtype">int</span> blocksize);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> setStereoReductionMode (<a class="code" href="../../d4/d00/namespacelimes_1_1dsp.html#ab22891c08ff38fff51e3eebded597949">StereoReductionMode</a> newmode);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    [[nodiscard]] <a class="code" href="../../d4/d00/namespacelimes_1_1dsp.html#ab22891c08ff38fff51e3eebded597949">StereoReductionMode</a> getStereoReductionMode() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> convertStereoToMono (<span class="keyword">const</span> SampleType* leftIn,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                              <span class="keyword">const</span> SampleType* rightIn,</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                              SampleType*       monoOut,</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                              <span class="keywordtype">int</span>               numSamples);</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d0/d7b/group__limes__audio.html#gab22891c08ff38fff51e3eebded597949">   35</a></span>&#160;LIMES_EXPORT <span class="keyword">enum class</span> <a class="code" href="../../d0/d7b/group__limes__audio.html#gab22891c08ff38fff51e3eebded597949">StereoReductionMode</a> {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d0/d7b/group__limes__audio.html#ggab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182">leftOnly</a>,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="../../d0/d7b/group__limes__audio.html#ggab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d">rightOnly</a>,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="../../d0/d7b/group__limes__audio.html#ggab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22">mixToMono</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">template</span> &lt;Sample SampleType&gt;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html">   51</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="../../d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html">MonoStereoConverter</a> final</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">using</span> <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a> = <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">ds::scalar_vector&lt;SampleType&gt;</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> prepare (<span class="keywordtype">int</span> blocksize);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> convertStereoToMono (<span class="keyword">const</span> <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp; leftIn,</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                              <span class="keyword">const</span> <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp; rightIn,</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                              <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp;       monoOut);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> convertMonoToStereo (<span class="keyword">const</span> SampleType* monoIn,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                              SampleType*       leftOut,</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                              SampleType*       rightOut,</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                              <span class="keywordtype">int</span>               numSamples);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> releaseResources();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> setStereoReductionMode (<a class="code" href="../../d0/d7b/group__limes__audio.html#gab22891c08ff38fff51e3eebded597949">StereoReductionMode</a> newmode) noexcept;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> convertMonoToStereo (<span class="keyword">const</span> <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp; monoIn,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                              <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp;       leftOut,</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                              <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp;       rightOut);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    [[nodiscard]] <a class="code" href="../../d0/d7b/group__limes__audio.html#gab22891c08ff38fff51e3eebded597949">StereoReductionMode</a> getStereoReductionMode() <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="../../d4/d00/namespacelimes_1_1dsp.html#ab22891c08ff38fff51e3eebded597949">StereoReductionMode</a> toMonoMode { StereoReductionMode::leftOnly };</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a> monoStorage;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}  <span class="comment">// namespace dsp</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> convertStereoToMono (<span class="keyword">const</span> SampleType* leftIn,</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                              <span class="keyword">const</span> SampleType* rightIn,</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                              SampleType*       monoOut,</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                              <span class="keywordtype">int</span>               numSamples) noexcept;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> convertStereoToMono (<span class="keyword">const</span> <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp; leftIn,</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                              <span class="keyword">const</span> <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp; rightIn,</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                              <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp;       monoOut) noexcept;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> convertMonoToStereo (<span class="keyword">const</span> SampleType* monoIn,</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                     SampleType*       leftOut,</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                                     SampleType*       rightOut,</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                     <span class="keywordtype">int</span>               numSamples) noexcept;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> convertMonoToStereo (<span class="keyword">const</span> <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp; monoIn,</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                                     <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp;       leftOut,</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                                     <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp;       rightOut) noexcept;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="../../d0/d7b/group__limes__audio.html#gab22891c08ff38fff51e3eebded597949">StereoReductionMode</a> toMonoMode { StereoReductionMode::leftOnly };</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a> monoStorage;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;};</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}  <span class="comment">// namespace dsp</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacelimes_1_1dsp_html_ab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182"><div class="ttname"><a href="../../d4/d00/namespacelimes_1_1dsp.html#ab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182">limes::dsp::StereoReductionMode::leftOnly</a></div><div class="ttdeci">@ leftOnly</div><div class="ttdoc">In this mode, a MonoStereoConverter will output only the left channel of a stereo signal as its mono ...</div></div>
+<div class="ttc" id="agroup__limes__audio_html_ggab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d"><div class="ttname"><a href="../../d0/d7b/group__limes__audio.html#ggab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d">limes::dsp::StereoReductionMode::rightOnly</a></div><div class="ttdeci">@ rightOnly</div><div class="ttdoc">In this mode, a MonoStereoConverter will output only the right channel of a stereo signal as its mono...</div></div>
 <div class="ttc" id="aclasslimes_1_1ds_1_1scalar__vector_html"><div class="ttname"><a href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">limes::ds::scalar_vector&lt; SampleType &gt;</a></div></div>
-<div class="ttc" id="anamespacelimes_1_1dsp_html_ab22891c08ff38fff51e3eebded597949"><div class="ttname"><a href="../../d4/d00/namespacelimes_1_1dsp.html#ab22891c08ff38fff51e3eebded597949">limes::dsp::StereoReductionMode</a></div><div class="ttdeci">StereoReductionMode</div><div class="ttdoc">An enum used to describe how a MonoStereoConverter will convert stereo signals to mono.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d33/_mono_stereo_converter_8h_source.html#l00027">MonoStereoConverter.h:27</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00052">limes_namespace.h:52</a></div></div>
-<div class="ttc" id="anamespacelimes_1_1dsp_html_ab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d"><div class="ttname"><a href="../../d4/d00/namespacelimes_1_1dsp.html#ab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d">limes::dsp::StereoReductionMode::rightOnly</a></div><div class="ttdeci">@ rightOnly</div><div class="ttdoc">In this mode, a MonoStereoConverter will output only the right channel of a stereo signal as its mono...</div></div>
+<div class="ttc" id="agroup__limes__audio_html_ggab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182"><div class="ttname"><a href="../../d0/d7b/group__limes__audio.html#ggab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182">limes::dsp::StereoReductionMode::leftOnly</a></div><div class="ttdeci">@ leftOnly</div><div class="ttdoc">In this mode, a MonoStereoConverter will output only the left channel of a stereo signal as its mono ...</div></div>
+<div class="ttc" id="agroup__limes__audio_html_ggab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22"><div class="ttname"><a href="../../d0/d7b/group__limes__audio.html#ggab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22">limes::dsp::StereoReductionMode::mixToMono</a></div><div class="ttdeci">@ mixToMono</div><div class="ttdoc">In this mode, a MonoStereoConverter will mix together the two channels of a stereo signal to create i...</div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00040">limes_namespace.h:40</a></div></div>
+<div class="ttc" id="agroup__limes__audio_html_gab22891c08ff38fff51e3eebded597949"><div class="ttname"><a href="../../d0/d7b/group__limes__audio.html#gab22891c08ff38fff51e3eebded597949">limes::dsp::StereoReductionMode</a></div><div class="ttdeci">StereoReductionMode</div><div class="ttdoc">An enum used to describe how a MonoStereoConverter will convert stereo signals to mono.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d33/_mono_stereo_converter_8h_source.html#l00035">MonoStereoConverter.h:35</a></div></div>
 <div class="ttc" id="alimes__audio_2util_2_misc_8h_html"><div class="ttname"><a href="../../d1/df0/limes__audio_2util_2_misc_8h.html">Misc.h</a></div></div>
-<div class="ttc" id="aclasslimes_1_1dsp_1_1_mono_stereo_converter_html"><div class="ttname"><a href="../../d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html">limes::dsp::MonoStereoConverter</a></div><div class="ttdoc">A utility class for converting mono signals to stereo, or stereo signals to mono.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d33/_mono_stereo_converter_8h_source.html#l00041">MonoStereoConverter.h:41</a></div></div>
-<div class="ttc" id="anamespacelimes_1_1dsp_html_ab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22"><div class="ttname"><a href="../../d4/d00/namespacelimes_1_1dsp.html#ab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22">limes::dsp::StereoReductionMode::mixToMono</a></div><div class="ttdeci">@ mixToMono</div><div class="ttdoc">In this mode, a MonoStereoConverter will mix together the two channels of a stereo signal to create i...</div></div>
+<div class="ttc" id="aclasslimes_1_1dsp_1_1_mono_stereo_converter_html"><div class="ttname"><a href="../../d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html">limes::dsp::MonoStereoConverter</a></div><div class="ttdoc">A utility class for converting mono signals to stereo, or stereo signals to mono.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d33/_mono_stereo_converter_8h_source.html#l00051">MonoStereoConverter.h:51</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_a9e7e74a9fa95c9d0d5d9012ba9e5673.html">limes_audio</a></li><li class="navelem"><a class="el" href="../../dir_8b092633fdcca3f15d4a308be51fefa9.html">util</a></li><li class="navelem"><b>MonoStereoConverter.h</b></li>
-    <li class="footer">Generated on Mon May 30 2022 14:39:43 for Limes by
+    <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_a9e7e74a9fa95c9d0d5d9012ba9e5673.html">limes_audio</a></li><li class="navelem"><a class="el" href="../../dir_8b092633fdcca3f15d4a308be51fefa9.html">util</a></li><li class="navelem"><a class="el" href="../../d5/d33/_mono_stereo_converter_8h.html">MonoStereoConverter.h</a></li>
+    <li class="footer">Generated on Mon May 30 2022 18:46:36 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

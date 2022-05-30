@@ -1,7 +1,7 @@
 var group__vec__sin =
 [
-    [ "arcsine", "d9/d09/group__vec__sin.html#gab8f7571b7d63a6bc762bcca1e07dac7e", null ],
-    [ "arcsineAndCopy", "d9/d09/group__vec__sin.html#ga016da50b803c883507599906c16c2362", null ],
-    [ "sine", "d9/d09/group__vec__sin.html#ga70f8edfe55ee492aa54d1a45e6002390", null ],
-    [ "sineAndCopy", "d9/d09/group__vec__sin.html#gab7bffe4cd6d37396902f6758c9415f16", null ]
+    [ "arcsine", "d9/d09/group__vec__sin.html#gaca9a612b58b50484ba4e02592e4f46f7", null ],
+    [ "arcsineAndCopy", "d9/d09/group__vec__sin.html#ga7474c1ae64d9c38707e715daf651490b", null ],
+    [ "sine", "d9/d09/group__vec__sin.html#ga0c6029a1aa1f59316d1680bb8f41ec5a", null ],
+    [ "sineAndCopy", "d9/d09/group__vec__sin.html#ga25e52cc19a67743b74746189126196c0", null ]
 ];

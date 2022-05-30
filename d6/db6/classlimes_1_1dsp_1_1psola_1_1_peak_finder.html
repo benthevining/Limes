@@ -105,9 +105,12 @@ $(document).ready(function(){initNavTree('d6/db6/classlimes_1_1dsp_1_1psola_1_1_
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a41c808a242f63abfea0a78adefece90b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">ds::scalar_vector</a>&lt; int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#a41c808a242f63abfea0a78adefece90b">findPeaks</a> (const SampleType *const inputSamples, int numSamples, float period)</td></tr>
-<tr class="memdesc:a41c808a242f63abfea0a78adefece90b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyzes a stream of audio and identifies the best set of pitch peaks to use for PSOLA pitch shifting.  <a href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#a41c808a242f63abfea0a78adefece90b">More...</a><br /></td></tr>
-<tr class="separator:a41c808a242f63abfea0a78adefece90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f25caf391d138794c0849b40d8dd9ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#a8f25caf391d138794c0849b40d8dd9ba">PeakFinder</a> ()=default</td></tr>
+<tr class="memdesc:a8f25caf391d138794c0849b40d8dd9ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#a8f25caf391d138794c0849b40d8dd9ba">More...</a><br /></td></tr>
+<tr class="separator:a8f25caf391d138794c0849b40d8dd9ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42b1862be4650d287290de0c22af0be4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">ds::scalar_vector</a>&lt; int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#a42b1862be4650d287290de0c22af0be4">findPeaks</a> (const SampleType *const inputSamples, int numSamples, float period) noexcept</td></tr>
+<tr class="memdesc:a42b1862be4650d287290de0c22af0be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyzes a stream of audio and identifies the best set of pitch peaks to use for PSOLA pitch shifting.  <a href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#a42b1862be4650d287290de0c22af0be4">More...</a><br /></td></tr>
+<tr class="separator:a42b1862be4650d287290de0c22af0be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28e5fbc5c919ee69e2e7ef26b1c6c1e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#a28e5fbc5c919ee69e2e7ef26b1c6c1e5">prepare</a> (int maxBlocksize)</td></tr>
 <tr class="memdesc:a28e5fbc5c919ee69e2e7ef26b1c6c1e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the analyzer for a new maximum blocksize.  <a href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#a28e5fbc5c919ee69e2e7ef26b1c6c1e5">More...</a><br /></td></tr>
 <tr class="separator:a28e5fbc5c919ee69e2e7ef26b1c6c1e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,17 +126,58 @@ Public Member Functions</h2></td></tr>
 class limes::dsp::psola::PeakFinder&lt; SampleType &gt;</h3>
 
 <p>A class that identifies pitch peaks for PSOLA pitch shifting. </p>
-<p>You probably won't ever need to use this class directly, as it's mainly intended as a utility for the <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> class. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> </dd></dl>
+<p>You probably won't ever need to use this class directly, as it's mainly intended as a utility for the <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> class.</p>
+<p>Pitch peak locations are used to locate and extract from the original signal a series of "grains" which are then respaced by the <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> class.</p>
+<p>Ultimately, the grains themselves are chosen using these heuristics:</p><ul>
+<li>Grains should be about 2 periods long</li>
+<li>Grains should have about 50% overlap</li>
+<li>Each grain should be about centered on the local maxima in the signal</li>
+</ul>
+<p>The set of grains that maximizes these criteria is chosen, and what is returned is a list of sample indices representing the <em>middle</em> sample of each grain (ie, the peak that the grain should be centered on).</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dad/_peak_finder_8h_source.html#l00031">31</a> of file <a class="el" href="../../dc/dad/_peak_finder_8h_source.html">PeakFinder.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a41c808a242f63abfea0a78adefece90b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41c808a242f63abfea0a78adefece90b">&#9670;&nbsp;</a></span>findPeaks()</h2>
+<p class="definition">Definition at line <a class="el" href="../../dc/dad/_peak_finder_8h_source.html#l00047">47</a> of file <a class="el" href="../../dc/dad/_peak_finder_8h_source.html">PeakFinder.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8f25caf391d138794c0849b40d8dd9ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f25caf391d138794c0849b40d8dd9ba">&#9670;&nbsp;</a></span>PeakFinder()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;Sample SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html">limes::dsp::psola::PeakFinder</a>&lt; SampleType &gt;::<a class="el" href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html">PeakFinder</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a42b1862be4650d287290de0c22af0be4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42b1862be4650d287290de0c22af0be4">&#9670;&nbsp;</a></span>findPeaks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Sample SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">ds::scalar_vector</a>&lt;int&gt;&amp; <a class="el" href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html">limes::dsp::psola::PeakFinder</a>&lt; SampleType &gt;::findPeaks </td>
@@ -159,10 +203,15 @@ template&lt;Sample SampleType&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Analyzes a stream of audio and identifies the best set of pitch peaks to use for PSOLA pitch shifting. </p>
-<p>The heuristics are that the grains should be approximately 2 periods long, with approximately 50% overlap, approximately centered on pitch peaks. This algorithm attempts to maximize all three criteria in the stream of selected peaks. To obtain the actual grains' start and end indices from the list of peak indices, you should do<code>peak-period</code> and <code>peak+period</code> , respectively, because the grains are 2 periods long and centered on the peaks. </p>
+<p>The heuristics are that the grains should be approximately 2 periods long, with approximately 50% overlap, approximately centered on pitch peaks. This algorithm attempts to maximize all three criteria in the stream of selected peaks. To obtain the actual grains' start and end indices from the list of peak indices, you should do <code>peak-period</code> and <code>peak+period</code> , respectively, because the grains are 2 periods long and centered on the peaks. </p>
 
 </div>
 </div>
@@ -185,6 +234,7 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Prepares the analyzer for a new maximum blocksize. </p>
+<dl class="section note"><dt>Note</dt><dd>This function may allocate memory, and should not be called from a realtime thread. </dd></dl>
 
 </div>
 </div>
@@ -206,6 +256,7 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Releases all resources used by the analyzer. </p>
+<dl class="section note"><dt>Note</dt><dd>This function may deallocate memory, and should not be called from a realtime thread. </dd></dl>
 
 </div>
 </div>
@@ -227,6 +278,7 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Resets the analyzer to its initial state, without freeing any resources. </p>
+<p>This function is safe to call from a realtime thread. </p>
 
 </div>
 </div>
@@ -239,7 +291,7 @@ template&lt;Sample SampleType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d00/namespacelimes_1_1dsp.html">dsp</a></li><li class="navelem"><a class="el" href="../../d6/d4e/namespacelimes_1_1dsp_1_1psola.html">psola</a></li><li class="navelem"><a class="el" href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html">PeakFinder</a></li>
-    <li class="footer">Generated on Mon May 30 2022 14:39:44 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 18:46:37 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

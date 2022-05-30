@@ -13,11 +13,14 @@ var files_dup =
       ] ]
     ] ],
     [ "alignment.h", "db/dad/alignment_8h.html", "db/dad/alignment_8h" ],
-    [ "analyzer.h", "d3/d19/analyzer_8h_source.html", null ],
+    [ "analyzer.h", "d3/d19/analyzer_8h.html", [
+      [ "Analyzer", "df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html", "df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer" ],
+      [ "Shifter", "d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html", "d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter" ]
+    ] ],
     [ "angle.h", "da/dac/angle_8h.html", [
       [ "Angle", "d3/d76/classlimes_1_1math_1_1geometry_1_1_angle.html", "d3/d76/classlimes_1_1math_1_1geometry_1_1_angle" ]
     ] ],
-    [ "basic_oscillators.h", "d8/dee/basic__oscillators_8h_source.html", null ],
+    [ "basic_oscillators.h", "d8/dee/basic__oscillators_8h.html", "d8/dee/basic__oscillators_8h" ],
     [ "basic_vector.h", "d5/d47/basic__vector_8h_source.html", null ],
     [ "build_date.h", "dc/db3/build__date_8h.html", "dc/db3/build__date_8h" ],
     [ "CFile.h", "d9/d78/_c_file_8h.html", [
@@ -34,7 +37,7 @@ var files_dup =
     ] ],
     [ "CircularBuffer.h", "dd/d28/_circular_buffer_8h_source.html", null ],
     [ "client.h", "d8/de1/client_8h.html", null ],
-    [ "Coeffecients.h", "d7/d56/_coeffecients_8h_source.html", null ],
+    [ "Coeffecients.h", "d7/d56/_coeffecients_8h.html", null ],
     [ "common.h", "dc/d54/common_8h.html", null ],
     [ "compiler_defs.h", "d0/d00/compiler__defs_8h.html", "d0/d00/compiler__defs_8h" ],
     [ "compiler_warnings.h", "de/d02/compiler__warnings_8h.html", "de/d02/compiler__warnings_8h" ],
@@ -60,7 +63,9 @@ var files_dup =
       [ "DateTime", "d9/d9b/classlimes_1_1time_1_1_date_time.html", "d9/d9b/classlimes_1_1time_1_1_date_time" ]
     ] ],
     [ "debugger.h", "dc/d72/debugger_8h.html", "dc/d72/debugger_8h" ],
-    [ "DetunableModel.h", "d7/ddb/_detunable_model_8h_source.html", null ],
+    [ "DetunableModel.h", "d7/ddb/_detunable_model_8h.html", [
+      [ "DetunableModel", "d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html", "d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model" ]
+    ] ],
     [ "Dimensions.h", "d0/dd0/_dimensions_8h_source.html", null ],
     [ "directory.h", "d9/d0f/directory_8h.html", [
       [ "Directory", "db/de1/classlimes_1_1files_1_1_directory.html", "db/de1/classlimes_1_1files_1_1_directory" ]
@@ -86,7 +91,9 @@ var files_dup =
       [ "hash< limes::files::File >", "de/dac/structstd_1_1hash_3_01limes_1_1files_1_1_file_01_4.html", "de/dac/structstd_1_1hash_3_01limes_1_1files_1_1_file_01_4" ]
     ] ],
     [ "FilesystemEntry.h", "d2/d83/_filesystem_entry_8h.html", "d2/d83/_filesystem_entry_8h" ],
-    [ "Filter.h", "da/d2d/_filter_8h_source.html", null ],
+    [ "Filter.h", "da/d2d/_filter_8h.html", [
+      [ "Filter", "d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html", "d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter" ]
+    ] ],
     [ "Fraction.h", "d3/de1/_fraction_8h.html", [
       [ "Fraction", "d9/d48/structlimes_1_1math_1_1_fraction.html", "d9/d48/structlimes_1_1math_1_1_fraction" ]
     ] ],
@@ -151,7 +158,7 @@ var files_dup =
     [ "Mode.h", "d8/daa/_mode_8h.html", [
       [ "Mode", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode" ]
     ] ],
-    [ "MonoStereoConverter.h", "d5/d33/_mono_stereo_converter_8h_source.html", null ],
+    [ "MonoStereoConverter.h", "d5/d33/_mono_stereo_converter_8h.html", "d5/d33/_mono_stereo_converter_8h" ],
     [ "month.h", "d7/d38/month_8h.html", [
       [ "Month", "d4/dc2/classlimes_1_1time_1_1_month.html", "d4/dc2/classlimes_1_1time_1_1_month" ]
     ] ],
@@ -172,9 +179,14 @@ var files_dup =
     [ "OptionalObject.h", "d8/dad/_optional_object_8h.html", [
       [ "OptionalObject", "d5/d21/classlimes_1_1memory_1_1_optional_object.html", "d5/d21/classlimes_1_1memory_1_1_optional_object" ]
     ] ],
-    [ "oscillator.h", "dc/da4/oscillator_8h_source.html", null ],
+    [ "oscillator.h", "dc/da4/oscillator_8h.html", [
+      [ "Oscillator", "d3/d36/structlimes_1_1dsp_1_1_oscillator.html", "d3/d36/structlimes_1_1dsp_1_1_oscillator" ],
+      [ "Phase", "d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase.html", "d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase" ]
+    ] ],
     [ "owned_vector.h", "d2/dd0/owned__vector_8h_source.html", null ],
-    [ "PeakFinder.h", "dc/dad/_peak_finder_8h_source.html", null ],
+    [ "PeakFinder.h", "dc/dad/_peak_finder_8h.html", [
+      [ "PeakFinder", "d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html", "d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder" ]
+    ] ],
     [ "pentagon.h", "dc/d7f/pentagon_8h.html", [
       [ "Pentagon", "d4/d1e/classlimes_1_1math_1_1geometry_1_1_pentagon.html", "d4/d1e/classlimes_1_1math_1_1geometry_1_1_pentagon" ]
     ] ],
@@ -211,7 +223,9 @@ var files_dup =
       [ "RectangularPrism", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism.html", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism" ]
     ] ],
     [ "ReferenceCountedObject.h", "df/dc8/_reference_counted_object_8h.html", "df/dc8/_reference_counted_object_8h" ],
-    [ "SampleStream.h", "d5/d84/_sample_stream_8h_source.html", null ],
+    [ "SampleStream.h", "d5/d84/_sample_stream_8h.html", [
+      [ "SampleStream", "d7/d63/structlimes_1_1dsp_1_1_sample_stream.html", "d7/d63/structlimes_1_1dsp_1_1_sample_stream" ]
+    ] ],
     [ "scalar_vector.h", "d2/d8d/scalar__vector_8h_source.html", null ],
     [ "Scale.h", "d4/d81/_scale_8h.html", null ],
     [ "sha1.h", "db/db5/sha1_8h.html", "db/db5/sha1_8h" ],
@@ -219,7 +233,9 @@ var files_dup =
     [ "sha256.h", "d5/de3/sha256_8h.html", "d5/de3/sha256_8h" ],
     [ "sha384.h", "d5/de0/sha384_8h.html", "d5/de0/sha384_8h" ],
     [ "sha512.h", "da/d73/sha512_8h.html", "da/d73/sha512_8h" ],
-    [ "shifter.h", "d7/d4f/shifter_8h_source.html", null ],
+    [ "shifter.h", "d7/d4f/shifter_8h.html", [
+      [ "Shifter", "d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html", "d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter" ]
+    ] ],
     [ "sphere.h", "d5/d4a/sphere_8h.html", [
       [ "Sphere", "da/dbb/classlimes_1_1math_1_1geometry_1_1_sphere.html", "da/dbb/classlimes_1_1math_1_1geometry_1_1_sphere" ]
     ] ],
@@ -272,7 +288,9 @@ var files_dup =
       [ "Weekday", "d4/d90/classlimes_1_1time_1_1_weekday.html", "d4/d90/classlimes_1_1time_1_1_weekday" ]
     ] ],
     [ "weekday_impl.h", "d4/d9a/weekday__impl_8h.html", null ],
-    [ "WhiteNoiseGenerator.h", "d6/db1/_white_noise_generator_8h_source.html", null ],
+    [ "WhiteNoiseGenerator.h", "d6/db1/_white_noise_generator_8h.html", [
+      [ "WhiteNoiseGenerator", "dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html", "dc/d18/structlimes_1_1dsp_1_1_white_noise_generator" ]
+    ] ],
     [ "WholeTone.h", "d0/dce/_whole_tone_8h.html", [
       [ "WholeTone", "d7/d2a/classlimes_1_1music_1_1scales_1_1_whole_tone.html", "d7/d2a/classlimes_1_1music_1_1scales_1_1_whole_tone" ]
     ] ],

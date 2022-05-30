@@ -1,9 +1,9 @@
 var group__vec__subtraction =
 [
-    [ "subtract", "db/d1b/group__vec__subtraction.html#ga3cfcdbfcfcc7eddd88976b492a07cdcd", null ],
-    [ "subtract", "db/d1b/group__vec__subtraction.html#gaaf87038b8dbebbcf9f1f0d437626d240", null ],
-    [ "subtractAndCopy", "db/d1b/group__vec__subtraction.html#gafe7b83f1d03472b68d797e73d8383436", null ],
-    [ "subtractAndCopy", "db/d1b/group__vec__subtraction.html#gab4ada87267e7d3c876927c103644b7d2", null ],
-    [ "subtractInv", "db/d1b/group__vec__subtraction.html#gaa1b8bfd9af3ad4fd855302f928389b87", null ],
-    [ "subtractInvAndCopy", "db/d1b/group__vec__subtraction.html#gabbd47335c741634bea817338ced935fb", null ]
+    [ "subtract", "db/d1b/group__vec__subtraction.html#gaf0bd89ff06267a8145bf087e061137de", null ],
+    [ "subtract", "db/d1b/group__vec__subtraction.html#ga9f4c1c0a71fbd7339fa2fc1fc4bfd087", null ],
+    [ "subtractAndCopy", "db/d1b/group__vec__subtraction.html#ga6c7a7263ad1427ad0f9ba15785c7c74b", null ],
+    [ "subtractAndCopy", "db/d1b/group__vec__subtraction.html#ga33c404fa92f28a495234c5ea7bb3cfe3", null ],
+    [ "subtractInv", "db/d1b/group__vec__subtraction.html#ga75c4ee421b6ab6f8828eeb459a7e55b8", null ],
+    [ "subtractInvAndCopy", "db/d1b/group__vec__subtraction.html#ga7b5798461a596936a8495233b4ddb924", null ]
 ];

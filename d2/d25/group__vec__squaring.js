@@ -1,11 +1,11 @@
 var group__vec__squaring =
 [
-    [ "cubeRoot", "d2/d25/group__vec__squaring.html#ga8afca66dd52ffe6fb79389021a534a52", null ],
-    [ "cubeRootAndCopy", "d2/d25/group__vec__squaring.html#gae042318396457c01f6fada5ed1d0a30a", null ],
-    [ "invSquareRoot", "d2/d25/group__vec__squaring.html#gafe23c2bdb127365eaa45a44756e27a7c", null ],
-    [ "invSquareRootAndCopy", "d2/d25/group__vec__squaring.html#ga4eeef47e715d3f013bc4bf422aae4513", null ],
-    [ "square", "d2/d25/group__vec__squaring.html#ga7ffe4dc4bfb026764ded43505808ea05", null ],
-    [ "squareAndCopy", "d2/d25/group__vec__squaring.html#ga2b86c5812869f9349b4514d7688779aa", null ],
-    [ "squareRoot", "d2/d25/group__vec__squaring.html#ga767390a3685bf96f8881c589fd3d0af6", null ],
-    [ "squareRootAndCopy", "d2/d25/group__vec__squaring.html#ga6958c4eb21cba4deae2df260b2aa0168", null ]
+    [ "cubeRoot", "d2/d25/group__vec__squaring.html#ga8a9f8db1b30f6c6b82bb281d0ee3f9af", null ],
+    [ "cubeRootAndCopy", "d2/d25/group__vec__squaring.html#ga854955b00a0234e94976c2d4d1090296", null ],
+    [ "invSquareRoot", "d2/d25/group__vec__squaring.html#gacb7663a80b1a6411753c91f6d5b7da6c", null ],
+    [ "invSquareRootAndCopy", "d2/d25/group__vec__squaring.html#ga629169f67eb95bdf2c3bf126dbd99bc6", null ],
+    [ "square", "d2/d25/group__vec__squaring.html#ga208c95b83be5880a5277c296b698a693", null ],
+    [ "squareAndCopy", "d2/d25/group__vec__squaring.html#gaff1a5ee7566b9158065b6a677e3f47b1", null ],
+    [ "squareRoot", "d2/d25/group__vec__squaring.html#gacd4943ba3289038942de00b6262bb23c", null ],
+    [ "squareRootAndCopy", "d2/d25/group__vec__squaring.html#ga172282de70eec2bf8d7ac52cce414fe5", null ]
 ];

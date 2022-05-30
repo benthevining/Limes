@@ -1,16 +1,7 @@
 var namespacelimes_1_1dsp =
 [
-    [ "filters", null, [
-      [ "Coeffecients", "df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html", "df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients" ],
-      [ "Filter", "d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html", "d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter" ]
-    ] ],
-    [ "osc", null, [
-      [ "DetunableModel", "d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html", "d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model" ],
-      [ "Saw", "d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html", "d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw" ],
-      [ "Sine", "d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html", "d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine" ],
-      [ "Square", "dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square.html", "dc/d1a/structlimes_1_1dsp_1_1osc_1_1_square" ],
-      [ "Triangle", "d4/d24/structlimes_1_1dsp_1_1osc_1_1_triangle.html", "d4/d24/structlimes_1_1dsp_1_1osc_1_1_triangle" ]
-    ] ],
+    [ "filters", "d8/de5/namespacelimes_1_1dsp_1_1filters.html", "d8/de5/namespacelimes_1_1dsp_1_1filters" ],
+    [ "osc", "d1/d0a/namespacelimes_1_1dsp_1_1osc.html", "d1/d0a/namespacelimes_1_1dsp_1_1osc" ],
     [ "psola", "d6/d4e/namespacelimes_1_1dsp_1_1psola.html", "d6/d4e/namespacelimes_1_1dsp_1_1psola" ],
     [ "CircularBuffer", "d7/d95/classlimes_1_1dsp_1_1_circular_buffer.html", "d7/d95/classlimes_1_1dsp_1_1_circular_buffer" ],
     [ "MonoStereoConverter", "d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html", "d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter" ],

@@ -338,6 +338,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>Oscillator</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>limes::dsp::osc</Scope>
+    </TokenIdentifier>
+    <Path>d1/d0a/namespacelimes_1_1dsp_1_1osc.html</Path>
+    <Anchor>aec519f4cfbe85e2c5bc56130bc6552fa</Anchor>
+    <Abstract>Convenience typedef for the oscillator base class.</Abstract>
+    <DeclaredIn>basic_oscillators.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>TODO_BEFORE</Name>
       <APILanguage>unknown</APILanguage>
       <Type>macro</Type>
@@ -1232,7 +1244,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d4/de3/group__vec__trig.html</Path>
-    <Anchor>ga99c0aff0af15ed2fa40caba9a694b875</Anchor>
+    <Anchor>gaaf5e6700040b35b379073259d5778eab</Anchor>
     <Abstract>Simultaneously computes the sin and cosine of every value in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1244,7 +1256,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/dce/group__vec__arithmetic.html</Path>
-    <Anchor>ga3f666c5959c3a5455307e934bf128e66</Anchor>
+    <Anchor>ga9e13bec3651f5fd337ba190bd68d0cd5</Anchor>
     <Abstract>Replaces each value in the vector with its reciprocal.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1256,7 +1268,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/dce/group__vec__arithmetic.html</Path>
-    <Anchor>ga429841ddd26f24e59cf5e6a9c81051a0</Anchor>
+    <Anchor>ga9118787b8f725138b24494d4b7c1b9b9</Anchor>
     <Abstract>Writes the reciprocal of each value in the input vector to an output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1268,7 +1280,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/da6/group__vec__addition.html</Path>
-    <Anchor>ga66ba5c80ed76fa00d4e88f6d4956353e</Anchor>
+    <Anchor>ga3a024446ad19d145afb726ebbb5af8c0</Anchor>
     <Abstract>Adds a constant to every element of the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1280,7 +1292,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/da6/group__vec__addition.html</Path>
-    <Anchor>gaf27735eef1dc3a62a3d101542f7ff04b</Anchor>
+    <Anchor>ga667f4f92b16f4b8d06e37f77341d4c61</Anchor>
     <Abstract>Element-wise addition of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1292,7 +1304,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/da6/group__vec__addition.html</Path>
-    <Anchor>ga1b3fb3713b274169af0afd6b3200df35</Anchor>
+    <Anchor>ga5d09da7900434c5006c6e6a9684205a4</Anchor>
     <Abstract>Element-wise addition of two vectors, writing the output to a third vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1304,7 +1316,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/da6/group__vec__addition.html</Path>
-    <Anchor>ga5a46824e44372ed098c56ee93a9464c8</Anchor>
+    <Anchor>ga1426d96a68724d3c304100b04945cce9</Anchor>
     <Abstract>Adds a constant to every element of a vector, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1316,7 +1328,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>ga3cfcdbfcfcc7eddd88976b492a07cdcd</Anchor>
+    <Anchor>gaf0bd89ff06267a8145bf087e061137de</Anchor>
     <Abstract>Subtracts a constant from every element of the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1328,7 +1340,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gaaf87038b8dbebbcf9f1f0d437626d240</Anchor>
+    <Anchor>ga9f4c1c0a71fbd7339fa2fc1fc4bfd087</Anchor>
     <Abstract>Element-wise subtraction of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1340,7 +1352,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gafe7b83f1d03472b68d797e73d8383436</Anchor>
+    <Anchor>ga6c7a7263ad1427ad0f9ba15785c7c74b</Anchor>
     <Abstract>Element-wise subtraction of two vectors, writing the output to a third vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1352,7 +1364,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gab4ada87267e7d3c876927c103644b7d2</Anchor>
+    <Anchor>ga33c404fa92f28a495234c5ea7bb3cfe3</Anchor>
     <Abstract>Subtracts a constant from every element of a vector, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1364,7 +1376,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gaa1b8bfd9af3ad4fd855302f928389b87</Anchor>
+    <Anchor>ga75c4ee421b6ab6f8828eeb459a7e55b8</Anchor>
     <Abstract>Subtracts every element of a vector from a constant.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1376,7 +1388,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gabbd47335c741634bea817338ced935fb</Anchor>
+    <Anchor>ga7b5798461a596936a8495233b4ddb924</Anchor>
     <Abstract>Subtracts every element of a vector from a constant, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1388,7 +1400,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga742b3bf8da890335f5076283ede1bffd</Anchor>
+    <Anchor>gaf0f5c8fe0cea2baa676bdc386a5d0540</Anchor>
     <Abstract>Computes the dot product of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1400,7 +1412,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga56926bb051862438c0a0757f48bba1a1</Anchor>
+    <Anchor>gaaae47b2eff0299658f34471cd9cd1970</Anchor>
     <Abstract>Multiplies every element of a vector by a constant.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1412,7 +1424,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga9e6ffaa500ede915aca99c8093c36f30</Anchor>
+    <Anchor>ga63864c635a4cae5c20c5a1ae77233edc</Anchor>
     <Abstract>Element-wise multiplication of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1424,7 +1436,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga102ba37b1e175c77fcd6c5dd7d536454</Anchor>
+    <Anchor>ga475d2e0141d013e86c051864dff93a94</Anchor>
     <Abstract>Element-wise multiplication of two vectors, writing the output to a third vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1436,7 +1448,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga134b25c94db4e3da7185750667f9258a</Anchor>
+    <Anchor>gaf6f1d361d99e4c5c8256861b0c2bb85e</Anchor>
     <Abstract>Multiplies every element of a vector by a constant, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1448,7 +1460,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga1cc6f3e67f608c7d1fa0f6d3147d990f</Anchor>
+    <Anchor>gaadc0439e237e20f07a4b5f943e823ad9</Anchor>
     <Abstract>Divides every element of a vector by a constant.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1460,7 +1472,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga380ecd440c4d992fb339c5cf4b3ace2f</Anchor>
+    <Anchor>ga99caeed6d8faf1ee3ef87748a4fd6533</Anchor>
     <Abstract>Element-wise division of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1472,7 +1484,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga0b6ebde731b9e8a74fe17e8e64e8dda8</Anchor>
+    <Anchor>ga16030e4c778234c88cf971305a712374</Anchor>
     <Abstract>Element-wise division of two vectors, writing the output to a third vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1484,7 +1496,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>gada4072b434b5ab68372504827ae65f2f</Anchor>
+    <Anchor>gae548ef3044eae9a712a510439e87bb0d</Anchor>
     <Abstract>Divides every element of a vector by a constant, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1496,7 +1508,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga067f89307594a2d62a2a295de8b0fa56</Anchor>
+    <Anchor>gaada175046515b6502c99b363e2748ba6</Anchor>
     <Abstract>Divides a constant by every element of a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1508,7 +1520,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga7c70b819aecbbf3401393a00c73b3d40</Anchor>
+    <Anchor>ga7b9c0fb4b7d0e5484e1ebaf9d8ed4649</Anchor>
     <Abstract>Divides a constant by every element of a vector, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1520,7 +1532,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga8afca66dd52ffe6fb79389021a534a52</Anchor>
+    <Anchor>ga8a9f8db1b30f6c6b82bb281d0ee3f9af</Anchor>
     <Abstract>Replaces every element in the vector with its cube root.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1532,7 +1544,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>gae042318396457c01f6fada5ed1d0a30a</Anchor>
+    <Anchor>ga854955b00a0234e94976c2d4d1090296</Anchor>
     <Abstract>Writes the cube root of every element in the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1544,7 +1556,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>gafe23c2bdb127365eaa45a44756e27a7c</Anchor>
+    <Anchor>gacb7663a80b1a6411753c91f6d5b7da6c</Anchor>
     <Abstract>Replaces every element in the vector with its inverse square root.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1556,7 +1568,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga4eeef47e715d3f013bc4bf422aae4513</Anchor>
+    <Anchor>ga629169f67eb95bdf2c3bf126dbd99bc6</Anchor>
     <Abstract>Writes the inverse square root of every element in the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1568,7 +1580,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga7ffe4dc4bfb026764ded43505808ea05</Anchor>
+    <Anchor>ga208c95b83be5880a5277c296b698a693</Anchor>
     <Abstract>Squares every element of a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1580,7 +1592,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga2b86c5812869f9349b4514d7688779aa</Anchor>
+    <Anchor>gaff1a5ee7566b9158065b6a677e3f47b1</Anchor>
     <Abstract>Squares every element of a vector, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1592,7 +1604,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga767390a3685bf96f8881c589fd3d0af6</Anchor>
+    <Anchor>gacd4943ba3289038942de00b6262bb23c</Anchor>
     <Abstract>Replaces every element in the vector with its square root.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1604,7 +1616,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga6958c4eb21cba4deae2df260b2aa0168</Anchor>
+    <Anchor>ga172282de70eec2bf8d7ac52cce414fe5</Anchor>
     <Abstract>Writes the square root of every element in the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1616,7 +1628,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>gac290bad09c7f2dcc7dafb54dd1659c09</Anchor>
+    <Anchor>ga8fc2171aa245734cea2eab71fe7813bb</Anchor>
     <Abstract>Deinterleaves single channel data into multiple output vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1628,7 +1640,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>gab0be2861b5335cd117e42334e8183be5</Anchor>
+    <Anchor>gadee227aae33b5acd81eed3658d9bc95f</Anchor>
     <Abstract>Interleaves multichannel data into a single output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1640,7 +1652,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>gac2f79de8e98cb16c00dfc44f95493cd6</Anchor>
+    <Anchor>ga3174c7d255cfa8cdbd32e7845562bb73</Anchor>
     <Abstract>Reverses a vector in-place.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1652,7 +1664,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga8836f4ab0adcb32a11ecb1d050caafcd</Anchor>
+    <Anchor>gaa0e5fe9cf32d0f1afd852e34865bef4c</Anchor>
     <Abstract>Writes a reversed version of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1664,7 +1676,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga3f50457ce64ef4c7315272e7393dc731</Anchor>
+    <Anchor>ga502969ed94a7b9dc418cfd0d57d72d2b</Anchor>
     <Abstract>Sorts a vector in-place.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1676,7 +1688,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga7686ad6fadf7708b396c1e950381763a</Anchor>
+    <Anchor>ga4365df111ef0deddbf49f64bef41daf0</Anchor>
     <Abstract>Writes a sorted version of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1688,7 +1700,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga2d2e0cc334202389d34d0cdff2311a93</Anchor>
+    <Anchor>gac81290ecb1e18ef23d69b3e63fb6c53a</Anchor>
     <Abstract>Sorts a vector in reverse order in-place.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1700,7 +1712,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga87182039217238fd656427bf2fe20d71</Anchor>
+    <Anchor>ga2e3da938605f8b09c3337e4cebf87e03</Anchor>
     <Abstract>Writes a reverse sorted version of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1712,7 +1724,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gaea77f3fca59a186157d4ec9186fd4aef</Anchor>
+    <Anchor>gad21e9bb4bd863a7433cbc0d0d082c7e1</Anchor>
     <Abstract>Replaces each element of the vector with its absolute value.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1724,7 +1736,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga237a1f46d447efa5ff5b0c87b27d5c1d</Anchor>
+    <Anchor>ga2a6a53a470f1f882e1bbba6ee0449060</Anchor>
     <Abstract>Writes the absolute value of each element of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1736,7 +1748,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gac398f6db71a95724f8b1397e0625dbc9</Anchor>
+    <Anchor>gaef34a7abfcb2ba9369dc75343b0c4c5a</Anchor>
     <Abstract>Clips every element of a vector in-place.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1748,7 +1760,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga8d5e0f98136d66678751b4e4f7a6c75b</Anchor>
+    <Anchor>gaaa678dbf9d6d6884756ad76a7bbf3daa</Anchor>
     <Abstract>Writes a clipped version of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1760,7 +1772,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga8718d42502840dacd0526af810246535</Anchor>
+    <Anchor>ga1f5417592c6e8d68a04566dd2428cde5</Anchor>
     <Abstract>Returns the mean of the values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1772,7 +1784,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gaf2cf9ed44455874ee33ee41be90ea92b</Anchor>
+    <Anchor>ga0b6017272155894c64975f76349cea19</Anchor>
     <Abstract>Flips the sign of every element of the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1784,7 +1796,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga7c83c80afca79e911f58a946cefb9bb4</Anchor>
+    <Anchor>ga3b6e43a027ee0bc91a0f59678b03d0ff</Anchor>
     <Abstract>Writes the negation of every element of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1796,7 +1808,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gac764291362ee108017d7f2fb6a553e4b</Anchor>
+    <Anchor>gaebef10f895380fa0de309304af33878d</Anchor>
     <Abstract>Returns the standard deviation of the values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1808,8 +1820,32 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gabe15561e57a389ece031d1999fcced7c</Anchor>
+    <Anchor>ga0a7b3fbae1d35e850b7322264c0b5cff</Anchor>
     <Abstract>Returns the sum of all the values in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getAbsVectorExtremaInfo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga1a3cc804d477d233599086f86558aa36</Anchor>
+    <Abstract>Calculates the values and positions of the absolute value extrema in the vector and returns them in a...</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getVectorExtremaInfo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga379d47a07fa42f3c41f5171758990555</Anchor>
+    <Abstract>Calculates the values and positions of the extrema in the vector and returns them in a single VectorE...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -1820,7 +1856,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga3207a49d4eb5a8f6987e178c5dbd9370</Anchor>
+    <Anchor>ga7e741640b08aaa13c2c37ab0d4c8acd8</Anchor>
     <Abstract>Returns the maximum element in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1832,7 +1868,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gab9b4c8e02bbf434e1a7f7ae69ac0e087</Anchor>
+    <Anchor>ga847e933eec75e5853e47865f41e071fe</Anchor>
     <Abstract>Finds the maximum element in a vector and its index in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1844,7 +1880,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga7a38c8827814ea1b34db01bab093f7d8</Anchor>
+    <Anchor>gaa6df91ebaade90faa4555262c6875d49</Anchor>
     <Abstract>Returns the maximum absolute value in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1856,7 +1892,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga337bb51945804cb53069150fc654c369</Anchor>
+    <Anchor>gabe7285b7b9b9d46229150ea80bc9ad50</Anchor>
     <Abstract>Finds the maximum absolute value in a vector and its index in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1868,7 +1904,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga8db5010d14385445a322bc713aa91bdc</Anchor>
+    <Anchor>ga605ed52218b5ec5df543eed606d0f0d7</Anchor>
     <Abstract>Returns the minimum element in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1880,7 +1916,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gaa9a753d50b7bde96e9f490c890d6f5c9</Anchor>
+    <Anchor>ga436fbda048b0ff68d5f2e5a9952a5f0f</Anchor>
     <Abstract>Finds the minimum element in a vector and its index in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1892,7 +1928,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga71eaaa0279c952cdba690faab21af70b</Anchor>
+    <Anchor>gab5ebd45f2963c36c18dd6d768349275f</Anchor>
     <Abstract>Returns the minimum absolute value in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1904,7 +1940,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gad1335ff22597aafeb9ed83e9189106d7</Anchor>
+    <Anchor>ga0ce938eaa12c73f120485fa2eb5f7415</Anchor>
     <Abstract>Finds the minimum absolute value in a vector and its index in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1916,7 +1952,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gacfdcb0cc73e0ae32f3c54f864d917601</Anchor>
+    <Anchor>ga219248fe15b7f5b82c6c338641c5a557</Anchor>
     <Abstract>Finds both the minimum and maximum values in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1928,7 +1964,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gaff7e9c76aef26d80400ab980d2e03b82</Anchor>
+    <Anchor>gaa2af652aec26b69e562e4477ae27e81b</Anchor>
     <Abstract>Finds the minimum and maximum values in a vector, and their indices in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1940,7 +1976,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga853b7319809c8d614e7a92e0689e821e</Anchor>
+    <Anchor>ga5da07c6b14483410d44bb3fa81b53320</Anchor>
     <Abstract>Finds both the minimum and maximum absolute values in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1952,7 +1988,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gaa16aac01d52b55804c35a1c43c240722</Anchor>
+    <Anchor>ga6f9efb710d0503059914715942101e20</Anchor>
     <Abstract>Finds the minimum and maximum absolute values in a vector, and their indices in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1964,7 +2000,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gaa141140bec853742916f7095838174f2</Anchor>
+    <Anchor>ga2723e9d8f177c8389fae159bb075f196</Anchor>
     <Abstract>Returns the difference between the maximum and minimum values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1976,7 +2012,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga4f16ce14de7be970efaa3ca131343cfd</Anchor>
+    <Anchor>gaf838401785666d1131bc732e6c320b72</Anchor>
     <Abstract>Returns the difference between the maximum and minimum absolute values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -1988,7 +2024,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d9/d09/group__vec__sin.html</Path>
-    <Anchor>gab8f7571b7d63a6bc762bcca1e07dac7e</Anchor>
+    <Anchor>gaca9a612b58b50484ba4e02592e4f46f7</Anchor>
     <Abstract>Replaces every value in the vector with its arcsine.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2000,7 +2036,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d9/d09/group__vec__sin.html</Path>
-    <Anchor>ga016da50b803c883507599906c16c2362</Anchor>
+    <Anchor>ga7474c1ae64d9c38707e715daf651490b</Anchor>
     <Abstract>Writes the arcsine of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2012,7 +2048,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d9/d09/group__vec__sin.html</Path>
-    <Anchor>ga70f8edfe55ee492aa54d1a45e6002390</Anchor>
+    <Anchor>ga0c6029a1aa1f59316d1680bb8f41ec5a</Anchor>
     <Abstract>Replaces every value in the vector with its sine.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2024,7 +2060,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d9/d09/group__vec__sin.html</Path>
-    <Anchor>gab7bffe4cd6d37396902f6758c9415f16</Anchor>
+    <Anchor>ga25e52cc19a67743b74746189126196c0</Anchor>
     <Abstract>Writes the sine of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2036,7 +2072,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dd/d22/group__vec__cos.html</Path>
-    <Anchor>ga99da45fcefe45e733e46593ad63c0d17</Anchor>
+    <Anchor>gae0764ad036561cfa66bb6a08bedd69bf</Anchor>
     <Abstract>Replaces every value in the vector with its arccosine.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2048,7 +2084,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dd/d22/group__vec__cos.html</Path>
-    <Anchor>ga48a0d852db4b3d9a20f11e590b7c3660</Anchor>
+    <Anchor>ga1a26d7c204eb7f95b4b659337dee0325</Anchor>
     <Abstract>Writes the arccosine of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2060,7 +2096,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dd/d22/group__vec__cos.html</Path>
-    <Anchor>gac6b49fb5d7f55051360040676548e51d</Anchor>
+    <Anchor>ga231ccf8f8ffc8267a333aa912e259cae</Anchor>
     <Abstract>Replaces every value in the vector with its cosine.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2072,7 +2108,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dd/d22/group__vec__cos.html</Path>
-    <Anchor>ga41edc84e495ab9148da97dae4d68452a</Anchor>
+    <Anchor>ga6724350269a20b880de0969bde2405d6</Anchor>
     <Abstract>Writes the cosine of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2084,7 +2120,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d0d/group__vec__tan.html</Path>
-    <Anchor>gacd1d20855d2c38285293886a6bdfc912</Anchor>
+    <Anchor>ga398978e25f59930d3ef1a58707fd889d</Anchor>
     <Abstract>Replaces every value in the vector with its arctangent.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2096,7 +2132,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d0d/group__vec__tan.html</Path>
-    <Anchor>gae11646657e70d2ddc83f24736d616f3c</Anchor>
+    <Anchor>gaedf349fe7e558d8b436534afcec800eb</Anchor>
     <Abstract>Writes the arctangent of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2108,7 +2144,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d0d/group__vec__tan.html</Path>
-    <Anchor>ga513069ac6021cc619336a5196bfb7d25</Anchor>
+    <Anchor>gaeed48026d7586d096bce4c0b93e725b8</Anchor>
     <Abstract>Replaces every value in the vector with its tangent.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2120,7 +2156,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d0d/group__vec__tan.html</Path>
-    <Anchor>gaeb99567aadd1ef547a55f85917cd29d6</Anchor>
+    <Anchor>ga8ca2ca9f9899123ac65447f3acf196ff</Anchor>
     <Abstract>Writes the tangent of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2132,7 +2168,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>gafeeeefc3ff02635214587d7b1bddfabb</Anchor>
+    <Anchor>ga2bd502c7dd4a6f5804ed1c967e3dccd9</Anchor>
     <Abstract>Replaces each value in the vector with its base 10 logarithm.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2144,7 +2180,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>ga27f359ab55cb9bdeb9bc896037ca7971</Anchor>
+    <Anchor>gaf4d52993ec0f582f9c198aae893caff2</Anchor>
     <Abstract>Writes the base 10 logarithm of each value in the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2156,7 +2192,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>ga84c312792ededa69e74bbed3d51e88c2</Anchor>
+    <Anchor>ga2b524a2a0efcafcd98ce0922394caebb</Anchor>
     <Abstract>Replaces each value in the vector with its base 2 logarithm.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2168,7 +2204,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>gae2c8537854c400257ea114cf1a64a3d0</Anchor>
+    <Anchor>gae3b4330086bcfc18cd4187fba10d4687</Anchor>
     <Abstract>Writes the base 2 logarithm of each value in the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2180,7 +2216,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>ga955f22d2e33f9746c063827fd1c11e37</Anchor>
+    <Anchor>gaba505eb13846fd46259783da1db133a2</Anchor>
     <Abstract>Replaces each value in the vector with its natural logarithm.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2192,7 +2228,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>gaa7c9ad70b2c40172fa0ee1c5a894674b</Anchor>
+    <Anchor>ga0f545789bb24b3f69f14af7604dc3b31</Anchor>
     <Abstract>Writes the natural logarithm of each value in the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2204,7 +2240,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>gab91088ab252f21e7216193f73997f9ff</Anchor>
+    <Anchor>gad34a1d7c0d781b6ebb09686a7d0893ce</Anchor>
     <Abstract>Replaces each value in the vector with eˆvalue .</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2216,7 +2252,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>gafb2352b2f8525d3b25a5922612e7730e</Anchor>
+    <Anchor>gab7f11320810a0aed60bc686bcc49c064</Anchor>
     <Abstract>For each value in the input vector, writes eˆvalue to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2228,7 +2264,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>ga445ebb83b74c766118b5a14e8522f439</Anchor>
+    <Anchor>gacfbfe381b5da23ca34c3e9c8d26b38c0</Anchor>
     <Abstract>Raises each value in the input vector to the power of the corresponding element of another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2240,7 +2276,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>gae8c84fe775901da74285573cfec8dad2</Anchor>
+    <Anchor>gab43c275630d45f98cb1d12f09f6b1c3c</Anchor>
     <Abstract>Raises each value in the input vector to the power of the corresponding element of another vector,...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2252,7 +2288,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>gaf5d8b28918e205bbbd3e7f63d8a881a9</Anchor>
+    <Anchor>ga065914500fce876c3cee37cbbb4cf5eb</Anchor>
     <Abstract>Replaces each value in the vector with 2ˆvalue .</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2264,7 +2300,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>ga2cdbc0777792c72b7b13626bed9c9f72</Anchor>
+    <Anchor>ga4f9e598e6fb6243787149bdd4cb1e168</Anchor>
     <Abstract>For each value in the input vector, writes 2ˆvalue to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2276,7 +2312,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>gadd082208b7129d87962dbccaa91197ff</Anchor>
+    <Anchor>gad7af1a4acd71d9716be5342daffab37a</Anchor>
     <Abstract>Applies a gain ramp to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2288,7 +2324,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>ga15e7252236b09e97d60ee51b7f8c3fd8</Anchor>
+    <Anchor>ga987b8430bbb4870efa4ecab21f68469c</Anchor>
     <Abstract>Applies a gain ramp to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2300,7 +2336,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>ga73e0c358db62e2c63a24a750e32d43f8</Anchor>
+    <Anchor>gaba849b93dcaac4be3ae9592eb0979d6e</Anchor>
     <Abstract>Counts the number of zero crossings present in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2312,7 +2348,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>gaac272d40d8af712c634e636ecbd45165</Anchor>
+    <Anchor>ga08d1fec4ef1c205281ed1c9e0db6700a</Anchor>
     <Abstract>Generates a ramp of samples, starting from startValue and incrementing by a consistent value until en...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2324,7 +2360,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>ga40b324557eef47d1e22ce1fb471ce9ee</Anchor>
+    <Anchor>ga4bbd806aba2959761022a9ec12dd80bd</Anchor>
     <Abstract>Mixes together multiple channels of audio into one output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2336,7 +2372,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>ga2a4cee5fed3d9bcb224cf2a25699aa8e</Anchor>
+    <Anchor>ga5c3ae4cdc62f16c05a5f837ff3d0411b</Anchor>
     <Abstract>Calculates the RMS value of the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2348,7 +2384,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/d9f/group__vec__blackman.html</Path>
-    <Anchor>gad47b2158334c8a352eb30fd03ca027d8</Anchor>
+    <Anchor>ga56b8fd4bb9dbba98ea45c1fec4e03098</Anchor>
     <Abstract>Applies a Blackman window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2360,7 +2396,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/d9f/group__vec__blackman.html</Path>
-    <Anchor>ga4bf12b40d174a506df3ade1bccf2ae23</Anchor>
+    <Anchor>gac2490b24ab53aff68a7f60e484071cd9</Anchor>
     <Abstract>Applies a Blackman window to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2372,7 +2408,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/d9f/group__vec__blackman.html</Path>
-    <Anchor>ga431d64e3516e35c62510f1b7d1ebe53f</Anchor>
+    <Anchor>ga651c8a212639d0f84307b7b2af1ed02b</Anchor>
     <Abstract>Generates a Blackman window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2384,7 +2420,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d7/d30/group__vec__hamm.html</Path>
-    <Anchor>ga052d8375d4a5e844a27e7abea2e02562</Anchor>
+    <Anchor>gaa6c221520ae691de3f03b457e14985f3</Anchor>
     <Abstract>Applies a Hamm (Hamming) window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2396,7 +2432,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d7/d30/group__vec__hamm.html</Path>
-    <Anchor>ga3b90420209afa1e064057d7312d75e6d</Anchor>
+    <Anchor>gaa2a5bc8396e436023448317b64327c4b</Anchor>
     <Abstract>Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another v...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2408,7 +2444,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d7/d30/group__vec__hamm.html</Path>
-    <Anchor>ga9a6c812ab585e48574ac46b723f5e9ce</Anchor>
+    <Anchor>ga77f6ab1f7183e38dc861320603993132</Anchor>
     <Abstract>Generates a Hamm (Hamming) window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2420,7 +2456,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d9/d83/group__vec__hanning.html</Path>
-    <Anchor>gab164431464ba4fc42511f8009cf786be</Anchor>
+    <Anchor>gaf9f62171dfff05be0973337c59963b80</Anchor>
     <Abstract>Applies a Hanning window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2432,7 +2468,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d9/d83/group__vec__hanning.html</Path>
-    <Anchor>gaac38bcbff3f6154e7f04b9a765d9fe53</Anchor>
+    <Anchor>gaa8faf60f3ca7f8dfc797eb9803af97ae</Anchor>
     <Abstract>Applies a Hanning window to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2444,7 +2480,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d9/d83/group__vec__hanning.html</Path>
-    <Anchor>gad6a1dd72f8e103b57a9dda19155952c9</Anchor>
+    <Anchor>gaa33d842e9f88484ae6bdf329eec4ded6</Anchor>
     <Abstract>Generates a Hanning window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2456,7 +2492,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>ga69834fd5c18b4beafeda7bdc4663f8a2</Anchor>
+    <Anchor>gacdc92d474c64af679980ec7532f5ec3b</Anchor>
     <Abstract>Converts interleaved cartesian data to polar magnitudes.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2468,7 +2504,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>ga2c83cf38aa5f1f9f07f52b87c7c25f8f</Anchor>
+    <Anchor>gab6f32d9c00fe32f00114748c21488ec8</Anchor>
     <Abstract>Converts cartesian data to polar magnitudes.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2480,7 +2516,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>gac5d3fd6b0ab571fa0196710a01dde79e</Anchor>
+    <Anchor>gade84ac99b54758f4370cbb3f384406df</Anchor>
     <Abstract>Converts cartesian data to polar data.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2492,7 +2528,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>ga2e506a2e9e7d04e309e81cecaaf6c1a7</Anchor>
+    <Anchor>ga5d0b289d61ce925d188af90564e49751</Anchor>
     <Abstract>Converts interleaved cartesian data to polar data.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2504,7 +2540,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>gade42bcc01d9102f9d379f183c30e3a6a</Anchor>
+    <Anchor>ga989e3a6c3c3b49df5becadcab05769b2</Anchor>
     <Abstract>Converts polar data to cartesian data.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2516,7 +2552,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>ga6fd0a7960c7c40b919b49dbcb96b8770</Anchor>
+    <Anchor>ga9c23c53828298d02ce27d61a4356a8f5</Anchor>
     <Abstract>Converts polar data to interleaved cartesian data.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2648,7 +2684,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/dce/group__vec__arithmetic.html</Path>
-    <Anchor>ga3f666c5959c3a5455307e934bf128e66</Anchor>
+    <Anchor>ga9e13bec3651f5fd337ba190bd68d0cd5</Anchor>
     <Abstract>Replaces each value in the vector with its reciprocal.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2660,7 +2696,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/dce/group__vec__arithmetic.html</Path>
-    <Anchor>ga429841ddd26f24e59cf5e6a9c81051a0</Anchor>
+    <Anchor>ga9118787b8f725138b24494d4b7c1b9b9</Anchor>
     <Abstract>Writes the reciprocal of each value in the input vector to an output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2672,7 +2708,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/da6/group__vec__addition.html</Path>
-    <Anchor>ga66ba5c80ed76fa00d4e88f6d4956353e</Anchor>
+    <Anchor>ga3a024446ad19d145afb726ebbb5af8c0</Anchor>
     <Abstract>Adds a constant to every element of the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2684,7 +2720,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/da6/group__vec__addition.html</Path>
-    <Anchor>gaf27735eef1dc3a62a3d101542f7ff04b</Anchor>
+    <Anchor>ga667f4f92b16f4b8d06e37f77341d4c61</Anchor>
     <Abstract>Element-wise addition of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2696,7 +2732,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/da6/group__vec__addition.html</Path>
-    <Anchor>ga5a46824e44372ed098c56ee93a9464c8</Anchor>
+    <Anchor>ga1426d96a68724d3c304100b04945cce9</Anchor>
     <Abstract>Adds a constant to every element of a vector, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2708,7 +2744,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/da6/group__vec__addition.html</Path>
-    <Anchor>ga1b3fb3713b274169af0afd6b3200df35</Anchor>
+    <Anchor>ga5d09da7900434c5006c6e6a9684205a4</Anchor>
     <Abstract>Element-wise addition of two vectors, writing the output to a third vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2720,7 +2756,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>ga3cfcdbfcfcc7eddd88976b492a07cdcd</Anchor>
+    <Anchor>gaf0bd89ff06267a8145bf087e061137de</Anchor>
     <Abstract>Subtracts a constant from every element of the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2732,7 +2768,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gaaf87038b8dbebbcf9f1f0d437626d240</Anchor>
+    <Anchor>ga9f4c1c0a71fbd7339fa2fc1fc4bfd087</Anchor>
     <Abstract>Element-wise subtraction of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2744,7 +2780,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gab4ada87267e7d3c876927c103644b7d2</Anchor>
+    <Anchor>ga33c404fa92f28a495234c5ea7bb3cfe3</Anchor>
     <Abstract>Subtracts a constant from every element of a vector, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2756,7 +2792,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gafe7b83f1d03472b68d797e73d8383436</Anchor>
+    <Anchor>ga6c7a7263ad1427ad0f9ba15785c7c74b</Anchor>
     <Abstract>Element-wise subtraction of two vectors, writing the output to a third vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2768,7 +2804,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gaa1b8bfd9af3ad4fd855302f928389b87</Anchor>
+    <Anchor>ga75c4ee421b6ab6f8828eeb459a7e55b8</Anchor>
     <Abstract>Subtracts every element of a vector from a constant.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2780,7 +2816,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gabbd47335c741634bea817338ced935fb</Anchor>
+    <Anchor>ga7b5798461a596936a8495233b4ddb924</Anchor>
     <Abstract>Subtracts every element of a vector from a constant, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2792,7 +2828,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga56926bb051862438c0a0757f48bba1a1</Anchor>
+    <Anchor>gaaae47b2eff0299658f34471cd9cd1970</Anchor>
     <Abstract>Multiplies every element of a vector by a constant.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2804,7 +2840,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga9e6ffaa500ede915aca99c8093c36f30</Anchor>
+    <Anchor>ga63864c635a4cae5c20c5a1ae77233edc</Anchor>
     <Abstract>Element-wise multiplication of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2816,7 +2852,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga134b25c94db4e3da7185750667f9258a</Anchor>
+    <Anchor>gaf6f1d361d99e4c5c8256861b0c2bb85e</Anchor>
     <Abstract>Multiplies every element of a vector by a constant, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2828,7 +2864,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga102ba37b1e175c77fcd6c5dd7d536454</Anchor>
+    <Anchor>ga475d2e0141d013e86c051864dff93a94</Anchor>
     <Abstract>Element-wise multiplication of two vectors, writing the output to a third vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2840,7 +2876,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga742b3bf8da890335f5076283ede1bffd</Anchor>
+    <Anchor>gaf0f5c8fe0cea2baa676bdc386a5d0540</Anchor>
     <Abstract>Computes the dot product of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2852,7 +2888,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga1cc6f3e67f608c7d1fa0f6d3147d990f</Anchor>
+    <Anchor>gaadc0439e237e20f07a4b5f943e823ad9</Anchor>
     <Abstract>Divides every element of a vector by a constant.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2864,7 +2900,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga380ecd440c4d992fb339c5cf4b3ace2f</Anchor>
+    <Anchor>ga99caeed6d8faf1ee3ef87748a4fd6533</Anchor>
     <Abstract>Element-wise division of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2876,7 +2912,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>gada4072b434b5ab68372504827ae65f2f</Anchor>
+    <Anchor>gae548ef3044eae9a712a510439e87bb0d</Anchor>
     <Abstract>Divides every element of a vector by a constant, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2888,7 +2924,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga0b6ebde731b9e8a74fe17e8e64e8dda8</Anchor>
+    <Anchor>ga16030e4c778234c88cf971305a712374</Anchor>
     <Abstract>Element-wise division of two vectors, writing the output to a third vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2900,7 +2936,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga067f89307594a2d62a2a295de8b0fa56</Anchor>
+    <Anchor>gaada175046515b6502c99b363e2748ba6</Anchor>
     <Abstract>Divides a constant by every element of a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2912,7 +2948,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga7c70b819aecbbf3401393a00c73b3d40</Anchor>
+    <Anchor>ga7b9c0fb4b7d0e5484e1ebaf9d8ed4649</Anchor>
     <Abstract>Divides a constant by every element of a vector, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2924,7 +2960,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga7ffe4dc4bfb026764ded43505808ea05</Anchor>
+    <Anchor>ga208c95b83be5880a5277c296b698a693</Anchor>
     <Abstract>Squares every element of a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2936,7 +2972,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga2b86c5812869f9349b4514d7688779aa</Anchor>
+    <Anchor>gaff1a5ee7566b9158065b6a677e3f47b1</Anchor>
     <Abstract>Squares every element of a vector, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2948,7 +2984,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga767390a3685bf96f8881c589fd3d0af6</Anchor>
+    <Anchor>gacd4943ba3289038942de00b6262bb23c</Anchor>
     <Abstract>Replaces every element in the vector with its square root.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2960,7 +2996,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga6958c4eb21cba4deae2df260b2aa0168</Anchor>
+    <Anchor>ga172282de70eec2bf8d7ac52cce414fe5</Anchor>
     <Abstract>Writes the square root of every element in the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2972,7 +3008,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>gafe23c2bdb127365eaa45a44756e27a7c</Anchor>
+    <Anchor>gacb7663a80b1a6411753c91f6d5b7da6c</Anchor>
     <Abstract>Replaces every element in the vector with its inverse square root.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2984,7 +3020,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga4eeef47e715d3f013bc4bf422aae4513</Anchor>
+    <Anchor>ga629169f67eb95bdf2c3bf126dbd99bc6</Anchor>
     <Abstract>Writes the inverse square root of every element in the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -2996,7 +3032,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga8afca66dd52ffe6fb79389021a534a52</Anchor>
+    <Anchor>ga8a9f8db1b30f6c6b82bb281d0ee3f9af</Anchor>
     <Abstract>Replaces every element in the vector with its cube root.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3008,7 +3044,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>gae042318396457c01f6fada5ed1d0a30a</Anchor>
+    <Anchor>ga854955b00a0234e94976c2d4d1090296</Anchor>
     <Abstract>Writes the cube root of every element in the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3020,7 +3056,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>gac2f79de8e98cb16c00dfc44f95493cd6</Anchor>
+    <Anchor>ga3174c7d255cfa8cdbd32e7845562bb73</Anchor>
     <Abstract>Reverses a vector in-place.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3032,7 +3068,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga8836f4ab0adcb32a11ecb1d050caafcd</Anchor>
+    <Anchor>gaa0e5fe9cf32d0f1afd852e34865bef4c</Anchor>
     <Abstract>Writes a reversed version of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3044,7 +3080,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga3f50457ce64ef4c7315272e7393dc731</Anchor>
+    <Anchor>ga502969ed94a7b9dc418cfd0d57d72d2b</Anchor>
     <Abstract>Sorts a vector in-place.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3056,7 +3092,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga7686ad6fadf7708b396c1e950381763a</Anchor>
+    <Anchor>ga4365df111ef0deddbf49f64bef41daf0</Anchor>
     <Abstract>Writes a sorted version of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3068,7 +3104,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga2d2e0cc334202389d34d0cdff2311a93</Anchor>
+    <Anchor>gac81290ecb1e18ef23d69b3e63fb6c53a</Anchor>
     <Abstract>Sorts a vector in reverse order in-place.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3080,7 +3116,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga87182039217238fd656427bf2fe20d71</Anchor>
+    <Anchor>ga2e3da938605f8b09c3337e4cebf87e03</Anchor>
     <Abstract>Writes a reverse sorted version of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3092,7 +3128,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>gab0be2861b5335cd117e42334e8183be5</Anchor>
+    <Anchor>gadee227aae33b5acd81eed3658d9bc95f</Anchor>
     <Abstract>Interleaves multichannel data into a single output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3104,7 +3140,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>gac290bad09c7f2dcc7dafb54dd1659c09</Anchor>
+    <Anchor>ga8fc2171aa245734cea2eab71fe7813bb</Anchor>
     <Abstract>Deinterleaves single channel data into multiple output vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3116,7 +3152,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gaea77f3fca59a186157d4ec9186fd4aef</Anchor>
+    <Anchor>gad21e9bb4bd863a7433cbc0d0d082c7e1</Anchor>
     <Abstract>Replaces each element of the vector with its absolute value.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3128,7 +3164,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga237a1f46d447efa5ff5b0c87b27d5c1d</Anchor>
+    <Anchor>ga2a6a53a470f1f882e1bbba6ee0449060</Anchor>
     <Abstract>Writes the absolute value of each element of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3140,7 +3176,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gaf2cf9ed44455874ee33ee41be90ea92b</Anchor>
+    <Anchor>ga0b6017272155894c64975f76349cea19</Anchor>
     <Abstract>Flips the sign of every element of the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3152,7 +3188,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga7c83c80afca79e911f58a946cefb9bb4</Anchor>
+    <Anchor>ga3b6e43a027ee0bc91a0f59678b03d0ff</Anchor>
     <Abstract>Writes the negation of every element of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3164,7 +3200,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gac398f6db71a95724f8b1397e0625dbc9</Anchor>
+    <Anchor>gaef34a7abfcb2ba9369dc75343b0c4c5a</Anchor>
     <Abstract>Clips every element of a vector in-place.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3176,7 +3212,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga8d5e0f98136d66678751b4e4f7a6c75b</Anchor>
+    <Anchor>gaaa678dbf9d6d6884756ad76a7bbf3daa</Anchor>
     <Abstract>Writes a clipped version of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3188,7 +3224,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gabe15561e57a389ece031d1999fcced7c</Anchor>
+    <Anchor>ga0a7b3fbae1d35e850b7322264c0b5cff</Anchor>
     <Abstract>Returns the sum of all the values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3200,7 +3236,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga8718d42502840dacd0526af810246535</Anchor>
+    <Anchor>ga1f5417592c6e8d68a04566dd2428cde5</Anchor>
     <Abstract>Returns the mean of the values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3212,7 +3248,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gac764291362ee108017d7f2fb6a553e4b</Anchor>
+    <Anchor>gaebef10f895380fa0de309304af33878d</Anchor>
     <Abstract>Returns the standard deviation of the values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3224,7 +3260,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga3207a49d4eb5a8f6987e178c5dbd9370</Anchor>
+    <Anchor>ga7e741640b08aaa13c2c37ab0d4c8acd8</Anchor>
     <Abstract>Returns the maximum element in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3236,7 +3272,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gab9b4c8e02bbf434e1a7f7ae69ac0e087</Anchor>
+    <Anchor>ga847e933eec75e5853e47865f41e071fe</Anchor>
     <Abstract>Finds the maximum element in a vector and its index in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3248,7 +3284,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga7a38c8827814ea1b34db01bab093f7d8</Anchor>
+    <Anchor>gaa6df91ebaade90faa4555262c6875d49</Anchor>
     <Abstract>Returns the maximum absolute value in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3260,7 +3296,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga337bb51945804cb53069150fc654c369</Anchor>
+    <Anchor>gabe7285b7b9b9d46229150ea80bc9ad50</Anchor>
     <Abstract>Finds the maximum absolute value in a vector and its index in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3272,7 +3308,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga8db5010d14385445a322bc713aa91bdc</Anchor>
+    <Anchor>ga605ed52218b5ec5df543eed606d0f0d7</Anchor>
     <Abstract>Returns the minimum element in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3284,7 +3320,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gaa9a753d50b7bde96e9f490c890d6f5c9</Anchor>
+    <Anchor>ga436fbda048b0ff68d5f2e5a9952a5f0f</Anchor>
     <Abstract>Finds the minimum element in a vector and its index in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3296,7 +3332,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga71eaaa0279c952cdba690faab21af70b</Anchor>
+    <Anchor>gab5ebd45f2963c36c18dd6d768349275f</Anchor>
     <Abstract>Returns the minimum absolute value in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3308,7 +3344,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gad1335ff22597aafeb9ed83e9189106d7</Anchor>
+    <Anchor>ga0ce938eaa12c73f120485fa2eb5f7415</Anchor>
     <Abstract>Finds the minimum absolute value in a vector and its index in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3320,7 +3356,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gacfdcb0cc73e0ae32f3c54f864d917601</Anchor>
+    <Anchor>ga219248fe15b7f5b82c6c338641c5a557</Anchor>
     <Abstract>Finds both the minimum and maximum values in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3332,7 +3368,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gaff7e9c76aef26d80400ab980d2e03b82</Anchor>
+    <Anchor>gaa2af652aec26b69e562e4477ae27e81b</Anchor>
     <Abstract>Finds the minimum and maximum values in a vector, and their indices in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3344,7 +3380,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga853b7319809c8d614e7a92e0689e821e</Anchor>
+    <Anchor>ga5da07c6b14483410d44bb3fa81b53320</Anchor>
     <Abstract>Finds both the minimum and maximum absolute values in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3356,8 +3392,32 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gaa16aac01d52b55804c35a1c43c240722</Anchor>
+    <Anchor>ga6f9efb710d0503059914715942101e20</Anchor>
     <Abstract>Finds the minimum and maximum absolute values in a vector, and their indices in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getVectorExtremaInfo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga379d47a07fa42f3c41f5171758990555</Anchor>
+    <Abstract>Calculates the values and positions of the extrema in the vector and returns them in a single VectorE...</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getAbsVectorExtremaInfo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga1a3cc804d477d233599086f86558aa36</Anchor>
+    <Abstract>Calculates the values and positions of the absolute value extrema in the vector and returns them in a...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -3368,7 +3428,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gaa141140bec853742916f7095838174f2</Anchor>
+    <Anchor>ga2723e9d8f177c8389fae159bb075f196</Anchor>
     <Abstract>Returns the difference between the maximum and minimum values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3380,7 +3440,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga4f16ce14de7be970efaa3ca131343cfd</Anchor>
+    <Anchor>gaf838401785666d1131bc732e6c320b72</Anchor>
     <Abstract>Returns the difference between the maximum and minimum absolute values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3392,7 +3452,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d9/d09/group__vec__sin.html</Path>
-    <Anchor>ga70f8edfe55ee492aa54d1a45e6002390</Anchor>
+    <Anchor>ga0c6029a1aa1f59316d1680bb8f41ec5a</Anchor>
     <Abstract>Replaces every value in the vector with its sine.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3404,7 +3464,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d9/d09/group__vec__sin.html</Path>
-    <Anchor>gab7bffe4cd6d37396902f6758c9415f16</Anchor>
+    <Anchor>ga25e52cc19a67743b74746189126196c0</Anchor>
     <Abstract>Writes the sine of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3416,7 +3476,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d9/d09/group__vec__sin.html</Path>
-    <Anchor>gab8f7571b7d63a6bc762bcca1e07dac7e</Anchor>
+    <Anchor>gaca9a612b58b50484ba4e02592e4f46f7</Anchor>
     <Abstract>Replaces every value in the vector with its arcsine.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3428,7 +3488,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d9/d09/group__vec__sin.html</Path>
-    <Anchor>ga016da50b803c883507599906c16c2362</Anchor>
+    <Anchor>ga7474c1ae64d9c38707e715daf651490b</Anchor>
     <Abstract>Writes the arcsine of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3440,7 +3500,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dd/d22/group__vec__cos.html</Path>
-    <Anchor>gac6b49fb5d7f55051360040676548e51d</Anchor>
+    <Anchor>ga231ccf8f8ffc8267a333aa912e259cae</Anchor>
     <Abstract>Replaces every value in the vector with its cosine.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3452,7 +3512,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dd/d22/group__vec__cos.html</Path>
-    <Anchor>ga41edc84e495ab9148da97dae4d68452a</Anchor>
+    <Anchor>ga6724350269a20b880de0969bde2405d6</Anchor>
     <Abstract>Writes the cosine of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3464,7 +3524,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dd/d22/group__vec__cos.html</Path>
-    <Anchor>ga99da45fcefe45e733e46593ad63c0d17</Anchor>
+    <Anchor>gae0764ad036561cfa66bb6a08bedd69bf</Anchor>
     <Abstract>Replaces every value in the vector with its arccosine.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3476,7 +3536,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dd/d22/group__vec__cos.html</Path>
-    <Anchor>ga48a0d852db4b3d9a20f11e590b7c3660</Anchor>
+    <Anchor>ga1a26d7c204eb7f95b4b659337dee0325</Anchor>
     <Abstract>Writes the arccosine of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3488,7 +3548,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d0d/group__vec__tan.html</Path>
-    <Anchor>ga513069ac6021cc619336a5196bfb7d25</Anchor>
+    <Anchor>gaeed48026d7586d096bce4c0b93e725b8</Anchor>
     <Abstract>Replaces every value in the vector with its tangent.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3500,7 +3560,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d0d/group__vec__tan.html</Path>
-    <Anchor>gaeb99567aadd1ef547a55f85917cd29d6</Anchor>
+    <Anchor>ga8ca2ca9f9899123ac65447f3acf196ff</Anchor>
     <Abstract>Writes the tangent of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3512,7 +3572,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d0d/group__vec__tan.html</Path>
-    <Anchor>gacd1d20855d2c38285293886a6bdfc912</Anchor>
+    <Anchor>ga398978e25f59930d3ef1a58707fd889d</Anchor>
     <Abstract>Replaces every value in the vector with its arctangent.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3524,7 +3584,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d0d/group__vec__tan.html</Path>
-    <Anchor>gae11646657e70d2ddc83f24736d616f3c</Anchor>
+    <Anchor>gaedf349fe7e558d8b436534afcec800eb</Anchor>
     <Abstract>Writes the arctangent of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3536,7 +3596,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>ga40b324557eef47d1e22ce1fb471ce9ee</Anchor>
+    <Anchor>ga4bbd806aba2959761022a9ec12dd80bd</Anchor>
     <Abstract>Mixes together multiple channels of audio into one output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3548,7 +3608,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>ga2a4cee5fed3d9bcb224cf2a25699aa8e</Anchor>
+    <Anchor>ga5c3ae4cdc62f16c05a5f837ff3d0411b</Anchor>
     <Abstract>Calculates the RMS value of the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3560,7 +3620,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>ga73e0c358db62e2c63a24a750e32d43f8</Anchor>
+    <Anchor>gaba849b93dcaac4be3ae9592eb0979d6e</Anchor>
     <Abstract>Counts the number of zero crossings present in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3572,7 +3632,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>gaac272d40d8af712c634e636ecbd45165</Anchor>
+    <Anchor>ga08d1fec4ef1c205281ed1c9e0db6700a</Anchor>
     <Abstract>Generates a ramp of samples, starting from startValue and incrementing by a consistent value until en...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3584,7 +3644,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>gadd082208b7129d87962dbccaa91197ff</Anchor>
+    <Anchor>gad7af1a4acd71d9716be5342daffab37a</Anchor>
     <Abstract>Applies a gain ramp to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3596,7 +3656,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>ga15e7252236b09e97d60ee51b7f8c3fd8</Anchor>
+    <Anchor>ga987b8430bbb4870efa4ecab21f68469c</Anchor>
     <Abstract>Applies a gain ramp to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3608,7 +3668,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>gade42bcc01d9102f9d379f183c30e3a6a</Anchor>
+    <Anchor>ga989e3a6c3c3b49df5becadcab05769b2</Anchor>
     <Abstract>Converts polar data to cartesian data.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3620,7 +3680,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>ga6fd0a7960c7c40b919b49dbcb96b8770</Anchor>
+    <Anchor>ga9c23c53828298d02ce27d61a4356a8f5</Anchor>
     <Abstract>Converts polar data to interleaved cartesian data.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3632,7 +3692,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>gac5d3fd6b0ab571fa0196710a01dde79e</Anchor>
+    <Anchor>gade84ac99b54758f4370cbb3f384406df</Anchor>
     <Abstract>Converts cartesian data to polar data.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3644,7 +3704,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>ga2e506a2e9e7d04e309e81cecaaf6c1a7</Anchor>
+    <Anchor>ga5d0b289d61ce925d188af90564e49751</Anchor>
     <Abstract>Converts interleaved cartesian data to polar data.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3656,7 +3716,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>ga2c83cf38aa5f1f9f07f52b87c7c25f8f</Anchor>
+    <Anchor>gab6f32d9c00fe32f00114748c21488ec8</Anchor>
     <Abstract>Converts cartesian data to polar magnitudes.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3668,7 +3728,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>ga69834fd5c18b4beafeda7bdc4663f8a2</Anchor>
+    <Anchor>gacdc92d474c64af679980ec7532f5ec3b</Anchor>
     <Abstract>Converts interleaved cartesian data to polar magnitudes.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3800,7 +3860,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>gab91088ab252f21e7216193f73997f9ff</Anchor>
+    <Anchor>gad34a1d7c0d781b6ebb09686a7d0893ce</Anchor>
     <Abstract>Replaces each value in the vector with eˆvalue .</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3812,7 +3872,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>gafb2352b2f8525d3b25a5922612e7730e</Anchor>
+    <Anchor>gab7f11320810a0aed60bc686bcc49c064</Anchor>
     <Abstract>For each value in the input vector, writes eˆvalue to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3824,7 +3884,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>gaf5d8b28918e205bbbd3e7f63d8a881a9</Anchor>
+    <Anchor>ga065914500fce876c3cee37cbbb4cf5eb</Anchor>
     <Abstract>Replaces each value in the vector with 2ˆvalue .</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3836,7 +3896,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>ga2cdbc0777792c72b7b13626bed9c9f72</Anchor>
+    <Anchor>ga4f9e598e6fb6243787149bdd4cb1e168</Anchor>
     <Abstract>For each value in the input vector, writes 2ˆvalue to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3848,7 +3908,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>ga445ebb83b74c766118b5a14e8522f439</Anchor>
+    <Anchor>gacfbfe381b5da23ca34c3e9c8d26b38c0</Anchor>
     <Abstract>Raises each value in the input vector to the power of the corresponding element of another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3860,7 +3920,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>gae8c84fe775901da74285573cfec8dad2</Anchor>
+    <Anchor>gab43c275630d45f98cb1d12f09f6b1c3c</Anchor>
     <Abstract>Raises each value in the input vector to the power of the corresponding element of another vector,...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3872,7 +3932,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>ga955f22d2e33f9746c063827fd1c11e37</Anchor>
+    <Anchor>gaba505eb13846fd46259783da1db133a2</Anchor>
     <Abstract>Replaces each value in the vector with its natural logarithm.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3884,7 +3944,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>gaa7c9ad70b2c40172fa0ee1c5a894674b</Anchor>
+    <Anchor>ga0f545789bb24b3f69f14af7604dc3b31</Anchor>
     <Abstract>Writes the natural logarithm of each value in the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3896,7 +3956,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>ga84c312792ededa69e74bbed3d51e88c2</Anchor>
+    <Anchor>ga2b524a2a0efcafcd98ce0922394caebb</Anchor>
     <Abstract>Replaces each value in the vector with its base 2 logarithm.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3908,7 +3968,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>gae2c8537854c400257ea114cf1a64a3d0</Anchor>
+    <Anchor>gae3b4330086bcfc18cd4187fba10d4687</Anchor>
     <Abstract>Writes the base 2 logarithm of each value in the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3920,7 +3980,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>gafeeeefc3ff02635214587d7b1bddfabb</Anchor>
+    <Anchor>ga2bd502c7dd4a6f5804ed1c967e3dccd9</Anchor>
     <Abstract>Replaces each value in the vector with its base 10 logarithm.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3932,7 +3992,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>ga27f359ab55cb9bdeb9bc896037ca7971</Anchor>
+    <Anchor>gaf4d52993ec0f582f9c198aae893caff2</Anchor>
     <Abstract>Writes the base 10 logarithm of each value in the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3944,7 +4004,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/d9f/group__vec__blackman.html</Path>
-    <Anchor>ga431d64e3516e35c62510f1b7d1ebe53f</Anchor>
+    <Anchor>ga651c8a212639d0f84307b7b2af1ed02b</Anchor>
     <Abstract>Generates a Blackman window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3956,7 +4016,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/d9f/group__vec__blackman.html</Path>
-    <Anchor>gad47b2158334c8a352eb30fd03ca027d8</Anchor>
+    <Anchor>ga56b8fd4bb9dbba98ea45c1fec4e03098</Anchor>
     <Abstract>Applies a Blackman window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3968,7 +4028,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/d9f/group__vec__blackman.html</Path>
-    <Anchor>ga4bf12b40d174a506df3ade1bccf2ae23</Anchor>
+    <Anchor>gac2490b24ab53aff68a7f60e484071cd9</Anchor>
     <Abstract>Applies a Blackman window to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3980,7 +4040,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d7/d30/group__vec__hamm.html</Path>
-    <Anchor>ga9a6c812ab585e48574ac46b723f5e9ce</Anchor>
+    <Anchor>ga77f6ab1f7183e38dc861320603993132</Anchor>
     <Abstract>Generates a Hamm (Hamming) window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -3992,7 +4052,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d7/d30/group__vec__hamm.html</Path>
-    <Anchor>ga052d8375d4a5e844a27e7abea2e02562</Anchor>
+    <Anchor>gaa6c221520ae691de3f03b457e14985f3</Anchor>
     <Abstract>Applies a Hamm (Hamming) window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -4004,7 +4064,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d7/d30/group__vec__hamm.html</Path>
-    <Anchor>ga3b90420209afa1e064057d7312d75e6d</Anchor>
+    <Anchor>gaa2a5bc8396e436023448317b64327c4b</Anchor>
     <Abstract>Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another v...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -4016,7 +4076,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d9/d83/group__vec__hanning.html</Path>
-    <Anchor>gad6a1dd72f8e103b57a9dda19155952c9</Anchor>
+    <Anchor>gaa33d842e9f88484ae6bdf329eec4ded6</Anchor>
     <Abstract>Generates a Hanning window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -4028,7 +4088,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d9/d83/group__vec__hanning.html</Path>
-    <Anchor>gab164431464ba4fc42511f8009cf786be</Anchor>
+    <Anchor>gaf9f62171dfff05be0973337c59963b80</Anchor>
     <Abstract>Applies a Hanning window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -4040,7 +4100,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d9/d83/group__vec__hanning.html</Path>
-    <Anchor>gaac38bcbff3f6154e7f04b9a765d9fe53</Anchor>
+    <Anchor>gaa8faf60f3ca7f8dfc797eb9803af97ae</Anchor>
     <Abstract>Applies a Hanning window to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -4052,7 +4112,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dd4/group__limes__vecops.html</Path>
-    <Anchor>ga144190e611f48721235c9434fd71cd89</Anchor>
+    <Anchor>ga6e80a5f6f3b343ab9aed4c4c1f6e4e93</Anchor>
     <Abstract>Fills the vector with zeroes.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -4064,7 +4124,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dd4/group__limes__vecops.html</Path>
-    <Anchor>ga9d8da6b79472277b93a875ab43f24714</Anchor>
+    <Anchor>ga4fa56b30a4dc9647f323135c6ac5ed47</Anchor>
     <Abstract>Copies from one vector to another.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -4076,7 +4136,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dd4/group__limes__vecops.html</Path>
-    <Anchor>ga1df20f4bc96e6b2b218e914fe054c79d</Anchor>
+    <Anchor>ga82fb1c966bbad1669fca5eced15be9d8</Anchor>
     <Abstract>Fills the vector with the specified value.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -4112,7 +4172,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dd4/group__limes__vecops.html</Path>
-    <Anchor>gab42abc8b29b1736676df151e7f2d3858</Anchor>
+    <Anchor>gae47eab43ceb281664589422b69e264ed</Anchor>
     <Abstract>Swaps the elements of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -4124,7 +4184,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/dd9/group__vec__window.html</Path>
-    <Anchor>ga03c34103e0ff42a0d56e83131eda1eaa</Anchor>
+    <Anchor>gac728e1af0a779b89e4dd342eb50554c4</Anchor>
     <Abstract>Applies a window function of the desired type to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -4136,7 +4196,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/dd9/group__vec__window.html</Path>
-    <Anchor>gaa2e3dc8415ebcfbc3b0521e1dd4de509</Anchor>
+    <Anchor>ga38d11ff25d554cb6bc3d54c224d41ad1</Anchor>
     <Abstract>Applies a window function of the desired type to the samples in the vector, writing the output sample...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -4148,7 +4208,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/dd9/group__vec__window.html</Path>
-    <Anchor>ga1068019ee279ba3015817085dac383eb</Anchor>
+    <Anchor>ga6c7815bba84d3469f66b66cf02dbd6a3</Anchor>
     <Abstract>Generates a window function of the desired type , writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -4430,6 +4490,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>max</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::math</Scope>
+    </TokenIdentifier>
+    <Path>d9/dfc/group__core__math.html</Path>
+    <Anchor>gae436ab6d92c1f3ad5e56b55fabb0f4c2</Anchor>
+    <Abstract>A constexpr-enabled max function.</Abstract>
+    <DeclaredIn>mathHelpers.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>middleOfThree</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -4474,6 +4546,18 @@
     <Path>d9/dfc/group__core__math.html</Path>
     <Anchor>ga998ba48f12008bbf935a910be8f4cc7b</Anchor>
     <Abstract>Converts a MIDI note to a frequency in Hz.</Abstract>
+    <DeclaredIn>mathHelpers.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>min</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::math</Scope>
+    </TokenIdentifier>
+    <Path>d9/dfc/group__core__math.html</Path>
+    <Anchor>ga25ae5da0ee08068735854a1e935be370</Anchor>
+    <Abstract>A constexpr-enabled min function.</Abstract>
     <DeclaredIn>mathHelpers.h</DeclaredIn>
   </Token>
   <Token>
@@ -6183,6 +6267,14 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>dsp_filters</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>dc/d4e/group__dsp__filters.html</Path>
+    <Abstract>Classes for filtering realtime audio signals.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>limes_audio</Name>
       <APILanguage>c</APILanguage>
     </TokenIdentifier>
@@ -6215,11 +6307,60 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>leftOnly</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>limes::dsp</Scope>
+    </TokenIdentifier>
+    <Path>d0/d7b/group__limes__audio.html</Path>
+    <Anchor>ggab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182</Anchor>
+    <Abstract>In this mode, a MonoStereoConverter will output only the left channel of a stereo signal as its mono ...</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>rightOnly</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>limes::dsp</Scope>
+    </TokenIdentifier>
+    <Path>d0/d7b/group__limes__audio.html</Path>
+    <Anchor>ggab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d</Anchor>
+    <Abstract>In this mode, a MonoStereoConverter will output only the right channel of a stereo signal as its mono...</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>mixToMono</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>limes::dsp</Scope>
+    </TokenIdentifier>
+    <Path>d0/d7b/group__limes__audio.html</Path>
+    <Anchor>ggab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22</Anchor>
+    <Abstract>In this mode, a MonoStereoConverter will mix together the two channels of a stereo signal to create i...</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>psola</Name>
       <APILanguage>c</APILanguage>
     </TokenIdentifier>
     <Path>d2/d79/group__psola.html</Path>
     <Abstract>Utilities for working with PSOLA-like algorithms.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>oscillators</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d5/d0f/group__oscillators.html</Path>
+    <Abstract>Sample streams that produce a pitched, periodic output.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>samplestreams</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>d5/db5/group__samplestreams.html</Path>
+    <Abstract>Classes that can produce a continuous stream of output samples with no input.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -6591,6 +6732,30 @@
     <Path>d9/dfc/group__core__math.html</Path>
     <Anchor>ga78b6e7e3ca15b70ce958d0f028d607ed</Anchor>
     <Abstract>@concept Integral An integral type.</Abstract>
+    <DeclaredIn>mathHelpers.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>max</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::math</Scope>
+    </TokenIdentifier>
+    <Path>d9/dfc/group__core__math.html</Path>
+    <Anchor>gae436ab6d92c1f3ad5e56b55fabb0f4c2</Anchor>
+    <Abstract>A constexpr-enabled max function.</Abstract>
+    <DeclaredIn>mathHelpers.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>min</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::math</Scope>
+    </TokenIdentifier>
+    <Path>d9/dfc/group__core__math.html</Path>
+    <Anchor>ga25ae5da0ee08068735854a1e935be370</Anchor>
+    <Abstract>A constexpr-enabled min function.</Abstract>
     <DeclaredIn>mathHelpers.h</DeclaredIn>
   </Token>
   <Token>
@@ -8241,7 +8406,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dd4/group__limes__vecops.html</Path>
-    <Anchor>ga1df20f4bc96e6b2b218e914fe054c79d</Anchor>
+    <Anchor>ga82fb1c966bbad1669fca5eced15be9d8</Anchor>
     <Abstract>Fills the vector with the specified value.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8253,7 +8418,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dd4/group__limes__vecops.html</Path>
-    <Anchor>ga144190e611f48721235c9434fd71cd89</Anchor>
+    <Anchor>ga6e80a5f6f3b343ab9aed4c4c1f6e4e93</Anchor>
     <Abstract>Fills the vector with zeroes.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8265,7 +8430,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dd4/group__limes__vecops.html</Path>
-    <Anchor>ga9d8da6b79472277b93a875ab43f24714</Anchor>
+    <Anchor>ga4fa56b30a4dc9647f323135c6ac5ed47</Anchor>
     <Abstract>Copies from one vector to another.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8277,7 +8442,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dd4/group__limes__vecops.html</Path>
-    <Anchor>gab42abc8b29b1736676df151e7f2d3858</Anchor>
+    <Anchor>gae47eab43ceb281664589422b69e264ed</Anchor>
     <Abstract>Swaps the elements of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8297,7 +8462,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/dce/group__vec__arithmetic.html</Path>
-    <Anchor>ga3f666c5959c3a5455307e934bf128e66</Anchor>
+    <Anchor>ga9e13bec3651f5fd337ba190bd68d0cd5</Anchor>
     <Abstract>Replaces each value in the vector with its reciprocal.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8309,7 +8474,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/dce/group__vec__arithmetic.html</Path>
-    <Anchor>ga429841ddd26f24e59cf5e6a9c81051a0</Anchor>
+    <Anchor>ga9118787b8f725138b24494d4b7c1b9b9</Anchor>
     <Abstract>Writes the reciprocal of each value in the input vector to an output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8329,7 +8494,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/da6/group__vec__addition.html</Path>
-    <Anchor>ga66ba5c80ed76fa00d4e88f6d4956353e</Anchor>
+    <Anchor>ga3a024446ad19d145afb726ebbb5af8c0</Anchor>
     <Abstract>Adds a constant to every element of the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8341,7 +8506,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/da6/group__vec__addition.html</Path>
-    <Anchor>gaf27735eef1dc3a62a3d101542f7ff04b</Anchor>
+    <Anchor>ga667f4f92b16f4b8d06e37f77341d4c61</Anchor>
     <Abstract>Element-wise addition of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8353,7 +8518,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/da6/group__vec__addition.html</Path>
-    <Anchor>ga5a46824e44372ed098c56ee93a9464c8</Anchor>
+    <Anchor>ga1426d96a68724d3c304100b04945cce9</Anchor>
     <Abstract>Adds a constant to every element of a vector, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8365,7 +8530,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d8/da6/group__vec__addition.html</Path>
-    <Anchor>ga1b3fb3713b274169af0afd6b3200df35</Anchor>
+    <Anchor>ga5d09da7900434c5006c6e6a9684205a4</Anchor>
     <Abstract>Element-wise addition of two vectors, writing the output to a third vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8385,7 +8550,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>ga3cfcdbfcfcc7eddd88976b492a07cdcd</Anchor>
+    <Anchor>gaf0bd89ff06267a8145bf087e061137de</Anchor>
     <Abstract>Subtracts a constant from every element of the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8397,7 +8562,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gaaf87038b8dbebbcf9f1f0d437626d240</Anchor>
+    <Anchor>ga9f4c1c0a71fbd7339fa2fc1fc4bfd087</Anchor>
     <Abstract>Element-wise subtraction of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8409,7 +8574,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gab4ada87267e7d3c876927c103644b7d2</Anchor>
+    <Anchor>ga33c404fa92f28a495234c5ea7bb3cfe3</Anchor>
     <Abstract>Subtracts a constant from every element of a vector, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8421,7 +8586,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gafe7b83f1d03472b68d797e73d8383436</Anchor>
+    <Anchor>ga6c7a7263ad1427ad0f9ba15785c7c74b</Anchor>
     <Abstract>Element-wise subtraction of two vectors, writing the output to a third vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8433,7 +8598,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gaa1b8bfd9af3ad4fd855302f928389b87</Anchor>
+    <Anchor>ga75c4ee421b6ab6f8828eeb459a7e55b8</Anchor>
     <Abstract>Subtracts every element of a vector from a constant.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8445,7 +8610,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d1b/group__vec__subtraction.html</Path>
-    <Anchor>gabbd47335c741634bea817338ced935fb</Anchor>
+    <Anchor>ga7b5798461a596936a8495233b4ddb924</Anchor>
     <Abstract>Subtracts every element of a vector from a constant, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8465,7 +8630,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga56926bb051862438c0a0757f48bba1a1</Anchor>
+    <Anchor>gaaae47b2eff0299658f34471cd9cd1970</Anchor>
     <Abstract>Multiplies every element of a vector by a constant.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8477,7 +8642,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga9e6ffaa500ede915aca99c8093c36f30</Anchor>
+    <Anchor>ga63864c635a4cae5c20c5a1ae77233edc</Anchor>
     <Abstract>Element-wise multiplication of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8489,7 +8654,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga134b25c94db4e3da7185750667f9258a</Anchor>
+    <Anchor>gaf6f1d361d99e4c5c8256861b0c2bb85e</Anchor>
     <Abstract>Multiplies every element of a vector by a constant, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8501,7 +8666,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga102ba37b1e175c77fcd6c5dd7d536454</Anchor>
+    <Anchor>ga475d2e0141d013e86c051864dff93a94</Anchor>
     <Abstract>Element-wise multiplication of two vectors, writing the output to a third vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8513,7 +8678,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d5e/group__vec__multiplication.html</Path>
-    <Anchor>ga742b3bf8da890335f5076283ede1bffd</Anchor>
+    <Anchor>gaf0f5c8fe0cea2baa676bdc386a5d0540</Anchor>
     <Abstract>Computes the dot product of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8533,7 +8698,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga1cc6f3e67f608c7d1fa0f6d3147d990f</Anchor>
+    <Anchor>gaadc0439e237e20f07a4b5f943e823ad9</Anchor>
     <Abstract>Divides every element of a vector by a constant.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8545,7 +8710,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga380ecd440c4d992fb339c5cf4b3ace2f</Anchor>
+    <Anchor>ga99caeed6d8faf1ee3ef87748a4fd6533</Anchor>
     <Abstract>Element-wise division of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8557,7 +8722,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>gada4072b434b5ab68372504827ae65f2f</Anchor>
+    <Anchor>gae548ef3044eae9a712a510439e87bb0d</Anchor>
     <Abstract>Divides every element of a vector by a constant, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8569,7 +8734,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga0b6ebde731b9e8a74fe17e8e64e8dda8</Anchor>
+    <Anchor>ga16030e4c778234c88cf971305a712374</Anchor>
     <Abstract>Element-wise division of two vectors, writing the output to a third vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8581,7 +8746,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga067f89307594a2d62a2a295de8b0fa56</Anchor>
+    <Anchor>gaada175046515b6502c99b363e2748ba6</Anchor>
     <Abstract>Divides a constant by every element of a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8593,7 +8758,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dc8/group__vec__division.html</Path>
-    <Anchor>ga7c70b819aecbbf3401393a00c73b3d40</Anchor>
+    <Anchor>ga7b9c0fb4b7d0e5484e1ebaf9d8ed4649</Anchor>
     <Abstract>Divides a constant by every element of a vector, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8613,7 +8778,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga7ffe4dc4bfb026764ded43505808ea05</Anchor>
+    <Anchor>ga208c95b83be5880a5277c296b698a693</Anchor>
     <Abstract>Squares every element of a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8625,7 +8790,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga2b86c5812869f9349b4514d7688779aa</Anchor>
+    <Anchor>gaff1a5ee7566b9158065b6a677e3f47b1</Anchor>
     <Abstract>Squares every element of a vector, writing the output to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8637,7 +8802,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga767390a3685bf96f8881c589fd3d0af6</Anchor>
+    <Anchor>gacd4943ba3289038942de00b6262bb23c</Anchor>
     <Abstract>Replaces every element in the vector with its square root.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8649,7 +8814,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga6958c4eb21cba4deae2df260b2aa0168</Anchor>
+    <Anchor>ga172282de70eec2bf8d7ac52cce414fe5</Anchor>
     <Abstract>Writes the square root of every element in the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8661,7 +8826,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>gafe23c2bdb127365eaa45a44756e27a7c</Anchor>
+    <Anchor>gacb7663a80b1a6411753c91f6d5b7da6c</Anchor>
     <Abstract>Replaces every element in the vector with its inverse square root.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8673,7 +8838,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga4eeef47e715d3f013bc4bf422aae4513</Anchor>
+    <Anchor>ga629169f67eb95bdf2c3bf126dbd99bc6</Anchor>
     <Abstract>Writes the inverse square root of every element in the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8685,7 +8850,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>ga8afca66dd52ffe6fb79389021a534a52</Anchor>
+    <Anchor>ga8a9f8db1b30f6c6b82bb281d0ee3f9af</Anchor>
     <Abstract>Replaces every element in the vector with its cube root.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8697,7 +8862,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d2/d25/group__vec__squaring.html</Path>
-    <Anchor>gae042318396457c01f6fada5ed1d0a30a</Anchor>
+    <Anchor>ga854955b00a0234e94976c2d4d1090296</Anchor>
     <Abstract>Writes the cube root of every element in the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8717,7 +8882,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>gac2f79de8e98cb16c00dfc44f95493cd6</Anchor>
+    <Anchor>ga3174c7d255cfa8cdbd32e7845562bb73</Anchor>
     <Abstract>Reverses a vector in-place.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8729,7 +8894,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga8836f4ab0adcb32a11ecb1d050caafcd</Anchor>
+    <Anchor>gaa0e5fe9cf32d0f1afd852e34865bef4c</Anchor>
     <Abstract>Writes a reversed version of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8741,7 +8906,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga3f50457ce64ef4c7315272e7393dc731</Anchor>
+    <Anchor>ga502969ed94a7b9dc418cfd0d57d72d2b</Anchor>
     <Abstract>Sorts a vector in-place.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8753,7 +8918,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga7686ad6fadf7708b396c1e950381763a</Anchor>
+    <Anchor>ga4365df111ef0deddbf49f64bef41daf0</Anchor>
     <Abstract>Writes a sorted version of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8765,7 +8930,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga2d2e0cc334202389d34d0cdff2311a93</Anchor>
+    <Anchor>gac81290ecb1e18ef23d69b3e63fb6c53a</Anchor>
     <Abstract>Sorts a vector in reverse order in-place.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8777,7 +8942,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>ga87182039217238fd656427bf2fe20d71</Anchor>
+    <Anchor>ga2e3da938605f8b09c3337e4cebf87e03</Anchor>
     <Abstract>Writes a reverse sorted version of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8789,7 +8954,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>gab0be2861b5335cd117e42334e8183be5</Anchor>
+    <Anchor>gadee227aae33b5acd81eed3658d9bc95f</Anchor>
     <Abstract>Interleaves multichannel data into a single output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8801,7 +8966,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d58/group__vec__sorting.html</Path>
-    <Anchor>gac290bad09c7f2dcc7dafb54dd1659c09</Anchor>
+    <Anchor>ga8fc2171aa245734cea2eab71fe7813bb</Anchor>
     <Abstract>Deinterleaves single channel data into multiple output vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8821,7 +8986,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gaea77f3fca59a186157d4ec9186fd4aef</Anchor>
+    <Anchor>gad21e9bb4bd863a7433cbc0d0d082c7e1</Anchor>
     <Abstract>Replaces each element of the vector with its absolute value.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8833,7 +8998,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga237a1f46d447efa5ff5b0c87b27d5c1d</Anchor>
+    <Anchor>ga2a6a53a470f1f882e1bbba6ee0449060</Anchor>
     <Abstract>Writes the absolute value of each element of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8845,7 +9010,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gaf2cf9ed44455874ee33ee41be90ea92b</Anchor>
+    <Anchor>ga0b6017272155894c64975f76349cea19</Anchor>
     <Abstract>Flips the sign of every element of the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8857,7 +9022,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga7c83c80afca79e911f58a946cefb9bb4</Anchor>
+    <Anchor>ga3b6e43a027ee0bc91a0f59678b03d0ff</Anchor>
     <Abstract>Writes the negation of every element of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8869,7 +9034,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gac398f6db71a95724f8b1397e0625dbc9</Anchor>
+    <Anchor>gaef34a7abfcb2ba9369dc75343b0c4c5a</Anchor>
     <Abstract>Clips every element of a vector in-place.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8881,7 +9046,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga8d5e0f98136d66678751b4e4f7a6c75b</Anchor>
+    <Anchor>gaaa678dbf9d6d6884756ad76a7bbf3daa</Anchor>
     <Abstract>Writes a clipped version of the original vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8893,7 +9058,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gabe15561e57a389ece031d1999fcced7c</Anchor>
+    <Anchor>ga0a7b3fbae1d35e850b7322264c0b5cff</Anchor>
     <Abstract>Returns the sum of all the values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8905,7 +9070,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>ga8718d42502840dacd0526af810246535</Anchor>
+    <Anchor>ga1f5417592c6e8d68a04566dd2428cde5</Anchor>
     <Abstract>Returns the mean of the values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8917,7 +9082,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d0/d70/group__vec__stats.html</Path>
-    <Anchor>gac764291362ee108017d7f2fb6a553e4b</Anchor>
+    <Anchor>gaebef10f895380fa0de309304af33878d</Anchor>
     <Abstract>Returns the standard deviation of the values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8937,7 +9102,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga3207a49d4eb5a8f6987e178c5dbd9370</Anchor>
+    <Anchor>ga7e741640b08aaa13c2c37ab0d4c8acd8</Anchor>
     <Abstract>Returns the maximum element in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8949,7 +9114,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gab9b4c8e02bbf434e1a7f7ae69ac0e087</Anchor>
+    <Anchor>ga847e933eec75e5853e47865f41e071fe</Anchor>
     <Abstract>Finds the maximum element in a vector and its index in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8961,7 +9126,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga7a38c8827814ea1b34db01bab093f7d8</Anchor>
+    <Anchor>gaa6df91ebaade90faa4555262c6875d49</Anchor>
     <Abstract>Returns the maximum absolute value in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8973,7 +9138,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga337bb51945804cb53069150fc654c369</Anchor>
+    <Anchor>gabe7285b7b9b9d46229150ea80bc9ad50</Anchor>
     <Abstract>Finds the maximum absolute value in a vector and its index in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8985,7 +9150,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga8db5010d14385445a322bc713aa91bdc</Anchor>
+    <Anchor>ga605ed52218b5ec5df543eed606d0f0d7</Anchor>
     <Abstract>Returns the minimum element in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -8997,7 +9162,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gaa9a753d50b7bde96e9f490c890d6f5c9</Anchor>
+    <Anchor>ga436fbda048b0ff68d5f2e5a9952a5f0f</Anchor>
     <Abstract>Finds the minimum element in a vector and its index in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9009,7 +9174,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga71eaaa0279c952cdba690faab21af70b</Anchor>
+    <Anchor>gab5ebd45f2963c36c18dd6d768349275f</Anchor>
     <Abstract>Returns the minimum absolute value in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9021,7 +9186,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gad1335ff22597aafeb9ed83e9189106d7</Anchor>
+    <Anchor>ga0ce938eaa12c73f120485fa2eb5f7415</Anchor>
     <Abstract>Finds the minimum absolute value in a vector and its index in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9033,7 +9198,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gacfdcb0cc73e0ae32f3c54f864d917601</Anchor>
+    <Anchor>ga219248fe15b7f5b82c6c338641c5a557</Anchor>
     <Abstract>Finds both the minimum and maximum values in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9045,7 +9210,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gaff7e9c76aef26d80400ab980d2e03b82</Anchor>
+    <Anchor>gaa2af652aec26b69e562e4477ae27e81b</Anchor>
     <Abstract>Finds the minimum and maximum values in a vector, and their indices in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9057,7 +9222,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga853b7319809c8d614e7a92e0689e821e</Anchor>
+    <Anchor>ga5da07c6b14483410d44bb3fa81b53320</Anchor>
     <Abstract>Finds both the minimum and maximum absolute values in a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9069,8 +9234,32 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gaa16aac01d52b55804c35a1c43c240722</Anchor>
+    <Anchor>ga6f9efb710d0503059914715942101e20</Anchor>
     <Abstract>Finds the minimum and maximum absolute values in a vector, and their indices in the vector.</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getVectorExtremaInfo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga379d47a07fa42f3c41f5171758990555</Anchor>
+    <Abstract>Calculates the values and positions of the extrema in the vector and returns them in a single VectorE...</Abstract>
+    <DeclaredIn>limes_vecops.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getAbsVectorExtremaInfo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::vecops</Scope>
+    </TokenIdentifier>
+    <Path>d5/d65/group__vec__extrema.html</Path>
+    <Anchor>ga1a3cc804d477d233599086f86558aa36</Anchor>
+    <Abstract>Calculates the values and positions of the absolute value extrema in the vector and returns them in a...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
   <Token>
@@ -9081,7 +9270,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>gaa141140bec853742916f7095838174f2</Anchor>
+    <Anchor>ga2723e9d8f177c8389fae159bb075f196</Anchor>
     <Abstract>Returns the difference between the maximum and minimum values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9093,7 +9282,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/d65/group__vec__extrema.html</Path>
-    <Anchor>ga4f16ce14de7be970efaa3ca131343cfd</Anchor>
+    <Anchor>gaf838401785666d1131bc732e6c320b72</Anchor>
     <Abstract>Returns the difference between the maximum and minimum absolute values in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9113,7 +9302,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d4/de3/group__vec__trig.html</Path>
-    <Anchor>ga99c0aff0af15ed2fa40caba9a694b875</Anchor>
+    <Anchor>gaaf5e6700040b35b379073259d5778eab</Anchor>
     <Abstract>Simultaneously computes the sin and cosine of every value in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9133,7 +9322,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d9/d09/group__vec__sin.html</Path>
-    <Anchor>ga70f8edfe55ee492aa54d1a45e6002390</Anchor>
+    <Anchor>ga0c6029a1aa1f59316d1680bb8f41ec5a</Anchor>
     <Abstract>Replaces every value in the vector with its sine.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9145,7 +9334,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d9/d09/group__vec__sin.html</Path>
-    <Anchor>gab7bffe4cd6d37396902f6758c9415f16</Anchor>
+    <Anchor>ga25e52cc19a67743b74746189126196c0</Anchor>
     <Abstract>Writes the sine of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9157,7 +9346,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d9/d09/group__vec__sin.html</Path>
-    <Anchor>gab8f7571b7d63a6bc762bcca1e07dac7e</Anchor>
+    <Anchor>gaca9a612b58b50484ba4e02592e4f46f7</Anchor>
     <Abstract>Replaces every value in the vector with its arcsine.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9169,7 +9358,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d9/d09/group__vec__sin.html</Path>
-    <Anchor>ga016da50b803c883507599906c16c2362</Anchor>
+    <Anchor>ga7474c1ae64d9c38707e715daf651490b</Anchor>
     <Abstract>Writes the arcsine of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9189,7 +9378,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dd/d22/group__vec__cos.html</Path>
-    <Anchor>gac6b49fb5d7f55051360040676548e51d</Anchor>
+    <Anchor>ga231ccf8f8ffc8267a333aa912e259cae</Anchor>
     <Abstract>Replaces every value in the vector with its cosine.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9201,7 +9390,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dd/d22/group__vec__cos.html</Path>
-    <Anchor>ga41edc84e495ab9148da97dae4d68452a</Anchor>
+    <Anchor>ga6724350269a20b880de0969bde2405d6</Anchor>
     <Abstract>Writes the cosine of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9213,7 +9402,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dd/d22/group__vec__cos.html</Path>
-    <Anchor>ga99da45fcefe45e733e46593ad63c0d17</Anchor>
+    <Anchor>gae0764ad036561cfa66bb6a08bedd69bf</Anchor>
     <Abstract>Replaces every value in the vector with its arccosine.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9225,7 +9414,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dd/d22/group__vec__cos.html</Path>
-    <Anchor>ga48a0d852db4b3d9a20f11e590b7c3660</Anchor>
+    <Anchor>ga1a26d7c204eb7f95b4b659337dee0325</Anchor>
     <Abstract>Writes the arccosine of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9245,7 +9434,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d0d/group__vec__tan.html</Path>
-    <Anchor>ga513069ac6021cc619336a5196bfb7d25</Anchor>
+    <Anchor>gaeed48026d7586d096bce4c0b93e725b8</Anchor>
     <Abstract>Replaces every value in the vector with its tangent.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9257,7 +9446,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d0d/group__vec__tan.html</Path>
-    <Anchor>gaeb99567aadd1ef547a55f85917cd29d6</Anchor>
+    <Anchor>ga8ca2ca9f9899123ac65447f3acf196ff</Anchor>
     <Abstract>Writes the tangent of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9269,7 +9458,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d0d/group__vec__tan.html</Path>
-    <Anchor>gacd1d20855d2c38285293886a6bdfc912</Anchor>
+    <Anchor>ga398978e25f59930d3ef1a58707fd889d</Anchor>
     <Abstract>Replaces every value in the vector with its arctangent.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9281,7 +9470,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>db/d0d/group__vec__tan.html</Path>
-    <Anchor>gae11646657e70d2ddc83f24736d616f3c</Anchor>
+    <Anchor>gaedf349fe7e558d8b436534afcec800eb</Anchor>
     <Abstract>Writes the arctangent of each element of the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9301,7 +9490,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>ga955f22d2e33f9746c063827fd1c11e37</Anchor>
+    <Anchor>gaba505eb13846fd46259783da1db133a2</Anchor>
     <Abstract>Replaces each value in the vector with its natural logarithm.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9313,7 +9502,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>gaa7c9ad70b2c40172fa0ee1c5a894674b</Anchor>
+    <Anchor>ga0f545789bb24b3f69f14af7604dc3b31</Anchor>
     <Abstract>Writes the natural logarithm of each value in the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9325,7 +9514,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>ga84c312792ededa69e74bbed3d51e88c2</Anchor>
+    <Anchor>ga2b524a2a0efcafcd98ce0922394caebb</Anchor>
     <Abstract>Replaces each value in the vector with its base 2 logarithm.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9337,7 +9526,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>gae2c8537854c400257ea114cf1a64a3d0</Anchor>
+    <Anchor>gae3b4330086bcfc18cd4187fba10d4687</Anchor>
     <Abstract>Writes the base 2 logarithm of each value in the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9349,7 +9538,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>gafeeeefc3ff02635214587d7b1bddfabb</Anchor>
+    <Anchor>ga2bd502c7dd4a6f5804ed1c967e3dccd9</Anchor>
     <Abstract>Replaces each value in the vector with its base 10 logarithm.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9361,7 +9550,7 @@
       <Scope>limes::vecops::log</Scope>
     </TokenIdentifier>
     <Path>df/dc9/group__vec__log.html</Path>
-    <Anchor>ga27f359ab55cb9bdeb9bc896037ca7971</Anchor>
+    <Anchor>gaf4d52993ec0f582f9c198aae893caff2</Anchor>
     <Abstract>Writes the base 10 logarithm of each value in the input vector to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9381,7 +9570,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>gab91088ab252f21e7216193f73997f9ff</Anchor>
+    <Anchor>gad34a1d7c0d781b6ebb09686a7d0893ce</Anchor>
     <Abstract>Replaces each value in the vector with eˆvalue .</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9393,7 +9582,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>gafb2352b2f8525d3b25a5922612e7730e</Anchor>
+    <Anchor>gab7f11320810a0aed60bc686bcc49c064</Anchor>
     <Abstract>For each value in the input vector, writes eˆvalue to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9405,7 +9594,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>gaf5d8b28918e205bbbd3e7f63d8a881a9</Anchor>
+    <Anchor>ga065914500fce876c3cee37cbbb4cf5eb</Anchor>
     <Abstract>Replaces each value in the vector with 2ˆvalue .</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9417,7 +9606,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>ga2cdbc0777792c72b7b13626bed9c9f72</Anchor>
+    <Anchor>ga4f9e598e6fb6243787149bdd4cb1e168</Anchor>
     <Abstract>For each value in the input vector, writes 2ˆvalue to the output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9429,7 +9618,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>ga445ebb83b74c766118b5a14e8522f439</Anchor>
+    <Anchor>gacfbfe381b5da23ca34c3e9c8d26b38c0</Anchor>
     <Abstract>Raises each value in the input vector to the power of the corresponding element of another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9441,7 +9630,7 @@
       <Scope>limes::vecops::exp</Scope>
     </TokenIdentifier>
     <Path>d6/d74/group__vec__exp.html</Path>
-    <Anchor>gae8c84fe775901da74285573cfec8dad2</Anchor>
+    <Anchor>gab43c275630d45f98cb1d12f09f6b1c3c</Anchor>
     <Abstract>Raises each value in the input vector to the power of the corresponding element of another vector,...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9461,7 +9650,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>ga40b324557eef47d1e22ce1fb471ce9ee</Anchor>
+    <Anchor>ga4bbd806aba2959761022a9ec12dd80bd</Anchor>
     <Abstract>Mixes together multiple channels of audio into one output vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9473,7 +9662,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>ga2a4cee5fed3d9bcb224cf2a25699aa8e</Anchor>
+    <Anchor>ga5c3ae4cdc62f16c05a5f837ff3d0411b</Anchor>
     <Abstract>Calculates the RMS value of the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9485,7 +9674,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>ga73e0c358db62e2c63a24a750e32d43f8</Anchor>
+    <Anchor>gaba849b93dcaac4be3ae9592eb0979d6e</Anchor>
     <Abstract>Counts the number of zero crossings present in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9497,7 +9686,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>gaac272d40d8af712c634e636ecbd45165</Anchor>
+    <Anchor>ga08d1fec4ef1c205281ed1c9e0db6700a</Anchor>
     <Abstract>Generates a ramp of samples, starting from startValue and incrementing by a consistent value until en...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9509,7 +9698,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>gadd082208b7129d87962dbccaa91197ff</Anchor>
+    <Anchor>gad7af1a4acd71d9716be5342daffab37a</Anchor>
     <Abstract>Applies a gain ramp to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9521,7 +9710,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d5/db5/group__vec__audio.html</Path>
-    <Anchor>ga15e7252236b09e97d60ee51b7f8c3fd8</Anchor>
+    <Anchor>ga987b8430bbb4870efa4ecab21f68469c</Anchor>
     <Abstract>Applies a gain ramp to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9541,7 +9730,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/dd9/group__vec__window.html</Path>
-    <Anchor>ga1068019ee279ba3015817085dac383eb</Anchor>
+    <Anchor>ga6c7815bba84d3469f66b66cf02dbd6a3</Anchor>
     <Abstract>Generates a window function of the desired type , writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9553,7 +9742,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/dd9/group__vec__window.html</Path>
-    <Anchor>ga03c34103e0ff42a0d56e83131eda1eaa</Anchor>
+    <Anchor>gac728e1af0a779b89e4dd342eb50554c4</Anchor>
     <Abstract>Applies a window function of the desired type to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9565,7 +9754,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/dd9/group__vec__window.html</Path>
-    <Anchor>gaa2e3dc8415ebcfbc3b0521e1dd4de509</Anchor>
+    <Anchor>ga38d11ff25d554cb6bc3d54c224d41ad1</Anchor>
     <Abstract>Applies a window function of the desired type to the samples in the vector, writing the output sample...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9585,7 +9774,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/d9f/group__vec__blackman.html</Path>
-    <Anchor>ga431d64e3516e35c62510f1b7d1ebe53f</Anchor>
+    <Anchor>ga651c8a212639d0f84307b7b2af1ed02b</Anchor>
     <Abstract>Generates a Blackman window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9597,7 +9786,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/d9f/group__vec__blackman.html</Path>
-    <Anchor>gad47b2158334c8a352eb30fd03ca027d8</Anchor>
+    <Anchor>ga56b8fd4bb9dbba98ea45c1fec4e03098</Anchor>
     <Abstract>Applies a Blackman window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9609,7 +9798,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/d9f/group__vec__blackman.html</Path>
-    <Anchor>ga4bf12b40d174a506df3ade1bccf2ae23</Anchor>
+    <Anchor>gac2490b24ab53aff68a7f60e484071cd9</Anchor>
     <Abstract>Applies a Blackman window to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9629,7 +9818,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d7/d30/group__vec__hamm.html</Path>
-    <Anchor>ga9a6c812ab585e48574ac46b723f5e9ce</Anchor>
+    <Anchor>ga77f6ab1f7183e38dc861320603993132</Anchor>
     <Abstract>Generates a Hamm (Hamming) window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9641,7 +9830,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d7/d30/group__vec__hamm.html</Path>
-    <Anchor>ga052d8375d4a5e844a27e7abea2e02562</Anchor>
+    <Anchor>gaa6c221520ae691de3f03b457e14985f3</Anchor>
     <Abstract>Applies a Hamm (Hamming) window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9653,7 +9842,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d7/d30/group__vec__hamm.html</Path>
-    <Anchor>ga3b90420209afa1e064057d7312d75e6d</Anchor>
+    <Anchor>gaa2a5bc8396e436023448317b64327c4b</Anchor>
     <Abstract>Applies a Hamm (Hamming) window to the samples in the vector, writing the output samples to another v...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9673,7 +9862,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d9/d83/group__vec__hanning.html</Path>
-    <Anchor>gad6a1dd72f8e103b57a9dda19155952c9</Anchor>
+    <Anchor>gaa33d842e9f88484ae6bdf329eec4ded6</Anchor>
     <Abstract>Generates a Hanning window, writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9685,7 +9874,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d9/d83/group__vec__hanning.html</Path>
-    <Anchor>gab164431464ba4fc42511f8009cf786be</Anchor>
+    <Anchor>gaf9f62171dfff05be0973337c59963b80</Anchor>
     <Abstract>Applies a Hanning window to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9697,7 +9886,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d9/d83/group__vec__hanning.html</Path>
-    <Anchor>gaac38bcbff3f6154e7f04b9a765d9fe53</Anchor>
+    <Anchor>gaa8faf60f3ca7f8dfc797eb9803af97ae</Anchor>
     <Abstract>Applies a Hanning window to the samples in the vector, writing the output samples to another vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9717,7 +9906,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>gade42bcc01d9102f9d379f183c30e3a6a</Anchor>
+    <Anchor>ga989e3a6c3c3b49df5becadcab05769b2</Anchor>
     <Abstract>Converts polar data to cartesian data.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9729,7 +9918,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>ga6fd0a7960c7c40b919b49dbcb96b8770</Anchor>
+    <Anchor>ga9c23c53828298d02ce27d61a4356a8f5</Anchor>
     <Abstract>Converts polar data to interleaved cartesian data.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9741,7 +9930,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>gac5d3fd6b0ab571fa0196710a01dde79e</Anchor>
+    <Anchor>gade84ac99b54758f4370cbb3f384406df</Anchor>
     <Abstract>Converts cartesian data to polar data.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9753,7 +9942,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>ga2e506a2e9e7d04e309e81cecaaf6c1a7</Anchor>
+    <Anchor>ga5d0b289d61ce925d188af90564e49751</Anchor>
     <Abstract>Converts interleaved cartesian data to polar data.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9765,7 +9954,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>ga2c83cf38aa5f1f9f07f52b87c7c25f8f</Anchor>
+    <Anchor>gab6f32d9c00fe32f00114748c21488ec8</Anchor>
     <Abstract>Converts cartesian data to polar magnitudes.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -9777,7 +9966,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>de/d2a/group__vec__complex.html</Path>
-    <Anchor>ga69834fd5c18b4beafeda7bdc4663f8a2</Anchor>
+    <Anchor>gacdc92d474c64af679980ec7532f5ec3b</Anchor>
     <Abstract>Converts interleaved cartesian data to polar magnitudes.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -10826,39 +11015,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>leftOnly</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>econst</Type>
-      <Scope>limes::dsp</Scope>
-    </TokenIdentifier>
-    <Path>d4/d00/namespacelimes_1_1dsp.html</Path>
-    <Anchor>ab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182</Anchor>
-    <Abstract>In this mode, a MonoStereoConverter will output only the left channel of a stereo signal as its mono ...</Abstract>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>rightOnly</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>econst</Type>
-      <Scope>limes::dsp</Scope>
-    </TokenIdentifier>
-    <Path>d4/d00/namespacelimes_1_1dsp.html</Path>
-    <Anchor>ab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d</Anchor>
-    <Abstract>In this mode, a MonoStereoConverter will output only the right channel of a stereo signal as its mono...</Abstract>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>mixToMono</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>econst</Type>
-      <Scope>limes::dsp</Scope>
-    </TokenIdentifier>
-    <Path>d4/d00/namespacelimes_1_1dsp.html</Path>
-    <Anchor>ab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22</Anchor>
-    <Abstract>In this mode, a MonoStereoConverter will mix together the two channels of a stereo signal to create i...</Abstract>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>limes::dsp::CircularBuffer</Name>
       <APILanguage>c</APILanguage>
       <Type>tmplt</Type>
@@ -10987,30 +11143,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>convertMonoToStereo</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::dsp::MonoStereoConverter</Scope>
-    </TokenIdentifier>
-    <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
-    <Anchor>a9c876271fa1ea0b65240ca7fa2d33381</Anchor>
-    <Abstract>Converts a mono signal to stereo.</Abstract>
-    <DeclaredIn>MonoStereoConverter.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>convertStereoToMono</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::dsp::MonoStereoConverter</Scope>
-    </TokenIdentifier>
-    <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
-    <Anchor>a64a5028f6561a1fd36048db589341c77</Anchor>
-    <Abstract>Converts a stereo signal to mono.</Abstract>
-    <DeclaredIn>MonoStereoConverter.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>getStereoReductionMode</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -11035,14 +11167,74 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>releaseResources</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::MonoStereoConverter</Scope>
+    </TokenIdentifier>
+    <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+    <Anchor>a9728c80f577bc17feaff02347281eaec</Anchor>
+    <Abstract>Releases the converter&apos;s internal resources.</Abstract>
+    <DeclaredIn>MonoStereoConverter.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>setStereoReductionMode</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>limes::dsp::MonoStereoConverter</Scope>
     </TokenIdentifier>
     <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
-    <Anchor>ad1543d37b04991c17659613b4ed2e3bf</Anchor>
+    <Anchor>ae83747827ceb0dc55c90fc74d7e88483</Anchor>
     <Abstract>Sets the StereoReductionMode the converter will use for converting stereo signals to mono.</Abstract>
+    <DeclaredIn>MonoStereoConverter.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>convertStereoToMono</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::MonoStereoConverter</Scope>
+    </TokenIdentifier>
+    <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+    <Anchor>a2a0088ecb2cbe2ea6541a03f00db3262</Anchor>
+    <Abstract>Converts a stereo signal to mono.</Abstract>
+    <DeclaredIn>MonoStereoConverter.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>convertStereoToMono</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::MonoStereoConverter</Scope>
+    </TokenIdentifier>
+    <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+    <Anchor>a6c9cdd82939fdaa0e653c56dc010349c</Anchor>
+    <Abstract>Converts a stereo signal to mono.</Abstract>
+    <DeclaredIn>MonoStereoConverter.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>convertMonoToStereo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>limes::dsp::MonoStereoConverter</Scope>
+    </TokenIdentifier>
+    <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+    <Anchor>ab572c37801ce3e23bfa3f37f392cff52</Anchor>
+    <Abstract>Converts a mono signal to stereo.</Abstract>
+    <DeclaredIn>MonoStereoConverter.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>convertMonoToStereo</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>limes::dsp::MonoStereoConverter</Scope>
+    </TokenIdentifier>
+    <Path>d1/d2a/classlimes_1_1dsp_1_1_mono_stereo_converter.html</Path>
+    <Anchor>a417bf7d8b5f9ed3756123a75445342b7</Anchor>
+    <Abstract>Converts a mono signal to stereo.</Abstract>
     <DeclaredIn>MonoStereoConverter.h</DeclaredIn>
   </Token>
   <Token>
@@ -11078,18 +11270,6 @@
     <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
     <Anchor>a93eb1b866027c610d3d29b49adbd1a3c</Anchor>
     <Abstract>Returns the next output sample from the stream.</Abstract>
-    <DeclaredIn>SampleStream.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getSamples</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>limes::dsp::SampleStream</Scope>
-    </TokenIdentifier>
-    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
-    <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
-    <Abstract>Returns a stream of samples.</Abstract>
     <DeclaredIn>SampleStream.h</DeclaredIn>
   </Token>
   <Token>
@@ -11245,18 +11425,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>getSamples</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>limes::dsp::SampleStream</Scope>
-    </TokenIdentifier>
-    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
-    <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
-    <Abstract>Returns a stream of samples.</Abstract>
-    <DeclaredIn>SampleStream.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>skipSamples</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -11275,6 +11443,8 @@
       <Scope>limes::dsp::WhiteNoiseGenerator</Scope>
     </TokenIdentifier>
     <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+    <Abstract>A class that produces white noise.</Abstract>
+    <DeclaredIn>WhiteNoiseGenerator.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -11286,6 +11456,18 @@
     <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
     <Anchor>a93eb1b866027c610d3d29b49adbd1a3c</Anchor>
     <Abstract>Returns the next output sample from the stream.</Abstract>
+    <DeclaredIn>SampleStream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>skipSamples</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::SampleStream</Scope>
+    </TokenIdentifier>
+    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+    <Anchor>add9247129b2eedf867eb07f84e24a9e9</Anchor>
+    <Abstract>Skips a number of samples in the stream.</Abstract>
     <DeclaredIn>SampleStream.h</DeclaredIn>
   </Token>
   <Token>
@@ -11302,15 +11484,181 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>skipSamples</Name>
+      <Name>getSamples</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
       <Scope>limes::dsp::SampleStream</Scope>
     </TokenIdentifier>
     <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
-    <Anchor>add9247129b2eedf867eb07f84e24a9e9</Anchor>
-    <Abstract>Skips a number of samples in the stream.</Abstract>
+    <Anchor>aec53b83b3d8893f57e6355866e4d75ae</Anchor>
+    <Abstract>Returns a stream of samples.</Abstract>
     <DeclaredIn>SampleStream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSamples</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::SampleStream</Scope>
+    </TokenIdentifier>
+    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+    <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
+    <Abstract>Returns a stream of samples.</Abstract>
+    <DeclaredIn>SampleStream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSamples</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::SampleStream</Scope>
+    </TokenIdentifier>
+    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+    <Anchor>aec53b83b3d8893f57e6355866e4d75ae</Anchor>
+    <Abstract>Returns a stream of samples.</Abstract>
+    <DeclaredIn>SampleStream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSamples</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::SampleStream</Scope>
+    </TokenIdentifier>
+    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+    <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
+    <Abstract>Returns a stream of samples.</Abstract>
+    <DeclaredIn>SampleStream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSamples</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::SampleStream</Scope>
+    </TokenIdentifier>
+    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+    <Anchor>aec53b83b3d8893f57e6355866e4d75ae</Anchor>
+    <Abstract>Returns a stream of samples.</Abstract>
+    <DeclaredIn>SampleStream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSamples</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::SampleStream</Scope>
+    </TokenIdentifier>
+    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+    <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
+    <Abstract>Returns a stream of samples.</Abstract>
+    <DeclaredIn>SampleStream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSamples</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::SampleStream</Scope>
+    </TokenIdentifier>
+    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+    <Anchor>aec53b83b3d8893f57e6355866e4d75ae</Anchor>
+    <Abstract>Returns a stream of samples.</Abstract>
+    <DeclaredIn>SampleStream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSamples</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::SampleStream</Scope>
+    </TokenIdentifier>
+    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+    <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
+    <Abstract>Returns a stream of samples.</Abstract>
+    <DeclaredIn>SampleStream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSamples</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::SampleStream</Scope>
+    </TokenIdentifier>
+    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+    <Anchor>aec53b83b3d8893f57e6355866e4d75ae</Anchor>
+    <Abstract>Returns a stream of samples.</Abstract>
+    <DeclaredIn>SampleStream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>WhiteNoiseGenerator</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::WhiteNoiseGenerator</Scope>
+    </TokenIdentifier>
+    <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+    <Anchor>ac98705b71d955693ab6d53034ff018df</Anchor>
+    <Abstract>Constructs a white noise generator with a random seed.</Abstract>
+    <DeclaredIn>WhiteNoiseGenerator.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>WhiteNoiseGenerator</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::WhiteNoiseGenerator</Scope>
+    </TokenIdentifier>
+    <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+    <Anchor>ac3b7f7e709c0bc3dac71404dde7e004a</Anchor>
+    <Abstract>Constructs a white noise generator with an explicit seed.</Abstract>
+    <DeclaredIn>WhiteNoiseGenerator.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>WhiteNoiseGenerator</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::WhiteNoiseGenerator</Scope>
+    </TokenIdentifier>
+    <Path>dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html</Path>
+    <Anchor>ac5a2b691b4bd3746aecdb818976ebc3c</Anchor>
+    <Abstract>Constructs a white noise generator with a seed initialized by forking the given Random object.</Abstract>
+    <DeclaredIn>WhiteNoiseGenerator.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSamples</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::SampleStream</Scope>
+    </TokenIdentifier>
+    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+    <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
+    <Abstract>Returns a stream of samples.</Abstract>
+    <DeclaredIn>SampleStream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getSamples</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::dsp::SampleStream</Scope>
+    </TokenIdentifier>
+    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
+    <Anchor>aec53b83b3d8893f57e6355866e4d75ae</Anchor>
+    <Abstract>Returns a stream of samples.</Abstract>
+    <DeclaredIn>SampleStream.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>limes::dsp::filters</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>limes::dsp::filters</Scope>
+    </TokenIdentifier>
+    <Path>d8/de5/namespacelimes_1_1dsp_1_1filters.html</Path>
+    <Abstract>This namespace contains classes for filtering realtime audio signals.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -11337,6 +11685,138 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>makeFirstOrderLowPass</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::filters::Coeffecients</Scope>
+    </TokenIdentifier>
+    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+    <Anchor>a27651d2912a78297830abe274d34a344</Anchor>
+    <Abstract>Creates the coefficients for a first order low pass filter.</Abstract>
+    <DeclaredIn>Coeffecients.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>makeFirstOrderHighPass</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::filters::Coeffecients</Scope>
+    </TokenIdentifier>
+    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+    <Anchor>a024e5cbfd05ddd52a6c23525650706a3</Anchor>
+    <Abstract>Creates the coefficients for a first order high pass filter.</Abstract>
+    <DeclaredIn>Coeffecients.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>makeFirstOrderAllPass</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::filters::Coeffecients</Scope>
+    </TokenIdentifier>
+    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+    <Anchor>a5cabf3218498433f43788f303edb6a3d</Anchor>
+    <Abstract>Creates the coefficients for a first order all-pass filter.</Abstract>
+    <DeclaredIn>Coeffecients.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>makeLowPass</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::filters::Coeffecients</Scope>
+    </TokenIdentifier>
+    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+    <Anchor>ae32d6e8d7b9460790e6e44234c32a4e6</Anchor>
+    <Abstract>Creates the coefficients for a low pass filter, with variable Q.</Abstract>
+    <DeclaredIn>Coeffecients.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>makeHighPass</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::filters::Coeffecients</Scope>
+    </TokenIdentifier>
+    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+    <Anchor>a6366cf30ba36b19510443bdbb7a509b6</Anchor>
+    <Abstract>Creates the coefficients for a high pass filter, with variable Q.</Abstract>
+    <DeclaredIn>Coeffecients.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>makeBandPass</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::filters::Coeffecients</Scope>
+    </TokenIdentifier>
+    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+    <Anchor>a08af32d3a59efee7ea73f8bda5313d10</Anchor>
+    <Abstract>Creates the coefficients for a band pass filter, with variable Q.</Abstract>
+    <DeclaredIn>Coeffecients.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>makeNotch</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::filters::Coeffecients</Scope>
+    </TokenIdentifier>
+    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+    <Anchor>af7e356ea2d67172e6d40f42f058962db</Anchor>
+    <Abstract>Creates the coefficients for a notch filter, with variable Q.</Abstract>
+    <DeclaredIn>Coeffecients.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>makeAllPass</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::filters::Coeffecients</Scope>
+    </TokenIdentifier>
+    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+    <Anchor>a2811ba1407655a88a176538ed892123d</Anchor>
+    <Abstract>Creates the coefficients for an all-pass filter, with variable Q.</Abstract>
+    <DeclaredIn>Coeffecients.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>makeLowShelf</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::filters::Coeffecients</Scope>
+    </TokenIdentifier>
+    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+    <Anchor>aab4f06950878f9cd757a4fe5fceba10e</Anchor>
+    <Abstract>Creates the coefficients for a low-pass shelf filter with variable Q and gain.</Abstract>
+    <DeclaredIn>Coeffecients.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>makeHighShelf</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::filters::Coeffecients</Scope>
+    </TokenIdentifier>
+    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+    <Anchor>aed56b5bd021fd7f9ee620d5c1b6703c7</Anchor>
+    <Abstract>Creates the coefficients for a high-pass shelf filter with variable Q and gain.</Abstract>
+    <DeclaredIn>Coeffecients.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>makePeakFilter</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::filters::Coeffecients</Scope>
+    </TokenIdentifier>
+    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
+    <Anchor>a8d3607f27afe32281fce12bc78742322</Anchor>
+    <Abstract>Creates the coefficients for a peak filter centred around a given frequency, with a variable Q and ga...</Abstract>
+    <DeclaredIn>Coeffecients.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>getRawCoefficients</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -11349,135 +11829,26 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>makeAllPass</Name>
+      <Name>getRawCoefficients</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>limes::dsp::filters::Coeffecients</Scope>
     </TokenIdentifier>
     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-    <Anchor>a4aa7a30040d173c42e404450e74403a3</Anchor>
-    <Abstract>Creates the coefficients for an all-pass filter, with variable Q.</Abstract>
+    <Anchor>aa0eb02531373ef486d27eeb51d36369f</Anchor>
+    <Abstract>The raw coefficients.</Abstract>
     <DeclaredIn>Coeffecients.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>makeBandPass</Name>
+      <Name>coefficients</Name>
       <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
+      <Type>data</Type>
       <Scope>limes::dsp::filters::Coeffecients</Scope>
     </TokenIdentifier>
     <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-    <Anchor>a2d361dd8f8d4e3ff1b1799de35e8758c</Anchor>
-    <Abstract>Creates the coefficients for a band pass filter, with variable Q.</Abstract>
-    <DeclaredIn>Coeffecients.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>makeFirstOrderAllPass</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::dsp::filters::Coeffecients</Scope>
-    </TokenIdentifier>
-    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-    <Anchor>a5d95033233e387c5f4eef696e747c31a</Anchor>
-    <Abstract>Creates the coefficients for a first order all-pass filter.</Abstract>
-    <DeclaredIn>Coeffecients.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>makeFirstOrderHighPass</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::dsp::filters::Coeffecients</Scope>
-    </TokenIdentifier>
-    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-    <Anchor>aa13eb2de4ee5819d21a1fcc98adc18ea</Anchor>
-    <Abstract>Creates the coefficients for a first order high pass filter.</Abstract>
-    <DeclaredIn>Coeffecients.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>makeFirstOrderLowPass</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::dsp::filters::Coeffecients</Scope>
-    </TokenIdentifier>
-    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-    <Anchor>a2884e096e5565326e96f46497ff01eac</Anchor>
-    <Abstract>Creates the coefficients for a first order low pass filter.</Abstract>
-    <DeclaredIn>Coeffecients.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>makeHighPass</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::dsp::filters::Coeffecients</Scope>
-    </TokenIdentifier>
-    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-    <Anchor>a58f957adbb8a70e982c6f2f733e14e08</Anchor>
-    <Abstract>Creates the coefficients for a high pass filter, with variable Q.</Abstract>
-    <DeclaredIn>Coeffecients.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>makeHighShelf</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::dsp::filters::Coeffecients</Scope>
-    </TokenIdentifier>
-    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-    <Anchor>ac465beda6052a585ab5a9da2ef576ee4</Anchor>
-    <Abstract>Creates the coefficients for a high-pass shelf filter with variable Q and gain.</Abstract>
-    <DeclaredIn>Coeffecients.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>makeLowPass</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::dsp::filters::Coeffecients</Scope>
-    </TokenIdentifier>
-    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-    <Anchor>a03f5b0d4ca70a7344c1c25bfd9d94f13</Anchor>
-    <Abstract>Creates the coefficients for a low pass filter, with variable Q.</Abstract>
-    <DeclaredIn>Coeffecients.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>makeLowShelf</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::dsp::filters::Coeffecients</Scope>
-    </TokenIdentifier>
-    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-    <Anchor>a9a49e71c98a1eca9d84730e19e2cc24a</Anchor>
-    <Abstract>Creates the coefficients for a low-pass shelf filter with variable Q and gain.</Abstract>
-    <DeclaredIn>Coeffecients.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>makeNotch</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::dsp::filters::Coeffecients</Scope>
-    </TokenIdentifier>
-    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-    <Anchor>a25b3cba128f09dde64f4e42a6c8f0e04</Anchor>
-    <Abstract>Creates the coefficients for a notch filter, with variable Q.</Abstract>
-    <DeclaredIn>Coeffecients.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>makePeakFilter</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::dsp::filters::Coeffecients</Scope>
-    </TokenIdentifier>
-    <Path>df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html</Path>
-    <Anchor>ab77e0cd2d75dbf990f12340b2e2bbfc5</Anchor>
-    <Abstract>Creates the coefficients for a peak filter centred around a given frequency, with a variable Q and ga...</Abstract>
-    <DeclaredIn>Coeffecients.h</DeclaredIn>
+    <Anchor>aeb239f56b7da16795c7ddb2e963e624c</Anchor>
+    <Abstract>The raw coefficients.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -11487,6 +11858,19 @@
       <Scope>limes::dsp::filters::Coeffecients::Storage</Scope>
     </TokenIdentifier>
     <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
+    <Abstract>A simple wrapper around a vector, to be used to hold the actual filter coeffecients.</Abstract>
+    <DeclaredIn>Coeffecients.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>coefficients</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>limes::dsp::filters::Coeffecients::Storage</Scope>
+    </TokenIdentifier>
+    <Path>d8/d84/structlimes_1_1dsp_1_1filters_1_1_coeffecients_1_1_storage.html</Path>
+    <Anchor>a8d285ef1e09d96ac7d488e6a2cb738f0</Anchor>
+    <Abstract>The actual storage.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -11513,26 +11897,38 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>process</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>instm</Type>
-      <Scope>limes::dsp::filters::Filter</Scope>
-    </TokenIdentifier>
-    <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
-    <Anchor>a0ede155b0f6ec1ecb778698ed6b88c5a</Anchor>
-    <Abstract>Applies the filter to a stream of audio samples.</Abstract>
-    <DeclaredIn>Filter.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>reset</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>limes::dsp::filters::Filter</Scope>
     </TokenIdentifier>
     <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
-    <Anchor>a1ffbf28baa3b5ada5c16788b753cb578</Anchor>
+    <Anchor>a6e6384876eae3a466ad20dfcd825d0fb</Anchor>
     <Abstract>Resets the internal state of the filter.</Abstract>
+    <DeclaredIn>Filter.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>process</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::filters::Filter</Scope>
+    </TokenIdentifier>
+    <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
+    <Anchor>a2750288bf850dd06508091c49a816c6e</Anchor>
+    <Abstract>Applies the filter to a stream of audio samples.</Abstract>
+    <DeclaredIn>Filter.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>process</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::filters::Filter</Scope>
+    </TokenIdentifier>
+    <Path>d9/dec/classlimes_1_1dsp_1_1filters_1_1_filter.html</Path>
+    <Anchor>a01c975d48511bf4757d211be47bb5aa3</Anchor>
+    <Abstract>Applies the filter to a stream of audio samples.</Abstract>
     <DeclaredIn>Filter.h</DeclaredIn>
   </Token>
   <Token>
@@ -11548,12 +11944,144 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>limes::dsp::osc</Name>
+      <APILanguage>c</APILanguage>
+      <Type>ns</Type>
+      <Scope>limes::dsp::osc</Scope>
+    </TokenIdentifier>
+    <Path>d1/d0a/namespacelimes_1_1dsp_1_1osc.html</Path>
+    <Abstract>This namespace contains basic oscillator classes.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Oscillator</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>limes::dsp::osc</Scope>
+    </TokenIdentifier>
+    <Path>d1/d0a/namespacelimes_1_1dsp_1_1osc.html</Path>
+    <Anchor>aec519f4cfbe85e2c5bc56130bc6552fa</Anchor>
+    <Abstract>Convenience typedef for the oscillator base class.</Abstract>
+    <DeclaredIn>basic_oscillators.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>limes::dsp::osc::DetunableModel</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
       <Scope>limes::dsp::osc::DetunableModel</Scope>
     </TokenIdentifier>
     <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+    <Abstract>This class manages a number of oscillator voices, and detunes them around a central pitch,...</Abstract>
+    <DeclaredIn>DetunableModel.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>DetunableModel</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::osc::DetunableModel</Scope>
+    </TokenIdentifier>
+    <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+    <Anchor>a6296d65f4878f239605194c1fc97e2b5</Anchor>
+    <Abstract>Creates a detunable model that manages a certain number of voices.</Abstract>
+    <DeclaredIn>DetunableModel.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>applyFrequencies</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::osc::DetunableModel</Scope>
+    </TokenIdentifier>
+    <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+    <Anchor>ac5840f490b81cebd9a13800b5400b635</Anchor>
+    <Abstract>Calls a function with each voice&apos;s frequency in the pitch spread.</Abstract>
+    <DeclaredIn>DetunableModel.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>changeNumVoices</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::osc::DetunableModel</Scope>
+    </TokenIdentifier>
+    <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+    <Anchor>ae225dfc60f09796cd121015b58dbda23</Anchor>
+    <Abstract>Changes the number of voices being managed.</Abstract>
+    <DeclaredIn>DetunableModel.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getCenterFrequency</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::osc::DetunableModel</Scope>
+    </TokenIdentifier>
+    <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+    <Anchor>afc13ed5d5432229f567ff79bb59b4d17</Anchor>
+    <Abstract>Returns the center frequency all the voices are being detuned around.</Abstract>
+    <DeclaredIn>DetunableModel.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getFrequency</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::osc::DetunableModel</Scope>
+    </TokenIdentifier>
+    <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+    <Anchor>aeb7bfa0a3b78bc48a80cfd991146d700</Anchor>
+    <Abstract>Returns the frequency for a specific voice number.</Abstract>
+    <DeclaredIn>DetunableModel.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getNumVoices</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::osc::DetunableModel</Scope>
+    </TokenIdentifier>
+    <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+    <Anchor>ae0db0d4c305a9c069167f75790473484</Anchor>
+    <Abstract>Returns the number of voices being managed.</Abstract>
+    <DeclaredIn>DetunableModel.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>getPitchSpreadCents</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::osc::DetunableModel</Scope>
+    </TokenIdentifier>
+    <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+    <Anchor>a1dc28c56cb5f6b4f0627d1e5a0875a2e</Anchor>
+    <Abstract>Returns the current spread amount, in cents.</Abstract>
+    <DeclaredIn>DetunableModel.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setDetuneAmount</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::osc::DetunableModel</Scope>
+    </TokenIdentifier>
+    <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+    <Anchor>ac9535601d40917facc93c747cef5ff81</Anchor>
+    <Abstract>Sets the total detune amount, in cents.</Abstract>
+    <DeclaredIn>DetunableModel.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>setFrequency</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::osc::DetunableModel</Scope>
+    </TokenIdentifier>
+    <Path>d1/d34/classlimes_1_1dsp_1_1osc_1_1_detunable_model.html</Path>
+    <Anchor>a30f9600a5ab472373ec127419deb38b5</Anchor>
+    <Abstract>Sets the center frequency around which all the voices will be detuned.</Abstract>
+    <DeclaredIn>DetunableModel.h</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -11600,18 +12128,6 @@
     <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
     <Anchor>a93eb1b866027c610d3d29b49adbd1a3c</Anchor>
     <Abstract>Returns the next output sample from the stream.</Abstract>
-    <DeclaredIn>SampleStream.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getSamples</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>limes::dsp::SampleStream</Scope>
-    </TokenIdentifier>
-    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
-    <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
-    <Abstract>Returns a stream of samples.</Abstract>
     <DeclaredIn>SampleStream.h</DeclaredIn>
   </Token>
   <Token>
@@ -11699,18 +12215,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>getSamples</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>limes::dsp::SampleStream</Scope>
-    </TokenIdentifier>
-    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
-    <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
-    <Abstract>Returns a stream of samples.</Abstract>
-    <DeclaredIn>SampleStream.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>resetPhase</Name>
       <APILanguage>cpp</APILanguage>
       <Type>func</Type>
@@ -11790,18 +12294,6 @@
     <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
     <Anchor>a93eb1b866027c610d3d29b49adbd1a3c</Anchor>
     <Abstract>Returns the next output sample from the stream.</Abstract>
-    <DeclaredIn>SampleStream.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>getSamples</Name>
-      <APILanguage>cpp</APILanguage>
-      <Type>func</Type>
-      <Scope>limes::dsp::SampleStream</Scope>
-    </TokenIdentifier>
-    <Path>d7/d63/structlimes_1_1dsp_1_1_sample_stream.html</Path>
-    <Anchor>a789a074b5645ad9c7bec1d9acf4e8795</Anchor>
-    <Abstract>Returns a stream of samples.</Abstract>
     <DeclaredIn>SampleStream.h</DeclaredIn>
   </Token>
   <Token>
@@ -11940,7 +12432,7 @@
       <Scope>limes::dsp::psola::Analyzer</Scope>
     </TokenIdentifier>
     <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-    <Anchor>ae2134d6890493018d981cbbed5aaefb1</Anchor>
+    <Anchor>afe5c0eb4d8dee48b4616fd0fa6106f09</Anchor>
     <Abstract>Analyzes a frame of audio.</Abstract>
     <DeclaredIn>analyzer.h</DeclaredIn>
   </Token>
@@ -11988,7 +12480,7 @@
       <Scope>limes::dsp::psola::Analyzer</Scope>
     </TokenIdentifier>
     <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-    <Anchor>a15a448757c741a98e335fe3e9d8e8a85</Anchor>
+    <Anchor>a2b4f4121169faed5618980a531f8ee31</Anchor>
     <Abstract>Resets the analyzer to its initial state, without releasing any resources.</Abstract>
     <DeclaredIn>analyzer.h</DeclaredIn>
   </Token>
@@ -12029,13 +12521,25 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>PeakFinder</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::psola::PeakFinder</Scope>
+    </TokenIdentifier>
+    <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+    <Anchor>a8f25caf391d138794c0849b40d8dd9ba</Anchor>
+    <Abstract>Constructor.</Abstract>
+    <DeclaredIn>PeakFinder.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>findPeaks</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
       <Scope>limes::dsp::psola::PeakFinder</Scope>
     </TokenIdentifier>
     <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
-    <Anchor>a41c808a242f63abfea0a78adefece90b</Anchor>
+    <Anchor>a42b1862be4650d287290de0c22af0be4</Anchor>
     <Abstract>Analyzes a stream of audio and identifies the best set of pitch peaks to use for PSOLA pitch shifting...</Abstract>
     <DeclaredIn>PeakFinder.h</DeclaredIn>
   </Token>
@@ -12106,7 +12610,7 @@
       <Scope>limes::dsp::psola::PitchDetector</Scope>
     </TokenIdentifier>
     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-    <Anchor>ac6d6a32c0d29c4728c0cf422132e58a2</Anchor>
+    <Anchor>afecb34f51d61ea6083fe1cf20750442d</Anchor>
     <Abstract>Returns the current legal period range for the last analyzed frame of audio.</Abstract>
     <DeclaredIn>PitchDetector.h</DeclaredIn>
   </Token>
@@ -12154,7 +12658,7 @@
       <Scope>limes::dsp::psola::PitchDetector</Scope>
     </TokenIdentifier>
     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-    <Anchor>a5a61964bfda0a3ede52d6f74d63c09be</Anchor>
+    <Anchor>ac96adde0c5cebf27e7798fb0716bcb8f</Anchor>
     <Abstract>Resets the internal state of the pitch detector without releasing any resources.</Abstract>
     <DeclaredIn>PitchDetector.h</DeclaredIn>
   </Token>
@@ -12202,7 +12706,7 @@
       <Scope>limes::dsp::psola::PitchDetector</Scope>
     </TokenIdentifier>
     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-    <Anchor>ae1abb0f7245ddd7fac6d61b514c4afab</Anchor>
+    <Anchor>a6649faa218eb48a9c1a779d8f05800d2</Anchor>
     <Abstract>Detects the pitch in Hz for a frame of audio.</Abstract>
     <DeclaredIn>PitchDetector.h</DeclaredIn>
   </Token>
@@ -12214,7 +12718,7 @@
       <Scope>limes::dsp::psola::PitchDetector</Scope>
     </TokenIdentifier>
     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-    <Anchor>a9020b73668801b0d1a7eab148442095d</Anchor>
+    <Anchor>a3eab04a43808d8c9feb73bfa1682542e</Anchor>
     <Abstract>Detects the pitch in Hz for a frame of audio.</Abstract>
     <DeclaredIn>PitchDetector.h</DeclaredIn>
   </Token>
@@ -12226,7 +12730,7 @@
       <Scope>limes::dsp::psola::PitchDetector</Scope>
     </TokenIdentifier>
     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-    <Anchor>a54a15802151ce0f746cc673fa5fe73c4</Anchor>
+    <Anchor>ac47c8d598df64de8bf9da025ab97de30</Anchor>
     <Abstract>Detects the period, in samples, for a frame of audio.</Abstract>
     <DeclaredIn>PitchDetector.h</DeclaredIn>
   </Token>
@@ -12238,7 +12742,7 @@
       <Scope>limes::dsp::psola::PitchDetector</Scope>
     </TokenIdentifier>
     <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
-    <Anchor>a20d6a0ff25bba66d1afffe3d78b06688</Anchor>
+    <Anchor>aeee84dd862849f24519eb846fa615ecc</Anchor>
     <Abstract>Detects the period, in samples, for a frame of audio.</Abstract>
     <DeclaredIn>PitchDetector.h</DeclaredIn>
   </Token>
@@ -12279,6 +12783,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>getPitchHz</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>limes::dsp::psola::Shifter</Scope>
+    </TokenIdentifier>
+    <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+    <Anchor>a828d821a12795e3172c32b2352a8d18d</Anchor>
+    <Abstract>Returns the pitch, in Hz, this shifter is outputting.</Abstract>
+    <DeclaredIn>shifter.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>releaseResources</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -12312,6 +12828,17 @@
     <Anchor>a28168c68db4288d0cc0b13b591ea838b</Anchor>
     <Abstract>Sets the pitch, in Hz, of the shifter&apos;s output.</Abstract>
     <DeclaredIn>shifter.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>analyzer</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>limes::dsp::psola::Shifter</Scope>
+    </TokenIdentifier>
+    <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
+    <Anchor>ab00f0a27448593aa5d009533b91964e5</Anchor>
+    <Abstract>The parent Analyzer object that this shifter is a client of.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -18015,6 +18542,30 @@
     <Path>d9/dfc/group__core__math.html</Path>
     <Anchor>ga78b6e7e3ca15b70ce958d0f028d607ed</Anchor>
     <Abstract>@concept Integral An integral type.</Abstract>
+    <DeclaredIn>mathHelpers.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>max</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::math</Scope>
+    </TokenIdentifier>
+    <Path>d9/dfc/group__core__math.html</Path>
+    <Anchor>gae436ab6d92c1f3ad5e56b55fabb0f4c2</Anchor>
+    <Abstract>A constexpr-enabled max function.</Abstract>
+    <DeclaredIn>mathHelpers.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>min</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>limes::math</Scope>
+    </TokenIdentifier>
+    <Path>d9/dfc/group__core__math.html</Path>
+    <Anchor>ga25ae5da0ee08068735854a1e935be370</Anchor>
+    <Abstract>A constexpr-enabled min function.</Abstract>
     <DeclaredIn>mathHelpers.h</DeclaredIn>
   </Token>
   <Token>
@@ -30977,7 +31528,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>d4/de3/group__vec__trig.html</Path>
-    <Anchor>ga99c0aff0af15ed2fa40caba9a694b875</Anchor>
+    <Anchor>gaaf5e6700040b35b379073259d5778eab</Anchor>
     <Abstract>Simultaneously computes the sin and cosine of every value in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -31013,7 +31564,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dd4/group__limes__vecops.html</Path>
-    <Anchor>ga1df20f4bc96e6b2b218e914fe054c79d</Anchor>
+    <Anchor>ga82fb1c966bbad1669fca5eced15be9d8</Anchor>
     <Abstract>Fills the vector with the specified value.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -31025,7 +31576,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dd4/group__limes__vecops.html</Path>
-    <Anchor>ga144190e611f48721235c9434fd71cd89</Anchor>
+    <Anchor>ga6e80a5f6f3b343ab9aed4c4c1f6e4e93</Anchor>
     <Abstract>Fills the vector with zeroes.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -31037,7 +31588,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dd4/group__limes__vecops.html</Path>
-    <Anchor>ga9d8da6b79472277b93a875ab43f24714</Anchor>
+    <Anchor>ga4fa56b30a4dc9647f323135c6ac5ed47</Anchor>
     <Abstract>Copies from one vector to another.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -31049,7 +31600,7 @@
       <Scope>limes::vecops</Scope>
     </TokenIdentifier>
     <Path>dc/dd4/group__limes__vecops.html</Path>
-    <Anchor>gab42abc8b29b1736676df151e7f2d3858</Anchor>
+    <Anchor>gae47eab43ceb281664589422b69e264ed</Anchor>
     <Abstract>Swaps the elements of two vectors.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -31096,7 +31647,7 @@
       <Scope>limes::vecops::FFT</Scope>
     </TokenIdentifier>
     <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-    <Anchor>ad13b10030b09cda7961a52bdd8cf0796</Anchor>
+    <Anchor>a2488774c8043ec13c95cdc1e9df712a2</Anchor>
     <Abstract>Performs a forward FFT, outputting cartesian data.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
   </Token>
@@ -31108,7 +31659,7 @@
       <Scope>limes::vecops::FFT</Scope>
     </TokenIdentifier>
     <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-    <Anchor>a89ad7df88ecdf663f01ccf9941a2964f</Anchor>
+    <Anchor>a963a29cbebacc9793ef2670728f8e679</Anchor>
     <Abstract>Performs a forward FFT, outputting interleaved cartesian data.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
   </Token>
@@ -31120,7 +31671,7 @@
       <Scope>limes::vecops::FFT</Scope>
     </TokenIdentifier>
     <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-    <Anchor>a3e954f323feec3081dddd2e1b4ff4728</Anchor>
+    <Anchor>a75c93865ad2535a7d11e3cbd2d0e2c5f</Anchor>
     <Abstract>Performs a forward FFT, outputting polar data.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
   </Token>
@@ -31132,7 +31683,7 @@
       <Scope>limes::vecops::FFT</Scope>
     </TokenIdentifier>
     <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-    <Anchor>a4833133c858da465822149d5e0068029</Anchor>
+    <Anchor>aef8b66259dc9251671798713391740f6</Anchor>
     <Abstract>Performs a forward FFT, outputting polar magnitudes.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
   </Token>
@@ -31144,7 +31695,7 @@
       <Scope>limes::vecops::FFT</Scope>
     </TokenIdentifier>
     <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-    <Anchor>a36a0a2bf78f796359fad6bf27f4b4161</Anchor>
+    <Anchor>a39bfa9d26d2785fd15adb134488a8483</Anchor>
     <Abstract>Performs an inverse FFT.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
   </Token>
@@ -31156,7 +31707,7 @@
       <Scope>limes::vecops::FFT</Scope>
     </TokenIdentifier>
     <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-    <Anchor>ac349d4a80f1ef9fa0f2b4722b9de414d</Anchor>
+    <Anchor>a6116294ee0b2756fb091bf5ceb8e722d</Anchor>
     <Abstract>Performs an inverse FFT, operating on interleaved input data.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
   </Token>
@@ -31168,7 +31719,7 @@
       <Scope>limes::vecops::FFT</Scope>
     </TokenIdentifier>
     <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-    <Anchor>aa21fa1fe1e4c766a14dd5f9aaaa61ef2</Anchor>
+    <Anchor>af0b393941ce867c8f2f1c2b05d87f36f</Anchor>
     <Abstract>Performs an inverse FFT, operating on polar input data.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
   </Token>
@@ -31180,7 +31731,7 @@
       <Scope>limes::vecops::FFT</Scope>
     </TokenIdentifier>
     <Path>dd/d37/classlimes_1_1vecops_1_1_f_f_t.html</Path>
-    <Anchor>a455894852ba86ea583ce6c6b3e7aba58</Anchor>
+    <Anchor>a86aef233f521ba6a8f5a5ff03494c441</Anchor>
     <Abstract>Performs an inverse FFT, outputting cepstral data.</Abstract>
     <DeclaredIn>limes_fft.h</DeclaredIn>
   </Token>
@@ -31324,7 +31875,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/dd9/group__vec__window.html</Path>
-    <Anchor>ga1068019ee279ba3015817085dac383eb</Anchor>
+    <Anchor>ga6c7815bba84d3469f66b66cf02dbd6a3</Anchor>
     <Abstract>Generates a window function of the desired type , writing the output samples to a vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -31336,7 +31887,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/dd9/group__vec__window.html</Path>
-    <Anchor>ga03c34103e0ff42a0d56e83131eda1eaa</Anchor>
+    <Anchor>gac728e1af0a779b89e4dd342eb50554c4</Anchor>
     <Abstract>Applies a window function of the desired type to the samples in the vector.</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>
@@ -31348,7 +31899,7 @@
       <Scope>limes::vecops::window</Scope>
     </TokenIdentifier>
     <Path>d4/dd9/group__vec__window.html</Path>
-    <Anchor>gaa2e3dc8415ebcfbc3b0521e1dd4de509</Anchor>
+    <Anchor>ga38d11ff25d554cb6bc3d54c224d41ad1</Anchor>
     <Abstract>Applies a window function of the desired type to the samples in the vector, writing the output sample...</Abstract>
     <DeclaredIn>limes_vecops.h</DeclaredIn>
   </Token>

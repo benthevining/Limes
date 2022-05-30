@@ -1,7 +1,7 @@
 var group__vec__cos =
 [
-    [ "arccos", "dd/d22/group__vec__cos.html#ga99da45fcefe45e733e46593ad63c0d17", null ],
-    [ "arccosAndCopy", "dd/d22/group__vec__cos.html#ga48a0d852db4b3d9a20f11e590b7c3660", null ],
-    [ "cos", "dd/d22/group__vec__cos.html#gac6b49fb5d7f55051360040676548e51d", null ],
-    [ "cosAndCopy", "dd/d22/group__vec__cos.html#ga41edc84e495ab9148da97dae4d68452a", null ]
+    [ "arccos", "dd/d22/group__vec__cos.html#gae0764ad036561cfa66bb6a08bedd69bf", null ],
+    [ "arccosAndCopy", "dd/d22/group__vec__cos.html#ga1a26d7c204eb7f95b4b659337dee0325", null ],
+    [ "cos", "dd/d22/group__vec__cos.html#ga231ccf8f8ffc8267a333aa912e259cae", null ],
+    [ "cosAndCopy", "dd/d22/group__vec__cos.html#ga6724350269a20b880de0969bde2405d6", null ]
 ];
