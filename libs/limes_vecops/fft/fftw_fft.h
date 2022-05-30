@@ -22,29 +22,39 @@
 	@see limes_fft.h
  */
 
-/// @cond internals
 #if defined(DOXYGEN) || ! defined(FFTW_HEADER_NAME)
+/** @def FFTW_HEADER_NAME
+	The name of the header that should be included for the FFTW library.
+	This may differ depending on if only one precision is available.
+	It defaults to \c \<fftw3.h> .
+	@ingroup fft
+ */
 #	define FFTW_HEADER_NAME <fftw3.h>
 #endif
-/// @endcond
-
-/// @cond
 
 #include FFTW_HEADER_NAME
 
 #if defined(DOXYGEN) || ! defined(FFTW_SINGLE_ONLY)
+/** @def FFTW_SINGLE_ONLY
+	Define this to 1 if only the float version of the FFTW library is available.
+	To perform FFTs on double data, the data will first be converted to floats before calling the FFTW float library's functions.
+	@see FFTW_DOUBLE_ONLY
+ */
 #	define FFTW_SINGLE_ONLY 0
 #endif
 
 #if defined(DOXYGEN) || ! defined(FFTW_DOUBLE_ONLY)
+/** @def FFTW_DOUBLE_ONLY
+	Define this to 1 if only the double version of the FFTW library is available.
+	To perform FFTs on float data, the data will first be converted to doubles before calling the FFTW double library's functions.
+	@see FFTW_SINGLE_ONLY
+ */
 #	define FFTW_DOUBLE_ONLY 0
 #endif
 
 #if (FFTW_SINGLE_ONLY && FFTW_DOUBLE_ONLY)
 #	error FFTW_SINGLE_ONLY and FFTW_DOUBLE_ONLY cannot both be defined to 1!
 #endif
-
-/// @endcond
 
 LIMES_BEGIN_NAMESPACE
 

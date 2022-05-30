@@ -34,7 +34,7 @@ int VelocityMapper::getSensitivity() const noexcept
 
 float VelocityMapper::getGainForVelocity (float midiVelocity)
 {
-	LIMES_ASSERT (midiVelocity >= 0.f && midiVelocity <= 1.f)
+	LIMES_ASSERT (midiVelocity >= 0.f && midiVelocity <= 1.f);
 
 	const auto sens = static_cast<float> (sensitivity) * 0.01f;
 

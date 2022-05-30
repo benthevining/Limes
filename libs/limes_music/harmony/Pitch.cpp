@@ -16,6 +16,7 @@
 #include "PitchClass.h"	 // for PitchClass
 #include "PitchUtils.h"	 // for octaveNumberOfMidiNote
 #include <limes_core.h>	 // for round, midiToFreq
+#include "intervals/Interval.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -26,6 +27,11 @@ namespace music
 //	: midiPitch (static_cast<double> (stringToPitch (pitchString)))
 //{
 // }
+
+Interval Pitch::operator- (const Pitch& other) const noexcept
+{
+	return Interval::fromPitches (*this, other);
+}
 
 bool Pitch::approximatelyEqual (const Pitch& other) const noexcept
 {
@@ -76,6 +82,11 @@ bool Pitch::isWhiteKey() const noexcept
 bool Pitch::isMicrotone() const noexcept
 {
 	return std::floor (midiPitch) != midiPitch;
+}
+
+Pitch Pitch::inOctave (int octaveNumber) const noexcept
+{
+	return Pitch { getPitchClass(), octaveNumber };
 }
 
 }  // namespace music

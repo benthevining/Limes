@@ -100,17 +100,12 @@ target_link_libraries (
 			  Limes::limes_music
 			  Limes::limes_vecops)
 
-set (configured_header "${CMAKE_CURRENT_BINARY_DIR}/limes.h")
-
-configure_file (limes.h limes.h @ONLY NEWLINE_STYLE UNIX)
-
-target_sources (Limes INTERFACE $<BUILD_INTERFACE:${configured_header}>
+target_sources (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes.h>
 								$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}/limes.h>)
 
-install (FILES "${configured_header}" DESTINATION "${LIMES_INSTALL_INCLUDE_DIR}"
-		 COMPONENT limes_libs_dev)
+install (FILES limes.h DESTINATION "${LIMES_INSTALL_INCLUDE_DIR}" COMPONENT limes_libs_dev)
 
-target_include_directories (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+target_include_directories (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes.h>
 											$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}>)
 
 # cmake-format: off

@@ -115,9 +115,14 @@ Limes creates the following CPack install components:
 * limes_programs_runtime
 * limes_dev (aggregate of all other dev components)
 * limes_runtime (aggregate of all other runtime components)
-* limes_doc_pdf
-* limes_doc_html
-* limes_doc_man
+* limes_doc_doxy_pdf
+* limes_doc_doxy_html
+* limes_doc_doxy_man
+* limes_doc_sphinx_html
+* limes_doc_sphinx_singlehtml
+* limes_doc_sphinx_man
+* limes_doc_sphinx_info
+* limes_doc_sphinx_pdf
 
 Limes also creates the following CPack install component groups:
 
@@ -131,6 +136,8 @@ Limes also creates the following CPack install component groups:
 * limes_libs
 * limes_binary_builder
 * limes_programs
+* limes_sphinx_docs
+* limes_doxy_docs
 * limes_docs
 * limes (aggregate of all Limes components)
 

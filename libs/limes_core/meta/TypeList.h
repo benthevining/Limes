@@ -52,6 +52,7 @@ namespace meta
 
 	@tparam Types The list of types for the %TypeList to hold.
 	@ingroup meta
+	@test This class's API is extensively tested with static assertions at compile-time.
  */
 template <typename... Types>
 class LIMES_EXPORT TypeList final

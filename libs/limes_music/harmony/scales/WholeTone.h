@@ -19,6 +19,11 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 
+/** @file
+	This file defines the WholeTone %scale class.
+	@ingroup music_scales
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace music::scales
@@ -26,10 +31,14 @@ namespace music::scales
 
 /** A class that represents a whole tone scale.
 	Whole tone scale objects only differ from one another by their starting pitch.
+	@ingroup music_scales
  */
 class LIMES_EXPORT WholeTone final : public Scale
 {
 public:
+
+	/** @name Constructors */
+	///@{
 
 	/** Creates a whole tone scale object with the given pitch class as its root. */
 	constexpr explicit WholeTone (const PitchClass& pitchClassOfRoot) noexcept
@@ -43,23 +52,10 @@ public:
 	{
 	}
 
-	/** Copy constructor. */
-	constexpr WholeTone (const WholeTone& other) noexcept
-		: startingPitchClass (other.startingPitchClass)
-	{
-	}
+	///@}
 
-	/** Assignment operator. */
-	constexpr WholeTone& operator= (const WholeTone& other) noexcept
-	{
-		startingPitchClass = other.startingPitchClass;
-		return *this;
-	}
-
-	/** Creates a whole tone scale object from a string description of one.
-		@see getStringDescription()
-	 */
-	//	[[nodiscard]] static WholeTone fromStringDescription (const String& string);
+	LIMES_DEFAULT_COPYABLE (WholeTone);
+	LIMES_DEFAULT_MOVABLE (WholeTone);
 
 	/** Returns true if the other whole tone scale has the same root as this one. */
 	[[nodiscard]] bool operator== (const WholeTone& other) const;
@@ -72,11 +68,6 @@ public:
 
 	/** Returns the pitch class of the root of this scale. */
 	[[nodiscard]] PitchClass getPitchClassOfRoot() const noexcept final;
-
-	/** Returns a string description of this scale, for example, "C# whole tone".
-		@see fromStringDescription()
-	 */
-	//	[[nodiscard]] String getStringDescription() const final;
 
 	/** Returns 6. */
 	[[nodiscard]] int notesPerOctave() const noexcept final;

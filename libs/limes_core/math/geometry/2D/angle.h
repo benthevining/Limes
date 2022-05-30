@@ -30,6 +30,7 @@ namespace math::geometry
 /** This class represents a geometric %angle.
 	Internally, the %angle is represented in degrees.
 	@ingroup TwoDgeometry
+	@test This class's API is tested with static assertions at compile-time.
  */
 template <Scalar ValueType = int>
 class LIMES_EXPORT Angle final

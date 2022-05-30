@@ -30,6 +30,11 @@
 	@ingroup limes_core
  */
 
+/** @dir libs/limes_core/math
+	This directory contains math utilities.
+	@ingroup core_math
+ */
+
 /** @file
 	This file contains some math utility functions.
 	@ingroup core_math

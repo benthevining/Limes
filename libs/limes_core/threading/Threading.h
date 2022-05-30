@@ -24,6 +24,11 @@
 	@ingroup limes_core
  */
 
+/** @dir libs/limes_core/threading
+	This directory contains utilities for working with multithreading.
+	@ingroup threads
+ */
+
 /** @file
 	This file contains general threading utilities.
 	@ingroup threads

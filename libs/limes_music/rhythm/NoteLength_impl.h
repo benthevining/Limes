@@ -68,15 +68,17 @@ constexpr bool NoteLength::operator< (const NoteLength& other) const noexcept
 
 constexpr math::Fraction<int> NoteLength::getRelativeValue() const noexcept
 {
-	math::Fraction<int> frac { num, duration.getDuration() };
+	//	math::Fraction<int> frac { num, duration.getDuration() };
+	//
+	//	for (auto i = 0; i < numDots; ++i)
+	//	{
+	//		frac.denominator *= 2;
+	//		frac.numerator = (frac.numerator * 2) + 1;
+	//	}
+	//
+	//	return frac.reduce();
 
-	for (auto i = 0; i < numDots; ++i)
-	{
-		frac.denominator *= 2;
-		frac.numerator = (frac.numerator * 2) + 1;
-	}
-
-	return frac.reduce();
+	return {};
 }
 
 constexpr bool NoteLength::hasStem() const noexcept

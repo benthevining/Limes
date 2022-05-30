@@ -15,7 +15,16 @@
 
 	All classes and functions in this module are accessible after linking to the \c limes_core library and including limes_core.h.
 
+	This library provides classes and functions for working with the filesystem, cryptographic hashes, math, geometry, memory management, metaprogramming, runtime assertions, text, multithreading, and time.
+
 	Dependencies: None
+
+	@ingroup limes
+ */
+
+/** @dir libs/limes_core
+	This directory contains the limes_core library.
+	@ingroup limes_core
  */
 
 /** @file

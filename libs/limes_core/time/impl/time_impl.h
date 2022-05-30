@@ -15,6 +15,11 @@
 #include <limes_namespace.h>
 #include "../build_date.h"
 
+/** @dir libs/limes_core/time/impl
+	This directory contains implementation details for the various %time classes.
+	@ingroup time
+ */
+
 /** @file
 	This file contains implementation details for the Time class.
 	@ingroup time

@@ -27,6 +27,11 @@
 	@ingroup limes_core
  */
 
+/** @dir libs/limes_core/files
+	This directory contains filesystem utilities.
+	@ingroup files
+ */
+
 /** @file
 	This file defines the FilesystemEntry class and some typedefs used throughout the files namespace.
 	@ingroup files

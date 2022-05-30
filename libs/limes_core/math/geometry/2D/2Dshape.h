@@ -20,9 +20,19 @@
 	@ingroup core_math
  */
 
+/** @dir libs/limes_core/math/geometry
+	This directory contains utilities for working with geometry.
+	@ingroup geometry
+ */
+
 /** @defgroup TwoDgeometry 2-D geometry
 	Two-dimensional geometric shapes.
 	@ingroup geometry
+ */
+
+/** @dir libs/limes_core/math/geometry/2D
+	This directory contains utilities for working with 2-dimensional geometry.
+	@ingroup TwoDgeometry
  */
 
 /** @file

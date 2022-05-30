@@ -15,6 +15,11 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 
+/** @dir libs/limes_midi/utilities
+	This directory contains general MIDI utilities.
+	@ingroup limes_midi
+ */
+
 /** @file
 	This file defines the PitchbendMapper class.
 	@ingroup limes_midi

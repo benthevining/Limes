@@ -24,6 +24,11 @@
 	@ingroup limes_core
  */
 
+/** @dir libs/limes_core/misc
+	This directory contains miscellaneous utilities.
+	@ingroup misc
+ */
+
 /** @file
 	This file defines the Version class.
 	@ingroup misc

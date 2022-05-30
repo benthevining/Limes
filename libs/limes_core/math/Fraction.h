@@ -29,6 +29,7 @@ namespace math
 
 /** This class represents a %fraction.
 	@ingroup core_math
+	@test This class's API is tested with static assertions at compile-time.
  */
 template <Scalar ValueType = int>
 struct LIMES_EXPORT Fraction final

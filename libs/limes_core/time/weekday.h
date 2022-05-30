@@ -34,7 +34,33 @@ namespace time
 
 /** This class represents a day of the week in the Gregorian calendar.
 	@tparam StartWeekOnSunday If true, "day 0" of a week is Sunday; otherwise, "day 0" is Monday. The ISO standard starts weeks on Monday, so this is false by default, but you can use either type of %weekday.
+
+	If the \c StartWeekOnSunday template parameter is \c true , a week looks like this:
+
+	Day # | Name
+	----- | ----------
+	0     | Sunday
+	1     | Monday
+	2     | Tuesday
+	3     | Wednesday
+	4     | Thursday
+	5     | Friday
+	6     | Saturday
+
+	However, if this parameter is \c false , then a week looks like this:
+
+	Day # | Name
+	----- | -----------
+	0     | Monday
+	1     | Tuesday
+	2     | Wednesday
+	3     | Thursday
+	4     | Friday
+	5     | Saturday
+	6     | Sunday
+
 	@ingroup time
+	@test This class's API is tested with static assertions at compile-time.
  */
 template <bool StartWeekOnSunday = false>
 class LIMES_EXPORT Weekday final

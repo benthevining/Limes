@@ -23,6 +23,11 @@
 	@ingroup limes_locale
  */
 
+/** @dir libs/limes_locale/languages
+	This directory contains utilities for working with spoken human languages.
+	@ingroup loc_lang
+ */
+
 /** @file
 	This file contains utilities for retrieving information about languages.
 	@ingroup loc_lang

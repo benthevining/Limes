@@ -31,6 +31,7 @@ namespace time
 /** This class represents a calendar %year.
 	@ingroup time
 	@see Date, DateTime
+	@test This class's API is tested with static assertions at compile-time.
  */
 class LIMES_EXPORT Year final
 {

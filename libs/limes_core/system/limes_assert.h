@@ -26,6 +26,11 @@
 	@ingroup limes_core
  */
 
+/** @dir libs/limes_core/system
+	This directory contains utilities that may be OS- or compiler-specific.
+	@ingroup system
+ */
+
 /** @file
 	This file defines functions and macros related to runtime assertions.
 	@ingroup system

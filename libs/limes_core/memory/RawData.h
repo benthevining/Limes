@@ -26,6 +26,11 @@
 	@ingroup limes_core
  */
 
+/** @dir libs/limes_core/memory
+	This directory contains utilities for working with memory allocation and management.
+	@ingroup memory
+ */
+
 /** @file
 	This file defines the RawData class.
 	@ingroup memory

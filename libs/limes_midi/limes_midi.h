@@ -15,7 +15,16 @@
 
 	All classes and functions in this module are accessible after linking to the \c limes_midi library and including limes_midi.h.
 
+	This library provides functions for working with and manipulating MIDI data.
+
 	Dependencies: limes_core
+
+	@ingroup limes
+ */
+
+/** @dir libs/limes_midi
+	This directory contains the limes_midi library.
+	@ingroup limes_midi
  */
 
 /** @file

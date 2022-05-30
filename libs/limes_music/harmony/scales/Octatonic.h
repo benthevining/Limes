@@ -17,6 +17,12 @@
 #include "../PitchClass.h"			// for PitchClass
 #include <limes_data_structures.h>	// for vector
 #include <limes_namespace.h>
+#include <limes_core.h>
+
+/** @file
+	This file defines the Octatonic %scale class.
+	@ingroup music_scales
+ */
 
 LIMES_BEGIN_NAMESPACE
 
@@ -25,10 +31,14 @@ namespace music::scales
 
 /** Represents an octatonic scale.
 	Octatonic scales are scales that alternate between whole and half steps; thus there are two variations -- one starting with a whole step, and one starting with a half step.
+	@ingroup music_scales
  */
 class LIMES_EXPORT Octatonic final : public Scale
 {
 public:
+
+	/** @name Constructors */
+	///@{
 
 	/** Creates an octatonic scale object.
 		@param pitchClassToStartOn The pitch class of the root of this scale.
@@ -48,30 +58,10 @@ public:
 	{
 	}
 
-	/** Copy constructor. */
-	constexpr Octatonic (const Octatonic& other) noexcept
-		: startWithHalfStep (other.startWithHalfStep), pitchClassOfRoot (other.pitchClassOfRoot)
-	{
-	}
+	///@}
 
-	/** Assignment operator. */
-	constexpr Octatonic& operator= (const Octatonic& other) noexcept
-	{
-		startWithHalfStep = other.startWithHalfStep;
-		pitchClassOfRoot  = other.pitchClassOfRoot;
-		return *this;
-	}
-
-	Octatonic (Octatonic&&) = default;
-
-	~Octatonic() final = default;
-
-	Octatonic& operator= (Octatonic&&) = default;
-
-	/** Creates an octatonic scale object from a string description of one.
-		@see getStringDescription()
-	 */
-	//	[[nodiscard]] static Octatonic fromStringDescription (const String& string);
+	LIMES_DEFAULT_COPYABLE (Octatonic);
+	LIMES_DEFAULT_MOVABLE (Octatonic);
 
 	/** Returns true if the other octatonic scale is equal to this one. */
 	[[nodiscard]] bool operator== (const Octatonic& other) const;
@@ -79,8 +69,7 @@ public:
 	/** Returns true if the other octatonic scale is not equal to this one. */
 	[[nodiscard]] bool operator!= (const Octatonic& other) const;
 
-	/** Returns a sequence of alternating 2's and 1's.
-	 */
+	/** Returns a sequence of alternating 2's and 1's. */
 	[[nodiscard]] ds::vector<int> getIntervalsAsSemitones() const final;
 
 	/** Returns the pitch class of the root of this scale. */
@@ -91,11 +80,6 @@ public:
 	{
 		return startWithHalfStep;
 	}
-
-	/** Returns a string description of this scale, for example, "D whole/half octatonic".
-		@see fromStringDescription()
-	 */
-	//	[[nodiscard]] String getStringDescription() const final;
 
 	/** Returns 8. */
 	[[nodiscard]] int notesPerOctave() const noexcept final;

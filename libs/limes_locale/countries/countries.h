@@ -22,6 +22,11 @@
 	@ingroup limes_locale
  */
 
+/** @dir libs/limes_locale/countries
+	This directory contains utilities for working with different countries.
+	@ingroup loc_country
+ */
+
 /** @file
 	This file contains utilities for working with metadata about various countries.
 	@ingroup loc_country

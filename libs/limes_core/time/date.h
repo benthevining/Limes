@@ -36,6 +36,7 @@ namespace time
 /** This class represents a %date on the Gregorian calendar.
 	@ingroup time
 	@see DateTime, Year, Month
+	@test This class's API is tested with static assertions at compile-time.
  */
 class LIMES_EXPORT Date final
 {

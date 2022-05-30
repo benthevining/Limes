@@ -14,10 +14,18 @@
 #include <limes_core.h>
 #include <limes_namespace.h>
 
+/** @file
+	This file contains implementation details for the KeySignature class.
+	@see KeySignature.h
+	@ingroup music_scales
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace music::scales
 {
+
+/// @cond
 
 constexpr KeySignature::KeySignature (Type typeToUse, bool isSharps, int rootNote) noexcept
 	: KeySignature (typeToUse, isSharps, PitchClass { rootNote })
@@ -108,19 +116,6 @@ constexpr KeySignature::KeySignature (int numSharpsOrFlats, bool isSharps, Type 
 	LIMES_ASSERT (numAccidentals >= 0 && numAccidentals <= 7);
 }
 
-constexpr KeySignature::KeySignature (const KeySignature& other) noexcept
-	: numAccidentals (other.numAccidentals), isFlat (other.isFlat), type (other.type)
-{
-}
-
-constexpr KeySignature& KeySignature::operator= (const KeySignature& other) noexcept
-{
-	numAccidentals = other.numAccidentals;
-	isFlat		   = other.isFlat;
-	type		   = other.type;
-	return *this;
-}
-
 constexpr bool KeySignature::isRelativeKeyOf (const KeySignature& other) const noexcept
 {
 	return hasOppositeTonality (other) && numAccidentals == other.numAccidentals && isFlat == other.isFlat;
@@ -189,6 +184,8 @@ constexpr KeySignature::Type KeySignature::getKeyType() const noexcept
 {
 	return type;
 }
+
+/// @endcond
 
 }  // namespace music::scales
 

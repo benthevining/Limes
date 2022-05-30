@@ -25,6 +25,11 @@
 	@ingroup limes_core
  */
 
+/** @dir libs/limes_core/text
+	This directory contains utilities for working with strings.
+	@ingroup text
+ */
+
 /** @file
 	This file contains free functions for working with strings.
 	@ingroup text

@@ -153,7 +153,7 @@ File File::duplicate() const noexcept
 {
 	const auto dir = getDirectory();
 
-	const auto newFilename = [filename = getFilename (false), extension = getFileExtension(), &dir] -> std::string
+	const auto newFilename = [filename = getFilename (false), extension = getFileExtension(), &dir]() -> std::string
 	{
 		auto newName = filename + "_copy." + extension;
 

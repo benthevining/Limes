@@ -30,8 +30,27 @@ namespace time
 {
 
 /** This class represents a %month of the Gregorian calendar.
+
+	The months are numbered like so:
+
+	Number | Name
+	------ | -----------
+	1      | January
+	2      | February
+	3      | March
+	4      | April
+	5      | May
+	6      | June
+	7      | July
+	8      | August
+	9      | September
+	10     | October
+	11     | November
+	12     | December
+
 	@ingroup time
 	@see Date, DateTime
+	@test This class's API is tested with static assertions at compile-time.
  */
 class LIMES_EXPORT Month final
 {

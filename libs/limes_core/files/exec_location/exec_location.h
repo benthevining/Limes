@@ -16,6 +16,11 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 
+/** @dir libs/limes_core/files/exec_location
+	This directory contains implementation details for retrieving the current executable's location.
+	@ingroup files
+ */
+
 /** @file
 	This file contains implementation details for retrieving the executable's location (used by the File class).
 	@ingroup files

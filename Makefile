@@ -19,6 +19,8 @@ CTEST ?= ctest
 RM = $(CMAKE) -E rm -rf # force this one to use CMake
 PRECOMMIT ?= pre-commit
 GIT ?= git
+PYTHON ?= python3
+ASDF ?= asdf
 
 # directory aliases
 BUILDS ?= Builds
@@ -60,10 +62,12 @@ help:  ## Print this message
 
 .PHONY: init
 init:  ## Initializes the workspace and installs all dependencies
-	@chmod +x $(LIMES_ROOT)/scripts/build_all.sh
+	@chmod +x $(LIMES_ROOT)/scripts/build_all.sh $(LIMES_ROOT)/scripts/build_all_vecops_variants.sh
 	@cd $(LIMES_ROOT) && \
 		$(PRECOMMIT) install --install-hooks --overwrite && \
 		$(PRECOMMIT) install --install-hooks --overwrite --hook-type commit-msg
+	@cd $(LIMES_ROOT) && $(ASDF) install
+	$(PYTHON) -m pip install -r $(LIMES_ROOT)/requirements.txt
 
 #
 

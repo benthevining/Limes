@@ -24,6 +24,11 @@
 	@ingroup limes_core
  */
 
+/** @dir libs/limes_core/hashes
+	This directory contains cryptographic hash functions.
+	@ingroup hashes
+ */
+
 /** @file
 	This file defines the Hasher class and the hash() free functions.
 	@ingroup hashes

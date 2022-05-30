@@ -20,6 +20,11 @@
 	@ingroup geometry
  */
 
+/** @dir libs/limes_core/math/geometry/3D
+	This directory contains utilities for working with 3-dimensional geometry.
+	@ingroup ThreeDgeometry
+ */
+
 /** @file
 	This file defines the ThreeDShape interface class.
 	@ingroup ThreeDgeometry

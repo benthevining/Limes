@@ -34,6 +34,11 @@
 	@ingroup limes_vecops
  */
 
+/** @dir libs/limes_vecops/impl/pommier
+	This directory contains the implementations of the Pommier SIMD extension functions.
+	@ingroup vec_pommier
+ */
+
 /** @file
 	This file is a wrapper around the NEON and SSE Pommier SIMD extension functions.
 	@ingroup vec_pommier

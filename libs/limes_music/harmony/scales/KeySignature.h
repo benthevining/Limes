@@ -17,14 +17,52 @@
 #include "../PitchClass.h"			// for PitchClass
 #include <limes_data_structures.h>	// for vector
 #include <limes_namespace.h>
+#include <limes_core.h>
+
+/** @file
+	This file defines the KeySignature %scale class.
+	@ingroup music_scales
+ */
 
 LIMES_BEGIN_NAMESPACE
 
 namespace music::scales
 {
 
+class Mode;
+
 /** This class represents any traditional Western key signature (eg, major, natural minor, harmonic minor).
 	Theoretical keys (those containing more than 7 sharps or flats) are currently not supported.
+
+	For easy reference, here is a table of all possible key signatures:
+
+	Sharp keys:
+
+	Number of sharps | Major key     | Minor key
+	---------------- | ------------- | ---------------
+	0                | C major       | A minor
+	1                | G major       | E minor
+	2                | D major       | B minor
+	3                | A major       | F-sharp minor
+	4                | E major       | C-sharp minor
+	5                | B major       | G-sharp minor
+	6                | F-sharp major | D-sharp minor
+	7                | C-sharp major | A-sharp minor
+
+	Flat keys:
+
+	Number of sharps | Major key     | Minor key
+	---------------- | ------------- | ---------------
+	0                | C major       | A minor
+	1                | F major       | D minor
+	2                | B-flat major  | G minor
+	3                | E-flat major  | C minor
+	4                | A-flat major  | F minor
+	5                | D-flat major  | B-flat minor
+	6                | G-flat major  | E-flat minor
+	7                | C-flat major  | A-flat minor
+
+	@ingroup music_scales
  */
 class LIMES_EXPORT KeySignature final : public Scale
 {
@@ -36,18 +74,14 @@ public:
 		Major,
 		NaturalMinor,
 		HarmonicMinor
-		// MelodicMinor
+		// MelodicMinor - not yet supported
 	};
+
+	/** @name Constructors */
+	///@{
 
 	/** Creates a key signature object representing C major. */
 	constexpr KeySignature() noexcept;
-
-	/** Creates a key signature object with a given number of sharps or flats.
-		@param numSharpsOrFlats The number of sharps or flats in this key signature.
-		@param isSharps If true, the first argument is interpreted as a number of sharps; otherwise, it is a number of flats.
-		@param typeToUse The type of this key signature.
-	 */
-	constexpr explicit KeySignature (int numSharpsOrFlats, bool isSharps, Type typeToUse) noexcept;
 
 	/** Creates a key signature with a given root.
 		@param typeToUse The type of this key signature.
@@ -77,16 +111,10 @@ public:
 	 */
 	constexpr explicit KeySignature (Type typeToUse, const PitchClass& pitchClassOfRoot) noexcept;
 
-	/** Creates a key signature object from a string description of one.
-		@see getStringDescription()
-	 */
-	//	[[nodiscard]] static KeySignature fromStringDescription (const String& description);
+	///@}
 
-	/** Copy constructor. */
-	constexpr KeySignature (const KeySignature& other) noexcept;
-
-	/** Assignment operator. */
-	constexpr KeySignature& operator= (const KeySignature& other) noexcept;
+	LIMES_DEFAULT_COPYABLE (KeySignature);
+	LIMES_DEFAULT_MOVABLE (KeySignature);
 
 	/** Returns true if the other key signature is semantically equivalent to this one. */
 	[[nodiscard]] constexpr bool operator== (const KeySignature& other) const noexcept;
@@ -96,34 +124,49 @@ public:
 
 	/** Returns a key signature object representing the relative key of this key.
 		For example, if your key signature is D minor, this function will return F major.
+		@see isRelativeKeyOf()
 	 */
 	[[nodiscard]] KeySignature getRelativeKey() const noexcept;
 
-	/** Returns true if this key signature object represents the relative key of the other one. */
+	/** Returns true if this key signature object represents the relative key of the other one.
+		@see getRelativeKey()
+	 */
 	[[nodiscard]] constexpr bool isRelativeKeyOf (const KeySignature& other) const noexcept;
 
 	/** Returns a key signature object representing the parallel key of this key.
 		For example, if your key signature is C major, this function will return C minor.
+		@see isParallelKeyOf()
 	 */
 	[[nodiscard]] KeySignature getParallelKey() const noexcept;
 
-	/** Returns true if this key signature object represents the parallel key of the other one. */
+	/** Returns true if this key signature object represents the parallel key of the other one.
+		@see getParallelKey()
+	 */
 	[[nodiscard]] bool isParallelKeyOf (const KeySignature& other) const noexcept;
 
-	/** Returns true if this key has an enharmonic equivalent that can be spelled using 7 or less flats or sharps. */
+	/** Returns true if this key has an enharmonic equivalent that can be spelled using 7 or less flats or sharps.
+		@see getEnharmonicKey(), isEnharmonicKeyOf()
+	 */
 	[[nodiscard]] bool hasEnharmonicKey() const noexcept;
 
-	/** If this key has an enharmonic, this function returns it. If not, this function returns a copy of the current key. */
+	/** If this key has an enharmonic, this function returns it. If not, this function returns a copy of the current key.
+		@see hasEnharmonicKey(), isEnharmonicKeyOf()
+	 */
 	[[nodiscard]] KeySignature getEnharmonicKey() const noexcept;
 
-	/** Returns true if this key signature object represents the enharmonic key of the other one. */
+	/** Returns true if this key signature object represents the enharmonic key of the other one.
+		@see getEnharmonicKey(), hasEnharmonicKey()
+	 */
 	[[nodiscard]] bool isEnharmonicKeyOf (const KeySignature& other) const noexcept;
 
 	/** Returns the major key whose root is a perfect fifth above this key's root.
+		@see isDominantKeyOf()
 	 */
 	[[nodiscard]] KeySignature getDominantKey() const noexcept;
 
-	/** Returns true if this key signature object represents the dominant key of the other one. */
+	/** Returns true if this key signature object represents the dominant key of the other one.
+		@see getDominantKey()
+	 */
 	[[nodiscard]] bool isDominantKeyOf (const KeySignature& other) const noexcept;
 
 	/** Returns true if this key is spelled using flats. */
@@ -141,12 +184,6 @@ public:
 	/** Returns the type of this key signature. */
 	[[nodiscard]] constexpr Type getKeyType() const noexcept;
 
-	/** Returns a string description of the pitch class of a specified scale degree. */
-	//	[[nodiscard]] String getScaleDegreeAsString (int scaleDegree) const noexcept final;
-	//
-	//	/** Returns a string description of this key signature; for example, "C major", "F natural minor", or "G harmonic minor". */
-	//	[[nodiscard]] String getStringDescription() const final;
-
 	/** Returns the pitch class of this scale's root. */
 	[[nodiscard]] PitchClass getPitchClassOfRoot() const noexcept final;
 
@@ -162,10 +199,9 @@ public:
 	/** Returns 8. */
 	[[nodiscard]] int notesPerOctave() const noexcept final;
 
-	/** Returns a string description of the pitch class of this key signature's root. */
-	//	[[nodiscard]] String getRootAsString() const noexcept final;
-
 private:
+
+	constexpr explicit KeySignature (int numSharpsOrFlats, bool isSharps, Type typeToUse) noexcept;
 
 	[[nodiscard]] static constexpr bool useSharpsForRootByDefault (const PitchClass& root) noexcept;
 
@@ -178,6 +214,8 @@ private:
 	bool isFlat { false };
 
 	Type type { Type::Major };
+
+	friend class Mode;
 };
 
 }  // namespace music::scales

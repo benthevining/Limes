@@ -14,13 +14,24 @@
 #include <limes_core.h>
 #include <limes_namespace.h>
 
+/** @file
+	This file contains implementation details for the Interval class.
+	@see Interval.h
+	@ingroup music_intervals
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace music
 {
 
+/// @cond
+
 constexpr bool Interval::isValidQualityForKind (Quality quality, int kind) noexcept
 {
+	if (kind == 1)
+		return false;
+
 	const auto baseKind = [k = kind]
 	{
 		const auto base = k % 8;
@@ -228,6 +239,8 @@ constexpr Interval& Interval::operator--() noexcept
 		default : LIMES_ASSERT_FALSE; return *this;
 	}
 }
+
+/// @endcond
 
 }  // namespace music
 

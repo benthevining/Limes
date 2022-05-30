@@ -29,6 +29,11 @@
 	@ingroup limes_core
  */
 
+/** @dir libs/limes_core/meta
+	This directory contains utilities for metaprogramming.
+	@ingroup meta
+ */
+
 /** @file
 	This file defines some general utilities for metaprogramming.
 	@ingroup meta
@@ -66,7 +71,7 @@ concept inherits_from = std::is_base_of_v<RequiredBase, ClassToTest>;
 
 #pragma mark is_specialization
 
-/// @cond
+/// @cond internals
 
 template <class T, template <class...> class Template>
 struct LIMES_EXPORT is_specialization final : std::false_type
@@ -98,7 +103,7 @@ concept specializes = requires
 
 #pragma mark Covariance check
 
-/// @cond
+/// @cond internals
 
 template <class Derived, class Base>
 struct LIMES_EXPORT covariance_check final : std::is_base_of<Base, Derived>
@@ -128,7 +133,7 @@ concept covariant_subtype_of = requires
 	is_covariant_v<Derived, Base>;
 };
 
-	/// @cond
+	/// @cond internals
 
 #pragma mark is_one_of & is_none_of
 
@@ -146,7 +151,7 @@ struct LIMES_EXPORT is_one_of final : std::disjunction<std::is_same<Test, Types>
 template <typename Test, typename... Types>
 static constexpr const bool is_one_of_v = is_one_of<Test, Types...>::value;
 
-/// @cond
+/// @cond internals
 
 template <typename Test, typename... Types>
 struct LIMES_EXPORT is_none_of final : std::negation<is_one_of<Test, Types...>>

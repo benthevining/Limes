@@ -15,6 +15,10 @@
 
 	All classes and functions in this module are accessible after linking to the \c limes_vecops library and including limes_vecops.h.
 
+	This library provides functions operating on vectors of scalar data, accelerated with SIMD where possible.
+	Because many vendor- or platform-specific libraries exist for such tasks, this library aims to provide a common API that can be implemented with any such 'backend'.
+	This library currently supports using Apple vDSP, Intel IPP, or the MIPP library as backends, though more may be added in the future. This library also provides plain C++ implementations of all its functions, so it can be used without dependencies on any external libraries.
+
 	Dependencies:
 	- limes_core
 
@@ -27,7 +31,24 @@
 
 	If a SIMD library is not used, then "raw C++" implementations of all the functions defined in this file will be used.
 
+	Here are the SIMD libraries that can be used as backends for this library's functions:
+
+	Name                              | Vendor      | Preprocessor macro            | Notes
+	--------------------------------- | ----------- | ----------------------------- | --------------------------------------
+	vDSP (Accelerate)                 | Apple       | LIMES_VECOPS_USE_VDSP         | The best choice for Apple platforms
+	Integrated Performance Primitives | Intel       | LIMES_VECOPS_USE_IPP          | The best choice on Intel platforms
+	MyIntrinsics++ (MIPP)             | Open source | LIMES_VECOPS_USE_MIPP         | Supports NEON, SSE, AVX and AVX-512
+	Fallback (non-SIMD code)          | Limes       | None - absence of the other 3 | Non-SIMD C++ implementations
+
 	Additionally, the fallback implementations can optionally call Julien Pommier's SIMD sin and cos functions, written for both NEON and SSE, if the datatype is \c float .
+	These functions can be explicitly enabled or disabled using the \c LIMES_VECOPS_USE_POMMIER preprocessor macro.
+
+	@ingroup limes
+ */
+
+/** @dir libs/limes_vecops
+	This directory contains the limes_vecops library.
+	@ingroup limes_vecops
  */
 
 /** @file

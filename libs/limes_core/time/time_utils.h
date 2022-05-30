@@ -25,6 +25,11 @@
 	@ingroup limes_core
  */
 
+/** @dir libs/limes_core/time
+	This directory contains utilities for working with time.
+	@ingroup time
+ */
+
 /** @file
 	This file contains general time utilities.
 	@ingroup time

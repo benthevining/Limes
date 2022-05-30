@@ -31,6 +31,7 @@ namespace time
 /** This class represents an %hour of the day.
 	@ingroup time
 	@see Time
+	@test This class's API is tested with static assertions at compile-time.
  */
 class LIMES_EXPORT Hour final
 {

@@ -17,13 +17,39 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 
+/** @file
+	This file defines the PitchClass class.
+	@ingroup music_harmony
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace music
 {
 
 /** A struct that represents a pitch class.
-	This class is agnostic to enharmonic spellings; thus, C-sharp and D-flat are considered the same pitch class.
+	This class is agnostic to the octave the pitch class appears in; and also to enharmonic spellings -- thus, C-sharp and D-flat are considered the same pitch class.
+	A pitch class is represented as an integer between 0 and 11, with 0 being C, 1 being C-sharp/D-flat, and 11 being B natural.
+
+	Here are all possible pitch classes:
+
+	Integer value | Note name
+	------------- | -----------------
+	0             | C
+	1             | C-sharp / D-flat
+	2             | D
+	3             | D-sharp / E-flat
+	4             | E
+	5             | F
+	6             | F-sharp / G-flat
+	7             | G
+	8             | G-sharp / A-flat
+	9             | A
+	10            | A-sharp / B-flat
+	11            | B
+
+	@ingroup music_harmony
+	@see Pitch
  */
 struct LIMES_EXPORT PitchClass final
 {
@@ -36,13 +62,6 @@ struct LIMES_EXPORT PitchClass final
 
 	LIMES_CONSTEXPR_MOVABLE (PitchClass);
 	LIMES_CONSTEXPR_COPYABLE (PitchClass);
-
-	/** Creates a pitch class from a string description of one.
-		The string should be in the format 'A#', 'Bb', etc. You can also use the Unicode sharp, flat, and natural symbols in the passed string.
-		If the passed string is in the wrong format, or it can't be parsed correctly for some reason, an assertion will be thrown.
-		@see getAsString()
-	 */
-	//	explicit PitchClass (const String& stringDescription) noexcept;
 
 	/** Returns true if the two pitch classes are equal. */
 	[[nodiscard]] constexpr bool operator== (const PitchClass& other) const noexcept
@@ -68,15 +87,6 @@ struct LIMES_EXPORT PitchClass final
 		return ! isBlackKey();
 	}
 
-	/** Returns a string description of this pitch class.
-		@param asSharps If this is true and this pitch class is a black key, the returned string will use sharps to represent the pitch. Otherwise, flats will be used.
-		@param useUnicodeAccidentals If this is true, unicode sharp and natural characters will be used; otherwise, '#' or 'b' will be used for sharp and flat, respectively.
-		@param useNaturalSymbol If this pitch class is not a black key and this parameter is true, a unicode natural symbol will be appended to the returned string. This option only has any effect if useUnicodeAccidentals is true.
-	 */
-	//	[[nodiscard]] String getAsString (bool asSharps				 = true,
-	//									  bool useUnicodeAccidentals = false,
-	//									  bool useNaturalSymbol		 = false) const noexcept;
-
 	/** Returns this pitch class as an integer between 0 and 11, where 0 is C and 11 is B. */
 	constexpr operator int() const noexcept
 	{
@@ -89,8 +99,8 @@ struct LIMES_EXPORT PitchClass final
 		return pitchClass;
 	}
 
-	/** Returns an iterable list of all the diatonic pitch classes. */
-	[[nodiscard]] static std::array<PitchClass, 12> getAll()
+	/** Returns an iterable list of all the pitch classes, starting from 0 and ending with 11. */
+	[[nodiscard]] static constexpr std::array<PitchClass, 12> getAll()
 	{
 		using PC = PitchClass;
 		return { PC { 0 }, PC { 1 }, PC { 2 }, PC { 3 }, PC { 4 }, PC { 5 }, PC { 6 }, PC { 7 }, PC { 8 }, PC { 9 }, PC { 10 }, PC { 11 } };

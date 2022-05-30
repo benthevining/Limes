@@ -16,20 +16,28 @@
 #include "NoteDuration.h"
 #include <limes_namespace.h>
 
+/** @file
+	This file contains implementation details for the NoteDuration class.
+	@ingroup music_rhythm
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace music
 {
 
-constexpr NoteDuration::NoteDuration (int kind)
-	: duration (kind)
+/// @cond
+
+constexpr NoteDuration::NoteDuration (int kind, int dots)
+	: duration (kind), numDots (dots)
 {
 	LIMES_ASSERT (duration > 0 && (duration == 1 || math::isPowerOf2 (duration)));
+	LIMES_ASSERT (numDots >= 0);
 }
 
 constexpr bool NoteDuration::operator== (const NoteDuration& other) const noexcept
 {
-	return duration == other.duration;
+	return duration == other.duration && numDots == other.numDots;
 }
 
 constexpr bool NoteDuration::operator!= (const NoteDuration& other) const noexcept
@@ -39,11 +47,17 @@ constexpr bool NoteDuration::operator!= (const NoteDuration& other) const noexce
 
 constexpr bool NoteDuration::operator> (const NoteDuration& other) const noexcept
 {
+	if (duration == other.duration)
+		return numDots > other.numDots;
+
 	return duration > other.duration;
 }
 
 constexpr bool NoteDuration::operator< (const NoteDuration& other) const noexcept
 {
+	if (duration == other.duration)
+		return numDots < other.numDots;
+
 	return duration < other.duration;
 }
 
@@ -86,15 +100,33 @@ constexpr bool NoteDuration::noteHeadIsFilled() const noexcept
 	return duration > 2;
 }
 
-constexpr int NoteDuration::getDuration() const noexcept
+constexpr int NoteDuration::getNumDots() const noexcept
 {
-	return duration;
+	return numDots;
+}
+
+constexpr double NoteDuration::getDuration() const noexcept
+{
+	auto dur = 1. / static_cast<double> (duration);
+
+	auto multiple = 0.5;
+
+	for (auto i = 0; i < numDots; ++i)
+	{
+		dur *= (1. + multiple);
+
+		multiple /= 2.;
+	}
+
+	return dur;
 }
 
 constexpr double NoteDuration::getRatioToOtherDuration (const NoteDuration& other) const noexcept
 {
-	return static_cast<double> (other.duration) / static_cast<double> (duration);
+	return other.getDuration() / getDuration();
 }
+
+/// @endcond
 
 }  // namespace music
 

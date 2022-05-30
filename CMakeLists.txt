@@ -74,9 +74,14 @@ Install components
 - limes_programs_runtime
 - limes_dev
 - limes_runtime
-- limes_doc_pdf
-- limes_doc_html
-- limes_doc_man
+- limes_doc_doxy_pdf
+- limes_doc_doxy_html
+- limes_doc_doxy_man
+- limes_doc_sphinx_html
+- limes_doc_sphinx_singlehtml
+- limes_doc_sphinx_man
+- limes_doc_sphinx_info
+- limes_doc_sphinx_pdf
 
 Install component groups
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -90,7 +95,8 @@ Install component groups
 - limes_libs
 - limes_binary_builder
 - limes_programs
-- limes_docs
+- limes_doxy_docs
+- limes_sphinx_docs
 - limes
 
 Install types

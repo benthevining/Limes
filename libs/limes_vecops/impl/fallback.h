@@ -16,6 +16,11 @@
 #include "fallback_impl.h"
 #include <limes_namespace.h>
 
+/** @dir libs/limes_vecops/impl
+	This directory contains the various implementations of the vecops functions for each SIMD library.
+	@ingroup limes_vecops
+ */
+
 /** @file
 	This file includes the fallback implementations of the vecops functions.
 	All the functions in this file simply wrap the functions in fallback_impl.h, which is also included by the other implementations, to cover any functions their libraries may not provide.

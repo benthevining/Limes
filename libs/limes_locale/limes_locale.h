@@ -15,7 +15,17 @@
 
 	All classes and functions in this module are accessible after linking to the \c limes_locale library and including limes_locale.h.
 
+	This library provides a built-in database of metadata about various languages and countries.
+	ISO specifications are used where applicable, though every effort has been made to include information on Indigenous languages and contested states.
+
 	Dependencies: limes_data_structures
+
+	@ingroup limes
+ */
+
+/** @dir libs/limes_locale
+	This directory contains the limes_locale library.
+	@ingroup limes_locale
  */
 
 /** @file

@@ -14,6 +14,12 @@
 #include <limes_core.h>
 #include <limes_namespace.h>
 
+/** @file
+	This file contains implementation details for the CompoundInterval class.
+	@see CompoundInterval.h
+	@ingroup music_intervals
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace music

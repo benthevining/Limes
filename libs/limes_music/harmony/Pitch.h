@@ -18,19 +18,31 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 
+/** @file
+	This file defines the Pitch class.
+	@ingroup music_harmony
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace music
 {
 
-/** This class is a simple wrapper around a MIDI pitch, with some convenient functions for representing it certain ways.
+class Interval;
+
+/** This class represents a specific pitch, with a specific octave and enharmonic spelling.
+	This class is a simple wrapper around a MIDI pitch, with some convenient functions for representing it certain ways.
+	@ingroup music_harmony
+	@see PitchClass
  */
 class LIMES_EXPORT Pitch final
 {
 public:
 
+	/** @name Constructors */
+	///@{
 	/** Creates a pitch object from a MIDI pitch, which can be passed to the constructor as any scalar arithmetic type. */
-	template <typename T>
+	template <math::Scalar T>
 	constexpr explicit Pitch (T midiNote) noexcept
 		: midiPitch (static_cast<double> (midiNote))
 	{
@@ -41,15 +53,13 @@ public:
 		: midiPitch (static_cast<double> (lowestNoteOfMidiOctave (midiOctave) + pitchClass.getAsInt()))
 	{
 	}
+	///@}
 
 	LIMES_CONSTEXPR_MOVABLE (Pitch);
 	LIMES_CONSTEXPR_COPYABLE (Pitch);
 
-	/** Creates a pitch object from a string representation of a pitch, for example "C4".
-		@see stringToPitch()
-	 */
-	//	explicit Pitch (const String& pitchString) noexcept;
-
+	/** @name Equality comparisons */
+	///@{
 	/** Returns true if the two pitch objects are exactly equal. */
 	[[nodiscard]] constexpr bool operator== (const Pitch& other) const noexcept
 	{
@@ -64,6 +74,7 @@ public:
 
 	/** Returns true if the two pitch objects round to the same nearest MIDI note. */
 	[[nodiscard]] bool approximatelyEqual (const Pitch& other) const noexcept;
+	///@}
 
 	/** Returns true if this pitch is higher than the other one. */
 	[[nodiscard]] constexpr bool operator> (const Pitch& other) const noexcept
@@ -76,6 +87,9 @@ public:
 	{
 		return midiPitch < other.midiPitch;
 	}
+
+	/** Returns the difference between this and another %pitch as an Interval object. */
+	[[nodiscard]] Interval operator- (const Pitch& other) const noexcept;
 
 	/** Returns this pitch as a frequency in Hz.
 		@see math::midiToFreq()
@@ -96,7 +110,7 @@ public:
 	[[nodiscard]] int getRoundedMidiPitch() const noexcept;
 
 	/** Returns this pitch object's pitch class as an integer from 0 to 11, with 0 being C and 11 being B.
-		@see makeValidPitchClass()
+		@see PitchClass
 	 */
 	[[nodiscard]] PitchClass getPitchClass() const noexcept;
 
@@ -111,15 +125,12 @@ public:
 	/** Returns true if this pitch's nearest integer MIDI note is a white key on a standard keyboard. */
 	[[nodiscard]] bool isWhiteKey() const noexcept;
 
-	/** Returns a string representation of this pitch object.
-		@param asSharps When true, the string representation will use sharp symbols for any needed accidentals; otherwise, flats will be used.
-		@see pitchToString()
-	 */
-	//	[[nodiscard]] String toString (bool asSharps = true) const noexcept;
-
 	/** Returns true if this pitch does not correspond exactly with any of the keys on a piano tuned to equal temperament.
 	 */
 	[[nodiscard]] bool isMicrotone() const noexcept;
+
+	/** Returns the pitch class of this pitch, in the desired MIDI octave. */
+	[[nodiscard]] Pitch inOctave (int octaveNumber) const noexcept;
 
 private:
 
