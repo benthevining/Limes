@@ -31,6 +31,10 @@ namespace vecops
 
 /// @cond internals
 
+/** This class implements an FFT using the Apple vDSP library.
+	@ingroup fft
+	@see FFT
+ */
 template <Scalar SampleType>
 class LIMES_NO_EXPORT vDSP_FFT final : public FFTImpl<SampleType>
 {

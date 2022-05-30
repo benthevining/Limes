@@ -53,11 +53,11 @@ public:
 	/** Returns true if the other symbolic link references the same target as this one, either as its immediate target or as part of the chain of recursive symbolic links (if one exists). */
 	[[nodiscard]] bool referencesSameLocationAs (const SymLink& other) const;
 
-	/** @name Symbolic link creation
-		Creates a symbolic link on the filesystem.
-		Returns true if link creation was successful.
-	 */
+	/** @name Symbolic link creation */
 	///@{
+	/** Creates a symbolic link on the filesystem.
+		@returns True if link creation was successful
+	 */
 	static bool create (const Path& linkPath, const FilesystemEntry& target) noexcept;
 	static bool create (const Path& linkPath, const Path& target) noexcept;
 	///@}

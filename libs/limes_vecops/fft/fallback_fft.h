@@ -28,6 +28,10 @@ namespace vecops
 
 /// @cond internals
 
+/** This class implements an FFT in regular C++ code.
+	This class's code may end up calling some MIPP or Pommier functions, or it may not, depending on what's available in your environment.
+	@ingroup fft
+ */
 template <Scalar SampleType>
 class LIMES_NO_EXPORT FallbackFFT final : public FFTImpl<SampleType>
 {

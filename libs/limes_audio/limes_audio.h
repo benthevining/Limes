@@ -10,24 +10,33 @@
  * ======================================================================================
  */
 
-/*
+/** @defgroup limes_audio limes_audio
+	The Limes library of realtime audio utilities.
 
-limes_audio
---------------------
+	All classes and functions in this module are accessible after linking to the \c limes_audio library and including limes_audio.h.
 
-The Limes library of realtime audio utilities.
+	This library provides classes for processing and analysis of realtime audio signals.
 
-Dependencies:
-- limes_data_structures
-	- limes_vecops
-		- limes_core
+	Dependencies: limes_data_structures
 
-*/
+	@ingroup limes
+ */
+
+/** @dir libs/limes_audio
+	This directory contains the limes_audio library.
+	@ingroup limes_audio
+ */
+
+/** @file
+	The main header for the limes_audio library.
+	@ingroup limes_audio
+ */
 
 #pragma once
 
 // IWYU pragma: begin_exports
 
+#include "util/Misc.h"
 #include "util/PitchDetector.h"
 #include "util/MonoStereoConverter.h"
 #include "util/CircularBuffer.h"

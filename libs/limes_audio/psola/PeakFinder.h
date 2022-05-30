@@ -23,18 +23,7 @@ LIMES_BEGIN_NAMESPACE
 namespace dsp::psola
 {
 
-/** @defgroup lemons_psola lemons_psola
-	@ingroup Audio
-	Utilities for PSOLA pitch shifting of realtime audio signals.
- */
-
-/** @defgroup lemons_psola_analysis Analysis
-	@ingroup lemons_psola
-	PSOLA analysis classes.
- */
-
-/** @ingroup lemons_psola_analysis
-	A class that identifies pitch peaks for PSOLA pitch shifting.
+/** A class that identifies pitch peaks for PSOLA pitch shifting.
 	You probably won't ever need to use this class directly, as it's mainly intended as a utility for the Analyzer class.
 	@see Analyzer
  */

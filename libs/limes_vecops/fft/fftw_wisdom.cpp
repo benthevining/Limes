@@ -56,8 +56,12 @@ files::Directory getWisdomFileDir()
 	const std::lock_guard g { wisdom_lock };
 
 	if (! widom_file_dir.isValid())
-		if (const auto* homeDir = std::getenv ("HOME"))
+	{
+		if (const auto* dir = std::getenv ("FFTW_WISDOM_FILE_DIR"))
+			widom_file_dir = files::Path { dir };
+		else if (const auto* homeDir = std::getenv ("HOME"))
 			widom_file_dir = files::Path { homeDir };
+	}
 
 	return widom_file_dir;
 }

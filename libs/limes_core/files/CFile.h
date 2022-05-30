@@ -47,8 +47,7 @@ public:
 		AppendExtended
 	};
 
-	/** @name Constructors
-	 */
+	/** @name Constructors */
 	///@{
 	/** Creates a default CFile that holds a nullptr. Call \c open() to actually open a file.
 	 */
@@ -72,8 +71,7 @@ public:
 
 	LIMES_NON_COPYABLE (CFile);
 
-	/** @name Accessors
-	 */
+	/** @name Accessors */
 	///@{
 	/** Returns the pointer this object holds.
 		Note that the CFile object still retains ownership of this pointer, you should not free it!

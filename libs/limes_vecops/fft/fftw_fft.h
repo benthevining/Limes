@@ -16,6 +16,7 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 
+
 /** @file
 	This file defines the FFTW FFT implementation.
 	@ingroup fft
@@ -27,7 +28,7 @@
 	The name of the header that should be included for the FFTW library.
 	This may differ depending on if only one precision is available.
 	It defaults to \c \<fftw3.h> .
-	@ingroup fft
+	@ingroup fftw
  */
 #	define FFTW_HEADER_NAME <fftw3.h>
 #endif
@@ -39,6 +40,7 @@
 	Define this to 1 if only the float version of the FFTW library is available.
 	To perform FFTs on double data, the data will first be converted to floats before calling the FFTW float library's functions.
 	@see FFTW_DOUBLE_ONLY
+	@ingroup fftw
  */
 #	define FFTW_SINGLE_ONLY 0
 #endif
@@ -48,6 +50,7 @@
 	Define this to 1 if only the double version of the FFTW library is available.
 	To perform FFTs on float data, the data will first be converted to doubles before calling the FFTW double library's functions.
 	@see FFTW_SINGLE_ONLY
+	@ingroup fftw
  */
 #	define FFTW_DOUBLE_ONLY 0
 #endif
@@ -63,13 +66,44 @@ namespace vecops
 
 /// @cond internals
 
+/** Saves the current wisdom data to a file.
+	The directory in which the files are saved can be set using the function \c fftw::setWisdomFileDir() or the environment variable \c FFTW_WISDOM_FILE_DIR .
+	If neither of these options have been specified, this function will attempt to look up the \c HOME environment variable, and if that is set, will use that directory.
+	Within the chosen directory, the files will be named \c .fftw_wisdom.d (for the double version) and \c .fftw_wisdom.f (for the float version).
+	@see fftw_load_wisdom(), fftw::getWisdomFileDir()
+	@ingroup fftw
+ */
 template <bool IsDouble>
 LIMES_NO_EXPORT void fftw_save_wisdom();
 
+/** Loads a previously saved wisdom file.
+	The directory in which the files are saved can be set using the function \c fftw::setWisdomFileDir() or the environment variable \c FFTW_WISDOM_FILE_DIR .
+	If neither of these options have been specified, this function will attempt to look up the \c HOME environment variable, and if that is set, will use that directory.
+	Within the chosen directory, the files will be named \c .fftw_wisdom.d (for the double version) and \c .fftw_wisdom.f (for the float version).
+	@see fftw_save_wisdom(), fftw::getWisdomFileDir()
+	@ingroup fftw
+ */
 template <bool IsDouble>
 LIMES_NO_EXPORT void fftw_load_wisdom();
 
+/** This class implements an FFT using the FFTW library.
 
+	The behavior of this class can be altered in several ways:
+
+	@par Preprocessor macros
+	\c FFTW_SINGLE_ONLY or \c FFTW_DOUBLE_ONLY can be defined if only one precision of the FFTW library is available.
+	In this case, the data will first be converted, if necessary, before performing the FFT. This is not desirable for performance. \n
+	\c FFTW_HEADER_NAME can be defined to specify the exact name of the header that should be included.
+	This may need to be changed if only one precision of the library is available.
+	It defaults to \c \<fftw3.h> .
+
+	@par Wisdom files
+	This library provides a way to control the usage of FFTW Wisdom files from outside this class.
+	The interface to wisdom is a set of free functions that always exist, but simply do nothing if the FFTW backend isn't being used.
+	See the fftw namespace for more information.
+
+	@ingroup fftw
+ */
 template <Scalar SampleType>
 class LIMES_NO_EXPORT FFTW_FFT final : public FFTImpl<SampleType>
 {

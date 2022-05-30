@@ -39,21 +39,22 @@ namespace locale
 
 struct Language;
 
-/** This struct represents metadata about a country.
+/** This struct represents metadata about a %country.
+	@see getCountryByCode(), getCountryByName(), getAllCountries()
 	@ingroup loc_country
  */
 struct LIMES_EXPORT Country final
 {
-	/** Returns a %vector of Language objects representing languages that may be spoken in this country. */
+	/** Returns a %vector of Language objects representing languages that may be spoken in this %country. */
 	[[nodiscard]] ds::vector<Language> getLanguages() const;
 
 	/** Returns true if all the metadata fields contain valid data. */
 	[[nodiscard]] bool isValid() const noexcept;
 
-	/** The full name of this country. */
+	/** The full name of this %country. */
 	std::string countryName;
 
-	/** The ISO country code for this country. */
+	/** The ISO country code for this %country. */
 	std::string countryCode;
 
 	/*
@@ -65,13 +66,13 @@ struct LIMES_EXPORT Country final
 	*/
 };
 
-/** Returns the Country object representing the given ISO country code.
+/** Returns the Country object representing the given ISO %country code.
 	A null Country object may be returned if no known countries match the given code; you should call \c %isValid() on the returned %Country object before using it.
 	@ingroup loc_country
  */
 [[nodiscard]] Country getCountryByCode (const std::string_view& countryCode);
 
-/** Returns the Country object representing the country with the given name.
+/** Returns the Country object representing the %country with the given name.
 	A null Country object may be returned if no known countries match the given code; you should call \c %isValid() on the returned %Country object before using it.
 	@ingroup loc_country
  */

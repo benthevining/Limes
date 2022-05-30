@@ -29,8 +29,8 @@ LIMES_BEGIN_NAMESPACE
 namespace music::scales
 {
 
-/** A class representing a chromatic scale.
-	%Chromatic scales only differ from one another by their starting pitch.
+/** A class representing a %chromatic %scale.
+	%Chromatic scales only differ from one another by their starting %pitch.
 	@ingroup music_scales
  */
 class LIMES_EXPORT Chromatic final : public Scale
@@ -40,13 +40,13 @@ public:
 	/** @name Constructors */
 	///@{
 
-	/** Creates a %chromatic scale that starts on the specified MIDI pitch. */
+	/** Creates a %chromatic %scale that starts on the specified MIDI %pitch. */
 	constexpr explicit Chromatic (int noteToStartOn) noexcept
 		: startingPitchClass (noteToStartOn)
 	{
 	}
 
-	/** Creates a %chromatic scale that starts on the specified pitch class. */
+	/** Creates a %chromatic %scale that starts on the specified %pitch class. */
 	constexpr explicit Chromatic (const PitchClass& pitchClass) noexcept
 		: startingPitchClass (pitchClass)
 	{
@@ -57,16 +57,16 @@ public:
 	LIMES_DEFAULT_COPYABLE (Chromatic);
 	LIMES_DEFAULT_MOVABLE (Chromatic);
 
-	/** Returns true if the other %chromatic scale starts on the same pitch class as this one. */
+	/** Returns true if the other %chromatic %scale starts on the same %pitch class as this one. */
 	[[nodiscard]] bool operator== (const Chromatic& other) const;
 
-	/** Returns true if the other %chromatic scale does not start on the same pitch class as this one. */
+	/** Returns true if the other %chromatic %scale does not start on the same %pitch class as this one. */
 	[[nodiscard]] bool operator!= (const Chromatic& other) const;
 
-	/** Returns an array of 12 1's, since every interval in a %chromatic scale is a half step. */
+	/** Returns an array of 12 1's, since every %interval in a %chromatic %scale is a half step. */
 	[[nodiscard]] ds::vector<int> getIntervalsAsSemitones() const final;
 
-	/** Returns the pitch class that this %chromatic scale starts on. */
+	/** Returns the %pitch class that this %chromatic %scale starts on. */
 	[[nodiscard]] PitchClass getPitchClassOfRoot() const noexcept final;
 
 	/** Returns 12. */

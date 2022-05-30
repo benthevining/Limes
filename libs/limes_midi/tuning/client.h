@@ -12,17 +12,49 @@
 
 #pragma once
 
+#include <limes_core.h>
+
+LIMES_DISABLE_ALL_COMPILER_WARNINGS
+
 #include <libMTSClient.h>
+
+LIMES_REENABLE_ALL_COMPILER_WARNINGS
+
 #include <memory>
 #include <string>
 #include <limes_namespace.h>
 
+/** @defgroup midi_tuning Tuning
+	Utilities for working with MIDI tuning systems.
+	Limes provides C++ wrappers for the MTS-ESP client and master libraries.
+	@ingroup limes_midi
+ */
+
+/** @dir libs/limes_midi/tuning
+	This directory contains utilities for working with MIDI tuning systems.
+	@ingroup midi_tuning
+ */
+
+/** @file
+	This file defines the MIDI tuning Client class.
+	@ingroup midi_tuning
+ */
+
 LIMES_BEGIN_NAMESPACE
 
-namespace midi
+/** This namespace contains utilities for working with MIDI tuning systems.
+	@ingroup midi_tuning
+ */
+namespace midi::tuning
 {
 
-class LIMES_EXPORT MtsClient final
+/** This class is a simple wrapper around the MTS-ESP MIDI tuning library.
+
+	This class represents a %client in an MTS session, and can receive tuning data from the session master.
+
+	@ingroup midi_tuning
+ */
+class LIMES_EXPORT Client final
 {
 public:
 
@@ -65,6 +97,6 @@ private:
 		client { MTS_RegisterClient() };
 };
 
-}  // namespace midi
+}  // namespace midi::tuning
 
 LIMES_END_NAMESPACE

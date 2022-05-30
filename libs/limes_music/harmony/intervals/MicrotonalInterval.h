@@ -69,25 +69,25 @@ public:
 		return semitones != other.semitones;
 	}
 
-	/** Returns true if this microtonal interval is larger than the other one. */
+	/** Returns true if this microtonal %interval is larger than the other one. */
 	[[nodiscard]] constexpr bool operator> (const MicrotonalInterval& other)
 	{
 		return std::abs (semitones) > std::abs (other.semitones);
 	}
 
-	/** Returns true if this microtonal interval is smaller than the other one. */
+	/** Returns true if this microtonal %interval is smaller than the other one. */
 	[[nodiscard]] constexpr bool operator< (const MicrotonalInterval& other)
 	{
 		return std::abs (semitones) < std::abs (other.semitones);
 	}
 
-	/** Returns the number of cents this microtonal interval would represent in equal temperament. */
+	/** Returns the number of cents this microtonal %interval would represent in equal temperament. */
 	[[nodiscard]] constexpr double getCents() const noexcept
 	{
 		return semitones * 100.;
 	}
 
-	/** Returns the number of semitones this microtonal interval represents. */
+	/** Returns the number of semitones this microtonal %interval represents. */
 	[[nodiscard]] constexpr double getSemitones() const noexcept
 	{
 		return semitones;

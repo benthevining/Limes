@@ -31,6 +31,8 @@ struct Triangle;
 template <Sample T>
 using Oscillator = dsp::Oscillator<T>;
 
+#pragma mark Sine
+
 /** A basic sine wave oscillator.
 	@see Oscillator, Phase
  */
@@ -59,6 +61,8 @@ private:
 };
 
 /*--------------------------------------------------------------------------------------------*/
+
+#pragma mark Saw
 
 /** A basic sawtooth wave oscillator.
 	@see SuperSaw, Oscillator, Phase
@@ -89,6 +93,7 @@ private:
 
 /*--------------------------------------------------------------------------------------------*/
 
+#pragma mark Square
 
 /** A basic square wave oscillator.
 	@see Oscillator, Phase
@@ -120,6 +125,8 @@ private:
 };
 
 /*--------------------------------------------------------------------------------------------*/
+
+#pragma mark Triangle
 
 /** A basic triangle wave oscillator.
 	@see Square, Oscillator, Phase

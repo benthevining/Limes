@@ -25,6 +25,8 @@ LIMES_BEGIN_NAMESPACE
 namespace music
 {
 
+/// @cond
+
 constexpr CompoundInterval::CompoundInterval (int kindToUse, Interval::Quality qualityToUse) noexcept
 {
 	LIMES_ASSERT (Interval::isValidQualityForKind (qualityToUse, kindToUse));
@@ -81,6 +83,8 @@ constexpr bool CompoundInterval::hasSameSimpleInterval (const CompoundInterval& 
 {
 	return interval == other.interval;
 }
+
+/// @endcond
 
 }  // namespace music
 

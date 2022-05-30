@@ -25,6 +25,11 @@
 	@ingroup limes_vecops
  */
 
+/** @defgroup fftw FFTW
+	Classes and functions related to integrating the FFTW library.
+	@ingroup fft
+ */
+
 /** @dir libs/limes_vecops/fft
 	This directory contains the Limes FFT implementation.
 	@ingroup fft
@@ -38,7 +43,7 @@
 #ifdef DOXYGEN
 /** @def LIMES_VECOPS_USE_FFTW
 	1 if the FFTW library is being used, otherwise 0.
-	@ingroup fft
+	@ingroup fftw
  */
 #	define LIMES_VECOPS_USE_FFTW 0
 #endif
@@ -117,6 +122,7 @@ static_assert (isUsingFFTW() || isUsingVDSP() || isUsingIPP() || isUsingFallback
 
 /// @cond internals
 /** An implementation class for FFT.
+	User code needs no knowledge of this class.
 	@ingroup fft
  */
 template <Scalar SampleType>
@@ -191,18 +197,20 @@ private:
 
 /** This namespace contains functions for controlling FFTW wisdom.
 	These functions always exist, but simply do nothing when the FFTW backend is not being used.
-	@ingroup fft
+	@ingroup fftw
  */
 namespace fftw
 {
 
-/** @ingroup fft
+/** @ingroup fftw
 	@{
  */
 
 /** Sets the directory that FFTW wisdom files will be read from and saved to.
 	The actual filenames will be \c .fftw_wisdom.d (double precision) and \c .fftw_wisdom.f (float precision), within this directory.
-	@note To load wisdom files from a specified directory, this function should be called before the FFT object is created.
+	@note To load wisdom files from a specified directory, this function should be called before the first FFT object is created.
+	If a custom directory has not been specified when the first FFT object is created, it will check if the environment variable \c FFTW_WISDOM_FILE_DIR is set, and if so, will use its value as the directory to store files in.
+	Failing that, the environment variable \c HOME will be tried.
 	@see getWisdomFileDir
  */
 LIMES_EXPORT bool setWisdomFileDir (const files::Directory& directory);

@@ -27,10 +27,10 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 
-/// @cond internals
-
 /** @defgroup vec_pommier Pommier SIMD extension functions
 	Pommier SIMD extension functions.
+	This group contains sin and cos SIMD functions written by Julien Pommier for NEON and SSE.
+	Limes contains a simple wrapper that forwards function calls to the appropriate Pommier function.
 	@ingroup limes_vecops
  */
 
@@ -42,6 +42,7 @@
 /** @file
 	This file is a wrapper around the NEON and SSE Pommier SIMD extension functions.
 	@ingroup vec_pommier
+	@see sse_mathfun.h, neon_mathfun.h
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -52,6 +53,8 @@ LIMES_BEGIN_NAMESPACE
  */
 namespace vecops::pommier
 {
+
+/// @cond internals
 
 LIMES_NO_EXPORT void polarToCartesian (float* const real, float* const imag, const float* const mag, const float* const phase, int size);
 
@@ -67,8 +70,8 @@ LIMES_NO_EXPORT void cosAndCopy (float* const dest, const float* const data, int
 
 LIMES_NO_EXPORT void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut);
 
+/// @endcond
+
 }  // namespace vecops::pommier
 
 LIMES_END_NAMESPACE
-
-/// @endcond

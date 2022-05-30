@@ -16,14 +16,34 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 
+/** @dir libs/limes_audio/util
+	This directory contains miscellaneous audio utilities.
+	@ingroup limes_audio
+ */
+
+/** @file
+	This file contains miscellaneous audio utilities.
+	@ingroup limes_audio
+ */
+
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains utilities for working with realtime audio.
+	@ingroup limes_audio
+ */
 namespace dsp
 {
 
+/** @concept Sample
+	Either \c float or \c double .
+	@ingroup limes_audio
+ */
 template <typename T>
 concept Sample = std::is_same_v<T, float> || std::is_same_v<T, double>;
 
+/** An inverse root 2 constant, useful for default filter Q values.
+	@ingroup limes_audio
+ */
 template <Sample SampleType>
 LIMES_EXPORT static constexpr SampleType inverseRootTwo = 0.70710678118655f;
 

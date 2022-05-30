@@ -16,8 +16,14 @@
 	All classes and functions in this module are accessible after linking to the \c limes_vecops library and including limes_vecops.h.
 
 	This library provides functions operating on vectors of scalar data, accelerated with SIMD where possible.
+
 	Because many vendor- or platform-specific libraries exist for such tasks, this library aims to provide a common API that can be implemented with any such 'backend'.
-	This library currently supports using Apple vDSP, Intel IPP, or the MIPP library as backends, though more may be added in the future. This library also provides plain C++ implementations of all its functions, so it can be used without dependencies on any external libraries.
+	This library currently supports using Apple vDSP, Intel IPP, or the MIPP library as backends, though more may be added in the future.
+
+	This library also provides plain C++ implementations of all its functions, so it can be used without dependencies on any external libraries.
+	Additionally, these fallback implementations can optionally call Julien Pommier's SIMD sin and cos functions, written for both NEON and SSE, if the datatype is \c float .
+	These functions can be explicitly enabled or disabled using the \c LIMES_VECOPS_USE_POMMIER preprocessor macro.
+	The Pommier source code is included in Limes, but using it requires your adherence to its original license; see neon_mathfun.h for a copy of it.
 
 	Dependencies:
 	- limes_core
@@ -35,13 +41,10 @@
 
 	Name                              | Vendor      | Preprocessor macro            | Notes
 	--------------------------------- | ----------- | ----------------------------- | --------------------------------------
-	vDSP (Accelerate)                 | Apple       | LIMES_VECOPS_USE_VDSP         | The best choice for Apple platforms
+	vDSP (Accelerate)                 | Apple       | LIMES_VECOPS_USE_VDSP         | The best choice on Apple platforms
 	Integrated Performance Primitives | Intel       | LIMES_VECOPS_USE_IPP          | The best choice on Intel platforms
 	MyIntrinsics++ (MIPP)             | Open source | LIMES_VECOPS_USE_MIPP         | Supports NEON, SSE, AVX and AVX-512
 	Fallback (non-SIMD code)          | Limes       | None - absence of the other 3 | Non-SIMD C++ implementations
-
-	Additionally, the fallback implementations can optionally call Julien Pommier's SIMD sin and cos functions, written for both NEON and SSE, if the datatype is \c float .
-	These functions can be explicitly enabled or disabled using the \c LIMES_VECOPS_USE_POMMIER preprocessor macro.
 
 	@ingroup limes
  */
@@ -75,33 +78,49 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 
 /** @def LIMES_VECOPS_USE_VDSP
 	1 if the Apple vDSP library is being used, otherwise 0.
+	If this is undefined, then if neither \c LIMES_VECOPS_USE_IPP or \c LIMES_VECOPS_USE_MIPP are defined,
+	the default is to define \c LIMES_VECOPS_USE_VDSP to 1 if on an Apple platform, and 0 otherwise.
+	If either \c LIMES_VECOPS_USE_IPP or \c LIMES_VECOPS_USE_MIPP are defined, \c LIMES_VECOPS_USE_VDSP will be defined to 0
+	and a warning will be issued if it was defined to 1.
 	@ingroup limes_vecops
+	@see LIMES_VECOPS_USE_IPP, LIMES_VECOPS_USE_MIPP
  */
 #	define LIMES_VECOPS_USE_VDSP 0
 
 /** @def LIMES_VECOPS_USE_IPP
 	1 if the Intel IPP library is being used, otherwise 0.
+	If this is undefined, then if neither \c LIMES_VECOPS_USE_VDSP or \c LIMES_VECOPS_USE_MIPP are defined,
+	the default is to define \c LIMES_VECOPS_USE_IPP to 1 if on an Intel platform and the IPP header can be included, and 0 otherwise.
+	If either \c LIMES_VECOPS_USE_VDSP or \c LIMES_VECOPS_USE_MIPP are defined, \c LIMES_VECOPS_USE_IPP will be defined to 0
+	and a warning will be issued if it was defined to 1.
 	@ingroup limes_vecops
+	@see LIMES_VECOPS_USE_VDSP, LIMES_VECOPS_USE_MIPP
  */
 #	define LIMES_VECOPS_USE_IPP 0
 
 /** @def LIMES_VECOPS_USE_MIPP
 	1 if the MIPP library is being used, otherwise 0.
+	If this is undefined, then if neither \c LIMES_VECOPS_USE_VDSP or \c LIMES_VECOPS_USE_IPP are defined,
+	the default is to define \c LIMES_VECOPS_USE_MIPP to 1 if on an Intel platform and the IPP header can be included, and 0 otherwise.
+	If either \c LIMES_VECOPS_USE_VDSP or \c LIMES_VECOPS_USE_IPP are defined, \c LIMES_VECOPS_USE_MIPP will be defined to 0
+	and a warning will be issued if it was defined to 1.
 	@ingroup limes_vecops
+	@see LIMES_VECOPS_USE_VDSP, LIMES_VECOPS_USE_IPP
  */
 #	define LIMES_VECOPS_USE_MIPP 0
 
 /**	@def LIMES_VECOPS_USE_POMMIER
 	1 if the Pommier SIMD extensions are being used, otherwise 0.
+	See neon_mathfun.h for the original license that accompanies these functions.
 	@ingroup limes_vecops
  */
 #	define LIMES_VECOPS_USE_POMMIER 0
 
-#endif
+#endif /* DOXYGEN */
 
 /// @cond
 
-// LIMES_VECOPS_USE_VDSP
+/* --- LIMES_VECOPS_USE_VDSP --- */
 
 #ifndef LIMES_VECOPS_USE_VDSP
 #	if (LIMES_VECOPS_USE_IPP || LIMES_VECOPS_USE_MIPP)
@@ -113,7 +132,7 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 #	endif
 #endif
 
-// LIMES_VECOPS_USE_IPP
+/* --- LIMES_VECOPS_USE_IPP --- */
 
 // clang-format off
 #if LIMES_VECOPS_USE_VDSP
@@ -136,7 +155,7 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 #	endif
 #endif
 
-// LIMES_VECOPS_USE_MIPP
+/* --- LIMES_VECOPS_USE_MIPP --- */
 
 // clang-format off
 #if (LIMES_VECOPS_USE_VDSP || LIMES_VECOPS_USE_IPP)
@@ -159,7 +178,7 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 #	endif
 #endif
 
-// wrapup
+/* --- wrapup --- */
 
 #if ((LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_IPP)     \
 	 || (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_MIPP) \
@@ -179,7 +198,7 @@ static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 #endif
 // clang-format on
 
-// LIMES_VECOPS_USE_POMMIER
+/* --- LIMES_VECOPS_USE_POMMIER --- */
 
 #ifdef LIMES_VECOPS_USE_POMMIER
 #	if ! (LIMES_ARM_NEON || LIMES_SSE)
@@ -241,11 +260,15 @@ LIMES_EXPORT void fill (DataType* const data, SizeType size, DataType constantTo
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void clear (DataType* const data, SizeType size);
 
-/** Copies from one vector to another. */
+/** Copies from one vector to another.
+	@see swap
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void copy (DataType* const dest, const DataType* const source, SizeType size);
 
-/** Swaps the elements of two vectors. */
+/** Swaps the elements of two vectors.
+	@see copy
+ */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void swap (DataType* const vecA, DataType* const vecB, SizeType size);
 

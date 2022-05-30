@@ -10,57 +10,49 @@
  * ======================================================================================
  */
 
-/// @cond internals
-
 /** @file
 	This file contains the Pommier SIMD extension functions for SSE.
+
+	@warning I've had trouble compiling these implementations with MSVC, and apparently MSVC compiling MMX intrinsics is a known issue.
+	Prefer another implementation when compiling with MSVC.
+
 	@ingroup vec_pommier
 	@see pommier_wrapper.h
- */
 
-/* SIMD (SSE1+MMX or SSE2) implementation of sin, cos, exp and log
-
-	Inspired by Intel Approximate Math library, and based on the
-	corresponding algorithms of the cephes math library
-
-	The default is to use the SSE1 version. If you define USE_SSE2 the
-	the SSE2 intrinsics will be used in place of the MMX intrinsics. Do
-	not expect any significant performance improvement with SSE2.
-*/
-
-/* Copyright (C) 2007  Julien Pommier
-
-	This software is provided 'as-is', without any express or implied
-	warranty.  In no event will the authors be held liable for any damages
-	arising from the use of this software.
-
+	@par The original license:
+	SIMD (SSE1+MMX or SSE2) implementation of sin, cos, exp and log \n
+	Inspired by Intel Approximate Math library, and based on the corresponding algorithms of the cephes math library \n
+	The default is to use the SSE1 version. If you define USE_SSE2 the the SSE2 intrinsics will be used in place of the MMX intrinsics.
+	Do not expect any significant performance improvement with SSE2. \n
+	Copyright (C) 2007  Julien Pommier \n
+	This software is provided 'as-is', without any express or implied warranty.
+	In no event will the authors be held liable for any damages arising from the use of this software. \n
 	Permission is granted to anyone to use this software for any purpose,
 	including commercial applications, and to alter it and redistribute it
-	freely, subject to the following restrictions:
-
-	1. The origin of this software must not be misrepresented; you must not
-	claim that you wrote the original software. If you use this software
-	in a product, an acknowledgment in the product documentation would be
-	appreciated but is not required.
-	2. Altered source versions must be plainly marked as such, and must not be
-	misrepresented as being the original software.
-	3. This notice may not be removed or altered from any source distribution.
-
+	freely, subject to the following restrictions: \n
+	1. The origin of this software must not be misrepresented; you must not claim that you wrote the original software.
+	If you use this software in a product, an acknowledgment in the product documentation would be appreciated but is not required. \n
+	2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software. \n
+	3. This notice may not be removed or altered from any source distribution. \n
 	(this is the zlib license)
-*/
+ */
 
 #pragma once
 
 #include <limes_platform.h>
 
+/// @cond
 #if ! LIMES_SSE
 #	error
 #endif
+/// @endcond
 
 #include <xmmintrin.h>
 
 namespace pommier
 {
+
+/// @cond
 
 #if LIMES_MSVC
 #	define ALIGN16_BEG __declspec(align (16))
@@ -133,8 +125,8 @@ inline __m128 my_cmpeq_ps (__m128 a, const __m128 b)
 #endif /* __MINGW32__ */
 
 
-/* natural logarithm computed for 4 simultaneous float
-	return NaN for x <= 0
+/** natural logarithm computed for 4 simultaneous floats
+	@returns NaN for x <= 0
 */
 v4sf log_ps (v4sf x);
 
@@ -142,7 +134,7 @@ v4sf log_ps (v4sf x);
 v4sf exp_ps (v4sf x);
 
 
-/* evaluation of 4 sines at once, using only SSE1+MMX intrinsics so
+/** Evaluation of 4 sines at once, using only SSE1+MMX intrinsics so
 	it runs also on old athlons XPs and the pentium III of your grandmother.
 
 	The code is the exact rewriting of the cephes sinf function.
@@ -151,7 +143,7 @@ v4sf exp_ps (v4sf x);
 	-- it does not return garbage for arguments over 8192, though, but
 	the extra precision is missing).
 
-	Note that it is such that sinf((float)M_PI) = 8.74e-8, which is the
+	Note that it is such that \c sinf((float)M_PI)=8.74e-8, which is the
 	surprising but correct result.
 
 	Performance is also surprisingly good, 1.33 times faster than the
@@ -172,13 +164,13 @@ v4sf exp_ps (v4sf x);
 v4sf sin_ps (v4sf x);
 
 
-/* almost the same as sin_ps */
+/** almost the same as sin_ps */
 v4sf cos_ps (v4sf x);
 
-/* since sin_ps and cos_ps are almost identical, sincos_ps could replace both of them..
-	it is almost as fast, and gives you a free cosine with your sine */
+/** Since sin_ps and cos_ps are almost identical, sincos_ps could replace both of them.
+	It is almost as fast, and gives you a free cosine with your sine */
 void sincos_ps (v4sf x, v4sf* s, v4sf* c);
 
-}  // namespace pommier
-
 /// @endcond
+
+}  // namespace pommier

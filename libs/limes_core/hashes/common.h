@@ -21,12 +21,15 @@
 	@ingroup hashes
  */
 
-/// @cond internals
-
 LIMES_BEGIN_NAMESPACE
 
+/** This namespace contains implementation details for the hash functions.
+	@ingroup hashes
+ */
 namespace hash::util
 {
+
+/// @cond internals
 
 LIMES_NO_EXPORT void pack32 (const unsigned char* str, std::uint32_t& x) noexcept;
 
@@ -117,8 +120,8 @@ LIMES_NO_EXPORT static constinit const std::uint64_t sha512_k[80] = { 0x428a2f98
 																	  0x4cc5d4becb3e42b6ULL, 0x597f299cfc657e2aULL,
 																	  0x5fcb6fab3ad6faecULL, 0x6c44198c4a475817ULL };
 
+/// @endcond
+
 }  // namespace hash::util
 
 LIMES_END_NAMESPACE
-
-/// @endcond

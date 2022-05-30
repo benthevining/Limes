@@ -28,8 +28,7 @@ namespace dsp::psola
 template <Sample SampleType>
 class Shifter;
 
-/** @ingroup lemons_psola_analysis
-	A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.
+/** A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.
 	This process is separated so that multiple shifter instances can be used simultaneously while only needing to do the expensive analysis step once.
 	Shifter objects reference an Analyzer for the duration of their lifetimes, and can be thought of as clients of the Analyzer -- things that affect the entire PSOLA algorithm, such as changing the samplerate, are only done through the Analyzer.
 	This PSOLA algorithm is only suitable for monophonic pitched audio. If you want to shift more than one channel of audio, you'll need separate Analyzer and Shifter objects for each channel.

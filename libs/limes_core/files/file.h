@@ -50,10 +50,9 @@ public:
 	LIMES_DEFAULT_COPYABLE (File);
 	LIMES_DEFAULT_MOVABLE (File);
 
-	/** @name Assignment
-		Assigns this object to refer to a new path.
-	 */
+	/** @name Assignment */
 	///@{
+	/** Assigns this object to refer to a new path. */
 	File& operator= (const Path& newPath);
 	File& operator= (const std::string_view& newPath);
 	///@}
@@ -78,31 +77,31 @@ public:
 	File& replaceFileExtension (const std::string_view& newFileExtension,
 								bool					renameOnDisk = true);
 
-	/** @name Overwriting with content
-		Replaces the file's contents with the given data.
-		Returns true if writing the data was successful.
-	 */
+	/** @name Overwriting with content */
 	///@{
+	/** Replaces the file's contents with the given data.
+		@returns True if writing the data was successful
+	 */
 	bool overwrite (const memory::RawData& data) const noexcept;
 	bool overwrite (const char* const data, std::size_t numBytes) const noexcept;
 	bool overwrite (const std::string_view& text) const noexcept;
 	///@}
 
-	/** @name Appending content
-		Appends the given data to the file's current contents.
-		Returns true if writing the data was successful.
-	 */
+	/** @name Appending content */
 	///@{
+	/** Appends the given data to the file's current contents.
+		@returns True if writing the data was successful
+	 */
 	bool append (const memory::RawData& data) const noexcept;
 	bool append (const char* const data, std::size_t numBytes) const noexcept;
 	bool append (const std::string_view& text) const noexcept;
 	///@}
 
-	/** @name Prepending content
-		Prepends the given raw data to the file's current contents.
-		Returns true if writing the data was successful.
-	 */
+	/** @name Prepending content */
 	///@{
+	/** Prepends the given data to the file's current contents.
+		@returns True if writing the data was successful
+	 */
 	bool prepend (const memory::RawData& data) const noexcept;
 	bool prepend (const char* const data, std::size_t numBytes) const noexcept;
 	bool prepend (const std::string_view& text) const noexcept;
@@ -181,8 +180,10 @@ public:
 
 	LIMES_NON_COPYABLE (TempFile);
 
+	/** Move constructor. */
 	TempFile (TempFile&& other) noexcept;
 
+	/** Move assignment operator. */
 	TempFile& operator= (TempFile&& other) noexcept;
 
 	/** Returns a new temporary %file, with the name generated using a counter specific to the current process. */

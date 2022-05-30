@@ -44,6 +44,8 @@ template <Sample SampleType>
 
 /*--------------------------------------------------------------------------------------------*/
 
+#pragma mark Sine
+
 LIMES_DISABLE_ALL_COMPILER_WARNINGS
 
 template <Sample SampleType>
@@ -81,6 +83,8 @@ template struct Sine<double>;
 
 /*--------------------------------------------------------------------------------------------*/
 
+#pragma mark Saw
+
 template <Sample SampleType>
 Saw<SampleType>::Saw()
 	: Oscillator<SampleType> ([this]() noexcept
@@ -114,6 +118,8 @@ template struct Saw<float>;
 template struct Saw<double>;
 
 /*--------------------------------------------------------------------------------------------*/
+
+#pragma mark Square
 
 template <Sample SampleType>
 Square<SampleType>::Square()
@@ -152,6 +158,8 @@ template struct Square<float>;
 template struct Square<double>;
 
 /*--------------------------------------------------------------------------------------------*/
+
+#pragma mark Triangle
 
 template <Sample SampleType>
 Triangle<SampleType>::Triangle()

@@ -50,6 +50,7 @@ namespace music
 LIMES_EXPORT constinit const auto semitonesInOctave = 12;
 
 /** Returns the octave number of a given MIDI pitch.
+
 	The formula is @f$ O=\lfloor\frac{note}{12}-1\rfloor @f$.
 	This formula puts note 69 in octave 4.
 
@@ -75,6 +76,7 @@ LIMES_EXPORT constexpr int octaveNumberOfMidiNote (int midiNote) noexcept
 }
 
 /** Returns the lowest note of a given MIDI octave number (that octave's C key).
+
 	The formula is @f$ note=(O+1)*12 @f$.
 	This formula puts 60 as the lowest note of octave 4.
 

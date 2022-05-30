@@ -38,6 +38,7 @@
 LIMES_BEGIN_NAMESPACE
 
 /** This namespace contains raw C++ implementations of all the vecops functions.
+	Each function in this namespace has the exact same name and signature as the function found in the vecops namespace.
 	Any implementation whose SIMD library doesn't provide a function will fall back to using the function from this namespace.
 	@ingroup limes_vecops
  */

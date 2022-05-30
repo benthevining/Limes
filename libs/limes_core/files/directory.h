@@ -44,10 +44,9 @@ public:
 	LIMES_DEFAULT_COPYABLE (Directory);
 	LIMES_DEFAULT_MOVABLE (Directory);
 
-	/** @name Assignment
-		Assigns this object to refer to a new path.
-	 */
+	/** @name Assignment */
 	///@{
+	/** Assigns this object to refer to a new path. */
 	Directory& operator= (const Path& newPath);
 	Directory& operator= (const std::string_view& newPath);
 	///@}
@@ -84,6 +83,9 @@ public:
 	 */
 	[[nodiscard]] FilesystemEntry getChild (const std::string_view& childName, bool createIfNeeded = false) const;
 
+	/** @name Child files */
+	///@{
+
 	/** Returns a File object representing a file in this %directory with the specified name.
 		@see getChild()
 	 */
@@ -99,6 +101,11 @@ public:
 	 */
 	void iterateFiles (FileCallback&& callback, bool recurse = true) const;
 
+	///@}
+
+	/** @name Child subdirectories */
+	///@{
+
 	/** Returns a Directory object that represents a subdirectory of this one with the specified name.
 		@see getChild()
 	 */
@@ -113,6 +120,11 @@ public:
 		@see getChildDirectories()
 	 */
 	void iterateDirectories (DirectoryCallback&& callback, bool recurse = true) const;
+
+	///@}
+
+	/** Child symbolic links */
+	///@{
 
 	/** Returns a SymLink object that represents a symbolic link in the current %directory with the specified name.
 		Note that this function always creates the symbolic link if it doesn't exist.
@@ -130,6 +142,8 @@ public:
 		@see getChildSymLinks()
 	 */
 	void iterateSymLinks (SymLinkCallback&& callback, bool recurse = true) const;
+
+	///@}
 
 	/** Returns all child filesystem entries that exist in this %directory.
 		@see iterateAllChildren()

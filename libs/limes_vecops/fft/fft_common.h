@@ -32,7 +32,10 @@ namespace vecops
 template <Scalar SampleType>
 LIMES_NO_EXPORT constexpr SampleType shiftAmount = SampleType (0.000001);
 
-
+/** This class defines the interface for any implementation of the FFT class backend.
+	@see FFT
+	@ingroup fft
+ */
 template <Scalar SampleType>
 class LIMES_NO_EXPORT FFTImpl
 {

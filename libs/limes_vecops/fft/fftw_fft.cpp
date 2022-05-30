@@ -150,6 +150,8 @@ FFTW_FFT<SampleType>::~FFTW_FFT()
 			fftwf_cleanup();
 		else
 			fftw_cleanup();
+
+		m_extant = 0;
 	}
 }
 

@@ -20,6 +20,6 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_midi_dev
 	INSTALL_DIR "${LIMES_MIDI_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  mts_client.cpp mts_client.h)
+		  client.cpp client.h)
 
 set (tuning_files ${tuning_files} PARENT_SCOPE)

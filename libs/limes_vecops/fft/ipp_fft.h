@@ -29,6 +29,10 @@ namespace vecops
 
 /// @cond internals
 
+/** This class implements an FFT using the Intel IPP library.
+	@ingroup fft
+	@see FFT
+ */
 template <Scalar SampleType>
 class LIMES_NO_EXPORT IPP_FFT final : public FFTImpl<SampleType>
 {

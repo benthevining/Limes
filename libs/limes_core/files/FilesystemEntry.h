@@ -84,10 +84,9 @@ public:
 	LIMES_DEFAULT_COPYABLE (FilesystemEntry);
 	LIMES_DEFAULT_MOVABLE (FilesystemEntry);
 
-	/** @name Assignment
-		Assigns the path this filesystem entry represents.
-	 */
+	/** @name Assignment */
 	///@{
+	/** Assigns the path this filesystem entry represents. */
 	FilesystemEntry& operator= (const Path& newPath);
 	FilesystemEntry& operator= (const std::string_view& newPath);
 	FilesystemEntry& assignPath (const Path& newPath) noexcept;
@@ -102,20 +101,18 @@ public:
 	/** Changes the last section of the path (the filename). */
 	FilesystemEntry& changeName (const std::string_view& newName);
 
-	/** @name Equality comparison
-		Compares this filesystem entry's absolute path with the other one's for equality.
-	 */
+	/** @name Equality comparison */
 	///@{
+	/** Compares this filesystem entry's absolute path with the other one's for equality. */
 	[[nodiscard]] bool operator== (const FilesystemEntry& other) const noexcept;
 	[[nodiscard]] bool operator== (const Path& other) const noexcept;
 	[[nodiscard]] bool operator!= (const FilesystemEntry& other) const noexcept;
 	[[nodiscard]] bool operator!= (const Path& other) const noexcept;
 	///@}
 
-	/** @name Lexicographic comparison
-		Lexicographically compares this filesystem entry's absolute path with another path.
-	 */
+	/** @name Lexicographic comparison */
 	///@{
+	/** Lexicographically compares this filesystem entry's absolute path with another path. */
 	[[nodiscard]] bool operator< (const FilesystemEntry& other) const noexcept;
 	[[nodiscard]] bool operator> (const FilesystemEntry& other) const noexcept;
 	[[nodiscard]] bool operator< (const Path& other) const noexcept;
@@ -240,11 +237,12 @@ public:
 	 */
 	bool rename (const std::string& newFilenameWithinDirectory);
 
-	/**	@name Creating copies
-		Creates a copy of this filesystem entry at a new location.
-		Returns true if copying was successful.
-	 */
+	/**	@name Creating copies */
 	///@{
+	/**
+		Creates a copy of this filesystem entry at a new location.
+		@returns True if copying was successful
+	 */
 	bool copyTo (const Path& dest, CopyOptions options = CopyOptions::update_existing) const noexcept;
 	bool copyTo (const FilesystemEntry& dest, CopyOptions options = CopyOptions::update_existing) const noexcept;
 	///@}
@@ -254,11 +252,11 @@ public:
 	 */
 	bool copyToDirectory (const Path& destDirectory, CopyOptions options = CopyOptions::update_existing) const noexcept;
 
-	/** Overwriting
-		Overwrites this filesystem entry by copying from another location.
-		Returns true if copying was successful.
-	 */
+	/** Overwriting */
 	//@{
+	/** Overwrites this filesystem entry by copying from another location.
+		@returns True if copying was successful.
+	 */
 	bool copyFrom (const Path& source, CopyOptions options = CopyOptions::update_existing) const noexcept;
 	bool copyFrom (const FilesystemEntry& source, CopyOptions options = CopyOptions::update_existing) const noexcept;
 	//@}

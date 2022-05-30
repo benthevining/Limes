@@ -30,13 +30,13 @@
  */
 
 /** @file
-	This file defines the Hasher class and the hash() free functions.
+	This file defines the Hasher class and the \c hash() free functions.
 	@ingroup hashes
  */
 
 LIMES_BEGIN_NAMESPACE
 
-/** This namespace contains some common hash functions and utilities.
+/** This namespace contains some common %hash functions and utilities.
 	@ingroup hashes
  */
 namespace hash
@@ -61,6 +61,7 @@ enum class Type
 /** A base class representing an object that calculates a hash function.
 	You should call the \c update() method with any data that needs to be hashed, and then call \c getHash() to finalize the internal calculations and retrieve the final hash value.
 	You shouldn't call \c update() again after calling \c getHash() .
+	@see MD5, SHA1, SHA224, SHA256, SHA384, SHA512
  */
 class LIMES_EXPORT Hasher
 {
@@ -75,7 +76,9 @@ public:
 	/** Updates the internal state of the hasher with some new data. */
 	void update (const std::string_view& input);
 
-	/** Retrieves the calculated hash value as a string. */
+	/** Retrieves the calculated hash value as a string.
+		You shouldn't call \c update() again after calling this function.
+	 */
 	[[nodiscard]] virtual std::string getHash() = 0;
 };
 

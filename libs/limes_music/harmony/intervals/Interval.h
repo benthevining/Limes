@@ -38,12 +38,49 @@ LIMES_BEGIN_NAMESPACE
 namespace music
 {
 
-/** A class that represents a musical interval between two pitches.
+/** A class that represents a musical %interval between two pitches.
+
 	This class is meant for intervals that are an octave or smaller, and that can be expressed as a whole number of semitones.
-	(Technically, the largest interval representable by this class is an augmented octave.)
+	(Technically, the largest %interval representable by this class is an augmented octave.)
 	To represent intervals larger than an octave, use the CompoundInterval class.
+
+	An %interval is represented as a kind (unison, second, third, etc) and a quality (major, minor, perfect, augmented, or diminished).
+	Note that not every quality is valid for every kind -- a "perfect third" or a "major fifth" do not exist.
+
+	Here is a table of all valid kind/quality combinations:
+
+	Kind as integer | Name    | Valid qualities
+	--------------- | ------- | ------------------------------------
+	0               | Unison  | Perfect, augmented
+	2               | Second  | Diminished, minor, major, augmented
+	3               | Third   | Diminished, minor, major, augmented
+	4               | Fourth  | Diminished, perfect, augmented
+	5               | Fifth   | Diminished, perfect, augmented
+	6               | Sixth   | Diminished, minor, major, augmented
+	7               | Seventh | Diminished, minor, major, augmented
+	8               | Octave  | Diminished, perfect, augmented
+
+	And here is a listing of all possible intervals that this class can represent:
+
+	Name(s)                            | Semitones
+	---------------------------------- | ----------
+	Perfect unison, diminished second  | 0
+	Minor second, augmented unison     | 1
+	Major second, diminished third     | 2
+	Minor third, augmented second      | 3
+	Major third, diminished fourth     | 4
+	Perfect fourth, augmented third    | 5
+	Diminished fifth, augmented fourth | 6
+	Perfect fifth, diminished sixth    | 7
+	Minor sixth, augmented fifth       | 8
+	Major sixth, diminished seventh    | 9
+	Minor seventh, augmented sixth     | 10
+	Major seventh, diminished octave   | 11
+	Perfect octave, augmented seventh  | 12
+	Augmented octave                   | 13
+
 	@ingroup music_intervals
-	@see CompoundInterval, MicrotonalInterval
+	@see CompoundInterval, MicrotonalInterval, isValidQualityForKind()
  */
 class LIMES_EXPORT Interval
 {
@@ -55,8 +92,8 @@ public:
 	LIMES_CONSTEXPR_MOVABLE (Interval);
 	LIMES_CONSTEXPR_COPYABLE (Interval);
 
-	/** Describes the quality of the interval.
-		Note that not all possible quality values are valid for every possible interval type; a "major fifth" or a "perfect third" do not exist.
+	/** Describes the quality of the %interval.
+		Note that not all possible quality values are valid for every possible %interval type; a "major fifth" or a "perfect third" do not exist.
 		@see isValidQualityForKind(), getQuality()
 	 */
 	enum class Quality
@@ -71,13 +108,13 @@ public:
 	/** @name Constructors */
 	///@{
 
-	/** Creates an interval representing a perfect unison. */
+	/** Creates an %interval representing a perfect unison. */
 	constexpr Interval() noexcept;
 
-	/** Creates an interval with a specified kind and quality.
+	/** Creates an %interval with a specified kind and quality.
 		If the kind or quality parameters are invalid, an assertion will be thrown.
-		@param kindToUse The kind of interval to create -- 0 for unison, 2 for second, 3 for third, etc. Note that 1 is not a valid value, and values greater than 8 will be reduced to their equivalent intervals that are within one octave (ie, using the modulus operator).
-		@param qualityToUse The quality of interval to create. Note that not all possible quality values are valid for every possible interval type; a "major fifth" or a "perfect third" do not exist.
+		@param kindToUse The kind of %interval to create -- 0 for unison, 2 for second, 3 for third, etc. Note that 1 is not a valid value, and values greater than 8 will be reduced to their equivalent intervals that are within one octave (ie, using the modulus operator).
+		@param qualityToUse The quality of %interval to create. Note that not all possible quality values are valid for every possible %interval type; a "major fifth" or a "perfect third" do not exist.
 		@see isValidQualityForKind()
 	 */
 	constexpr explicit Interval (int kindToUse, Quality qualityToUse) noexcept;
@@ -87,19 +124,19 @@ public:
 	/** @name Creation functions */
 	///@{
 
-	/** Creates an interval from a number of semitones.
+	/** Creates an %interval from a number of semitones.
 		This uses reasonable defaults, always preferring major, minor, or perfect intervals when available instead of augmented or diminished.
 		@see fromPitches
 	 */
 	[[nodiscard]] static Interval fromNumSemitones (int semitones) noexcept;
 
-	/** Creates an interval from the distance between two pitch objects.
+	/** Creates an %interval from the distance between two pitch objects.
 		This uses reasonable defaults, always preferring major, minor, or perfect intervals when available instead of augmented or diminished.
 		@see fromNumSemitones
 	 */
 	[[nodiscard]] static Interval fromPitches (const Pitch& pitch1, const Pitch& pitch2) noexcept;
 
-	/** Creates an interval from the distance between two MIDI pitches.
+	/** Creates an %interval from the distance between two MIDI pitches.
 		This uses reasonable defaults, always preferring major, minor, or perfect intervals when available instead of augmented or diminished.
 		@see fromNumSemitones
 	 */
@@ -129,12 +166,12 @@ public:
 
 	///@}
 
-	/** Returns true if this interval is semantically larger than the other one, taking enharmonic spellings into account.
+	/** Returns true if this %interval is semantically larger than the other one, taking enharmonic spellings into account.
 		For example, this will tell you that a diminished fifth is "larger" than an augmented fourth.
 	 */
 	[[nodiscard]] bool operator> (const Interval& other) const noexcept;
 
-	/** Returns true if this interval is semantically smaller than the other one, taking enharmonic spellings into account.
+	/** Returns true if this %interval is semantically smaller than the other one, taking enharmonic spellings into account.
 		For example, this will tell you that an augmented fourth is "smaller" than a diminished fifth.
 	 */
 	[[nodiscard]] bool operator< (const Interval& other) const noexcept;
@@ -142,19 +179,19 @@ public:
 	/** @name Addition */
 	///@{
 
-	/** Adds another interval object to this one. */
+	/** Adds another %interval object to this one. */
 	[[nodiscard]] Interval operator+ (const Interval& other) const noexcept;
 
-	/** Adds a number of semitones to this interval. */
+	/** Adds a number of semitones to this %interval. */
 	[[nodiscard]] Interval operator+ (int semitonesToAdd) const noexcept;
 
-	/** Adds another interval object to this one. */
+	/** Adds another %interval object to this one. */
 	Interval& operator+= (const Interval& other) noexcept;
 
-	/** Adds a number of semitones to this interval. */
+	/** Adds a number of semitones to this %interval. */
 	Interval& operator+= (int semitonesToAdd) noexcept;
 
-	/** Increments this interval by one semitone, preserving the kind by manipulating the quality where possible.
+	/** Increments this %interval by one semitone, preserving the kind by manipulating the quality where possible.
 		For example, a major second will increment to an augmented second, rather than a minor third.
 		A perfect octave will increment to an augmented octave.
 		Calling the increment operator on an augmented octave will do nothing.
@@ -166,19 +203,19 @@ public:
 	/** @name Subtraction */
 	///@{
 
-	/** Subtracts another interval object from this one. */
+	/** Subtracts another %interval object from this one. */
 	[[nodiscard]] Interval operator- (const Interval& other) const noexcept;
 
-	/** Subtracts a number of semitones from this interval. */
+	/** Subtracts a number of semitones from this %interval. */
 	[[nodiscard]] Interval operator- (int semitonesToSubtract) const noexcept;
 
-	/** Subtracts another interval object from this one. */
+	/** Subtracts another %interval object from this one. */
 	Interval& operator-= (const Interval& other) noexcept;
 
-	/** Subtracts a number of semitones from this interval. */
+	/** Subtracts a number of semitones from this %interval. */
 	Interval& operator-= (int semitonesToSubtract) noexcept;
 
-	/** Decrements this interval by one semitone, preserving the kind by manipulating the quality where possible.
+	/** Decrements this %interval by one semitone, preserving the kind by manipulating the quality where possible.
 		For example, a minor second will decrement to a diminished second, rather than a perfect unison.
 		In the special case of a diminished second, it will decrement to a perfect unison (even though these two intervals are enharmonically equivalent).
 		Calling the decrement operator on a perfect unison will do nothing.
@@ -187,40 +224,40 @@ public:
 
 	///@}
 
-	/** Returns the interval that is the inverse of this one, taking enharmonic spellings into account.
-		An interval and its inverse add together to form a perfect octave -- for example, a major second's inverse is a minor seventh, a perfect fourth's inverse is a perfect fifth, etc.
+	/** Returns the %interval that is the inverse of this one, taking enharmonic spellings into account.
+		An %interval and its inverse add together to form a perfect octave -- for example, a major second's inverse is a minor seventh, a perfect fourth's inverse is a perfect fifth, etc.
 	 */
 	[[nodiscard]] Interval getInverse() const noexcept;
 
-	/** Returns the number of semitones that this interval represents.
+	/** Returns the number of semitones that this %interval represents.
 		@see getKind()
 	 */
 	[[nodiscard]] virtual int getNumSemitones() const noexcept;
 
-	/** Returns the kind of this interval as an integer.
+	/** Returns the kind of this %interval as an integer.
 		0 represents unison, 2 is a second, 3 is a third, etc.
 		Note that this will never return 1.
 		@see getNumSemitones()
 	 */
 	[[nodiscard]] virtual int getKind() const noexcept;
 
-	/** Returns the quality of this interval. */
+	/** Returns the quality of this %interval. */
 	[[nodiscard]] virtual Quality getQuality() const noexcept;
 
 	/** @name Cents measurements */
 	///@{
 
-	/** Returns an array of possible cents values this interval can represent in just intonation, taking enharmonic spelling into account.
+	/** Returns an array of possible cents values this %interval can represent in just intonation, taking enharmonic spelling into account.
 		@see getJustRatios, getCents_EqualTemperament
 	 */
 	[[nodiscard]] virtual std::vector<double> getCents_JustIntonation() const;
 
-	/** Returns an array of fraction objects representing possible just intervals for this interval.
+	/** Returns an array of fraction objects representing possible just intervals for this %interval.
 		@see getCents_JustIntonation, getCents_EqualTemperament
 	 */
 	[[nodiscard]] std::vector<math::Fraction<int>> getJustRatios() const;
 
-	/** Returns the number of cents this interval represents in equal temperament.
+	/** Returns the number of cents this %interval represents in equal temperament.
 		Note that, unlike just intonation, enharmonic spellings represent equal numbers of cents in equal temperament.
 		@see getCents_JustIntonation
 	 */
@@ -234,12 +271,12 @@ public:
 	 */
 	[[nodiscard]] Pitch applyToPitch (const Pitch& other, bool above) const noexcept;
 
-	/** Returns true if the quality is valid for the given kind of interval.
+	/** Returns true if the quality is valid for the given kind of %interval.
 		For example, a perfect fourth or fifth is valid, while a perfect third or perfect second is not. A major or minor third is valid, while a major fourth or minor fifth is not.
 		Note the special case that a diminished unison is invalid; unisons can only be perfect or augmented.
 		Note that a kind of 1 is invalid.
 
-		Here is a table of all valid kind/quality combinations
+		Here is a table of all valid kind/quality combinations:
 
 		Kind as integer | Name    | Valid qualities
 		--------------- | ------- | ------------------------------------

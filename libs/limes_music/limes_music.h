@@ -16,7 +16,8 @@
 	All classes and functions in this module are accessible after linking to the \c limes_music library and including limes_music.h.
 
 	This library provides data structures for working with music theory concepts, such as pitches, intervals, note durations, scales, etc.
-	The documentation aims to be as exhaustive and complete as possible, but is meant to document the usage of this library's API; this documentation is not meant to serve as an exhaustive authority on music theory itself.
+	The documentation aims to be as exhaustive and complete as possible, but is meant to document the usage of this library's API;
+	this documentation is not meant to serve as an exhaustive authority on music theory itself.
 
 	Dependencies: limes_data_structures
 
