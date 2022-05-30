@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['zero_1496',['zero',['../d1/db0/classmemory_1_1_raw_data.html#af7fbd020e90abb82b2338b2651c677fc',1,'memory::RawData::zero()'],['../d6/d5d/classds_1_1scalar__vector.html#a8e365a492d42b73dcc0dc47fabf9f960',1,'ds::scalar_vector::zero()']]],
-  ['zip_5fwith_1497',['zip_with',['../df/d63/classds_1_1basic__vector.html#a8042171938b8235b900ab8925e1debb4',1,'ds::basic_vector']]]
+  ['year_1130',['Year',['../de/d08/classlimes_1_1time_1_1_year.html',1,'limes::time::Year'],['../de/d08/classlimes_1_1time_1_1_year.html#a5cf9bf9d4aba4b15d1b826a5c2fbbb55',1,'limes::time::Year::Year()=default'],['../de/d08/classlimes_1_1time_1_1_year.html#a9fbec7ce665b230f2dcccf9113305d4c',1,'limes::time::Year::Year(int yearNumber) noexcept'],['../de/d08/classlimes_1_1time_1_1_year.html#a5e9fe401cc89cb75917123bffceb8172',1,'limes::time::Year::Year(const std::tm &amp;timeObj) noexcept'],['../de/d08/classlimes_1_1time_1_1_year.html#a2e33e31f84dd7778292d95b414ca1370',1,'limes::time::Year::Year(std::time_t time)'],['../de/d08/classlimes_1_1time_1_1_year.html#a8d6dd218254898d5f0daf8c760039062',1,'limes::time::Year::Year(Year &amp;&amp;)=default'],['../de/d08/classlimes_1_1time_1_1_year.html#a47ff2c59a183415329f617b3c6c89273',1,'limes::time::Year::Year(const Year &amp;)=default']]],
+  ['year_2eh_1131',['year.h',['../d5/d98/year_8h.html',1,'']]],
+  ['year_5fimpl_2eh_1132',['year_impl.h',['../d2/d38/year__impl_8h.html',1,'']]]
 ];

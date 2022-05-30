@@ -121,7 +121,7 @@ $(document).ready(function(){initNavTree('de/d02/compiler__warnings_8h_source.ht
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d4/d37/group__system.html#ga2db625c65f80ef77802a5f764aebff50">   70</a></span>&#160;<span class="preprocessor">#   define LIMES_COMPILER_WARNING(text)</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* DOXYGEN */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#if LIMES_CLANG || LIMES_GCC</span></div>
@@ -203,20 +203,24 @@ $(document).ready(function(){initNavTree('de/d02/compiler__warnings_8h_source.ht
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor">#ifndef LIMES_COMPILER_MESSAGE</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">#   define LIMES_COMPILER_MESSAGE(text)</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">#ifndef LIMES_COMPILER_WARNING</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor">#   define LIMES_COMPILER_WARNING(text) LIMES_COMPILER_MESSAGE (text)</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">#   ifdef LIMES_COMPILER_WARNING</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#       define LIMES_COMPILER_MESSAGE(text) LIMES_COMPILER_WARNING (text)</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor">#   else</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">#       define LIMES_COMPILER_MESSAGE(text)</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor">#   endif</span></div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor">#ifndef LIMES_COMPILER_WARNING</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor">#   define LIMES_COMPILER_WARNING(text) LIMES_COMPILER_MESSAGE (text)</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_2d8a48939303f02673a94e0c7666fd8b.html">system</a></li><li class="navelem"><a class="el" href="../../de/d02/compiler__warnings_8h.html">compiler_warnings.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 07:04:00 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 10:15:21 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

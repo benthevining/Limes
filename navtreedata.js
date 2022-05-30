@@ -59,22 +59,20 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"d1/d28/limes__core_2files_2_misc_8h.html#ga417867e598a5bccc6135cfe5e202356c",
-"d2/dc2/structtypelist_1_1count__if_3_01_typelist_3_01_args_8_8_8_01_4_00_01_unary_predicate_01_4.html",
-"d3/d61/classtime_1_1_weekday.html#ac83927473de94a6e0331dafbd7ea0088",
-"d4/d39/limes__fft_8h.html#ga37c9ecf1af20cdb4a4136daf487222ad",
-"d5/d2a/classfiles_1_1_directory.html#a4b8ae8f254c6c9b17abdafb92c64b450",
-"d5/db7/classfiles_1_1_temp_file.html#aead7f35a2ef3d7af169bf3643972885e",
-"d6/d76/structdsp_1_1osc_1_1_saw.html#ab3724b668055b21c252370a6df4ba648",
-"d7/dfe/_type_list__impl_8h.html#a6eaa8a9b28e9788cc5468611461017f2",
-"da/d0a/classhash_1_1_s_h_a384.html#a21edb89665b60700c7c85430d900637d",
-"db/db4/group__vec__impl.html#ga1a21f574f3d9ec4bcff2d04b4491e364",
-"dc/da7/classthreads_1_1_thread_safe_object.html#a61c873b6f7e987e2dcd99ebf2ea9543f",
-"dd/d2c/classmath_1_1geometry_1_1_triangular_prism.html#a07820810fba6fbb799949288cb5cd520",
-"de/d0a/classmusic_1_1scales_1_1_octatonic.html#ac1b9aa7ad9c3568d755bce52cf4ff731",
-"de/d6d/classmusic_1_1_pitch.html#abdbd23f6b2d2efe36b44772c197eea39",
-"df/d16/structds_1_1_linked_list_model.html#ae793eb9e0164d1147f70bd23f32f25ca",
-"df/dcd/classmath_1_1geometry_1_1_pyramid.html#a0fbc67b2fd5df3032bf9608ccbdb5b82"
+"d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a7146794c0c6219a799bb7efc761a2afa",
+"d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html#a6d028538f33bd28034da44b3c5ee4d83",
+"d4/d87/classlimes_1_1ds_1_1_abstract_f_i_f_o_1_1_scoped_write.html#a637cdda83fd2571cbf05908e84e7cbf8",
+"d5/d0e/classlimes_1_1music_1_1scales_1_1_key_signature.html#ad4c5ea0bb3b2315eedf615cbbeca176c",
+"d6/d5b/classlimes_1_1math_1_1geometry_1_1_rectangle.html#a9d35a78c50f419646e365472ac5a602e",
+"d7/d9f/classlimes_1_1math_1_1geometry_1_1_cone.html#a7eed383f74adbe4ade9d28bafb03d815",
+"d8/db4/classlimes_1_1files_1_1_sym_link.html#ade7c64e7c3f1519c8cc031af0c9bd1e0",
+"d9/dfc/group__core__math.html#gaeabf4346ca0cbe661a26a9297d906592",
+"db/dad/alignment_8h_source.html",
+"dc/d5e/classlimes_1_1func_1_1_call_deferred.html#a8783934958df2ebc3662a5b7e7867416",
+"dd/dbe/classlimes_1_1ds_1_1basic__vector.html#a90e003bc0585d50ee1d1342453b3a5d5",
+"de/d1f/limes__vecops_8h.html#ga9d8da6b79472277b93a875ab43f24714",
+"df/d0e/structlimes_1_1locale_1_1_country.html#a2d498d8781f9d3fc442d9d5b7e63635e",
+"df/dfc/group__loc__lang.html#gad9bb163218bee484386b5f917327c64c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

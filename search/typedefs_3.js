@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['difference_5ftype_2974',['difference_type',['../dd/d1c/classmemory_1_1_aligned_allocator.html#ac7b3b4ca669608c9b689db4b8493cf4f',1,'memory::AlignedAllocator::difference_type()'],['../db/db8/classmemory_1_1_memory_pool_allocator.html#ab91e85d627cc37a0b908efb5be2e13c9',1,'memory::MemoryPoolAllocator::difference_type()'],['../d1/d2b/classmemory_1_1_stack_allocator.html#a74177d34ad84e4f83bd5df2dab1bc5de',1,'memory::StackAllocator::difference_type()'],['../de/dc2/structds_1_1owned__vector_1_1iterator__base.html#a227100cd9cb0b737ec8b27eb2331ca03',1,'ds::owned_vector::iterator_base::difference_type()']]],
-  ['directorycallback_2975',['DirectoryCallback',['../d5/d2a/classfiles_1_1_directory.html#a928bf0ab0b38096860a4a4cad1eab720',1,'files::Directory']]]
+  ['element_2257',['Element',['../d6/d5d/classlimes_1_1math_1_1_matrix.html#a3964149d343657eab3a389fc554b28e1',1,'limes::math::Matrix']]],
+  ['elementtype_2258',['ElementType',['../dc/dcc/namespacelimes_1_1alg.html#a668ddba847794e76c1c23adf6e5151e0',1,'limes::alg']]],
+  ['empty_2259',['Empty',['../d6/db2/group__meta.html#ga94038764f8ce07e7edd3b2a1168f18e0',1,'limes::meta']]],
+  ['enginetype_2260',['EngineType',['../dd/d7f/classlimes_1_1math_1_1_random.html#aa5ff312694cf91b409fecd25a952330f',1,'limes::math::Random']]]
 ];

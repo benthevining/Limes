@@ -110,41 +110,41 @@ Files</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ga734e223214335b499b76e734d6c3771f"><td class="memTemplParams" colspan="2">template&lt;Function Func, typename... Args&gt; </td></tr>
-<tr class="memitem:ga734e223214335b499b76e734d6c3771f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga734e223214335b499b76e734d6c3771f">func::result_type</a> = std::invoke_result_t&lt; std::decay_t&lt; Func &gt;, std::decay_t&lt; Args &gt;... &gt;</td></tr>
-<tr class="memdesc:ga734e223214335b499b76e734d6c3771f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This typedef evaluates to the result type returned by calling the given function with the given arguments.  <a href="../../de/d94/group__func.html#ga734e223214335b499b76e734d6c3771f">More...</a><br /></td></tr>
-<tr class="separator:ga734e223214335b499b76e734d6c3771f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c4fa56ce61b8e28103b43f250ba851c"><td class="memTemplParams" colspan="2">template&lt;Function Func, typename... Args&gt; </td></tr>
+<tr class="memitem:ga7c4fa56ce61b8e28103b43f250ba851c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga7c4fa56ce61b8e28103b43f250ba851c">limes::func::result_type</a> = std::invoke_result_t&lt; std::decay_t&lt; Func &gt;, std::decay_t&lt; Args &gt;... &gt;</td></tr>
+<tr class="memdesc:ga7c4fa56ce61b8e28103b43f250ba851c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This typedef evaluates to the result type returned by calling the given function with the given arguments.  <a href="../../de/d94/group__func.html#ga7c4fa56ce61b8e28103b43f250ba851c">More...</a><br /></td></tr>
+<tr class="separator:ga7c4fa56ce61b8e28103b43f250ba851c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga721d87621ab2fa2ff1ab032652d0b035"><td class="memTemplParams" colspan="2">template&lt;Function Func&gt; </td></tr>
-<tr class="memitem:ga721d87621ab2fa2ff1ab032652d0b035"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga721d87621ab2fa2ff1ab032652d0b035">func::call_once</a> (Func &amp;&amp;func, std::invoke_result_t&lt; Func &gt; *result=nullptr) noexcept(noexcept(func))</td></tr>
-<tr class="memdesc:ga721d87621ab2fa2ff1ab032652d0b035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the function object exactly once throughout the entire life of the program.  <a href="../../de/d94/group__func.html#ga721d87621ab2fa2ff1ab032652d0b035">More...</a><br /></td></tr>
-<tr class="separator:ga721d87621ab2fa2ff1ab032652d0b035"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaca5e418d69ffceeb71b3ba29e6539e3c"><td class="memTemplParams" colspan="2">template&lt;typename... Param&gt; </td></tr>
-<tr class="memitem:gaca5e418d69ffceeb71b3ba29e6539e3c"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORTdecltype(auto) consteval&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#gaca5e418d69ffceeb71b3ba29e6539e3c">func::consteval_invoke</a> (Param &amp;&amp;... param) noexcept</td></tr>
-<tr class="memdesc:gaca5e418d69ffceeb71b3ba29e6539e3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces a given function to be executed at compile time.  <a href="../../de/d94/group__func.html#gaca5e418d69ffceeb71b3ba29e6539e3c">More...</a><br /></td></tr>
-<tr class="separator:gaca5e418d69ffceeb71b3ba29e6539e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0c20c15a7d3553a54d6fc156280e9705"><td class="memItemLeft" align="right" valign="top">constexpr decltype(auto)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga0c20c15a7d3553a54d6fc156280e9705">func::curry</a> (auto f, auto... ps)</td></tr>
-<tr class="memdesc:ga0c20c15a7d3553a54d6fc156280e9705"><td class="mdescLeft">&#160;</td><td class="mdescRight">Breaks down a function that takes multiple arguments into a series of functions that each take one argument.  <a href="../../de/d94/group__func.html#ga0c20c15a7d3553a54d6fc156280e9705">More...</a><br /></td></tr>
-<tr class="separator:ga0c20c15a7d3553a54d6fc156280e9705"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2c54695eb338963524e6830107685528"><td class="memTemplParams" colspan="2">template&lt;Function Func, typename... Args&gt; </td></tr>
-<tr class="memitem:ga2c54695eb338963524e6830107685528"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga2c54695eb338963524e6830107685528">func::try_call</a> (Func &amp;&amp;func, Args &amp;&amp;... args) noexcept</td></tr>
-<tr class="memdesc:ga2c54695eb338963524e6830107685528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a potentially-throwing function within a try-catch block, and returns false if an exception is thrown and true if no exceptions are thrown.  <a href="../../de/d94/group__func.html#ga2c54695eb338963524e6830107685528">More...</a><br /></td></tr>
-<tr class="separator:ga2c54695eb338963524e6830107685528"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga071be31306f96410ade861c96ef1aa71"><td class="memTemplParams" colspan="2">template&lt;Function Func&gt; </td></tr>
+<tr class="memitem:ga071be31306f96410ade861c96ef1aa71"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga071be31306f96410ade861c96ef1aa71">limes::func::call_once</a> (Func &amp;&amp;func, std::invoke_result_t&lt; Func &gt; *result=nullptr) noexcept(noexcept(func))</td></tr>
+<tr class="memdesc:ga071be31306f96410ade861c96ef1aa71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the function object exactly once throughout the entire life of the program.  <a href="../../de/d94/group__func.html#ga071be31306f96410ade861c96ef1aa71">More...</a><br /></td></tr>
+<tr class="separator:ga071be31306f96410ade861c96ef1aa71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga44f9cad25c11a543213afc4aec6c606a"><td class="memTemplParams" colspan="2">template&lt;typename... Param&gt; </td></tr>
+<tr class="memitem:ga44f9cad25c11a543213afc4aec6c606a"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORTdecltype(auto) consteval&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga44f9cad25c11a543213afc4aec6c606a">limes::func::consteval_invoke</a> (Param &amp;&amp;... param) noexcept</td></tr>
+<tr class="memdesc:ga44f9cad25c11a543213afc4aec6c606a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces a given function to be executed at compile time.  <a href="../../de/d94/group__func.html#ga44f9cad25c11a543213afc4aec6c606a">More...</a><br /></td></tr>
+<tr class="separator:ga44f9cad25c11a543213afc4aec6c606a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga580272ce196b901393443435200a88dc"><td class="memItemLeft" align="right" valign="top">constexpr decltype(auto)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga580272ce196b901393443435200a88dc">limes::func::curry</a> (auto f, auto... ps)</td></tr>
+<tr class="memdesc:ga580272ce196b901393443435200a88dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Breaks down a function that takes multiple arguments into a series of functions that each take one argument.  <a href="../../de/d94/group__func.html#ga580272ce196b901393443435200a88dc">More...</a><br /></td></tr>
+<tr class="separator:ga580272ce196b901393443435200a88dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad9b1e68cd8346f6227bd75fe19032531"><td class="memTemplParams" colspan="2">template&lt;Function Func, typename... Args&gt; </td></tr>
+<tr class="memitem:gad9b1e68cd8346f6227bd75fe19032531"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#gad9b1e68cd8346f6227bd75fe19032531">limes::func::try_call</a> (Func &amp;&amp;func, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="memdesc:gad9b1e68cd8346f6227bd75fe19032531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a potentially-throwing function within a try-catch block, and returns false if an exception is thrown and true if no exceptions are thrown.  <a href="../../de/d94/group__func.html#gad9b1e68cd8346f6227bd75fe19032531">More...</a><br /></td></tr>
+<tr class="separator:gad9b1e68cd8346f6227bd75fe19032531"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga3dbd7fc208fe38c48614027d7480df86"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga3dbd7fc208fe38c48614027d7480df86"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga3dbd7fc208fe38c48614027d7480df86">func::Function</a></td></tr>
-<tr class="memdesc:ga3dbd7fc208fe38c48614027d7480df86"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept Function This concept simply requires that an object is invocable.  <a href="../../de/d94/group__func.html#ga3dbd7fc208fe38c48614027d7480df86">More...</a><br /></td></tr>
-<tr class="separator:ga3dbd7fc208fe38c48614027d7480df86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga782eabbc5a0ba6fa51ac3e263d8cf2e6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga782eabbc5a0ba6fa51ac3e263d8cf2e6"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga782eabbc5a0ba6fa51ac3e263d8cf2e6">limes::func::Function</a></td></tr>
+<tr class="memdesc:ga782eabbc5a0ba6fa51ac3e263d8cf2e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept Function This concept simply requires that an object is invocable.  <a href="../../de/d94/group__func.html#ga782eabbc5a0ba6fa51ac3e263d8cf2e6">More...</a><br /></td></tr>
+<tr class="separator:ga782eabbc5a0ba6fa51ac3e263d8cf2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Utilities for working with higher-level functions and functions as objects. </p>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="ga734e223214335b499b76e734d6c3771f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga734e223214335b499b76e734d6c3771f">&#9670;&nbsp;</a></span>result_type</h2>
+<a id="ga7c4fa56ce61b8e28103b43f250ba851c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7c4fa56ce61b8e28103b43f250ba851c">&#9670;&nbsp;</a></span>result_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,7 +152,7 @@ Variables</h2></td></tr>
 template&lt;Function Func, typename... Args&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../de/d94/group__func.html#ga734e223214335b499b76e734d6c3771f">func::result_type</a> = typedef std::invoke_result_t&lt;std::decay_t&lt;Func&gt;, std::decay_t&lt;Args&gt;...&gt;</td>
+          <td class="memname">using <a class="el" href="../../de/d94/group__func.html#ga7c4fa56ce61b8e28103b43f250ba851c">limes::func::result_type</a> = typedef std::invoke_result_t&lt;std::decay_t&lt;Func&gt;, std::decay_t&lt;Args&gt;...&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -166,8 +166,8 @@ template&lt;Function Func, typename... Args&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga721d87621ab2fa2ff1ab032652d0b035"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga721d87621ab2fa2ff1ab032652d0b035">&#9670;&nbsp;</a></span>call_once()</h2>
+<a id="ga071be31306f96410ade861c96ef1aa71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga071be31306f96410ade861c96ef1aa71">&#9670;&nbsp;</a></span>call_once()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +178,7 @@ template&lt;Function Func&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORT bool func::call_once </td>
+          <td class="memname">LIMES_EXPORT bool limes::func::call_once </td>
           <td>(</td>
           <td class="paramtype">Func &amp;&amp;&#160;</td>
           <td class="paramname"><em>func</em>, </td>
@@ -217,8 +217,8 @@ template&lt;Function Func&gt; </div>
 
 </div>
 </div>
-<a id="gaca5e418d69ffceeb71b3ba29e6539e3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaca5e418d69ffceeb71b3ba29e6539e3c">&#9670;&nbsp;</a></span>consteval_invoke()</h2>
+<a id="ga44f9cad25c11a543213afc4aec6c606a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga44f9cad25c11a543213afc4aec6c606a">&#9670;&nbsp;</a></span>consteval_invoke()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -229,7 +229,7 @@ template&lt;typename... Param&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORTdecltype(auto) consteval func::consteval_invoke </td>
+          <td class="memname">LIMES_EXPORTdecltype(auto) consteval limes::func::consteval_invoke </td>
           <td>(</td>
           <td class="paramtype">Param &amp;&amp;...&#160;</td>
           <td class="paramname"><em>param</em></td><td>)</td>
@@ -251,8 +251,8 @@ template&lt;typename... Param&gt; </div>
 
 </div>
 </div>
-<a id="ga0c20c15a7d3553a54d6fc156280e9705"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0c20c15a7d3553a54d6fc156280e9705">&#9670;&nbsp;</a></span>curry()</h2>
+<a id="ga580272ce196b901393443435200a88dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga580272ce196b901393443435200a88dc">&#9670;&nbsp;</a></span>curry()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -261,7 +261,7 @@ template&lt;typename... Param&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr decltype(auto) func::curry </td>
+          <td class="memname">constexpr decltype(auto) limes::func::curry </td>
           <td>(</td>
           <td class="paramtype">auto&#160;</td>
           <td class="paramname"><em>f</em>, </td>
@@ -294,8 +294,8 @@ template&lt;typename... Param&gt; </div>
 
 </div>
 </div>
-<a id="ga2c54695eb338963524e6830107685528"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2c54695eb338963524e6830107685528">&#9670;&nbsp;</a></span>try_call()</h2>
+<a id="gad9b1e68cd8346f6227bd75fe19032531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad9b1e68cd8346f6227bd75fe19032531">&#9670;&nbsp;</a></span>try_call()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,7 +306,7 @@ template&lt;Function Func, typename... Args&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr LIMES_EXPORT bool func::try_call </td>
+          <td class="memname">constexpr LIMES_EXPORT bool limes::func::try_call </td>
           <td>(</td>
           <td class="paramtype">Func &amp;&amp;&#160;</td>
           <td class="paramname"><em>func</em>, </td>
@@ -340,8 +340,8 @@ template&lt;Function Func, typename... Args&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="ga3dbd7fc208fe38c48614027d7480df86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3dbd7fc208fe38c48614027d7480df86">&#9670;&nbsp;</a></span>Function</h2>
+<a id="ga782eabbc5a0ba6fa51ac3e263d8cf2e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga782eabbc5a0ba6fa51ac3e263d8cf2e6">&#9670;&nbsp;</a></span>Function</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -349,7 +349,7 @@ template&lt;Function Func, typename... Args&gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept func::Function</td>
+          <td class="memname">concept limes::func::Function</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -371,7 +371,7 @@ template&lt;typename T &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 07:04:01 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 10:15:21 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

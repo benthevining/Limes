@@ -1,4 +1,0 @@
-var structtypelist_1_1common__with_3_01_list1_3_01_list1_types_8_8_8_01_4_00_01_list2_3_01_list2_types_8_8_8_01_4_01_4 =
-[
-    [ "type", "d2/db2/structtypelist_1_1common__with_3_01_list1_3_01_list1_types_8_8_8_01_4_00_01_list2_3_01_list2_types_8_8_8_01_4_01_4.html#a58b4aca32d868f1ae8ae6b6c88bfbc9b", null ]
-];

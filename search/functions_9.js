@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['join_2484',['join',['../df/dcb/namespacestrings.html#a3d0abc87d5388e777a455d0bd7eaeb80',1,'strings']]],
-  ['joinwithnewlines_2485',['joinWithNewlines',['../df/dcb/namespacestrings.html#ace077e9ab71ba1ae1d291050ec98268a',1,'strings']]],
-  ['joinwithwhitespace_2486',['joinWithWhitespace',['../df/dcb/namespacestrings.html#a944b447caa14ef2daa41c856a8b7caa5',1,'strings']]]
+  ['join_1921',['join',['../d4/dc7/namespacelimes_1_1strings.html#a3aeb36361dac1d9bb50fdf2c963c78b9',1,'limes::strings']]],
+  ['joinwithnewlines_1922',['joinWithNewlines',['../d4/dc7/namespacelimes_1_1strings.html#a1f915fa3e80d649b4c9091c3d9aa668e',1,'limes::strings']]],
+  ['joinwithwhitespace_1923',['joinWithWhitespace',['../d4/dc7/namespacelimes_1_1strings.html#a85581e070b5cbde39edbc231f84b9034',1,'limes::strings']]]
 ];

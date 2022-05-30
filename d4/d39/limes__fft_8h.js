@@ -1,14 +1,14 @@
 var limes__fft_8h =
 [
-    [ "FFT", "dc/d1a/classvecops_1_1_f_f_t.html", "dc/d1a/classvecops_1_1_f_f_t" ],
+    [ "FFT", "dd/d37/classlimes_1_1vecops_1_1_f_f_t.html", "dd/d37/classlimes_1_1vecops_1_1_f_f_t" ],
     [ "LIMES_VECOPS_USE_FFTW", "dc/db6/group__fft.html#ga25d4ef2f45323ffac2004347580d93a3", null ],
-    [ "enableWisdom", "d4/d39/limes__fft_8h.html#gab90597bb127479bf13f5bef248f45364", null ],
-    [ "getImplementationName", "d4/d39/limes__fft_8h.html#ga17cea7c21dc36ac136f4d29740f44915", null ],
-    [ "getWisdomFileDir", "d4/d39/limes__fft_8h.html#ga6d9d6e8f66a7bdc8f78dc15dd589001a", null ],
-    [ "isUsingFallback", "d4/d39/limes__fft_8h.html#ga238d72437257830eeafcd7b56e527711", null ],
-    [ "isUsingFFTW", "d4/d39/limes__fft_8h.html#gabc139fd4c1c00c51c71537b1e58ca558", null ],
-    [ "isUsingIPP", "d4/d39/limes__fft_8h.html#ga17c517cc47213674d63e231f21ea4e84", null ],
-    [ "isUsingVDSP", "d4/d39/limes__fft_8h.html#ga048a1b789b50c9a8e50c59295b20fcbb", null ],
-    [ "isUsingWisdom", "d4/d39/limes__fft_8h.html#ga37c9ecf1af20cdb4a4136daf487222ad", null ],
-    [ "setWisdomFileDir", "d4/d39/limes__fft_8h.html#ga19ed4b21c8b71c04ea11c3c1e352d3f9", null ]
+    [ "enableWisdom", "d4/d39/limes__fft_8h.html#ga939bfce415205091c7808f0cc4d71dea", null ],
+    [ "getImplementationName", "d4/d39/limes__fft_8h.html#ga81a24c44587354cba913179bea459d2e", null ],
+    [ "getWisdomFileDir", "d4/d39/limes__fft_8h.html#gaff20964c03f09d6a0c5f2c2c879da8da", null ],
+    [ "isUsingFallback", "d4/d39/limes__fft_8h.html#gae0c1b95e40cf559713c5ff97b3a308a5", null ],
+    [ "isUsingFFTW", "d4/d39/limes__fft_8h.html#ga4b7ceaf6a5c2f8edb74c518833336589", null ],
+    [ "isUsingIPP", "d4/d39/limes__fft_8h.html#gac530869f4c65369b6e52efa3f4be9857", null ],
+    [ "isUsingVDSP", "d4/d39/limes__fft_8h.html#ga78554bf05742bbff654330926a1d261e", null ],
+    [ "isUsingWisdom", "d4/d39/limes__fft_8h.html#ga8748afcaad7c030c938654966ff70a92", null ],
+    [ "setWisdomFileDir", "d4/d39/limes__fft_8h.html#ga2125ae4827739fa347af1abad300134a", null ]
 ];

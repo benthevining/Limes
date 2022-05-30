@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['vdsp_5ffft_1721',['vDSP_FFT',['../da/d63/classvecops_1_1v_d_s_p___f_f_t.html',1,'vecops']]],
-  ['velocitymapper_1722',['VelocityMapper',['../d3/d01/classmidi_1_1_velocity_mapper.html',1,'midi']]],
-  ['version_1723',['Version',['../d0/dec/structmisc_1_1_version.html',1,'misc']]]
+  ['weekday_1302',['Weekday',['../d4/d90/classlimes_1_1time_1_1_weekday.html',1,'limes::time']]],
+  ['whitenoisegenerator_1303',['WhiteNoiseGenerator',['../dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html',1,'limes::dsp']]],
+  ['wholetone_1304',['WholeTone',['../d7/d2a/classlimes_1_1music_1_1scales_1_1_whole_tone.html',1,'limes::music::scales']]]
 ];

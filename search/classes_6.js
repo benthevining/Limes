@@ -1,11 +1,25 @@
 var searchData=
 [
-  ['hash_3c_20limes_3a_3afiles_3a_3adynamiclibrary_20_3e_1587',['hash&lt; limes::files::DynamicLibrary &gt;',['../d6/d91/structstd_1_1hash_3_01limes_1_1files_1_1_dynamic_library_01_4.html',1,'std']]],
-  ['hash_3c_20limes_3a_3afiles_3a_3afile_20_3e_1588',['hash&lt; limes::files::File &gt;',['../de/dac/structstd_1_1hash_3_01limes_1_1files_1_1_file_01_4.html',1,'std']]],
-  ['hash_3c_20limes_3a_3afiles_3a_3afilesystementry_20_3e_1589',['hash&lt; limes::files::FilesystemEntry &gt;',['../d5/dc6/structstd_1_1hash_3_01limes_1_1files_1_1_filesystem_entry_01_4.html',1,'std']]],
-  ['hash_3c_20limes_3a_3amemory_3a_3arawdata_20_3e_1590',['hash&lt; limes::memory::RawData &gt;',['../df/de4/structstd_1_1hash_3_01limes_1_1memory_1_1_raw_data_01_4.html',1,'std']]],
-  ['hash_3c_20limes_3a_3amisc_3a_3aversion_20_3e_1591',['hash&lt; limes::misc::Version &gt;',['../d6/d13/structstd_1_1hash_3_01limes_1_1misc_1_1_version_01_4.html',1,'std']]],
-  ['hasher_1592',['Hasher',['../de/d65/classhash_1_1_hasher.html',1,'hash']]],
-  ['hexagon_1593',['Hexagon',['../df/d80/classmath_1_1geometry_1_1_hexagon.html',1,'math::geometry']]],
-  ['hour_1594',['Hour',['../d3/d71/classtime_1_1_hour.html',1,'time']]]
+  ['interval_1197',['Interval',['../da/d90/classlimes_1_1music_1_1_interval.html',1,'limes::music']]],
+  ['is_5frealtime_5fcopy_5fassignable_1198',['is_realtime_copy_assignable',['../d5/dd1/structlimes_1_1threads_1_1is__realtime__copy__assignable.html',1,'limes::threads']]],
+  ['is_5frealtime_5fcopy_5fconstructable_1199',['is_realtime_copy_constructable',['../dd/dcc/structlimes_1_1threads_1_1is__realtime__copy__constructable.html',1,'limes::threads']]],
+  ['is_5frealtime_5fmove_5fassignable_1200',['is_realtime_move_assignable',['../d4/d52/structlimes_1_1threads_1_1is__realtime__move__assignable.html',1,'limes::threads']]],
+  ['is_5frealtime_5fmove_5fconstructable_1201',['is_realtime_move_constructable',['../d3/d0b/structlimes_1_1threads_1_1is__realtime__move__constructable.html',1,'limes::threads']]],
+  ['is_5frt_5fsafe_1202',['is_rt_safe',['../d8/d3f/structlimes_1_1threads_1_1detail_1_1is__rt__safe.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20std_3a_3amap_3c_20t_2c_20u_20_3e_2c_20move_5ftag_2c_20tag_20_3e_1203',['is_rt_safe&lt; std::map&lt; T, U &gt;, move_tag, Tag &gt;',['../d7/da7/structlimes_1_1threads_1_1detail_1_1is__rt__safe_3_01std_1_1map_3_01_t_00_01_u_01_4_00_01move__tag_00_01_tag_01_4.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20std_3a_3aset_3c_20t_20_3e_2c_20move_5ftag_2c_20tag_20_3e_1204',['is_rt_safe&lt; std::set&lt; T &gt;, move_tag, Tag &gt;',['../d6/d80/structlimes_1_1threads_1_1detail_1_1is__rt__safe_3_01std_1_1set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20std_3a_3aunordered_5fmap_3c_20t_2c_20u_20_3e_2c_20move_5ftag_2c_20tag_20_3e_1205',['is_rt_safe&lt; std::unordered_map&lt; T, U &gt;, move_tag, Tag &gt;',['../dc/dd6/structlimes_1_1threads_1_1detail_1_1is__rt__safe_3_01std_1_1unordered__map_3_01_t_00_01_u_01_4_00_01move__tag_00_01_tag_01_4.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20std_3a_3aunordered_5fset_3c_20t_20_3e_2c_20move_5ftag_2c_20tag_20_3e_1206',['is_rt_safe&lt; std::unordered_set&lt; T &gt;, move_tag, Tag &gt;',['../d7/dcc/structlimes_1_1threads_1_1detail_1_1is__rt__safe_3_01std_1_1unordered__set_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20std_3a_3avector_3c_20t_20_3e_2c_20move_5ftag_2c_20tag_20_3e_1207',['is_rt_safe&lt; std::vector&lt; T &gt;, move_tag, Tag &gt;',['../dc/d36/structlimes_1_1threads_1_1detail_1_1is__rt__safe_3_01std_1_1vector_3_01_t_01_4_00_01move__tag_00_01_tag_01_4.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20t_2c_20copy_5ftag_2c_20assignable_5ftag_20_3e_1208',['is_rt_safe&lt; T, copy_tag, assignable_tag &gt;',['../d8/d9e/structlimes_1_1threads_1_1detail_1_1is__rt__safe_3_01_t_00_01copy__tag_00_01assignable__tag_01_4.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20t_2c_20copy_5ftag_2c_20constructible_5ftag_20_3e_1209',['is_rt_safe&lt; T, copy_tag, constructible_tag &gt;',['../d9/db1/structlimes_1_1threads_1_1detail_1_1is__rt__safe_3_01_t_00_01copy__tag_00_01constructible__tag_01_4.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20t_2c_20detail_3a_3acopy_5ftag_2c_20detail_3a_3aassignable_5ftag_20_3e_1210',['is_rt_safe&lt; T, detail::copy_tag, detail::assignable_tag &gt;',['../d8/d3f/structlimes_1_1threads_1_1detail_1_1is__rt__safe.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20t_2c_20detail_3a_3acopy_5ftag_2c_20detail_3a_3aconstructible_5ftag_20_3e_1211',['is_rt_safe&lt; T, detail::copy_tag, detail::constructible_tag &gt;',['../d8/d3f/structlimes_1_1threads_1_1detail_1_1is__rt__safe.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20t_2c_20detail_3a_3amove_5ftag_2c_20detail_3a_3aassignable_5ftag_20_3e_1212',['is_rt_safe&lt; T, detail::move_tag, detail::assignable_tag &gt;',['../d8/d3f/structlimes_1_1threads_1_1detail_1_1is__rt__safe.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20t_2c_20detail_3a_3amove_5ftag_2c_20detail_3a_3aconstructible_5ftag_20_3e_1213',['is_rt_safe&lt; T, detail::move_tag, detail::constructible_tag &gt;',['../d8/d3f/structlimes_1_1threads_1_1detail_1_1is__rt__safe.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20t_2c_20move_5ftag_2c_20assignable_5ftag_20_3e_1214',['is_rt_safe&lt; T, move_tag, assignable_tag &gt;',['../d9/d5a/structlimes_1_1threads_1_1detail_1_1is__rt__safe_3_01_t_00_01move__tag_00_01assignable__tag_01_4.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20t_2c_20move_5ftag_2c_20constructible_5ftag_20_3e_1215',['is_rt_safe&lt; T, move_tag, constructible_tag &gt;',['../d3/d5d/structlimes_1_1threads_1_1detail_1_1is__rt__safe_3_01_t_00_01move__tag_00_01constructible__tag_01_4.html',1,'limes::threads::detail']]],
+  ['is_5frt_5fsafe_3c_20t_2c_20move_5ftag_2c_20tag_20_3e_1216',['is_rt_safe&lt; T, move_tag, Tag &gt;',['../d8/d3f/structlimes_1_1threads_1_1detail_1_1is__rt__safe.html',1,'limes::threads::detail']]],
+  ['iterator_1217',['Iterator',['../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html',1,'limes::ds::LinkedListModel']]],
+  ['iterator_5fbase_1218',['iterator_base',['../dd/ddc/structlimes_1_1ds_1_1owned__vector_1_1iterator__base.html',1,'limes::ds::owned_vector']]]
 ];

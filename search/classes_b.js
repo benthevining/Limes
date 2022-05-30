@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['node_1641',['Node',['../db/d7d/structds_1_1_linked_list_1_1_node.html',1,'ds::LinkedList&lt; ObjectType &gt;::Node'],['../d7/d3b/classjson_1_1_node.html',1,'json::Node']]],
-  ['not_5fin_3c_20list1_3c_20list1types_2e_2e_2e_20_3e_2c_20list2_3c_20list2types_2e_2e_2e_20_3e_20_3e_1642',['not_in&lt; List1&lt; List1Types... &gt;, List2&lt; List2Types... &gt; &gt;',['../d6/d4b/structtypelist_1_1not__in_3_01_list1_3_01_list1_types_8_8_8_01_4_00_01_list2_3_01_list2_types_8_8_8_01_4_01_4.html',1,'typelist']]],
-  ['noteduration_1643',['NoteDuration',['../dd/df8/structmusic_1_1_note_duration.html',1,'music']]],
-  ['notelength_1644',['NoteLength',['../db/d92/structmusic_1_1_note_length.html',1,'music']]],
-  ['nulltype_1645',['NullType',['../dd/d4b/namespacetypelist.html#dd/d6c/structtypelist_1_1_null_type',1,'typelist']]]
+  ['octagon_1239',['Octagon',['../dd/d0b/classlimes_1_1math_1_1geometry_1_1_octagon.html',1,'limes::math::geometry']]],
+  ['octatonic_1240',['Octatonic',['../d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html',1,'limes::music::scales']]],
+  ['optionalobject_1241',['OptionalObject',['../d5/d21/classlimes_1_1memory_1_1_optional_object.html',1,'limes::memory']]],
+  ['oscillator_1242',['Oscillator',['../d3/d36/structlimes_1_1dsp_1_1_oscillator.html',1,'limes::dsp']]],
+  ['owned_5fvector_1243',['owned_vector',['../dd/d09/classlimes_1_1ds_1_1owned__vector.html',1,'limes::ds']]],
+  ['owned_5fvector_3c_20grain_20_3e_1244',['owned_vector&lt; Grain &gt;',['../dd/d09/classlimes_1_1ds_1_1owned__vector.html',1,'limes::ds']]],
+  ['owned_5fvector_3c_20limes_3a_3ads_3a_3alinkedlist_3a_3anode_20_3e_1245',['owned_vector&lt; limes::ds::LinkedList::Node &gt;',['../dd/d09/classlimes_1_1ds_1_1owned__vector.html',1,'limes::ds']]]
 ];

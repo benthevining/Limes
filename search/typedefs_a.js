@@ -1,12 +1,16 @@
 var searchData=
 [
-  ['object_2998',['Object',['../d7/d3b/classjson_1_1_node.html#a24fa8b82f229a1628440d5e5036a26db',1,'json::Node']]],
-  ['objectcreationfunction_2999',['ObjectCreationFunction',['../de/de5/classds_1_1owned__vector.html#afa801080963c04e4ad7d4a535dd05b1e',1,'ds::owned_vector']]],
-  ['objectfield_3000',['ObjectField',['../d7/d3b/classjson_1_1_node.html#a99c01bb57a49777e33750aaf04dfffb3',1,'json::Node']]],
-  ['objecttype_3001',['ObjectType',['../df/d63/classds_1_1basic__vector.html#a828556c803e73edd9ec6e9912b0ecba4',1,'ds::basic_vector']]],
-  ['oscillator_3002',['Oscillator',['../d8/d1b/namespacedsp_1_1osc.html#ad8383dc63bae31f5edc1554ef2a26908',1,'dsp::osc']]],
-  ['other_3003',['other',['../dd/d1c/classmemory_1_1_aligned_allocator.html#acda34fd988505bd5d3398ae00121cc7a',1,'memory::AlignedAllocator::rebind::other()'],['../db/db8/classmemory_1_1_memory_pool_allocator.html#aa8268550c5287fc389fbe49286ca4b6d',1,'memory::MemoryPoolAllocator::rebind::other()'],['../d1/d2b/classmemory_1_1_stack_allocator.html#a062cdffc020cc216a2135c19e1027632',1,'memory::StackAllocator::rebind::other()']]],
-  ['otherweekdaytype_3004',['OtherWeekdayType',['../d3/d61/classtime_1_1_weekday.html#aab9b905f48c1e6ea68cb6371dc7a478a',1,'time::Weekday']]],
-  ['ownedobjecttype_3005',['OwnedObjectType',['../de/de5/classds_1_1owned__vector.html#a82cf863ec67a3b3ca1e58ca1770eaf3d',1,'ds::owned_vector']]],
-  ['ownedtype_3006',['OwnedType',['../d8/dc8/classmemory_1_1aligned__pointer.html#aff39c3fe41222c7ed1026d8b578a602e',1,'memory::aligned_pointer::OwnedType()'],['../d1/d17/classmemory_1_1_memory_pool_pointer.html#ad806f766437d35af1ba0bb28cc409c75',1,'memory::MemoryPoolPointer::OwnedType()']]]
+  ['reader_2273',['Reader',['../d5/d3f/classlimes_1_1threads_1_1_thread_safe_object.html#aa280e8570f354ad786e9b3835725234a',1,'limes::threads::ThreadSafeObject']]],
+  ['remove_2274',['remove',['../d0/d51/classlimes_1_1meta_1_1_type_list.html#ad6c03b000bb3e24b46af7aef97889034',1,'limes::meta::TypeList']]],
+  ['remove_5fat_2275',['remove_at',['../d0/d51/classlimes_1_1meta_1_1_type_list.html#a2af91e71951d4c2a568cd1db21145dfd',1,'limes::meta::TypeList']]],
+  ['remove_5fduplicates_2276',['remove_duplicates',['../d0/d51/classlimes_1_1meta_1_1_type_list.html#a4a8d1b7ea3914fec56368841b2996abc',1,'limes::meta::TypeList']]],
+  ['remove_5ffirst_2277',['remove_first',['../d0/d51/classlimes_1_1meta_1_1_type_list.html#a33d25fe6b3a944580aa8ce87dd25377e',1,'limes::meta::TypeList']]],
+  ['remove_5fif_2278',['remove_if',['../d0/d51/classlimes_1_1meta_1_1_type_list.html#a12a7c3628cf8110d452f4ea842a8a025',1,'limes::meta::TypeList']]],
+  ['remove_5fif_5fnot_2279',['remove_if_not',['../d0/d51/classlimes_1_1meta_1_1_type_list.html#a369a63c778a61b0282ee8774add7b00a',1,'limes::meta::TypeList']]],
+  ['remove_5flast_2280',['remove_last',['../d0/d51/classlimes_1_1meta_1_1_type_list.html#a4c583976943431017edf55cbb311f7bd',1,'limes::meta::TypeList']]],
+  ['remove_5fnull_5ftypes_2281',['remove_null_types',['../d0/d51/classlimes_1_1meta_1_1_type_list.html#a28e0e2a6255106b05ff002b15617329c',1,'limes::meta::TypeList']]],
+  ['replace_2282',['replace',['../d0/d51/classlimes_1_1meta_1_1_type_list.html#ac212e0d89642ed572a9abce0641641b6',1,'limes::meta::TypeList']]],
+  ['replace_5fat_2283',['replace_at',['../d0/d51/classlimes_1_1meta_1_1_type_list.html#ae4350ff0869a1b06e667061c08cbaffd',1,'limes::meta::TypeList']]],
+  ['result_5ftype_2284',['result_type',['../de/d94/group__func.html#ga7c4fa56ce61b8e28103b43f250ba851c',1,'limes::func']]],
+  ['reverse_2285',['reverse',['../d0/d51/classlimes_1_1meta_1_1_type_list.html#a0559d64590d686875e0bc55663d8955a',1,'limes::meta::TypeList']]]
 ];

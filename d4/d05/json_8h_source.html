@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('d4/d05/json_8h_source.html','../../');
 <div class="title">json.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d4/d05/json_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * ======================================================================================</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  __    ____  __  __  ____  ___</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * (  )  (_  _)(  \/  )( ___)/ __)</span></div>
@@ -119,92 +119,92 @@ $(document).ready(function(){initNavTree('d4/d05/json_8h_source.html','../../');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d1/db2/namespacejson.html">   27</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d1/db2/namespacejson.html">json</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d6/dbd/namespacelimes_1_1json.html">   27</a></span>&#160;<span class="keyword">namespace </span>json</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">   31</a></span>&#160;LIMES_EXPORT <span class="keyword">enum class</span> <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a> : int {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44ab2ee912b91d69b435159c7c3f6df7f5f">Number</a>,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44a27118326006d3829667a400ad23d5d98">String</a>,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44a27226c864bac7454a8504f8edb15d95b">Boolean</a>,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44a4410ec34d9e6c1a68100ca0ce033fb17">Array</a>,</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44a497031794414a552435f90151ac3b54b">Object</a>,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44abbb93ef26e3c101ff11cdd21cab08a94">Null</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d6/dbd/namespacelimes_1_1json.html#a64e40a78dee36e6c95edc4dd88252ffa">   31</a></span>&#160;LIMES_EXPORT <span class="keyword">enum class</span> <a class="code" href="../../d6/dbd/namespacelimes_1_1json.html#a64e40a78dee36e6c95edc4dd88252ffa">ObjectType</a> : int {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    Number,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    String,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    Boolean,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    Array,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    Object,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    Null</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d7/d3b/classjson_1_1_node.html">   41</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a> final</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">   41</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a> final</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a> (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a> typeToUse) noexcept;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a> (<a class="code" href="../../d6/dbd/namespacelimes_1_1json.html#a64e40a78dee36e6c95edc4dd88252ffa">ObjectType</a> typeToUse) noexcept;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a> (<span class="keyword">const</span> std::string_view&amp; jsonText);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a> (<span class="keyword">const</span> std::string_view&amp; jsonText);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga5bf553d96012e220f7715df0a90066da">LIMES_DEFAULT_COPYABLE</a> (<a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a> (<a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga5bf553d96012e220f7715df0a90066da">LIMES_DEFAULT_COPYABLE</a> (<a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a> (<a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    [[nodiscard]] std::string getJsonText (<span class="keywordtype">bool</span> compact = <span class="keyword">false</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    [[nodiscard]] <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a> getType() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    [[nodiscard]] <a class="code" href="../../d6/dbd/namespacelimes_1_1json.html#a64e40a78dee36e6c95edc4dd88252ffa">ObjectType</a> getType() <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    [[nodiscard]] std::string_view getTypeAsString() <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>&amp; addChild (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a> childType, <span class="keyword">const</span> std::string_view&amp; childName = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>&amp; addChild (<a class="code" href="../../d6/dbd/namespacelimes_1_1json.html#a64e40a78dee36e6c95edc4dd88252ffa">ObjectType</a> childType, <span class="keyword">const</span> std::string_view&amp; childName = <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> isNumber() <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">double</span>&amp; getNumber() noexcept;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>&amp; operator= (<span class="keywordtype">double</span> value) noexcept;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>&amp; operator= (<span class="keywordtype">double</span> value) noexcept;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>&amp; addChildNumber (<span class="keyword">const</span> std::string_view&amp; childName = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>&amp; addChildNumber (<span class="keyword">const</span> std::string_view&amp; childName = <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">bool</span> isString() <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    std::string&amp; getString() noexcept;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>&amp; operator= (<span class="keyword">const</span> std::string_view&amp; value) noexcept;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>&amp; operator= (<span class="keyword">const</span> std::string_view&amp; value) noexcept;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>&amp; addChildString (<span class="keyword">const</span> std::string_view&amp; childName = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>&amp; addChildString (<span class="keyword">const</span> std::string_view&amp; childName = <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">bool</span> isBoolean() <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">bool</span>&amp; getBoolean() noexcept;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>&amp; operator= (<span class="keywordtype">bool</span> value) noexcept;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>&amp; operator= (<span class="keywordtype">bool</span> value) noexcept;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>&amp; addChildBoolean (<span class="keyword">const</span> std::string_view&amp; childName = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>&amp; addChildBoolean (<span class="keyword">const</span> std::string_view&amp; childName = <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">bool</span> isArray() <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d7/d3b/classjson_1_1_node.html#a7829e9f6557f3353a60ff6aa4c2248fa">   88</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="../../d7/d3b/classjson_1_1_node.html#a7829e9f6557f3353a60ff6aa4c2248fa">Array</a> = std::vector&lt;Node&gt;;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">using</span> Array = std::vector&lt;Node&gt;;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html#a7829e9f6557f3353a60ff6aa4c2248fa">Array</a>&amp; getArray() noexcept;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    Array&amp; getArray() noexcept;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>&amp; operator= (const <a class="code" href="../../d7/d3b/classjson_1_1_node.html#a7829e9f6557f3353a60ff6aa4c2248fa">Array</a>&amp; value);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>&amp; operator= (<span class="keyword">const</span> Array&amp; value);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>&amp; addChildArray (const std::string_view&amp; childName = &quot;&quot;);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>&amp; addChildArray (<span class="keyword">const</span> std::string_view&amp; childName = <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d7/d3b/classjson_1_1_node.html#a99c01bb57a49777e33750aaf04dfffb3">   96</a></span>&#160;    using <a class="code" href="../../d7/d3b/classjson_1_1_node.html#a99c01bb57a49777e33750aaf04dfffb3">ObjectField</a> = std::pair&lt;std::<span class="keywordtype">string</span>, <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>&gt;;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">using</span> ObjectField = std::pair&lt;std::string, Node&gt;;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d7/d3b/classjson_1_1_node.html#a24fa8b82f229a1628440d5e5036a26db">   98</a></span>&#160;    using <a class="code" href="../../d7/d3b/classjson_1_1_node.html#a24fa8b82f229a1628440d5e5036a26db">Object</a> = std::<a class="code" href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">vector</a>&lt;<a class="code" href="../../d7/d3b/classjson_1_1_node.html#a99c01bb57a49777e33750aaf04dfffb3">ObjectField</a>&gt;;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">using</span> Object = std::vector&lt;ObjectField&gt;;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">bool</span> isObject() const noexcept;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">bool</span> isObject() <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html#a24fa8b82f229a1628440d5e5036a26db">Object</a>&amp; getObject() noexcept;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    Object&amp; getObject() noexcept;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>&amp; operator= (const <a class="code" href="../../d7/d3b/classjson_1_1_node.html#a24fa8b82f229a1628440d5e5036a26db">Object</a>&amp; value);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>&amp; operator= (<span class="keyword">const</span> Object&amp; value);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>&amp; addChildObject (const std::string_view&amp; childName = &quot;&quot;);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>&amp; addChildObject (<span class="keyword">const</span> std::string_view&amp; childName = <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">bool</span> isNull() const noexcept;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">bool</span> isNull() <span class="keyword">const</span> noexcept;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="../../d7/d3b/classjson_1_1_node.html">Node</a>&amp; addChildNull (const std::string_view&amp; childName = &quot;&quot;);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a>&amp; addChildNull (<span class="keyword">const</span> std::string_view&amp; childName = <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    [[nodiscard]] std::<span class="keywordtype">string</span> getDebugString() const;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    [[nodiscard]] std::string getDebugString() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;private:</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a> type { <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44abbb93ef26e3c101ff11cdd21cab08a94">ObjectType::Null</a> };</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="../../d6/dbd/namespacelimes_1_1json.html#a64e40a78dee36e6c95edc4dd88252ffa">ObjectType</a> type { ObjectType::Null };</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">double</span> number { 0. };</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
@@ -212,43 +212,31 @@ $(document).ready(function(){initNavTree('d4/d05/json_8h_source.html','../../');
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">bool</span> <span class="keywordtype">boolean</span> { <span class="keyword">false</span> };</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44a4410ec34d9e6c1a68100ca0ce033fb17">Array</a> array;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    Array array;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44a497031794414a552435f90151ac3b54b">Object</a> object;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    Object object;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;};</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;LIMES_EXPORT [[nodiscard]] Node <a class="code" href="../../d1/db2/namespacejson.html#a69fe2c5b4fa24c7d464058ff94e772b5">parseJSON</a> (<span class="keyword">const</span> std::string_view&amp; jsonText);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;LIMES_EXPORT [[nodiscard]] <a class="code" href="../../d2/dbf/classlimes_1_1json_1_1_node.html">Node</a> parseJSON (<span class="keyword">const</span> std::string_view&amp; jsonText);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}  <span class="comment">// namespace json</span></div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespacejson_html_ab9033928f827dd8617b0431ad7f31c44a497031794414a552435f90151ac3b54b"><div class="ttname"><a href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44a497031794414a552435f90151ac3b54b">json::ObjectType::Object</a></div><div class="ttdeci">@ Object</div></div>
-<div class="ttc" id="anamespacejson_html"><div class="ttname"><a href="../../d1/db2/namespacejson.html">json</a></div><div class="ttdoc">This namespace contains utilities for working with JSON.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d05/json_8h_source.html#l00027">json.h:27</a></div></div>
-<div class="ttc" id="anamespacejson_html_a69fe2c5b4fa24c7d464058ff94e772b5"><div class="ttname"><a href="../../d1/db2/namespacejson.html#a69fe2c5b4fa24c7d464058ff94e772b5">json::parseJSON</a></div><div class="ttdeci">LIMES_EXPORT Node parseJSON(const std::string_view &amp;jsonText)</div></div>
-<div class="ttc" id="aclassjson_1_1_node_html_a7829e9f6557f3353a60ff6aa4c2248fa"><div class="ttname"><a href="../../d7/d3b/classjson_1_1_node.html#a7829e9f6557f3353a60ff6aa4c2248fa">json::Node::Array</a></div><div class="ttdeci">std::vector&lt; Node &gt; Array</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d05/json_8h_source.html#l00088">json.h:88</a></div></div>
-<div class="ttc" id="aclassjson_1_1_node_html_a99c01bb57a49777e33750aaf04dfffb3"><div class="ttname"><a href="../../d7/d3b/classjson_1_1_node.html#a99c01bb57a49777e33750aaf04dfffb3">json::Node::ObjectField</a></div><div class="ttdeci">std::pair&lt; std::string, Node &gt; ObjectField</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d05/json_8h_source.html#l00096">json.h:96</a></div></div>
-<div class="ttc" id="anamespacejson_html_ab9033928f827dd8617b0431ad7f31c44a4410ec34d9e6c1a68100ca0ce033fb17"><div class="ttname"><a href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44a4410ec34d9e6c1a68100ca0ce033fb17">json::ObjectType::Array</a></div><div class="ttdeci">@ Array</div></div>
+<div class="ttc" id="anamespacelimes_1_1json_html_a64e40a78dee36e6c95edc4dd88252ffa"><div class="ttname"><a href="../../d6/dbd/namespacelimes_1_1json.html#a64e40a78dee36e6c95edc4dd88252ffa">limes::json::ObjectType</a></div><div class="ttdeci">ObjectType</div><div class="ttdoc">Represents the type of a JSON node.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d05/json_8h_source.html#l00031">json.h:31</a></div></div>
 <div class="ttc" id="agroup__system_html_ga5bf553d96012e220f7715df0a90066da"><div class="ttname"><a href="../../d4/d37/group__system.html#ga5bf553d96012e220f7715df0a90066da">LIMES_DEFAULT_COPYABLE</a></div><div class="ttdeci">#define LIMES_DEFAULT_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00157">preprocessor.h:157</a></div></div>
 <div class="ttc" id="alimes__core_8h_html"><div class="ttname"><a href="../../d9/df8/limes__core_8h.html">limes_core.h</a></div></div>
-<div class="ttc" id="anamespaceds_html_a813f9ca146f6e29fde2f5d40bf2bb870"><div class="ttname"><a href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector</a></div><div class="ttdeci">std::conditional_t&lt; std::is_scalar_v&lt; ObjectType &gt; &amp;&amp;! std::is_pointer_v&lt; ObjectType &gt;, scalar_vector&lt; ObjectType, Allocator &gt;, basic_vector&lt; ObjectType, Allocator &gt; &gt; vector</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d68/vector_8h_source.html#l00029">vector.h:29</a></div></div>
-<div class="ttc" id="anamespacejson_html_ab9033928f827dd8617b0431ad7f31c44a27118326006d3829667a400ad23d5d98"><div class="ttname"><a href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44a27118326006d3829667a400ad23d5d98">json::ObjectType::String</a></div><div class="ttdeci">@ String</div></div>
+<div class="ttc" id="aclasslimes_1_1json_1_1_node_html"><div class="ttname"><a href="../../d2/dbf/classlimes_1_1json_1_1_node.html">limes::json::Node</a></div><div class="ttdoc">Represents any kind of JSON object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d05/json_8h_source.html#l00041">json.h:41</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00039">limes_namespace.h:39</a></div></div>
-<div class="ttc" id="aclassjson_1_1_node_html_a24fa8b82f229a1628440d5e5036a26db"><div class="ttname"><a href="../../d7/d3b/classjson_1_1_node.html#a24fa8b82f229a1628440d5e5036a26db">json::Node::Object</a></div><div class="ttdeci">std::vector&lt; ObjectField &gt; Object</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d05/json_8h_source.html#l00098">json.h:98</a></div></div>
 <div class="ttc" id="agroup__system_html_gaa204cf467eb45621b139f7fbf6b0f503"><div class="ttname"><a href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a></div><div class="ttdeci">#define LIMES_DEFAULT_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00175">preprocessor.h:175</a></div></div>
-<div class="ttc" id="aclassjson_1_1_node_html"><div class="ttname"><a href="../../d7/d3b/classjson_1_1_node.html">json::Node</a></div><div class="ttdoc">Represents any kind of JSON object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d05/json_8h_source.html#l00041">json.h:41</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00027">limes_namespace.h:27</a></div></div>
-<div class="ttc" id="anamespacejson_html_ab9033928f827dd8617b0431ad7f31c44ab2ee912b91d69b435159c7c3f6df7f5f"><div class="ttname"><a href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44ab2ee912b91d69b435159c7c3f6df7f5f">json::ObjectType::Number</a></div><div class="ttdeci">@ Number</div></div>
-<div class="ttc" id="anamespacejson_html_ab9033928f827dd8617b0431ad7f31c44abbb93ef26e3c101ff11cdd21cab08a94"><div class="ttname"><a href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44abbb93ef26e3c101ff11cdd21cab08a94">json::ObjectType::Null</a></div><div class="ttdeci">@ Null</div></div>
-<div class="ttc" id="anamespacejson_html_ab9033928f827dd8617b0431ad7f31c44"><div class="ttname"><a href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">json::ObjectType</a></div><div class="ttdeci">ObjectType</div><div class="ttdoc">Represents the type of a JSON node.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d05/json_8h_source.html#l00031">json.h:31</a></div></div>
-<div class="ttc" id="anamespacejson_html_ab9033928f827dd8617b0431ad7f31c44a27226c864bac7454a8504f8edb15d95b"><div class="ttname"><a href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44a27226c864bac7454a8504f8edb15d95b">json::ObjectType::Boolean</a></div><div class="ttdeci">@ Boolean</div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_5a8fa718b1977f38e1a76b0748d531e0.html">json</a></li><li class="navelem"><a class="el" href="../../d4/d05/json_8h.html">json.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 07:04:00 for Limes by
+    <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_5a8fa718b1977f38e1a76b0748d531e0.html">json</a></li><li class="navelem"><b>json.h</b></li>
+    <li class="footer">Generated on Mon May 30 2022 10:15:21 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

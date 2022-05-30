@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_3064',['Name',['../dc/dc1/classtime_1_1_month.html#a9b8014e3f80cf7f161260a1e2f4590c9',1,'time::Month::Name()'],['../d3/d61/classtime_1_1_weekday.html#a61e3d5d06fa34f271c0051e51a001272',1,'time::Weekday::Name()']]]
+  ['name_2294',['Name',['../d4/dc2/classlimes_1_1time_1_1_month.html#ad66d861ff8db04582c34c5b60553aecc',1,'limes::time::Month::Name()'],['../d4/d90/classlimes_1_1time_1_1_weekday.html#a0a21a9d8cf06fe57a4645774a30ed442',1,'limes::time::Weekday::Name()']]]
 ];

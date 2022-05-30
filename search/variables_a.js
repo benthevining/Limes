@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['m_5forder_2913',['m_order',['../dd/de6/classvecops_1_1_f_f_t_impl.html#a78b9769af7390b5f3447f1862a30ef01',1,'vecops::FFTImpl']]],
-  ['make_5ftype_5flist_5ffrom_2914',['make_type_list_from',['../d8/db6/namespacemeta.html#a2ea10f17ade21c08af8c3cadc0dcac9b',1,'meta']]],
-  ['met_2915',['met',['../d3/d3d/structtypelist_1_1_type_erased_unary_predicate.html#af697cfa336effa52ecf9463da46b255c',1,'typelist::TypeErasedUnaryPredicate']]],
-  ['move_5ftag_2916',['move_tag',['../dd/d3e/group__rt__safety.html#ga117a1fe1d8cdfdecb9f1c9c18bd5b354',1,'threads::detail']]]
+  ['new_5fline_2234',['new_line',['../d4/dc7/namespacelimes_1_1strings.html#a53653cc16541777b255fa2b75b502909',1,'limes::strings']]],
+  ['num_5fof_2235',['num_of',['../d0/d51/classlimes_1_1meta_1_1_type_list.html#addc7c5792a1172b6daa057028c8d0ce2',1,'limes::meta::TypeList']]],
+  ['numerator_2236',['numerator',['../d9/d48/structlimes_1_1math_1_1_fraction.html#a9a005beb1346dab5e4fb9e27953f89f8',1,'limes::math::Fraction']]]
 ];

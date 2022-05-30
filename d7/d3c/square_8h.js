@@ -1,6 +1,6 @@
 var square_8h =
 [
-    [ "Square", "d3/d06/classmath_1_1geometry_1_1_square.html", "d3/d06/classmath_1_1geometry_1_1_square" ],
-    [ "operator!=", "d7/d3c/square_8h.html#a317e9900bc8f2c083ad6d6c8fafc5df8", null ],
-    [ "operator==", "d7/d3c/square_8h.html#a2396d30ac8dc8dc734b4aa53fb53c6e5", null ]
+    [ "Square", "d6/db8/classlimes_1_1math_1_1geometry_1_1_square.html", "d6/db8/classlimes_1_1math_1_1geometry_1_1_square" ],
+    [ "operator!=", "d7/d3c/square_8h.html#gab0dead6a104d06879a90d644ce5d9012", null ],
+    [ "operator==", "d7/d3c/square_8h.html#gaa9c05223626cee55eea487b8cde4e212", null ]
 ];

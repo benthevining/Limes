@@ -1,0 +1,27 @@
+var structlimes_1_1music_1_1_note_length =
+[
+    [ "NoteLength", "db/d9a/structlimes_1_1music_1_1_note_length.html#aa863455bc22b50d263fc376b9d1a2754", null ],
+    [ "getDuration", "db/d9a/structlimes_1_1music_1_1_note_length.html#a3d09693bbb0ddcd1237302dadf1ab2df", null ],
+    [ "getFirstNoteInTie", "db/d9a/structlimes_1_1music_1_1_note_length.html#a2d107bbfe7e9dd158874417062f3109a", null ],
+    [ "getLastNoteInTie", "db/d9a/structlimes_1_1music_1_1_note_length.html#a36e4691683ea6244aba2197e0881a2e7", null ],
+    [ "getNumDots", "db/d9a/structlimes_1_1music_1_1_note_length.html#a32c88459fb2139bc1416dbffbc576f1c", null ],
+    [ "getNumNotesOfDuration", "db/d9a/structlimes_1_1music_1_1_note_length.html#a673bc671b107bb173fd4a89326426b15", null ],
+    [ "getNumNotesOfDurationForWholeTie", "db/d9a/structlimes_1_1music_1_1_note_length.html#a8bf1726b4952bf6ebdd8c115f42bc410", null ],
+    [ "getRelativeValue", "db/d9a/structlimes_1_1music_1_1_note_length.html#a4e3d050503c4b989555e26a66041c488", null ],
+    [ "getRelativeValueForWholeTie", "db/d9a/structlimes_1_1music_1_1_note_length.html#a3a0dcc11f0c6d220575f7f4a18e00e9f", null ],
+    [ "hasStem", "db/d9a/structlimes_1_1music_1_1_note_length.html#afc50c64045f7c753a8ddc3fa2b482546", null ],
+    [ "isDotted", "db/d9a/structlimes_1_1music_1_1_note_length.html#ae78ca1847aa52daa655674d1b803b40a", null ],
+    [ "isFirstNoteInTie", "db/d9a/structlimes_1_1music_1_1_note_length.html#a7b6b773d47e02b8193403ed603fb4bc3", null ],
+    [ "isGraceNote", "db/d9a/structlimes_1_1music_1_1_note_length.html#a3c02e13924b52c16d20f1114c4849dba", null ],
+    [ "isLastNoteInTie", "db/d9a/structlimes_1_1music_1_1_note_length.html#a4147e2a18abb0d236b811197f0127d45", null ],
+    [ "isTied", "db/d9a/structlimes_1_1music_1_1_note_length.html#a2759c1998ccc167bf246dddadcd44e1a", null ],
+    [ "LIMES_DEFAULT_COPYABLE", "db/d9a/structlimes_1_1music_1_1_note_length.html#a3f435756b5e6727308400c3179f97b46", null ],
+    [ "LIMES_DEFAULT_MOVABLE", "db/d9a/structlimes_1_1music_1_1_note_length.html#a424a50b1974eb81b9c4ef65dc63996ba", null ],
+    [ "noteHeadIsFilled", "db/d9a/structlimes_1_1music_1_1_note_length.html#a55b9efbcd609eb38cc758fc09a15ac26", null ],
+    [ "operator!=", "db/d9a/structlimes_1_1music_1_1_note_length.html#ad4f570d56e97ea1e1457cb91dbbb490c", null ],
+    [ "operator<", "db/d9a/structlimes_1_1music_1_1_note_length.html#a7d8042b0210360d82e0f8876e87caaf3", null ],
+    [ "operator==", "db/d9a/structlimes_1_1music_1_1_note_length.html#a19a10a9fb3ff3ac3b96bc50483806154", null ],
+    [ "operator>", "db/d9a/structlimes_1_1music_1_1_note_length.html#ae67f650dea2ed706a9a55eef2a1b154a", null ],
+    [ "removeTies", "db/d9a/structlimes_1_1music_1_1_note_length.html#ac51446a9d7641ac2582bf7e67b4e9234", null ],
+    [ "tieToNotes", "db/d9a/structlimes_1_1music_1_1_note_length.html#a81d2b0340987d6e79584bbde926c3033", null ]
+];

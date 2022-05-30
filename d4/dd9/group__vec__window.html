@@ -91,8 +91,7 @@ $(document).ready(function(){initNavTree('d4/dd9/group__vec__window.html','../..
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#groups">Modules</a>  </div>
   <div class="headertitle">
 <div class="title">Windowing functions<div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../dc/dd4/group__limes__vecops.html">limes_vecops</a></div></div>  </div>
 </div><!--header-->
@@ -112,36 +111,30 @@ Modules</h2></td></tr>
 <tr class="memitem:d9/d83/group__vec__hanning"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d83/group__vec__hanning.html">Hanning windowing</a></td></tr>
 <tr class="memdesc:d9/d83/group__vec__hanning"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hanning windowing functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga8ab157fe4613e75312485819c047ab56"><td class="memTemplParams" colspan="2">template&lt;Scalar ValueType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga8ab157fe4613e75312485819c047ab56"><td class="memTemplItemLeft" align="right" valign="top">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> ValueType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dd9/group__vec__window.html#ga8ab157fe4613e75312485819c047ab56">vecops::fb::window::detail::ncos</a> (SizeType order, SizeType i, SizeType size) noexcept</td></tr>
-<tr class="separator:ga8ab157fe4613e75312485819c047ab56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaeeecbe62b31e7d00be7fac5232223f93"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd9/group__vec__window.html#gaeeecbe62b31e7d00be7fac5232223f93">vecops::window::Type</a> { <a class="el" href="../../d4/dd9/group__vec__window.html#ggaeeecbe62b31e7d00be7fac5232223f93ab3935d5829173f20d58fc5f0405867b9">vecops::window::Type::Blackman</a>, 
-<a class="el" href="../../d4/dd9/group__vec__window.html#ggaeeecbe62b31e7d00be7fac5232223f93aea72b9f0db73025c8aaedae0f7b874f8">vecops::window::Type::Hamm</a>, 
-<a class="el" href="../../d4/dd9/group__vec__window.html#ggaeeecbe62b31e7d00be7fac5232223f93a46cd7c18d353a946c8263515a17662f2">vecops::window::Type::Hanning</a>
+<tr class="memitem:gafae745fa2a27b2dfb578d0c92c6a57aa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dd9/group__vec__window.html#gafae745fa2a27b2dfb578d0c92c6a57aa">limes::vecops::window::Type</a> { <b>Blackman</b>, 
+<b>Hamm</b>, 
+<b>Hanning</b>
  }</td></tr>
-<tr class="memdesc:gaeeecbe62b31e7d00be7fac5232223f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a type of windowing function.  <a href="../../d4/dd9/group__vec__window.html#gaeeecbe62b31e7d00be7fac5232223f93">More...</a><br /></td></tr>
-<tr class="separator:gaeeecbe62b31e7d00be7fac5232223f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga64805b423eab6c813c81db7fbcc3fb39"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga64805b423eab6c813c81db7fbcc3fb39"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dd9/group__vec__window.html#ga64805b423eab6c813c81db7fbcc3fb39">vecops::window::generate</a> (DataType *const output, SizeType size, <a class="el" href="../../d4/dd9/group__vec__window.html#gaeeecbe62b31e7d00be7fac5232223f93">Type</a> type)</td></tr>
-<tr class="memdesc:ga64805b423eab6c813c81db7fbcc3fb39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a window function of the desired <code>type</code> , writing the output samples to a vector.  <a href="../../d4/dd9/group__vec__window.html#ga64805b423eab6c813c81db7fbcc3fb39">More...</a><br /></td></tr>
-<tr class="separator:ga64805b423eab6c813c81db7fbcc3fb39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3d3edac6f20b9509c8bed6fd6187e0e3"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga3d3edac6f20b9509c8bed6fd6187e0e3"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dd9/group__vec__window.html#ga3d3edac6f20b9509c8bed6fd6187e0e3">vecops::window::apply</a> (DataType *const output, SizeType size, <a class="el" href="../../d4/dd9/group__vec__window.html#gaeeecbe62b31e7d00be7fac5232223f93">Type</a> type)</td></tr>
-<tr class="memdesc:ga3d3edac6f20b9509c8bed6fd6187e0e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a window function of the desired <code>type</code> to the samples in the vector.  <a href="../../d4/dd9/group__vec__window.html#ga3d3edac6f20b9509c8bed6fd6187e0e3">More...</a><br /></td></tr>
-<tr class="separator:ga3d3edac6f20b9509c8bed6fd6187e0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac33355d3cea76811891aaea5c449fc48"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:gac33355d3cea76811891aaea5c449fc48"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dd9/group__vec__window.html#gac33355d3cea76811891aaea5c449fc48">vecops::window::applyAndCopy</a> (DataType *const dest, const DataType *const data, SizeType size, <a class="el" href="../../d4/dd9/group__vec__window.html#gaeeecbe62b31e7d00be7fac5232223f93">Type</a> type)</td></tr>
-<tr class="memdesc:gac33355d3cea76811891aaea5c449fc48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a window function of the desired <code>type</code> to the samples in the vector, writing the output samples to another vector.  <a href="../../d4/dd9/group__vec__window.html#gac33355d3cea76811891aaea5c449fc48">More...</a><br /></td></tr>
-<tr class="separator:gac33355d3cea76811891aaea5c449fc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:gafae745fa2a27b2dfb578d0c92c6a57aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a type of windowing function.  <a href="../../d4/dd9/group__vec__window.html#gafae745fa2a27b2dfb578d0c92c6a57aa">More...</a><br /></td></tr>
+<tr class="separator:gafae745fa2a27b2dfb578d0c92c6a57aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1068019ee279ba3015817085dac383eb"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga1068019ee279ba3015817085dac383eb"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dd9/group__vec__window.html#ga1068019ee279ba3015817085dac383eb">limes::vecops::window::generate</a> (DataType *const output, SizeType size, <a class="el" href="../../d4/dd9/group__vec__window.html#gafae745fa2a27b2dfb578d0c92c6a57aa">Type</a> type)</td></tr>
+<tr class="memdesc:ga1068019ee279ba3015817085dac383eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a window function of the desired <code>type</code> , writing the output samples to a vector.  <a href="../../d4/dd9/group__vec__window.html#ga1068019ee279ba3015817085dac383eb">More...</a><br /></td></tr>
+<tr class="separator:ga1068019ee279ba3015817085dac383eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga03c34103e0ff42a0d56e83131eda1eaa"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga03c34103e0ff42a0d56e83131eda1eaa"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dd9/group__vec__window.html#ga03c34103e0ff42a0d56e83131eda1eaa">limes::vecops::window::apply</a> (DataType *const output, SizeType size, <a class="el" href="../../d4/dd9/group__vec__window.html#gafae745fa2a27b2dfb578d0c92c6a57aa">Type</a> type)</td></tr>
+<tr class="memdesc:ga03c34103e0ff42a0d56e83131eda1eaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a window function of the desired <code>type</code> to the samples in the vector.  <a href="../../d4/dd9/group__vec__window.html#ga03c34103e0ff42a0d56e83131eda1eaa">More...</a><br /></td></tr>
+<tr class="separator:ga03c34103e0ff42a0d56e83131eda1eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa2e3dc8415ebcfbc3b0521e1dd4de509"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:gaa2e3dc8415ebcfbc3b0521e1dd4de509"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dd9/group__vec__window.html#gaa2e3dc8415ebcfbc3b0521e1dd4de509">limes::vecops::window::applyAndCopy</a> (DataType *const dest, const DataType *const data, SizeType size, <a class="el" href="../../d4/dd9/group__vec__window.html#gafae745fa2a27b2dfb578d0c92c6a57aa">Type</a> type)</td></tr>
+<tr class="memdesc:gaa2e3dc8415ebcfbc3b0521e1dd4de509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a window function of the desired <code>type</code> to the samples in the vector, writing the output samples to another vector.  <a href="../../d4/dd9/group__vec__window.html#gaa2e3dc8415ebcfbc3b0521e1dd4de509">More...</a><br /></td></tr>
+<tr class="separator:gaa2e3dc8415ebcfbc3b0521e1dd4de509"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Windowing functions for vectors. </p>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="gaeeecbe62b31e7d00be7fac5232223f93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaeeecbe62b31e7d00be7fac5232223f93">&#9670;&nbsp;</a></span>Type</h2>
+<a id="gafae745fa2a27b2dfb578d0c92c6a57aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafae745fa2a27b2dfb578d0c92c6a57aa">&#9670;&nbsp;</a></span>Type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +143,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="../../d4/dd9/group__vec__window.html#gaeeecbe62b31e7d00be7fac5232223f93">vecops::window::Type</a></td>
+          <td class="memname">enum <a class="el" href="../../d4/dd9/group__vec__window.html#gafae745fa2a27b2dfb578d0c92c6a57aa">limes::vecops::window::Type</a></td>
         </tr>
       </table>
   </td>
@@ -163,19 +156,14 @@ Functions</h2></td></tr>
 <p><code>#include &lt;<a class="el" href="../../de/d1f/limes__vecops_8h.html">limes_vecops.h</a>&gt;</code></p>
 
 <p>Represents a type of windowing function. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaeeecbe62b31e7d00be7fac5232223f93ab3935d5829173f20d58fc5f0405867b9"></a>Blackman&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ggaeeecbe62b31e7d00be7fac5232223f93aea72b9f0db73025c8aaedae0f7b874f8"></a>Hamm&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ggaeeecbe62b31e7d00be7fac5232223f93a46cd7c18d353a946c8263515a17662f2"></a>Hanning&#160;</td><td class="fielddoc"></td></tr>
-</table>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l01165">1165</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga3d3edac6f20b9509c8bed6fd6187e0e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3d3edac6f20b9509c8bed6fd6187e0e3">&#9670;&nbsp;</a></span>apply()</h2>
+<a id="ga03c34103e0ff42a0d56e83131eda1eaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga03c34103e0ff42a0d56e83131eda1eaa">&#9670;&nbsp;</a></span>apply()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -183,7 +171,7 @@ Functions</h2></td></tr>
 template&lt;Scalar DataType, Integral SizeType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORT void vecops::window::apply </td>
+          <td class="memname">LIMES_EXPORT void limes::vecops::window::apply </td>
           <td>(</td>
           <td class="paramtype">DataType *const&#160;</td>
           <td class="paramname"><em>output</em>, </td>
@@ -197,7 +185,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/dd9/group__vec__window.html#gaeeecbe62b31e7d00be7fac5232223f93">Type</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/group__vec__window.html#gafae745fa2a27b2dfb578d0c92c6a57aa">Type</a>&#160;</td>
           <td class="paramname"><em>type</em>&#160;</td>
         </tr>
         <tr>
@@ -216,8 +204,8 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 </div>
 </div>
-<a id="gac33355d3cea76811891aaea5c449fc48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac33355d3cea76811891aaea5c449fc48">&#9670;&nbsp;</a></span>applyAndCopy()</h2>
+<a id="gaa2e3dc8415ebcfbc3b0521e1dd4de509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa2e3dc8415ebcfbc3b0521e1dd4de509">&#9670;&nbsp;</a></span>applyAndCopy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -225,7 +213,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 template&lt;Scalar DataType, Integral SizeType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORT void vecops::window::applyAndCopy </td>
+          <td class="memname">LIMES_EXPORT void limes::vecops::window::applyAndCopy </td>
           <td>(</td>
           <td class="paramtype">DataType *const&#160;</td>
           <td class="paramname"><em>dest</em>, </td>
@@ -245,7 +233,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/dd9/group__vec__window.html#gaeeecbe62b31e7d00be7fac5232223f93">Type</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/group__vec__window.html#gafae745fa2a27b2dfb578d0c92c6a57aa">Type</a>&#160;</td>
           <td class="paramname"><em>type</em>&#160;</td>
         </tr>
         <tr>
@@ -264,8 +252,8 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 </div>
 </div>
-<a id="ga64805b423eab6c813c81db7fbcc3fb39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga64805b423eab6c813c81db7fbcc3fb39">&#9670;&nbsp;</a></span>generate()</h2>
+<a id="ga1068019ee279ba3015817085dac383eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1068019ee279ba3015817085dac383eb">&#9670;&nbsp;</a></span>generate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,7 +261,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 template&lt;Scalar DataType, Integral SizeType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">LIMES_EXPORT void vecops::window::generate </td>
+          <td class="memname">LIMES_EXPORT void limes::vecops::window::generate </td>
           <td>(</td>
           <td class="paramtype">DataType *const&#160;</td>
           <td class="paramname"><em>output</em>, </td>
@@ -287,7 +275,7 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d4/dd9/group__vec__window.html#gaeeecbe62b31e7d00be7fac5232223f93">Type</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/dd9/group__vec__window.html#gafae745fa2a27b2dfb578d0c92c6a57aa">Type</a>&#160;</td>
           <td class="paramname"><em>type</em>&#160;</td>
         </tr>
         <tr>
@@ -306,60 +294,12 @@ template&lt;Scalar DataType, Integral SizeType&gt; </div>
 
 </div>
 </div>
-<a id="ga8ab157fe4613e75312485819c047ab56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8ab157fe4613e75312485819c047ab56">&#9670;&nbsp;</a></span>ncos()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Scalar ValueType, Integral SizeType&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">LIMES_NO_EXPORT <a class="el" href="../../d4/d37/group__system.html#ga16865b999504e0621f83caecfec93bcc">LIMES_FORCE_INLINE</a> ValueType vecops::fb::window::detail::ncos </td>
-          <td>(</td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>order</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeType&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;<a class="el" href="../../d3/d3f/fallback__impl_8h.html">fallback_impl.h</a>&gt;</code></p>
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html#l01122">1122</a> of file <a class="el" href="../../d3/d3f/fallback__impl_8h_source.html">fallback_impl.h</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon May 30 2022 07:04:01 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 10:15:21 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

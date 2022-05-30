@@ -1,8 +1,8 @@
 var languages_8h =
 [
-    [ "Language", "d5/db6/structlocale_1_1_language.html", "d5/db6/structlocale_1_1_language" ],
-    [ "getAllKnownLanguages", "d0/d0f/languages_8h.html#gae47ba49b20a945e9d925d71610c1183e", null ],
-    [ "getLanguage", "d0/d0f/languages_8h.html#gace306aa0dfcae7ac36db5bd2047e664a", null ],
-    [ "getLanguageForCode", "d0/d0f/languages_8h.html#gae2a4889b42da4f8cc121814805e3b775", null ],
-    [ "getLanguagesForCountry", "d0/d0f/languages_8h.html#ga5a9ca617c05af633b214fe6043698e6e", null ]
+    [ "Language", "d7/d51/structlimes_1_1locale_1_1_language.html", "d7/d51/structlimes_1_1locale_1_1_language" ],
+    [ "getAllKnownLanguages", "d0/d0f/languages_8h.html#ga009aae4338e31ecb94fda7d05b7c0472", null ],
+    [ "getLanguage", "d0/d0f/languages_8h.html#gad9bb163218bee484386b5f917327c64c", null ],
+    [ "getLanguageForCode", "d0/d0f/languages_8h.html#ga5a6c668e9ebaca0cf57f2057127f29f6", null ],
+    [ "getLanguagesForCountry", "d0/d0f/languages_8h.html#gafb9dcedf3cfe5ea5e39b19077a1b07ac", null ]
 ];

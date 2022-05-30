@@ -121,279 +121,271 @@ $(document).ready(function(){initNavTree('d2/daa/_memory_pool_8h_source.html','.
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d4/daf/namespacememory.html">memory</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span>memory</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#pragma mark MemoryPool</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d7/db7/classmemory_1_1_memory_pool.html">   46</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> final</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html">   46</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html">MemoryPool</a> final</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a> (std::size_t storageSizeBytes, std::size_t chunkSize = 32);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html">MemoryPool</a> (std::size_t storageSizeBytes, std::size_t chunkSize = 32);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">static</span> std::unique_ptr&lt;MemoryPool&gt; <a class="code" href="../../d4/daf/namespacememory.html#ac5870c91fc3ffdf022b7714afb4e4d63">createFor</a> (std::size_t desiredCapacity);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    ~<a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (<a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga3c9f53b7d1a99a02600fdbe81a772f82">LIMES_NON_MOVABLE</a> (<a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    [[nodiscard]] std::size_t getTotalSize() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> getTotalCapacity() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    [[nodiscard]] std::size_t getRemainingSpace() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> getRemainingCapacity() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    [[nodiscard]] std::size_t getChunkSize() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    [[nodiscard]] <span class="keywordtype">void</span>* allocate (std::size_t numBytesToAllocate) noexcept;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    [[nodiscard]] <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>* allocate() noexcept;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    [[nodiscard]] <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>* construct (Args&amp;&amp;... constructorArgs) noexcept (noexcept (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a> (std::forward&lt;Args&gt; (constructorArgs)...)));</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    [[nodiscard]] <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>&amp; constructOrBust (Args&amp;&amp;... constructorArgs);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> deallocate (<span class="keywordtype">void</span>* ptr, std::size_t numBytes) noexcept;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> deallocate (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>* <span class="keyword">const</span> <span class="keywordtype">object</span>) noexcept;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">void</span> destruct (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>&amp; <span class="keywordtype">object</span>) noexcept;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="../../d2/d9f/namespacealg.html#ad811e97da051a2a578697084d10f0681">contains</a> (<span class="keywordtype">void</span>* ptr) <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> owns (<span class="keyword">const</span> <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>&amp; <span class="keywordtype">object</span>) <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    [[nodiscard]] <span class="keyword">const</span> <span class="keywordtype">void</span>* getMemoryRootLocation() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keyword">struct </span>Chunk final</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keyword">explicit</span> Chunk (std::byte* <span class="keyword">const</span> ptr) noexcept;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        std::byte* <span class="keyword">const</span> location;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordtype">bool</span> isAvailable { <span class="keyword">true</span> };</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    };</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    std::vector&lt;Chunk&gt; chunks;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keyword">const</span> std::size_t totalSizeBytes;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">const</span> std::size_t chunkSizeBytes;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    std::byte* <span class="keyword">const</span> <a class="code" href="../../d4/daf/namespacememory.html">memory</a>;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;};</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#pragma mark MemoryPoolPointer</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keywordtype">bool</span> AllowOverflowAllocation = false&gt;</div>
-<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">  175</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> final</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;{</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ad806f766437d35af1ba0bb28cc409c75">  180</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ad806f766437d35af1ba0bb28cc409c75">OwnedType</a> = <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> (<a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a>&amp; pool, Args&amp;&amp;... constructorArgs) noexcept ((! AllowOverflowAllocation) &amp;&amp; noexcept (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a> (std::forward&lt;Args&gt; (constructorArgs)...)));</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    ~<a class="code" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a>();</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (<a class="code" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a>);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a> (<a class="code" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a>);</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    [[nodiscard]] <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>* <a class="code" href="../../dd/d4b/namespacetypelist.html#ac0d5d67704d5ae1b86f03eb4c0b566df">get</a>() const noexcept { <span class="keywordflow">return</span> object; }</div>
-<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ada07e57a5229bfd54dedff83c53f5ac6">  203</a></span>&#160;    [[nodiscard]] <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>* <a class="code" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ada07e57a5229bfd54dedff83c53f5ac6">operator()</a>() const noexcept { <span class="keywordflow">return</span> object; }</div>
-<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a3f38d6bc52a88689221298adc80b22f2">  204</a></span>&#160;                              <span class="keyword">operator</span> <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>*() <span class="keyword">const</span> noexcept { <span class="keywordflow">return</span> object; }</div>
-<div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a6b829d136efa2c08b0160f920c085e06">  205</a></span>&#160;    <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>*               <a class="code" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a6b829d136efa2c08b0160f920c085e06">operator-&gt;</a>() const noexcept { <span class="keywordflow">return</span> object; }</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a6239bb0dbec6bb9bf1ca94311dcfe5bc">  211</a></span>&#160;    [[nodiscard]] <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>&amp; <a class="code" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a6239bb0dbec6bb9bf1ca94311dcfe5bc">operator*</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (<span class="keywordtype">object</span> != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">return</span> *object;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    }</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> isOwnedByPool() const noexcept;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;private:</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a>&amp; memoryPool;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>* <span class="keywordtype">object</span>;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;};</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="preprocessor">#pragma mark MemoryPool implementation</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00232"></a><span class="lineno"><a class="line" href="../../d4/daf/namespacememory.html#ac5870c91fc3ffdf022b7714afb4e4d63">  232</a></span>&#160;std::unique_ptr&lt;MemoryPool&gt; <a class="code" href="../../d4/daf/namespacememory.html#ac5870c91fc3ffdf022b7714afb4e4d63">createFor</a> (std::size_t desiredCapacity)</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;{</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordflow">return</span> std::make_unique&lt;MemoryPool&gt; (desiredCapacity * <span class="keyword">sizeof</span> (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>), <span class="keyword">sizeof</span> (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>));</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;}</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00238"></a><span class="lineno"><a class="line" href="../../d7/db7/classmemory_1_1_memory_pool.html#ac09a5fe672f16fa5bfdd36065527406f">  238</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html#ac09a5fe672f16fa5bfdd36065527406f">MemoryPool::getTotalCapacity</a>() const noexcept</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;{</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span> (getTotalSize() / <span class="keyword">sizeof</span> (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>));</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;}</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="../../d7/db7/classmemory_1_1_memory_pool.html#ac02613d5e2036a45bd671adb9f70fc33">  244</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html#ac02613d5e2036a45bd671adb9f70fc33">MemoryPool::getRemainingCapacity</a>() const noexcept</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;{</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span> (getRemainingSpace() / <span class="keyword">sizeof</span> (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>));</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;}</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="../../d7/db7/classmemory_1_1_memory_pool.html#ac0a943d119043abd0fc464718c76e89f">  250</a></span>&#160;<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>* <a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html#ac0a943d119043abd0fc464718c76e89f">MemoryPool::allocate</a>() noexcept</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;{</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>*<span class="keyword">&gt;</span> (allocate (<span class="keyword">sizeof</span> (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>)));</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;}</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00256"></a><span class="lineno"><a class="line" href="../../d7/db7/classmemory_1_1_memory_pool.html#a0aaf924c949ad00dcb39475ebd8d685e">  256</a></span>&#160;<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>* <a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html#a0aaf924c949ad00dcb39475ebd8d685e">MemoryPool::construct</a> (Args&amp;&amp;... constructorArgs) noexcept (noexcept (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a> (std::forward&lt;Args&gt; (constructorArgs)...)))</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;{</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keyword">using</span> <a class="code" href="../../db/d97/group__hashes.html#gadd3ce0ac3d3c8404d1b002ab4e064db9">Type</a> = <span class="keyword">typename</span> std::remove_cv&lt;ObjectType&gt;::type;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* address = allocate&lt;Type&gt;())</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keywordflow">return</span> std::construct_at (address, std::forward&lt;Args&gt; (constructorArgs)...);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> std::unique_ptr&lt;MemoryPool&gt; createFor (std::size_t desiredCapacity) noexcept;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    ~<a class="code" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html">MemoryPool</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (<a class="code" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html">MemoryPool</a>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga3c9f53b7d1a99a02600fdbe81a772f82">LIMES_NON_MOVABLE</a> (<a class="code" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html">MemoryPool</a>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    [[nodiscard]] std::size_t getTotalSize() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> getTotalCapacity() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    [[nodiscard]] std::size_t getRemainingSpace() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> getRemainingCapacity() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    [[nodiscard]] std::size_t getChunkSize() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    [[nodiscard]] <span class="keywordtype">void</span>* allocate (std::size_t numBytesToAllocate) noexcept;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    [[nodiscard]] ObjectType* allocate() noexcept;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    [[nodiscard]] ObjectType* construct (Args&amp;&amp;... constructorArgs) noexcept (noexcept (ObjectType (std::forward&lt;Args&gt; (constructorArgs)...)));</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    [[nodiscard]] ObjectType&amp; constructOrBust (Args&amp;&amp;... constructorArgs);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> deallocate (<span class="keywordtype">void</span>* ptr, std::size_t numBytes) noexcept;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> deallocate (ObjectType* <span class="keyword">const</span> <span class="keywordtype">object</span>) noexcept;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">void</span> destruct (ObjectType&amp; <span class="keywordtype">object</span>) noexcept;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="../../dc/dcc/namespacelimes_1_1alg.html#aba286e43913119a0455b95819c6f6c37">contains</a> (<span class="keywordtype">void</span>* ptr) <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> owns (<span class="keyword">const</span> ObjectType&amp; <span class="keywordtype">object</span>) <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    [[nodiscard]] <span class="keyword">const</span> <span class="keywordtype">void</span>* getMemoryRootLocation() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keyword">struct </span>Chunk final</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keyword">explicit</span> Chunk (std::byte* <span class="keyword">const</span> ptr) noexcept;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        std::byte* <span class="keyword">const</span> location;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordtype">bool</span> isAvailable { <span class="keyword">true</span> };</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    };</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    std::vector&lt;Chunk&gt; chunks;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">const</span> std::size_t totalSizeBytes;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">const</span> std::size_t chunkSizeBytes;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    std::byte* <span class="keyword">const</span> memory;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;};</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">#pragma mark MemoryPoolPointer</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keywordtype">bool</span> AllowOverflowAllocation = false&gt;</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html">  176</a></span>&#160;<span class="keyword">class </span>LIMES_EXPORT <a class="code" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> final</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;{</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#aca4fac1e2b28438cebfe44a905b7c0a7">  181</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#aca4fac1e2b28438cebfe44a905b7c0a7">OwnedType</a> = ObjectType;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a> (<a class="code" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html">MemoryPool</a>&amp; pool, Args&amp;&amp;... constructorArgs) noexcept ((! AllowOverflowAllocation) &amp;&amp; noexcept (ObjectType (std::forward&lt;Args&gt; (constructorArgs)...)));</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    ~<a class="code" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a>();</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (<a class="code" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a>);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a> (<a class="code" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html">MemoryPoolPointer</a>);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    [[nodiscard]] ObjectType* get() const noexcept { <span class="keywordflow">return</span> object; }</div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#a4c57ed223320aec448aeb649dd286331">  204</a></span>&#160;    [[nodiscard]] ObjectType* <a class="code" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#a4c57ed223320aec448aeb649dd286331">operator()</a>() const noexcept { <span class="keywordflow">return</span> object; }</div>
+<div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#afab4471552dafb96ab547a6c57fd2454">  205</a></span>&#160;                              <span class="keyword">operator</span> ObjectType*() <span class="keyword">const</span> noexcept { <span class="keywordflow">return</span> object; }</div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#aeb9cb0c3aa1dfb5ef9463ded41d1bc6b">  206</a></span>&#160;    ObjectType*               <a class="code" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#aeb9cb0c3aa1dfb5ef9463ded41d1bc6b">operator-&gt;</a>() const noexcept { <span class="keywordflow">return</span> object; }</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#a8fd63cd80ffff15721311cc082214451">  212</a></span>&#160;    [[nodiscard]] ObjectType&amp; <a class="code" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#a8fd63cd80ffff15721311cc082214451">operator*</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (<span class="keywordtype">object</span> != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">return</span> *object;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    }</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> isOwnedByPool() const noexcept;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;private:</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <a class="code" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html">MemoryPool</a>&amp; memoryPool;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    ObjectType* <span class="keywordtype">object</span>;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;};</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="preprocessor">#pragma mark MemoryPool implementation</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html#aadd29a5c4ecdff792861f7ceb35b177c">  233</a></span>&#160;std::unique_ptr&lt;MemoryPool&gt; MemoryPool::createFor (std::size_t desiredCapacity) noexcept</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;{</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    {</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">return</span> std::make_unique&lt;MemoryPool&gt; (desiredCapacity * <span class="keyword">sizeof</span> (ObjectType), <span class="keyword">sizeof</span> (ObjectType));</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordflow">catch</span> (std::exception&amp;)</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    {</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    }</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;}</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00246"></a><span class="lineno"><a class="line" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a3eb66ff22d357282efd9dbe92c1ca2c3">  246</a></span>&#160;<span class="keywordtype">int</span> MemoryPool::getTotalCapacity() const noexcept</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;{</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span> (getTotalSize() / <span class="keyword">sizeof</span> (ObjectType));</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;}</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a0bf7a1c4016a81c8e5442d300c3d0e7e">  252</a></span>&#160;<span class="keywordtype">int</span> MemoryPool::getRemainingCapacity() const noexcept</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;{</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span> (getRemainingSpace() / <span class="keyword">sizeof</span> (ObjectType));</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;}</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a539da3ba77e895176bd8469879d622fc">  258</a></span>&#160;ObjectType* MemoryPool::allocate() noexcept</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;{</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>ObjectType*<span class="keyword">&gt;</span> (allocate (<span class="keyword">sizeof</span> (ObjectType)));</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;}</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;}</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="../../d7/db7/classmemory_1_1_memory_pool.html#a738e23812da135ce40163168ba3320ce">  267</a></span>&#160;<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>&amp; <a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html#a738e23812da135ce40163168ba3320ce">MemoryPool::constructOrBust</a> (Args&amp;&amp;... constructorArgs)</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;{</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keyword">using</span> <a class="code" href="../../db/d97/group__hashes.html#gadd3ce0ac3d3c8404d1b002ab4e064db9">Type</a> = <span class="keyword">typename</span> std::remove_cv&lt;ObjectType&gt;::type;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a5aabcf14fcb9d46166a58573b6870f3c">  264</a></span>&#160;ObjectType* MemoryPool::construct (Args&amp;&amp;... constructorArgs) noexcept (noexcept (ObjectType (std::forward&lt;Args&gt; (constructorArgs)...)))</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;{</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keyword">using</span> <a class="code" href="../../db/d97/group__hashes.html#ga7290f29c6f9b58018db0de3e25e0475d">Type</a> = <span class="keyword">typename</span> std::remove_cv&lt;ObjectType&gt;::type;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* address = allocate&lt;Type&gt;())</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <span class="keywordflow">return</span> std::construct_at (address, std::forward&lt;Args&gt; (constructorArgs)...);</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* address = allocate&lt;Type&gt;())</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        <span class="keywordflow">return</span> std::construct_at (address, std::forward&lt;Args&gt; (constructorArgs)...);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;}</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">new</span> <a class="code" href="../../db/d97/group__hashes.html#gadd3ce0ac3d3c8404d1b002ab4e064db9">Type</a> (std::forward&lt;Args&gt; (constructorArgs)...);</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;}</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00278"></a><span class="lineno"><a class="line" href="../../d7/db7/classmemory_1_1_memory_pool.html#a27186b1031fe082a1348870960cb5677">  278</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html#a2b753c3731bc2c4d428617dfc2d4980a">MemoryPool::deallocate</a> (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>* <span class="keyword">const</span> <span class="keywordtype">object</span>) noexcept</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;{</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    deallocate (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span> (&amp;<span class="keywordtype">object</span>), <span class="keyword">sizeof</span> (<span class="keywordtype">object</span>));</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;}</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="../../d7/db7/classmemory_1_1_memory_pool.html#abc038159ca0b33b93e7eb2fe07fc0f39">  284</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html#abc038159ca0b33b93e7eb2fe07fc0f39">MemoryPool::destruct</a> (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>&amp; <span class="keywordtype">object</span>) noexcept</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;{</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    {</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>* address = std::addressof (<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        deallocate (address);</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        std::destroy_at (address);</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    }</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keywordflow">catch</span> (std::exception&amp;)</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    {</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    }</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;}</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00299"></a><span class="lineno"><a class="line" href="../../d7/db7/classmemory_1_1_memory_pool.html#abe7fbdd937281bd039d1c4f8dc471c88">  299</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html#abe7fbdd937281bd039d1c4f8dc471c88">MemoryPool::owns</a> (<span class="keyword">const</span> <a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a>&amp; <span class="keywordtype">object</span>) <span class="keyword">const</span> noexcept</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;{</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d2/d9f/namespacealg.html#ad811e97da051a2a578697084d10f0681">contains</a> (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span> (std::addressof (<span class="keywordtype">object</span>)));</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;}</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a419feff9fd80841d3d281b926c8252cc">  275</a></span>&#160;ObjectType&amp; MemoryPool::constructOrBust (Args&amp;&amp;... constructorArgs)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;{</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keyword">using</span> <a class="code" href="../../db/d97/group__hashes.html#ga7290f29c6f9b58018db0de3e25e0475d">Type</a> = <span class="keyword">typename</span> std::remove_cv&lt;ObjectType&gt;::type;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* address = allocate&lt;Type&gt;())</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keywordflow">return</span> std::construct_at (address, std::forward&lt;Args&gt; (constructorArgs)...);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">new</span> <a class="code" href="../../db/d97/group__hashes.html#ga7290f29c6f9b58018db0de3e25e0475d">Type</a> (std::forward&lt;Args&gt; (constructorArgs)...);</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;}</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html#ae9f585dc97e3d181f68e31ed83b9f489">  286</a></span>&#160;<span class="keywordtype">void</span> MemoryPool::deallocate (ObjectType* <span class="keyword">const</span> <span class="keywordtype">object</span>) noexcept</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;{</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    deallocate (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span> (&amp;<span class="keywordtype">object</span>), <span class="keyword">sizeof</span> (<span class="keywordtype">object</span>));</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;}</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00292"></a><span class="lineno"><a class="line" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html#acb71aef746fe8294e2cf46fb198247cf">  292</a></span>&#160;<span class="keywordtype">void</span> MemoryPool::destruct (ObjectType&amp; <span class="keywordtype">object</span>) noexcept</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;{</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    {</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>* address = std::addressof (<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        deallocate (address);</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        std::destroy_at (address);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    }</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordflow">catch</span> (std::exception&amp;)</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    {</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    }</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;}</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="preprocessor">#pragma mark MemoryPoolPointer implementation</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keywordtype">bool</span> AllowOverflowAllocation&gt;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#aff8a522538b6f21bb8ea06b4a4b5d6e7">  310</a></span>&#160;<a class="code" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#aff8a522538b6f21bb8ea06b4a4b5d6e7">MemoryPoolPointer&lt;ObjectType, AllowOverflowAllocation&gt;::MemoryPoolPointer</a> (<a class="code" href="../../d7/db7/classmemory_1_1_memory_pool.html">MemoryPool</a>&amp; pool, Args&amp;&amp;... constructorArgs) noexcept ((! AllowOverflowAllocation) &amp;&amp; noexcept (<a class="code" href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">ObjectType</a> (std::forward&lt;Args&gt; (constructorArgs)...)))</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    : memoryPool (pool)</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;{</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keywordflow">if</span> constexpr (AllowOverflowAllocation)</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="keywordtype">object</span> = &amp;(pool.constructOrBust (std::forward&lt;Args&gt; (constructorArgs)...));  <span class="comment">// cppcheck-suppress redundantAssignment</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    {</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <span class="keywordtype">object</span> = pool.construct (std::forward&lt;Args&gt; (constructorArgs)...);  <span class="comment">// cppcheck-suppress redundantAssignment</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (<span class="keywordtype">object</span> != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    }</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;}</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keywordtype">bool</span> AllowOverflowAllocation&gt;</div>
-<div class="line"><a name="l00323"></a><span class="lineno"><a class="line" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a18ddd0204a55637168502311e08ad8a3">  323</a></span>&#160;<a class="code" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a18ddd0204a55637168502311e08ad8a3">MemoryPoolPointer&lt;ObjectType, AllowOverflowAllocation&gt;::~MemoryPoolPointer</a>()</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;{</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">if</span> (<span class="keywordtype">object</span> != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        memoryPool.destruct (*<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;}</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keywordtype">bool</span> AllowOverflowAllocation&gt;</div>
-<div class="line"><a name="l00330"></a><span class="lineno"><a class="line" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ac12877ca81ae44676e120319acf16703">  330</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ac12877ca81ae44676e120319acf16703">MemoryPoolPointer&lt;ObjectType, AllowOverflowAllocation&gt;::isOwnedByPool</a>() const noexcept</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;{</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">if</span> constexpr (! AllowOverflowAllocation)</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <span class="keywordflow">return</span> <span class="keywordtype">object</span> != <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    {</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="keywordflow">if</span> (<span class="keywordtype">object</span> == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <span class="keywordflow">return</span> memoryPool.owns (*<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    }</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;}</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;}  <span class="comment">// namespace memory</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html#af195dad3b61facb68d8d11b1fd74ae92">  307</a></span>&#160;<span class="keywordtype">bool</span> MemoryPool::owns (<span class="keyword">const</span> ObjectType&amp; <span class="keywordtype">object</span>) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;{</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../dc/dcc/namespacelimes_1_1alg.html#aba286e43913119a0455b95819c6f6c37">contains</a> (<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span> (std::addressof (<span class="keywordtype">object</span>)));</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;}</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="preprocessor">#pragma mark MemoryPoolPointer implementation</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keywordtype">bool</span> AllowOverflowAllocation&gt;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00318"></a><span class="lineno"><a class="line" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#a8af2d6bfa02bf72832b17b77262d8349">  318</a></span>&#160;<a class="code" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html">MemoryPoolPointer&lt;ObjectType, AllowOverflowAllocation&gt;::MemoryPoolPointer</a> (<a class="code" href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html">MemoryPool</a>&amp; pool, Args&amp;&amp;... constructorArgs) noexcept ((! AllowOverflowAllocation) &amp;&amp; noexcept (ObjectType (std::forward&lt;Args&gt; (constructorArgs)...)))</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    : memoryPool (pool)</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;{</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="keywordflow">if</span> constexpr (AllowOverflowAllocation)</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keywordtype">object</span> = &amp;(pool.constructOrBust (std::forward&lt;Args&gt; (constructorArgs)...));  <span class="comment">// cppcheck-suppress redundantAssignment</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    {</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="keywordtype">object</span> = pool.construct (std::forward&lt;Args&gt; (constructorArgs)...);  <span class="comment">// cppcheck-suppress redundantAssignment</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (<span class="keywordtype">object</span> != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    }</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;}</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keywordtype">bool</span> AllowOverflowAllocation&gt;</div>
+<div class="line"><a name="l00331"></a><span class="lineno"><a class="line" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#ad5050712d837fe86b6e408625c4fd6ee">  331</a></span>&#160;<a class="code" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html">MemoryPoolPointer&lt;ObjectType, AllowOverflowAllocation&gt;::~MemoryPoolPointer</a>()</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;{</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordflow">if</span> (<span class="keywordtype">object</span> != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        memoryPool.destruct (*<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;}</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType, <span class="keywordtype">bool</span> AllowOverflowAllocation&gt;</div>
+<div class="line"><a name="l00338"></a><span class="lineno"><a class="line" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#a668b99c48e2a5fbf781078e5724f63c7">  338</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html">MemoryPoolPointer&lt;ObjectType, AllowOverflowAllocation&gt;::isOwnedByPool</a>() const noexcept</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;{</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">if</span> constexpr (! AllowOverflowAllocation)</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="keywordflow">return</span> <span class="keywordtype">object</span> != <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    {</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keywordflow">if</span> (<span class="keywordtype">object</span> == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordflow">return</span> memoryPool.owns (*<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    }</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;}</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;}  <span class="comment">// namespace memory</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassmemory_1_1_memory_pool_html"><div class="ttname"><a href="../../d7/db7/classmemory_1_1_memory_pool.html">memory::MemoryPool</a></div><div class="ttdoc">This class is a pool of preallocated memory that can be doled out in smaller chunks,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00046">MemoryPool.h:46</a></div></div>
-<div class="ttc" id="agroup__hashes_html_gadd3ce0ac3d3c8404d1b002ab4e064db9"><div class="ttname"><a href="../../db/d97/group__hashes.html#gadd3ce0ac3d3c8404d1b002ab4e064db9">hash::Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">Represents a type of hash function that comes with the Limes library.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dfb/hash_8h_source.html#l00051">hash.h:51</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_pointer_html_ad806f766437d35af1ba0bb28cc409c75"><div class="ttname"><a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ad806f766437d35af1ba0bb28cc409c75">memory::MemoryPoolPointer::OwnedType</a></div><div class="ttdeci">ObjectType OwnedType</div><div class="ttdoc">You can access the type of the owned object via this typedef.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00180">MemoryPool.h:180</a></div></div>
-<div class="ttc" id="anamespacememory_html"><div class="ttname"><a href="../../d4/daf/namespacememory.html">memory</a></div><div class="ttdoc">This namespace contains utilities for working with memory allocation and management.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/db8/_aligned_allocator_8h_source.html#l00031">AlignedAllocator.h:31</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_pointer_html_ada07e57a5229bfd54dedff83c53f5ac6"><div class="ttname"><a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ada07e57a5229bfd54dedff83c53f5ac6">memory::MemoryPoolPointer::operator()</a></div><div class="ttdeci">ObjectType * operator()() const noexcept</div><div class="ttdoc">Accessors Returns a pointer to the owned object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00203">MemoryPool.h:203</a></div></div>
+<div class="ttc" id="aclasslimes_1_1memory_1_1_memory_pool_pointer_html"><div class="ttname"><a href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html">limes::memory::MemoryPoolPointer</a></div><div class="ttdoc">A smart pointer to an object that lives within a MemoryPool.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00176">MemoryPool.h:176</a></div></div>
 <div class="ttc" id="agroup__system_html_gaa19294b73467ee63a3601fe2ff636b8c"><div class="ttname"><a href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a></div><div class="ttdeci">#define LIMES_NON_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00122">preprocessor.h:122</a></div></div>
 <div class="ttc" id="agroup__system_html_ga3c9f53b7d1a99a02600fdbe81a772f82"><div class="ttname"><a href="../../d4/d37/group__system.html#ga3c9f53b7d1a99a02600fdbe81a772f82">LIMES_NON_MOVABLE</a></div><div class="ttdeci">#define LIMES_NON_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00139">preprocessor.h:139</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_pointer_html_a6239bb0dbec6bb9bf1ca94311dcfe5bc"><div class="ttname"><a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a6239bb0dbec6bb9bf1ca94311dcfe5bc">memory::MemoryPoolPointer::operator*</a></div><div class="ttdeci">ObjectType &amp; operator*() const</div><div class="ttdoc">Returns a reference to the owned object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00211">MemoryPool.h:211</a></div></div>
-<div class="ttc" id="agroup__system_html_ga06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbb/limes__assert_8h_source.html#l00103">limes_assert.h:103</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_html_a738e23812da135ce40163168ba3320ce"><div class="ttname"><a href="../../d7/db7/classmemory_1_1_memory_pool.html#a738e23812da135ce40163168ba3320ce">memory::MemoryPool::constructOrBust</a></div><div class="ttdeci">ObjectType &amp; constructOrBust(Args &amp;&amp;... constructorArgs)</div><div class="ttdoc">Similar to construct(), but if allocation from the memory pool fails, falls back to a regular new cal...</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00267">MemoryPool.h:267</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_html_ac0a943d119043abd0fc464718c76e89f"><div class="ttname"><a href="../../d7/db7/classmemory_1_1_memory_pool.html#ac0a943d119043abd0fc464718c76e89f">memory::MemoryPool::allocate</a></div><div class="ttdeci">ObjectType * allocate() noexcept</div><div class="ttdoc">Allocates sizeof(ObjectType) bytes, and returns a typed pointer to the allocated memory location.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00250">MemoryPool.h:250</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_html_a0aaf924c949ad00dcb39475ebd8d685e"><div class="ttname"><a href="../../d7/db7/classmemory_1_1_memory_pool.html#a0aaf924c949ad00dcb39475ebd8d685e">memory::MemoryPool::construct</a></div><div class="ttdeci">ObjectType * construct(Args &amp;&amp;... constructorArgs) noexcept(noexcept(ObjectType(std::forward&lt; Args &gt;(constructorArgs)...)))</div><div class="ttdoc">Allocates space for an object and constructs it in the allocated memory space.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00256">MemoryPool.h:256</a></div></div>
-<div class="ttc" id="anamespacememory_html_ac5870c91fc3ffdf022b7714afb4e4d63"><div class="ttname"><a href="../../d4/daf/namespacememory.html#ac5870c91fc3ffdf022b7714afb4e4d63">memory::createFor</a></div><div class="ttdeci">std::unique_ptr&lt; MemoryPool &gt; createFor(std::size_t desiredCapacity)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00232">MemoryPool.h:232</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_pointer_html_ac12877ca81ae44676e120319acf16703"><div class="ttname"><a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#ac12877ca81ae44676e120319acf16703">memory::MemoryPoolPointer::isOwnedByPool</a></div><div class="ttdeci">bool isOwnedByPool() const noexcept</div><div class="ttdoc">Returns true if the object exists and was allocated from the memory pool.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00330">MemoryPool.h:330</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_html_ac09a5fe672f16fa5bfdd36065527406f"><div class="ttname"><a href="../../d7/db7/classmemory_1_1_memory_pool.html#ac09a5fe672f16fa5bfdd36065527406f">memory::MemoryPool::getTotalCapacity</a></div><div class="ttdeci">int getTotalCapacity() const noexcept</div><div class="ttdoc">Returns the total size of this memory pool, expressed as the number of ObjectType objects it can hold...</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00238">MemoryPool.h:238</a></div></div>
+<div class="ttc" id="agroup__system_html_ga06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbb/limes__assert_8h_source.html#l00105">limes_assert.h:105</a></div></div>
+<div class="ttc" id="aclasslimes_1_1memory_1_1_memory_pool_pointer_html_aca4fac1e2b28438cebfe44a905b7c0a7"><div class="ttname"><a href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#aca4fac1e2b28438cebfe44a905b7c0a7">limes::memory::MemoryPoolPointer::OwnedType</a></div><div class="ttdeci">ObjectType OwnedType</div><div class="ttdoc">You can access the type of the owned object via this typedef.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00181">MemoryPool.h:181</a></div></div>
+<div class="ttc" id="agroup__hashes_html_ga7290f29c6f9b58018db0de3e25e0475d"><div class="ttname"><a href="../../db/d97/group__hashes.html#ga7290f29c6f9b58018db0de3e25e0475d">limes::hash::Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">Represents a type of hash function that comes with the Limes library.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dfb/hash_8h_source.html#l00051">hash.h:51</a></div></div>
+<div class="ttc" id="aclasslimes_1_1memory_1_1_memory_pool_pointer_html_aeb9cb0c3aa1dfb5ef9463ded41d1bc6b"><div class="ttname"><a href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#aeb9cb0c3aa1dfb5ef9463ded41d1bc6b">limes::memory::MemoryPoolPointer::operator-&gt;</a></div><div class="ttdeci">ObjectType * operator-&gt;() const noexcept</div><div class="ttdoc">Accessors Returns a pointer to the owned object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00206">MemoryPool.h:206</a></div></div>
+<div class="ttc" id="aclasslimes_1_1memory_1_1_memory_pool_pointer_html_a8fd63cd80ffff15721311cc082214451"><div class="ttname"><a href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#a8fd63cd80ffff15721311cc082214451">limes::memory::MemoryPoolPointer::operator*</a></div><div class="ttdeci">ObjectType &amp; operator*() const</div><div class="ttdoc">Returns a reference to the owned object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00212">MemoryPool.h:212</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00039">limes_namespace.h:39</a></div></div>
-<div class="ttc" id="anamespacetypelist_html_ac0d5d67704d5ae1b86f03eb4c0b566df"><div class="ttname"><a href="../../dd/d4b/namespacetypelist.html#ac0d5d67704d5ae1b86f03eb4c0b566df">typelist::get</a></div><div class="ttdeci">struct LIMES_EXPORT get</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dfe/_type_list__impl_8h_source.html#l00357">TypeList_impl.h:357</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_pointer_html_aff8a522538b6f21bb8ea06b4a4b5d6e7"><div class="ttname"><a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#aff8a522538b6f21bb8ea06b4a4b5d6e7">memory::MemoryPoolPointer::MemoryPoolPointer</a></div><div class="ttdeci">MemoryPoolPointer(MemoryPool &amp;pool, Args &amp;&amp;... constructorArgs) noexcept((! AllowOverflowAllocation) &amp;&amp;noexcept(ObjectType(std::forward&lt; Args &gt;(constructorArgs)...)))</div><div class="ttdoc">Creates the owned object by allocating its memory from the passed memory pool.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00310">MemoryPool.h:310</a></div></div>
 <div class="ttc" id="agroup__system_html_gaa204cf467eb45621b139f7fbf6b0f503"><div class="ttname"><a href="../../d4/d37/group__system.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a></div><div class="ttdeci">#define LIMES_DEFAULT_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00175">preprocessor.h:175</a></div></div>
+<div class="ttc" id="aclasslimes_1_1memory_1_1_memory_pool_html"><div class="ttname"><a href="../../d2/d57/classlimes_1_1memory_1_1_memory_pool.html">limes::memory::MemoryPool</a></div><div class="ttdoc">This class is a pool of preallocated memory that can be doled out in smaller chunks,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00046">MemoryPool.h:46</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00027">limes_namespace.h:27</a></div></div>
-<div class="ttc" id="anamespacealg_html_ad811e97da051a2a578697084d10f0681"><div class="ttname"><a href="../../d2/d9f/namespacealg.html#ad811e97da051a2a578697084d10f0681">alg::contains</a></div><div class="ttdeci">constexpr LIMES_EXPORT bool contains(const ContainerType &amp;container, const ElementType&lt; ContainerType &gt; &amp;value)</div><div class="ttdoc">Returns true if the container contains the specified value.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dda/_algorithm_8h_source.html#l00070">Algorithm.h:70</a></div></div>
-<div class="ttc" id="anamespacejson_html_ab9033928f827dd8617b0431ad7f31c44"><div class="ttname"><a href="../../d1/db2/namespacejson.html#ab9033928f827dd8617b0431ad7f31c44">json::ObjectType</a></div><div class="ttdeci">ObjectType</div><div class="ttdoc">Represents the type of a JSON node.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d05/json_8h_source.html#l00031">json.h:31</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_html_ac02613d5e2036a45bd671adb9f70fc33"><div class="ttname"><a href="../../d7/db7/classmemory_1_1_memory_pool.html#ac02613d5e2036a45bd671adb9f70fc33">memory::MemoryPool::getRemainingCapacity</a></div><div class="ttdeci">int getRemainingCapacity() const noexcept</div><div class="ttdoc">Returns the remaining space in the pool, expressed as the number of additional ObjectType objects it ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00244">MemoryPool.h:244</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_pointer_html"><div class="ttname"><a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html">memory::MemoryPoolPointer</a></div><div class="ttdoc">A smart pointer to an object that lives within a MemoryPool.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00175">MemoryPool.h:175</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_pointer_html_a6b829d136efa2c08b0160f920c085e06"><div class="ttname"><a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a6b829d136efa2c08b0160f920c085e06">memory::MemoryPoolPointer::operator-&gt;</a></div><div class="ttdeci">ObjectType * operator-&gt;() const noexcept</div><div class="ttdoc">Accessors Returns a pointer to the owned object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00205">MemoryPool.h:205</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_html_a2b753c3731bc2c4d428617dfc2d4980a"><div class="ttname"><a href="../../d7/db7/classmemory_1_1_memory_pool.html#a2b753c3731bc2c4d428617dfc2d4980a">memory::MemoryPool::deallocate</a></div><div class="ttdeci">void deallocate(void *ptr, std::size_t numBytes) noexcept</div><div class="ttdoc">Deallocates a certain number of bytes at a specific location within the pool.</div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_html_abe7fbdd937281bd039d1c4f8dc471c88"><div class="ttname"><a href="../../d7/db7/classmemory_1_1_memory_pool.html#abe7fbdd937281bd039d1c4f8dc471c88">memory::MemoryPool::owns</a></div><div class="ttdeci">bool owns(const ObjectType &amp;object) const noexcept</div><div class="ttdoc">Returns true if the pool owns the specified object – ie, if the pointer to the object is within the p...</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00299">MemoryPool.h:299</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_html_abc038159ca0b33b93e7eb2fe07fc0f39"><div class="ttname"><a href="../../d7/db7/classmemory_1_1_memory_pool.html#abc038159ca0b33b93e7eb2fe07fc0f39">memory::MemoryPool::destruct</a></div><div class="ttdeci">void destruct(ObjectType &amp;object) noexcept</div><div class="ttdoc">Calls an object's destructor and frees its memory from the pool.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00284">MemoryPool.h:284</a></div></div>
-<div class="ttc" id="aclassmemory_1_1_memory_pool_pointer_html_a18ddd0204a55637168502311e08ad8a3"><div class="ttname"><a href="../../d1/d17/classmemory_1_1_memory_pool_pointer.html#a18ddd0204a55637168502311e08ad8a3">memory::MemoryPoolPointer::~MemoryPoolPointer</a></div><div class="ttdeci">~MemoryPoolPointer()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00323">MemoryPool.h:323</a></div></div>
+<div class="ttc" id="anamespacelimes_1_1alg_html_aba286e43913119a0455b95819c6f6c37"><div class="ttname"><a href="../../dc/dcc/namespacelimes_1_1alg.html#aba286e43913119a0455b95819c6f6c37">limes::alg::contains</a></div><div class="ttdeci">constexpr LIMES_EXPORT bool contains(const ContainerType &amp;container, const ElementType&lt; ContainerType &gt; &amp;value)</div><div class="ttdoc">Returns true if the container contains the specified value.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dda/_algorithm_8h_source.html#l00070">Algorithm.h:70</a></div></div>
+<div class="ttc" id="aclasslimes_1_1memory_1_1_memory_pool_pointer_html_a4c57ed223320aec448aeb649dd286331"><div class="ttname"><a href="../../d0/d6e/classlimes_1_1memory_1_1_memory_pool_pointer.html#a4c57ed223320aec448aeb649dd286331">limes::memory::MemoryPoolPointer::operator()</a></div><div class="ttdeci">ObjectType * operator()() const noexcept</div><div class="ttdoc">Accessors Returns a pointer to the owned object.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daa/_memory_pool_8h_source.html#l00204">MemoryPool.h:204</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_9a46d78c45cc3c1f9dc56c640d7c4019.html">memory</a></li><li class="navelem"><a class="el" href="../../d2/daa/_memory_pool_8h.html">MemoryPool.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 07:04:00 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 10:15:21 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

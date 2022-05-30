@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('d0/d0f/languages_8h.html','../../'); i
 <div class="contents">
 <div class="textblock"><code>#include &lt;limes_export.h&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
-<code>#include &lt;<a class="el" href="../../d8/d1d/limes__data__structures_8h_source.html">limes_data_structures.h</a>&gt;</code><br />
+<code>#include &lt;limes_data_structures.h&gt;</code><br />
 <code>#include &lt;limes_platform.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="../../da/d0b/limes__namespace_8h_source.html">limes_namespace.h</a>&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -124,30 +124,30 @@ $(document).ready(function(){initNavTree('d0/d0f/languages_8h.html','../../'); i
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/structlocale_1_1_language.html">locale::Language</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct represents metadata about a spoken human language.  <a href="../../d5/db6/structlocale_1_1_language.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d51/structlimes_1_1locale_1_1_language.html">limes::locale::Language</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct represents metadata about a spoken human language.  <a href="../../d7/d51/structlimes_1_1locale_1_1_language.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:de/d31/namespacelocale"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d31/namespacelocale.html">locale</a></td></tr>
-<tr class="memdesc:de/d31/namespacelocale"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains utilities for localization and internationalization. <br /></td></tr>
+<tr class="memitem:de/dcb/namespacelimes_1_1locale"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dcb/namespacelimes_1_1locale.html">limes::locale</a></td></tr>
+<tr class="memdesc:de/dcb/namespacelimes_1_1locale"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains utilities for localization and internationalization. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gae47ba49b20a945e9d925d71610c1183e"><td class="memItemLeft" align="right" valign="top">const LIMES_EXPORT <a class="el" href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector</a>&lt; Language &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dfc/group__loc__lang.html#gae47ba49b20a945e9d925d71610c1183e">locale::getAllKnownLanguages</a> ()</td></tr>
-<tr class="memdesc:gae47ba49b20a945e9d925d71610c1183e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all known <a class="el" href="../../d5/db6/structlocale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> objects in Limes's internal database.  <a href="../../df/dfc/group__loc__lang.html#gae47ba49b20a945e9d925d71610c1183e">More...</a><br /></td></tr>
-<tr class="separator:gae47ba49b20a945e9d925d71610c1183e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gace306aa0dfcae7ac36db5bd2047e664a"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT Language&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dfc/group__loc__lang.html#gace306aa0dfcae7ac36db5bd2047e664a">locale::getLanguage</a> (const std::string_view &amp;languageName)</td></tr>
-<tr class="memdesc:gace306aa0dfcae7ac36db5bd2047e664a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="../../d5/db6/structlocale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> object representing the language with the given name.  <a href="../../df/dfc/group__loc__lang.html#gace306aa0dfcae7ac36db5bd2047e664a">More...</a><br /></td></tr>
-<tr class="separator:gace306aa0dfcae7ac36db5bd2047e664a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae2a4889b42da4f8cc121814805e3b775"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT Language&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dfc/group__loc__lang.html#gae2a4889b42da4f8cc121814805e3b775">locale::getLanguageForCode</a> (const std::string_view &amp;ISOlanguageCode)</td></tr>
-<tr class="memdesc:gae2a4889b42da4f8cc121814805e3b775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="../../d5/db6/structlocale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> object representing the given ISO language code.  <a href="../../df/dfc/group__loc__lang.html#gae2a4889b42da4f8cc121814805e3b775">More...</a><br /></td></tr>
-<tr class="separator:gae2a4889b42da4f8cc121814805e3b775"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5a9ca617c05af633b214fe6043698e6e"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT <a class="el" href="../../d3/d4e/namespaceds.html#a813f9ca146f6e29fde2f5d40bf2bb870">ds::vector</a>&lt; Language &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dfc/group__loc__lang.html#ga5a9ca617c05af633b214fe6043698e6e">locale::getLanguagesForCountry</a> (const std::string_view &amp;countryCode)</td></tr>
-<tr class="memdesc:ga5a9ca617c05af633b214fe6043698e6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a vector of <a class="el" href="../../d5/db6/structlocale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> objects representing languages that may be spoken in the given country.  <a href="../../df/dfc/group__loc__lang.html#ga5a9ca617c05af633b214fe6043698e6e">More...</a><br /></td></tr>
-<tr class="separator:ga5a9ca617c05af633b214fe6043698e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga009aae4338e31ecb94fda7d05b7c0472"><td class="memItemLeft" align="right" valign="top">const LIMES_EXPORT ds::vector&lt; Language &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dfc/group__loc__lang.html#ga009aae4338e31ecb94fda7d05b7c0472">limes::locale::getAllKnownLanguages</a> ()</td></tr>
+<tr class="memdesc:ga009aae4338e31ecb94fda7d05b7c0472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns all known <a class="el" href="../../d7/d51/structlimes_1_1locale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> objects in Limes's internal database.  <a href="../../df/dfc/group__loc__lang.html#ga009aae4338e31ecb94fda7d05b7c0472">More...</a><br /></td></tr>
+<tr class="separator:ga009aae4338e31ecb94fda7d05b7c0472"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad9bb163218bee484386b5f917327c64c"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT Language&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dfc/group__loc__lang.html#gad9bb163218bee484386b5f917327c64c">limes::locale::getLanguage</a> (const std::string_view &amp;languageName)</td></tr>
+<tr class="memdesc:gad9bb163218bee484386b5f917327c64c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="../../d7/d51/structlimes_1_1locale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> object representing the language with the given name.  <a href="../../df/dfc/group__loc__lang.html#gad9bb163218bee484386b5f917327c64c">More...</a><br /></td></tr>
+<tr class="separator:gad9bb163218bee484386b5f917327c64c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a6c668e9ebaca0cf57f2057127f29f6"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT Language&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dfc/group__loc__lang.html#ga5a6c668e9ebaca0cf57f2057127f29f6">limes::locale::getLanguageForCode</a> (const std::string_view &amp;ISOlanguageCode)</td></tr>
+<tr class="memdesc:ga5a6c668e9ebaca0cf57f2057127f29f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="../../d7/d51/structlimes_1_1locale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> object representing the given ISO language code.  <a href="../../df/dfc/group__loc__lang.html#ga5a6c668e9ebaca0cf57f2057127f29f6">More...</a><br /></td></tr>
+<tr class="separator:ga5a6c668e9ebaca0cf57f2057127f29f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb9dcedf3cfe5ea5e39b19077a1b07ac"><td class="memItemLeft" align="right" valign="top">LIMES_EXPORT ds::vector&lt; Language &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dfc/group__loc__lang.html#gafb9dcedf3cfe5ea5e39b19077a1b07ac">limes::locale::getLanguagesForCountry</a> (const std::string_view &amp;countryCode)</td></tr>
+<tr class="memdesc:gafb9dcedf3cfe5ea5e39b19077a1b07ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a vector of <a class="el" href="../../d7/d51/structlimes_1_1locale_1_1_language.html" title="This struct represents metadata about a spoken human language.">Language</a> objects representing languages that may be spoken in the given country.  <a href="../../df/dfc/group__loc__lang.html#gafb9dcedf3cfe5ea5e39b19077a1b07ac">More...</a><br /></td></tr>
+<tr class="separator:gafb9dcedf3cfe5ea5e39b19077a1b07ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains utilities for retrieving information about languages. </p>
@@ -159,7 +159,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_8be6f37dbc74117fadbac95decbd80e0.html">limes_locale</a></li><li class="navelem"><a class="el" href="../../dir_47b0ae583f3ed7f7ec46ec3091da6450.html">languages</a></li><li class="navelem"><a class="el" href="../../d0/d0f/languages_8h.html">languages.h</a></li>
-    <li class="footer">Generated on Mon May 30 2022 07:04:00 for Limes by
+    <li class="footer">Generated on Mon May 30 2022 10:15:21 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

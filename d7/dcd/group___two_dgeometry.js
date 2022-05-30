@@ -9,5 +9,7 @@ var group___two_dgeometry =
     [ "pentagon.h", "dc/d7f/pentagon_8h.html", null ],
     [ "rectangle.h", "db/dd0/rectangle_8h.html", null ],
     [ "square.h", "d7/d3c/square_8h.html", null ],
-    [ "triangle.h", "dd/d6a/triangle_8h.html", null ]
+    [ "triangle.h", "dd/d6a/triangle_8h.html", null ],
+    [ "operator!=", "d7/dcd/group___two_dgeometry.html#gab0dead6a104d06879a90d644ce5d9012", null ],
+    [ "operator==", "d7/dcd/group___two_dgeometry.html#gaa9c05223626cee55eea487b8cde4e212", null ]
 ];

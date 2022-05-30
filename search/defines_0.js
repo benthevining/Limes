@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['align16_5fbeg_3136',['ALIGN16_BEG',['../d1/dda/sse__mathfun_8h.html#a62005079e778a9c6df9d13d750230df9',1,'sse_mathfun.h']]],
-  ['align16_5fend_3137',['ALIGN16_END',['../d1/dda/sse__mathfun_8h.html#afca1718cc8c37930bf399e47539094bd',1,'sse_mathfun.h']]]
+  ['fftw_5fdouble_5fonly_2299',['FFTW_DOUBLE_ONLY',['../dc/d24/fftw__fft_8h.html#a09e13e7bc904f98333229f65792654dc',1,'fftw_fft.h']]],
+  ['fftw_5fsingle_5fonly_2300',['FFTW_SINGLE_ONLY',['../dc/d24/fftw__fft_8h.html#afc2bf4398dc8eb9ce229e5548eb4d17a',1,'fftw_fft.h']]]
 ];

@@ -1,9 +1,9 @@
 var group__vec__impl =
 [
-    [ "getImplementationName", "db/db4/group__vec__impl.html#ga1a21f574f3d9ec4bcff2d04b4491e364", null ],
-    [ "isUsingFallback", "db/db4/group__vec__impl.html#ga467465de51d6f11e720ef4fd5e1bef4b", null ],
-    [ "isUsingIPP", "db/db4/group__vec__impl.html#ga6536142f4ae3b7eb733d5446657c7304", null ],
-    [ "isUsingMIPP", "db/db4/group__vec__impl.html#gac49ec9d0f787d23c27bc51ec2cbd5bdf", null ],
-    [ "isUsingPommierExtensions", "db/db4/group__vec__impl.html#ga6e828d61bfb16fafbdaf77a03870e93d", null ],
-    [ "isUsingVDSP", "db/db4/group__vec__impl.html#gaf183d34eeacbd6b3475b5e5a00a547ea", null ]
+    [ "getImplementationName", "db/db4/group__vec__impl.html#gabc56122dde2bafda9811cac992710534", null ],
+    [ "isUsingFallback", "db/db4/group__vec__impl.html#gaa1e0ee421a69ccfeda0fdb7566ebf7ad", null ],
+    [ "isUsingIPP", "db/db4/group__vec__impl.html#ga2c413d8ccf3a904a26a37a718f43f7d0", null ],
+    [ "isUsingMIPP", "db/db4/group__vec__impl.html#ga794cbb4e3efd0dedbef7f997394b377e", null ],
+    [ "isUsingPommierExtensions", "db/db4/group__vec__impl.html#ga9cb4f23a1af5d7e97a07cc09408e6de6", null ],
+    [ "isUsingVDSP", "db/db4/group__vec__impl.html#ga2fcec3be87d05af088e48a3716211827", null ]
 ];

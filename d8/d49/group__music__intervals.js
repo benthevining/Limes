@@ -6,8 +6,8 @@ var group__music__intervals =
     [ "Interval.h", "d1/d6b/_interval_8h.html", null ],
     [ "Interval_impl.h", "d6/dfa/_interval__impl_8h.html", null ],
     [ "MicrotonalInterval.h", "d7/da0/_microtonal_interval_8h.html", null ],
-    [ "operator+", "d8/d49/group__music__intervals.html#ga50eed5c23df17b2d8a0278bf5510c874", null ],
-    [ "operator+", "d8/d49/group__music__intervals.html#gae475ee52bf8520cc51cf51b561b5de77", null ],
-    [ "operator-", "d8/d49/group__music__intervals.html#ga19945e87ea06553681a3dee33bbdb848", null ],
-    [ "operator-", "d8/d49/group__music__intervals.html#ga240a833f0d12f505e8151aa992c585a1", null ]
+    [ "operator+", "d8/d49/group__music__intervals.html#gae9f00f0211829b3ad563a298d29dd522", null ],
+    [ "operator+", "d8/d49/group__music__intervals.html#ga77e5349553c4cd1ad938d0d22d1337d9", null ],
+    [ "operator-", "d8/d49/group__music__intervals.html#ga910495c7a05fbf3d7ff426f5fa9954f8", null ],
+    [ "operator-", "d8/d49/group__music__intervals.html#ga89389f65f14cd1f7e6246fc771e7959b", null ]
 ];

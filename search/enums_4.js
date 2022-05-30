@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['side_3067',['Side',['../dc/da1/classmath_1_1geometry_1_1_triangle.html#acecb461fd2ad8660cfcacc697de6bbe8',1,'math::geometry::Triangle']]],
-  ['stereoreductionmode_3068',['StereoReductionMode',['../d0/d41/namespacedsp.html#ab1a12ea0ed30dd9ebf7c261a68dc1d73',1,'dsp']]]
+  ['side_2297',['Side',['../db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#a6d14ddec1a4a4e9ad70960c6d6ccec2b',1,'limes::math::geometry::Triangle']]]
 ];

@@ -1,6 +1,6 @@
 var _microtonal_interval_8h =
 [
-    [ "MicrotonalInterval", "d3/d7a/classmusic_1_1_microtonal_interval.html", "d3/d7a/classmusic_1_1_microtonal_interval" ],
-    [ "operator+", "d7/da0/_microtonal_interval_8h.html#gae475ee52bf8520cc51cf51b561b5de77", null ],
-    [ "operator-", "d7/da0/_microtonal_interval_8h.html#ga240a833f0d12f505e8151aa992c585a1", null ]
+    [ "MicrotonalInterval", "dc/d2c/classlimes_1_1music_1_1_microtonal_interval.html", "dc/d2c/classlimes_1_1music_1_1_microtonal_interval" ],
+    [ "operator+", "d7/da0/_microtonal_interval_8h.html#ga77e5349553c4cd1ad938d0d22d1337d9", null ],
+    [ "operator-", "d7/da0/_microtonal_interval_8h.html#ga89389f65f14cd1f7e6246fc771e7959b", null ]
 ];

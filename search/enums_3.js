@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quality_3066',['Quality',['../d6/d89/classmusic_1_1_interval.html#a92dfb9d078d6e96c0a56351a0455258c',1,'music::Interval']]]
+  ['quality_2296',['Quality',['../da/d90/classlimes_1_1music_1_1_interval.html#a5bbd36b4b8812aa179a90c459dbcf7be',1,'limes::music::Interval']]]
 ];
