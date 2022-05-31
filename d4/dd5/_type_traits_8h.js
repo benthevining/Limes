@@ -1,7 +1,7 @@
 var _type_traits_8h =
 [
-    [ "getDemangledTypeName", "d4/dd5/_type_traits_8h.html#ga58aaa4dcbf798da7d3ed43635c4a7868", null ],
-    [ "getDemangledTypeName", "d4/dd5/_type_traits_8h.html#ga6e002d7ebd167b287b983da2669038b3", null ],
+    [ "getDemangledTypeName", "d4/dd5/_type_traits_8h.html#ga6c28fc31963404ed09a07d4117181ee2", null ],
+    [ "getDemangledTypeName", "d4/dd5/_type_traits_8h.html#gabf1ebcf6a9b51774bb0065caf5139467", null ],
     [ "convertible_to", "d4/dd5/_type_traits_8h.html#ga3504d8b86957ecbf83dec8fb8a6401ce", null ],
     [ "covariant_subtype_of", "d4/dd5/_type_traits_8h.html#ga7fbdca6ad24c2bb0bba2e4bd0c9a6ce7", null ],
     [ "inherits_from", "d4/dd5/_type_traits_8h.html#gab7269ffe8ffbe591c6764facb13e2771", null ],

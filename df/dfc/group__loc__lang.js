@@ -2,8 +2,8 @@ var group__loc__lang =
 [
     [ "languages", "dir_47b0ae583f3ed7f7ec46ec3091da6450.html", null ],
     [ "languages.h", "d0/d0f/languages_8h.html", null ],
-    [ "getAllKnownLanguages", "df/dfc/group__loc__lang.html#ga009aae4338e31ecb94fda7d05b7c0472", null ],
-    [ "getLanguage", "df/dfc/group__loc__lang.html#gad9bb163218bee484386b5f917327c64c", null ],
-    [ "getLanguageForCode", "df/dfc/group__loc__lang.html#ga5a6c668e9ebaca0cf57f2057127f29f6", null ],
-    [ "getLanguagesForCountry", "df/dfc/group__loc__lang.html#gafb9dcedf3cfe5ea5e39b19077a1b07ac", null ]
+    [ "getAllKnownLanguages", "df/dfc/group__loc__lang.html#ga11ae481240c4d4d320de358bc46a9396", null ],
+    [ "getLanguage", "df/dfc/group__loc__lang.html#ga746e6628a179acfa800d441c08c7bd66", null ],
+    [ "getLanguageForCode", "df/dfc/group__loc__lang.html#ga382c8c09f879ffd9be0a24088b2ee5cb", null ],
+    [ "getLanguagesForCountry", "df/dfc/group__loc__lang.html#gadb7784b01623f7aa80324d1ea10b6856", null ]
 ];

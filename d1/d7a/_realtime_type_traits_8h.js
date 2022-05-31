@@ -16,10 +16,6 @@ var _realtime_type_traits_8h =
     [ "is_realtime_move_constructable", "d3/d0b/structlimes_1_1threads_1_1is__realtime__move__constructable.html", null ],
     [ "is_realtime_copy_safe", "d1/d7a/_realtime_type_traits_8h.html#a7adf757eda75d7a3b25843a8eecdcd07", null ],
     [ "is_realtime_move_safe", "d1/d7a/_realtime_type_traits_8h.html#a2d52bd6f78be6bf72b3529ff3425f3a2", null ],
-    [ "assignable_tag", "d1/d7a/_realtime_type_traits_8h.html#gac163b986c1af276602bbc93f1d63709a", null ],
-    [ "constructible_tag", "d1/d7a/_realtime_type_traits_8h.html#ga2cdd50d685a5d2828e6ad3adc1b091a6", null ],
-    [ "copy_tag", "d1/d7a/_realtime_type_traits_8h.html#gad4e8851e33d99dd502af717be47d6082", null ],
-    [ "move_tag", "d1/d7a/_realtime_type_traits_8h.html#gab929ca0889182be1162755d1a870e621", null ],
     [ "RealtimeCopySafe", "d1/d7a/_realtime_type_traits_8h.html#a2f9ac9585907b3e2f2552345e14d569f", null ],
     [ "RealtimeMoveSafe", "d1/d7a/_realtime_type_traits_8h.html#a363f94f61a6074eade89e955ffd70ee0", null ],
     [ "RealtimeSafe", "d1/d7a/_realtime_type_traits_8h.html#ad5370c9b98e25633fb74a958857cfe78", null ]

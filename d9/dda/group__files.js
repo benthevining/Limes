@@ -11,9 +11,9 @@ var group__files =
     [ "FilesystemEntry.h", "d2/d83/_filesystem_entry_8h.html", null ],
     [ "limes_core/files/Misc.h", "d1/d28/limes__core_2files_2_misc_8h.html", null ],
     [ "sym_link.h", "d8/d06/sym__link_8h.html", null ],
-    [ "dirSeparator", "d9/dda/group__files.html#ga4acc2da4ed492292fc00f8102c816633", null ],
-    [ "filesystemIsCaseSensitive", "d9/dda/group__files.html#ga23aeaa8d0ffe3057490e7a90fcd29c3f", null ],
-    [ "getAvailableSpaceOnFilesystem", "d9/dda/group__files.html#ga69e7e31afbfcade245d92d1f61b06f48", null ],
-    [ "getTotalSizeOfFilesystem", "d9/dda/group__files.html#gaabdbc5ac41e3dee39e0c16331044b674", null ],
-    [ "PATHseparator", "d9/dda/group__files.html#gafeb3d88310c080b85f7bda97eab0c94b", null ]
+    [ "dirSeparator", "d9/dda/group__files.html#gabc304be514f1c64345214c2c50be5201", null ],
+    [ "filesystemIsCaseSensitive", "d9/dda/group__files.html#ga88305d0fe386e29850d7a3765b4040b6", null ],
+    [ "getAvailableSpaceOnFilesystem", "d9/dda/group__files.html#gaa5f80187a21aef53ecbe7fd55731a326", null ],
+    [ "getTotalSizeOfFilesystem", "d9/dda/group__files.html#ga4ca5ae1284f912cb95b5622b83129048", null ],
+    [ "PATHseparator", "d9/dda/group__files.html#ga14c9eaaaa54716d17a51f96c588f6397", null ]
 ];

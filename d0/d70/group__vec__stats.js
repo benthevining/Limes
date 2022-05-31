@@ -1,13 +1,13 @@
 var group__vec__stats =
 [
     [ "Extrema calculation", "d5/d65/group__vec__extrema.html", "d5/d65/group__vec__extrema" ],
-    [ "abs", "d0/d70/group__vec__stats.html#gad21e9bb4bd863a7433cbc0d0d082c7e1", null ],
-    [ "absAndCopy", "d0/d70/group__vec__stats.html#ga2a6a53a470f1f882e1bbba6ee0449060", null ],
-    [ "clip", "d0/d70/group__vec__stats.html#gaef34a7abfcb2ba9369dc75343b0c4c5a", null ],
-    [ "clipAndCopy", "d0/d70/group__vec__stats.html#gaaa678dbf9d6d6884756ad76a7bbf3daa", null ],
-    [ "mean", "d0/d70/group__vec__stats.html#ga1f5417592c6e8d68a04566dd2428cde5", null ],
-    [ "negate", "d0/d70/group__vec__stats.html#ga0b6017272155894c64975f76349cea19", null ],
-    [ "negateAndCopy", "d0/d70/group__vec__stats.html#ga3b6e43a027ee0bc91a0f59678b03d0ff", null ],
-    [ "standard_deviation", "d0/d70/group__vec__stats.html#gaebef10f895380fa0de309304af33878d", null ],
-    [ "sum", "d0/d70/group__vec__stats.html#ga0a7b3fbae1d35e850b7322264c0b5cff", null ]
+    [ "abs", "d0/d70/group__vec__stats.html#gac7a9c95727a80ce5c0217bd516a53157", null ],
+    [ "absAndCopy", "d0/d70/group__vec__stats.html#ga528118744285ceb133deeb22e563cb87", null ],
+    [ "clip", "d0/d70/group__vec__stats.html#ga7f884630e966e6f1334b8d45cf7fe095", null ],
+    [ "clipAndCopy", "d0/d70/group__vec__stats.html#gabef49fdbbbd7a708b516a17ac64b082e", null ],
+    [ "mean", "d0/d70/group__vec__stats.html#gaeb889ab16cdedada6bae279ab240a31a", null ],
+    [ "negate", "d0/d70/group__vec__stats.html#ga68042b2fd340e85fb736873eed2e86c5", null ],
+    [ "negateAndCopy", "d0/d70/group__vec__stats.html#ga56d201839bc0df98af2a9138905182bf", null ],
+    [ "standard_deviation", "d0/d70/group__vec__stats.html#ga1f52fc0dff7b83c4a1ad9249cdeb2e30", null ],
+    [ "sum", "d0/d70/group__vec__stats.html#gac51ed11b409ef0d0b44a3a1ab9b451e2", null ]
 ];

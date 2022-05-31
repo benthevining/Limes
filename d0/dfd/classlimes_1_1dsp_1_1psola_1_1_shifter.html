@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('d0/dfd/classlimes_1_1dsp_1_1psola_1_1_
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aed7aae0a2c2a21a210612ed319bd984d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html#aed7aae0a2c2a21a210612ed319bd984d">Shifter</a> (<a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a>&lt; SampleType &gt; &amp;analyzerToUse)</td></tr>
+<tr class="memitem:aed7aae0a2c2a21a210612ed319bd984d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html#aed7aae0a2c2a21a210612ed319bd984d">Shifter</a> (Analyzer&lt; SampleType &gt; &amp;analyzerToUse)</td></tr>
 <tr class="memdesc:aed7aae0a2c2a21a210612ed319bd984d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a>.  <a href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html#aed7aae0a2c2a21a210612ed319bd984d">More...</a><br /></td></tr>
 <tr class="separator:aed7aae0a2c2a21a210612ed319bd984d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd9dd9677e9e92d099c1031017e1d00a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html#abd9dd9677e9e92d099c1031017e1d00a">~Shifter</a> ()</td></tr>
@@ -135,8 +135,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ab00f0a27448593aa5d009533b91964e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a>&lt; SampleType &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html#ab00f0a27448593aa5d009533b91964e5">analyzer</a></td></tr>
-<tr class="memdesc:ab00f0a27448593aa5d009533b91964e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The parent <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> object that this shifter is a client of.  <a href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html#ab00f0a27448593aa5d009533b91964e5">More...</a><br /></td></tr>
+<tr class="memitem:ab00f0a27448593aa5d009533b91964e5"><td class="memItemLeft" align="right" valign="top">Analyzer&lt; SampleType &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html#ab00f0a27448593aa5d009533b91964e5">analyzer</a></td></tr>
+<tr class="memdesc:ab00f0a27448593aa5d009533b91964e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The parent Analyzer object that this shifter is a client of.  <a href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html#ab00f0a27448593aa5d009533b91964e5">More...</a><br /></td></tr>
 <tr class="separator:ab00f0a27448593aa5d009533b91964e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -150,8 +150,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Analyzer&lt; SampleT
 class limes::dsp::psola::Shifter&lt; SampleType &gt;</h3>
 
 <p>A class that repitches a stream of monophonic audio using PSOLA-like techniques. </p>
-<p>This class is essentially a "client" of an <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> object, which allows multiple Shifters to be used simultaneously without requiring the expensive analysis process to be repeated.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> </dd></dl>
+<p>This class is essentially a "client" of an Analyzer object, which allows multiple Shifters to be used simultaneously without requiring the expensive analysis process to be repeated.</p>
+<dl class="section see"><dt>See also</dt><dd>Analyzer </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d19/analyzer_8h_source.html#l00034">34</a> of file <a class="el" href="../../d3/d19/analyzer_8h_source.html">analyzer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -169,7 +169,7 @@ template&lt;Sample SampleType&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html">limes::dsp::psola::Shifter</a>&lt; SampleType &gt;::<a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html">Shifter</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype">Analyzer&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>analyzerToUse</em></td><td>)</td>
           <td></td>
         </tr>
@@ -182,7 +182,7 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Creates a <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a>. </p>
-<p>The shifter will reference the specified <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> for the duration of its lifetime; make sure you don't delete the <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> before the Shifter! </p>
+<p>The shifter will reference the specified Analyzer for the duration of its lifetime; make sure you don't delete the Analyzer before the Shifter! </p>
 
 </div>
 </div>
@@ -263,7 +263,7 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Releases all the resources used by the <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a>. </p>
-<p>Note that this is called for you if you call <code><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a1ee1d873d7d00e084a6eaf667ad862d8" title="Releases all resources used by the Analyzer object.">Analyzer::releaseResources()</a></code> . </p>
+<p>Note that this is called for you if you call <code>Analyzer::releaseResources()</code> . </p>
 
 </div>
 </div>
@@ -293,7 +293,7 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Resets the shifter to its initial state, without releasing any resources. </p>
-<p>Note that this is called for you if you call <code><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a2b4f4121169faed5618980a531f8ee31" title="Resets the analyzer to its initial state, without releasing any resources.">Analyzer::reset()</a></code> . </p>
+<p>Note that this is called for you if you call <code>Analyzer::reset()</code> . </p>
 
 </div>
 </div>
@@ -324,7 +324,7 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Sets the pitch, in Hz, of the shifter's output. </p>
-<p>Note that before calling this, you must set the samplerate of the algorithm using <code><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html#a16408aa216e67149a59d211548a38775" title="Sets the samplerate, and informs any Shifter objects that are using this Analyzer.">Analyzer::setSamplerate()</a></code> ! </p>
+<p>Note that before calling this, you must set the samplerate of the algorithm using <code>Analyzer::setSamplerate()</code> ! </p>
 
 </div>
 </div>
@@ -341,7 +341,7 @@ template&lt;Sample SampleType&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html">Analyzer</a>&lt;SampleType&gt;&amp; <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html">limes::dsp::psola::Shifter</a>&lt; SampleType &gt;::analyzer</td>
+          <td class="memname">Analyzer&lt;SampleType&gt;&amp; <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html">limes::dsp::psola::Shifter</a>&lt; SampleType &gt;::analyzer</td>
         </tr>
       </table>
   </td>
@@ -351,7 +351,7 @@ template&lt;Sample SampleType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>The parent <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> object that this shifter is a client of. </p>
+<p>The parent Analyzer object that this shifter is a client of. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d4f/shifter_8h_source.html#l00070">70</a> of file <a class="el" href="../../d7/d4f/shifter_8h_source.html">shifter.h</a>.</p>
 
@@ -367,7 +367,7 @@ template&lt;Sample SampleType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d00/namespacelimes_1_1dsp.html">dsp</a></li><li class="navelem"><a class="el" href="../../d6/d4e/namespacelimes_1_1dsp_1_1psola.html">psola</a></li><li class="navelem"><a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html">Shifter</a></li>
-    <li class="footer">Generated on Mon May 30 2022 22:32:31 for Limes by
+    <li class="footer">Generated on Tue May 31 2022 21:00:30 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

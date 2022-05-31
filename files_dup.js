@@ -14,7 +14,6 @@ var files_dup =
     ] ],
     [ "alignment.h", "db/dad/alignment_8h.html", "db/dad/alignment_8h" ],
     [ "analyzer.h", "d3/d19/analyzer_8h.html", [
-      [ "Analyzer", "df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html", "df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer" ],
       [ "Shifter", "d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html", "d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter" ]
     ] ],
     [ "angle.h", "da/dac/angle_8h.html", [
@@ -184,9 +183,7 @@ var files_dup =
       [ "Phase", "d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase.html", "d9/dc5/structlimes_1_1dsp_1_1_oscillator_1_1_phase" ]
     ] ],
     [ "owned_vector.h", "d2/dd0/owned__vector_8h_source.html", null ],
-    [ "PeakFinder.h", "dc/dad/_peak_finder_8h.html", [
-      [ "PeakFinder", "d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html", "d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder" ]
-    ] ],
+    [ "PeakFinder.h", "dc/dad/_peak_finder_8h.html", null ],
     [ "pentagon.h", "dc/d7f/pentagon_8h.html", [
       [ "Pentagon", "d4/d1e/classlimes_1_1math_1_1geometry_1_1_pentagon.html", "d4/d1e/classlimes_1_1math_1_1geometry_1_1_pentagon" ]
     ] ],

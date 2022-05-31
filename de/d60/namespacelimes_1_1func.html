@@ -121,21 +121,21 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga071be31306f96410ade861c96ef1aa71"><td class="memTemplParams" colspan="2">template&lt;Function Func&gt; </td></tr>
-<tr class="memitem:ga071be31306f96410ade861c96ef1aa71"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga071be31306f96410ade861c96ef1aa71">call_once</a> (Func &amp;&amp;func, std::invoke_result_t&lt; Func &gt; *result=nullptr) noexcept(noexcept(func))</td></tr>
-<tr class="memdesc:ga071be31306f96410ade861c96ef1aa71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the function object exactly once throughout the entire life of the program.  <a href="../../de/d94/group__func.html#ga071be31306f96410ade861c96ef1aa71">More...</a><br /></td></tr>
-<tr class="separator:ga071be31306f96410ade861c96ef1aa71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga44f9cad25c11a543213afc4aec6c606a"><td class="memTemplParams" colspan="2">template&lt;typename... Param&gt; </td></tr>
-<tr class="memitem:ga44f9cad25c11a543213afc4aec6c606a"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORTdecltype(auto) consteval&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga44f9cad25c11a543213afc4aec6c606a">consteval_invoke</a> (Param &amp;&amp;... param) noexcept</td></tr>
-<tr class="memdesc:ga44f9cad25c11a543213afc4aec6c606a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces a given function to be executed at compile time.  <a href="../../de/d94/group__func.html#ga44f9cad25c11a543213afc4aec6c606a">More...</a><br /></td></tr>
-<tr class="separator:ga44f9cad25c11a543213afc4aec6c606a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga423a59d89a77cb46a1e475eca33dd4e4"><td class="memTemplParams" colspan="2">template&lt;Function Func&gt; </td></tr>
+<tr class="memitem:ga423a59d89a77cb46a1e475eca33dd4e4"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga423a59d89a77cb46a1e475eca33dd4e4">call_once</a> (Func &amp;&amp;func, std::invoke_result_t&lt; Func &gt; *result=nullptr) noexcept(noexcept(func))</td></tr>
+<tr class="memdesc:ga423a59d89a77cb46a1e475eca33dd4e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the function object exactly once throughout the entire life of the program.  <a href="../../de/d94/group__func.html#ga423a59d89a77cb46a1e475eca33dd4e4">More...</a><br /></td></tr>
+<tr class="separator:ga423a59d89a77cb46a1e475eca33dd4e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga677b37e66b96cec89ef70ad374f8aa2b"><td class="memTemplParams" colspan="2">template&lt;typename... Param&gt; </td></tr>
+<tr class="memitem:ga677b37e66b96cec89ef70ad374f8aa2b"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto) consteval&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga677b37e66b96cec89ef70ad374f8aa2b">consteval_invoke</a> (Param &amp;&amp;... param) noexcept</td></tr>
+<tr class="memdesc:ga677b37e66b96cec89ef70ad374f8aa2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces a given function to be executed at compile time.  <a href="../../de/d94/group__func.html#ga677b37e66b96cec89ef70ad374f8aa2b">More...</a><br /></td></tr>
+<tr class="separator:ga677b37e66b96cec89ef70ad374f8aa2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga580272ce196b901393443435200a88dc"><td class="memItemLeft" align="right" valign="top">constexpr decltype(auto)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga580272ce196b901393443435200a88dc">curry</a> (auto f, auto... ps)</td></tr>
 <tr class="memdesc:ga580272ce196b901393443435200a88dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Breaks down a function that takes multiple arguments into a series of functions that each take one argument.  <a href="../../de/d94/group__func.html#ga580272ce196b901393443435200a88dc">More...</a><br /></td></tr>
 <tr class="separator:ga580272ce196b901393443435200a88dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad9b1e68cd8346f6227bd75fe19032531"><td class="memTemplParams" colspan="2">template&lt;Function Func, typename... Args&gt; </td></tr>
-<tr class="memitem:gad9b1e68cd8346f6227bd75fe19032531"><td class="memTemplItemLeft" align="right" valign="top">constexpr LIMES_EXPORT bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#gad9b1e68cd8346f6227bd75fe19032531">try_call</a> (Func &amp;&amp;func, Args &amp;&amp;... args) noexcept</td></tr>
-<tr class="memdesc:gad9b1e68cd8346f6227bd75fe19032531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a potentially-throwing function within a try-catch block, and returns false if an exception is thrown and true if no exceptions are thrown.  <a href="../../de/d94/group__func.html#gad9b1e68cd8346f6227bd75fe19032531">More...</a><br /></td></tr>
-<tr class="separator:gad9b1e68cd8346f6227bd75fe19032531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ae3d6b9aba39513f038c0784215c739"><td class="memTemplParams" colspan="2">template&lt;Function Func, typename... Args&gt; </td></tr>
+<tr class="memitem:ga8ae3d6b9aba39513f038c0784215c739"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html#ga8ae3d6b9aba39513f038c0784215c739">try_call</a> (Func &amp;&amp;func, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="memdesc:ga8ae3d6b9aba39513f038c0784215c739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a potentially-throwing function within a try-catch block, and returns false if an exception is thrown and true if no exceptions are thrown.  <a href="../../de/d94/group__func.html#ga8ae3d6b9aba39513f038c0784215c739">More...</a><br /></td></tr>
+<tr class="separator:ga8ae3d6b9aba39513f038c0784215c739"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -152,7 +152,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../de/d60/namespacelimes_1_1func.html">func</a></li>
-    <li class="footer">Generated on Mon May 30 2022 22:32:31 for Limes by
+    <li class="footer">Generated on Tue May 31 2022 21:00:30 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -7,6 +7,13 @@ var group__psola =
     [ "shifter.h", "d7/d4f/shifter_8h.html", null ],
     [ "dsp", "d4/d00/namespacelimes_1_1dsp.html", null ],
     [ "psola", "d6/d4e/namespacelimes_1_1dsp_1_1psola.html", null ],
+    [ "PeakFinder", "d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html", [
+      [ "PeakFinder", "d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#a8f25caf391d138794c0849b40d8dd9ba", null ],
+      [ "findPeaks", "d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#a42b1862be4650d287290de0c22af0be4", null ],
+      [ "prepare", "d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#a28e5fbc5c919ee69e2e7ef26b1c6c1e5", null ],
+      [ "releaseResources", "d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#a003bd2109db0ff54237f27e6de2b7883", null ],
+      [ "reset", "d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#adb00d0c87150523d6f3a31833f6dcf5c", null ]
+    ] ],
     [ "PitchDetector", "d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html", [
       [ "SampleVector", "d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a1febe22aa26291b78b1959fd9cbb08e7", null ],
       [ "PitchDetector", "d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a2c6f9aea5333c7a1a221305cffe27955", null ],

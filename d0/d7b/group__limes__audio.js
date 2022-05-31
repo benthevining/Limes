@@ -13,6 +13,6 @@ var group__limes__audio =
       [ "rightOnly", "d0/d7b/group__limes__audio.html#ggab22891c08ff38fff51e3eebded597949a97ed31f67756738d6c8d74a1ee8c565d", null ],
       [ "mixToMono", "d0/d7b/group__limes__audio.html#ggab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22", null ]
     ] ],
-    [ "inverseRootTwo", "d0/d7b/group__limes__audio.html#ga381c062c894875fa7da629056ea4d9d2", null ],
+    [ "inverseRootTwo", "d0/d7b/group__limes__audio.html#gaa9749fccbd7e845ab3798df0fb38bd14", null ],
     [ "Sample", "d0/d7b/group__limes__audio.html#ga0f08d1dca089a2e844bd4e709588b58f", null ]
 ];

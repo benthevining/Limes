@@ -154,10 +154,10 @@ template&lt;Scalar DataType1, Scalar DataType2&gt; </td></tr>
 template&lt;Scalar DataType1, Scalar DataType2, Integral SizeType&gt; </td></tr>
 <tr class="memitem:adfc96171557d1c9111c05b1875898aee"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>convert</b> (DataType1 *const dest, const DataType2 *const source, SizeType size) noexcept</td></tr>
 <tr class="separator:adfc96171557d1c9111c05b1875898aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaf5e6700040b35b379073259d5778eab"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:gaaf5e6700040b35b379073259d5778eab"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/de3/group__vec__trig.html#gaaf5e6700040b35b379073259d5778eab">sinCos</a> (const DataType *const data, SizeType size, DataType *const sinesOut, DataType *const cosinesOut) noexcept</td></tr>
-<tr class="memdesc:gaaf5e6700040b35b379073259d5778eab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simultaneously computes the sin and cosine of every value in the vector.  <a href="../../d4/de3/group__vec__trig.html#gaaf5e6700040b35b379073259d5778eab">More...</a><br /></td></tr>
-<tr class="separator:gaaf5e6700040b35b379073259d5778eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9049800737a310e19ffb9b5bf1cafce1"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga9049800737a310e19ffb9b5bf1cafce1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/de3/group__vec__trig.html#ga9049800737a310e19ffb9b5bf1cafce1">sinCos</a> (const DataType *const data, SizeType size, DataType *const sinesOut, DataType *const cosinesOut) noexcept</td></tr>
+<tr class="memdesc:ga9049800737a310e19ffb9b5bf1cafce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simultaneously computes the sin and cosine of every value in the vector.  <a href="../../d4/de3/group__vec__trig.html#ga9049800737a310e19ffb9b5bf1cafce1">More...</a><br /></td></tr>
+<tr class="separator:ga9049800737a310e19ffb9b5bf1cafce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaef2ce37a512c1f570dfa7aea7c9e6c14"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:gaef2ce37a512c1f570dfa7aea7c9e6c14"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/dd4/group__limes__vecops.html#gaef2ce37a512c1f570dfa7aea7c9e6c14">Scalar</a> = std::is_scalar_v&lt;T&gt;</td></tr>
 <tr class="memdesc:gaef2ce37a512c1f570dfa7aea7c9e6c14"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept Scalar Any scalar type.  <a href="../../dc/dd4/group__limes__vecops.html#gaef2ce37a512c1f570dfa7aea7c9e6c14">More...</a><br /></td></tr>
@@ -166,22 +166,22 @@ template&lt;Scalar DataType1, Scalar DataType2, Integral SizeType&gt; </td></tr>
 <tr class="memitem:ga5b711a2ab615fd16769f73e49e07488a"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/dd4/group__limes__vecops.html#ga5b711a2ab615fd16769f73e49e07488a">Integral</a> = std::is_integral_v&lt;T&gt;</td></tr>
 <tr class="memdesc:ga5b711a2ab615fd16769f73e49e07488a"><td class="mdescLeft">&#160;</td><td class="mdescRight">@concept Integral Any integral type.  <a href="../../dc/dd4/group__limes__vecops.html#ga5b711a2ab615fd16769f73e49e07488a">More...</a><br /></td></tr>
 <tr class="separator:ga5b711a2ab615fd16769f73e49e07488a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga82fb1c966bbad1669fca5eced15be9d8"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga82fb1c966bbad1669fca5eced15be9d8"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/dd4/group__limes__vecops.html#ga82fb1c966bbad1669fca5eced15be9d8">fill</a> (DataType *const data, SizeType size, DataType constantToFill) noexcept</td></tr>
-<tr class="memdesc:ga82fb1c966bbad1669fca5eced15be9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the vector with the specified value.  <a href="../../dc/dd4/group__limes__vecops.html#ga82fb1c966bbad1669fca5eced15be9d8">More...</a><br /></td></tr>
-<tr class="separator:ga82fb1c966bbad1669fca5eced15be9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6e80a5f6f3b343ab9aed4c4c1f6e4e93"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga6e80a5f6f3b343ab9aed4c4c1f6e4e93"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/dd4/group__limes__vecops.html#ga6e80a5f6f3b343ab9aed4c4c1f6e4e93">clear</a> (DataType *const data, SizeType size) noexcept</td></tr>
-<tr class="memdesc:ga6e80a5f6f3b343ab9aed4c4c1f6e4e93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the vector with zeroes.  <a href="../../dc/dd4/group__limes__vecops.html#ga6e80a5f6f3b343ab9aed4c4c1f6e4e93">More...</a><br /></td></tr>
-<tr class="separator:ga6e80a5f6f3b343ab9aed4c4c1f6e4e93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4fa56b30a4dc9647f323135c6ac5ed47"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:ga4fa56b30a4dc9647f323135c6ac5ed47"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/dd4/group__limes__vecops.html#ga4fa56b30a4dc9647f323135c6ac5ed47">copy</a> (DataType *const dest, const DataType *const source, SizeType size) noexcept</td></tr>
-<tr class="memdesc:ga4fa56b30a4dc9647f323135c6ac5ed47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies from one vector to another.  <a href="../../dc/dd4/group__limes__vecops.html#ga4fa56b30a4dc9647f323135c6ac5ed47">More...</a><br /></td></tr>
-<tr class="separator:ga4fa56b30a4dc9647f323135c6ac5ed47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae47eab43ceb281664589422b69e264ed"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
-<tr class="memitem:gae47eab43ceb281664589422b69e264ed"><td class="memTemplItemLeft" align="right" valign="top">LIMES_EXPORT void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/dd4/group__limes__vecops.html#gae47eab43ceb281664589422b69e264ed">swap</a> (DataType *const vecA, DataType *const vecB, SizeType size) noexcept</td></tr>
-<tr class="memdesc:gae47eab43ceb281664589422b69e264ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the elements of two vectors.  <a href="../../dc/dd4/group__limes__vecops.html#gae47eab43ceb281664589422b69e264ed">More...</a><br /></td></tr>
-<tr class="separator:gae47eab43ceb281664589422b69e264ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa2c8ff649809e33cdfc1255636f2f51e"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:gaa2c8ff649809e33cdfc1255636f2f51e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/dd4/group__limes__vecops.html#gaa2c8ff649809e33cdfc1255636f2f51e">fill</a> (DataType *const data, SizeType size, DataType constantToFill) noexcept</td></tr>
+<tr class="memdesc:gaa2c8ff649809e33cdfc1255636f2f51e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the vector with the specified value.  <a href="../../dc/dd4/group__limes__vecops.html#gaa2c8ff649809e33cdfc1255636f2f51e">More...</a><br /></td></tr>
+<tr class="separator:gaa2c8ff649809e33cdfc1255636f2f51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9cc2c9b4c12bd3574570e8dc7ff35da3"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:ga9cc2c9b4c12bd3574570e8dc7ff35da3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/dd4/group__limes__vecops.html#ga9cc2c9b4c12bd3574570e8dc7ff35da3">clear</a> (DataType *const data, SizeType size) noexcept</td></tr>
+<tr class="memdesc:ga9cc2c9b4c12bd3574570e8dc7ff35da3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the vector with zeroes.  <a href="../../dc/dd4/group__limes__vecops.html#ga9cc2c9b4c12bd3574570e8dc7ff35da3">More...</a><br /></td></tr>
+<tr class="separator:ga9cc2c9b4c12bd3574570e8dc7ff35da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gade886b73a7b5b6d7b7629916960dba27"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:gade886b73a7b5b6d7b7629916960dba27"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/dd4/group__limes__vecops.html#gade886b73a7b5b6d7b7629916960dba27">copy</a> (DataType *const dest, const DataType *const source, SizeType size) noexcept</td></tr>
+<tr class="memdesc:gade886b73a7b5b6d7b7629916960dba27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies from one vector to another.  <a href="../../dc/dd4/group__limes__vecops.html#gade886b73a7b5b6d7b7629916960dba27">More...</a><br /></td></tr>
+<tr class="separator:gade886b73a7b5b6d7b7629916960dba27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae85ce01a5c9fd8d495c763c7f9c977f3"><td class="memTemplParams" colspan="2">template&lt;Scalar DataType, Integral SizeType&gt; </td></tr>
+<tr class="memitem:gae85ce01a5c9fd8d495c763c7f9c977f3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/dd4/group__limes__vecops.html#gae85ce01a5c9fd8d495c763c7f9c977f3">swap</a> (DataType *const vecA, DataType *const vecB, SizeType size) noexcept</td></tr>
+<tr class="memdesc:gae85ce01a5c9fd8d495c763c7f9c977f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the elements of two vectors.  <a href="../../dc/dd4/group__limes__vecops.html#gae85ce01a5c9fd8d495c763c7f9c977f3">More...</a><br /></td></tr>
+<tr class="separator:gae85ce01a5c9fd8d495c763c7f9c977f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This namespace contains vector operations functions. </p>
@@ -201,7 +201,7 @@ template&lt;Scalar DataType1, Scalar DataType2, Integral SizeType&gt; </td></tr>
 struct limes::vecops::VectorExtremaInfo&lt; DataType &gt;</h3>
 
 <p>A simple struct to hold various info about the extrema in a vector. </p>
-<p>This struct only exists to serve as the return type for <code><a class="el" href="../../d5/d65/group__vec__extrema.html#ga379d47a07fa42f3c41f5171758990555" title="Calculates the values and positions of the extrema in the vector and returns them in a single VectorE...">getVectorExtremaInfo()</a></code> and <code></code>. </p>
+<p>This struct only exists to serve as the return type for <code><a class="el" href="../../d5/d65/group__vec__extrema.html#ga62ccd0e04389ca41efbdd09bcfb03f82" title="Calculates the values and positions of the extrema in the vector and returns them in a single VectorE...">getVectorExtremaInfo()</a></code> and <code></code>. </p>
 
 <p class="definition">Definition at line <a class="el" href="../../de/d1f/limes__vecops_8h_source.html#l00764">764</a> of file <a class="el" href="../../de/d1f/limes__vecops_8h_source.html">limes_vecops.h</a>.</p>
 </div><table class="fieldtable">
@@ -240,7 +240,7 @@ The index of <code>min</code> in the vector. </td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/dea/namespacelimes_1_1vecops.html">vecops</a></li>
-    <li class="footer">Generated on Mon May 30 2022 22:32:32 for Limes by
+    <li class="footer">Generated on Tue May 31 2022 21:00:31 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

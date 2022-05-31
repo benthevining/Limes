@@ -9,7 +9,7 @@ var hash_8h =
       [ "sha384", "db/dfb/hash_8h.html#gga7290f29c6f9b58018db0de3e25e0475da23b1f23465cc48415b07c3da88c88103", null ],
       [ "sha512", "db/dfb/hash_8h.html#gga7290f29c6f9b58018db0de3e25e0475da79521051c5c4526354393a974d561458", null ]
     ] ],
-    [ "createHasherForType", "db/dfb/hash_8h.html#gac8deecc8bd4e0cce2c9e132da00acb29", null ],
-    [ "hash", "db/dfb/hash_8h.html#gaa9d33df5883f11ad921575c87c9044a6", null ],
-    [ "hash", "db/dfb/hash_8h.html#ga6f587411158c7b50721970b64c2be223", null ]
+    [ "createHasherForType", "db/dfb/hash_8h.html#gac34cb84df8bc2dfec8c97755d632208a", null ],
+    [ "hash", "db/dfb/hash_8h.html#gafaa42983a7f5867ce673f70cf08762ea", null ],
+    [ "hash", "db/dfb/hash_8h.html#ga767adfd86b44e74eecded43fb40575b8", null ]
 ];

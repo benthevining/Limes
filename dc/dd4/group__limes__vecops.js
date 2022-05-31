@@ -33,10 +33,10 @@ var group__limes__vecops =
     [ "LIMES_VECOPS_USE_MIPP", "dc/dd4/group__limes__vecops.html#ga70b144652ef1412e204a8d4e9c66fef8", null ],
     [ "LIMES_VECOPS_USE_POMMIER", "dc/dd4/group__limes__vecops.html#gacc1d8c1c278a0ac62eef8c5595503a5a", null ],
     [ "LIMES_VECOPS_USE_VDSP", "dc/dd4/group__limes__vecops.html#ga5798e2e410bb607a38b777b0f8e7fafa", null ],
-    [ "clear", "dc/dd4/group__limes__vecops.html#ga6e80a5f6f3b343ab9aed4c4c1f6e4e93", null ],
-    [ "copy", "dc/dd4/group__limes__vecops.html#ga4fa56b30a4dc9647f323135c6ac5ed47", null ],
-    [ "fill", "dc/dd4/group__limes__vecops.html#ga82fb1c966bbad1669fca5eced15be9d8", null ],
-    [ "swap", "dc/dd4/group__limes__vecops.html#gae47eab43ceb281664589422b69e264ed", null ],
+    [ "clear", "dc/dd4/group__limes__vecops.html#ga9cc2c9b4c12bd3574570e8dc7ff35da3", null ],
+    [ "copy", "dc/dd4/group__limes__vecops.html#gade886b73a7b5b6d7b7629916960dba27", null ],
+    [ "fill", "dc/dd4/group__limes__vecops.html#gaa2c8ff649809e33cdfc1255636f2f51e", null ],
+    [ "swap", "dc/dd4/group__limes__vecops.html#gae85ce01a5c9fd8d495c763c7f9c977f3", null ],
     [ "Integral", "dc/dd4/group__limes__vecops.html#ga5b711a2ab615fd16769f73e49e07488a", null ],
     [ "Scalar", "dc/dd4/group__limes__vecops.html#gaef2ce37a512c1f570dfa7aea7c9e6c14", null ]
 ];

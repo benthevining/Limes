@@ -29,8 +29,8 @@ var group__system =
     [ "LIMES_REENABLE_ALL_COMPILER_WARNINGS", "d4/d37/group__system.html#gad2a89476f519fd1fb29df89e88cb6a93", null ],
     [ "LIMES_RESTRICT", "d4/d37/group__system.html#ga31004f8beb1bebe164df6461882dbe88", null ],
     [ "LIMES_UNREACHABLE", "d4/d37/group__system.html#gad16dd0041c15feb8b68d38dc707f9595", null ],
-    [ "breakInDebugger", "d4/d37/group__system.html#ga1a84cd77dc0cbe2a5643d8ba0a640563", null ],
-    [ "getAssertionLogFile", "d4/d37/group__system.html#ga47f50ef9d6e0b1e856b019ed00795487", null ],
-    [ "isRunningUnderDebugger", "d4/d37/group__system.html#gaaa92a219f82cca4271c59ef98c1b5fa5", null ],
-    [ "setAssertionLogFile", "d4/d37/group__system.html#ga7bc7b0ce997375bd0a045ee5bb665ad9", null ]
+    [ "breakInDebugger", "d4/d37/group__system.html#ga9a70cd79386a6723dbb63c9374d65b8d", null ],
+    [ "getAssertionLogFile", "d4/d37/group__system.html#ga854168fca1651443274024e9dfaa6cd3", null ],
+    [ "isRunningUnderDebugger", "d4/d37/group__system.html#ga9d7abb01ca191df6a78dc4bfffae6f69", null ],
+    [ "setAssertionLogFile", "d4/d37/group__system.html#ga0a55276632d2f9f646782b6e571bcfed", null ]
 ];

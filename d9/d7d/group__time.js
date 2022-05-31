@@ -18,10 +18,10 @@ var group__time =
     [ "year.h", "d5/d98/year_8h.html", null ],
     [ "year_impl.h", "d2/d38/year__impl_8h.html", null ],
     [ "TODO_BEFORE", "d9/d7d/group__time.html#gaba800051fa8705e8ec3606d38586f719", null ],
-    [ "build_day", "d9/d7d/group__time.html#gaf542f075ede6e359bbe617612ad0c3a4", null ],
-    [ "build_hour", "d9/d7d/group__time.html#ga9957862fb5e3604b616a94475f612879", null ],
-    [ "build_minute", "d9/d7d/group__time.html#gad67e3458990ecfab7898ad600759c6a9", null ],
-    [ "build_month", "d9/d7d/group__time.html#ga5698aefc3a44cfb128495d162b1c0b38", null ],
-    [ "build_second", "d9/d7d/group__time.html#ga545d065535dd78a6f14c4b15750dd282", null ],
-    [ "build_year", "d9/d7d/group__time.html#ga646512f9ab3e9dd2f863d081888927a2", null ]
+    [ "build_day", "d9/d7d/group__time.html#ga8fca8688546ad996c2ff82a6e4c57e47", null ],
+    [ "build_hour", "d9/d7d/group__time.html#ga34b0f0856361da78df492e71b98b9561", null ],
+    [ "build_minute", "d9/d7d/group__time.html#ga9ead6b8bccc46ee10c8be2fe667cdbe5", null ],
+    [ "build_month", "d9/d7d/group__time.html#gaeed19bfa85af265a63bb31ffce8aae1b", null ],
+    [ "build_second", "d9/d7d/group__time.html#gac7fd1d6865b1470c8b532a9ceaf16df7", null ],
+    [ "build_year", "d9/d7d/group__time.html#ga074fa34571f22ac34cc6415c814a0e4f", null ]
 ];

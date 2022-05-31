@@ -206,6 +206,37 @@
                 <Path>d6/d4e/namespacelimes_1_1dsp_1_1psola.html</Path>
                </Node>
                <Node>
+                <Name>PeakFinder</Name>
+                <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>PeakFinder</Name>
+                  <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+                  <Anchor>a8f25caf391d138794c0849b40d8dd9ba</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>findPeaks</Name>
+                  <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+                  <Anchor>a42b1862be4650d287290de0c22af0be4</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>prepare</Name>
+                  <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+                  <Anchor>a28e5fbc5c919ee69e2e7ef26b1c6c1e5</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>releaseResources</Name>
+                  <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+                  <Anchor>a003bd2109db0ff54237f27e6de2b7883</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>reset</Name>
+                  <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
+                  <Anchor>adb00d0c87150523d6f3a31833f6dcf5c</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
                 <Name>PitchDetector</Name>
                 <Path>d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html</Path>
                 <Subnodes>
@@ -640,7 +671,7 @@
              <Node>
               <Name>inverseRootTwo</Name>
               <Path>d0/d7b/group__limes__audio.html</Path>
-              <Anchor>ga381c062c894875fa7da629056ea4d9d2</Anchor>
+              <Anchor>gaa9749fccbd7e845ab3798df0fb38bd14</Anchor>
              </Node>
              <Node>
               <Name>Sample</Name>
@@ -725,27 +756,27 @@
                <Node>
                 <Name>dirSeparator</Name>
                 <Path>d9/dda/group__files.html</Path>
-                <Anchor>ga4acc2da4ed492292fc00f8102c816633</Anchor>
+                <Anchor>gabc304be514f1c64345214c2c50be5201</Anchor>
                </Node>
                <Node>
                 <Name>filesystemIsCaseSensitive</Name>
                 <Path>d9/dda/group__files.html</Path>
-                <Anchor>ga23aeaa8d0ffe3057490e7a90fcd29c3f</Anchor>
+                <Anchor>ga88305d0fe386e29850d7a3765b4040b6</Anchor>
                </Node>
                <Node>
                 <Name>getAvailableSpaceOnFilesystem</Name>
                 <Path>d9/dda/group__files.html</Path>
-                <Anchor>ga69e7e31afbfcade245d92d1f61b06f48</Anchor>
+                <Anchor>gaa5f80187a21aef53ecbe7fd55731a326</Anchor>
                </Node>
                <Node>
                 <Name>getTotalSizeOfFilesystem</Name>
                 <Path>d9/dda/group__files.html</Path>
-                <Anchor>gaabdbc5ac41e3dee39e0c16331044b674</Anchor>
+                <Anchor>ga4ca5ae1284f912cb95b5622b83129048</Anchor>
                </Node>
                <Node>
                 <Name>PATHseparator</Name>
                 <Path>d9/dda/group__files.html</Path>
-                <Anchor>gafeb3d88310c080b85f7bda97eab0c94b</Anchor>
+                <Anchor>ga14c9eaaaa54716d17a51f96c588f6397</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -765,12 +796,12 @@
                <Node>
                 <Name>call_once</Name>
                 <Path>de/d94/group__func.html</Path>
-                <Anchor>ga071be31306f96410ade861c96ef1aa71</Anchor>
+                <Anchor>ga423a59d89a77cb46a1e475eca33dd4e4</Anchor>
                </Node>
                <Node>
                 <Name>consteval_invoke</Name>
                 <Path>de/d94/group__func.html</Path>
-                <Anchor>ga44f9cad25c11a543213afc4aec6c606a</Anchor>
+                <Anchor>ga677b37e66b96cec89ef70ad374f8aa2b</Anchor>
                </Node>
                <Node>
                 <Name>curry</Name>
@@ -780,7 +811,7 @@
                <Node>
                 <Name>try_call</Name>
                 <Path>de/d94/group__func.html</Path>
-                <Anchor>gad9b1e68cd8346f6227bd75fe19032531</Anchor>
+                <Anchor>ga8ae3d6b9aba39513f038c0784215c739</Anchor>
                </Node>
                <Node>
                 <Name>Function</Name>
@@ -847,77 +878,77 @@
                <Node>
                 <Name>createHasherForType</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>gac8deecc8bd4e0cce2c9e132da00acb29</Anchor>
+                <Anchor>gac34cb84df8bc2dfec8c97755d632208a</Anchor>
                </Node>
                <Node>
                 <Name>hash</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>gaa9d33df5883f11ad921575c87c9044a6</Anchor>
+                <Anchor>gafaa42983a7f5867ce673f70cf08762ea</Anchor>
                </Node>
                <Node>
                 <Name>hash</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>ga6f587411158c7b50721970b64c2be223</Anchor>
+                <Anchor>ga767adfd86b44e74eecded43fb40575b8</Anchor>
                </Node>
                <Node>
                 <Name>md5</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>gaeac1094d425dd21bdb097d611f02255a</Anchor>
+                <Anchor>gaf04b8b325b6d8808cfa8ab662c415563</Anchor>
                </Node>
                <Node>
                 <Name>md5</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>ga8332ff053767a4c0ffe815d40799b632</Anchor>
+                <Anchor>ga1ad1ee42c5a8c1f5b7bbab3753b842ed</Anchor>
                </Node>
                <Node>
                 <Name>sha1</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>ga5740a3a7c88183329278d46aa3c623e2</Anchor>
+                <Anchor>ga02ce419d9a24011ce06c363e567d8f37</Anchor>
                </Node>
                <Node>
                 <Name>sha1</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>ga591138e62d9c38f6f5ab7d594ede48cf</Anchor>
+                <Anchor>gad59db2ed6ec21f087da8040f514fd10d</Anchor>
                </Node>
                <Node>
                 <Name>sha224</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>ga00f0f1ab90a9894a5ea2eef1da8451c9</Anchor>
+                <Anchor>ga53e991f9748b5819d4b679260b12da28</Anchor>
                </Node>
                <Node>
                 <Name>sha224</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>ga3db9d6aa2fa42f05a8113ba8f9169c50</Anchor>
+                <Anchor>gae4c137f728f6a479fa5bb7f00205a9de</Anchor>
                </Node>
                <Node>
                 <Name>sha256</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>gab18e1ec347eed1c240f30048952d951c</Anchor>
+                <Anchor>gafcffbf237b396138431cfb85b4f1e956</Anchor>
                </Node>
                <Node>
                 <Name>sha256</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>gadae43dd46e051b988df51d47d907be29</Anchor>
+                <Anchor>gaeb7d7327a54d7701f116804d6a40e250</Anchor>
                </Node>
                <Node>
                 <Name>sha384</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>ga58d5c57d79ff22b5286bd69ff8dfa32b</Anchor>
+                <Anchor>gaeaa6253a21c6303fd96385172bf16f1f</Anchor>
                </Node>
                <Node>
                 <Name>sha384</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>gab6d60602a0f8b35b010477f601a1fbed</Anchor>
+                <Anchor>ga4bc79e7feba628b1ef01bb1c064a9e36</Anchor>
                </Node>
                <Node>
                 <Name>sha512</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>ga9b4c25730aa4166d6b237f1320e1700d</Anchor>
+                <Anchor>gaac385895667ef7f184bb0728ba10d718</Anchor>
                </Node>
                <Node>
                 <Name>sha512</Name>
                 <Path>db/d97/group__hashes.html</Path>
-                <Anchor>ga7f65c01212617e1ebadb029af9875630</Anchor>
+                <Anchor>ga772508093ab1e982231feb0e75c3b019</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -976,12 +1007,12 @@
                    <Node>
                     <Name>operator!=</Name>
                     <Path>d7/dcd/group___two_dgeometry.html</Path>
-                    <Anchor>gab0dead6a104d06879a90d644ce5d9012</Anchor>
+                    <Anchor>ga34a4f995efaff20408b272939689f926</Anchor>
                    </Node>
                    <Node>
                     <Name>operator==</Name>
                     <Path>d7/dcd/group___two_dgeometry.html</Path>
-                    <Anchor>gaa9c05223626cee55eea487b8cde4e212</Anchor>
+                    <Anchor>ga5cdfdcd69f79295c4eef46793103aad4</Anchor>
                    </Node>
                   </Subnodes>
                  </Node>
@@ -1089,102 +1120,102 @@
                <Node>
                 <Name>abs</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga3e48d4dd81c1f3280854262e5adee629</Anchor>
+                <Anchor>ga514ee773c330a0ff7d19286b13f83b53</Anchor>
                </Node>
                <Node>
                 <Name>factorial</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>gaaf72031a20756d328aa105ddb244b453</Anchor>
+                <Anchor>ga5d2f2720c191268e9a17d15e0b25ff3c</Anchor>
                </Node>
                <Node>
                 <Name>freqFromPeriod</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga18fb0947b08d8e45d7119dab412b4411</Anchor>
+                <Anchor>gaacee5ce0fef613d9f08eb4ec86bfe056</Anchor>
                </Node>
                <Node>
                 <Name>freqToMidi</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga264e87423133491659f7e3affba13db1</Anchor>
+                <Anchor>ga79c120b8a72137dd368c391208d82240</Anchor>
                </Node>
                <Node>
                 <Name>isDivisibleBy</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>gaeabf4346ca0cbe661a26a9297d906592</Anchor>
+                <Anchor>ga77464df61c396b206d8357c5f9884b5b</Anchor>
                </Node>
                <Node>
                 <Name>isPowerOf2</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga4f643bd2c373dd38f09480659470d1be</Anchor>
+                <Anchor>gaf28ea8c4fcd46ef3a5423f212b1bcc1e</Anchor>
                </Node>
                <Node>
                 <Name>isPrime</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga968f8b548a617015693d22a3262d7519</Anchor>
+                <Anchor>ga950e07ddb605b6e7721142a145bec24c</Anchor>
                </Node>
                <Node>
                 <Name>limit</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga2d86bda2734cac1dfaab1d3dff120b27</Anchor>
+                <Anchor>ga7fa3c07491e7409e7f695a70960d4579</Anchor>
                </Node>
                <Node>
                 <Name>map</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga74beca8445e7ff26ad22eeb316c3c4ec</Anchor>
+                <Anchor>ga8e1376561c18c5700f25bf9d16fa5f3a</Anchor>
                </Node>
                <Node>
                 <Name>max</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>gae436ab6d92c1f3ad5e56b55fabb0f4c2</Anchor>
+                <Anchor>ga340ba1fa93e3ff5987d94fd11d07b39a</Anchor>
                </Node>
                <Node>
                 <Name>middleOfThree</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>gad73729ffdebc10e62644aa49d6e1870c</Anchor>
+                <Anchor>ga82cc1c47568221dc63727ebe3686d60d</Anchor>
                </Node>
                <Node>
                 <Name>midiToFreq</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga998ba48f12008bbf935a910be8f4cc7b</Anchor>
+                <Anchor>ga958bfa906aac63346cd915d6b5a08698</Anchor>
                </Node>
                <Node>
                 <Name>min</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga25ae5da0ee08068735854a1e935be370</Anchor>
+                <Anchor>gada391234ea82372c9e005ed208f2db13</Anchor>
                </Node>
                <Node>
                 <Name>msToSamps</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga65ed8e3bac4fdb3cd8d7c2ed4be6053a</Anchor>
+                <Anchor>ga47e9b2f032b32583e46d7e312a576222</Anchor>
                </Node>
                <Node>
                 <Name>negate</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>gae457d5963717874083acfcede4fde893</Anchor>
+                <Anchor>ga005b096167e7e48847b69c7f1f350915</Anchor>
                </Node>
                <Node>
                 <Name>numberIsEven</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>gac9d59da6cab0167cc4e1e843493bccb0</Anchor>
+                <Anchor>gaa5495769808eff098130215ee85fcf2d</Anchor>
                </Node>
                <Node>
                 <Name>periodInSamples</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga8d982a06f7e73779a4d5859c554d6549</Anchor>
+                <Anchor>gaad252ebdd65713b59abdbe0f5f2d7bd9</Anchor>
                </Node>
                <Node>
                 <Name>power</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga2971a67213a8e2d9b46b14c65e8d165d</Anchor>
+                <Anchor>ga8d26141199f013e584e33b0cf04bd0b8</Anchor>
                </Node>
                <Node>
                 <Name>round</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga637c7aeb3868b6308535386fb8780c99</Anchor>
+                <Anchor>ga6cc3bd33ef5ff0347c79ba7cc8adec36</Anchor>
                </Node>
                <Node>
                 <Name>sampsToMs</Name>
                 <Path>d9/dfc/group__core__math.html</Path>
-                <Anchor>ga512f7cc18b515f0fe5ccd62f1dec4e98</Anchor>
+                <Anchor>gab8a73b8ec5cd084065838b8d2b860874</Anchor>
                </Node>
                <Node>
                 <Name>Integral</Name>
@@ -1245,22 +1276,22 @@
                <Node>
                 <Name>allocate_aligned</Name>
                 <Path>d7/ded/group__memory.html</Path>
-                <Anchor>ga09766c84dcef55421f96dcb300274b53</Anchor>
+                <Anchor>ga33390ddedd9f134e7c29d771f8bf823f</Anchor>
                </Node>
                <Node>
                 <Name>deallocate_aligned</Name>
                 <Path>d7/ded/group__memory.html</Path>
-                <Anchor>gac795c12098b4c0f10766e90eaa65a407</Anchor>
+                <Anchor>gab2c3c66b09b7249811b98dd5b406b78f</Anchor>
                </Node>
                <Node>
                 <Name>getStaticObject</Name>
                 <Path>d7/ded/group__memory.html</Path>
-                <Anchor>ga81279c0755f925678112eff035289b93</Anchor>
+                <Anchor>gada3cd95222acdc37ef8ecd1368a49138</Anchor>
                </Node>
                <Node>
                 <Name>make_static</Name>
                 <Path>d7/ded/group__memory.html</Path>
-                <Anchor>gad9a08ceae18a20a0e9af7e4a56ae6fd6</Anchor>
+                <Anchor>ga416890115f8f2267d83aad03d1b6346b</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1297,12 +1328,12 @@
                <Node>
                 <Name>getDemangledTypeName</Name>
                 <Path>d6/db2/group__meta.html</Path>
-                <Anchor>ga58aaa4dcbf798da7d3ed43635c4a7868</Anchor>
+                <Anchor>ga6c28fc31963404ed09a07d4117181ee2</Anchor>
                </Node>
                <Node>
                 <Name>getDemangledTypeName</Name>
                 <Path>d6/db2/group__meta.html</Path>
-                <Anchor>ga6e002d7ebd167b287b983da2669038b3</Anchor>
+                <Anchor>gabf1ebcf6a9b51774bb0065caf5139467</Anchor>
                </Node>
                <Node>
                 <Name>convertible_to</Name>
@@ -1332,7 +1363,7 @@
                <Node>
                 <Name>is_null_type</Name>
                 <Path>d6/db2/group__meta.html</Path>
-                <Anchor>gaa3841d00f95661176f106de088e363d1</Anchor>
+                <Anchor>gae9cec719238137143e509b59edace27b</Anchor>
                </Node>
                <Node>
                 <Name>is_one_of_v</Name>
@@ -1347,7 +1378,7 @@
                <Node>
                 <Name>is_typelist</Name>
                 <Path>d6/db2/group__meta.html</Path>
-                <Anchor>ga333e1b6147039190613d9bc7a9860042</Anchor>
+                <Anchor>gac84fa6c1440ae058963560bac7673709</Anchor>
                </Node>
                <Node>
                 <Name>same_as</Name>
@@ -1389,7 +1420,7 @@
                <Node>
                 <Name>ignore_unused</Name>
                 <Path>d1/ded/group__misc.html</Path>
-                <Anchor>gaa5d1baad824f48df6797880222aba729</Anchor>
+                <Anchor>gaf60f405ce0a2830962ec41c546be5bf7</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1539,22 +1570,22 @@
                <Node>
                 <Name>breakInDebugger</Name>
                 <Path>d4/d37/group__system.html</Path>
-                <Anchor>ga1a84cd77dc0cbe2a5643d8ba0a640563</Anchor>
+                <Anchor>ga9a70cd79386a6723dbb63c9374d65b8d</Anchor>
                </Node>
                <Node>
                 <Name>getAssertionLogFile</Name>
                 <Path>d4/d37/group__system.html</Path>
-                <Anchor>ga47f50ef9d6e0b1e856b019ed00795487</Anchor>
+                <Anchor>ga854168fca1651443274024e9dfaa6cd3</Anchor>
                </Node>
                <Node>
                 <Name>isRunningUnderDebugger</Name>
                 <Path>d4/d37/group__system.html</Path>
-                <Anchor>gaaa92a219f82cca4271c59ef98c1b5fa5</Anchor>
+                <Anchor>ga9d7abb01ca191df6a78dc4bfffae6f69</Anchor>
                </Node>
                <Node>
                 <Name>setAssertionLogFile</Name>
                 <Path>d4/d37/group__system.html</Path>
-                <Anchor>ga7bc7b0ce997375bd0a045ee5bb665ad9</Anchor>
+                <Anchor>ga0a55276632d2f9f646782b6e571bcfed</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1577,22 +1608,22 @@
                <Node>
                 <Name>areSame</Name>
                 <Path>d4/d61/group__text.html</Path>
-                <Anchor>gab7a0e1d9b4b6eca5b1a0e9c9cfd16822</Anchor>
+                <Anchor>gae28368a1a0a0153d8911eaa862731d9f</Anchor>
                </Node>
                <Node>
                 <Name>areSameIgnoringCase</Name>
                 <Path>d4/d61/group__text.html</Path>
-                <Anchor>ga1fca57cfd0dcb8fb97c629eb48785b3e</Anchor>
+                <Anchor>ga2e90412e899267588041b3a31efa6d3b</Anchor>
                </Node>
                <Node>
                 <Name>areSameIgnoringCase</Name>
                 <Path>d4/d61/group__text.html</Path>
-                <Anchor>ga99cc3e5c26a24c8464e0648130984238</Anchor>
+                <Anchor>gab9dddceac3df61646ad9f77e894a6f6c</Anchor>
                </Node>
                <Node>
                 <Name>isNewline</Name>
                 <Path>d4/d61/group__text.html</Path>
-                <Anchor>ga7f948f5ab899d81a7db8b85f79be6993</Anchor>
+                <Anchor>ga8f147344a9e7e2e648bd62b26af71654</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1607,26 +1638,6 @@
                  <Node>
                   <Name>RealtimeTypeTraits.h</Name>
                   <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
-                 </Node>
-                 <Node>
-                  <Name>assignable_tag</Name>
-                  <Path>dd/d3e/group__rt__safety.html</Path>
-                  <Anchor>gac163b986c1af276602bbc93f1d63709a</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>constructible_tag</Name>
-                  <Path>dd/d3e/group__rt__safety.html</Path>
-                  <Anchor>ga2cdd50d685a5d2828e6ad3adc1b091a6</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>copy_tag</Name>
-                  <Path>dd/d3e/group__rt__safety.html</Path>
-                  <Anchor>gad4e8851e33d99dd502af717be47d6082</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>move_tag</Name>
-                  <Path>dd/d3e/group__rt__safety.html</Path>
-                  <Anchor>gab929ca0889182be1162755d1a870e621</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -1645,17 +1656,17 @@
                <Node>
                 <Name>callAndBlock</Name>
                 <Path>d2/db9/group__threads.html</Path>
-                <Anchor>ga2948a6d23f6ad42992dadd1751aafe15</Anchor>
+                <Anchor>gab3a4c8ff9294d2321b63cef1e6757d55</Anchor>
                </Node>
                <Node>
                 <Name>callInBackground</Name>
                 <Path>d2/db9/group__threads.html</Path>
-                <Anchor>ga94997df4193cbabaea1b6912ca7bd5cf</Anchor>
+                <Anchor>ga73a4d8b593c31fdc8da1e8efff646227</Anchor>
                </Node>
                <Node>
                 <Name>maxNumThreads</Name>
                 <Path>d2/db9/group__threads.html</Path>
-                <Anchor>ga2ba5744d660530fb620af3340a504d79</Anchor>
+                <Anchor>gab39e0c57bedc0130c5004595687f148e</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1739,32 +1750,32 @@
                <Node>
                 <Name>build_day</Name>
                 <Path>d9/d7d/group__time.html</Path>
-                <Anchor>gaf542f075ede6e359bbe617612ad0c3a4</Anchor>
+                <Anchor>ga8fca8688546ad996c2ff82a6e4c57e47</Anchor>
                </Node>
                <Node>
                 <Name>build_hour</Name>
                 <Path>d9/d7d/group__time.html</Path>
-                <Anchor>ga9957862fb5e3604b616a94475f612879</Anchor>
+                <Anchor>ga34b0f0856361da78df492e71b98b9561</Anchor>
                </Node>
                <Node>
                 <Name>build_minute</Name>
                 <Path>d9/d7d/group__time.html</Path>
-                <Anchor>gad67e3458990ecfab7898ad600759c6a9</Anchor>
+                <Anchor>ga9ead6b8bccc46ee10c8be2fe667cdbe5</Anchor>
                </Node>
                <Node>
                 <Name>build_month</Name>
                 <Path>d9/d7d/group__time.html</Path>
-                <Anchor>ga5698aefc3a44cfb128495d162b1c0b38</Anchor>
+                <Anchor>gaeed19bfa85af265a63bb31ffce8aae1b</Anchor>
                </Node>
                <Node>
                 <Name>build_second</Name>
                 <Path>d9/d7d/group__time.html</Path>
-                <Anchor>ga545d065535dd78a6f14c4b15750dd282</Anchor>
+                <Anchor>gac7fd1d6865b1470c8b532a9ceaf16df7</Anchor>
                </Node>
                <Node>
                 <Name>build_year</Name>
                 <Path>d9/d7d/group__time.html</Path>
-                <Anchor>ga646512f9ab3e9dd2f863d081888927a2</Anchor>
+                <Anchor>ga074fa34571f22ac34cc6415c814a0e4f</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1840,22 +1851,22 @@
                <Node>
                 <Name>getAllKnownLanguages</Name>
                 <Path>df/dfc/group__loc__lang.html</Path>
-                <Anchor>ga009aae4338e31ecb94fda7d05b7c0472</Anchor>
+                <Anchor>ga11ae481240c4d4d320de358bc46a9396</Anchor>
                </Node>
                <Node>
                 <Name>getLanguage</Name>
                 <Path>df/dfc/group__loc__lang.html</Path>
-                <Anchor>gad9bb163218bee484386b5f917327c64c</Anchor>
+                <Anchor>ga746e6628a179acfa800d441c08c7bd66</Anchor>
                </Node>
                <Node>
                 <Name>getLanguageForCode</Name>
                 <Path>df/dfc/group__loc__lang.html</Path>
-                <Anchor>ga5a6c668e9ebaca0cf57f2057127f29f6</Anchor>
+                <Anchor>ga382c8c09f879ffd9be0a24088b2ee5cb</Anchor>
                </Node>
                <Node>
                 <Name>getLanguagesForCountry</Name>
                 <Path>df/dfc/group__loc__lang.html</Path>
-                <Anchor>gafb9dcedf3cfe5ea5e39b19077a1b07ac</Anchor>
+                <Anchor>gadb7784b01623f7aa80324d1ea10b6856</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1996,22 +2007,22 @@
                  <Node>
                   <Name>operator+</Name>
                   <Path>d8/d49/group__music__intervals.html</Path>
-                  <Anchor>gae9f00f0211829b3ad563a298d29dd522</Anchor>
+                  <Anchor>gad937197c36fe7b20d305edb703a8ac78</Anchor>
                  </Node>
                  <Node>
                   <Name>operator+</Name>
                   <Path>d8/d49/group__music__intervals.html</Path>
-                  <Anchor>ga77e5349553c4cd1ad938d0d22d1337d9</Anchor>
+                  <Anchor>ga0132c8d23057886215fdbafa776d4aea</Anchor>
                  </Node>
                  <Node>
                   <Name>operator-</Name>
                   <Path>d8/d49/group__music__intervals.html</Path>
-                  <Anchor>ga910495c7a05fbf3d7ff426f5fa9954f8</Anchor>
+                  <Anchor>gace85358102f38a5ae37e1f3cc4530512</Anchor>
                  </Node>
                  <Node>
                   <Name>operator-</Name>
                   <Path>d8/d49/group__music__intervals.html</Path>
-                  <Anchor>ga89389f65f14cd1f7e6246fc771e7959b</Anchor>
+                  <Anchor>gab9baf0955c1a4114a492038c6628dc8a</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -2170,27 +2181,27 @@
                <Node>
                 <Name>getFlatsOrder</Name>
                 <Path>d1/de7/group__music__harmony.html</Path>
-                <Anchor>gad488d847176f5bb298274f9b7e2a5262</Anchor>
+                <Anchor>gab2aaf8e0eb63caaab354a4fc58060d4f</Anchor>
                </Node>
                <Node>
                 <Name>getSharpsOrder</Name>
                 <Path>d1/de7/group__music__harmony.html</Path>
-                <Anchor>ga9606a554e6faba2a12651fe5a6443a68</Anchor>
+                <Anchor>ga0505fa816cef899f31e330801d7a58d1</Anchor>
                </Node>
                <Node>
                 <Name>lowestNoteOfMidiOctave</Name>
                 <Path>d1/de7/group__music__harmony.html</Path>
-                <Anchor>gae713466e94e8709880d2c88be98e81f0</Anchor>
+                <Anchor>gaa93e375cd60ec541ae8510b99ae9987c</Anchor>
                </Node>
                <Node>
                 <Name>octaveNumberOfMidiNote</Name>
                 <Path>d1/de7/group__music__harmony.html</Path>
-                <Anchor>ga7455fcb44f57ddc33039574e62207bb1</Anchor>
+                <Anchor>ga46f2241f3fac360a4975989206736ba4</Anchor>
                </Node>
                <Node>
                 <Name>semitonesInOctave</Name>
                 <Path>d1/de7/group__music__harmony.html</Path>
-                <Anchor>gaf06d78b3d9cafb3e49881ba681a9f6c1</Anchor>
+                <Anchor>ga3917948bc2fcef45dd070056036806ce</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2237,22 +2248,22 @@
                  <Node>
                   <Name>add</Name>
                   <Path>d8/da6/group__vec__addition.html</Path>
-                  <Anchor>ga3a024446ad19d145afb726ebbb5af8c0</Anchor>
+                  <Anchor>ga60449a2c2fcccfd64da4d82269008c45</Anchor>
                  </Node>
                  <Node>
                   <Name>add</Name>
                   <Path>d8/da6/group__vec__addition.html</Path>
-                  <Anchor>ga667f4f92b16f4b8d06e37f77341d4c61</Anchor>
+                  <Anchor>ga86ba6050c1a30aab9df98a440a89df97</Anchor>
                  </Node>
                  <Node>
                   <Name>addAndCopy</Name>
                   <Path>d8/da6/group__vec__addition.html</Path>
-                  <Anchor>ga5d09da7900434c5006c6e6a9684205a4</Anchor>
+                  <Anchor>gacb9372bb6d3df53194c1d59c7841812a</Anchor>
                  </Node>
                  <Node>
                   <Name>addAndCopy</Name>
                   <Path>d8/da6/group__vec__addition.html</Path>
-                  <Anchor>ga1426d96a68724d3c304100b04945cce9</Anchor>
+                  <Anchor>ga8ed529a71171ca3c01575613f5199875</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -2263,32 +2274,32 @@
                  <Node>
                   <Name>divide</Name>
                   <Path>dc/dc8/group__vec__division.html</Path>
-                  <Anchor>gaadc0439e237e20f07a4b5f943e823ad9</Anchor>
+                  <Anchor>ga58ac79669a26bbf15f119256fa5ef436</Anchor>
                  </Node>
                  <Node>
                   <Name>divide</Name>
                   <Path>dc/dc8/group__vec__division.html</Path>
-                  <Anchor>ga99caeed6d8faf1ee3ef87748a4fd6533</Anchor>
+                  <Anchor>gabe542f93a2801dea705a30b99bd25a25</Anchor>
                  </Node>
                  <Node>
                   <Name>divideAndCopy</Name>
                   <Path>dc/dc8/group__vec__division.html</Path>
-                  <Anchor>ga16030e4c778234c88cf971305a712374</Anchor>
+                  <Anchor>ga52fc43a5406166658185815c51a0ee76</Anchor>
                  </Node>
                  <Node>
                   <Name>divideAndCopy</Name>
                   <Path>dc/dc8/group__vec__division.html</Path>
-                  <Anchor>gae548ef3044eae9a712a510439e87bb0d</Anchor>
+                  <Anchor>gab280f7562da503a42c44fe9392cb9767</Anchor>
                  </Node>
                  <Node>
                   <Name>divideInv</Name>
                   <Path>dc/dc8/group__vec__division.html</Path>
-                  <Anchor>gaada175046515b6502c99b363e2748ba6</Anchor>
+                  <Anchor>ga691e6b1580a7890b72548be6ab6b1bbf</Anchor>
                  </Node>
                  <Node>
                   <Name>divideInvAndCopy</Name>
                   <Path>dc/dc8/group__vec__division.html</Path>
-                  <Anchor>ga7b9c0fb4b7d0e5484e1ebaf9d8ed4649</Anchor>
+                  <Anchor>gabc72baaae96c9091a60068bcba0e43db</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -2299,27 +2310,27 @@
                  <Node>
                   <Name>dotProduct</Name>
                   <Path>db/d5e/group__vec__multiplication.html</Path>
-                  <Anchor>gaf0f5c8fe0cea2baa676bdc386a5d0540</Anchor>
+                  <Anchor>gafdef30f85db1327afb1724684e5d97f5</Anchor>
                  </Node>
                  <Node>
                   <Name>multiply</Name>
                   <Path>db/d5e/group__vec__multiplication.html</Path>
-                  <Anchor>gaaae47b2eff0299658f34471cd9cd1970</Anchor>
+                  <Anchor>gabd3df806285b3d0c33456b1d368bb477</Anchor>
                  </Node>
                  <Node>
                   <Name>multiply</Name>
                   <Path>db/d5e/group__vec__multiplication.html</Path>
-                  <Anchor>ga63864c635a4cae5c20c5a1ae77233edc</Anchor>
+                  <Anchor>ga4ac6ad5eb22722a26a3396a99f71c2d6</Anchor>
                  </Node>
                  <Node>
                   <Name>multiplyAndCopy</Name>
                   <Path>db/d5e/group__vec__multiplication.html</Path>
-                  <Anchor>ga475d2e0141d013e86c051864dff93a94</Anchor>
+                  <Anchor>ga75f9729fdf833998a58bd8c7f2326eef</Anchor>
                  </Node>
                  <Node>
                   <Name>multiplyAndCopy</Name>
                   <Path>db/d5e/group__vec__multiplication.html</Path>
-                  <Anchor>gaf6f1d361d99e4c5c8256861b0c2bb85e</Anchor>
+                  <Anchor>gae392c30e1ef8cd4a9c8e60262a3558f3</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -2330,44 +2341,44 @@
                  <Node>
                   <Name>subtract</Name>
                   <Path>db/d1b/group__vec__subtraction.html</Path>
-                  <Anchor>gaf0bd89ff06267a8145bf087e061137de</Anchor>
+                  <Anchor>gadf36066325d4106ebdf2e9e370df564b</Anchor>
                  </Node>
                  <Node>
                   <Name>subtract</Name>
                   <Path>db/d1b/group__vec__subtraction.html</Path>
-                  <Anchor>ga9f4c1c0a71fbd7339fa2fc1fc4bfd087</Anchor>
+                  <Anchor>ga919cb58e32da405815028c1c9354af39</Anchor>
                  </Node>
                  <Node>
                   <Name>subtractAndCopy</Name>
                   <Path>db/d1b/group__vec__subtraction.html</Path>
-                  <Anchor>ga6c7a7263ad1427ad0f9ba15785c7c74b</Anchor>
+                  <Anchor>ga689793c924b67cb3d6de4a3db2e9a2b3</Anchor>
                  </Node>
                  <Node>
                   <Name>subtractAndCopy</Name>
                   <Path>db/d1b/group__vec__subtraction.html</Path>
-                  <Anchor>ga33c404fa92f28a495234c5ea7bb3cfe3</Anchor>
+                  <Anchor>gac5d700aec8e07ca924c9e7408e0efaf1</Anchor>
                  </Node>
                  <Node>
                   <Name>subtractInv</Name>
                   <Path>db/d1b/group__vec__subtraction.html</Path>
-                  <Anchor>ga75c4ee421b6ab6f8828eeb459a7e55b8</Anchor>
+                  <Anchor>ga34e45f99109fbc79df03000342b289f8</Anchor>
                  </Node>
                  <Node>
                   <Name>subtractInvAndCopy</Name>
                   <Path>db/d1b/group__vec__subtraction.html</Path>
-                  <Anchor>ga7b5798461a596936a8495233b4ddb924</Anchor>
+                  <Anchor>ga67048e7003180b0fe875f378b2522303</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
                <Node>
                 <Name>recip</Name>
                 <Path>d8/dce/group__vec__arithmetic.html</Path>
-                <Anchor>ga9e13bec3651f5fd337ba190bd68d0cd5</Anchor>
+                <Anchor>ga76033b51d3e45fcd98844915fa0335c7</Anchor>
                </Node>
                <Node>
                 <Name>recipAndCopy</Name>
                 <Path>d8/dce/group__vec__arithmetic.html</Path>
-                <Anchor>ga9118787b8f725138b24494d4b7c1b9b9</Anchor>
+                <Anchor>gad59ae212688e3dace7b59956d495ba95</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2378,32 +2389,32 @@
                <Node>
                 <Name>applyRamp</Name>
                 <Path>d5/db5/group__vec__audio.html</Path>
-                <Anchor>gad7af1a4acd71d9716be5342daffab37a</Anchor>
+                <Anchor>gaa773c465be209a3d097f4cb84e14608f</Anchor>
                </Node>
                <Node>
                 <Name>applyRampAndCopy</Name>
                 <Path>d5/db5/group__vec__audio.html</Path>
-                <Anchor>ga987b8430bbb4870efa4ecab21f68469c</Anchor>
+                <Anchor>ga2f4b1df0215c251ab3bfacadf866248e</Anchor>
                </Node>
                <Node>
                 <Name>countZeroCrossings</Name>
                 <Path>d5/db5/group__vec__audio.html</Path>
-                <Anchor>gaba849b93dcaac4be3ae9592eb0979d6e</Anchor>
+                <Anchor>gaf1fecbdc1782c6e9bd88462af4ff9756</Anchor>
                </Node>
                <Node>
                 <Name>generateRamp</Name>
                 <Path>d5/db5/group__vec__audio.html</Path>
-                <Anchor>ga08d1fec4ef1c205281ed1c9e0db6700a</Anchor>
+                <Anchor>ga3e6d037ecbe0c6c19c6c6996191a0b4f</Anchor>
                </Node>
                <Node>
                 <Name>mix</Name>
                 <Path>d5/db5/group__vec__audio.html</Path>
-                <Anchor>ga4bbd806aba2959761022a9ec12dd80bd</Anchor>
+                <Anchor>gae537a24e7cc8fc0d3d1b866246def49e</Anchor>
                </Node>
                <Node>
                 <Name>rms</Name>
                 <Path>d5/db5/group__vec__audio.html</Path>
-                <Anchor>ga5c3ae4cdc62f16c05a5f837ff3d0411b</Anchor>
+                <Anchor>ga0cc5e08c603866a3f94ceecd3049d2fd</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2414,32 +2425,32 @@
                <Node>
                 <Name>cartesianInterleavedToMagnitudes</Name>
                 <Path>de/d2a/group__vec__complex.html</Path>
-                <Anchor>gacdc92d474c64af679980ec7532f5ec3b</Anchor>
+                <Anchor>ga161341fe747f7daf465acef57121f98a</Anchor>
                </Node>
                <Node>
                 <Name>cartesianToMagnitudes</Name>
                 <Path>de/d2a/group__vec__complex.html</Path>
-                <Anchor>gab6f32d9c00fe32f00114748c21488ec8</Anchor>
+                <Anchor>ga8b3712f71181d5d3ff6655a5b426c8d0</Anchor>
                </Node>
                <Node>
                 <Name>cartesianToPolar</Name>
                 <Path>de/d2a/group__vec__complex.html</Path>
-                <Anchor>gade84ac99b54758f4370cbb3f384406df</Anchor>
+                <Anchor>ga8535fe5a1db17d0b82dc95786c2923a1</Anchor>
                </Node>
                <Node>
                 <Name>catesianInterleavedToPolar</Name>
                 <Path>de/d2a/group__vec__complex.html</Path>
-                <Anchor>ga5d0b289d61ce925d188af90564e49751</Anchor>
+                <Anchor>gaeb41bbfaa7dd86d4bef839286cffbe48</Anchor>
                </Node>
                <Node>
                 <Name>polarToCartesian</Name>
                 <Path>de/d2a/group__vec__complex.html</Path>
-                <Anchor>ga989e3a6c3c3b49df5becadcab05769b2</Anchor>
+                <Anchor>ga456451f252f8df15676aa469a757f14d</Anchor>
                </Node>
                <Node>
                 <Name>polarToCartesianInterleaved</Name>
                 <Path>de/d2a/group__vec__complex.html</Path>
-                <Anchor>ga9c23c53828298d02ce27d61a4356a8f5</Anchor>
+                <Anchor>ga0379acccbc8212ded5043264b3653404</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2450,32 +2461,32 @@
                <Node>
                 <Name>e</Name>
                 <Path>d6/d74/group__vec__exp.html</Path>
-                <Anchor>gad34a1d7c0d781b6ebb09686a7d0893ce</Anchor>
+                <Anchor>gabba158b4cc8009a8c949cd4a9702088a</Anchor>
                </Node>
                <Node>
                 <Name>eAndCopy</Name>
                 <Path>d6/d74/group__vec__exp.html</Path>
-                <Anchor>gab7f11320810a0aed60bc686bcc49c064</Anchor>
+                <Anchor>ga073b588e516144b573c4cabb422a7763</Anchor>
                </Node>
                <Node>
                 <Name>pow</Name>
                 <Path>d6/d74/group__vec__exp.html</Path>
-                <Anchor>gacfbfe381b5da23ca34c3e9c8d26b38c0</Anchor>
+                <Anchor>gaf0fd2a71a838d6a84a2443b28a900b66</Anchor>
                </Node>
                <Node>
                 <Name>powAndCopy</Name>
                 <Path>d6/d74/group__vec__exp.html</Path>
-                <Anchor>gab43c275630d45f98cb1d12f09f6b1c3c</Anchor>
+                <Anchor>ga71dfbdbafe7bafbb796fbbdbe92626d6</Anchor>
                </Node>
                <Node>
                 <Name>two</Name>
                 <Path>d6/d74/group__vec__exp.html</Path>
-                <Anchor>ga065914500fce876c3cee37cbbb4cf5eb</Anchor>
+                <Anchor>ga36042279794ca6013c9e60daaa76f127</Anchor>
                </Node>
                <Node>
                 <Name>twoAndCopy</Name>
                 <Path>d6/d74/group__vec__exp.html</Path>
-                <Anchor>ga4f9e598e6fb6243787149bdd4cb1e168</Anchor>
+                <Anchor>ga5d1fe0a722eb3155880312bbed489568</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2510,22 +2521,22 @@
                  <Node>
                   <Name>enableWisdom</Name>
                   <Path>d2/d6a/group__fftw.html</Path>
-                  <Anchor>ga939bfce415205091c7808f0cc4d71dea</Anchor>
+                  <Anchor>ga1818e18e60c815c22566debbd4784424</Anchor>
                  </Node>
                  <Node>
                   <Name>getWisdomFileDir</Name>
                   <Path>d2/d6a/group__fftw.html</Path>
-                  <Anchor>gaff20964c03f09d6a0c5f2c2c879da8da</Anchor>
+                  <Anchor>ga90e49d17f247ad93ecfb427c7e2fcf9d</Anchor>
                  </Node>
                  <Node>
                   <Name>isUsingWisdom</Name>
                   <Path>d2/d6a/group__fftw.html</Path>
-                  <Anchor>ga8748afcaad7c030c938654966ff70a92</Anchor>
+                  <Anchor>ga5173b41e9b489babbd62d5640c5b8cad</Anchor>
                  </Node>
                  <Node>
                   <Name>setWisdomFileDir</Name>
                   <Path>d2/d6a/group__fftw.html</Path>
-                  <Anchor>ga2125ae4827739fa347af1abad300134a</Anchor>
+                  <Anchor>ga180339a8f455980abbb4b2799d153c55</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -2595,12 +2606,12 @@
                  <Node>
                   <Name>areDenormalsDisabled</Name>
                   <Path>d0/d49/group__vec__denormals.html</Path>
-                  <Anchor>gaba6844c92f2fd7ac1067fbeb45d65863</Anchor>
+                  <Anchor>ga663567cc8416a778e37e0acab1c9c0fb</Anchor>
                  </Node>
                  <Node>
                   <Name>disableDenormalisedNumberSupport</Name>
                   <Path>d0/d49/group__vec__denormals.html</Path>
-                  <Anchor>ga36b736830f065df4ef6887b57a2d8368</Anchor>
+                  <Anchor>ga4c0afe0438d776457c73d9d748bbb333</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -2611,12 +2622,12 @@
                  <Node>
                   <Name>enableFlushToZeroMode</Name>
                   <Path>d5/dfa/group__vec__ftz.html</Path>
-                  <Anchor>gac79b89c40d9b095a0def999d7fba2b87</Anchor>
+                  <Anchor>ga7f9b57bae55e687f13d4c3c002eed033</Anchor>
                  </Node>
                  <Node>
                   <Name>isFlushToZeroEnabled</Name>
                   <Path>d5/dfa/group__vec__ftz.html</Path>
-                  <Anchor>gaf58cc4896054292a5b9b2d4e7579d28f</Anchor>
+                  <Anchor>ga22832f8702188210f2bb025c1a70e868</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -2629,32 +2640,32 @@
                <Node>
                 <Name>getImplementationName</Name>
                 <Path>db/db4/group__vec__impl.html</Path>
-                <Anchor>gabc56122dde2bafda9811cac992710534</Anchor>
+                <Anchor>gaf09a8639bf3a7399eb31d7d5b0592de8</Anchor>
                </Node>
                <Node>
                 <Name>isUsingFallback</Name>
                 <Path>db/db4/group__vec__impl.html</Path>
-                <Anchor>gaa1e0ee421a69ccfeda0fdb7566ebf7ad</Anchor>
+                <Anchor>gaeb6a0efe84a2602c997553c1b95cfc71</Anchor>
                </Node>
                <Node>
                 <Name>isUsingIPP</Name>
                 <Path>db/db4/group__vec__impl.html</Path>
-                <Anchor>ga2c413d8ccf3a904a26a37a718f43f7d0</Anchor>
+                <Anchor>ga2aa7f7f2dc9cb23e38a11e2ecfaa74a7</Anchor>
                </Node>
                <Node>
                 <Name>isUsingMIPP</Name>
                 <Path>db/db4/group__vec__impl.html</Path>
-                <Anchor>ga794cbb4e3efd0dedbef7f997394b377e</Anchor>
+                <Anchor>ga978afc0d4dcde7aedf2bacbc6cf86b29</Anchor>
                </Node>
                <Node>
                 <Name>isUsingPommierExtensions</Name>
                 <Path>db/db4/group__vec__impl.html</Path>
-                <Anchor>ga9cb4f23a1af5d7e97a07cc09408e6de6</Anchor>
+                <Anchor>ga6ad60ba3c423b9b1a06c2756d36a7c06</Anchor>
                </Node>
                <Node>
                 <Name>isUsingVDSP</Name>
                 <Path>db/db4/group__vec__impl.html</Path>
-                <Anchor>ga2fcec3be87d05af088e48a3716211827</Anchor>
+                <Anchor>gad8a841ef1d29d1d7f4dd08f5892e1930</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2665,32 +2676,32 @@
                <Node>
                 <Name>base10</Name>
                 <Path>df/dc9/group__vec__log.html</Path>
-                <Anchor>ga2bd502c7dd4a6f5804ed1c967e3dccd9</Anchor>
+                <Anchor>ga44c3a85ee486714fa2a473db2d135a53</Anchor>
                </Node>
                <Node>
                 <Name>base10AndCopy</Name>
                 <Path>df/dc9/group__vec__log.html</Path>
-                <Anchor>gaf4d52993ec0f582f9c198aae893caff2</Anchor>
+                <Anchor>ga941e785c7fbfb826ab9e6a3a5f9a4435</Anchor>
                </Node>
                <Node>
                 <Name>base2</Name>
                 <Path>df/dc9/group__vec__log.html</Path>
-                <Anchor>ga2b524a2a0efcafcd98ce0922394caebb</Anchor>
+                <Anchor>ga6e9cb29784ae6937dd52a74bf93776be</Anchor>
                </Node>
                <Node>
                 <Name>base2AndCopy</Name>
                 <Path>df/dc9/group__vec__log.html</Path>
-                <Anchor>gae3b4330086bcfc18cd4187fba10d4687</Anchor>
+                <Anchor>ga03e30d364a819aebb57a4d9251329dc4</Anchor>
                </Node>
                <Node>
                 <Name>nat</Name>
                 <Path>df/dc9/group__vec__log.html</Path>
-                <Anchor>gaba505eb13846fd46259783da1db133a2</Anchor>
+                <Anchor>ga633a8cf6da2e8819f6faec6b419f960d</Anchor>
                </Node>
                <Node>
                 <Name>natAndCopy</Name>
                 <Path>df/dc9/group__vec__log.html</Path>
-                <Anchor>ga0f545789bb24b3f69f14af7604dc3b31</Anchor>
+                <Anchor>ga30bc27d9e0c5deffdd1a271626fcb64b</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2731,42 +2742,42 @@
                <Node>
                 <Name>deinterleave</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>ga8fc2171aa245734cea2eab71fe7813bb</Anchor>
+                <Anchor>ga65a93f93fa2d217b45877059df11ebd2</Anchor>
                </Node>
                <Node>
                 <Name>interleave</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>gadee227aae33b5acd81eed3658d9bc95f</Anchor>
+                <Anchor>ga2a959fee236c8bf94a262cfe20e3b4e2</Anchor>
                </Node>
                <Node>
                 <Name>reverse</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>ga3174c7d255cfa8cdbd32e7845562bb73</Anchor>
+                <Anchor>gabe6c647b503d8802269ec42669cf9a5c</Anchor>
                </Node>
                <Node>
                 <Name>reverseAndCopy</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>gaa0e5fe9cf32d0f1afd852e34865bef4c</Anchor>
+                <Anchor>ga2e851b2ff584653f12d48e24bf686c0e</Anchor>
                </Node>
                <Node>
                 <Name>sort</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>ga502969ed94a7b9dc418cfd0d57d72d2b</Anchor>
+                <Anchor>ga17d1aec7a6eab65eb33270a90035d9ac</Anchor>
                </Node>
                <Node>
                 <Name>sortAndCopy</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>ga4365df111ef0deddbf49f64bef41daf0</Anchor>
+                <Anchor>ga32a840e01318c6d1852b850898b39a33</Anchor>
                </Node>
                <Node>
                 <Name>sortReverse</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>gac81290ecb1e18ef23d69b3e63fb6c53a</Anchor>
+                <Anchor>ga40b6ac3b989d84ec70ec711fa449878d</Anchor>
                </Node>
                <Node>
                 <Name>sortReverseAndCopy</Name>
                 <Path>d0/d58/group__vec__sorting.html</Path>
-                <Anchor>ga2e3da938605f8b09c3337e4cebf87e03</Anchor>
+                <Anchor>ga7233fe3d1c32169b8b63f30c38b7de53</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2777,42 +2788,42 @@
                <Node>
                 <Name>cubeRoot</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>ga8a9f8db1b30f6c6b82bb281d0ee3f9af</Anchor>
+                <Anchor>gae2c726a3e47d1d115372995a29ef8113</Anchor>
                </Node>
                <Node>
                 <Name>cubeRootAndCopy</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>ga854955b00a0234e94976c2d4d1090296</Anchor>
+                <Anchor>gaf778cc37d99927fadef43a3642ba5a7e</Anchor>
                </Node>
                <Node>
                 <Name>invSquareRoot</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>gacb7663a80b1a6411753c91f6d5b7da6c</Anchor>
+                <Anchor>gaaf5b62ab6f9f2a9e0a6cd9f2e570cc62</Anchor>
                </Node>
                <Node>
                 <Name>invSquareRootAndCopy</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>ga629169f67eb95bdf2c3bf126dbd99bc6</Anchor>
+                <Anchor>ga8d562f7238ee87445ba97d1e41e383f9</Anchor>
                </Node>
                <Node>
                 <Name>square</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>ga208c95b83be5880a5277c296b698a693</Anchor>
+                <Anchor>ga36096730723a4c8117411c2b6121b19b</Anchor>
                </Node>
                <Node>
                 <Name>squareAndCopy</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>gaff1a5ee7566b9158065b6a677e3f47b1</Anchor>
+                <Anchor>gae0231e59ae96493675dbddd45e700dac</Anchor>
                </Node>
                <Node>
                 <Name>squareRoot</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>gacd4943ba3289038942de00b6262bb23c</Anchor>
+                <Anchor>gaf6adb1924912cd4c13c530564ef6c080</Anchor>
                </Node>
                <Node>
                 <Name>squareRootAndCopy</Name>
                 <Path>d2/d25/group__vec__squaring.html</Path>
-                <Anchor>ga172282de70eec2bf8d7ac52cce414fe5</Anchor>
+                <Anchor>ga33dc288835a9d20d0d7382b2814b6ade</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2827,129 +2838,129 @@
                  <Node>
                   <Name>getAbsVectorExtremaInfo</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga1a3cc804d477d233599086f86558aa36</Anchor>
+                  <Anchor>gabfe59a0103582ec600271425bac5e52f</Anchor>
                  </Node>
                  <Node>
                   <Name>getVectorExtremaInfo</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga379d47a07fa42f3c41f5171758990555</Anchor>
+                  <Anchor>ga62ccd0e04389ca41efbdd09bcfb03f82</Anchor>
                  </Node>
                  <Node>
                   <Name>max</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga7e741640b08aaa13c2c37ab0d4c8acd8</Anchor>
+                  <Anchor>gac262f0759d4e94c6e76de859b12f9c46</Anchor>
                  </Node>
                  <Node>
                   <Name>max</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga847e933eec75e5853e47865f41e071fe</Anchor>
+                  <Anchor>ga24e8b5481f2b40e94118c67e90599aee</Anchor>
                  </Node>
                  <Node>
                   <Name>maxAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>gaa6df91ebaade90faa4555262c6875d49</Anchor>
+                  <Anchor>gafd0924df2faf96f9448444798a159bd2</Anchor>
                  </Node>
                  <Node>
                   <Name>maxAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>gabe7285b7b9b9d46229150ea80bc9ad50</Anchor>
+                  <Anchor>ga2f0d919fa71affaef9c11a07b9c8d95f</Anchor>
                  </Node>
                  <Node>
                   <Name>min</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga605ed52218b5ec5df543eed606d0f0d7</Anchor>
+                  <Anchor>gabbf8da57c56d80d41f2ff2ee1288aae4</Anchor>
                  </Node>
                  <Node>
                   <Name>min</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga436fbda048b0ff68d5f2e5a9952a5f0f</Anchor>
+                  <Anchor>ga1d361cefebf0a3eee74ab3f1795bd519</Anchor>
                  </Node>
                  <Node>
                   <Name>minAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>gab5ebd45f2963c36c18dd6d768349275f</Anchor>
+                  <Anchor>ga076a93c161e47ba59dcc6697d2f0f04a</Anchor>
                  </Node>
                  <Node>
                   <Name>minAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga0ce938eaa12c73f120485fa2eb5f7415</Anchor>
+                  <Anchor>gae132e0ecc8976b10635305cdcfb212a1</Anchor>
                  </Node>
                  <Node>
                   <Name>minMax</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga219248fe15b7f5b82c6c338641c5a557</Anchor>
+                  <Anchor>ga5dfa502a51b88fd534a9fbd046535ef1</Anchor>
                  </Node>
                  <Node>
                   <Name>minMax</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>gaa2af652aec26b69e562e4477ae27e81b</Anchor>
+                  <Anchor>gad33d7b2bbe05c35fb38bbf8d9f44172c</Anchor>
                  </Node>
                  <Node>
                   <Name>minMaxAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga5da07c6b14483410d44bb3fa81b53320</Anchor>
+                  <Anchor>ga00d1befd3a8ddb3da81e6abe9c945ddb</Anchor>
                  </Node>
                  <Node>
                   <Name>minMaxAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga6f9efb710d0503059914715942101e20</Anchor>
+                  <Anchor>gaf0b51c08a149db6c6da5ec9427b478c2</Anchor>
                  </Node>
                  <Node>
                   <Name>range</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>ga2723e9d8f177c8389fae159bb075f196</Anchor>
+                  <Anchor>gaf8f8442017ff82121d88a85eae95a26a</Anchor>
                  </Node>
                  <Node>
                   <Name>rangeAbs</Name>
                   <Path>d5/d65/group__vec__extrema.html</Path>
-                  <Anchor>gaf838401785666d1131bc732e6c320b72</Anchor>
+                  <Anchor>gaf0b23ae2dd2601cbb3010e2f594ace2f</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
                <Node>
                 <Name>abs</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>gad21e9bb4bd863a7433cbc0d0d082c7e1</Anchor>
+                <Anchor>gac7a9c95727a80ce5c0217bd516a53157</Anchor>
                </Node>
                <Node>
                 <Name>absAndCopy</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>ga2a6a53a470f1f882e1bbba6ee0449060</Anchor>
+                <Anchor>ga528118744285ceb133deeb22e563cb87</Anchor>
                </Node>
                <Node>
                 <Name>clip</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>gaef34a7abfcb2ba9369dc75343b0c4c5a</Anchor>
+                <Anchor>ga7f884630e966e6f1334b8d45cf7fe095</Anchor>
                </Node>
                <Node>
                 <Name>clipAndCopy</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>gaaa678dbf9d6d6884756ad76a7bbf3daa</Anchor>
+                <Anchor>gabef49fdbbbd7a708b516a17ac64b082e</Anchor>
                </Node>
                <Node>
                 <Name>mean</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>ga1f5417592c6e8d68a04566dd2428cde5</Anchor>
+                <Anchor>gaeb889ab16cdedada6bae279ab240a31a</Anchor>
                </Node>
                <Node>
                 <Name>negate</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>ga0b6017272155894c64975f76349cea19</Anchor>
+                <Anchor>ga68042b2fd340e85fb736873eed2e86c5</Anchor>
                </Node>
                <Node>
                 <Name>negateAndCopy</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>ga3b6e43a027ee0bc91a0f59678b03d0ff</Anchor>
+                <Anchor>ga56d201839bc0df98af2a9138905182bf</Anchor>
                </Node>
                <Node>
                 <Name>standard_deviation</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>gaebef10f895380fa0de309304af33878d</Anchor>
+                <Anchor>ga1f52fc0dff7b83c4a1ad9249cdeb2e30</Anchor>
                </Node>
                <Node>
                 <Name>sum</Name>
                 <Path>d0/d70/group__vec__stats.html</Path>
-                <Anchor>ga0a7b3fbae1d35e850b7322264c0b5cff</Anchor>
+                <Anchor>gac51ed11b409ef0d0b44a3a1ab9b451e2</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2964,22 +2975,22 @@
                  <Node>
                   <Name>arccos</Name>
                   <Path>dd/d22/group__vec__cos.html</Path>
-                  <Anchor>gae0764ad036561cfa66bb6a08bedd69bf</Anchor>
+                  <Anchor>ga286b9aa43f1edb6939189c871096dc35</Anchor>
                  </Node>
                  <Node>
                   <Name>arccosAndCopy</Name>
                   <Path>dd/d22/group__vec__cos.html</Path>
-                  <Anchor>ga1a26d7c204eb7f95b4b659337dee0325</Anchor>
+                  <Anchor>ga38b8a89b49712f47451c4ccfb74aa3af</Anchor>
                  </Node>
                  <Node>
                   <Name>cos</Name>
                   <Path>dd/d22/group__vec__cos.html</Path>
-                  <Anchor>ga231ccf8f8ffc8267a333aa912e259cae</Anchor>
+                  <Anchor>gaed15c01d37c58ce119a59a5c936d996d</Anchor>
                  </Node>
                  <Node>
                   <Name>cosAndCopy</Name>
                   <Path>dd/d22/group__vec__cos.html</Path>
-                  <Anchor>ga6724350269a20b880de0969bde2405d6</Anchor>
+                  <Anchor>ga0a1ae7b7594a0fd306b1d405d6b6946e</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -2990,22 +3001,22 @@
                  <Node>
                   <Name>arcsine</Name>
                   <Path>d9/d09/group__vec__sin.html</Path>
-                  <Anchor>gaca9a612b58b50484ba4e02592e4f46f7</Anchor>
+                  <Anchor>ga1b65e7a322bc4705e41932a91c4529b4</Anchor>
                  </Node>
                  <Node>
                   <Name>arcsineAndCopy</Name>
                   <Path>d9/d09/group__vec__sin.html</Path>
-                  <Anchor>ga7474c1ae64d9c38707e715daf651490b</Anchor>
+                  <Anchor>gaf1b7eb2d28dcd5699803f2ad97d16e7f</Anchor>
                  </Node>
                  <Node>
                   <Name>sine</Name>
                   <Path>d9/d09/group__vec__sin.html</Path>
-                  <Anchor>ga0c6029a1aa1f59316d1680bb8f41ec5a</Anchor>
+                  <Anchor>ga45116b911f429728c6f8bee3ad1b1971</Anchor>
                  </Node>
                  <Node>
                   <Name>sineAndCopy</Name>
                   <Path>d9/d09/group__vec__sin.html</Path>
-                  <Anchor>ga25e52cc19a67743b74746189126196c0</Anchor>
+                  <Anchor>gae00ae0aeff4947e9f77671bb3ab2f7c2</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -3016,29 +3027,29 @@
                  <Node>
                   <Name>arctan</Name>
                   <Path>db/d0d/group__vec__tan.html</Path>
-                  <Anchor>ga398978e25f59930d3ef1a58707fd889d</Anchor>
+                  <Anchor>ga036475cd9def5f3729f68f7bc80368db</Anchor>
                  </Node>
                  <Node>
                   <Name>arctanAndCopy</Name>
                   <Path>db/d0d/group__vec__tan.html</Path>
-                  <Anchor>gaedf349fe7e558d8b436534afcec800eb</Anchor>
+                  <Anchor>gaf1b508a20ba1939a7b2b05fb69671dd1</Anchor>
                  </Node>
                  <Node>
                   <Name>tan</Name>
                   <Path>db/d0d/group__vec__tan.html</Path>
-                  <Anchor>gaeed48026d7586d096bce4c0b93e725b8</Anchor>
+                  <Anchor>ga503dc331b5e71be46de62e644f5226bd</Anchor>
                  </Node>
                  <Node>
                   <Name>tanAndCopy</Name>
                   <Path>db/d0d/group__vec__tan.html</Path>
-                  <Anchor>ga8ca2ca9f9899123ac65447f3acf196ff</Anchor>
+                  <Anchor>gad96c0eb23c8ccf5b85007268c465798f</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
                <Node>
                 <Name>sinCos</Name>
                 <Path>d4/de3/group__vec__trig.html</Path>
-                <Anchor>gaaf5e6700040b35b379073259d5778eab</Anchor>
+                <Anchor>ga9049800737a310e19ffb9b5bf1cafce1</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -3053,17 +3064,17 @@
                  <Node>
                   <Name>applyBlackman</Name>
                   <Path>d4/d9f/group__vec__blackman.html</Path>
-                  <Anchor>ga56b8fd4bb9dbba98ea45c1fec4e03098</Anchor>
+                  <Anchor>gaf91448dab1ddfb2b06574b6075d08f68</Anchor>
                  </Node>
                  <Node>
                   <Name>applyBlackmanAndCopy</Name>
                   <Path>d4/d9f/group__vec__blackman.html</Path>
-                  <Anchor>gac2490b24ab53aff68a7f60e484071cd9</Anchor>
+                  <Anchor>gada4ae9f6fde3f6e2a1984422f0777bcb</Anchor>
                  </Node>
                  <Node>
                   <Name>generateBlackman</Name>
                   <Path>d4/d9f/group__vec__blackman.html</Path>
-                  <Anchor>ga651c8a212639d0f84307b7b2af1ed02b</Anchor>
+                  <Anchor>ga9653fec6efe14cf3e47ed5e5fef8c2b7</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -3074,17 +3085,17 @@
                  <Node>
                   <Name>applyHamm</Name>
                   <Path>d7/d30/group__vec__hamm.html</Path>
-                  <Anchor>gaa6c221520ae691de3f03b457e14985f3</Anchor>
+                  <Anchor>ga2ce02522c229a5e162c22a6522234763</Anchor>
                  </Node>
                  <Node>
                   <Name>applyHammAndCopy</Name>
                   <Path>d7/d30/group__vec__hamm.html</Path>
-                  <Anchor>gaa2a5bc8396e436023448317b64327c4b</Anchor>
+                  <Anchor>gad630209052fb19b577fded44e8be2ce9</Anchor>
                  </Node>
                  <Node>
                   <Name>generateHamm</Name>
                   <Path>d7/d30/group__vec__hamm.html</Path>
-                  <Anchor>ga77f6ab1f7183e38dc861320603993132</Anchor>
+                  <Anchor>ga635249e6c502b055323c6128e647c3dd</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -3095,17 +3106,17 @@
                  <Node>
                   <Name>applyHanning</Name>
                   <Path>d9/d83/group__vec__hanning.html</Path>
-                  <Anchor>gaf9f62171dfff05be0973337c59963b80</Anchor>
+                  <Anchor>ga7b30a3bfef13376f44e1af5bc5e84093</Anchor>
                  </Node>
                  <Node>
                   <Name>applyHanningAndCopy</Name>
                   <Path>d9/d83/group__vec__hanning.html</Path>
-                  <Anchor>gaa8faf60f3ca7f8dfc797eb9803af97ae</Anchor>
+                  <Anchor>gaf634fc9ec69ed5e8b866e4311770ca7d</Anchor>
                  </Node>
                  <Node>
                   <Name>generateHanning</Name>
                   <Path>d9/d83/group__vec__hanning.html</Path>
-                  <Anchor>gaa33d842e9f88484ae6bdf329eec4ded6</Anchor>
+                  <Anchor>ga957e9d798b149b0f9c0ad82bf8e80f0a</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -3119,17 +3130,17 @@
                <Node>
                 <Name>apply</Name>
                 <Path>d4/dd9/group__vec__window.html</Path>
-                <Anchor>gac728e1af0a779b89e4dd342eb50554c4</Anchor>
+                <Anchor>ga5c6e376478e32b4670c094f6da111d2d</Anchor>
                </Node>
                <Node>
                 <Name>applyAndCopy</Name>
                 <Path>d4/dd9/group__vec__window.html</Path>
-                <Anchor>ga38d11ff25d554cb6bc3d54c224d41ad1</Anchor>
+                <Anchor>gadd908a9750954d0716c185c4a1c80331</Anchor>
                </Node>
                <Node>
                 <Name>generate</Name>
                 <Path>d4/dd9/group__vec__window.html</Path>
-                <Anchor>ga6c7815bba84d3469f66b66cf02dbd6a3</Anchor>
+                <Anchor>ga6a128c92c17b5eeded996d16c69dff61</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -3216,22 +3227,22 @@
              <Node>
               <Name>clear</Name>
               <Path>dc/dd4/group__limes__vecops.html</Path>
-              <Anchor>ga6e80a5f6f3b343ab9aed4c4c1f6e4e93</Anchor>
+              <Anchor>ga9cc2c9b4c12bd3574570e8dc7ff35da3</Anchor>
              </Node>
              <Node>
               <Name>copy</Name>
               <Path>dc/dd4/group__limes__vecops.html</Path>
-              <Anchor>ga4fa56b30a4dc9647f323135c6ac5ed47</Anchor>
+              <Anchor>gade886b73a7b5b6d7b7629916960dba27</Anchor>
              </Node>
              <Node>
               <Name>fill</Name>
               <Path>dc/dd4/group__limes__vecops.html</Path>
-              <Anchor>ga82fb1c966bbad1669fca5eced15be9d8</Anchor>
+              <Anchor>gaa2c8ff649809e33cdfc1255636f2f51e</Anchor>
              </Node>
              <Node>
               <Name>swap</Name>
               <Path>dc/dd4/group__limes__vecops.html</Path>
-              <Anchor>gae47eab43ceb281664589422b69e264ed</Anchor>
+              <Anchor>gae85ce01a5c9fd8d495c763c7f9c977f3</Anchor>
              </Node>
              <Node>
               <Name>Integral</Name>
@@ -5729,72 +5740,6 @@
                 <Name>psola</Name>
                 <Path>d6/d4e/namespacelimes_1_1dsp_1_1psola.html</Path>
                 <Subnodes>
-                 <Node>
-                  <Name>Analyzer</Name>
-                  <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                  <Subnodes>
-                   <Node>
-                    <Name>SampleVector</Name>
-                    <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>a3d871dfedb4f94d3afed6bf6dde8e5dc</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>Analyzer</Name>
-                    <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>a181cdad3fd10c66f300e9bd59d348b62</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>analyzeInput</Name>
-                    <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>afe5c0eb4d8dee48b4616fd0fa6106f09</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>getLastInputPitch</Name>
-                    <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>a2619eeab17eaf395206cc9be01864ab9</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>getLatencySamples</Name>
-                    <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>aea63215db86d9cae211795b370b81138</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>LIMES_DEFAULT_MOVABLE</Name>
-                    <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>acd6a3834b496126c2dbcab493e124f51</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>LIMES_NON_COPYABLE</Name>
-                    <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>a2c829de84720b28fe10c965f54ffeb49</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>releaseResources</Name>
-                    <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>a1ee1d873d7d00e084a6eaf667ad862d8</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>reset</Name>
-                    <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>a2b4f4121169faed5618980a531f8ee31</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>setMinInputFreq</Name>
-                    <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>ad6de0625d975279355114602aeac84fd</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>setSamplerate</Name>
-                    <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>a16408aa216e67149a59d211548a38775</Anchor>
-                   </Node>
-                   <Node>
-                    <Name>Shifter&lt; SampleType &gt;</Name>
-                    <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                    <Anchor>ab0c6bf0dc83509d935bf350d9dace989</Anchor>
-                   </Node>
-                  </Subnodes>
-                 </Node>
                  <Node>
                   <Name>PeakFinder</Name>
                   <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
@@ -16227,117 +16172,117 @@
              <Node>
               <Name>call_both</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>ade543c88acbb0d020f0943930c8e7c42</Anchor>
+              <Anchor>af52bf86ca778f5e7c883b4650e57b5c2</Anchor>
              </Node>
              <Node>
               <Name>contains</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>aba286e43913119a0455b95819c6f6c37</Anchor>
+              <Anchor>abece1d4d390d99d8e09fd4af69a2fbbe</Anchor>
              </Node>
              <Node>
               <Name>contains_if</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>ab7ec3ff9ca9837148f2364126367d43b</Anchor>
+              <Anchor>aaadba14fd0d29744644d7b7f493de8b4</Anchor>
              </Node>
              <Node>
               <Name>contains_or</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a05dd1b8f541e51ece47a01a5ab65863f</Anchor>
+              <Anchor>abc82be36d624dd5ff74d5c5c6d83dc49</Anchor>
              </Node>
              <Node>
               <Name>contains_or</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>aa693cfc29177bdc2297d8922d0fee7b2</Anchor>
+              <Anchor>af8f6e7ad2ccdea41cb984e267de75489</Anchor>
              </Node>
              <Node>
               <Name>contains_or_default</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>ad4dcb7fcc84c8cf60571d0d961575fd2</Anchor>
+              <Anchor>a3217b27912ee0e2fa8c813cb94fd762b</Anchor>
              </Node>
              <Node>
               <Name>contains_or_null</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>aed8c0b65c2ddc4310a8371c250d5e9e6</Anchor>
+              <Anchor>a05cb2e1dca0f5ac3ae6d62e2637011cf</Anchor>
              </Node>
              <Node>
               <Name>createFromTransform</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a7b05df0ddb9ca00faae64fec6090501c</Anchor>
+              <Anchor>a10e91c9ff59681c278a000052a1fa3e0</Anchor>
              </Node>
              <Node>
               <Name>enumerate</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a6c7cbab0e8cea38b5a86ca7940f36f27</Anchor>
+              <Anchor>a15d7a77432737677bdb5b338019e9136</Anchor>
              </Node>
              <Node>
               <Name>fill</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a9e887e1d291de7cfb8434b2250e4ed93</Anchor>
+              <Anchor>ab5e457cbac0ada12e2751eb9875737cc</Anchor>
              </Node>
              <Node>
               <Name>find_if</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>aa717287530ecbf4b039bceeda8b5e0bb</Anchor>
+              <Anchor>adb39c954962d1234842cd6254024c6bf</Anchor>
              </Node>
              <Node>
               <Name>find_if</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a344fbad7939713e36b4f19ba172bcbe6</Anchor>
+              <Anchor>ac1d765c729bcbd7bf3125b340e47b468</Anchor>
              </Node>
              <Node>
               <Name>max_value</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a63c6b549efceaed3c8a99efd5f41f464</Anchor>
+              <Anchor>a4b311c1b2b93d31e934bbd5d7c889f6c</Anchor>
              </Node>
              <Node>
               <Name>max_value</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a32d045938ecb093a8deefb0260af4aca</Anchor>
+              <Anchor>ad33e2779fc85de056d7c5b44ed0ff73a</Anchor>
              </Node>
              <Node>
               <Name>min_value</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>afa10bf6b5aa9022c6ce1a8c48e16d810</Anchor>
+              <Anchor>a8dc90e2ff9dca1c9fb94a4a6dd99df3d</Anchor>
              </Node>
              <Node>
               <Name>min_value</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a720ebcf3812801f7f3f194279189b988</Anchor>
+              <Anchor>a1de850177aecb59803a447fcace3c32e</Anchor>
              </Node>
              <Node>
               <Name>num_of</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>afa00c2dd9231d6122470c66ed5e25d9a</Anchor>
+              <Anchor>ae43b092ef6517d3f45dba5dbd797e08d</Anchor>
              </Node>
              <Node>
               <Name>reverse</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a353fa9f9460d7598c007c11ebe4c3b52</Anchor>
+              <Anchor>a7e1f6607be9dbe11a1bff9189773d067</Anchor>
              </Node>
              <Node>
               <Name>shuffle</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>af7352ad67c5465694575a8d939effd57</Anchor>
+              <Anchor>aecb9a3cc56ac1cd6825b072a96bf721d</Anchor>
              </Node>
              <Node>
               <Name>size</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>ac8914ffa7e73015a22777b8e8d0b7581</Anchor>
+              <Anchor>ab5a5ae3c420f6742a12f6410fb18662d</Anchor>
              </Node>
              <Node>
               <Name>sort</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>ab87f3f6adc172201dd99db442e2de665</Anchor>
+              <Anchor>afc754e81e500c59b3fa0b0234bfa4c45</Anchor>
              </Node>
              <Node>
               <Name>sort</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a91326c8eb4459664ee8322ee6cb068b8</Anchor>
+              <Anchor>a72037b43cffe35374402ecb6da4fb3d7</Anchor>
              </Node>
              <Node>
               <Name>transform</Name>
               <Path>d8/dda/_algorithm_8h.html</Path>
-              <Anchor>a9a7042c5b5f084c8577b563b8d445ad6</Anchor>
+              <Anchor>a4ce09ce3f581d6f1e6db8b3b3f4e97a6</Anchor>
              </Node>
              <Node>
               <Name>Container</Name>
@@ -16595,12 +16540,12 @@
              <Node>
               <Name>allocate_aligned</Name>
               <Path>db/dad/alignment_8h.html</Path>
-              <Anchor>ga09766c84dcef55421f96dcb300274b53</Anchor>
+              <Anchor>ga33390ddedd9f134e7c29d771f8bf823f</Anchor>
              </Node>
              <Node>
               <Name>deallocate_aligned</Name>
               <Path>db/dad/alignment_8h.html</Path>
-              <Anchor>gac795c12098b4c0f10766e90eaa65a407</Anchor>
+              <Anchor>gab2c3c66b09b7249811b98dd5b406b78f</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -16608,72 +16553,6 @@
             <Name>analyzer.h</Name>
             <Path>d3/d19/analyzer_8h.html</Path>
             <Subnodes>
-             <Node>
-              <Name>Analyzer</Name>
-              <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>SampleVector</Name>
-                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                <Anchor>a3d871dfedb4f94d3afed6bf6dde8e5dc</Anchor>
-               </Node>
-               <Node>
-                <Name>Analyzer</Name>
-                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                <Anchor>a181cdad3fd10c66f300e9bd59d348b62</Anchor>
-               </Node>
-               <Node>
-                <Name>analyzeInput</Name>
-                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                <Anchor>afe5c0eb4d8dee48b4616fd0fa6106f09</Anchor>
-               </Node>
-               <Node>
-                <Name>getLastInputPitch</Name>
-                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                <Anchor>a2619eeab17eaf395206cc9be01864ab9</Anchor>
-               </Node>
-               <Node>
-                <Name>getLatencySamples</Name>
-                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                <Anchor>aea63215db86d9cae211795b370b81138</Anchor>
-               </Node>
-               <Node>
-                <Name>LIMES_DEFAULT_MOVABLE</Name>
-                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                <Anchor>acd6a3834b496126c2dbcab493e124f51</Anchor>
-               </Node>
-               <Node>
-                <Name>LIMES_NON_COPYABLE</Name>
-                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                <Anchor>a2c829de84720b28fe10c965f54ffeb49</Anchor>
-               </Node>
-               <Node>
-                <Name>releaseResources</Name>
-                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                <Anchor>a1ee1d873d7d00e084a6eaf667ad862d8</Anchor>
-               </Node>
-               <Node>
-                <Name>reset</Name>
-                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                <Anchor>a2b4f4121169faed5618980a531f8ee31</Anchor>
-               </Node>
-               <Node>
-                <Name>setMinInputFreq</Name>
-                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                <Anchor>ad6de0625d975279355114602aeac84fd</Anchor>
-               </Node>
-               <Node>
-                <Name>setSamplerate</Name>
-                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                <Anchor>a16408aa216e67149a59d211548a38775</Anchor>
-               </Node>
-               <Node>
-                <Name>Shifter&lt; SampleType &gt;</Name>
-                <Path>df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html</Path>
-                <Anchor>ab0c6bf0dc83509d935bf350d9dace989</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
              <Node>
               <Name>Shifter</Name>
               <Path>d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html</Path>
@@ -16966,32 +16845,32 @@
              <Node>
               <Name>build_day</Name>
               <Path>dc/db3/build__date_8h.html</Path>
-              <Anchor>gaf542f075ede6e359bbe617612ad0c3a4</Anchor>
+              <Anchor>ga8fca8688546ad996c2ff82a6e4c57e47</Anchor>
              </Node>
              <Node>
               <Name>build_hour</Name>
               <Path>dc/db3/build__date_8h.html</Path>
-              <Anchor>ga9957862fb5e3604b616a94475f612879</Anchor>
+              <Anchor>ga34b0f0856361da78df492e71b98b9561</Anchor>
              </Node>
              <Node>
               <Name>build_minute</Name>
               <Path>dc/db3/build__date_8h.html</Path>
-              <Anchor>gad67e3458990ecfab7898ad600759c6a9</Anchor>
+              <Anchor>ga9ead6b8bccc46ee10c8be2fe667cdbe5</Anchor>
              </Node>
              <Node>
               <Name>build_month</Name>
               <Path>dc/db3/build__date_8h.html</Path>
-              <Anchor>ga5698aefc3a44cfb128495d162b1c0b38</Anchor>
+              <Anchor>gaeed19bfa85af265a63bb31ffce8aae1b</Anchor>
              </Node>
              <Node>
               <Name>build_second</Name>
               <Path>dc/db3/build__date_8h.html</Path>
-              <Anchor>ga545d065535dd78a6f14c4b15750dd282</Anchor>
+              <Anchor>gac7fd1d6865b1470c8b532a9ceaf16df7</Anchor>
              </Node>
              <Node>
               <Name>build_year</Name>
               <Path>dc/db3/build__date_8h.html</Path>
-              <Anchor>ga646512f9ab3e9dd2f863d081888927a2</Anchor>
+              <Anchor>ga074fa34571f22ac34cc6415c814a0e4f</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -18363,12 +18242,12 @@
              <Node>
               <Name>breakInDebugger</Name>
               <Path>dc/d72/debugger_8h.html</Path>
-              <Anchor>ga1a84cd77dc0cbe2a5643d8ba0a640563</Anchor>
+              <Anchor>ga9a70cd79386a6723dbb63c9374d65b8d</Anchor>
              </Node>
              <Node>
               <Name>isRunningUnderDebugger</Name>
               <Path>dc/d72/debugger_8h.html</Path>
-              <Anchor>gaaa92a219f82cca4271c59ef98c1b5fa5</Anchor>
+              <Anchor>ga9d7abb01ca191df6a78dc4bfffae6f69</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -20765,12 +20644,12 @@
              <Node>
               <Name>call_once</Name>
               <Path>d6/d9b/_functions_8h.html</Path>
-              <Anchor>ga071be31306f96410ade861c96ef1aa71</Anchor>
+              <Anchor>ga423a59d89a77cb46a1e475eca33dd4e4</Anchor>
              </Node>
              <Node>
               <Name>consteval_invoke</Name>
               <Path>d6/d9b/_functions_8h.html</Path>
-              <Anchor>ga44f9cad25c11a543213afc4aec6c606a</Anchor>
+              <Anchor>ga677b37e66b96cec89ef70ad374f8aa2b</Anchor>
              </Node>
              <Node>
               <Name>curry</Name>
@@ -20780,7 +20659,7 @@
              <Node>
               <Name>try_call</Name>
               <Path>d6/d9b/_functions_8h.html</Path>
-              <Anchor>gad9b1e68cd8346f6227bd75fe19032531</Anchor>
+              <Anchor>ga8ae3d6b9aba39513f038c0784215c739</Anchor>
              </Node>
              <Node>
               <Name>Function</Name>
@@ -20859,17 +20738,17 @@
              <Node>
               <Name>createHasherForType</Name>
               <Path>db/dfb/hash_8h.html</Path>
-              <Anchor>gac8deecc8bd4e0cce2c9e132da00acb29</Anchor>
+              <Anchor>gac34cb84df8bc2dfec8c97755d632208a</Anchor>
              </Node>
              <Node>
               <Name>hash</Name>
               <Path>db/dfb/hash_8h.html</Path>
-              <Anchor>gaa9d33df5883f11ad921575c87c9044a6</Anchor>
+              <Anchor>gafaa42983a7f5867ce673f70cf08762ea</Anchor>
              </Node>
              <Node>
               <Name>hash</Name>
               <Path>db/dfb/hash_8h.html</Path>
-              <Anchor>ga6f587411158c7b50721970b64c2be223</Anchor>
+              <Anchor>ga767adfd86b44e74eecded43fb40575b8</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -21123,7 +21002,7 @@
              <Node>
               <Name>ignore_unused</Name>
               <Path>d1/d57/_ignore_unused_8h.html</Path>
-              <Anchor>gaa5d1baad824f48df6797880222aba729</Anchor>
+              <Anchor>gaf60f405ce0a2830962ec41c546be5bf7</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -21332,12 +21211,12 @@
              <Node>
               <Name>operator+</Name>
               <Path>d1/d6b/_interval_8h.html</Path>
-              <Anchor>gae9f00f0211829b3ad563a298d29dd522</Anchor>
+              <Anchor>gad937197c36fe7b20d305edb703a8ac78</Anchor>
              </Node>
              <Node>
               <Name>operator-</Name>
               <Path>d1/d6b/_interval_8h.html</Path>
-              <Anchor>ga910495c7a05fbf3d7ff426f5fa9954f8</Anchor>
+              <Anchor>gace85358102f38a5ae37e1f3cc4530512</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -21658,22 +21537,22 @@
              <Node>
               <Name>getAllKnownLanguages</Name>
               <Path>d0/d0f/languages_8h.html</Path>
-              <Anchor>ga009aae4338e31ecb94fda7d05b7c0472</Anchor>
+              <Anchor>ga11ae481240c4d4d320de358bc46a9396</Anchor>
              </Node>
              <Node>
               <Name>getLanguage</Name>
               <Path>d0/d0f/languages_8h.html</Path>
-              <Anchor>gad9bb163218bee484386b5f917327c64c</Anchor>
+              <Anchor>ga746e6628a179acfa800d441c08c7bd66</Anchor>
              </Node>
              <Node>
               <Name>getLanguageForCode</Name>
               <Path>d0/d0f/languages_8h.html</Path>
-              <Anchor>ga5a6c668e9ebaca0cf57f2057127f29f6</Anchor>
+              <Anchor>ga382c8c09f879ffd9be0a24088b2ee5cb</Anchor>
              </Node>
              <Node>
               <Name>getLanguagesForCountry</Name>
               <Path>d0/d0f/languages_8h.html</Path>
-              <Anchor>gafb9dcedf3cfe5ea5e39b19077a1b07ac</Anchor>
+              <Anchor>gadb7784b01623f7aa80324d1ea10b6856</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -21703,12 +21582,12 @@
              <Node>
               <Name>getAssertionLogFile</Name>
               <Path>d5/dbb/limes__assert_8h.html</Path>
-              <Anchor>ga47f50ef9d6e0b1e856b019ed00795487</Anchor>
+              <Anchor>ga854168fca1651443274024e9dfaa6cd3</Anchor>
              </Node>
              <Node>
               <Name>setAssertionLogFile</Name>
               <Path>d5/dbb/limes__assert_8h.html</Path>
-              <Anchor>ga7bc7b0ce997375bd0a045ee5bb665ad9</Anchor>
+              <Anchor>ga0a55276632d2f9f646782b6e571bcfed</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -21802,7 +21681,7 @@
              <Node>
               <Name>enableWisdom</Name>
               <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>ga939bfce415205091c7808f0cc4d71dea</Anchor>
+              <Anchor>ga1818e18e60c815c22566debbd4784424</Anchor>
              </Node>
              <Node>
               <Name>getImplementationName</Name>
@@ -21812,7 +21691,7 @@
              <Node>
               <Name>getWisdomFileDir</Name>
               <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>gaff20964c03f09d6a0c5f2c2c879da8da</Anchor>
+              <Anchor>ga90e49d17f247ad93ecfb427c7e2fcf9d</Anchor>
              </Node>
              <Node>
               <Name>isUsingFallback</Name>
@@ -21837,12 +21716,12 @@
              <Node>
               <Name>isUsingWisdom</Name>
               <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>ga8748afcaad7c030c938654966ff70a92</Anchor>
+              <Anchor>ga5173b41e9b489babbd62d5640c5b8cad</Anchor>
              </Node>
              <Node>
               <Name>setWisdomFileDir</Name>
               <Path>d4/d39/limes__fft_8h.html</Path>
-              <Anchor>ga2125ae4827739fa347af1abad300134a</Anchor>
+              <Anchor>ga180339a8f455980abbb4b2799d153c55</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -21982,172 +21861,172 @@
              <Node>
               <Name>abs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gad21e9bb4bd863a7433cbc0d0d082c7e1</Anchor>
+              <Anchor>gac7a9c95727a80ce5c0217bd516a53157</Anchor>
              </Node>
              <Node>
               <Name>absAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga2a6a53a470f1f882e1bbba6ee0449060</Anchor>
+              <Anchor>ga528118744285ceb133deeb22e563cb87</Anchor>
              </Node>
              <Node>
               <Name>add</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga3a024446ad19d145afb726ebbb5af8c0</Anchor>
+              <Anchor>ga60449a2c2fcccfd64da4d82269008c45</Anchor>
              </Node>
              <Node>
               <Name>add</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga667f4f92b16f4b8d06e37f77341d4c61</Anchor>
+              <Anchor>ga86ba6050c1a30aab9df98a440a89df97</Anchor>
              </Node>
              <Node>
               <Name>addAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga5d09da7900434c5006c6e6a9684205a4</Anchor>
+              <Anchor>gacb9372bb6d3df53194c1d59c7841812a</Anchor>
              </Node>
              <Node>
               <Name>addAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga1426d96a68724d3c304100b04945cce9</Anchor>
+              <Anchor>ga8ed529a71171ca3c01575613f5199875</Anchor>
              </Node>
              <Node>
               <Name>apply</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gac728e1af0a779b89e4dd342eb50554c4</Anchor>
+              <Anchor>ga5c6e376478e32b4670c094f6da111d2d</Anchor>
              </Node>
              <Node>
               <Name>applyAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga38d11ff25d554cb6bc3d54c224d41ad1</Anchor>
+              <Anchor>gadd908a9750954d0716c185c4a1c80331</Anchor>
              </Node>
              <Node>
               <Name>applyBlackman</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga56b8fd4bb9dbba98ea45c1fec4e03098</Anchor>
+              <Anchor>gaf91448dab1ddfb2b06574b6075d08f68</Anchor>
              </Node>
              <Node>
               <Name>applyBlackmanAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gac2490b24ab53aff68a7f60e484071cd9</Anchor>
+              <Anchor>gada4ae9f6fde3f6e2a1984422f0777bcb</Anchor>
              </Node>
              <Node>
               <Name>applyHamm</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa6c221520ae691de3f03b457e14985f3</Anchor>
+              <Anchor>ga2ce02522c229a5e162c22a6522234763</Anchor>
              </Node>
              <Node>
               <Name>applyHammAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa2a5bc8396e436023448317b64327c4b</Anchor>
+              <Anchor>gad630209052fb19b577fded44e8be2ce9</Anchor>
              </Node>
              <Node>
               <Name>applyHanning</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaf9f62171dfff05be0973337c59963b80</Anchor>
+              <Anchor>ga7b30a3bfef13376f44e1af5bc5e84093</Anchor>
              </Node>
              <Node>
               <Name>applyHanningAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa8faf60f3ca7f8dfc797eb9803af97ae</Anchor>
+              <Anchor>gaf634fc9ec69ed5e8b866e4311770ca7d</Anchor>
              </Node>
              <Node>
               <Name>applyRamp</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gad7af1a4acd71d9716be5342daffab37a</Anchor>
+              <Anchor>gaa773c465be209a3d097f4cb84e14608f</Anchor>
              </Node>
              <Node>
               <Name>applyRampAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga987b8430bbb4870efa4ecab21f68469c</Anchor>
+              <Anchor>ga2f4b1df0215c251ab3bfacadf866248e</Anchor>
              </Node>
              <Node>
               <Name>arccos</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gae0764ad036561cfa66bb6a08bedd69bf</Anchor>
+              <Anchor>ga286b9aa43f1edb6939189c871096dc35</Anchor>
              </Node>
              <Node>
               <Name>arccosAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga1a26d7c204eb7f95b4b659337dee0325</Anchor>
+              <Anchor>ga38b8a89b49712f47451c4ccfb74aa3af</Anchor>
              </Node>
              <Node>
               <Name>arcsine</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaca9a612b58b50484ba4e02592e4f46f7</Anchor>
+              <Anchor>ga1b65e7a322bc4705e41932a91c4529b4</Anchor>
              </Node>
              <Node>
               <Name>arcsineAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga7474c1ae64d9c38707e715daf651490b</Anchor>
+              <Anchor>gaf1b7eb2d28dcd5699803f2ad97d16e7f</Anchor>
              </Node>
              <Node>
               <Name>arctan</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga398978e25f59930d3ef1a58707fd889d</Anchor>
+              <Anchor>ga036475cd9def5f3729f68f7bc80368db</Anchor>
              </Node>
              <Node>
               <Name>arctanAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaedf349fe7e558d8b436534afcec800eb</Anchor>
+              <Anchor>gaf1b508a20ba1939a7b2b05fb69671dd1</Anchor>
              </Node>
              <Node>
               <Name>areDenormalsDisabled</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaba6844c92f2fd7ac1067fbeb45d65863</Anchor>
+              <Anchor>ga663567cc8416a778e37e0acab1c9c0fb</Anchor>
              </Node>
              <Node>
               <Name>base10</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga2bd502c7dd4a6f5804ed1c967e3dccd9</Anchor>
+              <Anchor>ga44c3a85ee486714fa2a473db2d135a53</Anchor>
              </Node>
              <Node>
               <Name>base10AndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaf4d52993ec0f582f9c198aae893caff2</Anchor>
+              <Anchor>ga941e785c7fbfb826ab9e6a3a5f9a4435</Anchor>
              </Node>
              <Node>
               <Name>base2</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga2b524a2a0efcafcd98ce0922394caebb</Anchor>
+              <Anchor>ga6e9cb29784ae6937dd52a74bf93776be</Anchor>
              </Node>
              <Node>
               <Name>base2AndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gae3b4330086bcfc18cd4187fba10d4687</Anchor>
+              <Anchor>ga03e30d364a819aebb57a4d9251329dc4</Anchor>
              </Node>
              <Node>
               <Name>cartesianInterleavedToMagnitudes</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gacdc92d474c64af679980ec7532f5ec3b</Anchor>
+              <Anchor>ga161341fe747f7daf465acef57121f98a</Anchor>
              </Node>
              <Node>
               <Name>cartesianToMagnitudes</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gab6f32d9c00fe32f00114748c21488ec8</Anchor>
+              <Anchor>ga8b3712f71181d5d3ff6655a5b426c8d0</Anchor>
              </Node>
              <Node>
               <Name>cartesianToPolar</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gade84ac99b54758f4370cbb3f384406df</Anchor>
+              <Anchor>ga8535fe5a1db17d0b82dc95786c2923a1</Anchor>
              </Node>
              <Node>
               <Name>catesianInterleavedToPolar</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga5d0b289d61ce925d188af90564e49751</Anchor>
+              <Anchor>gaeb41bbfaa7dd86d4bef839286cffbe48</Anchor>
              </Node>
              <Node>
               <Name>clear</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga6e80a5f6f3b343ab9aed4c4c1f6e4e93</Anchor>
+              <Anchor>ga9cc2c9b4c12bd3574570e8dc7ff35da3</Anchor>
              </Node>
              <Node>
               <Name>clip</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaef34a7abfcb2ba9369dc75343b0c4c5a</Anchor>
+              <Anchor>ga7f884630e966e6f1334b8d45cf7fe095</Anchor>
              </Node>
              <Node>
               <Name>clipAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaaa678dbf9d6d6884756ad76a7bbf3daa</Anchor>
+              <Anchor>gabef49fdbbbd7a708b516a17ac64b082e</Anchor>
              </Node>
              <Node>
               <Name>convert</Name>
@@ -22162,467 +22041,467 @@
              <Node>
               <Name>copy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga4fa56b30a4dc9647f323135c6ac5ed47</Anchor>
+              <Anchor>gade886b73a7b5b6d7b7629916960dba27</Anchor>
              </Node>
              <Node>
               <Name>cos</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga231ccf8f8ffc8267a333aa912e259cae</Anchor>
+              <Anchor>gaed15c01d37c58ce119a59a5c936d996d</Anchor>
              </Node>
              <Node>
               <Name>cosAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga6724350269a20b880de0969bde2405d6</Anchor>
+              <Anchor>ga0a1ae7b7594a0fd306b1d405d6b6946e</Anchor>
              </Node>
              <Node>
               <Name>countZeroCrossings</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaba849b93dcaac4be3ae9592eb0979d6e</Anchor>
+              <Anchor>gaf1fecbdc1782c6e9bd88462af4ff9756</Anchor>
              </Node>
              <Node>
               <Name>cubeRoot</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga8a9f8db1b30f6c6b82bb281d0ee3f9af</Anchor>
+              <Anchor>gae2c726a3e47d1d115372995a29ef8113</Anchor>
              </Node>
              <Node>
               <Name>cubeRootAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga854955b00a0234e94976c2d4d1090296</Anchor>
+              <Anchor>gaf778cc37d99927fadef43a3642ba5a7e</Anchor>
              </Node>
              <Node>
               <Name>deinterleave</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga8fc2171aa245734cea2eab71fe7813bb</Anchor>
+              <Anchor>ga65a93f93fa2d217b45877059df11ebd2</Anchor>
              </Node>
              <Node>
               <Name>disableDenormalisedNumberSupport</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga36b736830f065df4ef6887b57a2d8368</Anchor>
+              <Anchor>ga4c0afe0438d776457c73d9d748bbb333</Anchor>
              </Node>
              <Node>
               <Name>divide</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaadc0439e237e20f07a4b5f943e823ad9</Anchor>
+              <Anchor>ga58ac79669a26bbf15f119256fa5ef436</Anchor>
              </Node>
              <Node>
               <Name>divide</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga99caeed6d8faf1ee3ef87748a4fd6533</Anchor>
+              <Anchor>gabe542f93a2801dea705a30b99bd25a25</Anchor>
              </Node>
              <Node>
               <Name>divideAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga16030e4c778234c88cf971305a712374</Anchor>
+              <Anchor>ga52fc43a5406166658185815c51a0ee76</Anchor>
              </Node>
              <Node>
               <Name>divideAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gae548ef3044eae9a712a510439e87bb0d</Anchor>
+              <Anchor>gab280f7562da503a42c44fe9392cb9767</Anchor>
              </Node>
              <Node>
               <Name>divideInv</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaada175046515b6502c99b363e2748ba6</Anchor>
+              <Anchor>ga691e6b1580a7890b72548be6ab6b1bbf</Anchor>
              </Node>
              <Node>
               <Name>divideInvAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga7b9c0fb4b7d0e5484e1ebaf9d8ed4649</Anchor>
+              <Anchor>gabc72baaae96c9091a60068bcba0e43db</Anchor>
              </Node>
              <Node>
               <Name>dotProduct</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaf0f5c8fe0cea2baa676bdc386a5d0540</Anchor>
+              <Anchor>gafdef30f85db1327afb1724684e5d97f5</Anchor>
              </Node>
              <Node>
               <Name>e</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gad34a1d7c0d781b6ebb09686a7d0893ce</Anchor>
+              <Anchor>gabba158b4cc8009a8c949cd4a9702088a</Anchor>
              </Node>
              <Node>
               <Name>eAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gab7f11320810a0aed60bc686bcc49c064</Anchor>
+              <Anchor>ga073b588e516144b573c4cabb422a7763</Anchor>
              </Node>
              <Node>
               <Name>enableFlushToZeroMode</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gac79b89c40d9b095a0def999d7fba2b87</Anchor>
+              <Anchor>ga7f9b57bae55e687f13d4c3c002eed033</Anchor>
              </Node>
              <Node>
               <Name>fill</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga82fb1c966bbad1669fca5eced15be9d8</Anchor>
+              <Anchor>gaa2c8ff649809e33cdfc1255636f2f51e</Anchor>
              </Node>
              <Node>
               <Name>generate</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga6c7815bba84d3469f66b66cf02dbd6a3</Anchor>
+              <Anchor>ga6a128c92c17b5eeded996d16c69dff61</Anchor>
              </Node>
              <Node>
               <Name>generateBlackman</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga651c8a212639d0f84307b7b2af1ed02b</Anchor>
+              <Anchor>ga9653fec6efe14cf3e47ed5e5fef8c2b7</Anchor>
              </Node>
              <Node>
               <Name>generateHamm</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga77f6ab1f7183e38dc861320603993132</Anchor>
+              <Anchor>ga635249e6c502b055323c6128e647c3dd</Anchor>
              </Node>
              <Node>
               <Name>generateHanning</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa33d842e9f88484ae6bdf329eec4ded6</Anchor>
+              <Anchor>ga957e9d798b149b0f9c0ad82bf8e80f0a</Anchor>
              </Node>
              <Node>
               <Name>generateRamp</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga08d1fec4ef1c205281ed1c9e0db6700a</Anchor>
+              <Anchor>ga3e6d037ecbe0c6c19c6c6996191a0b4f</Anchor>
              </Node>
              <Node>
               <Name>getAbsVectorExtremaInfo</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga1a3cc804d477d233599086f86558aa36</Anchor>
+              <Anchor>gabfe59a0103582ec600271425bac5e52f</Anchor>
              </Node>
              <Node>
               <Name>getImplementationName</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gabc56122dde2bafda9811cac992710534</Anchor>
+              <Anchor>gaf09a8639bf3a7399eb31d7d5b0592de8</Anchor>
              </Node>
              <Node>
               <Name>getVectorExtremaInfo</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga379d47a07fa42f3c41f5171758990555</Anchor>
+              <Anchor>ga62ccd0e04389ca41efbdd09bcfb03f82</Anchor>
              </Node>
              <Node>
               <Name>interleave</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gadee227aae33b5acd81eed3658d9bc95f</Anchor>
+              <Anchor>ga2a959fee236c8bf94a262cfe20e3b4e2</Anchor>
              </Node>
              <Node>
               <Name>invSquareRoot</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gacb7663a80b1a6411753c91f6d5b7da6c</Anchor>
+              <Anchor>gaaf5b62ab6f9f2a9e0a6cd9f2e570cc62</Anchor>
              </Node>
              <Node>
               <Name>invSquareRootAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga629169f67eb95bdf2c3bf126dbd99bc6</Anchor>
+              <Anchor>ga8d562f7238ee87445ba97d1e41e383f9</Anchor>
              </Node>
              <Node>
               <Name>isFlushToZeroEnabled</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaf58cc4896054292a5b9b2d4e7579d28f</Anchor>
+              <Anchor>ga22832f8702188210f2bb025c1a70e868</Anchor>
              </Node>
              <Node>
               <Name>isUsingFallback</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa1e0ee421a69ccfeda0fdb7566ebf7ad</Anchor>
+              <Anchor>gaeb6a0efe84a2602c997553c1b95cfc71</Anchor>
              </Node>
              <Node>
               <Name>isUsingIPP</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga2c413d8ccf3a904a26a37a718f43f7d0</Anchor>
+              <Anchor>ga2aa7f7f2dc9cb23e38a11e2ecfaa74a7</Anchor>
              </Node>
              <Node>
               <Name>isUsingMIPP</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga794cbb4e3efd0dedbef7f997394b377e</Anchor>
+              <Anchor>ga978afc0d4dcde7aedf2bacbc6cf86b29</Anchor>
              </Node>
              <Node>
               <Name>isUsingPommierExtensions</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga9cb4f23a1af5d7e97a07cc09408e6de6</Anchor>
+              <Anchor>ga6ad60ba3c423b9b1a06c2756d36a7c06</Anchor>
              </Node>
              <Node>
               <Name>isUsingVDSP</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga2fcec3be87d05af088e48a3716211827</Anchor>
+              <Anchor>gad8a841ef1d29d1d7f4dd08f5892e1930</Anchor>
              </Node>
              <Node>
               <Name>max</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga7e741640b08aaa13c2c37ab0d4c8acd8</Anchor>
+              <Anchor>gac262f0759d4e94c6e76de859b12f9c46</Anchor>
              </Node>
              <Node>
               <Name>max</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga847e933eec75e5853e47865f41e071fe</Anchor>
+              <Anchor>ga24e8b5481f2b40e94118c67e90599aee</Anchor>
              </Node>
              <Node>
               <Name>maxAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa6df91ebaade90faa4555262c6875d49</Anchor>
+              <Anchor>gafd0924df2faf96f9448444798a159bd2</Anchor>
              </Node>
              <Node>
               <Name>maxAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gabe7285b7b9b9d46229150ea80bc9ad50</Anchor>
+              <Anchor>ga2f0d919fa71affaef9c11a07b9c8d95f</Anchor>
              </Node>
              <Node>
               <Name>mean</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga1f5417592c6e8d68a04566dd2428cde5</Anchor>
+              <Anchor>gaeb889ab16cdedada6bae279ab240a31a</Anchor>
              </Node>
              <Node>
               <Name>min</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga605ed52218b5ec5df543eed606d0f0d7</Anchor>
+              <Anchor>gabbf8da57c56d80d41f2ff2ee1288aae4</Anchor>
              </Node>
              <Node>
               <Name>min</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga436fbda048b0ff68d5f2e5a9952a5f0f</Anchor>
+              <Anchor>ga1d361cefebf0a3eee74ab3f1795bd519</Anchor>
              </Node>
              <Node>
               <Name>minAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gab5ebd45f2963c36c18dd6d768349275f</Anchor>
+              <Anchor>ga076a93c161e47ba59dcc6697d2f0f04a</Anchor>
              </Node>
              <Node>
               <Name>minAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga0ce938eaa12c73f120485fa2eb5f7415</Anchor>
+              <Anchor>gae132e0ecc8976b10635305cdcfb212a1</Anchor>
              </Node>
              <Node>
               <Name>minMax</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga219248fe15b7f5b82c6c338641c5a557</Anchor>
+              <Anchor>ga5dfa502a51b88fd534a9fbd046535ef1</Anchor>
              </Node>
              <Node>
               <Name>minMax</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa2af652aec26b69e562e4477ae27e81b</Anchor>
+              <Anchor>gad33d7b2bbe05c35fb38bbf8d9f44172c</Anchor>
              </Node>
              <Node>
               <Name>minMaxAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga5da07c6b14483410d44bb3fa81b53320</Anchor>
+              <Anchor>ga00d1befd3a8ddb3da81e6abe9c945ddb</Anchor>
              </Node>
              <Node>
               <Name>minMaxAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga6f9efb710d0503059914715942101e20</Anchor>
+              <Anchor>gaf0b51c08a149db6c6da5ec9427b478c2</Anchor>
              </Node>
              <Node>
               <Name>mix</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga4bbd806aba2959761022a9ec12dd80bd</Anchor>
+              <Anchor>gae537a24e7cc8fc0d3d1b866246def49e</Anchor>
              </Node>
              <Node>
               <Name>multiply</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaaae47b2eff0299658f34471cd9cd1970</Anchor>
+              <Anchor>gabd3df806285b3d0c33456b1d368bb477</Anchor>
              </Node>
              <Node>
               <Name>multiply</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga63864c635a4cae5c20c5a1ae77233edc</Anchor>
+              <Anchor>ga4ac6ad5eb22722a26a3396a99f71c2d6</Anchor>
              </Node>
              <Node>
               <Name>multiplyAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga475d2e0141d013e86c051864dff93a94</Anchor>
+              <Anchor>ga75f9729fdf833998a58bd8c7f2326eef</Anchor>
              </Node>
              <Node>
               <Name>multiplyAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaf6f1d361d99e4c5c8256861b0c2bb85e</Anchor>
+              <Anchor>gae392c30e1ef8cd4a9c8e60262a3558f3</Anchor>
              </Node>
              <Node>
               <Name>nat</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaba505eb13846fd46259783da1db133a2</Anchor>
+              <Anchor>ga633a8cf6da2e8819f6faec6b419f960d</Anchor>
              </Node>
              <Node>
               <Name>natAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga0f545789bb24b3f69f14af7604dc3b31</Anchor>
+              <Anchor>ga30bc27d9e0c5deffdd1a271626fcb64b</Anchor>
              </Node>
              <Node>
               <Name>negate</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga0b6017272155894c64975f76349cea19</Anchor>
+              <Anchor>ga68042b2fd340e85fb736873eed2e86c5</Anchor>
              </Node>
              <Node>
               <Name>negateAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga3b6e43a027ee0bc91a0f59678b03d0ff</Anchor>
+              <Anchor>ga56d201839bc0df98af2a9138905182bf</Anchor>
              </Node>
              <Node>
               <Name>polarToCartesian</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga989e3a6c3c3b49df5becadcab05769b2</Anchor>
+              <Anchor>ga456451f252f8df15676aa469a757f14d</Anchor>
              </Node>
              <Node>
               <Name>polarToCartesianInterleaved</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga9c23c53828298d02ce27d61a4356a8f5</Anchor>
+              <Anchor>ga0379acccbc8212ded5043264b3653404</Anchor>
              </Node>
              <Node>
               <Name>pow</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gacfbfe381b5da23ca34c3e9c8d26b38c0</Anchor>
+              <Anchor>gaf0fd2a71a838d6a84a2443b28a900b66</Anchor>
              </Node>
              <Node>
               <Name>powAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gab43c275630d45f98cb1d12f09f6b1c3c</Anchor>
+              <Anchor>ga71dfbdbafe7bafbb796fbbdbe92626d6</Anchor>
              </Node>
              <Node>
               <Name>range</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga2723e9d8f177c8389fae159bb075f196</Anchor>
+              <Anchor>gaf8f8442017ff82121d88a85eae95a26a</Anchor>
              </Node>
              <Node>
               <Name>rangeAbs</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaf838401785666d1131bc732e6c320b72</Anchor>
+              <Anchor>gaf0b23ae2dd2601cbb3010e2f594ace2f</Anchor>
              </Node>
              <Node>
               <Name>recip</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga9e13bec3651f5fd337ba190bd68d0cd5</Anchor>
+              <Anchor>ga76033b51d3e45fcd98844915fa0335c7</Anchor>
              </Node>
              <Node>
               <Name>recipAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga9118787b8f725138b24494d4b7c1b9b9</Anchor>
+              <Anchor>gad59ae212688e3dace7b59956d495ba95</Anchor>
              </Node>
              <Node>
               <Name>reverse</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga3174c7d255cfa8cdbd32e7845562bb73</Anchor>
+              <Anchor>gabe6c647b503d8802269ec42669cf9a5c</Anchor>
              </Node>
              <Node>
               <Name>reverseAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaa0e5fe9cf32d0f1afd852e34865bef4c</Anchor>
+              <Anchor>ga2e851b2ff584653f12d48e24bf686c0e</Anchor>
              </Node>
              <Node>
               <Name>rms</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga5c3ae4cdc62f16c05a5f837ff3d0411b</Anchor>
+              <Anchor>ga0cc5e08c603866a3f94ceecd3049d2fd</Anchor>
              </Node>
              <Node>
               <Name>sinCos</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaaf5e6700040b35b379073259d5778eab</Anchor>
+              <Anchor>ga9049800737a310e19ffb9b5bf1cafce1</Anchor>
              </Node>
              <Node>
               <Name>sine</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga0c6029a1aa1f59316d1680bb8f41ec5a</Anchor>
+              <Anchor>ga45116b911f429728c6f8bee3ad1b1971</Anchor>
              </Node>
              <Node>
               <Name>sineAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga25e52cc19a67743b74746189126196c0</Anchor>
+              <Anchor>gae00ae0aeff4947e9f77671bb3ab2f7c2</Anchor>
              </Node>
              <Node>
               <Name>sort</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga502969ed94a7b9dc418cfd0d57d72d2b</Anchor>
+              <Anchor>ga17d1aec7a6eab65eb33270a90035d9ac</Anchor>
              </Node>
              <Node>
               <Name>sortAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga4365df111ef0deddbf49f64bef41daf0</Anchor>
+              <Anchor>ga32a840e01318c6d1852b850898b39a33</Anchor>
              </Node>
              <Node>
               <Name>sortReverse</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gac81290ecb1e18ef23d69b3e63fb6c53a</Anchor>
+              <Anchor>ga40b6ac3b989d84ec70ec711fa449878d</Anchor>
              </Node>
              <Node>
               <Name>sortReverseAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga2e3da938605f8b09c3337e4cebf87e03</Anchor>
+              <Anchor>ga7233fe3d1c32169b8b63f30c38b7de53</Anchor>
              </Node>
              <Node>
               <Name>square</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga208c95b83be5880a5277c296b698a693</Anchor>
+              <Anchor>ga36096730723a4c8117411c2b6121b19b</Anchor>
              </Node>
              <Node>
               <Name>squareAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaff1a5ee7566b9158065b6a677e3f47b1</Anchor>
+              <Anchor>gae0231e59ae96493675dbddd45e700dac</Anchor>
              </Node>
              <Node>
               <Name>squareRoot</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gacd4943ba3289038942de00b6262bb23c</Anchor>
+              <Anchor>gaf6adb1924912cd4c13c530564ef6c080</Anchor>
              </Node>
              <Node>
               <Name>squareRootAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga172282de70eec2bf8d7ac52cce414fe5</Anchor>
+              <Anchor>ga33dc288835a9d20d0d7382b2814b6ade</Anchor>
              </Node>
              <Node>
               <Name>standard_deviation</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaebef10f895380fa0de309304af33878d</Anchor>
+              <Anchor>ga1f52fc0dff7b83c4a1ad9249cdeb2e30</Anchor>
              </Node>
              <Node>
               <Name>subtract</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaf0bd89ff06267a8145bf087e061137de</Anchor>
+              <Anchor>gadf36066325d4106ebdf2e9e370df564b</Anchor>
              </Node>
              <Node>
               <Name>subtract</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga9f4c1c0a71fbd7339fa2fc1fc4bfd087</Anchor>
+              <Anchor>ga919cb58e32da405815028c1c9354af39</Anchor>
              </Node>
              <Node>
               <Name>subtractAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga6c7a7263ad1427ad0f9ba15785c7c74b</Anchor>
+              <Anchor>ga689793c924b67cb3d6de4a3db2e9a2b3</Anchor>
              </Node>
              <Node>
               <Name>subtractAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga33c404fa92f28a495234c5ea7bb3cfe3</Anchor>
+              <Anchor>gac5d700aec8e07ca924c9e7408e0efaf1</Anchor>
              </Node>
              <Node>
               <Name>subtractInv</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga75c4ee421b6ab6f8828eeb459a7e55b8</Anchor>
+              <Anchor>ga34e45f99109fbc79df03000342b289f8</Anchor>
              </Node>
              <Node>
               <Name>subtractInvAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga7b5798461a596936a8495233b4ddb924</Anchor>
+              <Anchor>ga67048e7003180b0fe875f378b2522303</Anchor>
              </Node>
              <Node>
               <Name>sum</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga0a7b3fbae1d35e850b7322264c0b5cff</Anchor>
+              <Anchor>gac51ed11b409ef0d0b44a3a1ab9b451e2</Anchor>
              </Node>
              <Node>
               <Name>swap</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gae47eab43ceb281664589422b69e264ed</Anchor>
+              <Anchor>gae85ce01a5c9fd8d495c763c7f9c977f3</Anchor>
              </Node>
              <Node>
               <Name>tan</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>gaeed48026d7586d096bce4c0b93e725b8</Anchor>
+              <Anchor>ga503dc331b5e71be46de62e644f5226bd</Anchor>
              </Node>
              <Node>
               <Name>tanAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga8ca2ca9f9899123ac65447f3acf196ff</Anchor>
+              <Anchor>gad96c0eb23c8ccf5b85007268c465798f</Anchor>
              </Node>
              <Node>
               <Name>two</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga065914500fce876c3cee37cbbb4cf5eb</Anchor>
+              <Anchor>ga36042279794ca6013c9e60daaa76f127</Anchor>
              </Node>
              <Node>
               <Name>twoAndCopy</Name>
               <Path>de/d1f/limes__vecops_8h.html</Path>
-              <Anchor>ga4f9e598e6fb6243787149bdd4cb1e168</Anchor>
+              <Anchor>ga5d1fe0a722eb3155880312bbed489568</Anchor>
              </Node>
              <Node>
               <Name>Integral</Name>
@@ -22670,202 +22549,112 @@
              <Node>
               <Name>abs</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga3e48d4dd81c1f3280854262e5adee629</Anchor>
-             </Node>
-             <Node>
-              <Name>abs</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga3e48d4dd81c1f3280854262e5adee629</Anchor>
+              <Anchor>ga514ee773c330a0ff7d19286b13f83b53</Anchor>
              </Node>
              <Node>
               <Name>factorial</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>gaaf72031a20756d328aa105ddb244b453</Anchor>
-             </Node>
-             <Node>
-              <Name>factorial</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>gaaf72031a20756d328aa105ddb244b453</Anchor>
+              <Anchor>ga5d2f2720c191268e9a17d15e0b25ff3c</Anchor>
              </Node>
              <Node>
               <Name>freqFromPeriod</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga18fb0947b08d8e45d7119dab412b4411</Anchor>
-             </Node>
-             <Node>
-              <Name>freqFromPeriod</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga18fb0947b08d8e45d7119dab412b4411</Anchor>
+              <Anchor>gaacee5ce0fef613d9f08eb4ec86bfe056</Anchor>
              </Node>
              <Node>
               <Name>freqToMidi</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga264e87423133491659f7e3affba13db1</Anchor>
-             </Node>
-             <Node>
-              <Name>freqToMidi</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga264e87423133491659f7e3affba13db1</Anchor>
+              <Anchor>ga79c120b8a72137dd368c391208d82240</Anchor>
              </Node>
              <Node>
               <Name>isDivisibleBy</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>gaeabf4346ca0cbe661a26a9297d906592</Anchor>
-             </Node>
-             <Node>
-              <Name>isDivisibleBy</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>gaeabf4346ca0cbe661a26a9297d906592</Anchor>
+              <Anchor>ga77464df61c396b206d8357c5f9884b5b</Anchor>
              </Node>
              <Node>
               <Name>isPowerOf2</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga4f643bd2c373dd38f09480659470d1be</Anchor>
-             </Node>
-             <Node>
-              <Name>isPowerOf2</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga4f643bd2c373dd38f09480659470d1be</Anchor>
+              <Anchor>gaf28ea8c4fcd46ef3a5423f212b1bcc1e</Anchor>
              </Node>
              <Node>
               <Name>isPrime</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga968f8b548a617015693d22a3262d7519</Anchor>
-             </Node>
-             <Node>
-              <Name>isPrime</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga968f8b548a617015693d22a3262d7519</Anchor>
+              <Anchor>ga950e07ddb605b6e7721142a145bec24c</Anchor>
              </Node>
              <Node>
               <Name>limit</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga2d86bda2734cac1dfaab1d3dff120b27</Anchor>
-             </Node>
-             <Node>
-              <Name>limit</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga2d86bda2734cac1dfaab1d3dff120b27</Anchor>
+              <Anchor>ga7fa3c07491e7409e7f695a70960d4579</Anchor>
              </Node>
              <Node>
               <Name>map</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga74beca8445e7ff26ad22eeb316c3c4ec</Anchor>
-             </Node>
-             <Node>
-              <Name>map</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga74beca8445e7ff26ad22eeb316c3c4ec</Anchor>
+              <Anchor>ga8e1376561c18c5700f25bf9d16fa5f3a</Anchor>
              </Node>
              <Node>
               <Name>max</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>gae436ab6d92c1f3ad5e56b55fabb0f4c2</Anchor>
+              <Anchor>ga340ba1fa93e3ff5987d94fd11d07b39a</Anchor>
              </Node>
              <Node>
               <Name>middleOfThree</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>gad73729ffdebc10e62644aa49d6e1870c</Anchor>
-             </Node>
-             <Node>
-              <Name>middleOfThree</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>gad73729ffdebc10e62644aa49d6e1870c</Anchor>
+              <Anchor>ga82cc1c47568221dc63727ebe3686d60d</Anchor>
              </Node>
              <Node>
               <Name>midiToFreq</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga998ba48f12008bbf935a910be8f4cc7b</Anchor>
-             </Node>
-             <Node>
-              <Name>midiToFreq</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga998ba48f12008bbf935a910be8f4cc7b</Anchor>
+              <Anchor>ga958bfa906aac63346cd915d6b5a08698</Anchor>
              </Node>
              <Node>
               <Name>min</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga25ae5da0ee08068735854a1e935be370</Anchor>
+              <Anchor>gada391234ea82372c9e005ed208f2db13</Anchor>
              </Node>
              <Node>
               <Name>msToSamps</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga65ed8e3bac4fdb3cd8d7c2ed4be6053a</Anchor>
-             </Node>
-             <Node>
-              <Name>msToSamps</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga65ed8e3bac4fdb3cd8d7c2ed4be6053a</Anchor>
+              <Anchor>ga47e9b2f032b32583e46d7e312a576222</Anchor>
              </Node>
              <Node>
               <Name>negate</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>gae457d5963717874083acfcede4fde893</Anchor>
-             </Node>
-             <Node>
-              <Name>negate</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>gae457d5963717874083acfcede4fde893</Anchor>
+              <Anchor>ga005b096167e7e48847b69c7f1f350915</Anchor>
              </Node>
              <Node>
               <Name>numberIsEven</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>gac9d59da6cab0167cc4e1e843493bccb0</Anchor>
-             </Node>
-             <Node>
-              <Name>numberIsEven</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>gac9d59da6cab0167cc4e1e843493bccb0</Anchor>
+              <Anchor>gaa5495769808eff098130215ee85fcf2d</Anchor>
              </Node>
              <Node>
               <Name>periodInSamples</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga8d982a06f7e73779a4d5859c554d6549</Anchor>
-             </Node>
-             <Node>
-              <Name>periodInSamples</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga8d982a06f7e73779a4d5859c554d6549</Anchor>
+              <Anchor>gaad252ebdd65713b59abdbe0f5f2d7bd9</Anchor>
              </Node>
              <Node>
               <Name>power</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga2971a67213a8e2d9b46b14c65e8d165d</Anchor>
-             </Node>
-             <Node>
-              <Name>power</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga2971a67213a8e2d9b46b14c65e8d165d</Anchor>
+              <Anchor>ga8d26141199f013e584e33b0cf04bd0b8</Anchor>
              </Node>
              <Node>
               <Name>round</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga637c7aeb3868b6308535386fb8780c99</Anchor>
-             </Node>
-             <Node>
-              <Name>round</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga637c7aeb3868b6308535386fb8780c99</Anchor>
+              <Anchor>ga6cc3bd33ef5ff0347c79ba7cc8adec36</Anchor>
              </Node>
              <Node>
               <Name>sampsToMs</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga512f7cc18b515f0fe5ccd62f1dec4e98</Anchor>
-             </Node>
-             <Node>
-              <Name>sampsToMs</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>ga512f7cc18b515f0fe5ccd62f1dec4e98</Anchor>
+              <Anchor>gab8a73b8ec5cd084065838b8d2b860874</Anchor>
              </Node>
              <Node>
               <Name>blackman_alpha</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>a7c380792b800fb2330b3207ece7db3d5</Anchor>
+              <Anchor>acd2c4e25f4779b0adbaf2d0bec4c8130</Anchor>
              </Node>
              <Node>
               <Name>half_pi</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>a7d198baa3bb8a09a9088e65551afb7cb</Anchor>
+              <Anchor>a38913333455736bdae51b03d7e8640bb</Anchor>
              </Node>
              <Node>
               <Name>Integral</Name>
@@ -22875,7 +22664,7 @@
              <Node>
               <Name>pi</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>a7ece1efc77483f8d3f7f0bec87ccd79d</Anchor>
+              <Anchor>a3ddbfac5c33f6dcad2ecb4b9d1ba4969</Anchor>
              </Node>
              <Node>
               <Name>Scalar</Name>
@@ -22885,7 +22674,7 @@
              <Node>
               <Name>two_pi</Name>
               <Path>dd/dfb/math_helpers_8h.html</Path>
-              <Anchor>aadc1939a2b12ed7ce5ec10b558116266</Anchor>
+              <Anchor>aea8ef708548f3ac24fccd3d686be83c2</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -23029,12 +22818,12 @@
              <Node>
               <Name>md5</Name>
               <Path>da/db0/md5_8h.html</Path>
-              <Anchor>gaeac1094d425dd21bdb097d611f02255a</Anchor>
+              <Anchor>gaf04b8b325b6d8808cfa8ab662c415563</Anchor>
              </Node>
              <Node>
               <Name>md5</Name>
               <Path>da/db0/md5_8h.html</Path>
-              <Anchor>ga8332ff053767a4c0ffe815d40799b632</Anchor>
+              <Anchor>ga1ad1ee42c5a8c1f5b7bbab3753b842ed</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -23450,12 +23239,12 @@
              <Node>
               <Name>operator+</Name>
               <Path>d7/da0/_microtonal_interval_8h.html</Path>
-              <Anchor>ga77e5349553c4cd1ad938d0d22d1337d9</Anchor>
+              <Anchor>ga0132c8d23057886215fdbafa776d4aea</Anchor>
              </Node>
              <Node>
               <Name>operator-</Name>
               <Path>d7/da0/_microtonal_interval_8h.html</Path>
-              <Anchor>ga89389f65f14cd1f7e6246fc771e7959b</Anchor>
+              <Anchor>gab9baf0955c1a4114a492038c6628dc8a</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -23470,7 +23259,7 @@
              <Node>
               <Name>inverseRootTwo</Name>
               <Path>d1/df0/limes__audio_2util_2_misc_8h.html</Path>
-              <Anchor>ga381c062c894875fa7da629056ea4d9d2</Anchor>
+              <Anchor>gaa9749fccbd7e845ab3798df0fb38bd14</Anchor>
              </Node>
              <Node>
               <Name>Sample</Name>
@@ -23486,27 +23275,27 @@
              <Node>
               <Name>dirSeparator</Name>
               <Path>d1/d28/limes__core_2files_2_misc_8h.html</Path>
-              <Anchor>ga4acc2da4ed492292fc00f8102c816633</Anchor>
+              <Anchor>gabc304be514f1c64345214c2c50be5201</Anchor>
              </Node>
              <Node>
               <Name>filesystemIsCaseSensitive</Name>
               <Path>d1/d28/limes__core_2files_2_misc_8h.html</Path>
-              <Anchor>ga23aeaa8d0ffe3057490e7a90fcd29c3f</Anchor>
+              <Anchor>ga88305d0fe386e29850d7a3765b4040b6</Anchor>
              </Node>
              <Node>
               <Name>getAvailableSpaceOnFilesystem</Name>
               <Path>d1/d28/limes__core_2files_2_misc_8h.html</Path>
-              <Anchor>ga69e7e31afbfcade245d92d1f61b06f48</Anchor>
+              <Anchor>gaa5f80187a21aef53ecbe7fd55731a326</Anchor>
              </Node>
              <Node>
               <Name>getTotalSizeOfFilesystem</Name>
               <Path>d1/d28/limes__core_2files_2_misc_8h.html</Path>
-              <Anchor>gaabdbc5ac41e3dee39e0c16331044b674</Anchor>
+              <Anchor>ga4ca5ae1284f912cb95b5622b83129048</Anchor>
              </Node>
              <Node>
               <Name>PATHseparator</Name>
               <Path>d1/d28/limes__core_2files_2_misc_8h.html</Path>
-              <Anchor>gafeb3d88310c080b85f7bda97eab0c94b</Anchor>
+              <Anchor>ga14c9eaaaa54716d17a51f96c588f6397</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -24517,37 +24306,6 @@
             <Name>PeakFinder.h</Name>
             <Path>dc/dad/_peak_finder_8h.html</Path>
             <Subnodes>
-             <Node>
-              <Name>PeakFinder</Name>
-              <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>PeakFinder</Name>
-                <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
-                <Anchor>a8f25caf391d138794c0849b40d8dd9ba</Anchor>
-               </Node>
-               <Node>
-                <Name>findPeaks</Name>
-                <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
-                <Anchor>a42b1862be4650d287290de0c22af0be4</Anchor>
-               </Node>
-               <Node>
-                <Name>prepare</Name>
-                <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
-                <Anchor>a28e5fbc5c919ee69e2e7ef26b1c6c1e5</Anchor>
-               </Node>
-               <Node>
-                <Name>releaseResources</Name>
-                <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
-                <Anchor>a003bd2109db0ff54237f27e6de2b7883</Anchor>
-               </Node>
-               <Node>
-                <Name>reset</Name>
-                <Path>d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html</Path>
-                <Anchor>adb00d0c87150523d6f3a31833f6dcf5c</Anchor>
-               </Node>
-              </Subnodes>
-             </Node>
             </Subnodes>
            </Node>
            <Node>
@@ -24879,27 +24637,27 @@
              <Node>
               <Name>getFlatsOrder</Name>
               <Path>d5/d5b/_pitch_utils_8h.html</Path>
-              <Anchor>gad488d847176f5bb298274f9b7e2a5262</Anchor>
+              <Anchor>gab2aaf8e0eb63caaab354a4fc58060d4f</Anchor>
              </Node>
              <Node>
               <Name>getSharpsOrder</Name>
               <Path>d5/d5b/_pitch_utils_8h.html</Path>
-              <Anchor>ga9606a554e6faba2a12651fe5a6443a68</Anchor>
+              <Anchor>ga0505fa816cef899f31e330801d7a58d1</Anchor>
              </Node>
              <Node>
               <Name>lowestNoteOfMidiOctave</Name>
               <Path>d5/d5b/_pitch_utils_8h.html</Path>
-              <Anchor>gae713466e94e8709880d2c88be98e81f0</Anchor>
+              <Anchor>gaa93e375cd60ec541ae8510b99ae9987c</Anchor>
              </Node>
              <Node>
               <Name>octaveNumberOfMidiNote</Name>
               <Path>d5/d5b/_pitch_utils_8h.html</Path>
-              <Anchor>ga7455fcb44f57ddc33039574e62207bb1</Anchor>
+              <Anchor>ga46f2241f3fac360a4975989206736ba4</Anchor>
              </Node>
              <Node>
               <Name>semitonesInOctave</Name>
               <Path>d5/d5b/_pitch_utils_8h.html</Path>
-              <Anchor>gaf06d78b3d9cafb3e49881ba681a9f6c1</Anchor>
+              <Anchor>ga3917948bc2fcef45dd070056036806ce</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -25441,26 +25199,6 @@
               <Anchor>a2d52bd6f78be6bf72b3529ff3425f3a2</Anchor>
              </Node>
              <Node>
-              <Name>assignable_tag</Name>
-              <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
-              <Anchor>gac163b986c1af276602bbc93f1d63709a</Anchor>
-             </Node>
-             <Node>
-              <Name>constructible_tag</Name>
-              <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
-              <Anchor>ga2cdd50d685a5d2828e6ad3adc1b091a6</Anchor>
-             </Node>
-             <Node>
-              <Name>copy_tag</Name>
-              <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
-              <Anchor>gad4e8851e33d99dd502af717be47d6082</Anchor>
-             </Node>
-             <Node>
-              <Name>move_tag</Name>
-              <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
-              <Anchor>gab929ca0889182be1162755d1a870e621</Anchor>
-             </Node>
-             <Node>
               <Name>RealtimeCopySafe</Name>
               <Path>d1/d7a/_realtime_type_traits_8h.html</Path>
               <Anchor>a2f9ac9585907b3e2f2552345e14d569f</Anchor>
@@ -25860,12 +25598,12 @@
              <Node>
               <Name>operator!=</Name>
               <Path>df/dc8/_reference_counted_object_8h.html</Path>
-              <Anchor>af8deb9f03ae3d20ea1ba2dda726ae8de</Anchor>
+              <Anchor>a0b718b54182f772df0e6964cfadb2669</Anchor>
              </Node>
              <Node>
               <Name>operator==</Name>
               <Path>df/dc8/_reference_counted_object_8h.html</Path>
-              <Anchor>a67919fc59ed9da4f9415e7d3b793a976</Anchor>
+              <Anchor>ad343a72a445c3814c8645a1b9b008c62</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -25964,12 +25702,12 @@
              <Node>
               <Name>sha1</Name>
               <Path>db/db5/sha1_8h.html</Path>
-              <Anchor>ga5740a3a7c88183329278d46aa3c623e2</Anchor>
+              <Anchor>ga02ce419d9a24011ce06c363e567d8f37</Anchor>
              </Node>
              <Node>
               <Name>sha1</Name>
               <Path>db/db5/sha1_8h.html</Path>
-              <Anchor>ga591138e62d9c38f6f5ab7d594ede48cf</Anchor>
+              <Anchor>gad59db2ed6ec21f087da8040f514fd10d</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -26001,12 +25739,12 @@
              <Node>
               <Name>sha224</Name>
               <Path>d3/d51/sha224_8h.html</Path>
-              <Anchor>ga00f0f1ab90a9894a5ea2eef1da8451c9</Anchor>
+              <Anchor>ga53e991f9748b5819d4b679260b12da28</Anchor>
              </Node>
              <Node>
               <Name>sha224</Name>
               <Path>d3/d51/sha224_8h.html</Path>
-              <Anchor>ga3db9d6aa2fa42f05a8113ba8f9169c50</Anchor>
+              <Anchor>gae4c137f728f6a479fa5bb7f00205a9de</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -26038,12 +25776,12 @@
              <Node>
               <Name>sha256</Name>
               <Path>d5/de3/sha256_8h.html</Path>
-              <Anchor>gab18e1ec347eed1c240f30048952d951c</Anchor>
+              <Anchor>gafcffbf237b396138431cfb85b4f1e956</Anchor>
              </Node>
              <Node>
               <Name>sha256</Name>
               <Path>d5/de3/sha256_8h.html</Path>
-              <Anchor>gadae43dd46e051b988df51d47d907be29</Anchor>
+              <Anchor>gaeb7d7327a54d7701f116804d6a40e250</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -26075,12 +25813,12 @@
              <Node>
               <Name>sha384</Name>
               <Path>d5/de0/sha384_8h.html</Path>
-              <Anchor>ga58d5c57d79ff22b5286bd69ff8dfa32b</Anchor>
+              <Anchor>gaeaa6253a21c6303fd96385172bf16f1f</Anchor>
              </Node>
              <Node>
               <Name>sha384</Name>
               <Path>d5/de0/sha384_8h.html</Path>
-              <Anchor>gab6d60602a0f8b35b010477f601a1fbed</Anchor>
+              <Anchor>ga4bc79e7feba628b1ef01bb1c064a9e36</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -26112,12 +25850,12 @@
              <Node>
               <Name>sha512</Name>
               <Path>da/d73/sha512_8h.html</Path>
-              <Anchor>ga9b4c25730aa4166d6b237f1320e1700d</Anchor>
+              <Anchor>gaac385895667ef7f184bb0728ba10d718</Anchor>
              </Node>
              <Node>
               <Name>sha512</Name>
               <Path>da/d73/sha512_8h.html</Path>
-              <Anchor>ga7f65c01212617e1ebadb029af9875630</Anchor>
+              <Anchor>ga772508093ab1e982231feb0e75c3b019</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -26408,12 +26146,12 @@
              <Node>
               <Name>operator!=</Name>
               <Path>d7/d3c/square_8h.html</Path>
-              <Anchor>gab0dead6a104d06879a90d644ce5d9012</Anchor>
+              <Anchor>ga34a4f995efaff20408b272939689f926</Anchor>
              </Node>
              <Node>
               <Name>operator==</Name>
               <Path>d7/d3c/square_8h.html</Path>
-              <Anchor>gaa9c05223626cee55eea487b8cde4e212</Anchor>
+              <Anchor>ga5cdfdcd69f79295c4eef46793103aad4</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -26549,12 +26287,12 @@
              <Node>
               <Name>getStaticObject</Name>
               <Path>d0/d78/_static_objects_8h.html</Path>
-              <Anchor>ga81279c0755f925678112eff035289b93</Anchor>
+              <Anchor>gada3cd95222acdc37ef8ecd1368a49138</Anchor>
              </Node>
              <Node>
               <Name>make_static</Name>
               <Path>d0/d78/_static_objects_8h.html</Path>
-              <Anchor>gad9a08ceae18a20a0e9af7e4a56ae6fd6</Anchor>
+              <Anchor>ga416890115f8f2267d83aad03d1b6346b</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -26607,37 +26345,37 @@
              <Node>
               <Name>areSame</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>gab7a0e1d9b4b6eca5b1a0e9c9cfd16822</Anchor>
+              <Anchor>gae28368a1a0a0153d8911eaa862731d9f</Anchor>
              </Node>
              <Node>
               <Name>areSameIgnoringCase</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>ga1fca57cfd0dcb8fb97c629eb48785b3e</Anchor>
+              <Anchor>ga2e90412e899267588041b3a31efa6d3b</Anchor>
              </Node>
              <Node>
               <Name>areSameIgnoringCase</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>ga99cc3e5c26a24c8464e0648130984238</Anchor>
+              <Anchor>gab9dddceac3df61646ad9f77e894a6f6c</Anchor>
              </Node>
              <Node>
               <Name>dropFirstChars</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a2a5f0fdebd21cfc2a2c5657269c9a80f</Anchor>
+              <Anchor>a0b7a400beb65f2e9670638ed869fb664</Anchor>
              </Node>
              <Node>
               <Name>dropLastChars</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a7a95d794a448fb38968a652550697940</Anchor>
+              <Anchor>a9d4abaa686539d625750a529069fba92</Anchor>
              </Node>
              <Node>
               <Name>fromFirstOccurrenceOf</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a845fda1efe5d1d837e77bc448711e329</Anchor>
+              <Anchor>aff4685ec94a225acc1c1350958f3ae53</Anchor>
              </Node>
              <Node>
               <Name>getLimesASCII</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a6860c1ee5a76320da2ebc1020707e434</Anchor>
+              <Anchor>a066ff4b49cc70facc5fa966afdcc5960</Anchor>
              </Node>
              <Node>
               <Name>getNewline</Name>
@@ -26647,82 +26385,82 @@
              <Node>
               <Name>isNewline</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>ga7f948f5ab899d81a7db8b85f79be6993</Anchor>
+              <Anchor>ga8f147344a9e7e2e648bd62b26af71654</Anchor>
              </Node>
              <Node>
               <Name>join</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a3aeb36361dac1d9bb50fdf2c963c78b9</Anchor>
+              <Anchor>a82f5e683c92b49ed4f857e5750ed1a86</Anchor>
              </Node>
              <Node>
               <Name>joinWithNewlines</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a1f915fa3e80d649b4c9091c3d9aa668e</Anchor>
+              <Anchor>a93eb0c2e2e48b1c9fe880a1ec8458fe9</Anchor>
              </Node>
              <Node>
               <Name>joinWithWhitespace</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a85581e070b5cbde39edbc231f84b9034</Anchor>
+              <Anchor>a996c796c5bcb3ab4987a4458abbd50e9</Anchor>
              </Node>
              <Node>
               <Name>length</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>ae10b19a026ec856418e69a4b7b352539</Anchor>
+              <Anchor>a07c1aa259a91de614185ddc5ad10629b</Anchor>
              </Node>
              <Node>
               <Name>printLimesASCII</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a71dc4709944995577496b9ab1e33b2b0</Anchor>
+              <Anchor>ae7f6ba4b01da3819578ac508c0478205</Anchor>
              </Node>
              <Node>
               <Name>quoted</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a28788a6e98d65c7200b308d040d70131</Anchor>
+              <Anchor>ac4b8ef308a8cd430bee61fba270cf537</Anchor>
              </Node>
              <Node>
               <Name>split</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>afd38b839677aa605b33c376ef27a30ef</Anchor>
+              <Anchor>a93efca31cf8c803589273ba34958023f</Anchor>
              </Node>
              <Node>
               <Name>splitAtNewlines</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a55a11bee79882dcff1b674829df8c433</Anchor>
+              <Anchor>a547acd73e4f10c96586c3d9e1cc560ae</Anchor>
              </Node>
              <Node>
               <Name>splitAtWhitespace</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a191a6ec9b6f38a8274c37bf789206781</Anchor>
+              <Anchor>ad6e2ffeaa0b89a2b8e59c7daae06a9b3</Anchor>
              </Node>
              <Node>
               <Name>toLower</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>ab63c0f77946f3c6b5779c9ecbb5bcd36</Anchor>
+              <Anchor>a2fca780250a3b862a9043b9f4d8d7651</Anchor>
              </Node>
              <Node>
               <Name>toUpper</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a40cb4715b2dedefd17afabcad258b5cd</Anchor>
+              <Anchor>a74e4df0eb4b67a53993c6654aeda5082</Anchor>
              </Node>
              <Node>
               <Name>trim</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a0b96120a6b4a83957da3b44d48bdf08c</Anchor>
+              <Anchor>a30033399e70246bd3fd0c2567a2905e7</Anchor>
              </Node>
              <Node>
               <Name>unquoted</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>aee0ee0ccece5f5943beba8a57a3b5c72</Anchor>
+              <Anchor>a51550da36e464bb82c7987544761072e</Anchor>
              </Node>
              <Node>
               <Name>upToFirstOccurrenceOf</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a07d4c7579831ff400e7333a76d483cef</Anchor>
+              <Anchor>aa13b5ee1f17632b4eb4d19204122fda0</Anchor>
              </Node>
              <Node>
               <Name>new_line</Name>
               <Path>de/dde/_string_utils_8h.html</Path>
-              <Anchor>a53653cc16541777b255fa2b75b502909</Anchor>
+              <Anchor>a782914839d6c939db85274ef89ca3f82</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -27117,17 +26855,17 @@
              <Node>
               <Name>callAndBlock</Name>
               <Path>d4/d08/_threading_8h.html</Path>
-              <Anchor>ga2948a6d23f6ad42992dadd1751aafe15</Anchor>
+              <Anchor>gab3a4c8ff9294d2321b63cef1e6757d55</Anchor>
              </Node>
              <Node>
               <Name>callInBackground</Name>
               <Path>d4/d08/_threading_8h.html</Path>
-              <Anchor>ga94997df4193cbabaea1b6912ca7bd5cf</Anchor>
+              <Anchor>ga73a4d8b593c31fdc8da1e8efff646227</Anchor>
              </Node>
              <Node>
               <Name>maxNumThreads</Name>
               <Path>d4/d08/_threading_8h.html</Path>
-              <Anchor>ga2ba5744d660530fb620af3340a504d79</Anchor>
+              <Anchor>gab39e0c57bedc0130c5004595687f148e</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -27468,27 +27206,27 @@
              <Node>
               <Name>convertClockTimePoints</Name>
               <Path>d5/dd4/time__utils_8h.html</Path>
-              <Anchor>a37bdae35b97f79e1a3b790e347a5967e</Anchor>
+              <Anchor>a7f4bed4655cc16965b8501ef1162191c</Anchor>
              </Node>
              <Node>
               <Name>fromTimeObj</Name>
               <Path>d5/dd4/time__utils_8h.html</Path>
-              <Anchor>a67871b538abf7afc1fb6d931551f653e</Anchor>
+              <Anchor>aa2f116163c55f3b14c7d033751982a5e</Anchor>
              </Node>
              <Node>
               <Name>fromTimeObj</Name>
               <Path>d5/dd4/time__utils_8h.html</Path>
-              <Anchor>aec1bae8d1cafde5af97546f01a73f18f</Anchor>
+              <Anchor>ade6f250922af7c86e48d1994d3fc8559</Anchor>
              </Node>
              <Node>
               <Name>toSystemTime</Name>
               <Path>d5/dd4/time__utils_8h.html</Path>
-              <Anchor>a63789d7c29b6bc608ed79c0214842ed1</Anchor>
+              <Anchor>a631f434e31c8cde9c22bd9ca57d3cfc4</Anchor>
              </Node>
              <Node>
               <Name>toTimeObj</Name>
               <Path>d5/dd4/time__utils_8h.html</Path>
-              <Anchor>a79d1c59612b9508001e2a91fd0764a72</Anchor>
+              <Anchor>a758c17dbfbcbdaa7606d54f3fe27fe92</Anchor>
              </Node>
              <Node>
               <Name>Clock</Name>
@@ -27995,7 +27733,7 @@
              <Node>
               <Name>is_typelist</Name>
               <Path>d4/d83/_type_list_8h.html</Path>
-              <Anchor>ga333e1b6147039190613d9bc7a9860042</Anchor>
+              <Anchor>gac84fa6c1440ae058963560bac7673709</Anchor>
              </Node>
              <Node>
               <Name>type_list</Name>
@@ -28016,7 +27754,7 @@
              <Node>
               <Name>is_null_type</Name>
               <Path>d7/dfe/_type_list__impl_8h.html</Path>
-              <Anchor>gaa3841d00f95661176f106de088e363d1</Anchor>
+              <Anchor>gae9cec719238137143e509b59edace27b</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -28027,12 +27765,12 @@
              <Node>
               <Name>getDemangledTypeName</Name>
               <Path>d4/dd5/_type_traits_8h.html</Path>
-              <Anchor>ga58aaa4dcbf798da7d3ed43635c4a7868</Anchor>
+              <Anchor>ga6c28fc31963404ed09a07d4117181ee2</Anchor>
              </Node>
              <Node>
               <Name>getDemangledTypeName</Name>
               <Path>d4/dd5/_type_traits_8h.html</Path>
-              <Anchor>ga6e002d7ebd167b287b983da2669038b3</Anchor>
+              <Anchor>gabf1ebcf6a9b51774bb0065caf5139467</Anchor>
              </Node>
              <Node>
               <Name>convertible_to</Name>

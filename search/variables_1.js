@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['blackman_5falpha_2288',['blackman_alpha',['../d4/d22/namespacelimes_1_1math_1_1constants.html#a7c380792b800fb2330b3207ece7db3d5',1,'limes::math::constants']]]
+  ['blackman_5falpha_2276',['blackman_alpha',['../d4/d22/namespacelimes_1_1math_1_1constants.html#acd2c4e25f4779b0adbaf2d0bec4c8130',1,'limes::math::constants']]]
 ];

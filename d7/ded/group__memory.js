@@ -10,8 +10,8 @@ var group__memory =
     [ "ReferenceCountedObject.h", "df/dc8/_reference_counted_object_8h.html", null ],
     [ "stack_allocator.h", "d5/d5a/stack__allocator_8h.html", null ],
     [ "StaticObjects.h", "d0/d78/_static_objects_8h.html", null ],
-    [ "allocate_aligned", "d7/ded/group__memory.html#ga09766c84dcef55421f96dcb300274b53", null ],
-    [ "deallocate_aligned", "d7/ded/group__memory.html#gac795c12098b4c0f10766e90eaa65a407", null ],
-    [ "getStaticObject", "d7/ded/group__memory.html#ga81279c0755f925678112eff035289b93", null ],
-    [ "make_static", "d7/ded/group__memory.html#gad9a08ceae18a20a0e9af7e4a56ae6fd6", null ]
+    [ "allocate_aligned", "d7/ded/group__memory.html#ga33390ddedd9f134e7c29d771f8bf823f", null ],
+    [ "deallocate_aligned", "d7/ded/group__memory.html#gab2c3c66b09b7249811b98dd5b406b78f", null ],
+    [ "getStaticObject", "d7/ded/group__memory.html#gada3cd95222acdc37ef8ecd1368a49138", null ],
+    [ "make_static", "d7/ded/group__memory.html#ga416890115f8f2267d83aad03d1b6346b", null ]
 ];

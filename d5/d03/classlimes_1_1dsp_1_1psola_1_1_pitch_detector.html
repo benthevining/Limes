@@ -99,15 +99,12 @@ $(document).ready(function(){initNavTree('d5/d03/classlimes_1_1dsp_1_1psola_1_1_
 </div><!--header-->
 <div class="contents">
 
-<p>A pitch detector based on the YIN algorithm.  
- <a href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="../../dc/ddf/_pitch_detector_8h_source.html">PitchDetector.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a1febe22aa26291b78b1959fd9cbb08e7"><td class="memItemLeft" align="right" valign="top"><a id="a1febe22aa26291b78b1959fd9cbb08e7"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>SampleVector</b> = <a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">ds::scalar_vector</a>&lt; SampleType &gt;</td></tr>
+<tr class="memitem:a1febe22aa26291b78b1959fd9cbb08e7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a1febe22aa26291b78b1959fd9cbb08e7">SampleVector</a> = <a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">ds::scalar_vector</a>&lt; SampleType &gt;</td></tr>
+<tr class="memdesc:a1febe22aa26291b78b1959fd9cbb08e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience typedef for a vector of samples.  <a href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a1febe22aa26291b78b1959fd9cbb08e7">More...</a><br /></td></tr>
 <tr class="separator:a1febe22aa26291b78b1959fd9cbb08e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -155,7 +152,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6649faa218eb48a9c1a779d8f05800d2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a6649faa218eb48a9c1a779d8f05800d2">detectPitch</a> (const SampleType *const inputAudio, int numSamples) noexcept</td></tr>
 <tr class="memdesc:a6649faa218eb48a9c1a779d8f05800d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the pitch in Hz for a frame of audio.  <a href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a6649faa218eb48a9c1a779d8f05800d2">More...</a><br /></td></tr>
 <tr class="separator:a6649faa218eb48a9c1a779d8f05800d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3eab04a43808d8c9feb73bfa1682542e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a3eab04a43808d8c9feb73bfa1682542e">detectPitch</a> (const <a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a> &amp;inputAudio) noexcept</td></tr>
+<tr class="memitem:a3eab04a43808d8c9feb73bfa1682542e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a3eab04a43808d8c9feb73bfa1682542e">detectPitch</a> (const <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a1febe22aa26291b78b1959fd9cbb08e7">SampleVector</a> &amp;inputAudio) noexcept</td></tr>
 <tr class="memdesc:a3eab04a43808d8c9feb73bfa1682542e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the pitch in Hz for a frame of audio.  <a href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a3eab04a43808d8c9feb73bfa1682542e">More...</a><br /></td></tr>
 <tr class="separator:a3eab04a43808d8c9feb73bfa1682542e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Period detection</div></td></tr>
@@ -164,7 +161,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac47c8d598df64de8bf9da025ab97de30"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#ac47c8d598df64de8bf9da025ab97de30">detectPeriod</a> (const SampleType *const inputAudio, int numSamples) noexcept</td></tr>
 <tr class="memdesc:ac47c8d598df64de8bf9da025ab97de30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the period, in samples, for a frame of audio.  <a href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#ac47c8d598df64de8bf9da025ab97de30">More...</a><br /></td></tr>
 <tr class="separator:ac47c8d598df64de8bf9da025ab97de30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeee84dd862849f24519eb846fa615ecc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#aeee84dd862849f24519eb846fa615ecc">detectPeriod</a> (const <a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a> &amp;inputAudio) noexcept</td></tr>
+<tr class="memitem:aeee84dd862849f24519eb846fa615ecc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#aeee84dd862849f24519eb846fa615ecc">detectPeriod</a> (const <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a1febe22aa26291b78b1959fd9cbb08e7">SampleVector</a> &amp;inputAudio) noexcept</td></tr>
 <tr class="memdesc:aeee84dd862849f24519eb846fa615ecc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the period, in samples, for a frame of audio.  <a href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#aeee84dd862849f24519eb846fa615ecc">More...</a><br /></td></tr>
 <tr class="separator:aeee84dd862849f24519eb846fa615ecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -172,32 +169,36 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;Sample SampleType&gt;<br />
 class limes::dsp::psola::PitchDetector&lt; SampleType &gt;</h3>
 
-<p>A pitch detector based on the YIN algorithm. </p>
+<p>A pitch detector based on the YIN algorithm.</p>
 <p>A pitch detection algorithm based on the influential YIN <b>[de_cheveigne_kawahara_2002]</b> paper, with a few alterations of my own.</p>
 <h1><a class="anchor" id="algorithm"></a>
 The algorithm</h1>
 <h2><a class="anchor" id="difference"></a>
 The difference function</h2>
-<p>The core of the algorithm is the difference function, defined as:</p>
-<p class="formulaDsp">
+<p>The core of the algorithm is the difference function, defined as: </p><p class="formulaDsp">
 \[ d_t(\tau)=\sum\limits_{j=t}^{j&lt;N-\tau} (x_j-x_{j+\tau})^2 \]
 </p>
  <p class="formulaDsp">
 \[ D(\tau)=\sum\limits_{t=0}^{t&lt;N} d_t(\tau) \]
 </p>
-<p>where:</p><ul>
+<p> where:</p><ul>
 <li>\( d_t(\tau) \) is the autocorrelation function at lag \( \tau \) of input signal \( x \) at sample \( t \);</li>
 <li>\( D(\tau) \) is the summation of all values \( d_t(\tau) \) for each sample index \( t \) in the current frame of audio of length \( N \).</li>
 </ul>
 <p>This autocorrelation function is calculated for every lag \( \tau \) within the set of possible period values, and the \( \tau \) value whose autocorrelation function shows the lowest amount of difference between the original and delayed signal (ie, the lowest value of \( D(\tau) \)) is determined to be the period.</p>
+<h3><a class="anchor" id="diff_candidates"></a>
+The initial set of period candidates</h3>
+<p>The set of possible period candidates ( \( \tau \) values for which the difference function must be calculated) is usually defined by the size of the audio blocks being processed by the pitch detector. Because at least one repetition of a period is needed to detect it, the maximum period detectable when analyzing any frame of audio is \( \tau=\frac{N}{2} \), where \( N \) is the number of samples. </p><dl class="section note"><dt>Note</dt><dd>This is why the detector's latency is defined as 2 * the period of the minimum detectable frequency.</dd></dl>
+<p>The minimum detectable period can be arbitrarily small, as low as 1 sample, though in this implementation the smallest \( \tau \) value ever tested is 4 samples.</p>
+<p>One change I have made to this implementation from the YIN paper is to attempt to limit the set of \( \tau \) values being tested for each frame, instead of always calculating the difference function for every \( \tau \) value \( [4,\frac{N}{2}] \). This is desirable for both performance and accuracy &ndash; for consecutive pitched frames, we can elimate some octave errors by assuming the pitch is more likely to be closer to the previous frame's pitch.</p>
+<p>In this implementation, I assume that the period should not halve or double between consecutive pitched frames. So, if the previous frame was unpitched, every \( \tau \) value \( [4,\frac{N}{2}] \) is tested. However, if the previous frame was pitched, then this frame's initial set of possible \( \tau \) values is limited to \( [\frac{\tau\prime}{2},\tau\prime*2] \), where \( \tau\prime \) is the previous frame's period.</p>
+<dl class="section note"><dt>Note</dt><dd>If your input audio <em>is</em> expected to jump significantly between frames, you can call <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#ac96adde0c5cebf27e7798fb0716bcb8f" title="Resets the internal state of the pitch detector without releasing any resources.">PitchDetector::reset()</a></code> between each analysis call. This method resets the internal state without freeing resources, and is safe to call from the audio thread.</dd></dl>
 <h2><a class="anchor" id="cmndf"></a>
 The cumulative mean normalized difference function</h2>
-<p>To attempt to stabilize results for different integration window sizes across a frame of audio, the YIN paper introduces the concept of a cumulative mean normalized difference function, which is defined as:</p>
-<p class="formulaDsp">
+<p>To attempt to stabilize results for different integration window sizes across a frame of audio, the YIN paper introduces the concept of a cumulative mean normalized difference function, which is defined as: </p><p class="formulaDsp">
 \[ d\prime_t(\tau)=\frac{d_t(\tau)}{(1/\tau)\sum\limits_{i=1}^{\tau}d_t(i)} \]
 </p>
-<p>Essentially, the result of the original difference function is divided by its average over shorter-lag values. The final summation step then becomes:</p>
-<p class="formulaDsp">
+<p>Essentially, the result of the original difference function is divided by its average over shorter-lag values. The final summation step then becomes: </p><p class="formulaDsp">
 \[ D(\tau)=\sum\limits_{t=0}^{t&lt;N} \frac{d_t(\tau)}{(1/\tau)\sum\limits_{i=1}^{\tau}d_t(i)} \]
 </p>
 <h2><a class="anchor" id="thresh"></a>
@@ -213,14 +214,35 @@ Parabolic interpolation</h2>
 Discussion</h1>
 <p>This pitch detection algorithm is performed entirely in the time domain.</p>
 <p>The detector is stateful; it assumes that the input pitch shouldn't halve or double between consecutive pitched frames of audio, and uses this heuristic to limit its period search range for each frame of audio. Limiting the number of possible period candidates reduces the number of times the difference function needs to be calculated.</p>
-<p>Pitch detector objects can only be used for one channel of audio at a time, because they are stateful. If you need to run pitch detection on multiple channels of audio, you need multiple <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html" title="A pitch detector based on the YIN algorithm.">PitchDetector</a> objects.</p>
+<p>Pitch detector objects can only be used for one channel of audio at a time, because they are stateful. If you need to run pitch detection on multiple channels of audio, you need multiple <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a> objects.</p>
 <h1><a class="anchor" id="Latency"></a>
 Latency</h1>
 <p>The latency of the algorithm is determined by 2 times the period of the lowest detectable frequency; therefore, detectors configured to not try to detect lower pitches will have less latency. You can adjust the lowest detectable frequency of the pitch detector to fit your needs.</p>
-<p>This class does not do any internal buffering; the caller must ensure that the buffers sent to the detection functions contain enough samples for the detection algorithm. </p>
+<dl class="section warning"><dt>Warning</dt><dd>This class does not do any internal buffering; the caller must ensure that the buffers sent to the detection functions contain enough samples for the detection algorithm. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/ddf/_pitch_detector_8h_source.html#l00131">131</a> of file <a class="el" href="../../dc/ddf/_pitch_detector_8h_source.html">PitchDetector.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="../../dc/ddf/_pitch_detector_8h_source.html#l00164">164</a> of file <a class="el" href="../../dc/ddf/_pitch_detector_8h_source.html">PitchDetector.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a1febe22aa26291b78b1959fd9cbb08e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1febe22aa26291b78b1959fd9cbb08e7">&#9670;&nbsp;</a></span>SampleVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Sample SampleType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">limes::dsp::psola::PitchDetector</a>&lt; SampleType &gt;::<a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a1febe22aa26291b78b1959fd9cbb08e7">SampleVector</a> =  <a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">ds::scalar_vector</a>&lt;SampleType&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convenience typedef for a vector of samples. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/ddf/_pitch_detector_8h_source.html#l00169">169</a> of file <a class="el" href="../../dc/ddf/_pitch_detector_8h_source.html">PitchDetector.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2c6f9aea5333c7a1a221305cffe27955"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2c6f9aea5333c7a1a221305cffe27955">&#9670;&nbsp;</a></span>PitchDetector()</h2>
 
@@ -307,7 +329,8 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Detects the period, in samples, for a frame of audio. </p>
-<p>This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html" title="A pitch detector based on the YIN algorithm.">PitchDetector</a> object for each channel. The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a4cf882fe60d48ddd3beaf278db212ef7" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a></code>. </p><dl class="section note"><dt>Note</dt><dd>You must call <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a8cad6007fd0a2c642b4aa47af41c5e26" title="Sets the samplerate in Hz of the pitch detector.">setSamplerate()</a></code> to prepare the pitch detector before calling this function! </dd></dl>
+<p>This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a> object for each channel. The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a4cf882fe60d48ddd3beaf278db212ef7" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a></code>. </p><dl class="section note"><dt>Note</dt><dd>You must call <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a8cad6007fd0a2c642b4aa47af41c5e26" title="Sets the samplerate in Hz of the pitch detector.">setSamplerate()</a></code> to prepare the pitch detector before calling this function! </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The caller must ensure that the buffer sent to this function contains at least <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a4cf882fe60d48ddd3beaf278db212ef7" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a></code> samples. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The period, in samples, of the fundamental frequency for this frame of audio, or 0 if the frame is unpitched. </dd></dl>
 
 </div>
@@ -326,7 +349,7 @@ template&lt;Sample SampleType&gt; </div>
         <tr>
           <td class="memname">float <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">limes::dsp::psola::PitchDetector</a>&lt; SampleType &gt;::detectPeriod </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a1febe22aa26291b78b1959fd9cbb08e7">SampleVector</a> &amp;&#160;</td>
           <td class="paramname"><em>inputAudio</em></td><td>)</td>
           <td></td>
         </tr>
@@ -339,7 +362,8 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Detects the period, in samples, for a frame of audio. </p>
-<p>This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html" title="A pitch detector based on the YIN algorithm.">PitchDetector</a> object for each channel. The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a4cf882fe60d48ddd3beaf278db212ef7" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a></code>. </p><dl class="section note"><dt>Note</dt><dd>You must call <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a8cad6007fd0a2c642b4aa47af41c5e26" title="Sets the samplerate in Hz of the pitch detector.">setSamplerate()</a></code> to prepare the pitch detector before calling this function! </dd></dl>
+<p>This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a> object for each channel. The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a4cf882fe60d48ddd3beaf278db212ef7" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a></code>. </p><dl class="section note"><dt>Note</dt><dd>You must call <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a8cad6007fd0a2c642b4aa47af41c5e26" title="Sets the samplerate in Hz of the pitch detector.">setSamplerate()</a></code> to prepare the pitch detector before calling this function! </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The caller must ensure that the buffer sent to this function contains at least <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a4cf882fe60d48ddd3beaf278db212ef7" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a></code> samples. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The period, in samples, of the fundamental frequency for this frame of audio, or 0 if the frame is unpitched. </dd></dl>
 
 </div>
@@ -381,7 +405,8 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Detects the pitch in Hz for a frame of audio. </p>
-<p>This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html" title="A pitch detector based on the YIN algorithm.">PitchDetector</a> object for each channel. The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a4cf882fe60d48ddd3beaf278db212ef7" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a></code>. </p><dl class="section note"><dt>Note</dt><dd>You must call <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a8cad6007fd0a2c642b4aa47af41c5e26" title="Sets the samplerate in Hz of the pitch detector.">setSamplerate()</a></code> to prepare the pitch detector before calling this function! </dd></dl>
+<p>This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a> object for each channel. The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a4cf882fe60d48ddd3beaf278db212ef7" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a></code>. </p><dl class="section note"><dt>Note</dt><dd>You must call <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a8cad6007fd0a2c642b4aa47af41c5e26" title="Sets the samplerate in Hz of the pitch detector.">setSamplerate()</a></code> to prepare the pitch detector before calling this function! </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The caller must ensure that the buffer sent to this function contains at least <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a4cf882fe60d48ddd3beaf278db212ef7" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a></code> samples. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The pitch in Hz for this frame of audio, or 0 if the frame is unpitched. </dd></dl>
 
 </div>
@@ -400,7 +425,7 @@ template&lt;Sample SampleType&gt; </div>
         <tr>
           <td class="memname">float <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">limes::dsp::psola::PitchDetector</a>&lt; SampleType &gt;::detectPitch </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a1febe22aa26291b78b1959fd9cbb08e7">SampleVector</a> &amp;&#160;</td>
           <td class="paramname"><em>inputAudio</em></td><td>)</td>
           <td></td>
         </tr>
@@ -413,7 +438,8 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Detects the pitch in Hz for a frame of audio. </p>
-<p>This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html" title="A pitch detector based on the YIN algorithm.">PitchDetector</a> object for each channel. The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a4cf882fe60d48ddd3beaf278db212ef7" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a></code>. </p><dl class="section note"><dt>Note</dt><dd>You must call <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a8cad6007fd0a2c642b4aa47af41c5e26" title="Sets the samplerate in Hz of the pitch detector.">setSamplerate()</a></code> to prepare the pitch detector before calling this function! </dd></dl>
+<p>This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one <a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a> object for each channel. The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a4cf882fe60d48ddd3beaf278db212ef7" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a></code>. </p><dl class="section note"><dt>Note</dt><dd>You must call <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a8cad6007fd0a2c642b4aa47af41c5e26" title="Sets the samplerate in Hz of the pitch detector.">setSamplerate()</a></code> to prepare the pitch detector before calling this function! </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The caller must ensure that the buffer sent to this function contains at least <code><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#a4cf882fe60d48ddd3beaf278db212ef7" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a></code> samples. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The pitch in Hz for this frame of audio, or 0 if the frame is unpitched. </dd></dl>
 
 </div>
@@ -485,7 +511,8 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the latency in samples of the detection algorithm. </p>
-<p>The latency is equal to 2 * the period of the lowest detectable frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#ae80853bc6dc61a8e568b677a0e352be1" title="Sets the minimum detectable frequency for the pitch detector.">setMinHz()</a> </dd></dl>
+<p>The latency is equal to 2 * the period of the lowest detectable frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.</p>
+<p>The latency defines the minimum size of the buffers that must be sent to any of the detection functions, though you can send larger buffers if you wish. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html#ae80853bc6dc61a8e568b677a0e352be1" title="Sets the minimum detectable frequency for the pitch detector.">setMinHz()</a> </dd></dl>
 
 </div>
 </div>
@@ -661,7 +688,7 @@ template&lt;Sample SampleType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d00/namespacelimes_1_1dsp.html">dsp</a></li><li class="navelem"><a class="el" href="../../d6/d4e/namespacelimes_1_1dsp_1_1psola.html">psola</a></li><li class="navelem"><a class="el" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a></li>
-    <li class="footer">Generated on Mon May 30 2022 22:32:31 for Limes by
+    <li class="footer">Generated on Tue May 31 2022 21:00:30 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

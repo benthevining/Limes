@@ -94,12 +94,9 @@ $(document).ready(function(){initNavTree('d6/db6/classlimes_1_1dsp_1_1psola_1_1_
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../da/d67/classlimes_1_1dsp_1_1psola_1_1_peak_finder-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">limes::dsp::psola::PeakFinder&lt; SampleType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
+<div class="title">limes::dsp::psola::PeakFinder&lt; SampleType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../d0/d7b/group__limes__audio.html">limes_audio</a> &raquo; <a class="el" href="../../d2/d79/group__psola.html">PSOLA</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>A class that identifies pitch peaks for PSOLA pitch shifting.  
- <a href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../dc/dad/_peak_finder_8h_source.html">PeakFinder.h</a>&gt;</code></p>
 <table class="memberdecls">
@@ -125,8 +122,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;Sample SampleType&gt;<br />
 class limes::dsp::psola::PeakFinder&lt; SampleType &gt;</h3>
 
-<p>A class that identifies pitch peaks for PSOLA pitch shifting. </p>
-<p>You probably won't ever need to use this class directly, as it's mainly intended as a utility for the <a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> class.</p>
+<p>A class that identifies pitch peaks for PSOLA pitch shifting. You probably won't ever need to use this class directly, as it's mainly intended as a utility for the Analyzer class.</p>
 <p>Pitch peak locations are used to locate and extract from the original signal a series of "grains" which are then respaced by the <a class="el" href="../../d0/dfd/classlimes_1_1dsp_1_1psola_1_1_shifter.html" title="A class that repitches a stream of monophonic audio using PSOLA-like techniques.">Shifter</a> class.</p>
 <p>Ultimately, the grains themselves are chosen using these heuristics:</p><ul>
 <li>Grains should be about 2 periods long</li>
@@ -134,9 +130,61 @@ class limes::dsp::psola::PeakFinder&lt; SampleType &gt;</h3>
 <li>Each grain should be about centered on the local maxima in the signal</li>
 </ul>
 <p>The set of grains that maximizes these criteria is chosen, and what is returned is a list of sample indices representing the <em>middle</em> sample of each grain (ie, the peak that the grain should be centered on).</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/d7d/classlimes_1_1dsp_1_1psola_1_1_analyzer.html" title="A class that analyzes and stores a stream of audio, so that Shifter objects can repitch it.">Analyzer</a> </dd></dl>
+<h1><a class="anchor" id="peak_alg"></a>
+The algorithm</h1>
+<p>This is a completely custom algorithm based on several sources, including <b>[chalamandaris_tsiakoulis_karabetsos_raptis_2009]</b> and <b>[colotte_laprie]</b> .</p>
+<p>Peaks are searched for in the input signal in a sequence of overlapping analysis windows, which are 1 period long and overlap by 50% &ndash; so analysis window #2 begins at sample \( \frac{\tau}{2} \), analysis window #3 begins at sample \( \tau \), etc, until the entire frame of audio has been covered by an analysis window. One peak is chosen within each analysis window.</p>
+<p>This windowing scheme is used because the resulting grains used in the pitch shifting are meant to be 2 periods long, overlapping by 50% &ndash; so if we identify a peak in the signal roughly once per period, then if we center 2-period long grains on each of these peaks, these grains should end up overlapping one another by roughly 50%.</p>
+<h2><a class="anchor" id="peak_cand_sel"></a>
+Peak candidate selection</h2>
+<p>For each analysis window, its <em>predicted peak</em> location is the sample index exactly 1 period greater than the previous analysis window's chosen peak: </p><p class="formulaDsp">
+\[ pidx_t=idx\prime+\tau \]
+</p>
+<p> where:</p><ul>
+<li>\( idx\prime \) is the chosen peak index for the previous analysis window;</li>
+<li>\( \tau \) is the period of this frame of audio.</li>
+</ul>
+<p>However, the peak chosen for this analysis window may not be exactly at this location, if the signal demonstrates significant energy in a slightly different area.</p>
+<p>Therefore, a set of <em>peak candidates</em> for this analysis window are identified by weighting the original sample values based on how close the sample is to the <em>predicted peak</em> location, and then choosing the set of sample indices whose weighted sample values have the greatest absolute values.</p>
+<p>The set of peak candidates for the analysis window beginning at sample \( t \) is defined as: </p><p class="formulaDsp">
+\[ C_t=\{\, \max{(1-\frac{\lvert pidx_t-i\rvert}{N_t})\lvert x_i\rvert} \notin C_t : |C_t|\le 15 \,\} \]
+</p>
+<p> where:</p><ul>
+<li>\( i \) is the sample index in the original audio signal which is being evaluated as a potential peak candidate;</li>
+<li>\( N_t \) is the number of samples in this analysis window.</li>
+</ul>
+<p>This algorithm selects 15 initial peak candidates within each analysis window. This number is somewhat arbitrary. Fewer than 15 candidates may be chosen if only a small set of candidates have significant signal power close to the predicted peak.</p>
+<h2><a class="anchor" id="peak_can_eval"></a>
+Peak candidate evaluation</h2>
+<p>Once the set of peak candidates \( C_t \) has been identified, the actual location of the peak for this analysis window is chosen using a more involved weighting scheme.</p>
+<p>Because the actual grains created from the selected peaks are <em>two periods long</em>, I take into account not only the distance from the previous peak to each candidate, but also the distance to the peak <em>before</em> the previous peak.</p>
+<p>For each peak candidate, we now have <em>two</em> predicted peak locations based on previously chosen peaks: </p><p class="formulaDsp">
+\[ pidx_t=idx\prime+\tau \]
+</p>
+ <p class="formulaDsp">
+\[ pidx\prime_t=idx&#39;&#39;+2\tau \]
+</p>
+<p> where:</p><ul>
+<li>\( idx\prime \) is the chosen peak index for the previous analysis window;</li>
+<li>\( \tau \) is the period of this frame of audio;</li>
+<li>\( idx&#39;&#39; \) is the chosen peak for the analysis frame <em>before</em> the previous one.</li>
+</ul>
+<p>For each peak candidate, a delta value is calculated which represents its amount of jitter from both of these predicted peaks: </p><p class="formulaDsp">
+\[ \delta_c=\lvert c-pidx_t\rvert+\lvert c-pidx\prime_t\rvert \]
+</p>
+<p> where \( c \) is the sample index of the peak candidate being tested.</p>
+<p>From the initial set of peak candidates, a "final handful" of 5 is chosen. The 5 candidates with the lowest \( \delta_c \) values are chosen.</p>
+<p>The final peak is chosen from this "final handful" by again comparing weighted sample values, this time with the samples weighted by the candidates' \( \delta_c \) values. The weighted sample value for peak candidate \( c \) is defined by: </p><p class="formulaDsp">
+\[ w(c)=\lvert x_c\rvert(1-\frac{\delta_c}{\delta_R}) \]
+</p>
+<p> where:</p><ul>
+<li>\( x_c \) is the value of the sample at index \( c \) in the original input signal;</li>
+<li>\( \delta_R \) is the range between the minimum and maximum \( \delta_c \) values of any remaining peak candidate.</li>
+</ul>
+<p>The peak candidate with the highest resulting \( w(c) \) value is chosen as the peak for this analysis window.</p>
+<dl class="section see"><dt>See also</dt><dd>Analyzer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dad/_peak_finder_8h_source.html#l00047">47</a> of file <a class="el" href="../../dc/dad/_peak_finder_8h_source.html">PeakFinder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dad/_peak_finder_8h_source.html#l00123">123</a> of file <a class="el" href="../../dc/dad/_peak_finder_8h_source.html">PeakFinder.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8f25caf391d138794c0849b40d8dd9ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8f25caf391d138794c0849b40d8dd9ba">&#9670;&nbsp;</a></span>PeakFinder()</h2>
@@ -291,7 +339,7 @@ template&lt;Sample SampleType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d00/namespacelimes_1_1dsp.html">dsp</a></li><li class="navelem"><a class="el" href="../../d6/d4e/namespacelimes_1_1dsp_1_1psola.html">psola</a></li><li class="navelem"><a class="el" href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html">PeakFinder</a></li>
-    <li class="footer">Generated on Mon May 30 2022 22:32:31 for Limes by
+    <li class="footer">Generated on Tue May 31 2022 21:00:30 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
