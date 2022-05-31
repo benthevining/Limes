@@ -75,7 +75,7 @@ public:
 	 */
 	///@{
 	[[nodiscard]] constexpr bool operator> (const Pentagon& other) const noexcept;
-	[[nodiscard]] constexpr bool operator<(const Pentagon& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Pentagon& other) const noexcept;
 	///@}
 
 	/** Returns the interior angle of any %pentagon (108 degrees). */
@@ -142,7 +142,7 @@ constexpr bool Pentagon<ValueType>::operator> (const Pentagon& other) const noex
 }
 
 template <Scalar ValueType>
-constexpr bool Pentagon<ValueType>::operator<(const Pentagon& other) const noexcept
+constexpr bool Pentagon<ValueType>::operator< (const Pentagon& other) const noexcept
 {
 	return area() < other.area();
 }

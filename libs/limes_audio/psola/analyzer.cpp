@@ -224,7 +224,17 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 	}
 
 	if (before.grain != nullptr)
+	{
+		if (after.grain != nullptr)
+		{
+			if (before.distance <= after.distance)
+				return *before.grain;
+
+			return *after.grain;
+		}
+
 		return *before.grain;
+	}
 
 	LIMES_ASSERT (after.grain != nullptr);
 

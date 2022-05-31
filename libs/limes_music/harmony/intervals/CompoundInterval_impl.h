@@ -66,7 +66,7 @@ constexpr bool CompoundInterval::operator> (const CompoundInterval& other) const
 	return interval > other.interval;
 }
 
-constexpr bool CompoundInterval::operator<(const CompoundInterval& other) const noexcept
+constexpr bool CompoundInterval::operator< (const CompoundInterval& other) const noexcept
 {
 	if (numOctaves > other.numOctaves)
 		return false;

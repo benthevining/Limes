@@ -52,7 +52,7 @@ constexpr bool NoteLength::operator> (const NoteLength& other) const noexcept
 	return numDots > other.numDots;
 }
 
-constexpr bool NoteLength::operator<(const NoteLength& other) const noexcept
+constexpr bool NoteLength::operator< (const NoteLength& other) const noexcept
 {
 	if (grace && ! other.grace)
 		return true;

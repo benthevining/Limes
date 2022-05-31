@@ -25,6 +25,24 @@
 	PSOLA (Pitch-Synchronous Overlap-Add) is an industry standard for realtime pitch shifting of monophonic audio.
 	This module provides classes for implementing a basic PSOLA algorithm.
 
+	PSOLA was first described by Keith Lent @cite lent_1989 as a computationally efficient method of repitching pseudo-periodic sampled sounds.
+	PSOLA works using the following steps:
+	- identify the pitch of the input signal - see the PitchDetector class
+	- based on this pitch, identify peaks in the signal for each period - see the PeakFinder class
+	- based on these peaks, split the input signal into grains centred on the peaks - see the Analyzer class
+	- output a new stream of these grains, respaced to form the new desired pitch - see the Shifter class
+
+	Robert Bristow Johnson's paper @cite bristow-johnson_1995 provides a great overview of the technical details of PSOLA.
+
+	PSOLA can be used for both pitch and time scaling.
+
+	PSOLA is only intended for use with input signals that are monophonic - ie, a sound with a single fundamental frequency, like a voice or a cello, not a group of instruments or a chord.
+	Results may be unpredictable if the input signal contains more than one pitch.
+	Best results are achieved when the input signal is clearly pitched, though this algorithm can be used with any kind of monophonic input signal, even unpitched percussive sounds.
+	It is often desirable to do some preprocessing of the input signal, to remove noise, perhaps even apply some compression, etc.
+
+	Note that the Analyzer class performs the first three steps listed above; to achieve PSOLA pitch shifting, you only need an Analyzer and a Shifter object, you don't need to use a PitchDetector or PeakFinder directly.
+
 	@ingroup limes_audio
  */
 
@@ -46,7 +64,8 @@ LIMES_BEGIN_NAMESPACE
 namespace dsp::psola
 {
 
-/** A pitch detector based on the YIN algorithm.
+/** @class PitchDetector
+	A pitch detector based on the YIN algorithm.
 
 	A pitch detection algorithm based on the influential YIN @cite de_cheveigne_kawahara_2002 paper, with a few alterations of my own.
 
@@ -55,14 +74,12 @@ namespace dsp::psola
 	@subsection difference The difference function
 
 	The core of the algorithm is the difference function, defined as:
-
 	@f[
 		d_t(\tau)=\sum\limits_{j=t}^{j<N-\tau} (x_j-x_{j+\tau})^2
 	@f]
 	@f[
 		D(\tau)=\sum\limits_{t=0}^{t<N} d_t(\tau)
 	@f]
-
 	where:
 	- @f$ d_t(\tau) @f$ is the autocorrelation function at lag @f$ \tau @f$ of input signal @f$ x @f$ at sample @f$ t @f$;
 	- @f$ D(\tau) @f$ is the summation of all values @f$ d_t(\tau) @f$ for each sample index @f$ t @f$ in the current frame of audio of length @f$ N @f$.
@@ -70,17 +87,33 @@ namespace dsp::psola
 	This autocorrelation function is calculated for every lag @f$ \tau @f$ within the set of possible period values, and the @f$ \tau @f$ value whose autocorrelation function
 	shows the lowest amount of difference between the original and delayed signal (ie, the lowest value of @f$ D(\tau) @f$) is determined to be the period.
 
+	@subsubsection diff_candidates The initial set of period candidates
+
+	The set of possible period candidates (@f$ \tau @f$ values for which the difference function must be calculated) is usually defined by the size of the audio blocks being processed by the pitch detector.
+	Because at least one repetition of a period is needed to detect it, the maximum period detectable when analyzing any frame of audio is @f$ \tau=\frac{N}{2} @f$, where @f$ N @f$ is the number of samples.
+	@note This is why the detector's latency is defined as 2 * the period of the minimum detectable frequency.
+
+	The minimum detectable period can be arbitrarily small, as low as 1 sample, though in this implementation the smallest @f$ \tau @f$ value ever tested is 4 samples.
+
+	One change I have made to this implementation from the YIN paper is to attempt to limit the set of @f$ \tau @f$ values being tested for each frame,
+	instead of always calculating the difference function for every @f$ \tau @f$ value @f$ [4,\frac{N}{2}] @f$.
+	This is desirable for both performance and accuracy -- for consecutive pitched frames, we can elimate some octave errors by assuming the pitch is more likely to be closer to the previous frame's pitch.
+
+	In this implementation, I assume that the period should not halve or double between consecutive pitched frames. So, if the previous frame was unpitched, every @f$ \tau @f$ value @f$ [4,\frac{N}{2}] @f$ is tested.
+	However, if the previous frame was pitched, then this frame's initial set of possible @f$ \tau @f$ values is limited to @f$ [\frac{\tau\prime}{2},\tau\prime*2] @f$, where @f$ \tau\prime @f$ is the previous frame's period.
+
+	@note If your input audio *is* expected to jump significantly between frames, you can call \c PitchDetector::reset() between each analysis call.
+	This method resets the internal state without freeing resources, and is safe to call from the audio thread.
+
 	@subsection cmndf The cumulative mean normalized difference function
 
 	To attempt to stabilize results for different integration window sizes across a frame of audio, the YIN paper introduces the concept of a cumulative mean normalized difference function, which is defined as:
-
 	@f[
 		d\prime_t(\tau)=\frac{d_t(\tau)}{(1/\tau)\sum\limits_{i=1}^{\tau}d_t(i)}
 	@f]
 
 	Essentially, the result of the original difference function is divided by its average over shorter-lag values.
 	The final summation step then becomes:
-
 	@f[
 		D(\tau)=\sum\limits_{t=0}^{t<N} \frac{d_t(\tau)}{(1/\tau)\sum\limits_{i=1}^{\tau}d_t(i)}
 	@f]
@@ -123,7 +156,7 @@ namespace dsp::psola
 	therefore, detectors configured to not try to detect lower pitches will have less latency.
 	You can adjust the lowest detectable frequency of the pitch detector to fit your needs.
 
-	This class does not do any internal buffering; the caller must ensure that the buffers sent to the detection functions contain enough samples for the detection algorithm.
+	@warning This class does not do any internal buffering; the caller must ensure that the buffers sent to the detection functions contain enough samples for the detection algorithm.
 
 	@ingroup psola
  */
@@ -132,6 +165,7 @@ class LIMES_EXPORT PitchDetector final
 {
 public:
 
+	/** Convenience typedef for a vector of samples. */
 	using SampleVector = ds::scalar_vector<SampleType>;
 
 	/** Creates a pitch detector with an initial minimum detectable frequency and confidence threshold.
@@ -160,6 +194,7 @@ public:
 		This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
 		The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to \c getLatencySamples().
 		@note You must call \c setSamplerate() to prepare the pitch detector before calling this function!
+		@warning The caller must ensure that the buffer sent to this function contains at least \c getLatencySamples() samples.
 		@return The pitch in Hz for this frame of audio, or 0 if the frame is unpitched.
 	*/
 	[[nodiscard]] float detectPitch (const SampleType* const inputAudio, int numSamples) noexcept;
@@ -174,6 +209,7 @@ public:
 		This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
 		The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to \c getLatencySamples().
 		@note You must call \c setSamplerate() to prepare the pitch detector before calling this function!
+		@warning The caller must ensure that the buffer sent to this function contains at least \c getLatencySamples() samples.
 		@return The period, in samples, of the fundamental frequency for this frame of audio, or 0 if the frame is unpitched.
 	*/
 	[[nodiscard]] float detectPeriod (const SampleType* const inputAudio, int numSamples) noexcept;
@@ -182,6 +218,8 @@ public:
 
 	/** Returns the latency in samples of the detection algorithm.
 		The latency is equal to 2 * the period of the lowest detectable frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
+
+		The latency defines the minimum size of the buffers that must be sent to any of the detection functions, though you can send larger buffers if you wish.
 		@see setMinHz()
 	*/
 	[[nodiscard]] int getLatencySamples() const noexcept;

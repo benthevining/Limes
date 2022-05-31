@@ -89,7 +89,7 @@ struct LIMES_EXPORT Version final
 	}
 
 	/** Returns true if this version is older than the other one. */
-	[[nodiscard]] constexpr bool operator<(const Version& other) const noexcept
+	[[nodiscard]] constexpr bool operator< (const Version& other) const noexcept
 	{
 		if (major > other.major) return false;
 

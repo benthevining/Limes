@@ -113,9 +113,9 @@ public:
 	/** @name Lexicographic comparison */
 	///@{
 	/** Lexicographically compares this filesystem entry's absolute path with another path. */
-	[[nodiscard]] bool operator<(const FilesystemEntry& other) const noexcept;
+	[[nodiscard]] bool operator< (const FilesystemEntry& other) const noexcept;
 	[[nodiscard]] bool operator> (const FilesystemEntry& other) const noexcept;
-	[[nodiscard]] bool operator<(const Path& other) const noexcept;
+	[[nodiscard]] bool operator< (const Path& other) const noexcept;
 	[[nodiscard]] bool operator> (const Path& other) const noexcept;
 	///@}
 

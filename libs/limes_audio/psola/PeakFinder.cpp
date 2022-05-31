@@ -49,6 +49,8 @@ void PeakFinder<SampleType>::reset()
 		array->zero();
 
 	analysisFrameStart = 0;
+	lastPeak		   = 0;
+	peakBeforeLast	   = 0;
 }
 
 template <Sample SampleType>
@@ -74,7 +76,16 @@ const ds::scalar_vector<int>& PeakFinder<SampleType>::findPeaks (const SampleTyp
 	LIMES_ASSERT (numSamples >= grainSize);
 
 	// marks the center of the analysis windows, which are 1 period long
-	auto analysisIndex = analysisFrameStart + halfPeriod;
+	auto analysisIndex = [lastPeak, peakBeforeLast, intPeriod, halfPeriod]
+	{
+		if (peakBeforeLast < 0)
+			return peakBeforeLast + (2 * intPeriod);
+
+		if (lastPeak < 0)
+			return lastPeak + intPeriod;
+
+		return analysisFrameStart + halfPeriod;
+	}();
 
 	int lastFrameRealEnd { 0 };
 
@@ -82,13 +93,14 @@ const ds::scalar_vector<int>& PeakFinder<SampleType>::findPeaks (const SampleTyp
 	{
 		const auto frameStart = analysisIndex - halfPeriod;
 
-		lastFrameRealEnd = frameStart + intPeriod;
+		lastFrameRealEnd = analysisIndex + halfPeriod;
 
 		const auto frameEnd = std::min (numSamples, lastFrameRealEnd);
 
 		LIMES_ASSERT (frameStart >= 0 && frameEnd <= numSamples && frameEnd > frameStart);
 
-		peakIndices.push_back (findNextPeak (frameStart, frameEnd, std::min (analysisIndex, frameEnd),
+		peakIndices.push_back (findNextPeak (frameStart, frameEnd,
+											 std::min (analysisIndex, frameEnd),
 											 inputSamples, intPeriod, grainSize));
 
 		const auto prevAnalysisIndex = analysisIndex;
@@ -112,7 +124,16 @@ const ds::scalar_vector<int>& PeakFinder<SampleType>::findPeaks (const SampleTyp
 	peakIndices.removeDuplicates();
 	peakIndices.sort();
 
-	LIMES_ASSERT (peakIndices.isNotEmpty());
+	const auto num = peakIndices.numObjects();
+
+	LIMES_ASSERT (num > 0);
+
+	lastPeak = peakIndices[num - 1] - numSamples;
+
+	if (num > 1)
+		peakBeforeLast = peakIndices[num - 2] - numSamples;
+	else
+		peakBeforeLast = 0;
 
 	analysisFrameStart = std::max (0, lastFrameRealEnd - numSamples);
 
@@ -151,6 +172,8 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 
 		default :
 		{
+			// TO DO
+			// save the last frame's last peak
 			if (peakIndices.numObjects() <= 1)
 				return choosePeakWithGreatestPower (inputSamples);
 
@@ -240,7 +263,8 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const in
 	finalHandfulDeltas.clear();
 
 	// 1. calculate delta values for each peak candidate
-	// delta represents how far off this peak candidate is from the expected peak location - in a way it's a measure of the jitter that picking a peak candidate as this frame's peak would introduce to the overall alignment of the stream of grains based on the previous grains
+	// delta represents how far off this peak candidate is from the expected peak location
+	// in a way it's a measure of the jitter that picking a peak candidate as this frame's peak would introduce to the overall alignment of the stream of grains based on the previous grains
 
 	candidateDeltas.clearAndZero (peakCandidates.numObjects());
 

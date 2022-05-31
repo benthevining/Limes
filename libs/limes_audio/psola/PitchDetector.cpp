@@ -115,7 +115,7 @@ void PitchDetector<SampleType>::updatePeriodBounds() noexcept
 	LIMES_ASSERT (minHz > 0);
 
 	const auto periodUpperBound = math::periodInSamples (samplerate, minHz);
-	const auto periodLowerBound = math::periodInSamples (samplerate, 10000);
+	const auto periodLowerBound = math::max (math::periodInSamples (samplerate, 10000), 4);
 
 	if (periodLastFrame > 0.f)	// Pitch should not halve or double between consecutive pitched frames
 	{
@@ -220,6 +220,9 @@ template <Sample SampleType>
 int PitchDetector<SampleType>::setSamplerate (double newSamplerate)
 {
 	LIMES_ASSERT (newSamplerate > 0.);
+
+	periodLastFrame = math::periodInSamples (newSamplerate,
+											 math::freqFromPeriod (samplerate, periodLastFrame));
 
 	samplerate = newSamplerate;
 

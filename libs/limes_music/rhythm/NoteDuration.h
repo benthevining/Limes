@@ -66,7 +66,7 @@ public:
 	[[nodiscard]] constexpr bool operator> (const NoteDuration& other) const noexcept;
 
 	/** Returns true if this duration is shorter than the other one. Dots are taken into account. */
-	[[nodiscard]] constexpr bool operator<(const NoteDuration& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const NoteDuration& other) const noexcept;
 
 	/** Increments the duration value to the next shortest notehead kind.
 		Whole notes are incremented to half notes, half notes to quarter notes, quarter notes to eighth notes, etc.

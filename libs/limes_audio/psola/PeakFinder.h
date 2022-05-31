@@ -28,7 +28,8 @@ LIMES_BEGIN_NAMESPACE
 namespace dsp::psola
 {
 
-/** A class that identifies pitch peaks for PSOLA pitch shifting.
+/** @class PeakFinder
+	A class that identifies pitch peaks for PSOLA pitch shifting.
 	You probably won't ever need to use this class directly, as it's mainly intended as a utility for the Analyzer class.
 
 	Pitch peak locations are used to locate and extract from the original signal a series of "grains" which are then respaced by the Shifter class.
@@ -39,6 +40,81 @@ namespace dsp::psola
 	- Each grain should be about centered on the local maxima in the signal
 
 	The set of grains that maximizes these criteria is chosen, and what is returned is a list of sample indices representing the *middle* sample of each grain (ie, the peak that the grain should be centered on).
+
+	@section peak_alg The algorithm
+
+	This is a completely custom algorithm based on several sources, including @cite chalamandaris_tsiakoulis_karabetsos_raptis_2009 and @cite colotte_laprie .
+
+	Peaks are searched for in the input signal in a sequence of overlapping analysis windows, which are 1 period long and overlap by 50% --
+	so analysis window #2 begins at sample @f$ \frac{\tau}{2} @f$, analysis window #3 begins at sample @f$ \tau @f$, etc, until the entire frame of audio has been covered by an analysis window.
+	One peak is chosen within each analysis window.
+
+	This windowing scheme is used because the resulting grains used in the pitch shifting are meant to be 2 periods long, overlapping by 50% --
+	so if we identify a peak in the signal roughly once per period, then if we center 2-period long grains on each of these peaks, these grains should end up overlapping one another by roughly 50%.
+
+	@subsection peak_cand_sel Peak candidate selection
+
+	For each analysis window, its *predicted peak* location is the sample index exactly 1 period greater than the previous analysis window's chosen peak:
+	@f[
+		pidx_t=idx\prime+\tau
+	@f]
+	where:
+	- @f$ idx\prime @f$ is the chosen peak index for the previous analysis window;
+	- @f$ \tau @f$ is the period of this frame of audio.
+
+	However, the peak chosen for this analysis window may not be exactly at this location, if the signal demonstrates significant energy in a slightly different area.
+
+	Therefore, a set of *peak candidates* for this analysis window are identified by weighting the original sample values based on how close the sample is to the *predicted peak* location,
+	and then choosing the set of sample indices whose weighted sample values have the greatest absolute values.
+
+	The set of peak candidates for the analysis window beginning at sample @f$ t @f$ is defined as:
+	@f[
+		C_t=\{\, \max{(1-\frac{\lvert pidx_t-i\rvert}{N_t})\lvert x_i\rvert} \notin C_t : |C_t|\le 15 \,\}
+	@f]
+	where:
+	- @f$ i @f$ is the sample index in the original audio signal which is being evaluated as a potential peak candidate;
+	- @f$ N_t @f$ is the number of samples in this analysis window.
+
+	This algorithm selects 15 initial peak candidates within each analysis window. This number is somewhat arbitrary.
+	Fewer than 15 candidates may be chosen if only a small set of candidates have significant signal power close to the predicted peak.
+
+	@subsection peak_can_eval Peak candidate evaluation
+
+	Once the set of peak candidates @f$ C_t @f$ has been identified, the actual location of the peak for this analysis window is chosen using a more involved weighting scheme.
+
+	Because the actual grains created from the selected peaks are *two periods long*, I take into account not only the distance from the previous peak to each candidate,
+	but also the distance to the peak *before* the previous peak.
+
+	For each peak candidate, we now have *two* predicted peak locations based on previously chosen peaks:
+	@f[
+		pidx_t=idx\prime+\tau
+	@f]
+	@f[
+		pidx\prime_t=idx''+2\tau
+	@f]
+	where:
+	- @f$ idx\prime @f$ is the chosen peak index for the previous analysis window;
+	- @f$ \tau @f$ is the period of this frame of audio;
+	- @f$ idx'' @f$ is the chosen peak for the analysis frame *before* the previous one.
+
+	For each peak candidate, a delta value is calculated which represents its amount of jitter from both of these predicted peaks:
+	@f[
+		\delta_c=\lvert c-pidx_t\rvert+\lvert c-pidx\prime_t\rvert
+	@f]
+	where @f$ c @f$ is the sample index of the peak candidate being tested.
+
+	From the initial set of peak candidates, a "final handful" of 5 is chosen. The 5 candidates with the lowest @f$ \delta_c @f$ values are chosen.
+
+	The final peak is chosen from this "final handful" by again comparing weighted sample values, this time with the samples weighted by the candidates' @f$ \delta_c @f$ values.
+	The weighted sample value for peak candidate @f$ c @f$ is defined by:
+	@f[
+		w(c)=\lvert x_c\rvert(1-\frac{\delta_c}{\delta_R})
+	@f]
+	where:
+	- @f$ x_c @f$ is the value of the sample at index @f$ c @f$ in the original input signal;
+	- @f$ \delta_R @f$ is the range between the minimum and maximum @f$ \delta_c @f$ values of any remaining peak candidate.
+
+	The peak candidate with the highest resulting @f$ w(c) @f$ value is chosen as the peak for this analysis window.
 
 	@see Analyzer
 	@ingroup psola
@@ -77,8 +153,8 @@ private:
 
 	bool		operator== (const PeakFinder& other) const = delete;
 	bool		operator!= (const PeakFinder& other) const = delete;
-	PeakFinder& operator= (const PeakFinder& other)		   = delete;
-	PeakFinder (const PeakFinder& other)				   = delete;
+	PeakFinder& operator= (const PeakFinder& other) = delete;
+	PeakFinder (const PeakFinder& other)			= delete;
 
 	[[nodiscard]] int findNextPeak (int frameStart, int frameEnd, int predictedPeak,
 									const SampleType* const inputSamples, int period, int grainSize) noexcept;
@@ -101,6 +177,8 @@ private:
 														  &finalHandfulDeltas };
 
 	int analysisFrameStart { 0 };
+
+	int lastPeak { 0 }, peakBeforeLast { 0 };
 
 	static constexpr auto numPeaksToTest = 15, defaultFinalHandfulSize = 5;
 };

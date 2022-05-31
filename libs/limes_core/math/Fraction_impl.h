@@ -93,7 +93,7 @@ constexpr bool Fraction<ValueType>::operator> (const Fraction<T>& other) const n
 
 template <Scalar ValueType>
 template <Scalar T>
-constexpr bool Fraction<ValueType>::operator<(const Fraction<T>& other) const noexcept
+constexpr bool Fraction<ValueType>::operator< (const Fraction<T>& other) const noexcept
 {
 	if (isNegative() && ! other.isNegative())
 		return true;
@@ -110,7 +110,7 @@ constexpr bool Fraction<ValueType>::operator> (T value) const noexcept
 
 template <Scalar ValueType>
 template <Scalar T>
-constexpr bool Fraction<ValueType>::operator<(T value) const noexcept
+constexpr bool Fraction<ValueType>::operator< (T value) const noexcept
 {
 	return (T) * this < value;	// NOLINT
 }
