@@ -78,7 +78,7 @@ public:
 	[[nodiscard]] constexpr bool isBefore (const DateTime& other) const noexcept;
 	[[nodiscard]] constexpr bool isAfter (const DateTime& other) const noexcept;
 	[[nodiscard]] constexpr bool operator> (const DateTime& other) const noexcept;
-	[[nodiscard]] constexpr bool operator< (const DateTime& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const DateTime& other) const noexcept;
 	///@}
 
 	/** @name Equality comparisons */
@@ -174,7 +174,7 @@ constexpr bool DateTime::operator> (const DateTime& other) const noexcept
 	return isAfter (other);
 }
 
-constexpr bool DateTime::operator< (const DateTime& other) const noexcept
+constexpr bool DateTime::operator<(const DateTime& other) const noexcept
 {
 	return isBefore (other);
 }
