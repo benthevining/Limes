@@ -128,14 +128,18 @@ var files_dup =
     [ "limes_music.h", "d4/dbe/limes__music_8h.html", null ],
     [ "limes_namespace.h", "da/d0b/limes__namespace_8h.html", "da/d0b/limes__namespace_8h" ],
     [ "limes_vecops.h", "de/d1f/limes__vecops_8h.html", "de/d1f/limes__vecops_8h" ],
-    [ "LinkedList.h", "de/dc6/_linked_list_8h_source.html", null ],
-    [ "LinkedList_impl.h", "d5/dea/_linked_list__impl_8h_source.html", null ],
+    [ "LinkedList.h", "de/dc6/_linked_list_8h.html", [
+      [ "LinkedList", "d2/d14/classlimes_1_1ds_1_1_linked_list.html", "d2/d14/classlimes_1_1ds_1_1_linked_list" ],
+      [ "Node", "d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html", "d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node" ]
+    ] ],
+    [ "LinkedList_impl.h", "d5/dea/_linked_list__impl_8h.html", null ],
     [ "LinkedListModel.h", "d1/d4c/_linked_list_model_8h_source.html", null ],
-    [ "LinkedListModel_impl.h", "d3/da1/_linked_list_model__impl_8h_source.html", null ],
+    [ "LinkedListModel_impl.h", "d3/da1/_linked_list_model__impl_8h.html", null ],
     [ "master.h", "d9/df3/master_8h.html", [
       [ "Master", "d2/d1e/namespacelimes_1_1midi_1_1tuning.html#d7/d18/classlimes_1_1midi_1_1tuning_1_1_master", null ]
     ] ],
-    [ "mathHelpers.h", "dd/dfb/math_helpers_8h.html", "dd/dfb/math_helpers_8h" ],
+    [ "mathFunctions.h", "dc/d5c/math_functions_8h.html", "dc/d5c/math_functions_8h" ],
+    [ "mathFunctions_impl.h", "dc/d9b/math_functions__impl_8h.html", null ],
     [ "matrix.h", "dd/df4/matrix_8h.html", [
       [ "Matrix", "d6/d5d/classlimes_1_1math_1_1_matrix.html", "d6/d5d/classlimes_1_1math_1_1_matrix" ]
     ] ],

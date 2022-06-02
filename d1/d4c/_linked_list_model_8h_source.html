@@ -115,112 +115,130 @@ $(document).ready(function(){initNavTree('d1/d4c/_linked_list_model_8h_source.ht
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span>ds</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">   23</a></span>&#160;<span class="keyword">struct </span>LIMES_EXPORT <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a> final</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    ~<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    constexpr <span class="keyword">explicit</span> <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a> (ObjectType&amp;      objectForThisNode,</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                                        <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>* objectBeforeThisNode = <span class="keyword">nullptr</span>,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                                        <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>* objectAfterThisNode  = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gacb481fd22dbb3eae9b409dfbb29fd494">LIMES_CONSTEXPR_MOVABLE</a> (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga397de153f0d2c4a307fa9e150a396a32">LIMES_CONSTEXPR_COPYABLE</a> (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    constexpr <span class="keywordtype">void</span> removeBeforeConnection() noexcept;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    constexpr <span class="keywordtype">void</span> removeAfterConnection() noexcept;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    constexpr <span class="keywordtype">void</span> removeBothConnections() noexcept;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> hasBeforeConnection() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> hasAfterConnection() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    constexpr <span class="keywordtype">void</span> replaceBeforeConnection (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; newNodeBeforeThisOne) noexcept;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    constexpr <span class="keywordtype">void</span> replaceAfterConnection (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; newNodeAfterThisOne) noexcept;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ObjectType&gt;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">   43</a></span>&#160;<span class="keyword">struct </span>LIMES_EXPORT <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a> final</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    constexpr <span class="keywordtype">void</span> replaceConnections (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>* beforeThisNode, <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>* afterThisNode) noexcept;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    constexpr <span class="keywordtype">void</span> replaceConnections (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; beforeThisNode, <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; afterThisNode) noexcept;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    constexpr <span class="keywordtype">void</span> insertBeforeConnection (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; newNodeBeforeThisOne) noexcept;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    constexpr <span class="keywordtype">void</span> insertAfterConnection (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; newNodeAfterThisOne) noexcept;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    constexpr <span class="keywordtype">void</span> swapWith (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; otherNode) noexcept;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    [[nodiscard]] constexpr <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp;       getFirstNodeInList() noexcept;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    [[nodiscard]] constexpr <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp;       getLastNodeInList() noexcept;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    [[nodiscard]] constexpr <span class="keyword">const</span> <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; getFirstNodeInList() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    [[nodiscard]] constexpr <span class="keyword">const</span> <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; getLastNodeInList() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    [[nodiscard]] constexpr ObjectType&amp; getFirstObjectInList() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    [[nodiscard]] constexpr ObjectType&amp; getLastObjectInList() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> isFirstNodeInList() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> isLastNodeInList() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">int</span> sizeOfList() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    constexpr <span class="keyword">explicit</span> <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a> (ObjectType&amp;      objectForThisNode,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                        <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>* objectBeforeThisNode = <span class="keyword">nullptr</span>,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                        <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>* objectAfterThisNode  = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    ~<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gacb481fd22dbb3eae9b409dfbb29fd494">LIMES_CONSTEXPR_MOVABLE</a> (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga397de153f0d2c4a307fa9e150a396a32">LIMES_CONSTEXPR_COPYABLE</a> (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    [[nodiscard]] constexpr ObjectType&amp; getObject() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">   70</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a> final</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">// using difference_type   = typename std::iterator_traits&lt;Iterator&gt;::difference_type;</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">using</span> value_type        = ObjectType;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">using</span> reference         = ObjectType&amp;;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">using</span> pointer           = ObjectType*;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">using</span> iterator_category = std::bidirectional_iterator_tag;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        constexpr <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    constexpr <span class="keywordtype">void</span> removeBeforeConnection() noexcept;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    constexpr <span class="keywordtype">void</span> removeAfterConnection() noexcept;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        constexpr <span class="keyword">explicit</span> <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a> (<span class="keyword">const</span> <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; listNode) noexcept;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        constexpr <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a>&amp; operator++() noexcept;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        constexpr <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a>&amp; operator--() noexcept;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        [[nodiscard]] constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d7/dcd/group___two_dgeometry.html#ga5cdfdcd69f79295c4eef46793103aad4">operator== </a>(<span class="keyword">const</span> <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a>&amp; other) <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        [[nodiscard]] constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d7/dcd/group___two_dgeometry.html#ga34a4f995efaff20408b272939689f926">operator!= </a>(<span class="keyword">const</span> <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a>&amp; other) <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    constexpr <span class="keywordtype">void</span> removeBothConnections() noexcept;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        [[nodiscard]] constexpr reference operator*() <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">const</span> <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>* currentNode { <span class="keyword">nullptr</span> };</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    };</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    constexpr <span class="keywordtype">void</span> replaceBeforeConnection (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; newNodeBeforeThisOne) noexcept;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    [[nodiscard]] constexpr <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a> begin() const noexcept;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    [[nodiscard]] constexpr <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a> end() const noexcept;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;private:</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a> *before { <span class="keyword">nullptr</span> }, *after { <span class="keyword">nullptr</span> };</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    std::reference_wrapper&lt;ObjectType&gt; thisNode;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}  <span class="comment">// namespace ds</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#include &quot;LinkedListModel_impl.h&quot;</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    constexpr <span class="keywordtype">void</span> replaceAfterConnection (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; newNodeAfterThisOne) noexcept;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    constexpr <span class="keywordtype">void</span> replaceConnections (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>* beforeThisNode, <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>* afterThisNode) noexcept;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    constexpr <span class="keywordtype">void</span> replaceConnections (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; beforeThisNode, <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; afterThisNode) noexcept;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    constexpr <span class="keywordtype">void</span> insertBeforeConnection (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; newNodeBeforeThisOne) noexcept;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    constexpr <span class="keywordtype">void</span> insertAfterConnection (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; newNodeAfterThisOne) noexcept;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    constexpr <span class="keywordtype">void</span> swapWith (<a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; otherNode) noexcept;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> hasBeforeConnection() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> hasAfterConnection() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    [[nodiscard]] constexpr <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>* getBefore() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    [[nodiscard]] constexpr <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>* getAfter() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    [[nodiscard]] constexpr <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp;       getFirstNodeInList() noexcept;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    [[nodiscard]] constexpr <span class="keyword">const</span> <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; getFirstNodeInList() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    [[nodiscard]] constexpr ObjectType&amp; getFirstObjectInList() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    [[nodiscard]] constexpr <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp;       getLastNodeInList() noexcept;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    [[nodiscard]] constexpr <span class="keyword">const</span> <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; getLastNodeInList() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    [[nodiscard]] constexpr ObjectType&amp; getLastObjectInList() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> isFirstNodeInList() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">bool</span> isLastNodeInList() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    [[nodiscard]] constexpr <span class="keywordtype">int</span> sizeOfList() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    [[nodiscard]] constexpr ObjectType&amp; getObject() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">  208</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a> final</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    {</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="comment">// using difference_type   = typename std::iterator_traits&lt;Iterator&gt;::difference_type;</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keyword">using</span> value_type        = ObjectType;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="keyword">using</span> reference         = ObjectType&amp;;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="keyword">using</span> pointer           = ObjectType*;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keyword">using</span> iterator_category = std::bidirectional_iterator_tag;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        constexpr <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        constexpr <span class="keyword">explicit</span> <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a> (<span class="keyword">const</span> <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>&amp; listNode) noexcept;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        constexpr <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a>&amp; operator++() noexcept;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        constexpr <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a>&amp; operator--() noexcept;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        [[nodiscard]] constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d7/dcd/group___two_dgeometry.html#ga5cdfdcd69f79295c4eef46793103aad4">operator== </a>(<span class="keyword">const</span> <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a>&amp; other) <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        [[nodiscard]] constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d7/dcd/group___two_dgeometry.html#ga34a4f995efaff20408b272939689f926">operator!= </a>(<span class="keyword">const</span> <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a>&amp; other) <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        [[nodiscard]] constexpr reference operator*() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="keyword">const</span> <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a>* currentNode { <span class="keyword">nullptr</span> };</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    };</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    [[nodiscard]] constexpr <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a> begin() const noexcept;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    [[nodiscard]] constexpr <a class="code" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a> end() const noexcept;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;private:</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <a class="code" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a> *before { <span class="keyword">nullptr</span> }, *after { <span class="keyword">nullptr</span> };</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    std::reference_wrapper&lt;ObjectType&gt; thisNode;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;};</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;}  <span class="comment">// namespace ds</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/da1/_linked_list_model__impl_8h.html">LinkedListModel_impl.h</a>&quot;</span>  <span class="comment">// IWYU pragma: export</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__system_html_ga397de153f0d2c4a307fa9e150a396a32"><div class="ttname"><a href="../../d4/d37/group__system.html#ga397de153f0d2c4a307fa9e150a396a32">LIMES_CONSTEXPR_COPYABLE</a></div><div class="ttdeci">#define LIMES_CONSTEXPR_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00193">preprocessor.h:193</a></div></div>
-<div class="ttc" id="astructlimes_1_1ds_1_1_linked_list_model_1_1_iterator_html"><div class="ttname"><a href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">limes::ds::LinkedListModel::Iterator</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d4c/_linked_list_model_8h_source.html#l00070">LinkedListModel.h:70</a></div></div>
+<div class="ttc" id="astructlimes_1_1ds_1_1_linked_list_model_1_1_iterator_html"><div class="ttname"><a href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">limes::ds::LinkedListModel::Iterator</a></div><div class="ttdoc">An iterator for a linked list.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d4c/_linked_list_model_8h_source.html#l00208">LinkedListModel.h:208</a></div></div>
+<div class="ttc" id="a_linked_list_model__impl_8h_html"><div class="ttname"><a href="../../d3/da1/_linked_list_model__impl_8h.html">LinkedListModel_impl.h</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00052">limes_namespace.h:52</a></div></div>
 <div class="ttc" id="agroup___two_dgeometry_html_ga5cdfdcd69f79295c4eef46793103aad4"><div class="ttname"><a href="../../d7/dcd/group___two_dgeometry.html#ga5cdfdcd69f79295c4eef46793103aad4">limes::math::geometry::operator==</a></div><div class="ttdeci">constexpr bool operator==(const Rectangle&lt; ValueType &gt; &amp;rect, const Square&lt; ValueType &gt; &amp;square) noexcept</div><div class="ttdoc">Returns true if the Rectangle and Square have equal dimensions.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3c/square_8h_source.html#l00105">square.h:105</a></div></div>
 <div class="ttc" id="agroup__system_html_gacb481fd22dbb3eae9b409dfbb29fd494"><div class="ttname"><a href="../../d4/d37/group__system.html#gacb481fd22dbb3eae9b409dfbb29fd494">LIMES_CONSTEXPR_MOVABLE</a></div><div class="ttdeci">#define LIMES_CONSTEXPR_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00211">preprocessor.h:211</a></div></div>
 <div class="ttc" id="agroup___two_dgeometry_html_ga34a4f995efaff20408b272939689f926"><div class="ttname"><a href="../../d7/dcd/group___two_dgeometry.html#ga34a4f995efaff20408b272939689f926">limes::math::geometry::operator!=</a></div><div class="ttdeci">constexpr bool operator!=(const Rectangle&lt; ValueType &gt; &amp;rect, const Square&lt; ValueType &gt; &amp;square) noexcept</div><div class="ttdoc">Returns true if the Rectangle and Square do not have equal dimensions.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3c/square_8h_source.html#l00117">square.h:117</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00040">limes_namespace.h:40</a></div></div>
-<div class="ttc" id="astructlimes_1_1ds_1_1_linked_list_model_html"><div class="ttname"><a href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">limes::ds::LinkedListModel</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d4c/_linked_list_model_8h_source.html#l00023">LinkedListModel.h:23</a></div></div>
+<div class="ttc" id="astructlimes_1_1ds_1_1_linked_list_model_html"><div class="ttname"><a href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">limes::ds::LinkedListModel</a></div><div class="ttdoc">This class is an abstract model of a node in a linked list.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d4c/_linked_list_model_8h_source.html#l00043">LinkedListModel.h:43</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_0e0c5ea0f8eb3c0f9e9d1c7f184a59c4.html">limes_data_structures</a></li><li class="navelem"><a class="el" href="../../dir_11882608802afa7bceaa9189d3caa0a2.html">linked_list</a></li><li class="navelem"><b>LinkedListModel.h</b></li>
-    <li class="footer">Generated on Tue May 31 2022 21:00:29 for Limes by
+    <li class="footer">Generated on Thu Jun 2 2022 22:13:39 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

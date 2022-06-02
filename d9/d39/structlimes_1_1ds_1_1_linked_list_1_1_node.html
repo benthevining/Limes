@@ -98,13 +98,18 @@ $(document).ready(function(){initNavTree('d9/d39/structlimes_1_1ds_1_1_linked_li
 <div class="title">limes::ds::LinkedList&lt; ObjectType &gt;::Node Struct Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A node in a linked list.  
+ <a href="../../d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../de/dc6/_linked_list_8h_source.html">LinkedList.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad75427b02f4ce5eff3142bca857c4e18"><td class="memTemplParams" colspan="2"><a id="ad75427b02f4ce5eff3142bca857c4e18"></a>
-template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:ad75427b02f4ce5eff3142bca857c4e18"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Node</b> (Args &amp;&amp;... args)</td></tr>
-<tr class="separator:ad75427b02f4ce5eff3142bca857c4e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cb407229fb84c75d68c640e80bd9d57"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a0cb407229fb84c75d68c640e80bd9d57"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html#a0cb407229fb84c75d68c640e80bd9d57">Node</a> (Args &amp;&amp;... args) noexcept(noexcept(ObjectType(std::forward&lt; Args &gt;(args)...)))</td></tr>
+<tr class="memdesc:a0cb407229fb84c75d68c640e80bd9d57"><td class="mdescLeft">&#160;</td><td class="mdescRight">All constructor arguments are forwarded to the constructor of <code>ObjectType</code> .  <a href="../../d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html#a0cb407229fb84c75d68c640e80bd9d57">More...</a><br /></td></tr>
+<tr class="separator:a0cb407229fb84c75d68c640e80bd9d57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afea23351711288f2ac46b6b3b3e05401"><td class="memItemLeft" align="right" valign="top"><a id="afea23351711288f2ac46b6b3b3e05401"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>LIMES_DEFAULT_COPYABLE</b> (<a class="el" href="../../d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html">Node</a>)</td></tr>
 <tr class="separator:afea23351711288f2ac46b6b3b3e05401"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,11 +130,45 @@ ObjectType&#160;</td><td class="memItemRight" valign="bottom"><b>object</b></td>
 <div class="textblock"><h3>template&lt;typename ObjectType&gt;<br />
 struct limes::ds::LinkedList&lt; ObjectType &gt;::Node</h3>
 
+<p>A node in a linked list. </p>
+<p>This object contains a <a class="el" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html" title="This class is an abstract model of a node in a linked list.">LinkedListModel</a> and the actual data object itself. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/dc6/_linked_list_8h_source.html#l00030">30</a> of file <a class="el" href="../../de/dc6/_linked_list_8h_source.html">LinkedList.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following files:<ul>
+<p class="definition">Definition at line <a class="el" href="../../de/dc6/_linked_list_8h_source.html#l00045">45</a> of file <a class="el" href="../../de/dc6/_linked_list_8h_source.html">LinkedList.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0cb407229fb84c75d68c640e80bd9d57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cb407229fb84c75d68c640e80bd9d57">&#9670;&nbsp;</a></span>Node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ObjectType &gt; </div>
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../d2/d14/classlimes_1_1ds_1_1_linked_list.html">limes::ds::LinkedList</a>&lt; ObjectType &gt;::Node::Node </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>All constructor arguments are forwarded to the constructor of <code>ObjectType</code> . </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="../../de/dc6/_linked_list_8h_source.html">LinkedList.h</a></li>
-<li><a class="el" href="../../d5/dea/_linked_list__impl_8h_source.html">LinkedList_impl.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -137,7 +176,7 @@ struct limes::ds::LinkedList&lt; ObjectType &gt;::Node</h3>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d7/d23/namespacelimes_1_1ds.html">ds</a></li><li class="navelem"><a class="el" href="../../d2/d14/classlimes_1_1ds_1_1_linked_list.html">LinkedList</a></li><li class="navelem"><a class="el" href="../../d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html">Node</a></li>
-    <li class="footer">Generated on Tue May 31 2022 21:00:30 for Limes by
+    <li class="footer">Generated on Thu Jun 2 2022 22:13:40 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -98,6 +98,11 @@ $(document).ready(function(){initNavTree('d8/d52/structlimes_1_1ds_1_1_linked_li
 <div class="title">limes::ds::LinkedListModel&lt; ObjectType &gt;::Iterator Struct Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>An iterator for a linked list.  
+ <a href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d1/d4c/_linked_list_model_8h_source.html">LinkedListModel.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -122,15 +127,15 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>Iterator</b> (co
 <tr class="memitem:af7dcb8336a1443e8a67d9a691c01f2e8"><td class="memItemLeft" align="right" valign="top"><a id="af7dcb8336a1443e8a67d9a691c01f2e8"></a>
 constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a> &amp;other) const noexcept</td></tr>
 <tr class="separator:af7dcb8336a1443e8a67d9a691c01f2e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a92dc7ec422d1dfadaa467ac9f90a92"><td class="memItemLeft" align="right" valign="top"><a id="a4a92dc7ec422d1dfadaa467ac9f90a92"></a>
+<tr class="memitem:a1335fbda88ef0c32f4aa1d0ee17d2a56"><td class="memItemLeft" align="right" valign="top"><a id="a1335fbda88ef0c32f4aa1d0ee17d2a56"></a>
 constexpr reference&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> () const noexcept</td></tr>
-<tr class="separator:a4a92dc7ec422d1dfadaa467ac9f90a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa84927312e6123b11e155768ad091d10"><td class="memItemLeft" align="right" valign="top"><a id="aa84927312e6123b11e155768ad091d10"></a>
+<tr class="separator:a1335fbda88ef0c32f4aa1d0ee17d2a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada6bb4dd5a46ce4434f5b990e5391b10"><td class="memItemLeft" align="right" valign="top"><a id="ada6bb4dd5a46ce4434f5b990e5391b10"></a>
 constexpr <a class="el" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator++</b> () noexcept</td></tr>
-<tr class="separator:aa84927312e6123b11e155768ad091d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2653dbb5b38934f690eb4d8a4bb9dd5"><td class="memItemLeft" align="right" valign="top"><a id="af2653dbb5b38934f690eb4d8a4bb9dd5"></a>
+<tr class="separator:ada6bb4dd5a46ce4434f5b990e5391b10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4244ca8e4e892cdfa92bcf5f490a821d"><td class="memItemLeft" align="right" valign="top"><a id="a4244ca8e4e892cdfa92bcf5f490a821d"></a>
 constexpr <a class="el" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator--</b> () noexcept</td></tr>
-<tr class="separator:af2653dbb5b38934f690eb4d8a4bb9dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a4244ca8e4e892cdfa92bcf5f490a821d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a2aafb4cdaed149394f4bbc29afce8d"><td class="memItemLeft" align="right" valign="top"><a id="a2a2aafb4cdaed149394f4bbc29afce8d"></a>
 constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a> &amp;other) const noexcept</td></tr>
 <tr class="separator:a2a2aafb4cdaed149394f4bbc29afce8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,11 +144,12 @@ constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==<
 <div class="textblock"><h3>template&lt;typename ObjectType&gt;<br />
 struct limes::ds::LinkedListModel&lt; ObjectType &gt;::Iterator</h3>
 
+<p>An iterator for a linked list. </p>
+<p>Any node of a linked list is iterable; no matter which node <code><a class="el" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html#a0cd765e8bf510fd75ac6c7a968996347" title="Returns an iterator to the beginning of this node&#39;s list.">begin()</a></code> is called on, an iterator to the beginning of the list will be returned. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d4c/_linked_list_model_8h_source.html#l00070">70</a> of file <a class="el" href="../../d1/d4c/_linked_list_model_8h_source.html">LinkedListModel.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following files:<ul>
+<p class="definition">Definition at line <a class="el" href="../../d1/d4c/_linked_list_model_8h_source.html#l00208">208</a> of file <a class="el" href="../../d1/d4c/_linked_list_model_8h_source.html">LinkedListModel.h</a>.</p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="../../d1/d4c/_linked_list_model_8h_source.html">LinkedListModel.h</a></li>
-<li><a class="el" href="../../d3/da1/_linked_list_model__impl_8h_source.html">LinkedListModel_impl.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -151,7 +157,7 @@ struct limes::ds::LinkedListModel&lt; ObjectType &gt;::Iterator</h3>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d7/d23/namespacelimes_1_1ds.html">ds</a></li><li class="navelem"><a class="el" href="../../d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html">LinkedListModel</a></li><li class="navelem"><a class="el" href="../../d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html">Iterator</a></li>
-    <li class="footer">Generated on Tue May 31 2022 21:00:30 for Limes by
+    <li class="footer">Generated on Thu Jun 2 2022 22:13:40 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

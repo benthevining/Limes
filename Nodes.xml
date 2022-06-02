@@ -1106,8 +1106,12 @@
                 <Path>d3/db2/_fraction__impl_8h.html</Path>
                </Node>
                <Node>
-                <Name>mathHelpers.h</Name>
-                <Path>dd/dfb/math_helpers_8h.html</Path>
+                <Name>mathFunctions.h</Name>
+                <Path>dc/d5c/math_functions_8h.html</Path>
+               </Node>
+               <Node>
+                <Name>mathFunctions_impl.h</Name>
+                <Path>dc/d9b/math_functions__impl_8h.html</Path>
                </Node>
                <Node>
                 <Name>matrix.h</Name>
@@ -4395,7 +4399,7 @@
                    <Node>
                     <Name>Node</Name>
                     <Path>d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html</Path>
-                    <Anchor>ad75427b02f4ce5eff3142bca857c4e18</Anchor>
+                    <Anchor>a0cb407229fb84c75d68c640e80bd9d57</Anchor>
                    </Node>
                    <Node>
                     <Name>LIMES_DEFAULT_COPYABLE</Name>
@@ -4420,6 +4424,11 @@
                   </Subnodes>
                  </Node>
                  <Node>
+                  <Name>Iterator</Name>
+                  <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                  <Anchor>adee04832e17e477c55f8a852dc2599c6</Anchor>
+                 </Node>
+                 <Node>
                   <Name>LinkedList</Name>
                   <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
                   <Anchor>adb8adbdd3c823dde9950116c07dcbf8f</Anchor>
@@ -4427,52 +4436,62 @@
                  <Node>
                   <Name>addNode</Name>
                   <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
-                  <Anchor>ab0cf177e3d2ea1415a396b6a14df5c6f</Anchor>
+                  <Anchor>a94cbcdb72ade5a7133606083bd5bf152</Anchor>
                  </Node>
                  <Node>
                   <Name>addNodeAfter</Name>
                   <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
-                  <Anchor>a6e2e618cb394116dff09af260c0f32e6</Anchor>
+                  <Anchor>ae8e58feffa82ad2e1264587a44133fad</Anchor>
                  </Node>
                  <Node>
                   <Name>addNodeBefore</Name>
                   <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
-                  <Anchor>a0ecd1a41c2371db1f556bc064227fb58</Anchor>
+                  <Anchor>a6d41a0f6d3d8f4be053915bd49a92322</Anchor>
                  </Node>
                  <Node>
                   <Name>addNodeToFront</Name>
                   <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
-                  <Anchor>ad7f3bb1abee1dde8082175fb95a97659</Anchor>
+                  <Anchor>abd31eeaa24995cc9b5d9788c3ffe839a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>begin</Name>
+                  <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                  <Anchor>afc057dcde42ff1a7c940131c379d1d82</Anchor>
                  </Node>
                  <Node>
                   <Name>createAndAddNode</Name>
                   <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
-                  <Anchor>a6396d93514f2e83edcadb765ce82953e</Anchor>
+                  <Anchor>af933ca84662c83da182519ec830cbb31</Anchor>
                  </Node>
                  <Node>
                   <Name>createAndAddNodeAfter</Name>
                   <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
-                  <Anchor>acbe4f6559092c7e825c8ee66670b0018</Anchor>
+                  <Anchor>a2d3bfd0ac165b7df7cd509696ef5519f</Anchor>
                  </Node>
                  <Node>
                   <Name>createAndAddNodeBefore</Name>
                   <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
-                  <Anchor>ab7e18640d9b39b3ee96ec593849bd99c</Anchor>
+                  <Anchor>ae611692262cb2e3556155beec3e48d1c</Anchor>
                  </Node>
                  <Node>
                   <Name>createAndAddNodeToFront</Name>
                   <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
-                  <Anchor>a0e4d49d89d0274749ba61c04e217f7f7</Anchor>
+                  <Anchor>af46d4c74ab9b8b9b040d0c9bc1f6871e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>end</Name>
+                  <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                  <Anchor>aab6306c1ab6d402a2b550a123d7e170f</Anchor>
                  </Node>
                  <Node>
                   <Name>getFirstNodeInChain</Name>
                   <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
-                  <Anchor>a916b4aa9bbe8e331f422a78699fdff58</Anchor>
+                  <Anchor>a892f85278f8b51dc56df092c53d6ce26</Anchor>
                  </Node>
                  <Node>
                   <Name>getLastNodeInChain</Name>
                   <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
-                  <Anchor>aab294e6970bb1145ffa1c92e334be5a2</Anchor>
+                  <Anchor>a8265d3eb61d5f26dab0e459e73526fcc</Anchor>
                  </Node>
                  <Node>
                   <Name>LIMES_DEFAULT_COPYABLE</Name>
@@ -4487,12 +4506,12 @@
                  <Node>
                   <Name>removeNode</Name>
                   <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
-                  <Anchor>a55c206e6cbc2147e786b0350a0a5d880</Anchor>
+                  <Anchor>afd898648eb5f15f91471847da0a1cce5</Anchor>
                  </Node>
                  <Node>
                   <Name>swapNodes</Name>
                   <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
-                  <Anchor>ae52c7e8301e3d6df7e76b6ab37aff7db</Anchor>
+                  <Anchor>ad03f9e3262f117b90bc3e4a38b804468</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -4542,17 +4561,17 @@
                    <Node>
                     <Name>operator*</Name>
                     <Path>d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html</Path>
-                    <Anchor>a4a92dc7ec422d1dfadaa467ac9f90a92</Anchor>
+                    <Anchor>a1335fbda88ef0c32f4aa1d0ee17d2a56</Anchor>
                    </Node>
                    <Node>
                     <Name>operator++</Name>
                     <Path>d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html</Path>
-                    <Anchor>aa84927312e6123b11e155768ad091d10</Anchor>
+                    <Anchor>ada6bb4dd5a46ce4434f5b990e5391b10</Anchor>
                    </Node>
                    <Node>
                     <Name>operator--</Name>
                     <Path>d8/d52/structlimes_1_1ds_1_1_linked_list_model_1_1_iterator.html</Path>
-                    <Anchor>af2653dbb5b38934f690eb4d8a4bb9dd5</Anchor>
+                    <Anchor>a4244ca8e4e892cdfa92bcf5f490a821d</Anchor>
                    </Node>
                    <Node>
                     <Name>operator==</Name>
@@ -4562,24 +4581,34 @@
                   </Subnodes>
                  </Node>
                  <Node>
-                  <Name>~LinkedListModel</Name>
-                  <Path>d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html</Path>
-                  <Anchor>ac41d283d73a028a63b09288cba697475</Anchor>
-                 </Node>
-                 <Node>
                   <Name>LinkedListModel</Name>
                   <Path>d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html</Path>
                   <Anchor>acc2105bc097ce6f6cceeb53dc9138667</Anchor>
                  </Node>
                  <Node>
+                  <Name>~LinkedListModel</Name>
+                  <Path>d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html</Path>
+                  <Anchor>ac41d283d73a028a63b09288cba697475</Anchor>
+                 </Node>
+                 <Node>
                   <Name>begin</Name>
                   <Path>d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html</Path>
-                  <Anchor>ad90e56378d38d2d91eeca47dd7167a28</Anchor>
+                  <Anchor>a0cd765e8bf510fd75ac6c7a968996347</Anchor>
                  </Node>
                  <Node>
                   <Name>end</Name>
                   <Path>d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html</Path>
-                  <Anchor>a26bb6c227c7234f4c811b4f625ab5ad9</Anchor>
+                  <Anchor>ade0362145f2f17a8e80289fd166d67e9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getAfter</Name>
+                  <Path>d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html</Path>
+                  <Anchor>a9f42e3bb9d9f49419e83c057b158a615</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>getBefore</Name>
+                  <Path>d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html</Path>
+                  <Anchor>a0e0a1780b044a0c076737f9c006ee478</Anchor>
                  </Node>
                  <Node>
                   <Name>getFirstNodeInList</Name>
@@ -4589,12 +4618,12 @@
                  <Node>
                   <Name>getFirstNodeInList</Name>
                   <Path>d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html</Path>
-                  <Anchor>a01c84587b8bd409ff5740a12144d9e02</Anchor>
+                  <Anchor>acfb253b0567411ab65d712d5b32fcdaa</Anchor>
                  </Node>
                  <Node>
                   <Name>getFirstObjectInList</Name>
                   <Path>d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html</Path>
-                  <Anchor>a4c01b854cad41a1b03722dab2f845f24</Anchor>
+                  <Anchor>a693b04ce3ad41a8a770a50bf84c49fa4</Anchor>
                  </Node>
                  <Node>
                   <Name>getLastNodeInList</Name>
@@ -4604,17 +4633,17 @@
                  <Node>
                   <Name>getLastNodeInList</Name>
                   <Path>d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html</Path>
-                  <Anchor>a2fc5b1153b3413244b67191e65a47eba</Anchor>
+                  <Anchor>a1990027c5e05e34bfd0f94340d6c9408</Anchor>
                  </Node>
                  <Node>
                   <Name>getLastObjectInList</Name>
                   <Path>d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html</Path>
-                  <Anchor>a9357e7da8e5f1b39435979196f8bb019</Anchor>
+                  <Anchor>acfdd9b0b30932c472a6ee433538b9e1e</Anchor>
                  </Node>
                  <Node>
                   <Name>getObject</Name>
                   <Path>d3/d2e/structlimes_1_1ds_1_1_linked_list_model.html</Path>
-                  <Anchor>a1aa00787e8ca0aaa722df1e755ed07e7</Anchor>
+                  <Anchor>ad5c056585d22e58bb061a70e8ab792f9</Anchor>
                  </Node>
                  <Node>
                   <Name>hasAfterConnection</Name>
@@ -12257,11 +12286,6 @@
                   <Anchor>abf840f8001ac427b752375b0a36762fb</Anchor>
                  </Node>
                  <Node>
-                  <Name>~Dimensions</Name>
-                  <Path>d4/d42/structlimes_1_1misc_1_1_dimensions.html</Path>
-                  <Anchor>a5a11e0d222aff1bebd6ce02a8ee77a71</Anchor>
-                 </Node>
-                 <Node>
                   <Name>getAspectRatio</Name>
                   <Path>d4/d42/structlimes_1_1misc_1_1_dimensions.html</Path>
                   <Anchor>a92b309d24c7e5e4fdc9cec2454aa5709</Anchor>
@@ -12315,6 +12339,11 @@
                   <Name>setWidth</Name>
                   <Path>d4/d42/structlimes_1_1misc_1_1_dimensions.html</Path>
                   <Anchor>a87ef63feedcd3b6d53b6efb944031ea8</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>toString</Name>
+                  <Path>d4/d42/structlimes_1_1misc_1_1_dimensions.html</Path>
+                  <Anchor>ab59a504e7073478e6bb0f89e18246831</Anchor>
                  </Node>
                 </Subnodes>
                </Node>
@@ -22517,11 +22546,171 @@
            </Node>
            <Node>
             <Name>LinkedList.h</Name>
-            <Path>de/dc6/_linked_list_8h_source.html</Path>
+            <Path>de/dc6/_linked_list_8h.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>LinkedList</Name>
+              <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Node</Name>
+                <Path>d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>Node</Name>
+                  <Path>d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html</Path>
+                  <Anchor>a0cb407229fb84c75d68c640e80bd9d57</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>LIMES_DEFAULT_COPYABLE</Name>
+                  <Path>d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html</Path>
+                  <Anchor>afea23351711288f2ac46b6b3b3e05401</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>LIMES_DEFAULT_MOVABLE</Name>
+                  <Path>d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html</Path>
+                  <Anchor>a3316fd0927f8415a939bbf328f198760</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>listNode</Name>
+                  <Path>d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html</Path>
+                  <Anchor>ab3b8262a7ffee9b333babbe7b2b65688</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>object</Name>
+                  <Path>d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html</Path>
+                  <Anchor>a6275eaf625f4f338db832d1a800ebcfe</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>Iterator</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>adee04832e17e477c55f8a852dc2599c6</Anchor>
+               </Node>
+               <Node>
+                <Name>LinkedList</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>adb8adbdd3c823dde9950116c07dcbf8f</Anchor>
+               </Node>
+               <Node>
+                <Name>addNode</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>a94cbcdb72ade5a7133606083bd5bf152</Anchor>
+               </Node>
+               <Node>
+                <Name>addNodeAfter</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>ae8e58feffa82ad2e1264587a44133fad</Anchor>
+               </Node>
+               <Node>
+                <Name>addNodeBefore</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>a6d41a0f6d3d8f4be053915bd49a92322</Anchor>
+               </Node>
+               <Node>
+                <Name>addNodeToFront</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>abd31eeaa24995cc9b5d9788c3ffe839a</Anchor>
+               </Node>
+               <Node>
+                <Name>begin</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>afc057dcde42ff1a7c940131c379d1d82</Anchor>
+               </Node>
+               <Node>
+                <Name>createAndAddNode</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>af933ca84662c83da182519ec830cbb31</Anchor>
+               </Node>
+               <Node>
+                <Name>createAndAddNodeAfter</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>a2d3bfd0ac165b7df7cd509696ef5519f</Anchor>
+               </Node>
+               <Node>
+                <Name>createAndAddNodeBefore</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>ae611692262cb2e3556155beec3e48d1c</Anchor>
+               </Node>
+               <Node>
+                <Name>createAndAddNodeToFront</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>af46d4c74ab9b8b9b040d0c9bc1f6871e</Anchor>
+               </Node>
+               <Node>
+                <Name>end</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>aab6306c1ab6d402a2b550a123d7e170f</Anchor>
+               </Node>
+               <Node>
+                <Name>getFirstNodeInChain</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>a892f85278f8b51dc56df092c53d6ce26</Anchor>
+               </Node>
+               <Node>
+                <Name>getLastNodeInChain</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>a8265d3eb61d5f26dab0e459e73526fcc</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_COPYABLE</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>a50f84bce917bca86fcf58d0ac2739a68</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_MOVABLE</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>a60457fa907d826d070ed4810433ef728</Anchor>
+               </Node>
+               <Node>
+                <Name>removeNode</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>afd898648eb5f15f91471847da0a1cce5</Anchor>
+               </Node>
+               <Node>
+                <Name>swapNodes</Name>
+                <Path>d2/d14/classlimes_1_1ds_1_1_linked_list.html</Path>
+                <Anchor>ad03f9e3262f117b90bc3e4a38b804468</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>Node</Name>
+              <Path>d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Node</Name>
+                <Path>d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html</Path>
+                <Anchor>a0cb407229fb84c75d68c640e80bd9d57</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_COPYABLE</Name>
+                <Path>d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html</Path>
+                <Anchor>afea23351711288f2ac46b6b3b3e05401</Anchor>
+               </Node>
+               <Node>
+                <Name>LIMES_DEFAULT_MOVABLE</Name>
+                <Path>d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html</Path>
+                <Anchor>a3316fd0927f8415a939bbf328f198760</Anchor>
+               </Node>
+               <Node>
+                <Name>listNode</Name>
+                <Path>d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html</Path>
+                <Anchor>ab3b8262a7ffee9b333babbe7b2b65688</Anchor>
+               </Node>
+               <Node>
+                <Name>object</Name>
+                <Path>d9/d39/structlimes_1_1ds_1_1_linked_list_1_1_node.html</Path>
+                <Anchor>a6275eaf625f4f338db832d1a800ebcfe</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>LinkedList_impl.h</Name>
-            <Path>d5/dea/_linked_list__impl_8h_source.html</Path>
+            <Path>d5/dea/_linked_list__impl_8h.html</Path>
            </Node>
            <Node>
             <Name>LinkedListModel.h</Name>
@@ -22529,7 +22718,7 @@
            </Node>
            <Node>
             <Name>LinkedListModel_impl.h</Name>
-            <Path>d3/da1/_linked_list_model__impl_8h_source.html</Path>
+            <Path>d3/da1/_linked_list_model__impl_8h.html</Path>
            </Node>
            <Node>
             <Name>master.h</Name>
@@ -22543,140 +22732,144 @@
             </Subnodes>
            </Node>
            <Node>
-            <Name>mathHelpers.h</Name>
-            <Path>dd/dfb/math_helpers_8h.html</Path>
+            <Name>mathFunctions.h</Name>
+            <Path>dc/d5c/math_functions_8h.html</Path>
             <Subnodes>
              <Node>
               <Name>abs</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga514ee773c330a0ff7d19286b13f83b53</Anchor>
              </Node>
              <Node>
               <Name>factorial</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga5d2f2720c191268e9a17d15e0b25ff3c</Anchor>
              </Node>
              <Node>
               <Name>freqFromPeriod</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>gaacee5ce0fef613d9f08eb4ec86bfe056</Anchor>
              </Node>
              <Node>
               <Name>freqToMidi</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga79c120b8a72137dd368c391208d82240</Anchor>
              </Node>
              <Node>
               <Name>isDivisibleBy</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga77464df61c396b206d8357c5f9884b5b</Anchor>
              </Node>
              <Node>
               <Name>isPowerOf2</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>gaf28ea8c4fcd46ef3a5423f212b1bcc1e</Anchor>
              </Node>
              <Node>
               <Name>isPrime</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga950e07ddb605b6e7721142a145bec24c</Anchor>
              </Node>
              <Node>
               <Name>limit</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga7fa3c07491e7409e7f695a70960d4579</Anchor>
              </Node>
              <Node>
               <Name>map</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga8e1376561c18c5700f25bf9d16fa5f3a</Anchor>
              </Node>
              <Node>
               <Name>max</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga340ba1fa93e3ff5987d94fd11d07b39a</Anchor>
              </Node>
              <Node>
               <Name>middleOfThree</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga82cc1c47568221dc63727ebe3686d60d</Anchor>
              </Node>
              <Node>
               <Name>midiToFreq</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga958bfa906aac63346cd915d6b5a08698</Anchor>
              </Node>
              <Node>
               <Name>min</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>gada391234ea82372c9e005ed208f2db13</Anchor>
              </Node>
              <Node>
               <Name>msToSamps</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga47e9b2f032b32583e46d7e312a576222</Anchor>
              </Node>
              <Node>
               <Name>negate</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga005b096167e7e48847b69c7f1f350915</Anchor>
              </Node>
              <Node>
               <Name>numberIsEven</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>gaa5495769808eff098130215ee85fcf2d</Anchor>
              </Node>
              <Node>
               <Name>periodInSamples</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>gaad252ebdd65713b59abdbe0f5f2d7bd9</Anchor>
              </Node>
              <Node>
               <Name>power</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga8d26141199f013e584e33b0cf04bd0b8</Anchor>
              </Node>
              <Node>
               <Name>round</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga6cc3bd33ef5ff0347c79ba7cc8adec36</Anchor>
              </Node>
              <Node>
               <Name>sampsToMs</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>gab8a73b8ec5cd084065838b8d2b860874</Anchor>
              </Node>
              <Node>
               <Name>blackman_alpha</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>acd2c4e25f4779b0adbaf2d0bec4c8130</Anchor>
              </Node>
              <Node>
               <Name>half_pi</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>a38913333455736bdae51b03d7e8640bb</Anchor>
              </Node>
              <Node>
               <Name>Integral</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga78b6e7e3ca15b70ce958d0f028d607ed</Anchor>
              </Node>
              <Node>
               <Name>pi</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>a3ddbfac5c33f6dcad2ecb4b9d1ba4969</Anchor>
              </Node>
              <Node>
               <Name>Scalar</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>ga96017616aa33e280ac4559d327e11889</Anchor>
              </Node>
              <Node>
               <Name>two_pi</Name>
-              <Path>dd/dfb/math_helpers_8h.html</Path>
+              <Path>dc/d5c/math_functions_8h.html</Path>
               <Anchor>aea8ef708548f3ac24fccd3d686be83c2</Anchor>
              </Node>
             </Subnodes>
+           </Node>
+           <Node>
+            <Name>mathFunctions_impl.h</Name>
+            <Path>dc/d9b/math_functions__impl_8h.html</Path>
            </Node>
            <Node>
             <Name>matrix.h</Name>
