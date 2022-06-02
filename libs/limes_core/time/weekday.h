@@ -187,4 +187,4 @@ private:
 
 LIMES_END_NAMESPACE
 
-#include "impl/weekday_impl.h"
+#include "impl/weekday_impl.h"	// IWYU pragma: export

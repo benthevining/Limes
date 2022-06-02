@@ -13,7 +13,7 @@
 #pragma once
 
 #include <limes_namespace.h>
-#include "../../math/mathHelpers.h"
+#include "../../math/mathFunctions.h"
 #include "../build_date.h"
 
 /** @file

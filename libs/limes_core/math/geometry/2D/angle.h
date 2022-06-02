@@ -15,7 +15,7 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include <limes_platform.h>
-#include "../../mathHelpers.h"
+#include "../../mathFunctions.h"
 
 /** @file
 	This file defines the Angle class.

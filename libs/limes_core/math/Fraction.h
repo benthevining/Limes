@@ -13,7 +13,7 @@
 #pragma once
 
 #include <limes_namespace.h>
-#include "mathHelpers.h"
+#include "mathFunctions.h"
 #include <limes_export.h>
 #include "../misc/preprocessor.h"
 

@@ -88,9 +88,9 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* con
 }
 
 template <Sample SampleType>
-static void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleVector& monoIn,
-																  SampleVector&		  leftOut,
-																  SampleVector&		  rightOut) noexcept
+void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleVector& monoIn,
+														   SampleVector&	   leftOut,
+														   SampleVector&	   rightOut) noexcept
 {
 	LIMES_ASSERT (leftOut.numObjects() == rightOut.numObjects());
 	LIMES_ASSERT (leftOut.numObjects() == monoIn.numObjects());
@@ -99,10 +99,10 @@ static void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleVe
 }
 
 template <Sample SampleType>
-static void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleType* const monoIn,
-																  SampleType* const		  leftOut,
-																  SampleType* const		  rightOut,
-																  int					  numSamples) noexcept
+void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleType* const monoIn,
+														   SampleType* const	   leftOut,
+														   SampleType* const	   rightOut,
+														   int					   numSamples) noexcept
 {
 	vecops::copy (leftOut, monoIn, numSamples);
 	vecops::copy (rightOut, monoIn, numSamples);

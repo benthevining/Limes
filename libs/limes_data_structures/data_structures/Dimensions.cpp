@@ -14,6 +14,8 @@
 #include "Dimensions.h"
 #include <limes_platform.h>
 #include <limes_namespace.h>
+#include <string>
+#include <sstream>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -67,19 +69,14 @@ bool Dimensions::hasSameAspectRatioAs (const Dimensions& other) const noexcept
 	return getAspectRatio() == other.getAspectRatio();
 }
 
-// String Dimensions::toString() const noexcept
-//{
-//	return String (width.load()) + "x" + String (height.load());
-// }
-//
-// Dimensions Dimensions::fromString (const String& string)
-//{
-//	const auto arr = juce::StringArray::fromTokens (string, "x", "");
-//
-//	jassert (arr.size() == 2);
-//
-//	return Dimensions { arr[0].getIntValue(), arr[1].getIntValue() };
-// }
+std::string Dimensions::toString() const noexcept
+{
+	std::stringstream stream;
+
+	stream << width << 'x' << height;
+
+	return stream.str();
+}
 
 }  // namespace misc
 

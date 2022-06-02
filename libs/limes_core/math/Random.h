@@ -17,7 +17,7 @@
 #include <limits>				   // for numeric_limits
 #include <random>				   // for minstd_rand
 #include "../misc/preprocessor.h"  // for LIMES_DEFAULT_COPYABLE, LIMES_DEFA...
-#include "mathHelpers.h"		   // for map
+#include "mathFunctions.h"		   // for map
 #include <algorithm>			   // for max/min
 
 /** @file

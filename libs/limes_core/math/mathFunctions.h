@@ -13,11 +13,8 @@
 #pragma once
 
 #include <limes_namespace.h>
-#include <cmath>
 #include <type_traits>
 #include <limes_export.h>
-#include <algorithm>
-#include "../system/limes_assert.h"
 #include "../system/compiler_defs.h"
 #include "../misc/preprocessor.h"
 
@@ -63,6 +60,8 @@ concept Scalar = std::is_scalar_v<T>;
  */
 template <typename T>
 concept Integral = std::is_integral_v<T>;
+
+#pragma mark Utility functions
 
 /** A constexpr-enabled max function. */
 template <Scalar T>
@@ -128,6 +127,10 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T factorial (T number) 
 template <Scalar T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T middleOfThree (T a, T b, T c) noexcept;
 
+/*---------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark Audio utility functions
+
 /** Returns the period in samples of a frequency at the specified samplerate.
 	The formula is @f$ T=\frac{samplerate}{freqHz} @f$.
 	@see freqFromPeriod
@@ -172,6 +175,8 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION inline T freqToMidi (T freqHz) no
 
 /*---------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark Constants
+
 /** This namespace contains some mathematical constants.
 	@ingroup core_math
  */
@@ -205,207 +210,10 @@ LIMES_EXPORT static constexpr const T blackman_alpha = T (0.16);
 
 }  // namespace constants
 
-/*---------------------------------------------------------------------------------------------------------------*/
-
-template <Scalar T>
-constexpr T abs (T val) noexcept
-{
-	if constexpr (std::is_unsigned<T>::value)
-		return val;
-	else
-	{
-		if (val < T (0))
-			return -val;
-
-		return val;
-	}
-}
-
-template <Scalar T>
-constexpr T negate (T val) noexcept
-{
-	if constexpr (std::is_unsigned<T>::value)
-		return val;
-	else
-		return -val;
-}
-
-template <Scalar T>
-constexpr int round (T val) noexcept
-{
-	if constexpr (std::is_integral_v<T>)
-		return static_cast<int> (val);
-	else
-	{
-		if (val >= T (0))
-			return static_cast<int> (val + 0.5);
-
-		return static_cast<int> (val - 0.5);
-	}
-}
-
-template <Scalar T>
-constexpr T limit (T input, T min, T max) noexcept
-{
-	LIMES_ASSERT (max > min);
-
-	if (input > max) return max;
-	if (input < min) return min;
-	return input;
-}
-
-template <Integral T>
-constexpr T power (T number, T power_) noexcept
-{
-	if (power_ < T (0))
-		return T (1) / power (number, -power_);
-
-	auto result = T (1);
-
-	do
-	{
-		if (power_ & T (1))
-			result = result * number;
-
-		number *= number;
-		power_ = power_ >> T (1);
-	} while (power_ > T (0));
-
-	return result;
-}
-
-template <Scalar T>
-constexpr T map (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept
-{
-	LIMES_ASSERT (sourceRangeMax != sourceRangeMin);  // mapping from a range of zero will produce NaN!
-	LIMES_ASSERT (targetRangeMax != targetRangeMin);
-
-	return targetRangeMin + ((targetRangeMax - targetRangeMin) * (input - sourceRangeMin)) / (sourceRangeMax - sourceRangeMin);
-}
-
-template <Integral Integer>
-constexpr bool isPowerOf2 (Integer val) noexcept
-{
-	return val > 0 && (val & (val - 1)) == 0;
-}
-
-template <Integral Integer>
-constexpr bool isDivisibleBy (Integer number, Integer divisor) noexcept
-{
-	return number % divisor == 0;
-}
-
-template <Integral Integer>
-constexpr bool numberIsEven (Integer number) noexcept
-{
-	return isDivisibleBy (number, Integer (2));
-}
-
-template <Integral Integer>
-constexpr bool isPrime (Integer number) noexcept
-{
-	if (number <= 1)
-		return false;
-
-	if (number == 2 || number == 3)
-		return true;
-
-	if (isDivisibleBy (number, Integer (2)) || isDivisibleBy (number, Integer (3)))
-		return false;
-
-	for (auto i = Integer (5); (i * i) <= number; i += 6)
-		if (isDivisibleBy (number, i) || isDivisibleBy (number, i + Integer (2)))
-			return false;
-
-	return true;
-}
-
-template <Integral T>
-constexpr T factorial (T number) noexcept
-{
-	LIMES_ASSERT (number >= 0);
-
-	if (number == 0)
-		return 1;
-
-	return number * factorial (number - T (1));
-}
-
-template <Scalar T>
-constexpr T middleOfThree (T a, T b, T c) noexcept
-{
-	return std::max ({ std::min (a, b),
-					   std::min (std::max (a, b)),
-					   c });
-}
-
-template <Scalar FreqType>
-constexpr int periodInSamples (double samplerate, FreqType freqHz) noexcept
-{
-	LIMES_ASSERT (freqHz > FreqType (0.));
-
-	const auto val = samplerate / static_cast<double> (freqHz);
-
-	return round (val);
-}
-
-template <Scalar PeriodType>
-constexpr PeriodType freqFromPeriod (double samplerate, PeriodType period) noexcept
-{
-	LIMES_ASSERT (period > PeriodType (0.));
-
-	const auto val = samplerate / static_cast<double> (period);
-
-	if constexpr (std::is_integral_v<PeriodType>)
-		return static_cast<PeriodType> (round (val));
-	else
-		return static_cast<PeriodType> (val);
-}
-
-template <Integral Integer>
-constexpr double sampsToMs (double samplerate, Integer numSamples) noexcept
-{
-	LIMES_ASSERT (samplerate > 0.);
-
-	const auto val = static_cast<double> (numSamples) / samplerate * 1000.;
-
-	return static_cast<double> (val);
-}
-
-template <Scalar msType>
-constexpr int msToSamps (double samplerate, msType ms) noexcept
-{
-	const auto val = samplerate / 1000. * static_cast<double> (ms);
-
-	return round (val);
-}
-
-template <Scalar T>
-constexpr T midiToFreq (T midiNote) noexcept
-{
-	const auto pow = static_cast<T> (power (2, round ((round (midiNote) - 69) / 12)));
-
-	const auto val = T (440) * pow;
-
-	if constexpr (std::is_integral_v<T>)
-		return static_cast<T> (round (val));
-	else
-		return static_cast<T> (val);
-}
-
-template <Scalar T>
-T freqToMidi (T freqHz) noexcept
-{
-	const auto val = T (69) + T (12) * static_cast<T> (std::log2 (static_cast<double> (freqHz) / 440.));
-
-	if constexpr (std::is_integral_v<T>)
-		return static_cast<T> (round (val));
-	else
-		return static_cast<T> (val);
-}
-
 /** @} */
 
 }  // namespace math
 
 LIMES_END_NAMESPACE
+
+#include "mathFunctions_impl.h"	 // IWYU pragma: export

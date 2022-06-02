@@ -16,20 +16,27 @@
 #include <utility>	// for std::forward
 #include <limes_namespace.h>
 
+/** @file
+	This file contains implementation details for the LinkedList class.
+	@see LinkedList.h
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace ds
 {
 
+/// @cond
+
 template <typename ObjectType>
 template <typename... Args>
-LinkedList<ObjectType>::Node::Node (Args&&... args)
+constexpr LinkedList<ObjectType>::Node::Node (Args&&... args) noexcept (noexcept (ObjectType (std::forward<Args> (args)...)))
 	: object (std::forward<Args> (args)...)
 {
 }
 
 template <typename ObjectType>
-typename LinkedList<ObjectType>::Node* LinkedList<ObjectType>::getFirstNodeInChain() const noexcept
+constexpr typename LinkedList<ObjectType>::Node* LinkedList<ObjectType>::getFirstNodeInChain() const noexcept
 {
 	if (nodes.isEmpty())
 		return nullptr;
@@ -38,7 +45,7 @@ typename LinkedList<ObjectType>::Node* LinkedList<ObjectType>::getFirstNodeInCha
 }
 
 template <typename ObjectType>
-typename LinkedList<ObjectType>::Node* LinkedList<ObjectType>::getLastNodeInChain() const noexcept
+constexpr typename LinkedList<ObjectType>::Node* LinkedList<ObjectType>::getLastNodeInChain() const noexcept
 {
 	if (nodes.isEmpty())
 		return nullptr;
@@ -47,7 +54,7 @@ typename LinkedList<ObjectType>::Node* LinkedList<ObjectType>::getLastNodeInChai
 }
 
 template <typename ObjectType>
-typename LinkedList<ObjectType>::Node& LinkedList<ObjectType>::addNode (Node& newNode)
+constexpr typename LinkedList<ObjectType>::Node& LinkedList<ObjectType>::addNode (Node& newNode)
 {
 	if (auto* last = nodes.getLast())
 		last->listNode.insertAfterConnection (newNode);
@@ -63,7 +70,7 @@ typename LinkedList<ObjectType>::Node& LinkedList<ObjectType>::createAndAddNode 
 }
 
 template <typename ObjectType>
-typename LinkedList<ObjectType>::Node& LinkedList<ObjectType>::addNodeToFront (Node& newNode)
+constexpr typename LinkedList<ObjectType>::Node& LinkedList<ObjectType>::addNodeToFront (Node& newNode)
 {
 	if (auto* first = nodes.getFirst())
 		first->listNode.insertBeforeConnection (newNode);
@@ -79,7 +86,7 @@ typename LinkedList<ObjectType>::Node& LinkedList<ObjectType>::createAndAddNodeT
 }
 
 template <typename ObjectType>
-typename LinkedList<ObjectType>::Node& LinkedList<ObjectType>::addNodeBefore (Node& newNode, Node& nodeToInsertBefore)
+constexpr typename LinkedList<ObjectType>::Node& LinkedList<ObjectType>::addNodeBefore (Node& newNode, Node& nodeToInsertBefore)
 {
 	LIMES_ASSERT (nodes.contains (nodeToInsertBefore));
 	nodeToInsertBefore.insertBeforeConnection (newNode);
@@ -94,7 +101,7 @@ typename LinkedList<ObjectType>::Node& LinkedList<ObjectType>::createAndAddNodeB
 }
 
 template <typename ObjectType>
-typename LinkedList<ObjectType>::Node& LinkedList<ObjectType>::addNodeAfter (Node& newNode, Node& nodeToInsertAfter)
+constexpr typename LinkedList<ObjectType>::Node& LinkedList<ObjectType>::addNodeAfter (Node& newNode, Node& nodeToInsertAfter)
 {
 	LIMES_ASSERT (nodes.contains (nodeToInsertAfter));
 	nodeToInsertAfter.insertAfterConnection (newNode);
@@ -109,7 +116,7 @@ typename LinkedList<ObjectType>::Node& LinkedList<ObjectType>::createAndAddNodeA
 }
 
 template <typename ObjectType>
-void LinkedList<ObjectType>::swapNodes (Node& node1, Node& node2)
+constexpr void LinkedList<ObjectType>::swapNodes (Node& node1, Node& node2)
 {
 	LIMES_ASSERT (nodes.contains (node1));
 	LIMES_ASSERT (nodes.contains (node2));
@@ -118,12 +125,29 @@ void LinkedList<ObjectType>::swapNodes (Node& node1, Node& node2)
 }
 
 template <typename ObjectType>
-void LinkedList<ObjectType>::removeNode (const Node& node)
+constexpr void LinkedList<ObjectType>::removeNode (const Node& node)
 {
 	LIMES_ASSERT (nodes.contains (node));
 
 	nodes.removeObject (&node);
 }
+
+template <typename ObjectType>
+constexpr typename LinkedList<ObjectType>::Iterator LinkedList<ObjectType>::begin() const noexcept
+{
+	if (nodes.isEmpty())
+		return Iterator {};
+
+	return nodes.getFirst()->listNode.begin();
+}
+
+template <typename ObjectType>
+constexpr typename LinkedList<ObjectType>::Iterator LinkedList<ObjectType>::end() const noexcept
+{
+	return Iterator {};
+}
+
+/// @endcond
 
 }  // namespace ds
 

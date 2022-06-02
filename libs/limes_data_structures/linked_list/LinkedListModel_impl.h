@@ -15,10 +15,17 @@
 #include <limes_vecops.h>
 #include <limes_namespace.h>
 
+/** @file
+	This file contains implementation details for the LinkedListModel class.
+	@see LinkedListModel.h
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace ds
 {
+
+/// @cond
 
 template <typename ObjectType>
 LinkedListModel<ObjectType>::~LinkedListModel()
@@ -126,19 +133,15 @@ constexpr void LinkedListModel<ObjectType>::replaceAfterConnection (LinkedListMo
 template <typename ObjectType>
 constexpr void LinkedListModel<ObjectType>::insertBeforeConnection (LinkedListModel& newNodeBeforeThisOne) noexcept
 {
-	if (before != nullptr)
-		newNodeBeforeThisOne.before = before;
-
-	newNodeBeforeThisOne.after = this;
-	before					   = &newNodeBeforeThisOne;
+	newNodeBeforeThisOne.before = before;
+	newNodeBeforeThisOne.after	= this;
+	before						= &newNodeBeforeThisOne;
 }
 
 template <typename ObjectType>
 constexpr void LinkedListModel<ObjectType>::insertAfterConnection (LinkedListModel& newNodeAfterThisOne) noexcept
 {
-	if (after != nullptr)
-		newNodeAfterThisOne.after = after;
-
+	newNodeAfterThisOne.after  = after;
 	newNodeAfterThisOne.before = this;
 	after					   = &newNodeAfterThisOne;
 }
@@ -160,6 +163,18 @@ template <typename ObjectType>
 constexpr void LinkedListModel<ObjectType>::replaceConnections (LinkedListModel& beforeThisNode, LinkedListModel& afterThisNode) noexcept
 {
 	replaceConnections (&beforeThisNode, &afterThisNode);
+}
+
+template <typename ObjectType>
+constexpr LinkedListModel<ObjectType>* LinkedListModel<ObjectType>::getBefore() const noexcept
+{
+	return before;
+}
+
+template <typename ObjectType>
+constexpr LinkedListModel<ObjectType>* LinkedListModel<ObjectType>::getAfter() const noexcept
+{
+	return after;
 }
 
 template <typename ObjectType>
@@ -298,6 +313,8 @@ constexpr typename LinkedListModel<ObjectType>::Iterator::reference LinkedListMo
 	LIMES_ASSERT (currentNode != nullptr);
 	return currentNode->getObject();
 }
+
+/// @endcond
 
 }  // namespace ds
 

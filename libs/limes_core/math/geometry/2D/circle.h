@@ -17,7 +17,7 @@
 #include <limes_platform.h>
 #include "2Dshape.h"
 #include "../../../misc/preprocessor.h"
-#include "../../mathHelpers.h"
+#include "../../mathFunctions.h"
 
 /** @file
 	This file defines the Circle class.

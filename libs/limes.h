@@ -24,6 +24,9 @@
 /** @file
 	The main header for the entire Limes library.
 	This file includes the headers for all Limes libraries.
+
+	This file is only included by the interface \c Limes::Limes target, not any of the individual library targets.
+
 	@ingroup limes
  */
 

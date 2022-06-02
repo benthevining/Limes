@@ -94,7 +94,7 @@
 #include "text/StringUtils.h"
 #include "text/TextTable.h"
 
-#include "math/mathHelpers.h"
+#include "math/mathFunctions.h"
 #include "math/Fraction.h"
 #include "math/Random.h"
 #include "math/matrix.h"

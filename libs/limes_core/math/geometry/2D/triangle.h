@@ -18,7 +18,7 @@
 #include "2Dshape.h"
 #include "../../../misc/preprocessor.h"
 #include "angle.h"
-#include "../../mathHelpers.h"
+#include "../../mathFunctions.h"
 #include <cmath>
 
 /** @file

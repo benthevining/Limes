@@ -16,16 +16,20 @@
 #include <limes_export.h>  // for LIMES_EXPORT
 #include <limes_namespace.h>
 #include <limes_core.h>
+#include <string>
 
 LIMES_BEGIN_NAMESPACE
 
 namespace misc
 {
 
-/** @ingroup lemons_core
-	A simple struct that represents the dimensions of a GUI. */
+/** A simple struct that represents the dimensions of something.
+	This class is typically used for working with GUIs.
+ */
 struct LIMES_EXPORT Dimensions final
 {
+	/** @name Constructors */
+	///@{
 	/** Creates an invalid Dimensions object. */
 	constexpr explicit Dimensions() = default;
 
@@ -34,6 +38,7 @@ struct LIMES_EXPORT Dimensions final
 		: width (widthToUse), height (heightToUse)
 	{
 	}
+	///@}
 
 	LIMES_DEFAULT_MOVABLE (Dimensions);
 	LIMES_DEFAULT_COPYABLE (Dimensions);
@@ -41,8 +46,6 @@ struct LIMES_EXPORT Dimensions final
 	Dimensions& setWidth (int newWidth);
 
 	Dimensions& setHeight (int newHeight);
-
-	~Dimensions() = default;
 
 	/** Returns true if the passed Dimensions object is equal to this one. */
 	[[nodiscard]] bool operator== (const Dimensions& other) const noexcept;
@@ -65,10 +68,7 @@ struct LIMES_EXPORT Dimensions final
 	[[nodiscard]] bool hasSameAspectRatioAs (const Dimensions& other) const noexcept;
 
 	/** Returns a string representation of these dimensions, eg '400x600'. */
-	//	[[nodiscard]] String toString() const noexcept;
-	//
-	//	/** Returns a Dimensions object from a string representation. The string should be formatted like '400x600'. */
-	//	[[nodiscard]] static Dimensions fromString (const String& string);
+	[[nodiscard]] std::string toString() const noexcept;
 
 	/** Returns a Dimensions object representing the size 1060 x 640. */
 	[[nodiscard]] static constexpr Dimensions getDefault() { return Dimensions { 1060, 640 }; }	 // NOLINT

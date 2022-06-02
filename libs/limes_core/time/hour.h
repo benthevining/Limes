@@ -129,4 +129,4 @@ private:
 
 LIMES_END_NAMESPACE
 
-#include "impl/hour_impl.h"
+#include "impl/hour_impl.h"	 // IWYU pragma: export

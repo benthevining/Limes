@@ -76,7 +76,7 @@ const ds::scalar_vector<int>& PeakFinder<SampleType>::findPeaks (const SampleTyp
 	LIMES_ASSERT (numSamples >= grainSize);
 
 	// marks the center of the analysis windows, which are 1 period long
-	auto analysisIndex = [lastPeak, peakBeforeLast, intPeriod, halfPeriod]
+	auto analysisIndex = [this, intPeriod, halfPeriod]
 	{
 		if (peakBeforeLast < 0)
 			return peakBeforeLast + (2 * intPeriod);

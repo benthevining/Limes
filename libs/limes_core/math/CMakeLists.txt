@@ -22,7 +22,8 @@ oranges_add_source_files (
 		  Fraction_impl.h
 		  fraction_staticAsserts.cpp
 		  math_staticAsserts.cpp
-		  mathHelpers.h
+		  mathFunctions.h
+		  mathFunctions_impl.h
 		  Random.cpp
 		  Random.h
 		  matrix.h)

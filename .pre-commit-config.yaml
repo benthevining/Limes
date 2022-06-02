@@ -64,8 +64,6 @@ repos:
           - id: check-yaml
           - id: pretty-format-json
             args: [--autofix]
-
-      # general
           - id: check-case-conflict
           - id: check-merge-conflict
           - id: end-of-file-fixer
@@ -197,7 +195,7 @@ repos:
             exclude_types: [python]
 
 ci:
-    skip: [cppcheck, check-jsonschema]
+    skip: [cppcheck, check-jsonschema, hadolint]
     autofix_commit_msg: 'style: pre-commit autofixes [skip ci]'
     autoupdate_commit_msg: 'chore: pre-commit autoupdate [skip ci]'
 

@@ -137,4 +137,4 @@ private:
 
 LIMES_END_NAMESPACE
 
-#include "impl/year_impl.h"
+#include "impl/year_impl.h"	 // IWYU pragma: export

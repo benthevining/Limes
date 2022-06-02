@@ -16,7 +16,7 @@
 #include <limes_export.h>
 #include <limes_platform.h>
 #include "../../../misc/preprocessor.h"
-#include "../../mathHelpers.h"
+#include "../../mathFunctions.h"
 #include "3Dshape.h"
 #include "../2D/circle.h"
 

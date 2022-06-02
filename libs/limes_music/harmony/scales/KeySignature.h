@@ -222,4 +222,4 @@ private:
 
 LIMES_END_NAMESPACE
 
-#include "KeySignature_impl.h"
+#include "KeySignature_impl.h"	// IWYU pragma: export

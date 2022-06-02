@@ -14,7 +14,7 @@
 
 #include <limes_namespace.h>
 #include <limes_platform.h>
-#include "../../math/mathHelpers.h"
+#include "../../math/mathFunctions.h"
 #include "../build_date.h"
 
 /** @file

@@ -24,7 +24,7 @@
 #include <cstdint>
 
 #if LIMES_VECOPS_USE_POMMIER
-#	include "pommier/pommier_wrapper.h"
+#	include "pommier/pommier_wrapper.h"  // IWYU pragma: export
 #endif
 
 /** @file
