@@ -18,18 +18,27 @@ endif ()
 
 project (
 	LimesDocs
-	VERSION "${Limes_VERSION}"
+	VERSION 4.8.1
 	LANGUAGES NONE
 	DESCRIPTION "Limes documentation"
 	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}")
+
+if (PROJECT_IS_TOP_LEVEL)
+	find_package (Oranges 2.24.0 REQUIRED)
+
+	# need to enable at least one language for GNUInstallDirs
+	enable_language (CXX)
+
+	set (Limes_SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/..")
+endif ()
 
 option (LIMES_INTERNAL_DOCS
 		"Display documentation meant for internal usage in development of Limes" OFF)
 
 include (OrangesGraphviz)
 
-oranges_add_graphviz_target (TARGET LimesDependencyGraph SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/.."
-							 COPY_GRAPH_TO "${CMAKE_CURRENT_LIST_DIR}/../util/deps_graph.png")
+oranges_add_graphviz_target (TARGET LimesDependencyGraph SOURCE_DIR "${Limes_SOURCE_DIR}"
+							 COPY_GRAPH_TO "${Limes_SOURCE_DIR}/util/deps_graph.png")
 
 #
 
@@ -45,7 +54,7 @@ endif ()
 include (CPackComponent)
 include (GNUInstallDirs)
 
-set (docs_output "${CMAKE_CURRENT_LIST_DIR}/../doc")
+set (docs_output "${Limes_SOURCE_DIR}/doc")
 
 set_property (DIRECTORY "${CMAKE_CURRENT_LIST_DIR}" APPEND PROPERTY ADDITIONAL_CLEAN_FILES
 																	"${docs_output}")
@@ -79,7 +88,6 @@ add_custom_target (
 	COMMAND "${CMAKE_COMMAND}" -E rm -f "${LIMES_LOG_FILE}"
 	COMMAND "${CMAKE_COMMAND}" -E make_directory "${docs_output}"
 	COMMAND Doxygen::doxygen "${configured_doxyfile}"
-	WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 	VERBATIM USES_TERMINAL
 	BYPRODUCTS "${docs_output}"
 	COMMENT "Building Limes Doxygen documentation..."
