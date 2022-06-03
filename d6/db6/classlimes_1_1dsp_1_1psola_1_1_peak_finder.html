@@ -173,8 +173,7 @@ Peak candidate evaluation</h2>
 \[ \delta_c=\lvert c-pidx_t\rvert+\lvert c-pidx\prime_t\rvert \]
 </p>
 <p> where \( c \) is the sample index of the peak candidate being tested.</p>
-<p>From the initial set of peak candidates, a "final handful" of 5 is chosen. The 5 candidates with the lowest \( \delta_c \) values are chosen.</p>
-<p>The final peak is chosen from this "final handful" by again comparing weighted sample values, this time with the samples weighted by the candidates' \( \delta_c \) values. The weighted sample value for peak candidate \( c \) is defined by: </p><p class="formulaDsp">
+<p>The final peak is chosen from the candidates by again comparing weighted sample values, this time with the samples weighted by the candidates' \( \delta_c \) values. The weighted sample value for peak candidate \( c \) is defined by: </p><p class="formulaDsp">
 \[ w(c)=\lvert x_c\rvert(1-\frac{\delta_c}{\delta_R}) \]
 </p>
 <p> where:</p><ul>
@@ -184,7 +183,7 @@ Peak candidate evaluation</h2>
 <p>The peak candidate with the highest resulting \( w(c) \) value is chosen as the peak for this analysis window.</p>
 <dl class="section see"><dt>See also</dt><dd>Analyzer </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../dc/dad/_peak_finder_8h_source.html#l00123">123</a> of file <a class="el" href="../../dc/dad/_peak_finder_8h_source.html">PeakFinder.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dc/dad/_peak_finder_8h_source.html#l00121">121</a> of file <a class="el" href="../../dc/dad/_peak_finder_8h_source.html">PeakFinder.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8f25caf391d138794c0849b40d8dd9ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8f25caf391d138794c0849b40d8dd9ba">&#9670;&nbsp;</a></span>PeakFinder()</h2>
@@ -339,7 +338,7 @@ template&lt;Sample SampleType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d00/namespacelimes_1_1dsp.html">dsp</a></li><li class="navelem"><a class="el" href="../../d6/d4e/namespacelimes_1_1dsp_1_1psola.html">psola</a></li><li class="navelem"><a class="el" href="../../d6/db6/classlimes_1_1dsp_1_1psola_1_1_peak_finder.html">PeakFinder</a></li>
-    <li class="footer">Generated on Thu Jun 2 2022 22:13:40 for Limes by
+    <li class="footer">Generated on Fri Jun 3 2022 01:10:12 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

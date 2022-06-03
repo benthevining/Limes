@@ -133,12 +133,12 @@ $(document).ready(function(){initNavTree('dc/ddf/_pitch_detector_8h_source.html'
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga5bf553d96012e220f7715df0a90066da">LIMES_DEFAULT_COPYABLE</a> (<a class="code" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a>);</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    [[nodiscard]] <span class="keywordtype">float</span> detectPitch (<span class="keyword">const</span> SampleType* <span class="keyword">const</span> inputAudio, <span class="keywordtype">int</span> numSamples) noexcept;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    [[nodiscard]] <span class="keywordtype">float</span> detectPitch (<span class="keyword">const</span> <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp; inputAudio) noexcept;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    [[nodiscard]] SampleType detectPitch (<span class="keyword">const</span> SampleType* <span class="keyword">const</span> inputAudio, <span class="keywordtype">int</span> numSamples) noexcept;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    [[nodiscard]] SampleType detectPitch (<span class="keyword">const</span> <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp; inputAudio) noexcept;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    [[nodiscard]] <span class="keywordtype">float</span> detectPeriod (<span class="keyword">const</span> SampleType* <span class="keyword">const</span> inputAudio, <span class="keywordtype">int</span> numSamples) noexcept;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    [[nodiscard]] <span class="keywordtype">float</span> detectPeriod (<span class="keyword">const</span> <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp; inputAudio) noexcept;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    [[nodiscard]] SampleType detectPeriod (<span class="keyword">const</span> SampleType* <span class="keyword">const</span> inputAudio, <span class="keywordtype">int</span> numSamples) noexcept;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    [[nodiscard]] SampleType detectPeriod (<span class="keyword">const</span> <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp; inputAudio) noexcept;</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> getLatencySamples() const noexcept;</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
@@ -162,7 +162,7 @@ $(document).ready(function(){initNavTree('dc/ddf/_pitch_detector_8h_source.html'
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    [[nodiscard]] inline <span class="keywordtype">int</span> absoluteThreshold() const noexcept;</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    [[nodiscard]] inline <span class="keywordtype">float</span> parabolicInterpolation (<span class="keywordtype">int</span> periodEstimate) const noexcept;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    [[nodiscard]] inline SampleType parabolicInterpolation (<span class="keywordtype">int</span> periodEstimate) const noexcept;</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordtype">bool</span> operator== (const <a class="code" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a>&amp; other) const = delete;</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordtype">bool</span> operator!= (const <a class="code" href="../../d5/d03/classlimes_1_1dsp_1_1psola_1_1_pitch_detector.html">PitchDetector</a>&amp; other) const = delete;</div>
@@ -171,7 +171,7 @@ $(document).ready(function(){initNavTree('dc/ddf/_pitch_detector_8h_source.html'
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordtype">int</span> minPeriod { 0 }, maxPeriod { 0 };</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordtype">float</span> periodLastFrame { 0.f };</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    SampleType periodLastFrame { 0 };</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordtype">double</span> samplerate { 0.0 };</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
@@ -199,7 +199,7 @@ $(document).ready(function(){initNavTree('dc/ddf/_pitch_detector_8h_source.html'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_a9e7e74a9fa95c9d0d5d9012ba9e5673.html">limes_audio</a></li><li class="navelem"><a class="el" href="../../dir_5f2619b35e3d8a42e6fd60afb4e1326b.html">psola</a></li><li class="navelem"><a class="el" href="../../dc/ddf/_pitch_detector_8h.html">PitchDetector.h</a></li>
-    <li class="footer">Generated on Thu Jun 2 2022 22:13:40 for Limes by
+    <li class="footer">Generated on Fri Jun 3 2022 01:10:11 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>
