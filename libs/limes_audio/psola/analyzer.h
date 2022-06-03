@@ -189,7 +189,7 @@ private:
 
 	/*-----------------------------------------------------------------------------------*/
 
-	float currentPeriod { 0.f };
+	SampleType currentPeriod { 0.f };
 
 	PitchDetector<SampleType> pitchDetector;
 	PeakFinder<SampleType>	  peakFinder;

@@ -82,7 +82,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* const inputAudio, int
 		incompleteGrainsFromLastFrame.clear();
 	}
 
-	currentPeriod = [this, inputAudio, numSamples]
+	currentPeriod = [this, inputAudio, numSamples]() -> SampleType
 	{
 		const auto detectedPeriod = pitchDetector.detectPeriod (inputAudio, numSamples);
 
@@ -92,7 +92,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* const inputAudio, int
 		int min, max;
 		pitchDetector.getCurrentLegalPeriodRange (min, max);
 
-		return static_cast<float> (random.next (min, max));
+		return static_cast<SampleType> (random.next (min, max));
 	}();
 
 	LIMES_ASSERT (currentPeriod > 0.f && currentPeriod <= numSamples / 2);

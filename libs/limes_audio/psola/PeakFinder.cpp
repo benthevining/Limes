@@ -26,17 +26,16 @@ LIMES_BEGIN_NAMESPACE
 namespace dsp::psola
 {
 
+static constinit const auto numPeaksToTest = 15;
+
 template <Sample SampleType>
 void PeakFinder<SampleType>::prepare (int maxBlocksize)
 {
 	LIMES_ASSERT (maxBlocksize > 0);
 
 	peakIndices.reserveAndZero (maxBlocksize);
-	peakSearchingOrder.reserveAndZero (maxBlocksize);
 	peakCandidates.reserveAndZero (numPeaksToTest);
 	candidateDeltas.reserveAndZero (numPeaksToTest);
-	finalHandful.reserveAndZero (defaultFinalHandfulSize);
-	finalHandfulDeltas.reserveAndZero (defaultFinalHandfulSize);
 
 	for (auto* array : arrays)
 		array->zero();
@@ -146,8 +145,6 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 {
 	LIMES_ASSERT (predictedPeak >= frameStart && predictedPeak <= frameEnd);
 
-	sortSampleIndicesForPeakSearching (frameStart, frameEnd, predictedPeak);
-
 	peakCandidates.clear();
 
 	for (auto i = 0; i < numPeaksToTest; ++i)
@@ -196,13 +193,11 @@ template <Sample SampleType>
 int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* const inputSamples,
 													 int startSample, int endSample, int predictedPeak) const noexcept
 {
-	LIMES_ASSERT (peakSearchingOrder.isNotEmpty());
-
-	const auto starting = [this]
+	const auto starting = [startSample, endSample, this]
 	{
-		for (const auto p : peakSearchingOrder)
-			if (! peakCandidates.contains (p))
-				return p;
+		for (auto i = startSample; i < endSample; ++i)
+			if (! peakCandidates.contains (i))
+				return i;
 
 		return -1;
 	}();
@@ -224,18 +219,16 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* const inp
 	auto strongest	  = get_weighted_sample (starting);
 	auto strongestIdx = starting;
 
-	for (const auto sampleNum : peakSearchingOrder)
+	for (auto i = starting + 1; i < endSample; ++i)
 	{
-		LIMES_ASSERT (sampleNum >= startSample && sampleNum <= endSample);
+		LIMES_ASSERT (! peakCandidates.contains (i));
 
-		if (sampleNum == starting || peakCandidates.contains (sampleNum)) continue;
-
-		const auto currentSample = get_weighted_sample (sampleNum);
+		const auto currentSample = get_weighted_sample (i);
 
 		if (currentSample > strongest)
 		{
 			strongest	 = currentSample;
-			strongestIdx = sampleNum;
+			strongestIdx = i;
 		}
 	}
 
@@ -269,63 +262,41 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const in
 	LIMES_ASSERT (deltaTarget1 >= 0);
 	LIMES_ASSERT (deltaTarget2 >= 0);
 
-	finalHandful.clear();
-	finalHandfulDeltas.clear();
+	const auto numCandidates = peakCandidates.numObjects();
 
-	// 1. calculate delta values for each peak candidate
+	// calculate delta values for each peak candidate
 	// delta represents how far off this peak candidate is from the expected peak location
 	// in a way it's a measure of the jitter that picking a peak candidate as this frame's peak would introduce to the overall alignment of the stream of grains based on the previous grains
 
-	candidateDeltas.clearAndZero (peakCandidates.numObjects());
+	candidateDeltas.clearAndZero (numCandidates);
 
 	candidateDeltas.transform (peakCandidates, [deltaTarget1, deltaTarget2] (const auto candidate)
 							   { return (std::abs (candidate - deltaTarget1) + std::abs (candidate - deltaTarget2)); });
 
-	// 2. whittle our remaining candidates down to the final candidates with the minimum delta values
+	LIMES_ASSERT (candidateDeltas.numObjects() == numCandidates);
 
-	const auto finalHandfulSize = std::min (defaultFinalHandfulSize, candidateDeltas.numObjects());
-
-	for (auto i = 0; i < finalHandfulSize; ++i)
-	{
-		int index, deltaValue;	// NOLINT
-
-		vecops::min (candidateDeltas.data(), candidateDeltas.numObjects(), deltaValue, index);
-
-		finalHandfulDeltas.push_back (deltaValue);
-		finalHandful.push_back (peakCandidates[index]);
-
-		// make sure this value won't be chosen again, w/o deleting it from the candidateDeltas array
-		candidateDeltas[index] = std::numeric_limits<int>::max();
-	}
-
-	LIMES_ASSERT (finalHandful.numObjects() == finalHandfulSize && finalHandfulDeltas.numObjects() == finalHandfulSize);
-
-	// 3. choose the strongest overall peak from these final candidates, with peaks weighted by their delta values
-
-	const auto deltaRange = vecops::range (finalHandfulDeltas.data(), finalHandfulDeltas.numObjects());
+	const auto deltaRange = vecops::range (candidateDeltas.data(), candidateDeltas.numObjects());
 
 	if (deltaRange == 0)  // prevent dividing by 0 in the next step...
-		return finalHandful[0];
+		return peakCandidates[0];
 
 	LIMES_ASSERT (deltaRange > 0);
 
-	auto get_weighted_sample = [this, deltaRange, inputSamples] (int sampleIndex, int finalHandfulIdx) -> SampleType
+	auto get_weighted_sample = [this, deltaRange, inputSamples] (int sampleIndex, int candidateIdx) -> SampleType
 	{
-		const auto delta = static_cast<SampleType> (finalHandfulDeltas[finalHandfulIdx]);
+		const auto delta = static_cast<SampleType> (candidateDeltas[candidateIdx]);
 
 		const auto deltaWeight = SampleType (1) - (delta / static_cast<SampleType> (deltaRange));
 
 		return std::abs (inputSamples[sampleIndex]) * deltaWeight;	// NOLINT
 	};
 
-	auto chosenPeak	   = finalHandful[0];
+	auto chosenPeak	   = peakCandidates[0];
 	auto strongestPeak = get_weighted_sample (chosenPeak, 0);
 
-	for (auto i = 1; i < finalHandfulSize; ++i)
+	for (auto i = 1; i < numCandidates; ++i)
 	{
-		const auto candidate = finalHandful[i];
-
-		if (candidate == chosenPeak) continue;
+		const auto candidate = peakCandidates[i];
 
 		const auto testingPeak = get_weighted_sample (candidate, i);
 
@@ -337,58 +308,6 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const in
 	}
 
 	return chosenPeak;
-}
-
-template <Sample SampleType>
-void PeakFinder<SampleType>::sortSampleIndicesForPeakSearching (int startSample, int endSample, int predictedPeak) noexcept
-{
-	LIMES_ASSERT (predictedPeak >= startSample && predictedPeak <= endSample);
-	LIMES_ASSERT (endSample > startSample);
-
-	const auto searchingSize = endSample - startSample;
-
-	LIMES_ASSERT (peakSearchingOrder.capacity() >= searchingSize);
-
-	peakSearchingOrder.clearAndZero (searchingSize);
-
-	peakSearchingOrder[0] = predictedPeak;
-
-	for (auto p = 1, m = -1, n = 1; n < searchingSize; ++n)
-	{
-		const auto pos = predictedPeak + p;
-		const auto neg = predictedPeak + m;
-
-		if (math::numberIsEven (n))
-		{
-			if (neg >= startSample)
-			{
-				peakSearchingOrder[n] = neg;
-				--m;
-			}
-			else
-			{
-				LIMES_ASSERT (pos <= endSample);
-				peakSearchingOrder[n] = pos;
-				++p;
-			}
-		}
-		else
-		{
-			if (pos <= endSample)
-			{
-				peakSearchingOrder[n] = pos;
-				++p;
-			}
-			else
-			{
-				LIMES_ASSERT (neg >= startSample);
-				peakSearchingOrder[n] = neg;
-				--m;
-			}
-		}
-	}
-
-	LIMES_ASSERT (peakSearchingOrder.numObjects() == searchingSize);
 }
 
 template class PeakFinder<float>;

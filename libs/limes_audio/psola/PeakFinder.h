@@ -103,9 +103,7 @@ namespace dsp::psola
 	@f]
 	where @f$ c @f$ is the sample index of the peak candidate being tested.
 
-	From the initial set of peak candidates, a "final handful" of 5 is chosen. The 5 candidates with the lowest @f$ \delta_c @f$ values are chosen.
-
-	The final peak is chosen from this "final handful" by again comparing weighted sample values, this time with the samples weighted by the candidates' @f$ \delta_c @f$ values.
+	The final peak is chosen from the candidates by again comparing weighted sample values, this time with the samples weighted by the candidates' @f$ \delta_c @f$ values.
 	The weighted sample value for peak candidate @f$ c @f$ is defined by:
 	@f[
 		w(c)=\lvert x_c\rvert(1-\frac{\delta_c}{\delta_R})
@@ -167,14 +165,11 @@ private:
 
 	[[nodiscard]] int chooseIdealPeakCandidate (const SampleType* const inputSamples, int deltaTarget1, int deltaTarget2) noexcept;
 
-	ds::scalar_vector<int> peakIndices, peakSearchingOrder, peakCandidates, finalHandful, candidateDeltas, finalHandfulDeltas;
+	ds::scalar_vector<int> peakIndices, peakCandidates, candidateDeltas;
 
-	const std::array<ds::scalar_vector<int>*, 6> arrays { &peakIndices,
-														  &peakSearchingOrder,
+	const std::array<ds::scalar_vector<int>*, 3> arrays { &peakIndices,
 														  &peakCandidates,
-														  &finalHandful,
-														  &candidateDeltas,
-														  &finalHandfulDeltas };
+														  &candidateDeltas };
 
 	int analysisFrameStart { 0 };
 
@@ -182,8 +177,6 @@ private:
 	// the number of samples from that peak to the end of the frame
 	// this is used to space out the first peak in the current frame appropriately
 	int lastPeak { 0 }, peakBeforeLast { 0 };
-
-	static constexpr auto numPeaksToTest = 15, defaultFinalHandfulSize = 5;
 };
 
 }  // namespace dsp::psola
