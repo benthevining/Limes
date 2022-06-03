@@ -172,14 +172,21 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 
 		default :
 		{
-			// TO DO
-			// save the last frame's last peak
-			if (peakIndices.numObjects() <= 1)
-				return choosePeakWithGreatestPower (inputSamples);
+			if (peakIndices.numObjects() >= 2)
+				return chooseIdealPeakCandidate (inputSamples,
+												 peakIndices.last() + period,
+												 peakIndices[peakIndices.numObjects() - 2] + grainSize);
 
-			return chooseIdealPeakCandidate (inputSamples,
-											 peakIndices.last() + period,
-											 peakIndices[peakIndices.numObjects() - 2] + grainSize);
+			if (peakBeforeLast < 0 && lastPeak < 0)
+			{
+				const auto deltaTarget1 = period + lastPeak;
+				const auto deltaTarget2 = grainSize + peakBeforeLast;
+
+				if (deltaTarget1 > 0 && deltaTarget2 > 0)
+					return chooseIdealPeakCandidate (inputSamples, deltaTarget1, deltaTarget2);
+			}
+
+			return choosePeakWithGreatestPower (inputSamples);
 		}
 	}
 }
@@ -259,6 +266,9 @@ int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* const
 template <Sample SampleType>
 int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const inputSamples, int deltaTarget1, int deltaTarget2) noexcept
 {
+	LIMES_ASSERT (deltaTarget1 >= 0);
+	LIMES_ASSERT (deltaTarget2 >= 0);
+
 	finalHandful.clear();
 	finalHandfulDeltas.clear();
 

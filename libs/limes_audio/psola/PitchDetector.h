@@ -197,8 +197,8 @@ public:
 		@warning The caller must ensure that the buffer sent to this function contains at least \c getLatencySamples() samples.
 		@return The pitch in Hz for this frame of audio, or 0 if the frame is unpitched.
 	*/
-	[[nodiscard]] float detectPitch (const SampleType* const inputAudio, int numSamples) noexcept;
-	[[nodiscard]] float detectPitch (const SampleVector& inputAudio) noexcept;
+	[[nodiscard]] SampleType detectPitch (const SampleType* const inputAudio, int numSamples) noexcept;
+	[[nodiscard]] SampleType detectPitch (const SampleVector& inputAudio) noexcept;
 	///@}
 
 	/** @name Period detection
@@ -212,8 +212,8 @@ public:
 		@warning The caller must ensure that the buffer sent to this function contains at least \c getLatencySamples() samples.
 		@return The period, in samples, of the fundamental frequency for this frame of audio, or 0 if the frame is unpitched.
 	*/
-	[[nodiscard]] float detectPeriod (const SampleType* const inputAudio, int numSamples) noexcept;
-	[[nodiscard]] float detectPeriod (const SampleVector& inputAudio) noexcept;
+	[[nodiscard]] SampleType detectPeriod (const SampleType* const inputAudio, int numSamples) noexcept;
+	[[nodiscard]] SampleType detectPeriod (const SampleVector& inputAudio) noexcept;
 	///@}
 
 	/** Returns the latency in samples of the detection algorithm.
@@ -276,7 +276,7 @@ private:
 
 	[[nodiscard]] inline int absoluteThreshold() const noexcept;
 
-	[[nodiscard]] inline float parabolicInterpolation (int periodEstimate) const noexcept;
+	[[nodiscard]] inline SampleType parabolicInterpolation (int periodEstimate) const noexcept;
 
 	bool operator== (const PitchDetector& other) const = delete;
 	bool operator!= (const PitchDetector& other) const = delete;
@@ -285,7 +285,7 @@ private:
 
 	int minPeriod { 0 }, maxPeriod { 0 };
 
-	float periodLastFrame { 0.f };
+	SampleType periodLastFrame { 0 };
 
 	double samplerate { 0.0 };
 

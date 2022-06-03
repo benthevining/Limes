@@ -178,6 +178,9 @@ private:
 
 	int analysisFrameStart { 0 };
 
+	// these are NEGATIVE numbers storing for each of the last 2 peaks from the previous frame
+	// the number of samples from that peak to the end of the frame
+	// this is used to space out the first peak in the current frame appropriately
 	int lastPeak { 0 }, peakBeforeLast { 0 };
 
 	static constexpr auto numPeaksToTest = 15, defaultFinalHandfulSize = 5;

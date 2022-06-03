@@ -31,30 +31,30 @@ PitchDetector<SampleType>::PitchDetector (int minFreqHz, float confidenceThresho
 }
 
 template <Sample SampleType>
-float PitchDetector<SampleType>::detectPitch (const SampleVector& inputAudio) noexcept
+SampleType PitchDetector<SampleType>::detectPitch (const SampleVector& inputAudio) noexcept
 {
 	return detectPitch (inputAudio.data(), inputAudio.numObjects());
 }
 
 template <Sample SampleType>
-float PitchDetector<SampleType>::detectPitch (const SampleType* const inputAudio, int numSamples) noexcept
+SampleType PitchDetector<SampleType>::detectPitch (const SampleType* const inputAudio, int numSamples) noexcept
 {
 	const auto period = detectPeriod (inputAudio, numSamples);
 
-	if (period > 0.f)
+	if (period > SampleType (0))
 		return math::freqFromPeriod (samplerate, period);
 
-	return 0.f;
+	return SampleType (0);
 }
 
 template <Sample SampleType>
-float PitchDetector<SampleType>::detectPeriod (const SampleVector& inputAudio) noexcept
+SampleType PitchDetector<SampleType>::detectPeriod (const SampleVector& inputAudio) noexcept
 {
 	return detectPeriod (inputAudio.data(), inputAudio.numObjects());
 }
 
 template <Sample SampleType>
-float PitchDetector<SampleType>::detectPeriod (const SampleType* const inputAudio, int numSamples) noexcept
+SampleType PitchDetector<SampleType>::detectPeriod (const SampleType* const inputAudio, int numSamples) noexcept
 {
 	LIMES_ASSERT (samplerate > 0.);					   // pitch detector hasn't been prepared before calling this function!
 	LIMES_ASSERT (numSamples >= getLatencySamples());  // not enough samples in this frame to do analysis
@@ -99,14 +99,11 @@ float PitchDetector<SampleType>::detectPeriod (const SampleType* const inputAudi
 	LIMES_ASSERT (periodEstimate >= 0 && periodEstimate <= (maxPeriod - minPeriod));
 
 	if (periodEstimate > 0)
-	{
-		periodLastFrame = parabolicInterpolation (periodEstimate) + static_cast<float> (minPeriod);
+		periodLastFrame = parabolicInterpolation (periodEstimate) + static_cast<SampleType> (minPeriod);  // add minPeriod bc of the initial offset
+	else
+		periodLastFrame = SampleType (0);
 
-		return periodLastFrame;
-	}
-
-	periodLastFrame = 0.f;
-	return 0.f;
+	return periodLastFrame;
 }
 
 template <Sample SampleType>
@@ -121,8 +118,8 @@ void PitchDetector<SampleType>::updatePeriodBounds() noexcept
 	{
 		const auto freqLastFrame = math::freqFromPeriod (samplerate, periodLastFrame);
 
-		maxPeriod = math::min (periodUpperBound, math::periodInSamples (samplerate, freqLastFrame * 0.5f));
-		minPeriod = math::max (periodLowerBound, math::periodInSamples (samplerate, freqLastFrame * 2.f));
+		maxPeriod = math::min (periodUpperBound, math::periodInSamples (samplerate, freqLastFrame * SampleType (0.5)));
+		minPeriod = math::max (periodLowerBound, math::periodInSamples (samplerate, freqLastFrame * SampleType (2)));
 	}
 	else
 	{
@@ -164,7 +161,7 @@ int PitchDetector<SampleType>::absoluteThreshold() const noexcept
 }
 
 template <Sample SampleType>
-float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) const noexcept
+SampleType PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) const noexcept
 {
 	LIMES_ASSERT (periodEstimate > 0);
 
@@ -188,17 +185,17 @@ float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) con
 	if (x0 == periodEstimate)
 	{
 		if (yinDataStorage[periodEstimate] > yinDataStorage[x2])
-			return static_cast<float> (x2);
+			return static_cast<SampleType> (x2);
 
-		return static_cast<float> (periodEstimate);
+		return static_cast<SampleType> (periodEstimate);
 	}
 
 	if (x2 == periodEstimate)
 	{
 		if (yinDataStorage[periodEstimate] > yinDataStorage[x0])
-			return static_cast<float> (x0);
+			return static_cast<SampleType> (x0);
 
-		return static_cast<float> (periodEstimate);
+		return static_cast<SampleType> (periodEstimate);
 	}
 
 	const auto s0 = yinDataStorage[x0];
@@ -206,7 +203,7 @@ float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate) con
 
 	const auto period = static_cast<SampleType> (periodEstimate) + (s2 - s0) / (SampleType (2) * (SampleType (2) * yinDataStorage[periodEstimate] - s2 - s0));
 
-	return static_cast<float> (period);
+	return static_cast<SampleType> (period);
 }
 
 template <Sample SampleType>
