@@ -81,7 +81,7 @@ repos:
 
   # license header
     - repo: https://github.com/Lucas-C/pre-commit-hooks
-      rev: v1.1.13 # last known stable version is v1.1.13
+      rev: v1.2.0 # last known stable version is v1.1.13
       hooks:
           - id: insert-license
             name: Insert license header in C++ source files
@@ -101,7 +101,7 @@ repos:
           - id: fix-smartquotes
           - id: forbid-bidi-controls
     - repo: https://github.com/crate-ci/typos
-      rev: typos-dict-v0.8.2 # last known stable version is typos-dict-v0.8.2
+      rev: v1.8.1 # last known stable version is typos-dict-v0.8.2
       hooks:
           - id: typos
             args: [--write-changes]
@@ -126,7 +126,7 @@ repos:
       hooks:
           - id: yamllint
     - repo: https://github.com/sirosen/check-jsonschema
-      rev: 0.14.3 # last known stable version is 0.14.3
+      rev: 0.16.0 # last known stable version is 0.14.3
       hooks:
           - id: check-github-workflows
           - id: check-jsonschema
@@ -175,7 +175,7 @@ repos:
           - id: yapf
             args: [-i]
     - repo: https://github.com/PyCQA/pylint
-      rev: v2.13.8 # last known stable version is v2.13.8
+      rev: v2.14.0 # last known stable version is v2.13.8
       hooks:
           - id: pylint
             args: [--disable=bad-indentation, --disable=line-too-long, --disable=duplicate-code, --check-quote-consistency=yes, --max-args=5, --max-branches=15, --max-statements=55, --good-names=f]
