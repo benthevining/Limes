@@ -161,7 +161,7 @@ $(document).ready(function(){initNavTree('dd/d35/_f_i_f_o_8h_source.html','../..
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        storage.reserve (newCapacity);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> push (ObjectType&amp;&amp; <span class="keywordtype">object</span>)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> push (<a class="code" href="../../d4/db5/group__serializing.html#ga41a0b7fba3df9ac9ce7b38c91d8f765f">ObjectType</a>&amp;&amp; <span class="keywordtype">object</span>)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> scopedWrite = model.write (1);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
@@ -170,7 +170,7 @@ $(document).ready(function(){initNavTree('dd/d35/_f_i_f_o_8h_source.html','../..
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        storage[scopedWrite.startIndex1] = object;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> push (<span class="keyword">const</span> ObjectType* <span class="keyword">const</span> data, <span class="keywordtype">int</span> numObjects)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> push (<span class="keyword">const</span> <a class="code" href="../../d4/db5/group__serializing.html#ga41a0b7fba3df9ac9ce7b38c91d8f765f">ObjectType</a>* <span class="keyword">const</span> data, <span class="keywordtype">int</span> numObjects)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (storage.capacity() == model.getCapacity());</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
@@ -193,7 +193,7 @@ $(document).ready(function(){initNavTree('dd/d35/_f_i_f_o_8h_source.html','../..
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        push (data.data(), data.numObjects());</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    [[nodiscard]] ObjectType pop()</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    [[nodiscard]] <a class="code" href="../../d4/db5/group__serializing.html#ga41a0b7fba3df9ac9ce7b38c91d8f765f">ObjectType</a> pop()</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> scopedRead = model.read (1);</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
@@ -202,7 +202,7 @@ $(document).ready(function(){initNavTree('dd/d35/_f_i_f_o_8h_source.html','../..
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span> storage[scopedRead.startIndex1];</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">void</span> pop (ObjectType* <span class="keyword">const</span> data, <span class="keywordtype">int</span> numObjects)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">void</span> pop (<a class="code" href="../../d4/db5/group__serializing.html#ga41a0b7fba3df9ac9ce7b38c91d8f765f">ObjectType</a>* <span class="keyword">const</span> data, <span class="keywordtype">int</span> numObjects)</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    {</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (storage.capacity() == model.getCapacity());</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
@@ -241,6 +241,7 @@ $(document).ready(function(){initNavTree('dd/d35/_f_i_f_o_8h_source.html','../..
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="agroup__serializing_html_ga41a0b7fba3df9ac9ce7b38c91d8f765f"><div class="ttname"><a href="../../d4/db5/group__serializing.html#ga41a0b7fba3df9ac9ce7b38c91d8f765f">limes::serializing::ObjectType</a></div><div class="ttdeci">ObjectType</div><div class="ttdoc">Represents the type of a serialization node.</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d17/serializing_8h_source.html#l00051">serializing.h:51</a></div></div>
 <div class="ttc" id="agroup__system_html_gaa19294b73467ee63a3601fe2ff636b8c"><div class="ttname"><a href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a></div><div class="ttdeci">#define LIMES_NON_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00122">preprocessor.h:122</a></div></div>
 <div class="ttc" id="agroup__system_html_ga3c9f53b7d1a99a02600fdbe81a772f82"><div class="ttname"><a href="../../d4/d37/group__system.html#ga3c9f53b7d1a99a02600fdbe81a772f82">LIMES_NON_MOVABLE</a></div><div class="ttdeci">#define LIMES_NON_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00139">preprocessor.h:139</a></div></div>
 <div class="ttc" id="agroup__system_html_ga06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbb/limes__assert_8h_source.html#l00105">limes_assert.h:105</a></div></div>
@@ -255,7 +256,7 @@ $(document).ready(function(){initNavTree('dd/d35/_f_i_f_o_8h_source.html','../..
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_0e0c5ea0f8eb3c0f9e9d1c7f184a59c4.html">limes_data_structures</a></li><li class="navelem"><a class="el" href="../../dir_d04bf64b38a838d6a5b55d789e3a55a7.html">fifo</a></li><li class="navelem"><b>FIFO.h</b></li>
-    <li class="footer">Generated on Mon Jun 6 2022 00:53:26 for Limes by
+    <li class="footer">Generated on Tue Jun 7 2022 03:32:47 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

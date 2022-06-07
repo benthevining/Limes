@@ -111,7 +111,6 @@ var files_dup =
     [ "Interval_impl.h", "d6/dfa/_interval__impl_8h.html", null ],
     [ "ipp.h", "d3/d88/ipp_8h.html", null ],
     [ "ipp_fft.h", "d3/d33/ipp__fft_8h.html", null ],
-    [ "json.h", "d4/d05/json_8h_source.html", null ],
     [ "KeySignature.h", "dd/d47/_key_signature_8h.html", [
       [ "KeySignature", "d5/d0e/classlimes_1_1music_1_1scales_1_1_key_signature.html", "d5/d0e/classlimes_1_1music_1_1scales_1_1_key_signature" ]
     ] ],
@@ -229,6 +228,7 @@ var files_dup =
     ] ],
     [ "scalar_vector.h", "d2/d8d/scalar__vector_8h_source.html", null ],
     [ "Scale.h", "d4/d81/_scale_8h.html", null ],
+    [ "serializing.h", "da/d17/serializing_8h.html", "da/d17/serializing_8h" ],
     [ "sha1.h", "db/db5/sha1_8h.html", "db/db5/sha1_8h" ],
     [ "sha224.h", "d3/d51/sha224_8h.html", "d3/d51/sha224_8h" ],
     [ "sha256.h", "d5/de3/sha256_8h.html", "d5/de3/sha256_8h" ],

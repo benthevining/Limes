@@ -54,19 +54,19 @@ var NAVTREEINDEX =
 [
 ".html",
 "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a7146794c0c6219a799bb7efc761a2afa",
-"d3/d0b/structlimes_1_1threads_1_1is__realtime__move__constructable.html",
-"d4/d52/structlimes_1_1threads_1_1is__realtime__move__assignable.html",
-"d5/d0e/classlimes_1_1music_1_1scales_1_1_key_signature.html#a2b8f24f3548f43b44ea1850adb897993",
-"d5/dde/classlimes_1_1memory_1_1aligned__pointer.html",
-"d7/d5a/structlimes_1_1dsp_1_1osc_1_1_sine.html#a6f037c48e547c0d708e75444a223c641",
-"d8/daa/_mode_8h_source.html",
-"d9/da1/classlimes_1_1ds_1_1_f_i_f_o.html#a0e68ccde7404f628e593e5ebcafafb44",
-"db/d1b/group__vec__subtraction.html#ga67048e7003180b0fe875f378b2522303",
-"dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html#ac3b7f7e709c0bc3dac71404dde7e004a",
-"dd/d30/classlimes_1_1files_1_1_c_file.html#a429bc6ba979cfcc94566ea8d4c2bc0e7",
-"de/d1f/limes__vecops_8h.html#ga40b6ac3b989d84ec70ec711fa449878d",
-"df/d0d/classlimes_1_1ds_1_1scalar__vector.html#a7542d7002f2c553688b2802b6f6ee49a",
-"df/dc4/triangular__prism_8h_source.html"
+"d3/d33/ipp__fft_8h_source.html",
+"d4/d90/classlimes_1_1time_1_1_weekday.html#a0a21a9d8cf06fe57a4645774a30ed442a8b7051187b9191cdcdae6ed5a10e5adc",
+"d5/d0e/classlimes_1_1music_1_1scales_1_1_key_signature.html#aeebe711e818be3ef3869a46554dfd25f",
+"d6/d13/structstd_1_1hash_3_01limes_1_1misc_1_1_version_01_4.html#ad5691c58ec524bea0a460e9d615e8a41",
+"d7/d95/classlimes_1_1dsp_1_1_circular_buffer.html#a905b29909703ae61e724435d416e79fc",
+"d8/db4/classlimes_1_1files_1_1_sym_link.html#a6f9c1e65e4055a037588c41bbf51905e",
+"d9/dda/group__files.html#gabc304be514f1c64345214c2c50be5201",
+"db/d97/group__hashes.html#ga4bc79e7feba628b1ef01bb1c064a9e36",
+"dc/d24/fftw__fft_8h_source.html",
+"dd/d0b/classlimes_1_1math_1_1geometry_1_1_octagon.html#a7bdde921c21c8030ae5e32c3360a1111",
+"de/d1f/limes__vecops_8h.html#ga17d1aec7a6eab65eb33270a90035d9ac",
+"df/d0d/classlimes_1_1ds_1_1scalar__vector.html#a303dbf843bdc8dc25eb37392897e3c70",
+"df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a2811ba1407655a88a176538ed892123d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
