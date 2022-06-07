@@ -16,6 +16,6 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  serializing.h serializing.cpp parser.cpp encoding.cpp)
+		  serializing.h serializing.cpp json_parser.cpp encoding.cpp xml_parser.cpp)
 
 set (serializing_files ${serializing_files} PARENT_SCOPE)

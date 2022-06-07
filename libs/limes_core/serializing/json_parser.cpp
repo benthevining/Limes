@@ -16,6 +16,7 @@
 #include <string_view>
 #include <vector>
 #include <utility>
+#include <stdexcept>
 #include "../text/StringUtils.h"
 #include "../system/limes_assert.h"
 
@@ -27,15 +28,51 @@ namespace serializing
 namespace json
 {
 
-[[nodiscard]] inline std::string findMatchingDelimiters (const std::string& text, char beginDelim, char endDelim)
+[[nodiscard]] inline std::string_view findMatchingDelimiters (const std::string_view& text, char beginDelim, char endDelim)
 {
 	const auto beginIdx = text.find (beginDelim);
 
-	// find the first occurrence of endDelim
-	// BUT there may be nested sets of {} or []
+	bool inObject = false, inArray = false;
+
+	for (auto i = beginIdx + 1; i < text.length(); ++i)
+	{
+		const auto currentChar = text[i];
+
+		if (currentChar == '{')
+		{
+			inObject = true;
+			continue;
+		}
+
+		if (currentChar == '[')
+		{
+			inArray = true;
+			continue;
+		}
+
+		if (inObject && currentChar == '}')
+		{
+			inObject = false;
+			continue;
+		}
+
+		if (inArray && currentChar == ']')
+		{
+			inArray = false;
+			continue;
+		}
+
+		if (! (inObject || inArray))
+			if (currentChar == endDelim)
+				return text.substr (beginIdx, i);
+	}
+
+	LIMES_ASSERT_FALSE;
+
+	throw std::runtime_error { "JSON parsing error!" };
 }
 
-[[nodiscard]] inline std::vector<std::pair<std::string, std::string>> parseObjectIntoStrings (const std::string& text)
+[[nodiscard]] inline std::vector<std::pair<std::string, std::string>> parseObjectIntoStrings (const std::string_view& text)
 {
 	std::vector<std::pair<std::string, std::string>> strings;
 
@@ -49,7 +86,7 @@ namespace json
 	return strings;
 }
 
-[[nodiscard]] inline std::vector<std::string> parseArrayIntoStrings (const std::string& text)
+[[nodiscard]] inline std::vector<std::string> parseArrayIntoStrings (const std::string_view& text)
 {
 	return strings::split (findMatchingDelimiters (text, '[', ']'),
 						   ",",
@@ -137,12 +174,6 @@ Node parseJSON (const std::string_view& jsonText)
 
 		default : LIMES_UNREACHABLE;
 	}
-}
-
-/*------------------------------------------------------------------------------------------------------------------*/
-
-Node parseXML (const std::string_view& jsonText)
-{
 }
 
 }  // namespace serializing

@@ -17,7 +17,7 @@
 #include <cmath>
 #include <sstream>
 #include "../system/limes_assert.h"
-// std::runtime_error
+#include <stdexcept>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -64,9 +64,32 @@ Node& Node::operator[] (std::size_t idx)
 	LIMES_ASSERT (isArray());
 
 	if (idx >= static_cast<std::size_t> (array.size()))
-		throw std::runtime_error { "Array index out of range!" };
+		throw std::out_of_range { "Array index out of range!" };
 
 	return array[static_cast<Array::size_type> (idx)];
+}
+
+int Node::getNumChildren() const noexcept
+{
+	if (isArray())
+		return static_cast<int> (array.size());
+
+	if (isObject())
+		return static_cast<int> (object.size());
+
+	return 0;
+}
+
+bool Node::hasChildWithName (const std::string_view& childName)
+{
+	if (! isObject())
+		return false;
+
+	for (auto& pair : object)
+		if (pair.first == childName)  // cppcheck-suppress useStlAlgorithm
+			return true;
+
+	return false;
 }
 
 Node& Node::addChild (ObjectType childType, const std::string_view& childName)
@@ -263,7 +286,7 @@ bool Node::isObject() const noexcept
 	return type == ObjectType::Object;
 }
 
-Node::Object& Node::getObject() noexcept
+Object& Node::getObject() noexcept
 {
 	LIMES_ASSERT (isObject());
 	return object;
@@ -325,6 +348,33 @@ Node& Node::addChildNull (const std::string_view& childName)
 	LIMES_ASSERT_FALSE;
 	return *this;
 }
+
+/*--------------------------------------------------------------------------------------------------------*/
+
+Node parse (const std::string_view& string, StringType type)
+{
+	switch (type)
+	{
+		case (StringType::JSON) : return parseJSON (string);
+		case (StringType::XML) : return parseXML (string);
+		default : LIMES_UNREACHABLE;
+	}
+}
+
+namespace conversion
+{
+
+std::string toJSON (const std::string_view& xmlText)
+{
+	return parseXML (xmlText).getJsonString();
+}
+
+std::string toXML (const std::string_view& jsonText)
+{
+	return parseJSON (jsonText).getXMLString();
+}
+
+}  // namespace conversion
 
 }  // namespace serializing
 

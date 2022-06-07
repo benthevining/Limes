@@ -18,7 +18,9 @@
 #include <string>
 #include <vector>
 #include <utility>
+#include <type_traits>
 #include "../misc/preprocessor.h"
+#include "../meta/TypeList.h"
 
 /** @defgroup serializing Serializing
 	Utilities for data serialization.
@@ -49,13 +51,64 @@ namespace serializing
 	@ingroup serializing
  */
 LIMES_EXPORT enum class ObjectType : int {
-	Number,
-	String,
-	Boolean,
-	Array,
-	Object,
-	Null
+	Number,	 /**< A number. Numbers are always represented using doubles. */
+	String,	 /**< A string. */
+	Boolean, /**< A boolean. */
+	Array,	 /**< An array of other objects. Arrays can contain any kind of child ObjectTypes. */
+	Object,	 /**< An Object is a collection of key/value pairs, where the keys are string identifiers and the values are any ObjectType. */
+	Null	 /**< Represents null. */
 };
+
+/** Represents the format of data serialized as a string.
+	@ingroup serializing
+ */
+LIMES_EXPORT enum class StringType : int {
+	JSON, /**< Represents a JSON string. */
+	XML	  /**< Represents an XML string. */
+};
+
+class Node;
+
+/** The representation of Array types.
+	@ingroup serializing
+ */
+LIMES_EXPORT using Array = std::vector<Node>;
+
+/** Represents a single key-value pair field of an Object type.
+	@see Object
+	@ingroup serializing
+ */
+LIMES_EXPORT using ObjectField = std::pair<std::string, Node>;
+
+/** The representation of Object types.
+	@see ObjectField
+	@ingroup serializing
+ */
+LIMES_EXPORT using Object = std::vector<ObjectField>;
+
+/** This typedef evaluates to the appropriate C++ object type for the given ObjectType.
+
+	The types evaluate as follows:
+
+	ObjectType | C++ type
+	---------- | -----------------------------------------------------
+	Number     | double
+	String     | std::string
+	Boolean    | bool
+	Array      | Array (std::vector<Node>)
+	Object     | Object (std::vector<std::pair<std::string, Node>>)
+	Null       | typelist::NullType
+
+	@ingroup serializing
+	@see ObjectType
+ */
+template <ObjectType Type>
+LIMES_EXPORT using DataType = std::conditional_t<Type == ObjectType::Number, double,
+												 std::conditional_t<Type == ObjectType::String, std::string,
+																	std::conditional_t<Type == ObjectType::Boolean, bool,
+																					   std::conditional_t<Type == ObjectType::Array, Array,
+																										  std::conditional_t<Type == ObjectType::Object, Object, typelist::NullType>>>>>;
+
 
 /** Represents any kind of serializable object.
 	This class is designed around the JSON specification, but can also be parsed from or serialized to other formats, like XML.
@@ -67,19 +120,6 @@ LIMES_EXPORT enum class ObjectType : int {
 class LIMES_EXPORT Node final
 {
 public:
-
-	/** The representation of Array types. */
-	using Array = std::vector<Node>;
-
-	/** Represents a single key-value pair field of an Object type.
-		@see Object
-	 */
-	using ObjectField = std::pair<std::string, Node>;
-
-	/** The representation of Object types.
-		@see ObjectField
-	 */
-	using Object = std::vector<ObjectField>;
 
 	/** Creates a Node with a specified type. */
 	explicit Node (ObjectType typeToUse) noexcept;
@@ -95,9 +135,19 @@ public:
 
 	/** For Array nodes, returns the child %node at the given index in the array.
 		An assertion will be thrown if this %node is not an Array.
-		@throws std::runtime_error An exception is thrown if the requested index is out of range of the array.
+		@throws std::out_of_range An exception is thrown if the requested index is out of range of the array.
 	 */
 	Node& operator[] (std::size_t idx);
+
+	/** For arrays or objects, returns the number of child nodes this %node contains.
+		If this %node is not an array or object, returns 0.
+	 */
+	int getNumChildren() const noexcept;
+
+	/** For Object nodes, returns true if this %node has a child with the specified name.
+		If this %node is not an object, this always returns false.
+	 */
+	bool hasChildWithName (const std::string_view& childName);
 
 	/** @name Encoding */
 	///@{
@@ -106,6 +156,9 @@ public:
 
 	/** Returns this %node (and any child nodes) encoded as XML. */
 	[[nodiscard]] std::string getXMLString() const;
+
+	/** Returns this %node (and any child nodes) encoded in the desired format. */
+	[[nodiscard]] std::string getString (StringType type) const;
 	///@}
 
 	/** @name Type queries */
@@ -277,6 +330,7 @@ private:
 };
 
 /** Parses a JSON string and returns the root Node of the resulting data structure.
+	@throws std::runtime_error Throws an exception if there is a JSON parsing error.
 	@see parseXML
 	@ingroup serializing
  */
@@ -286,7 +340,47 @@ LIMES_EXPORT [[nodiscard]] Node parseJSON (const std::string_view& jsonText);
 	@see parseJSON
 	@ingroup serializing
  */
-LIMES_EXPORT [[nodiscard]] Node parseXML (const std::string_view& jsonText);
+LIMES_EXPORT [[nodiscard]] Node parseXML (const std::string_view& xmlText);
+
+/** Parses a string of serialized data, treating it as the specified type.
+	@ingroup serializing
+ */
+LIMES_EXPORT [[nodiscard]] Node parse (const std::string_view& string, StringType type);
+
+/** This class provides an interface for any C++ object that can be serialized to and from a Node.
+	@ingroup serializing
+ */
+class LIMES_EXPORT SerializableData
+{
+public:
+
+	/** Destructor. */
+	virtual ~SerializableData() = default;
+
+	/** This function must reproducibly save the state of this object. */
+	virtual Node serialize() = 0;
+
+	/** This function must restore a previous state saved by \c serialize() . */
+	virtual void deserialize (const Node&) = 0;
+};
+
+/** This namespace contains utilities for converting between various formats of serialized data.
+	@ingroup serializing
+ */
+namespace conversion
+{
+
+/** Converts an XML string to JSON.
+	@ingroup serializing
+ */
+LIMES_EXPORT [[nodiscard]] std::string toJSON (const std::string_view& xmlText);
+
+/** Converts a JSON string to XML.
+	@ingroup serializing
+ */
+LIMES_EXPORT [[nodiscard]] std::string toXML (const std::string_view& jsonText);
+
+}  // namespace conversion
 
 }  // namespace serializing
 

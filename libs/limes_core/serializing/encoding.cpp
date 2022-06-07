@@ -73,6 +73,16 @@ std::string Node::getXMLString() const
 {
 }
 
+std::string Node::getString (StringType type) const
+{
+	switch (type)
+	{
+		case (StringType::JSON) : return getJsonString();
+		case (StringType::XML) : return getXMLString();
+		default : LIMES_UNREACHABLE;
+	}
+}
+
 }  // namespace serializing
 
 LIMES_END_NAMESPACE

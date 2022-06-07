@@ -10,12 +10,6 @@
  * ======================================================================================
  */
 
-/*
-- run command in new working dir
-- get permissions
-- set permissions
-*/
-
 #include <iostream>
 #include <exception>
 #include <cstdlib>
@@ -25,16 +19,17 @@
 
 int main (int argc, char** argv)
 {
-	// limes::files::File jsonFile { "/Users/benvining/Documents/MyRepos/Citrus/Limes/CMakePresets.json" };
-
-	// const auto json = limes::json::Node { jsonFile.loadAsString() };
-
-	// std::cout << json.getJsonText();
-
-	// return;
-
 	try
 	{
+		limes::files::File jsonFile { "/Users/benvining/Documents/MyRepos/Citrus/Limes/CMakePresets.json" };
+
+		const auto json = limes::serializing::parseJSON (jsonFile.loadAsString());
+
+		std::cout << json.getJsonString();
+
+		return;
+
+
 		fileutil::parseAndExecute (argc, argv);
 	}
 	catch (const std::exception& e)
