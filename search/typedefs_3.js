@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['element_2469',['Element',['../d6/d5d/classlimes_1_1math_1_1_matrix.html#a3964149d343657eab3a389fc554b28e1',1,'limes::math::Matrix']]],
-  ['elementtype_2470',['ElementType',['../dc/dcc/namespacelimes_1_1alg.html#a668ddba847794e76c1c23adf6e5151e0',1,'limes::alg']]],
-  ['empty_2471',['Empty',['../d6/db2/group__meta.html#ga94038764f8ce07e7edd3b2a1168f18e0',1,'limes::meta']]],
-  ['enginetype_2472',['EngineType',['../dd/d7f/classlimes_1_1math_1_1_random.html#aa5ff312694cf91b409fecd25a952330f',1,'limes::math::Random']]]
+  ['datatype_2496',['DataType',['../d4/db5/group__serializing.html#ga0dda006986140fd743506c361279cbf4',1,'limes::serializing']]]
 ];

@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('d4/db5/group__serializing.html','../..
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -107,32 +108,165 @@ Files</h2></td></tr>
 <tr class="memitem:da/d17/serializing_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d17/serializing_8h.html">serializing.h</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:gab45a9e05c757d8ff85ffa97d87382069"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db5/group__serializing.html#gab45a9e05c757d8ff85ffa97d87382069">limes::serializing::Array</a> = std::vector&lt; <a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html">Node</a> &gt;</td></tr>
+<tr class="memdesc:gab45a9e05c757d8ff85ffa97d87382069"><td class="mdescLeft">&#160;</td><td class="mdescRight">The representation of Array types.  <a href="../../d4/db5/group__serializing.html#gab45a9e05c757d8ff85ffa97d87382069">More...</a><br /></td></tr>
+<tr class="separator:gab45a9e05c757d8ff85ffa97d87382069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0dda006986140fd743506c361279cbf4"><td class="memTemplParams" colspan="2">template&lt;ObjectType Type&gt; </td></tr>
+<tr class="memitem:ga0dda006986140fd743506c361279cbf4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/db5/group__serializing.html#ga0dda006986140fd743506c361279cbf4">limes::serializing::DataType</a> = std::conditional_t&lt; Type==<a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fab2ee912b91d69b435159c7c3f6df7f5f">ObjectType::Number</a>, double, std::conditional_t&lt; Type==<a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa27118326006d3829667a400ad23d5d98">ObjectType::String</a>, std::string, std::conditional_t&lt; Type==<a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa27226c864bac7454a8504f8edb15d95b">ObjectType::Boolean</a>, bool, std::conditional_t&lt; Type==<a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa4410ec34d9e6c1a68100ca0ce033fb17">ObjectType::Array</a>, <a class="el" href="../../d4/db5/group__serializing.html#gab45a9e05c757d8ff85ffa97d87382069">Array</a>, std::conditional_t&lt; Type==<a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa497031794414a552435f90151ac3b54b">ObjectType::Object</a>, <a class="el" href="../../d4/db5/group__serializing.html#gabb05e41e8a3ad3f33ab63c5f0c019397">Object</a>, <a class="el" href="../../df/d66/namespacelimes_1_1typelist.html#da/d42/structlimes_1_1typelist_1_1_null_type">typelist::NullType</a> &gt; &gt;&gt; &gt;&gt;</td></tr>
+<tr class="memdesc:ga0dda006986140fd743506c361279cbf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This typedef evaluates to the appropriate C++ object type for the given ObjectType.  <a href="../../d4/db5/group__serializing.html#ga0dda006986140fd743506c361279cbf4">More...</a><br /></td></tr>
+<tr class="separator:ga0dda006986140fd743506c361279cbf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabb05e41e8a3ad3f33ab63c5f0c019397"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db5/group__serializing.html#gabb05e41e8a3ad3f33ab63c5f0c019397">limes::serializing::Object</a> = std::vector&lt; <a class="el" href="../../d4/db5/group__serializing.html#ga632ddf1f3463e33e2097d15ab51f4196">ObjectField</a> &gt;</td></tr>
+<tr class="memdesc:gabb05e41e8a3ad3f33ab63c5f0c019397"><td class="mdescLeft">&#160;</td><td class="mdescRight">The representation of Object types.  <a href="../../d4/db5/group__serializing.html#gabb05e41e8a3ad3f33ab63c5f0c019397">More...</a><br /></td></tr>
+<tr class="separator:gabb05e41e8a3ad3f33ab63c5f0c019397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga632ddf1f3463e33e2097d15ab51f4196"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db5/group__serializing.html#ga632ddf1f3463e33e2097d15ab51f4196">limes::serializing::ObjectField</a> = std::pair&lt; std::string, <a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html">Node</a> &gt;</td></tr>
+<tr class="memdesc:ga632ddf1f3463e33e2097d15ab51f4196"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a single key-value pair field of an Object type.  <a href="../../d4/db5/group__serializing.html#ga632ddf1f3463e33e2097d15ab51f4196">More...</a><br /></td></tr>
+<tr class="separator:ga632ddf1f3463e33e2097d15ab51f4196"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:ga41a0b7fba3df9ac9ce7b38c91d8f765f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db5/group__serializing.html#ga41a0b7fba3df9ac9ce7b38c91d8f765f">limes::serializing::ObjectType</a> : int { <br />
-&#160;&#160;<b>Number</b>, 
-<b>String</b>, 
-<b>Boolean</b>, 
-<b>Array</b>, 
+&#160;&#160;<a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fab2ee912b91d69b435159c7c3f6df7f5f">limes::serializing::ObjectType::Number</a>, 
+<a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa27118326006d3829667a400ad23d5d98">limes::serializing::ObjectType::String</a>, 
+<a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa27226c864bac7454a8504f8edb15d95b">limes::serializing::ObjectType::Boolean</a>, 
+<a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa4410ec34d9e6c1a68100ca0ce033fb17">limes::serializing::ObjectType::Array</a>, 
 <br />
-&#160;&#160;<b>Object</b>, 
-<b>Null</b>
+&#160;&#160;<a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa497031794414a552435f90151ac3b54b">limes::serializing::ObjectType::Object</a>, 
+<a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fabbb93ef26e3c101ff11cdd21cab08a94">limes::serializing::ObjectType::Null</a>
 <br />
  }</td></tr>
 <tr class="memdesc:ga41a0b7fba3df9ac9ce7b38c91d8f765f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the type of a serialization node.  <a href="../../d4/db5/group__serializing.html#ga41a0b7fba3df9ac9ce7b38c91d8f765f">More...</a><br /></td></tr>
 <tr class="separator:ga41a0b7fba3df9ac9ce7b38c91d8f765f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba8b2bf99aa7ccda78d14abca8114778"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db5/group__serializing.html#gaba8b2bf99aa7ccda78d14abca8114778">limes::serializing::StringType</a> : int { <a class="el" href="../../d4/db5/group__serializing.html#ggaba8b2bf99aa7ccda78d14abca8114778a0ecd11c1d7a287401d148a23bbd7a2f8">limes::serializing::StringType::JSON</a>, 
+<a class="el" href="../../d4/db5/group__serializing.html#ggaba8b2bf99aa7ccda78d14abca8114778a3501bb093d363810b671059b9cfed3f8">limes::serializing::StringType::XML</a>
+ }</td></tr>
+<tr class="memdesc:gaba8b2bf99aa7ccda78d14abca8114778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the format of data serialized as a string.  <a href="../../d4/db5/group__serializing.html#gaba8b2bf99aa7ccda78d14abca8114778">More...</a><br /></td></tr>
+<tr class="separator:gaba8b2bf99aa7ccda78d14abca8114778"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:gab41d9a5e487e5181dab8be8cf2068757"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db5/group__serializing.html#gab41d9a5e487e5181dab8be8cf2068757">limes::serializing::parse</a> (const std::string_view &amp;string, <a class="el" href="../../d4/db5/group__serializing.html#gaba8b2bf99aa7ccda78d14abca8114778">StringType</a> type)</td></tr>
+<tr class="memdesc:gab41d9a5e487e5181dab8be8cf2068757"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a string of serialized data, treating it as the specified type.  <a href="../../d4/db5/group__serializing.html#gab41d9a5e487e5181dab8be8cf2068757">More...</a><br /></td></tr>
+<tr class="separator:gab41d9a5e487e5181dab8be8cf2068757"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga74bed0048d9d526b65c9467f7a83d3aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db5/group__serializing.html#ga74bed0048d9d526b65c9467f7a83d3aa">limes::serializing::parseJSON</a> (const std::string_view &amp;jsonText)</td></tr>
 <tr class="memdesc:ga74bed0048d9d526b65c9467f7a83d3aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a JSON string and returns the root <a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html" title="Represents any kind of serializable object.">Node</a> of the resulting data structure.  <a href="../../d4/db5/group__serializing.html#ga74bed0048d9d526b65c9467f7a83d3aa">More...</a><br /></td></tr>
 <tr class="separator:ga74bed0048d9d526b65c9467f7a83d3aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga14a9b5b363440bae35808c07c922fdfa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db5/group__serializing.html#ga14a9b5b363440bae35808c07c922fdfa">limes::serializing::parseXML</a> (const std::string_view &amp;jsonText)</td></tr>
-<tr class="memdesc:ga14a9b5b363440bae35808c07c922fdfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses an XML string and returns the root <a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html" title="Represents any kind of serializable object.">Node</a> of the resulting data structure.  <a href="../../d4/db5/group__serializing.html#ga14a9b5b363440bae35808c07c922fdfa">More...</a><br /></td></tr>
-<tr class="separator:ga14a9b5b363440bae35808c07c922fdfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c07326e5ee5f48141d89259ae420cde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db5/group__serializing.html#ga4c07326e5ee5f48141d89259ae420cde">limes::serializing::parseXML</a> (const std::string_view &amp;xmlText)</td></tr>
+<tr class="memdesc:ga4c07326e5ee5f48141d89259ae420cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses an XML string and returns the root <a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html" title="Represents any kind of serializable object.">Node</a> of the resulting data structure.  <a href="../../d4/db5/group__serializing.html#ga4c07326e5ee5f48141d89259ae420cde">More...</a><br /></td></tr>
+<tr class="separator:ga4c07326e5ee5f48141d89259ae420cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaebaaaff5b3684f2d9f10f6a4a56cfaac"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db5/group__serializing.html#gaebaaaff5b3684f2d9f10f6a4a56cfaac">limes::serializing::conversion::toJSON</a> (const std::string_view &amp;xmlText)</td></tr>
+<tr class="memdesc:gaebaaaff5b3684f2d9f10f6a4a56cfaac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an XML string to JSON.  <a href="../../d4/db5/group__serializing.html#gaebaaaff5b3684f2d9f10f6a4a56cfaac">More...</a><br /></td></tr>
+<tr class="separator:gaebaaaff5b3684f2d9f10f6a4a56cfaac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb17f9d7114b93146662592da8f04164"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db5/group__serializing.html#gadb17f9d7114b93146662592da8f04164">limes::serializing::conversion::toXML</a> (const std::string_view &amp;jsonText)</td></tr>
+<tr class="memdesc:gadb17f9d7114b93146662592da8f04164"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a JSON string to XML.  <a href="../../d4/db5/group__serializing.html#gadb17f9d7114b93146662592da8f04164">More...</a><br /></td></tr>
+<tr class="separator:gadb17f9d7114b93146662592da8f04164"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Utilities for data serialization. </p>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="gab45a9e05c757d8ff85ffa97d87382069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab45a9e05c757d8ff85ffa97d87382069">&#9670;&nbsp;</a></span>Array</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/db5/group__serializing.html#gab45a9e05c757d8ff85ffa97d87382069">limes::serializing::Array</a> = typedef std::vector&lt;<a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html">Node</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../da/d17/serializing_8h.html">serializing.h</a>&gt;</code></p>
+
+<p>The representation of Array types. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../da/d17/serializing_8h_source.html#l00075">75</a> of file <a class="el" href="../../da/d17/serializing_8h_source.html">serializing.h</a>.</p>
+
+</div>
+</div>
+<a id="ga0dda006986140fd743506c361279cbf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0dda006986140fd743506c361279cbf4">&#9670;&nbsp;</a></span>DataType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ObjectType Type&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/db5/group__serializing.html#ga0dda006986140fd743506c361279cbf4">limes::serializing::DataType</a> = typedef std::conditional_t&lt;Type == <a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fab2ee912b91d69b435159c7c3f6df7f5f">ObjectType::Number</a>, double, std::conditional_t&lt;Type == <a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa27118326006d3829667a400ad23d5d98">ObjectType::String</a>, std::string, std::conditional_t&lt;Type == <a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa27226c864bac7454a8504f8edb15d95b">ObjectType::Boolean</a>, bool, std::conditional_t&lt;Type == <a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa4410ec34d9e6c1a68100ca0ce033fb17">ObjectType::Array</a>, <a class="el" href="../../d4/db5/group__serializing.html#gab45a9e05c757d8ff85ffa97d87382069">Array</a>, std::conditional_t&lt;Type == <a class="el" href="../../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa497031794414a552435f90151ac3b54b">ObjectType::Object</a>, <a class="el" href="../../d4/db5/group__serializing.html#gabb05e41e8a3ad3f33ab63c5f0c019397">Object</a>, <a class="el" href="../../df/d66/namespacelimes_1_1typelist.html#da/d42/structlimes_1_1typelist_1_1_null_type">typelist::NullType</a>&gt; &gt;&gt; &gt;&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../da/d17/serializing_8h.html">serializing.h</a>&gt;</code></p>
+
+<p>This typedef evaluates to the appropriate C++ object type for the given ObjectType. </p>
+<p>The types evaluate as follows:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">ObjectType </th><th class="markdownTableHeadNone">C++ type  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Number </td><td class="markdownTableBodyNone">double  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">String </td><td class="markdownTableBodyNone">std::string  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Boolean </td><td class="markdownTableBodyNone">bool  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Array </td><td class="markdownTableBodyNone">Array (std::vector&lt;Node&gt;)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Object </td><td class="markdownTableBodyNone">Object (std::vector&lt;std::pair&lt;std::string, Node&gt;&gt;)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Null </td><td class="markdownTableBodyNone"><a class="el" href="../../df/d66/namespacelimes_1_1typelist.html#da/d42/structlimes_1_1typelist_1_1_null_type" title="A placeholder class representing a type that is null, invalid, or nonexistent.">typelist::NullType</a>  </td></tr>
+</table>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d4/db5/group__serializing.html#ga41a0b7fba3df9ac9ce7b38c91d8f765f" title="Represents the type of a serialization node.">ObjectType</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../da/d17/serializing_8h_source.html#l00110">110</a> of file <a class="el" href="../../da/d17/serializing_8h_source.html">serializing.h</a>.</p>
+
+</div>
+</div>
+<a id="gabb05e41e8a3ad3f33ab63c5f0c019397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabb05e41e8a3ad3f33ab63c5f0c019397">&#9670;&nbsp;</a></span>Object</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/db5/group__serializing.html#gabb05e41e8a3ad3f33ab63c5f0c019397">limes::serializing::Object</a> = typedef std::vector&lt;<a class="el" href="../../d4/db5/group__serializing.html#ga632ddf1f3463e33e2097d15ab51f4196">ObjectField</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../da/d17/serializing_8h.html">serializing.h</a>&gt;</code></p>
+
+<p>The representation of Object types. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d4/db5/group__serializing.html#ga632ddf1f3463e33e2097d15ab51f4196" title="Represents a single key-value pair field of an Object type.">ObjectField</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../da/d17/serializing_8h_source.html#l00087">87</a> of file <a class="el" href="../../da/d17/serializing_8h_source.html">serializing.h</a>.</p>
+
+</div>
+</div>
+<a id="ga632ddf1f3463e33e2097d15ab51f4196"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga632ddf1f3463e33e2097d15ab51f4196">&#9670;&nbsp;</a></span>ObjectField</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/db5/group__serializing.html#ga632ddf1f3463e33e2097d15ab51f4196">limes::serializing::ObjectField</a> = typedef std::pair&lt;std::string, <a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html">Node</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../da/d17/serializing_8h.html">serializing.h</a>&gt;</code></p>
+
+<p>Represents a single key-value pair field of an Object type. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d4/db5/group__serializing.html#gabb05e41e8a3ad3f33ab63c5f0c019397" title="The representation of Object types.">Object</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../da/d17/serializing_8h_source.html#l00081">81</a> of file <a class="el" href="../../da/d17/serializing_8h_source.html">serializing.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="ga41a0b7fba3df9ac9ce7b38c91d8f765f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga41a0b7fba3df9ac9ce7b38c91d8f765f">&#9670;&nbsp;</a></span>ObjectType</h2>
@@ -158,12 +292,94 @@ Functions</h2></td></tr>
 
 <p>Represents the type of a serialization node. </p>
 <p>These types align with the JSON specification. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html" title="Represents any kind of serializable object.">Node</a> </dd></dl>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga41a0b7fba3df9ac9ce7b38c91d8f765fab2ee912b91d69b435159c7c3f6df7f5f"></a>Number&#160;</td><td class="fielddoc"><p>A number. </p>
+<p>Numbers are always represented using doubles. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga41a0b7fba3df9ac9ce7b38c91d8f765fa27118326006d3829667a400ad23d5d98"></a>String&#160;</td><td class="fielddoc"><p>A string. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga41a0b7fba3df9ac9ce7b38c91d8f765fa27226c864bac7454a8504f8edb15d95b"></a>Boolean&#160;</td><td class="fielddoc"><p>A boolean. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga41a0b7fba3df9ac9ce7b38c91d8f765fa4410ec34d9e6c1a68100ca0ce033fb17"></a>Array&#160;</td><td class="fielddoc"><p>An array of other objects. </p>
+<p>Arrays can contain any kind of child ObjectTypes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga41a0b7fba3df9ac9ce7b38c91d8f765fa497031794414a552435f90151ac3b54b"></a>Object&#160;</td><td class="fielddoc"><p>An Object is a collection of key/value pairs, where the keys are string identifiers and the values are any ObjectType. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga41a0b7fba3df9ac9ce7b38c91d8f765fabbb93ef26e3c101ff11cdd21cab08a94"></a>Null&#160;</td><td class="fielddoc"><p>Represents null. </p>
+</td></tr>
+</table>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d17/serializing_8h_source.html#l00051">51</a> of file <a class="el" href="../../da/d17/serializing_8h_source.html">serializing.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d17/serializing_8h_source.html#l00053">53</a> of file <a class="el" href="../../da/d17/serializing_8h_source.html">serializing.h</a>.</p>
+
+</div>
+</div>
+<a id="gaba8b2bf99aa7ccda78d14abca8114778"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaba8b2bf99aa7ccda78d14abca8114778">&#9670;&nbsp;</a></span>StringType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="../../d4/db5/group__serializing.html#gaba8b2bf99aa7ccda78d14abca8114778">limes::serializing::StringType</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../da/d17/serializing_8h.html">serializing.h</a>&gt;</code></p>
+
+<p>Represents the format of data serialized as a string. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaba8b2bf99aa7ccda78d14abca8114778a0ecd11c1d7a287401d148a23bbd7a2f8"></a>JSON&#160;</td><td class="fielddoc"><p>Represents a JSON string. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaba8b2bf99aa7ccda78d14abca8114778a3501bb093d363810b671059b9cfed3f8"></a>XML&#160;</td><td class="fielddoc"><p>Represents an XML string. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="../../da/d17/serializing_8h_source.html#l00065">65</a> of file <a class="el" href="../../da/d17/serializing_8h_source.html">serializing.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="gab41d9a5e487e5181dab8be8cf2068757"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab41d9a5e487e5181dab8be8cf2068757">&#9670;&nbsp;</a></span>parse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html">Node</a> limes::serializing::parse </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>string</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/db5/group__serializing.html#gaba8b2bf99aa7ccda78d14abca8114778">StringType</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../da/d17/serializing_8h.html">serializing.h</a>&gt;</code></p>
+
+<p>Parses a string of serialized data, treating it as the specified type. </p>
+
+</div>
+</div>
 <a id="ga74bed0048d9d526b65c9467f7a83d3aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga74bed0048d9d526b65c9467f7a83d3aa">&#9670;&nbsp;</a></span>parseJSON()</h2>
 
@@ -183,12 +399,18 @@ Functions</h2></td></tr>
 <p><code>#include &lt;<a class="el" href="../../da/d17/serializing_8h.html">serializing.h</a>&gt;</code></p>
 
 <p>Parses a JSON string and returns the root <a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html" title="Represents any kind of serializable object.">Node</a> of the resulting data structure. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d4/db5/group__serializing.html#ga14a9b5b363440bae35808c07c922fdfa" title="Parses an XML string and returns the root Node of the resulting data structure.">parseXML</a> </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Throws an exception if there is a JSON parsing error. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d4/db5/group__serializing.html#ga4c07326e5ee5f48141d89259ae420cde" title="Parses an XML string and returns the root Node of the resulting data structure.">parseXML</a> </dd></dl>
 
 </div>
 </div>
-<a id="ga14a9b5b363440bae35808c07c922fdfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga14a9b5b363440bae35808c07c922fdfa">&#9670;&nbsp;</a></span>parseXML()</h2>
+<a id="ga4c07326e5ee5f48141d89259ae420cde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4c07326e5ee5f48141d89259ae420cde">&#9670;&nbsp;</a></span>parseXML()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,7 +419,7 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="../../dd/d09/classlimes_1_1serializing_1_1_node.html">Node</a> limes::serializing::parseXML </td>
           <td>(</td>
           <td class="paramtype">const std::string_view &amp;&#160;</td>
-          <td class="paramname"><em>jsonText</em></td><td>)</td>
+          <td class="paramname"><em>xmlText</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -210,12 +432,56 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="gaebaaaff5b3684f2d9f10f6a4a56cfaac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaebaaaff5b3684f2d9f10f6a4a56cfaac">&#9670;&nbsp;</a></span>toJSON()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string limes::serializing::conversion::toJSON </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>xmlText</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../da/d17/serializing_8h.html">serializing.h</a>&gt;</code></p>
+
+<p>Converts an XML string to JSON. </p>
+
+</div>
+</div>
+<a id="gadb17f9d7114b93146662592da8f04164"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadb17f9d7114b93146662592da8f04164">&#9670;&nbsp;</a></span>toXML()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string limes::serializing::conversion::toXML </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>jsonText</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../da/d17/serializing_8h.html">serializing.h</a>&gt;</code></p>
+
+<p>Converts a JSON string to XML. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jun 7 2022 03:32:48 for Limes by
+    <li class="footer">Generated on Tue Jun 7 2022 05:11:51 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

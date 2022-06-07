@@ -1,8 +1,5 @@
 var classlimes_1_1serializing_1_1_node =
 [
-    [ "Array", "dd/d09/classlimes_1_1serializing_1_1_node.html#a860f0f4a846801a209151027550b5e9c", null ],
-    [ "Object", "dd/d09/classlimes_1_1serializing_1_1_node.html#ae7d841122a660c2fab28305f0a5caac5", null ],
-    [ "ObjectField", "dd/d09/classlimes_1_1serializing_1_1_node.html#a320e4505cf2a0d2d842b1bfbc959e233", null ],
     [ "Node", "dd/d09/classlimes_1_1serializing_1_1_node.html#ab4dcba99834527b046684aa490c2491d", null ],
     [ "Node", "dd/d09/classlimes_1_1serializing_1_1_node.html#a9e1b4757430ecf49680d808d0a0a4232", null ],
     [ "Node", "dd/d09/classlimes_1_1serializing_1_1_node.html#a50359f654258915338f743ab7ea291e2", null ],
@@ -21,11 +18,14 @@ var classlimes_1_1serializing_1_1_node =
     [ "getBoolean", "dd/d09/classlimes_1_1serializing_1_1_node.html#ace659b79026e657267efe228a10e3ca2", null ],
     [ "getJsonString", "dd/d09/classlimes_1_1serializing_1_1_node.html#a1f8834436ab39e575f512559ffccf60e", null ],
     [ "getNumber", "dd/d09/classlimes_1_1serializing_1_1_node.html#aab9853e146bb2b73c1ae140e466e6419", null ],
+    [ "getNumChildren", "dd/d09/classlimes_1_1serializing_1_1_node.html#a1e45c1206cb9aa279cc825eaad2a6c0b", null ],
     [ "getObject", "dd/d09/classlimes_1_1serializing_1_1_node.html#aa0fccf82b9ef354f187dad42c3b36ba1", null ],
     [ "getString", "dd/d09/classlimes_1_1serializing_1_1_node.html#a0c598056f57f6a650e3d5d18d7d6ccb7", null ],
+    [ "getString", "dd/d09/classlimes_1_1serializing_1_1_node.html#a76db3b0ad4aa5edd61f1d082f3a353f9", null ],
     [ "getType", "dd/d09/classlimes_1_1serializing_1_1_node.html#ae998b7a1c3be9df83c10fd62f313dcde", null ],
     [ "getTypeAsString", "dd/d09/classlimes_1_1serializing_1_1_node.html#a2fdb9f312ab19a2042356c298636c3da", null ],
     [ "getXMLString", "dd/d09/classlimes_1_1serializing_1_1_node.html#ab45e2646b3ea5b30f1bb31300434e650", null ],
+    [ "hasChildWithName", "dd/d09/classlimes_1_1serializing_1_1_node.html#a7edc041d3b90a8f59bb21f9c36125b55", null ],
     [ "isArray", "dd/d09/classlimes_1_1serializing_1_1_node.html#ac9b3a6b6b4e7653e56077b41b94e44d4", null ],
     [ "isBoolean", "dd/d09/classlimes_1_1serializing_1_1_node.html#a13c34b5ad2722b97a733fc72e355dc82", null ],
     [ "isNull", "dd/d09/classlimes_1_1serializing_1_1_node.html#abdd86a1526267586d96231eee2489692", null ],

@@ -56,17 +56,17 @@ var NAVTREEINDEX =
 "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a7146794c0c6219a799bb7efc761a2afa",
 "d3/d33/ipp__fft_8h_source.html",
 "d4/d90/classlimes_1_1time_1_1_weekday.html#a0a21a9d8cf06fe57a4645774a30ed442a8b7051187b9191cdcdae6ed5a10e5adc",
-"d5/d0e/classlimes_1_1music_1_1scales_1_1_key_signature.html#aeebe711e818be3ef3869a46554dfd25f",
-"d6/d13/structstd_1_1hash_3_01limes_1_1misc_1_1_version_01_4.html#ad5691c58ec524bea0a460e9d615e8a41",
-"d7/d95/classlimes_1_1dsp_1_1_circular_buffer.html#a905b29909703ae61e724435d416e79fc",
-"d8/db4/classlimes_1_1files_1_1_sym_link.html#a6f9c1e65e4055a037588c41bbf51905e",
-"d9/dda/group__files.html#gabc304be514f1c64345214c2c50be5201",
-"db/d97/group__hashes.html#ga4bc79e7feba628b1ef01bb1c064a9e36",
-"dc/d24/fftw__fft_8h_source.html",
-"dd/d0b/classlimes_1_1math_1_1geometry_1_1_octagon.html#a7bdde921c21c8030ae5e32c3360a1111",
-"de/d1f/limes__vecops_8h.html#ga17d1aec7a6eab65eb33270a90035d9ac",
-"df/d0d/classlimes_1_1ds_1_1scalar__vector.html#a303dbf843bdc8dc25eb37392897e3c70",
-"df/d82/classlimes_1_1dsp_1_1filters_1_1_coeffecients.html#a2811ba1407655a88a176538ed892123d"
+"d5/d0e/classlimes_1_1music_1_1scales_1_1_key_signature.html#a6ab0f04d5ec5ad484f289305a0cb0d4e",
+"d5/de0/sha384_8h.html#gaeaa6253a21c6303fd96385172bf16f1f",
+"d7/d63/structlimes_1_1dsp_1_1_sample_stream.html#a94095bca6e0a30446f71348e8063788c",
+"d8/db4/classlimes_1_1files_1_1_sym_link.html#a35360245811558df87f6362bb979e669",
+"d9/da7/classlimes_1_1hash_1_1_hasher.html#ab0d6539f35733809c61271b108419d4f",
+"db/d0d/group__vec__tan.html#ga503dc331b5e71be46de62e644f5226bd",
+"dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html#a789a074b5645ad9c7bec1d9acf4e8795",
+"dd/d09/classlimes_1_1serializing_1_1_node.html#aa10e0805d5693e567f2454960026c98c",
+"de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a805b93e36a4f0dd6187dc6237dd096c8",
+"de/ddf/classlimes_1_1math_1_1geometry_1_1_circle.html#aac281d6081acfc070e970bc4b3a493b7",
+"df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a8eb71ce03cdc6c9a6f6859cde8ec8f51"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mixtomono_2518',['mixToMono',['../d0/d7b/group__limes__audio.html#ggab22891c08ff38fff51e3eebded597949a0d2a8602a2cd80a62be55f9bc60e1f22',1,'limes::dsp']]]
+  ['boolean_2547',['Boolean',['../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa27226c864bac7454a8504f8edb15d95b',1,'limes::serializing']]]
 ];

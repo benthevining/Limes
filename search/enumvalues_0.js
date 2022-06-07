@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['leftonly_2517',['leftOnly',['../d0/d7b/group__limes__audio.html#ggab22891c08ff38fff51e3eebded597949a1551df77400b2edbe1682fef8b4ee182',1,'limes::dsp']]]
+  ['array_2546',['Array',['../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa4410ec34d9e6c1a68100ca0ce033fb17',1,'limes::serializing']]]
 ];

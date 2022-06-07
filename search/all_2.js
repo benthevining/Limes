@@ -58,7 +58,7 @@ var searchData=
   ['aredenormalsdisabled_59',['areDenormalsDisabled',['../d0/d49/group__vec__denormals.html#ga663567cc8416a778e37e0acab1c9c0fb',1,'limes::vecops']]],
   ['aresame_60',['areSame',['../d4/d61/group__text.html#gae28368a1a0a0153d8911eaa862731d9f',1,'limes::strings']]],
   ['aresameignoringcase_61',['areSameIgnoringCase',['../d4/d61/group__text.html#ga2e90412e899267588041b3a31efa6d3b',1,'limes::strings::areSameIgnoringCase(const char *string1, const char *string2)'],['../d4/d61/group__text.html#gab9dddceac3df61646ad9f77e894a6f6c',1,'limes::strings::areSameIgnoringCase(const std::string_view &amp;lhs, const std::string_view &amp;rhs)']]],
-  ['array_62',['Array',['../dd/d09/classlimes_1_1serializing_1_1_node.html#a860f0f4a846801a209151027550b5e9c',1,'limes::serializing::Node']]],
+  ['array_62',['Array',['../d4/db5/group__serializing.html#gab45a9e05c757d8ff85ffa97d87382069',1,'limes::serializing::Array()'],['../d4/db5/group__serializing.html#gga41a0b7fba3df9ac9ce7b38c91d8f765fa4410ec34d9e6c1a68100ca0ce033fb17',1,'limes::serializing::Array()']]],
   ['assignpath_63',['assignPath',['../df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a8eb71ce03cdc6c9a6f6859cde8ec8f51',1,'limes::files::FilesystemEntry']]],
   ['at_64',['at',['../d0/d51/classlimes_1_1meta_1_1_type_list.html#ab7fb0d88be2df6e354799b3be824f3e2',1,'limes::meta::TypeList']]],
   ['addition_65',['Addition',['../d8/da6/group__vec__addition.html',1,'']]],
