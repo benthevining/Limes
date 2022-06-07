@@ -102,11 +102,11 @@ target_include_directories (
 
 add_subdirectory (files)
 add_subdirectory (hashes)
-add_subdirectory (json)
 add_subdirectory (math)
 add_subdirectory (memory)
 add_subdirectory (meta)
 add_subdirectory (misc)
+add_subdirectory (serializing)
 add_subdirectory (system)
 add_subdirectory (text)
 add_subdirectory (threading)
@@ -117,11 +117,11 @@ set (
 	# cmake-format: sortable
 	${files_files}
 	${hashes_files}
-	${json_files}
 	${math_files}
 	${memory_files}
 	${meta_files}
 	${misc_files}
+	${serializing_files}
 	${system_files}
 	${text_files}
 	${threading_files}

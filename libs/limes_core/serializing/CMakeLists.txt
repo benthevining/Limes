@@ -11,11 +11,11 @@
 include (OrangesSourceFileUtils)
 
 oranges_add_source_files (
-	DIRECTORY_NAME json
+	DIRECTORY_NAME serializing
 	TARGET limes_core
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  json.h json.cpp parser.cpp)
+		  serializing.h serializing.cpp parser.cpp encoding.cpp)
 
-set (json_files ${json_files} PARENT_SCOPE)
+set (serializing_files ${serializing_files} PARENT_SCOPE)

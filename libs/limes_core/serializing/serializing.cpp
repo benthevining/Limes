@@ -11,68 +11,22 @@
  */
 
 #include <limes_namespace.h>
-#include <limes_core.h>
-#include "json.h"
+#include "serializing.h"
 #include <string_view>
 #include <string>
 #include <cmath>
 #include <sstream>
+#include "../system/limes_assert.h"
+// std::runtime_error
 
 LIMES_BEGIN_NAMESPACE
 
-namespace json
+namespace serializing
 {
 
 Node::Node (ObjectType typeToUse) noexcept
 	: type (typeToUse)
 {
-}
-
-std::string Node::getJsonText (bool compact) const
-{
-	if (isNumber())
-		return strings::unquoted (std::to_string (number));
-
-	if (isString())
-		return strings::quoted (string);
-
-	if (isBoolean())
-	{
-		if (boolean)
-			return "true";
-
-		return "false";
-	}
-
-	if (isArray())
-	{
-		std::vector<std::string> strings;
-
-		for (const auto& element : array)
-			strings.emplace_back (element.getJsonText());  // cppcheck-suppress useStlAlgorithm
-
-		return "[" + strings::join (strings, ",") + "]";
-	}
-
-	if (isObject())
-	{
-		std::vector<std::string> strings;
-
-		for (const auto& element : object)
-		{
-			auto str = strings::quoted (element.first);
-			str += ':';
-			str += element.second.getJsonText();
-
-			strings.emplace_back (str);
-		}
-
-		return "{" + strings::join (strings, ",") + "}";
-	}
-
-	LIMES_ASSERT (isNull());
-
-	return "null";
 }
 
 ObjectType Node::getType() const noexcept
@@ -92,6 +46,27 @@ std::string_view Node::getTypeAsString() const noexcept
 		case (ObjectType::Number) : return "Number";
 		default : LIMES_UNREACHABLE;
 	}
+}
+
+Node& Node::operator[] (const std::string_view& childName)
+{
+	LIMES_ASSERT (isObject());
+
+	for (auto& pair : object)
+		if (pair.first == childName)  // cppcheck-suppress useStlAlgorithm
+			return pair.second;
+
+	throw std::runtime_error { "Child node could not be found!" };
+}
+
+Node& Node::operator[] (std::size_t idx)
+{
+	LIMES_ASSERT (isArray());
+
+	if (idx >= static_cast<std::size_t> (array.size()))
+		throw std::runtime_error { "Array index out of range!" };
+
+	return array[static_cast<Array::size_type> (idx)];
 }
 
 Node& Node::addChild (ObjectType childType, const std::string_view& childName)
@@ -142,6 +117,15 @@ Node& Node::addChildNumber (const std::string_view& childName)
 
 	LIMES_ASSERT_FALSE;
 	return *this;
+}
+
+Node& Node::addChildNumber (double value, const std::string_view& childName)
+{
+	auto& child = addChildNumber (childName);
+
+	child.getNumber() = value;
+
+	return child;
 }
 
 bool Node::isString() const noexcept
@@ -220,6 +204,15 @@ Node& Node::addChildBoolean (const std::string_view& childName)
 	return *this;
 }
 
+Node& Node::addChildBoolean (bool value, const std::string_view& childName)
+{
+	auto& child = addChildBoolean (childName);
+
+	child.getBoolean() = value;
+
+	return child;
+}
+
 bool Node::isArray() const noexcept
 {
 	return type == ObjectType::Array;
@@ -254,6 +247,15 @@ Node& Node::addChildArray (const std::string_view& childName)
 
 	LIMES_ASSERT_FALSE;
 	return *this;
+}
+
+Node& Node::addChildArray (const Array& value, const std::string_view& childName)
+{
+	auto& child = addChildArray (childName);
+
+	child.getArray() = value;
+
+	return child;
 }
 
 bool Node::isObject() const noexcept
@@ -292,6 +294,15 @@ Node& Node::addChildObject (const std::string_view& childName)
 	return *this;
 }
 
+Node& Node::addChildObject (const Object& value, const std::string_view& childName)
+{
+	auto& child = addChildObject (childName);
+
+	child.getObject() = value;
+
+	return child;
+}
+
 bool Node::isNull() const noexcept
 {
 	return type == ObjectType::Null;
@@ -315,38 +326,6 @@ Node& Node::addChildNull (const std::string_view& childName)
 	return *this;
 }
 
-std::string Node::getDebugString() const
-{
-	std::stringstream stream;
-
-	stream << "Type: " << getTypeAsString() << strings::new_line;
-
-	if (isNull())
-		return stream.str();
-
-	if (isNumber() || isBoolean() || isString())
-	{
-		stream << "Value: " << getJsonText();
-	}
-	else if (isArray())
-	{
-		for (const auto& element : array)
-			stream << " - " << element.getDebugString() << strings::new_line;
-	}
-	else if (isObject())
-	{
-		for (const auto& field : object)
-			stream << " - " << field.first << " : " << field.second.getDebugString() << strings::new_line;
-	}
-
-	return stream.str();
-}
-
-Node parseJSON (const std::string_view& jsonText)
-{
-	return Node { jsonText };
-}
-
-}  // namespace json
+}  // namespace serializing
 
 LIMES_END_NAMESPACE
