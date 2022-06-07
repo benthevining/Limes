@@ -109,6 +109,7 @@ LIMES_EXPORT using DataType = std::conditional_t<Type == ObjectType::Number, dou
 																					   std::conditional_t<Type == ObjectType::Array, Array,
 																										  std::conditional_t<Type == ObjectType::Object, Object, typelist::NullType>>>>>;
 
+#pragma mark Node
 
 /** Represents any kind of serializable object.
 	This class is designed around the JSON specification, but can also be parsed from or serialized to other formats, like XML.
@@ -124,9 +125,26 @@ public:
 	/** Creates a Node with a specified type. */
 	explicit Node (ObjectType typeToUse) noexcept;
 
-	LIMES_DEFAULT_COPYABLE (Node);
-	LIMES_DEFAULT_MOVABLE (Node);
+	/** @name Copying */
+	///@{
+	/** Copy constructor. */
+	Node (const Node& other);
 
+	/** Copy assignment operator. */
+	Node& operator= (const Node& other);
+	///@}
+
+	/** @name Moving */
+	///@{
+	/** Move constructor. */
+	Node (Node&& other);
+
+	/** Move assignment operator. */
+	Node& operator= (Node&& other);
+	///@}
+
+	/** @name Subscript operators */
+	///@{
 	/** For Object nodes, finds and returns the child %node with the specified name.
 		An assertion will be thrown if this %node is not an Object.
 		@throws std::runtime_error An exception is thrown if no child %node with the specified name exists.
@@ -138,7 +156,10 @@ public:
 		@throws std::out_of_range An exception is thrown if the requested index is out of range of the array.
 	 */
 	Node& operator[] (std::size_t idx);
+	///@}
 
+	/** @name Querying child nodes */
+	///@{
 	/** For arrays or objects, returns the number of child nodes this %node contains.
 		If this %node is not an array or object, returns 0.
 	 */
@@ -148,6 +169,40 @@ public:
 		If this %node is not an object, this always returns false.
 	 */
 	bool hasChildWithName (const std::string_view& childName);
+	///@}
+
+	/** @name Querying parent nodes */
+	///@{
+	/** Returns this node's parent %node, if it has one.
+		This may return nullptr.
+		@see hasParent()
+	 */
+	Node* getParent() const noexcept;
+
+	/** Returns true if this %node is a child of another %node.
+		@see getParent()
+	 */
+	bool hasParent() const noexcept;
+
+	/** Traverses all parent nodes until a %node is found that does not have a parent.
+		If this %node doesn't have a parent, returns a reference to this %node.
+	 */
+	Node& getRoot() noexcept;
+	///@}
+
+	/** @name Querying this node's name */
+	///@{
+	/** Returns true if this %node is a child of an Object %node.
+		@see getName()
+	 */
+	bool hasName() const noexcept;
+
+	/** Returns this node's name.
+		If \c hasName() returns false, this will return an empty string.
+		@see hasName()
+	 */
+	std::string_view getName() const noexcept;
+	///@}
 
 	/** @name Encoding */
 	///@{
@@ -316,18 +371,33 @@ public:
 
 private:
 
+	Node& addChildInternal (const std::string_view& childName, ObjectType childType);
+
 	ObjectType type { ObjectType::Null };
 
-	double number { 0. };
+	union InternalData
+	{
+		// NB - must be explicitly defined as empty
+		InternalData() { }
+		~InternalData() { }
 
-	std::string string;
+		double number;
 
-	bool boolean { false };
+		std::string string;
 
-	Array array;
+		bool boolean;
 
-	Object object;
+		Array array;
+
+		Object object;
+	};
+
+	InternalData data;
+
+	Node* parent { nullptr };
 };
+
+#pragma mark Parsing functions
 
 /** Parses a JSON string and returns the root Node of the resulting data structure.
 	@throws std::runtime_error Throws an exception if there is a JSON parsing error.
@@ -347,6 +417,8 @@ LIMES_EXPORT [[nodiscard]] Node parseXML (const std::string_view& xmlText);
  */
 LIMES_EXPORT [[nodiscard]] Node parse (const std::string_view& string, StringType type);
 
+#pragma mark SerializableData
+
 /** This class provides an interface for any C++ object that can be serialized to and from a Node.
 	@ingroup serializing
  */
@@ -363,6 +435,8 @@ public:
 	/** This function must restore a previous state saved by \c serialize() . */
 	virtual void deserialize (const Node&) = 0;
 };
+
+#pragma mark Conversion functions
 
 /** This namespace contains utilities for converting between various formats of serialized data.
 	@ingroup serializing

@@ -25,53 +25,79 @@ namespace serializing
 std::string Node::getJsonString() const
 {
 	if (isNumber())
-		return strings::unquoted (std::to_string (number));
+		return strings::unquoted (std::to_string (data.number));
 
 	if (isString())
-		return strings::quoted (string);
+		return strings::quoted (data.string);
 
 	if (isBoolean())
 	{
-		if (boolean)
+		if (data.boolean)
 			return "true";
 
 		return "false";
 	}
 
+	if (isNull())
+		return "null";
+
 	if (isArray())
 	{
 		std::vector<std::string> strings;
 
-		for (const auto& element : array)
+		for (const auto& element : data.array)
 			strings.emplace_back (element.getJsonString());	 // cppcheck-suppress useStlAlgorithm
 
 		return "[" + strings::join (strings, ",") + "]";
 	}
 
-	if (isObject())
+	LIMES_ASSERT (isObject());
+
+	std::vector<std::string> strings;
+
+	for (const auto& element : data.object)
 	{
-		std::vector<std::string> strings;
+		auto str = strings::quoted (element.first);
+		str += ':';
+		str += element.second.getJsonString();
 
-		for (const auto& element : object)
-		{
-			auto str = strings::quoted (element.first);
-			str += ':';
-			str += element.second.getJsonString();
-
-			strings.emplace_back (str);
-		}
-
-		return "{" + strings::join (strings, ",") + "}";
+		strings.emplace_back (str);
 	}
 
-	LIMES_ASSERT (isNull());
-
-	return "null";
+	return "{" + strings::join (strings, ",") + "}";
 }
+
+/*-----------------------------------------------------------------------------------------------------------------------*/
 
 std::string Node::getXMLString() const
 {
+	if (isNumber())
+		return strings::quoted (std::to_string (data.number));
+
+	if (isString())
+		return strings::quoted (data.string);
+
+	if (isBoolean())
+	{
+		if (data.boolean)
+			return "true";
+
+		return "false";
+	}
+
+	if (isNull())
+		return "";
+
+	if (isArray())
+	{
+	}
+
+	LIMES_ASSERT (isObject());
+
+	return "";
 }
+
+/*-----------------------------------------------------------------------------------------------------------------------*/
 
 std::string Node::getString (StringType type) const
 {
