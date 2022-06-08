@@ -1,0 +1,47 @@
+/** @mainpage Limes documentation
+
+	@code
+	 __    ____  __  __  ____  ___
+	(  )  (_  _)(  \/  )( ___)/ __)
+	 )(__  _)(_  )    (  )__) \__ \
+	(____)(____)(_/\/\_)(____)(___/
+	@endcode
+
+	@version 4.8.1
+	@author Ben Vining
+	@date 2020 - 2022
+
+	Limes is a collection of C++ libraries providing both low-level utilities and high-level abstractions that I have found useful to have in a centralized location.
+
+	Limes also provides a few small command-line utilities built using these libraries, and some CMake scripts for integrating Limes features into your build.
+
+	Limes consists of the following libraries:
+
+	Name                  | Description                 | Dependencies
+	--------------------- | --------------------------- | ------------------------
+	limes_audio           | Realtime audio utilities    | limes_data_structures
+	limes_core            | Core utilities              | None
+	limes_data_structures | Data structures             | limes_vecops
+	limes_locale          | Localization utilities      | limes_data_structures
+	limes_midi            | MIDI utilities              | limes_core
+	limes_music           | Music theory utilities      | limes_data_structures
+	limes_vecops          | SIMD operations for vectors | limes_core
+
+	And the following command line utilities:
+
+	Name          | Description
+	------------- | ------------------------------------------------------------
+	FileUtil      | OS-agnostic interface for a wide variety of filesystem tasks
+	BinaryBuilder | Generates C++ source files which embed binary data files
+
+	The following reference manuals are available:
+	- @subpage using_limes Compiling & using Limes
+	- @subpage find_limes The FindLimes.cmake script
+	- @subpage limes_programs Utility programs
+
+	Here is the dependency graph for Limes:
+	@image html deps_graph.png
+	@image latex deps_graph.png
+	@image xml deps_graph.png
+
+ */
