@@ -37,8 +37,8 @@ public:
 	/** Creates a detunable model that manages a certain number of voices. */
 	explicit DetunableModel (int initialNumVoices);
 
-	LIMES_DEFAULT_MOVABLE (DetunableModel);
-	LIMES_DEFAULT_COPYABLE (DetunableModel);
+	LIMES_DEFAULT_MOVABLE (DetunableModel)
+	LIMES_DEFAULT_COPYABLE (DetunableModel)
 
 	/** Sets the center frequency around which all the voices will be detuned. */
 	void setFrequency (float frequency);

@@ -451,3 +451,13 @@ std::string toXML (const std::string_view& jsonText)
 }  // namespace serializing
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+
+size_t hash<limes::serializing::Node>::operator() (const limes::serializing::Node& n) const noexcept
+{
+	return hash<std::string> {}(n.getJsonString());
+}
+
+}  // namespace std

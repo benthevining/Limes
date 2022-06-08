@@ -17,7 +17,7 @@
 
 /** @file
 	This file defines macros for disabling compiler warnings, and emitting custom compiler warnings.
-	@ingroup system
+	@ingroup preprocessor
  */
 
 #ifdef DOXYGEN
@@ -34,7 +34,7 @@
 	LIMES_REENABLE_ALL_COMPILER_WARNINGS
 	@endcode
 	@see LIMES_REENABLE_ALL_COMPILER_WARNINGS
-	@ingroup system
+	@ingroup preprocessor
  */
 #	define LIMES_DISABLE_ALL_COMPILER_WARNINGS
 
@@ -49,7 +49,7 @@
 	LIMES_REENABLE_ALL_COMPILER_WARNINGS
 	@endcode
 	@see LIMES_DISABLE_ALL_COMPILER_WARNINGS
-	@ingroup system
+	@ingroup preprocessor
  */
 #	define LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
@@ -57,7 +57,7 @@
 	Displays a custom message with the compiler's output. To display a custom warning message, use \c LIMES_COMPILER_WARNING.
 	Some compilers don't support custom messages, so the message may be emitted as a warning.
 	@see LIMES_COMPILER_WARNING
-	@ingroup system
+	@ingroup preprocessor
  */
 #	define LIMES_COMPILER_MESSAGE(text)
 
@@ -65,7 +65,7 @@
 	This macro causes the compiler to print the given text as a compilation warning, if available with the currently used compiler.
 	Some compilers don't support user-defined warnings, so the text may just be printed to std::out during compilation with no actual warning issued.
 	@see LIMES_COMPILER_MESSAGE
-	@ingroup system
+	@ingroup preprocessor
  */
 #	define LIMES_COMPILER_WARNING(text)
 

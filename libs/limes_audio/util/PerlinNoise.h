@@ -33,8 +33,8 @@ public:
 
 	explicit PerlinNoise (int64_t randomSeed);
 
-	LIMES_DEFAULT_MOVABLE (PerlinNoise);
-	LIMES_DEFAULT_COPYABLE (PerlinNoise);
+	LIMES_DEFAULT_MOVABLE (PerlinNoise)
+	LIMES_DEFAULT_COPYABLE (PerlinNoise)
 
 	[[nodiscard]] SampleType getNextSample (SampleType x, SampleType y = 0, SampleType z = 0);
 

@@ -47,8 +47,8 @@ public:
 
 	using FilesystemEntry::FilesystemEntry;
 
-	LIMES_DEFAULT_COPYABLE (File);
-	LIMES_DEFAULT_MOVABLE (File);
+	LIMES_DEFAULT_COPYABLE (File)
+	LIMES_DEFAULT_MOVABLE (File)
 
 	/** @name Assignment */
 	///@{
@@ -178,13 +178,16 @@ public:
 	/** The temporary %file will be deleted from the filesystem when this object is destroyed, if this object was constructed with the \c destroyOnDelete parameter being \c true . */
 	~TempFile() final;
 
-	LIMES_NON_COPYABLE (TempFile);
+	LIMES_NON_COPYABLE (TempFile)
 
+	/** @name Moving */
+	///@{
 	/** Move constructor. */
 	TempFile (TempFile&& other) noexcept;
 
 	/** Move assignment operator. */
 	TempFile& operator= (TempFile&& other) noexcept;
+	///@}
 
 	/** Returns a new temporary %file, with the name generated using a counter specific to the current process. */
 	[[nodiscard]] static TempFile getNextFile();
@@ -210,8 +213,8 @@ struct LIMES_EXPORT hash<limes::files::File> final
 {
 	hash() = default;
 
-	LIMES_DEFAULT_COPYABLE (hash);
-	LIMES_DEFAULT_MOVABLE (hash);
+	LIMES_DEFAULT_COPYABLE (hash)
+	LIMES_DEFAULT_MOVABLE (hash)
 
 	size_t operator() (const limes::files::File& f) const noexcept;
 };

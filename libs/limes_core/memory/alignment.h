@@ -137,8 +137,8 @@ public:
 		deallocate_aligned (ptr);
 	}
 
-	LIMES_NON_COPYABLE (aligned_pointer);
-	LIMES_DEFAULT_MOVABLE (aligned_pointer);
+	LIMES_NON_COPYABLE (aligned_pointer)
+	LIMES_DEFAULT_MOVABLE (aligned_pointer)
 
 	/** @name Accessors
 		Returns a pointer to the owned object.

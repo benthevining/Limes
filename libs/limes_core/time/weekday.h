@@ -110,8 +110,8 @@ public:
 	explicit constexpr Weekday (const OtherWeekdayType& other) noexcept;
 	///@}
 
-	LIMES_CONSTEXPR_MOVABLE (Weekday);
-	LIMES_CONSTEXPR_COPYABLE (Weekday);
+	LIMES_CONSTEXPR_MOVABLE (Weekday)
+	LIMES_CONSTEXPR_COPYABLE (Weekday)
 
 	/** Returns the name of the day this object represents. */
 	[[nodiscard]] constexpr Name getWeekdayName() const noexcept;

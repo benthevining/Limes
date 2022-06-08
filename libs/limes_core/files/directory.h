@@ -41,8 +41,8 @@ public:
 
 	using FilesystemEntry::FilesystemEntry;
 
-	LIMES_DEFAULT_COPYABLE (Directory);
-	LIMES_DEFAULT_MOVABLE (Directory);
+	LIMES_DEFAULT_COPYABLE (Directory)
+	LIMES_DEFAULT_MOVABLE (Directory)
 
 	/** @name Assignment */
 	///@{

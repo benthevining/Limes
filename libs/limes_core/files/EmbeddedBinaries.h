@@ -24,6 +24,7 @@
 
 /** @defgroup binaries Embedded binary data files
 	Utilities for working with binary data files embedded into your source code.
+	These classes are used automatically by the BinaryBuilder tool included with Limes, but any sources containing embedded data can use these classes to provide a runtime interface for accessing that data.
 	@ingroup files
  */
 
@@ -49,8 +50,8 @@ namespace binaries
  */
 struct LIMES_EXPORT FileInfo final
 {
-	LIMES_NON_COPYABLE (FileInfo);
-	LIMES_NON_MOVABLE (FileInfo);
+	LIMES_NON_COPYABLE (FileInfo)
+	LIMES_NON_MOVABLE (FileInfo)
 
 	/** The original name of this file. */
 	const char* const fileName;
@@ -114,8 +115,8 @@ struct LIMES_EXPORT FileInfoList final
 {
 public:
 
-	LIMES_NON_COPYABLE (FileInfoList);
-	LIMES_NON_MOVABLE (FileInfoList);
+	LIMES_NON_COPYABLE (FileInfoList)
+	LIMES_NON_MOVABLE (FileInfoList)
 
 	/** Constructors */
 	///@{

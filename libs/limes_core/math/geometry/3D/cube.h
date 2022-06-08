@@ -49,8 +49,8 @@ public:
 	explicit constexpr Cube (const Square<ValueType>& face) noexcept;
 	///@}
 
-	LIMES_CONSTEXPR_COPYABLE (Cube);
-	LIMES_CONSTEXPR_MOVABLE (Cube);
+	LIMES_CONSTEXPR_COPYABLE (Cube)
+	LIMES_CONSTEXPR_MOVABLE (Cube)
 
 	/** Returns the volume of the %cube.
 		The formula is @f$ V=side^3 @f$.

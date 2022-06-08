@@ -21,6 +21,7 @@
 
 /** @defgroup misc Miscellaneous
 	Miscellaneous things.
+	This module contains classes and functions that don't seem to fit into any other module within limes_core.
 	@ingroup limes_core
  */
 
@@ -60,8 +61,8 @@ struct LIMES_EXPORT Version final
 	}
 	///@}
 
-	LIMES_CONSTEXPR_MOVABLE (Version);
-	LIMES_CONSTEXPR_COPYABLE (Version);
+	LIMES_CONSTEXPR_MOVABLE (Version)
+	LIMES_CONSTEXPR_COPYABLE (Version)
 
 	/** @name Equality comparisons */
 	///@{
@@ -209,8 +210,8 @@ struct LIMES_EXPORT hash<limes::misc::Version>
 {
 	hash() = default;
 
-	LIMES_DEFAULT_COPYABLE (hash);
-	LIMES_DEFAULT_MOVABLE (hash);
+	LIMES_DEFAULT_COPYABLE (hash)
+	LIMES_DEFAULT_MOVABLE (hash)
 
 	size_t operator() (const limes::misc::Version& v) const noexcept;
 };

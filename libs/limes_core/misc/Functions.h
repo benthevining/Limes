@@ -112,8 +112,8 @@ public:
 		}
 	}
 
-	LIMES_NON_COPYABLE (CallDeferred);
-	LIMES_NON_MOVABLE (CallDeferred);
+	LIMES_NON_COPYABLE (CallDeferred)
+	LIMES_NON_MOVABLE (CallDeferred)
 
 private:
 
@@ -146,8 +146,8 @@ public:
 		}
 	}
 
-	LIMES_NON_COPYABLE (RAIICaller);
-	LIMES_NON_MOVABLE (RAIICaller);
+	LIMES_NON_COPYABLE (RAIICaller)
+	LIMES_NON_MOVABLE (RAIICaller)
 
 private:
 

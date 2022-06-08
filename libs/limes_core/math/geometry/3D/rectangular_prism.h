@@ -43,8 +43,8 @@ public:
 	/** Creates a RectangularPrism with the given dimensions. */
 	explicit constexpr RectangularPrism (ValueType length, ValueType width, ValueType height) noexcept;
 
-	LIMES_CONSTEXPR_COPYABLE (RectangularPrism);
-	LIMES_CONSTEXPR_MOVABLE (RectangularPrism);
+	LIMES_CONSTEXPR_COPYABLE (RectangularPrism)
+	LIMES_CONSTEXPR_MOVABLE (RectangularPrism)
 
 	/** Returns the volume of the prism.
 		The formula is @f$ V=length*width*height @f$.

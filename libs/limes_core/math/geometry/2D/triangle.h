@@ -55,8 +55,8 @@ public:
 	explicit Triangle (ValueType sideOne, ValueType sideTwo, const Angle<ValueType>& angleBetweenThem);
 	///@}
 
-	LIMES_CONSTEXPR_COPYABLE (Triangle);
-	LIMES_CONSTEXPR_MOVABLE (Triangle);
+	LIMES_CONSTEXPR_COPYABLE (Triangle)
+	LIMES_CONSTEXPR_MOVABLE (Triangle)
 
 	/** Returns the area of the %triangle.
 		The formula is @f$ A=\frac{base*height}{2} @f$.

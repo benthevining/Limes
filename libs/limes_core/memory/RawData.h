@@ -24,6 +24,7 @@
 
 /** @defgroup memory Memory
 	Utilities for memory management.
+	This module contains allocators, a memory pool, and more.
 	@ingroup limes_core
  */
 
@@ -240,8 +241,8 @@ struct LIMES_EXPORT hash<limes::memory::RawData> final
 {
 	hash() = default;
 
-	LIMES_DEFAULT_COPYABLE (hash);
-	LIMES_DEFAULT_MOVABLE (hash);
+	LIMES_DEFAULT_COPYABLE (hash)
+	LIMES_DEFAULT_MOVABLE (hash)
 
 	size_t operator() (const limes::memory::RawData& d) const noexcept;
 };

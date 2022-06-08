@@ -163,6 +163,27 @@ constexpr T middleOfThree (T a, T b, T c) noexcept
 					   c });
 }
 
+template <Integral T>
+constexpr T cantorPair (T a, T b) noexcept
+{
+	const auto A = a >= T (0) ? T (2) * a : T (-2) * a - T (1);
+	const auto B = b >= T (0) ? T (2) * b : T (-2) * b - T (1);
+
+	return (A + B) * (A + B + T (1)) / T (2) + A;
+}
+
+template <Integral T>
+constexpr T szudzikPair (T a, T b) noexcept
+{
+	const auto A = a >= T (0) ? T (2) * a : T (-2) * a - T (1);
+	const auto B = b >= T (0) ? T (2) * b : T (-2) * b - T (1);
+
+	if (A >= B)
+		return A * A + A + B;
+
+	return A + B * B;
+}
+
 /*---------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Audio utility functions

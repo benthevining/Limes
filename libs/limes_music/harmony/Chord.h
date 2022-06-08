@@ -58,8 +58,8 @@ public:
 	explicit Chord (const std::initializer_list<Pitch>& midiNotes);
 	///@}
 
-	LIMES_DEFAULT_MOVABLE (Chord);
-	LIMES_DEFAULT_COPYABLE (Chord);
+	LIMES_DEFAULT_MOVABLE (Chord)
+	LIMES_DEFAULT_COPYABLE (Chord)
 
 	/** Returns the number of unique pitches in this %chord. */
 	[[nodiscard]] int getNumPitches() const;

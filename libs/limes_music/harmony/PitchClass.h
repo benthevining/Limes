@@ -60,8 +60,8 @@ struct LIMES_EXPORT PitchClass final
 	{
 	}
 
-	LIMES_CONSTEXPR_MOVABLE (PitchClass);
-	LIMES_CONSTEXPR_COPYABLE (PitchClass);
+	LIMES_CONSTEXPR_MOVABLE (PitchClass)
+	LIMES_CONSTEXPR_COPYABLE (PitchClass)
 
 	/** Returns true if the two %pitch classes are equal. */
 	[[nodiscard]] constexpr bool operator== (const PitchClass& other) const noexcept

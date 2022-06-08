@@ -39,7 +39,6 @@ public:
 
 	/** @name Constructors */
 	///@{
-
 	/** Creates an Hour object representing midnight. */
 	constexpr Hour() = default;
 
@@ -54,11 +53,10 @@ public:
 
 	/** Creates an Hour object from the given \c std::time_t object. */
 	explicit Hour (std::time_t time);
-
 	///@}
 
-	LIMES_CONSTEXPR_MOVABLE (Hour);
-	LIMES_CONSTEXPR_COPYABLE (Hour);
+	LIMES_CONSTEXPR_MOVABLE (Hour)
+	LIMES_CONSTEXPR_COPYABLE (Hour)
 
 	/** Returns true if this %hour is between midnight and noon. */
 	[[nodiscard]] constexpr bool isAM() const noexcept;

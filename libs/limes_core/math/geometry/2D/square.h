@@ -45,8 +45,8 @@ public:
 	/** Creates a square with the specified side length (in unspecified units). */
 	explicit constexpr Square (ValueType sideLengthToUse) noexcept;
 
-	LIMES_CONSTEXPR_COPYABLE (Square);
-	LIMES_CONSTEXPR_MOVABLE (Square);
+	LIMES_CONSTEXPR_COPYABLE (Square)
+	LIMES_CONSTEXPR_MOVABLE (Square)
 
 	/** Returns the area of the %square.
 		The formula is @f$ A=side^2 @f$.

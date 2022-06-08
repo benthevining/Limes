@@ -47,8 +47,8 @@ public:
 	/** Destructor. */
 	virtual ~Shifter();
 
-	LIMES_DEFAULT_MOVABLE (Shifter);
-	LIMES_DEFAULT_COPYABLE (Shifter);
+	LIMES_DEFAULT_MOVABLE (Shifter)
+	LIMES_DEFAULT_COPYABLE (Shifter)
 
 	/** Sets the pitch, in Hz, of the shifter's output.
 		Note that before calling this, you must set the samplerate of the algorithm using \c Analyzer::setSamplerate() !

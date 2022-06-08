@@ -94,8 +94,8 @@ public:
 	*/
 	explicit Analyzer (int minFreqHz = 60);
 
-	LIMES_NON_COPYABLE (Analyzer);
-	LIMES_DEFAULT_MOVABLE (Analyzer);
+	LIMES_NON_COPYABLE (Analyzer)
+	LIMES_DEFAULT_MOVABLE (Analyzer)
 
 	/**
 		Analyzes a frame of audio. This must be called before \c Shifter::getSamples() , and should be called consistently.

@@ -79,8 +79,8 @@ public:
 
 	///@}
 
-	LIMES_DEFAULT_COPYABLE (Mode);
-	LIMES_DEFAULT_MOVABLE (Mode);
+	LIMES_DEFAULT_COPYABLE (Mode)
+	LIMES_DEFAULT_MOVABLE (Mode)
 
 	/** Returns true if the other modal %scale has the same type and root as this one. */
 	[[nodiscard]] constexpr bool operator== (const Mode& other) const noexcept

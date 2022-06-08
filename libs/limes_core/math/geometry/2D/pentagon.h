@@ -41,8 +41,8 @@ public:
 	/** Creates a pentagon with the specified side length (in unspecified units). */
 	explicit constexpr Pentagon (ValueType sideLength) noexcept;
 
-	LIMES_CONSTEXPR_COPYABLE (Pentagon);
-	LIMES_CONSTEXPR_MOVABLE (Pentagon);
+	LIMES_CONSTEXPR_COPYABLE (Pentagon)
+	LIMES_CONSTEXPR_MOVABLE (Pentagon)
 
 	/** Returns the area of the %pentagon.
 		The formula is @f$ A=\frac{\sqrt{5*side^2*(5+(2*\sqrt{5}))}}{4} @f$.

@@ -40,8 +40,8 @@ public:
 	/** Creates a circle with the given radius (in unspecified units). */
 	explicit constexpr Circle (ValueType radiusToUse) noexcept;
 
-	LIMES_CONSTEXPR_COPYABLE (Circle);
-	LIMES_CONSTEXPR_MOVABLE (Circle);
+	LIMES_CONSTEXPR_COPYABLE (Circle)
+	LIMES_CONSTEXPR_MOVABLE (Circle)
 
 	/** Returns the area of the %circle.
 		The formula is @f$ A=\pi*radius^2 @f$.

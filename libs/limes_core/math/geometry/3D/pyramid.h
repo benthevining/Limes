@@ -48,8 +48,8 @@ public:
 	explicit constexpr Pyramid (const Rectangle<ValueType>& base, ValueType height) noexcept;
 	///@}
 
-	LIMES_CONSTEXPR_COPYABLE (Pyramid);
-	LIMES_CONSTEXPR_MOVABLE (Pyramid);
+	LIMES_CONSTEXPR_COPYABLE (Pyramid)
+	LIMES_CONSTEXPR_MOVABLE (Pyramid)
 
 	/** Returns the surface area of the %pyramid.
 		The formula is @f$ A=(length*width)+(length*\sqrt{\frac{width}{2}^2+height^2+width})+(width*\sqrt{\frac{length}{2}^2+height^2}) @f$.

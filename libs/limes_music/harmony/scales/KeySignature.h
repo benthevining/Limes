@@ -113,8 +113,8 @@ public:
 
 	///@}
 
-	LIMES_DEFAULT_COPYABLE (KeySignature);
-	LIMES_DEFAULT_MOVABLE (KeySignature);
+	LIMES_DEFAULT_COPYABLE (KeySignature)
+	LIMES_DEFAULT_MOVABLE (KeySignature)
 
 	/** Returns true if the other key signature is semantically equivalent to this one. */
 	[[nodiscard]] constexpr bool operator== (const KeySignature& other) const noexcept;

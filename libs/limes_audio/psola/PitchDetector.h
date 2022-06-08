@@ -182,8 +182,8 @@ public:
 		PitchDetectors are stateful, but their state can easily be copied and moved between objects.
 	 */
 	///@{
-	LIMES_DEFAULT_MOVABLE (PitchDetector);
-	LIMES_DEFAULT_COPYABLE (PitchDetector);
+	LIMES_DEFAULT_MOVABLE (PitchDetector)
+	LIMES_DEFAULT_COPYABLE (PitchDetector)
 	///@}
 
 	/** @name Pitch detection

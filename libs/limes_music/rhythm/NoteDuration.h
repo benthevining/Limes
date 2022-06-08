@@ -53,8 +53,8 @@ public:
 	 */
 	constexpr explicit NoteDuration (int kind, int dots = 0);
 
-	LIMES_CONSTEXPR_MOVABLE (NoteDuration);
-	LIMES_CONSTEXPR_COPYABLE (NoteDuration);
+	LIMES_CONSTEXPR_MOVABLE (NoteDuration)
+	LIMES_CONSTEXPR_COPYABLE (NoteDuration)
 
 	/** Returns true if the two note durations are equal. */
 	[[nodiscard]] constexpr bool operator== (const NoteDuration& other) const noexcept;

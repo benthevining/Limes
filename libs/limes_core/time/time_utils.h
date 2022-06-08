@@ -22,6 +22,8 @@
 
 /** @defgroup time Time
 	Utilities for working with time measurements.
+	Limes's date & time library is build on top of the \c std::chrono library, and also provides utilities for interface with the C time API.
+	I wanted a strongly-typed date & time library, which not only creates a cleaner, more useful API, but also allows the programmer to more explicitly express their intent when working with or converting between different time measurements.
 	@ingroup limes_core
  */
 

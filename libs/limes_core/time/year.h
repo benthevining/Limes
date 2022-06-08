@@ -52,8 +52,8 @@ public:
 	explicit Year (std::time_t time);
 	///@}
 
-	LIMES_CONSTEXPR_MOVABLE (Year);
-	LIMES_CONSTEXPR_COPYABLE (Year);
+	LIMES_CONSTEXPR_MOVABLE (Year)
+	LIMES_CONSTEXPR_COPYABLE (Year)
 
 	/** Assigns this year object to a new year number. */
 	constexpr Year& operator= (int newYear) noexcept;

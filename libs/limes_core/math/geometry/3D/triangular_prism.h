@@ -46,8 +46,8 @@ public:
 	explicit constexpr TriangularPrism (ValueType face_base, ValueType face_height, ValueType face_hypotenuse, ValueType prismLength) noexcept;
 	///@}
 
-	LIMES_CONSTEXPR_COPYABLE (TriangularPrism);
-	LIMES_CONSTEXPR_MOVABLE (TriangularPrism);
+	LIMES_CONSTEXPR_COPYABLE (TriangularPrism)
+	LIMES_CONSTEXPR_MOVABLE (TriangularPrism)
 
 	/** Returns the surface area of the prism.
 		The formula is @f$ A=(length*(base+height+hypot))+(base*2*\frac{base*height}{2*base}) @f$.

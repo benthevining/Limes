@@ -89,8 +89,8 @@ public:
 	/** Destructor. */
 	virtual ~Interval() = default;
 
-	LIMES_CONSTEXPR_MOVABLE (Interval);
-	LIMES_CONSTEXPR_COPYABLE (Interval);
+	LIMES_CONSTEXPR_MOVABLE (Interval)
+	LIMES_CONSTEXPR_COPYABLE (Interval)
 
 	/** Describes the quality of the %interval.
 		Note that not all possible quality values are valid for every possible %interval type; a "major fifth" or a "perfect third" do not exist.

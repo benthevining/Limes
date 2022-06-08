@@ -54,8 +54,8 @@ public:
 
 	///@}
 
-	LIMES_DEFAULT_COPYABLE (WholeTone);
-	LIMES_DEFAULT_MOVABLE (WholeTone);
+	LIMES_DEFAULT_COPYABLE (WholeTone)
+	LIMES_DEFAULT_MOVABLE (WholeTone)
 
 	/** Returns true if the other whole tone %scale has the same root as this one. */
 	[[nodiscard]] bool operator== (const WholeTone& other) const;

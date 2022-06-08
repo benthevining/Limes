@@ -16,6 +16,7 @@
 #include "../misc/Functions.h"	// for try_call
 #include "FilesystemEntry.h"	// for FilesystemEntry, Path
 #include <limes_namespace.h>	// for LIMES_BEGIN_NAMESPACE, LIMES_END_...
+#include "../math/mathFunctions.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -89,3 +90,17 @@ bool SymLink::referencesSameLocationAs (const SymLink& other) const
 }  // namespace files
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+
+size_t hash<limes::files::SymLink>::operator() (const limes::files::SymLink& l) const noexcept
+{
+	const auto linkHash = filesystem::hash_value (l.getAbsolutePath());
+
+	const auto targetHash = filesystem::hash_value (l.follow (true));
+
+	return limes::math::szudzikPair (linkHash, targetHash);
+}
+
+}  // namespace std

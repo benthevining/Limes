@@ -47,8 +47,8 @@ public:
 	explicit constexpr Cylinder (const Circle<ValueType>& face, ValueType heightToUse) noexcept;
 	///@}
 
-	LIMES_CONSTEXPR_COPYABLE (Cylinder);
-	LIMES_CONSTEXPR_MOVABLE (Cylinder);
+	LIMES_CONSTEXPR_COPYABLE (Cylinder)
+	LIMES_CONSTEXPR_MOVABLE (Cylinder)
 
 	/** Returns the volume of the %cylinder.
 		The formula is @f$ V=\pi*radius^2*height @f$.

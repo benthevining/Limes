@@ -48,8 +48,8 @@ struct LIMES_EXPORT Fraction final
 	explicit constexpr Fraction (const Fraction<T>& other) noexcept;
 	///@}
 
-	LIMES_CONSTEXPR_COPYABLE (Fraction);
-	LIMES_CONSTEXPR_MOVABLE (Fraction);
+	LIMES_CONSTEXPR_COPYABLE (Fraction)
+	LIMES_CONSTEXPR_MOVABLE (Fraction)
 
 	/** Assigns this %fraction to a new value. */
 	template <Scalar T>

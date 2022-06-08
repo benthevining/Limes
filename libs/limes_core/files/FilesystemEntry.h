@@ -24,6 +24,8 @@
 
 /** @defgroup files Files
 	Utilities for working with the filesystem.
+	Limes's filesystem library is built on top of the \c std::filesystem library. I wanted a strongly-typed interface for working with filesystem objects, primarily to differentiate between files and directories.
+	You can still construct paths that wouldn't be considered canonical for a given filesystem object type -- for instance, the Directory class won't prevent you from creating one referencing \c /usr/documents/a_file.txt -- but I believe that having strongly-typed classes for each kind of filesystem object provides a cleaner API and allows the programmer to more explicitly express their intent.
 	@ingroup limes_core
  */
 
@@ -67,7 +69,6 @@ public:
 
 	/** @name Constructors */
 	///@{
-
 	/** Creates a FilesystemEntry with an empty path. */
 	FilesystemEntry() = default;
 
@@ -75,14 +76,13 @@ public:
 		@param pathToUse The path to this filesystem entry (which may or may not exist)
 	 */
 	explicit FilesystemEntry (const Path& pathToUse);
-
 	///@}
 
 	/** Destructor. */
 	virtual ~FilesystemEntry() = default;
 
-	LIMES_DEFAULT_COPYABLE (FilesystemEntry);
-	LIMES_DEFAULT_MOVABLE (FilesystemEntry);
+	LIMES_DEFAULT_COPYABLE (FilesystemEntry)
+	LIMES_DEFAULT_MOVABLE (FilesystemEntry)
 
 	/** @name Assignment */
 	///@{
@@ -282,8 +282,8 @@ struct LIMES_EXPORT hash<limes::files::FilesystemEntry> final
 {
 	hash() = default;
 
-	LIMES_DEFAULT_COPYABLE (hash);
-	LIMES_DEFAULT_MOVABLE (hash);
+	LIMES_DEFAULT_COPYABLE (hash)
+	LIMES_DEFAULT_MOVABLE (hash)
 
 	size_t operator() (const limes::files::FilesystemEntry& e) const noexcept;
 };

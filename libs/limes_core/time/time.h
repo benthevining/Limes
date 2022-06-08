@@ -41,7 +41,6 @@ public:
 
 	/** @name Constructors */
 	///@{
-
 	/** Creates a Time object representing midnight on the hour. */
 	constexpr Time() = default;
 
@@ -62,8 +61,8 @@ public:
 	explicit Time (const Point<ClockType>& timePoint);
 	///@}
 
-	LIMES_CONSTEXPR_MOVABLE (Time);
-	LIMES_CONSTEXPR_COPYABLE (Time);
+	LIMES_CONSTEXPR_MOVABLE (Time)
+	LIMES_CONSTEXPR_COPYABLE (Time)
 
 	/** Returns true if this %time is between midnight and noon. */
 	[[nodiscard]] constexpr bool isAM() const noexcept;

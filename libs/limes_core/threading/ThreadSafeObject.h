@@ -43,8 +43,8 @@ struct LIMES_EXPORT ThreadedObjectWriter
 
 	ObjectType& object;
 
-	LIMES_NON_COPYABLE (ThreadedObjectWriter);
-	LIMES_NON_MOVABLE (ThreadedObjectWriter);
+	LIMES_NON_COPYABLE (ThreadedObjectWriter)
+	LIMES_NON_MOVABLE (ThreadedObjectWriter)
 
 protected:
 
@@ -73,8 +73,8 @@ struct LIMES_EXPORT ThreadedObjectReader
 
 	const ObjectType& object;
 
-	LIMES_NON_COPYABLE (ThreadedObjectReader);
-	LIMES_NON_MOVABLE (ThreadedObjectReader);
+	LIMES_NON_COPYABLE (ThreadedObjectReader)
+	LIMES_NON_MOVABLE (ThreadedObjectReader)
 };
 
 /** A wrapper class that makes an object thread safe.
@@ -102,8 +102,8 @@ public:
 	/** Constructor. */
 	ThreadSafeObject() = default;
 
-	LIMES_NON_COPYABLE (ThreadSafeObject);
-	LIMES_NON_MOVABLE (ThreadSafeObject);
+	LIMES_NON_COPYABLE (ThreadSafeObject)
+	LIMES_NON_MOVABLE (ThreadSafeObject)
 
 	/** Acquires a read-only copy of the owned object. */
 	[[nodiscard]] Reader read (size_t threadIdx)

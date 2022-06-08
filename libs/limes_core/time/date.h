@@ -44,7 +44,6 @@ public:
 
 	/** @name Constructors */
 	///@{
-
 	/** Creates a Date object representing January 1, year 0. */
 	constexpr Date() = default;
 
@@ -73,8 +72,8 @@ public:
 	explicit Date (const Point<ClockType>& timePoint);
 	///@}
 
-	LIMES_CONSTEXPR_MOVABLE (Date);
-	LIMES_CONSTEXPR_COPYABLE (Date);
+	LIMES_CONSTEXPR_MOVABLE (Date)
+	LIMES_CONSTEXPR_COPYABLE (Date)
 
 	/** Returns the year of this %date. */
 	[[nodiscard]] constexpr Year getYear() const noexcept;

@@ -43,8 +43,8 @@ public:
 	/** Creates a rectangle with the specified length and width (in unspecified units). */
 	explicit constexpr Rectangle (ValueType lengthToUse, ValueType widthToUse) noexcept;
 
-	LIMES_CONSTEXPR_COPYABLE (Rectangle);
-	LIMES_CONSTEXPR_MOVABLE (Rectangle);
+	LIMES_CONSTEXPR_COPYABLE (Rectangle)
+	LIMES_CONSTEXPR_MOVABLE (Rectangle)
 
 	/** Returns the area of the %rectangle.
 		The formula is @f$ A=length*width @f$.

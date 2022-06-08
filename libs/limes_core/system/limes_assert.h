@@ -91,7 +91,7 @@ LIMES_END_NAMESPACE
 	This macro can be used in constexpr functions, but assertion failures will not be caught or logged if the function is evaluated at compile time.
 	In release builds, this macro expands to nothing.
 	@see LIMES_ASSERT, LIMES_UNREACHABLE
-	@ingroup system
+	@ingroup preprocessor
  */
 #	define LIMES_ASSERT_FALSE
 
@@ -100,7 +100,7 @@ LIMES_END_NAMESPACE
 	This macro can be used in constexpr functions, but assertion failures will not be caught or logged if the function is evaluated at compile time.
 	In release builds, this macro expands to nothing.
 	@see LIMES_ASSERT_FALSE
-	@ingroup system
+	@ingroup preprocessor
  */
 #	define LIMES_ASSERT(condition)
 
@@ -109,7 +109,7 @@ LIMES_END_NAMESPACE
 	The use case of this macro is to indicate to the compiler and to static analysis tools that a control path is intended to be unreachable.
 	If a code path should not be reached, but may be in some cases, use \c LIMES_ASSERT_FALSE instead.
 	@see LIMES_ASSERT_FALSE
-	@ingroup system
+	@ingroup preprocessor
  */
 #	define LIMES_UNREACHABLE
 

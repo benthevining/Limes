@@ -47,8 +47,8 @@ public:
 	explicit constexpr Sphere (const Circle<ValueType>& greatCircle) noexcept;
 	///@}
 
-	LIMES_CONSTEXPR_COPYABLE (Sphere);
-	LIMES_CONSTEXPR_MOVABLE (Sphere);
+	LIMES_CONSTEXPR_COPYABLE (Sphere)
+	LIMES_CONSTEXPR_MOVABLE (Sphere)
 
 	/** Returns the volume of the %sphere.
 		The formula is @f$ V=\pi*radius^3*\frac{4}{3} @f$.

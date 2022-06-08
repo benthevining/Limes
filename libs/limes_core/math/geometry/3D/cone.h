@@ -47,8 +47,8 @@ public:
 	explicit constexpr Cone (const Circle<ValueType>& face, ValueType height) noexcept;
 	///@}
 
-	LIMES_CONSTEXPR_COPYABLE (Cone);
-	LIMES_CONSTEXPR_MOVABLE (Cone);
+	LIMES_CONSTEXPR_COPYABLE (Cone)
+	LIMES_CONSTEXPR_MOVABLE (Cone)
 
 	/** Returns the radius of the cone's face. */
 	[[nodiscard]] constexpr ValueType radius() const noexcept;

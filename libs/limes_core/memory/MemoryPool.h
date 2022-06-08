@@ -64,8 +64,8 @@ public:
 	/** Destructor. */
 	~MemoryPool();
 
-	LIMES_NON_COPYABLE (MemoryPool);
-	LIMES_NON_MOVABLE (MemoryPool);
+	LIMES_NON_COPYABLE (MemoryPool)
+	LIMES_NON_MOVABLE (MemoryPool)
 
 	/** Returns the total size, in bytes, of the memory pool's preallocated memory. */
 	[[nodiscard]] std::size_t getTotalSize() const noexcept;
@@ -193,8 +193,8 @@ public:
 	 */
 	~MemoryPoolPointer();
 
-	LIMES_NON_COPYABLE (MemoryPoolPointer);
-	LIMES_DEFAULT_MOVABLE (MemoryPoolPointer);
+	LIMES_NON_COPYABLE (MemoryPoolPointer)
+	LIMES_DEFAULT_MOVABLE (MemoryPoolPointer)
 
 	/** Accessors
 		Returns a pointer to the owned object.

@@ -38,8 +38,8 @@ public:
 
 	~ScopedStreamFlags();
 
-	LIMES_NON_COPYABLE (ScopedStreamFlags);
-	LIMES_NON_MOVABLE (ScopedStreamFlags);
+	LIMES_NON_COPYABLE (ScopedStreamFlags)
+	LIMES_NON_MOVABLE (ScopedStreamFlags)
 
 private:
 

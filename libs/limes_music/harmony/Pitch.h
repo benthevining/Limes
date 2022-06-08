@@ -60,8 +60,8 @@ public:
 	}
 	///@}
 
-	LIMES_CONSTEXPR_MOVABLE (Pitch);
-	LIMES_CONSTEXPR_COPYABLE (Pitch);
+	LIMES_CONSTEXPR_MOVABLE (Pitch)
+	LIMES_CONSTEXPR_COPYABLE (Pitch)
 
 	/** @name Equality comparisons */
 	///@{

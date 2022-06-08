@@ -59,8 +59,8 @@ public:
 	Random();
 	///@}
 
-	LIMES_DEFAULT_MOVABLE (Random);
-	LIMES_DEFAULT_COPYABLE (Random);
+	LIMES_DEFAULT_MOVABLE (Random)
+	LIMES_DEFAULT_COPYABLE (Random)
 
 	/** Returns the next value from the %random number generator. */
 	[[nodiscard]] ValueType nextValue();

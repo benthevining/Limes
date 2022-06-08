@@ -41,7 +41,6 @@ public:
 
 	/** @name Constructors */
 	///@{
-
 	/** Creates a DateTime object representing midnight on January 1, year 0. */
 	constexpr DateTime() = default;
 
@@ -57,11 +56,10 @@ public:
 	/** Creates a DateTime object from a \c std::chrono::time_point of any Clock type. */
 	template <Clock ClockType>
 	explicit DateTime (const Point<ClockType>& timePoint);
-
 	///@}
 
-	LIMES_CONSTEXPR_MOVABLE (DateTime);
-	LIMES_CONSTEXPR_COPYABLE (DateTime);
+	LIMES_CONSTEXPR_MOVABLE (DateTime)
+	LIMES_CONSTEXPR_COPYABLE (DateTime)
 
 	/** Converts this DateTime to a \c std::tm object. */
 	[[nodiscard]] constexpr std::tm getStdTime() const noexcept;

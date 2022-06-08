@@ -60,8 +60,8 @@ public:
 
 	///@}
 
-	LIMES_DEFAULT_COPYABLE (Octatonic);
-	LIMES_DEFAULT_MOVABLE (Octatonic);
+	LIMES_DEFAULT_COPYABLE (Octatonic)
+	LIMES_DEFAULT_MOVABLE (Octatonic)
 
 	/** Returns true if the other %octatonic %scale is equal to this one. */
 	[[nodiscard]] bool operator== (const Octatonic& other) const;

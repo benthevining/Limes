@@ -20,8 +20,17 @@ namespace dsp
 {
 
 template <Sample SampleType>
-SampleStream<SampleType>::SampleStream (std::function<SampleType()>&& sampleFuncToUse)
-	: sampleFunc (std::move (sampleFuncToUse))
+SampleStream<SampleType>::SampleStream (SampleGenerationFunc&& sampleFuncToUse)
+	: sampleFunc (std::move (sampleFuncToUse)), blockFunc ([this] (SampleType* output, int num)
+														   {
+	for (auto i = 0; i < num; ++i)
+		output[i] = sampleFunc(); })	 // NOLINT
+{
+}
+
+template <Sample SampleType>
+SampleStream<SampleType>::SampleStream (SampleGenerationFunc&& sampleFuncToUse, BlockProcessingFunc&& blockFuncToUse)
+	: sampleFunc (std::move (sampleFuncToUse)), blockFunc (std::move (blockFuncToUse))
 {
 }
 
@@ -34,14 +43,13 @@ SampleType SampleStream<SampleType>::getSample() const
 template <Sample SampleType>
 void SampleStream<SampleType>::getSamples (SampleType* const output, int numSamples) const
 {
-	for (auto i = 0; i < numSamples; ++i)
-		output[i] = sampleFunc();  // NOLINT
+	blockFunc (output, numSamples);
 }
 
 template <Sample SampleType>
 void SampleStream<SampleType>::getSamples (SampleVector& output)
 {
-	getSamples (output.data(), output.numObjects());
+	blockFunc (output.data(), output.numObjects());
 }
 
 template <Sample SampleType>

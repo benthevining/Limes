@@ -26,6 +26,7 @@
 
 /** @defgroup meta Metaprogramming
 	Utilities for metaprogramming.
+	This module contains some concept definitions, and an implementation of a type list.
 	@ingroup limes_core
  */
 

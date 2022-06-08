@@ -41,8 +41,8 @@ public:
 	/** Creates an octagon with the specified side length (in unspecified units). */
 	explicit constexpr Octagon (ValueType sideLength) noexcept;
 
-	LIMES_CONSTEXPR_COPYABLE (Octagon);
-	LIMES_CONSTEXPR_MOVABLE (Octagon);
+	LIMES_CONSTEXPR_COPYABLE (Octagon)
+	LIMES_CONSTEXPR_MOVABLE (Octagon)
 
 	/** Returns the area of the %octagon.
 		The formula is @f$ A=side^2*2*(1+\sqrt{2}) @f$.

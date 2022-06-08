@@ -51,8 +51,8 @@ public:
 	{
 	}
 
-	LIMES_NON_COPYABLE (MemoryPoolAllocator);
-	LIMES_NON_MOVABLE (MemoryPoolAllocator);
+	LIMES_NON_COPYABLE (MemoryPoolAllocator)
+	LIMES_NON_MOVABLE (MemoryPoolAllocator)
 
 	bool operator== (const MemoryPoolAllocator& other) const noexcept
 	{

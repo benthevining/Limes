@@ -54,8 +54,8 @@ public:
 	}
 	///@}
 
-	LIMES_CONSTEXPR_COPYABLE (MicrotonalInterval);
-	LIMES_CONSTEXPR_MOVABLE (MicrotonalInterval);
+	LIMES_CONSTEXPR_COPYABLE (MicrotonalInterval)
+	LIMES_CONSTEXPR_MOVABLE (MicrotonalInterval)
 
 	/** Returns true if these two microtonal intervals represent the same fractional amount of semitones. */
 	[[nodiscard]] constexpr bool operator== (const MicrotonalInterval& other)

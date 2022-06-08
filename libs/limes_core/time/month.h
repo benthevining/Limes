@@ -75,7 +75,6 @@ public:
 
 	/** @name Constructors */
 	///@{
-
 	/** Creates a Month object representing January. */
 	constexpr Month() = default;
 
@@ -90,11 +89,10 @@ public:
 
 	/** Creates a Month object from the \c std::time_t object. */
 	explicit Month (std::time_t time);
-
 	///@}
 
-	LIMES_CONSTEXPR_MOVABLE (Month);
-	LIMES_CONSTEXPR_COPYABLE (Month);
+	LIMES_CONSTEXPR_MOVABLE (Month)
+	LIMES_CONSTEXPR_COPYABLE (Month)
 
 	/** @name Assignment
 		Reassigns this Month object to refer to a new %month.

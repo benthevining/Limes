@@ -121,8 +121,8 @@ public:
 	{
 		Storage();
 
-		LIMES_DEFAULT_MOVABLE (Storage);
-		LIMES_DEFAULT_COPYABLE (Storage);
+		LIMES_DEFAULT_MOVABLE (Storage)
+		LIMES_DEFAULT_COPYABLE (Storage)
 
 		ds::scalar_vector<Sampletype>* operator->() noexcept;
 

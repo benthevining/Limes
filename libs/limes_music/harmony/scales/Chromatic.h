@@ -54,8 +54,8 @@ public:
 
 	///@}
 
-	LIMES_DEFAULT_COPYABLE (Chromatic);
-	LIMES_DEFAULT_MOVABLE (Chromatic);
+	LIMES_DEFAULT_COPYABLE (Chromatic)
+	LIMES_DEFAULT_MOVABLE (Chromatic)
 
 	/** Returns true if the other %chromatic %scale starts on the same %pitch class as this one. */
 	[[nodiscard]] bool operator== (const Chromatic& other) const;

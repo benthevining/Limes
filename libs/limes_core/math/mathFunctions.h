@@ -127,6 +127,24 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T factorial (T number) 
 template <Scalar T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T middleOfThree (T a, T b, T c) noexcept;
 
+/** Calculates the Cantor pairing function from two integers.
+	This is a computationally efficient way to create a single hash value that combines two others.
+	The formula is:
+	@f[
+		c = (a+b)*\frac{a+b+1}{2}+a
+	@f]
+	@see szudzikPair
+ */
+template <Integral T>
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T cantorPair (T a, T b) noexcept;
+
+/** Calculates the Szudzik pairing function from two integers.
+	This is a computationally efficient way to create a single hash value that combines two others.
+	@see cantorPair
+ */
+template <Integral T>
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T szudzikPair (T a, T b) noexcept;
+
 /*---------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Audio utility functions

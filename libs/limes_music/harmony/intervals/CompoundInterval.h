@@ -69,8 +69,8 @@ public:
 	[[nodiscard]] static CompoundInterval fromPitches (const Pitch& pitch1, const Pitch& pitch2) noexcept;
 	///@}
 
-	LIMES_CONSTEXPR_MOVABLE (CompoundInterval);
-	LIMES_CONSTEXPR_COPYABLE (CompoundInterval);
+	LIMES_CONSTEXPR_MOVABLE (CompoundInterval)
+	LIMES_CONSTEXPR_COPYABLE (CompoundInterval)
 
 	/** Returns true if the two compound intervals are exactly equal; that is, have the same number of octaves, and their simple %interval components are exactly equal in kind and quality. */
 	[[nodiscard]] constexpr bool operator== (const CompoundInterval& other) const noexcept;

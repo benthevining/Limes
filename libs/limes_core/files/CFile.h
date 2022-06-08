@@ -69,7 +69,7 @@ public:
 	/** Move assignment operator. */
 	CFile& operator= (CFile&& other) noexcept;
 
-	LIMES_NON_COPYABLE (CFile);
+	LIMES_NON_COPYABLE (CFile)
 
 	/** @name Accessors */
 	///@{

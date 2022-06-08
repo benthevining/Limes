@@ -51,8 +51,8 @@ public:
 	/** Destructor. If the library is open when this object is destroyed, the destructor will close the library. */
 	~DynamicLibrary();
 
-	LIMES_DEFAULT_COPYABLE (DynamicLibrary);
-	LIMES_DEFAULT_MOVABLE (DynamicLibrary);
+	LIMES_DEFAULT_COPYABLE (DynamicLibrary)
+	LIMES_DEFAULT_MOVABLE (DynamicLibrary)
 
 	/** Returns true if this library object refers to the same shared library as the other one. */
 	[[nodiscard]] bool operator== (const DynamicLibrary& other) const noexcept;
@@ -109,8 +109,8 @@ struct LIMES_EXPORT hash<limes::files::DynamicLibrary> final
 {
 	hash() = default;
 
-	LIMES_DEFAULT_COPYABLE (hash);
-	LIMES_DEFAULT_MOVABLE (hash);
+	LIMES_DEFAULT_COPYABLE (hash)
+	LIMES_DEFAULT_MOVABLE (hash)
 
 	size_t operator() (const limes::files::DynamicLibrary& l) const noexcept;
 };

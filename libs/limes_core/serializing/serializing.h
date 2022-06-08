@@ -21,6 +21,7 @@
 #include <type_traits>
 #include "../misc/preprocessor.h"
 #include "../meta/TypeList.h"
+#include <functional>  // for std::hash
 
 /** @defgroup serializing Serializing
 	Utilities for data serialization.
@@ -459,3 +460,23 @@ LIMES_EXPORT [[nodiscard]] std::string toXML (const std::string_view& jsonText);
 }  // namespace serializing
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+
+/** A specialization of \c std::hash for Node objects.
+	The hash value is computed based on the JSON string created from the Node.
+	@ingroup serializing
+ */
+template <>
+struct LIMES_EXPORT hash<limes::serializing::Node> final
+{
+	hash() = default;
+
+	LIMES_DEFAULT_COPYABLE (hash)
+	LIMES_DEFAULT_MOVABLE (hash)
+
+	size_t operator() (const limes::serializing::Node& n) const noexcept;
+};
+
+}  // namespace std

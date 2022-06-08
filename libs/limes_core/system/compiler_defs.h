@@ -17,13 +17,14 @@
 
 /** @file
 	This file defines various compiler-specific utility macros.
-	@ingroup system
+	@ingroup preprocessor
  */
 
 #ifdef DOXYGEN
 
 /** @def LIMES_CURRENT_FUNCTION_NAME
 	A string-literal that expands to the current function name, pretty-printed if supported by the compiler.
+	@ingroup preprocessor
  */
 #	define LIMES_CURRENT_FUNCTION_NAME
 
@@ -33,7 +34,7 @@
 	@code
 	LIMES_FORCE_INLINE void someFunction();
 	@endcode
-	@ingroup system
+	@ingroup preprocessor
  */
 #	define LIMES_FORCE_INLINE
 
@@ -43,7 +44,7 @@
 	@code
 	LIMES_NEVER_INLINE void someFunction();
 	@endcode
-	@ingroup system
+	@ingroup preprocessor
  */
 #	define LIMES_NEVER_INLINE
 
@@ -53,7 +54,7 @@
 	@code
 	LIMES_PURE_FUNCTION void someFunction();
 	@endcode
-	@ingroup system
+	@ingroup preprocessor
  */
 #	define LIMES_PURE_FUNCTION
 
@@ -63,7 +64,7 @@
 	@code
 	void someFunction (char* LIMES_RESTRICT ptrA, char* LIMES_RESTRICT ptrB);
 	@endcode
-	@ingroup system
+	@ingroup preprocessor
  */
 #	define LIMES_RESTRICT
 
@@ -78,7 +79,7 @@
 	};
 	)
 	@endcode
-	@ingroup system
+	@ingroup preprocessor
  */
 #	define LIMES_PACK(declaration)
 

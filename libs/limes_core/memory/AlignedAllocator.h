@@ -53,8 +53,8 @@ public:
 	template <typename OtherType, std::size_t OtherAlignment, bool OtherExceptions>
 	constexpr AlignedAllocator (const AlignedAllocator<OtherType, OtherAlignment, OtherExceptions>&) noexcept;
 
-	LIMES_CONSTEXPR_COPYABLE (AlignedAllocator);
-	LIMES_CONSTEXPR_MOVABLE (AlignedAllocator);
+	LIMES_CONSTEXPR_COPYABLE (AlignedAllocator)
+	LIMES_CONSTEXPR_MOVABLE (AlignedAllocator)
 
 	consteval bool operator== (const AlignedAllocator&) const noexcept;
 	consteval bool operator!= (const AlignedAllocator&) const noexcept;

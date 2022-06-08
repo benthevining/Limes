@@ -50,8 +50,8 @@ public:
 	explicit WhiteNoiseGenerator (math::Random& randomToFork);
 	///@}
 
-	LIMES_DEFAULT_MOVABLE (WhiteNoiseGenerator);
-	LIMES_DEFAULT_COPYABLE (WhiteNoiseGenerator);
+	LIMES_DEFAULT_MOVABLE (WhiteNoiseGenerator)
+	LIMES_DEFAULT_COPYABLE (WhiteNoiseGenerator)
 
 private:
 

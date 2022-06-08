@@ -29,8 +29,8 @@ public:
 
 	constexpr explicit NoteLength (int numBeats, NoteDuration kind, int dots = 0, bool isGraceNote = false);
 
-	LIMES_DEFAULT_MOVABLE (NoteLength);
-	LIMES_DEFAULT_COPYABLE (NoteLength);
+	LIMES_DEFAULT_MOVABLE (NoteLength)
+	LIMES_DEFAULT_COPYABLE (NoteLength)
 
 	[[nodiscard]] constexpr bool operator== (const NoteLength& other) const noexcept;
 

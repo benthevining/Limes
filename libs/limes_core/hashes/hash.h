@@ -21,6 +21,7 @@
 
 /** @defgroup hashes Hashes
 	Cryptographic hash functions.
+	Limes provides MD5, SHA1, SHA224, SHA256, SHA384, and SHA512 hashing functions for any opaque data, and a common interface for calculating any of them.
 	@ingroup limes_core
  */
 

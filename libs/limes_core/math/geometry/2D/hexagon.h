@@ -41,8 +41,8 @@ public:
 	/** Creates a hexagon with the specified side length (in unspecified units). */
 	explicit constexpr Hexagon (ValueType sideLength) noexcept;
 
-	LIMES_CONSTEXPR_COPYABLE (Hexagon);
-	LIMES_CONSTEXPR_MOVABLE (Hexagon);
+	LIMES_CONSTEXPR_COPYABLE (Hexagon)
+	LIMES_CONSTEXPR_MOVABLE (Hexagon)
 
 	/** Returns the area of the %hexagon.
 		The formula is @f$ A=side^2*3*\sqrt{\frac{3}{2}} @f$.
