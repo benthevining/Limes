@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Limes: Main Page</title>
+<title>Limes: Limes documentation</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,17 +89,64 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Limes Documentation</div>  </div>
+<div class="title">Limes documentation </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><div class="fragment"><div class="line"> __    ____  __  __  ____  ___</div>
+<div class="line">(  )  (_  _)(  \/  )( ___)/ __)</div>
+<div class="line"> )(__  _)(_  )    (  )__) \__ \</div>
+<div class="line">(____)(____)(_/\/\_)(____)(___/</div>
+</div><!-- fragment --><dl class="section version"><dt>Version</dt><dd>4.8.1 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Ben Vining </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2020 - 2022</dd></dl>
+<p>Limes is a collection of C++ libraries providing both low-level utilities and high-level abstractions that I have found useful to have in a centralized location.</p>
+<p>Limes also provides a few small command-line utilities built using these libraries, and some CMake scripts for integrating Limes features into your build.</p>
+<p>Limes consists of the following libraries:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Name </th><th class="markdownTableHeadNone">Description </th><th class="markdownTableHeadNone">Dependencies  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">limes_audio </td><td class="markdownTableBodyNone">Realtime audio utilities </td><td class="markdownTableBodyNone">limes_data_structures  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">limes_core </td><td class="markdownTableBodyNone">Core utilities </td><td class="markdownTableBodyNone">None  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">limes_data_structures </td><td class="markdownTableBodyNone">Data structures </td><td class="markdownTableBodyNone">limes_vecops  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">limes_locale </td><td class="markdownTableBodyNone">Localization utilities </td><td class="markdownTableBodyNone">limes_data_structures  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">limes_midi </td><td class="markdownTableBodyNone">MIDI utilities </td><td class="markdownTableBodyNone">limes_core  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">limes_music </td><td class="markdownTableBodyNone">Music theory utilities </td><td class="markdownTableBodyNone">limes_data_structures  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">limes_vecops </td><td class="markdownTableBodyNone">SIMD operations for vectors </td><td class="markdownTableBodyNone">limes_core  </td></tr>
+</table>
+<p>And the following command line utilities:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Name </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">FileUtil </td><td class="markdownTableBodyNone">OS-agnostic interface for a wide variety of filesystem tasks  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">BinaryBuilder </td><td class="markdownTableBodyNone">Generates C++ source files which embed binary data files  </td></tr>
+</table>
+<p>The following reference manuals are available:</p><ul>
+<li><a class="el" href="db/d05/using_limes.html">Compiling &amp; using Limes</a> Compiling &amp; using Limes</li>
+<li><a class="el" href="d9/d7d/find_limes.html">FindLimes.cmake</a> The FindLimes.cmake script</li>
+<li><a class="el" href="d6/d08/limes_programs.html">Utility programs</a> Utility programs</li>
+</ul>
+<p>Here is the dependency graph for Limes: </p><div class="image">
+<img src="deps_graph.png" alt=""/>
+</div>
+<p>  deps_graph.png </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Jun 8 2022 22:06:23 for Limes by
+    <li class="footer">Generated on Wed Jun 8 2022 22:09:30 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

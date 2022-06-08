@@ -94,6 +94,7 @@ var searchData=
   ['cylinder_190',['Cylinder',['../d7/d42/classlimes_1_1math_1_1geometry_1_1_cylinder.html',1,'limes::math::geometry::Cylinder&lt; ValueType &gt;'],['../d7/d42/classlimes_1_1math_1_1geometry_1_1_cylinder.html#a169655e9f9077b5ec1631d045acfff66',1,'limes::math::geometry::Cylinder::Cylinder(ValueType radiusToUse, ValueType heightToUse) noexcept'],['../d7/d42/classlimes_1_1math_1_1geometry_1_1_cylinder.html#ac543cfc582d22244338a4e072fb26097',1,'limes::math::geometry::Cylinder::Cylinder(const Circle&lt; ValueType &gt; &amp;face, ValueType heightToUse) noexcept']]],
   ['cylinder_2eh_191',['cylinder.h',['../d0/d67/cylinder_8h.html',1,'']]],
   ['countries_192',['Countries',['../d2/d91/group__loc__country.html',1,'']]],
-  ['complex_20conversions_193',['Complex conversions',['../de/d2a/group__vec__complex.html',1,'']]],
-  ['cosine_20functions_194',['Cosine functions',['../dd/d22/group__vec__cos.html',1,'']]]
+  ['compiling_20_26_20using_20limes_193',['Compiling &amp; using Limes',['../db/d05/using_limes.html',1,'index']]],
+  ['complex_20conversions_194',['Complex conversions',['../de/d2a/group__vec__complex.html',1,'']]],
+  ['cosine_20functions_195',['Cosine functions',['../dd/d22/group__vec__cos.html',1,'']]]
 ];

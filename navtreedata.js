@@ -23,6 +23,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "Limes", "index.html", [
+    [ "Limes documentation", "index.html", "index" ],
     [ "Test List", "d4/df6/test.html", null ],
     [ "Bibliography", "d0/de3/citelist.html", null ],
     [ "Modules", "modules.html", "modules" ],
@@ -58,15 +59,15 @@ var NAVTREEINDEX =
 "d3/d53/preprocessor_8h.html#a2f2f7ff55e6633527be63c1b0d366a02",
 "d4/d90/classlimes_1_1time_1_1_weekday.html#aca8e5490c7d063ed4c27dc813389ea62",
 "d5/d2d/classlimes_1_1memory_1_1_stack_allocator.html#a8c9be770b46787a7195081c1af8734b7",
-"d6/d74/group__vec__exp.html#gaf0fd2a71a838d6a84a2443b28a900b66",
-"d7/df8/classlimes_1_1files_1_1_temp_file.html#a3fdb9587a43fbb71e21ee1139e32ad91",
-"d9/d48/structlimes_1_1math_1_1_fraction.html#a304c83fe4ec86accaf6273c2397b055f",
-"da/d90/classlimes_1_1music_1_1_interval.html#a3b1ee8dbec7d76f4e10b4ecd85f99c49",
-"db/de1/classlimes_1_1files_1_1_directory.html#a9769e7f27fea1f1b437c6b4ae1517a7f",
-"dc/dd9/structlimes_1_1music_1_1_pitch_class.html#acaba71b653dabf36a6e395d5de0ca1fd",
-"de/d08/classlimes_1_1time_1_1_year.html#aa5555f7b45f7ec1f85914f6ee929624d",
-"de/dde/_string_utils_8h.html#a30033399e70246bd3fd0c2567a2905e7",
-"df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a6d38b6b295518d14632f03457276e9a5"
+"d6/d5d/classlimes_1_1math_1_1_matrix.html",
+"d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#a6026ff00311bac2fc1babd52628a22ad",
+"d8/de5/namespacelimes_1_1dsp_1_1filters.html",
+"da/d70/classlimes_1_1memory_1_1_raw_data.html#a1be30ef4dcddd961b925ee164689c796",
+"db/ddc/classlimes_1_1math_1_1geometry_1_1_triangular_prism.html#ada4c6f8ca18d5bfbbfa0f39d79ebd3d9",
+"dc/db3/build__date_8h.html#ga074fa34571f22ac34cc6415c814a0e4f",
+"dd/dbe/classlimes_1_1ds_1_1basic__vector.html#abf0ac4e85c262597e73c092a2e2ba014",
+"de/d2a/group__vec__complex.html#ga456451f252f8df15676aa469a757f14d",
+"df/d1e/classlimes_1_1files_1_1_file.html#a8edaa47b3ec229af6f96ee2457e633d2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
