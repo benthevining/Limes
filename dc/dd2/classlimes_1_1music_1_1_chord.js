@@ -10,10 +10,8 @@ var classlimes_1_1music_1_1_chord =
     [ "getHighestPitch", "dc/dd2/classlimes_1_1music_1_1_chord.html#ad2a78a36e9a0b58e25e202a43d3cfc39", null ],
     [ "getIntervals", "dc/dd2/classlimes_1_1music_1_1_chord.html#a89924f6296b12a17c8e0214fe90a8442", null ],
     [ "getLowestPitch", "dc/dd2/classlimes_1_1music_1_1_chord.html#a0989b82e8deccdb3f65b423b15f89c46", null ],
-    [ "getNumPitches", "dc/dd2/classlimes_1_1music_1_1_chord.html#a4b73b684a7ef17789e8c194f66b7f7a0", null ],
     [ "getNumUniquePitchClasses", "dc/dd2/classlimes_1_1music_1_1_chord.html#a6fed6514602cc7f6e1842f7901446988", null ],
     [ "getPitchClasses", "dc/dd2/classlimes_1_1music_1_1_chord.html#ac53d2ad1a774dd461d3e2e14b3085b7d", null ],
     [ "getPitches", "dc/dd2/classlimes_1_1music_1_1_chord.html#ab48d7f4a55bee73bf805e5c873360b25", null ],
-    [ "LIMES_DEFAULT_COPYABLE", "dc/dd2/classlimes_1_1music_1_1_chord.html#a7806780258aebbf4e87ceca4d8200d46", null ],
-    [ "LIMES_DEFAULT_MOVABLE", "dc/dd2/classlimes_1_1music_1_1_chord.html#a3cc577100cf400059924c29bea7b9f6c", null ]
+    [ "LIMES_DEFAULT_MOVABLE", "dc/dd2/classlimes_1_1music_1_1_chord.html#ad82e9767e5ff7386820f00b247371343", null ]
 ];

@@ -1,6 +1,7 @@
 var math_functions_8h =
 [
     [ "abs", "dc/d5c/math_functions_8h.html#ga514ee773c330a0ff7d19286b13f83b53", null ],
+    [ "cantorPair", "dc/d5c/math_functions_8h.html#gab42b28022fcb4deb9046611be599ecb3", null ],
     [ "factorial", "dc/d5c/math_functions_8h.html#ga5d2f2720c191268e9a17d15e0b25ff3c", null ],
     [ "freqFromPeriod", "dc/d5c/math_functions_8h.html#gaacee5ce0fef613d9f08eb4ec86bfe056", null ],
     [ "freqToMidi", "dc/d5c/math_functions_8h.html#ga79c120b8a72137dd368c391208d82240", null ],
@@ -20,6 +21,7 @@ var math_functions_8h =
     [ "power", "dc/d5c/math_functions_8h.html#ga8d26141199f013e584e33b0cf04bd0b8", null ],
     [ "round", "dc/d5c/math_functions_8h.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36", null ],
     [ "sampsToMs", "dc/d5c/math_functions_8h.html#gab8a73b8ec5cd084065838b8d2b860874", null ],
+    [ "szudzikPair", "dc/d5c/math_functions_8h.html#gacef4a8376d871af0e8a60b59cb0a6859", null ],
     [ "blackman_alpha", "dc/d5c/math_functions_8h.html#acd2c4e25f4779b0adbaf2d0bec4c8130", null ],
     [ "half_pi", "dc/d5c/math_functions_8h.html#a38913333455736bdae51b03d7e8640bb", null ],
     [ "Integral", "dc/d5c/math_functions_8h.html#ga78b6e7e3ca15b70ce958d0f028d607ed", null ],

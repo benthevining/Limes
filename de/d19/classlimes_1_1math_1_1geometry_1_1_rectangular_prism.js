@@ -1,14 +1,10 @@
 var classlimes_1_1math_1_1geometry_1_1_rectangular_prism =
 [
     [ "RectangularPrism", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism.html#acfd5830236cedd40faabea76f3e3b0dc", null ],
-    [ "RectangularPrism", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism.html#aa674acd40d9b393df5467fc3b059995f", null ],
-    [ "RectangularPrism", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism.html#aea9a3c28639421bd6bad565d337468e7", null ],
     [ "height", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism.html#aa483bb5bcbda58ebe7213b35aa6a1fd4", null ],
     [ "isCube", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism.html#a82907a7bf300d3bf96752302614800d7", null ],
     [ "length", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism.html#a86d26f7ff10edc264c4d2a0d4dd6c4fb", null ],
     [ "operator!=", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism.html#ac1b396efab83ba179b7d7a26c88e9f1e", null ],
-    [ "operator=", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism.html#acfbecceed1680afcab79789621b65567", null ],
-    [ "operator=", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism.html#ad490d9f0c5aec16436981cbf39e71836", null ],
     [ "operator==", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism.html#a406266b503ae0889cf749650c8be870e", null ],
     [ "spaceDiagonal", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism.html#a04aa482780b4a884fe355959d75d50ce", null ],
     [ "surfaceArea", "de/d19/classlimes_1_1math_1_1geometry_1_1_rectangular_prism.html#ad0a7b78196b650b581cedec7f5446442", null ],

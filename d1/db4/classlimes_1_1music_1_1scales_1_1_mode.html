@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('d1/db4/classlimes_1_1music_1_1scales_1
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../d4/dcd/classlimes_1_1music_1_1scales_1_1_mode-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">limes::music::scales::Mode Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
+<div class="title">limes::music::scales::Mode Class Reference<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -142,9 +142,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af7f86cf9724823c8fafefd4545262ceb"><td class="memItemLeft" align="right" valign="top">ds::vector&lt; <a class="el" href="../../da/d90/classlimes_1_1music_1_1_interval.html">Interval</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd5/structlimes_1_1music_1_1scales_1_1_scale.html#af7f86cf9724823c8fafefd4545262ceb">getIntervals</a> () const</td></tr>
 <tr class="memdesc:af7f86cf9724823c8fafefd4545262ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of <a class="el" href="../../da/d90/classlimes_1_1music_1_1_interval.html" title="A class that represents a musical interval between two pitches.">Interval</a> objects that represent the intervals in this scale.  <a href="../../d1/dd5/structlimes_1_1music_1_1scales_1_1_scale.html#af7f86cf9724823c8fafefd4545262ceb">More...</a><br /></td></tr>
 <tr class="separator:af7f86cf9724823c8fafefd4545262ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1114c97a27add74ac8ef11d970149ca4"><td class="memItemLeft" align="right" valign="top">ds::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a1114c97a27add74ac8ef11d970149ca4">getIntervalsAsSemitones</a> () const final</td></tr>
-<tr class="memdesc:a1114c97a27add74ac8ef11d970149ca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the set of intervals that make up this mode.  <a href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a1114c97a27add74ac8ef11d970149ca4">More...</a><br /></td></tr>
-<tr class="separator:a1114c97a27add74ac8ef11d970149ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f9132c5a15fb9e71504740c210cfe7c"><td class="memItemLeft" align="right" valign="top">virtual ds::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd5/structlimes_1_1music_1_1scales_1_1_scale.html#a4f9132c5a15fb9e71504740c210cfe7c">getIntervalsAsSemitones</a> () const =0</td></tr>
+<tr class="memdesc:a4f9132c5a15fb9e71504740c210cfe7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subclasses must implement this to return an array of integers representing the intervals in this scale as a series of semitone steps.  <a href="../../d1/dd5/structlimes_1_1music_1_1scales_1_1_scale.html#a4f9132c5a15fb9e71504740c210cfe7c">More...</a><br /></td></tr>
+<tr class="separator:a4f9132c5a15fb9e71504740c210cfe7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ca47c7a05018f3e3e1c75b1e5415615"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d0e/classlimes_1_1music_1_1scales_1_1_key_signature.html">KeySignature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a9ca47c7a05018f3e3e1c75b1e5415615">getKeySignature</a> () const noexcept</td></tr>
 <tr class="memdesc:a9ca47c7a05018f3e3e1c75b1e5415615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an equivalent key signature for this mode.  <a href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a9ca47c7a05018f3e3e1c75b1e5415615">More...</a><br /></td></tr>
 <tr class="separator:a9ca47c7a05018f3e3e1c75b1e5415615"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,24 +172,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2269e36a578545b22f75d046dc290292"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d5f/classlimes_1_1music_1_1_pitch.html">Pitch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd5/structlimes_1_1music_1_1scales_1_1_scale.html#a2269e36a578545b22f75d046dc290292">getRoot</a> (int octaveNumber) const noexcept</td></tr>
 <tr class="memdesc:a2269e36a578545b22f75d046dc290292"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pitch object representing the root of this scale in the specified MIDI octave number.  <a href="../../d1/dd5/structlimes_1_1music_1_1scales_1_1_scale.html#a2269e36a578545b22f75d046dc290292">More...</a><br /></td></tr>
 <tr class="separator:a2269e36a578545b22f75d046dc290292"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33d274b364b4bd10fa9c093b97c6b6f1"><td class="memItemLeft" align="right" valign="top"><a id="a33d274b364b4bd10fa9c093b97c6b6f1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LIMES_DEFAULT_COPYABLE</b> (<a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html">Mode</a>)</td></tr>
-<tr class="separator:a33d274b364b4bd10fa9c093b97c6b6f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07234cbc35dbc11afb9f7533467a20f2"><td class="memItemLeft" align="right" valign="top"><a id="a07234cbc35dbc11afb9f7533467a20f2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LIMES_DEFAULT_MOVABLE</b> (<a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html">Mode</a>)</td></tr>
-<tr class="separator:a07234cbc35dbc11afb9f7533467a20f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac28a416aa76b67305c61ec7a70f62adb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#ac28a416aa76b67305c61ec7a70f62adb">LIMES_DEFAULT_COPYABLE</a> (<a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html">Mode</a>) <a class="el" href="../../d3/d6b/group__preprocessor.html#gaa204cf467eb45621b139f7fbf6b0f503">LIMES_DEFAULT_MOVABLE</a>(<a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html">Mode</a>) const expr bool operator</td></tr>
+<tr class="memdesc:ac28a416aa76b67305c61ec7a70f62adb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the other modal scale has the same type and root as this one.  <a href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#ac28a416aa76b67305c61ec7a70f62adb">More...</a><br /></td></tr>
+<tr class="separator:ac28a416aa76b67305c61ec7a70f62adb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e5d9aa3afcba7676d1045f1b2a004d2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a9e5d9aa3afcba7676d1045f1b2a004d2">notesPerOctave</a> () const noexcept final</td></tr>
 <tr class="memdesc:a9e5d9aa3afcba7676d1045f1b2a004d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns 8.  <a href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a9e5d9aa3afcba7676d1045f1b2a004d2">More...</a><br /></td></tr>
 <tr class="separator:a9e5d9aa3afcba7676d1045f1b2a004d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa055ee2c7faaa888670bb10b7313a934"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#aa055ee2c7faaa888670bb10b7313a934">operator!=</a> (const <a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html">Mode</a> &amp;other) const noexcept</td></tr>
-<tr class="memdesc:aa055ee2c7faaa888670bb10b7313a934"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the other modal scale does not have the same type and root as this one.  <a href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#aa055ee2c7faaa888670bb10b7313a934">More...</a><br /></td></tr>
-<tr class="separator:aa055ee2c7faaa888670bb10b7313a934"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a3f61c64ae5f1e1f8cacd49a2c8584a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd5/structlimes_1_1music_1_1scales_1_1_scale.html#a6a3f61c64ae5f1e1f8cacd49a2c8584a">operator!=</a> (const <a class="el" href="../../d1/dd5/structlimes_1_1music_1_1scales_1_1_scale.html">Scale</a> &amp;other) const</td></tr>
 <tr class="memdesc:a6a3f61c64ae5f1e1f8cacd49a2c8584a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the other scale's root pitch class or interval set are different than this one's.  <a href="../../d1/dd5/structlimes_1_1music_1_1scales_1_1_scale.html#a6a3f61c64ae5f1e1f8cacd49a2c8584a">More...</a><br /></td></tr>
 <tr class="separator:a6a3f61c64ae5f1e1f8cacd49a2c8584a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7146794c0c6219a799bb7efc761a2afa"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a7146794c0c6219a799bb7efc761a2afa">operator==</a> (const <a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html">Mode</a> &amp;other) const noexcept</td></tr>
-<tr class="memdesc:a7146794c0c6219a799bb7efc761a2afa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the other modal scale has the same type and root as this one.  <a href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a7146794c0c6219a799bb7efc761a2afa">More...</a><br /></td></tr>
-<tr class="separator:a7146794c0c6219a799bb7efc761a2afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e41dab3eee3479e41c975da6a9b8668"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd5/structlimes_1_1music_1_1scales_1_1_scale.html#a7e41dab3eee3479e41c975da6a9b8668">operator==</a> (const <a class="el" href="../../d1/dd5/structlimes_1_1music_1_1scales_1_1_scale.html">Scale</a> &amp;other) const</td></tr>
 <tr class="memdesc:a7e41dab3eee3479e41c975da6a9b8668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the other scale has the same root pitch class and interval set as this one.  <a href="../../d1/dd5/structlimes_1_1music_1_1scales_1_1_scale.html#a7e41dab3eee3479e41c975da6a9b8668">More...</a><br /></td></tr>
 <tr class="separator:a7e41dab3eee3479e41c975da6a9b8668"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -444,8 +435,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1114c97a27add74ac8ef11d970149ca4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1114c97a27add74ac8ef11d970149ca4">&#9670;&nbsp;</a></span>getIntervalsAsSemitones()</h2>
+<a id="a4f9132c5a15fb9e71504740c210cfe7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f9132c5a15fb9e71504740c210cfe7c">&#9670;&nbsp;</a></span>getIntervalsAsSemitones()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -454,7 +445,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ds::vector&lt;int&gt; limes::music::scales::Mode::getIntervalsAsSemitones </td>
+          <td class="memname">virtual ds::vector&lt;int&gt; limes::music::scales::Scale::getIntervalsAsSemitones </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -462,14 +453,14 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the set of intervals that make up this mode. </p>
+<p>Subclasses must implement this to return an array of integers representing the intervals in this scale as a series of semitone steps. </p>
 
-<p>Implements <a class="el" href="../../d1/dd5/structlimes_1_1music_1_1scales_1_1_scale.html#a4f9132c5a15fb9e71504740c210cfe7c">limes::music::scales::Scale</a>.</p>
+<p>Implemented in <a class="el" href="../../d5/d0e/classlimes_1_1music_1_1scales_1_1_key_signature.html#a483a28755da0847decdb148ab9b0f094">limes::music::scales::KeySignature</a>, <a class="el" href="../../d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a1053fc2c5484fadc25d1765e7ccb1a06">limes::music::scales::Octatonic</a>, <a class="el" href="../../dc/d53/classlimes_1_1music_1_1scales_1_1_chromatic.html#a3494909f9e664a33c401215653f55d59">limes::music::scales::Chromatic</a>, and <a class="el" href="../../d7/d2a/classlimes_1_1music_1_1scales_1_1_whole_tone.html#a6493ae695158964bbdf394ac309306c2">limes::music::scales::WholeTone</a>.</p>
 
 </div>
 </div>
@@ -741,6 +732,26 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac28a416aa76b67305c61ec7a70f62adb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac28a416aa76b67305c61ec7a70f62adb">&#9670;&nbsp;</a></span>LIMES_DEFAULT_COPYABLE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">limes::music::scales::Mode::LIMES_DEFAULT_COPYABLE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html">Mode</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if the other modal scale has the same type and root as this one. </p>
+
+</div>
+</div>
 <a id="a9e5d9aa3afcba7676d1045f1b2a004d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9e5d9aa3afcba7676d1045f1b2a004d2">&#9670;&nbsp;</a></span>notesPerOctave()</h2>
 
@@ -770,38 +781,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa055ee2c7faaa888670bb10b7313a934"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa055ee2c7faaa888670bb10b7313a934">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool limes::music::scales::Mode::operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html">Mode</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns true if the other modal scale does not have the same type and root as this one. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d8/daa/_mode_8h_source.html#l00092">92</a> of file <a class="el" href="../../d8/daa/_mode_8h_source.html">Mode.h</a>.</p>
-
-</div>
-</div>
 <a id="a6a3f61c64ae5f1e1f8cacd49a2c8584a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a3f61c64ae5f1e1f8cacd49a2c8584a">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a3f61c64ae5f1e1f8cacd49a2c8584a">&#9670;&nbsp;</a></span>operator!=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -828,38 +809,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7146794c0c6219a799bb7efc761a2afa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7146794c0c6219a799bb7efc761a2afa">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool limes::music::scales::Mode::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html">Mode</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns true if the other modal scale has the same type and root as this one. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d8/daa/_mode_8h_source.html#l00086">86</a> of file <a class="el" href="../../d8/daa/_mode_8h_source.html">Mode.h</a>.</p>
-
-</div>
-</div>
 <a id="a7e41dab3eee3479e41c975da6a9b8668"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e41dab3eee3479e41c975da6a9b8668">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e41dab3eee3479e41c975da6a9b8668">&#9670;&nbsp;</a></span>operator==()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -895,7 +846,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../db/ddd/namespacelimes_1_1music.html">music</a></li><li class="navelem"><a class="el" href="../../d0/d3a/namespacelimes_1_1music_1_1scales.html">scales</a></li><li class="navelem"><a class="el" href="../../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html">Mode</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 20:07:19 for Limes by
+    <li class="footer">Generated on Wed Jun 8 2022 00:33:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

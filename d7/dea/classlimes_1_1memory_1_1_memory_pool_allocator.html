@@ -93,7 +93,6 @@ $(document).ready(function(){initNavTree('d7/dea/classlimes_1_1memory_1_1_memory
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../d5/d09/classlimes_1_1memory_1_1_memory_pool_allocator-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">limes::memory::MemoryPoolAllocator&lt; T, MaxCapacity &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
@@ -134,55 +133,43 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b> = std:
 using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = T</td></tr>
 <tr class="separator:aa45fc08a5309e879d0dfa59d8eda2cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:aef0d057ffd30c73c998a5a2650b5a3ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#aef0d057ffd30c73c998a5a2650b5a3ad">MemoryPoolAllocator</a> (const <a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a> &amp;)=delete</td></tr>
-<tr class="memdesc:aef0d057ffd30c73c998a5a2650b5a3ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">MemoryPoolAllocator is not copyable.  <a href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#aef0d057ffd30c73c998a5a2650b5a3ad">More...</a><br /></td></tr>
-<tr class="separator:aef0d057ffd30c73c998a5a2650b5a3ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d9a668b9aec3a541fbcd87577e983fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#a5d9a668b9aec3a541fbcd87577e983fd">MemoryPoolAllocator</a> (<a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a5d9a668b9aec3a541fbcd87577e983fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">MemoryPoolAllocator is not movable.  <a href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#a5d9a668b9aec3a541fbcd87577e983fd">More...</a><br /></td></tr>
-<tr class="separator:a5d9a668b9aec3a541fbcd87577e983fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac02bfb2bf4e21bfa2054e07f18aa022f"><td class="memItemLeft" align="right" valign="top"><a id="ac02bfb2bf4e21bfa2054e07f18aa022f"></a>
-const T *&#160;</td><td class="memItemRight" valign="bottom"><b>address</b> (const T &amp;s) const noexcept</td></tr>
-<tr class="separator:ac02bfb2bf4e21bfa2054e07f18aa022f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac466550ea5183ced2b8235ebdd669651"><td class="memItemLeft" align="right" valign="top"><a id="ac466550ea5183ced2b8235ebdd669651"></a>
-T *&#160;</td><td class="memItemRight" valign="bottom"><b>address</b> (T &amp;r) const noexcept</td></tr>
-<tr class="separator:ac466550ea5183ced2b8235ebdd669651"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Moving</h2></td></tr>
+<tr class="memitem:a56f6302e63bc7eea5dd22eb1cb2868d0"><td class="memItemLeft" align="right" valign="top"><a id="a56f6302e63bc7eea5dd22eb1cb2868d0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a56f6302e63bc7eea5dd22eb1cb2868d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a717f39923fd0292567d492d8cc21929c"><td class="memItemLeft" align="right" valign="top"><a id="a717f39923fd0292567d492d8cc21929c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a717f39923fd0292567d492d8cc21929c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa36e3e9fc2f1da49096542043a6a4fb3"><td class="memItemLeft" align="right" valign="top"><a id="aa36e3e9fc2f1da49096542043a6a4fb3"></a>
+T *&#160;</td><td class="memItemRight" valign="bottom"><b>allocate</b> (std::size_t num) noexcept</td></tr>
+<tr class="separator:aa36e3e9fc2f1da49096542043a6a4fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1f40b248552c37ce2b55fdab2329636"><td class="memTemplParams" colspan="2"><a id="ae1f40b248552c37ce2b55fdab2329636"></a>
 template&lt;typename U &gt; </td></tr>
 <tr class="memitem:ae1f40b248552c37ce2b55fdab2329636"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>allocate</b> (size_t num, const U *) noexcept</td></tr>
 <tr class="separator:ae1f40b248552c37ce2b55fdab2329636"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa36e3e9fc2f1da49096542043a6a4fb3"><td class="memItemLeft" align="right" valign="top"><a id="aa36e3e9fc2f1da49096542043a6a4fb3"></a>
-T *&#160;</td><td class="memItemRight" valign="bottom"><b>allocate</b> (std::size_t num) noexcept</td></tr>
-<tr class="separator:aa36e3e9fc2f1da49096542043a6a4fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19e7fda3c47b6037917acabbd06ba81c"><td class="memItemLeft" align="right" valign="top"><a id="a19e7fda3c47b6037917acabbd06ba81c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>deallocate</b> (T *const ptr, std::size_t num) noexcept</td></tr>
+<tr class="separator:a19e7fda3c47b6037917acabbd06ba81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac466550ea5183ced2b8235ebdd669651"><td class="memItemLeft" align="right" valign="top"><a id="ac466550ea5183ced2b8235ebdd669651"></a>
+T *&#160;</td><td class="memItemRight" valign="bottom"><b>address</b> (T &amp;r) const noexcept</td></tr>
+<tr class="separator:ac466550ea5183ced2b8235ebdd669651"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac02bfb2bf4e21bfa2054e07f18aa022f"><td class="memItemLeft" align="right" valign="top"><a id="ac02bfb2bf4e21bfa2054e07f18aa022f"></a>
+const T *&#160;</td><td class="memItemRight" valign="bottom"><b>address</b> (const T &amp;s) const noexcept</td></tr>
+<tr class="separator:ac02bfb2bf4e21bfa2054e07f18aa022f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc404b9ea34602e6d877a3bc83db4cba"><td class="memItemLeft" align="right" valign="top"><a id="adc404b9ea34602e6d877a3bc83db4cba"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>max_size</b> () const noexcept</td></tr>
+<tr class="separator:adc404b9ea34602e6d877a3bc83db4cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6026ff00311bac2fc1babd52628a22ad"><td class="memItemLeft" align="right" valign="top"><a id="a6026ff00311bac2fc1babd52628a22ad"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>construct</b> (T *const ptr, const T &amp;t) const noexcept(std::is_nothrow_copy_constructible_v&lt; T &gt;)</td></tr>
+<tr class="separator:a6026ff00311bac2fc1babd52628a22ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe3bc6477970dd84664ca8a7704d0e4b"><td class="memTemplParams" colspan="2"><a id="afe3bc6477970dd84664ca8a7704d0e4b"></a>
 template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:afe3bc6477970dd84664ca8a7704d0e4b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (T *const ptr, Args &amp;&amp;... args) const</td></tr>
 <tr class="separator:afe3bc6477970dd84664ca8a7704d0e4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6026ff00311bac2fc1babd52628a22ad"><td class="memItemLeft" align="right" valign="top"><a id="a6026ff00311bac2fc1babd52628a22ad"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>construct</b> (T *const ptr, const T &amp;t) const noexcept(std::is_nothrow_copy_constructible_v&lt; T &gt;)</td></tr>
-<tr class="separator:a6026ff00311bac2fc1babd52628a22ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19e7fda3c47b6037917acabbd06ba81c"><td class="memItemLeft" align="right" valign="top"><a id="a19e7fda3c47b6037917acabbd06ba81c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>deallocate</b> (T *const ptr, std::size_t num) noexcept</td></tr>
-<tr class="separator:a19e7fda3c47b6037917acabbd06ba81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99a8a4daae9c60e0666560b2ff3be3d6"><td class="memItemLeft" align="right" valign="top"><a id="a99a8a4daae9c60e0666560b2ff3be3d6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> (T *const ptr) const noexcept</td></tr>
 <tr class="separator:a99a8a4daae9c60e0666560b2ff3be3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc404b9ea34602e6d877a3bc83db4cba"><td class="memItemLeft" align="right" valign="top"><a id="adc404b9ea34602e6d877a3bc83db4cba"></a>
-std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>max_size</b> () const noexcept</td></tr>
-<tr class="separator:adc404b9ea34602e6d877a3bc83db4cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a717f39923fd0292567d492d8cc21929c"><td class="memItemLeft" align="right" valign="top"><a id="a717f39923fd0292567d492d8cc21929c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:a717f39923fd0292567d492d8cc21929c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff70496c354343816aaa62e5170a0a21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#aff70496c354343816aaa62e5170a0a21">operator=</a> (const <a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a> &amp;)=delete</td></tr>
-<tr class="memdesc:aff70496c354343816aaa62e5170a0a21"><td class="mdescLeft">&#160;</td><td class="mdescRight">MemoryPoolAllocator is not copyable.  <a href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#aff70496c354343816aaa62e5170a0a21">More...</a><br /></td></tr>
-<tr class="separator:aff70496c354343816aaa62e5170a0a21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6f863e2561a621df4f1b2de9e672cee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#ab6f863e2561a621df4f1b2de9e672cee">operator=</a> (<a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:ab6f863e2561a621df4f1b2de9e672cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">MemoryPoolAllocator is not movable.  <a href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#ab6f863e2561a621df4f1b2de9e672cee">More...</a><br /></td></tr>
-<tr class="separator:ab6f863e2561a621df4f1b2de9e672cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56f6302e63bc7eea5dd22eb1cb2868d0"><td class="memItemLeft" align="right" valign="top"><a id="a56f6302e63bc7eea5dd22eb1cb2868d0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a> &amp;other) const noexcept</td></tr>
-<tr class="separator:a56f6302e63bc7eea5dd22eb1cb2868d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T, std::size_t MaxCapacity&gt;<br />
@@ -222,128 +209,6 @@ other</td>
 
 </div>
 </div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aef0d057ffd30c73c998a5a2650b5a3ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef0d057ffd30c73c998a5a2650b5a3ad">&#9670;&nbsp;</a></span>MemoryPoolAllocator() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , std::size_t MaxCapacity&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">limes::memory::MemoryPoolAllocator</a>&lt; T, MaxCapacity &gt;::<a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a>&lt; T, MaxCapacity &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>MemoryPoolAllocator is not copyable. </p>
-
-</div>
-</div>
-<a id="a5d9a668b9aec3a541fbcd87577e983fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d9a668b9aec3a541fbcd87577e983fd">&#9670;&nbsp;</a></span>MemoryPoolAllocator() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , std::size_t MaxCapacity&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">limes::memory::MemoryPoolAllocator</a>&lt; T, MaxCapacity &gt;::<a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a>&lt; T, MaxCapacity &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>MemoryPoolAllocator is not movable. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="aff70496c354343816aaa62e5170a0a21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff70496c354343816aaa62e5170a0a21">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , std::size_t MaxCapacity&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a>&amp; <a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">limes::memory::MemoryPoolAllocator</a>&lt; T, MaxCapacity &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a>&lt; T, MaxCapacity &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>MemoryPoolAllocator is not copyable. </p>
-
-</div>
-</div>
-<a id="ab6f863e2561a621df4f1b2de9e672cee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6f863e2561a621df4f1b2de9e672cee">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , std::size_t MaxCapacity&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a>&amp; <a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">limes::memory::MemoryPoolAllocator</a>&lt; T, MaxCapacity &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a>&lt; T, MaxCapacity &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>MemoryPoolAllocator is not movable. </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="../../d5/d53/_memory_pool_allocator_8h_source.html">MemoryPoolAllocator.h</a></li>
 </ul>
@@ -353,7 +218,7 @@ template&lt;typename T , std::size_t MaxCapacity&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d0/deb/namespacelimes_1_1memory.html">memory</a></li><li class="navelem"><a class="el" href="../../d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html">MemoryPoolAllocator</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 20:07:19 for Limes by
+    <li class="footer">Generated on Wed Jun 8 2022 00:33:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

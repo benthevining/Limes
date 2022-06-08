@@ -191,6 +191,14 @@ Files</h2></td></tr>
 <tr class="memitem:ga82cc1c47568221dc63727ebe3686d60d"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#ga82cc1c47568221dc63727ebe3686d60d">limes::math::middleOfThree</a> (T a, T b, T c) noexcept</td></tr>
 <tr class="memdesc:ga82cc1c47568221dc63727ebe3686d60d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the median of three values.  <a href="../../d9/dfc/group__core__math.html#ga82cc1c47568221dc63727ebe3686d60d">More...</a><br /></td></tr>
 <tr class="separator:ga82cc1c47568221dc63727ebe3686d60d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab42b28022fcb4deb9046611be599ecb3"><td class="memTemplParams" colspan="2">template&lt;Integral T&gt; </td></tr>
+<tr class="memitem:gab42b28022fcb4deb9046611be599ecb3"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#gab42b28022fcb4deb9046611be599ecb3">limes::math::cantorPair</a> (T a, T b) noexcept</td></tr>
+<tr class="memdesc:gab42b28022fcb4deb9046611be599ecb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the Cantor pairing function from two integers.  <a href="../../d9/dfc/group__core__math.html#gab42b28022fcb4deb9046611be599ecb3">More...</a><br /></td></tr>
+<tr class="separator:gab42b28022fcb4deb9046611be599ecb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacef4a8376d871af0e8a60b59cb0a6859"><td class="memTemplParams" colspan="2">template&lt;Integral T&gt; </td></tr>
+<tr class="memitem:gacef4a8376d871af0e8a60b59cb0a6859"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#gacef4a8376d871af0e8a60b59cb0a6859">limes::math::szudzikPair</a> (T a, T b) noexcept</td></tr>
+<tr class="memdesc:gacef4a8376d871af0e8a60b59cb0a6859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the Szudzik pairing function from two integers.  <a href="../../d9/dfc/group__core__math.html#gacef4a8376d871af0e8a60b59cb0a6859">More...</a><br /></td></tr>
+<tr class="separator:gacef4a8376d871af0e8a60b59cb0a6859"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaad252ebdd65713b59abdbe0f5f2d7bd9"><td class="memTemplParams" colspan="2">template&lt;Scalar FreqType&gt; </td></tr>
 <tr class="memitem:gaad252ebdd65713b59abdbe0f5f2d7bd9"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html#gaad252ebdd65713b59abdbe0f5f2d7bd9">limes::math::periodInSamples</a> (double samplerate, FreqType freqHz) noexcept</td></tr>
 <tr class="memdesc:gaad252ebdd65713b59abdbe0f5f2d7bd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the period in samples of a frequency at the specified samplerate.  <a href="../../d9/dfc/group__core__math.html#gaad252ebdd65713b59abdbe0f5f2d7bd9">More...</a><br /></td></tr>
@@ -248,6 +256,52 @@ template&lt;Scalar T&gt; </div>
 <p><code>#include &lt;<a class="el" href="../../dc/d5c/math_functions_8h.html">mathFunctions.h</a>&gt;</code></p>
 
 <p>A constexpr-enabled absolute value function. </p>
+
+</div>
+</div>
+<a id="gab42b28022fcb4deb9046611be599ecb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab42b28022fcb4deb9046611be599ecb3">&#9670;&nbsp;</a></span>cantorPair()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Integral T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr T limes::math::cantorPair </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../dc/d5c/math_functions_8h.html">mathFunctions.h</a>&gt;</code></p>
+
+<p>Calculates the Cantor pairing function from two integers. </p>
+<p>This is a computationally efficient way to create a single hash value that combines two others. The formula is: </p><p class="formulaDsp">
+\[ c = (a+b)*\frac{a+b+1}{2}+a \]
+</p>
+ <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/dfc/group__core__math.html#gacef4a8376d871af0e8a60b59cb0a6859" title="Calculates the Szudzik pairing function from two integers.">szudzikPair</a> </dd></dl>
 
 </div>
 </div>
@@ -1010,6 +1064,49 @@ template&lt;Integral Integer&gt; </div>
 
 </div>
 </div>
+<a id="gacef4a8376d871af0e8a60b59cb0a6859"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacef4a8376d871af0e8a60b59cb0a6859">&#9670;&nbsp;</a></span>szudzikPair()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Integral T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr T limes::math::szudzikPair </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>#include &lt;<a class="el" href="../../dc/d5c/math_functions_8h.html">mathFunctions.h</a>&gt;</code></p>
+
+<p>Calculates the Szudzik pairing function from two integers. </p>
+<p>This is a computationally efficient way to create a single hash value that combines two others. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/dfc/group__core__math.html#gab42b28022fcb4deb9046611be599ecb3" title="Calculates the Cantor pairing function from two integers.">cantorPair</a> </dd></dl>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="ga78b6e7e3ca15b70ce958d0f028d607ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga78b6e7e3ca15b70ce958d0f028d607ed">&#9670;&nbsp;</a></span>Integral</h2>
@@ -1060,7 +1157,7 @@ template&lt;typename T &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jun 7 2022 20:07:18 for Limes by
+    <li class="footer">Generated on Wed Jun 8 2022 00:33:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

@@ -13,12 +13,10 @@ var classlimes_1_1music_1_1scales_1_1_octatonic =
     [ "getPitches", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a4a6119cabee1c95f0b023fd7c7653219", null ],
     [ "getPitches", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a98332f22ac3b61df8d4e42792fbc3fd0", null ],
     [ "getRoot", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a2269e36a578545b22f75d046dc290292", null ],
-    [ "LIMES_DEFAULT_COPYABLE", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a41bdde04d50ce82b098ca339108ff502", null ],
-    [ "LIMES_DEFAULT_MOVABLE", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a605193af30ac15572807f491ac7a1a25", null ],
+    [ "LIMES_DEFAULT_COPYABLE", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a938df712f60204400ed0b3562c6e0579", null ],
     [ "notesPerOctave", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#adee36410693cc5772c921aa439ca9eae", null ],
     [ "operator!=", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#af1162b5517d199f3478de4c5eabba65d", null ],
     [ "operator!=", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a6a3f61c64ae5f1e1f8cacd49a2c8584a", null ],
-    [ "operator==", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#ad556101fa5ab232c0eaebca628060c0e", null ],
     [ "operator==", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a7e41dab3eee3479e41c975da6a9b8668", null ],
     [ "startsWithHalfStep", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a872bf59beb846c87c53f50873e504677", null ],
     [ "startsWithWholeStep", "d4/dbd/classlimes_1_1music_1_1scales_1_1_octatonic.html#a1486f49a83df85db4cb3b643a9e3691f", null ]

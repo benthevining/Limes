@@ -6,8 +6,6 @@ var classlimes_1_1time_1_1_time =
     [ "Time", "d4/d96/classlimes_1_1time_1_1_time.html#a52c39e86a000e882b4717365ee45a01d", null ],
     [ "Time", "d4/d96/classlimes_1_1time_1_1_time.html#afd0c25b73fbcc8deac2b110262f9d34a", null ],
     [ "Time", "d4/d96/classlimes_1_1time_1_1_time.html#a840d7d6bec176c8bd9b366e7f4e08cb2", null ],
-    [ "Time", "d4/d96/classlimes_1_1time_1_1_time.html#afda3677cbd901a1560c2d6b619844920", null ],
-    [ "Time", "d4/d96/classlimes_1_1time_1_1_time.html#a8b5054cdbc7e5d70c65d4d3b3cd2d097", null ],
     [ "getCompilationTime", "d4/d96/classlimes_1_1time_1_1_time.html#abea7725d43013f2f0724e049b540f7db", null ],
     [ "getCurrent", "d4/d96/classlimes_1_1time_1_1_time.html#a61f060e760a19d8b19196c28ed59d38e", null ],
     [ "getHour", "d4/d96/classlimes_1_1time_1_1_time.html#abffb30ad4f5b9ddb07be0327478a8d9f", null ],
@@ -22,8 +20,6 @@ var classlimes_1_1time_1_1_time =
     [ "isPM", "d4/d96/classlimes_1_1time_1_1_time.html#a49e0594e0ef5c5514ade6a8b6f1dba45", null ],
     [ "operator!=", "d4/d96/classlimes_1_1time_1_1_time.html#a9037b4a429a3839040b81f1061444ed5", null ],
     [ "operator<", "d4/d96/classlimes_1_1time_1_1_time.html#a3ea948ce8252da57314db4dc5d3c84ae", null ],
-    [ "operator=", "d4/d96/classlimes_1_1time_1_1_time.html#a196faadd25926ce74bcb075b95832e8f", null ],
-    [ "operator=", "d4/d96/classlimes_1_1time_1_1_time.html#acb8ab4b7b8ec76e99bc269a1a46b2c56", null ],
     [ "operator==", "d4/d96/classlimes_1_1time_1_1_time.html#aabf93bd314183b7c4d885ed6d8aef933", null ],
     [ "operator>", "d4/d96/classlimes_1_1time_1_1_time.html#a01ccdf3eb9d1a4a924404612e342cd75", null ],
     [ "toString", "d4/d96/classlimes_1_1time_1_1_time.html#afa50477cff2333586b06bfc363fe09e6", null ]

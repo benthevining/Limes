@@ -2,6 +2,7 @@ var serializing_8h =
 [
     [ "Node", "dd/d09/classlimes_1_1serializing_1_1_node.html", "dd/d09/classlimes_1_1serializing_1_1_node" ],
     [ "SerializableData", "df/da9/classlimes_1_1serializing_1_1_serializable_data.html", "df/da9/classlimes_1_1serializing_1_1_serializable_data" ],
+    [ "hash< limes::serializing::Node >", "de/dd2/structstd_1_1hash_3_01limes_1_1serializing_1_1_node_01_4.html", "de/dd2/structstd_1_1hash_3_01limes_1_1serializing_1_1_node_01_4" ],
     [ "Array", "da/d17/serializing_8h.html#gab45a9e05c757d8ff85ffa97d87382069", null ],
     [ "DataType", "da/d17/serializing_8h.html#ga0dda006986140fd743506c361279cbf4", null ],
     [ "Object", "da/d17/serializing_8h.html#gabb05e41e8a3ad3f33ab63c5f0c019397", null ],

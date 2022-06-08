@@ -161,7 +161,7 @@ $(document).ready(function(){initNavTree('dc/d9b/math_functions__impl_8h_source.
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">template</span> &lt;Scalar T&gt;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;constexpr T <a class="code" href="../../d9/dfc/group__core__math.html#ga7fa3c07491e7409e7f695a70960d4579">limit</a> (T input, T <a class="code" href="../../d9/dfc/group__core__math.html#gada391234ea82372c9e005ed208f2db13">min</a>, T <a class="code" href="../../d9/dfc/group__core__math.html#ga340ba1fa93e3ff5987d94fd11d07b39a">max</a>) noexcept</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (<a class="code" href="../../d9/dfc/group__core__math.html#ga340ba1fa93e3ff5987d94fd11d07b39a">max</a> &gt; <a class="code" href="../../d9/dfc/group__core__math.html#gada391234ea82372c9e005ed208f2db13">min</a>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="../../d3/d6b/group__preprocessor.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (<a class="code" href="../../d9/dfc/group__core__math.html#ga340ba1fa93e3ff5987d94fd11d07b39a">max</a> &gt; <a class="code" href="../../d9/dfc/group__core__math.html#gada391234ea82372c9e005ed208f2db13">min</a>);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">if</span> (input &gt; <a class="code" href="../../d9/dfc/group__core__math.html#ga340ba1fa93e3ff5987d94fd11d07b39a">max</a>) <span class="keywordflow">return</span> <a class="code" href="../../d9/dfc/group__core__math.html#ga340ba1fa93e3ff5987d94fd11d07b39a">max</a>;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span> (input &lt; <a class="code" href="../../d9/dfc/group__core__math.html#gada391234ea82372c9e005ed208f2db13">min</a>) <span class="keywordflow">return</span> <a class="code" href="../../d9/dfc/group__core__math.html#gada391234ea82372c9e005ed208f2db13">min</a>;</div>
@@ -191,8 +191,8 @@ $(document).ready(function(){initNavTree('dc/d9b/math_functions__impl_8h_source.
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">template</span> &lt;Scalar T&gt;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;constexpr T <a class="code" href="../../d9/dfc/group__core__math.html#ga8e1376561c18c5700f25bf9d16fa5f3a">map</a> (T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (sourceRangeMax != sourceRangeMin);  <span class="comment">// mapping from a range of zero will produce NaN!</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (targetRangeMax != targetRangeMin);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="../../d3/d6b/group__preprocessor.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (sourceRangeMax != sourceRangeMin);  <span class="comment">// mapping from a range of zero will produce NaN!</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="../../d3/d6b/group__preprocessor.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (targetRangeMax != targetRangeMin);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> targetRangeMin + ((targetRangeMax - targetRangeMin) * (input - sourceRangeMin)) / (sourceRangeMax - sourceRangeMin);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
@@ -237,7 +237,7 @@ $(document).ready(function(){initNavTree('dc/d9b/math_functions__impl_8h_source.
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="keyword">template</span> &lt;Integral T&gt;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;constexpr T <a class="code" href="../../d9/dfc/group__core__math.html#ga5d2f2720c191268e9a17d15e0b25ff3c">factorial</a> (T number) noexcept</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;{</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (number &gt;= 0);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <a class="code" href="../../d3/d6b/group__preprocessor.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (number &gt;= 0);</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">if</span> (number == 0)</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">return</span> 1;</div>
@@ -253,88 +253,111 @@ $(document).ready(function(){initNavTree('dc/d9b/math_functions__impl_8h_source.
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                       c });</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment">/*---------------------------------------------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor">#pragma mark Audio utility functions</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="keyword">template</span> &lt;Scalar FreqType&gt;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;constexpr <span class="keywordtype">int</span> <a class="code" href="../../d9/dfc/group__core__math.html#gaad252ebdd65713b59abdbe0f5f2d7bd9">periodInSamples</a> (<span class="keywordtype">double</span> samplerate, FreqType freqHz) noexcept</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;{</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (freqHz &gt; FreqType (0.));</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="keyword">template</span> &lt;Integral T&gt;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;constexpr T <a class="code" href="../../d9/dfc/group__core__math.html#gab42b28022fcb4deb9046611be599ecb3">cantorPair</a> (T a, T b) noexcept</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;{</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> A = a &gt;= T (0) ? T (2) * a : T (-2) * a - T (1);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> B = b &gt;= T (0) ? T (2) * b : T (-2) * b - T (1);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">return</span> (A + B) * (A + B + T (1)) / T (2) + A;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> val = samplerate / <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (freqHz);</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> (val);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keyword">template</span> &lt;Scalar PeriodType&gt;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;constexpr PeriodType <a class="code" href="../../d9/dfc/group__core__math.html#gaacee5ce0fef613d9f08eb4ec86bfe056">freqFromPeriod</a> (<span class="keywordtype">double</span> samplerate, PeriodType period) noexcept</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;{</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (period &gt; PeriodType (0.));</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> val = samplerate / <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (period);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keyword">template</span> &lt;Integral T&gt;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;constexpr T <a class="code" href="../../d9/dfc/group__core__math.html#gacef4a8376d871af0e8a60b59cb0a6859">szudzikPair</a> (T a, T b) noexcept</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;{</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> A = a &gt;= T (0) ? T (2) * a : T (-2) * a - T (1);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> B = b &gt;= T (0) ? T (2) * b : T (-2) * b - T (1);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordflow">if</span> (A &gt;= B)</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keywordflow">return</span> A * A + A + B;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordflow">return</span> A + B * B;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;}</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_integral_v&lt;PeriodType&gt;)</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>PeriodType<span class="keyword">&gt;</span> (<a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> (val));</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>PeriodType<span class="keyword">&gt;</span> (val);</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;}</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keyword">template</span> &lt;Integral Integer&gt;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;constexpr <span class="keywordtype">double</span> <a class="code" href="../../d9/dfc/group__core__math.html#gab8a73b8ec5cd084065838b8d2b860874">sampsToMs</a> (<span class="keywordtype">double</span> samplerate, Integer numSamples) noexcept</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;{</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (samplerate &gt; 0.);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">/*---------------------------------------------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="preprocessor">#pragma mark Audio utility functions</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keyword">template</span> &lt;Scalar FreqType&gt;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;constexpr <span class="keywordtype">int</span> <a class="code" href="../../d9/dfc/group__core__math.html#gaad252ebdd65713b59abdbe0f5f2d7bd9">periodInSamples</a> (<span class="keywordtype">double</span> samplerate, FreqType freqHz) noexcept</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;{</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <a class="code" href="../../d3/d6b/group__preprocessor.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (freqHz &gt; FreqType (0.));</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> val = samplerate / <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (freqHz);</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> val = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (numSamples) / samplerate * 1000.;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (val);</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;}</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="keyword">template</span> &lt;Scalar msType&gt;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;constexpr <span class="keywordtype">int</span> <a class="code" href="../../d9/dfc/group__core__math.html#ga47e9b2f032b32583e46d7e312a576222">msToSamps</a> (<span class="keywordtype">double</span> samplerate, msType ms) noexcept</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;{</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> val = samplerate / 1000. * <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (ms);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> (val);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword">template</span> &lt;Scalar PeriodType&gt;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;constexpr PeriodType <a class="code" href="../../d9/dfc/group__core__math.html#gaacee5ce0fef613d9f08eb4ec86bfe056">freqFromPeriod</a> (<span class="keywordtype">double</span> samplerate, PeriodType period) noexcept</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;{</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <a class="code" href="../../d3/d6b/group__preprocessor.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (period &gt; PeriodType (0.));</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> val = samplerate / <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (period);</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> (val);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;}</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="keyword">template</span> &lt;Scalar T&gt;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;constexpr T <a class="code" href="../../d9/dfc/group__core__math.html#ga958bfa906aac63346cd915d6b5a08698">midiToFreq</a> (T midiNote) noexcept</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;{</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="../../d6/d74/group__vec__exp.html#gaf0fd2a71a838d6a84a2443b28a900b66">pow</a> = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (<a class="code" href="../../d9/dfc/group__core__math.html#ga8d26141199f013e584e33b0cf04bd0b8">power</a> (2, <a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> ((<a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> (midiNote) - 69) / 12)));</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> val = T (440) * <a class="code" href="../../d6/d74/group__vec__exp.html#gaf0fd2a71a838d6a84a2443b28a900b66">pow</a>;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_integral_v&lt;T&gt;)</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (<a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> (val));</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (val);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_integral_v&lt;PeriodType&gt;)</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>PeriodType<span class="keyword">&gt;</span> (<a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> (val));</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>PeriodType<span class="keyword">&gt;</span> (val);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;}</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="keyword">template</span> &lt;Integral Integer&gt;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;constexpr <span class="keywordtype">double</span> <a class="code" href="../../d9/dfc/group__core__math.html#gab8a73b8ec5cd084065838b8d2b860874">sampsToMs</a> (<span class="keywordtype">double</span> samplerate, Integer numSamples) noexcept</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;{</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <a class="code" href="../../d3/d6b/group__preprocessor.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (samplerate &gt; 0.);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> val = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (numSamples) / samplerate * 1000.;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (val);</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;}</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="keyword">template</span> &lt;Scalar T&gt;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;T <a class="code" href="../../d9/dfc/group__core__math.html#ga79c120b8a72137dd368c391208d82240">freqToMidi</a> (T freqHz) noexcept</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="keyword">template</span> &lt;Scalar msType&gt;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;constexpr <span class="keywordtype">int</span> <a class="code" href="../../d9/dfc/group__core__math.html#ga47e9b2f032b32583e46d7e312a576222">msToSamps</a> (<span class="keywordtype">double</span> samplerate, msType ms) noexcept</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;{</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> val = T (69) + T (12) * <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (std::log2 (<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (freqHz) / 440.));</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> val = samplerate / 1000. * <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (ms);</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_integral_v&lt;T&gt;)</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (<a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> (val));</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (val);</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;}</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> (val);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;}</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="keyword">template</span> &lt;Scalar T&gt;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;constexpr T <a class="code" href="../../d9/dfc/group__core__math.html#ga958bfa906aac63346cd915d6b5a08698">midiToFreq</a> (T midiNote) noexcept</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;{</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="../../d6/d74/group__vec__exp.html#gaf0fd2a71a838d6a84a2443b28a900b66">pow</a> = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (<a class="code" href="../../d9/dfc/group__core__math.html#ga8d26141199f013e584e33b0cf04bd0b8">power</a> (2, <a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> ((<a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> (midiNote) - 69) / 12)));</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;}  <span class="comment">// namespace math</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> val = T (440) * <a class="code" href="../../d6/d74/group__vec__exp.html#gaf0fd2a71a838d6a84a2443b28a900b66">pow</a>;</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_integral_v&lt;T&gt;)</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (<a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> (val));</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (val);</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;}</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="keyword">template</span> &lt;Scalar T&gt;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;T <a class="code" href="../../d9/dfc/group__core__math.html#ga79c120b8a72137dd368c391208d82240">freqToMidi</a> (T freqHz) noexcept</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;{</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> val = T (69) + T (12) * <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (std::log2 (<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (freqHz) / 440.));</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_integral_v&lt;T&gt;)</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (<a class="code" href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">round</a> (val));</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (val);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;}</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;}  <span class="comment">// namespace math</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__core__math_html_ga005b096167e7e48847b69c7f1f350915"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#ga005b096167e7e48847b69c7f1f350915">limes::math::negate</a></div><div class="ttdeci">constexpr T negate(T val) noexcept</div><div class="ttdoc">A constexpr-enabled negation function.</div></div>
 <div class="ttc" id="agroup__core__math_html_ga82cc1c47568221dc63727ebe3686d60d"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#ga82cc1c47568221dc63727ebe3686d60d">limes::math::middleOfThree</a></div><div class="ttdeci">constexpr T middleOfThree(T a, T b, T c) noexcept</div><div class="ttdoc">Returns the median of three values.</div></div>
+<div class="ttc" id="agroup__core__math_html_gab42b28022fcb4deb9046611be599ecb3"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#gab42b28022fcb4deb9046611be599ecb3">limes::math::cantorPair</a></div><div class="ttdeci">constexpr T cantorPair(T a, T b) noexcept</div><div class="ttdoc">Calculates the Cantor pairing function from two integers.</div></div>
 <div class="ttc" id="agroup__core__math_html_ga6cc3bd33ef5ff0347c79ba7cc8adec36"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#ga6cc3bd33ef5ff0347c79ba7cc8adec36">limes::math::round</a></div><div class="ttdeci">constexpr int round(T val) noexcept</div><div class="ttdoc">A constexpr-enabled rounding function.</div></div>
 <div class="ttc" id="agroup__core__math_html_ga77464df61c396b206d8357c5f9884b5b"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#ga77464df61c396b206d8357c5f9884b5b">limes::math::isDivisibleBy</a></div><div class="ttdeci">constexpr bool isDivisibleBy(Integer number, Integer divisor) noexcept</div><div class="ttdoc">Returns true if the number is divisible by the divisor with no remainder.</div></div>
 <div class="ttc" id="agroup__core__math_html_ga8d26141199f013e584e33b0cf04bd0b8"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#ga8d26141199f013e584e33b0cf04bd0b8">limes::math::power</a></div><div class="ttdeci">constexpr T power(T number, T power) noexcept</div><div class="ttdoc">A constexpr-enabled power function.</div></div>
+<div class="ttc" id="agroup__core__math_html_gacef4a8376d871af0e8a60b59cb0a6859"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#gacef4a8376d871af0e8a60b59cb0a6859">limes::math::szudzikPair</a></div><div class="ttdeci">constexpr T szudzikPair(T a, T b) noexcept</div><div class="ttdoc">Calculates the Szudzik pairing function from two integers.</div></div>
 <div class="ttc" id="agroup__core__math_html_gaad252ebdd65713b59abdbe0f5f2d7bd9"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#gaad252ebdd65713b59abdbe0f5f2d7bd9">limes::math::periodInSamples</a></div><div class="ttdeci">constexpr int periodInSamples(double samplerate, FreqType freqHz) noexcept</div><div class="ttdoc">Returns the period in samples of a frequency at the specified samplerate.</div></div>
-<div class="ttc" id="agroup__system_html_ga06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbb/limes__assert_8h_source.html#l00105">limes_assert.h:105</a></div></div>
+<div class="ttc" id="agroup__preprocessor_html_ga06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="../../d3/d6b/group__preprocessor.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbb/limes__assert_8h_source.html#l00105">limes_assert.h:105</a></div></div>
 <div class="ttc" id="agroup__core__math_html_ga958bfa906aac63346cd915d6b5a08698"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#ga958bfa906aac63346cd915d6b5a08698">limes::math::midiToFreq</a></div><div class="ttdeci">constexpr T midiToFreq(T midiNote) noexcept</div><div class="ttdoc">Converts a MIDI note to a frequency in Hz.</div></div>
 <div class="ttc" id="agroup__core__math_html_gaf28ea8c4fcd46ef3a5423f212b1bcc1e"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#gaf28ea8c4fcd46ef3a5423f212b1bcc1e">limes::math::isPowerOf2</a></div><div class="ttdeci">constexpr bool isPowerOf2(Integer val) noexcept</div><div class="ttdoc">Returns true if val is 2^something.</div></div>
 <div class="ttc" id="agroup__core__math_html_ga8e1376561c18c5700f25bf9d16fa5f3a"><div class="ttname"><a href="../../d9/dfc/group__core__math.html#ga8e1376561c18c5700f25bf9d16fa5f3a">limes::math::map</a></div><div class="ttdeci">constexpr T map(T input, T sourceRangeMin, T sourceRangeMax, T targetRangeMin, T targetRangeMax) noexcept</div><div class="ttdoc">A constexpr-enabled mapping function.</div></div>
@@ -357,7 +380,7 @@ $(document).ready(function(){initNavTree('dc/d9b/math_functions__impl_8h_source.
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_f0d4ec8d2337f2081e409df54f3b2ddf.html">math</a></li><li class="navelem"><a class="el" href="../../dc/d9b/math_functions__impl_8h.html">mathFunctions_impl.h</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 20:07:18 for Limes by
+    <li class="footer">Generated on Wed Jun 8 2022 00:33:00 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

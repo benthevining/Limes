@@ -94,7 +94,6 @@ $(document).ready(function(){initNavTree('de/d1e/classlimes_1_1memory_1_1_aligne
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="../../d7/dac/classlimes_1_1memory_1_1_aligned_allocator-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">limes::memory::AlignedAllocator&lt; T, Alignment, UseExceptions &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
@@ -137,71 +136,59 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = T</
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a085a3f95d9e9e556c1d042cba4d4196b"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a085a3f95d9e9e556c1d042cba4d4196b">AlignedAllocator</a> (<a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a> &amp;&amp;)=default</td></tr>
-<tr class="memdesc:a085a3f95d9e9e556c1d042cba4d4196b"><td class="mdescLeft">&#160;</td><td class="mdescRight">AlignedAllocator is default movable at compile time.  <a href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a085a3f95d9e9e556c1d042cba4d4196b">More...</a><br /></td></tr>
-<tr class="separator:a085a3f95d9e9e556c1d042cba4d4196b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9be3e1c921ddaf986b5c2076a0257f1b"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a9be3e1c921ddaf986b5c2076a0257f1b">AlignedAllocator</a> (const <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a> &amp;)=default</td></tr>
-<tr class="memdesc:a9be3e1c921ddaf986b5c2076a0257f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">AlignedAllocator is default copyable at compile time.  <a href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a9be3e1c921ddaf986b5c2076a0257f1b">More...</a><br /></td></tr>
-<tr class="separator:a9be3e1c921ddaf986b5c2076a0257f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12e3b25e62a282f387bf104f0ad8285e"><td class="memTemplParams" colspan="2"><a id="a12e3b25e62a282f387bf104f0ad8285e"></a>
 template&lt;typename OtherType , std::size_t OtherAlignment, bool OtherExceptions&gt; </td></tr>
 <tr class="memitem:a12e3b25e62a282f387bf104f0ad8285e"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><b>AlignedAllocator</b> (const <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a>&lt; OtherType, OtherAlignment, OtherExceptions &gt; &amp;) noexcept</td></tr>
 <tr class="separator:a12e3b25e62a282f387bf104f0ad8285e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae9c7f1954be615f781d5fdcac151945"><td class="memItemLeft" align="right" valign="top"><a id="aae9c7f1954be615f781d5fdcac151945"></a>
-const T *&#160;</td><td class="memItemRight" valign="bottom"><b>address</b> (const T &amp;s) const noexcept</td></tr>
-<tr class="separator:aae9c7f1954be615f781d5fdcac151945"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c7d92423a7b9dfe33b30cd195328fbe"><td class="memItemLeft" align="right" valign="top"><a id="a0c7d92423a7b9dfe33b30cd195328fbe"></a>
-T *&#160;</td><td class="memItemRight" valign="bottom"><b>address</b> (T &amp;r) const noexcept</td></tr>
-<tr class="separator:a0c7d92423a7b9dfe33b30cd195328fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c4db098bf9a9c89b25e64db600e0de2"><td class="memTemplParams" colspan="2"><a id="a8c4db098bf9a9c89b25e64db600e0de2"></a>
-template&lt;typename U &gt; </td></tr>
-<tr class="memitem:a8c4db098bf9a9c89b25e64db600e0de2"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>allocate</b> (size_t num, const U *) const noexcept(! UseExceptions)</td></tr>
-<tr class="separator:a8c4db098bf9a9c89b25e64db600e0de2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f2b8ccb1078976679aebeb79c7f6b2a"><td class="memItemLeft" align="right" valign="top"><a id="a7f2b8ccb1078976679aebeb79c7f6b2a"></a>
-T *&#160;</td><td class="memItemRight" valign="bottom"><b>allocate</b> (std::size_t num) const noexcept(! UseExceptions)</td></tr>
-<tr class="separator:a7f2b8ccb1078976679aebeb79c7f6b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a581e0e94d0d5075c153f0e15c84c1b88"><td class="memTemplParams" colspan="2"><a id="a581e0e94d0d5075c153f0e15c84c1b88"></a>
-template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a581e0e94d0d5075c153f0e15c84c1b88"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (T *const ptr, Args &amp;&amp;... args) const noexcept(! UseExceptions)</td></tr>
-<tr class="separator:a581e0e94d0d5075c153f0e15c84c1b88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a099f3a74903ebf85eb3240ee2e9f2622"><td class="memItemLeft" align="right" valign="top"><a id="a099f3a74903ebf85eb3240ee2e9f2622"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>construct</b> (T *const ptr, const T &amp;t) const noexcept(! UseExceptions||std::is_nothrow_copy_constructible_v&lt; T &gt;)</td></tr>
-<tr class="separator:a099f3a74903ebf85eb3240ee2e9f2622"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cbd60af66313c60108bd3577af40d70"><td class="memItemLeft" align="right" valign="top"><a id="a3cbd60af66313c60108bd3577af40d70"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>deallocate</b> (T *const ptr, std::size_t) const noexcept(! UseExceptions)</td></tr>
-<tr class="separator:a3cbd60af66313c60108bd3577af40d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2d8ce477878d86466914fdab0a37081"><td class="memItemLeft" align="right" valign="top"><a id="af2d8ce477878d86466914fdab0a37081"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> (T *const ptr) const noexcept</td></tr>
-<tr class="separator:af2d8ce477878d86466914fdab0a37081"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a743245e14c2f04e032034b99e53d8f2a"><td class="memItemLeft" align="right" valign="top"><a id="a743245e14c2f04e032034b99e53d8f2a"></a>
-consteval bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a> &amp;) const noexcept</td></tr>
-<tr class="separator:a743245e14c2f04e032034b99e53d8f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14f66712c4f27e36b7b07b16c7d6a10a"><td class="memTemplParams" colspan="2"><a id="a14f66712c4f27e36b7b07b16c7d6a10a"></a>
-template&lt;typename OtherType , std::size_t OtherAlignment, bool OtherExceptions&gt; </td></tr>
-<tr class="memitem:a14f66712c4f27e36b7b07b16c7d6a10a"><td class="memTemplItemLeft" align="right" valign="top">consteval bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a>&lt; OtherType, OtherAlignment, OtherExceptions &gt; &amp;) const noexcept</td></tr>
-<tr class="separator:a14f66712c4f27e36b7b07b16c7d6a10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fed912e794b2d4470aaf4c09bb3f40a"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a4fed912e794b2d4470aaf4c09bb3f40a">operator=</a> (<a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a> &amp;&amp;)=default</td></tr>
-<tr class="memdesc:a4fed912e794b2d4470aaf4c09bb3f40a"><td class="mdescLeft">&#160;</td><td class="mdescRight">AlignedAllocator is default movable at compile time.  <a href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a4fed912e794b2d4470aaf4c09bb3f40a">More...</a><br /></td></tr>
-<tr class="separator:a4fed912e794b2d4470aaf4c09bb3f40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a072e88720b999b21a66e8fe280943815"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a072e88720b999b21a66e8fe280943815">operator=</a> (const <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a> &amp;)=default</td></tr>
-<tr class="memdesc:a072e88720b999b21a66e8fe280943815"><td class="mdescLeft">&#160;</td><td class="mdescRight">AlignedAllocator is default copyable at compile time.  <a href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a072e88720b999b21a66e8fe280943815">More...</a><br /></td></tr>
-<tr class="separator:a072e88720b999b21a66e8fe280943815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Moving</h2></td></tr>
 <tr class="memitem:a3125b9435dd93f18bcbc9e4417178d1d"><td class="memItemLeft" align="right" valign="top"><a id="a3125b9435dd93f18bcbc9e4417178d1d"></a>
 consteval bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a> &amp;) const noexcept</td></tr>
 <tr class="separator:a3125b9435dd93f18bcbc9e4417178d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a743245e14c2f04e032034b99e53d8f2a"><td class="memItemLeft" align="right" valign="top"><a id="a743245e14c2f04e032034b99e53d8f2a"></a>
+consteval bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a> &amp;) const noexcept</td></tr>
+<tr class="separator:a743245e14c2f04e032034b99e53d8f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e24fb304ebc52ceeb0c25657c8f13d0"><td class="memTemplParams" colspan="2"><a id="a2e24fb304ebc52ceeb0c25657c8f13d0"></a>
 template&lt;typename OtherType , std::size_t OtherAlignment, bool OtherExceptions&gt; </td></tr>
 <tr class="memitem:a2e24fb304ebc52ceeb0c25657c8f13d0"><td class="memTemplItemLeft" align="right" valign="top">consteval bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a>&lt; OtherType, OtherAlignment, OtherExceptions &gt; &amp;) const noexcept</td></tr>
 <tr class="separator:a2e24fb304ebc52ceeb0c25657c8f13d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a2d69e9454c8ec5d359acb5ba870a0efe"><td class="memItemLeft" align="right" valign="top"><a id="a2d69e9454c8ec5d359acb5ba870a0efe"></a>
-static consteval size_t&#160;</td><td class="memItemRight" valign="bottom"><b>getAlignment</b> () noexcept</td></tr>
-<tr class="separator:a2d69e9454c8ec5d359acb5ba870a0efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14f66712c4f27e36b7b07b16c7d6a10a"><td class="memTemplParams" colspan="2"><a id="a14f66712c4f27e36b7b07b16c7d6a10a"></a>
+template&lt;typename OtherType , std::size_t OtherAlignment, bool OtherExceptions&gt; </td></tr>
+<tr class="memitem:a14f66712c4f27e36b7b07b16c7d6a10a"><td class="memTemplItemLeft" align="right" valign="top">consteval bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a>&lt; OtherType, OtherAlignment, OtherExceptions &gt; &amp;) const noexcept</td></tr>
+<tr class="separator:a14f66712c4f27e36b7b07b16c7d6a10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f2b8ccb1078976679aebeb79c7f6b2a"><td class="memItemLeft" align="right" valign="top"><a id="a7f2b8ccb1078976679aebeb79c7f6b2a"></a>
+T *&#160;</td><td class="memItemRight" valign="bottom"><b>allocate</b> (std::size_t num) const noexcept(! UseExceptions)</td></tr>
+<tr class="separator:a7f2b8ccb1078976679aebeb79c7f6b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c4db098bf9a9c89b25e64db600e0de2"><td class="memTemplParams" colspan="2"><a id="a8c4db098bf9a9c89b25e64db600e0de2"></a>
+template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a8c4db098bf9a9c89b25e64db600e0de2"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>allocate</b> (size_t num, const U *) const noexcept(! UseExceptions)</td></tr>
+<tr class="separator:a8c4db098bf9a9c89b25e64db600e0de2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cbd60af66313c60108bd3577af40d70"><td class="memItemLeft" align="right" valign="top"><a id="a3cbd60af66313c60108bd3577af40d70"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>deallocate</b> (T *const ptr, std::size_t) const noexcept(! UseExceptions)</td></tr>
+<tr class="separator:a3cbd60af66313c60108bd3577af40d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c7d92423a7b9dfe33b30cd195328fbe"><td class="memItemLeft" align="right" valign="top"><a id="a0c7d92423a7b9dfe33b30cd195328fbe"></a>
+T *&#160;</td><td class="memItemRight" valign="bottom"><b>address</b> (T &amp;r) const noexcept</td></tr>
+<tr class="separator:a0c7d92423a7b9dfe33b30cd195328fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae9c7f1954be615f781d5fdcac151945"><td class="memItemLeft" align="right" valign="top"><a id="aae9c7f1954be615f781d5fdcac151945"></a>
+const T *&#160;</td><td class="memItemRight" valign="bottom"><b>address</b> (const T &amp;s) const noexcept</td></tr>
+<tr class="separator:aae9c7f1954be615f781d5fdcac151945"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a099f3a74903ebf85eb3240ee2e9f2622"><td class="memItemLeft" align="right" valign="top"><a id="a099f3a74903ebf85eb3240ee2e9f2622"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>construct</b> (T *const ptr, const T &amp;t) const noexcept(! UseExceptions||std::is_nothrow_copy_constructible_v&lt; T &gt;)</td></tr>
+<tr class="separator:a099f3a74903ebf85eb3240ee2e9f2622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a581e0e94d0d5075c153f0e15c84c1b88"><td class="memTemplParams" colspan="2"><a id="a581e0e94d0d5075c153f0e15c84c1b88"></a>
+template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a581e0e94d0d5075c153f0e15c84c1b88"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>construct</b> (T *const ptr, Args &amp;&amp;... args) const noexcept(! UseExceptions)</td></tr>
+<tr class="separator:a581e0e94d0d5075c153f0e15c84c1b88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2d8ce477878d86466914fdab0a37081"><td class="memItemLeft" align="right" valign="top"><a id="af2d8ce477878d86466914fdab0a37081"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> (T *const ptr) const noexcept</td></tr>
+<tr class="separator:af2d8ce477878d86466914fdab0a37081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a497f64732f5918c255d7b46ae0914f36"><td class="memItemLeft" align="right" valign="top"><a id="a497f64732f5918c255d7b46ae0914f36"></a>
 static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>max_size</b> () noexcept</td></tr>
 <tr class="separator:a497f64732f5918c255d7b46ae0914f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d69e9454c8ec5d359acb5ba870a0efe"><td class="memItemLeft" align="right" valign="top"><a id="a2d69e9454c8ec5d359acb5ba870a0efe"></a>
+static consteval size_t&#160;</td><td class="memItemRight" valign="bottom"><b>getAlignment</b> () noexcept</td></tr>
+<tr class="separator:a2d69e9454c8ec5d359acb5ba870a0efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T, std::size_t Alignment = sizeof (T), bool UseExceptions = false&gt;<br />
@@ -241,128 +228,6 @@ other</td>
 
 </div>
 </div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9be3e1c921ddaf986b5c2076a0257f1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9be3e1c921ddaf986b5c2076a0257f1b">&#9670;&nbsp;</a></span>AlignedAllocator() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , std::size_t Alignment = sizeof (T), bool UseExceptions = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">limes::memory::AlignedAllocator</a>&lt; T, Alignment, UseExceptions &gt;::<a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a>&lt; T, Alignment, UseExceptions &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>AlignedAllocator is default copyable at compile time. </p>
-
-</div>
-</div>
-<a id="a085a3f95d9e9e556c1d042cba4d4196b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a085a3f95d9e9e556c1d042cba4d4196b">&#9670;&nbsp;</a></span>AlignedAllocator() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , std::size_t Alignment = sizeof (T), bool UseExceptions = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">limes::memory::AlignedAllocator</a>&lt; T, Alignment, UseExceptions &gt;::<a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a>&lt; T, Alignment, UseExceptions &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>AlignedAllocator is default movable at compile time. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4fed912e794b2d4470aaf4c09bb3f40a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fed912e794b2d4470aaf4c09bb3f40a">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , std::size_t Alignment = sizeof (T), bool UseExceptions = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a>&amp; <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">limes::memory::AlignedAllocator</a>&lt; T, Alignment, UseExceptions &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a>&lt; T, Alignment, UseExceptions &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>AlignedAllocator is default movable at compile time. </p>
-
-</div>
-</div>
-<a id="a072e88720b999b21a66e8fe280943815"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a072e88720b999b21a66e8fe280943815">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , std::size_t Alignment = sizeof (T), bool UseExceptions = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a>&amp; <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">limes::memory::AlignedAllocator</a>&lt; T, Alignment, UseExceptions &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a>&lt; T, Alignment, UseExceptions &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>AlignedAllocator is default copyable at compile time. </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="../../d4/db8/_aligned_allocator_8h_source.html">AlignedAllocator.h</a></li>
 </ul>
@@ -372,7 +237,7 @@ template&lt;typename T , std::size_t Alignment = sizeof (T), bool UseExceptions 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d0/deb/namespacelimes_1_1memory.html">memory</a></li><li class="navelem"><a class="el" href="../../de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html">AlignedAllocator</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 20:07:19 for Limes by
+    <li class="footer">Generated on Wed Jun 8 2022 00:33:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

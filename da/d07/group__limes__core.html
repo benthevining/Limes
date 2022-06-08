@@ -109,25 +109,28 @@ Modules</h2></td></tr>
 <tr class="memdesc:de/d29/group__alg"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algorithms for manipulating generic container types. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d9/dda/group__files"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dda/group__files.html">Files</a></td></tr>
-<tr class="memdesc:d9/dda/group__files"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for working with the filesystem. <br /></td></tr>
+<tr class="memdesc:d9/dda/group__files"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for working with the filesystem. Limes's filesystem library is built on top of the <code>std::filesystem</code> library. I wanted a strongly-typed interface for working with filesystem objects, primarily to differentiate between files and directories. You can still construct paths that wouldn't be considered canonical for a given filesystem object type &ndash; for instance, the Directory class won't prevent you from creating one referencing <code>/usr/documents/a_file</code>.txt &ndash; but I believe that having strongly-typed classes for each kind of filesystem object provides a cleaner API and allows the programmer to more explicitly express their intent. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:de/d94/group__func"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d94/group__func.html">Functional</a></td></tr>
 <tr class="memdesc:de/d94/group__func"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for working with higher-level functions and functions as objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:db/d97/group__hashes"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d97/group__hashes.html">Hashes</a></td></tr>
-<tr class="memdesc:db/d97/group__hashes"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cryptographic hash functions. <br /></td></tr>
+<tr class="memdesc:db/d97/group__hashes"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cryptographic hash functions. Limes provides MD5, SHA1, SHA224, SHA256, SHA384, and SHA512 hashing functions for any opaque data, and a common interface for calculating any of them. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d9/dfc/group__core__math"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dfc/group__core__math.html">Math</a></td></tr>
 <tr class="memdesc:d9/dfc/group__core__math"><td class="mdescLeft">&#160;</td><td class="mdescRight">Math utilities. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d7/ded/group__memory"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/group__memory.html">Memory</a></td></tr>
-<tr class="memdesc:d7/ded/group__memory"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for memory management. <br /></td></tr>
+<tr class="memdesc:d7/ded/group__memory"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for memory management. This module contains allocators, a memory pool, and more. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d6/db2/group__meta"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db2/group__meta.html">Metaprogramming</a></td></tr>
-<tr class="memdesc:d6/db2/group__meta"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for metaprogramming. <br /></td></tr>
+<tr class="memdesc:d6/db2/group__meta"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for metaprogramming. This module contains some concept definitions, and an implementation of a type list. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d1/ded/group__misc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/ded/group__misc.html">Miscellaneous</a></td></tr>
-<tr class="memdesc:d1/ded/group__misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Miscellaneous things. <br /></td></tr>
+<tr class="memdesc:d1/ded/group__misc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Miscellaneous things. This module contains classes and functions that don't seem to fit into any other module within limes_core. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d3/d6b/group__preprocessor"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d6b/group__preprocessor.html">Preprocessor</a></td></tr>
+<tr class="memdesc:d3/d6b/group__preprocessor"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module contains preprocessor macros defined by Limes. Limes attempts to keep its usage of macros to a minimum, but they are appropriate for some tasks in C++. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d4/db5/group__serializing"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/db5/group__serializing.html">Serializing</a></td></tr>
 <tr class="memdesc:d4/db5/group__serializing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for data serialization. <br /></td></tr>
@@ -142,7 +145,7 @@ Modules</h2></td></tr>
 <tr class="memdesc:d2/db9/group__threads"><td class="mdescLeft">&#160;</td><td class="mdescRight">Threading utilities. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d9/d7d/group__time"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d7d/group__time.html">Time</a></td></tr>
-<tr class="memdesc:d9/d7d/group__time"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for working with time measurements. <br /></td></tr>
+<tr class="memdesc:d9/d7d/group__time"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for working with time measurements. Limes's date &amp; time library is build on top of the <code>std::chrono</code> library, and also provides utilities for interface with the C time API. I wanted a strongly-typed date &amp; time library, which not only creates a cleaner, more useful API, but also allows the programmer to more explicitly express their intent when working with or converting between different time measurements. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="dirs"></a>
@@ -222,7 +225,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jun 7 2022 20:07:18 for Limes by
+    <li class="footer">Generated on Wed Jun 8 2022 00:33:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

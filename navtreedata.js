@@ -44,6 +44,7 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
         [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -53,20 +54,19 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a7146794c0c6219a799bb7efc761a2afa",
-"d3/d33/ipp__fft_8h_source.html",
-"d4/d90/classlimes_1_1time_1_1_weekday.html#a0a21a9d8cf06fe57a4645774a30ed442a8b7051187b9191cdcdae6ed5a10e5adc",
-"d5/d0e/classlimes_1_1music_1_1scales_1_1_key_signature.html#a6ab0f04d5ec5ad484f289305a0cb0d4e",
-"d5/de0/sha384_8h.html#gaeaa6253a21c6303fd96385172bf16f1f",
-"d7/d63/structlimes_1_1dsp_1_1_sample_stream.html#a94095bca6e0a30446f71348e8063788c",
-"d8/db4/classlimes_1_1files_1_1_sym_link.html#a35360245811558df87f6362bb979e669",
-"d9/da7/classlimes_1_1hash_1_1_hasher.html#ab0d6539f35733809c61271b108419d4f",
-"db/d0d/group__vec__tan.html#ga503dc331b5e71be46de62e644f5226bd",
-"dc/d18/structlimes_1_1dsp_1_1_white_noise_generator.html#a789a074b5645ad9c7bec1d9acf4e8795",
-"dd/d09/classlimes_1_1serializing_1_1_node.html#a9c9f1de9c204352acdabac7344b5438c",
-"de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a581e0e94d0d5075c153f0e15c84c1b88",
-"de/ddf/classlimes_1_1math_1_1geometry_1_1_circle.html#a015ef9fdd430dfc53bd9f11aff61f369",
-"df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a7f37e70f24765041c8a77eb8cb0c0906"
+"d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#af842a1dd4d17ab46afc7b2e8a7180278a805db0fe201d84ac80b9572cb7d262ea",
+"d3/d53/preprocessor_8h.html#a2f2f7ff55e6633527be63c1b0d366a02",
+"d4/d90/classlimes_1_1time_1_1_weekday.html#aca8e5490c7d063ed4c27dc813389ea62",
+"d5/d2d/classlimes_1_1memory_1_1_stack_allocator.html#a8c9be770b46787a7195081c1af8734b7",
+"d6/d74/group__vec__exp.html#gaf0fd2a71a838d6a84a2443b28a900b66",
+"d7/df8/classlimes_1_1files_1_1_temp_file.html#a3fdb9587a43fbb71e21ee1139e32ad91",
+"d9/d48/structlimes_1_1math_1_1_fraction.html#a304c83fe4ec86accaf6273c2397b055f",
+"da/d90/classlimes_1_1music_1_1_interval.html#a3b1ee8dbec7d76f4e10b4ecd85f99c49",
+"db/de1/classlimes_1_1files_1_1_directory.html#a9769e7f27fea1f1b437c6b4ae1517a7f",
+"dc/dd9/structlimes_1_1music_1_1_pitch_class.html#acaba71b653dabf36a6e395d5de0ca1fd",
+"de/d08/classlimes_1_1time_1_1_year.html#aa5555f7b45f7ec1f85914f6ee929624d",
+"de/dde/_string_utils_8h.html#a30033399e70246bd3fd0c2567a2905e7",
+"df/d73/classlimes_1_1files_1_1_filesystem_entry.html#a6d38b6b295518d14632f03457276e9a5"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

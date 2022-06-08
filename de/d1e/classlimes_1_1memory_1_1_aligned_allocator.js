@@ -12,8 +12,6 @@ var classlimes_1_1memory_1_1_aligned_allocator =
     [ "value_type", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a805b93e36a4f0dd6187dc6237dd096c8", null ],
     [ "AlignedAllocator", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a7ce67e51ae11feaf41809cf44e7400f2", null ],
     [ "AlignedAllocator", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a12e3b25e62a282f387bf104f0ad8285e", null ],
-    [ "AlignedAllocator", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a9be3e1c921ddaf986b5c2076a0257f1b", null ],
-    [ "AlignedAllocator", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a085a3f95d9e9e556c1d042cba4d4196b", null ],
     [ "address", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#aae9c7f1954be615f781d5fdcac151945", null ],
     [ "address", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a0c7d92423a7b9dfe33b30cd195328fbe", null ],
     [ "allocate", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a8c4db098bf9a9c89b25e64db600e0de2", null ],
@@ -26,8 +24,6 @@ var classlimes_1_1memory_1_1_aligned_allocator =
     [ "max_size", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a497f64732f5918c255d7b46ae0914f36", null ],
     [ "operator!=", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a743245e14c2f04e032034b99e53d8f2a", null ],
     [ "operator!=", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a14f66712c4f27e36b7b07b16c7d6a10a", null ],
-    [ "operator=", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a4fed912e794b2d4470aaf4c09bb3f40a", null ],
-    [ "operator=", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a072e88720b999b21a66e8fe280943815", null ],
     [ "operator==", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a3125b9435dd93f18bcbc9e4417178d1d", null ],
     [ "operator==", "de/d1e/classlimes_1_1memory_1_1_aligned_allocator.html#a2e24fb304ebc52ceeb0c25657c8f13d0", null ]
 ];

@@ -5,8 +5,6 @@ var classlimes_1_1time_1_1_date_time =
     [ "DateTime", "d9/d9b/classlimes_1_1time_1_1_date_time.html#af916f02d45163c0cf979375d13db6ec7", null ],
     [ "DateTime", "d9/d9b/classlimes_1_1time_1_1_date_time.html#a0f29ba63c27c728a12b21970e8450d31", null ],
     [ "DateTime", "d9/d9b/classlimes_1_1time_1_1_date_time.html#af94fcb959abcd996c1b1976410d0509f", null ],
-    [ "DateTime", "d9/d9b/classlimes_1_1time_1_1_date_time.html#a6e5a0945b485000ac73a9e0e55cde0cd", null ],
-    [ "DateTime", "d9/d9b/classlimes_1_1time_1_1_date_time.html#a0bcb2ed1eb504c29140b4afdeba1855c", null ],
     [ "getCompilation", "d9/d9b/classlimes_1_1time_1_1_date_time.html#a18cf64fe67e90a696038ecc4b56a0614", null ],
     [ "getCurrent", "d9/d9b/classlimes_1_1time_1_1_date_time.html#ad099f30d6c4b0f637ed3699236cad143", null ],
     [ "getStdTime", "d9/d9b/classlimes_1_1time_1_1_date_time.html#adff25142711b447b5e26d387d0817e07", null ],
@@ -18,8 +16,6 @@ var classlimes_1_1time_1_1_date_time =
     [ "isInPast", "d9/d9b/classlimes_1_1time_1_1_date_time.html#ae4eb88b69ecc634668ffe59ef17d190e", null ],
     [ "operator!=", "d9/d9b/classlimes_1_1time_1_1_date_time.html#aa21063868ed99b883ff5c698b27e099c", null ],
     [ "operator<", "d9/d9b/classlimes_1_1time_1_1_date_time.html#aae5831737837504635fad153aeacd46d", null ],
-    [ "operator=", "d9/d9b/classlimes_1_1time_1_1_date_time.html#a3554f4f0961669875c2a871cf4974a91", null ],
-    [ "operator=", "d9/d9b/classlimes_1_1time_1_1_date_time.html#a01d27ca7012449b22494ac6bbf8bab9b", null ],
     [ "operator==", "d9/d9b/classlimes_1_1time_1_1_date_time.html#a58ede0b1995216582228c5826dfb56bd", null ],
     [ "operator>", "d9/d9b/classlimes_1_1time_1_1_date_time.html#a4cacd31c6581162080695343d6eaad1d", null ],
     [ "toString", "d9/d9b/classlimes_1_1time_1_1_date_time.html#a312bcc6548108d05c7258c5071ddd12e", null ]

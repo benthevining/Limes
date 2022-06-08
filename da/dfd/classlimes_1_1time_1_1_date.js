@@ -6,8 +6,6 @@ var classlimes_1_1time_1_1_date =
     [ "Date", "da/dfd/classlimes_1_1time_1_1_date.html#a087b52d88231b5de74e1a03757356aa7", null ],
     [ "Date", "da/dfd/classlimes_1_1time_1_1_date.html#afce5ad6139ab85514502bfdfcd13de27", null ],
     [ "Date", "da/dfd/classlimes_1_1time_1_1_date.html#a7fba13eb1ce0ee77fabe8ee7fce87c43", null ],
-    [ "Date", "da/dfd/classlimes_1_1time_1_1_date.html#a0e176e9053cb41874acc2dffc101f6b4", null ],
-    [ "Date", "da/dfd/classlimes_1_1time_1_1_date.html#ae123d744d997385bd33338051cdd8a8e", null ],
     [ "getCompilationDate", "da/dfd/classlimes_1_1time_1_1_date.html#a2b9871d6d8252405af103eab128bd1a5", null ],
     [ "getCurrent", "da/dfd/classlimes_1_1time_1_1_date.html#ace1f3ea98c3538c30d1172cf560a743b", null ],
     [ "getDayOfMonth", "da/dfd/classlimes_1_1time_1_1_date.html#a448afbc3ab5de167126739eac5ab2dfc", null ],
@@ -22,8 +20,6 @@ var classlimes_1_1time_1_1_date =
     [ "isInPast", "da/dfd/classlimes_1_1time_1_1_date.html#a4c332ec9ccbc4626747fcce8985f8426", null ],
     [ "operator!=", "da/dfd/classlimes_1_1time_1_1_date.html#a07f605fd385d641ab4dd43184769e2d7", null ],
     [ "operator<", "da/dfd/classlimes_1_1time_1_1_date.html#aa562be516525e8487a540968bdb7e7da", null ],
-    [ "operator=", "da/dfd/classlimes_1_1time_1_1_date.html#af98980c1807a897b25e28850107c17ab", null ],
-    [ "operator=", "da/dfd/classlimes_1_1time_1_1_date.html#affe257e3219127475073454b27d71bbc", null ],
     [ "operator==", "da/dfd/classlimes_1_1time_1_1_date.html#a54a0122371537d373429901c4bfa98cf", null ],
     [ "operator>", "da/dfd/classlimes_1_1time_1_1_date.html#a769aa246ca585e9e61e20e0d1d643b4b", null ],
     [ "toString", "da/dfd/classlimes_1_1time_1_1_date.html#ac75786e0557775a9e01f84fc5da803fc", null ]

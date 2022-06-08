@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['side_2548',['Side',['../db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#a6d14ddec1a4a4e9ad70960c6d6ccec2b',1,'limes::math::geometry::Triangle']]],
-  ['stereoreductionmode_2549',['StereoReductionMode',['../d0/d7b/group__limes__audio.html#gab22891c08ff38fff51e3eebded597949',1,'limes::dsp']]],
-  ['stringtype_2550',['StringType',['../d4/db5/group__serializing.html#gaba8b2bf99aa7ccda78d14abca8114778',1,'limes::serializing']]]
+  ['type_2545',['Type',['../d5/d0e/classlimes_1_1music_1_1scales_1_1_key_signature.html#a63f197ef602029e7083247db45852d4b',1,'limes::music::scales::KeySignature::Type()'],['../d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#af842a1dd4d17ab46afc7b2e8a7180278',1,'limes::music::scales::Mode::Type()'],['../db/d97/group__hashes.html#ga7290f29c6f9b58018db0de3e25e0475d',1,'limes::hash::Type()'],['../d4/dd9/group__vec__window.html#gafae745fa2a27b2dfb578d0c92c6a57aa',1,'limes::vecops::window::Type()']]]
 ];

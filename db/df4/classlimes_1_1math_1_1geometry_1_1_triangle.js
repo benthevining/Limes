@@ -8,8 +8,6 @@ var classlimes_1_1math_1_1geometry_1_1_triangle =
     [ "Triangle", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#ad6f060364a89f4c6a4538a9323b78d01", null ],
     [ "Triangle", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#a7c47118dfbb8ed357bc524d4732b675e", null ],
     [ "Triangle", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#aa232fe30d8b243f5545206384096366c", null ],
-    [ "Triangle", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#a378acfa55d7144b4a503e9aec6313c76", null ],
-    [ "Triangle", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#a2b6ce5a956b8edf9bb05a5194366fdea", null ],
     [ "altitude", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#a330456714f2983890499d7395fa7971e", null ],
     [ "area", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#a96522b74c4f2ce69c67a8cd135d26906", null ],
     [ "base", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#a1019f38fe33f07732df09d0638e8b49a", null ],
@@ -29,8 +27,6 @@ var classlimes_1_1math_1_1geometry_1_1_triangle =
     [ "isScalene", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#a56e50366db44326959e481b4d1572a06", null ],
     [ "isSimilarTo", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#a71ddf8d3935d81fc13a45ac5fe25a723", null ],
     [ "operator!=", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#add8e9c8c87d6f0914a46144cca4e5e7a", null ],
-    [ "operator=", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#aeabb78073b50089ecadf5968eddbad17", null ],
-    [ "operator=", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#a043220b261ffc86b0137520aa74eabca", null ],
     [ "operator==", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#a0336b72d2a84d12491f6e488eb9e5412", null ],
     [ "perimeter", "db/df4/classlimes_1_1math_1_1geometry_1_1_triangle.html#ab6121a5e7bf9a7e440c3fe6de5bab216", null ]
 ];

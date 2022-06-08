@@ -13,11 +13,9 @@ var classlimes_1_1music_1_1scales_1_1_chromatic =
     [ "getPitches", "dc/d53/classlimes_1_1music_1_1scales_1_1_chromatic.html#a4a6119cabee1c95f0b023fd7c7653219", null ],
     [ "getPitches", "dc/d53/classlimes_1_1music_1_1scales_1_1_chromatic.html#a98332f22ac3b61df8d4e42792fbc3fd0", null ],
     [ "getRoot", "dc/d53/classlimes_1_1music_1_1scales_1_1_chromatic.html#a2269e36a578545b22f75d046dc290292", null ],
-    [ "LIMES_DEFAULT_COPYABLE", "dc/d53/classlimes_1_1music_1_1scales_1_1_chromatic.html#a00cdf25e05ed0ac378b0db9516fab47d", null ],
-    [ "LIMES_DEFAULT_MOVABLE", "dc/d53/classlimes_1_1music_1_1scales_1_1_chromatic.html#af2857c7e09d4ae4c42cad711e0c083dd", null ],
+    [ "LIMES_DEFAULT_COPYABLE", "dc/d53/classlimes_1_1music_1_1scales_1_1_chromatic.html#ac2f53164864a9e437f2c5a0c965a717d", null ],
     [ "notesPerOctave", "dc/d53/classlimes_1_1music_1_1scales_1_1_chromatic.html#ab72d1515ffa06e111c3ad2a68c71fecf", null ],
     [ "operator!=", "dc/d53/classlimes_1_1music_1_1scales_1_1_chromatic.html#aba077751eeea6a29a2e56e128897eb11", null ],
     [ "operator!=", "dc/d53/classlimes_1_1music_1_1scales_1_1_chromatic.html#a6a3f61c64ae5f1e1f8cacd49a2c8584a", null ],
-    [ "operator==", "dc/d53/classlimes_1_1music_1_1scales_1_1_chromatic.html#a5fe0884d053066235437e1331531eeab", null ],
     [ "operator==", "dc/d53/classlimes_1_1music_1_1scales_1_1_chromatic.html#a7e41dab3eee3479e41c975da6a9b8668", null ]
 ];

@@ -120,164 +120,164 @@ $(document).ready(function(){initNavTree('d4/dd5/_type_traits_8h_source.html','.
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#   include &lt;cxxabi.h&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">namespace </span>meta</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> From, <span class="keyword">class</span> To&gt;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga3504d8b86957ecbf83dec8fb8a6401ce">   58</a></span>&#160;concept <a class="code" href="../../d6/db2/group__meta.html#ga3504d8b86957ecbf83dec8fb8a6401ce">convertible_to</a> =</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std::is_convertible_v&lt;From, To&gt; &amp;&amp; requires</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">static_cast&lt;</span>To<span class="keyword">&gt;</span> (std::declval&lt;From&gt;());</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> A, <span class="keyword">typename</span> B&gt;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga01bec27eb20aef6406c3a8f13c166d0a">   66</a></span>&#160;concept <a class="code" href="../../d6/db2/group__meta.html#ga01bec27eb20aef6406c3a8f13c166d0a">same_as</a> = std::is_same_v&lt;A, B&gt;;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> ClassToTest, <span class="keyword">typename</span> RequiredBase&gt;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#gab7269ffe8ffbe591c6764facb13e2771">   70</a></span>&#160;concept <a class="code" href="../../d6/db2/group__meta.html#gab7269ffe8ffbe591c6764facb13e2771">inherits_from</a> = std::is_base_of_v&lt;RequiredBase, ClassToTest&gt;;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#pragma mark is_specialization</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class </span>T, <span class="keyword">template</span> &lt;<span class="keyword">class</span>...&gt; <span class="keyword">class </span>Template&gt;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">struct </span>LIMES_EXPORT is_specialization final : std::false_type</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keyword">class</span>...&gt; <span class="keyword">class </span>Template, <span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">struct </span>LIMES_EXPORT is_specialization&lt;Template&lt;Args...&gt;, Template&gt; final : std::true_type</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class </span>ClassToTest, <span class="keyword">template</span> &lt;<span class="keyword">class</span>...&gt; <span class="keyword">class </span>Template&gt;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga33d028cd1ed992683b771df4df7aba7c">   93</a></span>&#160;<span class="keyword">static</span> constexpr <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/db2/group__meta.html#ga33d028cd1ed992683b771df4df7aba7c">is_specialization_v</a> = is_specialization&lt;ClassToTest, Template&gt;::value;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class </span>ClassToTest, <span class="keyword">template</span> &lt;<span class="keyword">class</span>...&gt; <span class="keyword">class </span>Template&gt;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga500b343e7bdab00b2142d897a532330c">   99</a></span>&#160;concept <a class="code" href="../../d6/db2/group__meta.html#ga500b343e7bdab00b2142d897a532330c">specializes</a> = requires</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    is_specialization_v&lt;ClassToTest, Template&gt;;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#pragma mark Covariance check</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> Derived, <span class="keyword">class</span> Base&gt;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">struct </span>LIMES_EXPORT covariance_check final : std::is_base_of&lt;Base, Derived&gt;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;{</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keyword">class</span>...&gt; <span class="keyword">class </span>T, <span class="keyword">class</span>... Ds, <span class="keyword">class</span>... Bs&gt;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">struct </span>LIMES_EXPORT covariance_check&lt;T&lt;Ds...&gt;, T&lt;Bs...&gt;&gt; final : std::conjunction&lt;covariance_check&lt;Ds, Bs&gt;...&gt;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;{</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;};</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> Derived, <span class="keyword">class</span> Base&gt;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#gab82b141c243bdbd92995ab2b6c54e49f">  125</a></span>&#160;<span class="keyword">static</span> constexpr <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/db2/group__meta.html#gab82b141c243bdbd92995ab2b6c54e49f">is_covariant_v</a> = covariance_check&lt;Derived, Base&gt;::value;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> Derived, <span class="keyword">class</span> Base&gt;</div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga7fbdca6ad24c2bb0bba2e4bd0c9a6ce7">  131</a></span>&#160;concept <a class="code" href="../../d6/db2/group__meta.html#ga7fbdca6ad24c2bb0bba2e4bd0c9a6ce7">covariant_subtype_of</a> = requires</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;{</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    is_covariant_v&lt;Derived, Base&gt;;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;};</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor">#pragma mark is_one_of &amp; is_none_of</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Test, <span class="keyword">typename</span>... Types&gt;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keyword">struct </span>LIMES_EXPORT is_one_of final : std::disjunction&lt;std::is_same&lt;Test, Types&gt;...&gt;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;{</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;};</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Test, <span class="keyword">typename</span>... Types&gt;</div>
-<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga0bcc4fefdfd7ddc3f1a718b181be7476">  152</a></span>&#160;<span class="keyword">static</span> constexpr <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/db2/group__meta.html#ga0bcc4fefdfd7ddc3f1a718b181be7476">is_one_of_v</a> = is_one_of&lt;Test, Types...&gt;::value;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Test, <span class="keyword">typename</span>... Types&gt;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keyword">struct </span>LIMES_EXPORT is_none_of final : std::negation&lt;is_one_of&lt;Test, Types...&gt;&gt;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;{</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;};</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Test, <span class="keyword">typename</span>... Types&gt;</div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#gadb3de5cd06c0f5f0ab0e46f3033c02da">  168</a></span>&#160;<span class="keyword">static</span> constexpr <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/db2/group__meta.html#gadb3de5cd06c0f5f0ab0e46f3033c02da">is_none_of_v</a> = is_none_of&lt;Test, Types...&gt;::value;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;}  <span class="comment">// namespace meta</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="../../d1/d70/namespacelimes_1_1misc.html">  174</a></span>&#160;<span class="keyword">namespace </span>misc</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;{</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">#pragma mark getDemangledTypeName</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga6c28fc31963404ed09a07d4117181ee2">  182</a></span>&#160;LIMES_EXPORT [[nodiscard]] std::string <a class="code" href="../../d6/db2/group__meta.html#gabf1ebcf6a9b51774bb0065caf5139467">getDemangledTypeName</a> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <span class="keywordtype">object</span>) noexcept</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;{</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    {</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">#if LIMES_WINDOWS</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> res = std::string (<span class="keyword">typeid</span> (<span class="keywordtype">object</span>).name());</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">if</span> (res.starts_with (<span class="stringliteral">&quot;class &quot;</span>))</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            <span class="keywordflow">return</span> res.substr (6, res.length());</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keywordflow">if</span> (res.starts_with (<span class="stringliteral">&quot;struct &quot;</span>))</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keywordflow">return</span> res.substr (7, res.length());</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordtype">int</span> status = 0;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">auto</span>* demangled = abi::__cxa_demangle (<span class="keyword">typeid</span> (<span class="keywordtype">object</span>).name(), <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, &amp;status))</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        {</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> res = std::string (demangled);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            std::free (demangled);</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        }</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">return</span> {};</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    }</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">catch</span> (std::exception&amp;)</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    {</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="keywordflow">return</span> {};</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    }</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;}</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
-<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#gabf1ebcf6a9b51774bb0065caf5139467">  219</a></span>&#160;LIMES_EXPORT [[nodiscard]] std::string <a class="code" href="../../d6/db2/group__meta.html#gabf1ebcf6a9b51774bb0065caf5139467">getDemangledTypeName</a> (<span class="keyword">const</span> <span class="keyword">auto</span>* c) noexcept</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;{</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">if</span> (c == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;nullptr&quot;</span>;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordflow">return</span> getDemangledName (*c) + <span class="stringliteral">&quot; pointer&quot;</span>;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;}</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;}  <span class="comment">// namespace misc</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">namespace </span>meta</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> From, <span class="keyword">class</span> To&gt;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga3504d8b86957ecbf83dec8fb8a6401ce">   59</a></span>&#160;concept <a class="code" href="../../d6/db2/group__meta.html#ga3504d8b86957ecbf83dec8fb8a6401ce">convertible_to</a> =</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::is_convertible_v&lt;From, To&gt; &amp;&amp; requires</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static_cast&lt;</span>To<span class="keyword">&gt;</span> (std::declval&lt;From&gt;());</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> A, <span class="keyword">typename</span> B&gt;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga01bec27eb20aef6406c3a8f13c166d0a">   67</a></span>&#160;concept <a class="code" href="../../d6/db2/group__meta.html#ga01bec27eb20aef6406c3a8f13c166d0a">same_as</a> = std::is_same_v&lt;A, B&gt;;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> ClassToTest, <span class="keyword">typename</span> RequiredBase&gt;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#gab7269ffe8ffbe591c6764facb13e2771">   71</a></span>&#160;concept <a class="code" href="../../d6/db2/group__meta.html#gab7269ffe8ffbe591c6764facb13e2771">inherits_from</a> = std::is_base_of_v&lt;RequiredBase, ClassToTest&gt;;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#pragma mark is_specialization</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class </span>T, <span class="keyword">template</span> &lt;<span class="keyword">class</span>...&gt; <span class="keyword">class </span>Template&gt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">struct </span>LIMES_EXPORT is_specialization final : std::false_type</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keyword">class</span>...&gt; <span class="keyword">class </span>Template, <span class="keyword">class</span>... Args&gt;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">struct </span>LIMES_EXPORT is_specialization&lt;Template&lt;Args...&gt;, Template&gt; final : std::true_type</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class </span>ClassToTest, <span class="keyword">template</span> &lt;<span class="keyword">class</span>...&gt; <span class="keyword">class </span>Template&gt;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga33d028cd1ed992683b771df4df7aba7c">   94</a></span>&#160;<span class="keyword">static</span> constexpr <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/db2/group__meta.html#ga33d028cd1ed992683b771df4df7aba7c">is_specialization_v</a> = is_specialization&lt;ClassToTest, Template&gt;::value;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class </span>ClassToTest, <span class="keyword">template</span> &lt;<span class="keyword">class</span>...&gt; <span class="keyword">class </span>Template&gt;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga500b343e7bdab00b2142d897a532330c">  100</a></span>&#160;concept <a class="code" href="../../d6/db2/group__meta.html#ga500b343e7bdab00b2142d897a532330c">specializes</a> = requires</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    is_specialization_v&lt;ClassToTest, Template&gt;;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#pragma mark Covariance check</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> Derived, <span class="keyword">class</span> Base&gt;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">struct </span>LIMES_EXPORT covariance_check final : std::is_base_of&lt;Base, Derived&gt;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;{</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keyword">class</span>...&gt; <span class="keyword">class </span>T, <span class="keyword">class</span>... Ds, <span class="keyword">class</span>... Bs&gt;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">struct </span>LIMES_EXPORT covariance_check&lt;T&lt;Ds...&gt;, T&lt;Bs...&gt;&gt; final : std::conjunction&lt;covariance_check&lt;Ds, Bs&gt;...&gt;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;{</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> Derived, <span class="keyword">class</span> Base&gt;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#gab82b141c243bdbd92995ab2b6c54e49f">  126</a></span>&#160;<span class="keyword">static</span> constexpr <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/db2/group__meta.html#gab82b141c243bdbd92995ab2b6c54e49f">is_covariant_v</a> = covariance_check&lt;Derived, Base&gt;::value;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> Derived, <span class="keyword">class</span> Base&gt;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga7fbdca6ad24c2bb0bba2e4bd0c9a6ce7">  132</a></span>&#160;concept <a class="code" href="../../d6/db2/group__meta.html#ga7fbdca6ad24c2bb0bba2e4bd0c9a6ce7">covariant_subtype_of</a> = requires</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;{</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    is_covariant_v&lt;Derived, Base&gt;;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;};</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor">#pragma mark is_one_of &amp; is_none_of</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Test, <span class="keyword">typename</span>... Types&gt;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword">struct </span>LIMES_EXPORT is_one_of final : std::disjunction&lt;std::is_same&lt;Test, Types&gt;...&gt;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;{</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;};</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Test, <span class="keyword">typename</span>... Types&gt;</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga0bcc4fefdfd7ddc3f1a718b181be7476">  153</a></span>&#160;<span class="keyword">static</span> constexpr <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/db2/group__meta.html#ga0bcc4fefdfd7ddc3f1a718b181be7476">is_one_of_v</a> = is_one_of&lt;Test, Types...&gt;::value;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Test, <span class="keyword">typename</span>... Types&gt;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keyword">struct </span>LIMES_EXPORT is_none_of final : std::negation&lt;is_one_of&lt;Test, Types...&gt;&gt;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;{</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;};</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Test, <span class="keyword">typename</span>... Types&gt;</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#gadb3de5cd06c0f5f0ab0e46f3033c02da">  169</a></span>&#160;<span class="keyword">static</span> constexpr <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/db2/group__meta.html#gadb3de5cd06c0f5f0ab0e46f3033c02da">is_none_of_v</a> = is_none_of&lt;Test, Types...&gt;::value;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}  <span class="comment">// namespace meta</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="../../d1/d70/namespacelimes_1_1misc.html">  175</a></span>&#160;<span class="keyword">namespace </span>misc</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;{</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">#pragma mark getDemangledTypeName</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#ga6c28fc31963404ed09a07d4117181ee2">  183</a></span>&#160;LIMES_EXPORT [[nodiscard]] std::string <a class="code" href="../../d6/db2/group__meta.html#gabf1ebcf6a9b51774bb0065caf5139467">getDemangledTypeName</a> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <span class="keywordtype">object</span>) noexcept</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;{</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor">#if LIMES_WINDOWS</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> res = std::string (<span class="keyword">typeid</span> (<span class="keywordtype">object</span>).name());</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">if</span> (res.starts_with (<span class="stringliteral">&quot;class &quot;</span>))</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <span class="keywordflow">return</span> res.substr (6, res.length());</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keywordflow">if</span> (res.starts_with (<span class="stringliteral">&quot;struct &quot;</span>))</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <span class="keywordflow">return</span> res.substr (7, res.length());</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordtype">int</span> status = 0;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">auto</span>* demangled = abi::__cxa_demangle (<span class="keyword">typeid</span> (<span class="keywordtype">object</span>).name(), <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, &amp;status))</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> res = std::string (demangled);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            std::free (demangled);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        }</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordflow">catch</span> (std::exception&amp;)</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    {</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    }</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;}</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="../../d6/db2/group__meta.html#gabf1ebcf6a9b51774bb0065caf5139467">  220</a></span>&#160;LIMES_EXPORT [[nodiscard]] std::string <a class="code" href="../../d6/db2/group__meta.html#gabf1ebcf6a9b51774bb0065caf5139467">getDemangledTypeName</a> (<span class="keyword">const</span> <span class="keyword">auto</span>* c) noexcept</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;{</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordflow">if</span> (c == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;nullptr&quot;</span>;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">return</span> getDemangledName (*c) + <span class="stringliteral">&quot; pointer&quot;</span>;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;}</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;}  <span class="comment">// namespace misc</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agroup__meta_html_ga01bec27eb20aef6406c3a8f13c166d0a"><div class="ttname"><a href="../../d6/db2/group__meta.html#ga01bec27eb20aef6406c3a8f13c166d0a">limes::meta::same_as</a></div><div class="ttdeci">concept same_as</div><div class="ttdoc">@concept same_as</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00066">TypeTraits.h:66</a></div></div>
-<div class="ttc" id="agroup__meta_html_ga0bcc4fefdfd7ddc3f1a718b181be7476"><div class="ttname"><a href="../../d6/db2/group__meta.html#ga0bcc4fefdfd7ddc3f1a718b181be7476">limes::meta::is_one_of_v</a></div><div class="ttdeci">static constexpr const bool is_one_of_v</div><div class="ttdoc">Evaluates to true if Test is the same as any of the types in Types .</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00152">TypeTraits.h:152</a></div></div>
-<div class="ttc" id="agroup__meta_html_gab7269ffe8ffbe591c6764facb13e2771"><div class="ttname"><a href="../../d6/db2/group__meta.html#gab7269ffe8ffbe591c6764facb13e2771">limes::meta::inherits_from</a></div><div class="ttdeci">concept inherits_from</div><div class="ttdoc">@concept inherits_from</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00070">TypeTraits.h:70</a></div></div>
-<div class="ttc" id="agroup__meta_html_ga3504d8b86957ecbf83dec8fb8a6401ce"><div class="ttname"><a href="../../d6/db2/group__meta.html#ga3504d8b86957ecbf83dec8fb8a6401ce">limes::meta::convertible_to</a></div><div class="ttdeci">concept convertible_to</div><div class="ttdoc">@concept convertible_to Exactly the same as std::convertible_to , only implemented here because some ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00058">TypeTraits.h:58</a></div></div>
-<div class="ttc" id="agroup__meta_html_ga500b343e7bdab00b2142d897a532330c"><div class="ttname"><a href="../../d6/db2/group__meta.html#ga500b343e7bdab00b2142d897a532330c">limes::meta::specializes</a></div><div class="ttdeci">concept specializes</div><div class="ttdoc">@concept specializes</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00099">TypeTraits.h:99</a></div></div>
+<div class="ttc" id="agroup__meta_html_ga01bec27eb20aef6406c3a8f13c166d0a"><div class="ttname"><a href="../../d6/db2/group__meta.html#ga01bec27eb20aef6406c3a8f13c166d0a">limes::meta::same_as</a></div><div class="ttdeci">concept same_as</div><div class="ttdoc">@concept same_as</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00067">TypeTraits.h:67</a></div></div>
+<div class="ttc" id="agroup__meta_html_ga0bcc4fefdfd7ddc3f1a718b181be7476"><div class="ttname"><a href="../../d6/db2/group__meta.html#ga0bcc4fefdfd7ddc3f1a718b181be7476">limes::meta::is_one_of_v</a></div><div class="ttdeci">static constexpr const bool is_one_of_v</div><div class="ttdoc">Evaluates to true if Test is the same as any of the types in Types .</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00153">TypeTraits.h:153</a></div></div>
+<div class="ttc" id="agroup__meta_html_gab7269ffe8ffbe591c6764facb13e2771"><div class="ttname"><a href="../../d6/db2/group__meta.html#gab7269ffe8ffbe591c6764facb13e2771">limes::meta::inherits_from</a></div><div class="ttdeci">concept inherits_from</div><div class="ttdoc">@concept inherits_from</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00071">TypeTraits.h:71</a></div></div>
+<div class="ttc" id="agroup__meta_html_ga3504d8b86957ecbf83dec8fb8a6401ce"><div class="ttname"><a href="../../d6/db2/group__meta.html#ga3504d8b86957ecbf83dec8fb8a6401ce">limes::meta::convertible_to</a></div><div class="ttdeci">concept convertible_to</div><div class="ttdoc">@concept convertible_to Exactly the same as std::convertible_to , only implemented here because some ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00059">TypeTraits.h:59</a></div></div>
+<div class="ttc" id="agroup__meta_html_ga500b343e7bdab00b2142d897a532330c"><div class="ttname"><a href="../../d6/db2/group__meta.html#ga500b343e7bdab00b2142d897a532330c">limes::meta::specializes</a></div><div class="ttdeci">concept specializes</div><div class="ttdoc">@concept specializes</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00100">TypeTraits.h:100</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00052">limes_namespace.h:52</a></div></div>
-<div class="ttc" id="agroup__meta_html_ga7fbdca6ad24c2bb0bba2e4bd0c9a6ce7"><div class="ttname"><a href="../../d6/db2/group__meta.html#ga7fbdca6ad24c2bb0bba2e4bd0c9a6ce7">limes::meta::covariant_subtype_of</a></div><div class="ttdeci">concept covariant_subtype_of</div><div class="ttdoc">@concept covariant_subtype_of</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00131">TypeTraits.h:131</a></div></div>
+<div class="ttc" id="agroup__meta_html_ga7fbdca6ad24c2bb0bba2e4bd0c9a6ce7"><div class="ttname"><a href="../../d6/db2/group__meta.html#ga7fbdca6ad24c2bb0bba2e4bd0c9a6ce7">limes::meta::covariant_subtype_of</a></div><div class="ttdeci">concept covariant_subtype_of</div><div class="ttdoc">@concept covariant_subtype_of</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00132">TypeTraits.h:132</a></div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00040">limes_namespace.h:40</a></div></div>
-<div class="ttc" id="agroup__meta_html_gabf1ebcf6a9b51774bb0065caf5139467"><div class="ttname"><a href="../../d6/db2/group__meta.html#gabf1ebcf6a9b51774bb0065caf5139467">limes::misc::getDemangledTypeName</a></div><div class="ttdeci">std::string getDemangledTypeName(const auto *c) noexcept</div><div class="ttdoc">Returns the demangled name of the type of the passed object, ending with &quot; pointer&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00219">TypeTraits.h:219</a></div></div>
-<div class="ttc" id="agroup__meta_html_gadb3de5cd06c0f5f0ab0e46f3033c02da"><div class="ttname"><a href="../../d6/db2/group__meta.html#gadb3de5cd06c0f5f0ab0e46f3033c02da">limes::meta::is_none_of_v</a></div><div class="ttdeci">static constexpr const bool is_none_of_v</div><div class="ttdoc">Evaluates to true if Test is not in the list of Types .</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00168">TypeTraits.h:168</a></div></div>
-<div class="ttc" id="agroup__meta_html_gab82b141c243bdbd92995ab2b6c54e49f"><div class="ttname"><a href="../../d6/db2/group__meta.html#gab82b141c243bdbd92995ab2b6c54e49f">limes::meta::is_covariant_v</a></div><div class="ttdeci">static constexpr const bool is_covariant_v</div><div class="ttdoc">Evaluates to true if Base and Derived are covariant types; false otherwise.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00125">TypeTraits.h:125</a></div></div>
-<div class="ttc" id="agroup__meta_html_ga33d028cd1ed992683b771df4df7aba7c"><div class="ttname"><a href="../../d6/db2/group__meta.html#ga33d028cd1ed992683b771df4df7aba7c">limes::meta::is_specialization_v</a></div><div class="ttdeci">static constexpr const bool is_specialization_v</div><div class="ttdoc">Evaluates to true if the given type is a specialization of the given template class; false otherwise.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00093">TypeTraits.h:93</a></div></div>
+<div class="ttc" id="agroup__meta_html_gabf1ebcf6a9b51774bb0065caf5139467"><div class="ttname"><a href="../../d6/db2/group__meta.html#gabf1ebcf6a9b51774bb0065caf5139467">limes::misc::getDemangledTypeName</a></div><div class="ttdeci">std::string getDemangledTypeName(const auto *c) noexcept</div><div class="ttdoc">Returns the demangled name of the type of the passed object, ending with &quot; pointer&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00220">TypeTraits.h:220</a></div></div>
+<div class="ttc" id="agroup__meta_html_gadb3de5cd06c0f5f0ab0e46f3033c02da"><div class="ttname"><a href="../../d6/db2/group__meta.html#gadb3de5cd06c0f5f0ab0e46f3033c02da">limes::meta::is_none_of_v</a></div><div class="ttdeci">static constexpr const bool is_none_of_v</div><div class="ttdoc">Evaluates to true if Test is not in the list of Types .</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00169">TypeTraits.h:169</a></div></div>
+<div class="ttc" id="agroup__meta_html_gab82b141c243bdbd92995ab2b6c54e49f"><div class="ttname"><a href="../../d6/db2/group__meta.html#gab82b141c243bdbd92995ab2b6c54e49f">limes::meta::is_covariant_v</a></div><div class="ttdeci">static constexpr const bool is_covariant_v</div><div class="ttdoc">Evaluates to true if Base and Derived are covariant types; false otherwise.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00126">TypeTraits.h:126</a></div></div>
+<div class="ttc" id="agroup__meta_html_ga33d028cd1ed992683b771df4df7aba7c"><div class="ttname"><a href="../../d6/db2/group__meta.html#ga33d028cd1ed992683b771df4df7aba7c">limes::meta::is_specialization_v</a></div><div class="ttdeci">static constexpr const bool is_specialization_v</div><div class="ttdoc">Evaluates to true if the given type is a specialization of the given template class; false otherwise.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd5/_type_traits_8h_source.html#l00094">TypeTraits.h:94</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_db1624377dd76a589c108b2ad61e06f8.html">meta</a></li><li class="navelem"><a class="el" href="../../d4/dd5/_type_traits_8h.html">TypeTraits.h</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 20:07:18 for Limes by
+    <li class="footer">Generated on Wed Jun 8 2022 00:33:00 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

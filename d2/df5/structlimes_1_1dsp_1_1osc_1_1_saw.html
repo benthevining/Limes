@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('d2/df5/structlimes_1_1dsp_1_1osc_1_1_s
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../d1/d08/structlimes_1_1dsp_1_1osc_1_1_saw-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">limes::dsp::osc::Saw&lt; SampleType &gt; Struct Template Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../d0/d7b/group__limes__audio.html">limes_audio</a> &raquo; <a class="el" href="../../d5/db5/group__samplestreams.html">Streams</a> &raquo; <a class="el" href="../../d5/d0f/group__oscillators.html">Oscillators</a></div></div>  </div>
+<div class="title">limes::dsp::osc::Saw&lt; SampleType &gt; Struct Template Reference<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="../../d1/dbd/group__limes.html">Limes</a> &raquo; <a class="el" href="../../d0/d7b/group__limes__audio.html">limes_audio</a> &raquo; <a class="el" href="../../d5/db5/group__samplestreams.html">Streams</a> &raquo; <a class="el" href="../../d5/d0f/group__oscillators.html">Oscillators</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -114,6 +114,12 @@ $(document).ready(function(){initNavTree('d2/df5/structlimes_1_1dsp_1_1osc_1_1_s
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
+<tr class="memitem:a1978ee7f7318fddf5b367fbd7f8dffba"><td class="memItemLeft" align="right" valign="top"><a id="a1978ee7f7318fddf5b367fbd7f8dffba"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>BlockProcessingFunc</b> = std::function&lt; void(SampleType *, int)&gt;</td></tr>
+<tr class="separator:a1978ee7f7318fddf5b367fbd7f8dffba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab87453008f387fe7280a27ccdcc1f02f"><td class="memItemLeft" align="right" valign="top"><a id="ab87453008f387fe7280a27ccdcc1f02f"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>SampleGenerationFunc</b> = std::function&lt; SampleType()&gt;</td></tr>
+<tr class="separator:ab87453008f387fe7280a27ccdcc1f02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f037c48e547c0d708e75444a223c641"><td class="memItemLeft" align="right" valign="top"><a id="a6f037c48e547c0d708e75444a223c641"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>SampleVector</b> = <a class="el" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">ds::scalar_vector</a>&lt; SampleType &gt;</td></tr>
 <tr class="separator:a6f037c48e547c0d708e75444a223c641"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,24 +132,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2554249f4e5049696a63ca1203bd3032"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html#a2554249f4e5049696a63ca1203bd3032">getFrequency</a> () const noexcept final</td></tr>
 <tr class="memdesc:a2554249f4e5049696a63ca1203bd3032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sawtooth wave's frequency.  <a href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html#a2554249f4e5049696a63ca1203bd3032">More...</a><br /></td></tr>
 <tr class="separator:a2554249f4e5049696a63ca1203bd3032"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93eb1b866027c610d3d29b49adbd1a3c"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html#a93eb1b866027c610d3d29b49adbd1a3c">getSample</a> () const</td></tr>
-<tr class="memdesc:a93eb1b866027c610d3d29b49adbd1a3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next output sample from the stream.  <a href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html#a93eb1b866027c610d3d29b49adbd1a3c">More...</a><br /></td></tr>
-<tr class="separator:a93eb1b866027c610d3d29b49adbd1a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94095bca6e0a30446f71348e8063788c"><td class="memItemLeft" align="right" valign="top"><a id="a94095bca6e0a30446f71348e8063788c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LIMES_DEFAULT_COPYABLE</b> (<a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html">SampleStream</a>)</td></tr>
-<tr class="separator:a94095bca6e0a30446f71348e8063788c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6568b020da21e1a5b91483cf7cf5c3b9"><td class="memItemLeft" align="right" valign="top"><a id="a6568b020da21e1a5b91483cf7cf5c3b9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LIMES_DEFAULT_COPYABLE</b> (<a class="el" href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html">Saw</a>)</td></tr>
-<tr class="separator:a6568b020da21e1a5b91483cf7cf5c3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34b908cd15c144735a5a6e54e079daad"><td class="memItemLeft" align="right" valign="top"><a id="a34b908cd15c144735a5a6e54e079daad"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LIMES_DEFAULT_MOVABLE</b> (<a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html">SampleStream</a>)</td></tr>
-<tr class="separator:a34b908cd15c144735a5a6e54e079daad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f88e0138328be6b39937fc07fbc3291"><td class="memItemLeft" align="right" valign="top"><a id="a9f88e0138328be6b39937fc07fbc3291"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LIMES_DEFAULT_MOVABLE</b> (<a class="el" href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html">Saw</a>)</td></tr>
-<tr class="separator:a9f88e0138328be6b39937fc07fbc3291"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab12ebd7063b5ffe547d42b6e86deed37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html#ab12ebd7063b5ffe547d42b6e86deed37">resetPhase</a> () final</td></tr>
-<tr class="memdesc:ab12ebd7063b5ffe547d42b6e86deed37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the sawtooth wave's phase.  <a href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html#ab12ebd7063b5ffe547d42b6e86deed37">More...</a><br /></td></tr>
-<tr class="separator:ab12ebd7063b5ffe547d42b6e86deed37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b9ee831425c6ebfc15b9408e1d12829"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html#a2b9ee831425c6ebfc15b9408e1d12829">LIMES_DEFAULT_MOVABLE</a> (<a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html">SampleStream</a>) <a class="el" href="../../d3/d6b/group__preprocessor.html#ga5bf553d96012e220f7715df0a90066da">LIMES_DEFAULT_COPYABLE</a>(<a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html">SampleStream</a>) SampleType getSample() const</td></tr>
+<tr class="memdesc:a2b9ee831425c6ebfc15b9408e1d12829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next output sample from the stream.  <a href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html#a2b9ee831425c6ebfc15b9408e1d12829">More...</a><br /></td></tr>
+<tr class="separator:a2b9ee831425c6ebfc15b9408e1d12829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa05f967e9bca162f65673e4d57c70197"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html#aa05f967e9bca162f65673e4d57c70197">LIMES_DEFAULT_MOVABLE</a> (<a class="el" href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html">Saw</a>) <a class="el" href="../../d3/d6b/group__preprocessor.html#ga5bf553d96012e220f7715df0a90066da">LIMES_DEFAULT_COPYABLE</a>(<a class="el" href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html">Saw</a>) void <a class="el" href="../../d3/d36/structlimes_1_1dsp_1_1_oscillator.html#a54eeae5a5358f074c6de93de072d6c2e">resetPhase</a>() final</td></tr>
+<tr class="memdesc:aa05f967e9bca162f65673e4d57c70197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the sawtooth wave's phase.  <a href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html#aa05f967e9bca162f65673e4d57c70197">More...</a><br /></td></tr>
+<tr class="separator:aa05f967e9bca162f65673e4d57c70197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54eeae5a5358f074c6de93de072d6c2e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d36/structlimes_1_1dsp_1_1_oscillator.html#a54eeae5a5358f074c6de93de072d6c2e">resetPhase</a> ()=0</td></tr>
+<tr class="memdesc:a54eeae5a5358f074c6de93de072d6c2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the oscillator's phase.  <a href="../../d3/d36/structlimes_1_1dsp_1_1_oscillator.html#a54eeae5a5358f074c6de93de072d6c2e">More...</a><br /></td></tr>
+<tr class="separator:a54eeae5a5358f074c6de93de072d6c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14521eccac6e130dadfce392674c4ee2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html#a14521eccac6e130dadfce392674c4ee2">setFrequency</a> (SampleType frequency, SampleType sampleRate) final</td></tr>
 <tr class="memdesc:a14521eccac6e130dadfce392674c4ee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the output frequency and samplerate of the sawtooth wave.  <a href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html#a14521eccac6e130dadfce392674c4ee2">More...</a><br /></td></tr>
 <tr class="separator:a14521eccac6e130dadfce392674c4ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -221,35 +218,6 @@ template&lt;Sample SampleType&gt; </div>
 
 </div>
 </div>
-<a id="a93eb1b866027c610d3d29b49adbd1a3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93eb1b866027c610d3d29b49adbd1a3c">&#9670;&nbsp;</a></span>getSample()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;Sample SampleType&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">SampleType <a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html">limes::dsp::SampleStream</a>&lt; SampleType &gt;::getSample </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the next output sample from the stream. </p>
-
-</div>
-</div>
 <a id="a789a074b5645ad9c7bec1d9acf4e8795"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a789a074b5645ad9c7bec1d9acf4e8795">&#9670;&nbsp;</a></span>getSamples() <span class="overload">[1/2]</span></h2>
 
@@ -320,8 +288,8 @@ template&lt;Sample SampleType&gt; </div>
 
 </div>
 </div>
-<a id="ab12ebd7063b5ffe547d42b6e86deed37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab12ebd7063b5ffe547d42b6e86deed37">&#9670;&nbsp;</a></span>resetPhase()</h2>
+<a id="a2b9ee831425c6ebfc15b9408e1d12829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b9ee831425c6ebfc15b9408e1d12829">&#9670;&nbsp;</a></span>LIMES_DEFAULT_MOVABLE() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -332,7 +300,67 @@ template&lt;Sample SampleType&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html">limes::dsp::osc::Saw</a>&lt; SampleType &gt;::resetPhase </td>
+          <td class="memname"><a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html">limes::dsp::SampleStream</a>&lt; SampleType &gt;::LIMES_DEFAULT_MOVABLE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d63/structlimes_1_1dsp_1_1_sample_stream.html">SampleStream</a>&lt; SampleType &gt;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the next output sample from the stream. </p>
+
+</div>
+</div>
+<a id="aa05f967e9bca162f65673e4d57c70197"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa05f967e9bca162f65673e4d57c70197">&#9670;&nbsp;</a></span>LIMES_DEFAULT_MOVABLE() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Sample SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html">limes::dsp::osc::Saw</a>&lt; SampleType &gt;::LIMES_DEFAULT_MOVABLE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html">Saw</a>&lt; SampleType &gt;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the sawtooth wave's phase. </p>
+
+</div>
+</div>
+<a id="a54eeae5a5358f074c6de93de072d6c2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54eeae5a5358f074c6de93de072d6c2e">&#9670;&nbsp;</a></span>resetPhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Sample SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="../../d3/d36/structlimes_1_1dsp_1_1_oscillator.html">limes::dsp::Oscillator</a>&lt; SampleType &gt;::resetPhase </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -340,14 +368,12 @@ template&lt;Sample SampleType&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Resets the sawtooth wave's phase. </p>
-
-<p>Implements <a class="el" href="../../d3/d36/structlimes_1_1dsp_1_1_oscillator.html#a54eeae5a5358f074c6de93de072d6c2e">limes::dsp::Oscillator&lt; SampleType &gt;</a>.</p>
+<p>Resets the oscillator's phase. </p>
 
 </div>
 </div>
@@ -420,6 +446,7 @@ template&lt;Sample SampleType&gt; </div>
 </div><div class="memdoc">
 
 <p>Skips a number of samples in the stream. </p>
+<p>This calls the specified sample generation function once for each sample to be skipped, and does nothing with its output. </p>
 
 </div>
 </div>
@@ -432,7 +459,7 @@ template&lt;Sample SampleType&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d44/namespacelimes.html">limes</a></li><li class="navelem"><a class="el" href="../../d4/d00/namespacelimes_1_1dsp.html">dsp</a></li><li class="navelem"><a class="el" href="../../d1/d0a/namespacelimes_1_1dsp_1_1osc.html">osc</a></li><li class="navelem"><a class="el" href="../../d2/df5/structlimes_1_1dsp_1_1osc_1_1_saw.html">Saw</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 20:07:19 for Limes by
+    <li class="footer">Generated on Wed Jun 8 2022 00:33:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

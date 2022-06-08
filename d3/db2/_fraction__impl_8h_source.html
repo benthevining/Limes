@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('d3/db2/_fraction__impl_8h_source.html'
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;constexpr Fraction&lt;ValueType&gt;::Fraction (ValueType num, ValueType denom) noexcept</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    : numerator (num), denominator (denom)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (denominator != ValueType (0));</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d3/d6b/group__preprocessor.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (denominator != ValueType (0));</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">template</span> &lt;Scalar ValueType&gt;</div>
@@ -135,7 +135,7 @@ $(document).ready(function(){initNavTree('d3/db2/_fraction__impl_8h_source.html'
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">template</span> &lt;Scalar ValueType&gt;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">template</span> &lt;Scalar T&gt;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;constexpr Fraction&lt;ValueType&gt;&amp; Fraction&lt;ValueType&gt;::operator= (<span class="keyword">const</span> Fraction&lt;T&gt;&amp; other) noexcept</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;constexpr Fraction&lt;ValueType&gt;&amp; <a class="code" href="../../d3/d53/preprocessor_8h.html#afbe72c289572c5c3d5b9ed279a4dda49">Fraction&lt;ValueType&gt;::operator= </a>(<span class="keyword">const</span> Fraction&lt;T&gt;&amp; other) noexcept</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    numerator   = <span class="keyword">static_cast&lt;</span>ValueType<span class="keyword">&gt;</span> (other.numerator);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    denominator = <span class="keyword">static_cast&lt;</span>ValueType<span class="keyword">&gt;</span> (other.denominator);</div>
@@ -146,7 +146,7 @@ $(document).ready(function(){initNavTree('d3/db2/_fraction__impl_8h_source.html'
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">template</span> &lt;Scalar T&gt;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;constexpr Fraction&lt;ValueType&gt;::operator T() const noexcept</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (denominator != 0);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="../../d3/d6b/group__preprocessor.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (denominator != 0);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (numerator) / <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span> (denominator);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
@@ -325,7 +325,7 @@ $(document).ready(function(){initNavTree('d3/db2/_fraction__impl_8h_source.html'
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="keyword">template</span> &lt;Scalar ValueType&gt;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;constexpr ValueType Fraction&lt;ValueType&gt;::divided() const noexcept</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;{</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (denominator != 0);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <a class="code" href="../../d3/d6b/group__preprocessor.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a> (denominator != 0);</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">return</span> numerator / denominator;</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;}</div>
@@ -383,7 +383,8 @@ $(document).ready(function(){initNavTree('d3/db2/_fraction__impl_8h_source.html'
 <div class="ttc" id="agroup__music__intervals_html_gace85358102f38a5ae37e1f3cc4530512"><div class="ttname"><a href="../../d8/d49/group__music__intervals.html#gace85358102f38a5ae37e1f3cc4530512">limes::music::operator-</a></div><div class="ttdeci">Pitch operator-(const Pitch &amp;pitch, const Interval &amp;interval) noexcept</div><div class="ttdoc">Subtracts an interval from the given pitch and returns a new pitch object at the resulting pitch.</div></div>
 <div class="ttc" id="agroup__music__intervals_html_gad937197c36fe7b20d305edb703a8ac78"><div class="ttname"><a href="../../d8/d49/group__music__intervals.html#gad937197c36fe7b20d305edb703a8ac78">limes::music::operator+</a></div><div class="ttdeci">Pitch operator+(const Pitch &amp;pitch, const Interval &amp;interval) noexcept</div><div class="ttdoc">Adds an interval to the given pitch and returns a new pitch object at the resulting pitch.</div></div>
 <div class="ttc" id="a_fraction_8h_html"><div class="ttname"><a href="../../d3/de1/_fraction_8h.html">Fraction.h</a></div></div>
-<div class="ttc" id="agroup__system_html_ga06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="../../d4/d37/group__system.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbb/limes__assert_8h_source.html#l00105">limes_assert.h:105</a></div></div>
+<div class="ttc" id="apreprocessor_8h_html_afbe72c289572c5c3d5b9ed279a4dda49"><div class="ttname"><a href="../../d3/d53/preprocessor_8h.html#afbe72c289572c5c3d5b9ed279a4dda49">operator=</a></div><div class="ttdeci">ClassName &amp; operator=(const ClassName &amp;)=delete</div><div class="ttdoc">%#ClassName is not copyable.</div></div>
+<div class="ttc" id="agroup__preprocessor_html_ga06a4bfb323e9f05d2e51a72b21f40e0a"><div class="ttname"><a href="../../d3/d6b/group__preprocessor.html#ga06a4bfb323e9f05d2e51a72b21f40e0a">LIMES_ASSERT</a></div><div class="ttdeci">#define LIMES_ASSERT(condition)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dbb/limes__assert_8h_source.html#l00105">limes_assert.h:105</a></div></div>
 <div class="ttc" id="agroup__vec__subtraction_html_gadf36066325d4106ebdf2e9e370df564b"><div class="ttname"><a href="../../db/d1b/group__vec__subtraction.html#gadf36066325d4106ebdf2e9e370df564b">limes::vecops::subtract</a></div><div class="ttdeci">void subtract(DataType *const data, SizeType size, DataType constantToSubtract) noexcept</div><div class="ttdoc">Subtracts a constant from every element of the vector.</div></div>
 <div class="ttc" id="agroup__limes__core_html_ga7ea42681efe61fc798589260810ad784"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div><div class="ttdeci">#define LIMES_END_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00052">limes_namespace.h:52</a></div></div>
 <div class="ttc" id="agroup___two_dgeometry_html_ga5cdfdcd69f79295c4eef46793103aad4"><div class="ttname"><a href="../../d7/dcd/group___two_dgeometry.html#ga5cdfdcd69f79295c4eef46793103aad4">limes::math::geometry::operator==</a></div><div class="ttdeci">constexpr bool operator==(const Rectangle&lt; ValueType &gt; &amp;rect, const Square&lt; ValueType &gt; &amp;square) noexcept</div><div class="ttdoc">Returns true if the Rectangle and Square have equal dimensions.</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3c/square_8h_source.html#l00105">square.h:105</a></div></div>
@@ -398,7 +399,7 @@ $(document).ready(function(){initNavTree('d3/db2/_fraction__impl_8h_source.html'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_ea607fa48d8193a4f69d843048dc5a11.html">limes_core</a></li><li class="navelem"><a class="el" href="../../dir_f0d4ec8d2337f2081e409df54f3b2ddf.html">math</a></li><li class="navelem"><a class="el" href="../../d3/db2/_fraction__impl_8h.html">Fraction_impl.h</a></li>
-    <li class="footer">Generated on Tue Jun 7 2022 20:07:18 for Limes by
+    <li class="footer">Generated on Wed Jun 8 2022 00:33:00 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

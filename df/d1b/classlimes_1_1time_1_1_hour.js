@@ -5,8 +5,6 @@ var classlimes_1_1time_1_1_hour =
     [ "Hour", "df/d1b/classlimes_1_1time_1_1_hour.html#ab8ee2ddcbf5181d0292c919c97027ee8", null ],
     [ "Hour", "df/d1b/classlimes_1_1time_1_1_hour.html#a8aeecdf08290865e1f97ef0b8978af01", null ],
     [ "Hour", "df/d1b/classlimes_1_1time_1_1_hour.html#ac604f6f2a254d3f2e50ada1611f3c95f", null ],
-    [ "Hour", "df/d1b/classlimes_1_1time_1_1_hour.html#ac27bee81da133984605d464d34f8e163", null ],
-    [ "Hour", "df/d1b/classlimes_1_1time_1_1_hour.html#a7fe80beaa95e48788c1c3480092b2953", null ],
     [ "getCompilationHour", "df/d1b/classlimes_1_1time_1_1_hour.html#a08230f0b0fd058d8b704d907d3b8fc7f", null ],
     [ "getCurrent", "df/d1b/classlimes_1_1time_1_1_hour.html#afc97a87f9036cced637c4502e5c70ba5", null ],
     [ "getIn12HourFormat", "df/d1b/classlimes_1_1time_1_1_hour.html#ab0abd1c116bed1edf599b630c4ef5ce1", null ],
@@ -25,8 +23,6 @@ var classlimes_1_1time_1_1_hour =
     [ "operator--", "df/d1b/classlimes_1_1time_1_1_hour.html#a82c8bdee2b736a49d4c7a975dcc9ff99", null ],
     [ "operator-=", "df/d1b/classlimes_1_1time_1_1_hour.html#a458e14d70723e00ef2e3d0ab3809a8cf", null ],
     [ "operator<", "df/d1b/classlimes_1_1time_1_1_hour.html#a92d92c23daeb2604815843df219cc24b", null ],
-    [ "operator=", "df/d1b/classlimes_1_1time_1_1_hour.html#a4408460379b072ea8a4d1e1f0f39d8ae", null ],
-    [ "operator=", "df/d1b/classlimes_1_1time_1_1_hour.html#ad2e470359f29f1bb025e8d8237476807", null ],
     [ "operator==", "df/d1b/classlimes_1_1time_1_1_hour.html#a4f6fb162b87eb349f8ed1526cb9ee98e", null ],
     [ "operator>", "df/d1b/classlimes_1_1time_1_1_hour.html#a273cbdb187ddccf44494b737dcaaf612", null ]
 ];

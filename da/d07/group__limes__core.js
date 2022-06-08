@@ -8,6 +8,7 @@ var group__limes__core =
     [ "Memory", "d7/ded/group__memory.html", "d7/ded/group__memory" ],
     [ "Metaprogramming", "d6/db2/group__meta.html", "d6/db2/group__meta" ],
     [ "Miscellaneous", "d1/ded/group__misc.html", "d1/ded/group__misc" ],
+    [ "Preprocessor", "d3/d6b/group__preprocessor.html", "d3/d6b/group__preprocessor" ],
     [ "Serializing", "d4/db5/group__serializing.html", "d4/db5/group__serializing" ],
     [ "System", "d4/d37/group__system.html", "d4/d37/group__system" ],
     [ "Text", "d4/d61/group__text.html", "d4/d61/group__text" ],

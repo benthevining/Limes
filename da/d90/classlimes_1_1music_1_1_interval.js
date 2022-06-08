@@ -1,12 +1,5 @@
 var classlimes_1_1music_1_1_interval =
 [
-    [ "Quality", "da/d90/classlimes_1_1music_1_1_interval.html#a5bbd36b4b8812aa179a90c459dbcf7be", [
-      [ "Diminished", "da/d90/classlimes_1_1music_1_1_interval.html#a5bbd36b4b8812aa179a90c459dbcf7bea539ef79c5675bdcd6fead7bc93643d98", null ],
-      [ "Minor", "da/d90/classlimes_1_1music_1_1_interval.html#a5bbd36b4b8812aa179a90c459dbcf7bea6fed0c378a4b4e8c1e7dc5c16dabb388", null ],
-      [ "Major", "da/d90/classlimes_1_1music_1_1_interval.html#a5bbd36b4b8812aa179a90c459dbcf7bea3b329734e45b57e60f3df64c2cf412a9", null ],
-      [ "Augmented", "da/d90/classlimes_1_1music_1_1_interval.html#a5bbd36b4b8812aa179a90c459dbcf7beab45f39670f767b2c62c8d6b211cbcb1a", null ],
-      [ "Perfect", "da/d90/classlimes_1_1music_1_1_interval.html#a5bbd36b4b8812aa179a90c459dbcf7bea56cdd7e9e3cef1974f4075c03a80332d", null ]
-    ] ],
     [ "~Interval", "da/d90/classlimes_1_1music_1_1_interval.html#ad1d63870215c0a0668918d7ac7c5f56e", null ],
     [ "Interval", "da/d90/classlimes_1_1music_1_1_interval.html#a86c25726f8b4cd36c365eb1620a657b4", null ],
     [ "Interval", "da/d90/classlimes_1_1music_1_1_interval.html#a46edb7bed35f32eb3333449a3d9d0eba", null ],
@@ -23,8 +16,7 @@ var classlimes_1_1music_1_1_interval =
     [ "getQuality", "da/d90/classlimes_1_1music_1_1_interval.html#ad6b0bf1b30654cda4f29cae5a1ea5869", null ],
     [ "isEnharmonicTo", "da/d90/classlimes_1_1music_1_1_interval.html#a10a6e8dcda4202f5e6e29847b49e4f2d", null ],
     [ "isValidQualityForKind", "da/d90/classlimes_1_1music_1_1_interval.html#a85bda49f7643404f55dfe12a681700fb", null ],
-    [ "LIMES_CONSTEXPR_COPYABLE", "da/d90/classlimes_1_1music_1_1_interval.html#aba67e3fe50c705073e0e296198545a2d", null ],
-    [ "LIMES_CONSTEXPR_MOVABLE", "da/d90/classlimes_1_1music_1_1_interval.html#aa953a97b9ce99109f9e7d8874617f417", null ],
+    [ "LIMES_CONSTEXPR_MOVABLE", "da/d90/classlimes_1_1music_1_1_interval.html#a4bf8330b8e243c9dad98ebbd2055711d", null ],
     [ "operator!=", "da/d90/classlimes_1_1music_1_1_interval.html#a3ef327a8bb9629bfbaa50c15cd896d2f", null ],
     [ "operator+", "da/d90/classlimes_1_1music_1_1_interval.html#a55ceb7e27f5a7e07c23ac6f038c6633c", null ],
     [ "operator+", "da/d90/classlimes_1_1music_1_1_interval.html#a54b9a69a036ed7397da211f2fe052ced", null ],

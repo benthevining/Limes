@@ -1,15 +1,11 @@
 var classlimes_1_1math_1_1geometry_1_1_hexagon =
 [
     [ "Hexagon", "d2/dac/classlimes_1_1math_1_1geometry_1_1_hexagon.html#ae61853010d4d8a8bc60cb6c0131f631a", null ],
-    [ "Hexagon", "d2/dac/classlimes_1_1math_1_1geometry_1_1_hexagon.html#ad74e2febeaa7cd6927fce647c057c86f", null ],
-    [ "Hexagon", "d2/dac/classlimes_1_1math_1_1geometry_1_1_hexagon.html#ad75408ee8061271730e5561a78fe1731", null ],
     [ "area", "d2/dac/classlimes_1_1math_1_1geometry_1_1_hexagon.html#a55ebf086996fa5e412662caf2b05456a", null ],
     [ "exteriorAngle", "d2/dac/classlimes_1_1math_1_1geometry_1_1_hexagon.html#a846177939eb4442039cb5787ac0c60ae", null ],
     [ "interiorAngle", "d2/dac/classlimes_1_1math_1_1geometry_1_1_hexagon.html#ab46ff876fd47e2a611e70d8967841dd4", null ],
     [ "operator!=", "d2/dac/classlimes_1_1math_1_1geometry_1_1_hexagon.html#a0e3e91e23f25e18cf1203c484ec91ff7", null ],
     [ "operator<", "d2/dac/classlimes_1_1math_1_1geometry_1_1_hexagon.html#ace06fd5b82aa5f1dad14c9dd7fba1cc8", null ],
-    [ "operator=", "d2/dac/classlimes_1_1math_1_1geometry_1_1_hexagon.html#ad3c97a7309beb8961441d10fafb565d9", null ],
-    [ "operator=", "d2/dac/classlimes_1_1math_1_1geometry_1_1_hexagon.html#a7b6e8d7e681030ccb9281261676afac0", null ],
     [ "operator==", "d2/dac/classlimes_1_1math_1_1geometry_1_1_hexagon.html#a989304888007078187271218c8afcedc", null ],
     [ "operator>", "d2/dac/classlimes_1_1math_1_1geometry_1_1_hexagon.html#a96570dabe088142863398e7db5ffb779", null ],
     [ "perimeter", "d2/dac/classlimes_1_1math_1_1geometry_1_1_hexagon.html#ad3eb17db93bafac996ccfe4e86ba677f", null ],

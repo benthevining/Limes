@@ -249,7 +249,8 @@ var files_dup =
     ] ],
     [ "StringUtils.h", "de/dde/_string_utils_8h.html", "de/dde/_string_utils_8h" ],
     [ "sym_link.h", "d8/d06/sym__link_8h.html", [
-      [ "SymLink", "d8/db4/classlimes_1_1files_1_1_sym_link.html", "d8/db4/classlimes_1_1files_1_1_sym_link" ]
+      [ "SymLink", "d8/db4/classlimes_1_1files_1_1_sym_link.html", "d8/db4/classlimes_1_1files_1_1_sym_link" ],
+      [ "hash< limes::files::SymLink >", "dd/d05/structstd_1_1hash_3_01limes_1_1files_1_1_sym_link_01_4.html", "dd/d05/structstd_1_1hash_3_01limes_1_1files_1_1_sym_link_01_4" ]
     ] ],
     [ "TextTable.h", "dc/d28/_text_table_8h.html", [
       [ "TextTable", "d9/d88/classlimes_1_1strings_1_1_text_table.html", "d9/d88/classlimes_1_1strings_1_1_text_table" ]

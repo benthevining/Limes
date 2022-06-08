@@ -128,9 +128,10 @@ $(document).ready(function(){initNavTree('dd/d28/_circular_buffer_8h_source.html
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d7/d95/classlimes_1_1dsp_1_1_circular_buffer.html">CircularBuffer</a> (<span class="keywordtype">int</span> initialCapacity = 512);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (<a class="code" href="../../d7/d95/classlimes_1_1dsp_1_1_circular_buffer.html">CircularBuffer</a>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d4/d37/group__system.html#ga3c9f53b7d1a99a02600fdbe81a772f82">LIMES_NON_MOVABLE</a> (<a class="code" href="../../d7/d95/classlimes_1_1dsp_1_1_circular_buffer.html">CircularBuffer</a>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="../../d3/d6b/group__preprocessor.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a> (<a class="code" href="../../d7/d95/classlimes_1_1dsp_1_1_circular_buffer.html">CircularBuffer</a>)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d3/d6b/group__preprocessor.html#ga3c9f53b7d1a99a02600fdbe81a772f82">LIMES_NON_MOVABLE</a> (<a class="code" href="../../d7/d95/classlimes_1_1dsp_1_1_circular_buffer.html">CircularBuffer</a>)</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> storeSamples (<span class="keyword">const</span> <a class="code" href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">SampleVector</a>&amp; samples);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> storeSamples (<span class="keyword">const</span> SampleType* <span class="keyword">const</span> samples, <span class="keywordtype">int</span> numSamples);</div>
@@ -159,8 +160,6 @@ $(document).ready(function(){initNavTree('dd/d28/_circular_buffer_8h_source.html
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<a class="code" href="../../da/d07/group__limes__core.html#ga7ea42681efe61fc798589260810ad784">LIMES_END_NAMESPACE</a></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agroup__system_html_gaa19294b73467ee63a3601fe2ff636b8c"><div class="ttname"><a href="../../d4/d37/group__system.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a></div><div class="ttdeci">#define LIMES_NON_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00122">preprocessor.h:122</a></div></div>
-<div class="ttc" id="agroup__system_html_ga3c9f53b7d1a99a02600fdbe81a772f82"><div class="ttname"><a href="../../d4/d37/group__system.html#ga3c9f53b7d1a99a02600fdbe81a772f82">LIMES_NON_MOVABLE</a></div><div class="ttdeci">#define LIMES_NON_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00139">preprocessor.h:139</a></div></div>
 <div class="ttc" id="aclasslimes_1_1ds_1_1scalar__vector_html"><div class="ttname"><a href="../../df/d0d/classlimes_1_1ds_1_1scalar__vector.html">limes::ds::scalar_vector&lt; SampleType &gt;</a></div></div>
 <div class="ttc" id="aclasslimes_1_1ds_1_1_abstract_f_i_f_o_html"><div class="ttname"><a href="../../d1/da9/classlimes_1_1ds_1_1_abstract_f_i_f_o.html">limes::ds::AbstractFIFO</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/daa/_abstract_f_i_f_o_8h_source.html#l00025">AbstractFIFO.h:25</a></div></div>
 <div class="ttc" id="aclasslimes_1_1dsp_1_1_circular_buffer_html"><div class="ttname"><a href="../../d7/d95/classlimes_1_1dsp_1_1_circular_buffer.html">limes::dsp::CircularBuffer</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d28/_circular_buffer_8h_source.html#l00027">CircularBuffer.h:27</a></div></div>
@@ -169,12 +168,14 @@ $(document).ready(function(){initNavTree('dd/d28/_circular_buffer_8h_source.html
 <div class="ttc" id="agroup__limes__vecops_html_ga9cc2c9b4c12bd3574570e8dc7ff35da3"><div class="ttname"><a href="../../dc/dd4/group__limes__vecops.html#ga9cc2c9b4c12bd3574570e8dc7ff35da3">limes::vecops::clear</a></div><div class="ttdeci">void clear(DataType *const data, SizeType size) noexcept</div><div class="ttdoc">Fills the vector with zeroes.</div></div>
 <div class="ttc" id="agroup__limes__core_html_ga41a58aa43a02cea437cc98ee291c3a2c"><div class="ttname"><a href="../../da/d07/group__limes__core.html#ga41a58aa43a02cea437cc98ee291c3a2c">LIMES_BEGIN_NAMESPACE</a></div><div class="ttdeci">#define LIMES_BEGIN_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0b/limes__namespace_8h_source.html#l00040">limes_namespace.h:40</a></div></div>
 <div class="ttc" id="alimes__audio_2util_2_misc_8h_html"><div class="ttname"><a href="../../d1/df0/limes__audio_2util_2_misc_8h.html">Misc.h</a></div></div>
+<div class="ttc" id="agroup__preprocessor_html_gaa19294b73467ee63a3601fe2ff636b8c"><div class="ttname"><a href="../../d3/d6b/group__preprocessor.html#gaa19294b73467ee63a3601fe2ff636b8c">LIMES_NON_COPYABLE</a></div><div class="ttdeci">#define LIMES_NON_COPYABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00151">preprocessor.h:151</a></div></div>
+<div class="ttc" id="agroup__preprocessor_html_ga3c9f53b7d1a99a02600fdbe81a772f82"><div class="ttname"><a href="../../d3/d6b/group__preprocessor.html#ga3c9f53b7d1a99a02600fdbe81a772f82">LIMES_NON_MOVABLE</a></div><div class="ttdeci">#define LIMES_NON_MOVABLE(ClassName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00173">preprocessor.h:173</a></div></div>
 <div class="ttc" id="alimes__namespace_8h_html"><div class="ttname"><a href="../../da/d0b/limes__namespace_8h.html">limes_namespace.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_a9e7e74a9fa95c9d0d5d9012ba9e5673.html">limes_audio</a></li><li class="navelem"><a class="el" href="../../dir_8b092633fdcca3f15d4a308be51fefa9.html">util</a></li><li class="navelem"><b>CircularBuffer.h</b></li>
-    <li class="footer">Generated on Tue Jun 7 2022 20:07:17 for Limes by
+    <li class="footer">Generated on Wed Jun 8 2022 00:33:00 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

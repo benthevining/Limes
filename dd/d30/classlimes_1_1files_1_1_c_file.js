@@ -12,7 +12,6 @@ var classlimes_1_1files_1_1_c_file =
     [ "CFile", "dd/d30/classlimes_1_1files_1_1_c_file.html#a377b0f45d308a6db27a019071417a9c1", null ],
     [ "CFile", "dd/d30/classlimes_1_1files_1_1_c_file.html#a3537b591c882b7fdd366c8e1d79e3567", null ],
     [ "~CFile", "dd/d30/classlimes_1_1files_1_1_c_file.html#ad3826c478c77926d875f068f1feaa234", null ],
-    [ "CFile", "dd/d30/classlimes_1_1files_1_1_c_file.html#a429bc6ba979cfcc94566ea8d4c2bc0e7", null ],
     [ "close", "dd/d30/classlimes_1_1files_1_1_c_file.html#a4eb0302b9bbbedeb9e7add25994f9450", null ],
     [ "get", "dd/d30/classlimes_1_1files_1_1_c_file.html#a3fb8d8abfa375b2a5ef6b93bc5e5fe22", null ],
     [ "isOpen", "dd/d30/classlimes_1_1files_1_1_c_file.html#ad2e13c3e72a605f8075f877c8b6567e9", null ],
@@ -20,6 +19,5 @@ var classlimes_1_1files_1_1_c_file =
     [ "operator bool", "dd/d30/classlimes_1_1files_1_1_c_file.html#a1f2e41ca49ba9de711e022caf5528f00", null ],
     [ "operator*", "dd/d30/classlimes_1_1files_1_1_c_file.html#aa6b3e72173b532b758c4dc4e42a547be", null ],
     [ "operator->", "dd/d30/classlimes_1_1files_1_1_c_file.html#a402e65a006a69af106e019d1103b9009", null ],
-    [ "operator=", "dd/d30/classlimes_1_1files_1_1_c_file.html#af3ee31761b80d8ba8ae136a0c53206be", null ],
-    [ "operator=", "dd/d30/classlimes_1_1files_1_1_c_file.html#afbdbcd23b36785f37e330af61748c4eb", null ]
+    [ "operator=", "dd/d30/classlimes_1_1files_1_1_c_file.html#af3ee31761b80d8ba8ae136a0c53206be", null ]
 ];

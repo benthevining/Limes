@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('d9/d7d/group__time.html','../../'); in
 </div><!--header-->
 <div class="contents">
 
-<p>Utilities for working with time measurements.  
+<p>Utilities for working with time measurements. Limes's date &amp; time library is build on top of the <code>std::chrono</code> library, and also provides utilities for interface with the C time API. I wanted a strongly-typed date &amp; time library, which not only creates a cleaner, more useful API, but also allows the programmer to more explicitly express their intent when working with or converting between different time measurements.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="dirs"></a>
@@ -166,7 +166,7 @@ Macros</h2></td></tr>
 <tr class="separator:gac7fd1d6865b1470c8b532a9ceaf16df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Utilities for working with time measurements. </p>
+<p>Utilities for working with time measurements. Limes's date &amp; time library is build on top of the <code>std::chrono</code> library, and also provides utilities for interface with the C time API. I wanted a strongly-typed date &amp; time library, which not only creates a cleaner, more useful API, but also allows the programmer to more explicitly express their intent when working with or converting between different time measurements. </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="gaba800051fa8705e8ec3606d38586f719"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaba800051fa8705e8ec3606d38586f719">&#9670;&nbsp;</a></span>TODO_BEFORE</h2>
@@ -201,7 +201,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p><code>#include &lt;<a class="el" href="../../dc/db3/build__date_8h.html">build_date.h</a>&gt;</code></p>
-<b>Value:</b><div class="fragment"><div class="line">    <a class="code" href="../../d4/d37/group__system.html#gac332d8954bf4665bd2c9b7788d1c81f4">LIMES_BLOCK_WITH_FORCED_SEMICOLON</a> (static_assert (year &gt;= ::<a class="code" href="../../d9/d7d/group__time.html#ga074fa34571f22ac34cc6415c814a0e4f">limes::time::build_year</a>() &amp;&amp; year &lt;= ::<a class="code" href="../../d9/d7d/group__time.html#ga074fa34571f22ac34cc6415c814a0e4f">limes::time::build_year</a>() + 3 &amp;&amp; month &gt; 0 &amp;&amp; month &lt;= 12,          \</div>
+<b>Value:</b><div class="fragment"><div class="line">    <a class="code" href="../../d3/d6b/group__preprocessor.html#gac332d8954bf4665bd2c9b7788d1c81f4">LIMES_BLOCK_WITH_FORCED_SEMICOLON</a> (static_assert (year &gt;= ::<a class="code" href="../../d9/d7d/group__time.html#ga074fa34571f22ac34cc6415c814a0e4f">limes::time::build_year</a>() &amp;&amp; year &lt;= ::<a class="code" href="../../d9/d7d/group__time.html#ga074fa34571f22ac34cc6415c814a0e4f">limes::time::build_year</a>() + 3 &amp;&amp; month &gt; 0 &amp;&amp; month &lt;= 12,          \</div>
 <div class="line">                                                      <span class="stringliteral">&quot;Invalid date constraint in TODO_BEFORE macro!&quot;</span>);                                                                    \</div>
 <div class="line">                                       static_assert (::<a class="code" href="../../d9/d7d/group__time.html#ga074fa34571f22ac34cc6415c814a0e4f">limes::time::build_year</a>() &lt; year || (::<a class="code" href="../../d9/d7d/group__time.html#ga074fa34571f22ac34cc6415c814a0e4f">limes::time::build_year</a>() == year &amp;&amp; ::<a class="code" href="../../d9/d7d/group__time.html#gaeed19bfa85af265a63bb31ffce8aae1b">limes::time::build_month</a>() &lt; month), \</div>
 <div class="line">                                                      <span class="stringliteral">&quot;expired TODO: &quot;</span> msg);)</div>
@@ -403,13 +403,13 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__time_html_gaba800051fa8705e8ec3606d38586f719"><div class="ttname"><a href="../../d9/d7d/group__time.html#gaba800051fa8705e8ec3606d38586f719">TODO_BEFORE</a></div><div class="ttdeci">#define TODO_BEFORE(month, year, msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db3/build__date_8h_source.html#l00125">build_date.h:125</a></div></div>
+<div class="ttc" id="agroup__preprocessor_html_gac332d8954bf4665bd2c9b7788d1c81f4"><div class="ttname"><a href="../../d3/d6b/group__preprocessor.html#gac332d8954bf4665bd2c9b7788d1c81f4">LIMES_BLOCK_WITH_FORCED_SEMICOLON</a></div><div class="ttdeci">#define LIMES_BLOCK_WITH_FORCED_SEMICOLON(statement)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00091">preprocessor.h:91</a></div></div>
 <div class="ttc" id="agroup__time_html_ga074fa34571f22ac34cc6415c814a0e4f"><div class="ttname"><a href="../../d9/d7d/group__time.html#ga074fa34571f22ac34cc6415c814a0e4f">limes::time::build_year</a></div><div class="ttdeci">consteval int build_year() noexcept</div><div class="ttdoc">Returns the year of compilation, as an integer.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db3/build__date_8h_source.html#l00035">build_date.h:35</a></div></div>
 <div class="ttc" id="agroup__time_html_gaeed19bfa85af265a63bb31ffce8aae1b"><div class="ttname"><a href="../../d9/d7d/group__time.html#gaeed19bfa85af265a63bb31ffce8aae1b">limes::time::build_month</a></div><div class="ttdeci">consteval int build_month() noexcept</div><div class="ttdoc">Returns the month of compilation, as an integer.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db3/build__date_8h_source.html#l00052">build_date.h:52</a></div></div>
-<div class="ttc" id="agroup__system_html_gac332d8954bf4665bd2c9b7788d1c81f4"><div class="ttname"><a href="../../d4/d37/group__system.html#gac332d8954bf4665bd2c9b7788d1c81f4">LIMES_BLOCK_WITH_FORCED_SEMICOLON</a></div><div class="ttdeci">#define LIMES_BLOCK_WITH_FORCED_SEMICOLON(statement)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d53/preprocessor_8h_source.html#l00070">preprocessor.h:70</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jun 7 2022 20:07:18 for Limes by
+    <li class="footer">Generated on Wed Jun 8 2022 00:33:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

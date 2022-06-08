@@ -2,8 +2,6 @@ var classlimes_1_1memory_1_1_memory_pool =
 [
     [ "MemoryPool", "d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a8182a2556da3ab78a6ed3fb6b7aab73a", null ],
     [ "~MemoryPool", "d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a2f06c0e6f648f20eca036b9e754097ef", null ],
-    [ "MemoryPool", "d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a09721e4408200a9ded07fd92302a9075", null ],
-    [ "MemoryPool", "d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a82d264167210dce1298b701b1ccaefc9", null ],
     [ "allocate", "d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a539da3ba77e895176bd8469879d622fc", null ],
     [ "allocate", "d2/d57/classlimes_1_1memory_1_1_memory_pool.html#aef41f5676da28ea5ef131e5b13cdaa2c", null ],
     [ "construct", "d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a5aabcf14fcb9d46166a58573b6870f3c", null ],
@@ -19,7 +17,5 @@ var classlimes_1_1memory_1_1_memory_pool =
     [ "getRemainingSpace", "d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a939ca8be78c78c2e03b4f60fab92a612", null ],
     [ "getTotalCapacity", "d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a3eb66ff22d357282efd9dbe92c1ca2c3", null ],
     [ "getTotalSize", "d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a219e17071d131aa36347f5a6a0f6e1c7", null ],
-    [ "operator=", "d2/d57/classlimes_1_1memory_1_1_memory_pool.html#a74e155a61b6c3f8198095cff27f6d85a", null ],
-    [ "operator=", "d2/d57/classlimes_1_1memory_1_1_memory_pool.html#aa25d915d83ffb1e1bc313033c604d7b5", null ],
     [ "owns", "d2/d57/classlimes_1_1memory_1_1_memory_pool.html#af195dad3b61facb68d8d11b1fd74ae92", null ]
 ];

@@ -11,8 +11,6 @@ var classlimes_1_1memory_1_1_memory_pool_allocator =
     [ "size_type", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#ad81cc9ca58c556487c2642f24d6ce752", null ],
     [ "value_type", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#aa45fc08a5309e879d0dfa59d8eda2cea", null ],
     [ "MemoryPoolAllocator", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#ab9e9d9f78f48280e4b4640c9ff28c049", null ],
-    [ "MemoryPoolAllocator", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#aef0d057ffd30c73c998a5a2650b5a3ad", null ],
-    [ "MemoryPoolAllocator", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#a5d9a668b9aec3a541fbcd87577e983fd", null ],
     [ "address", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#ac02bfb2bf4e21bfa2054e07f18aa022f", null ],
     [ "address", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#ac466550ea5183ced2b8235ebdd669651", null ],
     [ "allocate", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#ae1f40b248552c37ce2b55fdab2329636", null ],
@@ -23,7 +21,5 @@ var classlimes_1_1memory_1_1_memory_pool_allocator =
     [ "destroy", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#a99a8a4daae9c60e0666560b2ff3be3d6", null ],
     [ "max_size", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#adc404b9ea34602e6d877a3bc83db4cba", null ],
     [ "operator!=", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#a717f39923fd0292567d492d8cc21929c", null ],
-    [ "operator=", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#aff70496c354343816aaa62e5170a0a21", null ],
-    [ "operator=", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#ab6f863e2561a621df4f1b2de9e672cee", null ],
     [ "operator==", "d7/dea/classlimes_1_1memory_1_1_memory_pool_allocator.html#a56f6302e63bc7eea5dd22eb1cb2868d0", null ]
 ];

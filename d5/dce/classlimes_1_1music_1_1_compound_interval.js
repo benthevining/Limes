@@ -1,12 +1,5 @@
 var classlimes_1_1music_1_1_compound_interval =
 [
-    [ "Quality", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a5bbd36b4b8812aa179a90c459dbcf7be", [
-      [ "Diminished", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a5bbd36b4b8812aa179a90c459dbcf7bea539ef79c5675bdcd6fead7bc93643d98", null ],
-      [ "Minor", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a5bbd36b4b8812aa179a90c459dbcf7bea6fed0c378a4b4e8c1e7dc5c16dabb388", null ],
-      [ "Major", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a5bbd36b4b8812aa179a90c459dbcf7bea3b329734e45b57e60f3df64c2cf412a9", null ],
-      [ "Augmented", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a5bbd36b4b8812aa179a90c459dbcf7beab45f39670f767b2c62c8d6b211cbcb1a", null ],
-      [ "Perfect", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a5bbd36b4b8812aa179a90c459dbcf7bea56cdd7e9e3cef1974f4075c03a80332d", null ]
-    ] ],
     [ "CompoundInterval", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#ad7b033a9c24c4a649ba2832a7179da1f", null ],
     [ "CompoundInterval", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a5cff8da726c69f4240b930d48a071a6e", null ],
     [ "CompoundInterval", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#ad1eb0cf4e1f7453c5ee6b58fc4704b6c", null ],
@@ -26,10 +19,8 @@ var classlimes_1_1music_1_1_compound_interval =
     [ "hasSameSimpleInterval", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a99aef0aa62a395d8fdb0afc1ddf0c461", null ],
     [ "isEnharmonicTo", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a10a6e8dcda4202f5e6e29847b49e4f2d", null ],
     [ "isValidQualityForKind", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a85bda49f7643404f55dfe12a681700fb", null ],
-    [ "LIMES_CONSTEXPR_COPYABLE", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a6acdd61e68d4828e93c04205f4007e20", null ],
-    [ "LIMES_CONSTEXPR_COPYABLE", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#aba67e3fe50c705073e0e296198545a2d", null ],
-    [ "LIMES_CONSTEXPR_MOVABLE", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a8fa92e62b2764665404039ccd0eefd93", null ],
-    [ "LIMES_CONSTEXPR_MOVABLE", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#aa953a97b9ce99109f9e7d8874617f417", null ],
+    [ "LIMES_CONSTEXPR_MOVABLE", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a4e2db1d0fcd4e190e729fce52188d8c8", null ],
+    [ "LIMES_CONSTEXPR_MOVABLE", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a4bf8330b8e243c9dad98ebbd2055711d", null ],
     [ "operator!=", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a6f73ce47ec6eb2784ee789ba717494fc", null ],
     [ "operator!=", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a3ef327a8bb9629bfbaa50c15cd896d2f", null ],
     [ "operator+", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a55ceb7e27f5a7e07c23ac6f038c6633c", null ],
@@ -44,7 +35,6 @@ var classlimes_1_1music_1_1_compound_interval =
     [ "operator-=", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a0b411fb753ad69660561a80fa268988e", null ],
     [ "operator<", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#aee449fba09a362c5f2890c785cc96f76", null ],
     [ "operator<", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#adbae213d86eb109f2878db3c89882aa8", null ],
-    [ "operator==", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a11b6b299563e8c4f6c0f4329b96fba93", null ],
     [ "operator==", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#ab107272b0217587d26f122fb883a4302", null ],
     [ "operator>", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a5db1a85bf3cee9d10d19adbd8253abf2", null ],
     [ "operator>", "d5/dce/classlimes_1_1music_1_1_compound_interval.html#a0420fb025e56bf6e8f7226538bacf237", null ]

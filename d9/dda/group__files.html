@@ -99,13 +99,13 @@ $(document).ready(function(){initNavTree('d9/dda/group__files.html','../../'); i
 </div><!--header-->
 <div class="contents">
 
-<p>Utilities for working with the filesystem.  
+<p>Utilities for working with the filesystem. Limes's filesystem library is built on top of the <code>std::filesystem</code> library. I wanted a strongly-typed interface for working with filesystem objects, primarily to differentiate between files and directories. You can still construct paths that wouldn't be considered canonical for a given filesystem object type &ndash; for instance, the Directory class won't prevent you from creating one referencing <code>/usr/documents/a_file</code>.txt &ndash; but I believe that having strongly-typed classes for each kind of filesystem object provides a cleaner API and allows the programmer to more explicitly express their intent.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
 Modules</h2></td></tr>
 <tr class="memitem:da/da7/group__binaries"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/group__binaries.html">Embedded binary data files</a></td></tr>
-<tr class="memdesc:da/da7/group__binaries"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for working with binary data files embedded into your source code. <br /></td></tr>
+<tr class="memdesc:da/da7/group__binaries"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for working with binary data files embedded into your source code. These classes are used automatically by the BinaryBuilder tool included with Limes, but any sources containing embedded data can use these classes to provide a runtime interface for accessing that data. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="dirs"></a>
@@ -150,7 +150,7 @@ Files</h2></td></tr>
 <tr class="separator:ga88305d0fe386e29850d7a3765b4040b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Utilities for working with the filesystem. </p>
+<p>Utilities for working with the filesystem. Limes's filesystem library is built on top of the <code>std::filesystem</code> library. I wanted a strongly-typed interface for working with filesystem objects, primarily to differentiate between files and directories. You can still construct paths that wouldn't be considered canonical for a given filesystem object type &ndash; for instance, the Directory class won't prevent you from creating one referencing <code>/usr/documents/a_file</code>.txt &ndash; but I believe that having strongly-typed classes for each kind of filesystem object provides a cleaner API and allows the programmer to more explicitly express their intent. </p>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="gabc304be514f1c64345214c2c50be5201"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gabc304be514f1c64345214c2c50be5201">&#9670;&nbsp;</a></span>dirSeparator()</h2>
@@ -293,7 +293,7 @@ Files</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jun 7 2022 20:07:18 for Limes by
+    <li class="footer">Generated on Wed Jun 8 2022 00:33:01 for Limes by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

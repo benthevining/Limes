@@ -15,7 +15,7 @@ var classlimes_1_1music_1_1scales_1_1_mode =
     [ "containsPitch", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a9e9628a3e00ef1e51bc4986b41f7d10d", null ],
     [ "containsPitchClass", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a6ab0f04d5ec5ad484f289305a0cb0d4e", null ],
     [ "getIntervals", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#af7f86cf9724823c8fafefd4545262ceb", null ],
-    [ "getIntervalsAsSemitones", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a1114c97a27add74ac8ef11d970149ca4", null ],
+    [ "getIntervalsAsSemitones", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a4f9132c5a15fb9e71504740c210cfe7c", null ],
     [ "getKeySignature", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a9ca47c7a05018f3e3e1c75b1e5415615", null ],
     [ "getNumFlats", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#aa30899f8032a40a021642135ccea0dca", null ],
     [ "getNumSharps", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#ac36477729131d894c30891bec6bad759", null ],
@@ -25,11 +25,8 @@ var classlimes_1_1music_1_1scales_1_1_mode =
     [ "getPitches", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a4a6119cabee1c95f0b023fd7c7653219", null ],
     [ "getPitches", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a98332f22ac3b61df8d4e42792fbc3fd0", null ],
     [ "getRoot", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a2269e36a578545b22f75d046dc290292", null ],
-    [ "LIMES_DEFAULT_COPYABLE", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a33d274b364b4bd10fa9c093b97c6b6f1", null ],
-    [ "LIMES_DEFAULT_MOVABLE", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a07234cbc35dbc11afb9f7533467a20f2", null ],
+    [ "LIMES_DEFAULT_COPYABLE", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#ac28a416aa76b67305c61ec7a70f62adb", null ],
     [ "notesPerOctave", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a9e5d9aa3afcba7676d1045f1b2a004d2", null ],
-    [ "operator!=", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#aa055ee2c7faaa888670bb10b7313a934", null ],
     [ "operator!=", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a6a3f61c64ae5f1e1f8cacd49a2c8584a", null ],
-    [ "operator==", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a7146794c0c6219a799bb7efc761a2afa", null ],
     [ "operator==", "d1/db4/classlimes_1_1music_1_1scales_1_1_mode.html#a7e41dab3eee3479e41c975da6a9b8668", null ]
 ];
