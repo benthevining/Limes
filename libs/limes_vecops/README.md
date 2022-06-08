@@ -48,14 +48,12 @@ The default behavior is to use FFTW for FFT's, if it can be found.
 
 The following CMake options are available to give you more control over which backend is selected:
 
-* LIMES_IGNORE_VDSP
-* LIMES_IGNORE_IPP
-* LIMES_IGNORE_MIPP
+* LIMES_USE_VDSP
 * LIMES_USE_IPP
 * LIMES_USE_MIPP
 * LIMES_USE_VECOPS_FALLBACK
-* LIMES_IGNORE_POMMIER
-* LIMES_IGNORE_FFTW
+* LIMES_USE_POMMIER
+* LIMES_USE_FFTW
 
 You can also pass the name of your desired backend as a cache variable, for example:
 ```

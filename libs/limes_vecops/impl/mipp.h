@@ -754,7 +754,7 @@ void cubeRoot (DataType* const dataAndDest, SizeType size) noexcept
 }
 
 template <Scalar DataType, Integral SizeType>
-void cubeRootAndCopy (DataType* const dest, const DataType* const data, SizeType size)
+void cubeRootAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	fb::cubeRootAndCopy (dest, data, size);
 }
@@ -978,7 +978,7 @@ void max (const DataType* const data, SizeType size, DataType& maxValue, IndexTy
 }
 
 template <Scalar DataType, Integral SizeType>
-DataType maxAbs (const DataType* const data, SizeType size)
+DataType maxAbs (const DataType* const data, SizeType size) noexcept
 {
 	DataType result { 0 };
 
@@ -1007,7 +1007,7 @@ void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, Inde
 
 
 template <Scalar DataType, Integral SizeType>
-DataType min (const DataType* const data, SizeType size)
+DataType min (const DataType* const data, SizeType size) noexcept
 {
 	DataType result { std::numeric_limits<DataType>::max() };
 

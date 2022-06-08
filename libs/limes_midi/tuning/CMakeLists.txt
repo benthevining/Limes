@@ -10,7 +10,7 @@
 
 find_package (MTS-ESP REQUIRED COMPONENTS Client)
 
-target_link_libraries (limes_midi PUBLIC ODDSound::MTSClient)
+target_link_libraries (limes_midi PUBLIC MTS-ESP::Client)
 
 include (OrangesSourceFileUtils)
 

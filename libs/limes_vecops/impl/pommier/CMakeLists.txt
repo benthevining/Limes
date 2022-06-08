@@ -8,6 +8,18 @@
 #
 # ======================================================================================
 
+include (OrangesGeneratePlatformHeader)
+
+if ((NOT (ORANGES_ARM_NEON OR ORANGES_SSE)) OR (MSVC AND NOT ORANGES_ARM_NEON)) # MSVC doesn't
+	# compile MMX intrinsics used in sse_mathfun
+	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_POMMIER=0)
+
+	set (LIMES_USE_POMMIER FALSE
+		 CACHE BOOL "Use the Pommier SIMD extensions for limes_vecops (SSE or NEON)" FORCE)
+
+	return ()
+endif ()
+
 set (
 	pommier_files
 	# cmake-format: sortable
@@ -17,16 +29,6 @@ set (
 list (TRANSFORM pommier_files PREPEND pommier/)
 
 set (pommier_files ${pommier_files} PARENT_SCOPE)
-
-include (OrangesGeneratePlatformHeader)
-
-if (LIMES_IGNORE_POMMIER OR (NOT (ORANGES_ARM_NEON OR ORANGES_SSE)) OR (MSVC AND NOT
-																				 ORANGES_ARM_NEON)
-	)# MSVC doesn't compile MMX
-	# intrinsics used in sse_mathfun
-	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_POMMIER=0)
-	return ()
-endif ()
 
 target_sources (
 	limes_vecops
@@ -40,7 +42,6 @@ install (FILES pommier_wrapper.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR
 target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_POMMIER=1)
 
 if (ORANGES_ARM_NEON)
-
 	target_sources (
 		limes_vecops
 		PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/neon_mathfun.cpp>
@@ -52,7 +53,6 @@ if (ORANGES_ARM_NEON)
 			 COMPONENT limes_vecops_dev)
 
 elseif (ORANGES_SSE)
-
 	target_sources (
 		limes_vecops
 		PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/sse_mathfun.cpp>
@@ -61,5 +61,4 @@ elseif (ORANGES_SSE)
 
 	install (FILES sse_mathfun.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier"
 			 COMPONENT limes_vecops_dev)
-
 endif ()

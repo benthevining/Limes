@@ -55,17 +55,20 @@ set (fft_files ${fft_files} PARENT_SCOPE)
 #
 
 # cmake-lint: disable=C0103
-function (_limes_fft_end_callback)
+function (__limes_vecops_fft_end_callback)
 
-	add_feature_info (FFTW "TARGET FFTW::FFTW AND NOT LIMES_IGNORE_FFTW"
-					  "Accelerated FFT using FFTW")
+	message (DEBUG " -- limes_vecops - using ${LIMES_VECOPS_IMPL_NAME} for FFT")
+
+	add_feature_info (FFTW "${LIMES_VECOPS_IMPL_NAME} STREQUAL FFTW"
+					  "Using the ${LIMES_VECOPS_IMPL_NAME} backend for the limes_vecops FFT")
 
 	target_sources (
 		limes_vecops
 		PRIVATE
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/${LIMES_FFT_SOURCE_NAME}.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/${LIMES_FFT_SOURCE_NAME}.h>
-			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/${LIMES_FFT_SOURCE_NAME}.h>)
+			"$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/${LIMES_FFT_SOURCE_NAME}.cpp>"
+			"$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/${LIMES_FFT_SOURCE_NAME}.h>"
+			"$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/${LIMES_FFT_SOURCE_NAME}.h>"
+		)
 
 	install (FILES "${LIMES_FFT_SOURCE_NAME}.h"
 			 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft" COMPONENT limes_vecops_dev)
@@ -74,13 +77,14 @@ function (_limes_fft_end_callback)
 
 endfunction ()
 
-cmake_language (DEFER CALL _limes_fft_end_callback)
+cmake_language (DEFER CALL __limes_vecops_fft_end_callback)
 
 #
 
 if (LIMES_USE_FFTW)
+	find_package (FFTW)
+
 	if (TARGET FFTW::FFTW)
-		message (DEBUG " -- limes_vecops - using FFTW for FFT")
 		target_link_libraries (limes_vecops PRIVATE FFTW::FFTW)
 
 		target_compile_definitions (limes_vecops PRIVATE LIMES_VECOPS_USE_FFTW=1)

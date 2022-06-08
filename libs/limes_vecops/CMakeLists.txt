@@ -71,25 +71,15 @@ define_property (
 		"Name of the underlying FFT implementation library used by limes_vecops. May be vDSP, IPP, FFTW, or Fallback."
 	)
 
-include ("${CMAKE_CURRENT_LIST_DIR}/impl/SetVarDefaults.cmake")
+option (LIMES_USE_VDSP "Use vDSP for limes_vecops" OFF)
+option (LIMES_USE_IPP "Use IPP for limes_vecops" OFF)
+option (LIMES_USE_MIPP "Use MIPP for limes_vecops" OFF)
+option (LIMES_USE_VECOPS_FALLBACK "Use the limes_vecops fallback implementation" OFF)
+option (LIMES_USE_POMMIER "Use the Pommier SIMD extensions for limes_vecops (SSE or NEON)" ON)
+option (LIMES_USE_FFTW "Use FFTW for limes_vecops" ON)
 
-option (LIMES_USE_VDSP "Use vDSP for limes_vecops" "${__limes_use_vdsp}")
-option (LIMES_USE_IPP "Use IPP for limes_vecops" "${__limes_use_ipp}")
-option (LIMES_USE_MIPP "Use MIPP for limes_vecops" "${__limes_use_mipp}")
-option (LIMES_USE_VECOPS_FALLBACK "Use the limes_vecops fallback implementation"
-		"${__limes_use_vecops_fallback}")
-option (LIMES_USE_POMMIER "Use the Pommier SIMD extensions for limes_vecops (SSE or NEON)"
-		"${__limes_use_pommier}")
-option (LIMES_USE_FFTW "Use FFTW for limes_vecops" "${__limes_use_fftw}")
-
-mark_as_advanced (
-	FORCE
-	LIMES_USE_VDSP
-	LIMES_USE_IPP
-	LIMES_USE_MIPP
-	LIMES_USE_VECOPS_FALLBACK
-	LIMES_USE_POMMIER
-	LIMES_USE_FFTW)
+mark_as_advanced (LIMES_USE_VDSP LIMES_USE_IPP LIMES_USE_MIPP LIMES_USE_VECOPS_FALLBACK
+				  LIMES_USE_POMMIER LIMES_USE_FFTW)
 
 #
 

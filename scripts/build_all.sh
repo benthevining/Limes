@@ -34,7 +34,7 @@ mkdir -p "$logs_dir"
 
 # Build every configuration of every CMake preset in the root directory
 
-for preset in maintainer ninja-gcc iOS tvOS watchOS fallbacks
+for preset in maintainer ninja-clang ninja-gcc iOS tvOS watchOS fallbacks
 do
 	echo "CMake preset: $preset"
 
@@ -48,7 +48,7 @@ do
 
 	cd "$limes_root" || exit 1
 
-	cmake --preset "$preset" | tee "$config_log"
+	cmake --preset "$preset" -D LIMES_BUILD_DOCS=OFF | tee "$config_log"
 
 	if [ $? -eq 0 ]; then
 		echo "CMake configure succeeded!"

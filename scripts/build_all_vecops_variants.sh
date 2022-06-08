@@ -33,7 +33,7 @@ mkdir -p "$logs_dir"
 
 #
 
-for define in LIMES_IGNORE_IPP LIMES_USE_IPP LIMES_USE_MIPP LIMES_USE_VECOPS_FALLBACK
+for define in LIMES_USE_VDSP LIMES_USE_IPP LIMES_USE_IPP LIMES_USE_MIPP LIMES_USE_VECOPS_FALLBACK
 do
 	echo "Vecops variant: $define"
 

@@ -177,14 +177,8 @@ public:
 	*/
 	explicit PitchDetector (int minFreqHz = 60, float confidenceThreshold = 0.15f);
 
-	/** @name Moving and copying
-		I don't really see a use case for copying these objects around, but there's no reason to prevent you from doing so.
-		PitchDetectors are stateful, but their state can easily be copied and moved between objects.
-	 */
-	///@{
 	LIMES_DEFAULT_MOVABLE (PitchDetector)
 	LIMES_DEFAULT_COPYABLE (PitchDetector)
-	///@}
 
 	/** @name Pitch detection
 		Detect the pitch in Hz
