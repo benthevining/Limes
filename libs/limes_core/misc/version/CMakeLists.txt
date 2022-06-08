@@ -11,13 +11,13 @@
 include (OrangesSourceFileUtils)
 
 oranges_add_source_files (
-	DIRECTORY_NAME serializing
+	DIRECTORY_NAME misc/version
 	TARGET limes_core
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  serializing.h serializing.cpp json_parser.cpp encoding.cpp xml_parser.cpp)
+		  Version.cpp Version.h)
 
-set (serializing_files ${serializing_files} PARENT_SCOPE)
+set (version_files ${misc/version_files} PARENT_SCOPE)
 
-set (serializing_proto_files serializing/node.proto PARENT_SCOPE)
+set (version_proto_files misc/version/version.proto PARENT_SCOPE)

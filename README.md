@@ -73,6 +73,8 @@ Limes's CMake configuration depends on [Oranges](https://github.com/benthevining
 You can set the environment or command-line variables `ORANGES_PATH` to point Limes to a local copy; if it is already installed on your system, it should be found automatically.
 Otherwise, the Oranges source code will be downloaded from GitHub at configure time, using CMake's FetchContent module.
 
+The Google Protobuf package is required; it is used for serialization of Limes objects.
+
 ### Targets
 
 Limes creates the following CMake targets:

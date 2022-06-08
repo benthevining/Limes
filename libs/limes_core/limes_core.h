@@ -46,7 +46,7 @@
 #include "misc/preprocessor.h"
 #include "misc/IgnoreUnused.h"
 #include "misc/Algorithm.h"
-#include "misc/Version.h"
+#include "misc/version/Version.h"
 #include "misc/Functions.h"
 #include "misc/streams.h"
 

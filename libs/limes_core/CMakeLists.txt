@@ -112,6 +112,20 @@ add_subdirectory (text)
 add_subdirectory (threading)
 add_subdirectory (time)
 
+oranges_add_protobuf_library (
+	TARGET
+	limes_core_protobuf
+	PROTO_FILES
+	${misc_proto_files}
+	${serializing_proto_files}
+	${time_proto_files}
+	INSTALL_DIR
+	"${LIMES_CORE_INSTALL_INCLUDE_DIR}"
+	INSTALL_COMPONENT
+	limes_core_dev)
+
+target_link_libraries (limes_core PUBLIC limes_core_protobuf)
+
 set (
 	limes_core_sources
 	# cmake-format: sortable
@@ -141,7 +155,7 @@ source_group (TREE "${CMAKE_INSTALL_PREFIX}/${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 
 # cmake-format: off
 install (
-	TARGETS limes_core
+	TARGETS limes_core limes_core_protobuf
 	EXPORT LimesCoreTargets
 	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT limes_core_runtime
 	NAMELINK_COMPONENT limes_core_dev

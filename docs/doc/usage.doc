@@ -92,6 +92,8 @@
 	IPP must be manually installed to the system by the developer using Intel's installer program.
 	FFTW can be installed to your system with a simple cmake --install of their git repository.
 
+	The Google Protobuf package is required; it is used for serializing Limes objects.
+
 	@subsection cmake_targets Targets
 
 	Limes creates the following CMake targets:
@@ -115,51 +117,42 @@
 
 	@subsubsection cmake_install_comps Install components
 
-	Limes creates the following CPack install components:
-	- limes_vecops_dev
-	- limes_vecops_runtime
-	- limes_music_dev
-	- limes_music_runtime
-	- limes_core_dev
-	- limes_core_runtime
-	- limes_audio_dev
-	- limes_audio_runtime
-	- limes_midi_dev
-	- limes_midi_runtime
-	- limes_data_structures_dev
-	- limes_data_structures_runtime
-	- limes_locale_dev
-	- limes_locale_runtime
-	- limes_libs_dev
-	- limes_libs_runtime
-	- limes_binary_builder_dev
-	- limes_binary_builder_runtime
-	- limes_programs_dev
-	- limes_programs_runtime
-	- limes_dev (aggregate of all other dev components)
-	- limes_runtime (aggregate of all other runtime components)
-	- limes_doc_pdf
-	- limes_doc_html
-	- limes_doc_man
-	- limes_docs
+	Limes creates the following CPack install components and groups:
 
-	@subsubsection cmake_install_groups Install component groups
+	Parent component group | Component group       | Component name
+	---------------------- | --------------------- | ------------------
+	limes_libs             | limes_audio           | limes_audio_dev
+	^                      | ^                     | limes_audio_runtime
+	^                      | limes_core            | limes_core_dev
+	^                      | ^                     | limes_core_runtime
+	^                      | limes_data_structures | limes_data_structures_dev
+	^                      | ^                     | limes_data_structures_runtime
+	^                      | limes_midi            | limes_midi_dev
+	^                      | ^                     | limes_midi_runtime
+	^                      | limes_music           | limes_music_dev
+	^                      | ^                     | limes_music_runtime
+	^                      | limes_locale          | limes_locale_dev
+	^                      | ^                     | limes_locale_runtime
+	^                      | limes_vecops          | limes_vecops_dev
+	^                      | ^                     | limes_vecops_runtime
+	limes_programs         | limes_binary_builder  | limes_binary_builder_dev
+	^                      | ^                     | limes_binary_builder_runtime
+	^                      | limes_file_util       | limes_file_util_dev
+	^                      | ^                     | limes_file_util_runtime
+	--                     | limes_docs            | limes_doc_pdf
+	^                      | ^                     | limes_doc_html
+	^                      | ^                     | limes_doc_man
 
-	Limes creates the following CPack install component groups:
-	- limes_vecops
-	- limes_music
-	- limes_core
-	- limes_audio
-	- limes_midi
-	- limes_data_structures
-	- limes_locale
-	- limes_libs
-	- limes_binary_builder
-	- limes_programs
-	- limes_sphinx_docs
-	- limes_doxy_docs
-	- limes_docs
-	- limes (aggregate of all Limes components)
+	The following aggregate install components are also created:
+
+	Parent component group | Component group
+	---------------------- | -----------------
+	limes_dev              | limes_libs_dev
+	^                      | limes_programs_dev
+	limes_runtime          | limes_libs_runtime
+	^                      | limes_programs_runtime
+
+	A main aggregate component called \c limes is also created, which installs all Limes components.
 
 	@subsubsection cmake_findpkg_comps Limes find_package components
 
@@ -190,9 +183,9 @@
 
 	Doxygen and Graphviz's dot tool are required for building the docs. A non-fatal warning will be issued during CMake configuration if either program cannot be found.
 
-	To generate the @f(\LaTeX @f) PDF output, \c pdflatex and a make executable are required. If both can be found, generating the PDF will be automatically enabled.
+	To generate the LaTeX PDF output, \c pdflatex and a \c make executable are required. If both can be found, generating the PDF will be automatically enabled.
 	The PDF generation can fail spuriously; you can try manually running \c make in the \c doc/latex directory, and press enter if it prompts you about an error.
-	On my Mac, I needed to run the following commands to get the @f(\LaTeX @f) build working:
+	On my Mac, I needed to run the following commands to get the LaTeX build working:
 	@code
 	brew install basictex
 	sudo tlmgr install latexmk collection-latexextra wasysym helvetic wasy courier

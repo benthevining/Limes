@@ -8,16 +8,16 @@
 #
 # ======================================================================================
 
-include (OrangesSourceFileUtils)
+set (
+	time_proto_files
+	date.proto
+	datetime.proto
+	hour.proto
+	time.proto
+	month.proto
+	weekday.proto
+	year.proto)
 
-oranges_add_source_files (
-	DIRECTORY_NAME serializing
-	TARGET limes_core
-	INSTALL_COMPONENT limes_core_dev
-	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
-	FILES # cmake-format: sortable
-		  serializing.h serializing.cpp json_parser.cpp encoding.cpp xml_parser.cpp)
+list (TRANSFORM time_proto_files PREPEND time/proto/)
 
-set (serializing_files ${serializing_files} PARENT_SCOPE)
-
-set (serializing_proto_files serializing/node.proto PARENT_SCOPE)
+set (time_proto_files ${time_proto_files} PARENT_SCOPE)
