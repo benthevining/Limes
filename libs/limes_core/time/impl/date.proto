@@ -1,9 +1,15 @@
 syntax = "proto3";
 
-package limes.core;
+package limes.core.time.proto;
 
-import "month.proto";
-import "year.proto";
+import public "month.proto";
+import public "year.proto";
+
+option java_package = "com.limes.core";
+
+option optimize_for = CODE_SIZE;
+
+option cc_enable_arenas = true;
 
 message Date {
   Year year = 1;

@@ -52,12 +52,12 @@ namespace serializing
 	@ingroup serializing
  */
 LIMES_EXPORT enum class ObjectType : int {
-	Number,	 /**< A number. Numbers are always represented using doubles. */
-	String,	 /**< A string. */
-	Boolean, /**< A boolean. */
-	Array,	 /**< An array of other objects. Arrays can contain any kind of child ObjectTypes. */
-	Object,	 /**< An Object is a collection of key/value pairs, where the keys are string identifiers and the values are any ObjectType. */
-	Null	 /**< Represents null. */
+	Number = 0, /**< A number. Numbers are always represented using doubles. */
+	String,		/**< A string. */
+	Boolean,	/**< A boolean. */
+	Array,		/**< An array of other objects. Arrays can contain any kind of child ObjectTypes. */
+	Object,		/**< An Object is a collection of key/value pairs, where the keys are string identifiers and the values are any ObjectType. */
+	Null		/**< Represents null. */
 };
 
 /** Represents the format of data serialized as a string.

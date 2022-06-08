@@ -7,24 +7,18 @@ SHELL := /bin/sh
 
 #
 
-export VERBOSE ?= 1
-
 # program aliases
 CMAKE ?= cmake
 RM = $(CMAKE) -E rm -rf # force this one to use CMake
-PYTHON ?= python3
-DOCKER ?= docker
-
-# directory aliases
-BUILDS ?= Builds
-DOCS ?= doc
-DEPS_GRAPH ?= deps_graph
 
 #
 
 override LIMES_DOCS = $(patsubst %/,%,$(strip $(dir $(realpath $(firstword $(MAKEFILE_LIST))))))
 
 LIMES_ROOT ?= $(LIMES_DOCS)/..
+
+BUILDS ?= $(LIMES_DOCS)/Builds
+DOC ?= $(LIMES_ROOT)/doc
 
 #
 
@@ -34,8 +28,29 @@ help:  ## Print this message
 
 #
 
-.PHONY: docker
-docker: ## Builds the Docker image
-	$(DOCKER) build $(LIMES_DOCS) --tag limes_docs:latest
+$(BUILDS):
+	$(CMAKE) -S $(LIMES_DOCS) -B $(BUILDS)
 
-# init, cmake config, deps_graph, docs, clean, docker deploy
+.PHONY: config
+config: $(BUILDS) ## Configure CMake
+
+#
+
+$(DOC): config
+	$(CMAKE) --build $(BUILDS) --target LimesDocs
+
+.PHONY: build
+build: $(DOC) ## Build the docs
+
+#
+
+.PHONY: deps_graph
+deps_graph: config ## Build the dependency graph image
+	$(CMAKE) --build $(BUILDS) --target LimesDependencyGraph
+
+#
+
+.PHONY: clean
+clean: ## Clean the source tree
+	@echo "CLeaning docs directory..."
+	@$(RM) $(BUILDS) $(DOC)

@@ -29,3 +29,5 @@ oranges_add_source_files (
 		  DateTime.h)
 
 set (time_files ${time_files} ${impl_files} PARENT_SCOPE)
+
+set (limes_core_proto_files ${limes_core_proto_files} PARENT_SCOPE)

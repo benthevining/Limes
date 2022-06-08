@@ -55,6 +55,8 @@ include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
+include (CMakeDependentOption)
+
 define_property (
 	GLOBAL
 	PROPERTY LIMES_VECOPS_IMPLEMENTATION
@@ -71,10 +73,18 @@ define_property (
 		"Name of the underlying FFT implementation library used by limes_vecops. May be vDSP, IPP, FFTW, or Fallback."
 	)
 
-option (LIMES_USE_VDSP "Use vDSP for limes_vecops" OFF)
-option (LIMES_USE_IPP "Use IPP for limes_vecops" OFF)
-option (LIMES_USE_MIPP "Use MIPP for limes_vecops" OFF)
-option (LIMES_USE_VECOPS_FALLBACK "Use the limes_vecops fallback implementation" OFF)
+cmake_dependent_option (LIMES_USE_VDSP "Use vDSP for limes_vecops" OFF
+						"NOT (LIMES_USE_IPP OR LIMES_USE_MIPP OR LIMES_USE_VECOPS_FALLBACK)" OFF)
+
+cmake_dependent_option (LIMES_USE_IPP "Use IPP for limes_vecops" OFF
+						"NOT (LIMES_USE_VDSP OR LIMES_USE_MIPP OR LIMES_USE_VECOPS_FALLBACK)" OFF)
+
+cmake_dependent_option (LIMES_USE_MIPP "Use MIPP for limes_vecops" OFF
+						"NOT (LIMES_USE_VDSP OR LIMES_USE_IPP OR LIMES_USE_VECOPS_FALLBACK)" OFF)
+
+cmake_dependent_option (LIMES_USE_VECOPS_FALLBACK "Use the limes_vecops fallback implementation"
+						OFF "NOT (LIMES_USE_VDSP OR LIMES_USE_IPP OR LIMES_USE_MIPP)" OFF)
+
 option (LIMES_USE_POMMIER "Use the Pommier SIMD extensions for limes_vecops (SSE or NEON)" ON)
 option (LIMES_USE_FFTW "Use FFTW for limes_vecops" ON)
 

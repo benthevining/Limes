@@ -1,9 +1,15 @@
 syntax = "proto3";
 
-package limes.core;
+package limes.core.time.proto;
 
-import "date.proto";
-import "time.proto";
+import public "date.proto";
+import public "time.proto";
+
+option java_package = "com.limes.core";
+
+option optimize_for = CODE_SIZE;
+
+option cc_enable_arenas = true;
 
 message DateTime {
   Date date = 1;

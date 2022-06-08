@@ -26,3 +26,16 @@ oranges_add_source_files (
 		  time_impl.h)
 
 set (impl_files ${time/impl_files} PARENT_SCOPE)
+
+list (
+	APPEND
+	limes_core_proto_files
+	"${CMAKE_CURRENT_LIST_DIR}/date.proto"
+	"${CMAKE_CURRENT_LIST_DIR}/datetime.proto"
+	"${CMAKE_CURRENT_LIST_DIR}/hour.proto"
+	"${CMAKE_CURRENT_LIST_DIR}/time.proto"
+	"${CMAKE_CURRENT_LIST_DIR}/month.proto"
+	"${CMAKE_CURRENT_LIST_DIR}/weekday.proto"
+	"${CMAKE_CURRENT_LIST_DIR}/year.proto")
+
+set (limes_core_proto_files ${limes_core_proto_files} PARENT_SCOPE)

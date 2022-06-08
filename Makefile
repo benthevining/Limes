@@ -22,11 +22,7 @@ GIT ?= git
 PYTHON ?= python3
 ASDF ?= asdf
 
-# directory aliases
-BUILDS ?= Builds
-DOCS ?= doc
-CACHE ?= Cache
-DEPS_GRAPH ?= deps_graph
+#
 
 # set default CMake generator & build parallel level
 ifeq ($(OS),Windows_NT)
@@ -50,7 +46,12 @@ endif
 
 override LIMES_ROOT = $(patsubst %/,%,$(strip $(dir $(realpath $(firstword $(MAKEFILE_LIST))))))
 
-override LIMES_SCRIPTS = $(LIMES_ROOT)/scripts
+override SCRIPTS = $(LIMES_ROOT)/scripts
+
+override DOCS = $(LIMES_ROOT)/docs
+
+BUILDS ?= $(LIMES_ROOT)/Builds
+CACHE ?= $(LIMES_ROOT)/Cache
 
 #
 
@@ -62,12 +63,12 @@ help:  ## Print this message
 
 .PHONY: init
 init:  ## Initializes the workspace and installs all dependencies
-	@chmod +x $(LIMES_ROOT)/scripts/build_all.sh $(LIMES_ROOT)/scripts/build_all_vecops_variants.sh
+	@chmod +x $(SCRIPTS)/build_all.sh $(SCRIPTS)/build_all_vecops_variants.sh
 	@cd $(LIMES_ROOT) && \
 		$(PRECOMMIT) install --install-hooks --overwrite && \
 		$(PRECOMMIT) install --install-hooks --overwrite --hook-type commit-msg
 	@cd $(LIMES_ROOT) && $(ASDF) install
-	$(PYTHON) -m pip install -r $(LIMES_ROOT)/requirements.txt
+	@$(PYTHON) -m pip install -r $(LIMES_ROOT)/requirements.txt
 
 #
 
@@ -93,11 +94,11 @@ all: clean ## Builds every configuration of every preset (may take a while)
 
 .PHONY: install
 install: build ## runs CMake install
-	@cd $(LIMES_ROOT) && $(SUDO) $(CMAKE) --install $(BUILDS) --config $(CONFIG)
+	$(SUDO) $(CMAKE) --install $(BUILDS) --config $(CONFIG)
 
 .PHONY: pack
 pack: build ## Creates a CPack installer
-	@cd $(LIMES_ROOT) && $(CMAKE) --build $(BUILDS) --target package
+	$(CMAKE) --build $(BUILDS) --target package
 
 #
 
@@ -107,8 +108,8 @@ test: build ## runs all tests
 
 .PHONY: qc
 qc: ## Runs all qc scripts (takes a while!)
-	bash $(LIMES_SCRIPTS)/build_all.sh
-	bash $(LIMES_SCRIPTS)/build_all_vecops_variants.sh
+	$(SCRIPTS)/build_all.sh
+	$(SCRIPTS)/build_all_vecops_variants.sh
 
 #
 
@@ -120,25 +121,26 @@ pc:  ## Runs all pre-commit hooks over all files
 
 .PHONY: deps_graph
 deps_graph: config ## Generates a PNG image of the CMake dependency graph
-	@cd $(LIMES_ROOT) && $(CMAKE) --build --preset deps_graph
+	@cd $(DOCS) && $(MAKE) deps_graph
 
 .PHONY: docs
 docs: config ## Builds the documentation
-	@cd $(LIMES_ROOT) && $(CMAKE) --build --preset docs
+	@cd $(DOCS) && $(MAKE) build
 
 #
 
 .PHONY: uninstall
 uninstall: ## Runs uninstall script
-	@cd $(LIMES_ROOT) && $(SUDO) $(CMAKE) -P $(BUILDS)/uninstall.cmake
+	$(SUDO) $(CMAKE) -P $(BUILDS)/uninstall.cmake
 
 .PHONY: clean
 clean: ## Cleans the source tree
 	@echo "Cleaning..."
 	@cd $(LIMES_ROOT)/tests && $(MAKE) clean
-	@cd $(LIMES_ROOT) && $(RM) $(BUILDS) $(DOCS) logs deploy; $(PRECOMMIT) gc
+	@cd $(DOCS) && $(MAKE) clean
+	$(RM) $(BUILDS) logs deploy; $(PRECOMMIT) gc
 
 .PHONY: wipe
-wipe: ## Wipes the cache of downloaded dependencies
+wipe: clean ## Wipes the cache of downloaded dependencies
 	@echo "Wiping cache..."
-	@cd $(LIMES_ROOT) && $(SUDO) $(CMAKE) -P $(BUILDS)/wipe_cache.cmake
+	$(RM) $(CACHE)
