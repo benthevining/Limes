@@ -64,6 +64,9 @@ jobs:
               if: ${{ inputs.cmake_generator == 'Ninja Multi-Config' || inputs.cmake_generator == 'Ninja' }}
               uses: seanmiddleditch/gha-setup-ninja@v3
 
+            - name: Install Protobuf
+              uses: arduino/setup-protoc@v1
+
             - name: Run CMake
               if: ${{ inputs.c_compiler != '' && inputs.cxx_compiler != '' }}
               run: |

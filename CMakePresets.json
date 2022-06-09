@@ -75,8 +75,8 @@
     },
     {
       "cacheVariables": {
-        "CMAKE_CXX_COMPILER": "clang",
-        "CMAKE_C_COMPILER": "clang++"
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_C_COMPILER": "clang"
       },
       "displayName": "Build with Ninja and Clang",
       "generator": "Ninja Multi-Config",
