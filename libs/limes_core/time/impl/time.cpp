@@ -27,170 +27,9 @@ LIMES_BEGIN_NAMESPACE
 namespace time
 {
 
-[[nodiscard]] static inline std::tm* getCurrentLocalTime()
-{
-	const auto now = std::chrono::system_clock::now();
-
-	const auto timeT = std::chrono::system_clock::to_time_t (now);
-
-	return std::localtime (&timeT);
-}
-
-/*-------------------------------------------------------------------------------------------------------------*/
-
-#pragma mark Year
-
-Year Year::getCurrent()
-{
-	if (const auto* localtime = getCurrentLocalTime())
-		return Year { *localtime };
-
-	return {};
-}
-
-bool Year::isInPast() const noexcept
-{
-	return (*this) < getCurrent();
-}
-
-bool Year::isInFuture() const noexcept
-{
-	return (*this) > getCurrent();
-}
-
-Year::Year (std::time_t time)
-	: Year (*std::localtime (&time))
-{
-}
-
-// NB the only reason this function isn't constexpr is to move it out of the Year class's header files,
-// to prevent a cycle with the Weekday class's headers.
-int Year::getNumWeeks() const noexcept
-{
-	using WD = Weekday<true>;
-
-	const auto firstDay = WD { year, 1, 1 }.getWeekdayName();
-
-	if (firstDay == WD::Name::Thursday)
-		return 53;
-
-	if (isLeap())
-		if (firstDay == WD::Name::Wednesday)
-			return 53;
-
-	return 52;
-}
-
-/*-------------------------------------------------------------------------------------------------------------*/
-
-#pragma mark Month
-
-Month::Month (std::time_t time)
-	: Month (*std::localtime (&time))
-{
-}
-
-Month Month::getCurrent()
-{
-	if (const auto* localtime = getCurrentLocalTime())
-		return Month { *localtime };
-
-	return {};
-}
-
-/*-------------------------------------------------------------------------------------------------------------*/
-
-#pragma mark Weekday
-
-template <bool StartWeekOnSunday>
-Weekday<StartWeekOnSunday> Weekday<StartWeekOnSunday>::getCurrent()
-{
-	if (const auto* localtime = getCurrentLocalTime())
-		return Weekday { *localtime };
-
-	return {};
-}
-
-template <bool StartWeekOnSunday>
-Weekday<StartWeekOnSunday>::Weekday (std::time_t time)
-	: Weekday (*std::localtime (&time))
-{
-}
-
-template class Weekday<true>;
-template class Weekday<false>;
-
-/*-------------------------------------------------------------------------------------------------------------*/
-
-#pragma mark Date
-
-Date::Date (std::time_t time)
-	: Date (*std::localtime (&time))
-{
-}
-
-Date Date::getCurrent()
-{
-	if (const auto* localtime = getCurrentLocalTime())
-		return Date { *localtime };
-
-	return {};
-}
-
-bool Date::isInPast() const noexcept
-{
-	return isBefore (getCurrent());
-}
-
-bool Date::isInFuture() const noexcept
-{
-	return isAfter (getCurrent());
-}
-
-std::string Date::toString (bool shortMonthName) const
-{
-	std::stringstream stream;
-
-	if (dayOfMonth < 10)
-		stream << 0;
-
-	stream << dayOfMonth << ' ' << month.getString (shortMonthName) << ' ' << year.getYear();
-
-	return stream.str();
-}
-
-/*-------------------------------------------------------------------------------------------------------------*/
-
-#pragma mark Hour
-
-Hour::Hour (std::time_t time)
-	: Hour (*std::localtime (&time))
-{
-}
-
-Hour Hour::getCurrent()
-{
-	if (const auto* localtime = getCurrentLocalTime())
-		return Hour { *localtime };
-
-	return {};
-}
-
-/*-------------------------------------------------------------------------------------------------------------*/
-
-#pragma mark Time
-
 Time::Time (std::time_t time)
 	: Time (*std::localtime (&time))
 {
-}
-
-Time Time::getCurrent()
-{
-	if (const auto* localtime = getCurrentLocalTime())
-		return Time { *localtime };
-
-	return {};
 }
 
 bool Time::isInPast() const noexcept
@@ -207,22 +46,26 @@ std::string Time::toString (bool as24HourTime) const
 {
 	std::stringstream stream;
 
-	const auto hourNum = as24HourTime ? hour.hoursSinceMidnight() : hour.getIn12HourFormat();
+	const auto hourNum = as24HourTime ? getHour().hoursSinceMidnight() : getHour().getIn12HourFormat();
 
 	if (hourNum < 10)
 		stream << 0;
 
 	stream << hourNum << ':';
 
-	if (minute < 10)
+	const auto min = getMinute();
+
+	if (min < 10)
 		stream << 0;
 
-	stream << minute << ':';
+	stream << min << ':';
 
-	if (second < 10)
+	const auto sec = getSecond();
+
+	if (sec < 10)
 		stream << 0;
 
-	stream << second;
+	stream << sec;
 
 	if (! as24HourTime)
 	{
@@ -237,47 +80,101 @@ std::string Time::toString (bool as24HourTime) const
 	return stream.str();
 }
 
-/*-------------------------------------------------------------------------------------------------------------*/
+Time::Time (const Hour& h, int min, int sec) noexcept
+{
+	min %= 60;
+	sec %= 60;
 
-#pragma mark DateTime
+	internal_data.set_minute (min);
+	internal_data.set_second (sec);
+	internal_data.set_hour (h.hoursSinceMidnight());
+}
 
-DateTime::DateTime (std::time_t t)
-	: DateTime (*std::localtime (&t))
+Time::Time (int hourIn24HourFormat, int min, int sec) noexcept
+	: Time (Hour { hourIn24HourFormat }, min, sec)
 {
 }
 
-std::time_t DateTime::getTimeT() const
+Time::Time (const std::tm& timeObj) noexcept
+	: Time (Hour { timeObj.tm_hour }, timeObj.tm_min, timeObj.tm_sec)
 {
-	auto tm = getStdTime();
-
-	return std::mktime (&tm);
 }
 
-DateTime DateTime::getCurrent()
+bool Time::isAM() const noexcept
 {
-	if (const auto* localtime = getCurrentLocalTime())
-		return DateTime { *localtime };
-
-	return {};
+	return getHour().isAM();
 }
 
-bool DateTime::isInPast() const noexcept
+bool Time::isPM() const noexcept
 {
-	return isBefore (getCurrent());
+	return getHour().isPM();
 }
 
-bool DateTime::isInFuture() const noexcept
+bool Time::isOnTheHour() const noexcept
 {
-	return isAfter (getCurrent());
+	return getMinute() == 0 && getSecond() == 0;
 }
 
-std::string DateTime::toString (bool as24HourTime, bool shortMonthName) const
+Hour Time::getHour() const noexcept
 {
-	std::stringstream stream;
+	return Hour { static_cast<int> (internal_data.hour()) };
+}
 
-	stream << time.toString (as24HourTime) << ' ' << date.toString (shortMonthName);
+int Time::getMinute() const noexcept
+{
+	return static_cast<int> (internal_data.minute());
+}
 
-	return stream.str();
+int Time::getSecond() const noexcept
+{
+	return static_cast<int> (internal_data.second());
+}
+
+bool Time::isBefore (const Time& other) const noexcept
+{
+	if (getHour() > other.getHour())
+		return false;
+
+	if (getMinute() > other.getMinute())
+		return false;
+
+	return getSecond() < other.getSecond();
+}
+
+bool Time::isAfter (const Time& other) const noexcept
+{
+	if (getHour() < other.getHour())
+		return false;
+
+	if (getMinute() < other.getMinute())
+		return false;
+
+	return getSecond() > other.getSecond();
+}
+
+bool Time::operator> (const Time& other) const noexcept
+{
+	return isAfter (other);
+}
+
+bool Time::operator< (const Time& other) const noexcept
+{
+	return isBefore (other);
+}
+
+bool Time::operator== (const Time& other) const noexcept
+{
+	return getHour() == other.getHour() && getMinute() == other.getMinute() && getSecond() == other.getSecond();
+}
+
+bool Time::operator!= (const Time& other) const noexcept
+{
+	return ! (*this == other);
+}
+
+Time Time::getCompilationTime() noexcept
+{
+	return Time { build_hour(), build_minute(), build_second() };
 }
 
 }  // namespace time

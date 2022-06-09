@@ -59,17 +59,6 @@ static_assert (Weekday<true> { 1996, 4, 4 }.getWeekdayName() == Weekday<true>::N
 static_assert (Weekday<false> { 1832, 10, 12 }.getWeekdayName() == Weekday<false>::Name::Friday);
 static_assert (Weekday<true> { 1692, 2, 2 }.getWeekdayName() == Weekday<true>::Name::Saturday);
 
-static_assert (Date { 2020, 1, 1 }.getDayOfYear() == 1);
-static_assert (Date { 1956, 3, 2 }.getDayOfYear() == 62);
-static_assert (Date { 1185, 12, 31 }.getDayOfYear() == 365);
-static_assert (Date { 2000, 12, 31 }.getDayOfYear() == 366);
-
-static_assert (Date { 2022, 5, 8 }.getWeekNumber() == 19);
-static_assert (Date { 2007, 2, 8 }.getWeekNumber() == 6);
-static_assert (Date { 2001, 1, 1 }.getWeekNumber() == 1);
-static_assert (Date { 2000, 1, 1 }.getWeekNumber() == -1);
-static_assert (Date { 1999, 1, 2 }.getWeekNumber() == -1);
-
 static_assert (Hour::midnight().getIn12HourFormat() == 12);
 static_assert (Hour { 9 }.getIn12HourFormat() == 9);
 static_assert (Hour { 20 }.getIn12HourFormat() == 8);

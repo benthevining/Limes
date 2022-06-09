@@ -16,6 +16,7 @@
 #include <limes_namespace.h>
 #include "../misc/preprocessor.h"
 #include "../system/compiler_defs.h"
+#include "../system/limes_assert.h"
 
 /** @file
 	This file contains free functions for getting various information about the date and time this code was compiled.

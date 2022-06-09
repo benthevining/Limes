@@ -8,15 +8,7 @@
 #
 # ======================================================================================
 
-set (
-	time_proto_files
-	date.proto
-	datetime.proto
-	hour.proto
-	time.proto
-	month.proto
-	weekday.proto
-	year.proto)
+set (time_proto_files date.proto datetime.proto time.proto)
 
 list (TRANSFORM time_proto_files PREPEND time/proto/)
 

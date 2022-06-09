@@ -16,14 +16,15 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  date_impl.h
+		  current_time.cpp
+		  date.cpp
 		  month_impl.h
 		  weekday_impl.h
 		  year_impl.h
 		  hour_impl.h
 		  time_staticAsserts.cpp
 		  time.cpp
-		  time_impl.h)
+		  date_time.cpp)
 
 set (impl_files ${time/impl_files} PARENT_SCOPE)
 
