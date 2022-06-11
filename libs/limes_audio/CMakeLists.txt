@@ -74,12 +74,20 @@ target_include_directories (
 
 add_subdirectory (filters)
 add_subdirectory (oscillators)
+add_subdirectory (pitch_detection)
 add_subdirectory (psola)
 add_subdirectory (streams)
 add_subdirectory (util)
 
-set (limes_audio_sources limes_audio.h ${filters_files} ${oscillators_files} ${psola_files}
-						 ${streams_files} ${util_files})
+set (
+	limes_audio_sources
+	limes_audio.h
+	${filters_files}
+	${oscillators_files}
+	${psola_files}
+	${pitch_detection_files}
+	${streams_files}
+	${util_files})
 
 source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${limes_audio_sources})
 

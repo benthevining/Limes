@@ -86,11 +86,11 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* const inputAudio, int
 	{
 		const auto detectedPeriod = pitchDetector.detectPeriod (inputAudio, numSamples);
 
-		if (detectedPeriod > 0.f)
-			return detectedPeriod;
+		if (detectedPeriod.isPitched())
+			return detectedPeriod.getPeriod (this->samplerate);
 
 		int min, max;
-		pitchDetector.getCurrentLegalPeriodRange (min, max);
+		pitchDetector.getYin().getCurrentLegalPeriodRange (min, max);
 
 		return static_cast<SampleType> (random.next (min, max));
 	}();
@@ -267,7 +267,7 @@ int Analyzer<SampleType>::setMinInputFreq (int minFreqHz)
 {
 	LIMES_ASSERT (minFreqHz > 0);
 
-	pitchDetector.setMinHz (minFreqHz);
+	pitchDetector.getYin().setMinHz (minFreqHz);
 
 	return latencyChanged();
 }

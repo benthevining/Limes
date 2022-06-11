@@ -50,7 +50,9 @@
 
 #include "filters/Filter.h"
 
-#include "psola/PitchDetector.h"
+#include "pitch_detection/yin.h"
+#include "pitch_detection/PitchDetector.h"
+
 #include "psola/analyzer.h"
 #include "psola/shifter.h"
 

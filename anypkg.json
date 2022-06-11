@@ -1,0 +1,87 @@
+{
+  "anypkg_version": "1.0.0",
+  "build": {
+    "cmake": [
+      {
+        "git_repo": "https://github.com/benthevining/Oranges.git",
+        "name": "Oranges",
+        "version": "2.24.0"
+      },
+      {
+        "git_repo": "",
+        "name": "Protobuf",
+        "version": ""
+      }
+    ]
+  },
+  "project": {
+    "compatibility": "SameMajorVersion",
+    "description": "C++ libraries",
+    "find_module": "scripts/FindLimes.cmake",
+    "git_repo": "https://github.com/benthevining/Limes.git",
+    "name": "Limes",
+    "version": "4.8.1"
+  },
+  "workspace": {
+    "default_set": "Minimal",
+    "dev_set": "Development",
+    "package_sets": [
+      {
+        "description": "Minimal packages needed to compile and install the code",
+        "name": "Minimal",
+        "packages": {
+          "system": {
+            "cmake": "3.23.1",
+            "git": "2.36.1",
+            "python": "3.9.12"
+          }
+        }
+      },
+      {
+        "description": "Packages needed for building the documentation",
+        "name": "Docs",
+        "packages": {
+          "system": {
+            "doxygen": "",
+            "graphviz": ""
+          }
+        }
+      },
+      {
+        "description": "Packages needed for the suggested development workflow",
+        "init_commands": [
+          "pre-commit install --install-hooks --overwrite",
+          "pre-commit install --install-hooks --overwrite --hook-type commit-msg"
+        ],
+        "name": "Development",
+        "packages": {
+          "pip": {
+            "pre-commit": "2.19.0"
+          },
+          "system": {
+            "ccache": "4.6.1",
+            "clang-format": "",
+            "clang-tidy": "",
+            "cppcheck": "",
+            "ninja": "1.11.0"
+          }
+        },
+        "requires": [
+          "Minimal",
+          "Docs"
+        ]
+      },
+      {
+        "advanced": true,
+        "description": "Packages needed for bumping the version & publishing a release (used by CI machines)",
+        "name": "ci_release",
+        "packages": {
+          "npm": "package.json",
+          "pip": {
+            "bump2version": ""
+          }
+        }
+      }
+    ]
+  }
+}

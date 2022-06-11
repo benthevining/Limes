@@ -13,59 +13,22 @@
 
 #pragma once
 
-#include <limes_export.h>			// for LIMES_EXPORT
-#include <limes_data_structures.h>	// for vector
-#include "../util/Misc.h"			// for concept Sample - IWYU pragma: keep
-#include <limes_namespace.h>
+#include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
 #include <limes_core.h>
-
-/** @defgroup psola PSOLA
-	Utilities for working with PSOLA-like algorithms.
-
-	PSOLA (Pitch-Synchronous Overlap-Add) is an industry standard for realtime pitch shifting of monophonic audio.
-	This module provides classes for implementing a basic PSOLA algorithm.
-
-	PSOLA was first described by Keith Lent @cite lent_1989 as a computationally efficient method of repitching pseudo-periodic sampled sounds.
-	PSOLA works using the following steps:
-	- identify the pitch of the input signal - see the PitchDetector class
-	- based on this pitch, identify peaks in the signal for each period - see the PeakFinder class
-	- based on these peaks, split the input signal into grains centred on the peaks - see the Analyzer class
-	- output a new stream of these grains, respaced to form the new desired pitch - see the Shifter class
-
-	Robert Bristow Johnson's paper @cite bristow-johnson_1995 provides a great overview of the technical details of PSOLA.
-
-	PSOLA can be used for both pitch and time scaling.
-
-	PSOLA is only intended for use with input signals that are monophonic - ie, a sound with a single fundamental frequency, like a voice or a cello, not a group of instruments or a chord.
-	Results may be unpredictable if the input signal contains more than one pitch.
-	Best results are achieved when the input signal is clearly pitched, though this algorithm can be used with any kind of monophonic input signal, even unpitched percussive sounds.
-	It is often desirable to do some preprocessing of the input signal, to remove noise, perhaps even apply some compression, etc.
-
-	Note that the Analyzer class performs the first three steps listed above; to achieve PSOLA pitch shifting, you only need an Analyzer and a Shifter object, you don't need to use a PitchDetector or PeakFinder directly.
-
-	@ingroup limes_audio
- */
-
-/** @dir libs/limes_audio/psola
-	This directory contains classes for implementing a PSOLA algorithm.
-	@ingroup psola
- */
+#include "PitchData.h"
+#include "PitchDetectionAlgorithm.h"
 
 /** @file
-	This file defines the PitchDetector class.
-	@ingroup psola
+	This file defines the Yin class.
+	@ingroup pitch_detection
  */
 
 LIMES_BEGIN_NAMESPACE
 
-/** This namespace provides classes for implementing a PSOLA algorithm.
-	@ingroup psola
- */
-namespace dsp::psola
+namespace dsp::pitch
 {
 
-/** @class PitchDetector
-	A pitch detector based on the YIN algorithm.
+/** A pitch detector based on the YIN algorithm.
 
 	A pitch detection algorithm based on the influential YIN @cite de_cheveigne_kawahara_2002 paper, with a few alterations of my own.
 
@@ -148,7 +111,7 @@ namespace dsp::psola
 	Limiting the number of possible period candidates reduces the number of times the difference function needs to be calculated.
 
 	Pitch detector objects can only be used for one channel of audio at a time, because they are stateful.
-	If you need to run pitch detection on multiple channels of audio, you need multiple PitchDetector objects.
+	If you need to run pitch detection on multiple channels of audio, you need multiple Yin objects.
 
 	@section Latency Latency
 
@@ -158,15 +121,15 @@ namespace dsp::psola
 
 	@warning This class does not do any internal buffering; the caller must ensure that the buffers sent to the detection functions contain enough samples for the detection algorithm.
 
-	@ingroup psola
+	@ingroup pitch_detection
  */
 template <Sample SampleType>
-class LIMES_EXPORT PitchDetector final
+class LIMES_EXPORT Yin final : public PitchDetectionAlgorithm<SampleType>
 {
 public:
 
-	/** Convenience typedef for a vector of samples. */
-	using SampleVector = ds::scalar_vector<SampleType>;
+	/** Convenience typedef for the datatype returned by the algorithm. */
+	using Result = PitchData<SampleType>;
 
 	/** Creates a pitch detector with an initial minimum detectable frequency and confidence threshold.
 		The latency of the algorithm is determined by 2 * the period of the minimum frequency.
@@ -175,40 +138,14 @@ public:
 		@param confidenceThreshold The initial YIN confidence threshold for the detector. See the \c setConfidenceThresh() method for more documentation on this.
 		@see getLatencySamples(), setConfidenceThresh(), setMinHz()
 	*/
-	explicit PitchDetector (int minFreqHz = 60, float confidenceThreshold = 0.15f);
+	explicit Yin (int minFreqHz = 60, float confidenceThreshold = 0.15f);
 
-	LIMES_DEFAULT_MOVABLE (PitchDetector)
-	LIMES_DEFAULT_COPYABLE (PitchDetector)
+	LIMES_DEFAULT_MOVABLE (Yin)
+	LIMES_DEFAULT_COPYABLE (Yin)
 
-	/** @name Pitch detection
-		Detect the pitch in Hz
-	 */
-	///@{
-	/** Detects the pitch in Hz for a frame of audio.
-		This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
-		The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to \c getLatencySamples().
-		@note You must call \c setSamplerate() to prepare the pitch detector before calling this function!
-		@warning The caller must ensure that the buffer sent to this function contains at least \c getLatencySamples() samples.
-		@return The pitch in Hz for this frame of audio, or 0 if the frame is unpitched.
-	*/
-	[[nodiscard]] SampleType detectPitch (const SampleType* const inputAudio, int numSamples) noexcept;
-	[[nodiscard]] SampleType detectPitch (const SampleVector& inputAudio) noexcept;
-	///@}
+	[[nodiscard]] Result detectPeriod (const SampleType* const inputAudio, int numSamples) noexcept final;
 
-	/** @name Period detection
-		Detect the period in samples
-	 */
-	///@{
-	/** Detects the period, in samples, for a frame of audio.
-		This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
-		The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to \c getLatencySamples().
-		@note You must call \c setSamplerate() to prepare the pitch detector before calling this function!
-		@warning The caller must ensure that the buffer sent to this function contains at least \c getLatencySamples() samples.
-		@return The period, in samples, of the fundamental frequency for this frame of audio, or 0 if the frame is unpitched.
-	*/
-	[[nodiscard]] SampleType detectPeriod (const SampleType* const inputAudio, int numSamples) noexcept;
-	[[nodiscard]] SampleType detectPeriod (const SampleVector& inputAudio) noexcept;
-	///@}
+	[[nodiscard]] Result getLastDetectedPeriod() const noexcept final;
 
 	/** Returns the latency in samples of the detection algorithm.
 		The latency is equal to 2 * the period of the lowest detectable frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
@@ -216,14 +153,9 @@ public:
 		The latency defines the minimum size of the buffers that must be sent to any of the detection functions, though you can send larger buffers if you wish.
 		@see setMinHz()
 	*/
-	[[nodiscard]] int getLatencySamples() const noexcept;
+	[[nodiscard]] int getLatencySamples() const noexcept final;
 
-	/** Sets the samplerate in Hz of the pitch detector.
-		@note This function may allocate memory, so should not be called from a realtime thread.
-		@return The latency, in samples, of the pitch detection algorithm at the new samplerate.
-		@see getLatencySamples()
-	*/
-	int setSamplerate (double newSamplerate);
+	int setSamplerate (double newSamplerate) final;
 
 	/** Sets the minimum detectable frequency for the pitch detector.
 		The latency of the algorithm is determined by 2 * the period of the minimum frequency.
@@ -250,13 +182,9 @@ public:
 		so if your input audio is expected to make jumps that large in its pitch, you can call reset() before analyzing the next input frame of audio.
 		This function is safe to call from a realtime thread.
 	*/
-	void reset() noexcept;
+	void reset() noexcept final;
 
-	/** Releases all of the pitch detector's internal resources.
-		After calling this function, you must call \c setSamplerate() to re-prepare the detector before calling any of the pitch detection functions.
-		@note This function may deallocate memory, so should not be called from a realtime thread.
-	 */
-	void releaseResources();
+	void releaseResources() final;
 
 	/** Returns the current legal period range for the last analyzed frame of audio.
 		Because the detector assumes that the input pitch should not halve or double between consecutive pitched frames, this can be used to introspect the range of valid periods that the detector has actually considered for the most recent frame.
@@ -268,26 +196,25 @@ private:
 
 	inline void updatePeriodBounds() noexcept;
 
-	[[nodiscard]] inline int absoluteThreshold() const noexcept;
-
 	[[nodiscard]] inline SampleType parabolicInterpolation (int periodEstimate) const noexcept;
-
-	bool operator== (const PitchDetector& other) const = delete;
-	bool operator!= (const PitchDetector& other) const = delete;
 
 	int minHz { 60 };
 
 	int minPeriod { 0 }, maxPeriod { 0 };
 
-	SampleType periodLastFrame { 0 };
+	Result data;
 
 	double samplerate { 0.0 };
 
 	SampleType confidenceThresh { 0.15 };
 
-	SampleVector yinDataStorage;
+	using SampleVector = ds::scalar_vector<SampleType>;
+
+	SampleVector sdfOut, yinDataStorage;
+
+	ds::scalar_vector<int> finalTaus;
 };
 
-}  // namespace dsp::psola
+}  // namespace dsp::pitch
 
 LIMES_END_NAMESPACE

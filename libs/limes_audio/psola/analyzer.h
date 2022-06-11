@@ -15,7 +15,7 @@
 #include <limes_export.h>
 #include <limes_core.h>
 #include <limes_data_structures.h>
-#include "PitchDetector.h"
+#include "../pitch_detection/PitchDetector.h"
 #include "PeakFinder.h"
 #include "../util/Misc.h"
 #include <limes_namespace.h>
@@ -191,8 +191,8 @@ private:
 
 	SampleType currentPeriod { 0.f };
 
-	PitchDetector<SampleType> pitchDetector;
-	PeakFinder<SampleType>	  peakFinder;
+	pitch::PitchDetector<SampleType> pitchDetector;
+	PeakFinder<SampleType>			 peakFinder;
 
 	ds::owned_vector<Grain> grains;
 

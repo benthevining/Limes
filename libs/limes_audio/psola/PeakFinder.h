@@ -18,6 +18,38 @@
 #include "../util/Misc.h"			// for concept Sample - IWYU pragma: keep
 #include <limes_namespace.h>
 
+/** @defgroup psola PSOLA
+	Utilities for working with PSOLA-like algorithms.
+
+	PSOLA (Pitch-Synchronous Overlap-Add) is an industry standard for realtime pitch shifting of monophonic audio.
+	This module provides classes for implementing a basic PSOLA algorithm.
+
+	PSOLA was first described by Keith Lent @cite lent_1989 as a computationally efficient method of repitching pseudo-periodic sampled sounds.
+	PSOLA works using the following steps:
+	- identify the pitch of the input signal - see the PitchDetector class
+	- based on this pitch, identify peaks in the signal for each period - see the PeakFinder class
+	- based on these peaks, split the input signal into grains centred on the peaks - see the Analyzer class
+	- output a new stream of these grains, respaced to form the new desired pitch - see the Shifter class
+
+	Robert Bristow Johnson's paper @cite bristow-johnson_1995 provides a great overview of the technical details of PSOLA.
+
+	PSOLA can be used for both pitch and time scaling.
+
+	PSOLA is only intended for use with input signals that are monophonic - ie, a sound with a single fundamental frequency, like a voice or a cello, not a group of instruments or a chord.
+	Results may be unpredictable if the input signal contains more than one pitch.
+	Best results are achieved when the input signal is clearly pitched, though this algorithm can be used with any kind of monophonic input signal, even unpitched percussive sounds.
+	It is often desirable to do some preprocessing of the input signal, to remove noise, perhaps even apply some compression, etc.
+
+	Note that the Analyzer class performs the first three steps listed above; to achieve PSOLA pitch shifting, you only need an Analyzer and a Shifter object, you don't need to use a PitchDetector or PeakFinder directly.
+
+	@ingroup limes_audio
+ */
+
+/** @dir libs/limes_audio/psola
+	This directory contains classes for implementing a PSOLA algorithm.
+	@ingroup psola
+ */
+
 /** @file
 	This file defines the PeakFinder class.
 	@ingroup psola

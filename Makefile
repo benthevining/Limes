@@ -11,6 +11,7 @@ CONFIG ?= Debug
 
 export CMAKE_BUILD_TYPE ?= $(CONFIG)
 export CMAKE_CONFIG_TYPE ?= $(CONFIG)
+export CMAKE_EXPORT_COMPILE_COMMANDS ?= 1
 export VERBOSE ?= 1
 
 # program aliases

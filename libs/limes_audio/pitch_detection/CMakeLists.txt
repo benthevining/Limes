@@ -11,11 +11,18 @@
 include (OrangesSourceFileUtils)
 
 oranges_add_source_files (
-	DIRECTORY_NAME psola
+	DIRECTORY_NAME pitch_detection
 	TARGET limes_audio
 	INSTALL_COMPONENT limes_audio_dev
 	INSTALL_DIR "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  analyzer.cpp analyzer.h PeakFinder.cpp PeakFinder.h shifter.cpp shifter.h)
+		  PitchData.h
+		  PitchData.cpp
+		  yin.h
+		  yin.cpp
+		  PitchDetector.cpp
+		  PitchDetector.h
+		  PitchDetectionAlgorithm.cpp
+		  PitchDetectionAlgorithm.h)
 
-set (psola_files ${psola_files} PARENT_SCOPE)
+set (pitch_detection_files ${pitch_detection_files} PARENT_SCOPE)
