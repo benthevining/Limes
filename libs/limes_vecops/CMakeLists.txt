@@ -171,6 +171,9 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_vecops_base)
 
+export (EXPORT LimesVecopsTargets FILE "${Limes_BINARY_DIR}/LimesVecopsTargets.cmake"
+		NAMESPACE Limes::)
+
 # oranges_create_pkgconfig_file ( TARGET limes_vecops INCLUDE_REL_PATH
 # "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}" DESCRIPTION "${PROJECT_DESCRIPTION}" URL
 # "${PROJECT_HOMEPAGE_URL}" VERSION "${PROJECT_VERSION}" INSTALL_COMPONENT limes_vecops_dev)

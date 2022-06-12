@@ -165,6 +165,8 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_core_base)
 
+export (EXPORT LimesCoreTargets FILE "${Limes_BINARY_DIR}/LimesCoreTargets.cmake" NAMESPACE Limes::)
+
 # oranges_create_pkgconfig_file ( TARGET limes_core INCLUDE_REL_PATH
 # "${LIMES_CORE_INSTALL_INCLUDE_DIR}" DESCRIPTION "${PROJECT_DESCRIPTION}" URL
 # "${PROJECT_HOMEPAGE_URL}" VERSION "${PROJECT_VERSION}" INSTALL_COMPONENT limes_core_dev)

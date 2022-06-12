@@ -103,6 +103,9 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_locale_base)
 
+export (EXPORT LimesLocaleTargets FILE "${Limes_BINARY_DIR}/LimesLocaleTargets.cmake"
+		NAMESPACE Limes::)
+
 # oranges_create_pkgconfig_file ( TARGET limes_locale INCLUDE_REL_PATH
 # "${LIMES_LOCALE_INSTALL_INCLUDE_DIR}" DESCRIPTION "${PROJECT_DESCRIPTION}" URL
 # "${PROJECT_HOMEPAGE_URL}" VERSION "${PROJECT_VERSION}" INSTALL_COMPONENT limes_locale_dev)

@@ -107,6 +107,9 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_data_structures_base)
 
+export (EXPORT LimesDataStructuresTargets
+		FILE "${Limes_BINARY_DIR}/LimesDataStructuresTargets.cmake" NAMESPACE Limes::)
+
 # oranges_create_pkgconfig_file ( TARGET limes_data_structures INCLUDE_REL_PATH
 # "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}" DESCRIPTION "${PROJECT_DESCRIPTION}" URL
 # "${PROJECT_HOMEPAGE_URL}" VERSION "${PROJECT_VERSION}" INSTALL_COMPONENT

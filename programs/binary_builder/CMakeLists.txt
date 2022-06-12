@@ -125,3 +125,6 @@ install (
 	DESTINATION "${LIMES_INSTALL_DEST}"
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_binary_builder_base)
+
+export (EXPORT LimesBinaryBuilderTargets FILE "${Limes_BINARY_DIR}/LimesBinaryBuilderTargets.cmake"
+		NAMESPACE Limes::)
