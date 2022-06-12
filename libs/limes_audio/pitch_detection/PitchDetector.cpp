@@ -26,6 +26,7 @@ typename PitchDetector<SampleType>::Result PitchDetector<SampleType>::detectPeri
 	LIMES_ASSERT (numSamples >= getLatencySamples());
 
 	// calculate pitch using each algorithm
+	// TO DO: stop early if a result is sufficiently confident?
 	for (size_t i = 0; i < num_algos; ++i)
 		algoResults[i] = algos[i]->detectPeriod (inputAudio, numSamples);
 

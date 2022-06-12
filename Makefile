@@ -31,7 +31,7 @@ ifeq ($(OS),Windows_NT)
 	export CMAKE_BUILD_PARALLEL_LEVEL ?= $(NUMBER_OF_PROCESSORS)
 else ifeq ($(shell uname -s),Darwin)
 	export CMAKE_GENERATOR ?= Xcode
-	export CMAKE_BUILD_PARALLEL_LEVEL ?= $(shell sysctl hw.ncpu | awk '{print $$2}')
+	export CMAKE_BUILD_PARALLEL_LEVEL ?= $(shell sysctl hw.ncpu | sed -e "s/^hw.ncpu://")
 	SUDO ?= sudo
 else # Linux
 	export CMAKE_GENERATOR ?= Ninja
@@ -48,11 +48,9 @@ endif
 override LIMES_ROOT = $(patsubst %/,%,$(strip $(dir $(realpath $(firstword $(MAKEFILE_LIST))))))
 
 override SCRIPTS = $(LIMES_ROOT)/scripts
-
 override DOCS = $(LIMES_ROOT)/docs
-
-BUILDS ?= $(LIMES_ROOT)/Builds
-CACHE ?= $(LIMES_ROOT)/Cache
+override BUILDS = $(LIMES_ROOT)/Builds
+override CACHE = $(LIMES_ROOT)/Cache
 
 #
 

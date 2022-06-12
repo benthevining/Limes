@@ -18,6 +18,7 @@ oranges_add_source_files (
 	FILES # cmake-format: sortable
 		  AlignedAllocator.h
 		  alignment.h
+		  array_pointer.h
 		  MemoryPool.cpp
 		  MemoryPool.h
 		  MemoryPoolAllocator.h

@@ -14,6 +14,7 @@
 
 #include "PitchData.h"
 #include "yin.h"
+#include "zeroCrossing.h"
 #include <limes_core.h>
 #include "PitchDetectionAlgorithm.h"
 #include <array>
@@ -87,13 +88,22 @@ public:
 	const Yin<SampleType>& getYin() const noexcept { return yin; }
 	///@}
 
+	/** @name ZTX access */
+	///@{
+	/** Returns a reference to the internal zero-crossing pitch detector. */
+	ZeroCrossings<SampleType>&		 getZTX() noexcept { return ztx };
+	const ZeroCrossings<SampleType>& getZTX() const noexcept { return ztx };
+	///@}
+
 private:
 
 	Yin<SampleType> yin;
 
-	static constinit const size_t num_algos = 1;
+	ZeroCrossings<SampleType> ztx;
 
-	std::array<PitchDetectionAlgorithm<SampleType>*, num_algos> algos = { &yin };
+	static constinit const size_t num_algos = 2;
+
+	std::array<PitchDetectionAlgorithm<SampleType>*, num_algos> algos = { &yin, &ztx };
 
 	std::array<Result, num_algos> algoResults;
 

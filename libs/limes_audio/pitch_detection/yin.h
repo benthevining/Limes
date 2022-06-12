@@ -17,6 +17,7 @@
 #include <limes_core.h>
 #include "PitchData.h"
 #include "PitchDetectionAlgorithm.h"
+#include "../filters/Filter.h"
 
 /** @file
 	This file defines the Yin class.
@@ -196,8 +197,6 @@ private:
 
 	inline void updatePeriodBounds() noexcept;
 
-	[[nodiscard]] inline SampleType parabolicInterpolation (int periodEstimate) const noexcept;
-
 	int minHz { 60 };
 
 	int minPeriod { 0 }, maxPeriod { 0 };
@@ -210,9 +209,11 @@ private:
 
 	using SampleVector = ds::scalar_vector<SampleType>;
 
-	SampleVector sdfOut, yinDataStorage;
+	SampleVector sdfData, cmndfData, inputStorage;
 
 	ds::scalar_vector<int> finalTaus;
+
+	filters::Filter<SampleType> lowPass, hiPass;
 };
 
 }  // namespace dsp::pitch

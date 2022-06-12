@@ -23,10 +23,14 @@ LIMES_BEGIN_NAMESPACE
 namespace dsp::pitch
 {
 
+namespace yin
+{
+
 // since we're calculating minima, we need an arbitrarily large number
 // to represent any value we know isn't a valid period candidate
 template <Sample SampleType>
 static constinit const auto INVALID_TAU = SampleType (1000);
+
 
 template <Sample SampleType>
 LIMES_FORCE_INLINE void calculate_cmndf (const SampleType* inputAudio, int numSamples,
@@ -76,12 +80,12 @@ LIMES_FORCE_INLINE void calculate_cmndf (const SampleType* inputAudio, int numSa
 						return len;
 				}
 
-				return len;
+				return 0;
 			}();
 
 			// the min number of consecutive local maxima that must have been found before this tau
 			// in order to trigger skipping calculation of the SDF for this tau
-			constinit const auto minMaximaAreaLen = 5;
+			static constinit const auto minMaximaAreaLen = 5;
 
 			if (localMaximaLength >= minMaximaAreaLen		  // check if we're in an area of lots of consecutive maxima
 				&& localMaximaLength < maxTausToSkipTesting)  // BUT don't want to skip testing too many tau values in a row!
@@ -106,7 +110,134 @@ LIMES_FORCE_INLINE void calculate_cmndf (const SampleType* inputAudio, int numSa
 	}
 }
 
-/*----------------------------------------------------------------------------------------------------------------------------------------------*/
+
+template <Sample SampleType>
+LIMES_FORCE_INLINE int select_final_taus (ds::scalar_vector<int>& finalTaus,
+										  const SampleType*		  cmndfData,
+										  int minPeriod, int maxPeriod) noexcept
+{
+	finalTaus.zero();
+
+	auto num_final_taus = 0;
+	auto min_tau_value	= INVALID_TAU<SampleType>;
+
+	const auto maxNumFinalTaus = std::min (finalTaus.numObjects(), (maxPeriod - minPeriod) / 2);
+
+	for (auto i = 0; i < maxNumFinalTaus; ++i)
+	{
+		const auto added = [&finalTaus, &min_tau_value, minPeriod, maxPeriod, cmndfData, i]
+		{
+			for (auto tau = minPeriod; tau <= maxPeriod; ++tau)
+			{
+				const auto yinIdx = tau - minPeriod;
+
+				if (finalTaus.contains (yinIdx))
+					continue;
+
+				const auto this_tau_value = cmndfData[yinIdx];
+
+				if (this_tau_value < min_tau_value)
+				{
+					min_tau_value = this_tau_value;
+					finalTaus[i]  = yinIdx;
+					return true;
+				}
+			}
+
+			return false;
+		}();
+
+		if (added)
+			++num_final_taus;
+		else
+			break;
+	}
+
+	return num_final_taus;
+}
+
+
+template <Sample SampleType>
+LIMES_FORCE_INLINE int pick_period_estimate (const int* finalTaus, int numFinalTaus,
+											 int			   maxYinIdx,
+											 SampleType		   confidenceThresh,
+											 const SampleType* cmndfData, const SampleType* sdfData) noexcept
+{
+	for (auto i = 0; i < numFinalTaus; ++i)
+	{
+		const auto tau = finalTaus[i];
+
+		if (tau == 0)
+			continue;
+
+		if (cmndfData[tau] >= confidenceThresh)
+			continue;
+
+		auto t = tau;
+
+		// find the local minimum in the SDF function
+		for (;
+			 t + 1 <= maxYinIdx && sdfData[t + 1] < sdfData[t];
+			 ++t)
+			;
+
+		return t;
+	}
+
+	return 0;
+}
+
+
+template <Sample SampleType>
+LIMES_FORCE_INLINE SampleType parabolic_interpolation (int periodEstimate, int maxPeriod,
+													   const SampleType* sdfData, const SampleType* cmndfData) noexcept
+{
+	LIMES_ASSERT (periodEstimate > 0);
+
+	const auto x0 = periodEstimate == 0 ? 0 : periodEstimate - 1;
+
+	const auto x2 = [periodEstimate, max = maxPeriod]
+	{
+		const auto plusOne = periodEstimate + 1;
+
+		if (plusOne < max)
+			return plusOne;
+
+		return periodEstimate;
+	}();
+
+	if (x0 == periodEstimate)
+	{
+		if (sdfData[periodEstimate] > sdfData[x2])
+			return static_cast<SampleType> (x2);
+
+		return static_cast<SampleType> (periodEstimate);
+	}
+
+	if (x2 == periodEstimate)
+	{
+		if (sdfData[periodEstimate] > sdfData[x0])
+			return static_cast<SampleType> (x0);
+
+		return static_cast<SampleType> (periodEstimate);
+	}
+
+	const auto s0 = cmndfData[x0];
+	const auto s2 = cmndfData[x2];
+
+	const auto period = static_cast<SampleType> (periodEstimate)
+					  + (s2 - s0)
+							/ (SampleType (2)
+							   * (SampleType (2) * cmndfData[periodEstimate] - s2 - s0));
+
+	return static_cast<SampleType> (period);
+}
+
+}  // namespace yin
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------------*/
+
 
 template <Sample SampleType>
 Yin<SampleType>::Yin (int minFreqHz, float confidenceThreshold)
@@ -119,9 +250,8 @@ template <Sample SampleType>
 typename Yin<SampleType>::Result Yin<SampleType>::detectPeriod (const SampleType* const inputAudio, int numSamples) noexcept
 {
 	// TODO
-	// pre-process -- apply a hanning window to the incoming signal?
+	// apply a hanning window to the incoming signal?
 	// or to the calculated YIN values?
-	// filter the input signal at the min & max frequencies?
 
 	LIMES_ASSERT (samplerate > 0.);					   // pitch detector hasn't been prepared before calling this function!
 	LIMES_ASSERT (numSamples >= getLatencySamples());  // not enough samples in this frame to do analysis
@@ -130,98 +260,52 @@ typename Yin<SampleType>::Result Yin<SampleType>::detectPeriod (const SampleType
 	updatePeriodBounds();
 
 	LIMES_ASSERT (maxPeriod <= math::round (numSamples * 0.5f));
-	LIMES_ASSERT (yinDataStorage.capacity() >= (maxPeriod - minPeriod + 1));
-	LIMES_ASSERT (sdfOut.capacity() >= (maxPeriod - minPeriod + 1));
+	LIMES_ASSERT (cmndfData.capacity() >= (maxPeriod - minPeriod + 1));
+	LIMES_ASSERT (sdfData.capacity() >= (maxPeriod - minPeriod + 1));
 
-	yinDataStorage.zero();
-	finalTaus.zero();
+	// filter the incoming signal at the maximum & minimum detectable frequency for this frame
+	{
+		lowPass.coefs.makeLowPass (samplerate,
+								   static_cast<SampleType> (math::freqFromPeriod (samplerate, minPeriod)));
+
+		hiPass.coefs.makeHighPass (samplerate static_cast<SampleType> (math::freqFromPeriod (samplerate, maxPeriod)));
+
+		inputStorage.copyFrom (inputAudio, numSamples);
+
+		lowPass.process (inputStorage);
+		hiPass.process (inputStorage);
+	}
+
+	sdfData.zero();
 
 	// calculate autocorrelation using SDF function
-	// SDF results are written to sdfOut
-	// CMNDF results are written to yinDataStorage
-	calculate_cmndf (inputAudio, numSamples,
-					 minPeriod, maxPeriod,
-					 sdfOut.data(),
-					 yinDataStorage.data(),
-					 confidenceThresh);
-
-	const auto numFinalTaus = std::min (finalTaus.numObjects(),
-										(maxPeriod - minPeriod) / 2);
+	// SDF results are written to sdfData
+	// CMNDF results are written to cmndfData
+	yin::calculate_cmndf (inputStorage, numSamples,
+						  minPeriod, maxPeriod,
+						  sdfData.data(),
+						  cmndfData.data(),
+						  confidenceThresh);
 
 	// post-process the set of tested taus
 	// keep only the taus with the minima in the CMNDF output
 	// TODO - weight based on distance to previously chosen period?
+	const auto num_final_taus = yin::select_final_taus (finalTaus,
+														cmndfData.data(),
+														minPeriod, maxPeriod);
+
+	if (num_final_taus == 0)
 	{
-		bool any_final_taus = false;
-
-		auto min_tau_value = INVALID_TAU;
-
-		for (auto i = 0; i < numFinalTaus; ++i)
-		{
-			auto added = [this]
-			{
-				for (auto tau = minPeriod; tau <= maxPeriod; ++tau)
-				{
-					const auto yinIdx = tau - minPeriod;
-
-					if (finalTaus.contains (yinIdx))
-						continue;
-
-					const auto this_tau_value = yinDataStorage[yinIdx];
-
-					if (this_tau_value < min_tau_value)
-					{
-						min_tau_value = this_tau_value;
-						finalTaus[i]  = yinIdx;
-						return true;
-					}
-				}
-
-				return false;
-			}();
-
-			if (added)
-				any_final_taus = true;
-			else
-				break;
-		}
-
-		if (! any_final_taus)
-		{
-			data.reset();
-			return data;
-		}
+		data.reset();
+		return data;
 	}
 
 	const auto maxYinIdx = maxPeriod - minPeriod;
 
 	// absolute threshold
 	// examining only our final tau candidates
-	const auto periodEstimate = [this]
-	{
-		for (auto i = 0; i < numFinalTaus; ++i)
-		{
-			const auto tau = finalTaus[i];
-
-			if (tau == 0)
-				continue;
-
-			if (yinDataStorage[tau] >= confidenceThresh)
-				continue;
-
-			auto t = tau;
-
-			// find the local minimum in the SDF function
-			for (;
-				 t + 1 <= maxYinIdx && sdfOut[t + 1] < sdfOut[t];
-				 ++t)
-				;
-
-			return t;
-		}
-
-		return 0;
-	}();
+	const auto periodEstimate = yin::pick_period_estimate (finalTaus.data(), num_final_taus, maxYinIdx,
+														   confidenceThresh, cmndfData.data(), sdfData.data());
 
 	// NB. at this point, periodEstimate is still offset by minPeriod
 
@@ -233,10 +317,14 @@ typename Yin<SampleType>::Result Yin<SampleType>::detectPeriod (const SampleType
 		return data;
 	}
 
-	data.setPeriod (parabolicInterpolation (periodEstimate) + static_cast<SampleType> (minPeriod),	// add minPeriod bc of the initial offset
+	data.setPeriod (yin::parabolic_interpolation (periodEstimate, maxPeriod,
+												  sdfData.data(), cmndfData.data())
+						+ static_cast<SampleType> (minPeriod),	// add minPeriod bc of the initial offset
 					samplerate);
 
-	data.confidence = yinDataStorage[periodEstimate];
+	// TO DO: need to invert this
+	// so that lower vals = less confidence
+	data.confidence = cmndfData[periodEstimate];
 
 	return data;
 }
@@ -272,50 +360,6 @@ void Yin<SampleType>::updatePeriodBounds() noexcept
 }
 
 template <Sample SampleType>
-SampleType Yin<SampleType>::parabolicInterpolation (int periodEstimate) const noexcept
-{
-	LIMES_ASSERT (periodEstimate > 0);
-
-	const auto x0 = periodEstimate == 0 ? 0 : periodEstimate - 1;
-
-	const auto x2 = [periodEstimate, max = maxPeriod]
-	{
-		const auto plusOne = periodEstimate + 1;
-
-		if (plusOne < max)
-			return plusOne;
-
-		return periodEstimate;
-	}();
-
-	if (x0 == periodEstimate)
-	{
-		if (sdfOut[periodEstimate] > sdfOut[x2])
-			return static_cast<SampleType> (x2);
-
-		return static_cast<SampleType> (periodEstimate);
-	}
-
-	if (x2 == periodEstimate)
-	{
-		if (sdfOut[periodEstimate] > sdfOut[x0])
-			return static_cast<SampleType> (x0);
-
-		return static_cast<SampleType> (periodEstimate);
-	}
-
-	const auto s0 = yinDataStorage[x0];
-	const auto s2 = yinDataStorage[x2];
-
-	const auto period = static_cast<SampleType> (periodEstimate)
-					  + (s2 - s0)
-							/ (SampleType (2)
-							   * (SampleType (2) * yinDataStorage[periodEstimate] - s2 - s0));
-
-	return static_cast<SampleType> (period);
-}
-
-template <Sample SampleType>
 void Yin<SampleType>::setConfidenceThresh (float newThresh) noexcept
 {
 	LIMES_ASSERT (newThresh >= 0.f && newThresh <= 1.f);
@@ -331,12 +375,17 @@ int Yin<SampleType>::setSamplerate (double newSamplerate)
 
 	const auto latency = getLatencySamples();
 
+	inputStorage.reserveAndZero (latency);
+
 	const auto bufferLen = (latency / 2) + 1;
 
-	yinDataStorage.reserveAndZero (bufferLen);
-	sdfOut.reserveAndZero (bufferLen);
+	cmndfData.reserveAndZero (bufferLen);
+	sdfData.reserveAndZero (bufferLen);
 
 	finalTaus.reserveAndZero (std::max (latency / 4, 20));
+
+	lowPass.prepare();
+	hiPass.prepare();
 
 	return latency;
 }
@@ -373,9 +422,15 @@ template <Sample SampleType>
 void Yin<SampleType>::reset() noexcept
 {
 	data.reset();
-	yinDataStorage.zero();
-	sdfOut.zero();
+
+	cmndfData.zero();
+	sdfData.zero();
 	finalTaus.zero();
+	inputStorage.zero();
+
+	lowPass.reset();
+	hiPass.reset();
+
 	minPeriod = 0;
 	maxPeriod = 0;
 }
@@ -383,13 +438,16 @@ void Yin<SampleType>::reset() noexcept
 template <Sample SampleType>
 void Yin<SampleType>::releaseResources()
 {
-	reset();
-
+	minPeriod  = 0;
+	maxPeriod  = 0;
 	samplerate = 0.;
 
-	yinDataStorage.clearAndFree();
-	sdfOut.clearAndFree();
+	data.reset();
+
+	cmndfData.clearAndFree();
+	sdfData.clearAndFree();
 	finalTaus.clearAndFree();
+	inputStorage.clearAndFree();
 }
 
 template <Sample SampleType>

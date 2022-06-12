@@ -67,6 +67,7 @@
 #include "memory/StaticObjects.h"
 #include "memory/alignment.h"
 #include "memory/AlignedAllocator.h"
+#include "memory/array_pointer.h"
 #include "memory/MemoryPool.h"
 #include "memory/MemoryPoolAllocator.h"
 #include "memory/stack_allocator.h"

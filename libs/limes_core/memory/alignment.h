@@ -123,7 +123,7 @@ public:
 		@throws std::bad_alloc An exception is thrown if allocation fails and the \c UseExceptions template parameter is true.
 	 */
 	template <typename... Args>
-	explicit aligned_pointer (std::size_t count = 1, std::size_t alignment = 32, Args&&... args)
+	explicit aligned_pointer (std::size_t count = 1, std::size_t alignment = 32, Args&&... args) noexcept (! UseExceptions)
 		: ptr (allocate_aligned<T> (count, alignment, std::forward<Args> (args)...))
 	{
 		if constexpr (UseExceptions)

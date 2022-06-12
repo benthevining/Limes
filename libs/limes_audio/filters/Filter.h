@@ -44,11 +44,15 @@ public:
 	/** Prepares the filter to process audio. */
 	void prepare() noexcept;
 
+	/** @name Processing streams of samples */
 	///@{
-	/** Applies the filter to a stream of audio samples. */
+	/** Applies the filter to a stream of audio samples in place. */
 	void process (SampleType* buffer, int numSamples) noexcept;
 	void process (SampleVector& buffer) noexcept;
 	///@}
+
+	/** Processes a single sample of input. */
+	SampleType processSample (SampleType inputSample) noexcept;
 
 	/** The filter's coefficients.
 		You can call various methods of this object to create different kinds of filters.

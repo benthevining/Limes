@@ -199,6 +199,14 @@ void Filter<SampleType>::process (SampleVector& buffer) noexcept
 	process (buffer.data(), buffer.numObjects());
 }
 
+template <Sample SampleType>
+SampleType Filter<SampleType>::processSample (SampleType inputSample) noexcept
+{
+	process (&inputSample, 1);
+
+	return inputSample;
+}
+
 template class Filter<float>;
 template class Filter<double>;
 
