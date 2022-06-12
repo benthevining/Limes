@@ -115,7 +115,7 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_audio_base)
 
-export (EXPORT LimesAudioTargets FILE "${Limes_BINARY_DIR}/LimesAudioTargets.cmake"
+export (EXPORT LimesAudioTargets FILE "${LIMES_EXPORT_DIR}/LimesAudioTargets.cmake"
 		NAMESPACE Limes::)
 
 # oranges_create_pkgconfig_file ( TARGET limes_audio INCLUDE_REL_PATH

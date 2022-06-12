@@ -120,5 +120,5 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_file_util_base)
 
-export (EXPORT LimesFileUtilTargets FILE "${Limes_BINARY_DIR}/LimesFileUtilTargets.cmake"
+export (EXPORT LimesFileUtilTargets FILE "${LIMES_EXPORT_DIR}/LimesFileUtilTargets.cmake"
 		NAMESPACE Limes::)

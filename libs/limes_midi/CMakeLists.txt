@@ -101,7 +101,7 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_midi_base)
 
-export (EXPORT LimesMIDITargets FILE "${Limes_BINARY_DIR}/LimesMIDITargets.cmake" NAMESPACE Limes::)
+export (EXPORT LimesMIDITargets FILE "${LIMES_EXPORT_DIR}/LimesMIDITargets.cmake" NAMESPACE Limes::)
 
 # oranges_create_pkgconfig_file ( TARGET limes_midi INCLUDE_REL_PATH
 # "${LIMES_MIDI_INSTALL_INCLUDE_DIR}" DESCRIPTION "${PROJECT_DESCRIPTION}" URL

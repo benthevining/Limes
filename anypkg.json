@@ -17,7 +17,6 @@
   "project": {
     "compatibility": "SameMajorVersion",
     "description": "C++ libraries",
-    "find_module": "scripts/FindLimes.cmake",
     "git_repo": "https://github.com/benthevining/Limes.git",
     "name": "Limes",
     "version": "4.8.1"

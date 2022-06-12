@@ -41,6 +41,10 @@ $(BUILDS):
 .PHONY: config
 config: $(BUILDS) ## configure CMake
 
+.PHONY: open
+open: config ## Opens the Limes project in an IDE
+	$(CMAKE) --open $(BUILDS)
+
 #
 
 .PHONY: build
@@ -58,9 +62,11 @@ qc: ## Runs all qc scripts (takes a while!)
 
 #
 
-.PHONY: install
-install: build ## runs CMake install
+$(BUILDS)/install_manifest.txt:
 	$(SUDO) $(CMAKE) --install $(BUILDS) --config $(CONFIG)
+
+.PHONY: install
+install: $(BUILDS)/install_manifest.txt ## runs CMake install
 
 #
 
@@ -87,7 +93,7 @@ docs: config ## Builds the documentation
 #
 
 .PHONY: uninstall
-uninstall: ## Runs uninstall script
+uninstall: config ## Runs uninstall script
 	$(SUDO) $(CMAKE) -P $(BUILDS)/uninstall.cmake
 
 .PHONY: clean

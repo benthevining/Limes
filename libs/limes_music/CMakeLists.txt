@@ -103,7 +103,7 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_music_base)
 
-export (EXPORT LimesMusicTargets FILE "${Limes_BINARY_DIR}/LimesMusicTargets.cmake"
+export (EXPORT LimesMusicTargets FILE "${LIMES_EXPORT_DIR}/LimesMusicTargets.cmake"
 		NAMESPACE Limes::)
 
 # oranges_create_pkgconfig_file ( TARGET limes_music INCLUDE_REL_PATH

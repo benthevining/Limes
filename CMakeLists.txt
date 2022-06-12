@@ -183,6 +183,9 @@ set (
 
 mark_as_advanced (FORCE LIMES_INSTALL_DEST)
 
+set (LIMES_EXPORT_DIR "${CMAKE_CURRENT_BINARY_DIR}/export"
+	 CACHE INTERNAL "Directory where build tree export files are being written to")
+
 #
 
 include (CPackComponent)

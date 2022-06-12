@@ -70,6 +70,9 @@ install (
 	EXPORT_LINK_INTERFACE_LIBRARIES
 	COMPONENT limes_libs_base)
 
+export (EXPORT LimesDefaultLibraryTarget FILE "${LIMES_EXPORT_DIR}/LimesDefaultLibraryTarget.cmake"
+		NAMESPACE Limes::)
+
 cpack_add_component (limes_libs_base HIDDEN)
 
 add_library (Limes INTERFACE)

@@ -13,3 +13,7 @@
 # @formatter:on
 
 export LIMES_PATH="${LIMES_PATH:-$(cd "$(dirname "$0")" && pwd)}"
+
+go_limes() {
+	cd "$LIMES_PATH" || exit 1
+}
