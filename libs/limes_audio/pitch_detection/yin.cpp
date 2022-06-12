@@ -268,7 +268,7 @@ typename Yin<SampleType>::Result Yin<SampleType>::detectPeriod (const SampleType
 		lowPass.coefs.makeLowPass (samplerate,
 								   static_cast<SampleType> (math::freqFromPeriod (samplerate, minPeriod)));
 
-		hiPass.coefs.makeHighPass (samplerate static_cast<SampleType> (math::freqFromPeriod (samplerate, maxPeriod)));
+		hiPass.coefs.makeHighPass (samplerate, static_cast<SampleType> (math::freqFromPeriod (samplerate, maxPeriod)));
 
 		inputStorage.copyFrom (inputAudio, numSamples);
 
@@ -281,7 +281,7 @@ typename Yin<SampleType>::Result Yin<SampleType>::detectPeriod (const SampleType
 	// calculate autocorrelation using SDF function
 	// SDF results are written to sdfData
 	// CMNDF results are written to cmndfData
-	yin::calculate_cmndf (inputStorage, numSamples,
+	yin::calculate_cmndf (inputStorage.data(), numSamples,
 						  minPeriod, maxPeriod,
 						  sdfData.data(),
 						  cmndfData.data(),

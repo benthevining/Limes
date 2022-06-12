@@ -75,10 +75,10 @@ public:
 	 */
 	///@{
 	/** Returns a pointer to the first object in the owned array. */
-	[[nodiscard]] T* get() const noexcept { return ptr; }
-	[[nodiscard]] T* operator()() const noexcept { return ptr; }
-					 operator Type*() const noexcept { return ptr; }
-	T*				 operator->() const noexcept { return ptr; }
+	[[nodiscard]] Type* get() const noexcept { return ptr; }
+	[[nodiscard]] Type* operator()() const noexcept { return ptr; }
+						operator Type*() const noexcept { return ptr; }
+	Type*				operator->() const noexcept { return ptr; }
 	///@}
 
 	/** Returns the size of the pointed-to array. */

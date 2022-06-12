@@ -91,8 +91,8 @@ public:
 	/** @name ZTX access */
 	///@{
 	/** Returns a reference to the internal zero-crossing pitch detector. */
-	ZeroCrossings<SampleType>&		 getZTX() noexcept { return ztx };
-	const ZeroCrossings<SampleType>& getZTX() const noexcept { return ztx };
+	ZeroCrossings<SampleType>&		 getZTX() noexcept { return ztx; }
+	const ZeroCrossings<SampleType>& getZTX() const noexcept { return ztx; }
 	///@}
 
 private:
