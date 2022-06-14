@@ -98,8 +98,7 @@ function (limes_add_binary_data_target)
 	limes_add_binary_data_files (
 		BASE_NAME "${LIMES_ARG_HEADER_NAME}"
 		NAMESPACE "${LIMES_ARG_NAMESPACE}"
-		OUTPUT_DIR "${output_dir}"
-		INPUTS ${LIMES_ARG_INPUTS}
+		OUTPUT_DIR "${output_dir}" INPUTS ${LIMES_ARG_INPUTS}
 		CPP_OUTPUT_VAR cpp_file
 		H_OUTPUT_VAR h_file)
 

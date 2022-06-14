@@ -60,7 +60,7 @@ target_link_libraries (limes_core PUBLIC LimesDefaultLibrary)
 include (OrangesGenerateStandardHeaders)
 
 oranges_generate_standard_headers (
-	TARGET limes_core
+	limes_core
 	BASE_NAME limes
 	NO_AGGREGATE_HEADER
 	EXPORT_HEADER limes_export.h
@@ -114,8 +114,8 @@ add_subdirectory (threading)
 add_subdirectory (time)
 
 oranges_add_protobuf_library (
-	TARGET limes_core_protobuf PROTO_FILES ${misc_proto_files} ${serializing_proto_files}
-										   ${time_proto_files}
+	limes_core_protobuf PROTO_FILES ${misc_proto_files} ${serializing_proto_files}
+									${time_proto_files}
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}/protobuf" INSTALL_COMPONENT limes_core_dev)
 
 target_link_libraries (limes_core PUBLIC limes_core_protobuf)
