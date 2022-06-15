@@ -1,4 +1,7 @@
 #!/usr/bin/sh
+# This script updates Limes's .cmake-format.json file with all the command specifications in the LimesCMakeCommands.json file
+# and all the Oranges command specifications in the OrangesCMakeCommands.json file. The Oranges repository is located using
+# the ORANGES_PATH environment variable.
 
 # @formatter:off
 # ======================================================================================

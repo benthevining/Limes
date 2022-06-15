@@ -1,4 +1,6 @@
 #!/bin/sh
+# This script builds every configuration preset of Limes.
+
 # shellcheck disable=SC2181
 
 # @formatter:off

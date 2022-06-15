@@ -1,4 +1,6 @@
 #!/bin/sh
+# This script builds Limes with every combination of options for the limes_vecops library.
+
 # shellcheck disable=SC2181
 
 # @formatter:off

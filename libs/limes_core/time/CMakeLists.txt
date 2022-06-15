@@ -9,7 +9,6 @@
 # ======================================================================================
 
 add_subdirectory (impl)
-add_subdirectory (proto)
 
 include (OrangesSourceFileUtils)
 
@@ -31,4 +30,4 @@ oranges_add_source_files (
 
 set (time_files ${time_files} ${impl_files} PARENT_SCOPE)
 
-set (time_proto_files ${time_proto_files} PARENT_SCOPE)
+set (time_proto_files time/time.proto PARENT_SCOPE)
