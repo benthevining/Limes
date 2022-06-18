@@ -177,13 +177,14 @@ public:
 		Copies this object's data to the specified destination.
 	 */
 	///@{
-	/**
+	/** Writes this object's data to the specified destination.
 		@param dest The destination to copy this object's data to.
 		@param maxNumBytes The maximum number of bytes this function will copy to the output.
 	 */
 	void copyTo (char* const dest, std::size_t maxNumBytes) const;
 
-	/** @param other %RawData object to copy this object's memory into.
+	/** Writes this object's data to the specified destination.
+		@param other %RawData object to copy this object's memory into.
 		@param allowAllocation If this is false, the data may be truncated if the destination object has a smaller preallocated memory size than the data size.
 	 */
 	void copyTo (RawData& other, bool allowAllocation = true) const;
@@ -208,7 +209,8 @@ public:
 	///@}
 
 	/** @name end() accessors
-		Returns a pointer to the end of this object's owned memory. */
+		Returns a pointer to the end of this object's owned memory.
+	 */
 	///@{
 	char*		end() noexcept;
 	const char* end() const noexcept;

@@ -11,11 +11,11 @@
 include (OrangesSourceFileUtils)
 
 oranges_add_source_files (
-	DIRECTORY_NAME data_structures
-	TARGET limes_data_structures
-	INSTALL_COMPONENT limes_data_structures_dev
-	INSTALL_DIR "${LIMES_DATA_STRUCTURES_INSTALL_INCLUDE_DIR}"
+	DIRECTORY_NAME processors
+	TARGET limes_audio
+	INSTALL_COMPONENT limes_audio_dev
+	INSTALL_DIR "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  Dimensions.cpp Dimensions.h)
+		  SampleProcessor.h SampleProcessor.cpp)
 
-set (data_structures_files ${data_structures_files} PARENT_SCOPE)
+set (processors_files ${processors_files} PARENT_SCOPE)

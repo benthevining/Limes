@@ -27,6 +27,8 @@ LIMES_BEGIN_NAMESPACE
 namespace files
 {
 
+class Directory;
+
 /** This class represents a symbolic link on the filesystem.
 	@ingroup files
  */
@@ -57,10 +59,21 @@ public:
 	/** @name Symbolic link creation */
 	///@{
 	/** Creates a symbolic link on the filesystem.
+		@param linkPath The path to the symbolic link to be created
+		@param target The filesystem object that the new link will reference
 		@returns True if link creation was successful
 	 */
-	static bool create (const Path& linkPath, const FilesystemEntry& target) noexcept;
 	static bool create (const Path& linkPath, const Path& target) noexcept;
+	static bool create (const Path& linkPath, const FilesystemEntry& target) noexcept;
+
+	/** Creates a symbolic link to the specified object in the new directory.
+		The created symlink will be at \c <newDirectory>/<origFilename> .
+		@param newDirectory The new directory to create the link in.
+		@param target The filesystem object that the new link will reference
+		@returns True if link creation was successful
+	 */
+	static bool create (const Directory& newDirectory, const Path& target) noexcept;
+	static bool create (const Directory& newDirectory, const FilesystemEntry& target) noexcept;
 	///@}
 };
 

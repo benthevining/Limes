@@ -43,7 +43,7 @@ CFile::CFile (CFile&& other) noexcept
 	other.ptr = nullptr;
 }
 
-CFile& CFile::operator= (CFile&& other) noexcept
+CFile& CFile::operator= (CFile&& other) noexcept  // cppcheck-suppress operatorEqVarError
 {
 	close();
 

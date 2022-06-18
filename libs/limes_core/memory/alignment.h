@@ -128,7 +128,7 @@ public:
 	{
 		if constexpr (UseExceptions)
 			if (ptr == nullptr)
-				throw std::bad_alloc();
+				throw std::bad_alloc();	 // cppcheck-suppress throwInNoexceptFunction
 	}
 
 	/** Destructor. */

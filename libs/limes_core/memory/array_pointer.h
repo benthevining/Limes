@@ -59,7 +59,7 @@ public:
 	{
 		if constexpr (UseExceptions)
 			if (ptr == nullptr)
-				throw std::bad_alloc();
+				throw std::bad_alloc();	 // cppcheck-suppress throwInNoexceptFunction
 	}
 
 	/** Destructor. */
@@ -121,7 +121,7 @@ public:
 			ptr = static_cast<Type*> (std::realloc (ptr, newSize * sizeof (Type)));
 
 			if (ptr == nullptr)
-				throw std::bad_alloc();
+				throw std::bad_alloc();	 // cppcheck-suppress throwInNoexceptFunction
 		}
 		else
 		{

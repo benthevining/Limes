@@ -139,7 +139,7 @@ OptionalObject<T>::OptionalObject (OptionalObject&& other) noexcept
 }
 
 template <typename T>
-OptionalObject<T>& OptionalObject<T>::operator= (const OptionalObject& other)
+OptionalObject<T>& OptionalObject<T>::operator= (const OptionalObject& other)  // cppcheck-suppress operatorEqVarError
 {
 	duplicate (other);
 
@@ -161,7 +161,7 @@ void OptionalObject<T>::duplicate (const OptionalObject& other)
 }
 
 template <typename T>
-OptionalObject<T>& OptionalObject<T>::operator= (OptionalObject&& other) noexcept
+OptionalObject<T>& OptionalObject<T>::operator= (OptionalObject&& other) noexcept  // cppcheck-suppress operatorEqVarError
 {
 	object = std::move (other.object);
 	memory = std::move (other.memory);

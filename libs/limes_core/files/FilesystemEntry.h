@@ -24,8 +24,14 @@
 
 /** @defgroup files Files
 	Utilities for working with the filesystem.
-	Limes's filesystem library is built on top of the \c std::filesystem library. I wanted a strongly-typed interface for working with filesystem objects, primarily to differentiate between files and directories.
-	You can still construct paths that wouldn't be considered canonical for a given filesystem object type -- for instance, the Directory class won't prevent you from creating one referencing \c /usr/documents/a_file.txt -- but I believe that having strongly-typed classes for each kind of filesystem object provides a cleaner API and allows the programmer to more explicitly express their intent.
+	Limes's filesystem library is built on top of the \c std::filesystem library.
+	I wanted a strongly-typed interface for working with filesystem objects, primarily to differentiate between files and directories.
+	You can still construct paths that wouldn't be considered canonical for a given filesystem object type --
+	for instance, the Directory class won't prevent you from creating one referencing \c /usr/documents/a_file.txt --
+	but I believe that having strongly-typed classes for each kind of filesystem object provides a cleaner API and allows the programmer to more explicitly express their intent.
+
+	Another design principle of this library is that most operations are \c noexcept -- success or failure is usually indicated by a boolean return value.
+
 	@ingroup limes_core
  */
 

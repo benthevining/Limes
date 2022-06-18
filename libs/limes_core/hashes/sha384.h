@@ -51,7 +51,7 @@ private:
 	unsigned m_tot_len { 0 };
 	unsigned m_len { 0 };
 
-	unsigned char m_block[2 * SHA384_512_BLOCK_SIZE];
+	unsigned char m_block[2 * SHA384_512_BLOCK_SIZE] = {};
 
 	std::uint64_t m_h[8] = { 0xcbbb9d5dc1059ed8ULL, 0x629a292a367cd507ULL, 0x9159015a3070dd17ULL, 0x152fecd8f70e5939ULL, 0x67332667ffc00b31ULL, 0x8eb44a8768581511ULL, 0xdb0c2e0d64f98fa7ULL, 0x47b5481dbefa4fa4ULL };
 };

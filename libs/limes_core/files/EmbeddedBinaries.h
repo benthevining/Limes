@@ -120,7 +120,6 @@ public:
 
 	/** Constructors */
 	///@{
-
 	/** Creates a FileInfoList with pointers to the first and ending elements of an array of FileInfo objects.
 		@param first The first object in the FileInfo array
 		@param end A pointer to one-past-the-end of the FileInfo array
@@ -140,7 +139,6 @@ public:
 		: m_begin (first), m_end (first + num)
 	{
 	}
-
 	///@}
 
 	/** Returns an iterator to the beginning of the array of FileInfo objects. */

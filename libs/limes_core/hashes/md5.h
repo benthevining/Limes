@@ -53,7 +53,7 @@ private:
 
 	std::uint32_t state[4] = { 0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476 };
 
-	unsigned char buffer[md5_blocksize];
+	unsigned char buffer[md5_blocksize] = {};
 };
 
 /** Calculates an MD5 hash for the given data.

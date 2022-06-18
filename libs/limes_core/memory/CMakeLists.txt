@@ -21,6 +21,7 @@ oranges_add_source_files (
 		  array_pointer.h
 		  MemoryPool.cpp
 		  MemoryPool.h
+		  MemoryPoolPointer.h
 		  MemoryPoolAllocator.h
 		  OptionalObject.h
 		  ReferenceCountedObject.cpp

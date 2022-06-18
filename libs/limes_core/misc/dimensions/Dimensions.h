@@ -15,8 +15,8 @@
 
 #include <limes_export.h>  // for LIMES_EXPORT
 #include <limes_namespace.h>
-#include <limes_core.h>
 #include <string>
+#include "../preprocessor.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -25,6 +25,7 @@ namespace misc
 
 /** A simple struct that represents the dimensions of something.
 	This class is typically used for working with GUIs.
+	@ingroup misc
  */
 struct LIMES_EXPORT Dimensions final
 {
@@ -43,8 +44,10 @@ struct LIMES_EXPORT Dimensions final
 	LIMES_DEFAULT_MOVABLE (Dimensions);
 	LIMES_DEFAULT_COPYABLE (Dimensions);
 
+	/** Sets the width of these dimensions. */
 	Dimensions& setWidth (int newWidth);
 
+	/** Sets the height of these dimensions. */
 	Dimensions& setHeight (int newHeight);
 
 	/** Returns true if the passed Dimensions object is equal to this one. */

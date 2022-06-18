@@ -8,19 +8,16 @@
 #
 # ======================================================================================
 
-add_subdirectory (dimensions)
-add_subdirectory (version)
-
 include (OrangesSourceFileUtils)
 
 oranges_add_source_files (
-	DIRECTORY_NAME misc
+	DIRECTORY_NAME misc/dimensions
 	TARGET limes_core
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  Algorithm.h Functions.h IgnoreUnused.h preprocessor.h streams.h streams.cpp)
+		  Dimensions.cpp Dimensions.h)
 
-set (misc_files ${misc_files} ${version_files} ${dimensions_files} PARENT_SCOPE)
+set (dimensions_files ${misc/dimensions_files} PARENT_SCOPE)
 
-set (misc_proto_files ${version_proto_files} ${dimensions_proto_files} PARENT_SCOPE)
+set (dimensions_proto_files misc/dimensions/dimensions.proto PARENT_SCOPE)

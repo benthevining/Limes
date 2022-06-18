@@ -17,6 +17,7 @@
 #include "FilesystemEntry.h"	// for FilesystemEntry, Path
 #include <limes_namespace.h>	// for LIMES_BEGIN_NAMESPACE, LIMES_END_...
 #include "../math/mathFunctions.h"
+#include "directory.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -27,28 +28,6 @@ SymLink::SymLink (const Path& symLinkPath, const FilesystemEntry& linkTarget)
 	: FilesystemEntry (symLinkPath)
 {
 	create (getAbsolutePath(), linkTarget);
-}
-
-bool SymLink::create (const Path& linkPath, const FilesystemEntry& target) noexcept
-{
-	if (! target.exists())
-		return false;
-
-	return func::try_call ([&target, &linkPath]
-						   {
-			const auto targetPath = target.getAbsolutePath();
-
-			if (target.isDirectory())
-				std::filesystem::create_directory_symlink (targetPath, linkPath);
-			else
-				std::filesystem::create_symlink (targetPath, linkPath); });
-}
-
-bool SymLink::create (const Path& linkPath, const Path& target) noexcept
-{
-	FilesystemEntry targetEntry { target };
-
-	return create (linkPath, targetEntry);
 }
 
 FilesystemEntry SymLink::follow (bool recurse) const noexcept
@@ -87,6 +66,41 @@ bool SymLink::referencesSameLocationAs (const SymLink& other) const
 	return follow (true) == other.follow (true);
 }
 
+bool SymLink::create (const Path& linkPath, const FilesystemEntry& target) noexcept
+{
+	if (! target.exists())
+		return false;
+
+	return func::try_call ([&target, &linkPath]
+						   {
+			const auto targetPath = target.getAbsolutePath();
+
+			if (target.isDirectory())
+				std::filesystem::create_directory_symlink (targetPath, linkPath);
+			else
+				std::filesystem::create_symlink (targetPath, linkPath); });
+}
+
+bool SymLink::create (const Path& linkPath, const Path& target) noexcept
+{
+	const FilesystemEntry targetEntry { target };
+
+	return create (linkPath, targetEntry);
+}
+
+bool SymLink::create (const Directory& newDirectory, const FilesystemEntry& target) noexcept
+{
+	return create (newDirectory.getAbsolutePath() / target.getAbsolutePath().filename().string(),
+				   target);
+}
+
+bool SymLink::create (const Directory& newDirectory, const Path& target) noexcept
+{
+	const FilesystemEntry targetEntry { target };
+
+	return create (newDirectory, targetEntry);
+}
+
 }  // namespace files
 
 LIMES_END_NAMESPACE
@@ -96,8 +110,7 @@ namespace std
 
 size_t hash<limes::files::SymLink>::operator() (const limes::files::SymLink& l) const noexcept
 {
-	const auto linkHash = filesystem::hash_value (l.getAbsolutePath());
-
+	const auto linkHash	  = filesystem::hash_value (l.getAbsolutePath());
 	const auto targetHash = filesystem::hash_value (l.follow (true));
 
 	return limes::math::szudzikPair (linkHash, targetHash);

@@ -47,6 +47,7 @@
 #include "misc/IgnoreUnused.h"
 #include "misc/Algorithm.h"
 #include "misc/version/Version.h"
+#include "misc/dimensions/Dimensions.h"
 #include "misc/Functions.h"
 #include "misc/streams.h"
 
@@ -69,6 +70,7 @@
 #include "memory/AlignedAllocator.h"
 #include "memory/array_pointer.h"
 #include "memory/MemoryPool.h"
+#include "memory/MemoryPoolPointer.h"
 #include "memory/MemoryPoolAllocator.h"
 #include "memory/stack_allocator.h"
 #include "memory/OptionalObject.h"

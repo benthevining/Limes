@@ -75,6 +75,7 @@ target_include_directories (
 add_subdirectory (filters)
 add_subdirectory (oscillators)
 add_subdirectory (pitch_detection)
+add_subdirectory (processors)
 add_subdirectory (psola)
 add_subdirectory (streams)
 add_subdirectory (util)
@@ -86,6 +87,7 @@ set (
 	${oscillators_files}
 	${psola_files}
 	${pitch_detection_files}
+	${processors_files}
 	${streams_files}
 	${util_files})
 

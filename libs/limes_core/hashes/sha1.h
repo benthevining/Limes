@@ -57,13 +57,13 @@ private:
 
 	[[nodiscard]] std::uint32_t SHABLK (std::uint32_t i) noexcept;
 
-	std::uint32_t m_count[2] = { 0, 0 };
+	std::uint32_t m_count[2] = {};
 
-	std::uint8_t m_buffer[64];
+	std::uint8_t m_buffer[64] = {};
 
 	std::uint32_t m_state[5] = { 0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476, 0xC3D2E1F0 };
 
-	std::uint8_t m_block[64];
+	std::uint8_t m_block[64] = {};
 };
 
 /** Calculates a SHA1 hash for the given data.

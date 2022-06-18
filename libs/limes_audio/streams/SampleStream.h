@@ -14,9 +14,7 @@
 
 #include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
 #include <functional>	   // for function
-#include <limes_export.h>  // for LIMES_EXPORT
 #include <limes_data_structures.h>
-#include <limes_namespace.h>
 #include <limes_core.h>
 
 /** @defgroup samplestreams Streams
@@ -42,16 +40,20 @@ namespace dsp
 /** Base class for any object that can output a stream of audio samples, with no audio or MIDI input.
 	The constructor takes a lambda that must produce the next sample value when called with no arguments.
 	@ingroup samplestreams
+	@see SampleProcessor
  */
 template <Sample SampleType>
 struct LIMES_EXPORT SampleStream
 {
 public:
 
+	/** Convenience typedef for a vector of samples. */
 	using SampleVector = ds::scalar_vector<SampleType>;
 
+	/** A lambda function that returns the next sample value from the stream. */
 	using SampleGenerationFunc = std::function<SampleType()>;
 
+	/** A lambda function that outputs a block of sample values at once. */
 	using BlockProcessingFunc = std::function<void (SampleType*, int)>;
 
 	/** @name Constructors */
@@ -60,7 +62,7 @@ public:
 	explicit SampleStream (SampleGenerationFunc&& sampleFuncToUse);
 
 	/** Creates a sample stream with lambda functions for producing a single sample, and for processing a block of samples.
-		This constructor should be used if you want to specify a special function for block processing in order to enable SIMD accelerations, etc.
+		This constructor should be used if you want to specify a special function for block processing (in order to enable SIMD accelerations, etc).
 	 */
 	explicit SampleStream (SampleGenerationFunc&& sampleFuncToUse, BlockProcessingFunc&& blockFuncToUse);
 	///@}
@@ -74,6 +76,7 @@ public:
 	/** Returns the next output sample from the stream. */
 	[[nodiscard]] SampleType getSample() const;
 
+	/** @name Block processing */
 	///@{
 	/** Returns a stream of samples. */
 	void getSamples (SampleType* output, int numSamples) const;
@@ -83,7 +86,7 @@ public:
 	/** Skips a number of samples in the stream.
 		This calls the specified sample generation function once for each sample to be skipped, and does nothing with its output.
 	 */
-	void skipSamples (int numToSkip) const;
+	virtual void skipSamples (int numToSkip) const;
 
 private:
 
