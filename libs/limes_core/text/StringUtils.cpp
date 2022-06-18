@@ -23,7 +23,7 @@
 
 LIMES_BEGIN_NAMESPACE
 
-namespace strings
+namespace text
 {
 
 bool isNewline (const std::string_view& string) noexcept
@@ -305,6 +305,6 @@ void printLimesASCII()
 	std::cout << getLimesASCII() << std::endl;
 }
 
-}  // namespace strings
+}  // namespace text
 
 LIMES_END_NAMESPACE

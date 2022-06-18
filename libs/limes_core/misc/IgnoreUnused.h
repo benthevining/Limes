@@ -16,6 +16,17 @@
 #include <limes_namespace.h>
 #include <limes_platform.h>
 
+/** @defgroup misc Miscellaneous
+	Miscellaneous things.
+	This module contains classes and functions that don't seem to fit into any other module within limes_core.
+	@ingroup limes_core
+ */
+
+/** @dir libs/limes_core/misc
+	This directory contains miscellaneous utilities.
+	@ingroup misc
+ */
+
 /** @file
 	This file defines the function ignore_unused().
 	@ingroup misc

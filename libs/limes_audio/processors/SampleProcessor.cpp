@@ -56,7 +56,7 @@ void SampleProcessor<SampleType>::processBlock (const SampleVector& input, Sampl
 template <Sample SampleType>
 void SampleProcessor<SampleType>::skipSamples (int numToSkip) const
 {
-	for (auto i = 0 i < num; ++i)
+	for (auto i = 0; i < numToSkip; ++i)
 		sampleFunc (SampleType (0));
 }
 

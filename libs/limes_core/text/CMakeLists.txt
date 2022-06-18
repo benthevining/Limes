@@ -16,6 +16,6 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  StringUtils.cpp StringUtils.h TextTable.cpp TextTable.h)
+		  StringUtils.cpp StringUtils.h TextTable.cpp TextTable.h UTF8.h UTF8.cpp)
 
 set (text_files ${text_files} PARENT_SCOPE)

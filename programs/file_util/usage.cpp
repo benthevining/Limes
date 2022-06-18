@@ -37,7 +37,7 @@ struct Command final
 
 [[nodiscard]] std::vector<Command> getAllCommands()
 {
-	const auto newLine = std::string { limes::strings::new_line };
+	const auto newLine = std::string { limes::text::new_line };
 
 	std::vector<Command> commands;
 
@@ -176,9 +176,9 @@ struct Command final
 
 void displayUsageOverview()
 {
-	limes::strings::printLimesASCII();
+	limes::text::printLimesASCII();
 
-	const auto newLine = limes::strings::new_line;
+	const auto newLine = limes::text::new_line;
 
 	std::cout << "Limes FileUtil: provides a universal, OS-agnostic interface for common filesystem operations" << newLine << newLine;
 
@@ -211,7 +211,7 @@ void displayCommandHelp (const std::string& commandName)
 		std::exit (EXIT_FAILURE);
 	}
 
-	const auto newLine = limes::strings::new_line;
+	const auto newLine = limes::text::new_line;
 
 	const auto& command = *it;
 

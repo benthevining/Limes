@@ -96,6 +96,7 @@
 
 #include "text/StringUtils.h"
 #include "text/TextTable.h"
+#include "text/UTF8.h"
 
 #include "math/mathFunctions.h"
 #include "math/Fraction.h"

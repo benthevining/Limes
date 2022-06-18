@@ -16,6 +16,7 @@
 #include <limes_namespace.h>
 #include <string>
 #include <sstream>
+#include "../../system/limes_assert.h"
 
 LIMES_BEGIN_NAMESPACE
 

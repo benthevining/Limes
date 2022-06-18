@@ -23,7 +23,7 @@ namespace binary_builder
 
 void displayUsage()
 {
-	limes::strings::printLimesASCII();
+	limes::text::printLimesASCII();
 
 	std::cout << "Limes BinaryBuilder: generates C++ source code which embeds several external (binary) files.\n\n";
 

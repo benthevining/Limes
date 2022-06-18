@@ -83,7 +83,7 @@ static inline void log_assertion (const char* fileName, const char* functionName
 
 		if (logOutput.isValid())
 		{
-			log += strings::new_line;
+			log += text::new_line;
 			logOutput.append (log);
 		}
 	}

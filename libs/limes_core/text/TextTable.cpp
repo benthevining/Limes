@@ -17,7 +17,7 @@
 
 LIMES_BEGIN_NAMESPACE
 
-namespace strings
+namespace text
 {
 
 std::string TextTable::Row::toString (const std::string&		 columnSeparator,
@@ -131,7 +131,7 @@ std::string TextTable::toString (const std::string_view& rowPrefix,
 {
 	std::string result;
 
-	const std::string nl { strings::new_line };
+	const std::string nl { text::new_line };
 
 	for (const auto& row : getRows (rowPrefix, columnSeparator, rowSuffix))
 		result += row + nl;	 // cppcheck-suppress useStlAlgorithm
@@ -139,6 +139,6 @@ std::string TextTable::toString (const std::string_view& rowPrefix,
 	return result;
 }
 
-}  // namespace strings
+}  // namespace text
 
 LIMES_END_NAMESPACE

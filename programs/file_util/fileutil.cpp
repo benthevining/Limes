@@ -420,7 +420,7 @@ void ls (const std::string& dir)
 
 	limes::alg::sort (children);
 
-	limes::strings::TextTable table;
+	limes::text::TextTable table;
 
 	int column = 0;
 

@@ -30,8 +30,6 @@ Dependencies:
 #include "vectors/vector.h"
 #include "vectors/owned_vector.h"
 
-#include "data_structures/Dimensions.h"
-
 #include "linked_list/LinkedListModel.h"
 #include "linked_list/LinkedList.h"
 

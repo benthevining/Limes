@@ -16,6 +16,11 @@
 #include <limes_export.h>
 #include "MemoryPool.h"
 
+/** @file
+	This file defines the MemoryPoolPointer class.
+	@ingroup memory
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace memory

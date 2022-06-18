@@ -18,6 +18,16 @@
 #include <string>
 #include "../preprocessor.h"
 
+/** @dir libs/limes_core/misc/dimensions
+	This directory contains the Dimensions class.
+	@ingroup misc
+ */
+
+/** @file
+	This file defines the Dimensions class.
+	@ingroup misc
+ */
+
 LIMES_BEGIN_NAMESPACE
 
 namespace misc

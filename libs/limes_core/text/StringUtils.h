@@ -40,7 +40,7 @@ LIMES_BEGIN_NAMESPACE
 /** This namespace contains some text manipulation utilities for working with both C++ and C-style strings.
 	@ingroup text
  */
-namespace strings
+namespace text
 {
 
 /** @ingroup text
@@ -162,6 +162,6 @@ constexpr std::string_view getNewline() noexcept
 
 /** @} */
 
-}  // namespace strings
+}  // namespace text
 
 LIMES_END_NAMESPACE

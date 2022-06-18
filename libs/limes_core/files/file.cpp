@@ -222,7 +222,7 @@ std::string File::loadAsString() const noexcept
 
 std::vector<std::string> File::loadAsLines() const
 {
-	return strings::splitAtNewlines (loadAsString());
+	return text::splitAtNewlines (loadAsString());
 }
 
 std::string File::hash (hash::Type hashType) const

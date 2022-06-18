@@ -180,6 +180,34 @@ Node& Node::addChild (ObjectType childType, const std::string_view& childName)
 	}
 }
 
+Node& Node::addChild (const Node& childNode, const std::string_view& childName)
+{
+	if (isArray())
+	{
+		LIMES_ASSERT (childName.empty());
+
+		auto& child = data.array.emplace_back (childNode);
+
+		child.parent = this;
+
+		return child;
+	}
+
+	if (isObject())
+	{
+		LIMES_ASSERT (! childName.empty());
+
+		auto& child = data.object.emplace_back (childName, childNode).second;
+
+		child.parent = this;
+
+		return child;
+	}
+
+	LIMES_ASSERT_FALSE;
+	return *this;
+}
+
 bool Node::isNumber() const noexcept
 {
 	return type == ObjectType::Number;
@@ -419,6 +447,38 @@ std::string_view Node::getName() const noexcept
 
 	LIMES_ASSERT_FALSE;
 	return "";
+}
+
+Node Node::createNumber (double value)
+{
+	auto result = Node { ObjectType::Number };
+
+	result.getNumber() = value;
+
+	return result;
+}
+
+Node Node::createString (const std::string_view& value)
+{
+	auto result = Node { ObjectType::String };
+
+	result.getString() = value;
+
+	return result;
+}
+
+Node Node::createBoolean (bool value)
+{
+	auto result = Node { ObjectType::Boolean };
+
+	result.getBoolean() = value;
+
+	return result;
+}
+
+Node Node::createNull()
+{
+	return Node { ObjectType::Null };
 }
 
 /*--------------------------------------------------------------------------------------------------------*/

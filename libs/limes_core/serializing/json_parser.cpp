@@ -12,168 +12,351 @@
 
 #include "serializing.h"
 #include <limes_namespace.h>
-#include <string>
-#include <string_view>
-#include <vector>
-#include <utility>
-#include <stdexcept>
-#include "../text/StringUtils.h"
 #include "../system/limes_assert.h"
+#include "../text/UTF8.h"
+#include <cctype>
+#include <cstdlib>
+#include <string_view>
+#include <sstream>
+#include <stdexcept>
+
 
 LIMES_BEGIN_NAMESPACE
 
 namespace serializing
 {
 
-namespace json
-{
-
-[[nodiscard]] inline std::string_view findMatchingDelimiters (const std::string_view& text, char beginDelim, char endDelim)
-{
-	const auto beginIdx = text.find (beginDelim);
-
-	bool inObject = false, inArray = false;
-
-	for (auto i = beginIdx + 1; i < text.length(); ++i)
-	{
-		const auto currentChar = text[i];
-
-		if (currentChar == '{')
-		{
-			inObject = true;
-			continue;
-		}
-
-		if (currentChar == '[')
-		{
-			inArray = true;
-			continue;
-		}
-
-		if (inObject && currentChar == '}')
-		{
-			inObject = false;
-			continue;
-		}
-
-		if (inArray && currentChar == ']')
-		{
-			inArray = false;
-			continue;
-		}
-
-		if (! (inObject || inArray))
-			if (currentChar == endDelim)
-				return text.substr (beginIdx, i);
-	}
-
-	LIMES_ASSERT_FALSE;
-
-	throw std::runtime_error { "JSON parsing error!" };
-}
-
-[[nodiscard]] inline std::vector<std::pair<std::string, std::string>> parseObjectIntoStrings (const std::string_view& text)
-{
-	std::vector<std::pair<std::string, std::string>> strings;
-
-	for (const auto& str : strings::split (findMatchingDelimiters (text, '{', '}'),
-										   ",", false))
-	{
-		strings.emplace_back (strings::upToFirstOccurrenceOf (str, ","),  // cppcheck-suppress useStlAlgorithm
-							  strings::fromFirstOccurrenceOf (str, ","));
-	}
-
-	return strings;
-}
-
-[[nodiscard]] inline std::vector<std::string> parseArrayIntoStrings (const std::string_view& text)
-{
-	return strings::split (findMatchingDelimiters (text, '[', ']'),
-						   ",",
-						   false);
-}
-
-[[nodiscard]] inline ObjectType parseType (const std::string_view& inputText)
-{
-	if (inputText.starts_with ('['))
-		return ObjectType::Array;
-
-	if (inputText.starts_with ('{')
-		|| inputText.find (':') < inputText.find (',')
-		|| inputText.find (':') < inputText.find ('['))
-		return ObjectType::Object;
-
-	if (inputText == "null")
-		return ObjectType::Null;
-
-	if (inputText == "true" || inputText == "false")
-		return ObjectType::Boolean;
-
-	if (inputText.starts_with ('"'))
-		return ObjectType::String;
-
-	return ObjectType::Number;
-}
-
-}  // namespace json
-
-
 Node parseJSON (const std::string_view& jsonText)
 {
-	std::string inputText { jsonText };
-
-	strings::trim (inputText);
-
-	const auto type = json::parseType (inputText);
-
-	Node node { type };
-
-	switch (type)
+	struct Parser final
 	{
-		case (ObjectType::Null) : return node;
-
-		case (ObjectType::Number) :
+		explicit Parser (const std::string_view& inputText)
+			: current (inputText), source (inputText)
 		{
-			// TODO: deal with exponential E notation
-			node.getNumber() = std::stod (inputText);
-			return node;
 		}
 
-		case (ObjectType::String) :
+		Node parse()
 		{
-			// TODO: deal with escaping
-			node.getString() = strings::unquoted (inputText);
-			return node;
+			skipWhitespace();
+
+			if (popIf ('['))
+				return parseArray();
+
+			if (popIf ('{'))
+				return parseObject();
+
+			if (! isEOF())
+				throwError ("Expected an object or array");
+
+			return Node::createNull();
 		}
 
-		case (ObjectType::Boolean) :
+	private:
+
+		inline void skipWhitespace()
 		{
-			node.getBoolean() = (inputText == "true" || inputText == "True");
-			return node;
+			for (auto p = current;
+				 std::isspace (static_cast<unsigned char> (p.popFirstChar()));
+				 current = p)
+				;
 		}
 
-		case (ObjectType::Array) :
+		inline bool popIf (char c)
 		{
-			auto& array = node.getArray();
-
-			for (const auto& substring : json::parseArrayIntoStrings (inputText))
-				array.emplace_back (parseJSON (substring));	 // cppcheck-suppress useStlAlgorithm
-
-			return node;
+			return current.skipIfStartsWith (c);
 		}
 
-		case (ObjectType::Object) :
+		inline bool popIf (const char* c)
 		{
-			auto& object = node.getObject();
-
-			for (const auto& pair : json::parseObjectIntoStrings (inputText))
-				object.emplace_back (pair.first, parseJSON (pair.second));	// cppcheck-suppress useStlAlgorithm
-
-			return node;
+			return current.skipIfStartsWith (c);
 		}
 
-		default : LIMES_UNREACHABLE;
-	}
+		inline std::uint32_t pop()
+		{
+			return current.popFirstChar();
+		}
+
+		inline bool isEOF()
+		{
+			return current.empty();
+		}
+
+		Node parseArray()
+		{
+			const auto arrayStart = current;
+
+			auto result = Node { ObjectType::Array };
+
+			skipWhitespace();
+
+			if (popIf (']'))
+				return result;
+
+			for (;;)
+			{
+				skipWhitespace();
+
+				if (isEOF())
+					throwError ("Unexpected EOF in array declaration", arrayStart);
+
+				result.getArray().push_back (parseValue());
+
+				skipWhitespace();
+
+				if (popIf (','))
+					continue;
+
+				if (popIf (']'))
+					break;
+
+				throwError ("Expected ',' or ']'");
+			}
+
+			return result;
+		}
+
+		Node parseObject()
+		{
+			const auto objectStart = current;
+
+			auto result = Node { ObjectType::Object };
+
+			skipWhitespace();
+
+			if (popIf ('}'))
+				return result;
+
+			for (;;)
+			{
+				skipWhitespace();
+
+				if (isEOF())
+					throwError ("Unexpected EOF in object declaration", objectStart);
+
+				if (! popIf ('"'))
+					throwError ("Expected a name");
+
+				const auto errorPos = current;
+				const auto name		= parseString();
+
+				if (name.empty())
+					throwError ("Property names cannot be empty", errorPos);
+
+				skipWhitespace();
+
+				if (! popIf (':'))
+					throwError ("Expected ':'");
+
+				result.getObject().emplace_back (name, parseValue());
+
+				skipWhitespace();
+
+				if (popIf (','))
+					continue;
+
+				if (popIf ('}'))
+					break;
+
+				throwError ("Expected ',' or '}'");
+			}
+
+			return result;
+		}
+
+		Node parseValue()
+		{
+			skipWhitespace();
+
+			auto startPos = current;
+
+			switch (pop())
+			{
+				case '[' : return parseArray();
+				case '{' : return parseObject();
+				case '"' : return Node::createString (parseString());
+				case '-' :
+				{
+					skipWhitespace();
+					return parseNumber (true);
+				}
+				case '0' : [[fallthrough]];
+				case '1' : [[fallthrough]];
+				case '2' : [[fallthrough]];
+				case '3' : [[fallthrough]];
+				case '4' : [[fallthrough]];
+				case '5' : [[fallthrough]];
+				case '6' : [[fallthrough]];
+				case '7' : [[fallthrough]];
+				case '8' : [[fallthrough]];
+				case '9' :
+				{
+					current = startPos;
+					return parseNumber (false);
+				}
+				default : break;
+			}
+
+			current = startPos;
+
+			if (popIf ("null"))
+				return Node::createNull();
+
+			if (popIf ("true"))
+				return Node::createBoolean (true);
+
+			if (popIf ("false"))
+				return Node::createBoolean (false);
+
+			throwError ("Syntax error");
+		}
+
+		Node parseNumber (bool negate)
+		{
+			auto startPos = current;
+			bool hadDot = false, hadExponent = false;
+
+			for (;;)
+			{
+				const auto lastPos = current;
+				const auto c	   = pop();
+
+				if (c >= '0' && c <= '9')
+					continue;
+
+				if (c == '.' && ! hadDot)
+				{
+					hadDot = true;
+					continue;
+				}
+
+				if (! hadExponent && (c == 'e' || c == 'E'))
+				{
+					hadDot		= true;
+					hadExponent = true;
+					continue;
+				}
+
+				if (std::isspace (c) || c == ',' || c == '}' || c == ']' || c == 0)
+				{
+					current					= lastPos;
+					char* endOfParsedNumber = nullptr;
+
+					if (! (hadDot || hadExponent))
+					{
+						const auto v = std::strtoll (startPos.data(), &endOfParsedNumber, 10);
+
+						if (endOfParsedNumber == lastPos.data()
+							&& v != std::numeric_limits<decltype (v)>::max()
+							&& v != std::numeric_limits<decltype (v)>::min())
+							return Node::createNumber (static_cast<double> (negate ? -v : v));
+					}
+
+					if (endOfParsedNumber == lastPos.data())
+					{
+						const auto v = std::strtod (startPos.data(), &endOfParsedNumber);
+
+						return Node::createNumber (negate ? -v : v);
+					}
+				}
+
+				throwError ("Syntax error in number", lastPos);
+			}
+		}
+
+		std::string parseString()
+		{
+			std::stringstream s;
+
+			for (;;)
+			{
+				auto c = pop();
+
+				if (c == '"')
+					break;
+
+				if (c == '\\')
+				{
+					const auto errorPos = current;
+
+					c = pop();
+
+					switch (c)
+					{
+						case 'a' : c = '\a'; break;
+						case 'b' : c = '\b'; break;
+						case 'f' : c = '\f'; break;
+						case 'n' : c = '\n'; break;
+						case 'r' : c = '\r'; break;
+						case 't' : c = '\t'; break;
+						case 'u' : c = parseUnicodeCharacterNumber (false); break;
+						case 0 : throwError ("Unexpected EOF in string constant", errorPos);
+						default : break;
+					}
+				}
+
+				char utf8Bytes[8];
+
+				const auto numBytes = text::utf8::fromUnicode (utf8Bytes, c);
+
+				for (std::uint32_t i = 0; i < numBytes; ++i)
+					s << utf8Bytes[i];
+			}
+
+			return s.str();
+		}
+
+		std::uint32_t parseUnicodeCharacterNumber (bool isLowSurrogate)
+		{
+			std::uint32_t result = 0;
+
+			for (auto i = 4; --i >= 0;)
+			{
+				const auto errorPos = current;
+
+				auto digit = pop();
+
+				if (digit >= '0' && digit <= '9')
+					digit -= '0';
+				else if (digit >= 'a' && digit <= 'f')
+					digit = 10 + (digit - 'a');
+				else if (digit >= 'A' && digit <= 'F')
+					digit = 10 + (digit - 'A');
+				else
+					throwError ("Syntax error in unicode character", errorPos);
+
+				result = (result << 4) + digit;
+			}
+
+			if (isLowSurrogate && ! text::utf8::isLowSurrogate (result))
+				throwError ("Expected a unicode low surrogate codepoint");
+
+			if (text::utf8::isHighSurrogate (result))
+			{
+				if (! isLowSurrogate && popIf ("\\u"))
+					return text::utf8::SurrogatePair::combineParts (result, parseUnicodeCharacterNumber (true));
+
+				throwError ("Expected a unicode low surrogate codepoint");
+			}
+
+			return result;
+		}
+
+		void throwError (const std::string_view& message)
+		{
+			throwError (message, current);
+		}
+
+		void throwError (const std::string_view& message, text::utf8::Pointer errorPos)
+		{
+			throw JSONParseError { message, text::utf8::LineAndColumn::find (source, errorPos) };
+		}
+
+		text::utf8::Pointer source, current;
+	};
+
+	Parser p { jsonText };
+
+	return p.parse();
 }
 
 }  // namespace serializing

@@ -24,9 +24,9 @@ namespace fileutil
 
 void displayVersionInfo()
 {
-	limes::strings::printLimesASCII();
+	limes::text::printLimesASCII();
 
-	const auto newline = limes::strings::new_line;
+	const auto newline = limes::text::new_line;
 
 	std::cout << "Limes FileUtil: version " << limes::getLimesVersion().toString() << newline << newline;
 	std::cout << "Built on " << limes::time::Date::getCompilationDate().toString() << newline

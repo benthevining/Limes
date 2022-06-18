@@ -22,6 +22,8 @@
 #include "../misc/preprocessor.h"
 #include "../meta/TypeList.h"
 #include <functional>  // for std::hash
+#include <stdexcept>
+#include "../text/UTF8.h"
 
 /** @defgroup serializing Serializing
 	Utilities for data serialization.
@@ -368,6 +370,27 @@ public:
 		@returns A reference to the new child %node
 	 */
 	Node& addChild (ObjectType childType, const std::string_view& childName = "");
+
+	/** Adds the passed %node as a child of this one.
+		Internally, a copy of the passed node will be created.
+		@returns A reference to the new child %node
+	 */
+	Node& addChild (const Node& childNode, const std::string_view& childName = "");
+	///@}
+
+	/** @name Creation functions */
+	///@{
+	/** Creates a number Node. */
+	[[nodiscard]] static Node createNumber (double value);
+
+	/** Creates a string Node. */
+	[[nodiscard]] static Node createString (const std::string_view& value);
+
+	/** Creates a boolean Node. */
+	[[nodiscard]] static Node createBoolean (bool value);
+
+	/** Creates a null Node. */
+	[[nodiscard]] static Node createNull();
 	///@}
 
 private:
@@ -400,8 +423,18 @@ private:
 
 #pragma mark Parsing functions
 
+/** An exception that is thrown by the \c parseJSON() function if errors are encountered.
+ */
+struct LIMES_EXPORT JSONParseError final : public std::runtime_error
+{
+	JSONParseError (const std::string_view& message, const text::utf8::LineAndColumn& lc)
+		: std::runtime_error (message.begin()), position (lc) { }
+
+	text::utf8::LineAndColumn position;
+};
+
 /** Parses a JSON string and returns the root Node of the resulting data structure.
-	@throws std::runtime_error Throws an exception if there is a JSON parsing error.
+	@throws JSONParseError Throws an exception if there is a JSON parsing error.
 	@see parseXML
 	@ingroup serializing
  */
