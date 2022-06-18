@@ -46,10 +46,15 @@
 #include "misc/preprocessor.h"
 #include "misc/IgnoreUnused.h"
 #include "misc/Algorithm.h"
-#include "misc/version/Version.h"
-#include "misc/dimensions/Dimensions.h"
 #include "misc/Functions.h"
 #include "misc/streams.h"
+
+#include "data_structures/version/Version.h"
+#include "data_structures/dimensions/Dimensions.h"
+#include "data_structures/linked_list/LinkedListModel.h"
+#include "data_structures/linked_list/LinkedList.h"
+#include "data_structures/fifo/AbstractFIFO.h"
+#include "data_structures/fifo/FIFO.h"
 
 #include "meta/TypeTraits.h"
 #include "meta/TypeList.h"
@@ -119,6 +124,9 @@
 #include "math/geometry/3D/rectangular_prism.h"
 #include "math/geometry/3D/sphere.h"
 #include "math/geometry/3D/triangular_prism.h"
+
+#include "locale/countries/countries.h"
+#include "locale/languages/languages.h"
 
 #include "threading/Threading.h"
 #include "threading/RealtimeTypeTraits.h"

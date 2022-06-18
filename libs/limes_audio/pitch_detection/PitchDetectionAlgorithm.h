@@ -15,7 +15,7 @@
 #include <limes_core.h>
 #include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
 #include "PitchData.h"
-#include <limes_data_structures.h>
+#include "../util/AudioBuffer.h"
 
 /** @file
 	This file defines the PitchDetectionAlgorithm interface class.
@@ -27,7 +27,7 @@ LIMES_BEGIN_NAMESPACE
 namespace dsp::pitch
 {
 
-/**
+/** The base class for any kind of pitch detection algorithm.
 	@ingroup pitch_detection
  */
 template <Sample SampleType>
@@ -38,7 +38,7 @@ public:
 	virtual ~PitchDetectionAlgorithm() = default;
 
 	/** Convenience typedef for a vector of samples. */
-	using SampleVector = ds::scalar_vector<SampleType>;
+	using Buffer = AudioBuffer<SampleType, 1>;
 
 	/** @name Pitch detection
 		Detect the period in samples
@@ -52,7 +52,7 @@ public:
 	*/
 	[[nodiscard]] virtual PitchData<SampleType> detectPeriod (const SampleType* const inputAudio, int numSamples) noexcept = 0;
 
-	[[nodiscard]] PitchData<SampleType> detectPeriod (const SampleVector& inputAudio) noexcept;
+	[[nodiscard]] PitchData<SampleType> detectPeriod (const Buffer& inputAudio) noexcept;
 	///@}
 
 	/** Returns the last detected period data. */

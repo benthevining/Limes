@@ -11,13 +11,12 @@
  */
 
 #include "Chord.h"
-#include <algorithm>				// for all_of
-#include "PitchClass.h"				// for PitchClass
-#include "intervals/Interval.h"		// for Interval
-#include "scales/Scale.h"			// for Scale
-#include <limes_core.h>				// for transform
-#include "Pitch.h"					// for Pitch
-#include <limes_data_structures.h>	// for vector, basic_vector
+#include <algorithm>			 // for all_of
+#include "PitchClass.h"			 // for PitchClass
+#include "intervals/Interval.h"	 // for Interval
+#include "scales/Scale.h"		 // for Scale
+#include <limes_core.h>			 // for transform
+#include "Pitch.h"				 // for Pitch
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE
@@ -30,47 +29,49 @@ Chord::Chord (const std::initializer_list<int>& midiNotes)
 	alg::transform (midiNotes, pitches, [] (const auto midiNote)
 					{ return Pitch { midiNote }; });
 
-	pitches.removeDuplicates();
-	pitches.sort();
+	pitches.erase (std::unique (std::begin (pitches), std::end (pitches)), std::end (pitches));
+
+	alg::sort (pitches);
 }
 
 Chord::Chord (const std::initializer_list<Pitch>& midiNotes)
 	: pitches (midiNotes)
 {
-	pitches.removeDuplicates();
-	pitches.sort();
+	pitches.erase (std::unique (std::begin (pitches), std::end (pitches)), std::end (pitches));
+
+	alg::sort (pitches);
 }
 
 int Chord::getNumPitches() const
 {
-	return pitches.numObjects();
+	return pitches.size();
 }
 
 Pitch Chord::getLowestPitch() const
 {
-	return pitches.max();
+	return alg::min_value (pitches);
 }
 
 Pitch Chord::getHighestPitch() const
 {
-	return pitches.min();
+	return alg::max_value (pitches);
 }
 
 bool Chord::contains (const PitchClass& pitchClass) const noexcept
 {
-	return pitches.contains_if ([&pitchClass] (const Pitch& p)
-								{ return p.getPitchClass() == pitchClass; });
+	return alg::contains_if (pitches, [&pitchClass] (const Pitch& p)
+							 { return p.getPitchClass() == pitchClass; });
 }
 
 bool Chord::contains (const Pitch& pitch) const noexcept
 {
-	return pitches.contains (pitch);
+	return alg::contains (pitches, pitch);
 }
 
 bool Chord::contains (int midiNote) const noexcept
 {
-	return pitches.contains_if ([note = midiNote] (const Pitch& p)
-								{ return p.getRoundedMidiPitch() == note; });
+	return alg::contains_if (pitches, [note = midiNote] (const Pitch& p)
+							 { return p.getRoundedMidiPitch() == note; });
 }
 
 bool Chord::fitsInScale (const scales::Scale& scale) const noexcept
@@ -80,32 +81,35 @@ bool Chord::fitsInScale (const scales::Scale& scale) const noexcept
 						{ return scale.containsPitch (p); });
 }
 
-ds::vector<Interval> Chord::getIntervals() const
+std::vector<Interval> Chord::getIntervals() const
 {
-	ds::vector<Interval> intervals;
+	std::vector<Interval> intervals;
 
-	for (auto i = 1; i < static_cast<int> (pitches.numObjects()); ++i)
+	for (auto i = 1; i < static_cast<int> (pitches.size()); ++i)
 		intervals.push_back (Interval::fromPitches (pitches[i - 1], pitches[i]));
 
 	return intervals;
 }
 
-ds::vector<PitchClass> Chord::getPitchClasses() const
+std::vector<PitchClass> Chord::getPitchClasses() const
 {
-	auto pitchClasses = pitches.transformElementsTo<PitchClass> ([] (const auto& pitch)
-																 { return pitch.getPitchClass(); });
+	auto pitchClasses = alg::createFromTransform<std::vector<PitchClass>> (pitches,
+																		   [] (const auto& pitch)
+																		   { return pitch.getPitchClass(); });
 
-	pitchClasses.removeDuplicates();
+	pitchClasses.erase (std::unique (std::begin (pitchClasses), std::end (pitchClasses)), std::end (pitchClasses));
+
+	alg::sort (pitchClasses);
 
 	return pitchClasses;
 }
 
 int Chord::getNumUniquePitchClasses() const
 {
-	return getPitchClasses().numObjects();
+	return getPitchClasses().size();
 }
 
-ds::vector<Pitch> Chord::getPitches() const
+std::vector<Pitch> Chord::getPitches() const
 {
 	return pitches;
 }
@@ -114,7 +118,7 @@ Chord Chord::applyInterval (const Interval& interval, bool above)
 {
 	Chord newChord { *this };
 
-	for (auto i = 0; i < static_cast<int> (newChord.pitches.numObjects()); ++i)
+	for (auto i = 0; i < static_cast<int> (newChord.pitches.size()); ++i)
 		newChord.pitches[i] = interval.applyToPitch (newChord.pitches[i], above);
 
 	return newChord;

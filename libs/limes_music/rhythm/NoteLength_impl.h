@@ -11,8 +11,8 @@
  */
 
 #pragma once
+
 #include <limes_core.h>
-#include <limes_vecops.h>
 #include "NoteLength.h"
 #include <limes_namespace.h>
 

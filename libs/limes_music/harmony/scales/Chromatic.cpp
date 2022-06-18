@@ -11,9 +11,8 @@
  */
 
 #include "Chromatic.h"
-#include "../PitchUtils.h"			// for semitonesInOctave
-#include "../PitchClass.h"			// for PitchClass
-#include <limes_data_structures.h>	// for vector
+#include "../PitchUtils.h"	// for semitonesInOctave
+#include "../PitchClass.h"	// for PitchClass
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE
@@ -31,9 +30,9 @@ bool Chromatic::operator!= (const Chromatic& other) const
 	return startingPitchClass != other.startingPitchClass;
 }
 
-ds::vector<int> Chromatic::getIntervalsAsSemitones() const
+std::vector<int> Chromatic::getIntervalsAsSemitones() const
 {
-	ds::vector<int> intervals;
+	std::vector<int> intervals;
 
 	intervals.reserve (semitonesInOctave);
 

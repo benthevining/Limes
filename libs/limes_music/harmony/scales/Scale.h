@@ -12,11 +12,11 @@
 
 #pragma once
 
-#include <limes_export.h>			// for LIMES_EXPORT
-#include "../Pitch.h"				// for Pitch
-#include "../PitchClass.h"			// for PitchClass
-#include <limes_data_structures.h>	// for vector
+#include <limes_export.h>	// for LIMES_EXPORT
+#include "../Pitch.h"		// for Pitch
+#include "../PitchClass.h"	// for PitchClass
 #include <limes_namespace.h>
+#include <vector>
 
 /** @defgroup music_scales Scales
 	Utilities for working with musical scales.
@@ -69,10 +69,10 @@ struct LIMES_EXPORT Scale
 	[[nodiscard]] bool operator!= (const Scale& other) const;
 
 	/** Subclasses must implement this to return an array of integers representing the intervals in this %scale as a series of semitone steps. */
-	[[nodiscard]] virtual ds::vector<int> getIntervalsAsSemitones() const = 0;
+	[[nodiscard]] virtual std::vector<int> getIntervalsAsSemitones() const = 0;
 
 	/** Returns an array of Interval objects that represent the intervals in this %scale. */
-	[[nodiscard]] ds::vector<Interval> getIntervals() const;
+	[[nodiscard]] std::vector<Interval> getIntervals() const;
 
 	/** Returns true if this %scale contains the passed %pitch class. */
 	[[nodiscard]] bool containsPitchClass (const PitchClass& pitchClass) const;
@@ -84,16 +84,16 @@ struct LIMES_EXPORT Scale
 	[[nodiscard]] bool containsPitch (int midiNoteNumber) const;
 
 	/** Returns the %pitch classes present in one octave of this %scale. */
-	[[nodiscard]] ds::vector<PitchClass> getPitchClasses() const;
+	[[nodiscard]] std::vector<PitchClass> getPitchClasses() const;
 
 	/** Returns an array of %pitch objects representing one octave of this %scale, at the given octave number.
 		@param octaveNumber The MIDI octave number to produce pitches for.
 		@see lowestNoteOfMidiOctave()
 	 */
-	[[nodiscard]] ds::vector<Pitch> getPitches (int octaveNumber) const;
+	[[nodiscard]] std::vector<Pitch> getPitches (int octaveNumber) const;
 
 	/** Returns an array of %pitch objects representing this %scale between a lowest and highest MIDI pitch. */
-	[[nodiscard]] ds::vector<Pitch> getPitches (int lowestMidiNote, int highestMidiNote) const;
+	[[nodiscard]] std::vector<Pitch> getPitches (int lowestMidiNote, int highestMidiNote) const;
 
 	/** Subclasses must implement this to return the %pitch class of the root (or tonic) note of the %scale. */
 	[[nodiscard]] virtual PitchClass getPitchClassOfRoot() const noexcept = 0;

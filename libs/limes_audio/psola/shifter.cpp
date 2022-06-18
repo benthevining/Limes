@@ -103,7 +103,7 @@ typename Shifter<SampleType>::Grain& Shifter<SampleType>::getGrainToStart() noex
 
 	LIMES_ASSERT_FALSE;
 
-	return grains.append();
+	return grains.emplace_back();
 }
 
 template <Sample SampleType>

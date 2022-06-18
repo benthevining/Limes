@@ -29,7 +29,7 @@ Analyzer<SampleType>::Analyzer (int minFreqHz)
 template <Sample SampleType>
 void Analyzer<SampleType>::registerShifter (Shifter<SampleType>& shifter)
 {
-	LIMES_ASSERT (! shifters.contains (&shifter));
+	LIMES_ASSERT (! alg::contains (shifters, &shifter));
 
 	shifters.push_back (&shifter);
 }
@@ -37,7 +37,7 @@ void Analyzer<SampleType>::registerShifter (Shifter<SampleType>& shifter)
 template <Sample SampleType>
 void Analyzer<SampleType>::deregisterShifter (Shifter<SampleType>& shifter)
 {
-	shifters.remove (&shifter);
+	std::remove (shifters.begin(), shifters.end(), &shifter);
 }
 
 template <Sample SampleType>
@@ -47,6 +47,12 @@ int Analyzer<SampleType>::getLastInputPitch() const noexcept
 		return math::round (math::freqFromPeriod (samplerate, currentPeriod));
 
 	return 0;
+}
+
+template <Sample SampleType>
+void Analyzer<SampleType>::analyzeInput (const Buffer& input) noexcept
+{
+	analyzeInput (input.getReadPointer (0), input.getNumSamples());
 }
 
 template <Sample SampleType>
@@ -61,9 +67,9 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* const inputAudio, int
 	for (auto* shifter : shifters)
 		shifter->newBlockStarting();
 
-	const auto* const prevFrameSamples = prevFrame.data();
+	const auto* const prevFrameSamples = prevFrame.getReadPointer (0);
 
-	if (incompleteGrainsFromLastFrame.isNotEmpty())
+	if (incompleteGrainsFromLastFrame.size() > 0)
 	{
 		LIMES_ASSERT (lastFrameGrainSize > 0 && lastBlocksize > 0);
 
@@ -148,7 +154,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* const inputAudio, int
 		getGrainToStoreIn().storeNewGrain (inputAudio, start, window, grainSize);
 	}
 
-	prevFrame.copyFrom (inputAudio, numSamples);
+	prevFrame.copyFrom (inputAudio, numSamples, 0);
 
 	lastBlocksize	   = numSamples;
 	lastFrameGrainSize = grainSize;
@@ -163,7 +169,7 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getGrainToStoreIn() 
 
 	LIMES_ASSERT_FALSE;
 
-	return grains.append();
+	return grains.emplace_back();
 }
 
 template <Sample SampleType>
@@ -171,20 +177,13 @@ void Analyzer<SampleType>::makeWindow (int size) noexcept
 {
 	LIMES_ASSERT (size > 2);
 
-	if (window.numObjects() == size)
-		return;
-
-	window.clearAndInit (size);
-
-	LIMES_ASSERT (window.numObjects() == size);
-
-	vecops::window::generateHanning (window.data(), size);
+	vecops::window::generateHanning (window.getWritePointer (0), size);
 }
 
 template <Sample SampleType>
 typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int placeInBlock) noexcept
 {
-	LIMES_ASSERT (! grains.isEmpty());
+	LIMES_ASSERT (grains.size() > 0);
 	LIMES_ASSERT (placeInBlock >= 0);
 
 	struct GainDistanceData final
@@ -279,8 +278,8 @@ int Analyzer<SampleType>::latencyChanged()
 
 	peakFinder.prepare (latency);
 
-	window.reserveAndZero (latency);
-	prevFrame.reserveAndZero (latency);
+	window.resize (latency);
+	prevFrame.resize (latency);
 	incompleteGrainsFromLastFrame.reserve (latency / 2);
 
 	grains.resize (latency / 2);
@@ -319,9 +318,10 @@ void Analyzer<SampleType>::releaseResources()
 	lastFrameGrainSize = 0;
 	currentPeriod	   = 0.f;
 
-	prevFrame.clearAndFree();
-	window.clearAndFree();
-	incompleteGrainsFromLastFrame.clearAndFree();
+	prevFrame.deallocate();
+	window.deallocate();
+	incompleteGrainsFromLastFrame.clear();
+	incompleteGrainsFromLastFrame.shrink_to_fit();
 
 	grains.clear();
 }
@@ -332,14 +332,14 @@ template <Sample SampleType>
 SampleType Analyzer<SampleType>::Grain::getSample (int index) const noexcept
 {
 	LIMES_ASSERT (index >= 0 && index < grainSize);
-	LIMES_ASSERT (samples.numObjects() >= grainSize);
+	LIMES_ASSERT (samples.getNumSamples() >= grainSize);
 
-	return samples[index];
+	return samples.getSample (0, index);
 }
 
 template <Sample SampleType>
 void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* const origSamples, int startIndex,
-												 const SampleVector& windowSamples, int numSamples) noexcept
+												 const Buffer& windowSamples, int numSamples) noexcept
 {
 	storeNewGrain (origSamples, startIndex, numSamples, nullptr, 0, windowSamples, numSamples, startIndex);
 }
@@ -347,54 +347,52 @@ void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* const origSam
 template <Sample SampleType>
 void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* const origSamples1, int startIndex1, int blocksize1,
 												 const SampleType* const origSamples2, int blocksize2,
-												 const SampleVector& windowSamples, int totalNumSamples,
+												 const Buffer& windowSamples, int totalNumSamples,
 												 int grainStartIdx) noexcept
 {
 	LIMES_ASSERT (getRefCount() == 0);
 	LIMES_ASSERT (totalNumSamples == blocksize1 + blocksize2);
-	LIMES_ASSERT (samples.capacity() >= totalNumSamples);
-	LIMES_ASSERT (windowSamples.numObjects() == totalNumSamples);
+	LIMES_ASSERT (samples.getNumSamples() >= totalNumSamples);
+	LIMES_ASSERT (windowSamples.getNumSamples() == totalNumSamples);
 	LIMES_ASSERT (blocksize1 > 0);
 	LIMES_ASSERT (startIndex1 >= 0);
 
 	origStartIndex = grainStartIdx;
 	grainSize	   = totalNumSamples;
 
-	samples.clearAndZero (totalNumSamples);
+	samples.clear();
 
-	auto* const destSamples = samples.data();
+	auto* const destSamples = samples.getWritePointer (0);
 
 	vecops::copy (destSamples, origSamples1 + startIndex1, blocksize1);
 
 	if (blocksize2 > 0)
 		vecops::copy (destSamples + startIndex1, origSamples2, blocksize2);
 
-	samples.multiplyFrom (windowSamples);
+	vecops::multiply (destSamples, totalNumSamples, windowSamples.getReadPointer (0));
 }
 
 template <Sample SampleType>
 void Analyzer<SampleType>::Grain::storeNewGrainWithZeroesAtStart (int					  numZeroes,
 																  const SampleType* const origSamples, int numSamples,
-																  const SampleVector& windowSamples, int totalNumSamples, int grainStartIdx) noexcept
+																  const Buffer& windowSamples, int totalNumSamples, int grainStartIdx) noexcept
 {
 	LIMES_ASSERT (getRefCount() == 0);
 	LIMES_ASSERT (numZeroes > 0 && numSamples > 0);
 	LIMES_ASSERT (totalNumSamples == numZeroes + numSamples);
-	LIMES_ASSERT (samples.capacity() >= totalNumSamples);
-	LIMES_ASSERT (windowSamples.numObjects() == numSamples);
+	LIMES_ASSERT (samples.getNumSamples() >= totalNumSamples);
+	LIMES_ASSERT (windowSamples.getNumSamples() == numSamples);
 
 	origStartIndex = grainStartIdx;
 	grainSize	   = totalNumSamples;
 
-	samples.clearAndZero (totalNumSamples);
+	samples.clear();
 
-	//	vecops::clear (samples.data(), numZeroes);
-
-	auto* const destSamples = samples.data() + numZeroes;
+	auto* const destSamples = samples.getWritePointer (0, numZeroes);
 
 	vecops::copy (destSamples, origSamples, numSamples);
 
-	vecops::multiply (destSamples, numSamples, windowSamples.data());
+	vecops::multiply (destSamples, numSamples, windowSamples.getReadPointer (0));
 }
 
 template <Sample SampleType>
@@ -426,13 +424,13 @@ int Analyzer<SampleType>::Grain::getOrigStart() const noexcept
 template <Sample SampleType>
 void Analyzer<SampleType>::Grain::reserveSize (int numSamples)
 {
-	samples.reserveAndZero (numSamples);
+	samples.resize (numSamples);
 }
 
 template <Sample SampleType>
 void Analyzer<SampleType>::Grain::clearGrain()
 {
-	samples.zero();
+	samples.clear();
 	origStartIndex = 0;
 	grainSize	   = 0;
 }

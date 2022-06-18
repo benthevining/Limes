@@ -11,9 +11,8 @@
  */
 
 #include "KeySignature.h"
-#include <limes_platform.h>			// for LIMES_ASSERT_FALSE
-#include "../PitchClass.h"			// for PitchClass
-#include <limes_data_structures.h>	// for vector
+#include <limes_platform.h>	 // for LIMES_ASSERT_FALSE
+#include "../PitchClass.h"	 // for PitchClass
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE
@@ -63,7 +62,7 @@ namespace music::scales
 // }
 
 
-ds::vector<int> KeySignature::getIntervalsAsSemitones() const
+std::vector<int> KeySignature::getIntervalsAsSemitones() const
 {
 	switch (type)
 	{

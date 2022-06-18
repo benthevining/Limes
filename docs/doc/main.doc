@@ -19,12 +19,10 @@
 
 	Name                  | Description                 | Dependencies
 	--------------------- | --------------------------- | ------------------------
-	limes_audio           | Realtime audio utilities    | limes_data_structures
+	limes_audio           | Realtime audio utilities    | limes_vecops
 	limes_core            | Core utilities              | None
-	limes_data_structures | Data structures             | limes_vecops
-	limes_locale          | Localization utilities      | limes_data_structures
 	limes_midi            | MIDI utilities              | limes_core
-	limes_music           | Music theory utilities      | limes_data_structures
+	limes_music           | Music theory utilities      | limes_core
 	limes_vecops          | SIMD operations for vectors | limes_core
 
 	And the following command line utilities:

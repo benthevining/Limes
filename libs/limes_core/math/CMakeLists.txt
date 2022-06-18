@@ -19,7 +19,6 @@ oranges_add_source_files (
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
 		  Fraction.h
-		  Fraction_impl.h
 		  fraction_staticAsserts.cpp
 		  math_staticAsserts.cpp
 		  mathFunctions.h

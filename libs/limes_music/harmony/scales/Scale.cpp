@@ -15,7 +15,6 @@
 #include "../intervals/Interval.h"	// for Interval
 #include "../Pitch.h"				// for Pitch
 #include "../PitchClass.h"			// for PitchClass
-#include <limes_data_structures.h>	// for vector, scalar_vector, basic_vector
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE
@@ -33,10 +32,11 @@ bool Scale::operator!= (const Scale& other) const
 	return ! (*this == other);
 }
 
-ds::vector<Interval> Scale::getIntervals() const
+std::vector<Interval> Scale::getIntervals() const
 {
-	return getIntervalsAsSemitones().transformElementsTo<Interval> ([] (const auto interval)
-																	{ return Interval::fromNumSemitones (interval); });
+	return alg::createFromTransform<std::vector<Interval>> (getIntervalsAsSemitones(),
+															[] (const auto interval)
+															{ return Interval::fromNumSemitones (interval); });
 }
 
 bool Scale::containsPitch (const Pitch& pitch) const
@@ -54,13 +54,13 @@ bool Scale::containsPitchClass (const PitchClass& pitchClass) const
 {
 	const auto root = getPitchClassOfRoot().getAsInt();
 
-	return getIntervalsAsSemitones().contains_if ([pitchClass, root] (int interval)
-												  { return pitchClass == PitchClass { root + interval }; });
+	return alg::contains_if (getIntervalsAsSemitones(), [pitchClass, root] (int interval)
+							 { return pitchClass == PitchClass { root + interval }; });
 }
 
-ds::vector<PitchClass> Scale::getPitchClasses() const
+std::vector<PitchClass> Scale::getPitchClasses() const
 {
-	ds::vector<PitchClass> pitchClasses;
+	std::vector<PitchClass> pitchClasses;
 
 	for (auto i = 0; i <= notesPerOctave(); ++i)
 	{
@@ -73,7 +73,7 @@ ds::vector<PitchClass> Scale::getPitchClasses() const
 	return pitchClasses;
 }
 
-ds::vector<Pitch> Scale::getPitches (int octaveNumber) const
+std::vector<Pitch> Scale::getPitches (int octaveNumber) const
 {
 	const auto startingNote = [this, octaveNumber]
 	{
@@ -85,11 +85,12 @@ ds::vector<Pitch> Scale::getPitches (int octaveNumber) const
 		return starting;
 	}();
 
-	return getIntervalsAsSemitones().transformElementsTo<Pitch> ([startingNote] (const auto interval)
-																 { return Pitch { startingNote + interval }; });
+	return alg::createFromTransform<std::vector<Pitch>> (getIntervalsAsSemitones(),
+														 [startingNote] (const auto interval)
+														 { return Pitch { startingNote + interval }; });
 }
 
-ds::vector<Pitch> Scale::getPitches (int lowestMidiNote, int highestMidiNote) const
+std::vector<Pitch> Scale::getPitches (int lowestMidiNote, int highestMidiNote) const
 {
 	const auto startingNote = [this, &lowestMidiNote]
 	{
@@ -99,7 +100,7 @@ ds::vector<Pitch> Scale::getPitches (int lowestMidiNote, int highestMidiNote) co
 		return lowestMidiNote;
 	}();
 
-	ds::vector<Pitch> pitches;
+	std::vector<Pitch> pitches;
 
 	const auto intervals = getIntervalsAsSemitones();
 
@@ -114,7 +115,7 @@ ds::vector<Pitch> Scale::getPitches (int lowestMidiNote, int highestMidiNote) co
 
 		pitches.emplace_back (Pitch { lastNote });
 
-		if (idx >= static_cast<int> (intervals.numObjects()))
+		if (idx >= static_cast<int> (intervals.size()))
 		{
 			idx = 0;
 

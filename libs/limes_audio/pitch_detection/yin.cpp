@@ -12,10 +12,9 @@
  */
 
 #include "PitchDetector.h"
-#include <algorithm>				// for min, max
-#include <limes_platform.h>			// for LIMES_ASSERT
-#include <limes_core.h>				// for periodInSamples, freqFromPeriod, round
-#include <limes_data_structures.h>	// for vector, basic_vector
+#include <algorithm>		 // for min, max
+#include <limes_platform.h>	 // for LIMES_ASSERT
+#include <limes_core.h>		 // for periodInSamples, freqFromPeriod, round
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE
@@ -112,16 +111,16 @@ LIMES_FORCE_INLINE void calculate_cmndf (const SampleType* inputAudio, int numSa
 
 
 template <Sample SampleType>
-LIMES_FORCE_INLINE int select_final_taus (ds::scalar_vector<int>& finalTaus,
-										  const SampleType*		  cmndfData,
+LIMES_FORCE_INLINE int select_final_taus (std::vector<int>& finalTaus,
+										  const SampleType* cmndfData,
 										  int minPeriod, int maxPeriod) noexcept
 {
-	finalTaus.zero();
+	alg::fill (finalTaus, 0);
 
 	auto num_final_taus = 0;
 	auto min_tau_value	= INVALID_TAU<SampleType>;
 
-	const auto maxNumFinalTaus = std::min (finalTaus.numObjects(), (maxPeriod - minPeriod) / 2);
+	const auto maxNumFinalTaus = std::min (static_cast<int> (finalTaus.size()), (maxPeriod - minPeriod) / 2);
 
 	for (auto i = 0; i < maxNumFinalTaus; ++i)
 	{
@@ -131,7 +130,7 @@ LIMES_FORCE_INLINE int select_final_taus (ds::scalar_vector<int>& finalTaus,
 			{
 				const auto yinIdx = tau - minPeriod;
 
-				if (finalTaus.contains (yinIdx))
+				if (alg::contains (finalTaus, yinIdx))
 					continue;
 
 				const auto this_tau_value = cmndfData[yinIdx];
@@ -260,8 +259,8 @@ typename Yin<SampleType>::Result Yin<SampleType>::detectPeriod (const SampleType
 	updatePeriodBounds();
 
 	LIMES_ASSERT (maxPeriod <= math::round (numSamples * 0.5f));
-	LIMES_ASSERT (cmndfData.capacity() >= (maxPeriod - minPeriod + 1));
-	LIMES_ASSERT (sdfData.capacity() >= (maxPeriod - minPeriod + 1));
+	LIMES_ASSERT (cmndfData.getNumSamples() >= (maxPeriod - minPeriod + 1));
+	LIMES_ASSERT (sdfData.getNumSamples() >= (maxPeriod - minPeriod + 1));
 
 	// filter the incoming signal at the maximum & minimum detectable frequency for this frame
 	{
@@ -270,28 +269,28 @@ typename Yin<SampleType>::Result Yin<SampleType>::detectPeriod (const SampleType
 
 		hiPass.coefs.makeHighPass (samplerate, static_cast<SampleType> (math::freqFromPeriod (samplerate, maxPeriod)));
 
-		inputStorage.copyFrom (inputAudio, numSamples);
+		inputStorage.copyFrom (inputAudio, numSamples, 0);
 
 		lowPass.process (inputStorage);
 		hiPass.process (inputStorage);
 	}
 
-	sdfData.zero();
+	sdfData.clear();
 
 	// calculate autocorrelation using SDF function
 	// SDF results are written to sdfData
 	// CMNDF results are written to cmndfData
-	yin::calculate_cmndf (inputStorage.data(), numSamples,
+	yin::calculate_cmndf (inputStorage.getReadPointer (0), numSamples,
 						  minPeriod, maxPeriod,
-						  sdfData.data(),
-						  cmndfData.data(),
+						  sdfData.getWritePointer (0),
+						  cmndfData.getWritePointer (0),
 						  confidenceThresh);
 
 	// post-process the set of tested taus
 	// keep only the taus with the minima in the CMNDF output
 	// TODO - weight based on distance to previously chosen period?
 	const auto num_final_taus = yin::select_final_taus (finalTaus,
-														cmndfData.data(),
+														cmndfData.getReadPointer (0),
 														minPeriod, maxPeriod);
 
 	if (num_final_taus == 0)
@@ -305,7 +304,7 @@ typename Yin<SampleType>::Result Yin<SampleType>::detectPeriod (const SampleType
 	// absolute threshold
 	// examining only our final tau candidates
 	const auto periodEstimate = yin::pick_period_estimate (finalTaus.data(), num_final_taus, maxYinIdx,
-														   confidenceThresh, cmndfData.data(), sdfData.data());
+														   confidenceThresh, cmndfData.getReadPointer (0), sdfData.getReadPointer (0));
 
 	// NB. at this point, periodEstimate is still offset by minPeriod
 
@@ -318,13 +317,13 @@ typename Yin<SampleType>::Result Yin<SampleType>::detectPeriod (const SampleType
 	}
 
 	data.setPeriod (yin::parabolic_interpolation (periodEstimate, maxPeriod,
-												  sdfData.data(), cmndfData.data())
+												  sdfData.getReadPointer (0), cmndfData.getReadPointer (0))
 						+ static_cast<SampleType> (minPeriod),	// add minPeriod bc of the initial offset
 					samplerate);
 
 	// TO DO: need to invert this
 	// so that lower vals = less confidence
-	data.confidence = cmndfData[periodEstimate];
+	data.confidence = cmndfData.getSample (0, periodEstimate);
 
 	return data;
 }
@@ -375,14 +374,14 @@ int Yin<SampleType>::setSamplerate (double newSamplerate)
 
 	const auto latency = getLatencySamples();
 
-	inputStorage.reserveAndZero (latency);
+	inputStorage.resize (latency);
 
 	const auto bufferLen = (latency / 2) + 1;
 
-	cmndfData.reserveAndZero (bufferLen);
-	sdfData.reserveAndZero (bufferLen);
+	cmndfData.resize (bufferLen);
+	sdfData.resize (bufferLen);
 
-	finalTaus.reserveAndZero (std::max (latency / 4, 20));
+	finalTaus.reserve (std::max (latency / 4, 20));
 
 	lowPass.prepare();
 	hiPass.prepare();
@@ -423,10 +422,11 @@ void Yin<SampleType>::reset() noexcept
 {
 	data.reset();
 
-	cmndfData.zero();
-	sdfData.zero();
-	finalTaus.zero();
-	inputStorage.zero();
+	cmndfData.clear();
+	sdfData.clear();
+	inputStorage.clear();
+
+	alg::fill (finalTaus, 0);
 
 	lowPass.reset();
 	hiPass.reset();
@@ -444,10 +444,12 @@ void Yin<SampleType>::releaseResources()
 
 	data.reset();
 
-	cmndfData.clearAndFree();
-	sdfData.clearAndFree();
-	finalTaus.clearAndFree();
-	inputStorage.clearAndFree();
+	cmndfData.deallocate();
+	sdfData.deallocate();
+	inputStorage.deallocate();
+
+	finalTaus.clear();
+	finalTaus.shrink_to_fit();
 }
 
 template <Sample SampleType>

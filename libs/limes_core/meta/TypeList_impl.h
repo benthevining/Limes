@@ -34,21 +34,6 @@ namespace typelist
 
 #pragma mark Misc utilities
 
-/** A placeholder class representing a type that is null, invalid, or nonexistent.
-	@ingroup meta
- */
-struct LIMES_EXPORT NullType final
-{
-};
-
-/** Returns true if \c T is a \c NullType .
-	@tparam T Type to test
-	@see NullType
-	@ingroup meta
- */
-template <typename T>
-LIMES_EXPORT static constexpr const bool is_null_type = std::is_same_v<T, NullType>;
-
 /// @cond internals
 
 using std::size_t;
@@ -378,7 +363,7 @@ private:
 		using type = std::conditional_t<
 			SearchIndex == 0,
 			First,
-			NullType>;
+			meta::NullType>;
 	};
 
 public:
@@ -477,7 +462,7 @@ template <class Typelist, typename... TypesToRemove>
 LIMES_EXPORT using remove_t = typename remove<Typelist, TypesToRemove...>::type;
 
 template <class Typelist>
-LIMES_EXPORT using remove_null_types_t = remove_t<Typelist, NullType>;
+LIMES_EXPORT using remove_null_types_t = remove_t<Typelist, meta::NullType>;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 

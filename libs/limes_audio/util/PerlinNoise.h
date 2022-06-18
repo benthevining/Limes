@@ -14,10 +14,10 @@
 
 #include <limes_export.h>
 #include <cstdint>
-#include <limes_data_structures.h>
 #include "Misc.h"
 #include <limes_namespace.h>
 #include <limes_core.h>
+#include <vector>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -40,7 +40,7 @@ public:
 
 private:
 
-	ds::scalar_vector<int> state;
+	std::vector<int> state;
 };
 
 }  // namespace dsp

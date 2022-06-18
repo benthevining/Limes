@@ -29,10 +29,8 @@ A collection of standalone C++ static libraries.
 Limes consists of the following libraries:
 
 * [limes_core](libs/limes_core/README.md), the core library of utilities
-* [limes_data_structures](libs/limes_data_structures/README.md), some basic data structures
 * [limes_audio](libs/limes_audio/README.md), for realtime audio and DSP
 * [limes_midi](libs/limes_midi/README.md), for basic MIDI support utilities
-* [limes_locale](libs/limes_locale/README.md), for locale and internationalization
 * [limes_music](libs/limes_music/README.md), for music-theory related concepts
 * [limes_vecops](libs/limes_vecops/README.md), for SIMD-accelerated vector operations
 
@@ -84,9 +82,7 @@ Limes creates the following CMake targets:
 * Limes::limes_music
 * Limes::limes_audio
 * Limes::limes_midi
-* Limes::limes_data_structures
-* Limes::limes_locale
-- Limes::BinaryBuilder
+* Limes::BinaryBuilder
 
 All of these are static library targets. Additionally, there is a `Limes::Limes` interface library target that links to all of the library targets (but not the BinaryBuilder).
 
@@ -104,10 +100,6 @@ Limes creates the following CPack install components:
 * limes_audio_runtime
 * limes_midi_dev
 * limes_midi_runtime
-* limes_data_structures_dev
-* limes_data_structures_runtime
-* limes_locale_dev
-* limes_locale_runtime
 * limes_libs_dev
 * limes_libs_runtime
 * limes_binary_builder_dev
@@ -128,8 +120,6 @@ Limes also creates the following CPack install component groups:
 * limes_core
 * limes_audio
 * limes_midi
-* limes_data_structures
-* limes_locale
 * limes_libs
 * limes_binary_builder
 * limes_programs
@@ -148,8 +138,6 @@ When you call `find_package (Limes)`, you can pass the following component names
 * Audio
 * MIDI
 * Core
-* DataStructures
-* Locale
 * Music
 * Vecops
 * BinaryBuilder
@@ -161,6 +149,6 @@ If no component names are specified, Limes will default to importing everything.
 
 <!-- editorconfig-checker-disable -->
 <p align="center">
-  <img src="https://github.com/benthevining/Limes/blob/main/util/deps_graph.png" alt="Limes dependency graph"/>
+	<img src="https://github.com/benthevining/Limes/blob/main/util/deps_graph.png" alt="Limes dependency graph"/>
 </p>
 <!-- editorconfig-checker-enable -->

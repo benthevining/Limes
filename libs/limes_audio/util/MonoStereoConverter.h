@@ -13,9 +13,9 @@
 
 #pragma once
 
-#include <limes_export.h>			// for LIMES_EXPORT
-#include <limes_data_structures.h>	// for vector
-#include "Misc.h"					// for concept Sample - IWYU pragma: keep
+#include <limes_export.h>  // for LIMES_EXPORT
+#include "Misc.h"		   // for concept Sample - IWYU pragma: keep
+#include "AudioBuffer.h"
 #include <limes_namespace.h>
 
 /** @file
@@ -52,7 +52,8 @@ class LIMES_EXPORT MonoStereoConverter final
 {
 public:
 
-	using SampleVector = ds::scalar_vector<SampleType>;
+	using MonoBuffer   = AudioBuffer<SampleType, 1>;
+	using StereoBuffer = AudioBuffer<SampleType, 2>;
 
 	/** Prepares the converter to process a new maximum blocksize.
 		@note This function may allocate memory, and should not be called from a realtime thread.
@@ -87,9 +88,9 @@ public:
 							  SampleType*		monoOut,
 							  int				numSamples) noexcept;
 
-	void convertStereoToMono (const SampleVector& leftIn,
-							  const SampleVector& rightIn,
-							  SampleVector&		  monoOut) noexcept;
+	void convertStereoToMono (const MonoBuffer& leftIn,
+							  const MonoBuffer& rightIn,
+							  MonoBuffer&		monoOut) noexcept;
 	///@}
 
 	/** @name Mono-stereo expansion */
@@ -102,16 +103,16 @@ public:
 									 SampleType*	   rightOut,
 									 int			   numSamples) noexcept;
 
-	static void convertMonoToStereo (const SampleVector& monoIn,
-									 SampleVector&		 leftOut,
-									 SampleVector&		 rightOut) noexcept;
+	static void convertMonoToStereo (const MonoBuffer& monoIn,
+									 MonoBuffer&	   leftOut,
+									 MonoBuffer&	   rightOut) noexcept;
 	///@}
 
 private:
 
 	StereoReductionMode toMonoMode { StereoReductionMode::leftOnly };
 
-	SampleVector monoStorage;
+	MonoBuffer monoStorage;
 };
 
 

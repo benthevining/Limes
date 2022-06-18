@@ -11,10 +11,9 @@
  */
 
 #include "Mode.h"
-#include "KeySignature.h"			// for KeySignature, KeySigna...
-#include <limes_platform.h>			// for LIMES_ASSERT_FALSE
-#include "../PitchClass.h"			// for PitchClass
-#include <limes_data_structures.h>	// for vector
+#include "KeySignature.h"	 // for KeySignature, KeySigna...
+#include <limes_platform.h>	 // for LIMES_ASSERT_FALSE
+#include "../PitchClass.h"	 // for PitchClass
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE
@@ -22,7 +21,7 @@ LIMES_BEGIN_NAMESPACE
 namespace music::scales
 {
 
-ds::vector<int> Mode::getIntervalsAsSemitones() const
+std::vector<int> Mode::getIntervalsAsSemitones() const
 {
 	switch (type)
 	{

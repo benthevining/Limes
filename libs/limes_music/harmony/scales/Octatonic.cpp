@@ -11,8 +11,7 @@
  */
 
 #include "Octatonic.h"
-#include "../PitchClass.h"			// for PitchClass
-#include <limes_data_structures.h>	// for vector
+#include "../PitchClass.h"	// for PitchClass
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE
@@ -30,9 +29,9 @@ bool Octatonic::operator!= (const Octatonic& other) const
 	return ! (*this == other);
 }
 
-ds::vector<int> Octatonic::getIntervalsAsSemitones() const
+std::vector<int> Octatonic::getIntervalsAsSemitones() const
 {
-	ds::vector<int> intervals;
+	std::vector<int> intervals;
 
 	auto semitone = startWithHalfStep;
 

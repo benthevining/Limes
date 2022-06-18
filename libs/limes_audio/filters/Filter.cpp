@@ -30,8 +30,10 @@ template <Sample SampleType>
 void Filter<SampleType>::reset (SampleType resetToValue) noexcept
 {
 	order = coefs.getFilterOrder();
-	state.reserveAndZero (order);
-	state.fill (resetToValue);
+
+	state.reserve (order);
+
+	alg::fill (state, resetToValue);
 }
 
 template <Sample SampleType>
@@ -194,9 +196,9 @@ void Filter<SampleType>::process (SampleType* buffer, int numSamples) noexcept
 }
 
 template <Sample SampleType>
-void Filter<SampleType>::process (SampleVector& buffer) noexcept
+void Filter<SampleType>::process (Buffer& buffer) noexcept
 {
-	process (buffer.data(), buffer.numObjects());
+	process (buffer.getWritePointer (0), buffer.getNumSamples());
 }
 
 template <Sample SampleType>

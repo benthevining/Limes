@@ -19,10 +19,13 @@ namespace dsp::pitch
 {
 
 template <Sample SampleType>
-PitchData<SampleType> PitchDetectionAlgorithm<SampleType>::detectPeriod (const SampleVector& inputAudio) noexcept
+PitchData<SampleType> PitchDetectionAlgorithm<SampleType>::detectPeriod (const Buffer& inputAudio) noexcept
 {
-	return detectPeriod (inputAudio.data(), inputAudio.numObjects());
+	return detectPeriod (inputAudio.getReadPointer (0), inputAudio.getNumSamples());
 }
+
+template class PitchDetectionAlgorithm<float>;
+template class PitchDetectionAlgorithm<double>;
 
 }  // namespace dsp::pitch
 

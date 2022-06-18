@@ -13,7 +13,6 @@
 #pragma once
 
 #include <limes_core.h>
-#include <limes_data_structures.h>
 #include "PitchDetectionAlgorithm.h"
 #include "PitchData.h"
 

@@ -14,8 +14,8 @@
 
 #include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
 #include <functional>	   // for function
-#include <limes_data_structures.h>
 #include <limes_core.h>
+#include "../util/AudioBuffer.h"
 
 /** @defgroup samplestreams Streams
 	Classes that can produce a continuous stream of output samples with no input.
@@ -48,7 +48,7 @@ struct LIMES_EXPORT SampleStream
 public:
 
 	/** Convenience typedef for a vector of samples. */
-	using SampleVector = ds::scalar_vector<SampleType>;
+	using Buffer = AudioBuffer<SampleType, 1>;
 
 	/** A lambda function that returns the next sample value from the stream. */
 	using SampleGenerationFunc = std::function<SampleType()>;
@@ -80,7 +80,7 @@ public:
 	///@{
 	/** Returns a stream of samples. */
 	void getSamples (SampleType* output, int numSamples) const;
-	void getSamples (SampleVector& output);
+	void getSamples (Buffer& output);
 	///@}
 
 	/** Skips a number of samples in the stream.

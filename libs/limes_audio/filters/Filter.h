@@ -15,7 +15,7 @@
 #include <limes_export.h>
 #include "Coeffecients.h"
 #include "../util/Misc.h"
-#include <limes_data_structures.h>
+#include "../util/AudioBuffer.h"
 #include <limes_namespace.h>
 
 /** @file
@@ -36,7 +36,7 @@ class LIMES_EXPORT Filter final
 {
 public:
 
-	using SampleVector = ds::scalar_vector<SampleType>;
+	using Buffer = AudioBuffer<SampleType, 1>;
 
 	/** Resets the internal state of the filter. */
 	void reset (SampleType resetToValue = SampleType (0)) noexcept;
@@ -48,7 +48,7 @@ public:
 	///@{
 	/** Applies the filter to a stream of audio samples in place. */
 	void process (SampleType* buffer, int numSamples) noexcept;
-	void process (SampleVector& buffer) noexcept;
+	void process (Buffer& buffer) noexcept;
 	///@}
 
 	/** Processes a single sample of input. */
@@ -66,8 +66,9 @@ private:
 	void processOrder3 (SampleType* buffer, int numSamples) noexcept;
 	void processDefault (SampleType* buffer, int numSamples) noexcept;
 
-	SampleVector state;
-	int			 order = 0;
+	std::vector<SampleType> state;
+
+	int order = 0;
 };
 
 }  // namespace dsp::filters

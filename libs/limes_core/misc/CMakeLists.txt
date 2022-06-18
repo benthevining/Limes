@@ -8,9 +8,6 @@
 #
 # ======================================================================================
 
-add_subdirectory (dimensions)
-add_subdirectory (version)
-
 include (OrangesSourceFileUtils)
 
 oranges_add_source_files (
@@ -21,6 +18,4 @@ oranges_add_source_files (
 	FILES # cmake-format: sortable
 		  Algorithm.h Functions.h IgnoreUnused.h preprocessor.h streams.h streams.cpp)
 
-set (misc_files ${misc_files} ${version_files} ${dimensions_files} PARENT_SCOPE)
-
-set (misc_proto_files ${version_proto_files} ${dimensions_proto_files} PARENT_SCOPE)
+set (misc_files ${misc_files} PARENT_SCOPE)

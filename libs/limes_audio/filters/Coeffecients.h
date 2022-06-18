@@ -13,7 +13,7 @@
 #pragma once
 
 #include "../util/Misc.h"
-#include <limes_data_structures.h>
+#include "../util/AudioBuffer.h"
 #include <limes_namespace.h>
 #include <limes_core.h>
 
@@ -124,14 +124,14 @@ public:
 		LIMES_DEFAULT_MOVABLE (Storage)
 		LIMES_DEFAULT_COPYABLE (Storage)
 
-		ds::scalar_vector<Sampletype>* operator->() noexcept;
+		std::vector<Sampletype>* operator->() noexcept;
 
-		const ds::scalar_vector<Sampletype>* operator->() const noexcept;
+		const std::vector<Sampletype>* operator->() const noexcept;
 
 		Storage& operator= (std::initializer_list<Sampletype> list) noexcept;
 
 		/** The actual storage. */
-		ds::scalar_vector<Sampletype> coefficients;
+		std::vector<Sampletype> coefficients;
 	};
 
 	/** The raw coefficients.

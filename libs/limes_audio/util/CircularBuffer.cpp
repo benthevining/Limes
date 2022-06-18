@@ -22,28 +22,27 @@ namespace dsp
 
 template <Sample SampleType>
 CircularBuffer<SampleType>::CircularBuffer (int initialCapacity)
-	: fifo (initialCapacity)
+	: fifo (initialCapacity), storage (initialCapacity)
 {
-	storage.reserveAndZero (initialCapacity);
 }
 
 template <Sample SampleType>
-void CircularBuffer<SampleType>::storeSamples (const SampleVector& samples)
+void CircularBuffer<SampleType>::storeSamples (const Buffer& samples)
 {
-	storeSamples (samples.data(), samples.numObjects());
+	storeSamples (samples.getReadPointer (0), samples.getNumSamples());
 }
 
 template <Sample SampleType>
 void CircularBuffer<SampleType>::storeSamples (const SampleType* const samples, int numSamples)
 {
-	LIMES_ASSERT (storage.numObjects() >= fifo.getCapacity());
+	LIMES_ASSERT (storage.getNumSamples() >= fifo.getCapacity());
 
 	const auto scopedWrite = fifo.write (numSamples);
 
 	// the buffer isn't big enough to hold all the samples you want to store!
 	LIMES_ASSERT (scopedWrite.blockSize1 + scopedWrite.blockSize2 == numSamples);
 
-	auto* writing = storage.data();
+	auto* writing = storage.getWritePointer (0);
 
 	if (scopedWrite.blockSize1 > 0)
 		vecops::copy (writing + scopedWrite.startIndex1, samples, scopedWrite.blockSize1);
@@ -57,15 +56,15 @@ void CircularBuffer<SampleType>::storeSamples (const SampleType* const samples, 
 }
 
 template <Sample SampleType>
-void CircularBuffer<SampleType>::getSamples (SampleVector& output)
+void CircularBuffer<SampleType>::getSamples (Buffer& output)
 {
-	getSamples (output.data(), output.numObjects());
+	getSamples (output.getWritePointer (0), output.getNumSamples());
 }
 
 template <Sample SampleType>
 void CircularBuffer<SampleType>::getSamples (SampleType* const output, int numSamples)
 {
-	LIMES_ASSERT (storage.numObjects() >= fifo.getCapacity());
+	LIMES_ASSERT (storage.getNumSamples() >= fifo.getCapacity());
 
 	const auto scopedRead = fifo.read (numSamples);
 
@@ -76,7 +75,7 @@ void CircularBuffer<SampleType>::getSamples (SampleType* const output, int numSa
 
 	auto* const sampleOutput = output + numZeroes;
 
-	const auto* const reading = storage.data();
+	const auto* const reading = storage.getReadPointer (0);
 
 	if (scopedRead.blockSize1 > 0)
 		vecops::copy (sampleOutput, reading + scopedRead.startIndex1, scopedRead.blockSize1);
@@ -97,31 +96,31 @@ void CircularBuffer<SampleType>::resize (int newSize)
 	// NB. avoids edge cases when attempting to store the full capacity's worth of samples
 	newSize += 1;
 
-	storage.reserveAndZero (newSize);
+	storage.resize (newSize);
 
 	fifo.setCapacity (newSize);
 
-	LIMES_ASSERT (storage.numObjects() >= fifo.getCapacity());
+	LIMES_ASSERT (storage.getNumSamples() >= fifo.getCapacity());
 }
 
 template <Sample SampleType>
 int CircularBuffer<SampleType>::getCapacity() const noexcept
 {
-	LIMES_ASSERT (storage.numObjects() >= fifo.getCapacity());
+	LIMES_ASSERT (storage.getNumSamples() >= fifo.getCapacity());
 	return fifo.getCapacity() - 1;
 }
 
 template <Sample SampleType>
 int CircularBuffer<SampleType>::getNumStoredSamples() const noexcept
 {
-	LIMES_ASSERT (storage.numObjects() >= fifo.getCapacity());
+	LIMES_ASSERT (storage.getNumSamples() >= fifo.getCapacity());
 	return fifo.getNumStoredObjects();
 }
 
 template <Sample SampleType>
 void CircularBuffer<SampleType>::clear()
 {
-	storage.zero();
+	storage.clear();
 	fifo.reset();
 }
 

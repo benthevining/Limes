@@ -101,8 +101,10 @@ target_include_directories (
 	limes_core PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
 					  $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}>)
 
+add_subdirectory (data_structures)
 add_subdirectory (files)
 add_subdirectory (hashes)
+add_subdirectory (locale)
 add_subdirectory (math)
 add_subdirectory (memory)
 add_subdirectory (meta)
@@ -114,7 +116,7 @@ add_subdirectory (threading)
 add_subdirectory (time)
 
 oranges_add_protobuf_library (
-	limes_core_protobuf PROTO_FILES ${misc_proto_files} ${serializing_proto_files}
+	limes_core_protobuf PROTO_FILES ${data_structures_proto_files} ${serializing_proto_files}
 									${time_proto_files}
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}/protobuf" INSTALL_COMPONENT limes_core_dev)
 
@@ -123,8 +125,10 @@ target_link_libraries (limes_core PUBLIC limes_core_protobuf)
 set (
 	limes_core_sources
 	# cmake-format: sortable
+	${data_structures_files}
 	${files_files}
 	${hashes_files}
+	${locale_files}
 	${math_files}
 	${memory_files}
 	${meta_files}

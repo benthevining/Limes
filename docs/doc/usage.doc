@@ -102,8 +102,6 @@
 	---------------------------- | ----------------- | --------------------------------------------------
 	Limes::limes_audio           | Static library    | Limes library of realtime audio utilities
 	Limes::limes_core            | Static library    | Limes core library of utilities
-	Limes::limes_data_structures | Static library    | Limes library of data structures
-	Limes::limes_locale          | Static library    | Limes localization library
 	Limes::limes_midi            | Static library    | Limes library of MIDI utilities
 	Limes::limes_music           | Static library    | Limes library of music theory utilities
 	Limes::limes_vecops          | Static library    | Limes vector operations library
@@ -125,14 +123,10 @@
 	^                      | ^                     | limes_audio_runtime
 	^                      | limes_core            | limes_core_dev
 	^                      | ^                     | limes_core_runtime
-	^                      | limes_data_structures | limes_data_structures_dev
-	^                      | ^                     | limes_data_structures_runtime
 	^                      | limes_midi            | limes_midi_dev
 	^                      | ^                     | limes_midi_runtime
 	^                      | limes_music           | limes_music_dev
 	^                      | ^                     | limes_music_runtime
-	^                      | limes_locale          | limes_locale_dev
-	^                      | ^                     | limes_locale_runtime
 	^                      | limes_vecops          | limes_vecops_dev
 	^                      | ^                     | limes_vecops_runtime
 	limes_programs         | limes_binary_builder  | limes_binary_builder_dev
@@ -163,8 +157,6 @@
 	- Audio
 	- MIDI
 	- Core
-	- DataStructures
-	- Locale
 	- Music
 	- Vecops
 	- BinaryBuilder

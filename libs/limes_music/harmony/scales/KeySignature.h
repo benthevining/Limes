@@ -12,10 +12,9 @@
 
 #pragma once
 
-#include <limes_export.h>			// for LIMES_EXPORT
-#include "Scale.h"					// for Scale
-#include "../PitchClass.h"			// for PitchClass
-#include <limes_data_structures.h>	// for vector
+#include <limes_export.h>	// for LIMES_EXPORT
+#include "Scale.h"			// for Scale
+#include "../PitchClass.h"	// for PitchClass
 #include <limes_namespace.h>
 #include <limes_core.h>
 
@@ -194,7 +193,7 @@ public:
 	[[nodiscard]] constexpr int getNumFlats() const noexcept;
 
 	/** Returns the set of intervals that make up this key signature. */
-	[[nodiscard]] ds::vector<int> getIntervalsAsSemitones() const final;
+	[[nodiscard]] std::vector<int> getIntervalsAsSemitones() const final;
 
 	/** Returns 8. */
 	[[nodiscard]] int notesPerOctave() const noexcept final;

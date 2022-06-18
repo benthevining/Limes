@@ -13,7 +13,6 @@
 #pragma once
 
 #include <limes_export.h>
-#include <limes_data_structures.h>
 #include "../streams/SampleStream.h"
 #include "analyzer.h"
 #include "../util/Misc.h"
@@ -120,7 +119,7 @@ private:
 
 	int samplesToNextGrain { 0 }, placeInBlock { 0 }, targetPitchHz { 0 };
 
-	ds::owned_vector<Grain> grains;
+	std::vector<Grain> grains;
 };
 
 }  // namespace dsp::psola

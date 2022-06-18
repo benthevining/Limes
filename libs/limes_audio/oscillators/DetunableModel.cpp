@@ -24,7 +24,8 @@ DetunableModel::DetunableModel (int initialNumVoices)  // cppcheck-suppress unin
 	: numVoices (initialNumVoices)
 {
 	LIMES_ASSERT (numVoices > 0);
-	frequencies.reserveAndZero (numVoices);
+
+	frequencies.reserve (numVoices);
 }
 
 void DetunableModel::setFrequency (float frequency)
@@ -66,7 +67,7 @@ void DetunableModel::changeNumVoices (int newNumVoices)
 {
 	LIMES_ASSERT (newNumVoices > 0);
 	numVoices = newNumVoices;
-	frequencies.reserveAndZero (newNumVoices);
+	frequencies.reserve (newNumVoices);
 	setFrequency (lastFrequency);
 }
 

@@ -14,10 +14,10 @@
 
 #include <limes_export.h>
 #include <limes_core.h>
-#include <limes_data_structures.h>
 #include "../pitch_detection/PitchDetector.h"
 #include "PeakFinder.h"
 #include "../util/Misc.h"
+#include "../util/AudioBuffer.h"
 #include <limes_namespace.h>
 
 /** @file
@@ -86,7 +86,7 @@ class LIMES_EXPORT Analyzer final
 public:
 
 	/** Convenience typedef for a vector of samples. */
-	using SampleVector = ds::scalar_vector<SampleType>;
+	using Buffer = AudioBuffer<SampleType, 1>;
 
 	/** Creates an Analyzer with an initial minimum detectable frequency.
 		The latency of the PSOLA algorithm is equal to 2 times the period of the minimum detectable frequency; thus, setting a higher minimum input frequency will lower the latency of the algorithm.
@@ -97,12 +97,16 @@ public:
 	LIMES_NON_COPYABLE (Analyzer)
 	LIMES_DEFAULT_MOVABLE (Analyzer)
 
+	/** @name Performing analysis */
+	///@{
 	/**
 		Analyzes a frame of audio. This must be called before \c Shifter::getSamples() , and should be called consistently.
 		The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that numSamples is greater than or equal to \c getLatencySamples() .
 		@see getLatencySamples()
 	*/
 	void analyzeInput (const SampleType* const inputAudio, int numSamples) noexcept;
+	void analyzeInput (const Buffer& input) noexcept;
+	///@}
 
 	/** Returns the latency in samples of the PSOLA algorithm.
 		The latency is the same as the latency of the analyzer's internal PitchDetector object, so you can see that documentation for more details.
@@ -162,15 +166,15 @@ private:
 
 		void newBlockStarting (int last_blocksize) noexcept;
 
-		void storeNewGrain (const SampleType* const origSamples, int startIndex, const SampleVector& windowSamples, int numSamples) noexcept;
+		void storeNewGrain (const SampleType* const origSamples, int startIndex, const Buffer& windowSamples, int numSamples) noexcept;
 
 		void storeNewGrain (const SampleType* const origSamples1, int startIndex1, int blocksize1,
 							const SampleType* const origSamples2, int blocksize2,
-							const SampleVector& windowSamples, int totalNumSamples, int grainStartIdx) noexcept;
+							const Buffer& windowSamples, int totalNumSamples, int grainStartIdx) noexcept;
 
 		void storeNewGrainWithZeroesAtStart (int					 numZeroes,
 											 const SampleType* const origSamples, int numSamples,
-											 const SampleVector& windowSamples, int totalNumSamples, int grainStartIdx) noexcept;
+											 const Buffer& windowSamples, int totalNumSamples, int grainStartIdx) noexcept;
 
 		void reserveSize (int numSamples);
 
@@ -180,7 +184,7 @@ private:
 
 		int origStartIndex { 0 }, grainSize { 0 };
 
-		SampleVector samples;
+		Buffer samples;
 	};
 
 	[[nodiscard]] Grain& getClosestGrain (int placeInBlock) noexcept;
@@ -194,11 +198,11 @@ private:
 	pitch::PitchDetector<SampleType> pitchDetector;
 	PeakFinder<SampleType>			 peakFinder;
 
-	ds::owned_vector<Grain> grains;
+	std::vector<Grain> grains;
 
-	SampleVector window, prevFrame;
+	Buffer window, prevFrame;
 
-	ds::scalar_vector<int> incompleteGrainsFromLastFrame;
+	std::vector<int> incompleteGrainsFromLastFrame;
 
 	int lastBlocksize { 0 }, lastFrameGrainSize { 0 };
 
@@ -206,7 +210,7 @@ private:
 
 	math::Random random;
 
-	ds::vector<Shifter<SampleType>*> shifters;
+	std::vector<Shifter<SampleType>*> shifters;
 };
 
 }  // namespace dsp::psola

@@ -42,8 +42,6 @@ Targets
 - Limes::limes_vecops
 - Limes::limes_music
 - Limes::limes_audio
-- Limes::limes_data_structures
-- Limes::limes_locale
 - Limes::limes_midi
 - Limes::BinaryBuilder
 - Limes::Limes
@@ -58,10 +56,6 @@ Install components
 - limes_core_runtime
 - limes_audio_dev
 - limes_audio_runtime
-- limes_data_structures_dev
-- limes_data_structures_runtime
-- limes_locale_dev
-- limes_locale_runtime
 - limes_midi_runtime
 - limes_midi_dev
 - limes_libs_dev
@@ -83,8 +77,6 @@ Install component groups
 - limes_music
 - limes_core
 - limes_audio
-- limes_data_structures
-- limes_locale
 - limes_midi
 - limes_libs
 - limes_binary_builder
@@ -102,8 +94,6 @@ find_package components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Audio
 - Core
-- DataStructures
-- Locale
 - Music
 - Vecops
 - MIDI

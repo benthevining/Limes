@@ -15,8 +15,6 @@ Package configuration file for Limes, version @Limes_VERSION@.
 The following components may be specified in calls to find_package:
 - Audio
 - Core
-- DataStructures
-- Locale
 - Music
 - Vecops
 - MIDI
@@ -42,16 +40,8 @@ find_dependency (Oranges 2.24.0)
 
 #
 
-set (
-	limes_libs
-	# cmake-format: sortable
-	Audio
-	Core
-	DataStructures
-	Locale
-	MIDI
-	Music
-	Vecops)
+set (limes_libs # cmake-format: sortable
+				Audio Core MIDI Music Vecops)
 
 set (limes_programs # cmake-format: sortable
 					BinaryBuilder FileUtil)
@@ -94,16 +84,6 @@ endif ()
 set (any_limes_libs OFF)
 
 if (Audio IN_LIST finding_components)
-	list (APPEND finding_components DataStructures Vecops Core)
-	set (any_limes_libs ON)
-endif ()
-
-if (DataStructures IN_LIST finding_components)
-	list (APPEND finding_components Vecops Core)
-	set (any_limes_libs ON)
-endif ()
-
-if (Locale IN_LIST finding_components)
 	list (APPEND finding_components DataStructures Vecops Core)
 	set (any_limes_libs ON)
 endif ()

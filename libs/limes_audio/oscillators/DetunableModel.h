@@ -13,7 +13,6 @@
 #pragma once
 
 #include <limes_export.h>
-#include <limes_data_structures.h>
 #include <limes_namespace.h>
 #include <limes_core.h>
 
@@ -78,7 +77,7 @@ private:
 
 	float lastFrequency { 440.f };
 
-	ds::scalar_vector<float> frequencies;
+	std::vector<float> frequencies;
 };
 
 }  // namespace dsp::osc

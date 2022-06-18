@@ -12,10 +12,9 @@
 
 #pragma once
 
-#include <limes_export.h>			// for LIMES_EXPORT
-#include <initializer_list>			// for initializer_list
-#include "Pitch.h"					// for Pitch
-#include <limes_data_structures.h>	// for vector
+#include <limes_export.h>	 // for LIMES_EXPORT
+#include <initializer_list>	 // for initializer_list
+#include "Pitch.h"			 // for Pitch
 #include <limes_namespace.h>
 #include <limes_core.h>
 
@@ -82,10 +81,10 @@ public:
 	[[nodiscard]] bool fitsInScale (const scales::Scale& scale) const noexcept;
 
 	/** Returns a list of intervals between each consecutive pair of notes in this %chord. */
-	[[nodiscard]] ds::vector<Interval> getIntervals() const;
+	[[nodiscard]] std::vector<Interval> getIntervals() const;
 
 	/** Returns a list of %pitch classes present in this %chord. */
-	[[nodiscard]] ds::vector<PitchClass> getPitchClasses() const;
+	[[nodiscard]] std::vector<PitchClass> getPitchClasses() const;
 
 	/** Returns the number of unique %pitch classes present in this %chord.
 		The same %pitch class present in multiple octaves will only be tallied once by this function.
@@ -93,7 +92,7 @@ public:
 	[[nodiscard]] int getNumUniquePitchClasses() const;
 
 	/** Returns a copy of the list of pitches present in this %chord. */
-	[[nodiscard]] ds::vector<Pitch> getPitches() const;
+	[[nodiscard]] std::vector<Pitch> getPitches() const;
 
 	/** Returns a new %chord with each %pitch shifted by a given interval.
 		@param interval The interval to shift each %pitch by
@@ -111,7 +110,7 @@ public:
 
 private:
 
-	ds::vector<Pitch> pitches;
+	std::vector<Pitch> pitches;
 };
 
 }  // namespace music

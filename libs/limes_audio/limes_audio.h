@@ -17,7 +17,7 @@
 
 	This library provides classes for processing and analysis of realtime audio signals.
 
-	Dependencies: limes_data_structures
+	Dependencies: limes_vecops
 
 	@ingroup limes
  */
@@ -37,6 +37,7 @@
 // IWYU pragma: begin_exports
 
 #include "util/Misc.h"
+#include "util/AudioBuffer.h"
 #include "util/MonoStereoConverter.h"
 #include "util/CircularBuffer.h"
 #include "util/PerlinNoise.h"

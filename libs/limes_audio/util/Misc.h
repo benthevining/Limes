@@ -41,6 +41,9 @@ namespace dsp
 template <typename T>
 concept Sample = std::is_same_v<T, float> || std::is_same_v<T, double>;
 
+template <Sample S>
+using OtherSampleType = std::conditional_t<std::is_same_v<S, float>, double, float>;
+
 /** An inverse root 2 constant, useful for default filter Q values.
 	@ingroup limes_audio
  */

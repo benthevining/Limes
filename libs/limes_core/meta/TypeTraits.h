@@ -52,6 +52,18 @@ namespace meta
 	@{
  */
 
+/** A placeholder class representing a type that is null, invalid, or nonexistent. */
+struct LIMES_EXPORT NullType final
+{
+};
+
+/** Returns true if \c T is a \c NullType .
+	@tparam T Type to test
+	@see NullType
+ */
+template <typename T>
+LIMES_EXPORT static constexpr const bool is_null_type = std::is_same_v<T, NullType>;
+
 /** @concept convertible_to
 	Exactly the same as \c std::convertible_to , only implemented here because some versions of Xcode seem to be missing it.
  */

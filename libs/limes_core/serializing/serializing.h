@@ -110,7 +110,7 @@ LIMES_EXPORT using DataType = std::conditional_t<Type == ObjectType::Number, dou
 												 std::conditional_t<Type == ObjectType::String, std::string,
 																	std::conditional_t<Type == ObjectType::Boolean, bool,
 																					   std::conditional_t<Type == ObjectType::Array, Array,
-																										  std::conditional_t<Type == ObjectType::Object, Object, typelist::NullType>>>>>;
+																										  std::conditional_t<Type == ObjectType::Object, Object, meta::NullType>>>>>;
 
 #pragma mark Node
 

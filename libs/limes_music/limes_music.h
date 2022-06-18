@@ -19,7 +19,7 @@
 	The documentation aims to be as exhaustive and complete as possible, but is meant to document the usage of this library's API;
 	this documentation is not meant to serve as an exhaustive authority on music theory itself.
 
-	Dependencies: limes_data_structures
+	Dependencies: limes_core
 
 	@ingroup limes
  */

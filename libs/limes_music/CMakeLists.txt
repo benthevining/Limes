@@ -17,9 +17,7 @@ The Limes library of utilities for working with musical and music-theory related
 
 Dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_data_structures
-	- limes_vecops
-		- limes_core
+- limes_core
 
 Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -57,7 +55,7 @@ set_target_properties (
 			   FOLDER Limes/libs
 			   EchoString "Building the limes_music library...")
 
-target_link_libraries (limes_music PUBLIC Limes::limes_data_structures)
+target_link_libraries (limes_music PUBLIC Limes::limes_core)
 
 set (LIMES_MUSIC_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_music")
 

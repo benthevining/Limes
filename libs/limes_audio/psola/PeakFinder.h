@@ -12,10 +12,9 @@
 
 #pragma once
 
-#include <limes_export.h>			// for LIMES_EXPORT
-#include <array>					// for array
-#include <limes_data_structures.h>	// for vector
-#include "../util/Misc.h"			// for concept Sample - IWYU pragma: keep
+#include <limes_export.h>  // for LIMES_EXPORT
+#include <array>		   // for array
+#include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
 #include <limes_namespace.h>
 
 /** @defgroup psola PSOLA
@@ -162,7 +161,7 @@ public:
 		This algorithm attempts to maximize all three criteria in the stream of selected peaks.
 		To obtain the actual grains' start and end indices from the list of peak indices, you should do \c peak-period and \c peak+period , respectively, because the grains are 2 periods long and centered on the peaks.
 	*/
-	[[nodiscard]] const ds::scalar_vector<int>& findPeaks (const SampleType* const inputSamples, int numSamples, float period) noexcept;
+	[[nodiscard]] const std::vector<int>& findPeaks (const SampleType* const inputSamples, int numSamples, float period) noexcept;
 
 	/** Prepares the analyzer for a new maximum blocksize.
 		@note This function may allocate memory, and should not be called from a realtime thread.
@@ -197,11 +196,11 @@ private:
 
 	[[nodiscard]] int chooseIdealPeakCandidate (const SampleType* const inputSamples, int deltaTarget1, int deltaTarget2) noexcept;
 
-	ds::scalar_vector<int> peakIndices, peakCandidates, candidateDeltas;
+	std::vector<int> peakIndices, peakCandidates, candidateDeltas;
 
-	const std::array<ds::scalar_vector<int>*, 3> arrays { &peakIndices,
-														  &peakCandidates,
-														  &candidateDeltas };
+	const std::array<std::vector<int>*, 3> arrays { &peakIndices,
+													&peakCandidates,
+													&candidateDeltas };
 
 	int analysisFrameStart { 0 };
 

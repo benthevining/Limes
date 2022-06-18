@@ -96,14 +96,14 @@ PerlinNoise<SampleType>::PerlinNoise (int64_t randomSeed)
 	for (auto i = 0; i <= 255; ++i)
 		state.emplace_back (i);
 
-	for (auto i = state.numObjects() - 1; i >= 1; --i)
+	for (auto i = static_cast<int> (state.size() - 1); i >= 1; --i)
 	{
 		const auto j = r.next (0, i + 1);
 
 		std::swap (state[i], state[j]);
 	}
 
-	for (auto i = 0; i < state.numObjects(); ++i)
+	for (auto i = 0; i < state.size(); ++i)
 		state.emplace_back (state[i]);
 }
 

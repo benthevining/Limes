@@ -14,6 +14,7 @@
 #pragma once
 
 #include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
+#include "../util/AudioBuffer.h"
 #include <limes_core.h>
 #include "PitchData.h"
 #include "PitchDetectionAlgorithm.h"
@@ -207,11 +208,11 @@ private:
 
 	SampleType confidenceThresh { 0.15 };
 
-	using SampleVector = ds::scalar_vector<SampleType>;
+	using Buffer = AudioBuffer<SampleType, 1>;
 
-	SampleVector sdfData, cmndfData, inputStorage;
+	Buffer sdfData, cmndfData, inputStorage;
 
-	ds::scalar_vector<int> finalTaus;
+	std::vector<int> finalTaus;
 
 	filters::Filter<SampleType> lowPass, hiPass;
 };

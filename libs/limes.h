@@ -36,8 +36,6 @@
 
 #include <limes_core.h>
 #include <limes_vecops.h>
-#include <limes_data_structures.h>
-#include <limes_locale.h>
 #include <limes_music.h>
 #include <limes_midi.h>
 #include <limes_audio.h>

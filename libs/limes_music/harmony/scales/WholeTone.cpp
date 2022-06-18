@@ -11,8 +11,7 @@
  */
 
 #include "WholeTone.h"
-#include "../PitchClass.h"			// for PitchClass
-#include <limes_data_structures.h>	// for vector
+#include "../PitchClass.h"	// for PitchClass
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE
@@ -30,9 +29,9 @@ bool WholeTone::operator!= (const WholeTone& other) const
 	return startingPitchClass != other.startingPitchClass;
 }
 
-ds::vector<int> WholeTone::getIntervalsAsSemitones() const
+std::vector<int> WholeTone::getIntervalsAsSemitones() const
 {
-	ds::vector<int> intervals;
+	std::vector<int> intervals;
 
 	intervals.reserve (6);
 

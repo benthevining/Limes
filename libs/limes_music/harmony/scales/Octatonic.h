@@ -12,10 +12,9 @@
 
 #pragma once
 
-#include <limes_export.h>			// for LIMES_EXPORT
-#include "Scale.h"					// for Scale
-#include "../PitchClass.h"			// for PitchClass
-#include <limes_data_structures.h>	// for vector
+#include <limes_export.h>	// for LIMES_EXPORT
+#include "Scale.h"			// for Scale
+#include "../PitchClass.h"	// for PitchClass
 #include <limes_namespace.h>
 #include <limes_core.h>
 
@@ -70,7 +69,7 @@ public:
 	[[nodiscard]] bool operator!= (const Octatonic& other) const;
 
 	/** Returns a sequence of alternating 2's and 1's. */
-	[[nodiscard]] ds::vector<int> getIntervalsAsSemitones() const final;
+	[[nodiscard]] std::vector<int> getIntervalsAsSemitones() const final;
 
 	/** Returns the %pitch class of the root of this %scale. */
 	[[nodiscard]] PitchClass getPitchClassOfRoot() const noexcept final;

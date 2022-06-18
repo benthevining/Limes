@@ -17,9 +17,8 @@ The Limes library of utilities for working with realtime audio.
 
 Dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_data_structures
-	- limes_vecops
-		- limes_core
+- limes_vecops
+	- limes_core
 
 Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -57,7 +56,7 @@ set_target_properties (
 			   FOLDER Limes/libs
 			   EchoString "Building the limes_audio library...")
 
-target_link_libraries (limes_audio PUBLIC Limes::limes_data_structures)
+target_link_libraries (limes_audio PUBLIC Limes::limes_vecops)
 
 set (LIMES_AUDIO_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_audio")
 

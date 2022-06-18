@@ -31,13 +31,13 @@ StereoReductionMode MonoStereoConverter<SampleType>::getStereoReductionMode() co
 template <Sample SampleType>
 void MonoStereoConverter<SampleType>::prepare (int blocksize)
 {
-	monoStorage.reserveAndZero (blocksize);
+	monoStorage.resize (blocksize);
 }
 
 template <Sample SampleType>
 void MonoStereoConverter<SampleType>::releaseResources()
 {
-	monoStorage.clearAndFree();
+	monoStorage.deallocate();
 }
 
 template <Sample SampleType>
@@ -47,14 +47,14 @@ void MonoStereoConverter<SampleType>::setStereoReductionMode (StereoReductionMod
 }
 
 template <Sample SampleType>
-void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleVector& leftIn,
-														   const SampleVector& rightIn,
-														   SampleVector&	   monoOut) noexcept
+void MonoStereoConverter<SampleType>::convertStereoToMono (const MonoBuffer& leftIn,
+														   const MonoBuffer& rightIn,
+														   MonoBuffer&		 monoOut) noexcept
 {
-	LIMES_ASSERT (leftIn.numObjects() == rightIn.numObjects());
-	LIMES_ASSERT (leftIn.numObjects() == monoOut.numObjects());
+	LIMES_ASSERT (leftIn.getNumSamples() == rightIn.getNumSamples());
+	LIMES_ASSERT (leftIn.getNumSamples() == monoOut.getNumSamples());
 
-	convertStereoToMono (leftIn.data(), rightIn.data(), monoOut.data(), monoOut.numObjects());
+	convertStereoToMono (leftIn.getReadPointer (0), rightIn.getReadPointer (0), monoOut.getWritePointer (0), monoOut.getNumSamples());
 }
 
 template <Sample SampleType>
@@ -77,10 +77,17 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* con
 		}
 		case (StereoReductionMode::mixToMono) :
 		{
-			LIMES_ASSERT (monoStorage.capacity() >= numSamples);
-			monoStorage.clearAndZero (numSamples).copyFrom (leftIn, numSamples);
-			monoStorage.addFrom (rightIn, numSamples).divide (SampleType (2));
-			monoStorage.copyTo (monoOut, numSamples);
+			LIMES_ASSERT (monoStorage.getNumSamples() >= numSamples);
+
+			monoStorage.clear();
+
+			monoStorage.copyFrom (leftIn, numSamples, 0);
+			monoStorage.addFrom (rightIn, numSamples, 0);
+
+			monoStorage.applyGain (SampleType (0.5));
+
+			monoStorage.copyTo (monoOut, 0, numSamples);
+
 			return;
 		}
 		default : LIMES_UNREACHABLE;
@@ -88,14 +95,14 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* con
 }
 
 template <Sample SampleType>
-void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleVector& monoIn,
-														   SampleVector&	   leftOut,
-														   SampleVector&	   rightOut) noexcept
+void MonoStereoConverter<SampleType>::convertMonoToStereo (const MonoBuffer& monoIn,
+														   MonoBuffer&		 leftOut,
+														   MonoBuffer&		 rightOut) noexcept
 {
-	LIMES_ASSERT (leftOut.numObjects() == rightOut.numObjects());
-	LIMES_ASSERT (leftOut.numObjects() == monoIn.numObjects());
+	LIMES_ASSERT (leftOut.getNumSamples() == rightOut.getNumSamples());
+	LIMES_ASSERT (leftOut.getNumSamples() == monoIn.getNumSamples());
 
-	convertMonoToStereo (monoIn.data(), leftOut.data(), rightOut.data(), monoIn.numObjects());
+	convertMonoToStereo (monoIn.getReadPointer (0), leftOut.getWritePointer (0), rightOut.getWritePointer (0), monoIn.getNumSamples());
 }
 
 template <Sample SampleType>

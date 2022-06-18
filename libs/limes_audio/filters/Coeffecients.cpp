@@ -23,17 +23,17 @@ namespace dsp::filters
 template <Sample Sampletype>
 Coeffecients<Sampletype>::Storage::Storage()
 {
-	coefficients.reserveAndZero (8);
+	coefficients.reserve (8);
 }
 
 template <Sample Sampletype>
-ds::scalar_vector<Sampletype>* Coeffecients<Sampletype>::Storage::operator->() noexcept
+std::vector<Sampletype>* Coeffecients<Sampletype>::Storage::operator->() noexcept
 {
 	return &coefficients;
 }
 
 template <Sample Sampletype>
-const ds::scalar_vector<Sampletype>* Coeffecients<Sampletype>::Storage::operator->() const noexcept
+const std::vector<Sampletype>* Coeffecients<Sampletype>::Storage::operator->() const noexcept
 {
 	return &coefficients;
 }
@@ -70,7 +70,7 @@ typename Coeffecients<Sampletype>::Storage& Coeffecients<Sampletype>::Storage::o
 		++index;
 	}
 
-	coefficients.multiply (a0inv);
+	vecops::multiply (coefficients.data(), coefficients.size(), a0inv);
 
 	return *this;
 }
@@ -303,7 +303,7 @@ void Coeffecients<Sampletype>::makePeakFilter (double	  sampleRate,
 template <Sample Sampletype>
 int Coeffecients<Sampletype>::getFilterOrder() const noexcept
 {
-	return (coefficients->numObjects() - 1) / 2;
+	return (coefficients->size() - 1) / 2;
 }
 
 template <Sample Sampletype>

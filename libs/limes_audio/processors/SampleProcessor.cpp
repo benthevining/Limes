@@ -47,10 +47,10 @@ void SampleProcessor<SampleType>::processBlock (const SampleType* input, SampleT
 }
 
 template <Sample SampleType>
-void SampleProcessor<SampleType>::processBlock (const SampleVector& input, SampleVector& output)
+void SampleProcessor<SampleType>::processBlock (const Buffer& input, Buffer& output)
 {
-	processBlock (input.data(), output.data(),
-				  std::min (input.numObjects(), output.numObjects()));
+	processBlock (input.getReadPointer (0), output.getWritePointer (0),
+				  std::min (input.getNumSamples(), output.getNumSamples()));
 }
 
 template <Sample SampleType>

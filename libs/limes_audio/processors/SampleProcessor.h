@@ -13,7 +13,7 @@
 #pragma once
 
 #include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
-#include <limes_data_structures.h>
+#include "../util/AudioBuffer.h"
 #include <limes_core.h>
 
 /** @defgroup sampleprocessors Processors
@@ -46,7 +46,7 @@ struct LIMES_EXPORT SampleProcessor
 public:
 
 	/** Convenience typedef for a vector of samples. */
-	using SampleVector = ds::scalar_vector<SampleType>;
+	using Buffer = AudioBuffer<SampleType, 1>;
 
 	/** A lambda function that returns the next sample value. */
 	using SampleProcessingFunc = std::function<SampleType (SampleType)>;
@@ -78,7 +78,7 @@ public:
 	///@{
 	/** Processes a block of samples. */
 	void processBlock (const SampleType* input, SampleType* output, int numSamples) const;
-	void processBlock (const SampleVector& input, SampleVector& output);
+	void processBlock (const Buffer& input, Buffer& output);
 	///@}
 
 	/** Skips a number of samples in the stream.

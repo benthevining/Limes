@@ -47,9 +47,9 @@ void SampleStream<SampleType>::getSamples (SampleType* const output, int numSamp
 }
 
 template <Sample SampleType>
-void SampleStream<SampleType>::getSamples (SampleVector& output)
+void SampleStream<SampleType>::getSamples (Buffer& output)
 {
-	blockFunc (output.data(), output.numObjects());
+	blockFunc (output.getWritePointer (0), output.getNumSamples());
 }
 
 template <Sample SampleType>

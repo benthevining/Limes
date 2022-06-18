@@ -12,10 +12,9 @@
 
 #include "NoteLength.h"
 
-#include <algorithm>				// for for_each
-#include <limes_core.h>				// for Fraction::operator+=, Fraction::...
-#include "NoteDuration.h"			// for NoteDuration
-#include <limes_data_structures.h>	// for LinkedListModel
+#include <algorithm>	   // for for_each
+#include <limes_core.h>	   // for Fraction::operator+=, Fraction::...
+#include "NoteDuration.h"  // for NoteDuration
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE

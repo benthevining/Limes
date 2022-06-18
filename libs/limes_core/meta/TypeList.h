@@ -428,10 +428,10 @@ public:
 	using swap = TypeID;
 
 	template <size_t>
-	using at = typelist::NullType;
+	using at = NullType;
 
-	using front = typelist::NullType;
-	using back	= typelist::NullType;
+	using front = NullType;
+	using back	= NullType;
 
 	using reverse = TypeID;
 
@@ -475,15 +475,15 @@ public:
 	using apply_to = T<>;
 
 	template <size_t, typename... Args>
-	static constexpr typelist::NullType construct (Args&&...) noexcept
+	static constexpr NullType construct (Args&&...) noexcept
 	{
 		return {};
 	}
 
 	template <size_t, typename... Args>
-	static std::unique_ptr<typelist::NullType> make_unique (Args&&...) noexcept
+	static std::unique_ptr<NullType> make_unique (Args&&...) noexcept
 	{
-		return std::make_unique<typelist::NullType>();
+		return std::make_unique<NullType>();
 	}
 
 	template <func::Function Func, typename... Args>

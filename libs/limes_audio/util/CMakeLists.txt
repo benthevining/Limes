@@ -16,6 +16,7 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_audio_dev
 	INSTALL_DIR "${LIMES_AUDIO_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
+		  AudioBuffer.h
 		  CircularBuffer.cpp
 		  CircularBuffer.h
 		  Misc.h

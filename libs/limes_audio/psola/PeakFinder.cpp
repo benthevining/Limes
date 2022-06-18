@@ -11,13 +11,12 @@
  */
 
 #include "PeakFinder.h"
-#include <algorithm>				// for min, max
-#include <cmath>					// for abs
-#include <limits>					// for numeric_limits
-#include <limes_vecops.h>			// for min, range
-#include <limes_platform.h>			// for LIMES_ASSERT
-#include <limes_core.h>				// for round, numberIsEven
-#include <limes_data_structures.h>	// for vector, basic_vector, scalar_vector
+#include <algorithm>		 // for min, max
+#include <cmath>			 // for abs
+#include <limits>			 // for numeric_limits
+#include <limes_vecops.h>	 // for min, range
+#include <limes_platform.h>	 // for LIMES_ASSERT
+#include <limes_core.h>		 // for round, numberIsEven
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE
@@ -33,19 +32,19 @@ void PeakFinder<SampleType>::prepare (int maxBlocksize)
 {
 	LIMES_ASSERT (maxBlocksize > 0);
 
-	peakIndices.reserveAndZero (maxBlocksize);
-	peakCandidates.reserveAndZero (numPeaksToTest);
-	candidateDeltas.reserveAndZero (numPeaksToTest);
+	peakIndices.reserve (maxBlocksize);
+	peakCandidates.reserve (numPeaksToTest);
+	candidateDeltas.reserve (numPeaksToTest);
 
 	for (auto* array : arrays)
-		array->zero();
+		alg::fill (*array, 0);
 }
 
 template <Sample SampleType>
 void PeakFinder<SampleType>::reset()
 {
 	for (auto* array : arrays)
-		array->zero();
+		alg::fill (*array, 0);
 
 	analysisFrameStart = 0;
 	lastPeak		   = 0;
@@ -56,13 +55,16 @@ template <Sample SampleType>
 void PeakFinder<SampleType>::releaseResources()
 {
 	for (auto* array : arrays)
-		array->clearAndFree();
+	{
+		array->clear();
+		array->shrink_to_fit();
+	}
 
 	analysisFrameStart = 0;
 }
 
 template <Sample SampleType>
-const ds::scalar_vector<int>& PeakFinder<SampleType>::findPeaks (const SampleType* const inputSamples, int numSamples, float period) noexcept
+const std::vector<int>& PeakFinder<SampleType>::findPeaks (const SampleType* const inputSamples, int numSamples, float period) noexcept
 {
 	LIMES_ASSERT (period > 0.f && numSamples > 0);
 
@@ -106,7 +108,7 @@ const ds::scalar_vector<int>& PeakFinder<SampleType>::findPeaks (const SampleTyp
 
 		analysisIndex = [this, intPeriod, grainSize]
 		{
-			const auto numPeaksFound = peakIndices.numObjects();
+			const auto numPeaksFound = peakIndices.size();
 
 			if (numPeaksFound == 1)
 				return peakIndices[0] + intPeriod;
@@ -120,10 +122,11 @@ const ds::scalar_vector<int>& PeakFinder<SampleType>::findPeaks (const SampleTyp
 		LIMES_ASSERT (analysisIndex > prevAnalysisIndex);
 	} while (analysisIndex - halfPeriod < numSamples);
 
-	peakIndices.removeDuplicates();
-	peakIndices.sort();
+	peakIndices.erase (std::unique (std::begin (peakIndices), std::end (peakIndices)), std::end (peakIndices));
 
-	const auto num = peakIndices.numObjects();
+	alg::sort (peakIndices);
+
+	const auto num = peakIndices.size();
 
 	LIMES_ASSERT (num > 0);
 
@@ -156,12 +159,13 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 		peakCandidates.push_back (nextPeak);
 	}
 
-	peakCandidates.removeDuplicates();
-	peakCandidates.sort();
+	peakCandidates.erase (std::unique (std::begin (peakCandidates), std::end (peakCandidates)), std::end (peakCandidates));
 
-	LIMES_ASSERT (peakCandidates.isNotEmpty());
+	alg::sort (peakCandidates);
 
-	switch (peakCandidates.numObjects())
+	LIMES_ASSERT (peakCandidates.size() > 0);
+
+	switch (peakCandidates.size())
 	{
 		case 1 : return peakCandidates[0];
 
@@ -169,10 +173,10 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 
 		default :
 		{
-			if (peakIndices.numObjects() >= 2)
+			if (peakIndices.size() >= 2)
 				return chooseIdealPeakCandidate (inputSamples,
-												 peakIndices.last() + period,
-												 peakIndices[peakIndices.numObjects() - 2] + grainSize);
+												 peakIndices.back() + period,
+												 peakIndices[peakIndices.size() - 2] + grainSize);
 
 			if (peakBeforeLast < 0 && lastPeak < 0)
 			{
@@ -196,7 +200,7 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* const inp
 	const auto starting = [startSample, endSample, this]
 	{
 		for (auto i = startSample; i < endSample; ++i)
-			if (! peakCandidates.contains (i))
+			if (! alg::contains (peakCandidates, i))
 				return i;
 
 		return -1;
@@ -221,7 +225,7 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* const inp
 
 	for (auto i = starting + 1; i < endSample; ++i)
 	{
-		LIMES_ASSERT (! peakCandidates.contains (i));
+		LIMES_ASSERT (! alg::contains (peakCandidates, i));
 
 		const auto currentSample = get_weighted_sample (i);
 
@@ -262,20 +266,20 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const in
 	LIMES_ASSERT (deltaTarget1 >= 0);
 	LIMES_ASSERT (deltaTarget2 >= 0);
 
-	const auto numCandidates = peakCandidates.numObjects();
+	const auto numCandidates = peakCandidates.size();
 
 	// calculate delta values for each peak candidate
 	// delta represents how far off this peak candidate is from the expected peak location
 	// in a way it's a measure of the jitter that picking a peak candidate as this frame's peak would introduce to the overall alignment of the stream of grains based on the previous grains
 
-	candidateDeltas.clearAndZero (numCandidates);
+	candidateDeltas.clear();
 
-	candidateDeltas.transform (peakCandidates, [deltaTarget1, deltaTarget2] (const auto candidate)
-							   { return (std::abs (candidate - deltaTarget1) + std::abs (candidate - deltaTarget2)); });
+	alg::transform (peakCandidates, candidateDeltas, [deltaTarget1, deltaTarget2] (const auto candidate)
+					{ return (std::abs (candidate - deltaTarget1) + std::abs (candidate - deltaTarget2)); });
 
-	LIMES_ASSERT (candidateDeltas.numObjects() == numCandidates);
+	LIMES_ASSERT (candidateDeltas.size() == numCandidates);
 
-	const auto deltaRange = vecops::range (candidateDeltas.data(), candidateDeltas.numObjects());
+	const auto deltaRange = vecops::range (candidateDeltas.data(), candidateDeltas.size());
 
 	if (deltaRange == 0)  // prevent dividing by 0 in the next step...
 		return peakCandidates[0];
