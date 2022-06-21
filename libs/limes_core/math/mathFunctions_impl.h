@@ -81,6 +81,9 @@ constexpr T limit (T input, T min, T max) noexcept
 template <Integral T>
 constexpr T power (T number, T power_) noexcept
 {
+	if (power_ == 0)
+		return T (1);
+
 	if (power_ < T (0))
 		return T (1) / power (number, -power_);
 
@@ -182,6 +185,20 @@ constexpr T szudzikPair (T a, T b) noexcept
 		return A * A + A + B;
 
 	return A + B * B;
+}
+
+template <Integral T>
+constexpr T numDigits (T num) noexcept
+{
+	T count = 0;
+
+	while (num != 0)
+	{
+		num /= 10;
+		++count;
+	}
+
+	return count;
 }
 
 /*---------------------------------------------------------------------------------------------------------------*/

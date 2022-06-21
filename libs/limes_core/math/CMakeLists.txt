@@ -25,6 +25,7 @@ oranges_add_source_files (
 		  mathFunctions_impl.h
 		  Random.cpp
 		  Random.h
+		  StatsComputer.h
 		  matrix.h)
 
 set (math_files ${math_files} ${geometry_files} PARENT_SCOPE)

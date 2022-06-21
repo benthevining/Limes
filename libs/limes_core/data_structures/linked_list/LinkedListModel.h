@@ -50,6 +50,8 @@ struct LIMES_EXPORT LinkedListModel final
 {
 public:
 
+	// TODO: reverse entire list
+
 	/** Creates a linked list node.
 		@param objectForThisNode The data object this node in the list refers to
 		@param objectBeforeThisNode Pointer to the LinkedListModel object representing the node before this one in the list.

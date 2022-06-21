@@ -94,8 +94,8 @@ target_sources (
 		   $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/limes_core.h>
 		   $<INSTALL_INTERFACE:${LIMES_CORE_INSTALL_INCLUDE_DIR}/limes_namespace.h>)
 
-install (FILES limes_core.h limes_namespace.h DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
-		 COMPONENT limes_core_dev)
+install (FILES limes_core.h limes_core limes_namespace.h
+		 DESTINATION "${LIMES_CORE_INSTALL_INCLUDE_DIR}" COMPONENT limes_core_dev)
 
 target_include_directories (
 	limes_core PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>

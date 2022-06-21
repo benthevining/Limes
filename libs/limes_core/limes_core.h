@@ -102,11 +102,13 @@
 #include "text/StringUtils.h"
 #include "text/TextTable.h"
 #include "text/UTF8.h"
+#include "text/RomanNumerals.h"
 
 #include "math/mathFunctions.h"
 #include "math/Fraction.h"
 #include "math/Random.h"
 #include "math/matrix.h"
+#include "math/StatsComputer.h"
 #include "math/geometry/2D/angle.h"
 #include "math/geometry/2D/2Dshape.h"
 #include "math/geometry/2D/circle.h"

@@ -145,6 +145,10 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T cantorPair (T a, T b)
 template <Integral T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T szudzikPair (T a, T b) noexcept;
 
+/** Counts the number of digits in an integer. */
+template <Integral T>
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T numDigits (T num) noexcept;
+
 /*---------------------------------------------------------------------------------------------------------------*/
 
 #pragma mark Audio utility functions
