@@ -76,7 +76,7 @@ if (PROJECT_IS_TOP_LEVEL)
 
 	list (APPEND CMAKE_MODULE_PATH "${limes_root}/cmake")
 
-	find_package (Oranges 2.24.0 REQUIRED)
+	find_package (Oranges 3.0.0 REQUIRED)
 
 	set (Limes_VERSION "${PROJECT_VERSION}")
 
