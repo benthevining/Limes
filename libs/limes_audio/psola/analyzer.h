@@ -182,7 +182,7 @@ private:
 
 	private:
 
-		int origStartIndex { 0 }, grainSize { 0 };
+		std::size_t origStartIndex { 0 }, grainSize { 0 };
 
 		Buffer samples;
 	};

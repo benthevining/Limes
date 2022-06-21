@@ -39,8 +39,8 @@ public:
 
 	explicit FallbackFFT (int size);
 
-	LIMES_NON_COPYABLE (FallbackFFT);
-	LIMES_DEFAULT_MOVABLE (FallbackFFT);
+	LIMES_NON_COPYABLE (FallbackFFT)
+	LIMES_DEFAULT_MOVABLE (FallbackFFT)
 
 private:
 

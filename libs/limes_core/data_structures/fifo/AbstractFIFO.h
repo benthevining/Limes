@@ -16,6 +16,7 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include "../../misc/preprocessor.h"
+#include "../../misc/Functions.h"
 
 /** @dir libs/limes_core/data_structures/fifo
 	This directory contains a FIFO implementation.
@@ -39,10 +40,10 @@ class LIMES_EXPORT AbstractFIFO final
 {
 public:
 
-	explicit AbstractFIFO (int initialSize);
+	explicit AbstractFIFO (std::size_t initialSize);
 
-	LIMES_NON_COPYABLE (AbstractFIFO);
-	LIMES_NON_MOVABLE (AbstractFIFO);
+	LIMES_NON_COPYABLE (AbstractFIFO)
+	LIMES_NON_MOVABLE (AbstractFIFO)
 
 	[[nodiscard]] int getCapacity() const noexcept;
 
@@ -52,30 +53,22 @@ public:
 
 	void reset();
 
-	void setCapacity (int newCapacity);
-
-	void prepareToWrite (int numToWrite, int& startIndex1, int& blockSize1, int& startIndex2, int& blockSize2) const noexcept;
-
-	void finishedWrite (int numWritten) noexcept;
-
-	void prepareToRead (int numWanted, int& startIndex1, int& blockSize1, int& startIndex2, int& blockSize2) const noexcept;
-
-	void finishedRead (int numRead) noexcept;
+	void setCapacity (std::size_t newCapacity);
 
 	class LIMES_EXPORT ScopedRead final
 	{
 	public:
 
-		explicit ScopedRead (AbstractFIFO& fifo, int num);
+		explicit ScopedRead (AbstractFIFO& fifo, std::size_t num);
 
 		~ScopedRead() noexcept;
 
-		LIMES_NON_COPYABLE (ScopedRead);
-		LIMES_NON_MOVABLE (ScopedRead);
+		LIMES_NON_COPYABLE (ScopedRead)
+		LIMES_NON_MOVABLE (ScopedRead)
 
-		int startIndex1, blockSize1, startIndex2, blockSize2;
+		std::size_t startIndex1, blockSize1, startIndex2, blockSize2;
 
-		template <class Function>
+		template <func::Function Function>
 		void for_each (Function&& func) const
 		{
 			for (auto i = startIndex1, e = startIndex1 + blockSize1; i != e; ++i) func (i);
@@ -84,7 +77,7 @@ public:
 
 	private:
 
-		const int numObjects;
+		const std::size_t numObjects;
 
 		AbstractFIFO& fifoModel;
 	};
@@ -93,16 +86,16 @@ public:
 	{
 	public:
 
-		explicit ScopedWrite (AbstractFIFO& fifo, int num);
+		explicit ScopedWrite (AbstractFIFO& fifo, std::size_t num);
 
 		~ScopedWrite() noexcept;
 
-		LIMES_NON_COPYABLE (ScopedWrite);
-		LIMES_NON_MOVABLE (ScopedWrite);
+		LIMES_NON_COPYABLE (ScopedWrite)
+		LIMES_NON_MOVABLE (ScopedWrite)
 
-		int startIndex1, blockSize1, startIndex2, blockSize2;
+		std::size_t startIndex1, blockSize1, startIndex2, blockSize2;
 
-		template <class Function>
+		template <func::Function Function>
 		void for_each (Function&& func) const
 		{
 			for (auto i = startIndex1, e = startIndex1 + blockSize1; i != e; ++i) func (i);
@@ -111,20 +104,32 @@ public:
 
 	private:
 
-		const int numObjects;
+		const std::size_t numObjects;
 
 		AbstractFIFO& fifoModel;
 	};
 
-	[[nodiscard]] ScopedRead read (int num);
+	[[nodiscard]] ScopedRead read (std::size_t num);
 
-	[[nodiscard]] ScopedWrite write (int num);
+	[[nodiscard]] ScopedWrite write (std::size_t num);
 
 private:
 
-	int bufferSize;
+	void prepareToWrite (std::size_t numToWrite,
+						 std::size_t& startIndex1, std::size_t& blockSize1,
+						 std::size_t& startIndex2, std::size_t& blockSize2) const noexcept;
 
-	std::atomic<int> validStart { 0 }, validEnd { 0 };
+	void finishedWrite (std::size_t numWritten) noexcept;
+
+	void prepareToRead (std::size_t numWanted,
+						std::size_t& startIndex1, std::size_t& blockSize1,
+						std::size_t& startIndex2, std::size_t& blockSize2) const noexcept;
+
+	void finishedRead (std::size_t numRead) noexcept;
+
+	std::size_t bufferSize;
+
+	std::atomic<std::size_t> validStart { 0 }, validEnd { 0 };
 };
 
 }  // namespace ds

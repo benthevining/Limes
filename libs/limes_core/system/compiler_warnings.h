@@ -78,12 +78,9 @@
 		_Pragma (LIMES_MAKE_STRING (GCC warning (text)))
 #endif
 
-#if LIMES_GCC || LIMES_MSVC || LIMES_INTEL_COMPILER
+#if LIMES_GCC || LIMES_CLANG || LIMES_MSVC || LIMES_INTEL_COMPILER
 #	define LIMES_COMPILER_MESSAGE(text) \
 		_Pragma (LIMES_MAKE_STRING (message text))
-#elif LIMES_CLANG
-#	define LIMES_COMPILER_MESSAGE(text) \
-		_Pragma (LIMES_MAKE_STRING (GCC message (text)))
 #elif LIMES_CRAY_COMPILER
 #	define LIMES_COMPILER_MESSAGE(text) \
 		_Pragma (LIMES_MAKE_STRING (_CRI message text))

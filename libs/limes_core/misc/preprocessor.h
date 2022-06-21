@@ -150,7 +150,7 @@
  */
 #define LIMES_NON_COPYABLE(ClassName) \
 	/** @name Copying */              \
-	///@{                                             \
+	/** @{ */                                             \
 	/** %##ClassName is not copyable. */              \
 	ClassName (const ClassName&) = delete;            \
 	/** %##ClassName is not copyable. */              \
@@ -172,7 +172,7 @@
  */
 #define LIMES_NON_MOVABLE(ClassName) \
 	/** @name Moving */              \
-	///@{                                        \
+	/** @{ */                                      \
 	/** %##ClassName is not movable. */          \
 	ClassName (ClassName&&) = delete;            \
 	/** %##ClassName is not movable. */          \
@@ -198,7 +198,7 @@
  */
 #define LIMES_DEFAULT_COPYABLE(ClassName) \
 	/** @name Copying */                  \
-	///@{                                    \
+	/** @{ */                                    \
 	/** %##ClassName is default copyable. */ \
 	ClassName (const ClassName&) = default;  \
 	/** %##ClassName is default copyable. */ \
@@ -220,7 +220,7 @@
  */
 #define LIMES_DEFAULT_MOVABLE(ClassName) \
 	/** @name Moving */                  \
-	///@{                                   \
+	/** @{ */                                   \
 	/** %##ClassName is default movable. */ \
 	ClassName (ClassName&&) = default;      \
 	/** %##ClassName is default movable. */ \
@@ -246,7 +246,7 @@
  */
 #define LIMES_CONSTEXPR_COPYABLE(ClassName) \
 	/** @name Copying */                    \
-	///@{                                                    \
+	/** @{ */                                                    \
 	/** %##ClassName is default copyable at compile time. */ \
 	constexpr ClassName (const ClassName&) = default;        \
 	/** %##ClassName is default copyable at compile time. */ \
@@ -268,7 +268,7 @@
  */
 #define LIMES_CONSTEXPR_MOVABLE(ClassName) \
 	/** @name Moving */                    \
-	///@{                                                   \
+	/** @{ */                                                   \
 	/** %##ClassName is default movable at compile time. */ \
 	constexpr ClassName (ClassName&&) = default;            \
 	/** %##ClassName is default movable at compile time. */ \

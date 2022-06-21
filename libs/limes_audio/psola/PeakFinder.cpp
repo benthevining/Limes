@@ -32,7 +32,7 @@ void PeakFinder<SampleType>::prepare (int maxBlocksize)
 {
 	LIMES_ASSERT (maxBlocksize > 0);
 
-	peakIndices.reserve (maxBlocksize);
+	peakIndices.reserve (static_cast<std::vector<int>::size_type>(maxBlocksize));
 	peakCandidates.reserve (numPeaksToTest);
 	candidateDeltas.reserve (numPeaksToTest);
 
@@ -64,7 +64,7 @@ void PeakFinder<SampleType>::releaseResources()
 }
 
 template <Sample SampleType>
-const std::vector<int>& PeakFinder<SampleType>::findPeaks (const SampleType* const inputSamples, int numSamples, float period) noexcept
+const std::vector<int>& PeakFinder<SampleType>::findPeaks (const SampleType* const inputSamples, int numSamples, SampleType period) noexcept
 {
 	LIMES_ASSERT (period > 0.f && numSamples > 0);
 
@@ -286,9 +286,9 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const in
 
 	LIMES_ASSERT (deltaRange > 0);
 
-	auto get_weighted_sample = [this, deltaRange, inputSamples] (int sampleIndex, int candidateIdx) -> SampleType
+	auto get_weighted_sample = [this, deltaRange, inputSamples] (auto sampleIndex, auto candidateIdx) -> SampleType
 	{
-		const auto delta = static_cast<SampleType> (candidateDeltas[candidateIdx]);
+		const auto delta = static_cast<SampleType> (candidateDeltas[static_cast<std::vector<int>::size_type>(candidateIdx)]);
 
 		const auto deltaWeight = SampleType (1) - (delta / static_cast<SampleType> (deltaRange));
 
@@ -298,7 +298,7 @@ int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* const in
 	auto chosenPeak	   = peakCandidates[0];
 	auto strongestPeak = get_weighted_sample (chosenPeak, 0);
 
-	for (auto i = 1; i < numCandidates; ++i)
+	for (auto i = static_cast<decltype(numCandidates)>(1); i < numCandidates; ++i)
 	{
 		const auto candidate = peakCandidates[i];
 

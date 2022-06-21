@@ -301,7 +301,7 @@ void Coeffecients<Sampletype>::makePeakFilter (double	  sampleRate,
 }
 
 template <Sample Sampletype>
-int Coeffecients<Sampletype>::getFilterOrder() const noexcept
+std::size_t Coeffecients<Sampletype>::getFilterOrder() const noexcept
 {
 	return (coefficients->size() - 1) / 2;
 }

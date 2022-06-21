@@ -34,7 +34,7 @@ class LIMES_EXPORT DetunableModel final
 public:
 
 	/** Creates a detunable model that manages a certain number of voices. */
-	explicit DetunableModel (int initialNumVoices);
+	explicit DetunableModel (std::size_t initialNumVoices);
 
 	LIMES_DEFAULT_MOVABLE (DetunableModel)
 	LIMES_DEFAULT_COPYABLE (DetunableModel)
@@ -54,7 +54,7 @@ public:
 	[[nodiscard]] int getPitchSpreadCents() const noexcept;
 
 	/** Changes the number of voices being managed. */
-	void changeNumVoices (int newNumVoices);
+	void changeNumVoices (std::size_t newNumVoices);
 
 	/** Returns the number of voices being managed. */
 	[[nodiscard]] int getNumVoices() const noexcept;
@@ -63,7 +63,7 @@ public:
 		Voices are numbered 0 through \c numVoices and are assigned frequencies in ascending order through the pitch spread.
 		@see applyFrequencies
 	 */
-	[[nodiscard]] float getFrequency (int voiceNumber) const;
+	[[nodiscard]] float getFrequency (std::size_t voiceNumber) const;
 
 	/** Calls a function with each voice's frequency in the pitch spread.
 		This calls the function with the lowest pitch first, then each voice's pitch in ascending order until the top of the pitch spread is reached.
@@ -73,7 +73,9 @@ public:
 
 private:
 
-	int totalSpreadCents { 0 }, numVoices;
+	int totalSpreadCents { 0 };
+
+	std::size_t numVoices { 0 };
 
 	float lastFrequency { 440.f };
 

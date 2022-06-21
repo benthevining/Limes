@@ -35,14 +35,14 @@ class LIMES_EXPORT FIFO final
 {
 public:
 
-	explicit FIFO (int initialSize)
+	explicit FIFO (std::size_t initialSize)
 		: model (initialSize)
 	{
 		storage.reserve (initialSize);
 	}
 
-	LIMES_NON_COPYABLE (FIFO);
-	LIMES_NON_MOVABLE (FIFO);
+	LIMES_NON_COPYABLE (FIFO)
+	LIMES_NON_MOVABLE (FIFO)
 
 	[[nodiscard]] int getCapacity() const noexcept
 	{

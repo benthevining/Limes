@@ -21,13 +21,13 @@ int main (int argc, char** argv)
 {
 	try
 	{
-		limes::files::File jsonFile { "/Users/benvining/Documents/MyRepos/Citrus/Limes/CMakePresets.json" };
-
-		const auto json = limes::serializing::parseJSON (jsonFile.loadAsString());
-
-		std::cout << json.getJsonString();
-
-		return;
+//		limes::files::File jsonFile { "/Users/benvining/Documents/MyRepos/Citrus/Limes/CMakePresets.json" };
+//
+//		const auto json = limes::serializing::parseJSON (jsonFile.loadAsString());
+//
+//		std::cout << json.getJsonString();
+//
+//		return;
 
 
 		fileutil::parseAndExecute (argc, argv);

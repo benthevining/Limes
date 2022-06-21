@@ -85,7 +85,7 @@ public:
 	const SampleType* getReadPointer (std::size_t channel, std::size_t sampleIndex = 0) const noexcept
 	{
 		LIMES_ASSERT (channel < NumChannels);
-		LIMES_ASSERT (sampleIndex < getNumSamples());
+		LIMES_ASSERT (static_cast<int>(sampleIndex) < getNumSamples());
 
 		return channels[channel] + sampleIndex;
 	}
@@ -93,7 +93,7 @@ public:
 	SampleType* getWritePointer (std::size_t channel, std::size_t sampleIndex = 0) noexcept
 	{
 		LIMES_ASSERT (channel < NumChannels);
-		LIMES_ASSERT (sampleIndex < getNumSamples());
+		LIMES_ASSERT (static_cast<int>(sampleIndex) < getNumSamples());
 
 		return channels[channel] + sampleIndex;
 	}
@@ -126,6 +126,12 @@ public:
 		}
 	}
 
+	void resize (int newNumSamples, bool clearNewSamples = true)
+	{
+		LIMES_ASSERT(newNumSamples >= 0);
+		resize(static_cast<std::size_t>(newNumSamples), clearNewSamples);
+	}
+
 	void deallocate()
 	{
 		for (std::size_t i = 0; i < NumChannels; ++i)
@@ -143,7 +149,7 @@ public:
 	SampleType getSample (std::size_t channel, std::size_t sampleIndex) const noexcept
 	{
 		LIMES_ASSERT (channel < NumChannels);
-		LIMES_ASSERT (sampleIndex < getNumSamples());
+		LIMES_ASSERT (static_cast<int>(sampleIndex) < getNumSamples());
 
 		return channels[channel][sampleIndex];
 	}
@@ -183,7 +189,7 @@ public:
 	void copyFrom (const SampleType* data, std::size_t dataSize, std::size_t destChannel, std::size_t destStartSample = 0) noexcept
 	{
 		LIMES_ASSERT (destChannel < NumChannels);
-		LIMES_ASSERT (destStartSample + dataSize <= getNumSamples());
+		LIMES_ASSERT (static_cast<int>(destStartSample + dataSize) <= getNumSamples());
 
 		vecops::copy<SampleType> (channels[destChannel] + destStartSample, data, dataSize);
 	}
@@ -191,7 +197,7 @@ public:
 	void addFrom (const SampleType* data, std::size_t dataSize, std::size_t destChannel, std::size_t destStartSample = 0) noexcept
 	{
 		LIMES_ASSERT (destChannel < NumChannels);
-		LIMES_ASSERT (destStartSample + dataSize <= getNumSamples());
+		LIMES_ASSERT (static_cast<int>(destStartSample + dataSize) <= getNumSamples());
 
 		vecops::add<SampleType> (channels[destChannel] + destStartSample, dataSize, data);
 	}
@@ -233,16 +239,21 @@ public:
 	}
 
 	template <std::size_t NewNumChannels>
-	AudioBuffer<SampleType, NewNumChannels> getAlias (std::size_t startChannel, std::size_t startSample, std::size_t numSamples) noexcept
+	[[nodiscard]] AudioBuffer<SampleType, NewNumChannels> getAlias (std::size_t startChannel,
+																	std::size_t startSample,
+																	std::size_t numSamples) noexcept
 	{
 		static_assert (NewNumChannels <= NumChannels);
+
+		if constexpr (NewNumChannels == 0)
+			return {};
 
 		LIMES_ASSERT (startSample + numSamples <= getNumSamples());
 
 		AudioBuffer<SampleType, NewNumChannels> newBuffer;
 
-		for (std::size_t i = 0; i < NumChannels; ++i)
-			newBuffer.channels[i].referenceOtherMemory (channels[i] + startSample, numSamples);
+		for (std::size_t i = 0, j = startChannel; i < NumChannels; ++i, ++j)
+			newBuffer.channels[i].referenceOtherMemory (channels[j] + startSample, numSamples);
 
 		return newBuffer;
 	}

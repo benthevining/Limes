@@ -72,7 +72,7 @@ LIMES_EXPORT constinit const auto semitonesInOctave = 12;
 LIMES_EXPORT constexpr int octaveNumberOfMidiNote (int midiNote) noexcept
 {
 	LIMES_ASSERT (midiNote >= 0);
-	return std::floor (static_cast<float> (midiNote) / 12.f - 1.f);
+	return static_cast<int>(std::floor (static_cast<float> (midiNote) / 12.f - 1.f));
 }
 
 /** Returns the lowest note of a given MIDI octave number (that octave's C key).

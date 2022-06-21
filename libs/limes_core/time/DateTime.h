@@ -61,8 +61,8 @@ public:
 	explicit DateTime (const Point<ClockType>& timePoint);
 	///@}
 
-	LIMES_CONSTEXPR_MOVABLE (DateTime)
-	LIMES_CONSTEXPR_COPYABLE (DateTime)
+	LIMES_DEFAULT_MOVABLE (DateTime)
+	LIMES_DEFAULT_COPYABLE (DateTime)
 
 	/** Converts this DateTime to a \c std::tm object. */
 	[[nodiscard]] std::tm getStdTime() const noexcept;

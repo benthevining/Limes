@@ -44,7 +44,7 @@ Chord::Chord (const std::initializer_list<Pitch>& midiNotes)
 
 int Chord::getNumPitches() const
 {
-	return pitches.size();
+	return static_cast<int>(pitches.size());
 }
 
 Pitch Chord::getLowestPitch() const
@@ -85,7 +85,7 @@ std::vector<Interval> Chord::getIntervals() const
 {
 	std::vector<Interval> intervals;
 
-	for (auto i = 1; i < static_cast<int> (pitches.size()); ++i)
+	for (auto i = 1UL; i < pitches.size(); ++i)
 		intervals.push_back (Interval::fromPitches (pitches[i - 1], pitches[i]));
 
 	return intervals;
@@ -106,7 +106,7 @@ std::vector<PitchClass> Chord::getPitchClasses() const
 
 int Chord::getNumUniquePitchClasses() const
 {
-	return getPitchClasses().size();
+	return static_cast<int>(getPitchClasses().size());
 }
 
 std::vector<Pitch> Chord::getPitches() const
@@ -118,7 +118,7 @@ Chord Chord::applyInterval (const Interval& interval, bool above)
 {
 	Chord newChord { *this };
 
-	for (auto i = 0; i < static_cast<int> (newChord.pitches.size()); ++i)
+	for (auto i = 0UL; i < newChord.pitches.size(); ++i)
 		newChord.pitches[i] = interval.applyToPitch (newChord.pitches[i], above);
 
 	return newChord;

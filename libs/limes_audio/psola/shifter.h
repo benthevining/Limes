@@ -91,8 +91,8 @@ private:
 
 		Grain() = default;
 
-		LIMES_DEFAULT_COPYABLE (Grain);
-		LIMES_DEFAULT_MOVABLE (Grain);
+		LIMES_DEFAULT_COPYABLE (Grain)
+		LIMES_DEFAULT_MOVABLE (Grain)
 
 		~Grain();
 

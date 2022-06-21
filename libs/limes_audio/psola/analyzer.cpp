@@ -154,7 +154,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* const inputAudio, int
 		getGrainToStoreIn().storeNewGrain (inputAudio, start, window, grainSize);
 	}
 
-	prevFrame.copyFrom (inputAudio, numSamples, 0);
+	prevFrame.copyFrom (inputAudio, static_cast<std::size_t>(numSamples), 0);
 
 	lastBlocksize	   = numSamples;
 	lastFrameGrainSize = grainSize;
@@ -280,9 +280,9 @@ int Analyzer<SampleType>::latencyChanged()
 
 	window.resize (latency);
 	prevFrame.resize (latency);
-	incompleteGrainsFromLastFrame.reserve (latency / 2);
+	incompleteGrainsFromLastFrame.reserve (static_cast<std::vector<int>::size_type>(latency / 2));
 
-	grains.resize (latency / 2);
+	grains.resize (static_cast<typename std::vector<Grain>::size_type>(latency / 2));
 
 	for (auto& grain : grains)
 		grain.reserveSize (latency);
@@ -331,10 +331,10 @@ void Analyzer<SampleType>::releaseResources()
 template <Sample SampleType>
 SampleType Analyzer<SampleType>::Grain::getSample (int index) const noexcept
 {
-	LIMES_ASSERT (index >= 0 && index < grainSize);
-	LIMES_ASSERT (samples.getNumSamples() >= grainSize);
+	LIMES_ASSERT (index >= 0 && index < getSize());
+	LIMES_ASSERT (samples.getNumSamples() >= static_cast<int>(grainSize));
 
-	return samples.getSample (0, index);
+	return samples.getSample (0, static_cast<std::size_t>(index));
 }
 
 template <Sample SampleType>
@@ -357,8 +357,8 @@ void Analyzer<SampleType>::Grain::storeNewGrain (const SampleType* const origSam
 	LIMES_ASSERT (blocksize1 > 0);
 	LIMES_ASSERT (startIndex1 >= 0);
 
-	origStartIndex = grainStartIdx;
-	grainSize	   = totalNumSamples;
+	origStartIndex = static_cast<std::size_t>(grainStartIdx);
+	grainSize	   = static_cast<std::size_t>(totalNumSamples);
 
 	samples.clear();
 
@@ -383,12 +383,13 @@ void Analyzer<SampleType>::Grain::storeNewGrainWithZeroesAtStart (int					  numZ
 	LIMES_ASSERT (samples.getNumSamples() >= totalNumSamples);
 	LIMES_ASSERT (windowSamples.getNumSamples() == numSamples);
 
-	origStartIndex = grainStartIdx;
-	grainSize	   = totalNumSamples;
+	origStartIndex = static_cast<std::size_t>(grainStartIdx);
+	grainSize	   = static_cast<std::size_t>(totalNumSamples);
 
 	samples.clear();
 
-	auto* const destSamples = samples.getWritePointer (0, numZeroes);
+	auto* const destSamples = samples.getWritePointer (0,
+													   static_cast<std::size_t>(numZeroes));
 
 	vecops::copy (destSamples, origSamples, numSamples);
 
@@ -400,7 +401,7 @@ void Analyzer<SampleType>::Grain::newBlockStarting (int last_blocksize) noexcept
 {
 	if (getRefCount() > 0)
 	{
-		origStartIndex -= last_blocksize;
+		origStartIndex -= static_cast<std::size_t>(last_blocksize);
 	}
 	else
 	{
@@ -412,13 +413,13 @@ void Analyzer<SampleType>::Grain::newBlockStarting (int last_blocksize) noexcept
 template <Sample SampleType>
 int Analyzer<SampleType>::Grain::getSize() const noexcept
 {
-	return grainSize;
+	return static_cast<int>(grainSize);
 }
 
 template <Sample SampleType>
 int Analyzer<SampleType>::Grain::getOrigStart() const noexcept
 {
-	return origStartIndex;
+	return static_cast<int>(origStartIndex);
 }
 
 template <Sample SampleType>

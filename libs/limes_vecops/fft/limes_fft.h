@@ -58,6 +58,10 @@
 #endif
 /// @endcond
 
+#if LIMES_VECOPS_USE_FFTW
+	LIMES_COMPILER_MESSAGE("limes_vecops: using FFTW for FFT")
+#endif
+
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
@@ -146,8 +150,8 @@ public:
 	/** Creates an FFT engine with a specified FFT size. */
 	explicit FFT (int size);
 
-	LIMES_NON_COPYABLE (FFT);
-	LIMES_DEFAULT_MOVABLE (FFT);
+	LIMES_NON_COPYABLE (FFT)
+	LIMES_DEFAULT_MOVABLE (FFT)
 
 	/** Returns the FFT size of this engine. */
 	[[nodiscard]] int getSize() const noexcept;

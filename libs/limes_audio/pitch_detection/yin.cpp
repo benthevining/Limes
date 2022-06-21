@@ -138,7 +138,7 @@ LIMES_FORCE_INLINE int select_final_taus (std::vector<int>& finalTaus,
 				if (this_tau_value < min_tau_value)
 				{
 					min_tau_value = this_tau_value;
-					finalTaus[i]  = yinIdx;
+					finalTaus[static_cast<std::vector<int>::size_type>(i)]  = yinIdx;
 					return true;
 				}
 			}
@@ -269,7 +269,9 @@ typename Yin<SampleType>::Result Yin<SampleType>::detectPeriod (const SampleType
 
 		hiPass.coefs.makeHighPass (samplerate, static_cast<SampleType> (math::freqFromPeriod (samplerate, maxPeriod)));
 
-		inputStorage.copyFrom (inputAudio, numSamples, 0);
+		inputStorage.copyFrom (inputAudio,
+							   static_cast<std::size_t>(numSamples),
+							   0);
 
 		lowPass.process (inputStorage);
 		hiPass.process (inputStorage);
@@ -323,7 +325,8 @@ typename Yin<SampleType>::Result Yin<SampleType>::detectPeriod (const SampleType
 
 	// TO DO: need to invert this
 	// so that lower vals = less confidence
-	data.confidence = cmndfData.getSample (0, periodEstimate);
+	data.confidence = cmndfData.getSample (0,
+										   static_cast<std::size_t>(periodEstimate));
 
 	return data;
 }
@@ -381,7 +384,7 @@ int Yin<SampleType>::setSamplerate (double newSamplerate)
 	cmndfData.resize (bufferLen);
 	sdfData.resize (bufferLen);
 
-	finalTaus.reserve (std::max (latency / 4, 20));
+	finalTaus.reserve (static_cast<std::vector<int>::size_type>(std::max (latency / 4, 20)));
 
 	lowPass.prepare();
 	hiPass.prepare();

@@ -20,12 +20,10 @@ LIMES_BEGIN_NAMESPACE
 namespace dsp::osc
 {
 
-DetunableModel::DetunableModel (int initialNumVoices)  // cppcheck-suppress uninitMemberVar
+DetunableModel::DetunableModel (std::size_t initialNumVoices)  // cppcheck-suppress uninitMemberVar
 	: numVoices (initialNumVoices)
 {
-	LIMES_ASSERT (numVoices > 0);
-
-	frequencies.reserve (numVoices);
+	frequencies.reserve (static_cast<std::vector<float>::size_type>(numVoices));
 }
 
 void DetunableModel::setFrequency (float frequency)
@@ -38,7 +36,7 @@ void DetunableModel::setFrequency (float frequency)
 
 	auto lowBound = centerPitch - (spreadSemitones * 0.5f);
 
-	for (auto i = 0; i < numVoices; ++i)
+	for (auto i = 0UL; i < numVoices; ++i)
 	{
 		LIMES_ASSERT (lowBound > 0.);
 		frequencies[i] = static_cast<float> (math::midiToFreq (lowBound));
@@ -63,9 +61,8 @@ int DetunableModel::getPitchSpreadCents() const noexcept
 	return totalSpreadCents;
 }
 
-void DetunableModel::changeNumVoices (int newNumVoices)
+void DetunableModel::changeNumVoices (std::size_t newNumVoices)
 {
-	LIMES_ASSERT (newNumVoices > 0);
 	numVoices = newNumVoices;
 	frequencies.reserve (newNumVoices);
 	setFrequency (lastFrequency);
@@ -73,10 +70,10 @@ void DetunableModel::changeNumVoices (int newNumVoices)
 
 int DetunableModel::getNumVoices() const noexcept
 {
-	return numVoices;
+	return static_cast<int>(numVoices);
 }
 
-float DetunableModel::getFrequency (int voiceNumber) const
+float DetunableModel::getFrequency (std::size_t voiceNumber) const
 {
 	LIMES_ASSERT (voiceNumber >= 0 && voiceNumber < numVoices);
 	return frequencies[voiceNumber];
@@ -84,7 +81,7 @@ float DetunableModel::getFrequency (int voiceNumber) const
 
 void DetunableModel::applyFrequencies (std::function<void (float)>&& func) const
 {
-	for (auto i = 0; i < numVoices; ++i)
+	for (auto i = 0UL; i < numVoices; ++i)
 		func (frequencies[i]);
 }
 

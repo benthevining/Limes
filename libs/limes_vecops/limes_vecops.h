@@ -787,7 +787,7 @@ LIMES_EXPORT [[nodiscard]] VectorExtremaInfo<DataType> getVectorExtremaInfo (con
 	minMax (data, size, info.min, info.minIdx, info.max, info.maxIdx);
 
 	return info;
-};
+}
 
 /** Calculates the values and positions of the absolute value extrema in the vector and returns them in a single VectorExtremaInfo object.
 	@see getVectorExtremaInfo()
@@ -800,7 +800,7 @@ LIMES_EXPORT [[nodiscard]] VectorExtremaInfo<DataType> getAbsVectorExtremaInfo (
 	minMaxAbs (data, size, info.min, info.minIdx, info.max, info.maxIdx);
 
 	return info;
-};
+}
 
 /** Returns the difference between the maximum and minimum values in the vector.
 	@see rangeAbs

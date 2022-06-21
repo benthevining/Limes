@@ -104,10 +104,11 @@ std::vector<Pitch> Scale::getPitches (int lowestMidiNote, int highestMidiNote) c
 
 	const auto intervals = getIntervalsAsSemitones();
 
-	int idx { 0 };
 	int octaveOffset { 0 };
 
 	auto lastNote = startingNote;
+
+	auto idx = 0UL;
 
 	while (lastNote <= highestMidiNote)
 	{
@@ -115,7 +116,7 @@ std::vector<Pitch> Scale::getPitches (int lowestMidiNote, int highestMidiNote) c
 
 		pitches.emplace_back (Pitch { lastNote });
 
-		if (idx >= static_cast<int> (intervals.size()))
+		if (idx >= intervals.size())
 		{
 			idx = 0;
 

@@ -841,7 +841,7 @@ LIMES_EXPORT void arcsine (DataType* const data, SizeType size) noexcept
 	else if constexpr (is_double_type<DataType>())
 		vvasin (data, data, &num);
 	else
-		fb::sine (data, size);
+		fb::arcsine (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -854,7 +854,7 @@ LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const da
 	else if constexpr (is_double_type<DataType>())
 		vvasin (dest, data, &num);
 	else
-		fb::sineAndCopy (dest, data, size);
+		fb::arcsineAndCopy (dest, data, size);
 }
 
 /* --- cos --- */
@@ -869,7 +869,7 @@ LIMES_EXPORT void cos (DataType* const data, SizeType size) noexcept
 	else if constexpr (is_double_type<DataType>())
 		vvacos (data, data, &num);
 	else
-		fb::sine (data, size);
+		fb::cos (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -882,7 +882,7 @@ LIMES_EXPORT void cosAndCopy (DataType* const dest, const DataType* const data, 
 	else if constexpr (is_double_type<DataType>())
 		vvcos (dest, data, &num);
 	else
-		fb::sineAndCopy (dest, data, size);
+		fb::cosAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -895,7 +895,7 @@ LIMES_EXPORT void arccos (DataType* const data, SizeType size) noexcept
 	else if constexpr (is_double_type<DataType>())
 		vvacos (data, data, &num);
 	else
-		fb::sine (data, size);
+		fb::arccos (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -908,7 +908,7 @@ LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const dat
 	else if constexpr (is_double_type<DataType>())
 		vvacos (dest, data, &num);
 	else
-		fb::sineAndCopy (dest, data, size);
+		fb::arccosAndCopy (dest, data, size);
 }
 
 /* --- tan --- */
@@ -923,7 +923,7 @@ LIMES_EXPORT void tan (DataType* const data, SizeType size) noexcept
 	else if constexpr (is_double_type<DataType>())
 		vvtan (data, data, &num);
 	else
-		fb::sine (data, size);
+		fb::tan (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -932,11 +932,11 @@ LIMES_EXPORT void tanAndCopy (DataType* const dest, const DataType* const data, 
 	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
-		vvtanf (data, data, &num);
+		vvtanf (dest, data, &num);
 	else if constexpr (is_double_type<DataType>())
-		vvtan (data, data, &num);
+		vvtan (dest, data, &num);
 	else
-		fb::sine (data, size);
+		fb::tanAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -949,7 +949,7 @@ LIMES_EXPORT void arctan (DataType* const data, SizeType size) noexcept
 	else if constexpr (is_double_type<DataType>())
 		vvatan (data, data, &num);
 	else
-		fb::sine (data, size);
+		fb::arctan (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -958,11 +958,11 @@ LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const dat
 	[[maybe_unused]] const auto num = static_cast<int> (size);
 
 	if constexpr (is_float_type<DataType>())
-		vvatanf (data, data, &num);
+		vvatanf (dest, data, &num);
 	else if constexpr (is_double_type<DataType>())
-		vvatan (data, data, &num);
+		vvatan (dest, data, &num);
 	else
-		fb::sine (data, size);
+		fb::arctanAndCopy (dest, data, size);
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------*/

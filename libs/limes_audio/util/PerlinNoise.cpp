@@ -22,13 +22,13 @@ namespace dsp
 {
 
 template <Sample SampleType>
-[[nodiscard]] static inline SampleType fade (SampleType t)
+[[nodiscard]] static LIMES_FORCE_INLINE SampleType fade (SampleType t)
 {
 	return t * t * t * (t * (t * 6 - 15) + 10);
 }
 
 template <Sample SampleType>
-[[nodiscard]] static inline SampleType grad (int hash, SampleType x, SampleType y, SampleType z)
+[[nodiscard]] static LIMES_FORCE_INLINE SampleType grad (int hash, SampleType x, SampleType y, SampleType z)
 {
 	const auto h = hash & 15;
 
@@ -96,14 +96,14 @@ PerlinNoise<SampleType>::PerlinNoise (int64_t randomSeed)
 	for (auto i = 0; i <= 255; ++i)
 		state.emplace_back (i);
 
-	for (auto i = static_cast<int> (state.size() - 1); i >= 1; --i)
+	for (auto i = state.size() - 1; i >= 1; --i)
 	{
-		const auto j = r.next (0, i + 1);
+		const auto j = r.next (0, static_cast<int>(i) + 1);
 
-		std::swap (state[i], state[j]);
+		std::swap (state[i], state[static_cast<std::vector<int>::size_type>(j)]);
 	}
 
-	for (auto i = 0; i < state.size(); ++i)
+	for (auto i = std::vector<int>::size_type(0); i < state.size(); ++i)
 		state.emplace_back (state[i]);
 }
 
@@ -114,9 +114,7 @@ SampleType PerlinNoise<SampleType>::getNextSample (SampleType x, SampleType y, S
 	const auto yFloor = std::floor (y);
 	const auto zFloor = std::floor (z);
 
-	const auto X = static_cast<int> (xFloor) & 255;
-	const auto Y = static_cast<int> (yFloor) & 255;
-	const auto Z = static_cast<int> (zFloor) & 255;
+	using VecSizeT = std::vector<int>::size_type;
 
 	x -= xFloor;
 	y -= yFloor;
@@ -124,27 +122,31 @@ SampleType PerlinNoise<SampleType>::getNextSample (SampleType x, SampleType y, S
 
 	const auto u = fade (x);
 
-	const auto idxA	 = state[X] + Y;
-	const auto idxAA = state[idxA] + Z;
-	const auto idxAB = state[idxA + 1] + Z;
-	const auto idxB	 = state[X + 1] + Y;
-	const auto idxBA = state[idxB] + Z;
-	const auto idxBB = state[idxB + 1] + Z;
+	const auto X = static_cast<int> (xFloor) & 255;
+	const auto Y = static_cast<int> (yFloor) & 255;
+	const auto Z = static_cast<int> (zFloor) & 255;
 
-	const auto lerp1 = std::lerp (grad (state[idxAB + 1], x, y - 1, z - 1),
-								  grad (state[idxBB + 1], x - 1, y - 1, z - 1),
+	const auto idxA	 = state[static_cast<VecSizeT>(X)] + Y;
+	const auto idxAA = state[static_cast<VecSizeT>(idxA)] + Z;
+	const auto idxAB = state[static_cast<VecSizeT>(idxA + 1)] + Z;
+	const auto idxB	 = state[static_cast<VecSizeT>(X + 1)] + Y;
+	const auto idxBA = state[static_cast<VecSizeT>(idxB)] + Z;
+	const auto idxBB = state[static_cast<VecSizeT>(idxB + 1)] + Z;
+
+	const auto lerp1 = std::lerp (grad (state[static_cast<VecSizeT>(idxAB + 1)], x, y - 1, z - 1),
+								  grad (state[static_cast<VecSizeT>(idxBB + 1)], x - 1, y - 1, z - 1),
 								  u);
 
-	const auto lerp2 = std::lerp (grad (state[idxAA + 1], x, y, z - 1),
-								  grad (state[idxBA + 1], x - 1, y, z - 1),
+	const auto lerp2 = std::lerp (grad (state[static_cast<VecSizeT>(idxAA + 1)], x, y, z - 1),
+								  grad (state[static_cast<VecSizeT>(idxBA + 1)], x - 1, y, z - 1),
 								  u);
 
-	const auto lerp3 = std::lerp (grad (state[idxAB], x, y - 1, z),
-								  grad (state[idxBB], x - 1, y - 1, z),
+	const auto lerp3 = std::lerp (grad (state[static_cast<VecSizeT>(idxAB)], x, y - 1, z),
+								  grad (state[static_cast<VecSizeT>(idxBB)], x - 1, y - 1, z),
 								  u);
 
-	const auto lerp4 = std::lerp (grad (state[idxAA], x, y, z),
-								  grad (state[idxBA], x - 1, y, z),
+	const auto lerp4 = std::lerp (grad (state[static_cast<VecSizeT>(idxAA)], x, y, z),
+								  grad (state[static_cast<VecSizeT>(idxBA)], x - 1, y, z),
 								  u);
 
 	const auto v = fade (y);

@@ -54,8 +54,8 @@ public:
 		template <typename... Args>
 		constexpr explicit Node (Args&&... args) noexcept (noexcept (ObjectType (std::forward<Args> (args)...)));
 
-		LIMES_DEFAULT_MOVABLE (Node);
-		LIMES_DEFAULT_COPYABLE (Node);
+		LIMES_DEFAULT_MOVABLE (Node)
+		LIMES_DEFAULT_COPYABLE (Node)
 
 		ObjectType			  object;
 		LinkedListModel<Node> listNode { *this };
@@ -64,8 +64,8 @@ public:
 	/** Default constructor. */
 	LinkedList() = default;
 
-	LIMES_DEFAULT_MOVABLE (LinkedList);
-	LIMES_DEFAULT_COPYABLE (LinkedList);
+	LIMES_DEFAULT_MOVABLE (LinkedList)
+	LIMES_DEFAULT_COPYABLE (LinkedList)
 
 	/** Returns the first node in the list.
 		@see getLastNodeInChain

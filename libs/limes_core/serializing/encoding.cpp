@@ -58,6 +58,7 @@ inline std::string getEscapedQuotedString (const std::string& input)
 			case '\f' : stream << "\\f"; break;
 
 			default :
+			{
 				if (c > 31 && c < 127)
 				{
 					stream << static_cast<char> (c);
@@ -76,6 +77,7 @@ inline std::string getEscapedQuotedString (const std::string& input)
 
 				writeUnicode (c);
 				break;
+			}
 		}
 
 		++text;
@@ -174,9 +176,9 @@ std::string Node::getXMLString() const
 
 /*-----------------------------------------------------------------------------------------------------------------------*/
 
-std::string Node::getString (StringType type) const
+std::string Node::getString (StringType stringType) const
 {
-	switch (type)
+	switch (stringType)
 	{
 		case (StringType::JSON) : return getJsonString();
 		case (StringType::XML) : return getXMLString();

@@ -64,8 +64,8 @@ public:
 	/** Destructor. */
 	~LinkedListModel();
 
-	LIMES_CONSTEXPR_MOVABLE (LinkedListModel);
-	LIMES_CONSTEXPR_COPYABLE (LinkedListModel);
+	LIMES_CONSTEXPR_MOVABLE (LinkedListModel)
+	LIMES_CONSTEXPR_COPYABLE (LinkedListModel)
 
 	/** @name Connection removal
 		You should usually prefer to use the connection replacement functions, as these functions can leave you with a split list or some orphaned nodes.

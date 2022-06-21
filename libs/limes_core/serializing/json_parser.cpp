@@ -31,7 +31,7 @@ Node parseJSON (const std::string_view& jsonText)
 	struct Parser final
 	{
 		explicit Parser (const std::string_view& inputText)
-			: current (inputText), source (inputText)
+			: source (inputText), current (inputText)
 		{
 		}
 
@@ -236,7 +236,8 @@ Node parseJSON (const std::string_view& jsonText)
 					continue;
 				}
 
-				if (std::isspace (c) || c == ',' || c == '}' || c == ']' || c == 0)
+				if (std::isspace (static_cast<int>(c)) != 0
+					|| c == ',' || c == '}' || c == ']' || c == 0)
 				{
 					current					= lastPos;
 					char* endOfParsedNumber = nullptr;
@@ -341,12 +342,12 @@ Node parseJSON (const std::string_view& jsonText)
 			return result;
 		}
 
-		void throwError (const std::string_view& message)
+		[[noreturn]] void throwError (const std::string_view& message)
 		{
 			throwError (message, current);
 		}
 
-		void throwError (const std::string_view& message, text::utf8::Pointer errorPos)
+		[[noreturn]] void throwError (const std::string_view& message, text::utf8::Pointer errorPos)
 		{
 			throw JSONParseError { message, text::utf8::LineAndColumn::find (source, errorPos) };
 		}

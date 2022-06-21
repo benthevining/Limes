@@ -20,7 +20,7 @@ namespace dsp::filters
 {
 
 template <Sample SampleType>
-LIMES_FORCE_INLINE void snapToZero (SampleType& sample) noexcept
+static LIMES_FORCE_INLINE void snapToZero (SampleType& sample) noexcept
 {
 	if (! (sample < SampleType (-1.0e-8) || sample > SampleType (1.0e-8)))
 		sample = SampleType (0);
@@ -31,7 +31,7 @@ void Filter<SampleType>::reset (SampleType resetToValue) noexcept
 {
 	order = coefs.getFilterOrder();
 
-	state.reserve (order);
+	state.reserve (static_cast<typename std::vector<SampleType>::size_type>(order));
 
 	alg::fill (state, resetToValue);
 }
@@ -150,7 +150,7 @@ void Filter<SampleType>::processDefault (SampleType* buffer, int numSamples) noe
 
 		buffer[i] = output;
 
-		for (auto j = 0; j < order - 1; ++j)
+		for (auto j = 0UL; j < order - 1; ++j)
 			state[j] = (input * coeffs[j + 1])
 					 - (output * coeffs[order + j + 1]) + state[j + 1];
 

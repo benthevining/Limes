@@ -21,20 +21,19 @@ LIMES_BEGIN_NAMESPACE
 namespace ds
 {
 
-AbstractFIFO::AbstractFIFO (int initialSize)
+AbstractFIFO::AbstractFIFO (std::size_t initialSize)
 	: bufferSize (initialSize)
 {
-	LIMES_ASSERT (bufferSize > 0);
 }
 
 int AbstractFIFO::getCapacity() const noexcept
 {
-	return bufferSize;
+	return static_cast<int>(bufferSize);
 }
 
 int AbstractFIFO::getFreeSpace() const noexcept
 {
-	return bufferSize - getNumStoredObjects() - 1;
+	return getCapacity() - getNumStoredObjects() - 1;
 }
 
 int AbstractFIFO::getNumStoredObjects() const noexcept
@@ -43,9 +42,9 @@ int AbstractFIFO::getNumStoredObjects() const noexcept
 	const auto ve = validEnd.load();
 
 	if (ve >= vs)
-		return ve - vs;
+		return static_cast<int>(ve - vs);
 
-	return bufferSize - (vs - ve);
+	return static_cast<int>(bufferSize - (vs - ve));
 }
 
 void AbstractFIFO::reset()
@@ -54,14 +53,15 @@ void AbstractFIFO::reset()
 	validStart.store (0);
 }
 
-void AbstractFIFO::setCapacity (int newCapacity)
+void AbstractFIFO::setCapacity (std::size_t newCapacity)
 {
-	LIMES_ASSERT (newCapacity > 0);
 	reset();
 	bufferSize = newCapacity;
 }
 
-void AbstractFIFO::prepareToWrite (int numToWrite, int& startIndex1, int& blockSize1, int& startIndex2, int& blockSize2) const noexcept
+void AbstractFIFO::prepareToWrite (std::size_t numToWrite,
+								   std::size_t& startIndex1, std::size_t& blockSize1,
+								   std::size_t& startIndex2, std::size_t& blockSize2) const noexcept
 {
 	startIndex2 = 0;
 
@@ -97,7 +97,7 @@ void AbstractFIFO::prepareToWrite (int numToWrite, int& startIndex1, int& blockS
 		blockSize2 = std::min (numToWrite, vs);
 }
 
-void AbstractFIFO::finishedWrite (int numWritten) noexcept
+void AbstractFIFO::finishedWrite (std::size_t numWritten) noexcept
 {
 	LIMES_ASSERT (numWritten >= 0 && numWritten < bufferSize);
 
@@ -109,7 +109,9 @@ void AbstractFIFO::finishedWrite (int numWritten) noexcept
 	validEnd.store (newEnd);
 }
 
-void AbstractFIFO::prepareToRead (int numWanted, int& startIndex1, int& blockSize1, int& startIndex2, int& blockSize2) const noexcept
+void AbstractFIFO::prepareToRead (std::size_t numWanted,
+								  std::size_t& startIndex1, std::size_t& blockSize1,
+								  std::size_t& startIndex2, std::size_t& blockSize2) const noexcept
 {
 	startIndex2 = 0;
 
@@ -144,7 +146,7 @@ void AbstractFIFO::prepareToRead (int numWanted, int& startIndex1, int& blockSiz
 		blockSize2 = std::min (numWanted, ve);
 }
 
-void AbstractFIFO::finishedRead (int numRead) noexcept
+void AbstractFIFO::finishedRead (std::size_t numRead) noexcept
 {
 	LIMES_ASSERT (numRead >= 0 && numRead <= bufferSize);
 
@@ -156,19 +158,19 @@ void AbstractFIFO::finishedRead (int numRead) noexcept
 	validStart.store (newStart);
 }
 
-AbstractFIFO::ScopedRead AbstractFIFO::read (int num)
+AbstractFIFO::ScopedRead AbstractFIFO::read (std::size_t num)
 {
 	return ScopedRead { *this, num };
 }
 
-AbstractFIFO::ScopedWrite AbstractFIFO::write (int num)
+AbstractFIFO::ScopedWrite AbstractFIFO::write (std::size_t num)
 {
 	return ScopedWrite { *this, num };
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-AbstractFIFO::ScopedRead::ScopedRead (AbstractFIFO& fifo, int num)
+AbstractFIFO::ScopedRead::ScopedRead (AbstractFIFO& fifo, std::size_t num)
 	: numObjects (num), fifoModel (fifo)
 {
 	fifoModel.prepareToRead (num, startIndex1, blockSize1, startIndex2, blockSize2);
@@ -180,7 +182,7 @@ AbstractFIFO::ScopedRead::~ScopedRead() noexcept
 }
 
 
-AbstractFIFO::ScopedWrite::ScopedWrite (AbstractFIFO& fifo, int num)
+AbstractFIFO::ScopedWrite::ScopedWrite (AbstractFIFO& fifo, std::size_t num)
 	: numObjects (num), fifoModel (fifo)
 {
 	fifoModel.prepareToWrite (num, startIndex1, blockSize1, startIndex2, blockSize2);

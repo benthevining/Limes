@@ -41,8 +41,8 @@ Node::Node (const Node& other)
 	switch (type)
 	{
 		case (ObjectType::Null) : return;
-		// case (ObjectType::Object): data.object = other.data.object; return;
-		// case (ObjectType::Array): data.array = other.data.array; return;
+		case (ObjectType::Object): data.object = other.data.object; return;
+		case (ObjectType::Array): data.array = other.data.array; return;
 		case (ObjectType::Boolean) : data.boolean = other.data.boolean; return;
 		case (ObjectType::String) : data.string = other.data.string; return;
 		case (ObjectType::Number) : data.number = other.data.number; return;
@@ -58,8 +58,8 @@ Node& Node::operator= (const Node& other)
 	switch (type)
 	{
 		case (ObjectType::Null) : return *this;
-		// case (ObjectType::Object): data.object = other.data.object; return *this;
-		// case (ObjectType::Array): data.array = other.data.array; return *this;
+		case (ObjectType::Object): data.object = other.data.object; return *this;
+		case (ObjectType::Array): data.array = other.data.array; return *this;
 		case (ObjectType::Boolean) : data.boolean = other.data.boolean; return *this;
 		case (ObjectType::String) : data.string = other.data.string; return *this;
 		case (ObjectType::Number) : data.number = other.data.number; return *this;
@@ -341,7 +341,7 @@ Array& Node::getArray() noexcept
 Node& Node::operator= (const Array& value)
 {
 	LIMES_ASSERT (isArray());
-	// data.array = value;
+	data.array = value;
 	return *this;
 }
 
@@ -354,7 +354,7 @@ Node& Node::addChildArray (const Array& value, const std::string_view& childName
 {
 	auto& child = addChildArray (childName);
 
-	// child.getArray() = value;
+	child.getArray() = value;
 
 	return child;
 }
@@ -373,7 +373,7 @@ Object& Node::getObject() noexcept
 Node& Node::operator= (const Object& value)
 {
 	LIMES_ASSERT (isObject());
-	// data.object = value;
+	data.object = value;
 	return *this;
 }
 
@@ -386,7 +386,7 @@ Node& Node::addChildObject (const Object& value, const std::string_view& childNa
 {
 	auto& child = addChildObject (childName);
 
-	// child.getObject() = value;
+	child.getObject() = value;
 
 	return child;
 }

@@ -103,7 +103,7 @@ public:
 	///@}
 
 	/** Returns the filter order associated with the coefficients. */
-	int getFilterOrder() const noexcept;
+	std::size_t getFilterOrder() const noexcept;
 
 	/** @name Raw coefficient access */
 	///@{

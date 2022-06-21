@@ -21,7 +21,7 @@ namespace dsp
 {
 
 template <Sample SampleType>
-CircularBuffer<SampleType>::CircularBuffer (int initialCapacity)
+CircularBuffer<SampleType>::CircularBuffer (std::size_t initialCapacity)
 	: fifo (initialCapacity), storage (initialCapacity)
 {
 }
@@ -29,11 +29,11 @@ CircularBuffer<SampleType>::CircularBuffer (int initialCapacity)
 template <Sample SampleType>
 void CircularBuffer<SampleType>::storeSamples (const Buffer& samples)
 {
-	storeSamples (samples.getReadPointer (0), samples.getNumSamples());
+	storeSamples (samples.getReadPointer (0), static_cast<std::size_t>(samples.getNumSamples()));
 }
 
 template <Sample SampleType>
-void CircularBuffer<SampleType>::storeSamples (const SampleType* const samples, int numSamples)
+void CircularBuffer<SampleType>::storeSamples (const SampleType* const samples, std::size_t numSamples)
 {
 	LIMES_ASSERT (storage.getNumSamples() >= fifo.getCapacity());
 
@@ -58,11 +58,11 @@ void CircularBuffer<SampleType>::storeSamples (const SampleType* const samples, 
 template <Sample SampleType>
 void CircularBuffer<SampleType>::getSamples (Buffer& output)
 {
-	getSamples (output.getWritePointer (0), output.getNumSamples());
+	getSamples (output.getWritePointer (0), static_cast<std::size_t>(output.getNumSamples()));
 }
 
 template <Sample SampleType>
-void CircularBuffer<SampleType>::getSamples (SampleType* const output, int numSamples)
+void CircularBuffer<SampleType>::getSamples (SampleType* const output, std::size_t numSamples)
 {
 	LIMES_ASSERT (storage.getNumSamples() >= fifo.getCapacity());
 
@@ -89,10 +89,8 @@ void CircularBuffer<SampleType>::getSamples (SampleType* const output, int numSa
 }
 
 template <Sample SampleType>
-void CircularBuffer<SampleType>::resize (int newSize)
+void CircularBuffer<SampleType>::resize (std::size_t newSize)
 {
-	LIMES_ASSERT (newSize > 0);
-
 	// NB. avoids edge cases when attempting to store the full capacity's worth of samples
 	newSize += 1;
 

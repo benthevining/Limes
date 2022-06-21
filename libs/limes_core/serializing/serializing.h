@@ -216,7 +216,7 @@ public:
 	[[nodiscard]] std::string getXMLString() const;
 
 	/** Returns this %node (and any child nodes) encoded in the desired format. */
-	[[nodiscard]] std::string getString (StringType type) const;
+	[[nodiscard]] std::string getString (StringType stringType) const;
 	///@}
 
 	/** @name Type queries */

@@ -51,8 +51,8 @@ struct LIMES_EXPORT Dimensions final
 	}
 	///@}
 
-	LIMES_DEFAULT_MOVABLE (Dimensions);
-	LIMES_DEFAULT_COPYABLE (Dimensions);
+	LIMES_DEFAULT_MOVABLE (Dimensions)
+	LIMES_DEFAULT_COPYABLE (Dimensions)
 
 	/** Sets the width of these dimensions. */
 	Dimensions& setWidth (int newWidth);

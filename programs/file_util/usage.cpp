@@ -26,8 +26,8 @@ struct Command final
 	{
 	}
 
-	LIMES_DEFAULT_COPYABLE (Command);
-	LIMES_DEFAULT_MOVABLE (Command);
+	LIMES_DEFAULT_COPYABLE (Command)
+	LIMES_DEFAULT_MOVABLE (Command)
 
 	std::string name, signature, help;
 };

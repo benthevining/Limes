@@ -13,6 +13,8 @@
 #include "serializing.h"
 #include <limes_namespace.h>
 
+#include "../misc/IgnoreUnused.h"
+
 LIMES_BEGIN_NAMESPACE
 
 namespace serializing
@@ -20,6 +22,8 @@ namespace serializing
 
 Node parseXML (const std::string_view& xmlText)
 {
+	misc::ignore_unused(xmlText);
+
 	return Node { ObjectType::Null };
 }
 

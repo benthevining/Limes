@@ -68,7 +68,7 @@ private:
 
 	std::vector<SampleType> state;
 
-	int order = 0;
+	std::size_t order = 0;
 };
 
 }  // namespace dsp::filters

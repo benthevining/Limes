@@ -31,7 +31,7 @@ public:
 	using Buffer = AudioBuffer<SampleType, 1>;
 
 	/** Creates a CircularBuffer with an initial size. */
-	explicit CircularBuffer (int initialCapacity = 512);
+	explicit CircularBuffer (std::size_t initialCapacity = 512);
 
 	LIMES_NON_COPYABLE (CircularBuffer)
 	LIMES_NON_MOVABLE (CircularBuffer)
@@ -44,7 +44,7 @@ public:
 	/** Stores samples in the buffer.
 		If the buffer's capacity isn't big enough to hold all the passed samples, an assertion will be thrown.
 	*/
-	void storeSamples (const SampleType* const samples, int numSamples);
+	void storeSamples (const SampleType* const samples, std::size_t numSamples);
 
 	/** Reads samples from the buffer.
 		If you request more samples than are in the buffer, the first section of the output buffer will be filled with zeroes.
@@ -54,7 +54,7 @@ public:
 	/** Reads samples from the buffer.
 		If you request more samples than are in the buffer, the first section of the output buffer will be filled with zeroes.
 	*/
-	void getSamples (SampleType* const output, int numSamples);
+	void getSamples (SampleType* const output, std::size_t numSamples);
 
 	/** Returns the total capacity of the buffer. */
 	[[nodiscard]] int getCapacity() const noexcept;
@@ -65,7 +65,7 @@ public:
 	/** Changes the total capacity of the buffer. Calling this method also clears the buffer.
 		@see clear()
 	*/
-	void resize (int newSize);
+	void resize (std::size_t newSize);
 
 	/** Clears any previously stored data from the buffer. */
 	void clear();
