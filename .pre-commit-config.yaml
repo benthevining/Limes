@@ -195,7 +195,7 @@ repos:
             exclude_types: [python]
 
 ci:
-    skip: [cppcheck, check-jsonschema, hadolint]
+    skip: [cppcheck, check-jsonschema]
     autofix_commit_msg: 'style: pre-commit autofixes [skip ci]'
     autoupdate_commit_msg: 'chore: pre-commit autoupdate [skip ci]'
 
