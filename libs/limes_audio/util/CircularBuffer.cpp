@@ -29,7 +29,7 @@ CircularBuffer<SampleType>::CircularBuffer (std::size_t initialCapacity)
 template <Sample SampleType>
 void CircularBuffer<SampleType>::storeSamples (const Buffer& samples)
 {
-	storeSamples (samples.getReadPointer (0), static_cast<std::size_t>(samples.getNumSamples()));
+	storeSamples (samples.getReadPointer (0), static_cast<std::size_t> (samples.getNumSamples()));
 }
 
 template <Sample SampleType>
@@ -58,7 +58,7 @@ void CircularBuffer<SampleType>::storeSamples (const SampleType* const samples, 
 template <Sample SampleType>
 void CircularBuffer<SampleType>::getSamples (Buffer& output)
 {
-	getSamples (output.getWritePointer (0), static_cast<std::size_t>(output.getNumSamples()));
+	getSamples (output.getWritePointer (0), static_cast<std::size_t> (output.getNumSamples()));
 }
 
 template <Sample SampleType>

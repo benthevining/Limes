@@ -96,7 +96,7 @@ public:
 	///@{
 	/** Note that this performs a pointer comparison, this doesn't compare the contents of the strings! */
 	bool operator> (const Pointer& other) const noexcept;
-	bool operator< (const Pointer& other) const noexcept;
+	bool operator<(const Pointer& other) const noexcept;
 	///@}
 
 	/** Returns true if this pointer is not null.

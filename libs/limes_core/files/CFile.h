@@ -76,7 +76,7 @@ public:
 	/** Returns the pointer this object holds.
 		Note that the CFile object still retains ownership of this pointer, you should not free it!
 	 */
-	std::FILE* get() const noexcept;
+	[[nodiscard]] std::FILE* get() const noexcept;
 
 	/** Returns the pointer this object holds. */
 	std::FILE* operator->() const noexcept;
@@ -97,10 +97,10 @@ public:
 	bool open (const Path& filepath, Mode mode) noexcept;
 
 	/** Returns true if the file is currently open. */
-	bool isOpen() const noexcept;
+	[[nodiscard]] bool isOpen() const noexcept;
 
 	/** Evaluates to true if the file is currently open. */
-	operator bool() const noexcept;
+	explicit operator bool() const noexcept;
 
 private:
 

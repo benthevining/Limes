@@ -81,7 +81,7 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* con
 
 			monoStorage.clear();
 
-			const auto num = static_cast<std::size_t>(numSamples);
+			const auto num = static_cast<std::size_t> (numSamples);
 
 			monoStorage.copyFrom (leftIn, num, 0);
 

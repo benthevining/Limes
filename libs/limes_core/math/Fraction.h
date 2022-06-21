@@ -78,13 +78,13 @@ struct LIMES_EXPORT Fraction final
 	[[nodiscard]] constexpr bool operator> (const Fraction<T>& other) const noexcept;
 
 	template <Scalar T>
-	[[nodiscard]] constexpr bool operator< (const Fraction<T>& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const Fraction<T>& other) const noexcept;
 
 	template <Scalar T>
 	[[nodiscard]] constexpr bool operator> (T value) const noexcept;
 
 	template <Scalar T>
-	[[nodiscard]] constexpr bool operator< (T value) const noexcept;
+	[[nodiscard]] constexpr bool operator<(T value) const noexcept;
 	///@}
 
 	/** @name Addition */
@@ -213,7 +213,7 @@ constexpr bool Fraction<ValueType>::operator> (const Fraction<T>& other) const n
 
 template <Scalar ValueType>
 template <Scalar T>
-constexpr bool Fraction<ValueType>::operator< (const Fraction<T>& other) const noexcept
+constexpr bool Fraction<ValueType>::operator<(const Fraction<T>& other) const noexcept
 {
 	if (isNegative() && ! other.isNegative())
 		return true;
@@ -232,7 +232,7 @@ constexpr bool Fraction<ValueType>::operator> (T value) const noexcept
 
 template <Scalar ValueType>
 template <Scalar T>
-constexpr bool Fraction<ValueType>::operator< (T value) const noexcept
+constexpr bool Fraction<ValueType>::operator<(T value) const noexcept
 {
 	// clang-format off
 	return (T) *this < value;	// NOLINT

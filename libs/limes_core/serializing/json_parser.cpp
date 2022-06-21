@@ -236,7 +236,7 @@ Node parseJSON (const std::string_view& jsonText)
 					continue;
 				}
 
-				if (std::isspace (static_cast<int>(c)) != 0
+				if (std::isspace (static_cast<int> (c)) != 0
 					|| c == ',' || c == '}' || c == ']' || c == 0)
 				{
 					current					= lastPos;

@@ -196,7 +196,7 @@ bool Pointer::operator> (const Pointer& other) const noexcept
 	return text > other.text;
 }
 
-bool Pointer::operator< (const Pointer& other) const noexcept
+bool Pointer::operator<(const Pointer& other) const noexcept
 {
 	return text < other.text;
 }

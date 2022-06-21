@@ -88,7 +88,7 @@ public:
 	}
 
 	/** Returns true if this %pitch is lower than the other one. */
-	[[nodiscard]] constexpr bool operator< (const Pitch& other) const noexcept
+	[[nodiscard]] constexpr bool operator<(const Pitch& other) const noexcept
 	{
 		return midiPitch < other.midiPitch;
 	}

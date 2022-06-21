@@ -98,12 +98,12 @@ PerlinNoise<SampleType>::PerlinNoise (int64_t randomSeed)
 
 	for (auto i = state.size() - 1; i >= 1; --i)
 	{
-		const auto j = r.next (0, static_cast<int>(i) + 1);
+		const auto j = r.next (0, static_cast<int> (i) + 1);
 
-		std::swap (state[i], state[static_cast<std::vector<int>::size_type>(j)]);
+		std::swap (state[i], state[static_cast<std::vector<int>::size_type> (j)]);
 	}
 
-	for (auto i = std::vector<int>::size_type(0); i < state.size(); ++i)
+	for (auto i = std::vector<int>::size_type (0); i < state.size(); ++i)
 		state.emplace_back (state[i]);
 }
 
@@ -126,27 +126,27 @@ SampleType PerlinNoise<SampleType>::getNextSample (SampleType x, SampleType y, S
 	const auto Y = static_cast<int> (yFloor) & 255;
 	const auto Z = static_cast<int> (zFloor) & 255;
 
-	const auto idxA	 = state[static_cast<VecSizeT>(X)] + Y;
-	const auto idxAA = state[static_cast<VecSizeT>(idxA)] + Z;
-	const auto idxAB = state[static_cast<VecSizeT>(idxA + 1)] + Z;
-	const auto idxB	 = state[static_cast<VecSizeT>(X + 1)] + Y;
-	const auto idxBA = state[static_cast<VecSizeT>(idxB)] + Z;
-	const auto idxBB = state[static_cast<VecSizeT>(idxB + 1)] + Z;
+	const auto idxA	 = state[static_cast<VecSizeT> (X)] + Y;
+	const auto idxAA = state[static_cast<VecSizeT> (idxA)] + Z;
+	const auto idxAB = state[static_cast<VecSizeT> (idxA + 1)] + Z;
+	const auto idxB	 = state[static_cast<VecSizeT> (X + 1)] + Y;
+	const auto idxBA = state[static_cast<VecSizeT> (idxB)] + Z;
+	const auto idxBB = state[static_cast<VecSizeT> (idxB + 1)] + Z;
 
-	const auto lerp1 = std::lerp (grad (state[static_cast<VecSizeT>(idxAB + 1)], x, y - 1, z - 1),
-								  grad (state[static_cast<VecSizeT>(idxBB + 1)], x - 1, y - 1, z - 1),
+	const auto lerp1 = std::lerp (grad (state[static_cast<VecSizeT> (idxAB + 1)], x, y - 1, z - 1),
+								  grad (state[static_cast<VecSizeT> (idxBB + 1)], x - 1, y - 1, z - 1),
 								  u);
 
-	const auto lerp2 = std::lerp (grad (state[static_cast<VecSizeT>(idxAA + 1)], x, y, z - 1),
-								  grad (state[static_cast<VecSizeT>(idxBA + 1)], x - 1, y, z - 1),
+	const auto lerp2 = std::lerp (grad (state[static_cast<VecSizeT> (idxAA + 1)], x, y, z - 1),
+								  grad (state[static_cast<VecSizeT> (idxBA + 1)], x - 1, y, z - 1),
 								  u);
 
-	const auto lerp3 = std::lerp (grad (state[static_cast<VecSizeT>(idxAB)], x, y - 1, z),
-								  grad (state[static_cast<VecSizeT>(idxBB)], x - 1, y - 1, z),
+	const auto lerp3 = std::lerp (grad (state[static_cast<VecSizeT> (idxAB)], x, y - 1, z),
+								  grad (state[static_cast<VecSizeT> (idxBB)], x - 1, y - 1, z),
 								  u);
 
-	const auto lerp4 = std::lerp (grad (state[static_cast<VecSizeT>(idxAA)], x, y, z),
-								  grad (state[static_cast<VecSizeT>(idxBA)], x - 1, y, z),
+	const auto lerp4 = std::lerp (grad (state[static_cast<VecSizeT> (idxAA)], x, y, z),
+								  grad (state[static_cast<VecSizeT> (idxBA)], x - 1, y, z),
 								  u);
 
 	const auto v = fade (y);

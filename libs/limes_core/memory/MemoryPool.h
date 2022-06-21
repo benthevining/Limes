@@ -52,7 +52,7 @@ public:
 		@param chunkSize The size of the individual memory "chunks" that can be doled out as needed. It is recommended for this to be a divisor of /c storageSizeBytes .
 		@throws std::runtime_error An exception is thrown if the allocation of the memory pool's internal memory block fails.
 	 */
-	explicit MemoryPool (std::size_t storageSizeBytes, std::size_t chunkSize = 32);
+	explicit MemoryPool (std::size_t storageSizeBytes, std::size_t chunkSize = 32);	 // NOLINT
 
 	/** Creates a MemoryPool that can hold a specified number of objects of a certain type.
 		The created pool's total size will be \c  desiredCapacity*sizeof(ObjectType) and its chunk size will be \c sizeof(ObjectType) .
@@ -126,7 +126,7 @@ public:
 		@see destruct
 	 */
 	template <typename ObjectType>
-	void deallocate (ObjectType* const object) noexcept;
+	void deallocate (ObjectType* object) noexcept;
 
 	/** Calls an object's destructor and frees its memory from the pool. */
 	template <typename ObjectType>
@@ -147,7 +147,7 @@ private:
 
 	struct Chunk final
 	{
-		explicit Chunk (std::byte* const ptr) noexcept;
+		explicit Chunk (std::byte* ptr) noexcept;
 
 		std::byte* const location;
 

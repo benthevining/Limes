@@ -115,13 +115,13 @@ public:
 
 private:
 
-	void prepareToWrite (std::size_t numToWrite,
+	void prepareToWrite (std::size_t  numToWrite,
 						 std::size_t& startIndex1, std::size_t& blockSize1,
 						 std::size_t& startIndex2, std::size_t& blockSize2) const noexcept;
 
 	void finishedWrite (std::size_t numWritten) noexcept;
 
-	void prepareToRead (std::size_t numWanted,
+	void prepareToRead (std::size_t	 numWanted,
 						std::size_t& startIndex1, std::size_t& blockSize1,
 						std::size_t& startIndex2, std::size_t& blockSize2) const noexcept;
 

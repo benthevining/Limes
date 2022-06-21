@@ -59,7 +59,7 @@
 /// @endcond
 
 #if LIMES_VECOPS_USE_FFTW
-	LIMES_COMPILER_MESSAGE("limes_vecops: using FFTW for FFT")
+LIMES_COMPILER_MESSAGE ("limes_vecops: using FFTW for FFT")
 #endif
 
 LIMES_BEGIN_NAMESPACE

@@ -32,7 +32,7 @@ int VelocityMapper::getSensitivity() const noexcept
 	return sensitivity;
 }
 
-float VelocityMapper::getGainForVelocity (float midiVelocity)
+float VelocityMapper::getGainForVelocity (float midiVelocity) const
 {
 	LIMES_ASSERT (midiVelocity >= 0.f && midiVelocity <= 1.f);
 
@@ -41,7 +41,7 @@ float VelocityMapper::getGainForVelocity (float midiVelocity)
 	return (1.f - midiVelocity) * (1.f - sens) + midiVelocity;
 }
 
-float VelocityMapper::getGainForVelocity (int midiVelocity)
+float VelocityMapper::getGainForVelocity (int midiVelocity) const
 {
 	LIMES_ASSERT (midiVelocity >= 0 && midiVelocity <= 127);
 

@@ -28,7 +28,7 @@ AbstractFIFO::AbstractFIFO (std::size_t initialSize)
 
 int AbstractFIFO::getCapacity() const noexcept
 {
-	return static_cast<int>(bufferSize);
+	return static_cast<int> (bufferSize);
 }
 
 int AbstractFIFO::getFreeSpace() const noexcept
@@ -42,9 +42,9 @@ int AbstractFIFO::getNumStoredObjects() const noexcept
 	const auto ve = validEnd.load();
 
 	if (ve >= vs)
-		return static_cast<int>(ve - vs);
+		return static_cast<int> (ve - vs);
 
-	return static_cast<int>(bufferSize - (vs - ve));
+	return static_cast<int> (bufferSize - (vs - ve));
 }
 
 void AbstractFIFO::reset()
@@ -59,7 +59,7 @@ void AbstractFIFO::setCapacity (std::size_t newCapacity)
 	bufferSize = newCapacity;
 }
 
-void AbstractFIFO::prepareToWrite (std::size_t numToWrite,
+void AbstractFIFO::prepareToWrite (std::size_t	numToWrite,
 								   std::size_t& startIndex1, std::size_t& blockSize1,
 								   std::size_t& startIndex2, std::size_t& blockSize2) const noexcept
 {
@@ -109,7 +109,7 @@ void AbstractFIFO::finishedWrite (std::size_t numWritten) noexcept
 	validEnd.store (newEnd);
 }
 
-void AbstractFIFO::prepareToRead (std::size_t numWanted,
+void AbstractFIFO::prepareToRead (std::size_t  numWanted,
 								  std::size_t& startIndex1, std::size_t& blockSize1,
 								  std::size_t& startIndex2, std::size_t& blockSize2) const noexcept
 {

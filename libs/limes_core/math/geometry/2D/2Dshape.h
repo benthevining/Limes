@@ -14,6 +14,7 @@
 
 #include <limes_namespace.h>
 #include <limes_export.h>
+#include "../../mathFunctions.h"  // for concept Scalar - IWYU pragma: keep
 
 /** @defgroup geometry Geometry
 	Classes representing geometric shapes.

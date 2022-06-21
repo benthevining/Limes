@@ -91,7 +91,7 @@ public:
 
 		auto* const writing = storage.data();
 
-		for (auto i = scopedWrite.startIndex1, j = 0; i < scopedWrite.blockSize1; ++i, ++j)
+		for (auto i = scopedWrite.startIndex1, j = 0UL; i < scopedWrite.blockSize1; ++i, ++j)
 			storage[i] = data[j];
 
 		for (auto i = scopedWrite.startIndex2, j = scopedWrite.blockSize1; i < scopedWrite.blockSize2; ++i, ++j)
@@ -122,7 +122,7 @@ public:
 
 		const auto* const reading = storage.data();
 
-		for (auto i = scopedRead.startIndex1, j = 0; i < scopedRead.blockSize1; ++i, ++j)
+		for (auto i = scopedRead.startIndex1, j = 0UL; i < scopedRead.blockSize1; ++i, ++j)
 			output[j] = reading[i];
 
 		for (auto i = scopedRead.startIndex2, j = scopedRead.blockSize1; i < scopedRead.blockSize2; ++i, ++j)

@@ -76,7 +76,7 @@ public:
 	}
 
 	/** Returns true if this microtonal %interval is smaller than the other one. */
-	[[nodiscard]] constexpr bool operator< (const MicrotonalInterval& other)
+	[[nodiscard]] constexpr bool operator<(const MicrotonalInterval& other)
 	{
 		return std::abs (semitones) < std::abs (other.semitones);
 	}

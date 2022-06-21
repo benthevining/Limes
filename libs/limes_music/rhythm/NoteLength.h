@@ -37,7 +37,7 @@ public:
 
 	[[nodiscard]] constexpr bool operator> (const NoteLength& other) const noexcept;
 
-	[[nodiscard]] constexpr bool operator< (const NoteLength& other) const noexcept;
+	[[nodiscard]] constexpr bool operator<(const NoteLength& other) const noexcept;
 
 	[[nodiscard]] constexpr math::Fraction<int> getRelativeValue() const noexcept;
 

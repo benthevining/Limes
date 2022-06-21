@@ -23,7 +23,7 @@ namespace dsp::osc
 DetunableModel::DetunableModel (std::size_t initialNumVoices)  // cppcheck-suppress uninitMemberVar
 	: numVoices (initialNumVoices)
 {
-	frequencies.reserve (static_cast<std::vector<float>::size_type>(numVoices));
+	frequencies.reserve (static_cast<std::vector<float>::size_type> (numVoices));
 }
 
 void DetunableModel::setFrequency (float frequency)
@@ -70,7 +70,7 @@ void DetunableModel::changeNumVoices (std::size_t newNumVoices)
 
 int DetunableModel::getNumVoices() const noexcept
 {
-	return static_cast<int>(numVoices);
+	return static_cast<int> (numVoices);
 }
 
 float DetunableModel::getFrequency (std::size_t voiceNumber) const

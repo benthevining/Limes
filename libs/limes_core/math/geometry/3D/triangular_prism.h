@@ -49,6 +49,8 @@ public:
 	LIMES_CONSTEXPR_COPYABLE (TriangularPrism)
 	LIMES_CONSTEXPR_MOVABLE (TriangularPrism)
 
+	~TriangularPrism() = default;
+
 	/** Returns the surface area of the prism.
 		The formula is @f$ A=(length*(base+height+hypot))+(base*2*\frac{base*height}{2*base}) @f$.
 	 */

@@ -31,7 +31,7 @@ void Filter<SampleType>::reset (SampleType resetToValue) noexcept
 {
 	order = coefs.getFilterOrder();
 
-	state.reserve (static_cast<typename std::vector<SampleType>::size_type>(order));
+	state.reserve (static_cast<typename std::vector<SampleType>::size_type> (order));
 
 	alg::fill (state, resetToValue);
 }

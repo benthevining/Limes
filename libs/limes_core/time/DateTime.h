@@ -79,7 +79,7 @@ public:
 	[[nodiscard]] bool isBefore (const DateTime& other) const noexcept;
 	[[nodiscard]] bool isAfter (const DateTime& other) const noexcept;
 	[[nodiscard]] bool operator> (const DateTime& other) const noexcept;
-	[[nodiscard]] bool operator< (const DateTime& other) const noexcept;
+	[[nodiscard]] bool operator<(const DateTime& other) const noexcept;
 	///@}
 
 	/** @name Equality comparisons */

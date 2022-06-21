@@ -148,7 +148,7 @@ public:
 	[[nodiscard]] constexpr const FileInfo* end() const noexcept { return m_end; }
 
 	/** Returns the number of FileInfo objects in this list. */
-	[[nodiscard]] constexpr std::size_t size() const noexcept { return static_cast<std::size_t>(std::distance (m_begin, m_end)); }
+	[[nodiscard]] constexpr std::size_t size() const noexcept { return static_cast<std::size_t> (std::distance (m_begin, m_end)); }
 
 	/** Searches for a file in the list with the given name.
 		The list is first searched for an exact match with both the file's original name and extension; if none is found, then the list is searched for a match with just the filename portion.

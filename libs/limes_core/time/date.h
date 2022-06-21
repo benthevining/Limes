@@ -113,7 +113,7 @@ public:
 	[[nodiscard]] bool isBefore (const Date& other) const noexcept;
 	[[nodiscard]] bool isAfter (const Date& other) const noexcept;
 	[[nodiscard]] bool operator> (const Date& other) const noexcept;
-	[[nodiscard]] bool operator< (const Date& other) const noexcept;
+	[[nodiscard]] bool operator<(const Date& other) const noexcept;
 	///@}
 
 	/** @name Equality comparisons */

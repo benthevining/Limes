@@ -28,7 +28,7 @@ namespace time
 {
 
 Time::Time (std::time_t time)
-	: Time (*std::localtime (&time))
+	: Time (*std::localtime (&time))  // NOLINT
 {
 }
 
@@ -157,7 +157,7 @@ bool Time::operator> (const Time& other) const noexcept
 	return isAfter (other);
 }
 
-bool Time::operator< (const Time& other) const noexcept
+bool Time::operator<(const Time& other) const noexcept
 {
 	return isBefore (other);
 }

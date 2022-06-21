@@ -47,8 +47,8 @@ public:
 		Maps an incoming MIDI velocity value to an output gain value between 0 and 1, based on the sensitivity that's been set.
 	 */
 	///@{
-	[[nodiscard]] float getGainForVelocity (float midiVelocity);
-	[[nodiscard]] float getGainForVelocity (int midiVelocity);
+	[[nodiscard]] float getGainForVelocity (float midiVelocity) const;
+	[[nodiscard]] float getGainForVelocity (int midiVelocity) const;
 	///@}
 
 private:

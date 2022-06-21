@@ -116,7 +116,7 @@ void Shifter<SampleType>::samplerateChanged() noexcept
 template <Sample SampleType>
 void Shifter<SampleType>::latencyChanged (int newLatency)
 {
-	grains.resize (static_cast<typename std::vector<Grain>::size_type>(newLatency / 2));
+	grains.resize (static_cast<typename std::vector<Grain>::size_type> (newLatency / 2));
 }
 
 template <Sample SampleType>

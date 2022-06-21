@@ -164,7 +164,7 @@ bool Date::operator> (const Date& other) const noexcept
 	return isAfter (other);
 }
 
-bool Date::operator< (const Date& other) const noexcept
+bool Date::operator<(const Date& other) const noexcept
 {
 	return isBefore (other);
 }

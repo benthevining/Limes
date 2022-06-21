@@ -106,7 +106,7 @@ bool DateTime::operator> (const DateTime& other) const noexcept
 	return isAfter (other);
 }
 
-bool DateTime::operator< (const DateTime& other) const noexcept
+bool DateTime::operator<(const DateTime& other) const noexcept
 {
 	return isBefore (other);
 }

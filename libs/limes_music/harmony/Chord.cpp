@@ -44,7 +44,7 @@ Chord::Chord (const std::initializer_list<Pitch>& midiNotes)
 
 int Chord::getNumPitches() const
 {
-	return static_cast<int>(pitches.size());
+	return static_cast<int> (pitches.size());
 }
 
 Pitch Chord::getLowestPitch() const
@@ -106,7 +106,7 @@ std::vector<PitchClass> Chord::getPitchClasses() const
 
 int Chord::getNumUniquePitchClasses() const
 {
-	return static_cast<int>(getPitchClasses().size());
+	return static_cast<int> (getPitchClasses().size());
 }
 
 std::vector<Pitch> Chord::getPitches() const

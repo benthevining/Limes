@@ -33,7 +33,7 @@ void displayVersionInfo()
 			  << std::endl;
 }
 
-void parseAndExecute (int argc, char** argv)
+void parseAndExecute (int argc, char** argv)  // NOLINT
 {
 	if (argc == 1)
 	{
@@ -70,7 +70,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 2)
 		{
 			std::cerr << "Error: Input path not specified in call to absolute" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		std::string basePath;
@@ -87,7 +87,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 3)
 		{
 			std::cerr << "Error: filename and content must be specified in call to append" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		bool strict = false;
@@ -106,7 +106,7 @@ void parseAndExecute (int argc, char** argv)
 
 	if (mode == "cat")
 	{
-		std::vector<std::string> items;
+		std::vector<std::string> items;	 // NOLINT
 
 		std::string outputFile;
 
@@ -124,7 +124,7 @@ void parseAndExecute (int argc, char** argv)
 				else
 				{
 					std::cerr << "Error: argument --output requires a filename" << std::endl;
-					std::exit (EXIT_FAILURE);
+					std::exit (EXIT_FAILURE);  // NOLINT
 				}
 			}
 			else
@@ -142,7 +142,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 2)
 		{
 			std::cerr << "Error: Directory name not specified in call to cd" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		fileutil::cd (std::string { argv[2] });
@@ -154,10 +154,10 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 3)
 		{
 			std::cerr << "Error: at least one input and a destination must be specified in call to copy" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
-		std::vector<std::string> items;
+		std::vector<std::string> items;	 // NOLINT
 
 		for (auto i = 2; i < argc - 1; ++i)
 			items.emplace_back (argv[i]);
@@ -171,7 +171,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 3)
 		{
 			std::cerr << "Error: two paths must be specified in call to equiv" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		bool error = false;
@@ -190,7 +190,7 @@ void parseAndExecute (int argc, char** argv)
 
 	if (mode == "exists")
 	{
-		std::vector<std::string> items;
+		std::vector<std::string> items;	 // NOLINT
 
 		bool error = false;
 
@@ -213,7 +213,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 2)
 		{
 			std::cerr << "Error: Symlink name not specified in call to follow_symlink" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		const auto recurse = [argc, argv]
@@ -262,7 +262,7 @@ void parseAndExecute (int argc, char** argv)
 				if (i + 1 >= argc)
 				{
 					std::cerr << "Error: directory not specified with --dir option" << std::endl;
-					std::exit (EXIT_FAILURE);
+					std::exit (EXIT_FAILURE);  // NOLINT
 				}
 
 				dir = argv[i + 1];
@@ -276,7 +276,7 @@ void parseAndExecute (int argc, char** argv)
 		if (expr.empty())
 		{
 			std::cerr << "Error: globbing expression not specified in call to glob" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		fileutil::glob (expr, dir, recurse, error);
@@ -288,7 +288,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 3)
 		{
 			std::cerr << "Error: hash type and filename must be specified in call to hash" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		fileutil::hash (std::string { argv[2] }, std::string { argv[3] });
@@ -300,7 +300,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 3)
 		{
 			std::cerr << "Error: link name and target must be specified in call to ln" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		fileutil::ln (std::string { argv[2] }, std::string { argv[3] });
@@ -322,7 +322,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 2)
 		{
 			std::cerr << "Error: Directory name not specified in call to mkdir" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		fileutil::mkdir (std::string { argv[2] });
@@ -334,7 +334,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 2)
 		{
 			std::cerr << "Error: Item name not specified in call to modtime" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		fileutil::modtime (std::string { argv[2] });
@@ -346,7 +346,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 2)
 		{
 			std::cerr << "Error: Item name not specified in call to native" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		fileutil::native (std::string { argv[2] });
@@ -364,7 +364,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 3)
 		{
 			std::cerr << "Error: filename and content must be specified in call to prepend" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		bool strict = false;
@@ -392,7 +392,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 2)
 		{
 			std::cerr << "Error: input path must be specified in call to relative" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		std::string basePath;
@@ -409,7 +409,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 3)
 		{
 			std::cerr << "Error: old name and new name must be specified in call to rename" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		fileutil::rename (std::string { argv[2] }, std::string { argv[3] });
@@ -418,7 +418,7 @@ void parseAndExecute (int argc, char** argv)
 
 	if (mode == "rm")
 	{
-		std::vector<std::string> items;
+		std::vector<std::string> items;	 // NOLINT
 
 		for (auto i = 2; i < argc; ++i)
 			items.emplace_back (argv[i]);
@@ -454,7 +454,7 @@ void parseAndExecute (int argc, char** argv)
 	{
 		bool allowCreation = true;
 
-		std::vector<std::string> items;
+		std::vector<std::string> items;	 // NOLINT
 
 		for (auto i = 2; i < argc; ++i)
 		{
@@ -475,7 +475,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 2)
 		{
 			std::cerr << "Error: path must be specified in call to type" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		fileutil::type (std::string { argv[2] });
@@ -497,7 +497,7 @@ void parseAndExecute (int argc, char** argv)
 		if (argc < 3)
 		{
 			std::cerr << "Error: filename and content must be specified in call to write" << std::endl;
-			std::exit (EXIT_FAILURE);
+			std::exit (EXIT_FAILURE);  // NOLINT
 		}
 
 		bool allowOverwrite = true;
@@ -516,7 +516,7 @@ void parseAndExecute (int argc, char** argv)
 
 	std::cerr << "Error: Unknown mode requested: " << mode << std::endl;
 	std::cout << "Run with no arguments or with 'help' to view usage." << std::endl;
-	std::exit (EXIT_FAILURE);
+	std::exit (EXIT_FAILURE);  // NOLINT
 }
 
 }  // namespace fileutil

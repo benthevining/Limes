@@ -148,9 +148,9 @@
 	@ingroup preprocessor
 	@see LIMES_NON_MOVABLE, LIMES_DEFAULT_COPYABLE
  */
-#define LIMES_NON_COPYABLE(ClassName) \
-	/** @name Copying */              \
-	/** @{ */                                             \
+#define LIMES_NON_COPYABLE(ClassName)                 \
+	/** @name Copying */                              \
+	/** @{ */                                         \
 	/** %##ClassName is not copyable. */              \
 	ClassName (const ClassName&) = delete;            \
 	/** %##ClassName is not copyable. */              \
@@ -170,9 +170,9 @@
 	@ingroup preprocessor
 	@see LIMES_NON_COPYABLE, LIMES_DEFAULT_MOVABLE
  */
-#define LIMES_NON_MOVABLE(ClassName) \
-	/** @name Moving */              \
-	/** @{ */                                      \
+#define LIMES_NON_MOVABLE(ClassName)             \
+	/** @name Moving */                          \
+	/** @{ */                                    \
 	/** %##ClassName is not movable. */          \
 	ClassName (ClassName&&) = delete;            \
 	/** %##ClassName is not movable. */          \
@@ -196,12 +196,12 @@
 	@ingroup preprocessor
 	@see LIMES_CONSTEXPR_COPYABLE, LIMES_NON_COPYABLE, LIMES_DEFAULT_MOVABLE
  */
-#define LIMES_DEFAULT_COPYABLE(ClassName) \
-	/** @name Copying */                  \
-	/** @{ */                                    \
-	/** %##ClassName is default copyable. */ \
-	ClassName (const ClassName&) = default;  \
-	/** %##ClassName is default copyable. */ \
+#define LIMES_DEFAULT_COPYABLE(ClassName)              \
+	/** @name Copying */                               \
+	/** @{ */                                          \
+	/** %##ClassName is default copyable. */           \
+	ClassName (const ClassName&) = default;            \
+	/** %##ClassName is default copyable. */           \
 	ClassName& operator= (const ClassName&) = default; \
 	///@}
 
@@ -218,12 +218,12 @@
 	@ingroup preprocessor
 	@see LIMES_CONSTEXPR_MOVABLE, LIMES_NON_MOVABLE, LIMES_DEFAULT_COPYABLE
  */
-#define LIMES_DEFAULT_MOVABLE(ClassName) \
-	/** @name Moving */                  \
-	/** @{ */                                   \
-	/** %##ClassName is default movable. */ \
-	ClassName (ClassName&&) = default;      \
-	/** %##ClassName is default movable. */ \
+#define LIMES_DEFAULT_MOVABLE(ClassName)          \
+	/** @name Moving */                           \
+	/** @{ */                                     \
+	/** %##ClassName is default movable. */       \
+	ClassName (ClassName&&) = default;            \
+	/** %##ClassName is default movable. */       \
 	ClassName& operator= (ClassName&&) = default; \
 	///@}
 
@@ -244,12 +244,12 @@
 	@see LIMES_DEFAULT_COPYABLE, LIMES_NON_COPYABLE, LIMES_CONSTEXPR_MOVABLE
 	@ingroup preprocessor
  */
-#define LIMES_CONSTEXPR_COPYABLE(ClassName) \
-	/** @name Copying */                    \
+#define LIMES_CONSTEXPR_COPYABLE(ClassName)                      \
+	/** @name Copying */                                         \
 	/** @{ */                                                    \
-	/** %##ClassName is default copyable at compile time. */ \
-	constexpr ClassName (const ClassName&) = default;        \
-	/** %##ClassName is default copyable at compile time. */ \
+	/** %##ClassName is default copyable at compile time. */     \
+	constexpr ClassName (const ClassName&) = default;            \
+	/** %##ClassName is default copyable at compile time. */     \
 	constexpr ClassName& operator= (const ClassName&) = default; \
 	///@}
 
@@ -266,11 +266,11 @@
 	@see LIMES_DEFAULT_MOVABLE, LIMES_NON_MOVABLE, LIMES_CONSTEXPR_COPYABLE
 	@ingroup preprocessor
  */
-#define LIMES_CONSTEXPR_MOVABLE(ClassName) \
-	/** @name Moving */                    \
-	/** @{ */                                                   \
-	/** %##ClassName is default movable at compile time. */ \
-	constexpr ClassName (ClassName&&) = default;            \
-	/** %##ClassName is default movable at compile time. */ \
-	constexpr ClassName& operator= (ClassName&&) = default; \
+#define LIMES_CONSTEXPR_MOVABLE(ClassName)                           \
+	/** @name Moving */                                              \
+	/** @{ */                                                        \
+	/** %##ClassName is default movable at compile time. */          \
+	constexpr ClassName (ClassName&&) noexcept = default;            \
+	/** %##ClassName is default movable at compile time. */          \
+	constexpr ClassName& operator= (ClassName&&) noexcept = default; \
 	///@}

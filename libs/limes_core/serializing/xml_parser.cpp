@@ -22,7 +22,7 @@ namespace serializing
 
 Node parseXML (const std::string_view& xmlText)
 {
-	misc::ignore_unused(xmlText);
+	misc::ignore_unused (xmlText);
 
 	return Node { ObjectType::Null };
 }

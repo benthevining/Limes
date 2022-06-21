@@ -85,7 +85,7 @@ public:
 	const SampleType* getReadPointer (std::size_t channel, std::size_t sampleIndex = 0) const noexcept
 	{
 		LIMES_ASSERT (channel < NumChannels);
-		LIMES_ASSERT (static_cast<int>(sampleIndex) < getNumSamples());
+		LIMES_ASSERT (static_cast<int> (sampleIndex) < getNumSamples());
 
 		return channels[channel] + sampleIndex;
 	}
@@ -93,7 +93,7 @@ public:
 	SampleType* getWritePointer (std::size_t channel, std::size_t sampleIndex = 0) noexcept
 	{
 		LIMES_ASSERT (channel < NumChannels);
-		LIMES_ASSERT (static_cast<int>(sampleIndex) < getNumSamples());
+		LIMES_ASSERT (static_cast<int> (sampleIndex) < getNumSamples());
 
 		return channels[channel] + sampleIndex;
 	}
@@ -128,8 +128,8 @@ public:
 
 	void resize (int newNumSamples, bool clearNewSamples = true)
 	{
-		LIMES_ASSERT(newNumSamples >= 0);
-		resize(static_cast<std::size_t>(newNumSamples), clearNewSamples);
+		LIMES_ASSERT (newNumSamples >= 0);
+		resize (static_cast<std::size_t> (newNumSamples), clearNewSamples);
 	}
 
 	void deallocate()
@@ -149,7 +149,7 @@ public:
 	SampleType getSample (std::size_t channel, std::size_t sampleIndex) const noexcept
 	{
 		LIMES_ASSERT (channel < NumChannels);
-		LIMES_ASSERT (static_cast<int>(sampleIndex) < getNumSamples());
+		LIMES_ASSERT (static_cast<int> (sampleIndex) < getNumSamples());
 
 		return channels[channel][sampleIndex];
 	}
@@ -189,7 +189,7 @@ public:
 	void copyFrom (const SampleType* data, std::size_t dataSize, std::size_t destChannel, std::size_t destStartSample = 0) noexcept
 	{
 		LIMES_ASSERT (destChannel < NumChannels);
-		LIMES_ASSERT (static_cast<int>(destStartSample + dataSize) <= getNumSamples());
+		LIMES_ASSERT (static_cast<int> (destStartSample + dataSize) <= getNumSamples());
 
 		vecops::copy<SampleType> (channels[destChannel] + destStartSample, data, dataSize);
 	}
@@ -197,7 +197,7 @@ public:
 	void addFrom (const SampleType* data, std::size_t dataSize, std::size_t destChannel, std::size_t destStartSample = 0) noexcept
 	{
 		LIMES_ASSERT (destChannel < NumChannels);
-		LIMES_ASSERT (static_cast<int>(destStartSample + dataSize) <= getNumSamples());
+		LIMES_ASSERT (static_cast<int> (destStartSample + dataSize) <= getNumSamples());
 
 		vecops::add<SampleType> (channels[destChannel] + destStartSample, dataSize, data);
 	}
