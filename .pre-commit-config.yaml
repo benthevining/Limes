@@ -16,11 +16,11 @@ repos:
             always_run: true
 
   # git
-    - repo: https://github.com/jorisroovers/gitlint
-      rev: v0.17.0
-      hooks:
-          - id: gitlint
-            always_run: true
+    # - repo: https://github.com/jorisroovers/gitlint
+    #   rev: v0.17.0
+    #   hooks:
+    #       - id: gitlint
+    #         always_run: true
     - repo: https://github.com/mattlqx/pre-commit-sign
       rev: v1.1.3
       hooks:

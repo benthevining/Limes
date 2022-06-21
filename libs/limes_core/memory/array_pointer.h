@@ -55,9 +55,11 @@ public:
 	/** Creates a pointer that owns no memory. */
 	constexpr array_pointer() = default;
 
-	/** Allocates an array with the specified number of elements. */
+	/** Allocates an array with the specified number of elements.
+		@throws std::bad_alloc An exception will be thrown if the UseExceptions template parameter is true and allocation fails.
+	 */
 	explicit array_pointer (std::size_t arraySize) noexcept (! UseExceptions)
-		: ptr (static_cast<Type*> (std::malloc (arraySize * sizeof (Type)))), size (static_cast<int> (arraySize))
+		: ptr (static_cast<Type*> (std::malloc (arraySize * sizeof (Type)))), size (arraySize), owning (true)
 	{
 		if constexpr (UseExceptions)
 			if (ptr == nullptr)
@@ -117,74 +119,15 @@ public:
 	///@}
 
 	/** Returns the size of the pointed-to array. */
-	int getSize() const noexcept { return size; }
+	int getSize() const noexcept { return static_cast<int> (size); }
 
 	/** Frees the allocated memory. */
-	void free() noexcept (! UseExceptions)
-	{
-		if (! owning)
-			return;
+	void free() noexcept (! UseExceptions);
 
-		if (ptr == nullptr || size == 0)
-			return;
-
-		if constexpr (UseExceptions)
-			std::free (ptr);
-		else
-		{
-			try
-			{
-				std::free (ptr);
-			}
-			catch (std::exception&)
-			{
-			}
-		}
-
-		size   = 0;
-		ptr	   = nullptr;
-		owning = false;
-	}
-
-	/** Reallocates the array's memory. */
-	bool reallocate (std::size_t newSize) noexcept (! UseExceptions)
-	{
-		if (newSize == size)
-			return true;
-
-		if (newSize == 0)
-		{
-			free();
-			return true;
-		}
-
-		if constexpr (UseExceptions)
-		{
-			ptr = static_cast<Type*> (std::realloc (ptr, newSize * sizeof (Type)));
-
-			if (ptr == nullptr)
-				throw std::bad_alloc();	 // cppcheck-suppress throwInNoexceptFunction
-		}
-		else
-		{
-			try
-			{
-				ptr = static_cast<Type*> (std::realloc (ptr, newSize * sizeof (Type)));
-			}
-			catch (std::exception&)
-			{
-				return false;
-			}
-		}
-
-		if (ptr == nullptr)
-			return false;
-
-		size   = newSize;
-		owning = true;
-
-		return true;
-	}
+	/** Reallocates the array's memory.
+		@throws std::bad_alloc An exception will be thrown if the UseExceptions template parameter is true and allocation fails.
+	 */
+	bool reallocate (std::size_t newSize) noexcept (! UseExceptions);
 
 	/** @name Indexing */
 	///@{
@@ -210,10 +153,79 @@ private:
 
 	Type* ptr { nullptr };
 
-	int size { 0 };
+	std::size_t size { 0 };
 
 	bool owning { true };
 };
+
+/*------------------------------------------------------------------------------------------------------------------*/
+
+template <typename Type, bool UseExceptions>
+void array_pointer<Type, UseExceptions>::free() noexcept (! UseExceptions)
+{
+	if (! owning)
+		return;
+
+	if (ptr == nullptr || size == 0)
+		return;
+
+	if constexpr (UseExceptions)
+		std::free (ptr);
+	else
+	{
+		try
+		{
+			std::free (ptr);
+		}
+		catch (std::exception&)
+		{
+		}
+	}
+
+	size   = 0;
+	ptr	   = nullptr;
+	owning = false;
+}
+
+template <typename Type, bool UseExceptions>
+bool array_pointer<Type, UseExceptions>::reallocate (std::size_t newSize) noexcept (! UseExceptions)
+{
+	if (newSize == size)
+		return true;
+
+	if (newSize == 0)
+	{
+		free();
+		return true;
+	}
+
+	if constexpr (UseExceptions)
+	{
+		ptr = static_cast<Type*> (std::realloc (ptr, newSize * sizeof (Type)));
+
+		if (ptr == nullptr)
+			throw std::bad_alloc();	 // cppcheck-suppress throwInNoexceptFunction
+	}
+	else
+	{
+		try
+		{
+			ptr = static_cast<Type*> (std::realloc (ptr, newSize * sizeof (Type)));
+		}
+		catch (std::exception&)
+		{
+			return false;
+		}
+	}
+
+	if (ptr == nullptr)
+		return false;
+
+	size   = newSize;
+	owning = true;
+
+	return true;
+}
 
 }  // namespace memory
 

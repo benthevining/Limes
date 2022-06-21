@@ -46,7 +46,7 @@ project (
 	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}"
 	LANGUAGES CXX)
 
-add_library (limes_audio STATIC)
+add_library (limes_audio)
 
 set_target_properties (
 	limes_audio

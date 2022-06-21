@@ -119,6 +119,8 @@ project (
 option (CMAKE_FIND_PACKAGE_PREFER_CONFIG
 		"Prefer config files to find modules in find_package search" ON)
 
+option (BUILD_SHARED_LIBS "Build shared libraries, instead of static" OFF)
+
 option (LIMES_BUILD_TESTS "Build the Limes unit tests" "${PROJECT_IS_TOP_LEVEL}")
 option (LIMES_BUILD_DOCS "Build the Limes documentation" "${PROJECT_IS_TOP_LEVEL}")
 

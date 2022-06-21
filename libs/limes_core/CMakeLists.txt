@@ -45,7 +45,7 @@ project (
 	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}"
 	LANGUAGES CXX)
 
-add_library (limes_core STATIC)
+add_library (limes_core)
 
 set_target_properties (
 	limes_core

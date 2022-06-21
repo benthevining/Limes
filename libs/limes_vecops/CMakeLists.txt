@@ -100,7 +100,7 @@ project (
 	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}"
 	LANGUAGES CXX ASM)
 
-add_library (limes_vecops STATIC)
+add_library (limes_vecops)
 
 set_target_properties (
 	limes_vecops

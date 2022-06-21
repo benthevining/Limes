@@ -38,6 +38,14 @@ class LIMES_EXPORT AudioBuffer final
 {
 public:
 
+	// alias constructor
+	// make copy of
+	// clear range of samples, or just a single channel
+	// reverse
+	// convert sample types
+	// interleave/deinterleave
+	// swapWith?
+
 	using Type = SampleType;
 
 	using ChannelPointer = memory::array_pointer<SampleType, false>;
@@ -124,8 +132,6 @@ public:
 			channels[i].free();
 	}
 
-	// make copy of
-
 	void clear() noexcept
 	{
 		const auto numSamples = getNumSamples();
@@ -133,8 +139,6 @@ public:
 		for (std::size_t i = 0; i < NumChannels; ++i)
 			vecops::clear<SampleType> (channels[i], numSamples);
 	}
-
-	// clear range of samples, or just a single channel
 
 	SampleType getSample (std::size_t channel, std::size_t sampleIndex) const noexcept
 	{
@@ -205,12 +209,6 @@ public:
 
 		return vecops::rms<SampleType> (channels[channel], getNumSamples());
 	}
-
-	// reverse
-
-	// convert sample types
-
-	// interleave/deinterleave
 
 	void clip (SampleType minClip = SampleType (-1), SampleType maxClip = SampleType (1)) noexcept
 	{
