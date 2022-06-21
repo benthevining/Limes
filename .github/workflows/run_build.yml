@@ -64,15 +64,15 @@ jobs:
               uses: arduino/setup-protoc@v1
 
             - name: Install Protobuf libraries (Mac)
-              if: ${{ runner.os }} == 'macOS'
+              if: ${{ inputs.os }} == 'macos-latest'
               run: brew install protobuf
 
             - name: Install Protobuf libraries (Linux)
-              if: ${{ runner.os }} == 'Linux'
+              if: ${{ inputs.os }} == 'ubuntu-latest'
               run: sudo apt-get install -y protobuf-compiler
 
             - name: Install Protobuf libraries (Windows)
-              if: ${{ runner.os }} == 'Windows'
+              if: ${{ inputs.os }} == 'windows-latest'
               run: choco --install -y protoc
 
             - name: Run CMake
