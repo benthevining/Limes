@@ -60,19 +60,23 @@ jobs:
                   key: ${{ inputs.id_key }}.${{ runner.os }}.${{ hashFiles('**/') }}
                   restore-keys: ${{ inputs.id_key }}.${{ runner.os }}.
 
+            - name: Install Ninja
+              if: ${{ inputs.cmake_generator == 'Ninja Multi-Config' || inputs.cmake_generator == 'Ninja' }}
+              uses: seanmiddleditch/gha-setup-ninja@v3
+
             - name: Install Protobuf
               uses: arduino/setup-protoc@v1
 
             - name: Install Protobuf libraries (Mac)
-              if: inputs.os == 'macos-latest'
+              if: ${{ inputs.os == 'macos-latest' }}
               run: brew install protobuf
 
             - name: Install Protobuf libraries (Linux)
-              if: inputs.os == 'ubuntu-latest'
+              if: ${{ inputs.os == 'ubuntu-latest' }}
               run: sudo apt-get install -y protobuf-compiler
 
             - name: Install Protobuf libraries (Windows)
-              if: inputs.os == 'windows-latest'
+              if: ${{ inputs.os == 'windows-latest' }}
               run: choco --install -y protoc
 
             - name: Run CMake
