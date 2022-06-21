@@ -19,3 +19,6 @@ indent_size = 2
 
 [*.{xml,proto,cff}]
 indent_style = space
+
+[.clang-tidy]
+indent_style = space

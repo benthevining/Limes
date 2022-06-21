@@ -49,8 +49,7 @@ public:
 
 	/** @name Constructors */
 	///@{
-	/** Creates a default CFile that holds a nullptr. Call \c open() to actually open a file.
-	 */
+	/** Creates a default CFile that holds a nullptr. Call \c open() to actually open a file. */
 	CFile() = default;
 
 	/** Creates a CFile referencing the given filepath, in the given mode.
@@ -90,7 +89,7 @@ public:
 	/** If the file is currently open, this closes it by calling \c fclose() . */
 	void close() noexcept;
 
-	/** Opens the given file in the given mode.
+	/** Closes the current file (if one is open) and opens the file at the specified path.
 		\c fopen() is called to open the file.
 		@return True if opening the file was successful
 	 */

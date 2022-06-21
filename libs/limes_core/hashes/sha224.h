@@ -18,6 +18,7 @@
 #include <string>
 #include <string_view>
 #include <cstdint>
+#include <array>
 
 /** @file
 	This file defines the SHA224 hasher class.
@@ -52,9 +53,9 @@ private:
 
 	unsigned m_tot_len { 0 };
 
-	std::uint32_t m_h[8] = { 0xc1059ed8, 0x367cd507, 0x3070dd17, 0xf70e5939, 0xffc00b31, 0x68581511, 0x64f98fa7, 0xbefa4fa4 };
+	std::array<std::uint32_t, 8> m_h { 0xc1059ed8, 0x367cd507, 0x3070dd17, 0xf70e5939, 0xffc00b31, 0x68581511, 0x64f98fa7, 0xbefa4fa4 };
 
-	unsigned char m_block[2 * SHA224_256_BLOCK_SIZE] = {};
+	std::array<unsigned char, 2UL * SHA224_256_BLOCK_SIZE> m_block {};
 };
 
 /** Calculates a SHA224 hash for the given data.

@@ -10,6 +10,7 @@ Checks: >
     cppcoreguidelines-*,
     -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
     -cppcoreguidelines-pro-bounds-pointer-arithmetic,
+    -cppcoreguidelines-avoid-magic-numbers,
     modernize-*,
     -modernize-use-trailing-return-type,
     performance-*,
@@ -18,6 +19,7 @@ Checks: >
     readability-*,
     -readability-braces-around-statements,
     -readability-uppercase-literal-suffix,
+    -readability-magic-numbers,
     cert-dcl21-cpp,
     cert-dcl58-cpp,
     cert-err34-c,
@@ -63,14 +65,14 @@ CheckOptions:
     - key: bugprone-suspicious-string-compare.WarnOnLogicalNotComparison
       value: 1
     - key: cppcoreguidelines-macro-usage.AllowedRegexp
-      value: ^DEBUG_*|^JUCE_*
-    - key: cppcoreguidelines-narrowing-conversions.WarnWithinTemplateInstantiation # yamllint disable-line
+      value: ^DEBUG_*|^JUCE_*|^LIMES_*
+    - key: cppcoreguidelines-narrowing-conversions.WarnWithinTemplateInstantiation     # yamllint disable-line
       value: 1
     - key: cppcoreguidelines-narrowing-conversions.PedanticMode
       value: 1
     - key: cppcoreguidelines-special-member-functions.AllowSoleDefaultDtor
       value: 1
-    - key: misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic # yamllint disable-line
+    - key: misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic     # yamllint disable-line
       value: 1
     - key: performance-inefficient-string-concatenation.StrictMode
       value: 1
@@ -88,4 +90,5 @@ CheckOptions:
       value: 1
     - key: readability-uniqueptr-delete-release.PreferResetCall
       value: 1
-FormatStyle: file
+FormatStyle: 'file'
+HeaderFilterRegex: 'tests/'

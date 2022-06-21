@@ -54,6 +54,8 @@ public:
 	LIMES_NON_COPYABLE (MemoryPoolAllocator)
 	LIMES_NON_MOVABLE (MemoryPoolAllocator)
 
+	~MemoryPoolAllocator() = default;
+
 	bool operator== (const MemoryPoolAllocator& other) const noexcept
 	{
 		return pool.getMemoryRootLocation() == other.pool.getMemoryRootLocation();
@@ -70,7 +72,7 @@ public:
 	}
 
 	template <typename U>
-	[[nodiscard]] T* allocate (size_t num, const U*) noexcept
+	[[nodiscard]] T* allocate (size_t num, const U*) noexcept  // NOLINT
 	{
 		return allocate (num);
 	}

@@ -16,6 +16,7 @@
 #include <string>
 #include <limes_namespace.h>
 #include "exec_location.h"
+#include <array>
 
 #if LIMES_MSVC
 #	include <intrin.h>
@@ -28,10 +29,10 @@ namespace files
 
 static inline std::string getModulePathInternal (HMODULE module)
 {
-	wchar_t buffer1[MAX_PATH];
-	wchar_t buffer2[MAX_PATH];
+	std::array<wchar_t, MAX_PATH> buffer1 {};
+	std::array<wchar_t, MAX_PATH> buffer2 {};
 
-	auto* path = buffer1;
+	auto* path = &buffer1;
 
 	do
 	{
@@ -67,7 +68,7 @@ static inline std::string getModulePathInternal (HMODULE module)
 
 		auto length_ = static_cast<int> (wcslen (buffer2));
 
-		char output[MAX_PATH];
+		std::array<char, MAX_PATH> output {};
 
 		auto length__ = WideCharToMultiByte (CP_UTF8, 0, buffer2, length_, output, MAX_PATH, nullptr, nullptr);
 
@@ -99,9 +100,9 @@ std::string getExecutablePath()
 std::string getModulePath()
 {
 #if LIMES_MSVC
-#	define WAI_RETURN_ADDRESS() _ReturnAddress()
+#	define WAI_RETURN_ADDRESS() _ReturnAddress()  // NOLINT
 #elif defined(__GNUC__)
-#	define WAI_RETURN_ADDRESS() __builtin_extract_return_addr (__builtin_return_address (0))
+#	define WAI_RETURN_ADDRESS() __builtin_extract_return_addr (__builtin_return_address (0))  // NOLINT
 #endif
 
 #ifdef WAI_RETURN_ADDRESS

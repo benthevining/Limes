@@ -21,6 +21,7 @@
 #elif LIMES_APPLE
 #	include <unistd.h>
 #	include <sys/sysctl.h>
+#	include <array>
 #elif LIMES_ANDROID
 #	include "../files/file.h"
 #	include "../text/StringUtils.h"
@@ -52,11 +53,11 @@ namespace debugger
 
 	struct kinfo_proc info;
 
-	int m[] = { CTL_KERN, KERN_PROC, KERN_PROC_PID, getpid() };
+	std::array<int, 4> m { CTL_KERN, KERN_PROC, KERN_PROC_PID, getpid() };
 
 	auto sz = sizeof (info);
 
-	sysctl (m, 4, &info, &sz, nullptr, 0);
+	sysctl (&m, 4, &info, &sz, nullptr, 0);
 
 	return (info.kp_proc.p_flag & P_TRACED) != 0;
 
@@ -70,15 +71,15 @@ namespace debugger
 
 		for (auto i = lines.size(); --i >= 0;)	// NB - it's important that this runs in reverse order
 		{
-			auto line = strings::upToFirstOccurrenceOf (lines[i], ":");
+			auto line = text::upToFirstOccurrenceOf (lines[i], ":");
 
-			strings::trim (line);
+			text::trim (line);
 
-			if (strings::areSameIgnoringCase (lines, "TracerPid"))
+			if (text::areSameIgnoringCase (lines, "TracerPid"))
 			{
-				auto restOfLine = strings::fromFirstOccurrenceOf (lines[i], ":");
+				auto restOfLine = text::fromFirstOccurrenceOf (lines[i], ":");
 
-				strings::trim (restOfLine);
+				text::trim (restOfLine);
 
 				return std::stoi (restOfLine) > 0;
 			}

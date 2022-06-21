@@ -20,6 +20,7 @@
 #include <cstring>			// for strlen
 #include <string>			// for string
 #include "exec_location.h"	// for getExecutablePath, getModulePath
+#include <array>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -28,9 +29,10 @@ namespace files
 
 std::string getExecutablePath()
 {
-	char  buffer1[PATH_MAX];
-	char  buffer2[PATH_MAX];
-	auto* path = buffer1;
+	std::array<char, PATH_MAX> buffer1 {};
+	std::array<char, PATH_MAX> buffer2 {};
+
+	auto* path = &buffer1;
 
 	do
 	{
@@ -64,9 +66,9 @@ std::string getExecutablePath()
 std::string getModulePath()
 {
 #if LIMES_MSVC
-#	define WAI_RETURN_ADDRESS() _ReturnAddress()
+#	define WAI_RETURN_ADDRESS() _ReturnAddress()  // NOLINT
 #elif defined(__GNUC__)
-#	define WAI_RETURN_ADDRESS() __builtin_extract_return_addr (__builtin_return_address (0))
+#	define WAI_RETURN_ADDRESS() __builtin_extract_return_addr (__builtin_return_address (0))  // NOLINT
 #endif
 
 #ifdef WAI_RETURN_ADDRESS

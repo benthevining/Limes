@@ -20,12 +20,14 @@
 #if defined(__linux__)
 #	include <linux/limits.h>
 #else
-#	include <limits.h>
+#	include <climits>
 #endif
 
-#include <inttypes.h>
+#include <cinttypes>
 #include <limes_namespace.h>
 #include "exec_location.h"
+#include <array>
+#include "../CFile.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -34,7 +36,7 @@ namespace files
 
 std::string getExecutablePath()
 {
-	char buffer[PATH_MAX];
+	std::array<char, PATH_MAX> buffer;
 
 #if defined(__sun)
 	static constexpr auto proc_self_exe = "/proc/self/path/a.out";
@@ -57,9 +59,9 @@ std::string getExecutablePath()
 std::string getModulePath()
 {
 #if LIMES_MSVC
-#	define WAI_RETURN_ADDRESS() _ReturnAddress()
+#	define WAI_RETURN_ADDRESS() _ReturnAddress()  // NOLINT
 #elif defined(__GNUC__)
-#	define WAI_RETURN_ADDRESS() __builtin_extract_return_addr (__builtin_return_address (0))
+#	define WAI_RETURN_ADDRESS() __builtin_extract_return_addr (__builtin_return_address (0))  // NOLINT
 #endif
 
 #ifdef WAI_RETURN_ADDRESS
@@ -72,25 +74,28 @@ std::string getModulePath()
 
 	for (auto r = 0; r < 5; ++r)
 	{
-		if (auto* maps = std::fopen (proc_self_maps, "r"))
+		const CFile selfMapFile { proc_self_maps, CFile::Mode::Read };
+
+		if (selfMapFile.isOpen())
 		{
 			do
 			{
-				char buffer[std::max (1024, PATH_MAX)];	 // NOLINT
+				std::array<char, std::max (1024, PATH_MAX)> buffer {};
 
-				if (! std::fgets (buffer, sizeof (buffer), maps))
+				if (std::fgets (buffer, sizeof (buffer), selfMapFile.get()) != nullptr)
 					break;
 
-				char	 perms[5];
-				uint64_t low, high, offset;
-				uint32_t major, minor, inode;
+				std::array<char, 5> perms {};
 
-				char path[PATH_MAX];
+				uint64_t low, high, offset;	   // NOLINT
+				uint32_t major, minor, inode;  // NOLINT
 
-				if (std::sscanf (buffer, "%" PRIx64 "-%" PRIx64 " %s %" PRIx64 " %x:%x %u %s\n", &low, &high, perms, &offset, &major, &minor, &inode, path) != 8)
+				std::array<char, PATH_MAX> path {};
+
+				if (std::sscanf (buffer, "%" PRIx64 "-%" PRIx64 " %s %" PRIx64 " %x:%x %u %s\n", &low, &high, perms, &offset, &major, &minor, &inode, path) != 8)  // NOLINT
 					break;
 
-				const auto addr = reinterpret_cast<uintptr_t> (WAI_RETURN_ADDRESS());
+				const auto addr = reinterpret_cast<uintptr_t> (WAI_RETURN_ADDRESS());  // NOLINT
 
 				if (low <= addr && addr <= high)
 				{
@@ -146,14 +151,10 @@ std::string getModulePath()
 
 						std::string result { resolved, static_cast<std::string::size_type> (length) };
 
-						std::fclose (maps);
-
 						return result;
 					}
 				}
 			} while (false);
-
-			std::fclose (maps);
 		}
 	}
 
