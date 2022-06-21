@@ -63,33 +63,17 @@ jobs:
             - name: Install Protobuf
               uses: arduino/setup-protoc@v1
 
-            - name: Install dependencies
-              run: python3 -m pip install -r requirements.txt
+            - name: Install Protobuf libraries (Mac)
+              if: ${{ runner.os }} == 'macOS'
+              run: brew install protobuf
 
-            - name: Cache protobuf library
-              id: cache_protobuf
-              uses: actions/cache@v3
-              with:
-                path: protobuf
-                key: ${{ inputs.id_key }}.${{ runner.os }}.protobuf
+            - name: Install Protobuf libraries (Linux)
+              if: ${{ runner.os }} == 'Linux'
+              run: sudo apt-get install -y protobuf-compiler
 
-            - name: Build protobuf library
-              if: steps.cache_protobuf.outputs.cache-hit != 'true'
-              run: |
-                git clone https://github.com/protocolbuffers/protobuf.git
-                cd protobuf
-                git submodule update --init --recursive
-                ./autogen.sh
-                ./autogen.sh  # run autogen twice, due to a bug in the script
-                ./configure
-                make
-                make check
-
-            - name: Install protobuf library
-              run: |
-                cd protobuf
-                sudo make install
-                sudo ldconfig
+            - name: Install Protobuf libraries (Windows)
+              if: ${{ runner.os }} == 'Windows'
+              run: choco --install -y protoc
 
             - name: Run CMake
               if: ${{ inputs.c_compiler != '' && inputs.cxx_compiler != '' }}
