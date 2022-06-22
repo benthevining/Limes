@@ -96,7 +96,7 @@ bool isUsingWisdom()
 #		define fftw_export_wisdom_to_file	 fftwf_export_wisdom_to_file
 #	endif
 
-[[nodiscard]] inline files::CFile fftw_get_wisdom_file (bool isDouble, bool save) noexcept
+[[nodiscard]] static inline files::CFile fftw_get_wisdom_file (bool isDouble, bool save) noexcept
 {
 #	if FFTW_SINGLE_ONLY
 	if (isDouble)

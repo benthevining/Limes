@@ -59,6 +59,17 @@ void ArgumentParser::validateArgument (const std::vector<std::string>& delimiter
 #endif
 }
 
+static inline std::string createID (const std::string_view& delimiter)
+{
+	if (delimiter.starts_with ("--"))
+		return std::string { delimiter.substr (2, std::string_view::npos) };
+
+	if (delimiter.starts_with ("-"))
+		return std::string { delimiter.substr (1, std::string_view::npos) };
+
+	return std::string { delimiter };
+}
+
 void ArgumentParser::addArgument (const std::string_view& argument,
 								  const std::string_view& helpString,
 								  const std::string_view& argumentID,
@@ -67,7 +78,7 @@ void ArgumentParser::addArgument (const std::string_view& argument,
 {
 	const auto delims = text::split (argument, "|", false);
 
-	const auto newID = argumentID.empty() ? delims.front() : std::string { argumentID };
+	const auto newID = argumentID.empty() ? createID (delims.front()) : std::string { argumentID };
 
 	LIMES_ASSERT (! newID.empty());
 

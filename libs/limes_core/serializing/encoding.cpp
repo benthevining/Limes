@@ -24,7 +24,7 @@ LIMES_BEGIN_NAMESPACE
 namespace serializing
 {
 
-inline std::string getEscapedQuotedString (const std::string& input)
+static inline std::string getEscapedQuotedString (const std::string& input)
 {
 	std::stringstream stream;
 

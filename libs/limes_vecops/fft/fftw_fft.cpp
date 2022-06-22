@@ -52,8 +52,8 @@ namespace vecops
 
 
 template <Scalar SampleType, typename ComplexType>
-LIMES_FORCE_INLINE void fftw_pack (const SampleType* re, const SampleType* im,
-								   ComplexType* m_packed, int fft_size) noexcept
+LIMES_FORCE_INLINE static void fftw_pack (const SampleType* re, const SampleType* im,
+										  ComplexType* m_packed, int fft_size) noexcept
 {
 	const auto hs = fft_size / 2;
 
@@ -69,8 +69,8 @@ LIMES_FORCE_INLINE void fftw_pack (const SampleType* re, const SampleType* im,
 }
 
 template <Scalar SampleType, typename ComplexType>
-LIMES_FORCE_INLINE void fftw_unpack (SampleType* re, SampleType* im,
-									 ComplexType* m_packed, int fft_size) noexcept
+LIMES_FORCE_INLINE static void fftw_unpack (SampleType* re, SampleType* im,
+											ComplexType* m_packed, int fft_size) noexcept
 {
 	const auto hs = fft_size / 2;
 

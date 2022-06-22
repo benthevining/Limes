@@ -29,7 +29,7 @@ LIMES_BEGIN_NAMESPACE
 namespace vecops
 {
 
-[[nodiscard]] LIMES_FORCE_INLINE intptr_t getFpStatusRegister() noexcept
+[[nodiscard]] static LIMES_FORCE_INLINE intptr_t getFpStatusRegister() noexcept
 {
 	intptr_t fpsr = 0;
 
@@ -49,7 +49,7 @@ namespace vecops
 	return fpsr;
 }
 
-LIMES_FORCE_INLINE void setFpStatusRegister (intptr_t fpsr) noexcept
+LIMES_FORCE_INLINE static void setFpStatusRegister (intptr_t fpsr) noexcept
 {
 #if LIMES_INTEL && LIMES_SSE
 	_mm_setcsr (static_cast<uint32_t> (fpsr));
@@ -69,7 +69,7 @@ LIMES_FORCE_INLINE void setFpStatusRegister (intptr_t fpsr) noexcept
 #endif
 }
 
-[[nodiscard]] consteval intptr_t getDenormalsMask() noexcept
+[[nodiscard]] static consteval intptr_t getDenormalsMask() noexcept
 {
 #if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
 #	if LIMES_SSE
@@ -82,7 +82,7 @@ LIMES_FORCE_INLINE void setFpStatusRegister (intptr_t fpsr) noexcept
 #endif
 }
 
-[[nodiscard]] constexpr intptr_t getFlushToZeroMask() noexcept
+[[nodiscard]] static constexpr intptr_t getFlushToZeroMask() noexcept
 {
 #if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
 #	if LIMES_SSE

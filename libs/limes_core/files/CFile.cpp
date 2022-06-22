@@ -68,7 +68,7 @@ std::FILE& CFile::operator*() const
 	return *ptr;
 }
 
-inline std::string_view modeToString (CFile::Mode mode) noexcept
+static inline std::string_view modeToString (CFile::Mode mode) noexcept
 {
 	switch (mode)
 	{
@@ -82,7 +82,7 @@ inline std::string_view modeToString (CFile::Mode mode) noexcept
 	}
 }
 
-inline auto pathToString (const Path& path)
+static inline auto pathToString (const Path& path)
 {
 	auto pathCopy { path };
 

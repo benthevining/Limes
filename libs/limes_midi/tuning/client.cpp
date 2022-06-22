@@ -15,41 +15,41 @@
 
 LIMES_BEGIN_NAMESPACE
 
-namespace midi
+namespace midi::tuning
 {
 
-float midiToFrequency (int midiNote, int midiChannel) const
+float Client::midiToFrequency (int midiNote, int midiChannel) const
 {
 	return static_cast<float> (MTS_NoteToFrequency (client.get(),
 													char (midiNote),
 													char (midiChannel)));
 }
 
-float frequencyToMidi (double frequency, int midiChannel) const
+float Client::frequencyToMidi (double frequency, int midiChannel) const
 {
 	return static_cast<float> (MTS_FrequencyToNote (client.get(),
 													frequency,
 													char (midiChannel)));
 }
 
-float retuneAmountInSemitones (int midiNote, int midiChannel) const
+float Client::retuneAmountInSemitones (int midiNote, int midiChannel) const
 {
 	return static_cast<float> (MTS_RetuningInSemitones (client.get(),
 														char (midiNote),
 														char (midiChannel)));
 }
 
-bool MtsClient::shouldFilterNote (int midiPitch, int midiChannel) const
+bool Client::shouldFilterNote (int midiPitch, int midiChannel) const
 {
 	return MTS_ShouldFilterNote (client.get(), char (midiPitch), char (midiChannel));
 }
 
-bool MtsClient::isConnected() const
+bool Client::isConnected() const
 {
 	return MTS_HasMaster (client.get());
 }
 
-std::string MtsClient::getScaleName() const
+std::string Client::getScaleName() const
 {
 	if (! isConnected())
 		return {};
@@ -68,6 +68,6 @@ std::string MtsClient::getScaleName() const
 // }
 
 
-}  // namespace midi
+}  // namespace midi::tuning
 
 LIMES_END_NAMESPACE

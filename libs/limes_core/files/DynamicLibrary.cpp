@@ -135,7 +135,7 @@ void* DynamicLibrary::findFunction (const std::string_view& functionName) noexce
 
 #if LIMES_APPLE
 
-[[nodiscard]] const char* pathname_for_handle (void* handle);
+[[nodiscard]] static const char* pathname_for_handle (void* handle);
 
 #endif
 
@@ -252,7 +252,7 @@ LIMES_DISABLE_ALL_COMPILER_WARNINGS
 	return nullptr;
 }
 
-[[nodiscard]] const char* pathname_for_handle (void* handle)
+[[nodiscard]] static const char* pathname_for_handle (void* handle)
 {
 	for (int32_t i = ::_dyld_image_count(); i >= 0; --i)
 	{

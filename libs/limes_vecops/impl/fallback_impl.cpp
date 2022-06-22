@@ -21,7 +21,7 @@ namespace vecops::fb::detail
 {
 
 template <Scalar DataType>
-LIMES_FORCE_INLINE DataType approximate_atan2 (DataType real, DataType imag) noexcept
+LIMES_FORCE_INLINE static DataType approximate_atan2 (DataType real, DataType imag) noexcept
 {
 	if (real == DataType (0.))
 	{

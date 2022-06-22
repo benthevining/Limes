@@ -116,7 +116,7 @@ using IteratorType = std::conditional_t<Recursive,
 										std::filesystem::directory_iterator>;
 
 template <bool Recursive>
-[[nodiscard]] inline std::vector<FilesystemEntry> getAllDirChildren (const Path& path)
+[[nodiscard]] static inline std::vector<FilesystemEntry> getAllDirChildren (const Path& path)
 {
 	std::vector<FilesystemEntry> entries;
 
@@ -127,7 +127,7 @@ template <bool Recursive>
 }
 
 template <bool Recursive>
-[[nodiscard]] inline std::vector<Directory> getDirChildDirectories (const Path& path)
+[[nodiscard]] static inline std::vector<Directory> getDirChildDirectories (const Path& path)
 {
 	std::vector<Directory> entries;
 
@@ -139,7 +139,7 @@ template <bool Recursive>
 }
 
 template <bool Recursive>
-[[nodiscard]] inline std::vector<File> getDirChildFiles (const Path& path)
+[[nodiscard]] static inline std::vector<File> getDirChildFiles (const Path& path)
 {
 	std::vector<File> entries;
 
@@ -151,7 +151,7 @@ template <bool Recursive>
 }
 
 template <bool Recursive>
-[[nodiscard]] inline std::vector<SymLink> getDirChildSymLinks (const Path& path)
+[[nodiscard]] static inline std::vector<SymLink> getDirChildSymLinks (const Path& path)
 {
 	std::vector<SymLink> entries;
 

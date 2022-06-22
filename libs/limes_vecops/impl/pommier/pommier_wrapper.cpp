@@ -52,13 +52,12 @@ typedef ALIGN16_BEG union
 #endif
 
 template <typename VecorizedOp, typename ScalarOp>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE void perform (int size, VecorizedOp&& vectorOp, ScalarOp&& scalarOp) noexcept
+LIMES_NO_EXPORT LIMES_FORCE_INLINE static void perform (int size, VecorizedOp&& vectorOp, ScalarOp&& scalarOp) noexcept
 {
 	int i = 0;
 
-	if (size >= 4)
-		for (; i + 4 < size; i += 4)
-			vectorOp (i);
+	for (; i + 4 < size; i += 4)
+		vectorOp (i);
 
 	for (; i < size; ++i)
 		scalarOp (i);

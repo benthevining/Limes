@@ -23,7 +23,7 @@ namespace dsp::osc
 {
 
 template <Sample SampleType>
-[[nodiscard]] constexpr SampleType blep (SampleType phase, SampleType increment) noexcept
+[[nodiscard]] static constexpr LIMES_FORCE_INLINE SampleType blep (SampleType phase, SampleType increment) noexcept
 {
 	LIMES_ASSERT (increment > 0);
 

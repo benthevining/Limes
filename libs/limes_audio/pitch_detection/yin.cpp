@@ -32,9 +32,9 @@ static constinit const auto INVALID_TAU = SampleType (1000);
 
 
 template <Sample SampleType>
-LIMES_FORCE_INLINE void calculate_cmndf (const SampleType* inputAudio, int numSamples,
-										 int minPeriod, int maxPeriod, SampleType* sdfOut, SampleType* cmndfOut,
-										 SampleType confidenceThresh) noexcept
+static LIMES_FORCE_INLINE void calculate_cmndf (const SampleType* inputAudio, int numSamples,
+												int minPeriod, int maxPeriod, SampleType* sdfOut, SampleType* cmndfOut,
+												SampleType confidenceThresh) noexcept
 {
 	// don't want to skip testing too many tau values in a row!
 	const auto maxTausToSkipTesting = std::min (numSamples / 4, 20);
@@ -111,9 +111,9 @@ LIMES_FORCE_INLINE void calculate_cmndf (const SampleType* inputAudio, int numSa
 
 
 template <Sample SampleType>
-LIMES_FORCE_INLINE int select_final_taus (std::vector<int>& finalTaus,
-										  const SampleType* cmndfData,
-										  int minPeriod, int maxPeriod) noexcept
+static LIMES_FORCE_INLINE int select_final_taus (std::vector<int>& finalTaus,
+												 const SampleType* cmndfData,
+												 int minPeriod, int maxPeriod) noexcept
 {
 	alg::fill (finalTaus, 0);
 
@@ -157,10 +157,10 @@ LIMES_FORCE_INLINE int select_final_taus (std::vector<int>& finalTaus,
 
 
 template <Sample SampleType>
-LIMES_FORCE_INLINE int pick_period_estimate (const int* finalTaus, int numFinalTaus,
-											 int			   maxYinIdx,
-											 SampleType		   confidenceThresh,
-											 const SampleType* cmndfData, const SampleType* sdfData) noexcept
+static LIMES_FORCE_INLINE int pick_period_estimate (const int* finalTaus, int numFinalTaus,
+													int				  maxYinIdx,
+													SampleType		  confidenceThresh,
+													const SampleType* cmndfData, const SampleType* sdfData) noexcept
 {
 	for (auto i = 0; i < numFinalTaus; ++i)
 	{
@@ -188,8 +188,8 @@ LIMES_FORCE_INLINE int pick_period_estimate (const int* finalTaus, int numFinalT
 
 
 template <Sample SampleType>
-LIMES_FORCE_INLINE SampleType parabolic_interpolation (int periodEstimate, int maxPeriod,
-													   const SampleType* sdfData, const SampleType* cmndfData) noexcept
+static LIMES_FORCE_INLINE SampleType parabolic_interpolation (int periodEstimate, int maxPeriod,
+															  const SampleType* sdfData, const SampleType* cmndfData) noexcept
 {
 	LIMES_ASSERT (periodEstimate > 0);
 
