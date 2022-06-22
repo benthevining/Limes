@@ -74,7 +74,7 @@ std::string SHA224::getHash()
 	unsigned char digest[DIGEST_SIZE];
 	std::memset (digest, 0, DIGEST_SIZE);
 
-	for (auto i = 0; i < 7; i++)
+	for (auto i = 0UL; i < 7UL; i++)
 		util::unpack32 (m_h[i], &digest[i << 2]);
 
 	char buf[2 * DIGEST_SIZE + 1];
@@ -101,7 +101,7 @@ void SHA224::transform (const unsigned char* message, unsigned block_nb) noexcep
 		for (auto j = 16; j < 64; ++j)
 			w[j] = util::sha256_F4 (w[j - 2]) + w[j - 7] + util::sha256_F3 (w[j - 15]) + w[j - 16];
 
-		for (auto j = 0; j < 8; ++j)
+		for (auto j = 0UL; j < 8UL; ++j)
 			wv[j] = m_h[j];
 
 		for (auto j = 0; j < 64; ++j)
@@ -121,7 +121,7 @@ void SHA224::transform (const unsigned char* message, unsigned block_nb) noexcep
 			wv[0] = t1 + t2;
 		}
 
-		for (auto j = 0; j < 8; ++j)
+		for (auto j = 0UL; j < 8UL; ++j)
 			m_h[j] += wv[j];
 	}
 }

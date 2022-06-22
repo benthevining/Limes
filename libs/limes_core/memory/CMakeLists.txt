@@ -29,6 +29,7 @@ oranges_add_source_files (
 		  stack_allocator.h
 		  StaticObjects.h
 		  RawData.h
-		  RawData.cpp)
+		  RawData.cpp
+		  units.h)
 
 set (memory_files ${memory_files} PARENT_SCOPE)

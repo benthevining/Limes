@@ -80,6 +80,7 @@
 #include "memory/MemoryPoolAllocator.h"
 #include "memory/stack_allocator.h"
 #include "memory/OptionalObject.h"
+#include "memory/units.h"
 
 #include "files/FilesystemEntry.h"
 #include "files/CFile.h"
