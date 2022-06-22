@@ -349,6 +349,13 @@ LIMES_EXPORT [[nodiscard]] constexpr auto enumerate (ContainerType&& iterable)
 	return iterable_wrapper { std::forward<ContainerType> (iterable) };
 }
 
+/** Removes all duplicate elements from a \c std::vector . */
+template <typename ElementType>
+LIMES_EXPORT constexpr void removeDuplicates (std::vector<ElementType>& vector)
+{
+	vector.erase (std::unique (std::begin (vector), std::end (vector)), std::end (vector));
+}
+
 /** @} */
 
 }  // namespace alg
