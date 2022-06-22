@@ -57,7 +57,7 @@ namespace debugger
 
 	auto sz = sizeof (info);
 
-	sysctl (&m, 4, &info, &sz, nullptr, 0);
+	sysctl (m.data(), 4, &info, &sz, nullptr, 0);
 
 	return (info.kp_proc.p_flag & P_TRACED) != 0;
 

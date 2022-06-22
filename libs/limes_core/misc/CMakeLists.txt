@@ -16,6 +16,13 @@ oranges_add_source_files (
 	INSTALL_COMPONENT limes_core_dev
 	INSTALL_DIR "${LIMES_CORE_INSTALL_INCLUDE_DIR}"
 	FILES # cmake-format: sortable
-		  Algorithm.h Functions.h IgnoreUnused.h preprocessor.h streams.h streams.cpp)
+		  Algorithm.h
+		  ArgumentParser.h
+		  ArgumentParser.cpp
+		  Functions.h
+		  IgnoreUnused.h
+		  preprocessor.h
+		  streams.h
+		  streams.cpp)
 
 set (misc_files ${misc_files} PARENT_SCOPE)

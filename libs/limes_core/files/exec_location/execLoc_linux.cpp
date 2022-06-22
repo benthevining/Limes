@@ -44,7 +44,7 @@ std::string getExecutablePath()
 	static constexpr auto proc_self_exe = "/proc/self/exe";
 #endif
 
-	if (const auto* resolved = realpath (proc_self_exe, buffer))
+	if (const auto* resolved = realpath (proc_self_exe, buffer.data()))
 		return { resolved, static_cast<std::string::size_type> (std::strlen (resolved)) };
 
 	return {};
@@ -82,7 +82,7 @@ std::string getModulePath()
 			{
 				std::array<char, std::max (1024, PATH_MAX)> buffer {};
 
-				if (std::fgets (buffer, sizeof (buffer), selfMapFile.get()) != nullptr)
+				if (std::fgets (buffer.data(), sizeof (buffer), selfMapFile.get()) != nullptr)
 					break;
 
 				std::array<char, 5> perms {};
@@ -92,14 +92,14 @@ std::string getModulePath()
 
 				std::array<char, PATH_MAX> path {};
 
-				if (std::sscanf (buffer, "%" PRIx64 "-%" PRIx64 " %s %" PRIx64 " %x:%x %u %s\n", &low, &high, perms, &offset, &major, &minor, &inode, path) != 8)  // NOLINT
+				if (std::sscanf (buffer.data(), "%" PRIx64 "-%" PRIx64 " %s %" PRIx64 " %x:%x %u %s\n", &low, &high, perms.data(), &offset, &major, &minor, &inode, path) != 8)	 // NOLINT
 					break;
 
 				const auto addr = reinterpret_cast<uintptr_t> (WAI_RETURN_ADDRESS());  // NOLINT
 
 				if (low <= addr && addr <= high)
 				{
-					if (auto* resolved = realpath (path, buffer))
+					if (auto* resolved = realpath (path.data(), buffer.data()))
 					{
 						auto length = static_cast<int> (std::strlen (resolved));
 

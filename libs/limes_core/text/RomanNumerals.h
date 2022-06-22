@@ -36,7 +36,7 @@ namespace text::roman
 	@ingroup text
 	@see toUpper
  */
-template <Integral T>
+template <math::Integral T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION std::string toLower (T num)
 {
 	if (num < 4)
@@ -45,38 +45,38 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION std::string toLower (T num)
 	if (num < 6)
 		return std::string { 5 - num, 'i' } + 'v';
 
-	if (n < 9)
+	if (num < 9)
 		return 'v' + std::string { num - 5, 'i' };
 
-	if (n < 11)
+	if (num < 11)
 		return std::string { 10 - num, 'i' } + 'x';
 
-	if (n < 40)
+	if (num < 40)
 		return std::string { num / 10, 'x' } + toLower (num % 10);
 
-	if (n < 60)
+	if (num < 60)
 		return std::string { 5 - num / 10, 'x' } + toLower (num % 10);
 
-	if (n < 90)
+	if (num < 90)
 		return 'l' + std::string { num / 10 - 5, 'x' } + toLower (num % 10);
 
-	if (n < 110)
+	if (num < 110)
 		return std::string { 10 - num / 10, 'x' } + toLower (num % 10);
 
-	if (n < 400)
+	if (num < 400)
 		return std::string { num / 100, 'c' } + toLower (num % 100);
 
-	if (n < 600)
+	if (num < 600)
 		return std::string { 5 - num / 100, 'c' } + 'd' + toLower (num % 100);
 
-	if (n < 900)
+	if (num < 900)
 		return 'd' + std::string { num / 100 - 5, 'c' } + toLower (num % 100);
 
-	if (n < 1100)
+	if (num < 1100)
 		return std::string { 10 - num / 100, 'c' } + 'm' + toLower (num % 100);
 
 	// this function only supports numbers smaller than 4000
-	LIMES_ASSERT (n < 4000);
+	LIMES_ASSERT (num < 4000);
 
 	return std::string { num / 1000, 'm' } + toLower (num % 1000);
 }
@@ -86,7 +86,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION std::string toLower (T num)
 	@ingroup text
 	@see toLower
  */
-template <Integral T>
+template <math::Integral T>
 LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION std::string toUpper (T num)
 {
 	return toUpper (toLower (num));

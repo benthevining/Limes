@@ -32,7 +32,7 @@ std::string getExecutablePath()
 	std::array<char, PATH_MAX> buffer1 {};
 	std::array<char, PATH_MAX> buffer2 {};
 
-	auto* path = &buffer1;
+	auto* path = buffer1.data();
 
 	do
 	{
@@ -46,18 +46,18 @@ std::string getExecutablePath()
 				break;
 		}
 
-		if (const auto* resolved = realpath (path, buffer2))
+		if (const auto* resolved = realpath (path, buffer2.data()))
 		{
 			std::string result { resolved, static_cast<std::string::size_type> (std::strlen (resolved)) };
 
-			if (path != buffer1)
+			if (path != buffer1.data())
 				std::free (path);
 
 			return result;
 		}
 	} while (false);
 
-	if (path != buffer1)
+	if (path != buffer1.data())
 		std::free (path);
 
 	return {};

@@ -48,6 +48,7 @@
 #include "misc/Algorithm.h"
 #include "misc/Functions.h"
 #include "misc/streams.h"
+#include "misc/ArgumentParser.h"
 
 #include "data_structures/version/Version.h"
 #include "data_structures/dimensions/Dimensions.h"

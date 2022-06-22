@@ -32,11 +32,11 @@ static inline std::string getModulePathInternal (HMODULE module)
 	std::array<wchar_t, MAX_PATH> buffer1 {};
 	std::array<wchar_t, MAX_PATH> buffer2 {};
 
-	auto* path = &buffer1;
+	auto* path = buffer1.data();
 
 	do
 	{
-		auto size = GetModuleFileNameW (module, buffer1, sizeof (buffer1) / sizeof (buffer1[0]));
+		auto size = GetModuleFileNameW (module, buffer1.data(), sizeof (buffer1) / sizeof (buffer1[0]));
 
 		if (size == 0)
 			return {};
@@ -63,30 +63,30 @@ static inline std::string getModulePathInternal (HMODULE module)
 				break;
 		}
 
-		if (! _wfullpath (buffer2, path, MAX_PATH))
+		if (! _wfullpath (buffer2.data(), path, MAX_PATH))
 			break;
 
-		auto length_ = static_cast<int> (wcslen (buffer2));
+		auto length_ = static_cast<int> (wcslen (buffer2.data()));
 
 		std::array<char, MAX_PATH> output {};
 
-		auto length__ = WideCharToMultiByte (CP_UTF8, 0, buffer2, length_, output, MAX_PATH, nullptr, nullptr);
+		auto length__ = WideCharToMultiByte (CP_UTF8, 0, buffer2.data(), length_, output, MAX_PATH, nullptr, nullptr);
 
 		if (length__ == 0)
-			length__ = WideCharToMultiByte (CP_UTF8, 0, buffer2, length_, nullptr, 0, nullptr, nullptr);
+			length__ = WideCharToMultiByte (CP_UTF8, 0, buffer2.data(), length_, nullptr, 0, nullptr, nullptr);
 
 		if (length__ == 0)
 			break;
 
 		std::string result { output, static_cast<std::string::size_type> (MAX_PATH) };
 
-		if (path != buffer1)
+		if (path != buffer1.data())
 			std::free (path);
 
 		return result;
 	} while (false);
 
-	if (path != buffer1)
+	if (path != buffer1.data())
 		std::free (path);
 
 	return {};

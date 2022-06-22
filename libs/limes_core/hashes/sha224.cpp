@@ -43,12 +43,12 @@ void SHA224::update (const unsigned char* message, std::size_t len)
 	const auto		  block_nb		  = new_len / SHA224_256_BLOCK_SIZE;
 	const auto* const shifted_message = message + rem_len;
 
-	transform (m_block, 1);
+	transform (m_block.data(), 1);
 	transform (shifted_message, block_nb);
 
 	rem_len = new_len % SHA224_256_BLOCK_SIZE;
 
-	std::memcpy (m_block, &shifted_message[block_nb << 6], rem_len);
+	std::memcpy (m_block.data(), &shifted_message[block_nb << 6], rem_len);
 
 	m_len = rem_len;
 	m_tot_len += (block_nb + 1) << 6;
@@ -61,13 +61,13 @@ std::string SHA224::getHash()
 	const unsigned len_b  = (m_tot_len + m_len) << 3;
 	const unsigned pm_len = block_nb << 6;
 
-	std::memset (m_block + m_len, 0, pm_len - m_len);
+	std::memset (m_block.data() + m_len, 0, pm_len - m_len);
 
 	m_block[m_len] = 0x80;
 
-	util::unpack32 (len_b, m_block + pm_len - 4);
+	util::unpack32 (len_b, m_block.data() + pm_len - 4);
 
-	transform (m_block, block_nb);
+	transform (m_block.data(), block_nb);
 
 	static constinit const unsigned DIGEST_SIZE = (224 / 8);
 
