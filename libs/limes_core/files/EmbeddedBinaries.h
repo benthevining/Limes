@@ -47,6 +47,8 @@ namespace binaries
 	A full example of how to do this can be seen in the BinaryBuilder source code.
 	@ingroup binaries
 	@see FileInfoList
+	@todo Ability to "shim" binary files to a local directory on the filesystem?
+	@todo std::hash for this class?
  */
 struct LIMES_EXPORT FileInfo final
 {

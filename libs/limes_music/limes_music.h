@@ -22,6 +22,9 @@
 	Dependencies: limes_core
 
 	@ingroup limes
+
+	@todo funcs to get unicode music symbols - flat, sharp, natural, etc
+	@todo time signature class
  */
 
 /** @dir libs/limes_music

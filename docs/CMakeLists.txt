@@ -75,10 +75,17 @@ configure_file ("${CMAKE_CURRENT_LIST_DIR}/Doxyfile" "${configured_doxyfile}" @O
 unset (LIMES_INTERNAL_DOCS)
 unset (LIMES_ENABLED_SECTIONS)
 
+find_program (MAKE_EXECUTABLE NAMES make nmake gmake
+			  DOC "make executable used for building the Latex PDF documentation")
+
 set (configured_script "${CMAKE_CURRENT_BINARY_DIR}/build_docs.cmake")
+
+set (latex_output_dir "${docs_output}/latex")
 
 configure_file ("${CMAKE_CURRENT_LIST_DIR}/build_docs.cmake" "${configured_script}" @ONLY
 				NEWLINE_STYLE UNIX)
+
+unset (latex_output_dir)
 
 if (Limes_IS_TOP_LEVEL OR PROJECT_IS_TOP_LEVEL)
 	set (all_flag ALL)

@@ -51,6 +51,7 @@ namespace ds
 /** A class that represents a version of something, with major, minor, and patch numbers.
 	This class is meant to model the semantic versioning standard.
 	@ingroup data_structures
+	@todo static assertion tests
  */
 struct LIMES_EXPORT Version final
 {

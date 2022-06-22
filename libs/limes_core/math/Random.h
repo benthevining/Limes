@@ -33,6 +33,7 @@ namespace math
 /** This class is a %random number generator.
 	The generator used is \c std::minstd_rand .
 	@ingroup core_math
+	@todo get current seed
  */
 class LIMES_EXPORT Random final
 {

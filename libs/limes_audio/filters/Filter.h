@@ -30,6 +30,8 @@ namespace dsp::filters
 
 /** A basic IIR filter with coefficients that can be reassigned during realtime playback.
 	@ingroup dsp_filters
+
+	@todo add a higher-level API for switching filter type & freq during playback
  */
 template <Sample SampleType>
 class LIMES_EXPORT Filter final

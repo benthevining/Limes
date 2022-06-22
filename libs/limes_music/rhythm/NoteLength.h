@@ -22,6 +22,7 @@ LIMES_BEGIN_NAMESPACE
 namespace music
 {
 
+/** @todo document this class */
 struct LIMES_EXPORT NoteLength final
 {
 public:

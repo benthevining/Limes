@@ -52,6 +52,7 @@
     },
     {
       "cacheVariables": {
+        "LIMES_INTERNAL_DOCS": "ON",
         "ORANGES_MAINTAINER_BUILD": "ON"
       },
       "displayName": "CMake configuration for development of Limes",

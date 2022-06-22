@@ -36,6 +36,6 @@ namespace std
 {
 size_t hash<limes::ds::Version>::operator() (const limes::ds::Version& v) const noexcept
 {
-	return hash<string> {}(v.toString());
+	return hash<string> {}(v.toString ('.'));
 }
 }  // namespace std

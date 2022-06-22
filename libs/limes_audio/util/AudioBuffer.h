@@ -32,19 +32,19 @@ namespace dsp
 /** A multi-channel audio buffer.
 	All operations use the functions from limes_vecops where possible.
 	@ingroup limes_audio
+
+	@todo alias constructor
+	@todo makeCopyOf
+	@todo for all functions (clear, applyGain, etc) provide a range of samples and/or channels
+	@todo reverse
+	@todo convert sample types
+	@todo interleave/deinterleave
+	@todo size_t and int APIs
  */
 template <Sample SampleType, std::size_t NumChannels>
 class LIMES_EXPORT AudioBuffer final
 {
 public:
-
-	// alias constructor
-	// make copy of
-	// clear range of samples, or just a single channel
-	// reverse
-	// convert sample types
-	// interleave/deinterleave
-	// swapWith?
 
 	using Type = SampleType;
 

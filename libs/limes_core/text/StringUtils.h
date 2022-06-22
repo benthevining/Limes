@@ -23,6 +23,8 @@
 /** @defgroup text Text
 	Utilities for working with text and strings.
 	@ingroup limes_core
+
+	@todo function to convert a string or number to ordinal ("one" -> "first", "five" -> "fifth")
  */
 
 /** @dir libs/limes_core/text

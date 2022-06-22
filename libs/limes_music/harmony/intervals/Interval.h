@@ -81,6 +81,8 @@ namespace music
 
 	@ingroup music_intervals
 	@see CompoundInterval, MicrotonalInterval, isValidQualityForKind()
+
+	@todo static assertion tests
  */
 class LIMES_EXPORT Interval
 {

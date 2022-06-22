@@ -40,7 +40,9 @@ LIMES_EXPORT enum class Type : int {
 	Terabyte  /**< A terabyte is 1024 gigabytes. */
 };
 
-/** This function converts between units of memory. */
+/** This function converts between units of memory.
+	@todo static assertion tests
+ */
 template <Type OrigUnits, Type DestUnits>
 [[nodiscard]] LIMES_EXPORT constexpr std::uintmax_t convert (std::uintmax_t numOrigUnits) noexcept
 {

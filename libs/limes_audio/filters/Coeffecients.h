@@ -43,6 +43,8 @@ namespace dsp::filters
 /** A filter coefficients class, with lots of methods for creating various filter topologies.
 	This class is designed so that coefficients can be recreated and reassigned during realtime playback; no allocations should occur.
 	@ingroup dsp_filters
+
+	@todo refactor this class, make sure storage is allocation-free
  */
 template <Sample Sampletype>
 class LIMES_EXPORT Coeffecients final

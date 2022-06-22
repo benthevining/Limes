@@ -39,14 +39,13 @@ namespace music
 /** This class represents the duration of a kind of written musical note -- eighth, quarter, half, etc.
 	@ingroup music_rhythm
 	@see NoteLength
+
+	@todo triplets
+	@todo special: double whole note
  */
 struct LIMES_EXPORT NoteDuration final
 {
 public:
-
-	// TO DO: triplets
-
-	// special: double whole note
 
 	/** Creates a NoteDuration of the desired kind.
 		1 represents a whole note, 2 represents a half note, 4 is a quarter note, 8 is an eighth note, and so on.

@@ -28,6 +28,7 @@ LIMES_BEGIN_NAMESPACE
 
 /** This namespace contains utilities for working with Roman numerals.
 	@ingroup text
+	@todo Function for parsing a roman numeral string to a number
  */
 namespace text::roman
 {
@@ -92,7 +93,6 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION std::string toUpper (T num)
 	return toUpper (toLower (num));
 }
 
-// TODO: parse from roman numeral to number
 }  // namespace text::roman
 
 LIMES_END_NAMESPACE

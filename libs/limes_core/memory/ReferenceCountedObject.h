@@ -33,6 +33,7 @@ namespace memory
 /** An object that is reference-counted, and garbage collected once the reference count reaches 0.
 	@ingroup memory
 	@see ReferenceCountedObjectPtr
+	@todo document this class
  */
 class LIMES_EXPORT ReferenceCountedObject
 {

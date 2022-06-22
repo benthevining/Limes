@@ -28,6 +28,9 @@ namespace dsp::osc
 
 /** This class manages a number of oscillator voices, and detunes them around a central pitch, according to a spread parameter.
 	@ingroup oscillators
+
+	@todo Detunable class that actually owns the oscillators
+	@toto supersaw class
  */
 class LIMES_EXPORT DetunableModel final
 {

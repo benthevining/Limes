@@ -20,6 +20,10 @@
 	Dependencies: limes_vecops
 
 	@ingroup limes
+
+	@todo Envelope follower class
+	@todo Vocoder class
+	@todo Audio FX: freezer, looper, beat repeat / stutter, compressor, limiter, EQ, delay, chorus, flanger
  */
 
 /** @dir libs/limes_audio

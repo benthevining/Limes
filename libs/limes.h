@@ -13,7 +13,22 @@
 /** @defgroup limes Limes
 	The Limes library.
 
+	@version 4.8.1
+	@author Ben Vining
+	@date 2020 - 2022
+	@copyright GNU public license
+
 	This group includes all component libraries of Limes.
+
+	@todo Create a page documenting all environment variables that affect the C++ code - LIMES_ASSERTION_LOG_FILE, FFTW_WISDOM_FILE_DIR, HOME
+	@todo Review int vs size_t APIs
+	@todo Fix protobuf build
+	@todo Integrate documentation of CMake modules into Doxygen
+	@todo Android cross compile
+	@todo libharu wrapper for PDFs
+	@todo libUSB wrapper
+	@todo move GPS utils into this library
+	@todo is caps lock on (and other modifier keys?)
  */
 
 /** @dir libs

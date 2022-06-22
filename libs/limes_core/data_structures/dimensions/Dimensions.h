@@ -36,6 +36,9 @@ namespace ds
 /** A simple struct that represents the dimensions of something.
 	This class is typically used for working with GUIs.
 	@ingroup data_structures
+	@todo std::hash for this class
+	@todo make entire API constexpr
+	@todo static assertion tests
  */
 struct LIMES_EXPORT Dimensions final
 {

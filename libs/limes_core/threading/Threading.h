@@ -22,6 +22,8 @@
 /** @defgroup threads Threading
 	Threading utilities.
 	@ingroup limes_core
+
+	@todo function to check if current thread is realtime thread
  */
 
 /** @dir libs/limes_core/threading

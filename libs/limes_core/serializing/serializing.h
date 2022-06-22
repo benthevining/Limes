@@ -28,6 +28,13 @@
 /** @defgroup serializing Serializing
 	Utilities for data serialization.
 	@ingroup limes_core
+
+	@todo clean up this directory - move node class into its own files
+	@todo JSON encoder - options for pretty printing
+	@todo XML parser, encoder
+	@todo YAML parser, encoder
+	@todo use the SerializableData base class throughout the codebase
+	@todo JSON/XML validate schema
  */
 
 /** @dir libs/limes_core/serializing

@@ -47,6 +47,7 @@ public:
 	/** Follows the symbolic link to find its target.
 		If the \c recurse option is true, and the immediate target of this symlink is another symlink, then this function will follow *that* symlink, and so on, until a non-symbolic-link filesystem object is reached.
 		@attention Be careful, there is no protection against cycles in this function, so you may invoke an infinite loop!
+		@todo Protect against infinite recursion? Possibly set a max recursion depth...
 	 */
 	[[nodiscard]] FilesystemEntry follow (bool recurse = true) const noexcept;
 

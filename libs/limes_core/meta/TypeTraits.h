@@ -38,6 +38,8 @@
 /** @file
 	This file defines some general utilities for metaprogramming.
 	@ingroup meta
+
+	@todo move Integral and Scalar concepts into this file?
  */
 
 LIMES_BEGIN_NAMESPACE

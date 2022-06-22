@@ -31,6 +31,8 @@ namespace math
 /** This class computes some running statistics based on a stream of input data.
 	Internally, Welford's algorithm @cite welford_1962 is used.
 	@ingroup core_math
+
+	@todo static assertion tests
  */
 template <Scalar T>
 class LIMES_EXPORT StatsComputer final

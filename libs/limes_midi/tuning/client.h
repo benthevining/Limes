@@ -53,6 +53,8 @@ namespace midi::tuning
 	This class represents a %client in an MTS session, and can receive tuning data from the session master.
 
 	@ingroup midi_tuning
+
+	@todo Fix MTS-ESP build, integrate this class into library
  */
 class LIMES_EXPORT Client final
 {

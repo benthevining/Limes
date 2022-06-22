@@ -34,6 +34,9 @@ namespace math
 	@tparam ObjectType The type of objects for the matrix to hold
 	@tparam Rows The number of rows for the matrix to contain
 	@tparam Columns The number of columns for the matrix to contain
+
+	@todo matrix multiplication, division
+	@todo static assertion tests
  */
 template <typename ObjectType, size_t Rows, size_t Columns>
 class LIMES_EXPORT Matrix final

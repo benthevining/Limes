@@ -31,6 +31,8 @@ namespace files
 /** This class is a wrapper around a C-style \c FILE* that takes care of freeing the file when the object is destroyed, and provides a few other convenience methods.
 	@ingroup files
 	@see File
+	@todo more utility functions as members
+	@todo retrieve the path from this object?
  */
 class LIMES_EXPORT CFile final
 {

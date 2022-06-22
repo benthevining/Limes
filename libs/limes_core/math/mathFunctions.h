@@ -35,6 +35,8 @@
 /** @file
 	This file contains some math utility functions.
 	@ingroup core_math
+
+	@todo more static assertion tests
  */
 
 LIMES_BEGIN_NAMESPACE

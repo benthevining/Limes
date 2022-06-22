@@ -41,6 +41,8 @@ namespace music
 
 	@ingroup music_intervals
 	@see Interval, MicrotonalInterval
+
+	@todo static assertion tests
  */
 class LIMES_EXPORT CompoundInterval final : public Interval
 {

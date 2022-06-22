@@ -47,6 +47,17 @@
 	Fallback (non-SIMD code)          | Limes       | None - absence of the other 3 | Non-SIMD C++ implementations
 
 	@ingroup limes
+
+	@todo use Pommier nat log functions
+	@todo reverse function
+	@todo use std::complex
+	@todo normalize function
+	@todo pffft FFT backend
+	@todo type conversion functions
+	@todo tone generation functions (sine, saw, square, triangle)
+	@todo filters?
+	@todo resampling (add libsamplerate backend)
+	@todo convolution engine?
  */
 
 /** @dir libs/limes_vecops

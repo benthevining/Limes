@@ -35,6 +35,7 @@ namespace misc
 	This parser supports flags, arguments that consume single, multiple, or a variadic number of arguments,
 	and subcommands that can have their own sets of argument specifications.
 	@ingroup misc
+	@todo document this class
  */
 class LIMES_EXPORT ArgumentParser final
 {

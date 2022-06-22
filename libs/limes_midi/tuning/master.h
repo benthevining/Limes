@@ -27,6 +27,8 @@ namespace midi::tuning
 
 /** This class represents an MTS-ESP session %master.
 	@ingroup midi_tuning
+
+	@todo Write this class
  */
 class LIMES_EXPORT Master final
 {

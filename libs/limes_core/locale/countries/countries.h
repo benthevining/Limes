@@ -42,6 +42,7 @@ struct Language;
 /** This struct represents metadata about a %country.
 	@see getCountryByCode(), getCountryByName(), getAllCountries()
 	@ingroup loc_country
+	@todo country metadata: continent, web domain, phone code, drives on right, currency
  */
 struct LIMES_EXPORT Country final
 {

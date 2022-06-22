@@ -21,3 +21,20 @@ file (MAKE_DIRECTORY "@docs_output@")
 
 execute_process (COMMAND "@DOXYGEN_EXECUTABLE@" "@configured_doxyfile@"
 				 TIMEOUT 600 COMMAND_ERROR_IS_FATAL ANY)
+
+# if("@MAKE_EXECUTABLE@") # MAKE_EXECUTABLE
+message (STATUS "Building Latex PDF...")
+
+execute_process (
+	COMMAND "@MAKE_EXECUTABLE@" WORKING_DIRECTORY "@latex_output_dir@" # latex_output_dir
+	TIMEOUT 600)
+
+set (generated_pdf "@latex_output_dir@/refman.pdf")
+
+if (EXISTS "${generated_pdf}")
+	# cmake-lint: disable=E1126
+	file (COPY_FILE "${generated_pdf}" "@docs_output@/Limes.pdf")
+
+	message (STATUS "PDF built successfully!")
+endif ()
+# endif()

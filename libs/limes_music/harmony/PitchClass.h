@@ -50,6 +50,8 @@ namespace music
 
 	@ingroup music_harmony
 	@see Pitch
+
+	@todo get solfege syllables?
  */
 struct LIMES_EXPORT PitchClass final
 {

@@ -53,6 +53,9 @@ namespace music::scales
 	Scales can have any number of notes in an octave.
 
 	@ingroup music_scales
+
+	@todo scale iterator
+	@todo function scale::withAccidentals() or withPitchClasses()
  */
 struct LIMES_EXPORT Scale
 {

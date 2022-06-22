@@ -44,13 +44,12 @@ namespace ds
 
 	@see LinkedList
 	@ingroup data_structures
+	@todo add a method to reverse an entire linked list
  */
 template <typename ObjectType>
 struct LIMES_EXPORT LinkedListModel final
 {
 public:
-
-	// TODO: reverse entire list
 
 	/** Creates a linked list node.
 		@param objectForThisNode The data object this node in the list refers to

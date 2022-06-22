@@ -20,6 +20,12 @@
 	Dependencies: limes_core
 
 	@ingroup limes
+
+	@todo MIDI glide engine
+	@todo MIDI vibrato engine
+	@todo MIDI chord bank
+	@todo synth model
+	@todo predictive harmony engine based on scale and input scale degree
  */
 
 /** @dir libs/limes_midi

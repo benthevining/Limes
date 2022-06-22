@@ -31,6 +31,8 @@ namespace dsp::pitch
 
 /**
 	@ingroup pitch_detection
+	@todo Document PitchDetector class
+	@todo Helmholz pitch detector algorithm
  */
 template <Sample SampleType>
 class LIMES_EXPORT PitchDetector final : public PitchDetectionAlgorithm<SampleType>

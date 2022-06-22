@@ -22,6 +22,8 @@
 /** @file
 	This file defines miscellaneous filesystem utility functions.
 	@ingroup files
+
+	@todo get max path length for platform?
  */
 
 LIMES_BEGIN_NAMESPACE

@@ -32,6 +32,8 @@ namespace dsp
 /** A class that produces white noise.
 	@see math::Random
 	@ingroup samplestreams
+
+	@todo other noise generators - pink, brown, etc
  */
 template <Sample SampleType>
 struct LIMES_EXPORT WhiteNoiseGenerator final : public SampleStream<SampleType>

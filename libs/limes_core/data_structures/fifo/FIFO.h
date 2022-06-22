@@ -29,6 +29,7 @@ namespace ds
 
 /** This class is a simple lock-free FIFO.
 	@ingroup data_structures
+	@todo FIFO class needs to be documented
  */
 template <typename ObjectType>
 class LIMES_EXPORT FIFO final

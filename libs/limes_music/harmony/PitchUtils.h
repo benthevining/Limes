@@ -22,6 +22,8 @@
 /** @defgroup music_harmony Harmony
 	Utilities for working with pitch and harmony related music theory.
 	@ingroup limes_music
+
+	@todo accidental class?
  */
 
 /** @dir libs/limes_music/harmony

@@ -33,6 +33,9 @@ namespace math::geometry
 
 /** Represents a %triangle.
 	@ingroup TwoDgeometry
+
+	@todo make entire API constexpr
+	@todo static assertion tests
  */
 template <Scalar ValueType>
 class LIMES_EXPORT Triangle final : public TwoDShape<ValueType>

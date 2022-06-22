@@ -43,6 +43,11 @@ namespace music
 /** This class represents a musical %chord.
 	A %chord is simply represented as a collection of Pitch objects.
 	@ingroup music_harmony
+
+	@todo get inversion
+	@todo isMajor, isMinor, isDiminished, isDomSeventh ...
+	@todo get root note
+	@todo static/free functions to create chord of given quality with given root note
  */
 class LIMES_EXPORT Chord final
 {
@@ -99,14 +104,6 @@ public:
 		@param above If true, each %pitch will be shifted up. If false, each %pitch will be shifted down.
 	 */
 	[[nodiscard]] Chord applyInterval (const Interval& interval, bool above);
-
-	// get inversion
-
-	// isMajor, isMinor, isDiminished, isDomSeventh ...
-
-	// get root note
-
-	// static/free functions to create chord of given quality with given root note
 
 private:
 
