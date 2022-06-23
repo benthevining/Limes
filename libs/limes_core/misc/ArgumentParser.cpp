@@ -17,16 +17,48 @@
 #include "../system/limes_assert.h"
 #include "Algorithm.h"
 #include <sstream>
+#include <algorithm>
 
 LIMES_BEGIN_NAMESPACE
 
 namespace misc
 {
 
+ArgumentParser::ArgumentParser (bool					handleHelpFlags,
+								bool					requiresPositionalArguments,
+								bool					errorOnPositionalArguments,
+								std::size_t				maxNumPositionalArguments,
+								const std::string_view& posArgIdentifier)
+	: posArgsRequired (requiresPositionalArguments),
+	  posArgsError (errorOnPositionalArguments),
+	  numPosArgs (maxNumPositionalArguments),
+	  posArgsID (posArgIdentifier),
+	  shouldHandleHelp (handleHelpFlags)
+{
+	// it makes no sense for these to both be true
+	LIMES_ASSERT (! (posArgsRequired && posArgsError));
+
+	if (posArgsError)
+		numPosArgs = 0;
+	else if (posArgsRequired)
+		LIMES_ASSERT (numPosArgs == VARIADIC_ARGUMENTS || numPosArgs > 0);
+
+	if (posArgsID.empty())
+	{
+		posArgsID = "positionalArguments";
+
+		if (numPosArgs == VARIADIC_ARGUMENTS || numPosArgs > 1)
+			posArgsID += "...";
+	}
+}
+
 void ArgumentParser::validateArgument (const std::vector<std::string>& delimiters,
 									   const std::string&			   newID) const
 {
 #if LIMES_DEBUG
+	// '--' is an invalid command line delimiter
+	LIMES_ASSERT (! alg::contains (delimiters, std::string { "--" }));
+
 	for (const auto& arg : arguments)
 	{
 		// if you hit this, then you've added multiple arguments with the same ID!
@@ -59,15 +91,15 @@ void ArgumentParser::validateArgument (const std::vector<std::string>& delimiter
 #endif
 }
 
-static inline std::string createID (const std::string_view& delimiter)
+static inline std::string createID (const std::string& delimiter)
 {
 	if (delimiter.starts_with ("--"))
-		return std::string { delimiter.substr (2, std::string_view::npos) };
+		return delimiter.substr (2, std::string_view::npos);
 
 	if (delimiter.starts_with ("-"))
-		return std::string { delimiter.substr (1, std::string_view::npos) };
+		return delimiter.substr (1, std::string_view::npos);
 
-	return std::string { delimiter };
+	return delimiter;
 }
 
 void ArgumentParser::addArgument (const std::string_view& argument,
@@ -108,6 +140,7 @@ void ArgumentParser::addSubcommand (const std::string_view& subcommand,
 									const std::string_view& helpString)
 {
 	LIMES_ASSERT (! subcommand.empty());
+	LIMES_ASSERT (subcommandOptions.get() != nullptr);
 
 	// subcommands cannot have nested subcommands
 	LIMES_ASSERT (subcommandOptions->subcommands.empty());
@@ -152,6 +185,19 @@ std::string ArgumentParser::getHelpString() const
 				<< subcommand.getHelpString() << '\n';
 	}
 
+	if (posArgsRequired || ! posArgsError)
+	{
+		if (! posArgsRequired)
+			stream << '[';
+
+		LIMES_ASSERT (! posArgsID.empty());
+
+		stream << posArgsID;
+
+		if (! posArgsRequired)
+			stream << ']';
+	}
+
 	stream << '\n';
 
 	return stream.str();
@@ -173,6 +219,24 @@ ArgumentParser::ParsedArguments ArgumentParser::parse (int argc, char** argv)
 	{
 		const auto inputString = std::string { argv[idx] };
 
+		if (shouldHandleHelp)
+		{
+			if (inputString.ends_with ("help") || inputString == "-h")
+			{
+				printHelp();
+				parsedArgs.flags.emplace_back (inputString);
+				return parsedArgs;
+			}
+		}
+
+		if (inputString == "--")
+		{
+			for (auto i = idx + 1; i < argc; ++i)
+				parsePositionalArgument (parsedArgs, i, inputString);
+
+			break;
+		}
+
 		if (auto* argument = getArgument (inputString))
 		{
 			parseArgument (*argument, argc, argv, parsedArgs, idx);
@@ -185,20 +249,34 @@ ArgumentParser::ParsedArguments ArgumentParser::parse (int argc, char** argv)
 			if (parsedArgs.hasSubcommand())
 				throwError (idx, "Only one subcommand can be specified!");
 
+			LIMES_ASSERT (activeSubcommand == nullptr);
+
 			parsedArgs.subcommandName = inputString;
 
-			for (auto& arg : subcommand->parser->arguments)
-				parseArgument (arg, argc, argv, parsedArgs, idx);
+			activeSubcommand = subcommand;
 
-			subcommand->parser->checkRequiredArgs();
+			const auto& subParser = *(subcommand->parser);
+
+			posArgsRequired = subParser.posArgsRequired;
+			posArgsError	= subParser.posArgsError;
+			numPosArgs		= subParser.numPosArgs;
+
+			if (! subParser.posArgsID.empty())
+				posArgsID = subParser.posArgsID;
 
 			continue;
 		}
 
-		throwError (idx, "Unknown argument '" + inputString + '\'');
+		if (posArgsError)
+			throwError (idx, "Unknown argument '" + inputString + '\'');
+		else
+			parsePositionalArgument (parsedArgs, idx, inputString);
 	}
 
-	checkRequiredArgs();
+	checkRequiredArgs (parsedArgs);
+
+	if (const auto* ac = activeSubcommand)
+		ac->parser->checkRequiredArgs (parsedArgs);
 
 	return parsedArgs;
 }
@@ -241,15 +319,13 @@ void ArgumentParser::parseArgument (Argument& argument,
 
 	argument.alreadyParsed = true;
 
-	for (auto j = idx + 1, i = 0;
-		 j < argc;
-		 ++j, ++i, ++idx)
+	for (auto i = 0; idx < argc; ++i, ++idx)
 	{
 		if (! argument.acceptsVariadicArguments())
 			if (i == static_cast<decltype (i)> (argument.argsConsumed))
 				return;
 
-		const auto arg = std::string { argv[j] };
+		const auto arg = std::string { argv[idx] };
 
 		if (argument.acceptsVariadicArguments())
 			if (arg.starts_with ('-') || getSubcommand (arg) != nullptr)
@@ -259,23 +335,56 @@ void ArgumentParser::parseArgument (Argument& argument,
 	}
 }
 
-void ArgumentParser::checkRequiredArgs()
+void ArgumentParser::parsePositionalArgument (ParsedArguments&	 parsedArgs,
+											  int				 idx,
+											  const std::string& argValue) const
+{
+	if (posArgsError)
+		throwError (idx + 1, "Positional arguments not accepted!");
+
+	if (numPosArgs != VARIADIC_ARGUMENTS)
+		if (parsedArgs.positionalArgs.size() + 1UL > numPosArgs)
+			throwError (idx, "Too many positional arguments - expected " << numPosArgs);
+
+	parsedArgs.positionalArgs.emplace_back (argValue);
+}
+
+void ArgumentParser::checkRequiredArgs (const ParsedArguments& args) const
 {
 	for (const auto& arg : arguments)
 		if (arg.required && ! arg.alreadyParsed)
 			throwError ("Missing required argument '" + arg.id + '\'');
+
+	if (args.hasPositionalArguments())
+	{
+		if (posArgsError)
+			throwError ("Unexpected positional arguments: " << text::join (args.getPositionalArguments(), " "));
+
+		if (args.getPositionalArguments().size() > numPosArgs)
+			throwError ("Too many positional arguments: expected " << numPosArgs);
+	}
+	else
+	{
+		if (posArgsRequired)
+			throwError ("Missing required positional arguments!");
+	}
 }
 
-ArgumentParser::Argument* ArgumentParser::getArgument (const std::string_view& commandLineArg)
+ArgumentParser::Argument* ArgumentParser::getArgument (const std::string& commandLineArg)
 {
 	for (auto& arg : arguments)
-		if (alg::contains (arg.delimiters, std::string { commandLineArg }))	 // cppcheck-suppress useStlAlgorithm
+		if (alg::contains (arg.delimiters, commandLineArg))	 // cppcheck-suppress useStlAlgorithm
 			return &arg;
+
+	if (auto* ac = activeSubcommand)
+		for (auto& arg : ac->parser->arguments)
+			if (alg::contains (arg.delimiters, commandLineArg))	 // cppcheck-suppress useStlAlgorithm
+				return &arg;
 
 	return nullptr;
 }
 
-ArgumentParser::Subcommand* ArgumentParser::getSubcommand (const std::string_view& commandLineArg)
+ArgumentParser::Subcommand* ArgumentParser::getSubcommand (const std::string& commandLineArg)
 {
 	for (auto& subcommand : subcommands)
 		if (subcommand.command == commandLineArg)  // cppcheck-suppress useStlAlgorithm
@@ -284,7 +393,7 @@ ArgumentParser::Subcommand* ArgumentParser::getSubcommand (const std::string_vie
 	return nullptr;
 }
 
-void ArgumentParser::throwError (int idx, const std::string_view& message)
+void ArgumentParser::throwError (int idx, const std::string_view& message) const
 {
 	std::stringstream stream;
 
@@ -293,7 +402,7 @@ void ArgumentParser::throwError (int idx, const std::string_view& message)
 	throwError (stream.str());
 }
 
-void ArgumentParser::throwError (const std::string_view& message)
+void ArgumentParser::throwError (const std::string_view& message) const
 {
 	throw ParseError { message };
 }
@@ -359,9 +468,9 @@ std::string ArgumentParser::Subcommand::getHelpString() const
 {
 	std::stringstream stream;
 
-	stream << command << '\n';
+	stream << '\n';
 	stream << helpString << '\n';
-	stream << parser->getHelpString();
+	stream << command << parser->getHelpString();
 
 	return stream.str();
 }
@@ -372,7 +481,8 @@ bool ArgumentParser::ParsedArguments::isEmpty() const
 {
 	return subcommandName.empty()
 		&& flags.empty()
-		&& argumentValues.empty();
+		&& argumentValues.empty()
+		&& positionalArgs.empty();
 }
 
 bool ArgumentParser::ParsedArguments::hasSubcommand() const
@@ -398,6 +508,16 @@ bool ArgumentParser::ParsedArguments::hasValueForArgument (const std::string_vie
 const std::vector<std::string>& ArgumentParser::ParsedArguments::getArgumentValue (const std::string_view& argumentID) const
 {
 	return argumentValues.at (std::string { argumentID });
+}
+
+bool ArgumentParser::ParsedArguments::hasPositionalArguments() const
+{
+	return ! positionalArgs.empty();
+}
+
+const std::vector<std::string>& ArgumentParser::ParsedArguments::getPositionalArguments() const
+{
+	return positionalArgs;
 }
 
 }  // namespace misc

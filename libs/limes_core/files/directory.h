@@ -35,6 +35,7 @@ namespace files
 /** This class represents a %directory on the filesystem.
 	@ingroup files
 	@todo Get special directory locations (desktop, documents, etc)
+	@todo funcs involving child files - filename regex
  */
 class LIMES_EXPORT Directory final : public FilesystemEntry
 {

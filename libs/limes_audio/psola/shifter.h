@@ -33,6 +33,8 @@ namespace dsp::psola
 	This class is essentially a "client" of an Analyzer object, which allows multiple Shifters to be used simultaneously without requiring the expensive analysis process to be repeated.
 	@ingroup psola
 	@see Analyzer
+
+	@todo write unit tests
  */
 template <Sample SampleType>
 class LIMES_EXPORT Shifter : public SampleStream<SampleType>

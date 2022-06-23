@@ -44,7 +44,9 @@ namespace ds
 
 	@see LinkedList
 	@ingroup data_structures
+
 	@todo add a method to reverse an entire linked list
+	@todo write unit tests for this class
  */
 template <typename ObjectType>
 struct LIMES_EXPORT LinkedListModel final

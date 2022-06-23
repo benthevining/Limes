@@ -32,16 +32,28 @@ namespace misc
 {
 
 /** This class is a command-line argument parser, inspired by Python's ArgParse.
-	This parser supports flags, arguments that consume single, multiple, or a variadic number of arguments,
+	This parser supports flags, positional arguments,
+	arguments that consume single, multiple, or a variadic number of arguments,
 	and subcommands that can have their own sets of argument specifications.
+
 	@ingroup misc
+
 	@todo document this class
+	@todo write unit tests
+	@todo create parser from a JSON file spec?
+	@todo make a positional argument spec struct?
  */
 class LIMES_EXPORT ArgumentParser final
 {
 public:
 
 	static constexpr auto VARIADIC_ARGUMENTS = static_cast<std::size_t> (-1);
+
+	ArgumentParser (bool					handleHelpFlags				= true,
+					bool					requiresPositionalArguments = false,
+					bool					errorOnPositionalArguments	= false,
+					std::size_t				maxNumPositionalArguments	= VARIADIC_ARGUMENTS,
+					const std::string_view& posArgIdentifier			= "");
 
 	void addArgument (const std::string_view& argument,
 					  const std::string_view& helpString	  = "",
@@ -78,6 +90,10 @@ public:
 
 		const std::vector<std::string>& getArgumentValue (const std::string_view& argumentID) const;
 
+		bool hasPositionalArguments() const;
+
+		const std::vector<std::string>& getPositionalArguments() const;
+
 		int argc { 0 };
 
 		char** argv { nullptr };
@@ -85,6 +101,8 @@ public:
 	private:
 
 		std::vector<std::string> flags {};
+
+		std::vector<std::string> positionalArgs {};
 
 		std::map<std::string, std::vector<std::string>> argumentValues {};
 
@@ -146,23 +164,38 @@ private:
 	void validateArgument (const std::vector<std::string>& delimiters,
 						   const std::string&			   newID) const;
 
-	Argument* getArgument (const std::string_view& commandLineArg);
+	Argument* getArgument (const std::string& commandLineArg);
 
-	Subcommand* getSubcommand (const std::string_view& commandLineArg);
+	Subcommand* getSubcommand (const std::string& commandLineArg);
 
 	void parseArgument (Argument& argument,
 						int argc, char** argv,
 						ParsedArguments& parsedArgs,
 						int&			 idx);
 
-	void checkRequiredArgs();
+	void parsePositionalArgument (ParsedArguments&	 parsedArgs,
+								  int				 idx,
+								  const std::string& argValue) const;
 
-	[[noreturn]] void throwError (int idx, const std::string_view& message);
-	[[noreturn]] void throwError (const std::string_view& message);
+	void checkRequiredArgs (const ParsedArguments& args) const;
+
+	[[noreturn]] void throwError (int idx, const std::string_view& message) const;
+	[[noreturn]] void throwError (const std::string_view& message) const;
 
 	std::vector<Argument> arguments;
 
 	std::vector<Subcommand> subcommands;
+
+	bool posArgsRequired { false };
+	bool posArgsError { false };
+
+	std::string posArgsID;
+
+	std::size_t numPosArgs { 0 };
+
+	Subcommand* activeSubcommand { nullptr };
+
+	bool shouldHandleHelp { true };
 };
 
 }  // namespace misc

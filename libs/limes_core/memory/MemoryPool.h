@@ -42,6 +42,8 @@ namespace memory
 	It's also possible to store any number of disparate types within the same memory pool.
 	@ingroup memory
 	@see MemoryPoolPointer
+
+	@todo write unit tests
  */
 class LIMES_EXPORT MemoryPool final
 {

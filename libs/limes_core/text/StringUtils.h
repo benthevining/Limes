@@ -25,6 +25,7 @@
 	@ingroup limes_core
 
 	@todo function to convert a string or number to ordinal ("one" -> "first", "five" -> "fifth")
+	@todo write unit tests
  */
 
 /** @dir libs/limes_core/text

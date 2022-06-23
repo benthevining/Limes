@@ -78,6 +78,8 @@ unset (LIMES_ENABLED_SECTIONS)
 find_program (MAKE_EXECUTABLE NAMES make nmake gmake
 			  DOC "make executable used for building the Latex PDF documentation")
 
+find_package (LATEX COMPONENTS BIBTEX PDFLATEX)
+
 set (configured_script "${CMAKE_CURRENT_BINARY_DIR}/build_docs.cmake")
 
 set (latex_output_dir "${docs_output}/latex")
@@ -110,37 +112,12 @@ add_dependencies (LimesDocs LimesDependencyGraph)
 set_target_properties (LimesDocs PROPERTIES FOLDER Utility LABELS "Limes;Utility;Documentation"
 											XCODE_GENERATE_SCHEME OFF)
 
-#[[
-Required for Latex builds:
+if (LATEX_FOUND AND MAKE_EXECUTABLE)
+	install (FILES "${docs_output}/Limes.pdf" DESTINATION "${CMAKE_INSTALL_DOCDIR}"
+			 COMPONENT limes_doc_pdf OPTIONAL)
 
-sudo tlmgr install collection-latexextra wasysym helvetic wasy courier
-brew install gs
-]]
-
-find_package (LATEX COMPONENTS BIBTEX PDFLATEX)
-
-if (LATEX_FOUND AND OFF)
-	find_program (MAKE_EXECUTABLE NAMES make nmake gmake
-				  DOC "make executable used for building latex PDF")
-
-	if (MAKE_EXECUTABLE)
-		add_custom_command (
-			TARGET LimesDocs
-			POST_BUILD
-			COMMAND "${MAKE_EXECUTABLE}"
-			COMMAND "${CMAKE_COMMAND}" -E copy "${docs_output}/latex/refman.pdf"
-					"${docs_output}/Limes.pdf"
-			WORKING_DIRECTORY "${docs_output}/latex"
-			COMMENT "Building PDF from Latex..."
-			VERBATIM USES_TERMINAL)
-
-		install (FILES "${docs_output}/Limes.pdf" DESTINATION "${CMAKE_INSTALL_DOCDIR}"
-				 COMPONENT limes_doc_pdf)
-
-		cpack_add_component (
-			limes_doc_pdf DISPLAY_NAME "Limes PDF documentation"
-			DESCRIPTION "Install the Limes Doxygen PDF documentation" GROUP limes_docs)
-	endif ()
+	cpack_add_component (limes_doc_pdf DISPLAY_NAME "Limes PDF documentation"
+						 DESCRIPTION "Install the Limes Doxygen PDF documentation" GROUP limes_docs)
 endif ()
 
 install (DIRECTORY "${docs_output}/html" COMPONENT limes_doc_html

@@ -36,6 +36,7 @@ namespace ds
 /** This class manages a read and write position for a buffer of data.
 	@ingroup data_structures
 	@todo AbstractFIFO class methods need documentation
+	@todo write unit tests for this class
  */
 class LIMES_EXPORT AbstractFIFO final
 {

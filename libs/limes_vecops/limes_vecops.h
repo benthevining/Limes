@@ -58,6 +58,7 @@
 	@todo filters?
 	@todo resampling (add libsamplerate backend)
 	@todo convolution engine?
+	@todo write unit tests
  */
 
 /** @dir libs/limes_vecops

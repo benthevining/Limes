@@ -22,7 +22,10 @@ file (MAKE_DIRECTORY "@docs_output@")
 execute_process (COMMAND "@DOXYGEN_EXECUTABLE@" "@configured_doxyfile@"
 				 TIMEOUT 600 COMMAND_ERROR_IS_FATAL ANY)
 
-# if("@MAKE_EXECUTABLE@") # MAKE_EXECUTABLE
+if ("@MAKE_EXECUTABLE@" STREQUAL "" OR NOT "@LATEX_FOUND@")
+	return ()
+endif ()
+
 message (STATUS "Building Latex PDF...")
 
 execute_process (
@@ -37,4 +40,3 @@ if (EXISTS "${generated_pdf}")
 
 	message (STATUS "PDF built successfully!")
 endif ()
-# endif()

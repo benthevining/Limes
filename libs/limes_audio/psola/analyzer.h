@@ -79,6 +79,8 @@ class Shifter;
 
 	@ingroup psola
 	@see Shifter
+
+	@todo write unit tests
  */
 template <Sample SampleType>
 class LIMES_EXPORT Analyzer final

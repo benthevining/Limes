@@ -28,7 +28,9 @@ LIMES_BEGIN_NAMESPACE
 
 /** This namespace contains utilities for working with Roman numerals.
 	@ingroup text
+
 	@todo Function for parsing a roman numeral string to a number
+	@todo write unit tests
  */
 namespace text::roman
 {

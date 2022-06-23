@@ -124,6 +124,8 @@ namespace dsp::pitch
 	@warning This class does not do any internal buffering; the caller must ensure that the buffers sent to the detection functions contain enough samples for the detection algorithm.
 
 	@ingroup pitch_detection
+
+	@todo write unit tests
  */
 template <Sample SampleType>
 class LIMES_EXPORT Yin final : public PitchDetectionAlgorithm<SampleType>

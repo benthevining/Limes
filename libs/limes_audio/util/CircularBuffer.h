@@ -23,6 +23,9 @@ LIMES_BEGIN_NAMESPACE
 namespace dsp
 {
 
+/** @todo write class documentation
+	@todo write unit tests
+ */
 template <Sample SampleType>
 class LIMES_EXPORT CircularBuffer final
 {
