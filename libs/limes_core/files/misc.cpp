@@ -10,10 +10,10 @@
  * ======================================================================================
  */
 
-#include "misc.h"
+#include "./misc.h"
 #include <limes_namespace.h>
 #include <filesystem>
-#include "directory.h"
+#include "./directory.h"
 
 LIMES_BEGIN_NAMESPACE
 

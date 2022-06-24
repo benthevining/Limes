@@ -14,7 +14,7 @@
 
 #include <limes_export.h>  // for LIMES_EXPORT
 #include <vector>		   // for vector
-#include "Interval.h"	   // for Interval, Interval::Quality
+#include "./Interval.h"	   // for Interval, Interval::Quality
 #include <limes_namespace.h>
 #include <limes_core.h>
 
@@ -130,4 +130,4 @@ private:
 
 LIMES_END_NAMESPACE
 
-#include "CompoundInterval_impl.h"	// IWYU pragma: export
+#include "./CompoundInterval_impl.h"  // IWYU pragma: export

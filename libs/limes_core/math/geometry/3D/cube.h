@@ -17,8 +17,8 @@
 #include <limes_platform.h>
 #include "../../../misc/preprocessor.h"
 #include "../2D/square.h"
-#include "rectangular_prism.h"
-#include "3Dshape.h"
+#include "./rectangular_prism.h"
+#include "./3Dshape.h"
 #include <cmath>
 
 /** @file

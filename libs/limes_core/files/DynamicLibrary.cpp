@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "DynamicLibrary.h"
+#include "./DynamicLibrary.h"
 #include <limes_namespace.h>
 #include <limes_platform.h>
 #include <string>

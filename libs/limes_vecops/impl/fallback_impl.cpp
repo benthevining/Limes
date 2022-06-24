@@ -10,9 +10,9 @@
  * ======================================================================================
  */
 
-#include <limes_vecops.h>	 // for magphase
-#include <cmath>			 // for fabs, fabsf, sqrtf
-#include "limes_platform.h"	 // for LIMES_FORCE_INLINE
+#include <limes_vecops.h>	   // for magphase
+#include <cmath>			   // for fabs, fabsf, sqrtf
+#include "./limes_platform.h"  // for LIMES_FORCE_INLINE
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE

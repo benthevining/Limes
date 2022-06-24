@@ -13,8 +13,8 @@
 #pragma once
 
 #include <limes_core.h>
-#include "PitchDetectionAlgorithm.h"
-#include "PitchData.h"
+#include "./PitchDetectionAlgorithm.h"
+#include "./PitchData.h"
 
 LIMES_BEGIN_NAMESPACE
 

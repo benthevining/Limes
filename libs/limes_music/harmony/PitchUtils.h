@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include "PitchClass.h"
+#include "./PitchClass.h"
 #include <array>
 #include <cassert>
 #include <limes_core.h>

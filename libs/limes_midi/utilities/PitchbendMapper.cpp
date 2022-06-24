@@ -10,8 +10,7 @@
  * ======================================================================================
  */
 
-#include "PitchbendMapper.h"
-
+#include "./PitchbendMapper.h"
 #include <limes_core.h>
 #include <limes_namespace.h>
 

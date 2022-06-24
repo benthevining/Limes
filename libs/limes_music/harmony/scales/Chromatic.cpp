@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "Chromatic.h"
+#include "./Chromatic.h"
 #include "../PitchUtils.h"	// for semitonesInOctave
 #include "../PitchClass.h"	// for PitchClass
 #include <limes_namespace.h>

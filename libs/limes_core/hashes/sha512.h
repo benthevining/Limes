@@ -14,7 +14,7 @@
 
 #include <limes_namespace.h>
 #include <limes_export.h>
-#include "hash.h"
+#include "./hash.h"
 #include <string>
 #include <string_view>
 #include <cstdint>

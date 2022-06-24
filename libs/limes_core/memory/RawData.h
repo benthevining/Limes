@@ -46,8 +46,11 @@ LIMES_BEGIN_NAMESPACE
 namespace memory
 {
 
-/** This class is a wrapper around a pointer to some raw data on the heap.
+/** This class is a wrapper around a pointer to some raw, opaque data on the heap.
 	@ingroup memory
+
+	@todo refactor to use array_pointer internally?
+	@todo allow for non-owning RawData objects that simply reference other memory
  */
 class LIMES_EXPORT RawData final
 {
@@ -67,7 +70,7 @@ public:
 	/** Constructs a RawData object that refers to the specified data.
 		@attention The RawData object will take ownership of the passed pointer, so you should not delete it after using this constructor, or you'll get double-delete bugs!
 	 */
-	explicit RawData (char* const dataToUse, std::size_t dataSize);
+	explicit RawData (char* dataToUse, std::size_t dataSize);
 
 	/** Constructs a RawData object whose memory is initialized by reading the entire contents of the input stream.
 		@throws std::bad_alloc An exception is thrown if the allocation of this object's internal memory fails.
@@ -102,6 +105,9 @@ public:
 	RawData& operator= (const RawData& other);
 	///@}
 
+	/** Creates a new RawData object with a copy of this one's data. */
+	[[nodiscard]] RawData makeCopy() const;
+
 	/** @name Data accessors
 		Returns a pointer to this object's data.
 	 */
@@ -109,6 +115,11 @@ public:
 	[[nodiscard]] char*		  getData() noexcept;
 	[[nodiscard]] const char* getData() const noexcept;
 	///@}
+
+	/** Returns the character at the specified position in the data.
+		An assertion will be thrown if the index is out of range.
+	 */
+	char operator[] (std::size_t index) const noexcept;
 
 	/** Returns the size (in bytes) of the data that this object owns. */
 	[[nodiscard]] std::size_t getSize() const noexcept;
@@ -215,6 +226,11 @@ public:
 	char*		end() noexcept;
 	const char* end() const noexcept;
 	///@}
+
+	/** Deallocates any previously owned memory, and takes ownership of the passed pointer.
+		@attention The RawData object will take ownership of the passed pointer, so you should not delete it manually after calling this function, or you'll get double-delete bugs!
+	 */
+	void setData (char* dataToUse, std::size_t dataSize);
 
 	/** Computes a hash value for this object's data, based on the specified hash type. */
 	[[nodiscard]] std::string hash (hash::Type hashType) const;

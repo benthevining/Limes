@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "VelocityMapper.h"
+#include "./VelocityMapper.h"
 #include <limes_core.h>
 #include <limes_platform.h>
 #include <limes_namespace.h>

@@ -17,7 +17,7 @@
 #include <limes_platform.h>
 #include "../../../misc/preprocessor.h"
 #include "../2D/triangle.h"
-#include "3Dshape.h"
+#include "./3Dshape.h"
 
 /** @file
 	This file defines the TriangularPrism class.

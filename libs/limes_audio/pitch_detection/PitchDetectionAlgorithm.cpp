@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "PitchDetectionAlgorithm.h"
+#include "./PitchDetectionAlgorithm.h"
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE

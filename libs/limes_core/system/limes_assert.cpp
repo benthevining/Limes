@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "limes_assert.h"
+#include "./limes_assert.h"
 #include <limes_namespace.h>
 #include <limes_platform.h>
 #include <iostream>
@@ -21,7 +21,7 @@
 #include <cstdlib>
 #include <mutex>
 #include "../files/file.h"
-#include "debugger.h"
+#include "./debugger.h"
 
 LIMES_BEGIN_NAMESPACE
 

@@ -10,8 +10,7 @@
  * ======================================================================================
  */
 
-#include "neon_mathfun.h"
-
+#include "./neon_mathfun.h"
 #include <array>
 
 namespace pommier

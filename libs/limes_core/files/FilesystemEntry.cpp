@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "FilesystemEntry.h"
+#include "./FilesystemEntry.h"
 #include <limes_namespace.h>	 // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAME...
 #include <ctime>				 // for tm
 #include <exception>			 // for exception
@@ -19,9 +19,9 @@
 #include <string>				 // for operator<, operator>
 #include "../misc/Functions.h"	 // for try_call
 #include "../time/time_utils.h"	 // for toTimeObj
-#include "directory.h"			 // for Directory
-#include "file.h"				 // for File
-#include "sym_link.h"			 // for SymLink
+#include "./directory.h"		 // for Directory
+#include "./file.h"				 // for File
+#include "./sym_link.h"			 // for SymLink
 
 
 LIMES_BEGIN_NAMESPACE

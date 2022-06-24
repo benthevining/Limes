@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "common.h"
+#include "./common.h"
 #include <limes_namespace.h>
 #include "../system/compiler_defs.h"
 

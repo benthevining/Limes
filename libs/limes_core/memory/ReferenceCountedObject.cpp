@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "ReferenceCountedObject.h"
+#include "./ReferenceCountedObject.h"
 #include "../system/limes_assert.h"
 #include <limes_namespace.h>
 

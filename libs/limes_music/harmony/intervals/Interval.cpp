@@ -10,11 +10,11 @@
  * ======================================================================================
  */
 
-#include "Interval.h"
-#include "../Pitch.h"		// for Pitch
-#include "../PitchUtils.h"	// for semitonesInOctave
-#include "Interval_impl.h"	// for Interval::Interval, Int...
-#include <limes_core.h>		// for abs
+#include "./Interval.h"
+#include "../Pitch.h"		  // for Pitch
+#include "../PitchUtils.h"	  // for semitonesInOctave
+#include "./Interval_impl.h"  // for Interval::Interval, Int...
+#include <limes_core.h>		  // for abs
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE

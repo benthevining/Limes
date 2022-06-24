@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "CircularBuffer.h"
+#include "./CircularBuffer.h"
 #include <limes_platform.h>
 #include <limes_vecops.h>
 #include <limes_namespace.h>

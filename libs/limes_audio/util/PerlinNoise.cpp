@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "PerlinNoise.h"
+#include "./PerlinNoise.h"
 #include <cmath>
 #include <limes_core.h>
 #include <algorithm>

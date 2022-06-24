@@ -16,8 +16,8 @@
 #include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
 #include "../util/AudioBuffer.h"
 #include <limes_core.h>
-#include "PitchData.h"
-#include "PitchDetectionAlgorithm.h"
+#include "./PitchData.h"
+#include "./PitchDetectionAlgorithm.h"
 #include "../filters/Filter.h"
 
 /** @file

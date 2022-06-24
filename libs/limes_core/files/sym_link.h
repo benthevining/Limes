@@ -14,7 +14,7 @@
 
 #include <limes_namespace.h>
 #include <limes_export.h>
-#include "FilesystemEntry.h"
+#include "./FilesystemEntry.h"
 #include <functional>  // for std::hash
 
 /** @file

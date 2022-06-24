@@ -14,8 +14,8 @@
 
 #include <limes_export.h>
 #include <limes_namespace.h>
-#include "year.h"
-#include "month.h"
+#include "./year.h"
+#include "./month.h"
 #include "../misc/preprocessor.h"
 #include "../system/compiler_defs.h"
 #include <string_view>
@@ -187,4 +187,4 @@ private:
 
 LIMES_END_NAMESPACE
 
-#include "impl/weekday_impl.h"	// IWYU pragma: export
+#include "./impl/weekday_impl.h"  // IWYU pragma: export

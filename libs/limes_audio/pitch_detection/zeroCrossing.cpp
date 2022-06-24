@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "zeroCrossing.h"
+#include "./zeroCrossing.h"
 
 LIMES_BEGIN_NAMESPACE
 

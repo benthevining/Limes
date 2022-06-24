@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "RawData.h"
+#include "./RawData.h"
 #include <iterator>			  // for istreambuf_iterator
 #include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE
 #include <cstdlib>			  // for malloc, calloc, free
@@ -20,6 +20,7 @@
 #include <string_view>
 #include "../hashes/hash.h"	 // for hash
 #include <exception>
+#include "../system/limes_assert.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -69,7 +70,7 @@ RawData::~RawData()
 	std::free (data);
 }
 
-RawData& RawData::operator= (const RawData& other)
+RawData& RawData::operator= (const RawData& other)	// cppcheck-suppress operatorEqVarError
 {
 	if (other.isEmpty())
 	{
@@ -90,12 +91,17 @@ RawData& RawData::operator= (const RawData& other)
 	return *this;
 }
 
-RawData& RawData::operator= (RawData&& other)
+RawData& RawData::operator= (RawData&& other)  // cppcheck-suppress operatorEqVarError
 {
 	size = other.size;
 	data = other.release();
 
 	return *this;
+}
+
+RawData RawData::makeCopy() const
+{
+	return RawData { *this };
 }
 
 bool RawData::writeToStream (std::basic_ostream<char>& outputStream) const noexcept
@@ -270,6 +276,14 @@ void RawData::zero()
 	fill ('0');
 }
 
+void RawData::setData (char* dataToUse, std::size_t dataSize)
+{
+	free();
+
+	data = dataToUse;
+	size = dataSize;
+}
+
 void RawData::throwOnAllocationFailure() const
 {
 	if (size == 0)
@@ -307,6 +321,13 @@ char* RawData::end() noexcept
 const char* RawData::end() const noexcept
 {
 	return data + size;
+}
+
+char RawData::operator[] (std::size_t index) const noexcept
+{
+	LIMES_ASSERT (index < size);
+
+	return data[size];
 }
 
 std::size_t RawData::getSize() const noexcept

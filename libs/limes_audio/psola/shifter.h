@@ -14,7 +14,7 @@
 
 #include <limes_export.h>
 #include "../streams/SampleStream.h"
-#include "analyzer.h"
+#include "./analyzer.h"
 #include "../util/Misc.h"
 #include <limes_namespace.h>
 #include <limes_core.h>

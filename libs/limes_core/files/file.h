@@ -20,10 +20,10 @@
 #include <vector>				// for vector
 #include "../hashes/hash.h"		// for hash::Type
 #include "../memory/RawData.h"	// for RawData
-#include "FilesystemEntry.h"	// for FilesystemEntry, Path
+#include "./FilesystemEntry.h"	// for FilesystemEntry, Path
 #include <functional>			// for std::hash
 #include "../misc/preprocessor.h"
-#include "CFile.h"
+#include "./CFile.h"
 
 /** @file
 	This file defines the File and TempFile classes.

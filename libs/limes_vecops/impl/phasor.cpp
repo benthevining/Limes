@@ -11,7 +11,7 @@
  */
 
 #include <limes_platform.h>
-#include "phasor.h"
+#include "./phasor.h"
 #include <type_traits>
 #include <cmath>
 #include <limes_namespace.h>

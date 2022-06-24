@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "Scale.h"
+#include "./Scale.h"
 #include "../PitchUtils.h"			// for lowestNoteOfMidiOctave
 #include "../intervals/Interval.h"	// for Interval
 #include "../Pitch.h"				// for Pitch

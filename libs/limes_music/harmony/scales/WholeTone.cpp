@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "WholeTone.h"
+#include "./WholeTone.h"
 #include "../PitchClass.h"	// for PitchClass
 #include <limes_namespace.h>
 

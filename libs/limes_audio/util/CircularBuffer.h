@@ -13,8 +13,8 @@
 #pragma once
 
 #include <limes_export.h>
-#include "Misc.h"
-#include "AudioBuffer.h"
+#include "./Misc.h"
+#include "./AudioBuffer.h"
 #include <limes_namespace.h>
 #include <limes_core.h>
 

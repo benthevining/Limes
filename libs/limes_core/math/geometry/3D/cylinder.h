@@ -18,7 +18,7 @@
 #include "../../../misc/preprocessor.h"
 #include "../../mathFunctions.h"
 #include "../2D/circle.h"
-#include "3Dshape.h"
+#include "./3Dshape.h"
 
 /** @file
 	This file defines the Cylinder class.

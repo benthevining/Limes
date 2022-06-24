@@ -10,8 +10,8 @@
  * ======================================================================================
  */
 
-#include "analyzer.h"
-#include "shifter.h"
+#include "./analyzer.h"
+#include "./shifter.h"
 #include <limes_platform.h>
 #include <limes_namespace.h>
 

@@ -18,7 +18,7 @@
 #include "../../../misc/preprocessor.h"
 #include "../2D/triangle.h"
 #include "../2D/rectangle.h"
-#include "3Dshape.h"
+#include "./3Dshape.h"
 #include <cmath>
 
 /** @file

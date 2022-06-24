@@ -10,12 +10,12 @@
  * ======================================================================================
  */
 
-#include "ArgumentParser.h"
+#include "./ArgumentParser.h"
 #include <limes_namespace.h>
 #include <iostream>
 #include "../text/StringUtils.h"
 #include "../system/limes_assert.h"
-#include "Algorithm.h"
+#include "./Algorithm.h"
 #include <sstream>
 #include <algorithm>
 
@@ -31,8 +31,8 @@ ArgumentParser::ArgumentParser (bool					handleHelpFlags,
 								const std::string_view& posArgIdentifier)
 	: posArgsRequired (requiresPositionalArguments),
 	  posArgsError (errorOnPositionalArguments),
-	  numPosArgs (maxNumPositionalArguments),
 	  posArgsID (posArgIdentifier),
+	  numPosArgs (maxNumPositionalArguments),
 	  shouldHandleHelp (handleHelpFlags)
 {
 	// it makes no sense for these to both be true
@@ -343,8 +343,16 @@ void ArgumentParser::parsePositionalArgument (ParsedArguments&	 parsedArgs,
 		throwError (idx + 1, "Positional arguments not accepted!");
 
 	if (numPosArgs != VARIADIC_ARGUMENTS)
+	{
 		if (parsedArgs.positionalArgs.size() + 1UL > numPosArgs)
-			throwError (idx, "Too many positional arguments - expected " << numPosArgs);
+		{
+			std::stringstream s;
+
+			s << "Too many positional arguments - expected " << numPosArgs;
+
+			throwError (idx, s.str());
+		}
+	}
 
 	parsedArgs.positionalArgs.emplace_back (argValue);
 }
@@ -357,11 +365,19 @@ void ArgumentParser::checkRequiredArgs (const ParsedArguments& args) const
 
 	if (args.hasPositionalArguments())
 	{
+		std::stringstream s;
+
 		if (posArgsError)
-			throwError ("Unexpected positional arguments: " << text::join (args.getPositionalArguments(), " "));
+		{
+			s << "Unexpected positional arguments: " << text::join (args.getPositionalArguments(), " ");
+			throwError (s.str());
+		}
 
 		if (args.getPositionalArguments().size() > numPosArgs)
-			throwError ("Too many positional arguments: expected " << numPosArgs);
+		{
+			s << "Too many positional arguments: expected " << numPosArgs;
+			throwError (s.str());
+		}
 	}
 	else
 	{

@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "file.h"
+#include "./file.h"
 #include <iterator>			  // for istreambuf_iterator
 #include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE
 #include <exception>		  // for exception
@@ -18,13 +18,13 @@
 #include <fstream>			  // for string, ifstream, ofstream
 #include <string>			  // for char_traits, operator+
 #include <string_view>
-#include "../hashes/hash.h"				  // for hash, md5, sha1, sha224
-#include "../misc/Functions.h"			  // for try_call
-#include "../text/StringUtils.h"		  // for joinWithNewlines, splitA...
-#include "directory.h"					  // for Directory
-#include "exec_location/exec_location.h"  // for getExecutablePath, getMo...
-#include "FilesystemEntry.h"			  // for Path
-#include "../memory/RawData.h"			  // for RawData
+#include "../hashes/hash.h"					// for hash, md5, sha1, sha224
+#include "../misc/Functions.h"				// for try_call
+#include "../text/StringUtils.h"			// for joinWithNewlines, splitA...
+#include "./directory.h"					// for Directory
+#include "./exec_location/exec_location.h"	// for getExecutablePath, getMo...
+#include "./FilesystemEntry.h"				// for Path
+#include "../memory/RawData.h"				// for RawData
 #include <cstdio>
 #include <atomic>
 #include "../system/limes_assert.h"

@@ -17,8 +17,8 @@
 #include <cstring>			  // for memcpy, memset
 #include <string>			  // for basic_string
 #include <string_view>		  // for string_view
-#include "sha224.h"			  // for sha224
-#include "common.h"
+#include "./sha224.h"		  // for sha224
+#include "./common.h"
 
 LIMES_BEGIN_NAMESPACE
 

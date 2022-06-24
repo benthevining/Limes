@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "Version.h"
+#include "./Version.h"
 #include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
 #include <sstream>			  // for operator<<, basic_ostream, stringstream
 

@@ -10,17 +10,17 @@
  * ======================================================================================
  */
 
-#include "limes_fft.h"
+#include "./limes_fft.h"
 #include <limes_namespace.h>
 
 #if LIMES_VECOPS_USE_FFTW
-#	include "fftw_fft.h"
+#	include "./fftw_fft.h"
 #elif LIMES_VECOPS_USE_VDSP
-#	include "vdsp_fft.h"
+#	include "./vdsp_fft.h"
 #elif LIMES_VECOPS_USE_IPP
-#	include "ipp_fft.h"
+#	include "./ipp_fft.h"
 #else
-#	include "fallback_fft.h"
+#	include "./fallback_fft.h"
 #endif
 
 LIMES_BEGIN_NAMESPACE

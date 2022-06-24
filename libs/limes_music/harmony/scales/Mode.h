@@ -12,10 +12,10 @@
 
 #pragma once
 
-#include <limes_export.h>	// for LIMES_EXPORT
-#include "KeySignature.h"	// for KeySignature
-#include "Scale.h"			// for Scale
-#include "../PitchClass.h"	// for PitchClass
+#include <limes_export.h>	 // for LIMES_EXPORT
+#include "./KeySignature.h"	 // for KeySignature
+#include "./Scale.h"		 // for Scale
+#include "../PitchClass.h"	 // for PitchClass
 #include <limes_namespace.h>
 #include <limes_core.h>
 

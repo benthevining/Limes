@@ -10,13 +10,13 @@
  * ======================================================================================
  */
 
-#include "Pitch.h"
+#include "./Pitch.h"
 #include <limes_namespace.h>
-#include <cmath>		 // for floor
-#include "PitchClass.h"	 // for PitchClass
-#include "PitchUtils.h"	 // for octaveNumberOfMidiNote
-#include <limes_core.h>	 // for round, midiToFreq
-#include "intervals/Interval.h"
+#include <cmath>		   // for floor
+#include "./PitchClass.h"  // for PitchClass
+#include "./PitchUtils.h"  // for octaveNumberOfMidiNote
+#include <limes_core.h>	   // for round, midiToFreq
+#include "./intervals/Interval.h"
 
 LIMES_BEGIN_NAMESPACE
 

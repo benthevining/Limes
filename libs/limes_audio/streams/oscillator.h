@@ -12,9 +12,9 @@
 
 #pragma once
 
-#include <limes_export.h>  // for LIMES_EXPORT
-#include "SampleStream.h"  // for SampleStream
-#include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
+#include <limes_export.h>	 // for LIMES_EXPORT
+#include "./SampleStream.h"	 // for SampleStream
+#include "../util/Misc.h"	 // for concept Sample - IWYU pragma: keep
 #include <limes_namespace.h>
 
 /** @defgroup oscillators Oscillators

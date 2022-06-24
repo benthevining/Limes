@@ -240,4 +240,4 @@ LIMES_EXPORT static constexpr const T blackman_alpha = T (0.16);
 
 LIMES_END_NAMESPACE
 
-#include "mathFunctions_impl.h"	 // IWYU pragma: export
+#include "./mathFunctions_impl.h"  // IWYU pragma: export

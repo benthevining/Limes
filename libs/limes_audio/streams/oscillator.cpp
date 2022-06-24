@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "oscillator.h"
+#include "./oscillator.h"
 #include <limes_platform.h>	 // for LIMES_ASSERT
 #include "../util/Misc.h"
 #include <limes_namespace.h>

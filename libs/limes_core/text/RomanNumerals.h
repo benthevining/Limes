@@ -17,7 +17,7 @@
 #include <string>
 #include "../math/mathFunctions.h"	// for concept Integral
 #include "../system/limes_assert.h"
-#include "StringUtils.h"
+#include "./StringUtils.h"
 
 /** @file
 	This file contains utilities for working with Roman numerals.

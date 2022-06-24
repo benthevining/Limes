@@ -18,7 +18,7 @@
 #include <cstring>		// for memcpy, strcat, strcpy
 #include <string>		// for basic_string
 #include <string_view>	// for string_view
-#include "sha1.h"		// for sha1
+#include "./sha1.h"		// for sha1
 #include <bit>			// for std::endian
 
 #if LIMES_MSVC

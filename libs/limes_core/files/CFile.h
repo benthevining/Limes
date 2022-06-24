@@ -16,7 +16,7 @@
 #include <limes_namespace.h>
 #include <cstdio>
 #include "../misc/preprocessor.h"
-#include "FilesystemEntry.h"  // for Path typedef
+#include "./FilesystemEntry.h"	// for Path typedef
 
 /** @file
 	This file defines the CFile class.

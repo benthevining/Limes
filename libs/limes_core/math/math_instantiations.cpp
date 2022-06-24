@@ -10,7 +10,9 @@
  * ======================================================================================
  */
 
-#include "Fraction.h"
+#include "./Fraction.h"
+#include "./StatsComputer.h"
+#include "./geometry/2D/angle.h"
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE

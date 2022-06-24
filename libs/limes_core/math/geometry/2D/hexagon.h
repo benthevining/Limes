@@ -15,7 +15,7 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 #include <limes_platform.h>
-#include "2Dshape.h"
+#include "./2Dshape.h"
 #include "../../../misc/preprocessor.h"
 #include "../../../system/compiler_defs.h"
 #include <cmath>

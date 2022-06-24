@@ -14,7 +14,7 @@
 
 #include <limes_export.h>
 #include <limes_namespace.h>
-#include "compiler_defs.h"
+#include "./compiler_defs.h"
 
 /** @file
 	This file defines functions related to the debugger.

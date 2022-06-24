@@ -10,10 +10,10 @@
  * ======================================================================================
  */
 
-#include "fftw_fft.h"
+#include "./fftw_fft.h"
 #include <cmath>			 // for log, logf
-#include "fft_common.h"		 // for FFTImpl, shiftAmount
-#include "limes_fft.h"		 // for FFT, enableWisdom, getWisdomFileDir, isU...
+#include "./fft_common.h"	 // for FFTImpl, shiftAmount
+#include "./limes_fft.h"	 // for FFT, enableWisdom, getWisdomFileDir, isU...
 #include <limes_vecops.h>	 // for copy, cartesianInterleavedToMagnitudes
 #include <limes_platform.h>	 // for LIMES_FORCE_INLINE
 #include <limes_namespace.h>

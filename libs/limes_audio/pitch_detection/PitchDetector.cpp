@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "PitchDetector.h"
+#include "./PitchDetector.h"
 #include <limes_namespace.h>
 #include <algorithm>
 #include <limes_core.h>

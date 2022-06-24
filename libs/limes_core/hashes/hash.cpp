@@ -10,17 +10,17 @@
  * ======================================================================================
  */
 
-#include "hash.h"
+#include "./hash.h"
 #include <limes_namespace.h>
 #include <string_view>
 #include <string>
 #include "../system/limes_assert.h"
-#include "md5.h"
-#include "sha1.h"
-#include "sha224.h"
-#include "sha256.h"
-#include "sha384.h"
-#include "sha512.h"
+#include "./md5.h"
+#include "./sha1.h"
+#include "./sha224.h"
+#include "./sha256.h"
+#include "./sha384.h"
+#include "./sha512.h"
 
 LIMES_BEGIN_NAMESPACE
 

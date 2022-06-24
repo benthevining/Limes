@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "WhiteNoiseGenerator.h"
+#include "./WhiteNoiseGenerator.h"
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE

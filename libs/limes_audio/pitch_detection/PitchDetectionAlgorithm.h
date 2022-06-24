@@ -14,7 +14,7 @@
 
 #include <limes_core.h>
 #include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
-#include "PitchData.h"
+#include "./PitchData.h"
 #include "../util/AudioBuffer.h"
 
 /** @file

@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "Filter.h"
+#include "./Filter.h"
 #include <limes_namespace.h>
 #include <limes_core.h>
 

@@ -15,10 +15,10 @@
 #include <limes_namespace.h>
 #include <limes_export.h>
 #include <limes_platform.h>
-#include "2Dshape.h"
+#include "./2Dshape.h"
 #include "../../../misc/preprocessor.h"
-#include "rectangle.h"
-#include "triangle.h"
+#include "./rectangle.h"
+#include "./triangle.h"
 #include <cmath>
 
 /** @file

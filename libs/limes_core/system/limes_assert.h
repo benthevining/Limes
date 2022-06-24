@@ -20,7 +20,7 @@
 #include "../misc/IgnoreUnused.h"
 #include <limes_platform.h>
 #include <filesystem>
-#include "compiler_defs.h"
+#include "./compiler_defs.h"
 
 /** @defgroup system System
 	Utilities that may be OS- or compiler-specific.

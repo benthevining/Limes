@@ -15,7 +15,7 @@
 #include <limes_export.h>
 #include <limes_core.h>
 #include "../pitch_detection/PitchDetector.h"
-#include "PeakFinder.h"
+#include "./PeakFinder.h"
 #include "../util/Misc.h"
 #include "../util/AudioBuffer.h"
 #include <limes_namespace.h>

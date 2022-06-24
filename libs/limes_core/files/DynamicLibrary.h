@@ -17,7 +17,7 @@
 #include <string_view>
 #include <string>
 #include "../misc/preprocessor.h"
-#include "file.h"
+#include "./file.h"
 
 /** @file
 	This file defines the DynamicLibrary class.

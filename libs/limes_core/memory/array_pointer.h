@@ -41,6 +41,9 @@ namespace memory
 	@endcode
 
 	@ingroup memory
+
+	@todo write unit tests
+	@todo need to create an underlying shared memory class, to RAIIze the 'non-owning' pointers??
  */
 template <typename Type, bool UseExceptions = false>
 class LIMES_EXPORT array_pointer final
@@ -87,7 +90,10 @@ public:
 	{
 	}
 
-	/** Deallocates this pointer's memory, and assigns it to refer to the memory owned by the other pointer. */
+	/** Deallocates this pointer's memory, and assigns it to refer to the memory owned by the other pointer.
+		This object will not take ownership of the underlying memory.
+		@attention The array pointer passed as the right hand side of this operation must outlive the one on the left hand side!
+	 */
 	array_pointer& operator= (const array_pointer& other) noexcept (! UseExceptions)  // cppcheck-suppress operatorEqVarError
 	{
 		return referenceOtherMemory (other.ptr, other.size);
@@ -96,7 +102,9 @@ public:
 
 	LIMES_DEFAULT_MOVABLE (array_pointer)
 
-	/** Deallocates this pointer's memory, and assigns it to refer to the passed pointer. */
+	/** Deallocates this pointer's memory, and assigns it to refer to the passed pointer.
+		This object will not take ownership of the underlying memory.
+	 */
 	array_pointer& referenceOtherMemory (Type* memoryToReference, std::size_t arraySize) noexcept (! UseExceptions)	 // cppcheck-suppress operatorEqRetRefThis
 	{
 		free();
@@ -121,7 +129,9 @@ public:
 	/** Returns the size of the pointed-to array. */
 	int getSize() const noexcept { return static_cast<int> (size); }
 
-	/** Frees the allocated memory. */
+	/** Frees the allocated memory.
+		If this is a non-owning array pointer that simply references some other memory, then calling this function does nothing.
+	 */
 	void free() noexcept (! UseExceptions);
 
 	/** Reallocates the array's memory.

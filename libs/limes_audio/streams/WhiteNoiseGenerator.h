@@ -15,7 +15,7 @@
 #include <cstdint>
 #include <limes_export.h>
 #include <limes_core.h>
-#include "SampleStream.h"
+#include "./SampleStream.h"
 #include "../util/Misc.h"  // for concept Sample - IWYU pragma: keep
 #include <limes_namespace.h>
 

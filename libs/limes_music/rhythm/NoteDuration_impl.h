@@ -13,7 +13,7 @@
 #pragma once
 
 #include <limes_core.h>
-#include "NoteDuration.h"
+#include "./NoteDuration.h"
 #include <limes_namespace.h>
 
 /** @file

@@ -19,12 +19,12 @@
 #include <cstring>			 // for memset, memcpy, size_t
 #include <limits>			 // for numeric_limits
 #include <numeric>			 // for accumulate
-#include "phasor.h"			 // for phasor
+#include "./phasor.h"		 // for phasor
 #include <limes_namespace.h>
 #include <cstdint>
 
 #if LIMES_VECOPS_USE_POMMIER
-#	include "pommier/pommier_wrapper.h"  // IWYU pragma: export
+#	include "./pommier/pommier_wrapper.h"	// IWYU pragma: export
 #endif
 
 /** @file

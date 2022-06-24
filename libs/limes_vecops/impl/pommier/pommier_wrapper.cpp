@@ -10,12 +10,12 @@
  * ======================================================================================
  */
 
-#include "pommier_wrapper.h"
+#include "./pommier_wrapper.h"
 
 #if LIMES_ARM_NEON
-#	include "neon_mathfun.h"
+#	include "./neon_mathfun.h"
 #elif LIMES_SSE
-#	include "sse_mathfun.h"
+#	include "./sse_mathfun.h"
 #else
 #	error
 #endif

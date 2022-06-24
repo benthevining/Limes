@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "StringUtils.h"
+#include "./StringUtils.h"
 #include <algorithm>		  // for equal
 #include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_...
 #include <cctype>			  // for tolower, isspace, toupper

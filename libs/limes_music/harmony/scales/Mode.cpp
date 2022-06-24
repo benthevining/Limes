@@ -10,8 +10,8 @@
  * ======================================================================================
  */
 
-#include "Mode.h"
-#include "KeySignature.h"	 // for KeySignature, KeySigna...
+#include "./Mode.h"
+#include "./KeySignature.h"	 // for KeySignature, KeySigna...
 #include <limes_platform.h>	 // for LIMES_ASSERT_FALSE
 #include "../PitchClass.h"	 // for PitchClass
 #include <limes_namespace.h>

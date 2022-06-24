@@ -14,7 +14,7 @@
 
 #include <limes_export.h>	 // for LIMES_EXPORT
 #include <initializer_list>	 // for initializer_list
-#include "Pitch.h"			 // for Pitch
+#include "./Pitch.h"		 // for Pitch
 #include <limes_namespace.h>
 #include <limes_core.h>
 

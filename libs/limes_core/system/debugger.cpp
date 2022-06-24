@@ -10,11 +10,11 @@
  * ======================================================================================
  */
 
-#include "limes_assert.h"
+#include "./limes_assert.h"
 #include <limes_namespace.h>
 #include <limes_platform.h>
 #include <atomic>
-#include "compiler_warnings.h"
+#include "./compiler_warnings.h"
 
 #if LIMES_WINDOWS
 #	include <windows.h>

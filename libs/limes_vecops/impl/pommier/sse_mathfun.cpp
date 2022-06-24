@@ -10,8 +10,7 @@
  * ======================================================================================
  */
 
-#include "sse_mathfun.h"
-
+#include "./sse_mathfun.h"
 #include <mmintrin.h>
 #include <immintrin.h>
 

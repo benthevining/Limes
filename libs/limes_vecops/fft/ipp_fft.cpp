@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "ipp_fft.h"
+#include "./ipp_fft.h"
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE

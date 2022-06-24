@@ -10,13 +10,13 @@
  * ======================================================================================
  */
 
-#include "Chord.h"
-#include <algorithm>			 // for all_of
-#include "PitchClass.h"			 // for PitchClass
-#include "intervals/Interval.h"	 // for Interval
-#include "scales/Scale.h"		 // for Scale
-#include <limes_core.h>			 // for transform
-#include "Pitch.h"				 // for Pitch
+#include "./Chord.h"
+#include <algorithm>			   // for all_of
+#include "./PitchClass.h"		   // for PitchClass
+#include "./intervals/Interval.h"  // for Interval
+#include "./scales/Scale.h"		   // for Scale
+#include <limes_core.h>			   // for transform
+#include "./Pitch.h"			   // for Pitch
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE

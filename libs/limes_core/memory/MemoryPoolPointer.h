@@ -14,7 +14,7 @@
 
 #include <limes_namespace.h>
 #include <limes_export.h>
-#include "MemoryPool.h"
+#include "./MemoryPool.h"
 
 /** @file
 	This file defines the MemoryPoolPointer class.

@@ -12,8 +12,8 @@
 
 #pragma once
 
-#include "PitchClass.h"
-#include "PitchUtils.h"
+#include "./PitchClass.h"
+#include "./PitchUtils.h"
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include <limes_core.h>

@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "PeakFinder.h"
+#include "./PeakFinder.h"
 #include <algorithm>		 // for min, max
 #include <cmath>			 // for abs
 #include <limits>			 // for numeric_limits

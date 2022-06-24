@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "Octatonic.h"
+#include "./Octatonic.h"
 #include "../PitchClass.h"	// for PitchClass
 #include <limes_namespace.h>
 

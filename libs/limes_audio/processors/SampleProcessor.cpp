@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include "SampleProcessor.h"
+#include "./SampleProcessor.h"
 #include <limes_namespace.h>
 #include <utility>	// for move
 

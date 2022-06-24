@@ -14,9 +14,9 @@
 
 #include <limes_namespace.h>
 #include <limes_export.h>
-#include "TypeList_impl.h"	// IWYU pragma: export
+#include "./TypeList_impl.h"  // IWYU pragma: export
 #include "../misc/Functions.h"
-#include "TypeTraits.h"
+#include "./TypeTraits.h"
 #include <type_traits>
 #include <utility>
 #include <memory>

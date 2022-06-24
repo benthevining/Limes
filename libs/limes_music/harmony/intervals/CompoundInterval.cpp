@@ -10,11 +10,11 @@
  * ======================================================================================
  */
 
-#include "CompoundInterval.h"
+#include "./CompoundInterval.h"
 #include <cmath>			// for abs
 #include "../Pitch.h"		// for Pitch
 #include "../PitchUtils.h"	// for semitonesInOctave
-#include "Interval.h"		// for Interval, Interval::Qua...
+#include "./Interval.h"		// for Interval, Interval::Qua...
 #include <limes_core.h>		// for abs
 #include <limes_namespace.h>
 

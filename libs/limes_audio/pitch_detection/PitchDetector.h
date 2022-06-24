@@ -12,11 +12,11 @@
 
 #pragma once
 
-#include "PitchData.h"
-#include "yin.h"
-#include "zeroCrossing.h"
+#include "./PitchData.h"
+#include "./yin.h"
+#include "./zeroCrossing.h"
 #include <limes_core.h>
-#include "PitchDetectionAlgorithm.h"
+#include "./PitchDetectionAlgorithm.h"
 #include <array>
 
 /** @file

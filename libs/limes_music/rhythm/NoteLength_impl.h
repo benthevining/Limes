@@ -13,7 +13,7 @@
 #pragma once
 
 #include <limes_core.h>
-#include "NoteLength.h"
+#include "./NoteLength.h"
 #include <limes_namespace.h>
 
 LIMES_BEGIN_NAMESPACE

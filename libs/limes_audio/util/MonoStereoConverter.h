@@ -1,4 +1,3 @@
-
 /*
  * ======================================================================================
  *  __    ____  __  __  ____  ___
@@ -14,8 +13,8 @@
 #pragma once
 
 #include <limes_export.h>  // for LIMES_EXPORT
-#include "Misc.h"		   // for concept Sample - IWYU pragma: keep
-#include "AudioBuffer.h"
+#include "./Misc.h"		   // for concept Sample - IWYU pragma: keep
+#include "./AudioBuffer.h"
 #include <limes_namespace.h>
 
 /** @file
