@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend weekday.h
+
 #pragma once
 
 #include "../build_date.h"

@@ -213,8 +213,13 @@ namespace fftw
 /** Sets the directory that FFTW wisdom files will be read from and saved to.
 	The actual filenames will be \c .fftw_wisdom.d (double precision) and \c .fftw_wisdom.f (float precision), within this directory.
 	@note To load wisdom files from a specified directory, this function should be called before the first FFT object is created.
-	If a custom directory has not been specified when the first FFT object is created, it will check if the environment variable \c FFTW_WISDOM_FILE_DIR is set, and if so, will use its value as the directory to store files in.
-	Failing that, the environment variable \c HOME will be tried.
+
+	@envvar @b FFTW_WISDOM_FILE_DIR This environment variable may be set to the path to a directory where FFTW wisdom files will be saved to and loaded from.
+	Note that this variable is only used as a fallback; calling the \c setWisdomFileDir() function will override this variable's value.
+
+	@envvar @b HOME If no FFTW wisdom file directory has been explicitly set by calling the \c setWisdomFileDir() function, and the \c FFTW_WISDOM_FILE_DIR
+	environment variable is also not set, then the value of \c HOME will be used as the directory to store and load wisdom files.
+
 	@see getWisdomFileDir
  */
 LIMES_EXPORT bool setWisdomFileDir (const files::Directory& directory);

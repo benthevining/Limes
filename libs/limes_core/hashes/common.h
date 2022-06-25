@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend limes_core/hashes/*
+
 #pragma once
 
 #include <limes_namespace.h>

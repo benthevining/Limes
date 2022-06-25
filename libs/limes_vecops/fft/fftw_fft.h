@@ -10,6 +10,11 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend limes_fft.cpp
+
+#pragma once
+
 #include <limes_export.h>  // for LIMES_NO_EXPORT
 #include <type_traits>	   // for conditional_t
 #include "./fft_common.h"  // for FFTImpl
@@ -25,7 +30,7 @@
 
 #if defined(DOXYGEN) || ! defined(FFTW_HEADER_NAME)
 /** @def FFTW_HEADER_NAME
-	The name of the header that should be included for the FFTW library.
+	The name of the header that should be included for the FFTW library, including the surrounding quote or bracket characters.
 	This may differ depending on if only one precision is available.
 	It defaults to \c \<fftw3.h> .
 	@ingroup fftw

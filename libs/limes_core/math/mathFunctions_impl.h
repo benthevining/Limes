@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend mathFunctions.h
+
 #pragma once
 
 #include <limes_namespace.h>

@@ -10,6 +10,11 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend limes_fft.cpp
+
+#pragma once
+
 #include "./fft_common.h"
 #include <limes_export.h>
 #include <limes_namespace.h>

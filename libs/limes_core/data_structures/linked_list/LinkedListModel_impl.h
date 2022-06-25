@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend LinkedListModel.h
+
 #pragma once
 
 #include <limes_namespace.h>

@@ -130,7 +130,7 @@ public:
 									 const FileInfo* const end) noexcept
 		: m_begin (first), m_end (end)
 	{
-	}
+	}  // cppcheck-suppress missingReturn
 
 	/** Creates a FileInfoList with a pointer to the beginning of an array of FileInfo objects and the size of the array.
 		@param first The first object in the FileInfo array
@@ -140,7 +140,7 @@ public:
 									 std::size_t		   num) noexcept
 		: m_begin (first), m_end (first + num)
 	{
-	}
+	}  // cppcheck-suppress missingReturn
 	///@}
 
 	/** Returns an iterator to the beginning of the array of FileInfo objects. */

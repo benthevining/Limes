@@ -18,7 +18,7 @@ LIMES_BEGIN_NAMESPACE
 namespace misc
 {
 
-ScopedStreamFlags::ScopedStreamFlags (std::ios_base& streamToUse)
+ScopedStreamFlags::ScopedStreamFlags (std::ios_base& streamToUse)  // cppcheck-suppress uninitMemberVar
 	: stream (streamToUse), flags (stream.flags())
 {
 }

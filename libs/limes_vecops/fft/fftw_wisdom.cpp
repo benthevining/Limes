@@ -11,7 +11,7 @@
  */
 
 #include <limes_namespace.h>
-#include "./limes_fft.h"
+#include "./limes_fft.h"  // IWYU pragma: associated
 #include <limes_core.h>
 #include <mutex>  // for lock_guard, mutex
 #include <filesystem>

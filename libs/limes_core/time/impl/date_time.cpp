@@ -11,7 +11,7 @@
  */
 
 #include <limes_namespace.h>
-#include "../DateTime.h"
+#include "../DateTime.h"  // IWYU pragma: associated
 #include <string>
 #include <sstream>
 

@@ -23,6 +23,8 @@
 /** @file
 	This file contains some utility preprocessor macros.
 	@ingroup preprocessor
+
+	@todo Fix documentation strings for the stub macros
  */
 
 

@@ -100,6 +100,7 @@ add_custom_target (
 	VERBATIM USES_TERMINAL
 	BYPRODUCTS "${docs_output}"
 	COMMENT "Building Limes Doxygen documentation..."
+	WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 	SOURCES Doxyfile DoxygenLayout.xml "${configured_script}")
 
 unset (LIMES_LOG_FILE)

@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend NoteLength.h
+
 #pragma once
 
 #include <limes_core.h>

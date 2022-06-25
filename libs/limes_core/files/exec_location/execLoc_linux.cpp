@@ -25,7 +25,7 @@
 
 #include <cinttypes>
 #include <limes_namespace.h>
-#include "./exec_location.h"
+#include "./exec_location.h"  // IWYU pragma: associated
 #include <array>
 #include "../CFile.h"
 

@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend limes_fft.cpp
+
 #pragma once
 
 #include "./fft_common.h"

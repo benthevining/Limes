@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend year.h
+
 #pragma once
 
 #include <limes_namespace.h>

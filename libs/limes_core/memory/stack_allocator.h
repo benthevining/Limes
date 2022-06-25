@@ -61,7 +61,7 @@ public:
 	StackAllocator (const StackAllocator<U, N, Align>& a) noexcept
 		: a_ (a.a_)
 	{
-	}
+	}  // cppcheck-suppress missingReturn
 
 	template <class _Up>
 	struct LIMES_EXPORT rebind

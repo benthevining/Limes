@@ -21,7 +21,7 @@ LIMES_BEGIN_NAMESPACE
 namespace ds
 {
 
-AbstractFIFO::AbstractFIFO (std::size_t initialSize)
+AbstractFIFO::AbstractFIFO (std::size_t initialSize)  // cppcheck-suppress uninitMemberVar
 	: bufferSize (initialSize)
 {
 }
@@ -78,7 +78,7 @@ void AbstractFIFO::prepareToWrite (std::size_t	numToWrite,
 
 	numToWrite = std::min (numToWrite, freeSpace - 1);
 
-	if (numToWrite <= 0)
+	if (numToWrite == 0)
 	{
 		startIndex1 = 0;
 		blockSize1	= 0;
@@ -91,7 +91,7 @@ void AbstractFIFO::prepareToWrite (std::size_t	numToWrite,
 
 	numToWrite -= blockSize1;
 
-	if (numToWrite <= 0)
+	if (numToWrite == 0)
 		blockSize2 = 0;
 	else
 		blockSize2 = std::min (numToWrite, vs);
@@ -99,7 +99,7 @@ void AbstractFIFO::prepareToWrite (std::size_t	numToWrite,
 
 void AbstractFIFO::finishedWrite (std::size_t numWritten) noexcept
 {
-	LIMES_ASSERT (numWritten >= 0 && numWritten < bufferSize);
+	LIMES_ASSERT (numWritten < bufferSize);
 
 	auto newEnd = validEnd.load() + numWritten;
 
@@ -128,7 +128,7 @@ void AbstractFIFO::prepareToRead (std::size_t  numWanted,
 
 	numWanted = std::min (numWanted, numReady);
 
-	if (numWanted <= 0)
+	if (numWanted == 0)
 	{
 		startIndex1 = 0;
 		blockSize1	= 0;
@@ -140,7 +140,7 @@ void AbstractFIFO::prepareToRead (std::size_t  numWanted,
 
 	numWanted -= blockSize1;
 
-	if (numWanted <= 0)
+	if (numWanted == 0)
 		blockSize2 = 0;
 	else
 		blockSize2 = std::min (numWanted, ve);
@@ -148,7 +148,7 @@ void AbstractFIFO::prepareToRead (std::size_t  numWanted,
 
 void AbstractFIFO::finishedRead (std::size_t numRead) noexcept
 {
-	LIMES_ASSERT (numRead >= 0 && numRead <= bufferSize);
+	LIMES_ASSERT (numRead <= bufferSize);
 
 	auto newStart = validStart.load() + numRead;
 
@@ -170,7 +170,7 @@ AbstractFIFO::ScopedWrite AbstractFIFO::write (std::size_t num)
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-AbstractFIFO::ScopedRead::ScopedRead (AbstractFIFO& fifo, std::size_t num)
+AbstractFIFO::ScopedRead::ScopedRead (AbstractFIFO& fifo, std::size_t num)	// cppcheck-suppress uninitMemberVar
 	: numObjects (num), fifoModel (fifo)
 {
 	fifoModel.prepareToRead (num, startIndex1, blockSize1, startIndex2, blockSize2);
@@ -182,7 +182,7 @@ AbstractFIFO::ScopedRead::~ScopedRead() noexcept
 }
 
 
-AbstractFIFO::ScopedWrite::ScopedWrite (AbstractFIFO& fifo, std::size_t num)
+AbstractFIFO::ScopedWrite::ScopedWrite (AbstractFIFO& fifo, std::size_t num)  // cppcheck-suppress uninitMemberVar
 	: numObjects (num), fifoModel (fifo)
 {
 	fifoModel.prepareToWrite (num, startIndex1, blockSize1, startIndex2, blockSize2);

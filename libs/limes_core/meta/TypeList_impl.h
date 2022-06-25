@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend TypeList.h
+
 #pragma once
 
 #include <limes_export.h>

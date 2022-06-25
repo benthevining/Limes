@@ -10,6 +10,10 @@
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
+if (NOT EXISTS "@configured_doxyfile@")
+	message (FATAL_ERROR "Configured Doxyfile does not exist at path '@configured_doxyfile@'")
+endif ()
+
 execute_process (COMMAND "@DOXYGEN_EXECUTABLE@" --version OUTPUT_VARIABLE doxygen_version
 				 OUTPUT_STRIP_TRAILING_WHITESPACE)
 
@@ -29,8 +33,17 @@ endif ()
 message (STATUS "Building Latex PDF...")
 
 execute_process (
-	COMMAND "@MAKE_EXECUTABLE@" WORKING_DIRECTORY "@latex_output_dir@" # latex_output_dir
-	TIMEOUT 600)
+	COMMAND "@MAKE_EXECUTABLE@"
+	WORKING_DIRECTORY "@latex_output_dir@" # latex_output_dir
+	TIMEOUT 600
+	OUTPUT_VARIABLE latex_output
+	ERROR_VARIABLE latex_error)
+
+if (latex_error)
+	set (latex_error_text "Errors:\n\n${latex_error}")
+endif ()
+
+file (WRITE "@docs_output@/latex.log" ${latex_error_text} "\n\n\nOutput:\n\n${latex_output}")
 
 set (generated_pdf "@latex_output_dir@/refman.pdf")
 

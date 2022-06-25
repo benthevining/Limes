@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend limes_vecops.h
+
 #pragma once
 
 #include <Accelerate/Accelerate.h>

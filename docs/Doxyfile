@@ -17,7 +17,7 @@ PROJECT_BRIEF          = "C++ utilities and building blocks"
 
 PROJECT_LOGO           =
 
-OUTPUT_DIRECTORY       = @Limes_SOURCE_DIR@/doc # doc/
+OUTPUT_DIRECTORY       = @Limes_SOURCE_DIR@/doc
 
 CREATE_SUBDIRS         = YES
 
@@ -76,7 +76,7 @@ FULL_PATH_NAMES        = NO
 # will be relative from the directory where doxygen is started.
 # This tag requires that the tag FULL_PATH_NAMES is set to YES.
 
-STRIP_FROM_PATH        = @Limes_SOURCE_DIR@ # Limes_SOURCE_DIR
+STRIP_FROM_PATH        = @Limes_SOURCE_DIR@
 
 # The STRIP_FROM_INC_PATH tag can be used to strip a user-defined part of the
 # path mentioned in the documentation of a class, which tells the reader which
@@ -147,22 +147,7 @@ SEPARATE_MEMBER_PAGES  = NO
 
 TAB_SIZE               = 4
 
-# This tag can be used to specify a number of aliases that act as commands in
-# the documentation. An alias has the form:
-# name=value
-# For example adding
-# "sideeffect=@par Side Effects:^^"
-# will allow you to put the command \sideeffect (or @sideeffect) in the
-# documentation, which will result in a user-defined paragraph with heading
-# "Side Effects:". Note that you cannot put \n's in the value part of an alias
-# to insert newlines (in the resulting output). You can put ^^ in the value part
-# of an alias to insert a newline as if a physical newline was in the original
-# file. When you need a literal { or } or , in the value part of an alias you
-# have to escape them by means of a backslash (\), this can lead to conflicts
-# with the commands \{ and \} for these it is advised to use the version @{ and
-# @} or use a double escape (\\{ and \\})
-
-ALIASES                =
+ALIASES                = "envvar=\xrefitem envvar \"Environment variable\" \"Environment variables\""
 
 EXTENSION_MAPPING      = txt=md
 
@@ -334,7 +319,7 @@ SORT_BY_SCOPE_NAME     = YES
 
 STRICT_PROTO_MATCHING  = NO
 
-GENERATE_TODOLIST      = @LIMES_INTERNAL_DOCS@ # LIMES_INTERNAL_DOCS
+GENERATE_TODOLIST      = YES
 
 GENERATE_TESTLIST      = YES
 
@@ -362,9 +347,9 @@ SHOW_NAMESPACES        = YES
 
 FILE_VERSION_FILTER    =
 
-LAYOUT_FILE            = @CMAKE_CURRENT_LIST_DIR@/DoxygenLayout.xml # docs/DoxygenLayout.xml
+LAYOUT_FILE            = @CMAKE_CURRENT_LIST_DIR@/DoxygenLayout.xml
 
-CITE_BIB_FILES         = @CMAKE_CURRENT_LIST_DIR@/citations.bib # docs/citations.bib
+CITE_BIB_FILES         = @CMAKE_CURRENT_LIST_DIR@/citations.bib
 
 #---------------------------------------------------------------------------
 # Configuration options related to warning and progress messages
@@ -394,7 +379,7 @@ WARN_AS_ERROR          = NO
 
 WARN_FORMAT            = "$file:$line: $text"
 
-WARN_LOGFILE           = @LIMES_LOG_FILE@ # LIMES_LOG_FILE
+WARN_LOGFILE           = @LIMES_LOG_FILE@
 
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
@@ -422,7 +407,7 @@ EXAMPLE_PATTERNS       = *.cpp
 
 EXAMPLE_RECURSIVE      = YES
 
-IMAGE_PATH             = @Limes_SOURCE_DIR@/util # util/
+IMAGE_PATH             = @Limes_SOURCE_DIR@/util
 
 INPUT_FILTER           =
 
@@ -760,7 +745,7 @@ SKIP_FUNCTION_MACROS   = NO
 
 TAGFILES               =
 
-GENERATE_TAGFILE       = @Limes_SOURCE_DIR@/doc/Limes.tag # doc/Limes.tag
+GENERATE_TAGFILE       = @Limes_SOURCE_DIR@/doc/Limes.tag
 
 # If the ALLEXTERNALS tag is set to YES, all external class will be listed in
 # the class index. If set to NO, only the inherited external classes will be

@@ -98,7 +98,7 @@ public:
 	constexpr explicit CallDeferred (Func&& function) noexcept
 		: func (std::move (function))
 	{
-	}
+	}  // cppcheck-suppress missingReturn
 
 	/** The destructor executes the stored function. */
 	~CallDeferred()

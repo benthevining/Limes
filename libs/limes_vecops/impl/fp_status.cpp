@@ -10,9 +10,9 @@
  * ======================================================================================
  */
 
-#include <limes_vecops.h>
-#include <limes_platform.h>	 // for LIMES_SSE, LIMES_ARM_NEON, LIMES_INTEL
-#include <cstdint>			 // for intptr_t
+#include "../limes_vecops.h"  // IWYU pragma: associated
+#include <limes_platform.h>	  // for LIMES_SSE, LIMES_ARM_NEON, LIMES_INTEL
+#include <cstdint>			  // for intptr_t
 #include <limes_namespace.h>
 #include <limes_core.h>
 

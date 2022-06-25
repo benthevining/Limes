@@ -90,8 +90,6 @@ public:
 		// the buffer isn't big enough to hold all the samples you want to store!
 		LIMES_ASSERT (scopedWrite.blockSize1 + scopedWrite.blockSize2 == numObjects);
 
-		auto* const writing = storage.data();
-
 		for (auto i = scopedWrite.startIndex1, j = 0UL; i < scopedWrite.blockSize1; ++i, ++j)
 			storage[i] = data[j];
 

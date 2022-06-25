@@ -69,7 +69,10 @@ LIMES_EXPORT constexpr void fire_assertion (const char* fileName, const char* fu
 
 /** Sets a filepath to be used to log assertion failures for the current process.
 	When a log file is being used, assertion failures will still stop the debugger and be printed to standard error.
-	The assertion log file can also be controlled by the environment variable \c LIMES_ASSERTION_LOG_FILE .
+
+	@envvar @b LIMES_ASSERTION_LOG_FILE This environment variable may be set to a filepath that will be used to record all assertion failures.
+	Note that this variable's value is only used as a fallback; calling the function \c setAssertionLogFile() will override this variable's value.
+
 	@see getAssertionLogFile
 	@ingroup system
  */

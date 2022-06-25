@@ -15,7 +15,7 @@
 #include "../build_date.h"
 #include <string>
 #include <sstream>
-#include "../date.h"
+#include "../date.h"  // IWYU pragma: associated
 
 LIMES_BEGIN_NAMESPACE
 

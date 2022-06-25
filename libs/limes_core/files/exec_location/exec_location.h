@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend file.cpp
+
 #pragma once
 
 #include <string>

@@ -20,9 +20,8 @@
 
 	This group includes all component libraries of Limes.
 
-	@todo Create a page documenting all environment variables that affect the C++ code - LIMES_ASSERTION_LOG_FILE, FFTW_WISDOM_FILE_DIR, HOME
+	@todo Remove protobuf
 	@todo Review int vs size_t APIs
-	@todo Fix protobuf build
 	@todo Integrate documentation of CMake modules into Doxygen
 	@todo Android cross compile
 	@todo libharu wrapper for PDFs

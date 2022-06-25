@@ -91,4 +91,3 @@ CheckOptions:
     - key: readability-uniqueptr-delete-release.PreferResetCall
       value: 1
 FormatStyle: 'file'
-HeaderFilterRegex: 'tests/'

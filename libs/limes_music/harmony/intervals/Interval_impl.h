@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend Interval.h
+
 #pragma once
 #include <limes_core.h>
 #include <limes_namespace.h>

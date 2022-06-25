@@ -19,7 +19,7 @@
 #include "../weekday.h"		  // for Weekday
 #include "../year.h"		  // for Year
 #include "../hour.h"		  // for Hour
-#include "../time.h"		  // for Time
+#include "../time.h"		  // IWYU pragma: associated
 #include "../DateTime.h"	  // for DateTime
 
 LIMES_BEGIN_NAMESPACE

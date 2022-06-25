@@ -25,16 +25,16 @@ ReferenceCountedObject::~ReferenceCountedObject()
 	LIMES_ASSERT (getRefCount() == 0);
 }
 
-ReferenceCountedObject::ReferenceCountedObject (const ReferenceCountedObject&) noexcept { }
+ReferenceCountedObject::ReferenceCountedObject (const ReferenceCountedObject&) noexcept { }	 // NOLINT
 
 /** Copying from another object does not affect this one's reference-count. */
-ReferenceCountedObject::ReferenceCountedObject (ReferenceCountedObject&&) noexcept { }
+ReferenceCountedObject::ReferenceCountedObject (ReferenceCountedObject&&) noexcept { }	// NOLINT
 
 /** Copying from another object does not affect this one's reference-count. */
-ReferenceCountedObject& ReferenceCountedObject::operator= (const ReferenceCountedObject&) noexcept { return *this; }
+ReferenceCountedObject& ReferenceCountedObject::operator= (const ReferenceCountedObject&) noexcept { return *this; }  // NOLINT
 
 /** Copying from another object does not affect this one's reference-count. */
-ReferenceCountedObject& ReferenceCountedObject::operator= (ReferenceCountedObject&&) noexcept { return *this; }
+ReferenceCountedObject& ReferenceCountedObject::operator= (ReferenceCountedObject&&) noexcept { return *this; }	 // NOLINT
 
 int ReferenceCountedObject::incRefCount() noexcept
 {

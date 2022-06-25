@@ -49,13 +49,13 @@ public:
 	constexpr explicit Pointer (const char* utf8Text)
 		: text (utf8Text)
 	{
-	}
+	}  // cppcheck-suppress missingReturn
 
 	/** Creates a UTF-8 %pointer referring to the given text. */
 	constexpr explicit Pointer (const std::string_view& utf8Text)
 		: text (utf8Text.begin())
 	{
-	}
+	}  // cppcheck-suppress missingReturn
 
 	/** Creates a null %pointer. */
 	constexpr Pointer() = default;

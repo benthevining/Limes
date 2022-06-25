@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend pommier_wrapper.cpp
+
 /** @file
 	This file contains the Pommier SIMD extension functions for ARM NEON.
 	@ingroup vec_pommier

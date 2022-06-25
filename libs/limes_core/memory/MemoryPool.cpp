@@ -29,7 +29,7 @@ LIMES_BEGIN_NAMESPACE
 namespace memory
 {
 
-MemoryPool::MemoryPool (std::size_t storageSizeBytes, std::size_t chunkSize)
+MemoryPool::MemoryPool (std::size_t storageSizeBytes, std::size_t chunkSize)  // cppcheck-suppress uninitMemberVar
 	: totalSizeBytes (storageSizeBytes),
 	  chunkSizeBytes (chunkSize),
 	  memory (static_cast<std::byte*> (std::malloc (storageSizeBytes)))
@@ -172,7 +172,7 @@ const void* MemoryPool::getMemoryRootLocation() const noexcept
 	return static_cast<void*> (memory);
 }
 
-MemoryPool::Chunk::Chunk (std::byte* const ptr) noexcept
+MemoryPool::Chunk::Chunk (std::byte* const ptr) noexcept  // cppcheck-suppress uninitMemberVar
 	: location (ptr)
 {
 }

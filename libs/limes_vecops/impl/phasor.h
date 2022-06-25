@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend limes_vecops/impl/*
+
 #pragma once
 
 #include <limes_export.h>

@@ -10,6 +10,9 @@
  * ======================================================================================
  */
 
+// IWYU pragma: private
+// IWYU pragma: friend fallback_impl.h
+
 #pragma once
 
 #include <limes_platform.h>

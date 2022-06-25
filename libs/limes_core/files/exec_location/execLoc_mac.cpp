@@ -19,7 +19,7 @@
 #include <cstdlib>			  // for free, realpath, malloc
 #include <cstring>			  // for strlen
 #include <string>			  // for string
-#include "./exec_location.h"  // for getExecutablePath, getModulePath
+#include "./exec_location.h"  // IWYU pragma: associated
 #include <array>
 
 LIMES_BEGIN_NAMESPACE

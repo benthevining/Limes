@@ -36,11 +36,6 @@ repos:
             always_run: true
             pass_filenames: false
 
-    # - repo: https://github.com/andreoliwa/nitpick
-    #   rev: v0.32.0
-    #   hooks:
-    #       - id: nitpick
-
   # C++ code formatting & linting
     - repo: https://github.com/pocc/pre-commit-hooks
       rev: v1.3.5
@@ -50,14 +45,19 @@ repos:
             additional_dependencies: [clang-format]
             exclude: cmake/
           - id: cppcheck
-            args: [--quiet, --inline-suppr, --std=c++20, --language=c++, --enable=warning, --enable=style, --enable=performance, --enable=portability, --suppress=unmatchedSuppression, --suppress=missingIncludeSystem, --suppress=unusedStructMember, --suppress=unreadVariable, --suppress=preprocessorErrorDirective, --suppress=unknownMacro, -DLIMES_EXPORT=, -DLIMES_NO_EXPORT=]
-            exclude: cmake|MemoryPool.cpp|streams.cpp|AbstractFIFO.cpp
+            # --cppcheck-build-dir
+            # --project=Builds/compile_commands.json
+            args: [--quiet, --inline-suppr, --std=c++20, --language=c++, --force, --enable=warning, --enable=style, --enable=performance, --enable=portability, --suppress=unmatchedSuppression, --suppress=missingIncludeSystem, --suppress=unusedStructMember, --suppress=preprocessorErrorDirective, --suppress=unknownMacro]
+            exclude: cmake/
           - id: cpplint
             args: [--verbose=0, '--filter=-whitespace,-legal,-build,-runtime/references,-readability/braces,-readability/todo,-readability/fn_size']
             additional_dependencies: [cpplint]
             exclude: limes_namespace.h
           - id: clang-tidy
             args: [-p=Builds]
+            exclude: tests/
+          - id: include-what-you-use
+            args: [-Xiwyu, --verbose=3]
 
     - repo: https://github.com/pre-commit/pre-commit-hooks
       rev: v4.3.0
@@ -196,7 +196,7 @@ repos:
             exclude_types: [python]
 
 ci:
-    skip: [run-cmake, cppcheck, clang-tidy, check-jsonschema]
+    skip: [run-cmake, cppcheck, clang-tidy, include-what-you-use, check-jsonschema]
     autofix_commit_msg: 'style: pre-commit autofixes [skip ci]'
     autoupdate_commit_msg: 'chore: pre-commit autoupdate [skip ci]'
 
