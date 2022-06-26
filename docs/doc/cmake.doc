@@ -1,0 +1,48 @@
+/** @page limes_cmake CMake reference
+	@brief Limes CMake information
+
+	@tableofcontents{HTML,LaTeX,XML}
+
+	You can run @verbatim cmake --install @endverbatim and then call @verbatim find_package (Limes) @endverbatim
+	from your consuming project, and everything should just work out of the box.
+
+	If your project depends on Limes, I recommend copying @ref find_limes "the FindLimes.cmake script"
+	from the \c scripts/ directory into your project's source tree and adding its location to the \c CMAKE_MODULE_PATH before calling @verbatim find_package (Limes) @endverbatim , so that if your project is built on a system where Limes hasn't been installed, it can still be fetched at configure-time.
+
+	Limes makes use of C++20, notably concepts.
+
+	Limes has been tested on Mac, Windows, and Linux with Clang, GCC, and MSVC.
+	Limes is also tested crosscompiled for iOS, tvOS and watchOS.
+
+	@installcompgroup \b limes_runtime
+	Installs all Limes runtime components.
+	@installcompgroup \b limes_dev
+	Installs all Limes development components, including the documentation.
+	This component depends on the \c limes_runtime and \c limes_docs components.
+
+	@section cmake_findpkg_comps Limes find_package components
+
+	When you call \c find_package(Limes) from a consuming project, you can optionally specify any of the following component names:
+	- All
+	- Libs
+	- Programs
+	- Audio
+	- MIDI
+	- Core
+	- Music
+	- Vecops
+	- BinaryBuilder
+	- FileUtil
+
+	If no component names are specified, Limes will default to importing everything.
+
+	@section cmake_modules CMake modules
+	- @subpage find_limes "FindLimes.cmake"
+	- @subpage binbuild_cmake "LimesBinaryBuilder.cmake"
+
+	@section cmake_entities Other CMake entities
+	- @subpage cmakeopt "Options and configuration variables"
+	- @subpage cmaketarget "Targets"
+	- @subpage installcomp "Install components"
+	- @subpage installcompgroup "Install component groups"
+ */

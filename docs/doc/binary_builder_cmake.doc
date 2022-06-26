@@ -1,0 +1,6 @@
+/** @page binbuild_cmake LimesBinaryBuilder.cmake
+	@brief Generate source files embedding binary data
+
+	\c LimesBinaryBuilder.cmake is a CMake module providing some convenience functions for generating
+	C++ sources that embed binary data, using the @ref binary_builder "BinaryBuilder program".
+ */

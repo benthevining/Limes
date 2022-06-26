@@ -1,0 +1,50 @@
+/** @page envvar Environment variables
+	@brief Environment variables reference
+
+	The following environment variables may affect Limes's CMake configuration,
+	or the behavior of Limes's C++ code at runtime:
+ */
+
+/** @page dependency Dependencies
+	@brief Third-party dependencies
+
+	The following optional or required third-party dependencies are present in Limes:
+ */
+
+/** @page cmakeopt CMake options
+	@brief CMake options and variables
+
+	The following CMake variables affect the Limes build configuration:
+ */
+
+/** @page cmaketarget CMake targets
+	@brief CMake targets
+
+	Limes creates the following CMake targets:
+ */
+
+/** @page installcomp Install components
+	@brief CMake install components
+
+	Limes creates the following CMake install components:
+ */
+
+/** @page installcompgroup Install component groups
+	@brief CMake install component groups
+
+	Limes creates the following CMake install component groups:
+ */
+
+/** @page todo Todo List
+	@brief To-do list for development of Limes
+
+	The following items are on the Limes maintainers' todo list:
+ */
+
+/** @page test Test list
+	@brief Description of existing test cases
+
+	The following test cases are currently covered:
+ */
+
+// Bibliography

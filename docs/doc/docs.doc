@@ -1,0 +1,27 @@
+/** @page docs_build Building the documentation
+	@brief Limes documentation build reference
+
+	The Limes documentation is built with Doxygen. Building the docs can be enabled with the \c LIMES_BUILD_DOCS option.
+
+	Doxygen and Graphviz's dot tool are required for building the docs. A non-fatal warning will be issued during CMake configuration if either program cannot be found.
+
+	To generate the LaTeX PDF output, \c pdflatex and a \c make executable are required. If both can be found, generating the PDF will be automatically enabled.
+
+	@cmaketarget \b LimesDocs
+	This target executes Doxygen to build (all formats of) the Limes documentation.
+
+	The documentation itself creates the following CMake install components:
+
+	@installcomp \b limes_doc_pdf
+	Installs the generated PDF documentation.
+
+	@installcomp \b limes_doc_html
+	Installs the generated HTML documentation.
+
+	@installcomp \b limes_doc_man
+	Installs the generated manpage documentation.
+
+	@installcompgroup \b limes_docs
+	Installs all the documentation - the \c limes_doc_pdf , \c limes_doc_html , and \c limes_doc_man
+	@ref installcomp "install components".
+ */
