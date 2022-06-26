@@ -36,6 +36,7 @@
 	@todo use the SerializableData base class throughout the codebase
 	@todo JSON/XML validate schema
 	@todo write unit tests
+	@todo JSON parser - raise exceptions
  */
 
 /** @dir libs/limes_core/serializing

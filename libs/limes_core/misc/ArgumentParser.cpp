@@ -171,7 +171,10 @@ std::string ArgumentParser::getHelpString() const
 
 		for (const auto& arg : arguments)
 			stream
-				<< arg.getHelpString() << ' ';
+				<< arg.getHelpString() << '\n';
+
+		if (shouldHandleHelp)
+			stream << "[--help|-help|-h] - Print this message and exit\n";
 
 		stream << '\n';
 	}
@@ -194,8 +197,13 @@ std::string ArgumentParser::getHelpString() const
 
 		stream << posArgsID;
 
-		if (! posArgsRequired)
-			stream << ']';
+		if (numPosArgs == VARIADIC_ARGUMENTS || numPosArgs > 1)
+			stream << "...";
+		else
+			stream << " {" << numPosArgs << " accepted}"
+
+				if (! posArgsRequired) stream
+				   << ']';
 	}
 
 	stream << '\n';
@@ -212,12 +220,40 @@ ArgumentParser::ParsedArguments ArgumentParser::parse (int argc, char** argv)
 {
 	ParsedArguments parsedArgs;
 
+	parseInternal (parsedArgs, argc, argv);
+
+	return parsedArgs;
+}
+
+ArgumentParser::ParsedArguments ArgumentParser::parseSafe (int argc, char** argv, std::string* errorString) noexcept
+{
+	ParsedArguments parsedArgs;
+
+	try
+	{
+		parseInternal (parsedArgs, argc, argv);
+
+		return parsedArgs;
+	}
+	catch (std::exception& e)
+	{
+		if (auto* str = errorString)
+			*str = e.what();
+
+		return parsedArgs;
+	}
+}
+
+void ArgumentParser::parseInternal (ParsedArguments& parsedArgs, int argc, char** argv)
+{
 	parsedArgs.argc = argc;
 	parsedArgs.argv = argv;
 
 	for (auto idx = 0; idx < argc; ++idx)
 	{
 		const auto inputString = std::string { argv[idx] };
+
+		// remove any ' or " from the input string
 
 		if (shouldHandleHelp)
 		{
@@ -277,8 +313,6 @@ ArgumentParser::ParsedArguments ArgumentParser::parse (int argc, char** argv)
 
 	if (const auto* ac = activeSubcommand)
 		ac->parser->checkRequiredArgs (parsedArgs);
-
-	return parsedArgs;
 }
 
 void ArgumentParser::parseArgument (Argument& argument,
@@ -360,8 +394,16 @@ void ArgumentParser::parsePositionalArgument (ParsedArguments&	 parsedArgs,
 void ArgumentParser::checkRequiredArgs (const ParsedArguments& args) const
 {
 	for (const auto& arg : arguments)
+	{
 		if (arg.required && ! arg.alreadyParsed)
 			throwError ("Missing required argument '" + arg.id + '\'');
+
+		if (! arg.alreadyParsed)
+			continue;
+
+		// check the ParsedArguments actually has a value for this arg
+		// check that the argument got the right # of values
+	}
 
 	if (args.hasPositionalArguments())
 	{
@@ -411,11 +453,13 @@ ArgumentParser::Subcommand* ArgumentParser::getSubcommand (const std::string& co
 
 void ArgumentParser::throwError (int idx, const std::string_view& message) const
 {
+	LIMES_ASSERT (idx >= 0);
+
 	std::stringstream stream;
 
 	stream << "Error at argument " << idx << ": " << message;
 
-	throwError (stream.str());
+	throw ParseError { static_cast<std::size_t> (idx), stream.str() };
 }
 
 void ArgumentParser::throwError (const std::string_view& message) const
@@ -456,6 +500,9 @@ std::string ArgumentParser::Argument::getHelpString() const
 
 	if (! required)
 		stream << ']';
+
+	if (! helpString.empty())
+		stream << " - " << helpString;
 
 	return stream.str();
 }
@@ -531,7 +578,7 @@ bool ArgumentParser::ParsedArguments::hasPositionalArguments() const
 	return ! positionalArgs.empty();
 }
 
-const std::vector<std::string>& ArgumentParser::ParsedArguments::getPositionalArguments() const
+const std::vector<std::string>& ArgumentParser::ParsedArguments::getPositionalArguments() const noexcept
 {
 	return positionalArgs;
 }
