@@ -13,11 +13,33 @@
 /** @defgroup limes_audio limes_audio
 	The Limes library of realtime audio utilities.
 
+	@anchor lib_limes_audio
+
 	All classes and functions in this module are accessible after linking to the \c limes_audio library and including limes_audio.h.
 
 	This library provides classes for processing and analysis of realtime audio signals.
 
-	Dependencies: limes_vecops
+	@par "Limes library dependencies"
+	@ref lib_limes_vecops "limes_vecops"
+
+	@cmaketarget \b Limes::limes_audio
+	The @ref lib_limes_audio "limes_audio"
+	library target.
+
+	@installcomp \b limes_audio_runtime
+	Runtime install component for the @ref lib_limes_audio "limes_audio"
+	library.
+
+	@installcomp \b limes_audio_dev
+	@parblock
+	Development install component for the @ref lib_limes_audio "limes_audio"
+	library. Depends on the \c limes_audio_runtime component.
+
+	This component is analogous to the `find_package()` component \c Audio .
+	@endparblock
+
+	@installcompgroup \b limes_audio
+	This group includes the \c limes_audio_dev and \c limes_audio_runtime components.
 
 	@ingroup limes
 

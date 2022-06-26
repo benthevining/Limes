@@ -49,7 +49,8 @@ See the `FindLimes` file for more documentation on what it does.
 
 Limes makes use of C++20, notably concepts. Limes has been tested on Mac, Windows, and Linux with Clang, GCC, and MSVC. Limes is also tested crosscompiled for iOS, tvOS and watchOS.
 
-To build the Limes unit tests, pass `-D LIMES_BUILD_TESTS=ON` to the CMake configuration. This option defaults to off.
+To build the Limes unit tests, pass `-D LIMES_BUILD_TESTS=ON` to the CMake configuration. This option defaults to `OFF`.
+
 
 ## CMake information
 
@@ -57,13 +58,32 @@ To build the Limes unit tests, pass `-D LIMES_BUILD_TESTS=ON` to the CMake confi
 
 The vector operations library has several options affecting its configuration and behavior; see [its readme](libs/limes_vecops/README.md) for details.
 
-* LIMES_BUILD_TESTS
+* `LIMES_BUILD_PROGRAMS`
+
+Builds the command-line utility programs that Limes ships. This option defaults to `ON`.
+
+* `LIMES_BUILD_TESTS`
 
 Builds the Limes unit tests. Defaults to OFF if Limes is not the top-level directory CMake is invoked in.
 
-* LIMES_BUILD_DOCS
+* `LIMES_BUILD_DOCS`
 
 Builds the Limes documentation. Defaults to OFF if Limes is not the top-level directory CMake is invoked in.
+
+* `LIMES_BUILD_JUCE`
+
+Builds the JUCE bindings for the Limes libraries ((JUCE modules providing JUCE API wrappers for Limes classes).
+Setting this to `OFF` will build only the libraries and programs.
+This option defaults to `ON`.
+
+* `LIMES_BUILD_EXAMPLE_PLUGINS`
+
+Builds the example JUCE plugins. This option requires that `LIMES_BUILD_JUCE` is `ON`.
+
+* `LIMES_MINIMAL`
+
+Builds only the core C++ libraries and nothing else.
+
 
 ### Dependencies
 

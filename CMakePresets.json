@@ -42,6 +42,7 @@
     {
       "binaryDir": "${sourceDir}/Builds",
       "cacheVariables": {
+        "LIMES_MINIMAL": "ON",
         "ORANGES_MAC_UNIVERSAL_BINARY": "ON"
       },
       "displayName": "The default CMake configuration",
@@ -52,7 +53,12 @@
     },
     {
       "cacheVariables": {
+        "LIMES_BUILD_DOCS": "ON",
+        "LIMES_BUILD_JUCE": "ON",
+        "LIMES_BUILD_PROGRAMS": "ON",
+        "LIMES_BUILD_TESTS": "ON",
         "LIMES_INTERNAL_DOCS": "ON",
+        "LIMES_MINIMAL": "OFF",
         "ORANGES_MAINTAINER_BUILD": "ON"
       },
       "displayName": "CMake configuration for development of Limes",
@@ -97,7 +103,10 @@
     {
       "cacheVariables": {
         "CMAKE_SYSTEM_NAME": "iOS",
-        "CMAKE_XCODE_EFFECTIVE_PLATFORMS": "-iphoneos"
+        "CMAKE_XCODE_EFFECTIVE_PLATFORMS": "-iphoneos",
+        "LIMES_BUILD_DOCS": "OFF",
+        "LIMES_BUILD_PROGRAMS": "OFF",
+        "LIMES_BUILD_TESTS": "OFF"
       },
       "condition": {
         "lhs": "${hostSystemName}",

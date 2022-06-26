@@ -25,11 +25,6 @@ Targets
 
 Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_file_util_dev
-- limes_file_util_runtime
-
-Install component groups
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_file_util
 
 #]=======================================================================]
@@ -47,16 +42,8 @@ project (
 
 include (CPackComponent)
 
-cpack_add_component (limes_file_util_base HIDDEN)
-
-cpack_add_component (limes_file_util_runtime GROUP limes_file_util DEPENDS limes_file_util_base
-					 INSTALL_TYPES User)
-
-cpack_add_component (limes_file_util_dev GROUP limes_file_util DEPENDS limes_file_util_runtime
-					 INSTALL_TYPES Developer)
-
-cpack_add_component_group (limes_file_util DISPLAY_NAME "Limes file utility"
-						   DESCRIPTION "${PROJECT_DESCRIPTION}" PARENT_GROUP limes_programs)
+cpack_add_component_group (limes_file_util GROUP limes_programs DESCRIPTION "${PROJECT_DESCRIPTION}"
+																			INSTALL_TYPES Developer)
 
 if (CMAKE_CROSSCOMPILING)
 

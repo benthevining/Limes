@@ -63,7 +63,7 @@ target_sources (
 	limes_midi PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_midi.h>
 					  $<INSTALL_INTERFACE:${LIMES_MIDI_INSTALL_INCLUDE_DIR}/limes_midi.h>)
 
-install (FILES limes_midi.h DESTINATION "${LIMES_MIDI_INSTALL_INCLUDE_DIR}"
+install (FILES limes_midi.h limes_midi DESTINATION "${LIMES_MIDI_INSTALL_INCLUDE_DIR}"
 		 COMPONENT limes_midi_dev)
 
 target_include_directories (

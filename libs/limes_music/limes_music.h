@@ -13,13 +13,35 @@
 /** @defgroup limes_music limes_music
 	The Limes library of music theory utilities.
 
+	@anchor lib_limes_music
+
 	All classes and functions in this module are accessible after linking to the \c limes_music library and including limes_music.h.
 
 	This library provides data structures for working with music theory concepts, such as pitches, intervals, note durations, scales, etc.
 	The documentation aims to be as exhaustive and complete as possible, but is meant to document the usage of this library's API;
 	this documentation is not meant to serve as an exhaustive authority on music theory itself.
 
-	Dependencies: limes_core
+	@par "Limes library dependencies"
+	@ref lib_limes_core "limes_core"
+
+	@cmaketarget \b Limes::limes_music
+	The @ref lib_limes_music "limes_music"
+	library target.
+
+	@installcomp \b limes_music_runtime
+	Runtime install component for the @ref lib_limes_music "limes_music"
+	library.
+
+	@installcomp \b limes_music_dev
+	@parblock
+	Development install component for the @ref lib_limes_music "limes_music"
+	library. Depends on the \c limes_music_runtime component.
+
+	This component is analogous to the `find_package()` component \c Music .
+	@endparblock
+
+	@installcompgroup \b limes_music
+	This group includes the \c limes_music_dev and \c limes_music_runtime components.
 
 	@ingroup limes
 

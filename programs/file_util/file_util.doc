@@ -1,129 +1,11 @@
-/** @page limes_programs Utility programs
+/** @page file_util FileUtil
+	@brief An OS-agnostic utility providing a wide range of filesystem operations
 
 	@tableofcontents{HTML,LaTeX,XML}
 
-	@section prgm_discussion Discussion
-
-	Limes ships several small command-line utility programs, both as part of the testing process of the Limes libraries, but also because these utility programs can be genuinely useful.
-
-	Limes ships the following programs:
-
-	Name          | Description
-	------------- | ------------------------------------------------------------
-	FileUtil      | OS-agnostic interface for a wide variety of filesystem tasks
-	BinaryBuilder | Generates C++ source files which embed binary data files
-
-	@section prgm_crosscomp Crosscompiling
-
-	When building the Limes programs in a crosscompiling scenario, they usually need to be executed on the *host* system, not the *target* system.
-
-	Because of this, when crosscompiling, a child CMake is invoked at configure time to execute the build of the programs for the *host* system,
-	so that their artefacts are then available to the configuration for the *target* system.
-
-	@section prgm_BinBuilder BinaryBuilder
-
-	\c BinaryBuilder is a small command-line program that generates C++ source code that embeds some external data read from input files.
-	The output files use the Limes \c binaries::FileInfo and \c binaries::FileInfoList interface for easy access of your embedded data at runtime.
-
-	@subsection pbb_usage Command-line usage
-
-	@code
-	BinaryBuilder [-h] [-d <outputDirectory>] [-o <fileBaseName>] [-ns <namespace>] <inputFiles...>
-	@endcode
-
-	All arguments are optional, except the \c <inputFiles> .
-
-	@subsubsection pbb_help Help
-	@code
-	BinaryBuilder -h
-	@endcode
-	Prints usage and help messages.
-
-	@subsubsection pbb_outdir Output directory
-	@code
-	BinaryBuilder -d <outputDirectory> <inputFiles...>
-	@endcode
-	The directory where the output files will be written to.
-	No matter how many input files you pass, a single \c .cpp and \c .h file will be generated, containing all the data.
-	These files will be at \c <outputDirectory>/<fileBaseName>.h and \c <outputDirectory>/<fileBaseName>.cpp .
-	\c <outputDirectory> defaults to the current working directory.
-
-	@subsubsection pbb_basename File base name
-	@code
-	BinaryBuilder -o <fileBaseName> <inputFiles...>
-	@endcode
-	The base name used for naming the output files.
-	The output files will be \c <outputDirectory>/<fileBaseName>.h and \c <outputDirectory>/<fileBaseName>.cpp .
-	\c <fileBaseName> defaults to \c BinaryData .
-
-	@subsubsection pbb_namespace Namespace
-	@code
-	BinaryBuilder -ns <namespace> <inputFiles...>
-	@endcode
-	The namespace that the embedded data objects will be declared in.
-	This may be empty, and defaults to empty.
-
-	@subsubsection pbb_infiles Input files
-	@code
-	BinaryBuilder <inputFiles...>
-	@endcode
-	The paths of files to be embedded as binary data into the generated source files.
-	If a directory is given, its contents will all be included recursively.
-
-	@subsection pbb_cpp The C++ side
-
-	After the \c BinaryBuilder executable has run, you'll have a \c .cpp and \c .h file, and the header file will contain some code like this:
-	@code
-	#pragma once
-
-	#include <limes_core.h>
-
-	extern const std::size_t fileInfoListSize;
-
-	extern const ::limes::binaries::FileInfo fileInfoList[];
-
-	[[nodiscard]] constexpr ::limes::binaries::FileInfoList fileList() noexcept
-	{
-		return ::limes::binaries::FileInfoList { &fileInfoList[0], fileInfoListSize };
-	}
-	@endcode
-
-	The static array of \c FileInfo objects is initialized in the \c .cpp file. This header gives you direct access to an iterable array of \c FileInfo objects,
-	which provide a convenient API for loading your embedded data into familiar C++ objects.
-
-	@subsection pbb_cmake CMake integration
-
-	Limes also provides a CMake module, \c LimesBinaryBuilder.cmake , that provides several utility functions for adding file generation commands to a target:
-
-	@subsubsection limes_add_binary_data_files limes_add_binary_data_files
-
-	Usage:
-	@code
-	limes_add_binary_data_files (INPUTS <files...>
-								[OUTPUT_DIR <dir>]
-								[BASE_NAME <filename>]
-								[NAMESPACE <namespace>]
-								[CPP_OUTPUT_VAR <cpp_path_out>]
-								[H_OUTPUT_VAR <h_path_out>])
-	@endcode
-
-	@subsubsection limes_add_binary_data_target limes_add_binary_data_target
-
-	Usage:
-	@code
-	limes_add_binary_data_target (TARGET_NAME <target>
-								  INPUTS <files...>
-								 [HEADER_NAME <header>]
-								 [NAMESPACE <namespace>]
-								 [INSTALL_REL_PATH <rel_path>]
-								 [INSTALL_COMPONENT <component>])
-	@endcode
-
-	@section prgm_FileUtil FileUtil
-
 	\c FileUtil is a small command-line program that provides an OS-agnostic interface to common filesystem operations, including emulation of most Unix filesystem commands.
 
-	@subsection pfu_usage Usage
+	@section pfu_usage Usage
 
 	@code
 	FileUtil <mode> [<args...>]
@@ -131,7 +13,7 @@
 
 	where \c <mode> is one one:
 
-	@subsubsection pfu_absolute absolute
+	@subsection pfu_absolute absolute
 	Convert an input path to an absolute path.
 	@code
 	FileUtil absolute <path> [<basePath>]
@@ -139,7 +21,7 @@
 	If \c <path> is an absolute path, prints \c <path> ; otherwise, prints \c <basePath>/<path> .
 	If \c <basePath> is not specified, it defaults to the current working directory.
 
-	@subsubsection pfu_append append
+	@subsection pfu_append append
 	Append content to a given file.
 	@code
 	FileUtil append <filename> <content> [--strict]
@@ -148,7 +30,7 @@
 	If the file did not already exist, then an error will be raised if the \c --strict option was given;
 	otherwise, the content will be written to the file as if the \c write command were called.
 
-	@subsubsection pfu_cat cat
+	@subsection pfu_cat cat
 	Concatenate and display contents of the given files.
 	@code
 	FileUtil cat <filenames...> [--output <outputFile>]
@@ -156,13 +38,13 @@
 	If \c <outputFile> is specified, the concatenated output will be written to that file;
 	otherwise, output is printed to the standard output.
 
-	@subsubsection pfu_cd cd
+	@subsection pfu_cd cd
 	Change the current working directory.
 	@code
 	FileUtil cd <directory>
 	@endcode
 
-	@subsubsection pfu_copy copy
+	@subsection pfu_copy copy
 	Copy files and directories to a new location.
 	@code
 	FileUtil copy <filesOrDirs...> <destination>
@@ -172,7 +54,7 @@
 	If multiple inputs are given, the destination must be a directory.
 	If the destination is a directory that doesn't exist, it will be created.
 
-	@subsubsection pfu_equiv equiv
+	@subsection pfu_equiv equiv
 	Check if two paths are equivalent.
 	@code
 	FileUtil equiv <path1> <path2> [--error]
@@ -181,7 +63,7 @@
 	If the \c --error option is given, the result of the comparison is indicated by an exit code of 0 or 1
 	instead of printing to standard output.
 
-	@subsubsection pfu_exists exists
+	@subsection pfu_exists exists
 	Check if files and/or directories exist.
 	@code
 	FileUtil exists <filesOrDirs...> [--error]
@@ -190,7 +72,7 @@
 	If the \c --error option is given, the result of the comparison is indicated by an exit code of 0 or 1
 	instead of printing to standard output.
 
-	@subsubsection pfu_follow_sym follow_symlink
+	@subsection pfu_follow_sym follow_symlink
 	Print the target of a symbolic link.
 	@code
 	FileUtil follow_symlink <symlink> [--no-recurse]
@@ -200,7 +82,7 @@
 	If the optional \c --no-recurse argument is present, then the recursive behavior is disabled,
 	and the path of the passed symlink is printed, even if its target is another symlink.
 
-	@subsubsection pfu_glob glob
+	@subsection pfu_glob glob
 	Find files/directories matching a pattern.
 	@code
 	FileUtil glob <globbingExpression> [--dir <baseDir>] [--recurse] [--error]
@@ -209,7 +91,7 @@
 	If the \c <baseDir> option is given, files will be searched for in that directory. Otherwise, it defaults to the current working directory.
 	If the \c --error flag is given, the program will exit with an error code if no files are found. Otherwise, 'No files found' will be printed.
 
-	@subsubsection pfu_hash hash
+	@subsection pfu_hash hash
 	Compute a hash of a file's contents.
 	@code
 	FileUtil hash <hashType> <filename>
@@ -217,33 +99,33 @@
 	Prints a crypographic hash of a file's contents to standard output.
 	Available hash types are: \c md5 , \c sha1 , \c sha224 , \c sha256 , \c sha384 , and \c sha512 .
 
-	@subsubsection pfu_ln ln
+	@subsection pfu_ln ln
 	Create a symbolic link.
 	@code
 	FileUtil ln <symLinkPath> <symLinkTarget>
 	@endcode
 
-	@subsubsection pfu_ls ls
+	@subsection pfu_ls ls
 	List directory contents.
 	@code
 	FileUtil ls [<directory>]
 	@endcode
 	The additional \c <directory> argument is optional; if omitted, this command lists the contents of the current working directory.
 
-	@subsubsection pfu_mkdir mkdir
+	@subsection pfu_mkdir mkdir
 	Create a directory.
 	@code
 	FileUtil mkdir <directory>
 	@endcode
 
-	@subsubsection pfu_modtime modtime
+	@subsection pfu_modtime modtime
 	Display the last modification time of a file or directory.
 	@code
 	FileUtil modtime <fileOrDirectory>
 	@endcode
 	This command prints the last modification time of the file or directory to standard output in the form `HH:MM:SS Day Month Year`, with the time in 24-hour format and the month as a 3-letter abbreviation; for example, `03:33:52 2 May 2022`.
 
-	@subsubsection pfu_native native
+	@subsection pfu_native native
 	Convert a path to the current platform's preferred directory separators.
 	@code
 	FileUtil native <path>
@@ -251,14 +133,14 @@
 	Converts any directory separators in \c <path> to the preferred directory separator for the current platform.
 	Unlike most other commands, this one does not make the passed path absolute if a relative path was given.
 
-	@subsubsection pfu_path path
+	@subsection pfu_path path
 	Prints the contents of the \c PATH environment variable.
 	@code
 	FileUtil path
 	@endcode
 	Prints the contents of the \c PATH environment variable as a list of absolute paths to directories, one per line of output.
 
-	@subsubsection pfu_prepend prepend
+	@subsection pfu_prepend prepend
 	Prepend content to a file.
 	@code
 	FileUtil prepend <filename> <content> [--strict]
@@ -267,38 +149,38 @@
 	If the file did not already exist, then an error will be raised if the \c --strict option was given;
 	otherwise, the content will be written to the file as if the \c write command were called.
 
-	@subsubsection pfu_pwd pwd
+	@subsection pfu_pwd pwd
 	Print the absolute path of the current working directory
 	@code
 	FileUtil pwd
 	@endcode
 
-	@subsubsection pfu_rel relative
+	@subsection pfu_rel relative
 	Get a path relative to another location.
 	@code
 	FileUtil relative <path> [<basePath>]
 	@endcode
 	If \c <basePath> is not specified, it defaults to the current working directory.
 
-	@subsubsection pfu_rename rename
+	@subsection pfu_rename rename
 	Rename a file or directory.
 	@code
 	FileUtil rename <oldName> <newName>
 	@endcode
 
-	@subsubsection pfu_rm rm
+	@subsection pfu_rm rm
 	Remove files and/or directories.
 	@code
 	FileUtil rm <filesOrDirs...>
 	@endcode
 
-	@subsubsection pfu_sep sep
+	@subsection pfu_sep sep
 	Prints the current platform's preferred directory separator.
 	@code
 	FileUtil sep
 	@endcode
 
-	@subsubsection pfu_size size
+	@subsection pfu_size size
 	Prints the size of a file or directory, in bytes.
 	@code
 	FileUtil size [<fileOrDir>]
@@ -307,13 +189,13 @@
 	If a directory is passed, this command reports the cumulative size of all the directory's contents.
 	If no file or directory is specified, this command prints the capacity of the entire filesystem.
 
-	@subsubsection pfu_space space
+	@subsection pfu_space space
 	Prints the amount of remaining space on the filesystem, in bytes
 	@code
 	FileUtil space
 	@endcode
 
-	@subsubsection pfu_touch touch
+	@subsection pfu_touch touch
 	Update modification time of files or directories
 	@code
 	FileUtil touch <filesOrDirs...> [--no-create]
@@ -321,7 +203,7 @@
 	If the \c --no-create option is specified, files/directories in the input list that don't already exist
 	will simply be ignored. Otherwise, they will be created.
 
-	@subsubsection pfu_type type
+	@subsection pfu_type type
 	Print the type of a filesystem entry
 	@code
 	FileUtil type <path>
@@ -329,7 +211,7 @@
 	If nothing exists at \c <path> , raise an error.
 	Otherwise, prints one of \c file , \c directory , or \c symlink describing what exists at the given path.
 
-	@subsubsection pfu_which which
+	@subsection pfu_which which
 	Locate an executable.
 	@code
 	FileUtil which [<programName>]
@@ -338,7 +220,7 @@
 	and prints the absolute path of the first match found. If the \c <programName> is omitted, this command
 	prints the path of the currently running FileUtil executable itself.
 
-	@subsubsection pfu_write write
+	@subsection pfu_write write
 	Write content to a file.
 	@code
 	FileUtil write <filename> <content> [--no-overwrite]
@@ -347,4 +229,16 @@
 	If the \c --no-overwrite option is given, then an error is raised if the file already existed;
 	otherwise, it will be overwritten.
 
+	@section pfu_cmake CMake information
+
+	@cmaketarget \b Limes::FileUtil
+	The @ref file_util "FileUtil"
+	executable target.
+
+	@installcomp \b limes_file_util
+	@parblock
+	Installs the Limes FileUtil program.
+
+	This component is analogous to the `find_package()` component \c FileUtil .
+	@endparblock
  */

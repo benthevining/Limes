@@ -18,7 +18,58 @@
 	@date 2020 - 2022
 	@copyright GNU public license
 
-	This group includes all component libraries of Limes.
+	This group includes all component libraries of Limes:
+	- @ref lib_limes_core "limes_core"
+	- @ref lib_limes_audio "limes_audio"
+	- @ref lib_limes_midi "limes_midi"
+	- @ref lib_limes_music "limes_music"
+	- @ref lib_limes_vecops "limes_vecops"
+
+	@par CMake targets
+	@cmaketarget \b Limes::Limes
+	Interface library that links to all of the Limes library targets and includes \c limes.h .
+
+	The top-level Limes project accepts the following CMake options:
+
+	@cmakeopt \b LIMES_BUILD_PROGRAMS
+	Builds the command-line utility programs that ship with Limes. This option defaults to \c ON .
+	In order to use the \c LimesBinaryBuilder.cmake module, this option must be set to \c ON .
+	@cmakeopt \b LIMES_BUILD_TESTS
+	Builds the Limes unit tests. Defaults to \c OFF .
+	@cmakeopt \b LIMES_BUILD_DOCS
+	Builds the Limes documentation. Defaults to \c OFF .
+	@cmakeopt \b LIMES_INTERNAL_DOCS
+	When building the documentation, includes extra information on internal implementation details
+	not meant for inclusion in the public documentation. This option always defaults to \c OFF ,
+	and is intended for internal use only.
+	@cmakeopt \b LIMES_BUILD_JUCE
+	This option enables building the JUCE bindings for the Limes libraries. This option defaults to \c ON .
+	@cmakeopt \b LIMES_BUILD_EXAMPLE_PLUGINS
+	Builds the example JUCE plugins. This option requires that the \c LIMES_BUILD_JUCE option is \c ON .
+	@cmakeopt \b LIMES_MINIMAL
+	This option sets \c LIMES_BUILD_PROGRAMS , \c LIMES_BUILD_TESTS , \c LIMES_BUILD_DOCS and \c LIMES_BUILD_JUCE to \c OFF .
+
+	@dependency \b Oranges
+	@parblock
+	Limes's CMake configuration depends on the Oranges library of CMake modules.
+
+	You can set the environment or command-line variable \c ORANGES_PATH to direct the Limes CMake configuration to use a local copy.
+	If no local copy is present and Oranges cannot be found on your system, invoking Limes's CMake configuration will fetch and cache a copy of the Oranges source code.
+	@endparblock
+
+	@envvar \b ORANGES_PATH
+	This variable can be set to the root directory of a local copy of the Oranges repository.
+
+	@installcompgroup \b limes_libs_runtime
+	Installs all Limes library runtime components.
+
+	@installcompgroup \b limes_libs_dev
+	@parblock
+	Installs all Limes library development components.
+	Depends on the \c limes_libs_runtime component.
+
+	This component is analogous to the `find_package()` component \c Libs .
+	@endparblock
 
 	@todo Remove protobuf
 	@todo Review int vs size_t APIs

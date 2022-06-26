@@ -362,7 +362,7 @@ public:
 	[[nodiscard]] ParsedArguments parseSafe (int argc, char** argv, std::string* errorString) noexcept;
 	///@}
 
-	/** @exception ParseError This exception is thrown by the \c ArgumentParser::parse() function.
+	/** @exception ArgumentParser::ParseError This exception is thrown by the \c ArgumentParser::parse() function.
 		If the user passed unexpected or incorrect arguments, one of these exceptions will be thrown.
 	 */
 

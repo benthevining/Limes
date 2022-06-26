@@ -12,6 +12,12 @@ include (OrangesFunctionArgumentHelpers)
 include (GNUInstallDirs)
 include (OrangesDefaultTarget)
 
+#[[
+if(NOT LIMES_BUILD_PROGRAMS)
+	message (FATAL_ERROR "The LimesBinaryBuilder.cmake module cannot be used because the LIMES_BUILD_PROGRAMS option is OFF!")
+endif()
+]]
+
 #
 
 function (limes_add_binary_data_files)

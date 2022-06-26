@@ -29,15 +29,6 @@ BRIEF_MEMBER_DESC      = YES
 
 REPEAT_BRIEF           = YES
 
-# This tag implements a quasi-intelligent brief description abbreviator that is
-# used to form the text in various listings. Each string in this list, if found
-# as the leading text of the brief description, will be stripped from the text
-# and the result, after processing the whole list, is used as the annotated
-# text. Otherwise, the brief description is used as-is. If left blank, the
-# following values are used ($name is automatically replaced with the name of
-# the entity):The $name class, The $name widget, The $name file, is, provides,
-# specifies, contains, represents, a, an and the.
-
 ABBREVIATE_BRIEF       = "The $name class" \
 						 "This class" \
 						 is \
@@ -45,52 +36,21 @@ ABBREVIATE_BRIEF       = "The $name class" \
 						 specifies \
 						 contains \
 						 represents \
+						 defines \
+						 "serves as" \
 						 a \
 						 an \
 						 the
 
 ALWAYS_DETAILED_SEC    = YES
 
-# If the INLINE_INHERITED_MEMB tag is set to YES, doxygen will show all
-# inherited members of a class in the documentation of that class as if those
-# members were ordinary class members. Constructors, destructors and assignment
-# operators of the base classes will not be shown.
-# The default value is: NO.
-
 INLINE_INHERITED_MEMB  = YES
-
-# If the FULL_PATH_NAMES tag is set to YES, doxygen will prepend the full path
-# before files name in the file list and in the header files. If set to NO the
-# shortest path that makes the file name unique will be used
-# The default value is: YES.
 
 FULL_PATH_NAMES        = NO
 
-# The STRIP_FROM_PATH tag can be used to strip a user-defined part of the path.
-# Stripping is only done if one of the specified strings matches the left-hand
-# part of the path. The tag can be used to show relative paths in the file list.
-# If left blank the directory from which doxygen is run is used as the path to
-# strip.
-#
-# Note that you can specify absolute paths here, but also relative paths, which
-# will be relative from the directory where doxygen is started.
-# This tag requires that the tag FULL_PATH_NAMES is set to YES.
-
 STRIP_FROM_PATH        = @Limes_SOURCE_DIR@
 
-# The STRIP_FROM_INC_PATH tag can be used to strip a user-defined part of the
-# path mentioned in the documentation of a class, which tells the reader which
-# header file to include in order to use a class. If left blank only the name of
-# the header file containing the class definition is used. Otherwise one should
-# specify the list of include paths that are normally passed to the compiler
-# using the -I flag.
-
 STRIP_FROM_INC_PATH    =
-
-# If the SHORT_NAMES tag is set to YES, doxygen will generate much shorter (but
-# less readable) file names. This can be useful is your file systems doesn't
-# support long names like on DOS, Mac, or CD-ROM.
-# The default value is: NO.
 
 SHORT_NAMES            = NO
 
@@ -103,43 +63,13 @@ SHORT_NAMES            = NO
 
 JAVADOC_AUTOBRIEF      = YES
 
-# If the JAVADOC_BANNER tag is set to YES then doxygen will interpret a line
-# such as
-# /***************
-# as being the beginning of a Javadoc-style comment "banner". If set to NO, the
-# Javadoc-style will behave just like regular comments and it will not be
-# interpreted by doxygen.
-# The default value is: NO.
-
 JAVADOC_BANNER         = NO
-
-# If the QT_AUTOBRIEF tag is set to YES then doxygen will interpret the first
-# line (until the first dot) of a Qt-style comment as the brief description. If
-# set to NO, the Qt-style will behave just like regular Qt-style comments (thus
-# requiring an explicit \brief command for a brief description.)
-# The default value is: NO.
 
 QT_AUTOBRIEF           = NO
 
-# The MULTILINE_CPP_IS_BRIEF tag can be set to YES to make doxygen treat a
-# multi-line C++ special comment block (i.e. a block of //! or /// comments) as
-# a brief description. This used to be the default behavior. The new default is
-# to treat a multi-line C++ comment block as a detailed description. Set this
-# tag to YES if you prefer the old behavior instead.
-#
-# Note that setting this tag to YES also means that rational rose comments are
-# not recognized any more.
-# The default value is: NO.
-
 MULTILINE_CPP_IS_BRIEF = NO
 
-# By default Python docstrings are displayed as preformatted text and doxygen's
-# special commands cannot be used. By setting PYTHON_DOCSTRING to NO the
-# doxygen's special commands can be used and the contents of the docstring
-# documentation blocks is shown as doxygen documentation.
-# The default value is: YES.
-
-PYTHON_DOCSTRING       = YES
+PYTHON_DOCSTRING       = NO
 
 INHERIT_DOCS           = YES
 
@@ -147,9 +77,14 @@ SEPARATE_MEMBER_PAGES  = NO
 
 TAB_SIZE               = 4
 
-ALIASES                = "envvar=\xrefitem envvar \"Environment variable\" \"Environment variables\""
+ALIASES                += "envvar=\xrefitem envvar \"Environment variable(s)\" \"Environment variables\""
+ALIASES	               += "dependency=\xrefitem dependency \"Dependency\" \"Dependencies\""
+ALIASES                += "cmakeopt=\xrefitem cmakeopt \"CMake option(s)\" \"CMake options\""
+ALIASES                += "cmaketarget=\xrefitem cmaketarget \"CMake target(s)\" \"CMake targets\""
+ALIASES                += "installcomp=\xrefitem installcomp \"Install component(s)\" \"Install components\""
+ALIASES                += "installcompgroup=\xrefitem installcompgroup \"Install component group(s)\" \"Install component groups\""
 
-EXTENSION_MAPPING      = txt=md
+EXTENSION_MAPPING      = txt=md doc=C++ no_extension=C++
 
 MARKDOWN_SUPPORT       = YES
 
@@ -166,14 +101,6 @@ AUTOLINK_SUPPORT       = YES
 
 BUILTIN_STL_SUPPORT    = YES
 
-# For Microsoft's IDL there are propget and propput attributes to indicate
-# getter and setter methods for a property. Setting this option to YES will make
-# doxygen to replace the get and set methods by a property in the documentation.
-# This will only work if the methods are indeed getting or setting a simple
-# type. If this is not the case, or you want to show the methods anyway, you
-# should set this option to NO.
-# The default value is: YES.
-
 IDL_PROPERTY_SUPPORT   = YES
 
 DISTRIBUTE_GROUP_DOC   = YES
@@ -182,24 +109,7 @@ GROUP_NESTED_COMPOUNDS = YES
 
 SUBGROUPING            = YES
 
-# When the INLINE_GROUPED_CLASSES tag is set to YES, classes, structs and unions
-# are shown inside the group in which they are included (e.g. using \ingroup)
-# instead of on a separate page (for HTML and Man pages) or section (for LaTeX
-# and RTF).
-#
-# Note that this feature does not work in combination with
-# SEPARATE_MEMBER_PAGES.
-# The default value is: NO.
-
 INLINE_GROUPED_CLASSES = NO
-
-# When the INLINE_SIMPLE_STRUCTS tag is set to YES, structs, classes, and unions
-# with only public data fields or simple typedef fields will be shown inline in
-# the documentation of the scope in which they are defined (i.e. file,
-# namespace, or group documentation), provided this scope is documented. If set
-# to NO, structs, classes, and unions are shown on a separate page (for HTML and
-# Man pages) or section (for LaTeX and RTF).
-# The default value is: NO.
 
 INLINE_SIMPLE_STRUCTS  = YES
 
@@ -213,23 +123,11 @@ NUM_PROC_THREADS       = 0
 # Build related configuration options
 #---------------------------------------------------------------------------
 
-# If the EXTRACT_ALL tag is set to YES, doxygen will assume all entities in
-# documentation are documented, even if no documentation was available. Private
-# class members and static file members will be hidden unless the
-# EXTRACT_PRIVATE respectively EXTRACT_STATIC tags are set to YES.
-# Note: This will also disable the warnings about undocumented members that are
-# normally produced when WARNINGS is set to YES.
-# The default value is: NO.
-
 EXTRACT_ALL            = NO
 
 EXTRACT_PRIVATE        = NO
 
 EXTRACT_PRIV_VIRTUAL   = YES
-
-# If the EXTRACT_PACKAGE tag is set to YES, all members with package or internal
-# scope will be included in the documentation.
-# The default value is: NO.
 
 EXTRACT_PACKAGE        = NO
 
@@ -243,30 +141,13 @@ EXTRACT_ANON_NSPACES   = NO
 
 RESOLVE_UNNAMED_PARAMS = YES
 
-# If the HIDE_UNDOC_MEMBERS tag is set to YES, doxygen will hide all
-# undocumented members inside documented classes or files. If set to NO these
-# members will be included in the various overviews, but no documentation
-# section is generated. This option has no effect if EXTRACT_ALL is enabled.
-# The default value is: NO.
-
 HIDE_UNDOC_MEMBERS     = NO
-
-# If the HIDE_UNDOC_CLASSES tag is set to YES, doxygen will hide all
-# undocumented classes that are normally visible in the class hierarchy. If set
-# to NO, these classes will be included in the various overviews. This option
-# has no effect if EXTRACT_ALL is enabled.
-# The default value is: NO.
 
 HIDE_UNDOC_CLASSES     = NO
 
 HIDE_FRIEND_COMPOUNDS  = NO
 
 HIDE_IN_BODY_DOCS      = YES
-
-# The INTERNAL_DOCS tag determines if documentation that is typed after a
-# \internal command is included. If the tag is set to NO then the documentation
-# will be excluded. Set it to YES to include the internal documentation.
-# The default value is: NO.
 
 INTERNAL_DOCS          = @LIMES_INTERNAL_DOCS@ # LIMES_INTERNAL_DOCS
 
@@ -279,11 +160,6 @@ HIDE_COMPOUND_REFERENCE= NO
 SHOW_HEADERFILE        = YES
 
 SHOW_INCLUDE_FILES     = YES
-
-# If the SHOW_GROUPED_MEMB_INC tag is set to YES then Doxygen will add for each
-# grouped member an include statement to the documentation, telling the reader
-# which file to include in order to use the member.
-# The default value is: NO.
 
 SHOW_GROUPED_MEMB_INC  = YES
 
@@ -299,23 +175,7 @@ SORT_MEMBERS_CTORS_1ST = YES
 
 SORT_GROUP_NAMES       = YES
 
-# If the SORT_BY_SCOPE_NAME tag is set to YES, the class list will be sorted by
-# fully-qualified names, including namespaces. If set to NO, the class list will
-# be sorted only by class name, not including the namespace part.
-# Note: This option is not very useful if HIDE_SCOPE_NAMES is set to YES.
-# Note: This option applies only to the class list, not to the alphabetical
-# list.
-# The default value is: NO.
-
 SORT_BY_SCOPE_NAME     = YES
-
-# If the STRICT_PROTO_MATCHING option is enabled and doxygen fails to do proper
-# type resolution of all parameters of a function it will reject a match between
-# the prototype and the implementation of a member function even if there is
-# only one candidate or it is obvious which candidate to choose by doing a
-# simple string match. By disabling STRICT_PROTO_MATCHING doxygen will still
-# accept a match between prototype and implementation in such cases.
-# The default value is: NO.
 
 STRICT_PROTO_MATCHING  = NO
 
@@ -336,14 +196,6 @@ SHOW_USED_FILES        = YES
 SHOW_FILES             = YES
 
 SHOW_NAMESPACES        = YES
-
-# The FILE_VERSION_FILTER tag can be used to specify a program or script that
-# doxygen should invoke to get the current version for each file (typically from
-# the version control system). Doxygen will invoke the program by executing (via
-# popen()) the command command input-file, where command is the value of the
-# FILE_VERSION_FILTER tag, and input-file is the name of an input file provided
-# by doxygen. Whatever the program writes to standard output is used as the file
-# version. For an example see the documentation.
 
 FILE_VERSION_FILTER    =
 
@@ -373,7 +225,7 @@ WARN_IF_INCOMPLETE_DOC = YES
 # WARN_IF_INCOMPLETE_DOC
 # The default value is: NO.
 
-WARN_NO_PARAMDOC       = NO
+WARN_NO_PARAMDOC       = YES
 
 WARN_AS_ERROR          = NO
 
@@ -385,11 +237,11 @@ WARN_LOGFILE           = @LIMES_LOG_FILE@
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
 
-INPUT                  = @Limes_SOURCE_DIR@/libs @CMAKE_CURRENT_LIST_DIR@/doc
+INPUT                  = @Limes_SOURCE_DIR@/libs @Limes_SOURCE_DIR@/juce @Limes_SOURCE_DIR@/programs @CMAKE_CURRENT_LIST_DIR@/doc
 
 INPUT_ENCODING         = UTF-8
 
-FILE_PATTERNS          = *.h *.doc *.png
+FILE_PATTERNS          = *.h *.doc *.png limes_*
 
 RECURSIVE              = YES
 
@@ -469,33 +321,9 @@ HTML_EXTRA_STYLESHEET  =
 
 HTML_EXTRA_FILES       =
 
-# The HTML_COLORSTYLE_HUE tag controls the color of the HTML output. Doxygen
-# will adjust the colors in the style sheet and background images according to
-# this color. Hue is specified as an angle on a color-wheel, see
-# https://en.wikipedia.org/wiki/Hue for more information. For instance the value
-# 0 represents red, 60 is yellow, 120 is green, 180 is cyan, 240 is blue, 300
-# purple, and 360 is red again.
-# Minimum value: 0, maximum value: 359, default value: 220.
-# This tag requires that the tag GENERATE_HTML is set to YES.
-
 HTML_COLORSTYLE_HUE    = 250
 
-# The HTML_COLORSTYLE_SAT tag controls the purity (or saturation) of the colors
-# in the HTML output. For a value of 0 the output will use gray-scales only. A
-# value of 255 will produce the most vivid colors.
-# Minimum value: 0, maximum value: 255, default value: 100.
-# This tag requires that the tag GENERATE_HTML is set to YES.
-
 HTML_COLORSTYLE_SAT    = 175
-
-# The HTML_COLORSTYLE_GAMMA tag controls the gamma correction applied to the
-# luminance component of the colors in the HTML output. Values below 100
-# gradually make the output lighter, whereas values above 100 make the output
-# darker. The value divided by 100 is the actual gamma applied, so 80 represents
-# a gamma of 0.8, The value 220 represents a gamma of 2.2, and 100 does not
-# change the gamma.
-# Minimum value: 40, maximum value: 240, default value: 80.
-# This tag requires that the tag GENERATE_HTML is set to YES.
 
 HTML_COLORSTYLE_GAMMA  = 90
 
@@ -560,34 +388,7 @@ USE_MATHJAX            = YES
 
 MATHJAX_VERSION        = MathJax_3
 
-# When MathJax is enabled you can set the default output format to be used for
-# the MathJax output. For more details about the output format see MathJax
-# version 2 (see:
-# http://docs.mathjax.org/en/v2.7-latest/output.html) and MathJax version 3
-# (see:
-# http://docs.mathjax.org/en/latest/web/components/output.html).
-# Possible values are: HTML-CSS (which is slower, but has the best
-# compatibility. This is the name for Mathjax version 2, for MathJax version 3
-# this will be translated into chtml), NativeMML (i.e. MathML. Only supported
-# for NathJax 2. For MathJax version 3 chtml will be used instead.), chtml (This
-# is the name for Mathjax version 3, for MathJax version 2 this will be
-# translated into HTML-CSS) and SVG.
-# The default value is: HTML-CSS.
-# This tag requires that the tag USE_MATHJAX is set to YES.
-
 MATHJAX_FORMAT         = chtml
-
-# When MathJax is enabled you need to specify the location relative to the HTML
-# output directory using the MATHJAX_RELPATH option. The destination directory
-# should contain the MathJax.js script. For instance, if the mathjax directory
-# is located at the same level as the HTML output directory, then
-# MATHJAX_RELPATH should be ../mathjax. The default value points to the MathJax
-# Content Delivery Network so you can quickly see the result without installing
-# MathJax. However, it is strongly recommended to install a local copy of
-# MathJax from https://www.mathjax.org before deployment. The default value is:
-# - in case of MathJax version 2: https://cdn.jsdelivr.net/npm/mathjax@2
-# - in case of MathJax version 3: https://cdn.jsdelivr.net/npm/mathjax@3
-# This tag requires that the tag USE_MATHJAX is set to YES.
 
 MATHJAX_RELPATH        = https://cdn.jsdelivr.net/npm/mathjax@3
 
@@ -645,13 +446,7 @@ LATEX_BATCHMODE        = YES
 
 LATEX_HIDE_INDICES     = YES
 
-# The LATEX_BIB_STYLE tag can be used to specify the style to use for the
-# bibliography, e.g. plainnat, or ieeetr. See
-# https://en.wikipedia.org/wiki/BibTeX and \cite for more info.
-# The default value is: plain.
-# This tag requires that the tag GENERATE_LATEX is set to YES.
-
-LATEX_BIB_STYLE        = plain
+LATEX_BIB_STYLE        = plainnat
 
 LATEX_TIMESTAMP        = YES
 
@@ -730,41 +525,13 @@ SKIP_FUNCTION_MACROS   = NO
 # Configuration options related to external references
 #---------------------------------------------------------------------------
 
-# The TAGFILES tag can be used to specify one or more tag files. For each tag
-# file the location of the external documentation should be added. The format of
-# a tag file without this location is as follows:
-# TAGFILES = file1 file2 ...
-# Adding location for the tag files is done as follows:
-# TAGFILES = file1=loc1 "file2 = loc2" ...
-# where loc1 and loc2 can be relative or absolute paths or URLs. See the
-# section "Linking to external documentation" for more information about the use
-# of tag files.
-# Note: Each tag file must have a unique name (where the name does NOT include
-# the path). If a tag file is not located in the directory in which doxygen is
-# run, you must also specify the path to the tagfile here.
-
 TAGFILES               =
 
 GENERATE_TAGFILE       = @Limes_SOURCE_DIR@/doc/Limes.tag
 
-# If the ALLEXTERNALS tag is set to YES, all external class will be listed in
-# the class index. If set to NO, only the inherited external classes will be
-# listed.
-# The default value is: NO.
-
 ALLEXTERNALS           = NO
 
-# If the EXTERNAL_GROUPS tag is set to YES, all external groups will be listed
-# in the modules index. If set to NO, only the current project's groups will be
-# listed.
-# The default value is: YES.
-
 EXTERNAL_GROUPS        = YES
-
-# If the EXTERNAL_PAGES tag is set to YES, all external pages will be listed in
-# the related pages index. If set to NO, only the current project's pages will
-# be listed.
-# The default value is: YES.
 
 EXTERNAL_PAGES         = NO
 
@@ -802,13 +569,6 @@ UML_LOOK               = NO
 UML_LIMIT_NUM_FIELDS   = 10
 
 DOT_UML_DETAILS        = NO
-
-# The DOT_WRAP_THRESHOLD tag can be used to set the maximum number of characters
-# to display on a single line. If the actual line length exceeds this threshold
-# significantly it will wrapped across multiple lines. Some heuristics are apply
-# to avoid ugly line breaks.
-# Minimum value: 0, maximum value: 1000, default value: 17.
-# This tag requires that the tag HAVE_DOT is set to YES.
 
 DOT_WRAP_THRESHOLD     = 17
 
@@ -849,16 +609,6 @@ PLANTUML_INCLUDE_PATH  =
 DOT_GRAPH_MAX_NODES    = 50
 
 MAX_DOT_GRAPH_DEPTH    = 3
-
-# Set the DOT_TRANSPARENT tag to YES to generate images with a transparent
-# background. This is disabled by default, because dot on Windows does not seem
-# to support this out of the box.
-#
-# Warning: Depending on the platform used, enabling this option may lead to
-# badly anti-aliased labels on the edges of a graph (i.e. they become hard to
-# read).
-# The default value is: NO.
-# This tag requires that the tag HAVE_DOT is set to YES.
 
 DOT_TRANSPARENT        = YES
 

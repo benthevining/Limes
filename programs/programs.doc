@@ -1,0 +1,43 @@
+/** @defgroup programs Programs
+	The Limes utility programs.
+
+	Limes ships several command-line utility programs:
+	- @ref binary_builder "BinaryBuilder"
+	- @ref file_util "FileUtil"
+
+	@ref limes_programs "General discussion"
+ */
+
+/** @page limes_programs Utility programs
+	@brief Limes utility programs
+
+	@tableofcontents{HTML,LaTeX,XML}
+
+	@section prgm_discussion Discussion
+
+	Limes ships several small command-line utility programs, both as part of the testing process of the Limes libraries, but also because these utility programs can be genuinely useful.
+
+	Limes ships the following programs:
+
+	Name          | Description
+	------------- | ------------------------------------------------------------
+	FileUtil      | OS-agnostic interface for a wide variety of filesystem tasks
+	BinaryBuilder | Generates C++ source files which embed binary data files
+
+	@section prgm_crosscomp Crosscompiling
+
+	When building the Limes programs in a crosscompiling scenario, they usually need to be executed on the *host* system, not the *target* system.
+
+	Because of this, when crosscompiling, a child CMake is invoked at configure time to execute the build of the programs for the *host* system,
+	so that their artefacts are then available to the configuration for the *target* system.
+
+	@subpage binary_builder BinaryBuilder
+	@subpage file_util FileUtil
+
+	@installcompgroup \b limes_programs
+	@parblock
+	Installs all Limes programs.
+
+	This component is analogous to the `find_package()` component \c Programs .
+	@endparblock
+ */

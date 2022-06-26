@@ -13,11 +13,30 @@
 /** @defgroup limes_core limes_core
 	The Limes core library of utilities.
 
+	@anchor lib_limes_core
+
 	All classes and functions in this module are accessible after linking to the \c limes_core library and including limes_core.h.
 
 	This library provides classes and functions for working with the filesystem, cryptographic hashes, math, geometry, memory management, metaprogramming, runtime assertions, text, multithreading, and time.
 
-	Dependencies: None
+	@cmaketarget \b Limes::limes_core
+	The @ref lib_limes_core "limes_core"
+	library target.
+
+	@installcomp \b limes_core_runtime
+	Runtime install component for the @ref lib_limes_core "limes_core"
+	library.
+
+	@installcomp \b limes_core_dev
+	@parblock
+	Development install component for the @ref lib_limes_core "limes_core"
+	library. Depends on the \c limes_core_runtime component.
+
+	This component is analogous to the `find_package()` component \c Core .
+	@endparblock
+
+	@installcompgroup \b limes_core
+	This group includes the \c limes_core_dev and \c limes_core_runtime components.
 
 	@ingroup limes
  */

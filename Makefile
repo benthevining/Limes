@@ -106,4 +106,4 @@ clean: ## Cleans the source tree
 .PHONY: wipe
 wipe: clean ## Wipes the cache of downloaded dependencies
 	@echo "Wiping cache..."
-	$(RM) $(CACHE)
+	$(RM) $(CACHE) $(FETCHCONTENT_BASE_DIR)

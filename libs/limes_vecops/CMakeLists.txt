@@ -36,7 +36,7 @@ Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Limes::limes_vecops
 
-Target properties
+Global properties
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - VECOPS_IMPLEMENTATION : string name of the vecops implementation being used
 
@@ -44,10 +44,6 @@ Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_vecops_dev
 - limes_vecops_runtime
-
-Install component groups
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_vecops
 
 #]=======================================================================]
 
@@ -133,7 +129,7 @@ target_sources (
 	limes_vecops PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_vecops.h>
 						$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/limes_vecops.h>)
 
-install (FILES limes_vecops.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
+install (FILES limes_vecops.h limes_vecops DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
 		 COMPONENT limes_vecops_dev)
 
 target_include_directories (

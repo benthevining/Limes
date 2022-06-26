@@ -13,12 +13,6 @@ max_line_length = off
 [*.md]
 trim_trailing_whitespace = false
 
-[*.{yml,yaml,json}]
+[*.{yml,yaml,json,xml,proto,cff,clang-*}]
 indent_style = space
 indent_size = 2
-
-[*.{xml,proto,cff}]
-indent_style = space
-
-[.clang-tidy]
-indent_style = space

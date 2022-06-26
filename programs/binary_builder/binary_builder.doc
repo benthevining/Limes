@@ -1,0 +1,115 @@
+/** @page binary_builder BinaryBuilder
+	@brief Generates sources embedding raw binary data
+
+	@tableofcontents{HTML,LaTeX,XML}
+
+	\c BinaryBuilder is a small command-line program that generates C++ source code that embeds some external data read from input files.
+
+	The output files use the Limes \c binaries::FileInfo and \c binaries::FileInfoList interface for easy access of your embedded data at runtime.
+
+	@section pbb_usage Command-line usage
+
+	@code
+	BinaryBuilder [-h] [-d <outputDirectory>] [-o <fileBaseName>] [-ns <namespace>] <inputFiles...>
+	@endcode
+
+	All arguments are optional, except the \c <inputFiles> . At least 1 input file must be specified.
+
+	@subsection pbb_help Help
+	@code
+	BinaryBuilder -h
+	@endcode
+	Prints usage and help messages.
+
+	@subsection pbb_outdir Output directory
+	@code
+	BinaryBuilder -d <outputDirectory> <inputFiles...>
+	@endcode
+	The directory where the output files will be written to.
+	No matter how many input files you pass, a single \c .cpp and \c .h file will be generated, containing all the data.
+	These files will be at \c <outputDirectory>/<fileBaseName>.h and \c <outputDirectory>/<fileBaseName>.cpp .
+	\c <outputDirectory> defaults to the current working directory.
+
+	@subsection pbb_basename File base name
+	@code
+	BinaryBuilder -o <fileBaseName> <inputFiles...>
+	@endcode
+	The base name used for naming the output files.
+	The output files will be \c <outputDirectory>/<fileBaseName>.h and \c <outputDirectory>/<fileBaseName>.cpp .
+	\c <fileBaseName> defaults to \c BinaryData .
+
+	@subsection pbb_namespace Namespace
+	@code
+	BinaryBuilder -ns <namespace> <inputFiles...>
+	@endcode
+	The namespace that the embedded data objects will be declared in.
+	This may be empty, and defaults to empty.
+
+	@subsection pbb_infiles Input files
+	@code
+	BinaryBuilder <inputFiles...>
+	@endcode
+	The paths of files to be embedded as binary data into the generated source files.
+	If a directory is given, its contents will all be included recursively.
+
+	@section pbb_cpp The C++ side
+
+	After the \c BinaryBuilder executable has run, you'll have a \c .cpp and \c .h file, and the header file will contain some code like this:
+	@code
+	#pragma once
+
+	#include <limes_core.h>
+
+	extern const std::size_t fileInfoListSize;
+
+	extern const ::limes::binaries::FileInfo fileInfoList[];
+
+	[[nodiscard]] constexpr ::limes::binaries::FileInfoList fileList() noexcept
+	{
+		return ::limes::binaries::FileInfoList { &fileInfoList[0], fileInfoListSize };
+	}
+	@endcode
+
+	The static array of \c FileInfo objects is initialized in the \c .cpp file. This header gives you direct access to an iterable array of \c FileInfo objects, which provide a convenient API for loading your embedded data into familiar C++ objects.
+
+	@section pbb_cmake CMake integration
+
+	@cmaketarget \b Limes::BinaryBuilder
+	The @ref binary_builder "BinaryBuilder"
+	executable target.
+
+	@installcomp \b limes_binary_builder
+	@parblock
+	Installs the Limes BinaryBuilder.
+
+	This component is analogous to the `find_package()` component \c BinaryBuilder .
+	@endparblock
+
+	@subsection pbb_cmake_module LimesBinaryBuilder.cmake
+
+	Limes also provides a CMake module, \c LimesBinaryBuilder.cmake , that provides several utility functions for adding file generation commands to a target:
+
+	@subsection limes_add_binary_data_files limes_add_binary_data_files
+
+	Usage:
+	@code
+	limes_add_binary_data_files (INPUTS <files...>
+								[OUTPUT_DIR <dir>]
+								[BASE_NAME <filename>]
+								[NAMESPACE <namespace>]
+								[CPP_OUTPUT_VAR <cpp_path_out>]
+								[H_OUTPUT_VAR <h_path_out>])
+	@endcode
+
+	@subsection limes_add_binary_data_target limes_add_binary_data_target
+
+	Usage:
+	@code
+	limes_add_binary_data_target (TARGET_NAME <target>
+								  INPUTS <files...>
+								 [HEADER_NAME <header>]
+								 [NAMESPACE <namespace>]
+								 [INSTALL_REL_PATH <rel_path>]
+								 [INSTALL_COMPONENT <component>])
+	@endcode
+ */

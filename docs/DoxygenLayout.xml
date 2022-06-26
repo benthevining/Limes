@@ -3,7 +3,7 @@
   <!-- Navigation index tabs for HTML output -->
   <navindex>
     <tab type="mainpage" visible="yes" title=""/>
-    <tab type="pages" visible="yes" title="" intro="Related documentation pages:"/>
+    <tab type="pages" visible="yes" title="Appendices" intro="Additional documentation pages:"/>
     <tab type="modules" visible="yes" title="" intro="Here is a list of all modules with brief descriptions:"/>
     <tab type="namespaces" visible="yes" title="">
       <tab type="namespacelist" visible="yes" title="" intro="Here is a list of all namespaces with brief descriptions:"/>
@@ -24,10 +24,10 @@
       <tab type="structlist" visible="yes" title="" intro=""/>
       <tab type="structindex" visible="$ALPHABETICAL_INDEX" title=""/>
     </tab>
-    <tab type="exceptions" visible="no" title="">
-      <tab type="exceptionlist" visible="yes" title="" intro=""/>
-      <tab type="exceptionindex" visible="$ALPHABETICAL_INDEX" title=""/>
-      <tab type="exceptionhierarchy" visible="yes" title="" intro=""/>
+    <tab type="exceptions" visible="yes" title="">
+      <tab type="exceptionlist" visible="yes" title="" intro="Here is a list of all exceptions:"/>
+      <tab type="exceptionindex" visible="yes" title=""/>
+      <tab type="exceptionhierarchy" visible="yes" title="" intro="Exception hierarchy, sorted roughly alphabetically"/>
     </tab>
     <tab type="files" visible="yes" title="">
       <tab type="filelist" visible="yes" title="" intro="Here is a list of all files with brief descriptions:"/>

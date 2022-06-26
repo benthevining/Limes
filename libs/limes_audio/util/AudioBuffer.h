@@ -40,6 +40,7 @@ namespace dsp
 	@todo convert sample types
 	@todo interleave/deinterleave
 	@todo size_t and int APIs
+	@todo getArrayOfWritePointers(), getArrayOfReadPointers()
  */
 template <Sample SampleType, std::size_t NumChannels>
 class LIMES_EXPORT AudioBuffer final

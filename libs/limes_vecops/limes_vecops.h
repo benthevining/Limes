@@ -13,6 +13,8 @@
 /** @defgroup limes_vecops limes_vecops
 	The Limes vector operations library.
 
+	@anchor lib_limes_vecops
+
 	All classes and functions in this module are accessible after linking to the \c limes_vecops library and including limes_vecops.h.
 
 	This library provides functions operating on vectors of scalar data, accelerated with SIMD where possible.
@@ -25,15 +27,24 @@
 	These functions can be explicitly enabled or disabled using the \c LIMES_VECOPS_USE_POMMIER preprocessor macro.
 	The Pommier source code is included in Limes, but using it requires your adherence to its original license; see neon_mathfun.h for a copy of it.
 
-	Dependencies:
-	- limes_core
+	@par "Limes library dependencies"
+	@ref lib_limes_core "limes_core"
 
-	Optional dependencies:
-	- <a href="https://www.fftw.org/">FFTW</a> \n
-	and/or one of:
-	- <a href="https://developer.apple.com/documentation/accelerate?language=objc">Apple's Accelerate framework</a>
-	- <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/ipp.html#gs.25my3g">Intel IPP</a>
-	- <a href="https://github.com/aff3ct/MIPP">MIPP</a>
+	@dependency \b FFTW
+	The FFTW Fourier transform library can be used as the backend of the limes_vecops FFT class.
+	FFTW can be installed to your system with a simple \c cmake \c --install of their git repository.
+
+	@dependency \b Accelerate
+	Apple's Accelerate framework can be used as the backend for the limes_vecops functions.
+	Accelerate comes with MacOS, it should work out of the box.
+
+	@dependency \b IPP
+	Intel's IPP framework can be used as the backend for the limes_vecops functions.
+	IPP must be manually installed to the system by the developer using Intel's installer program.
+
+	@dependency \b MIPP
+	The MIPP library can be used as the backend for the limes_vecops functions.
+	If MIPP is used, its sources will be fetched at configure time if necessary.
 
 	If a SIMD library is not used, then "raw C++" implementations of all the functions defined in this file will be used.
 
@@ -45,6 +56,48 @@
 	Integrated Performance Primitives | Intel       | LIMES_VECOPS_USE_IPP          | The best choice on Intel platforms
 	MyIntrinsics++ (MIPP)             | Open source | LIMES_VECOPS_USE_MIPP         | Supports NEON, SSE, AVX and AVX-512
 	Fallback (non-SIMD code)          | Limes       | None - absence of the other 3 | Non-SIMD C++ implementations
+
+	The default selection of the backend follows these heuristics:
+	- Use vDSP if on an Apple platform
+	- Use IPP if on an Intel platform and it can be found on the system
+	- Use MIPP if on a platform that supports NEON, SSE, AVX, or AVX512
+	- Otherwise, use the builtin fallback implementations
+
+	However, these defaults can be overridden using the following CMake options:
+
+	@cmakeopt \b LIMES_USE_VDSP If \c ON , prefer to use Apple vDSP over any other backend.
+	@cmakeopt \b LIMES_USE_IPP If \c ON , prefer to use Intel IPP over any other backend.
+	@cmakeopt \b LIMES_USE_MIPP If \c ON , prefer to use MIPP over any other backend.
+	@cmakeopt \b LIMES_USE_VECOPS_FALLBACK If \c ON , prefer to use the builtin fallbacks over any third party backend.
+	@cmakeopt \b LIMES_VECOPS_BACKEND A string value that can be one of \c VDSP , \c IPP , \c MIPP , or \c FALLBACK .
+	This value overrides the individual boolean toggles. If an unrecognized value is present, a warning will be issued.
+
+	These additional options further control the behavior of the limes_vecops library:
+
+	@cmakeopt \b LIMES_USE_POMMIER If \c ON , Julien Pommier's sin and cosine functions for SSE and NEON will be used,
+	if on a platform supporting those instructions. The main use case of this option is to disable these functions.
+	@cmakeopt \b LIMES_USE_FFTW By default, FFTW will be searched for in the system, and if found, will be used
+	for the limes_vecops FFT class's backend. However, you can set this option to \c OFF to ignore FFTW.
+	vDSP and IPP also provide FFT implementations.
+
+	@cmaketarget \b Limes::limes_vecops
+	The @ref lib_limes_vecops "limes_vecops"
+	library target.
+
+	@installcomp \b limes_vecops_runtime
+	Runtime install component for the @ref lib_limes_vecops "limes_vecops"
+	library.
+
+	@installcomp \b limes_vecops_dev
+	@parblock
+	Development install component for the @ref lib_limes_vecops "limes_vecops"
+	library. Depends on the \c limes_vecops_runtime component.
+
+	This component is analogous to the `find_package()` component \c Vecops .
+	@endparblock
+
+	@installcompgroup \b limes_vecops
+	This group includes the \c limes_vecops_dev and \c limes_vecops_runtime components.
 
 	@ingroup limes
 

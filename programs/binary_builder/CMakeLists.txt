@@ -25,11 +25,6 @@ Targets
 
 Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_binary_builder_dev
-- limes_binary_builder_runtime
-
-Install component groups
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_binary_builder
 
 #]=======================================================================]
@@ -46,21 +41,13 @@ project (
 	HOMEPAGE_URL "${LimesPrograms_HOMEPAGE_URL}"
 	LANGUAGES CXX)
 
-include (CPackComponent)
-
 install (FILES "${CMAKE_CURRENT_LIST_DIR}/../../cmake/LimesBinaryBuilder.cmake"
 		 COMPONENT limes_binary_builder_dev DESTINATION "${LIMES_INSTALL_DEST}/cmake")
 
-cpack_add_component (limes_binary_builder_base HIDDEN)
+include (CPackComponent)
 
-cpack_add_component (limes_binary_builder_runtime GROUP limes_binary_builder
-					 DEPENDS limes_binary_builder_base INSTALL_TYPES User)
-
-cpack_add_component (limes_binary_builder_dev GROUP limes_binary_builder
-					 DEPENDS limes_binary_builder_runtime INSTALL_TYPES Developer)
-
-cpack_add_component_group (limes_binary_builder DISPLAY_NAME "Limes binary builder"
-						   DESCRIPTION "${PROJECT_DESCRIPTION}" PARENT_GROUP limes_programs)
+cpack_add_component (limes_binary_builder GROUP limes_programs DESCRIPTION "${PROJECT_DESCRIPTION}"
+					 INSTALL_TYPES Developer)
 
 if (CMAKE_CROSSCOMPILING)
 

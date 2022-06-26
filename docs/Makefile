@@ -52,5 +52,5 @@ deps_graph: config ## Build the dependency graph image
 
 .PHONY: clean
 clean: ## Clean the source tree
-	@echo "CLeaning docs directory..."
+	@echo "Cleaning docs directory..."
 	@$(RM) $(BUILDS) $(DOC)

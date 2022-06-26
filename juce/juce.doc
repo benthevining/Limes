@@ -1,0 +1,60 @@
+/** @defgroup juce JUCE bindings
+	The Limes JUCE API bindings.
+
+	This group includes JUCE modules that wrap the Limes libraries,
+	and some example plugins built using these modules.
+
+	@dependency \b JUCE
+	@parblock
+	The JUCE library is required.
+
+	You can set the environment or command-line variable \c JUCE_PATH to direct the Limes CMake configuration to use a local copy.
+	If no local copy is present and JUCE cannot be found on your system, invoking Limes's CMake configuration will fetch and cache a copy of the JUCE source code.
+	@endparblock
+
+	@envvar \b JUCE_PATH
+	This variable can be set to the root directory of a local copy of the JUCE repository.
+
+	@cmakeopt \b LIMES_BUILD_EXAMPLE_PLUGINS If \c ON , some example
+	plugins using Limes audio effects will be built. This option
+	defaults to \c OFF .
+ */
+
+ // editorconfig-checker-disable
+ /** @dir juce
+	 This directory contains the JUCE API bindings.
+	 @ingroup juce
+  */
+ // editorconfig-checker-enable
+
+/** @defgroup juce_modules JUCE modules
+	The Limes JUCE modules.
+
+	This group contains JUCE modules that wrap the Limes libraries
+	with a JUCE API.
+
+	@ingroup juce
+
+	@todo Write JUCE modules: core, audio, midi
+ */
+
+/** @dir juce/modules
+	This directory contains the Limes JUCE modules.
+	@ingroup juce_modules
+ */
+
+/** @defgroup juce_plugins Example plugins
+	The Limes example plugins.
+
+	This group contains example JUCE plugins that demonstrate the usage
+	of various Limes classes.
+
+	@ingroup juce
+
+	@todo Write example plugins
+ */
+
+/** @dir juce/plugins
+	This directory contains the Limes example plugins.
+	@ingroup juce_plugins
+ */

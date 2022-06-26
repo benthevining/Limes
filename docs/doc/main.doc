@@ -34,13 +34,14 @@
 	BinaryBuilder | Generates C++ source files which embed binary data files
 
 	The following reference manuals are available:
-	- @subpage using_limes Compiling & using Limes
-	- @subpage find_limes The FindLimes.cmake script
-	- @subpage limes_programs Utility programs
+	- @ref limes_cmake "CMake reference"
+	- @ref limes_programs "Utility programs"
+	- @ref envvar "Environment variables"
+	- @ref dependency "Dependencies"
+	- @ref docs_build "Building this documentation"
 
 	Here is the dependency graph for Limes:
-	@image html deps_graph.png
-	@image latex deps_graph.png
-	@image xml deps_graph.png
-
+	@image{inline} html deps_graph.png "Limes dependency graph" width=1000
+	@image latex deps_graph.png "Limes dependency graph" width=1000
+	@image xml deps_graph.png "Limes dependency graph" width=1000
  */
