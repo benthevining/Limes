@@ -1,23 +1,23 @@
 /** @defgroup juce JUCE bindings
 	The Limes JUCE API bindings.
 
-	This group includes JUCE modules that wrap the Limes libraries,
-	and some example plugins built using these modules.
+	This group includes JUCE modules that wrap the Limes libraries, and some example plugins built using these modules.
 
 	@dependency \b JUCE
 	@parblock
-	The JUCE library is required.
+	<a href="https://github.com/juce-framework/JUCE">The JUCE library</a> is required.
 
 	You can set the environment or command-line variable \c JUCE_PATH to direct the Limes CMake configuration to use a local copy.
 	If no local copy is present and JUCE cannot be found on your system, invoking Limes's CMake configuration will fetch and cache a copy of the JUCE source code.
+
+	Limes's core libraries can be built with no JUCE dependencies by setting the \c LIMES_BUILD_JUCE @ref cmakeopt "CMake variable" to \c OFF .
 	@endparblock
 
 	@envvar \b JUCE_PATH
 	This variable can be set to the root directory of a local copy of the JUCE repository.
 
-	@cmakeopt \b LIMES_BUILD_EXAMPLE_PLUGINS If \c ON , some example
-	plugins using Limes audio effects will be built. This option
-	defaults to \c OFF .
+	@cmakeopt \b LIMES_BUILD_EXAMPLE_PLUGINS
+	If \c ON , some example plugins using Limes audio effects will be built. This option defaults to \c OFF .
  */
 
  // editorconfig-checker-disable

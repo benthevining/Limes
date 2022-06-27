@@ -13,7 +13,15 @@
 limes_vecops
 -------------------------
 
-A vector operations library wrapping various platform and vendor specific high-performance APIs.
+A vector operations library wrapping various platform- and vendor-specific high-performance APIs.
+
+One of the following backends can be used for this library's functions:
+- Apple vDSP (Accelerate framework)
+- Intel IPP
+- MIPP
+- Plain C++ fallback
+
+This library also provides a FFT class, which can use FFTW as its backend, or else uses the same backend as the functions.
 
 Dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -38,12 +46,18 @@ Targets
 
 Global properties
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- VECOPS_IMPLEMENTATION : string name of the vecops implementation being used
+- LIMES_VECOPS_IMPLEMENTATION : string name of the vecops implementation being used
+- LIMES_FFT_IMPLEMENTATION : string name of the FFT implementation being used
 
 Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_vecops_dev
 - limes_vecops_runtime
+- limes_vecops (group)
+
+Component name for find_package (Limes)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- Vecops
 
 #]=======================================================================]
 

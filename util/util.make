@@ -11,7 +11,6 @@ CTEST ?= ctest
 RM = $(CMAKE) -E rm -rf  # force this one to use CMake
 PRECOMMIT ?= pre-commit
 GIT ?= git
-ASDF ?= asdf
 PYTHON ?= python3
 
 # set default CMake generator & build parallel level
@@ -23,7 +22,7 @@ else ifeq ($(shell uname -s),Darwin)
 	export CMAKE_BUILD_PARALLEL_LEVEL ?= $(shell sysctl hw.ncpu | sed -e "s/^hw.ncpu://")
 	SUDO ?= sudo
 else # Linux
-	export CMAKE_GENERATOR ?= Ninja
+	export CMAKE_GENERATOR ?= Ninja Multi-Config
 	export CMAKE_BUILD_PARALLEL_LEVEL ?= $(shell grep -c ^processor /proc/cpuinfo)
 	SUDO ?= sudo
 

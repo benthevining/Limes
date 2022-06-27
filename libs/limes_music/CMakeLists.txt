@@ -27,10 +27,11 @@ Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_music_dev
 - limes_music_runtime
+- limes_music (group)
 
-Install component groups
+Component name for find_package (Limes)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_music
+- Music
 
 #]=======================================================================]
 

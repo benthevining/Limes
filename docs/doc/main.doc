@@ -1,11 +1,11 @@
 /** @mainpage Limes documentation
 
-	@code
+	@verbatim
 	 __    ____  __  __  ____  ___
 	(  )  (_  _)(  \/  )( ___)/ __)
 	 )(__  _)(_  )    (  )__) \__ \
 	(____)(____)(_/\/\_)(____)(___/
-	@endcode
+	@endverbatim
 
 	@version 4.8.1
 	@author Ben Vining
@@ -16,22 +16,22 @@
 
 	Limes also provides a few small command-line utilities built using these libraries, and some CMake scripts for integrating Limes features into your build.
 
-	Limes consists of the following libraries:
+	Limes consists of the following @ref limes "libraries":
 
-	Name                  | Description                 | Dependencies
-	--------------------- | --------------------------- | ------------------------
-	limes_audio           | Realtime audio utilities    | limes_vecops
-	limes_core            | Core utilities              | None
-	limes_midi            | MIDI utilities              | limes_core
-	limes_music           | Music theory utilities      | limes_core
-	limes_vecops          | SIMD operations for vectors | limes_core
+	Name                                 | Description                 | Dependencies
+	------------------------------------ | --------------------------- | --------------------------------------
+	@ref lib_limes_audio "limes_audio"   | Realtime audio utilities    | @ref lib_limes_vecops "limes_vecops"
+	@ref lib_limes_core "limes_core"     | Core utilities              | None
+	@ref lib_limes_midi "limes_midi"     | MIDI utilities              | @ref lib_limes_core "limes_core"
+	@ref lib_limes_music "limes_music"   | Music theory utilities      | @ref lib_limes_core "limes_core"
+	@ref lib_limes_vecops "limes_vecops" | SIMD operations for vectors | @ref lib_limes_core "limes_core"
 
-	And the following command line utilities:
+	And the following @ref limes_programs "command line utilities":
 
-	Name          | Description
-	------------- | ------------------------------------------------------------
-	FileUtil      | OS-agnostic interface for a wide variety of filesystem tasks
-	BinaryBuilder | Generates C++ source files which embed binary data files
+	Name                                | Description
+	----------------------------------- | ------------------------------------------------------------
+	@ref file_util "FileUtil"           | OS-agnostic interface for a wide variety of filesystem tasks
+	@ref binary_builder "BinaryBuilder" | Generates C++ source files which embed binary data files
 
 	The following reference manuals are available:
 	- @ref limes_cmake "CMake reference"
@@ -42,6 +42,8 @@
 
 	Here is the dependency graph for Limes:
 	@image{inline} html deps_graph.png "Limes dependency graph" width=1000
-	@image latex deps_graph.png "Limes dependency graph" width=1000
-	@image xml deps_graph.png "Limes dependency graph" width=1000
+	@image latex deps_graph.png "Limes dependency graph" width=500
+	@image xml deps_graph.png "Limes dependency graph"
+
+	<a href="https://github.com/benthevining/Limes" target="_blank">View the Limes repository on GitHub</a>.
  */

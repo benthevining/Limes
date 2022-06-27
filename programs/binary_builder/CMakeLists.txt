@@ -10,7 +10,7 @@
 
 #[=======================================================================[.rst:
 
-LimesBinaryBuilder
+BinaryBuilder
 -------------------------
 
 A command line utility to embed binary resource files into generated C++ source code.
@@ -26,6 +26,10 @@ Targets
 Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_binary_builder
+
+Component name for find_package (Limes)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- BinaryBuilder
 
 #]=======================================================================]
 

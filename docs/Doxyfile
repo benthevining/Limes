@@ -81,6 +81,7 @@ ALIASES                += "envvar=\xrefitem envvar \"Environment variable(s)\" \
 ALIASES	               += "dependency=\xrefitem dependency \"Dependency\" \"Dependencies\""
 ALIASES                += "cmakeopt=\xrefitem cmakeopt \"CMake option(s)\" \"CMake options\""
 ALIASES                += "cmaketarget=\xrefitem cmaketarget \"CMake target(s)\" \"CMake targets\""
+ALIASES                += "cmakeprop=\xrefitem cmakeprop \"CMake property:\" \"CMake properties\""
 ALIASES                += "installcomp=\xrefitem installcomp \"Install component(s)\" \"Install components\""
 ALIASES                += "installcompgroup=\xrefitem installcompgroup \"Install component group(s)\" \"Install component groups\""
 

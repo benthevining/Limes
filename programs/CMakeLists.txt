@@ -26,18 +26,11 @@ Targets
 
 Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_binary_builder_dev
-- limes_binary_builder_runtime
-- limes_file_util_dev
-- limes_file_util_runtime
-- limes_programs_dev
-- limes_programs_runtime
+- limes_programs
 
-Install component groups
+Component name for find_package (Limes)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_binary_builder
-- limes_file_util
-- limes_programs (aggregate)
+- Programs
 
 #]=======================================================================]
 
@@ -157,16 +150,9 @@ add_subdirectory (file_util)
 
 #
 
-cpack_add_component (limes_programs_runtime GROUP limes_programs
-					 DEPENDS limes_binary_builder_runtime INSTALL_TYPES User)
-
-cpack_add_component (
-	limes_programs_dev GROUP limes_programs DEPENDS limes_programs_runtime limes_binary_builder_dev
-	INSTALL_TYPES Developer)
-
 cpack_add_component_group (
 	limes_programs
 	DISPLAY_NAME "Limes utility programs"
 	DESCRIPTION "${PROJECT_DESCRIPTION}"
 	BOLD_TITLE
-	PARENT_GROUP limes)
+	PARENT_GROUP limes INSTALL_TYPES Developer)

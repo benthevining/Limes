@@ -27,10 +27,11 @@ Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_midi_dev
 - limes_midi_runtime
+- limes_midi (group)
 
-Install component groups
+Component name for find_package (Limes)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_midi
+- MIDI
 
 #]=======================================================================]
 

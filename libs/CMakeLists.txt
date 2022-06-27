@@ -10,10 +10,10 @@
 
 #[=======================================================================[.rst:
 
-Limes
+Limes libraries
 -------------------------
 
-The Limes library.
+The Limes collection of C++ libraries.
 
 Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -23,10 +23,11 @@ Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_libs_dev
 - limes_libs_runtime
+- limes_libs (group)
 
-Install component groups
+Component name for find_package (Limes)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_libs
+- Libs
 
 #]=======================================================================]
 
@@ -153,6 +154,6 @@ cpack_add_component_group (
 	DISPLAY_NAME "Limes libraries"
 	DESCRIPTION "All components of the Limes libraries"
 	BOLD_TITLE
-	PARENT_GROUP limes)
+	PARENT_GROUP limes INSTALL_TYPES Developer)
 
 add_library (Limes::Limes ALIAS Limes)

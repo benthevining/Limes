@@ -10,7 +10,7 @@
 
 #[=======================================================================[.rst:
 
-LimesFileUtil
+FileUtil
 -------------------------
 
 A command line utility to provide some universal file utility operations.
@@ -27,6 +27,10 @@ Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_file_util
 
+Component name for find_package (Limes)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- FileUtil
+
 #]=======================================================================]
 
 include_guard (GLOBAL)
@@ -42,8 +46,8 @@ project (
 
 include (CPackComponent)
 
-cpack_add_component_group (limes_file_util GROUP limes_programs DESCRIPTION "${PROJECT_DESCRIPTION}"
-																			INSTALL_TYPES Developer)
+cpack_add_component (limes_file_util GROUP limes_programs DESCRIPTION "${PROJECT_DESCRIPTION}"
+					 INSTALL_TYPES Developer)
 
 if (CMAKE_CROSSCOMPILING)
 

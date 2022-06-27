@@ -15,10 +15,6 @@ limes_core
 
 The Limes core library of utilities.
 
-Dependencies
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-None
-
 Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Limes::limes_core
@@ -27,10 +23,11 @@ Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_core_dev
 - limes_core_runtime
+- limes_core (group)
 
-Install component groups
+Component name for find_package (Limes)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_core
+- Core
 
 #]=======================================================================]
 

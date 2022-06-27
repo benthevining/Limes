@@ -30,37 +30,50 @@
 	@par "Limes library dependencies"
 	@ref lib_limes_core "limes_core"
 
+	The FFTW library may optionally be used as the backend of the FFT class:
+
 	@dependency \b FFTW
-	The FFTW Fourier transform library can be used as the backend of the limes_vecops FFT class.
-	FFTW can be installed to your system with a simple \c cmake \c --install of their git repository.
+	<a href="https://www.fftw.org/">The FFTW Fourier transform library</a> can be used as the backend of the @ref limes_vecops "limes_vecops" FFT class.
+	FFTW can be installed to your system with a simple @verbatim cmake \c --install @endverbatim of their git repository.
+	The usage of FFTW is determined by the \c LIMES_USE_FFTW @ref cmakeopt "CMake variable".
+
+	@cmakeopt \b LIMES_USE_FFTW By default, <a href="https://www.fftw.org/">FFTW</a> will be searched for in the system, and if found,
+	will be used for the @ref limes_vecops "limes_vecops" FFT class's backend. However, you can set this option to \c OFF to ignore FFTW.
+	vDSP and IPP also provide FFT implementations.
+
+	And one of the following libraries may be used as the backend for the vector operations functions (vDSP and IPP also provide FFT functions that will
+	be used if FFTW is not available):
 
 	@dependency \b Accelerate
-	Apple's Accelerate framework can be used as the backend for the limes_vecops functions.
-	Accelerate comes with MacOS, it should work out of the box.
+	<a href="https://developer.apple.com/documentation/accelerate?language=objc">Apple's Accelerate framework</a> can be used as the backend for the
+	@ref limes_vecops "limes_vecops" functions. Accelerate comes with MacOS; it should work out of the box.
+	To tell Limes to prefer Accelerate over other backends when available, set the \c LIMES_VECOPS_USE_VDSP @ref cmakeopt "CMake variable" to \c ON .
 
 	@dependency \b IPP
-	Intel's IPP framework can be used as the backend for the limes_vecops functions.
-	IPP must be manually installed to the system by the developer using Intel's installer program.
+	<a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/ipp.html#gs.452k3t">Intel's IPP (Integrated Performance Primitives) framework</a>
+	can be used as the backend for the @ref limes_vecops "limes_vecops" functions. IPP must be manually installed to the system by the developer using Intel's
+	installer program. To tell Limes to prefer IPP over other backends when available, set the \c LIMES_VECOPS_USE_IPP @ref cmakeopt "CMake variable" to \c ON .
 
 	@dependency \b MIPP
-	The MIPP library can be used as the backend for the limes_vecops functions.
-	If MIPP is used, its sources will be fetched at configure time if necessary.
+	<a href="https://github.com/aff3ct/MIPP">The MIPP library</a> can be used as the backend for the @ref limes_vecops "limes_vecops" functions.
+	If MIPP is used, its sources will be fetched from GitHub at configure time if necessary.
+	To tell Limes to prefer MIPP over other backends when available, set the \c LIMES_VECOPS_USE_MIPP @ref cmakeopt "CMake variable" to \c ON .
 
-	If a SIMD library is not used, then "raw C++" implementations of all the functions defined in this file will be used.
+	If a SIMD library is not used, then "pure C++" implementations of all the functions defined in this file will be used.
 
-	Here are the SIMD libraries that can be used as backends for this library's functions:
+	Here is an overview of the SIMD libraries that can be used as backends for this library's functions:
 
-	Name                              | Vendor      | Preprocessor macro            | Notes
-	--------------------------------- | ----------- | ----------------------------- | --------------------------------------
-	vDSP (Accelerate)                 | Apple       | LIMES_VECOPS_USE_VDSP         | The best choice on Apple platforms
-	Integrated Performance Primitives | Intel       | LIMES_VECOPS_USE_IPP          | The best choice on Intel platforms
-	MyIntrinsics++ (MIPP)             | Open source | LIMES_VECOPS_USE_MIPP         | Supports NEON, SSE, AVX and AVX-512
-	Fallback (non-SIMD code)          | Limes       | None - absence of the other 3 | Non-SIMD C++ implementations
+	Name                                                                                                                              | Vendor      | Preprocessor macro            | Notes
+	--------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------------------- | --------------------------------------
+	<a href="https://developer.apple.com/documentation/accelerate?language=objc">vDSP (Accelerate)</a>                                | Apple       | LIMES_VECOPS_USE_VDSP         | The best choice on Apple platforms
+	<a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/ipp.html#gs.452k3t">Integrated Performance Primitives</a> | Intel       | LIMES_VECOPS_USE_IPP          | The best choice on Intel platforms
+	<a href="https://github.com/aff3ct/MIPP">MyIntrinsics++ (MIPP)</a>                                                                | Open source | LIMES_VECOPS_USE_MIPP         | Supports NEON, SSE, AVX and AVX-512
+	Fallback (non-SIMD code)                                                                                                          | Limes       | None - absence of the other 3 | Non-SIMD C++ implementations
 
 	The default selection of the backend follows these heuristics:
 	- Use vDSP if on an Apple platform
 	- Use IPP if on an Intel platform and it can be found on the system
-	- Use MIPP if on a platform that supports NEON, SSE, AVX, or AVX512
+	- Use MIPP if on a platform that supports NEON, SSE, AVX, or AVX512 (fetching the sources from GitHub if necessary)
 	- Otherwise, use the builtin fallback implementations
 
 	However, these defaults can be overridden using the following CMake options:
@@ -72,13 +85,19 @@
 	@cmakeopt \b LIMES_VECOPS_BACKEND A string value that can be one of \c VDSP , \c IPP , \c MIPP , or \c FALLBACK .
 	This value overrides the individual boolean toggles. If an unrecognized value is present, a warning will be issued.
 
-	These additional options further control the behavior of the limes_vecops library:
+	Additionally, the fallback implementation may leverage Julien Pommier's implementations of SIMD functions for SSE and NEON:
 
 	@cmakeopt \b LIMES_USE_POMMIER If \c ON , Julien Pommier's sin and cosine functions for SSE and NEON will be used,
 	if on a platform supporting those instructions. The main use case of this option is to disable these functions.
-	@cmakeopt \b LIMES_USE_FFTW By default, FFTW will be searched for in the system, and if found, will be used
-	for the limes_vecops FFT class's backend. However, you can set this option to \c OFF to ignore FFTW.
-	vDSP and IPP also provide FFT implementations.
+	This is not an external dependency, because this code ships as part of Limes's source tree. Usage of this code
+	requires adherence to its original license, which is preserved in these source files.
+	@see sse_mathfun.h neon_mathfun.h
+
+	@cmakeprop \b LIMES_VECOPS_IMPLEMENTATION
+	String name of the vector operations backend being used for the @ref lib_limes_vecops "limes_vecops" library.
+
+	@cmakeprop \b LIMES_FFT_IMPLEMENTATION
+	String name of the FFT backend being used for the @ref lib_limes_vecops "limes_vecops" library.
 
 	@cmaketarget \b Limes::limes_vecops
 	The @ref lib_limes_vecops "limes_vecops"

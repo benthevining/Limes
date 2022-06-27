@@ -18,7 +18,6 @@ The Limes library of utilities for working with realtime audio.
 Dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_vecops
-	- limes_core
 
 Targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -28,10 +27,11 @@ Install components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - limes_audio_dev
 - limes_audio_runtime
+- limes_audio (group)
 
-Install component groups
+Component name for find_package (Limes)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_audio
+- Audio
 
 #]=======================================================================]
 

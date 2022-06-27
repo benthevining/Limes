@@ -19,10 +19,10 @@
 
 	Limes ships the following programs:
 
-	Name          | Description
-	------------- | ------------------------------------------------------------
-	FileUtil      | OS-agnostic interface for a wide variety of filesystem tasks
-	BinaryBuilder | Generates C++ source files which embed binary data files
+	Name                                | Description
+	----------------------------------- | ------------------------------------------------------------
+	@ref file_util "FileUtil"           | OS-agnostic interface for a wide variety of filesystem tasks
+	@ref binary_builder "BinaryBuilder" | Generates C++ source files which embed binary data files
 
 	@section prgm_crosscomp Crosscompiling
 
@@ -31,8 +31,9 @@
 	Because of this, when crosscompiling, a child CMake is invoked at configure time to execute the build of the programs for the *host* system,
 	so that their artefacts are then available to the configuration for the *target* system.
 
-	@subpage binary_builder BinaryBuilder
-	@subpage file_util FileUtil
+	This group includes all utility programs shipped by Limes:
+	- @subpage binary_builder BinaryBuilder
+	- @subpage file_util FileUtil
 
 	@installcompgroup \b limes_programs
 	@parblock

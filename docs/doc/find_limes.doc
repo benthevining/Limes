@@ -1,12 +1,14 @@
 /** @page find_limes FindLimes.cmake
 	@brief A CMake find module for Limes
 
-	\c FindLimes.cmake is a find module for Limes that Limes maintains in its source tree (in the \c scripts/ directory).
+	\c FindLimes.cmake is a find module for Limes that Limes
+	<a href="https://github.com/benthevining/Limes/blob/main/scripts/FindLimes.cmake" target="_blank">maintains in its source tree</a>.
 	You can copy this file verbatim into the source tree of a project that depends on Limes, and then call \c find_package(Limes)
 	from that project and everything will work out of the box, even if Limes isn't installed on your system.
 
-	The purpose of this find module is to fetch the Limes source code from GitHub at CMake configure time, so your project's configuration won't fail if Limes can't be found on the system. This same design pattern is
-	<a href="https://github.com/benthevining/Limes/blob/main/cmake/FindOranges.cmake">how Limes consumes its CMake dependency, Oranges</a>.
+	The purpose of this find module is to fetch the Limes source code from GitHub at CMake configure time, so your project's configuration
+	won't fail if Limes can't be found on the system. This same design pattern is
+	<a href="https://github.com/benthevining/Limes/blob/main/cmake/FindOranges.cmake" target="_blank">how Limes consumes its CMake dependency, Oranges</a>.
 
 	Usage of this find module is entirely optional, it is merely a convenience measure.
 

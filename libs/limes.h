@@ -51,10 +51,11 @@
 
 	@dependency \b Oranges
 	@parblock
-	Limes's CMake configuration depends on the Oranges library of CMake modules.
+	Limes's CMake configuration depends on <a href="https://github.com/benthevining/Oranges">the Oranges library of CMake modules</a>.
 
 	You can set the environment or command-line variable \c ORANGES_PATH to direct the Limes CMake configuration to use a local copy.
-	If no local copy is present and Oranges cannot be found on your system, invoking Limes's CMake configuration will fetch and cache a copy of the Oranges source code.
+	If no local copy is present and Oranges cannot be found on your system, invoking Limes's CMake configuration will fetch and cache
+	a copy of the Oranges source code from GitHub at configure time.
 	@endparblock
 
 	@envvar \b ORANGES_PATH
@@ -70,6 +71,9 @@
 
 	This component is analogous to the `find_package()` component \c Libs .
 	@endparblock
+
+	@installcompgroup \b limes_libs
+	Installs all Limes library components. Depends on the \c limes_libs_dev component.
 
 	@todo Remove protobuf
 	@todo Review int vs size_t APIs

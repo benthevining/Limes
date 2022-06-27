@@ -1,14 +1,36 @@
 /** @page docs_build Building the documentation
 	@brief Limes documentation build reference
 
-	The Limes documentation is built with Doxygen. Building the docs can be enabled with the \c LIMES_BUILD_DOCS option.
+	Building the Limes documentation can be enabled with the \c LIMES_BUILD_DOCS @ref cmakeopt "CMake option".
 
-	Doxygen and Graphviz's dot tool are required for building the docs. A non-fatal warning will be issued during CMake configuration if either program cannot be found.
+	@section docs_build_deps Dependencies
 
-	To generate the LaTeX PDF output, \c pdflatex and a \c make executable are required. If both can be found, generating the PDF will be automatically enabled.
+	Building the documentation requires several programs to be found on the machine.
+	If any of the following dependencies cannot be found, a non-fatal warning will be issued by CMake and the
+	documentation targets will not be added to the build.
+
+	@dependency \b Doxygen
+	<a href="https://doxygen.nl/" target="_blank">Doxygen</a> is required for @ref docs_build "building the documentation".
+
+	@dependency \b Graphviz
+	<a href="https://graphviz.org/" target="_blank">Graphviz</a>'s \c dot tool is required for
+	@ref docs_build "building the documentation".
+
+	@dependency \b pdflatex
+	<a href="https://www.math.rug.nl/~trentelman/jacob/pdflatex/pdflatex.html" target="_blank">pdflatex</a>
+	is required to @ref docs_build "build the PDF documentation".
+
+	@dependency \b make
+	A \c make executable is required to @ref docs_build "build the PDF documentation".
+	By default, Limes's scripts search for any of: \c make , \c nmake , or \c gmake .
+
+	@section docs_build_cmake CMake information
 
 	@cmaketarget \b LimesDocs
-	This target executes Doxygen to build (all formats of) the Limes documentation.
+	This target executes Doxygen to @ref docs_build "build the Limes documentation".
+
+	@cmaketarget \b LimesDependencyGraph
+	This target generates an image of CMake's dependency graph for the Limes project.
 
 	The documentation itself creates the following CMake install components:
 
@@ -24,4 +46,5 @@
 	@installcompgroup \b limes_docs
 	Installs all the documentation - the \c limes_doc_pdf , \c limes_doc_html , and \c limes_doc_man
 	@ref installcomp "install components".
+	@see docs_build
  */
