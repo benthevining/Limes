@@ -103,7 +103,7 @@ repos:
           - id: fix-smartquotes
           - id: forbid-bidi-controls
     - repo: https://github.com/crate-ci/typos
-      rev: v1.10.1
+      rev: v1.10.2
       hooks:
           - id: typos
             args: [--write-changes]
@@ -128,7 +128,7 @@ repos:
       hooks:
           - id: yamllint
     - repo: https://github.com/sirosen/check-jsonschema
-      rev: 0.16.0
+      rev: 0.16.2
       hooks:
           - id: check-github-workflows
           - id: check-jsonschema
@@ -157,7 +157,7 @@ repos:
 
   # protobuf
     - repo: https://github.com/yoheimuta/protolint
-      rev: v0.38.1
+      rev: v0.38.2
       hooks:
           - id: protolint
             args: [-fix]
