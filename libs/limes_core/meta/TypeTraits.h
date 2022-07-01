@@ -17,7 +17,7 @@
 #include <string>
 #include <limes_export.h>
 #include <limes_platform.h>
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <exception>
 
 #if ! LIMES_WINDOWS

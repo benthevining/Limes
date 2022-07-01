@@ -11,8 +11,8 @@
  */
 
 #include "./Random.h"
-#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
-#include <limes_platform.h>	  // for LIMES_ASSERT_FALSE
+#include "../limes_namespace.h"
+#include <limes_platform.h>	 // for LIMES_ASSERT_FALSE
 
 
 LIMES_BEGIN_NAMESPACE

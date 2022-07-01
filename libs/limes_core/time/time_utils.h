@@ -13,7 +13,7 @@
 #pragma once
 
 #include <limes_export.h>
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <chrono>
 #include <ctime>
 #include <type_traits>

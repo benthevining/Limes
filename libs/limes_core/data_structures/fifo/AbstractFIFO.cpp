@@ -13,7 +13,7 @@
 #include <limes_platform.h>
 #include <algorithm>
 #include "./AbstractFIFO.h"
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 #include "../../system/limes_assert.h"
 
 LIMES_BEGIN_NAMESPACE

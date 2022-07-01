@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <limes_export.h>
 #include <string_view>
 #include <string>
@@ -37,6 +37,7 @@
 	@todo JSON/XML validate schema
 	@todo write unit tests
 	@todo JSON parser - raise exceptions
+	@todo TOML
  */
 
 /** @dir libs/limes_core/serializing

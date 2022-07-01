@@ -12,10 +12,10 @@
 
 #pragma once
 
-#include <memory>				   // for addressof
-#include <utility>				   // for forward
-#include <limes_export.h>		   // for LIMES_EXPORT, LIMES_NO_EXPORT
-#include <limes_namespace.h>	   // for LIMES_BEGIN_NAMESPACE, LIMES_END_...
+#include <memory>		   // for addressof
+#include <utility>		   // for forward
+#include <limes_export.h>  // for LIMES_EXPORT, LIMES_NO_EXPORT
+#include "../limes_namespace.h"
 #include <cstddef>				   // for size_t, byte
 #include <exception>			   // for exception
 #include <type_traits>			   // for remove_cv

@@ -147,16 +147,6 @@ FetchContent_Declare (JUCE GIT_REPOSITORY "https://github.com/juce-framework/JUC
 
 FetchContent_MakeAvailable (JUCE)
 
-__find_juce_check_version_from_cmakelists ("${juce_SOURCE_DIR}/CMakeLists.txt" fetched_copy_works)
-
-if (NOT fetched_copy_works)
-	if (NOT ${CMAKE_FIND_PACKAGE_NAME}_FIND_QUIETLY)
-		message (WARNING "Fetched copy of JUCE has an unsuitable version!")
-	endif ()
-
-	return ()
-endif ()
-
 __find_juce_post_include_actions ()
 
 find_package_message ("${CMAKE_FIND_PACKAGE_NAME}" "JUCE package found -- Sources downloaded"

@@ -11,7 +11,7 @@
  */
 
 #include "./serializing.h"
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include "../misc/IgnoreUnused.h"
 
 LIMES_BEGIN_NAMESPACE

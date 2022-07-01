@@ -10,9 +10,9 @@
  * ======================================================================================
  */
 
+#include "../../limes_namespace.h"
 #include "./Dimensions.h"
 #include <limes_platform.h>
-#include <limes_namespace.h>
 #include <string>
 #include <sstream>
 #include "../../system/limes_assert.h"

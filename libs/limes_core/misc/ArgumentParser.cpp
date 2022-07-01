@@ -11,13 +11,17 @@
  */
 
 #include "./ArgumentParser.h"
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <iostream>
 #include "../text/StringUtils.h"
 #include "../system/limes_assert.h"
 #include "./Algorithm.h"
 #include <sstream>
 #include <algorithm>
+
+#if LIMES_RELEASE
+#	include "../misc/IgnoreUnused.h"
+#endif
 
 LIMES_BEGIN_NAMESPACE
 
@@ -88,6 +92,8 @@ void ArgumentParser::validateArgument (const std::vector<std::string>& delimiter
 			LIMES_ASSERT (newID != arg.id);
 		}
 	}
+#else
+	misc::ignore_unused (delimiters, newID);
 #endif
 }
 
@@ -200,10 +206,10 @@ std::string ArgumentParser::getHelpString() const
 		if (numPosArgs == VARIADIC_ARGUMENTS || numPosArgs > 1)
 			stream << "...";
 		else
-			stream << " {" << numPosArgs << " accepted}"
+			stream << " {" << numPosArgs << " accepted}";
 
-				if (! posArgsRequired) stream
-				   << ']';
+		if (! posArgsRequired) stream
+								   << ']';
 	}
 
 	stream << '\n';
@@ -261,7 +267,7 @@ void ArgumentParser::parseInternal (ParsedArguments& parsedArgs, int argc, char*
 			{
 				printHelp();
 				parsedArgs.flags.emplace_back (inputString);
-				return parsedArgs;
+				return;
 			}
 		}
 

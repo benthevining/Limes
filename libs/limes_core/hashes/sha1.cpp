@@ -10,8 +10,8 @@
  * ======================================================================================
  */
 
-#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
-#include <limes_platform.h>	  // for LIMES_LITTLE_ENDIAN, LIMES_MSVC
+#include "../limes_namespace.h"
+#include <limes_platform.h>	 // for LIMES_LITTLE_ENDIAN, LIMES_MSVC
 #include "../system/compiler_defs.h"
 #include <cstdint>		// for uint32_t, uint8_t
 #include <cstdio>		// for snprintf, size_t

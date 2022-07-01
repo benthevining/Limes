@@ -17,7 +17,7 @@
 
 #include <string>
 #include <limes_export.h>
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 
 /** @dir libs/limes_core/files/exec_location
 	This directory contains implementation details for retrieving the current executable's location.

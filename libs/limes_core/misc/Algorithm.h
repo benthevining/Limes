@@ -16,7 +16,7 @@
 #include <random>
 #include <limes_export.h>
 #include <vector>  // for std::begin, std::end
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 
 /** @defgroup alg Algorithms
 	Algorithms for manipulating generic container types.

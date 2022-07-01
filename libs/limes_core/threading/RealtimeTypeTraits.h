@@ -17,7 +17,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <limes_export.h>
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 
 /** @defgroup rt_safety Realtime safety
 	Metaprogramming utilities for detecting the realtime safety of certain operations on certain types.

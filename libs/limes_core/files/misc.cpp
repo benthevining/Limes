@@ -11,7 +11,7 @@
  */
 
 #include "./misc.h"
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <filesystem>
 #include "./directory.h"
 

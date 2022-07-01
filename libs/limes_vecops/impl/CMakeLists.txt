@@ -10,36 +10,16 @@
 
 include ("${CMAKE_CURRENT_LIST_DIR}/SelectImpl.cmake")
 
-target_sources (
-	limes_vecops
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback_impl.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fallback_impl.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fp_status.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/phasor.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/phasor.h>
-			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/fallback_impl.h>
-			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/phasor.h>)
-
-install (FILES fallback_impl.h phasor.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl"
-		 COMPONENT limes_vecops_dev)
-
 add_subdirectory (pommier)
 
-set (
-	impl_files
-	# cmake-format: sortable
-	${pommier_files}
-	fallback.h
-	fallback_impl.cpp
-	fallback_impl.h
-	fp_status.cpp
-	ipp.h
-	mipp.h
-	phasor.cpp
-	phasor.h
-	vdsp.h)
+include (OrangesSourceFileUtils)
 
-list (TRANSFORM impl_files PREPEND impl/)
+oranges_add_source_files (
+	DIRECTORY_NAME impl
+	TARGET limes_vecops
+	INSTALL_COMPONENT limes_vecops_dev
+	INSTALL_DIR "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
+	FILES # cmake-format: sortable
+		  fallback_impl.cpp fallback_impl.h fp_status.cpp phasor.h phasor.cpp vecops_macros.h)
 
-set (impl_files ${impl_files} PARENT_SCOPE)
+set (impl_files ${impl_files} ${pommier_files} PARENT_SCOPE)

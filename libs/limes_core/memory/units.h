@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <limes_export.h>
 #include <cstdint>
 #include "../math/mathFunctions.h"

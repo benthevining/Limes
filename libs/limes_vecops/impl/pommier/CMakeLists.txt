@@ -20,45 +20,23 @@ if ((NOT (ORANGES_ARM_NEON OR ORANGES_SSE)) OR (MSVC AND NOT ORANGES_ARM_NEON)) 
 	return ()
 endif ()
 
-set (
-	pommier_files
-	# cmake-format: sortable
-	neon_mathfun.cpp neon_mathfun.h pommier_wrapper.cpp pommier_wrapper.h sse_mathfun.cpp
-	sse_mathfun.h)
-
-list (TRANSFORM pommier_files PREPEND pommier/)
-
-set (pommier_files ${pommier_files} PARENT_SCOPE)
-
-target_sources (
-	limes_vecops
-	PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/pommier_wrapper.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/pommier_wrapper.h>
-			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier/pommier_wrapper.h>)
-
-install (FILES pommier_wrapper.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier"
-		 COMPONENT limes_vecops_dev)
-
 target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_POMMIER=1)
 
+set (pom_files pommier_wrapper.cpp pommier_wrapper.h)
+
 if (ORANGES_ARM_NEON)
-	target_sources (
-		limes_vecops
-		PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/neon_mathfun.cpp>
-				$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/neon_mathfun.h>
-				$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier/neon_mathfun.h>
-		)
-
-	install (FILES neon_mathfun.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier"
-			 COMPONENT limes_vecops_dev)
-
-elseif (ORANGES_SSE)
-	target_sources (
-		limes_vecops
-		PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/sse_mathfun.cpp>
-				$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/sse_mathfun.h>
-				$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier/sse_mathfun.h>)
-
-	install (FILES sse_mathfun.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/impl/pommier"
-			 COMPONENT limes_vecops_dev)
+	set (pom_files ${pom_files} neon_mathfun.cpp neon_mathfun.h)
+else ()
+	set (pom_files ${pom_files} sse_mathfun.cpp sse_mathfun.h)
 endif ()
+
+include (OrangesSourceFileUtils)
+
+oranges_add_source_files (
+	DIRECTORY_NAME impl/pommier
+	TARGET limes_vecops
+	INSTALL_COMPONENT limes_vecops_dev
+	INSTALL_DIR "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
+	FILES ${pom_files})
+
+set (pommier_files ${impl/pommier_files} PARENT_SCOPE)

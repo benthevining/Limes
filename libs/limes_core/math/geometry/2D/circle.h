@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include <limes_namespace.h>
+#include "../../../limes_namespace.h"
 #include <limes_export.h>
 #include <limes_platform.h>
 #include "./2Dshape.h"

@@ -15,7 +15,7 @@
 #include <atomic>
 #include <type_traits>
 #include <limes_export.h>
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <functional>
 #include <exception>
 #include "./preprocessor.h"

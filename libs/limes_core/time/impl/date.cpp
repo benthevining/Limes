@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 #include <limes_platform.h>
 #include "../build_date.h"
 #include <string>

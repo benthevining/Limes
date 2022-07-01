@@ -15,7 +15,7 @@
 #include <limes_export.h>
 #include <string>
 #include <vector>
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 
 /** @defgroup loc_country Countries
 	Utilities for working with different countries.

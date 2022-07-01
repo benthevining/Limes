@@ -13,7 +13,7 @@
 #pragma once
 
 #include "./MemoryPool.h"
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <limes_export.h>
 #include <cstdlib>
 #include "../misc/preprocessor.h"

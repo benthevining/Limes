@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include <limes_namespace.h>
+#include "../../../limes_namespace.h"
 #include <limes_export.h>
 
 /** @defgroup ThreeDgeometry 3-D geometry

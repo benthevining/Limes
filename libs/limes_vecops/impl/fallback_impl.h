@@ -246,7 +246,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void multiplyAndCopy (DataType* const dest, c
 }
 
 template <Scalar DataType, Integral SizeType>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE [[nodiscard]] DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size) noexcept
+LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size) noexcept
 {
 	DataType dotProd { 0 };
 
@@ -359,7 +359,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void squareRootAndCopy (DataType* const dest,
 
 // fast inverse square root from Quake 3
 template <Scalar DataType>
-LIMES_NO_EXPORT LIMES_FORCE_INLINE [[nodiscard]] DataType quake3_fast_inv_sqrt (DataType number) noexcept
+LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType quake3_fast_inv_sqrt (DataType number) noexcept
 {
 	static_assert (std::is_same_v<DataType, double> || std::is_same_v<DataType, float>);
 

@@ -17,7 +17,7 @@
 #include <string>		   // for basic_string
 #include <string_view>
 #include <vector>  // for vector
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 
 /** @file
 	This file defines the TextTable class.

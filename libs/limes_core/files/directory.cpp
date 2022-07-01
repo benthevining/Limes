@@ -11,7 +11,7 @@
  */
 
 #include "./directory.h"
-#include <limes_namespace.h>	// for LIMES_BEGIN_NAMESPACE, LIMES_END_...
+#include "../limes_namespace.h"
 #include <cstdlib>				// for getenv, size_t
 #include <filesystem>			// for begin, end, operator!=, operator/
 #include <type_traits>			// for conditional_t

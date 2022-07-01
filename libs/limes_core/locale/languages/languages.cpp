@@ -15,7 +15,7 @@
 #include <string_view>		 // for string_view
 #include <limes_platform.h>	 // for LIMES_ASSERT
 #include "../countries/countries.h"
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 #include "../../misc/Algorithm.h"
 #include "../../system/limes_assert.h"
 

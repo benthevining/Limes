@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include <limes_platform.h>
+#include "../limes_namespace.h"
 #include "../misc/preprocessor.h"
 
 /** @file

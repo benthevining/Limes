@@ -11,12 +11,12 @@
  */
 
 #include "./RawData.h"
-#include <iterator>			  // for istreambuf_iterator
-#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE
-#include <cstdlib>			  // for malloc, calloc, free
-#include <cstring>			  // for memcpy, memset
-#include <new>				  // for bad_alloc
-#include <string>			  // for char_traits
+#include <iterator>	 // for istreambuf_iterator
+#include "../limes_namespace.h"
+#include <cstdlib>	// for malloc, calloc, free
+#include <cstring>	// for memcpy, memset
+#include <new>		// for bad_alloc
+#include <string>	// for char_traits
 #include <string_view>
 #include "../hashes/hash.h"	 // for hash
 #include <exception>

@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
+#include "../limes_namespace.h"
 #include "../system/compiler_defs.h"
 #include <cstdint>		// for uint32_t
 #include <cstdio>		// for sprintf, size_t

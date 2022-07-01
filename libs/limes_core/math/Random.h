@@ -12,8 +12,8 @@
 
 #pragma once
 
-#include <limes_export.h>		   // for LIMES_EXPORT
-#include <limes_namespace.h>	   // for LIMES_BEGIN_NAMESPACE, LIMES_END_N...
+#include <limes_export.h>  // for LIMES_EXPORT
+#include "../limes_namespace.h"
 #include <limits>				   // for numeric_limits
 #include <random>				   // for minstd_rand
 #include "../misc/preprocessor.h"  // for LIMES_DEFAULT_COPYABLE, LIMES_DEFA...

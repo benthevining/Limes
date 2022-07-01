@@ -14,7 +14,7 @@
 
 #include <atomic>
 #include <limes_export.h>
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 #include "../../misc/preprocessor.h"
 #include "../../misc/Functions.h"
 

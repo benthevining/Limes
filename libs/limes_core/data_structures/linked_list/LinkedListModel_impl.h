@@ -15,7 +15,7 @@
 
 #pragma once
 
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 
 /** @file
 	This file contains implementation details for the LinkedListModel class.

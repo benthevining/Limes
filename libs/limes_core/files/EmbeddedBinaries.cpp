@@ -11,7 +11,7 @@
  */
 
 #include "./EmbeddedBinaries.h"
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include "../memory/RawData.h"
 #include <string>
 #include <string_view>

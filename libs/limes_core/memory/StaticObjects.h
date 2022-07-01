@@ -14,7 +14,7 @@
 
 #include <memory>
 #include <limes_export.h>
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 
 /** @file
 	This file contains utilities for working with static objects.

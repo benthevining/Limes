@@ -11,12 +11,12 @@
  */
 
 #include "./file.h"
-#include <iterator>			  // for istreambuf_iterator
-#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE
-#include <exception>		  // for exception
-#include <filesystem>		  // for path, operator/
-#include <fstream>			  // for string, ifstream, ofstream
-#include <string>			  // for char_traits, operator+
+#include <iterator>	 // for istreambuf_iterator
+#include "../limes_namespace.h"
+#include <exception>   // for exception
+#include <filesystem>  // for path, operator/
+#include <fstream>	   // for string, ifstream, ofstream
+#include <string>	   // for char_traits, operator+
 #include <string_view>
 #include "../hashes/hash.h"					// for hash, md5, sha1, sha224
 #include "../misc/Functions.h"				// for try_call

@@ -14,7 +14,7 @@
 #pragma once
 
 #include <limes_export.h>  // for LIMES_EXPORT
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 #include <string>
 #include "../../misc/preprocessor.h"
 

@@ -13,7 +13,7 @@
 #pragma once
 
 #include <limes_export.h>
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include "../misc/preprocessor.h"
 #include "./weekday.h"
 #include "./month.h"

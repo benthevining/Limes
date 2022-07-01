@@ -15,7 +15,7 @@
 #include "../weekday.h"
 #include "../date.h"
 #include "../hour.h"
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 
 LIMES_BEGIN_NAMESPACE
 

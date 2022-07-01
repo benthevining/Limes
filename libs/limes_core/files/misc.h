@@ -13,7 +13,7 @@
 #pragma once
 
 #include <limes_export.h>
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <limes_platform.h>
 #include <cstdint>
 #include <filesystem>

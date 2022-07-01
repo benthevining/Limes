@@ -12,9 +12,9 @@
 
 #pragma once
 
-#include <functional>			// for function
-#include <limes_export.h>		// for LIMES_EXPORT
-#include <limes_namespace.h>	// for LIMES_BEGIN_NAMESPACE, LIMES_END_...
+#include <functional>	   // for function
+#include <limes_export.h>  // for LIMES_EXPORT
+#include "../limes_namespace.h"
 #include <stdint.h>				// for uintmax_t
 #include <string>				// for string
 #include <vector>				// for vector

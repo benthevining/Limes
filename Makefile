@@ -84,6 +84,7 @@ docs: $(DOC) ## Builds the documentation
 .PHONY: clean
 clean: ## Cleans the source tree
 	@echo "Cleaning..."
+	# git clean -ffxd && git submodule foreach "git clean -ffxd
 	$(RM) $(BUILDS) $(DOC)
 	$(PRECOMMIT) gc
 

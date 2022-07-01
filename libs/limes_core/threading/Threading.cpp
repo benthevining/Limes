@@ -13,7 +13,7 @@
 #include "./Threading.h"
 #include <limes_platform.h>
 #include <thread>
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 
 LIMES_BEGIN_NAMESPACE
 

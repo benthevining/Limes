@@ -11,7 +11,7 @@
  */
 
 #include "./FilesystemEntry.h"
-#include <limes_namespace.h>	 // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAME...
+#include "../limes_namespace.h"
 #include <ctime>				 // for tm
 #include <exception>			 // for exception
 #include <filesystem>			 // for path, copy, operator/, absolute, crea...

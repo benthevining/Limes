@@ -16,7 +16,7 @@
 #include <string>		   // for string
 #include <vector>
 #include <limes_platform.h>
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 
 /** @defgroup limes_locale limes_locale
 	Localization utilities.

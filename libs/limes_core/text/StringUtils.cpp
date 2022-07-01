@@ -11,14 +11,14 @@
  */
 
 #include "./StringUtils.h"
-#include <algorithm>		  // for equal
-#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_...
-#include <cctype>			  // for tolower, isspace, toupper
-#include <cstring>			  // for strcmp, strlen, size_t
-#include <iostream>			  // for string, operator<<, basic_ostream
-#include <string>			  // for char_traits, basic_string
-#include <vector>			  // for vector
-#include <sstream>			  // for stringstream
+#include <algorithm>  // for equal
+#include "../limes_namespace.h"
+#include <cctype>	 // for tolower, isspace, toupper
+#include <cstring>	 // for strcmp, strlen, size_t
+#include <iostream>	 // for string, operator<<, basic_ostream
+#include <string>	 // for char_traits, basic_string
+#include <vector>	 // for vector
+#include <sstream>	 // for stringstream
 
 
 LIMES_BEGIN_NAMESPACE

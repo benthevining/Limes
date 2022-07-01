@@ -13,7 +13,7 @@
 #pragma once
 
 #include <limes_export.h>
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <string_view>
 #include <cstdint>
 #include "../misc/preprocessor.h"

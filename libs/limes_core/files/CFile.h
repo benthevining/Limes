@@ -13,7 +13,7 @@
 #pragma once
 
 #include <limes_export.h>
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <cstdio>
 #include "../misc/preprocessor.h"
 #include "./FilesystemEntry.h"	// for Path typedef

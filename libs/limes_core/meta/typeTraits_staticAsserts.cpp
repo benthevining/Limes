@@ -11,7 +11,7 @@
  */
 
 #include "./TypeTraits.h"
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <vector>
 #include <list>
 

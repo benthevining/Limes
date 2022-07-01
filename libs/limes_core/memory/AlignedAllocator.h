@@ -13,7 +13,7 @@
 #pragma once
 
 #include "./alignment.h"
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <limes_export.h>
 #include "../misc/preprocessor.h"
 #include <new>

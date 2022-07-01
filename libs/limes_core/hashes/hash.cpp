@@ -11,7 +11,7 @@
  */
 
 #include "./hash.h"
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <string_view>
 #include <string>
 #include "../system/limes_assert.h"

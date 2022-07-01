@@ -12,8 +12,8 @@
 
 #pragma once
 
-#include <limes_export.h>	  // for LIMES_EXPORT
-#include <limes_namespace.h>  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
+#include <limes_export.h>  // for LIMES_EXPORT
+#include "../limes_namespace.h"
 #include <string>
 #include "../math/mathFunctions.h"	// for concept Integral
 #include "../system/limes_assert.h"

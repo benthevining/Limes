@@ -12,9 +12,9 @@
 
 #pragma once
 
-#include <memory>				   // for unique_ptr
-#include <limes_export.h>		   // for LIMES_EXPORT
-#include <limes_namespace.h>	   // for LIMES_BEGIN_NAMESPACE, LIMES_END_N...
+#include <memory>		   // for unique_ptr
+#include <limes_export.h>  // for LIMES_EXPORT
+#include "../limes_namespace.h"
 #include <cstdint>				   // for uintmax_t
 #include <filesystem>			   // for copy_options, path, perm_options
 #include <string>				   // for string

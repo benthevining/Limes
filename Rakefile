@@ -2,6 +2,7 @@ require "fileutils"
 #require "etc"
 
 #
+# git clean -ffxd && git submodule foreach "git clean -ffxd
 
 limes_root = __dir__()
 

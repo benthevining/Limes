@@ -14,72 +14,7 @@ set_package_properties (FFTW PROPERTIES TYPE RECOMMENDED PURPOSE "FFT accelerati
 
 #
 
-set_source_files_properties (fft_common.h TARGET_DIRECTORY limes_vecops PROPERTIES ABSTRACT ON)
-
-#
-
-target_sources (
-	limes_vecops
-	PRIVATE # cmake-format: sortable
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fft_common.h>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/fftw_wisdom.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_fft.cpp>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes_fft.h>
-			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/fft_common.h>
-			$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/limes_fft.h>)
-
-install (FILES # cmake-format: sortable
-			   fft_common.h limes_fft.h DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft"
-		 COMPONENT limes_vecops_dev)
-
-set (
-	fft_files
-	# cmake-format: sortable
-	fallback_fft.cpp
-	fallback_fft.h
-	fft_common.h
-	fftw_fft.cpp
-	fftw_fft.h
-	fftw_wisdom.cpp
-	ipp_fft.cpp
-	ipp_fft.h
-	limes_fft.cpp
-	limes_fft.h
-	vdsp_fft.cpp
-	vdsp_fft.h)
-
-list (TRANSFORM fft_files PREPEND fft/)
-
-set (fft_files ${fft_files} PARENT_SCOPE)
-
-#
-
-# cmake-lint: disable=C0103
-function (__limes_vecops_fft_end_callback)
-
-	message (DEBUG " -- limes_vecops - using ${LIMES_VECOPS_IMPL_NAME} for FFT")
-
-	add_feature_info (FFTW "${LIMES_VECOPS_IMPL_NAME} STREQUAL FFTW"
-					  "Using the ${LIMES_VECOPS_IMPL_NAME} backend for the limes_vecops FFT")
-
-	target_sources (
-		limes_vecops
-		PRIVATE
-			"$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/${LIMES_FFT_SOURCE_NAME}.cpp>"
-			"$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/${LIMES_FFT_SOURCE_NAME}.h>"
-			"$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft/${LIMES_FFT_SOURCE_NAME}.h>"
-		)
-
-	install (FILES "${LIMES_FFT_SOURCE_NAME}.h"
-			 DESTINATION "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}/fft" COMPONENT limes_vecops_dev)
-
-	set_property (GLOBAL PROPERTY LIMES_FFT_IMPLEMENTATION "${LIMES_VECOPS_IMPL_NAME}")
-
-endfunction ()
-
-cmake_language (DEFER CALL __limes_vecops_fft_end_callback)
-
-#
+set (files fft_common.h fftw_wisdom.cpp limes_fft.cpp limes_fft.h)
 
 if (LIMES_USE_FFTW)
 	find_package (FFTW)
@@ -89,27 +24,51 @@ if (LIMES_USE_FFTW)
 
 		target_compile_definitions (limes_vecops PRIVATE LIMES_VECOPS_USE_FFTW=1)
 
-		set (LIMES_FFT_SOURCE_NAME fftw_fft)
+		set (files ${files} fftw_fft.h fftw_fft.cpp)
 
 		set (LIMES_VECOPS_USING_FFTW ON CACHE INTERNAL "")
 
-		set (LIMES_VECOPS_IMPL_NAME FFTW)
-
-		return ()
+		set (impl_name FFTW)
 	endif ()
 endif ()
 
-get_property (vecops_impl GLOBAL PROPERTY LIMES_VECOPS_IMPLEMENTATION)
+if (NOT LIMES_USE_FFTW OR NOT TARGET FFTW::FFTW)
+	set (LIMES_VECOPS_USING_FFTW OFF CACHE INTERNAL "")
 
-if ("${vecops_impl}" MATCHES vDSP)
-	set (LIMES_FFT_SOURCE_NAME vdsp_fft)
-	set (LIMES_VECOPS_IMPL_NAME vDSP)
-elseif ("${vecops_impl}" STREQUAL IPP)
-	set (LIMES_FFT_SOURCE_NAME ipp_fft)
-	set (LIMES_VECOPS_IMPL_NAME IPP)
-else ()
-	set (LIMES_FFT_SOURCE_NAME fallback_fft)
-	set (LIMES_VECOPS_IMPL_NAME Fallback)
+	get_property (vecops_impl GLOBAL PROPERTY LIMES_VECOPS_IMPLEMENTATION)
+
+	if ("${vecops_impl}" MATCHES vDSP)
+		set (files ${files} vdsp_fft.h vdsp_fft.cpp)
+		set (impl_name vDSP)
+	elseif ("${vecops_impl}" STREQUAL IPP)
+		set (files ${files} ipp_fft.h ipp_fft.cpp)
+		set (impl_name IPP)
+	else ()
+		set (files ${files} fallback_fft.h fallback_fft.cpp)
+		set (impl_name Fallback)
+	endif ()
 endif ()
 
-unset (vecops_impl)
+message (DEBUG " -- limes_vecops - using ${impl_name} for FFT")
+
+add_feature_info (FFTW "${impl_name} STREQUAL FFTW"
+				  "Using the ${impl_name} backend for the limes_vecops FFT")
+
+set_property (GLOBAL PROPERTY LIMES_FFT_IMPLEMENTATION "${impl_name}")
+
+unset (impl_name)
+
+#
+
+include (OrangesSourceFileUtils)
+
+oranges_add_source_files (
+	DIRECTORY_NAME fft
+	TARGET limes_vecops
+	INSTALL_COMPONENT limes_vecops_dev
+	INSTALL_DIR "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
+	FILES ${files})
+
+set_source_files_properties (fft_common.h TARGET_DIRECTORY limes_vecops PROPERTIES ABSTRACT ON)
+
+set (fft_files ${fft_files} PARENT_SCOPE)

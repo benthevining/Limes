@@ -15,7 +15,7 @@
 
 #pragma once
 
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 #include <limes_platform.h>
 #include "../../math/mathFunctions.h"
 #include "../build_date.h"

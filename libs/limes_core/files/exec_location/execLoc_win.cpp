@@ -14,7 +14,7 @@
 #include <cstdlib>
 #include <limes_platform.h>
 #include <string>
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 #include "./exec_location.h"  // IWYU pragma: associated
 #include <array>
 

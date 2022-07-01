@@ -1,4 +1,3 @@
-
 /*
  * ======================================================================================
  *  __    ____  __  __  ____  ___
@@ -13,8 +12,8 @@
 
 #pragma once
 
-#include <limes_export.h>			  // for LIMES_EXPORT
-#include <limes_namespace.h>		  // for LIMES_BEGIN_NAMESPACE, LIMES_END_NAMESPACE
+#include <limes_export.h>  // for LIMES_EXPORT
+#include "../../limes_namespace.h"
 #include <string>					  // for string
 #include "../../misc/preprocessor.h"  // for LIMES_CONSTEXPR_COPYABLE, LIMES_CONSTEX...
 #include <functional>				  // for std::hash

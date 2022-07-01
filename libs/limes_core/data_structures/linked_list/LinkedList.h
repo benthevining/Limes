@@ -13,7 +13,7 @@
 #pragma once
 
 #include <limes_export.h>
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 #include <limes_core.h>
 
 /** @dir libs/limes_core/data_structures/linked_list

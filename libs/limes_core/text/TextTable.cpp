@@ -12,7 +12,7 @@
 
 #include "./TextTable.h"
 #include <algorithm>  // for max
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include "./StringUtils.h"
 
 LIMES_BEGIN_NAMESPACE

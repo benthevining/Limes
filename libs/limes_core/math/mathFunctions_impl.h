@@ -15,7 +15,7 @@
 
 #pragma once
 
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <cmath>
 #include <algorithm>
 #include "../system/limes_assert.h"

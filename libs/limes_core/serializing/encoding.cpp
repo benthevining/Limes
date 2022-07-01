@@ -10,7 +10,7 @@
  * ======================================================================================
  */
 
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include "./serializing.h"
 #include "../text/StringUtils.h"
 #include "../system/limes_assert.h"

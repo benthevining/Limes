@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include <limes_namespace.h>
+#include "../limes_namespace.h"
 #include <type_traits>
 #include <limes_export.h>
 #include "../system/compiler_defs.h"

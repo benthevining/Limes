@@ -16,7 +16,7 @@
 #pragma once
 
 #include "../build_date.h"
-#include <limes_namespace.h>
+#include "../../limes_namespace.h"
 #include <limes_platform.h>
 
 /** @file
