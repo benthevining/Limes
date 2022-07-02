@@ -1,0 +1,54 @@
+{
+  "args": {
+    "base_name": {
+      "default": "BinaryData",
+      "delims": [
+        "--base-name",
+        "--base",
+        "-b"
+      ],
+      "help": "",
+      "numValues": 1,
+      "required": false
+    },
+    "namespace": {
+      "delims": [
+        "--namespace",
+        "-ns",
+        "-n"
+      ],
+      "help": "",
+      "numValues": 1,
+      "required": false
+    },
+    "output_dir": {
+      "delims": [
+        "--output",
+        "--directory",
+        "--dir",
+        "-o",
+        "-d"
+      ],
+      "help": "",
+      "numValues": 1,
+      "required": false
+    }
+  },
+  "flags": {
+    "version": {
+      "delims": [
+        "--version",
+        "-version",
+        "-v"
+      ],
+      "help": ""
+    }
+  },
+  "handleHelp": true,
+  "help": "",
+  "posArgs": {
+    "min": 1,
+    "required": true
+  },
+  "schemaVersion": 1
+}

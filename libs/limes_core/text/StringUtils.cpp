@@ -92,15 +92,15 @@ void dropLastChars (std::string& string, std::size_t numChars)
 	string = string.substr (0, string.length() - numChars);
 }
 
-std::string quoted (const std::string_view& string)
+std::string quoted (const std::string_view& string, char quoteChar)
 {
 	std::string copy { string };
 
-	if (! copy.starts_with ('"'))
-		copy.insert (0, "\"");
+	if (! copy.starts_with (quoteChar))
+		copy.insert (0, std::string { quoteChar });
 
-	if (! copy.ends_with ('"'))
-		copy += '"';
+	if (! copy.ends_with (quoteChar))
+		copy += quoteChar;
 
 	return copy;
 }
@@ -113,10 +113,18 @@ std::string unquoted (const std::string_view& string)
 		dropFirstChars (copy, 2);
 	else if (copy.starts_with ('"'))
 		dropFirstChars (copy, 1);
+	else if (copy.starts_with ("\\\'"))
+		dropFirstChars (copy, 2);
+	else if (copy.starts_with ('\''))
+		dropFirstChars (copy, 1);
 
 	if (copy.ends_with ("\\\""))
 		dropLastChars (copy, 2);
 	else if (copy.ends_with ('"'))
+		dropLastChars (copy, 1);
+	else if (copy.ends_with ("\\\'"))
+		dropLastChars (copy, 2);
+	else if (copy.ends_with ('\''))
 		dropLastChars (copy, 1);
 
 	return copy;

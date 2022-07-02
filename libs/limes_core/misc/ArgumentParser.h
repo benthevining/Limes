@@ -113,13 +113,27 @@ namespace misc
 	@ingroup misc
 
 	@todo write unit tests
-	@todo create parser from a JSON file spec?
-	@todo make a positional argument spec struct?
-	@todo allow arguments to be specified with "--arg=<value>"
+	@todo create parser from JSON file spec
+	@todo minimum # of positional arguments
  */
 class LIMES_EXPORT ArgumentParser final
 {
 public:
+
+	struct LIMES_EXPORT PositionalArgumentsSpec final
+	{
+		[[nodiscard]] static PositionalArgumentsSpec acceptsNone();
+		[[nodiscard]] static PositionalArgumentsSpec acceptsExactly (std::size_t num, const std::string_view& id = "positionalArguments");
+		[[nodiscard]] static PositionalArgumentsSpec acceptsAny (const std::string_view& id = "positionalArguments");
+
+		bool required { false };
+		bool error { false };
+
+		std::size_t min { 0 };
+		std::size_t max { 0 };
+
+		std::string identifier {};
+	};
 
 	/** This constant is a special value that can be passed to any function that takes a parameter
 		specifying a number of arguments, to signify that the number of arguments may be variable
@@ -146,11 +160,8 @@ public:
 		@param posArgIdentifier The placeholder text to be used to denote positional arguments when printing this
 		parser's help string. Defaults to \c positionalArguments .
 	 */
-	ArgumentParser (bool					handleHelpFlags				= true,
-					bool					requiresPositionalArguments = false,
-					bool					errorOnPositionalArguments	= false,
-					std::size_t				maxNumPositionalArguments	= VARIADIC_ARGUMENTS,
-					const std::string_view& posArgIdentifier			= "");
+	ArgumentParser (bool						   handleHelpFlags = true,
+					const PositionalArgumentsSpec& posArgSpec	   = PositionalArgumentsSpec::acceptsAny());
 
 	/** @name Specifying accepted arguments */
 	///@{
@@ -195,7 +206,8 @@ public:
 					  const std::string_view& helpString	  = "",
 					  const std::string_view& argumentID	  = "",
 					  std::size_t			  numArgsConsumed = 1,
-					  bool					  required		  = false);
+					  bool					  required		  = false,
+					  const std::string_view& defaultValue	  = "");
 
 	/** Adds a boolean flag to the parser.
 		Flags are boolean arguments that consume only a single argument from the command line -
@@ -397,7 +409,8 @@ private:
 				  const std::string_view&		  help,
 				  const std::string_view&		  id_,
 				  std::size_t					  numArgs,
-				  bool							  required_);
+				  bool							  required_,
+				  const std::string_view&		  defaultVal);
 
 		std::string getHelpString() const;
 
@@ -410,6 +423,8 @@ private:
 		std::string				 id {};
 		std::size_t				 argsConsumed { 1 };
 		bool					 required { false };
+
+		std::string defaultValue {};
 
 		bool alreadyParsed { false };
 	};
@@ -447,7 +462,7 @@ private:
 								  int				 idx,
 								  const std::string& argValue) const;
 
-	void checkRequiredArgs (const ParsedArguments& args) const;
+	void checkRequiredArgs (ParsedArguments& args) const;
 
 	[[noreturn]] void throwError (int idx, const std::string_view& message) const;
 	[[noreturn]] void throwError (const std::string_view& message) const;
@@ -456,12 +471,7 @@ private:
 
 	std::vector<Subcommand> subcommands;
 
-	bool posArgsRequired { false };
-	bool posArgsError { false };
-
-	std::string posArgsID;
-
-	std::size_t numPosArgs { 0 };
+	PositionalArgumentsSpec posArgsSpec;
 
 	bool shouldHandleHelp { true };
 

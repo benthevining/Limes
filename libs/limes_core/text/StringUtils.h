@@ -75,9 +75,9 @@ LIMES_EXPORT void dropFirstChars (std::string& string, std::size_t numChars);
 LIMES_EXPORT void dropLastChars (std::string& string, std::size_t numChars);
 
 /** Adds \c " characters to the beginning and end of the string, if they aren't already there. */
-LIMES_EXPORT [[nodiscard]] std::string quoted (const std::string_view& string);
+LIMES_EXPORT [[nodiscard]] std::string quoted (const std::string_view& string, char quoteChar = '"');
 
-/** Removes \c " characters from the beginning and end of the string, if they were there. */
+/** Removes \c " and \c ' characters from the beginning and end of the string, if they were there. */
 LIMES_EXPORT [[nodiscard]] std::string unquoted (const std::string_view& string);
 
 /** Returns a copy of the string, with all its characters converted to upper case. */

@@ -1,0 +1,336 @@
+{
+  "flags": {
+    "print_help": {
+      "delims": [
+        "--help",
+        "-help",
+        "-h"
+      ],
+      "help": ""
+    },
+    "version": {
+      "delims": [
+        "version",
+        "--version",
+        "-version",
+        "-v"
+      ],
+      "help": "Display version information and exit"
+    }
+  },
+  "handleHelp": false,
+  "help": "",
+  "schemaVersion": 1,
+  "subcommands": {
+    "absolute": {
+      "help": "",
+      "posArgs": {
+        "max": 2,
+        "min": 1,
+        "required": true
+      }
+    },
+    "append": {
+      "flags": {
+        "strict": {
+          "delims": [
+            "--strict",
+            "-s"
+          ],
+          "help": ""
+        }
+      },
+      "help": "",
+      "posArgs": {
+        "min": 2,
+        "required": true
+      }
+    },
+    "cat": {
+      "args": {
+        "output": {
+          "delims": [
+            "--output",
+            "-o"
+          ],
+          "help": "",
+          "numValues": 1,
+          "required": false
+        }
+      },
+      "help": "",
+      "posArgs": {
+        "min": 1,
+        "required": true
+      }
+    },
+    "cd": {
+      "help": "",
+      "posArgs": {
+        "max": 1,
+        "min": 1,
+        "required": true
+      }
+    },
+    "copy": {
+      "help": "",
+      "posArgs": {
+        "min": 2,
+        "required": true
+      }
+    },
+    "equiv": {
+      "flags": {
+        "error": {
+          "delims": [
+            "--error"
+          ],
+          "help": ""
+        }
+      },
+      "help": "",
+      "posArgs": {
+        "min": 2,
+        "required": true
+      }
+    },
+    "exists": {
+      "flags": {
+        "error": {
+          "delims": [
+            "--error"
+          ],
+          "help": ""
+        }
+      },
+      "help": "",
+      "posArgs": {
+        "min": 1,
+        "required": true
+      }
+    },
+    "follow_symlink": {
+      "flags": {
+        "no_recurse": {
+          "delims": [
+            "--no-recurse"
+          ],
+          "help": ""
+        }
+      },
+      "help": "",
+      "posArgs": {
+        "max": 1,
+        "min": 1,
+        "required": true
+      }
+    },
+    "glob": {
+      "args": {
+        "dir": {
+          "delims": [
+            "--dir",
+            "--directory",
+            "-d"
+          ],
+          "help": "",
+          "numValues": 1,
+          "required": false
+        }
+      },
+      "flags": {
+        "error": {
+          "delims": [
+            "--error"
+          ],
+          "help": ""
+        },
+        "recurse": {
+          "delims": [
+            "--recurse"
+          ],
+          "help": ""
+        }
+      },
+      "help": "",
+      "posArgs": {
+        "max": 1,
+        "min": 1,
+        "required": true
+      }
+    },
+    "hash": {
+      "help": "",
+      "posArgs": {
+        "max": 2,
+        "min": 2,
+        "required": true
+      }
+    },
+    "help": {
+      "help": "",
+      "posArgs": {
+        "max": 1,
+        "min": 1,
+        "required": true
+      }
+    },
+    "ln": {
+      "help": "",
+      "posArgs": {
+        "max": 2,
+        "min": 2,
+        "required": true
+      }
+    },
+    "ls": {
+      "help": "",
+      "posArgs": {
+        "max": 1,
+        "required": false
+      }
+    },
+    "mkdir": {
+      "help": "",
+      "posArgs": {
+        "max": 1,
+        "min": 1,
+        "required": true
+      }
+    },
+    "modtime": {
+      "help": "",
+      "posArgs": {
+        "max": 1,
+        "min": 1,
+        "required": true
+      }
+    },
+    "native": {
+      "help": "",
+      "posArgs": {
+        "max": 1,
+        "min": 1,
+        "required": true
+      }
+    },
+    "path": {
+      "help": "",
+      "posArgs": {
+        "error": true
+      }
+    },
+    "prepend": {
+      "flags": {
+        "strict": {
+          "delims": [
+            "--strict",
+            "-s"
+          ],
+          "help": ""
+        }
+      },
+      "help": "",
+      "posArgs": {
+        "max": 2,
+        "min": 2,
+        "required": true
+      }
+    },
+    "pwd": {
+      "help": "",
+      "posArgs": {
+        "error": true
+      }
+    },
+    "relative": {
+      "help": "",
+      "posArgs": {
+        "max": 2,
+        "min": 1,
+        "required": true
+      }
+    },
+    "rename": {
+      "help": "",
+      "posArgs": {
+        "max": 2,
+        "min": 2,
+        "required": true
+      }
+    },
+    "rm": {
+      "help": "",
+      "posArgs": {
+        "min": 1,
+        "required": true
+      }
+    },
+    "sep": {
+      "help": "",
+      "posArgs": {
+        "error": true
+      }
+    },
+    "size": {
+      "help": "",
+      "posArgs": {
+        "max": 1,
+        "required": false
+      }
+    },
+    "space": {
+      "help": "",
+      "posArgs": {
+        "error": true
+      }
+    },
+    "touch": {
+      "flags": {
+        "no_create": {
+          "delims": [
+            "--no-create",
+            "-nc"
+          ],
+          "help": ""
+        }
+      },
+      "help": "",
+      "posArgs": {
+        "min": 1,
+        "required": true
+      }
+    },
+    "type": {
+      "help": "",
+      "posArgs": {
+        "max": 1,
+        "min": 1,
+        "required": true
+      }
+    },
+    "which": {
+      "help": "",
+      "posArgs": {
+        "max": 1,
+        "required": false
+      }
+    },
+    "write": {
+      "flags": {
+        "no_overwrite": {
+          "delims": [
+            "--no-overwrite"
+          ],
+          "help": ""
+        }
+      },
+      "help": "",
+      "posArgs": {
+        "max": 2,
+        "min": 2,
+        "required": true
+      }
+    }
+  }
+}
