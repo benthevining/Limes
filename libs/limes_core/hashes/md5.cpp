@@ -12,6 +12,7 @@
 
 #include "../limes_namespace.h"
 #include "../system/compiler_defs.h"
+#include "../system/compiler_warnings.h"
 #include <cstdint>		// for uint32_t
 #include <cstdio>		// for sprintf, size_t
 #include <cstring>		// for memcpy
@@ -31,8 +32,10 @@ void MD5::update (const unsigned char* input, std::size_t length)
 
 	const auto lenShift3 = static_cast<std::uint32_t> (length << 3UL);
 
+	LIMES_DISABLE_ALL_COMPILER_WARNINGS
 	if (count[0] += lenShift3 < lenShift3)
-		count[1]++;
+		count[1]++;	 // integer overflow
+	LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
 	count[1] += static_cast<std::uint32_t> (length >> 29UL);
 

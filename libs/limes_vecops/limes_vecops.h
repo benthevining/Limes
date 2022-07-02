@@ -131,6 +131,8 @@
 	@todo resampling (add libsamplerate backend)
 	@todo convolution engine?
 	@todo write unit tests
+	@todo median
+	@todo mode
  */
 
 /** @dir libs/limes_vecops

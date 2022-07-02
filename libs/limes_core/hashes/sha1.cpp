@@ -13,6 +13,7 @@
 #include "../limes_namespace.h"
 #include <limes_platform.h>	 // for LIMES_LITTLE_ENDIAN, LIMES_MSVC
 #include "../system/compiler_defs.h"
+#include "../system/compiler_warnings.h"
 #include <cstdint>		// for uint32_t, uint8_t
 #include <cstdio>		// for snprintf, size_t
 #include <cstring>		// for memcpy, strcat, strcpy
@@ -36,8 +37,10 @@ void SHA1::update (const unsigned char* data, std::size_t length)
 
 	const auto lenShift3 = static_cast<std::uint32_t> (length << 3);
 
+	LIMES_DISABLE_ALL_COMPILER_WARNINGS
 	if (m_count[0] += lenShift3 < lenShift3)
-		++m_count[1];  // Overflow
+		++m_count[1];  // integer overflow
+	LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
 	m_count[1] += static_cast<std::uint32_t> ((length >> 29));
 
