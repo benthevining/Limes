@@ -33,6 +33,7 @@ namespace dsp
 	All operations use the functions from limes_vecops where possible.
 	@ingroup limes_audio
 
+	@todo BufferView - always non-owning
 	@todo alias constructor
 	@todo makeCopyOf
 	@todo for all functions (clear, applyGain, etc) provide a range of samples and/or channels

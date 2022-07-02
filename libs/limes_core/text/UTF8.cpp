@@ -53,8 +53,8 @@ Pointer& Pointer::operator++()
 
 Pointer Pointer::operator++ (int)  // NOLINT
 {
-	auto prev = *this;
-		 operator++();
+	const auto prev = *this;
+			   operator++();
 	return prev;
 }
 
@@ -112,7 +112,7 @@ Char Pointer::popFirstChar() noexcept
 
 bool Pointer::skipIfStartsWith (char charToMatch) noexcept
 {
-	if (text != nullptr && *text == charToMatch && charToMatch != 0)
+	if (charToMatch != 0 && text != nullptr && *text == charToMatch)
 	{
 		++text;
 		return true;
@@ -123,11 +123,10 @@ bool Pointer::skipIfStartsWith (char charToMatch) noexcept
 
 bool Pointer::skipIfStartsWith (const std::string_view& textToMatch) noexcept
 {
-	// NB - for some reason MSVC doesn't like auto here
-	const char* matching = textToMatch.begin();
-
-	if (const auto* p = text)
+	if (auto* p = text)
 	{
+		auto matching = textToMatch.begin();
+
 		while (*matching != 0)
 			if (*matching++ != *p++)
 				return false;
@@ -153,10 +152,9 @@ bool Pointer::startsWith (const std::string_view& prefix) const
 {
 	LIMES_ASSERT (! prefix.empty());
 
-	if (const auto* p = text)
+	if (auto* p = text)
 	{
-		// NB - for some reason MSVC doesn't like auto here
-		const char* textToMatch = prefix.begin();
+		auto textToMatch = prefix.begin();
 
 		while (*textToMatch != 0)
 			if (*textToMatch++ != *p++)
