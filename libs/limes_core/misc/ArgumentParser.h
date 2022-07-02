@@ -385,13 +385,13 @@ public:
 	{
 		/** Constructs a parse error with the given message. */
 		explicit ParseError (const std::string_view& message)
-			: std::runtime_error (message.begin())
+			: std::runtime_error (message.data())
 		{
 		}
 
 		/** Constructs a parse error with the given argument index and message. */
 		explicit ParseError (std::size_t indexToUse, const std::string_view& message)
-			: std::runtime_error (message.begin()), index (indexToUse)
+			: std::runtime_error (message.data()), index (indexToUse)
 		{
 		}
 

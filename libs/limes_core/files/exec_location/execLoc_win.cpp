@@ -71,7 +71,7 @@ static inline std::string getModulePathInternal (HMODULE module)
 
 		std::array<char, MAX_PATH> output {};
 
-		auto length__ = WideCharToMultiByte (CP_UTF8, 0, buffer2.data(), length_, output, MAX_PATH, nullptr, nullptr);
+		auto length__ = WideCharToMultiByte (CP_UTF8, 0, buffer2.data(), length_, output.data(), MAX_PATH, nullptr, nullptr);
 
 		if (length__ == 0)
 			length__ = WideCharToMultiByte (CP_UTF8, 0, buffer2.data(), length_, nullptr, 0, nullptr, nullptr);
@@ -79,7 +79,7 @@ static inline std::string getModulePathInternal (HMODULE module)
 		if (length__ == 0)
 			break;
 
-		std::string result { output, static_cast<std::string::size_type> (MAX_PATH) };
+		const std::string result { output.data() };
 
 		if (path != buffer1.data())
 			std::free (path);

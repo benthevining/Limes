@@ -53,7 +53,7 @@ public:
 
 	/** Creates a UTF-8 %pointer referring to the given text. */
 	constexpr explicit Pointer (const std::string_view& utf8Text)
-		: text (utf8Text.begin())
+		: text (utf8Text.data())
 	{
 	}  // cppcheck-suppress missingReturn
 

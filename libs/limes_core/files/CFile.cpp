@@ -101,8 +101,9 @@ bool CFile::open (const Path& filepath, Mode mode) noexcept
 
 	try
 	{
-		ptr = std::fopen (pathToString (filepath).c_str(), modeToString (mode).begin());
-		return true;
+		ptr = std::fopen (pathToString (filepath).c_str(), modeToString (mode).data());
+
+		return ptr != nullptr;
 	}
 	catch (std::exception&)
 	{

@@ -423,7 +423,7 @@ private:
 struct LIMES_EXPORT JSONParseError final : public std::runtime_error
 {
 	JSONParseError (const std::string_view& message, const text::utf8::LineAndColumn& lc)
-		: std::runtime_error (message.begin()), position (lc) { }
+		: std::runtime_error (message.data()), position (lc) { }
 
 	text::utf8::LineAndColumn position;
 };

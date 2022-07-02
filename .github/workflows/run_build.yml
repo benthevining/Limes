@@ -64,6 +64,14 @@ jobs:
               if: ${{ inputs.cmake_generator == 'Ninja Multi-Config' || inputs.cmake_generator == 'Ninja' }}
               uses: seanmiddleditch/gha-setup-ninja@v3
 
+            - name: Install JUCE Linux dependencies
+              if: ${{ runner.os == 'Linux' }}
+              run: |
+                  sudo apt-get update
+                  sudo apt install libasound2-dev libx11-dev libxinerama-dev libxext-dev libfreetype6-dev libwebkit2gtk-4.0-dev libglu1-mesa-dev ccache xvfb fluxbox
+                  sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10
+                  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10
+
             - name: Run CMake
               if: ${{ inputs.c_compiler != '' && inputs.cxx_compiler != '' }}
               run: |
