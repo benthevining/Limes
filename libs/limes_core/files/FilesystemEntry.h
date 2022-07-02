@@ -33,7 +33,9 @@
 	Another design principle of this library is that most operations are \c noexcept -- success or failure is usually indicated by a boolean return value.
 
 	@ingroup limes_core
+
 	@todo FileWatcher class
+	@todo get/set permissions
  */
 
 /** @dir libs/limes_core/files

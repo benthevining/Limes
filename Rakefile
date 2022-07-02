@@ -60,9 +60,12 @@ desc "Initialize the workspace"
 task :init do
 	script_1 = File.join(limes_root, "scripts", "build_all.sh")
 	script_2 = File.join(limes_root, "scripts", "build_all_vecops_variants.sh")
+
+	File.chmod(777, script_1, script_2)
+
 	python_reqs = File.join(limes_root, "requirements.txt")
 
-	exec "chmod +x %s %s && python3 -m pip install -r %s && cd %s && pre-commit install --install-hooks --overwrite && pre-commit install --install-hooks --overwrite --hook-type commit-msg" % [script_1, script_2, python_reqs, limes_root]
+	exec "python3 -m pip install -r %s && cd %s && pre-commit install --install-hooks --overwrite && pre-commit install --install-hooks --overwrite --hook-type commit-msg" % [python_reqs, limes_root]
 end
 
 desc "Run CMake configuration"
