@@ -154,7 +154,8 @@ std::string getModulePath()
 						return result;
 					}
 				}
-			} while (false);
+			}
+			while (false);
 		}
 	}
 

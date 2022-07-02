@@ -40,7 +40,7 @@ static inline std::string getEscapedQuotedString (const std::string& input)
 		stream << "\\u" << hexDigit (digit >> 12) << hexDigit (digit >> 8) << hexDigit (digit >> 4) << hexDigit (digit);
 	};
 
-	for (;;)
+	while (! text.empty())
 	{
 		const auto c = *text;
 
@@ -92,24 +92,26 @@ std::string Node::getJsonString() const
 {
 	if (isNumber())
 	{
-		if (std::isfinite (data.number))
-			return text::unquoted (std::to_string (data.number));
+		const auto number = std::get<double> (data);
 
-		if (std::isnan (data.number))
+		if (std::isfinite (number))
+			return text::unquoted (std::to_string (number));
+
+		if (std::isnan (number))
 			return "\"NaN\"";
 
-		if (data.number >= 0)
+		if (number >= 0)
 			return "\"Infinity\"";
 
 		return "\"-Infinity\"";
 	}
 
 	if (isString())
-		return getEscapedQuotedString (data.string);
+		return getEscapedQuotedString (std::get<std::string> (data));
 
 	if (isBoolean())
 	{
-		if (data.boolean)
+		if (std::get<bool> (data))
 			return "true";
 
 		return "false";
@@ -118,11 +120,11 @@ std::string Node::getJsonString() const
 	if (isNull())
 		return "null";
 
+	std::vector<std::string> strings;
+
 	if (isArray())
 	{
-		std::vector<std::string> strings;
-
-		for (const auto& element : data.array)
+		for (const auto& element : std::get<Array> (data))
 			strings.emplace_back (element.getJsonString());	 // cppcheck-suppress useStlAlgorithm
 
 		return "[ " + text::join (strings, ", ") + " ]";
@@ -130,9 +132,7 @@ std::string Node::getJsonString() const
 
 	LIMES_ASSERT (isObject());
 
-	std::vector<std::string> strings;
-
-	for (const auto& element : data.object)
+	for (const auto& element : std::get<Object> (data))
 	{
 		auto str = text::quoted (element.first);
 		str += ':';
@@ -149,14 +149,14 @@ std::string Node::getJsonString() const
 std::string Node::getXMLString() const
 {
 	if (isNumber())
-		return text::quoted (std::to_string (data.number));
+		return text::quoted (std::to_string (std::get<double> (data)));
 
 	if (isString())
-		return text::quoted (data.string);
+		return text::quoted (std::get<std::string> (data));
 
 	if (isBoolean())
 	{
-		if (data.boolean)
+		if (std::get<bool> (data))
 			return "true";
 
 		return "false";

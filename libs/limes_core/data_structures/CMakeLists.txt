@@ -13,7 +13,6 @@ add_subdirectory (fifo)
 add_subdirectory (linked_list)
 add_subdirectory (version)
 
-set (data_structures_files ${dimensions_files} ${fifo_files} ${linked_list_files} ${version_files}
+set (data_structures_files # cmake-format: sortable
+						   ${dimensions_files} ${fifo_files} ${linked_list_files} ${version_files}
 	 PARENT_SCOPE)
-
-set (data_structures_proto_files ${dimensions_proto_files} ${version_proto_files} PARENT_SCOPE)

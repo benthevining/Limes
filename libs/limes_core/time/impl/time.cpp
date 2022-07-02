@@ -46,26 +46,22 @@ std::string Time::toString (bool as24HourTime) const
 {
 	std::stringstream stream;
 
-	const auto hourNum = as24HourTime ? getHour().hoursSinceMidnight() : getHour().getIn12HourFormat();
+	const auto hourNum = as24HourTime ? hour.hoursSinceMidnight() : hour.getIn12HourFormat();
 
 	if (hourNum < 10)
 		stream << 0;
 
 	stream << hourNum << ':';
 
-	const auto min = getMinute();
-
-	if (min < 10)
+	if (minute < 10)
 		stream << 0;
 
-	stream << min << ':';
+	stream << minute << ':';
 
-	const auto sec = getSecond();
-
-	if (sec < 10)
+	if (second < 10)
 		stream << 0;
 
-	stream << sec;
+	stream << second;
 
 	if (! as24HourTime)
 	{
@@ -81,13 +77,8 @@ std::string Time::toString (bool as24HourTime) const
 }
 
 Time::Time (const Hour& h, int min, int sec) noexcept
+	: hour (h), minute (min % 60), second (sec % 60)
 {
-	min %= 60;
-	sec %= 60;
-
-	internal_data.set_minute (min);
-	internal_data.set_second (sec);
-	internal_data.set_hour (h.hoursSinceMidnight());
 }
 
 Time::Time (int hourIn24HourFormat, int min, int sec) noexcept
@@ -102,54 +93,54 @@ Time::Time (const std::tm& timeObj) noexcept
 
 bool Time::isAM() const noexcept
 {
-	return getHour().isAM();
+	return hour.isAM();
 }
 
 bool Time::isPM() const noexcept
 {
-	return getHour().isPM();
+	return hour.isPM();
 }
 
 bool Time::isOnTheHour() const noexcept
 {
-	return getMinute() == 0 && getSecond() == 0;
+	return minute == 0 && second == 0;
 }
 
 Hour Time::getHour() const noexcept
 {
-	return Hour { static_cast<int> (internal_data.hour()) };
+	return hour;
 }
 
 int Time::getMinute() const noexcept
 {
-	return static_cast<int> (internal_data.minute());
+	return minute;
 }
 
 int Time::getSecond() const noexcept
 {
-	return static_cast<int> (internal_data.second());
+	return second;
 }
 
 bool Time::isBefore (const Time& other) const noexcept
 {
-	if (getHour() > other.getHour())
+	if (hour > other.hour)
 		return false;
 
-	if (getMinute() > other.getMinute())
+	if (minute > other.minute)
 		return false;
 
-	return getSecond() < other.getSecond();
+	return second < other.second;
 }
 
 bool Time::isAfter (const Time& other) const noexcept
 {
-	if (getHour() < other.getHour())
+	if (hour < other.hour)
 		return false;
 
-	if (getMinute() < other.getMinute())
+	if (minute < other.minute)
 		return false;
 
-	return getSecond() > other.getSecond();
+	return second > other.second;
 }
 
 bool Time::operator> (const Time& other) const noexcept
@@ -164,7 +155,7 @@ bool Time::operator<(const Time& other) const noexcept
 
 bool Time::operator== (const Time& other) const noexcept
 {
-	return getHour() == other.getHour() && getMinute() == other.getMinute() && getSecond() == other.getSecond();
+	return hour == other.hour && minute == other.minute && second == other.second;
 }
 
 bool Time::operator!= (const Time& other) const noexcept

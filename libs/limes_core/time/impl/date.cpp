@@ -23,12 +23,9 @@ namespace time
 {
 
 Date::Date (const Year& y, const Month& m, int d) noexcept
+	: year (y), month (m), dayOfMonth (d)
 {
-	internal_data.set_year (y.getYear());
-	internal_data.set_month (m.getMonthNumber());
-	internal_data.set_day_of_month (d);
-
-	LIMES_ASSERT (d >= 1 && d <= m.getNumDays (y.isLeap()));
+	LIMES_ASSERT (dayOfMonth > 0 && dayOfMonth <= month.getNumDays (year.isLeap()));
 }
 
 Date::Date (int y, int m, int d) noexcept
@@ -44,7 +41,7 @@ Date::Date (const std::tm& timeObj) noexcept
 template <bool StartWeekOnSunday>
 Weekday<StartWeekOnSunday> Date::getWeekday() const noexcept
 {
-	return Weekday<StartWeekOnSunday> { getYear(), getMonth(), getDayOfMonth() };
+	return Weekday<StartWeekOnSunday> { year, month, dayOfMonth };
 }
 
 template Weekday<true>	Date::getWeekday() const noexcept;
@@ -52,33 +49,29 @@ template Weekday<false> Date::getWeekday() const noexcept;
 
 Year Date::getYear() const noexcept
 {
-	return Year { static_cast<int> (internal_data.year()) };
+	return year;
 }
 
 Month Date::getMonth() const noexcept
 {
-	return Month { static_cast<int> (internal_data.month()) };
+	return month;
 }
 
 int Date::getDayOfMonth() const noexcept
 {
-	return internal_data.day_of_month();
+	return dayOfMonth;
 }
 
 int Date::getDayOfYear() const noexcept
 {
-	const auto isLeap = getYear().isLeap();
+	const auto isLeap = year.isLeap();
 
 	auto res = 0;
-
-	const auto month = getMonth();
 
 	for (auto i = 1; i < month.getMonthNumber(); ++i)
 		res += Month { i }.getNumDays (isLeap);
 
-	res += getDayOfMonth();
-
-	return res;
+	return res + dayOfMonth;
 }
 
 int Date::getWeekNumber() const noexcept
@@ -129,24 +122,24 @@ int Date::getWeekNumber() const noexcept
 
 bool Date::isBefore (const Date& other) const noexcept
 {
-	if (getYear() > other.getYear())
+	if (year > other.year)
 		return false;
 
-	if (getMonth() > other.getMonth())
+	if (month > other.month)
 		return false;
 
-	return getDayOfMonth() < other.getDayOfMonth();
+	return dayOfMonth < other.dayOfMonth;
 }
 
 bool Date::isAfter (const Date& other) const noexcept
 {
-	if (getYear() < other.getYear())
+	if (year < other.year)
 		return false;
 
-	if (getMonth() < other.getMonth())
+	if (month < other.month)
 		return false;
 
-	return getDayOfMonth() > other.getDayOfMonth();
+	return dayOfMonth > other.dayOfMonth;
 }
 
 bool Date::isInPast() const noexcept
@@ -171,7 +164,7 @@ bool Date::operator<(const Date& other) const noexcept
 
 bool Date::operator== (const Date& other) const noexcept
 {
-	return getYear() == other.getYear() && getMonth() == other.getMonth() && getDayOfMonth() == other.getDayOfMonth();
+	return year == other.year && month == other.month && dayOfMonth == other.dayOfMonth;
 }
 
 bool Date::operator!= (const Date& other) const noexcept
@@ -188,12 +181,10 @@ std::string Date::toString (bool shortMonthName) const
 {
 	std::stringstream stream;
 
-	const auto dayOfMonth = getDayOfMonth();
-
 	if (dayOfMonth < 10)
 		stream << 0;
 
-	stream << dayOfMonth << ' ' << getMonth().getString (shortMonthName) << ' ' << getYear().getYear();
+	stream << dayOfMonth << ' ' << month.getString (shortMonthName) << ' ' << year.getYear();
 
 	return stream.str();
 }

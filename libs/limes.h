@@ -75,7 +75,8 @@
 	@installcompgroup \b limes_libs
 	Installs all Limes library components. Depends on the \c limes_libs_dev component.
 
-	@todo Remove protobuf
+	@todo Fix dependency graph build
+	@todo Docs Docker container
 	@todo Review int vs size_t APIs
 	@todo Integrate documentation of CMake modules into Doxygen
 	@todo Android cross compile

@@ -17,6 +17,8 @@
 #include <string_view>
 #include <string>
 #include <vector>
+#include <map>
+#include <variant>
 #include <utility>
 #include <type_traits>
 #include "../misc/preprocessor.h"
@@ -33,11 +35,11 @@
 	@todo JSON encoder - options for pretty printing
 	@todo XML parser, encoder
 	@todo YAML parser, encoder
+	@todo TOML parser, encoder
+	@todo INI parser, encoder
 	@todo use the SerializableData base class throughout the codebase
 	@todo JSON/XML validate schema
 	@todo write unit tests
-	@todo JSON parser - raise exceptions
-	@todo TOML
  */
 
 /** @dir libs/limes_core/serializing
@@ -87,17 +89,11 @@ class Node;
  */
 LIMES_EXPORT using Array = std::vector<Node>;
 
-/** Represents a single key-value pair field of an Object type.
-	@see Object
-	@ingroup serializing
- */
-LIMES_EXPORT using ObjectField = std::pair<std::string, Node>;
-
 /** The representation of Object types.
 	@see ObjectField
 	@ingroup serializing
  */
-LIMES_EXPORT using Object = std::vector<ObjectField>;
+LIMES_EXPORT using Object = std::map<std::string, Node>;
 
 /** This typedef evaluates to the appropriate C++ object type for the given ObjectType.
 
@@ -109,8 +105,8 @@ LIMES_EXPORT using Object = std::vector<ObjectField>;
 	String     | std::string
 	Boolean    | bool
 	Array      | Array (std::vector<Node>)
-	Object     | Object (std::vector<std::pair<std::string, Node>>)
-	Null       | typelist::NullType
+	Object     | Object (std::map<std::string, Node>)
+	Null       | meta::NullType
 
 	@ingroup serializing
 	@see ObjectType
@@ -283,6 +279,12 @@ public:
 		An assertion will be thrown if this %node is not an object (ie, if \c isObject() returns false).
 	 */
 	Object& getObject() noexcept;
+
+	/** Templated function that accesses the stored data of the specified type.
+		If you attempt to access a datatype that this Node isn't currently storing, an exception will be thrown.
+	 */
+	template <typename Type>
+	Type& get();
 	///@}
 
 	/** @name Assignment operators */
@@ -409,24 +411,7 @@ private:
 
 	ObjectType type { ObjectType::Null };
 
-	union InternalData
-	{
-		// NB - must be explicitly defined as empty
-		InternalData() { }
-		~InternalData() { }
-
-		double number;
-
-		std::string string;
-
-		bool boolean;
-
-		Array array;
-
-		Object object;
-	};
-
-	InternalData data;
+	std::variant<double, std::string, bool, Array, Object> data;
 
 	Node* parent { nullptr };
 };

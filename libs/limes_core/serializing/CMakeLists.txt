@@ -19,5 +19,3 @@ oranges_add_source_files (
 		  serializing.h serializing.cpp json_parser.cpp encoding.cpp xml_parser.cpp)
 
 set (serializing_files ${serializing_files} PARENT_SCOPE)
-
-set (serializing_proto_files serializing/node.proto PARENT_SCOPE)

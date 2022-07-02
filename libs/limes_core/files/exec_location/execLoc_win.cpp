@@ -57,7 +57,8 @@ static inline std::string getModulePathInternal (HMODULE module)
 				{
 					break;
 				}
-			} while (size == size_);
+			}
+			while (size == size_);
 
 			if (size == size_)
 				break;
@@ -84,7 +85,8 @@ static inline std::string getModulePathInternal (HMODULE module)
 			std::free (path);
 
 		return result;
-	} while (false);
+	}
+	while (false);
 
 	if (path != buffer1.data())
 		std::free (path);

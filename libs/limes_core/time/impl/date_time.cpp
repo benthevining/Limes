@@ -21,51 +21,32 @@ namespace time
 {
 
 DateTime::DateTime (const Date& d, const Time& t) noexcept
+	: date (d), time (t)
 {
-	*internal_data.mutable_date() = d.getProtobufObject();
-	*internal_data.mutable_time() = t.getProtobufObject();
 }
 
 DateTime::DateTime (const std::tm& timeObj) noexcept
-{
-	const Date d { timeObj };
-	const Time t { timeObj };
-
-	*internal_data.mutable_date() = d.getProtobufObject();
-	*internal_data.mutable_time() = t.getProtobufObject();
-}
-
-template <Clock ClockType>
-DateTime::DateTime (const Point<ClockType>& timePoint)
-	: DateTime (toTimeObj (timePoint))
+	: date (timeObj), time (timeObj)
 {
 }
 
 Date DateTime::getDate() const
 {
-	return Date { static_cast<int> (internal_data.date().year()),
-				  static_cast<int> (internal_data.date().month()),
-				  static_cast<int> (internal_data.date().day_of_month()) };
+	return date;
 }
 
 Time DateTime::getTime() const
 {
-	return Time {
-		static_cast<int> (internal_data.time().hour()),
-		static_cast<int> (internal_data.time().minute()),
-		static_cast<int> (internal_data.time().second())
-	};
+	return time;
 }
 
 std::tm DateTime::getStdTime() const noexcept
 {
 	std::tm res;
 
-	const auto date = getDate();
-
-	res.tm_sec	= internal_data.time().second();
-	res.tm_min	= internal_data.time().minute();
-	res.tm_hour = internal_data.time().hour();
+	res.tm_sec	= time.getSecond();
+	res.tm_min	= time.getMinute();
+	res.tm_hour = time.getHour().hoursSinceMidnight();
 	res.tm_mday = date.getDayOfMonth();
 	res.tm_mon	= date.getMonth().getMonthNumber();
 	res.tm_year = date.getYear().getYear() - 1900;
@@ -79,26 +60,20 @@ std::tm DateTime::getStdTime() const noexcept
 	return res;
 }
 
-template <Clock ClockType>
-Point<ClockType> DateTime::getTimePoint() const
-{
-	return fromTimeObj<ClockType> (getTimeT());
-}
-
 bool DateTime::isBefore (const DateTime& other) const noexcept
 {
-	if (getDate().isAfter (other.getDate()))
+	if (date.isAfter (other.date))
 		return false;
 
-	return getTime().isBefore (other.getTime());
+	return time.isBefore (other.time);
 }
 
 bool DateTime::isAfter (const DateTime& other) const noexcept
 {
-	if (getDate().isBefore (other.getDate()))
+	if (date.isBefore (other.date))
 		return false;
 
-	return getTime().isAfter (other.getTime());
+	return time.isAfter (other.time);
 }
 
 bool DateTime::operator> (const DateTime& other) const noexcept
@@ -113,7 +88,7 @@ bool DateTime::operator<(const DateTime& other) const noexcept
 
 bool DateTime::operator== (const DateTime& other) const noexcept
 {
-	return internal_data.SerializeAsString() == other.internal_data.SerializeAsString();
+	return date == other.date && time == other.time;
 }
 
 bool DateTime::operator!= (const DateTime& other) const noexcept
@@ -152,7 +127,7 @@ std::string DateTime::toString (bool as24HourTime, bool shortMonthName) const
 {
 	std::stringstream stream;
 
-	stream << getTime().toString (as24HourTime) << ' ' << getDate().toString (shortMonthName);
+	stream << time.toString (as24HourTime) << ' ' << date.toString (shortMonthName);
 
 	return stream.str();
 }

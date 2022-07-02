@@ -158,11 +158,6 @@ Hour Hour::getCurrent()
 
 #pragma mark Time
 
-Time::Time (std::time_t time)
-	: Time (*std::localtime (&time))
-{
-}
-
 Time Time::getCurrent()
 {
 	if (const auto* localtime = getCurrentLocalTime())

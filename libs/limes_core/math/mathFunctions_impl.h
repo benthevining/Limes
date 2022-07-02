@@ -99,7 +99,8 @@ constexpr T power (T number, T power_) noexcept
 
 		number *= number;
 		power_ = power_ >> T (1);
-	} while (power_ > T (0));
+	}
+	while (power_ > T (0));
 
 	return result;
 }

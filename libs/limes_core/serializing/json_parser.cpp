@@ -147,7 +147,12 @@ Node parseJSON (const std::string_view& jsonText)
 				if (! popIf (':'))
 					throwError ("Expected ':'");
 
-				result.getObject().emplace_back (name, parseValue());
+				auto& obj = result.getObject();
+
+				if (obj.contains (name))
+					throwError ("Duplicate keys in same object", errorPos);
+
+				obj.emplace (std::make_pair (name, parseValue()));
 
 				skipWhitespace();
 

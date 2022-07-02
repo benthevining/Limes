@@ -27,78 +27,41 @@ namespace serializing
 Node::Node (ObjectType typeToUse) noexcept
 	: type (typeToUse)
 {
-	if (type == ObjectType::Number)
-		data.number = 0.;
-	else if (type == ObjectType::String)
-		data.string = "";
-	else if (type == ObjectType::Boolean)
-		data.boolean = false;
+	switch (type)
+	{
+		case (ObjectType::Number) : data = 0.; return;
+		case (ObjectType::String) : data = std::string {}; return;
+		case (ObjectType::Boolean) : data = false; return;
+		case (ObjectType::Array) : data = Array {}; return;
+		case (ObjectType::Object) : data = Object {}; return;
+		default : LIMES_UNREACHABLE;
+	}
 }
 
 Node::Node (const Node& other)
-	: type (other.type), parent (other.parent)
+	: type (other.type), data (other.data), parent (other.parent)
 {
-	switch (type)
-	{
-		case (ObjectType::Null) : return;
-		case (ObjectType::Object) : data.object = other.data.object; return;
-		case (ObjectType::Array) : data.array = other.data.array; return;
-		case (ObjectType::Boolean) : data.boolean = other.data.boolean; return;
-		case (ObjectType::String) : data.string = other.data.string; return;
-		case (ObjectType::Number) : data.number = other.data.number; return;
-		default : LIMES_UNREACHABLE;
-	}
 }
 
 Node& Node::operator= (const Node& other)
 {
 	type   = other.type;
 	parent = other.parent;
-
-	switch (type)
-	{
-		case (ObjectType::Null) : return *this;
-		case (ObjectType::Object) : data.object = other.data.object; return *this;
-		case (ObjectType::Array) : data.array = other.data.array; return *this;
-		case (ObjectType::Boolean) : data.boolean = other.data.boolean; return *this;
-		case (ObjectType::String) : data.string = other.data.string; return *this;
-		case (ObjectType::Number) : data.number = other.data.number; return *this;
-		default : LIMES_UNREACHABLE;
-	}
+	data   = other.data;
 
 	return *this;
 }
 
 Node::Node (Node&& other)
-	: type (other.type), parent (other.parent)
+	: type (other.type), data (std::move (other.data)), parent (other.parent)
 {
-	switch (type)
-	{
-		case (ObjectType::Null) : return;
-		case (ObjectType::Object) : data.object = std::move (other.data.object); return;
-		case (ObjectType::Array) : data.array = std::move (other.data.array); return;
-		case (ObjectType::Boolean) : data.boolean = other.data.boolean; return;
-		case (ObjectType::String) : data.string = std::move (other.data.string); return;
-		case (ObjectType::Number) : data.number = other.data.number; return;
-		default : LIMES_UNREACHABLE;
-	}
 }
 
 Node& Node::operator= (Node&& other)
 {
 	type   = other.type;
 	parent = other.parent;
-
-	switch (type)
-	{
-		case (ObjectType::Null) : return *this;
-		case (ObjectType::Object) : data.object = std::move (other.data.object); return *this;
-		case (ObjectType::Array) : data.array = std::move (other.data.array); return *this;
-		case (ObjectType::Boolean) : data.boolean = other.data.boolean; return *this;
-		case (ObjectType::String) : data.string = std::move (other.data.string); return *this;
-		case (ObjectType::Number) : data.number = other.data.number; return *this;
-		default : LIMES_UNREACHABLE;
-	}
+	data   = std::move (other.data);
 
 	return *this;
 }
@@ -126,7 +89,7 @@ Node& Node::operator[] (const std::string_view& childName)
 {
 	LIMES_ASSERT (isObject());
 
-	for (auto& pair : data.object)
+	for (auto& pair : std::get<Object> (data))
 		if (pair.first == childName)  // cppcheck-suppress useStlAlgorithm
 			return pair.second;
 
@@ -137,19 +100,21 @@ Node& Node::operator[] (std::size_t idx)
 {
 	LIMES_ASSERT (isArray());
 
-	if (idx >= static_cast<std::size_t> (data.array.size()))
+	auto& array = std::get<Array> (data);
+
+	if (idx >= static_cast<std::size_t> (array.size()))
 		throw std::out_of_range { "Array index out of range!" };
 
-	return data.array[static_cast<Array::size_type> (idx)];
+	return array[static_cast<Array::size_type> (idx)];
 }
 
 int Node::getNumChildren() const noexcept
 {
 	if (isArray())
-		return static_cast<int> (data.array.size());
+		return static_cast<int> (std::get<Array> (data).size());
 
 	if (isObject())
-		return static_cast<int> (data.object.size());
+		return static_cast<int> (std::get<Object> (data).size());
 
 	return 0;
 }
@@ -159,7 +124,7 @@ bool Node::hasChildWithName (const std::string_view& childName)
 	if (! isObject())
 		return false;
 
-	for (auto& pair : data.object)
+	for (auto& pair : std::get<Object> (data))
 		if (pair.first == childName)  // cppcheck-suppress useStlAlgorithm
 			return true;
 
@@ -186,7 +151,7 @@ Node& Node::addChild (const Node& childNode, const std::string_view& childName)
 	{
 		LIMES_ASSERT (childName.empty());
 
-		auto& child = data.array.emplace_back (childNode);
+		auto& child = std::get<Array> (data).emplace_back (childNode);
 
 		child.parent = this;
 
@@ -197,7 +162,16 @@ Node& Node::addChild (const Node& childNode, const std::string_view& childName)
 	{
 		LIMES_ASSERT (! childName.empty());
 
-		auto& child = data.object.emplace_back (childName, childNode).second;
+		auto& parentObj = std::get<Object> (data);
+
+		const auto name = std::string { childName };
+
+		// cannot have duplicate keys in an object!
+		LIMES_ASSERT (! parentObj.contains (name));
+
+		auto pair = parentObj.emplace (std::make_pair (name, childNode));
+
+		auto& child = (*pair.first).second;
 
 		child.parent = this;
 
@@ -216,13 +190,12 @@ bool Node::isNumber() const noexcept
 double& Node::getNumber() noexcept
 {
 	LIMES_ASSERT (isNumber());
-	return data.number;
+	return std::get<double> (data);
 }
 
 Node& Node::operator= (double value) noexcept
 {
-	LIMES_ASSERT (isNumber());
-	data.number = value;
+	getNumber() = value;
 	return *this;
 }
 
@@ -232,7 +205,7 @@ Node& Node::addChildInternal (const std::string_view& childName, ObjectType chil
 	{
 		LIMES_ASSERT (childName.empty());
 
-		auto& child = data.array.emplace_back (childType);
+		auto& child = std::get<Array> (data).emplace_back (childType);
 
 		child.parent = this;
 
@@ -243,7 +216,16 @@ Node& Node::addChildInternal (const std::string_view& childName, ObjectType chil
 	{
 		LIMES_ASSERT (! childName.empty());
 
-		auto& child = data.object.emplace_back (childName, childType).second;
+		auto& parentObj = std::get<Object> (data);
+
+		const auto name = std::string { childName };
+
+		// cannot have duplicate keys in an object!
+		LIMES_ASSERT (! parentObj.contains (name));
+
+		auto pair = parentObj.emplace (std::make_pair (name, Node { childType }));
+
+		auto& child = (*pair.first).second;
 
 		child.parent = this;
 
@@ -276,15 +258,12 @@ bool Node::isString() const noexcept
 std::string& Node::getString() noexcept
 {
 	LIMES_ASSERT (isString());
-	return data.string;
+	return std::get<std::string> (data);
 }
 
 Node& Node::operator= (const std::string_view& value) noexcept
 {
-	LIMES_ASSERT (isString());
-
-	data.string = value;
-
+	getString() = value;
 	return *this;
 }
 
@@ -301,15 +280,12 @@ bool Node::isBoolean() const noexcept
 bool& Node::getBoolean() noexcept
 {
 	LIMES_ASSERT (isBoolean());
-	return data.boolean;
+	return std::get<bool> (data);
 }
 
 Node& Node::operator= (bool value) noexcept
 {
-	LIMES_ASSERT (isBoolean());
-
-	data.boolean = value;
-
+	getBoolean() = value;
 	return *this;
 }
 
@@ -335,13 +311,12 @@ bool Node::isArray() const noexcept
 Array& Node::getArray() noexcept
 {
 	LIMES_ASSERT (isArray());
-	return data.array;
+	return std::get<Array> (data);
 }
 
 Node& Node::operator= (const Array& value)
 {
-	LIMES_ASSERT (isArray());
-	data.array = value;
+	getArray() = value;
 	return *this;
 }
 
@@ -367,13 +342,12 @@ bool Node::isObject() const noexcept
 Object& Node::getObject() noexcept
 {
 	LIMES_ASSERT (isObject());
-	return data.object;
+	return std::get<Object> (data);
 }
 
 Node& Node::operator= (const Object& value)
 {
-	LIMES_ASSERT (isObject());
-	data.object = value;
+	getObject() = value;
 	return *this;
 }
 
@@ -390,6 +364,18 @@ Node& Node::addChildObject (const Object& value, const std::string_view& childNa
 
 	return child;
 }
+
+template <typename Type>
+Type& Node::get()
+{
+	return std::get<Type> (data);
+}
+
+template double&	  Node::get<double>();
+template std::string& Node::get<std::string>();
+template bool&		  Node::get<bool>();
+template Array&		  Node::get<Array>();
+template Object&	  Node::get<Object>();
 
 bool Node::isNull() const noexcept
 {
@@ -441,7 +427,7 @@ std::string_view Node::getName() const noexcept
 	if (! hasName())
 		return "";
 
-	for (const auto& pair : parent->data.object)
+	for (const auto& pair : std::get<Object> (parent->data))
 		if (&pair.second == this)  // cppcheck-suppress useStlAlgorithm
 			return pair.first;
 

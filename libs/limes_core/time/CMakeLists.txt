@@ -29,5 +29,3 @@ oranges_add_source_files (
 		  DateTime.h)
 
 set (time_files ${time_files} ${impl_files} PARENT_SCOPE)
-
-set (time_proto_files time/time.proto PARENT_SCOPE)

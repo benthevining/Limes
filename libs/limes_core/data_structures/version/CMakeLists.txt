@@ -19,5 +19,3 @@ oranges_add_source_files (
 		  Version.cpp Version.h)
 
 set (version_files ${data_structures/version_files} PARENT_SCOPE)
-
-set (version_proto_files data_structures/version/version.proto PARENT_SCOPE)

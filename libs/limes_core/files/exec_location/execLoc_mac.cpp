@@ -55,7 +55,8 @@ std::string getExecutablePath()
 
 			return result;
 		}
-	} while (false);
+	}
+	while (false);
 
 	if (path != buffer1.data())
 		std::free (path);

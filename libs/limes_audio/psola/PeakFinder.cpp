@@ -120,7 +120,8 @@ const std::vector<int>& PeakFinder<SampleType>::findPeaks (const SampleType* con
 			break;
 
 		LIMES_ASSERT (analysisIndex > prevAnalysisIndex);
-	} while (analysisIndex - halfPeriod < numSamples);
+	}
+	while (analysisIndex - halfPeriod < numSamples);
 
 	peakIndices.erase (std::unique (std::begin (peakIndices), std::end (peakIndices)), std::end (peakIndices));
 

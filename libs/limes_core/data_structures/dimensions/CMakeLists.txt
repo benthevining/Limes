@@ -19,5 +19,3 @@ oranges_add_source_files (
 		  Dimensions.cpp Dimensions.h)
 
 set (dimensions_files ${data_structures/dimensions_files} PARENT_SCOPE)
-
-set (dimensions_proto_files data_structures/dimensions/dimensions.proto PARENT_SCOPE)
