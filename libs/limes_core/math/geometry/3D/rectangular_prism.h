@@ -39,7 +39,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT RectangularPrism final : public ThreeDShape<ValueType>
 {
 public:
-
 	/** Creates a RectangularPrism with the given dimensions. */
 	explicit constexpr RectangularPrism (ValueType length, ValueType width, ValueType height) noexcept;
 
@@ -80,7 +79,6 @@ public:
 	///@}
 
 private:
-
 	ValueType m_length, m_width, m_height;
 };
 

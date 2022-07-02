@@ -42,7 +42,6 @@ template <Scalar SampleType>
 class LIMES_NO_EXPORT vDSP_FFT final : public FFTImpl<SampleType>
 {
 public:
-
 	explicit vDSP_FFT (int size);
 
 	~vDSP_FFT() final;
@@ -51,7 +50,6 @@ public:
 	LIMES_DEFAULT_MOVABLE (vDSP_FFT)
 
 private:
-
 	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept final;
 
 	void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) noexcept final;

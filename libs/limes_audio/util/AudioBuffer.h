@@ -47,7 +47,6 @@ template <Sample SampleType, std::size_t NumChannels>
 class LIMES_EXPORT AudioBuffer final
 {
 public:
-
 	using Type = SampleType;
 
 	using ChannelPointer = memory::array_pointer<SampleType, false>;
@@ -261,7 +260,6 @@ public:
 	}
 
 private:
-
 	std::array<ChannelPointer, NumChannels> channels;
 };
 

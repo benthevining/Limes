@@ -53,7 +53,6 @@ template <typename ObjectType>
 struct LIMES_EXPORT LinkedListModel final
 {
 public:
-
 	/** Creates a linked list node.
 		@param objectForThisNode The data object this node in the list refers to
 		@param objectBeforeThisNode Pointer to the LinkedListModel object representing the node before this one in the list.
@@ -236,7 +235,6 @@ public:
 		[[nodiscard]] constexpr reference operator*() const noexcept;
 
 	private:
-
 		const LinkedListModel* currentNode { nullptr };
 	};
 
@@ -247,7 +245,6 @@ public:
 	[[nodiscard]] constexpr Iterator end() const noexcept;
 
 private:
-
 	LinkedListModel *before { nullptr }, *after { nullptr };
 
 	std::reference_wrapper<ObjectType> thisNode;

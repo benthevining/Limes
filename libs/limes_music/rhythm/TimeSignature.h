@@ -23,7 +23,6 @@ namespace music
 struct LIMES_EXPORT TimeSignature final
 {
 public:
-
 	struct Subdivision final
 	{
 		int numBeats;

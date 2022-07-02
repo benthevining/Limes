@@ -33,7 +33,6 @@ namespace music
 class LIMES_EXPORT MicrotonalInterval final
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a MicrotonalInterval representing a specified number of semitones.
@@ -106,7 +105,6 @@ public:
 	}
 
 private:
-
 	double semitones { 0. };
 };
 

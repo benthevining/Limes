@@ -36,7 +36,6 @@ namespace time
 class LIMES_EXPORT Hour final
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates an Hour object representing midnight. */
@@ -119,7 +118,6 @@ public:
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Hour midnight() noexcept;
 
 private:
-
 	int hour { 0 };
 };
 

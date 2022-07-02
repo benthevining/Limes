@@ -26,7 +26,6 @@ namespace music
 struct LIMES_EXPORT NoteLength final
 {
 public:
-
 	constexpr explicit NoteLength (int numBeats, NoteDuration kind, int dots = 0, bool isGraceNote = false);
 
 	LIMES_DEFAULT_MOVABLE (NoteLength)
@@ -73,7 +72,6 @@ public:
 	[[nodiscard]] constexpr bool isLastNoteInTie() const noexcept;
 
 private:
-
 	NoteDuration duration { 4 };
 
 	int num { 1 }, numDots { 0 };

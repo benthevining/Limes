@@ -49,7 +49,6 @@ template <typename Type, bool UseExceptions = false>
 class LIMES_EXPORT array_pointer final
 {
 public:
-
 	/** You can access the type of the owned object using this typdef. */
 	using OwnedType = Type;
 
@@ -160,7 +159,6 @@ public:
 	///@}
 
 private:
-
 	Type* ptr { nullptr };
 
 	std::size_t size { 0 };

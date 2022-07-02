@@ -36,7 +36,6 @@ namespace time
 class LIMES_EXPORT Year final
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a Year object representing the %year 0. */
@@ -129,7 +128,6 @@ public:
 	[[nodiscard]] LIMES_PURE_FUNCTION static consteval Year getCompilationYear() noexcept;
 
 private:
-
 	int year { 0 };
 };
 

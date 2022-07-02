@@ -46,7 +46,6 @@ template <Sample SampleType>
 struct LIMES_EXPORT SampleStream
 {
 public:
-
 	/** Convenience typedef for a vector of samples. */
 	using Buffer = AudioBuffer<SampleType, 1>;
 
@@ -89,7 +88,6 @@ public:
 	virtual void skipSamples (int numToSkip) const;
 
 private:
-
 	SampleGenerationFunc sampleFunc;
 
 	BlockProcessingFunc blockFunc;

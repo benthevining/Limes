@@ -29,10 +29,12 @@ void MD5::update (const unsigned char* input, std::size_t length)
 {
 	std::uint32_t index = count[0] / 8 % md5_blocksize;
 
-	if ((count[0] += (length << 3)) < (length << 3))
+	const auto lenShift3 = static_cast<std::uint32_t> (length << 3UL);
+
+	if (count[0] += lenShift3 < lenShift3)
 		count[1]++;
 
-	count[1] += (length >> 29);
+	count[1] += static_cast<std::uint32_t> (length >> 29UL);
 
 	// number of bytes we need to fill in buffer
 	const auto firstpart = 64 - index;

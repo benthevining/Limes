@@ -35,7 +35,6 @@ namespace music::scales
 class LIMES_EXPORT Chromatic final : public Scale
 {
 public:
-
 	/** @name Constructors */
 	///@{
 
@@ -72,7 +71,6 @@ public:
 	[[nodiscard]] int notesPerOctave() const noexcept final;
 
 private:
-
 	PitchClass startingPitchClass { 0 };
 };
 

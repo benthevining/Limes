@@ -35,7 +35,6 @@ namespace hash
 class LIMES_EXPORT SHA512 final : public Hasher	 // cppcheck-suppress noConstructor
 {
 public:
-
 	/** Updates the internal state of the hasher with new data. */
 	void update (const unsigned char* data, std::size_t length) final;
 
@@ -43,7 +42,6 @@ public:
 	[[nodiscard]] std::string getHash() final;
 
 private:
-
 	void transform (const unsigned char* message, unsigned block_nb);
 
 	static constinit const unsigned SHA384_512_BLOCK_SIZE = (1024 / 8);

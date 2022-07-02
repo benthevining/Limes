@@ -39,7 +39,6 @@ template <typename T, std::size_t Alignment = sizeof (T), bool UseExceptions = f
 class LIMES_EXPORT AlignedAllocator final
 {
 public:
-
 	using pointer		  = T*;
 	using const_pointer	  = const T*;
 	using reference		  = T&;

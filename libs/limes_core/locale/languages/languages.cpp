@@ -499,7 +499,6 @@ struct KnownLanguages final
 	}
 
 private:
-
 	std::vector<Language> languages;
 };
 

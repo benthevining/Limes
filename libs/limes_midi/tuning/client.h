@@ -59,7 +59,6 @@ namespace midi::tuning
 class LIMES_EXPORT Client final
 {
 public:
-
 	/** Converts a given MIDI note to a frequency in Hz, using the master tuning table.
 		@param midiNote The MIDI pitch to convert.
 		@param midiChannel The MIDI channel of the tuning table to use. You can specify -1 for "all" or "none".
@@ -93,7 +92,6 @@ public:
 	[[nodiscard]] std::string getScaleName() const;
 
 private:
-
 	std::unique_ptr<MTSClient, decltype ([] (MTSClient* c)
 										 { MTS_DeregisterClient (c); })>
 		client { MTS_RegisterClient() };

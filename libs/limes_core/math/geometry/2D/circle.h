@@ -36,7 +36,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT Circle final : public TwoDShape<ValueType>
 {
 public:
-
 	/** Creates a circle with the given radius (in unspecified units). */
 	explicit constexpr Circle (ValueType radiusToUse) noexcept;
 
@@ -82,7 +81,6 @@ public:
 	///@}
 
 private:
-
 	ValueType m_radius;
 };
 

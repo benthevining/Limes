@@ -35,7 +35,6 @@ namespace dsp::osc
 class LIMES_EXPORT DetunableModel final
 {
 public:
-
 	/** Creates a detunable model that manages a certain number of voices. */
 	explicit DetunableModel (std::size_t initialNumVoices);
 
@@ -75,7 +74,6 @@ public:
 	void applyFrequencies (std::function<void (float)>&& func) const;
 
 private:
-
 	int totalSpreadCents { 0 };
 
 	std::size_t numVoices { 0 };

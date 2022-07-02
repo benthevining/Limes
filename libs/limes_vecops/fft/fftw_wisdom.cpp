@@ -35,35 +35,39 @@ bool setWisdomFileDir (const files::Directory& directory)
 {
 	if constexpr (! fft::isUsingFFTW())
 		return false;
+	else
+	{
+		if (! directory.isValid())
+			return false;
 
-	if (! directory.isValid())
-		return false;
+		const std::lock_guard g { wisdom_lock };
 
-	const std::lock_guard g { wisdom_lock };
+		if (widom_file_dir == directory)
+			return false;
 
-	if (widom_file_dir == directory)
-		return false;
-
-	widom_file_dir = directory;
-	return true;
+		widom_file_dir = directory;
+		return true;
+	}
 }
 
 files::Directory getWisdomFileDir()
 {
 	if constexpr (! fft::isUsingFFTW())
 		return {};
-
-	const std::lock_guard g { wisdom_lock };
-
-	if (! widom_file_dir.isValid())
+	else
 	{
-		if (const auto* dir = std::getenv ("FFTW_WISDOM_FILE_DIR"))
-			widom_file_dir = files::Path { dir };
-		else if (const auto* homeDir = std::getenv ("HOME"))
-			widom_file_dir = files::Path { homeDir };
-	}
+		const std::lock_guard g { wisdom_lock };
 
-	return widom_file_dir;
+		if (! widom_file_dir.isValid())
+		{
+			if (const auto* dir = std::getenv ("FFTW_WISDOM_FILE_DIR"))
+				widom_file_dir = files::Path { dir };
+			else if (const auto* homeDir = std::getenv ("HOME"))
+				widom_file_dir = files::Path { homeDir };
+		}
+
+		return widom_file_dir;
+	}
 }
 
 void enableWisdom (bool shouldUseWisdom)
@@ -75,11 +79,13 @@ bool isUsingWisdom()
 {
 	if constexpr (! fft::isUsingFFTW())
 		return false;
+	else
+	{
+		if (! getWisdomFileDir().isValid())
+			return false;
 
-	if (! getWisdomFileDir().isValid())
-		return false;
-
-	return useWisdom.load();
+		return useWisdom.load();
+	}
 }
 }  // namespace fftw
 

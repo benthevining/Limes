@@ -50,7 +50,6 @@ template <Sample SampleType>
 class LIMES_EXPORT MonoStereoConverter final
 {
 public:
-
 	using MonoBuffer   = AudioBuffer<SampleType, 1>;
 	using StereoBuffer = AudioBuffer<SampleType, 2>;
 
@@ -108,7 +107,6 @@ public:
 	///@}
 
 private:
-
 	StereoReductionMode toMonoMode { StereoReductionMode::leftOnly };
 
 	MonoBuffer monoStorage;

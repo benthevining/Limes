@@ -1726,7 +1726,8 @@ void mix (DataType* const output, const DataType* const * const origData, SizeTy
 template <Scalar DataType, Integral SizeType>
 DataType rms (const DataType* const data, SizeType size) noexcept
 {
-	if (size == 0) return 0;
+	if (size == 0)
+		return 0;
 
 	DataType result { 0 };
 

@@ -130,7 +130,6 @@ LIMES_EXPORT using DataType = std::conditional_t<Type == ObjectType::Number, dou
 class LIMES_EXPORT Node final
 {
 public:
-
 	/** Creates a Node with a specified type. */
 	explicit Node (ObjectType typeToUse) noexcept;
 
@@ -146,10 +145,10 @@ public:
 	/** @name Moving */
 	///@{
 	/** Move constructor. */
-	Node (Node&& other);
+	Node (Node&& other) noexcept;
 
 	/** Move assignment operator. */
-	Node& operator= (Node&& other);
+	Node& operator= (Node&& other) noexcept;
 	///@}
 
 	/** @name Subscript operators */
@@ -406,7 +405,6 @@ public:
 	///@}
 
 private:
-
 	Node& addChildInternal (const std::string_view& childName, ObjectType childType);
 
 	ObjectType type { ObjectType::Null };
@@ -454,7 +452,6 @@ LIMES_EXPORT [[nodiscard]] Node parse (const std::string_view& string, StringTyp
 class LIMES_EXPORT SerializableData
 {
 public:
-
 	/** Destructor. */
 	virtual ~SerializableData() = default;
 

@@ -90,7 +90,6 @@ struct LIMES_EXPORT Dimensions final
 	[[nodiscard]] static constexpr Dimensions getDefault() { return Dimensions { 1060, 640 }; }	 // NOLINT
 
 private:
-
 	int width { 0 }, height { 0 };
 };
 

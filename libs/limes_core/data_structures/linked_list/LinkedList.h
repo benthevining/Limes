@@ -44,7 +44,6 @@ template <typename ObjectType>
 class LIMES_EXPORT LinkedList final
 {
 public:
-
 	/** A node in a linked list.
 		This object contains a LinkedListModel and the actual data object itself.
 	 */
@@ -155,7 +154,6 @@ public:
 	constexpr Iterator end() const noexcept;
 
 private:
-
 	std::vector<Node> nodes;
 };
 

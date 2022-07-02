@@ -56,7 +56,7 @@ void SHA224::update (const unsigned char* message, std::size_t len)
 
 std::string SHA224::getHash()
 {
-	const unsigned block_nb = (1 + ((SHA224_256_BLOCK_SIZE - 9) < (m_len % SHA224_256_BLOCK_SIZE)));
+	const unsigned block_nb = (1u + ((SHA224_256_BLOCK_SIZE - 9u) < (m_len % SHA224_256_BLOCK_SIZE)));
 
 	const unsigned len_b  = (m_tot_len + m_len) << 3;
 	const unsigned pm_len = block_nb << 6;

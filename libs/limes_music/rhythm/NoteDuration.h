@@ -46,7 +46,6 @@ namespace music
 struct LIMES_EXPORT NoteDuration final
 {
 public:
-
 	/** Creates a NoteDuration of the desired kind.
 		1 represents a whole note, 2 represents a half note, 4 is a quarter note, 8 is an eighth note, and so on.
 	 */
@@ -108,7 +107,6 @@ public:
 	[[nodiscard]] constexpr double getRatioToOtherDuration (const NoteDuration& other) const noexcept;
 
 private:
-
 	int duration { 4 };
 
 	int numDots { 0 };

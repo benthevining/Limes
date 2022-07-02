@@ -154,7 +154,6 @@ template <Sample SampleType>
 class LIMES_NO_EXPORT PeakFinder final
 {
 public:
-
 	/** Constructor. */
 	PeakFinder() = default;
 
@@ -181,7 +180,6 @@ public:
 	void releaseResources();
 
 private:
-
 	bool		operator== (const PeakFinder& other) const = delete;
 	bool		operator!= (const PeakFinder& other) const = delete;
 	PeakFinder& operator= (const PeakFinder& other)		   = delete;

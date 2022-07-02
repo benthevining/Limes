@@ -146,7 +146,6 @@ template <Scalar SampleType>
 class LIMES_EXPORT FFT final
 {
 public:
-
 	/** Creates an FFT engine with a specified FFT size. */
 	explicit FFT (int size);
 
@@ -195,7 +194,6 @@ public:
 	///@}
 
 private:
-
 	std::unique_ptr<FFTImpl<SampleType>> pimpl;
 };
 

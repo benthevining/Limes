@@ -35,7 +35,6 @@ namespace text
 class LIMES_EXPORT TextTable final
 {
 public:
-
 	/** Appends text to the current row. */
 	void addColumnToCurrentRow (const std::string_view& text);
 
@@ -72,7 +71,6 @@ public:
 										const std::string_view& rowSuffix		= {}) const;
 
 private:
-
 	struct Row final
 	{
 		[[nodiscard]] std::string toString (const std::string&		   columnSeparator,

@@ -63,7 +63,6 @@ struct KnownCountries final
 	}
 
 private:
-
 	std::vector<Country> countries;
 };
 

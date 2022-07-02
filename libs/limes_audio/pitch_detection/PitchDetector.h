@@ -38,7 +38,6 @@ template <Sample SampleType>
 class LIMES_EXPORT PitchDetector final : public PitchDetectionAlgorithm<SampleType>
 {
 public:
-
 	/** Convenience typedef for the datatype returned by the algorithm. */
 	using Result = PitchData<SampleType>;
 
@@ -98,7 +97,6 @@ public:
 	///@}
 
 private:
-
 	Yin<SampleType> yin;
 
 	ZeroCrossings<SampleType> ztx;

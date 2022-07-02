@@ -155,7 +155,8 @@ int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int pred
 	{
 		const auto nextPeak = getPeakCandidateInRange (inputSamples, frameStart, frameEnd, predictedPeak);
 
-		if (nextPeak == -1) break;
+		if (nextPeak == -1)
+			break;
 
 		peakCandidates.push_back (nextPeak);
 	}
@@ -207,7 +208,8 @@ int PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* const inp
 		return -1;
 	}();
 
-	if (starting == -1) return -1;
+	if (starting == -1)
+		return -1;
 
 	LIMES_ASSERT (starting >= startSample && starting <= endSample);
 

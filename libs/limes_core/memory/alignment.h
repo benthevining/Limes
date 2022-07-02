@@ -112,7 +112,6 @@ template <typename T, bool UseExceptions = true>
 class LIMES_EXPORT aligned_pointer final
 {
 public:
-
 	/** You can access the type of the owned object using this typdef. */
 	using OwnedType = T;
 
@@ -163,7 +162,6 @@ public:
 	[[nodiscard]] decltype (auto) operator[] (std::size_t idx) { return ptr[idx]; }
 
 private:
-
 	T* ptr;
 };
 

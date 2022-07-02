@@ -43,7 +43,6 @@ template <Scalar SampleType>
 class LIMES_NO_EXPORT FFTImpl
 {
 public:
-
 	explicit FFTImpl (int size)
 		: fft_size (size), m_order (orderFromFFTSize (size))
 	{
@@ -73,12 +72,10 @@ public:
 	virtual void inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept = 0;
 
 protected:
-
 	const int fft_size;	 // NOLINT
 	const int m_order;	 // NOLINT
 
 private:
-
 	[[nodiscard]] static LIMES_FORCE_INLINE int orderFromFFTSize (int size) noexcept
 	{
 		for (auto i = 0;; ++i)

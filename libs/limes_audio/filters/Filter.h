@@ -37,7 +37,6 @@ template <Sample SampleType>
 class LIMES_EXPORT Filter final
 {
 public:
-
 	using Buffer = AudioBuffer<SampleType, 1>;
 
 	/** Resets the internal state of the filter. */
@@ -62,7 +61,6 @@ public:
 	Coeffecients<SampleType> coefs;
 
 private:
-
 	void processOrder1 (SampleType* buffer, int numSamples) noexcept;
 	void processOrder2 (SampleType* buffer, int numSamples) noexcept;
 	void processOrder3 (SampleType* buffer, int numSamples) noexcept;

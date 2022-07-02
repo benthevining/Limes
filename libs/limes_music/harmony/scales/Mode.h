@@ -48,7 +48,6 @@ namespace music::scales
 class LIMES_EXPORT Mode final : public Scale
 {
 public:
-
 	/** Represents which kind of %mode this %scale is. */
 	enum class Type
 	{
@@ -112,7 +111,6 @@ public:
 	[[nodiscard]] KeySignature getKeySignature() const noexcept;
 
 private:
-
 	Type type { Type::Ionian };
 
 	PitchClass rootPitchClass { 0 };

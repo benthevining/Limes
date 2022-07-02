@@ -38,7 +38,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT Pyramid final : public ThreeDShape<ValueType>
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a pyramid with the given dimensions. */
@@ -80,7 +79,6 @@ public:
 	///@}
 
 private:
-
 	ValueType m_length, m_width, m_height;
 };
 

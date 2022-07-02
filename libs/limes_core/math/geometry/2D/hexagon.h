@@ -37,7 +37,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT Hexagon final : public TwoDShape<ValueType>
 {
 public:
-
 	/** Creates a hexagon with the specified side length (in unspecified units). */
 	explicit constexpr Hexagon (ValueType sideLength) noexcept;
 
@@ -80,7 +79,6 @@ public:
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> exteriorAngle() noexcept;
 
 private:
-
 	ValueType side_length;
 };
 

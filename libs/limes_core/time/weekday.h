@@ -66,7 +66,6 @@ template <bool StartWeekOnSunday = false>
 class LIMES_EXPORT Weekday final
 {
 public:
-
 	/** Represents names of each %weekday. */
 	enum class Name : int
 	{
@@ -179,7 +178,6 @@ public:
 	[[nodiscard]] LIMES_PURE_FUNCTION static consteval bool startsWeekOnSunday() noexcept;
 
 private:
-
 	int dayOfWeek { 0 };
 };
 

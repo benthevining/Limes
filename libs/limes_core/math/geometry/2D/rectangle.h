@@ -39,7 +39,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT Rectangle final : public TwoDShape<ValueType>
 {
 public:
-
 	/** Creates a rectangle with the specified length and width (in unspecified units). */
 	explicit constexpr Rectangle (ValueType lengthToUse, ValueType widthToUse) noexcept;
 
@@ -90,7 +89,6 @@ public:
 	///@}
 
 private:
-
 	ValueType m_length, m_width;
 };
 

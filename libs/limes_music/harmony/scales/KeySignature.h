@@ -66,7 +66,6 @@ class Mode;
 class LIMES_EXPORT KeySignature final : public Scale
 {
 public:
-
 	/** Represents the type of this key signature. */
 	enum class Type
 	{
@@ -199,7 +198,6 @@ public:
 	[[nodiscard]] int notesPerOctave() const noexcept final;
 
 private:
-
 	constexpr explicit KeySignature (int numSharpsOrFlats, bool isSharps, Type typeToUse) noexcept;
 
 	[[nodiscard]] static constexpr bool useSharpsForRootByDefault (const PitchClass& root) noexcept;

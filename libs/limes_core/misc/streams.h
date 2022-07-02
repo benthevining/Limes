@@ -33,7 +33,6 @@ namespace misc
 struct LIMES_EXPORT ScopedStreamFlags final
 {
 public:
-
 	explicit ScopedStreamFlags (std::ios_base& streamToUse);
 
 	~ScopedStreamFlags();
@@ -42,7 +41,6 @@ public:
 	LIMES_NON_MOVABLE (ScopedStreamFlags)
 
 private:
-
 	std::ios_base& stream;
 
 	const std::ios_base::fmtflags flags;

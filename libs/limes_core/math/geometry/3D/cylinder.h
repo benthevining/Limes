@@ -37,7 +37,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT Cylinder final : public ThreeDShape<ValueType>
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a cylinder with the given radius and height. */
@@ -92,7 +91,6 @@ public:
 	///@}
 
 private:
-
 	ValueType m_radius, height;
 };
 

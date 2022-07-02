@@ -76,8 +76,10 @@ constexpr T limit (T input, T min, T max) noexcept
 {
 	LIMES_ASSERT (max > min);
 
-	if (input > max) return max;
-	if (input < min) return min;
+	if (input > max)
+		return max;
+	if (input < min)
+		return min;
 	return input;
 }
 

@@ -71,7 +71,6 @@ using Path = std::filesystem::path;
 class LIMES_EXPORT FilesystemEntry
 {
 public:
-
 	using Permissions = std::filesystem::perms;
 	using PermOptions = std::filesystem::perm_options;
 	using CopyOptions = std::filesystem::copy_options;
@@ -271,7 +270,6 @@ public:
 	//@}
 
 private:
-
 	Path path;
 };
 

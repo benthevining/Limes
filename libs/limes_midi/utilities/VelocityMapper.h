@@ -33,7 +33,6 @@ namespace midi
 class LIMES_EXPORT VelocityMapper final
 {
 public:
-
 	/** Sets the sensitivity of incoming velocity messages.
 		If the sensitivity is set to full (100), then the velocity is not changed at all.
 		If the sensitivity is set to off (0), then the velocity is always output as 127, regardless of what the input velocity was.
@@ -52,7 +51,6 @@ public:
 	///@}
 
 private:
-
 	int sensitivity { 100 };
 };
 

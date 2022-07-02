@@ -36,7 +36,6 @@ namespace files
 class LIMES_EXPORT DynamicLibrary final
 {
 public:
-
 	/** @name Constructors */
 	///@{
 
@@ -89,7 +88,6 @@ public:
 	[[nodiscard]] std::string getName() const;
 
 private:
-
 	void* handle { nullptr };
 };
 

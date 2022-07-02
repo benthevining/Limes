@@ -40,7 +40,6 @@ namespace files
 class LIMES_EXPORT Directory final : public FilesystemEntry
 {
 public:
-
 	using FilesystemEntry::FilesystemEntry;
 
 	LIMES_DEFAULT_COPYABLE (Directory)

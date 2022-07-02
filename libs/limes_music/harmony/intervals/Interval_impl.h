@@ -97,7 +97,8 @@ constexpr Interval& Interval::operator++() noexcept
 
 		++kind;
 
-		if (kind == 1) kind = 2;
+		if (kind == 1)
+			kind = 2;
 
 		if (intervalIsPerfectKind())
 		{
@@ -179,7 +180,8 @@ constexpr Interval& Interval::operator--() noexcept
 
 		--kind;
 
-		if (kind == 1) kind = 0;
+		if (kind == 1)
+			kind = 0;
 
 		if (intervalIsPerfectKind())
 		{

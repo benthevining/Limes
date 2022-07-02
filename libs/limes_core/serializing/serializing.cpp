@@ -34,7 +34,7 @@ Node::Node (ObjectType typeToUse) noexcept
 		case (ObjectType::Boolean) : data = false; return;
 		case (ObjectType::Array) : data = Array {}; return;
 		case (ObjectType::Object) : data = Object {}; return;
-		default : LIMES_UNREACHABLE;
+		default : return;
 	}
 }
 
@@ -52,12 +52,12 @@ Node& Node::operator= (const Node& other)
 	return *this;
 }
 
-Node::Node (Node&& other)
+Node::Node (Node&& other) noexcept
 	: type (other.type), data (std::move (other.data)), parent (other.parent)
 {
 }
 
-Node& Node::operator= (Node&& other)
+Node& Node::operator= (Node&& other) noexcept
 {
 	type   = other.type;
 	parent = other.parent;
@@ -81,7 +81,7 @@ std::string_view Node::getTypeAsString() const noexcept
 		case (ObjectType::Boolean) : return "Boolean";
 		case (ObjectType::String) : return "String";
 		case (ObjectType::Number) : return "Number";
-		default : LIMES_UNREACHABLE;
+		default : LIMES_UNREACHABLE; return "";
 	}
 }
 

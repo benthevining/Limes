@@ -178,7 +178,7 @@ void multiplyAndCopy (DataType* const dest, const DataType* const origData, Size
 template <Scalar DataType, Integral SizeType>
 DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size) noexcept
 {
-	return fb::dotProduct (vecA, vecB, size)
+	return fb::dotProduct (vecA, vecB, size);
 }
 
 
@@ -391,7 +391,7 @@ void maxAbs (const DataType* const data, SizeType size, DataType& maxValue, Inde
 }
 
 template <Scalar DataType, Integral SizeType>
-DataType min (const DataType* const data, SizeType size)
+DataType min (const DataType* const data, SizeType size) noexcept
 {
 	return fb::min (data, size);
 }
@@ -432,24 +432,6 @@ void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, D
 	fb::minMaxAbs (data, size, minValue, maxValue);
 }
 
-template <Scalar DataType, Integral SizeType, Integral IndexType>
-void minMaxAbs (const DataType* const data, SizeType size, DataType& minValue, IndexType& minIndex, DataType& maxValue, IndexType& maxIndex) noexcept
-{
-	fb::minMaxAbs (data, size, minValue, minIndex, maxValue, maxIndex);
-}
-
-template <Scalar DataType, Integral SizeType>
-DataType range (const DataType* const data, SizeType size) noexcept
-{
-	return fb::range (data, size);
-}
-
-template <Scalar DataType, Integral SizeType>
-DataType rangeAbs (const DataType* const data, SizeType size) noexcept
-{
-	return fb::rangeAbs (data, size);
-}
-
 template <Scalar DataType, Integral SizeType>
 DataType sum (const DataType* const data, SizeType size) noexcept
 {
@@ -460,18 +442,6 @@ template <Scalar DataType, Integral SizeType>
 DataType mean (const DataType* const data, SizeType size) noexcept
 {
 	return fb::mean (data, size);
-}
-
-template <Scalar DataType, Integral SizeType>
-DataType median (const DataType* const data, SizeType size) noexcept
-{
-	return fb::median (data, size);
-}
-
-template <Scalar DataType, Integral SizeType>
-DataType mode (const DataType* const data, SizeType size) noexcept
-{
-	return fb::mode (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -584,31 +554,31 @@ void nat (DataType* const data, SizeType size) noexcept
 template <Scalar DataType, Integral SizeType>
 void natAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
-	fb::natAndCopy (dest, data, size);
+	fb::log::natAndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void base2 (DataType* const data, SizeType size) noexcept
 {
-	fb::base2 (data, size);
+	fb::log::base2 (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void base2AndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
-	fb::base2AndCopy (dest, data, size);
+	fb::log::base2AndCopy (dest, data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void base10 (DataType* const data, SizeType size) noexcept
 {
-	fb::base10 (data, size);
+	fb::log::base10 (data, size);
 }
 
 template <Scalar DataType, Integral SizeType>
 void base10AndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
-	fb::base10AndCopy (dest, data, size);
+	fb::log::base10AndCopy (dest, data, size);
 }
 
 }  // namespace log

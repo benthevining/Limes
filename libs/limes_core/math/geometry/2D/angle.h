@@ -36,7 +36,6 @@ template <Scalar ValueType = int>
 class LIMES_EXPORT Angle final
 {
 public:
-
 	/** Creates an Angle representing the given number of degrees. */
 	explicit constexpr Angle (ValueType degrees) noexcept;
 
@@ -146,7 +145,6 @@ public:
 	///@}
 
 private:
-
 	ValueType m_degrees;
 };
 

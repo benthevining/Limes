@@ -55,7 +55,6 @@ namespace memory
 class LIMES_EXPORT RawData final
 {
 public:
-
 	/** @name Constructors */
 	///@{
 
@@ -236,7 +235,6 @@ public:
 	[[nodiscard]] std::string hash (hash::Type hashType) const;
 
 private:
-
 	void throwOnAllocationFailure() const;
 
 	std::size_t size { 0 };

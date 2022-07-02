@@ -131,7 +131,6 @@ template <Sample SampleType>
 class LIMES_EXPORT Yin final : public PitchDetectionAlgorithm<SampleType>
 {
 public:
-
 	/** Convenience typedef for the datatype returned by the algorithm. */
 	using Result = PitchData<SampleType>;
 
@@ -197,7 +196,6 @@ public:
 	void getCurrentLegalPeriodRange (int& min, int& max) const noexcept;
 
 private:
-
 	inline void updatePeriodBounds() noexcept;
 
 	int minHz { 60 };

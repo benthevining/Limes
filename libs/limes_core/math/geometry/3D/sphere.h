@@ -37,7 +37,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT Sphere final : public ThreeDShape<ValueType>
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a sphere with the given radius. */
@@ -95,7 +94,6 @@ public:
 	///@}
 
 private:
-
 	ValueType m_radius;
 };
 

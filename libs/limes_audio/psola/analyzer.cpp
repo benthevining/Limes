@@ -210,7 +210,8 @@ typename Analyzer<SampleType>::Grain& Analyzer<SampleType>::getClosestGrain (int
 
 		const auto origStart = grain.getOrigStart();
 
-		if (origStart == placeInBlock) return grain;
+		if (origStart == placeInBlock)
+			return grain;
 
 		const auto currentDist = std::abs (origStart - placeInBlock);
 

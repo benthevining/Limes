@@ -41,14 +41,12 @@ template <Scalar SampleType>
 class LIMES_NO_EXPORT FallbackFFT final : public FFTImpl<SampleType>
 {
 public:
-
 	explicit FallbackFFT (int size);
 
 	LIMES_NON_COPYABLE (FallbackFFT)
 	LIMES_DEFAULT_MOVABLE (FallbackFFT)
 
 private:
-
 	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept final;
 
 	void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) noexcept final;

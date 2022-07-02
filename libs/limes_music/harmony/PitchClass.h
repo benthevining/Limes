@@ -109,7 +109,6 @@ struct LIMES_EXPORT PitchClass final
 	}
 
 private:
-
 	int pitchClass { 0 };
 };
 

@@ -119,7 +119,6 @@ namespace misc
 class LIMES_EXPORT ArgumentParser final
 {
 public:
-
 	struct LIMES_EXPORT PositionalArgumentsSpec final
 	{
 		[[nodiscard]] static PositionalArgumentsSpec acceptsNone();
@@ -280,7 +279,6 @@ public:
 	class LIMES_EXPORT ParsedArguments final
 	{
 	public:
-
 		/** Returns true if this struct contains no data.
 			This returns true if no flags are present, no named arguments have values,
 			no subcommand is present, and no positional arguments were provided.
@@ -345,7 +343,6 @@ public:
 		///@}
 
 	private:
-
 		std::vector<std::string> flags {};
 
 		std::vector<std::string> positionalArgs {};
@@ -402,7 +399,6 @@ public:
 	};
 
 private:
-
 	struct Argument final
 	{
 		Argument (const std::vector<std::string>& delimiters_,

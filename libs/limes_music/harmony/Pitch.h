@@ -41,7 +41,6 @@ class Interval;
 class LIMES_EXPORT Pitch final
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a %pitch object from a MIDI %pitch, which can be passed to the constructor as any scalar arithmetic type. */
@@ -138,7 +137,6 @@ public:
 	[[nodiscard]] Pitch inOctave (int octaveNumber) const noexcept;
 
 private:
-
 	double midiPitch { 60. };
 };
 

@@ -35,7 +35,6 @@ namespace music::scales
 class LIMES_EXPORT Octatonic final : public Scale
 {
 public:
-
 	/** @name Constructors */
 	///@{
 
@@ -90,7 +89,6 @@ public:
 	[[nodiscard]] int notesPerOctave() const noexcept final;
 
 private:
-
 	bool startWithHalfStep { true };
 
 	PitchClass pitchClassOfRoot { 0 };

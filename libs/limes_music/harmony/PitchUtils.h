@@ -71,7 +71,7 @@ LIMES_EXPORT constinit const auto semitonesInOctave = 12;
 
 	@see lowestNoteOfMidiOctave
  */
-LIMES_EXPORT constexpr int octaveNumberOfMidiNote (int midiNote) noexcept
+LIMES_EXPORT static inline int octaveNumberOfMidiNote (int midiNote) noexcept
 {
 	LIMES_ASSERT (midiNote >= 0);
 	return static_cast<int> (std::floor (static_cast<float> (midiNote) / 12.f - 1.f));

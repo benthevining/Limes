@@ -39,7 +39,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT Cube final : public ThreeDShape<ValueType>
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a cube with the given side length. */
@@ -96,7 +95,6 @@ public:
 	[[nodiscard]] constexpr RectangularPrism<ValueType> getRectangularPrism() const noexcept;
 
 private:
-
 	ValueType side_length;
 };
 

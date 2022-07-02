@@ -36,7 +36,6 @@ template <typename ValueType>
 class LIMES_EXPORT TriangularPrism final : public ThreeDShape<ValueType>
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a triangular prism with the given face and length. */
@@ -74,7 +73,6 @@ public:
 	///@}
 
 private:
-
 	ValueType m_length;
 
 	Triangle<ValueType> m_face;

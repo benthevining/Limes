@@ -36,7 +36,6 @@ template <typename ObjectType, bool AllowOverflowAllocation = false>
 class LIMES_EXPORT MemoryPoolPointer final
 {
 public:
-
 	/** You can access the type of the owned object via this typedef. */
 	using OwnedType = ObjectType;
 
@@ -79,7 +78,6 @@ public:
 	[[nodiscard]] bool isOwnedByPool() const noexcept;
 
 private:
-
 	MemoryPool& memoryPool;
 
 	ObjectType* object;

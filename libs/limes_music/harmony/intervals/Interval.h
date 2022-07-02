@@ -87,7 +87,6 @@ namespace music
 class LIMES_EXPORT Interval
 {
 public:
-
 	/** Destructor. */
 	virtual ~Interval() = default;
 
@@ -295,7 +294,6 @@ public:
 	[[nodiscard]] static constexpr bool isValidQualityForKind (Quality quality, int kind) noexcept;
 
 private:
-
 	[[nodiscard]] constexpr bool intervalIsPerfectKind() const noexcept;
 
 	Quality quality { Quality::Major };

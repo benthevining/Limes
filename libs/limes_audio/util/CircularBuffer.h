@@ -30,7 +30,6 @@ template <Sample SampleType>
 class LIMES_EXPORT CircularBuffer final
 {
 public:
-
 	using Buffer = AudioBuffer<SampleType, 1>;
 
 	/** Creates a CircularBuffer with an initial size. */
@@ -74,7 +73,6 @@ public:
 	void clear();
 
 private:
-
 	ds::AbstractFIFO fifo;
 
 	Buffer storage;

@@ -45,7 +45,6 @@ class LIMES_EXPORT Matrix final
 	static_assert (Columns > 0);
 
 public:
-
 	using Row	 = std::array<ObjectType, Columns>;
 	using Column = std::array<ObjectType, Rows>;
 
@@ -106,7 +105,6 @@ public:
 	[[nodiscard]] auto getSubmatrix (size_t startingRow, size_t startingColumn) const noexcept;
 
 private:
-
 	std::array<Row, Rows> rows;
 };
 

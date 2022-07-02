@@ -39,7 +39,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT Square final : public TwoDShape<ValueType>
 {
 public:
-
 	using Rect = Rectangle<ValueType>;
 
 	/** Creates a square with the specified side length (in unspecified units). */
@@ -93,7 +92,6 @@ public:
 	///@}
 
 private:
-
 	ValueType side_length;
 };
 

@@ -47,7 +47,6 @@ struct LIMES_EXPORT ThreadedObjectWriter
 	LIMES_NON_MOVABLE (ThreadedObjectWriter)
 
 protected:
-
 	explicit ThreadedObjectWriter (ObjectType& obj)
 		: object (obj)
 	{
@@ -88,7 +87,6 @@ template <typename ObjectType, size_t totalNumThreads = 2>
 class LIMES_EXPORT ThreadSafeObject final
 {
 public:
-
 	/** The type of a reader accessor. */
 	using Reader = ThreadedObjectReader<ObjectType>;
 
@@ -130,7 +128,6 @@ public:
 	}
 
 private:
-
 	struct Writer_impl final : public Writer
 	{
 		explicit Writer_impl (ThreadSafeObject& tso, size_t threadIdx)
@@ -144,7 +141,6 @@ private:
 		}
 
 	private:
-
 		ThreadSafeObject& parent;
 	};
 

@@ -38,7 +38,6 @@ namespace memory
 class LIMES_EXPORT ReferenceCountedObject
 {
 public:
-
 	/** Increments the object's reference count.
 		@returns The new reference count, after the increment.
 	 */
@@ -61,7 +60,6 @@ public:
 	[[nodiscard]] int getRefCount() const noexcept;
 
 protected:
-
 	/** Creates the reference-counted object (with an initial ref count of zero). */
 	ReferenceCountedObject() = default;
 
@@ -81,7 +79,6 @@ protected:
 	virtual ~ReferenceCountedObject();
 
 private:
-
 	std::atomic<int> refCount { 0 };
 };
 
@@ -93,7 +90,6 @@ template <meta::inherits_from<ReferenceCountedObject> ObjectType>
 class LIMES_EXPORT ReferenceCountedObjectPtr final
 {
 public:
-
 	using ReferencedType = ObjectType;
 
 	/** Creates a pointer to a null object. */
@@ -265,7 +261,6 @@ public:
 	explicit operator bool() const noexcept { return referencedObject != nullptr; }
 
 private:
-
 	ReferencedType* referencedObject = nullptr;
 
 	void incIfNotNull() noexcept

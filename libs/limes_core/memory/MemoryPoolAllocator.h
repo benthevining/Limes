@@ -37,7 +37,6 @@ template <typename T, std::size_t MaxCapacity>
 class LIMES_EXPORT MemoryPoolAllocator final
 {
 public:
-
 	using pointer		  = T*;
 	using const_pointer	  = const T*;
 	using reference		  = T&;
@@ -120,7 +119,6 @@ public:
 	}
 
 private:
-
 	MemoryPool pool;
 };
 

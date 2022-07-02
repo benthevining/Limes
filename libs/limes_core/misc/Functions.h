@@ -93,7 +93,6 @@ template <Function Func>
 class LIMES_EXPORT CallDeferred final
 {
 public:
-
 	/** The constructor simply stores the function object, it does not execute it. */
 	constexpr explicit CallDeferred (Func&& function) noexcept
 		: func (std::move (function))
@@ -116,7 +115,6 @@ public:
 	LIMES_NON_MOVABLE (CallDeferred)
 
 private:
-
 	const Func func;
 };
 
@@ -128,7 +126,6 @@ template <Function Function1, Function Function2>
 class LIMES_EXPORT RAIICaller final
 {
 public:
-
 	constexpr explicit RAIICaller (Function1&& onConstruct, Function2&& onDestroy) noexcept (noexcept (onConstruct))
 		: deferredFunc (std::move (onDestroy))
 	{
@@ -150,7 +147,6 @@ public:
 	LIMES_NON_MOVABLE (RAIICaller)
 
 private:
-
 	const Function2 deferredFunc;
 };
 

@@ -58,7 +58,6 @@ template <typename... Types>
 class LIMES_EXPORT TypeList final
 {
 public:
-
 	/** You can't actually create an instance of one, %TypeLists are only static objects. */
 	TypeList() = delete;
 
@@ -372,7 +371,6 @@ template <>
 class LIMES_EXPORT TypeList<> final
 {
 public:
-
 	TypeList() = delete;
 
 	using TypeID = TypeList<>;

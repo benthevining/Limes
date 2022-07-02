@@ -48,7 +48,6 @@ namespace memory
 class LIMES_EXPORT MemoryPool final
 {
 public:
-
 	/** Creates a MemoryPool.
 		@param storageSizeBytes The total size of the preallocated memory the pool will own, in bytes. It is recommended for this to be a multiple of /c chunkSize .
 		@param chunkSize The size of the individual memory "chunks" that can be doled out as needed. It is recommended for this to be a divisor of /c storageSizeBytes .
@@ -146,7 +145,6 @@ public:
 	[[nodiscard]] const void* getMemoryRootLocation() const noexcept;
 
 private:
-
 	struct Chunk final
 	{
 		explicit Chunk (std::byte* ptr) noexcept;

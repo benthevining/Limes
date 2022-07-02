@@ -28,7 +28,6 @@ template <Sample SampleType>
 class LIMES_EXPORT PerlinNoise final
 {
 public:
-
 	PerlinNoise();
 
 	explicit PerlinNoise (int64_t randomSeed);
@@ -39,7 +38,6 @@ public:
 	[[nodiscard]] SampleType getNextSample (SampleType x, SampleType y = 0, SampleType z = 0);
 
 private:
-
 	std::vector<int> state;
 };
 

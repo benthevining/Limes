@@ -40,7 +40,6 @@ namespace midi
 class LIMES_EXPORT PitchbendMapper final
 {
 public:
-
 	/** Sets the range up and down in semitones.
 		If the pitchbend value is 0, each incoming note will be mapped to \c note-stDown , and if the pitchbend value is 127, each note will be mapped to \c note+stUp .
 	 */
@@ -69,7 +68,6 @@ public:
 	[[nodiscard]] float getAdjustedMidiPitch (float inputMidiPitch) const;
 
 private:
-
 	float rangeUp { 2.f }, rangeDown { 2.f };
 
 	int lastReceivedPitchbend { 64 };

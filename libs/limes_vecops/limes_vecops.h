@@ -1336,12 +1336,10 @@ LIMES_EXPORT [[nodiscard]] bool areDenormalsDisabled() noexcept;
 class LIMES_EXPORT ScopedNoDenormals final
 {
 public:
-
 	ScopedNoDenormals() noexcept;
 	~ScopedNoDenormals() noexcept;
 
 private:
-
 	const intptr_t fpsr;
 };
 
@@ -1374,12 +1372,10 @@ LIMES_EXPORT [[nodiscard]] bool isFlushToZeroEnabled() noexcept;
 class LIMES_EXPORT ScopedFlushToZero final
 {
 public:
-
 	ScopedFlushToZero() noexcept;
 	~ScopedFlushToZero() noexcept;
 
 private:
-
 	const intptr_t fpsr;
 };
 

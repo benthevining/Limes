@@ -87,9 +87,11 @@ struct LIMES_EXPORT Version final
 	/** Returns true if this version is newer than the other one. */
 	[[nodiscard]] constexpr bool operator> (const Version& other) const noexcept
 	{
-		if (major < other.major) return false;
+		if (major < other.major)
+			return false;
 
-		if (minor < other.minor) return false;
+		if (minor < other.minor)
+			return false;
 
 		return patch > other.patch;
 	}
@@ -97,9 +99,11 @@ struct LIMES_EXPORT Version final
 	/** Returns true if this version is older than the other one. */
 	[[nodiscard]] constexpr bool operator<(const Version& other) const noexcept
 	{
-		if (major > other.major) return false;
+		if (major > other.major)
+			return false;
 
-		if (minor > other.minor) return false;
+		if (minor > other.minor)
+			return false;
 
 		return patch < other.patch;
 	}
@@ -196,7 +200,6 @@ struct LIMES_EXPORT Version final
 	[[nodiscard]] std::string toString (char separator = '.') const;
 
 private:
-
 	int major { 0 }, minor { 0 }, patch { 1 };
 
 	//::limes::core::misc::proto::Version internal_data;

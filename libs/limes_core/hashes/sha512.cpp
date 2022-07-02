@@ -57,7 +57,7 @@ void SHA512::update (const unsigned char* data, std::size_t length)
 
 std::string SHA512::getHash()
 {
-	const unsigned block_nb = 1 + ((SHA384_512_BLOCK_SIZE - 17) < (m_len % SHA384_512_BLOCK_SIZE));
+	const unsigned block_nb = 1u + ((SHA384_512_BLOCK_SIZE - 17u) < (m_len % SHA384_512_BLOCK_SIZE));
 
 	const auto len_b  = (m_tot_len + m_len) << 3;
 	const auto pm_len = block_nb << 7;

@@ -69,7 +69,6 @@ enum class Type
 class LIMES_EXPORT Hasher
 {
 public:
-
 	/** Destructor. */
 	virtual ~Hasher() = default;
 

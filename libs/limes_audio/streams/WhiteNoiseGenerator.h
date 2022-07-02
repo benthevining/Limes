@@ -39,7 +39,6 @@ template <Sample SampleType>
 struct LIMES_EXPORT WhiteNoiseGenerator final : public SampleStream<SampleType>
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Constructs a white noise generator with a random seed. */
@@ -56,7 +55,6 @@ public:
 	LIMES_DEFAULT_COPYABLE (WhiteNoiseGenerator)
 
 private:
-
 	/** Returns the next white noise sample. */
 	[[nodiscard]] SampleType getNextSampleValue() noexcept;
 

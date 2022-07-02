@@ -36,7 +36,6 @@ namespace hash
 class LIMES_EXPORT SHA1 final : public Hasher  // cppcheck-suppress noConstructor
 {
 public:
-
 	/** Updates the internal state of the hasher with new data. */
 	void update (const unsigned char* data, std::size_t length) final;
 
@@ -44,7 +43,6 @@ public:
 	[[nodiscard]] std::string getHash() final;
 
 private:
-
 	void transform (const std::uint8_t* data);
 
 	void S_R0 (std::uint32_t v, std::uint32_t& w, std::uint32_t x, std::uint32_t y, std::uint32_t& z, std::uint32_t i) noexcept;

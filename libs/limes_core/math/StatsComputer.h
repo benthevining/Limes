@@ -38,7 +38,6 @@ template <Scalar T>
 class LIMES_EXPORT StatsComputer final
 {
 public:
-
 	/** You can access the type of input data using this typedef. */
 	using DataType = T;
 
@@ -102,7 +101,6 @@ public:
 	}
 
 private:
-
 	std::size_t numData { 0 };
 
 	double mu { 0. }, var { 0. }, m { 0. };

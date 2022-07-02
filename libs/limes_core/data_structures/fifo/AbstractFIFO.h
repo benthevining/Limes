@@ -41,7 +41,6 @@ namespace ds
 class LIMES_EXPORT AbstractFIFO final
 {
 public:
-
 	explicit AbstractFIFO (std::size_t initialSize);
 
 	LIMES_NON_COPYABLE (AbstractFIFO)
@@ -60,7 +59,6 @@ public:
 	class LIMES_EXPORT ScopedRead final
 	{
 	public:
-
 		explicit ScopedRead (AbstractFIFO& fifo, std::size_t num);
 
 		~ScopedRead() noexcept;
@@ -78,7 +76,6 @@ public:
 		}
 
 	private:
-
 		const std::size_t numObjects;
 
 		AbstractFIFO& fifoModel;
@@ -87,7 +84,6 @@ public:
 	class LIMES_EXPORT ScopedWrite final
 	{
 	public:
-
 		explicit ScopedWrite (AbstractFIFO& fifo, std::size_t num);
 
 		~ScopedWrite() noexcept;
@@ -105,7 +101,6 @@ public:
 		}
 
 	private:
-
 		const std::size_t numObjects;
 
 		AbstractFIFO& fifoModel;
@@ -116,7 +111,6 @@ public:
 	[[nodiscard]] ScopedWrite write (std::size_t num);
 
 private:
-
 	void prepareToWrite (std::size_t  numToWrite,
 						 std::size_t& startIndex1, std::size_t& blockSize1,
 						 std::size_t& startIndex2, std::size_t& blockSize2) const noexcept;

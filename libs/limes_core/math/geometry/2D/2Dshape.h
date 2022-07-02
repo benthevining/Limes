@@ -56,7 +56,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT TwoDShape
 {
 public:
-
 	/** Destructor. */
 	virtual ~TwoDShape() = default;
 

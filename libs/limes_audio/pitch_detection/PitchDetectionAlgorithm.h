@@ -34,7 +34,6 @@ template <Sample SampleType>
 class LIMES_EXPORT PitchDetectionAlgorithm
 {
 public:
-
 	virtual ~PitchDetectionAlgorithm() = default;
 
 	/** Convenience typedef for a vector of samples. */

@@ -36,7 +36,6 @@ template <typename T>
 class LIMES_EXPORT OptionalObject final
 {
 public:
-
 	/** You can access the type of the owned object with this typedef. */
 	using Type = T;
 
@@ -91,7 +90,6 @@ public:
 	[[nodiscard]] static consteval size_t getSize() noexcept;
 
 private:
-
 	void duplicate (const OptionalObject& other);
 
 	alignas (T) std::byte memory[sizeof (T)] {};

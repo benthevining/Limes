@@ -67,7 +67,6 @@ struct LIMES_EXPORT Oscillator : public SampleStream<SampleType>
 		[[nodiscard]] SampleType next (SampleType wrapLimit) noexcept;
 
 	private:
-
 		SampleType phase { 0 }, increment { 0 };
 	};
 };

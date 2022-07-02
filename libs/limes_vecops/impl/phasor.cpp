@@ -15,6 +15,7 @@
 #include <type_traits>
 #include <cmath>
 #include <limes_namespace.h>
+#include "./vecops_macros.h"
 
 #if LIMES_VECOPS_USE_VDSP
 #	include <Accelerate/Accelerate.h>

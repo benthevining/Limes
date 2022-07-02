@@ -47,7 +47,6 @@ namespace music
 class LIMES_EXPORT CompoundInterval final : public Interval
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a compound %interval with the given number of octaves and the given simple %interval component.
@@ -119,7 +118,6 @@ public:
 	[[nodiscard]] std::vector<double> getCents_JustIntonation() const final;
 
 private:
-
 	Interval interval;
 
 	int numOctaves { 0 };

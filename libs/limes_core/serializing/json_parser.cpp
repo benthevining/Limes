@@ -52,7 +52,6 @@ Node parseJSON (const std::string_view& jsonText)
 		}
 
 	private:
-
 		inline void skipWhitespace()
 		{
 			for (auto p = current;

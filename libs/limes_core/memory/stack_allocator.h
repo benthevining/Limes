@@ -39,7 +39,6 @@ template <class T, std::size_t N, std::size_t Align = alignof (std::max_align_t)
 class LIMES_EXPORT StackAllocator final
 {
 public:
-
 	using pointer		  = T*;
 	using const_pointer	  = const T*;
 	using reference		  = T&;
@@ -81,11 +80,9 @@ public:
 	friend class StackAllocator;
 
 private:
-
 	class stack_buffer final
 	{
 	public:
-
 		~stack_buffer() = default;
 
 		stack_buffer (const stack_buffer&)			  = delete;
@@ -105,7 +102,6 @@ private:
 		void reset() noexcept;
 
 	private:
-
 		[[nodiscard]] static std::size_t align_up (std::size_t n) noexcept;
 
 		[[nodiscard]] bool contains (std::byte* p) noexcept;

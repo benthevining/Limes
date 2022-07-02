@@ -35,7 +35,6 @@ template <typename ObjectType>
 class LIMES_EXPORT FIFO final
 {
 public:
-
 	explicit FIFO (std::size_t initialSize)
 		: model (initialSize)
 	{
@@ -129,7 +128,6 @@ public:
 	}
 
 private:
-
 	std::vector<ObjectType> storage;
 
 	AbstractFIFO model;

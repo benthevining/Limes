@@ -44,7 +44,6 @@ namespace files
 class LIMES_EXPORT File : public FilesystemEntry
 {
 public:
-
 	using FilesystemEntry::FilesystemEntry;
 
 	LIMES_DEFAULT_COPYABLE (File)
@@ -148,7 +147,6 @@ public:
 	[[nodiscard]] static File getCurrentModule();
 
 private:
-
 	[[nodiscard]] bool write_data (const char* const data, std::size_t numBytes, bool overwrite) const noexcept;
 };
 
@@ -166,7 +164,6 @@ private:
 class LIMES_EXPORT TempFile final : public File
 {
 public:
-
 	/** Creates a temporary %file with the specified filename.
 		The %file will be created on the filesystem when this object is constructed. It will be created in the %directory returned by \c Directory::getTempFileDirectory() .
 		@param filename The filename of the temporary %file.
@@ -193,7 +190,6 @@ public:
 	[[nodiscard]] static TempFile getNextFile();
 
 private:
-
 	bool shouldDelete { true };
 };
 

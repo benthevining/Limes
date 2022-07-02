@@ -38,7 +38,6 @@ namespace math
 class LIMES_EXPORT Random final
 {
 public:
-
 	/** The type of %random number generation engine being used internally. */
 	using EngineType = std::minstd_rand;
 
@@ -84,7 +83,6 @@ public:
 	[[nodiscard]] static Random& getSystem() noexcept;
 
 private:
-
 	EngineType engine;
 };
 

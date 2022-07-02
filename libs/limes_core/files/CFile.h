@@ -37,7 +37,6 @@ namespace files
 class LIMES_EXPORT CFile final
 {
 public:
-
 	/** Represents possible modes a file can be opened in. */
 	enum class Mode
 	{
@@ -104,7 +103,6 @@ public:
 	explicit operator bool() const noexcept;
 
 private:
-
 	std::FILE* ptr { nullptr };
 };
 

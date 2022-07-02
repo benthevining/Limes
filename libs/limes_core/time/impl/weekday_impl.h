@@ -238,8 +238,8 @@ constexpr std::string_view Weekday<StartWeekOnSunday>::getString (bool useShort)
 	{
 		if constexpr (StartWeekOnSunday)
 			return w;
-
-		return w + 1;
+		else
+			return w + 1;
 	}() % 7;
 
 	if (useShort)
@@ -253,8 +253,8 @@ constexpr typename Weekday<StartWeekOnSunday>::OtherWeekdayType Weekday<StartWee
 {
 	if constexpr (StartWeekOnSunday)
 		return OtherWeekdayType { (dayOfWeek - 1) % 7 };
-
-	return OtherWeekdayType { (dayOfWeek + 1) % 7 };
+	else
+		return OtherWeekdayType { (dayOfWeek + 1) % 7 };
 }
 
 template <bool StartWeekOnSunday>

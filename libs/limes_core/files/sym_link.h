@@ -35,7 +35,6 @@ class Directory;
 class LIMES_EXPORT SymLink final : public FilesystemEntry
 {
 public:
-
 	using FilesystemEntry::FilesystemEntry;
 
 	LIMES_DEFAULT_COPYABLE (SymLink)

@@ -42,7 +42,6 @@ using Char = std::uint32_t;
 class LIMES_EXPORT Pointer final
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a UTF-8 %pointer referring to the given text. */
@@ -136,7 +135,6 @@ public:
 	bool startsWith (const std::string_view& prefix) const;
 
 private:
-
 	const char* text { nullptr };
 };
 

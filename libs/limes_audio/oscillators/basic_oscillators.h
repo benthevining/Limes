@@ -70,7 +70,6 @@ struct LIMES_EXPORT Sine final : public Oscillator<SampleType>
 	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
-
 	typename Oscillator<SampleType>::Phase phase;
 	SampleType							   freq { 0 };
 };
@@ -102,7 +101,6 @@ struct LIMES_EXPORT Saw final : public Oscillator<SampleType>
 	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
-
 	typename Oscillator<SampleType>::Phase phase;
 	SampleType							   freq { 0 };
 };
@@ -134,7 +132,6 @@ struct LIMES_EXPORT Square final : public Oscillator<SampleType>
 	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
-
 	friend struct Triangle<SampleType>;
 
 	typename Oscillator<SampleType>::Phase phase;
@@ -168,7 +165,6 @@ struct LIMES_EXPORT Triangle final : public Oscillator<SampleType>
 	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
-
 	Square<SampleType> square;
 	SampleType		   sum { 1 };
 	SampleType		   freq { 0 };

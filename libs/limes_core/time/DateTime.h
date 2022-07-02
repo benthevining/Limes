@@ -38,7 +38,6 @@ namespace time
 class LIMES_EXPORT DateTime final
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a DateTime object representing midnight on January 1, year 0. */
@@ -116,7 +115,6 @@ public:
 	[[nodiscard]] LIMES_PURE_FUNCTION static DateTime getCompilation() noexcept;
 
 private:
-
 	Date date;
 	Time time;
 };

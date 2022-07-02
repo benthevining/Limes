@@ -40,7 +40,6 @@ template <Scalar SampleType>
 class LIMES_NO_EXPORT IPP_FFT final : public FFTImpl<SampleType>
 {
 public:
-
 	explicit IPP_FFT (int size);
 
 	~IPP_FFT() final;
@@ -49,7 +48,6 @@ public:
 	LIMES_DEFAULT_MOVABLE (IPP_FFT)
 
 private:
-
 	void forward (const SampleType* realIn, SampleType* realOut, SampleType* imagOut) noexcept final;
 
 	void forwardInterleaved (const SampleType* realIn, SampleType* complexOut) noexcept final;

@@ -50,7 +50,6 @@ template <Sample Sampletype>
 class LIMES_EXPORT Coeffecients final
 {
 public:
-
 	/** @name First-order filter creation */
 	///@{
 	/** Creates the coefficients for a first order low pass filter. */

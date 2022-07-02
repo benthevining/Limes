@@ -41,7 +41,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT Triangle final : public TwoDShape<ValueType>
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a triangle with all three side lengths explicitly specified. */
@@ -150,7 +149,6 @@ public:
 	[[nodiscard]] Triangle bisect (Side side = Side::base) const noexcept;
 
 private:
-
 	ValueType m_base, m_height, m_hypotenuse;
 };
 

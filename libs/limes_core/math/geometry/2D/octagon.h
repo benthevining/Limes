@@ -37,7 +37,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT Octagon final : public TwoDShape<ValueType>
 {
 public:
-
 	/** Creates an octagon with the specified side length (in unspecified units). */
 	explicit constexpr Octagon (ValueType sideLength) noexcept;
 
@@ -80,7 +79,6 @@ public:
 	[[nodiscard]] LIMES_PURE_FUNCTION static constexpr Angle<ValueType> exteriorAngle() noexcept;
 
 private:
-
 	ValueType side_length;
 };
 

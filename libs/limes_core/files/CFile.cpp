@@ -89,6 +89,7 @@ static inline auto pathToString (const Path& path)
 	const auto pathStr = pathCopy.make_preferred();
 
 #if LIMES_WINDOWS
+	// TODO: this function is deprecated, should replace it with MultiByteToWideCHar()
 	return std::wstring_convert<std::codecvt_utf8<wchar_t>> {}.to_bytes (pathStr);
 #else
 	return pathStr;

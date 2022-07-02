@@ -116,7 +116,6 @@ struct LIMES_EXPORT FileInfo final
 struct LIMES_EXPORT FileInfoList final
 {
 public:
-
 	LIMES_NON_COPYABLE (FileInfoList)
 	LIMES_NON_MOVABLE (FileInfoList)
 
@@ -173,7 +172,6 @@ public:
 	[[nodiscard]] memory::RawData loadFile (const std::string_view& fileName) const noexcept;
 
 private:
-
 	const FileInfo* const m_begin;
 	const FileInfo* const m_end;
 };

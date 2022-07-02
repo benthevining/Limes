@@ -449,11 +449,11 @@ std::vector<math::Fraction<int>> Interval::getJustRatios() const
 			switch (kind)
 			{
 				case (0) : return {
-					F {1, 1}
- };
+					F { 1, 1 }
+				};
 				case (2) : return {
-					F {128, 125}
- };
+					F { 128, 125 }
+				};
 			}
 		}
 		case (1) :
@@ -461,12 +461,12 @@ std::vector<math::Fraction<int>> Interval::getJustRatios() const
 			switch (kind)
 			{
 				case (0) : return {
-					F {25,	24  },
-					F { 2187, 2048}
- };
+					F { 25, 24 },
+					F { 2187, 2048 }
+				};
 				case (2) : return {
-					F {16, 15}
- };
+					F { 16, 15 }
+				};
 			}
 		}
 		case (2) :
@@ -474,14 +474,14 @@ std::vector<math::Fraction<int>> Interval::getJustRatios() const
 			switch (kind)
 			{
 				case (2) : return {
-					F {9,   8},
-					F { 10, 9}
- };
+					F { 9, 8 },
+					F { 10, 9 }
+				};
 				case (3) : return {
-					F {144,	 125	 },
-					F { 256,	 225	 },
-					F { 65536, 59049}
- };
+					F { 144, 125 },
+					F { 256, 225 },
+					F { 65536, 59049 }
+				};
 			}
 		}
 		case (3) :
@@ -489,16 +489,16 @@ std::vector<math::Fraction<int>> Interval::getJustRatios() const
 			switch (kind)
 			{
 				case (2) : return {
-					F {75,		64   },
-					F { 125,	 108	 },
-					F { 19,	16   },
-					F { 19683, 16384}
- };
+					F { 75, 64 },
+					F { 125, 108 },
+					F { 19, 16 },
+					F { 19683, 16384 }
+				};
 				case (3) : return {
-					F {6,   5 },
-					F { 19, 16},
-					F { 32, 27}
- };
+					F { 6, 5 },
+					F { 19, 16 },
+					F { 32, 27 }
+				};
 			}
 		}
 		case (4) :
@@ -506,14 +506,14 @@ std::vector<math::Fraction<int>> Interval::getJustRatios() const
 			switch (kind)
 			{
 				case (3) : return {
-					F {5,   4 },
-					F { 81, 64},
-					F { 9,  7 }
- };
+					F { 5, 4 },
+					F { 81, 64 },
+					F { 9, 7 }
+				};
 				case (4) : return {
-					F {32,	25  },
-					F { 8192, 6561}
- };
+					F { 32, 25 },
+					F { 8192, 6561 }
+				};
 			}
 		}
 		case (5) :
@@ -521,28 +521,28 @@ std::vector<math::Fraction<int>> Interval::getJustRatios() const
 			switch (kind)
 			{
 				case (3) : return {
-					F {125, 96},
-					F { 21, 16},
-					F { 64, 49}
- };
+					F { 125, 96 },
+					F { 21, 16 },
+					F { 64, 49 }
+				};
 				case (4) : return {
-					F {4, 3}
- };
+					F { 4, 3 }
+				};
 			}
 		}
 		case (6) :
 		{
 			return {
-				F {729,	 512},
-				F { 1024, 729},
-				F { 25,	18 },
-				F { 36,	25 },
-				F { 45,	32 },
-				F { 64,	45 },
-				F { 7,	   5	 },
-				F { 10,	7  },
-				F { 13,	9  },
-				F { 18,	13 }
+				F { 729, 512 },
+				F { 1024, 729 },
+				F { 25, 18 },
+				F { 36, 25 },
+				F { 45, 32 },
+				F { 64, 45 },
+				F { 7, 5 },
+				F { 10, 7 },
+				F { 13, 9 },
+				F { 18, 13 }
 			};
 		}
 		case (7) :
@@ -550,13 +550,13 @@ std::vector<math::Fraction<int>> Interval::getJustRatios() const
 			switch (kind)
 			{
 				case (5) : return {
-					F {3, 2}
- };
+					F { 3, 2 }
+				};
 				case (6) : return {
-					F {192, 125},
+					F { 192, 125 },
 					F { 32, 21 },
 					F { 49, 32 }
- };
+				};
 			}
 		}
 		case (8) :
@@ -564,14 +564,14 @@ std::vector<math::Fraction<int>> Interval::getJustRatios() const
 			switch (kind)
 			{
 				case (5) : return {
-					F {25,	16  },
-					F { 6561, 4096}
- };
+					F { 25, 16 },
+					F { 6561, 4096 }
+				};
 				case (6) : return {
-					F {8,	   5 },
-					F { 128, 81},
-					F { 11,	7 }
- };
+					F { 8, 5 },
+					F { 128, 81 },
+					F { 11, 7 }
+				};
 			}
 		}
 		case (9) :
@@ -579,15 +579,15 @@ std::vector<math::Fraction<int>> Interval::getJustRatios() const
 			switch (kind)
 			{
 				case (6) : return {
-					F {5,   3 },
+					F { 5, 3 },
 					F { 12, 7 },
-					F { 27, 16}
- };
+					F { 27, 16 }
+				};
 				case (7) : return {
-					F {128,	 75	},
-					F { 216,	 125	 },
-					F { 32772, 19683}
- };
+					F { 128, 75 },
+					F { 216, 125 },
+					F { 32772, 19683 }
+				};
 			}
 		}
 		case (10) :
@@ -595,15 +595,15 @@ std::vector<math::Fraction<int>> Interval::getJustRatios() const
 			switch (kind)
 			{
 				case (6) : return {
-					F {125,	 72	},
-					F { 225,	 128	 },
-					F { 7,	   4	 },
-					F { 59049, 32768}
- };
+					F { 125, 72 },
+					F { 225, 128 },
+					F { 7, 4 },
+					F { 59049, 32768 }
+				};
 				case (7) : return {
-					F {16, 9},
-					F { 9, 5}
- };
+					F { 16, 9 },
+					F { 9, 5 }
+				};
 			}
 		}
 		case (11) :
@@ -611,14 +611,14 @@ std::vector<math::Fraction<int>> Interval::getJustRatios() const
 			switch (kind)
 			{
 				case (7) : return {
-					F {15,	8 },
-					F { 50, 27}
- };
+					F { 15, 8 },
+					F { 50, 27 }
+				};
 				case (8) : return {
-					F {48,	25  },
-					F { 256,	 135 },
-					F { 4096, 2187}
- };
+					F { 48, 25 },
+					F { 256, 135 },
+					F { 4096, 2187 }
+				};
 			}
 		}
 		case (12) :
@@ -626,17 +626,17 @@ std::vector<math::Fraction<int>> Interval::getJustRatios() const
 			switch (kind)
 			{
 				case (7) : return {
-					F {125,	 64	},
-					F { 2025, 1024}
- };
+					F { 125, 64 },
+					F { 2025, 1024 }
+				};
 				case (8) : return {
-					F {2, 1}
- };
+					F { 2, 1 }
+				};
 			}
 		}
 		case (13) :
 			return {
-				F {25, 12}
+				F { 25, 12 }
 			};
 	}
 

@@ -86,7 +86,6 @@ template <Sample SampleType>
 class LIMES_EXPORT Analyzer final
 {
 public:
-
 	/** Convenience typedef for a vector of samples. */
 	using Buffer = AudioBuffer<SampleType, 1>;
 
@@ -145,7 +144,6 @@ public:
 	[[nodiscard]] int getLastInputPitch() const noexcept;
 
 private:
-
 	friend class Shifter<SampleType>;
 
 	void registerShifter (Shifter<SampleType>& shifter);
@@ -183,7 +181,6 @@ private:
 		void clearGrain();
 
 	private:
-
 		std::size_t origStartIndex { 0 }, grainSize { 0 };
 
 		Buffer samples;

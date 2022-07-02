@@ -36,7 +36,6 @@ namespace hash
 class LIMES_EXPORT MD5 final : public Hasher  // cppcheck-suppress noConstructor
 {
 public:
-
 	/** Updates the internal state of the hasher with new data. */
 	void update (const unsigned char* input, std::size_t length) final;
 
@@ -44,7 +43,6 @@ public:
 	[[nodiscard]] std::string getHash() final;
 
 private:
-
 	static constinit const unsigned md5_blocksize = 64;
 
 	void transform (const unsigned char block[md5_blocksize]) noexcept;

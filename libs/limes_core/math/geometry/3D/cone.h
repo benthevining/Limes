@@ -37,7 +37,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT Cone final : public ThreeDShape<ValueType>
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a %cone with the given radius (of its face) and height. */
@@ -89,7 +88,6 @@ public:
 	///@}
 
 private:
-
 	ValueType m_radius, m_height;
 };
 

@@ -55,7 +55,6 @@ namespace time
 class LIMES_EXPORT Month final
 {
 public:
-
 	/** Represents month names. */
 	enum class Name : int
 	{
@@ -168,7 +167,6 @@ public:
 	[[nodiscard]] LIMES_PURE_FUNCTION static consteval Month getCompilationMonth() noexcept;
 
 private:
-
 	int monthNum { 1 };
 };
 

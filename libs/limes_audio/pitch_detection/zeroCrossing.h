@@ -25,7 +25,6 @@ template <Sample SampleType>
 class LIMES_EXPORT ZeroCrossings final : public PitchDetectionAlgorithm<SampleType>
 {
 public:
-
 	/** Convenience typedef for the datatype returned by the algorithm. */
 	using Result = PitchData<SampleType>;
 
@@ -42,7 +41,6 @@ public:
 	void releaseResources() final;
 
 private:
-
 	Result data;
 
 	double samplerate { 0 };

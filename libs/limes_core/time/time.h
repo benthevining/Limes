@@ -38,7 +38,6 @@ namespace time
 class LIMES_EXPORT Time final
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a Time object representing midnight on the hour. */
@@ -117,7 +116,6 @@ public:
 	[[nodiscard]] LIMES_PURE_FUNCTION static Time getCompilationTime() noexcept;
 
 private:
-
 	Hour hour;
 	int	 minute { 0 };
 	int	 second { 0 };

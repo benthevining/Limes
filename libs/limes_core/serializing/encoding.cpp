@@ -182,7 +182,7 @@ std::string Node::getString (StringType stringType) const
 	{
 		case (StringType::JSON) : return getJsonString();
 		case (StringType::XML) : return getXMLString();
-		default : LIMES_UNREACHABLE;
+		default : LIMES_UNREACHABLE; return "";
 	}
 }
 

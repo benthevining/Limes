@@ -1045,7 +1045,8 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType rms (const DataType* c
 {
 	DataType t = DataType (0);
 
-	if (size == 0) return t;
+	if (size == 0)
+		return t;
 
 	for (auto i = 0; i < static_cast<int> (size); ++i)
 		t += (data[i] * data[i]);

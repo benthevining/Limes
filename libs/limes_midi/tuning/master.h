@@ -33,7 +33,6 @@ namespace midi::tuning
 class LIMES_EXPORT Master final
 {
 public:
-
 private:
 };
 

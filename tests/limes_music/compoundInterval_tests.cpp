@@ -79,7 +79,7 @@ TEST_CASE ("Compound interval tests", "[music][harmony]")
 	SECTION ("Constructor special cases")
 	{
 		const CompoundInterval interval1 {
-			1, Interval {8, Q::Perfect}
+			1, Interval { 8, Q::Perfect }
 		};
 
 		REQUIRE (interval1.getNumOctaves() == 2);
@@ -87,7 +87,7 @@ TEST_CASE ("Compound interval tests", "[music][harmony]")
 		REQUIRE (interval1.getSimpleInterval() == Interval());
 
 		const CompoundInterval interval2 {
-			1, Interval {8, Q::Augmented}
+			1, Interval { 8, Q::Augmented }
 		};
 
 		REQUIRE (interval2.getNumOctaves() == 2);
@@ -95,7 +95,7 @@ TEST_CASE ("Compound interval tests", "[music][harmony]")
 		REQUIRE (interval2.getSimpleInterval() == Interval { 0, Q::Augmented });
 
 		const CompoundInterval interval3 {
-			1, Interval {8, Q::Diminished}
+			1, Interval { 8, Q::Diminished }
 		};
 
 		REQUIRE (interval3.getNumOctaves() == 1);

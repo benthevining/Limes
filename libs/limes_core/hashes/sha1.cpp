@@ -34,10 +34,12 @@ void SHA1::update (const unsigned char* data, std::size_t length)
 {
 	std::size_t j = ((m_count[0] >> 3) & 0x3F);
 
-	if ((m_count[0] += (length << 3)) < (length << 3))
+	const auto lenShift3 = static_cast<std::uint32_t> (length << 3);
+
+	if (m_count[0] += lenShift3 < lenShift3)
 		++m_count[1];  // Overflow
 
-	m_count[1] += (length >> 29);
+	m_count[1] += static_cast<std::uint32_t> ((length >> 29));
 
 	std::size_t i = 0;
 
@@ -180,7 +182,7 @@ std::uint32_t SHA1::SHABLK (std::uint32_t i) noexcept
 																		 ^ m_block[(i + 8) & 15]
 																		 ^ m_block[(i + 2) & 15]
 																		 ^ m_block[i & 15],
-																	 1));
+																	 std::uint32_t (1)));
 }
 
 

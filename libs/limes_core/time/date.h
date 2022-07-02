@@ -41,7 +41,6 @@ namespace time
 class LIMES_EXPORT Date final
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a Date object representing January 1, year 0. */
@@ -131,7 +130,6 @@ public:
 	[[nodiscard]] LIMES_PURE_FUNCTION static Date getCompilationDate() noexcept;
 
 private:
-
 	Year  year;
 	Month month;
 	int	  dayOfMonth { 1 };

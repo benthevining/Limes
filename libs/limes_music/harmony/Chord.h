@@ -52,7 +52,6 @@ namespace music
 class LIMES_EXPORT Chord final
 {
 public:
-
 	/** @name Constructors */
 	///@{
 	/** Creates a %chord from a list of pitches.
@@ -106,7 +105,6 @@ public:
 	[[nodiscard]] Chord applyInterval (const Interval& interval, bool above);
 
 private:
-
 	std::vector<Pitch> pitches;
 };
 

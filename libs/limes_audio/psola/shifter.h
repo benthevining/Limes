@@ -40,7 +40,6 @@ template <Sample SampleType>
 class LIMES_EXPORT Shifter : public SampleStream<SampleType>
 {
 public:
-
 	/** Creates a Shifter. The shifter will reference the specified Analyzer for the duration of its lifetime; make sure you don't delete the Analyzer before the Shifter!
 	 */
 	explicit Shifter (Analyzer<SampleType>& analyzerToUse);
@@ -66,12 +65,10 @@ public:
 	void releaseResources();
 
 protected:
-
 	/** The parent Analyzer object that this shifter is a client of. */
 	Analyzer<SampleType>& analyzer;
 
 private:
-
 	friend class Analyzer<SampleType>;
 
 	[[nodiscard]] SampleType getNextSample() noexcept;
@@ -107,7 +104,6 @@ private:
 		void startNewGrain (AnalysisGrain& analysisGrainToUse) noexcept;
 
 	private:
-
 		AnalysisGrain* analysisGrain { nullptr };
 
 		int sampleIdx { 0 };

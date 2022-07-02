@@ -42,7 +42,6 @@ template <Scalar ValueType>
 class LIMES_EXPORT ThreeDShape
 {
 public:
-
 	/** Destructor. */
 	virtual ~ThreeDShape() = default;
 
