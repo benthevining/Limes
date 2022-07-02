@@ -123,7 +123,8 @@ bool Pointer::skipIfStartsWith (char charToMatch) noexcept
 
 bool Pointer::skipIfStartsWith (const std::string_view& textToMatch) noexcept
 {
-	const auto* matching = textToMatch.begin();
+	// NB - for some reason MSVC doesn't like auto here
+	const char* matching = textToMatch.begin();
 
 	if (const auto* p = text)
 	{
@@ -154,7 +155,8 @@ bool Pointer::startsWith (const std::string_view& prefix) const
 
 	if (const auto* p = text)
 	{
-		const auto* textToMatch = prefix.begin();
+		// NB - for some reason MSVC doesn't like auto here
+		const char* textToMatch = prefix.begin();
 
 		while (*textToMatch != 0)
 			if (*textToMatch++ != *p++)
