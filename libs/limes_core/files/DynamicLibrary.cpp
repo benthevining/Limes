@@ -122,9 +122,9 @@ void* DynamicLibrary::findFunction (const std::string_view& functionName) noexce
 			return nullptr;
 
 #if LIMES_WINDOWS
-		return ::GetProcAddress (static_cast<HMODULE> (handle), std::string (functionName).c_str());
+		return static_cast<void*> (::GetProcAddress (static_cast<HMODULE> (handle), functionName.data()));
 #else
-		return ::dlsym (handle, std::string (functionName).c_str());
+		return ::dlsym (handle, functionName.data());
 #endif
 	}
 	catch (std::exception&)
@@ -134,9 +134,7 @@ void* DynamicLibrary::findFunction (const std::string_view& functionName) noexce
 }
 
 #if LIMES_APPLE
-
 [[nodiscard]] static const char* pathname_for_handle (void* handle);
-
 #endif
 
 File DynamicLibrary::getFile() const
@@ -281,7 +279,7 @@ LIMES_DISABLE_ALL_COMPILER_WARNINGS
 
 LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
-#endif
+#endif /* LIMES_APPLE */
 
 }  // namespace files
 
