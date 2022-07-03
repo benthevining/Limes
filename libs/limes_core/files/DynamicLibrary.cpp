@@ -122,7 +122,7 @@ void* DynamicLibrary::findFunction (const std::string_view& functionName) noexce
 			return nullptr;
 
 #if LIMES_WINDOWS
-		return static_cast<void*> (::GetProcAddress (static_cast<HMODULE> (handle), functionName.data()));
+		return reinterpret_cast<void*> (::GetProcAddress (static_cast<HMODULE> (handle), functionName.data()));
 #else
 		return ::dlsym (handle, functionName.data());
 #endif
