@@ -102,7 +102,7 @@ public:
 	[[nodiscard]] bool operator!= (const Matrix& other) const noexcept;
 
 	/** Returns a new %matrix containing copies of a subset of this matrix's objects. */
-	[[nodiscard]] auto getSubmatrix (size_t startingRow, size_t startingColumn) const noexcept;
+	[[nodiscard]] consteval auto getSubmatrix (size_t startingRow, size_t startingColumn) const noexcept;
 
 private:
 	std::array<Row, Rows> rows;
@@ -215,7 +215,7 @@ bool Matrix<ObjectType, Rows, Columns>::operator!= (const Matrix& other) const n
 }
 
 template <typename ObjectType, size_t Rows, size_t Columns>
-auto Matrix<ObjectType, Rows, Columns>::getSubmatrix (size_t startingRow, size_t startingColumn) const noexcept
+consteval auto Matrix<ObjectType, Rows, Columns>::getSubmatrix (size_t startingRow, size_t startingColumn) const noexcept
 {
 	const auto NumRows	  = Rows - startingRow;
 	const auto NumColumns = Columns - startingColumn;
