@@ -40,7 +40,7 @@ cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
 project (
 	LimesPrograms
-	VERSION 4.8.1
+	VERSION 5.0.0
 	DESCRIPTION "Small command-line utility programs"
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"
 	LANGUAGES CXX)

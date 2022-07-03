@@ -1,5 +1,77 @@
 # Limes changelog
 
+## [5.0.0](https://github.com/benthevining/Limes/compare/v4.8.1...v5.0.0) (2022-07-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* The Google Protobuf compiler and library are now required dependencies.
+
+Precommit-Verified: 484b433a6aecfa2ec12fc45b4f13d9601f5c004f1a50ad913660e496c61170e5
+
+### Features
+
+* added a command-line argument parser class ([5f405ad](https://github.com/benthevining/Limes/commit/5f405ad8e732de2399c31d8b8945d88ed854e5da))
+* added a func to check if running under debugger; refactored assertion macros ([a9950f3](https://github.com/benthevining/Limes/commit/a9950f33a3ccb5a8aa397f2d42d1e62b74406752))
+* added a RawData class ([f0daf21](https://github.com/benthevining/Limes/commit/f0daf21c27482f0de14660dcc2eaf6770f6ab075))
+* added a SampleProcessor class ([5319b67](https://github.com/benthevining/Limes/commit/5319b6737e61c4f929f97dfe96cef3aab3088103))
+* added a stats accumulator and functions for converting numbers to roman numeral strings ([7d6d224](https://github.com/benthevining/Limes/commit/7d6d2243fc50d200375a4e835ac2d540ec460bca))
+* added a TypeList class ([bf0f702](https://github.com/benthevining/Limes/commit/bf0f702111d0ee74a37c62b8f403d51049295d01))
+* added an ArrayPointer class ([73335f3](https://github.com/benthevining/Limes/commit/73335f374686628cd38dd5f95fc0fd0d4c07841b))
+* added an AudioBuffer class. BREAKING CHANGE: Removed the limes_data_structures and limes_locale libraries; these classes have been moved into limes_core. ([064915b](https://github.com/benthevining/Limes/commit/064915bbc9d41af8470a2350833bc76c79d7e779))
+* added functions to get the path to the current executable ([102b857](https://github.com/benthevining/Limes/commit/102b857c64ac2a37c66965cd22f8d244e3619689))
+* added hashing functions ([7de6dab](https://github.com/benthevining/Limes/commit/7de6dab2a26e21eaef0f0be88515e50a9bfca901))
+* added macros to disable/enable all compiler warnings ([19a6d39](https://github.com/benthevining/Limes/commit/19a6d394e95c2f6132239d38b25694a0bf0790db))
+* added more FileUtil features ([f4d2a25](https://github.com/benthevining/Limes/commit/f4d2a256cc9dd39fe7514cf61a2fb93c10e9e4d2))
+* added more FileUtil features ([5b3706a](https://github.com/benthevining/Limes/commit/5b3706a0133fcd938818621de98feffbb3e0520c))
+* added more fileutil funcs ([0cc9957](https://github.com/benthevining/Limes/commit/0cc995747970eb3805102450df4934e48d81043f))
+* added more fileutil funcs ([bd144ab](https://github.com/benthevining/Limes/commit/bd144abadc5e86c5d2f067152b81f6ef8f27b063))
+* added more TypeList features ([11a49a1](https://github.com/benthevining/Limes/commit/11a49a14efff619cd242131236a43f18ce76321a))
+* added more vecops funcs ([d33df8f](https://github.com/benthevining/Limes/commit/d33df8fbe2bdc8ba19f8d63b27ff028049fca8e6))
+* added more vecops functions ([8acde2e](https://github.com/benthevining/Limes/commit/8acde2e1a8f40bd99653fc4b5444db8f9b10d245))
+* added Rakefile ([aead175](https://github.com/benthevining/Limes/commit/aead175c6d7e082332ac9df39fbe5842bd56fdf9))
+* added specializations of std::hash ([ecd8d67](https://github.com/benthevining/Limes/commit/ecd8d670c542678d742c54621213c07c0d270dfd))
+* added utility functions for converting between units of memory ([4cf0b80](https://github.com/benthevining/Limes/commit/4cf0b8018e0e3174697b15fb45473b7f0770a3f5))
+* expanding time library ([bc42723](https://github.com/benthevining/Limes/commit/bc42723f3a187db54a55546a35988ba230e94403))
+* initial commit of a JSON parser ([5eabf40](https://github.com/benthevining/Limes/commit/5eabf40935e2c24e906285389c6175ed746ac735))
+* initial commit of a JSON parser ([959b568](https://github.com/benthevining/Limes/commit/959b568a27d5a7fd824dca38f99a1aa1c7c5e372))
+* initial commit of fileutil functionality ([5bf42b7](https://github.com/benthevining/Limes/commit/5bf42b74ca275e23fdaae21b3442ce31c64ed802))
+* integrated RawData with binary builder ([b327136](https://github.com/benthevining/Limes/commit/b3271368ec587f098c52240f3f2ead74c68674ef))
+* made hash algos' implementations public as classes ([eaa3a91](https://github.com/benthevining/Limes/commit/eaa3a91acc284c9648463b4ff3e2a31670f65a61))
+* more Typelist functions ([7daad32](https://github.com/benthevining/Limes/commit/7daad32cd895d32d2db6bdc99e8ed458c89108ff))
+* more TypeList functions ([8c8649b](https://github.com/benthevining/Limes/commit/8c8649bb1fb1a90a1f35cfdb1c0acdb645746fa8))
+* updating ArgumentParser class to handle positional arguments ([cf61679](https://github.com/benthevining/Limes/commit/cf61679cf56e716f646806a7021ffa1f2ba8eafa))
+
+
+### Bug Fixes
+
+* **deps:** update dependency conventional-changelog-conventionalcommits to v5 ([5860889](https://github.com/benthevining/Limes/commit/586088927e8f9a0c016a4a4bc146270589a669cd))
+* **deps:** update dependency semantic-release to v19.0.3 ([42fff79](https://github.com/benthevining/Limes/commit/42fff796370a9cb083f2bd5e69e76dfe329cb473))
+* fixed a bunch of implicit conversion warnings ([d77e806](https://github.com/benthevining/Limes/commit/d77e80671f3d9fd9c946edbe5b230d728837920e))
+* fixed FileUtil compilation on Windows ([beca9e9](https://github.com/benthevining/Limes/commit/beca9e91c729d25fac5524a8472cb59c8abecf33))
+* fixed output of dir separator char on windows ([dc2313a](https://github.com/benthevining/Limes/commit/dc2313adc0e1af2b5d9c477df90f2a8d8d9d943e))
+* fixes for MSVC ([b7657f7](https://github.com/benthevining/Limes/commit/b7657f7b5f1504e682bb98c14b19060990c244f9))
+* fixes with executable path funcs ([944ef89](https://github.com/benthevining/Limes/commit/944ef89806c7130ec04951667c2152dee6626558))
+* fixing \'Microsoft cast\' error on Windows/Clang ([b580ae3](https://github.com/benthevining/Limes/commit/b580ae38f064c338ebabc06a6808352063292e2c))
+* fixing Clock concepts for Xcode ([d624cf1](https://github.com/benthevining/Limes/commit/d624cf16211f16957bee6342a085dd7d18d23ecd))
+* fixing dynamic library impl on Windows ([d1fa74f](https://github.com/benthevining/Limes/commit/d1fa74f9d256b0d14365cef51f3735477f54c2ef))
+* fixing JSON parser; removed protobuf dependency ([8e93413](https://github.com/benthevining/Limes/commit/8e934134a1529e1d3865f582894f30b3161b9950))
+* fixing Matrix::getSubmatrix() for GCC ([79a88ac](https://github.com/benthevining/Limes/commit/79a88acee95a2ed0957cd9d5f1e086967efefcdc))
+* fixing MIPP errors ([9b73381](https://github.com/benthevining/Limes/commit/9b733812aff2f13f70af57bd5293c7145cc8bf8b))
+* fixing windows DynamicLibrary ([5922c84](https://github.com/benthevining/Limes/commit/5922c84efb6b8557361bd0b73e00d44253056f98))
+* making sure docs/doc/ directory gets committed ([6af5de7](https://github.com/benthevining/Limes/commit/6af5de7e9b71e08294132b35bfdf55a2e3d7b913))
+* making things constexpr instead of constinit to please MSVC ([fc15421](https://github.com/benthevining/Limes/commit/fc154218ff7b576695b273b49014990dcfc2b691))
+* misc fixes ([ad2ca3e](https://github.com/benthevining/Limes/commit/ad2ca3ebef3428c56f934757ac353de96f6a3bbe))
+* more exec path func fixes ([92aa75e](https://github.com/benthevining/Limes/commit/92aa75e21fc74ef0a057bfabda1a2fbf2e8e3378))
+* MSVC fixes ([89480b4](https://github.com/benthevining/Limes/commit/89480b4b97ae66a7e23d98ab2ae62ce666ded46a))
+* removed ScopedLoopingThread class ([499a33b](https://github.com/benthevining/Limes/commit/499a33b20e238a1184b9f04da4f80ec7095c5cda))
+* removing find_package(Protobuf) call from CMake) ([8d0dce3](https://github.com/benthevining/Limes/commit/8d0dce3bd422868cb34c3b57902c8ceec6c826f8))
+* typo in DynamicLibrary ([52b0e4e](https://github.com/benthevining/Limes/commit/52b0e4eb3f8b030e35eb158cc878f4edbd118516))
+* typo in TypeTraits.h ([fcfe679](https://github.com/benthevining/Limes/commit/fcfe679668686143b78a743ecdfb533f3e91022c))
+
+
+* added Protobuf code generation. ([4a775a2](https://github.com/benthevining/Limes/commit/4a775a2cb0dca886c62b80275ce33b4e23a6f130))
+
 ### [4.8.1](http://github.com/benthevining/Limes/compare/v4.8.0...v4.8.1) (2022-05-02)
 
 
