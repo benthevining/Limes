@@ -101,9 +101,6 @@ public:
 	/** Returns true if not every object in both matrices is equivalent. */
 	[[nodiscard]] bool operator!= (const Matrix& other) const noexcept;
 
-	/** Returns a new %matrix containing copies of a subset of this matrix's objects. */
-	[[nodiscard]] consteval auto getSubmatrix (size_t startingRow, size_t startingColumn) const noexcept;
-
 private:
 	std::array<Row, Rows> rows;
 };
@@ -212,21 +209,6 @@ template <typename ObjectType, size_t Rows, size_t Columns>
 bool Matrix<ObjectType, Rows, Columns>::operator!= (const Matrix& other) const noexcept
 {
 	return ! (*this == other);
-}
-
-template <typename ObjectType, size_t Rows, size_t Columns>
-consteval auto Matrix<ObjectType, Rows, Columns>::getSubmatrix (size_t startingRow, size_t startingColumn) const noexcept
-{
-	const auto NumRows	  = Rows - startingRow;
-	const auto NumColumns = Columns - startingColumn;
-
-	Matrix<ObjectType, NumRows, NumColumns> newMatrix;
-
-	for (size_t row = startingRow, newRow = 0; row < startingRow + NumRows; ++row, ++newRow)
-		for (size_t column = startingColumn, newColumn = 0; column < startingColumn + NumColumns; ++column, ++newColumn)
-			newMatrix[newRow][newColumn] = rows[row][column];
-
-	return newMatrix;
 }
 
 }  // namespace math
