@@ -152,32 +152,14 @@ LIMES_REENABLE_ALL_COMPILER_WARNINGS
 #	error "Only one of LIMES_VECOPS_USE_VDSP, LIMES_VECOPS_USE_IPP, or LIMES_VECOPS_USE_MIPP may be set to 1!"
 #endif
 
-// clang-format off
-#if LIMES_VECOPS_USE_VDSP
-	LIMES_COMPILER_MESSAGE ("limes_vecops: using Apple vDSP backend")
-#elif LIMES_VECOPS_USE_IPP
-	LIMES_COMPILER_MESSAGE ("limes_vecops: using Intel IPP backend")
-#elif LIMES_VECOPS_USE_MIPP
-	LIMES_COMPILER_MESSAGE ("limes_vecops: using MIPP backend")
-#else
-	LIMES_COMPILER_MESSAGE ("limes_vecops: using fallback backend")
-#endif
-// clang-format on
-
 #pragma mark LIMES_VECOPS_USE_POMMIER
 
 /* --- LIMES_VECOPS_USE_POMMIER --- */
 
 // clang-format off
 #ifdef LIMES_VECOPS_USE_POMMIER
-#	if LIMES_VECOPS_USE_POMMIER
-#		if ! (LIMES_ARM_NEON || LIMES_SSE)
-#			error Pommier extensions cannot be used if neither NEON nor SSE is available!
-#		endif
-#	else
-#		if (LIMES_ARM_NEON || LIMES_SSE)
-			LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_POMMIER is off, but NEON or SSE are available!")
-#		endif
+#	if LIMES_VECOPS_USE_POMMIER && ! (LIMES_ARM_NEON || LIMES_SSE)
+#		error Pommier extensions cannot be used if neither NEON nor SSE is available!
 #	endif
 #endif
 // clang-format on
@@ -189,11 +171,5 @@ LIMES_REENABLE_ALL_COMPILER_WARNINGS
 #		define LIMES_VECOPS_USE_POMMIER 0
 #	endif
 #endif
-
-// clang-format off
-#if LIMES_VECOPS_USE_POMMIER
-	LIMES_COMPILER_MESSAGE ("limes_vecops: using Pommier SIMD functions")
-#endif
-// clang-format on
 
 /// @endcond

@@ -92,7 +92,7 @@ std::string getModulePath()
 
 				std::array<char, PATH_MAX> path {};
 
-				if (std::sscanf (buffer.data(), "%" PRIx64 "-%" PRIx64 " %s %" PRIx64 " %x:%x %u %s\n", &low, &high, perms.data(), &offset, &major, &minor, &inode, path) != 8)	 // NOLINT
+				if (std::sscanf (buffer.data(), "%" PRIx64 "-%" PRIx64 " %s %" PRIx64 " %x:%x %u %s\n", &low, &high, perms.data(), &offset, &major, &minor, &inode, path.data()) != 8)	// NOLINT
 					break;
 
 				const auto addr = reinterpret_cast<uintptr_t> (WAI_RETURN_ADDRESS());  // NOLINT

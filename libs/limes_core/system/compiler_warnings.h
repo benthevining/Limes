@@ -73,7 +73,7 @@
 
 /// @cond
 
-#if LIMES_CLANG || LIMES_GCC
+#if LIMES_CLANG || LIMES_GCC || LIMES_INTEL_COMPILER
 #	define LIMES_COMPILER_WARNING(text) \
 		_Pragma (LIMES_MAKE_STRING (GCC warning (text)))
 #endif
@@ -122,6 +122,7 @@
 		_Pragma ("GCC diagnostic ignored \"-Woverloaded-virtual\"")			   \
 		_Pragma ("GCC diagnostic ignored \"-Wnoexcept\"")					   \
 		_Pragma ("GCC diagnostic ignored \"-Wc99-extensions\"")				   \
+		_Pragma ("GCC diagnostic ignored \"-Wundef\"")
 // clang-format on
 
 #	define LIMES_REENABLE_ALL_COMPILER_WARNINGS \
