@@ -47,6 +47,12 @@ else
 	set_env_if_unset("CMAKE_GENERATOR", "Ninja Multi-Config")
 end
 
+if OS.windows? then
+	sudo = ""
+else
+	sudo = "sudo"
+end
+
 #
 
 task default: [:help]
@@ -61,7 +67,7 @@ task :init do
 	script_1 = File.join(limes_root, "scripts", "build_all.sh")
 	script_2 = File.join(limes_root, "scripts", "build_all_vecops_variants.sh")
 
-	File.chmod(777, script_1, script_2)
+	File.chmod(0777, script_1, script_2)
 
 	python_reqs = File.join(limes_root, "requirements.txt")
 
@@ -89,13 +95,16 @@ end
 
 desc "Run CMake install"
 task :install => :build do
-	exec "cmake --install %s --config %s" % [builds, config]
+	exec "%s cmake --install %s --config %s" % [sudo, builds, config]
 end
 
 desc "Run the uninstall script"
 task :uninstall do
 	script = File.join(builds, "uninstall.cmake")
-	exec "cmake -P %s" % [script]
+
+	if File.exist?(script) then
+		exec "cmake -P %s" % [script]
+	end
 end
 
 #

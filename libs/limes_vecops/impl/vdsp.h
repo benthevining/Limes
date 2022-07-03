@@ -111,6 +111,7 @@ template <>
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Arithmetic functions
 
 template <Scalar DataType, Integral SizeType>
@@ -138,6 +139,8 @@ void recipAndCopy (DataType* const dest, const DataType* const origData, SizeTyp
 	else
 		fb::recipAndCopy (dest, origData, size);
 }
+
+#pragma mark Addition
 
 /*-----  ADDITION  -----*/
 
@@ -193,6 +196,7 @@ void addAndCopy (DataType* const dest, const DataType* const origData, SizeType 
 		fb::addAndCopy (dest, origData, size, dataToAdd);
 }
 
+#pragma mark Subtraction
 
 /*-----  SUBTRACTION  -----*/
 
@@ -242,6 +246,7 @@ void subtractInvAndCopy (DataType* const dest, const DataType* const origData, S
 	fb::subtractInvAndCopy (dest, origData, size, constantToSubtractFrom);
 }
 
+#pragma mark Multiplication
 
 /*-----  MULTIPLICATION  -----*/
 
@@ -304,6 +309,7 @@ DataType dotProduct (const DataType* const vecA, const DataType* const vecB, Siz
 	return dotProd;
 }
 
+#pragma mark Division
 
 /*-----  DIVISION  -----*/
 
@@ -374,6 +380,7 @@ void divideInvAndCopy (DataType* const dest, const DataType* const origData, Siz
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Squaring functions
 
 template <Scalar DataType, Integral SizeType>
@@ -464,6 +471,7 @@ void cubeRootAndCopy (DataType* const dest, const DataType* const data, SizeType
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Sorting and ordering functions
 
 template <Scalar DataType, Integral SizeType>
@@ -527,6 +535,7 @@ void deinterleave (DataType* const * const output, const DataType* const interle
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Statistical functions
 
 template <Scalar DataType, Integral SizeType>
@@ -791,6 +800,7 @@ DataType standard_deviation (const DataType* const data, SizeType size) noexcept
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Trigonometric functions
 
 template <Scalar DataType, Integral SizeType>
@@ -805,6 +815,8 @@ void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut
 	else
 		fb::sinCos (data, size, sinesOut, cosinesOut);
 }
+
+#pragma mark Sine
 
 /* --- sin --- */
 
@@ -860,6 +872,8 @@ LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const da
 		fb::arcsineAndCopy (dest, data, size);
 }
 
+#pragma mark Cosine
+
 /* --- cos --- */
 
 template <Scalar DataType, Integral SizeType>
@@ -913,6 +927,8 @@ LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const dat
 	else
 		fb::arccosAndCopy (dest, data, size);
 }
+
+#pragma mark Tangent
 
 /* --- tan --- */
 
@@ -970,7 +986,10 @@ LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const dat
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Exponential and logarithmic functions
+
+#pragma mark Logarithms
 
 namespace log
 {
@@ -1054,6 +1073,8 @@ void base10AndCopy (DataType* const dest, const DataType* const data, SizeType s
 }
 
 }  // namespace log
+
+#pragma mark Exponents
 
 namespace exp
 {
@@ -1140,6 +1161,7 @@ void powAndCopy (DataType* const dest, const DataType* const data, const DataTyp
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Audio utility functions
 
 template <Scalar DataType, Integral SizeType1, Integral SizeType2>
@@ -1219,10 +1241,13 @@ void applyRampAndCopy (DataType* const dest, const DataType* const data, SizeTyp
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Windowing functions
 
 namespace window
 {
+
+#pragma mark Blackman
 
 /* --- Blackman --- */
 
@@ -1249,6 +1274,8 @@ void applyBlackmanAndCopy (DataType* const dest, const DataType* const data, Siz
 	fb::window::applyBlackmanAndCopy (dest, data, size);
 }
 
+#pragma mark Hamm
+
 /* --- Hamm --- */
 
 template <Scalar DataType, Integral SizeType>
@@ -1273,6 +1300,8 @@ void applyHammAndCopy (DataType* const dest, const DataType* const data, SizeTyp
 {
 	fb::window::applyHammAndCopy (dest, data, size);
 }
+
+#pragma mark Hanning
 
 /* --- Hanning --- */
 
@@ -1302,6 +1331,9 @@ void applyHanningAndCopy (DataType* const dest, const DataType* const data, Size
 }  // namespace window
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark -
+#pragma mark Complex conversions
 
 template <Scalar DataType, Integral SizeType>
 void polarToCartesian (DataType* const real, DataType* const imag, const DataType* const mag, const DataType* const phase, SizeType size) noexcept

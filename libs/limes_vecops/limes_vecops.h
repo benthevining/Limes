@@ -229,6 +229,7 @@ static void convert (DataType1* const dest, const DataType2* const source, SizeT
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Arithmetic functions
 
 /** @defgroup vec_arithmetic Arithmetic functions
@@ -253,6 +254,8 @@ template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void recipAndCopy (DataType* const dest, const DataType* const origData, SizeType size) noexcept;
 
 /** @} */
+
+#pragma mark Addition
 
 /*-----  ADDITION  -----*/
 
@@ -282,6 +285,8 @@ template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void addAndCopy (DataType* const dest, const DataType* const origData, SizeType size, const DataType* const dataToAdd) noexcept;
 
 /** @} */
+
+#pragma mark Subtraction
 
 /*-----  SUBTRACTION  -----*/
 
@@ -334,6 +339,8 @@ LIMES_EXPORT void subtractInvAndCopy (DataType* const dest, const DataType* cons
 
 /** @} */
 
+#pragma mark Multiplication
+
 /*-----  MULTIPLICATION  -----*/
 
 /** @defgroup vec_multiplication Multiplication
@@ -376,6 +383,8 @@ template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT [[nodiscard]] DataType dotProduct (const DataType* const vecA, const DataType* const vecB, SizeType size) noexcept;
 
 /** @} */
+
+#pragma mark Division
 
 /*-----  DIVISION  -----*/
 
@@ -430,6 +439,7 @@ LIMES_EXPORT void divideInvAndCopy (DataType* const dest, const DataType* const 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Squaring functions
 
 /** @defgroup vec_squaring Squaring functions
@@ -493,6 +503,7 @@ LIMES_EXPORT void cubeRootAndCopy (DataType* const dest, const DataType* const d
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Sorting and ordering functions
 
 /** @defgroup vec_sorting Sorting functions
@@ -573,6 +584,7 @@ LIMES_EXPORT void deinterleave (DataType* const * const output, const DataType* 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Statistical functions
 
 /** @defgroup vec_stats Statistical functions
@@ -772,6 +784,7 @@ LIMES_EXPORT [[nodiscard]] DataType rangeAbs (const DataType* const data, SizeTy
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Trigonometric functions
 
 /** @defgroup vec_trig Trigonometric functions
@@ -785,6 +798,8 @@ LIMES_EXPORT [[nodiscard]] DataType rangeAbs (const DataType* const data, SizeTy
  */
 template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut) noexcept;
+
+#pragma mark Sine
 
 /* --- sin --- */
 
@@ -823,6 +838,8 @@ LIMES_EXPORT void arcsineAndCopy (DataType* const dest, const DataType* const da
 
 /** @} */
 
+#pragma mark Cosine
+
 /* --- cos --- */
 
 /** @defgroup vec_cos Cosine functions
@@ -859,6 +876,8 @@ template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void arccosAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept;
 
 /** @} */
+
+#pragma mark Tangent
 
 /* --- tan --- */
 
@@ -899,7 +918,10 @@ LIMES_EXPORT void arctanAndCopy (DataType* const dest, const DataType* const dat
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Exponential and logarithmic functions
+
+#pragma mark Logarithms
 
 /** @defgroup vec_log Logarithmic functions
 	Logarithmic functions for vectors.
@@ -955,6 +977,8 @@ LIMES_EXPORT void base10AndCopy (DataType* const dest, const DataType* const dat
 /** @} */
 
 }  // namespace log
+
+#pragma mark Exponents
 
 /** @defgroup vec_exp Exponential functions
 	Exponential functions for vectors.
@@ -1012,6 +1036,7 @@ LIMES_EXPORT void powAndCopy (DataType* const dest, const DataType* const data, 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Audio utility functions
 
 /** @defgroup vec_audio Audio utility functions
@@ -1057,6 +1082,7 @@ LIMES_EXPORT void applyRampAndCopy (DataType* const dest, const DataType* const 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Windowing functions
 
 /** @defgroup vec_window Windowing functions
@@ -1069,6 +1095,8 @@ LIMES_EXPORT void applyRampAndCopy (DataType* const dest, const DataType* const 
  */
 namespace window
 {
+
+#pragma mark Blackman
 
 /* --- Blackman --- */
 
@@ -1101,6 +1129,8 @@ LIMES_EXPORT void applyBlackmanAndCopy (DataType* const dest, const DataType* co
 
 /** @} */
 
+#pragma mark Hamm
+
 /* --- Hamm --- */
 
 /** @defgroup vec_hamm Hamm windowing
@@ -1132,6 +1162,8 @@ LIMES_EXPORT void applyHammAndCopy (DataType* const dest, const DataType* const 
 
 /** @} */
 
+#pragma mark Hanning
+
 /* --- Hanning --- */
 
 /** @defgroup vec_hanning Hanning windowing
@@ -1162,6 +1194,8 @@ template <Scalar DataType, Integral SizeType>
 LIMES_EXPORT void applyHanningAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept;
 
 /** @} */
+
+#pragma mark General
 
 /* --- General --- */
 
@@ -1222,6 +1256,7 @@ LIMES_EXPORT void applyAndCopy (DataType* const dest, const DataType* const data
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Complex conversions
 
 /** @defgroup vec_complex Complex conversions
@@ -1304,6 +1339,7 @@ LIMES_EXPORT void cartesianInterleavedToMagnitudes (DataType* const mag, const D
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Floating point mode functions
 
 /** @defgroup vec_fpm Floating point mode functions
@@ -1385,6 +1421,7 @@ private:
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Implementation kind checking
 
 /** @defgroup vec_impl Implementation kind checking

@@ -91,6 +91,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void swap (DataType* const vecA, DataType* co
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Arithmetic functions
 
 /** @ingroup vec_arithmetic
@@ -124,6 +125,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void recipAndCopy (DataType* const dest, cons
 }
 
 /** @} */
+
+#pragma mark Addition
 
 /*-----  ADDITION  -----*/
 
@@ -160,6 +163,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void addAndCopy (DataType* const dest, const 
 }
 
 /** @} */
+
+#pragma mark Subtraction
 
 /*-----  SUBTRACTION  -----*/
 
@@ -211,6 +216,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void subtractInvAndCopy (DataType* const dest
 
 /** @} */
 
+#pragma mark Multiplication
+
 /*-----  MULTIPLICATION  -----*/
 
 /** @ingroup vec_multiplication
@@ -257,6 +264,8 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType dotProduct (const Data
 }
 
 /** @} */
+
+#pragma mark Division
 
 /*-----  DIVISION  -----*/
 
@@ -322,6 +331,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void divideInvAndCopy (DataType* const dest, 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Squaring functions
 
 /** @ingroup vec_squaring
@@ -441,6 +451,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void cubeRootAndCopy (DataType* const dest, c
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Sorting and ordering functions
 
 /** @ingroup vec_sorting
@@ -551,6 +562,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void deinterleave (DataType* const * const ou
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Statistical functions
 
 /** @ingroup vec_stats
@@ -753,6 +765,7 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType standard_deviation (co
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Trigonometric functions
 
 /** @ingroup vec_trig */
@@ -772,6 +785,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void sinCos (const DataType* const data, Size
 			cosinesOut[i] = std::sin (thisData);
 		}
 }
+
+#pragma mark Sine
 
 /* --- sin --- */
 
@@ -819,6 +834,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void arcsineAndCopy (DataType* const dest, co
 
 /** @} */
 
+#pragma mark Cosine
+
 /* --- cos --- */
 
 /** @ingroup vec_cos
@@ -865,6 +882,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void arccosAndCopy (DataType* const dest, con
 
 /** @} */
 
+#pragma mark Tangent
+
 /* --- tan --- */
 
 /** @ingroup vec_tan
@@ -903,7 +922,10 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void arctanAndCopy (DataType* const dest, con
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Exponential and logarithmic functions
+
+#pragma mark Logarithms
 
 /** This namespace contains implementations of the logarithmic functions in raw C++.
 	@ingroup vec_log
@@ -960,6 +982,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void base10AndCopy (DataType* const dest, con
 /** @} */
 
 }  // namespace log
+
+#pragma mark Exponents
 
 /** This namespace contains implementations of the exponential functions in raw C++.
 	@ingroup vec_exp
@@ -1019,6 +1043,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void powAndCopy (DataType* const dest, const 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Audio utility functions
 
 /** @ingroup vec_audio
@@ -1109,6 +1134,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyRampAndCopy (DataType* const dest, 
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
+#pragma mark -
 #pragma mark Windowing functions
 
 /** This namespace contains the implementations of the windowing functions in raw C++.
@@ -1163,6 +1189,8 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType getHanningSample (Size
 
 /// @cond internals
 
+#pragma mark Blackman
+
 /* --- Blackman --- */
 
 /** @ingroup vec_blackman
@@ -1192,6 +1220,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyBlackmanAndCopy (DataType* const de
 
 /** @} */
 
+#pragma mark Hamm
+
 /* --- Hamm --- */
 
 /** @ingroup vec_hamm
@@ -1220,6 +1250,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyHammAndCopy (DataType* const dest, 
 }
 
 /** @} */
+
+#pragma mark Hanning
 
 /* --- Hanning --- */
 
@@ -1255,6 +1287,9 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void applyHanningAndCopy (DataType* const des
 }  // namespace window
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark -
+#pragma mark Complex conversions
 
 /** This namespace contains implementation details for the vecops implementations in raw C++.
 	@ingroup limes_vecops

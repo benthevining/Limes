@@ -18,6 +18,8 @@
 /** @file
 	This file defines various compiler-specific utility macros.
 	@ingroup preprocessor
+
+	@todo macro to wrap #pragma mark
  */
 
 #ifdef DOXYGEN
