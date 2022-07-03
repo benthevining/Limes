@@ -206,7 +206,7 @@ if (LIMES_BUILD_PROGRAMS)
 endif ()
 
 if (LIMES_BUILD_JUCE)
-	add_subdirectory (juce)
+	# add_subdirectory (juce)
 elseif (LIMES_BUILD_EXAMPLE_PLUGINS)
 	message (
 		WARNING
