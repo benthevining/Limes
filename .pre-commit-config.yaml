@@ -83,7 +83,7 @@ repos:
 
   # license header
     - repo: https://github.com/Lucas-C/pre-commit-hooks
-      rev: v1.2.0
+      rev: v1.3.0
       hooks:
           - id: insert-license
             name: Insert license header in C++ source files
@@ -170,7 +170,7 @@ repos:
           - id: yapf
             args: [-i]
     - repo: https://github.com/PyCQA/pylint
-      rev: v2.14.3
+      rev: v2.14.4
       hooks:
           - id: pylint
             args: [--disable=bad-indentation, --disable=line-too-long, --disable=duplicate-code, --check-quote-consistency=yes, --max-args=5, --max-branches=15, --max-statements=55, --good-names=f]
