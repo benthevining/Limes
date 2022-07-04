@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include <limes_data_structures.h>
+#include <limes_audio.h>
 
 namespace limes::tests
 {
@@ -28,11 +28,11 @@ template <typename SampleType>
 }
 
 template <typename SampleType>
-[[nodiscard]] inline bool allSamplesAreEqual (const ds::vector<SampleType>& vecA, const ds::vector<SampleType>& vecB)
+[[nodiscard]] inline bool allSamplesAreEqual (const dsp::AudioBuffer<SampleType, 1>& vecA, const dsp::AudioBuffer<SampleType, 1>& vecB)
 {
-	const auto num = std::min (vecA.numObjects(), vecB.numObjects());
+	const auto num = std::min (vecA.getNumSamples(), vecB.getNumSamples());
 
-	return allSamplesAreEqual (vecA.data(), vecB.data(), num);
+	return allSamplesAreEqual (vecA.getReadPointer (0), vecB.getReadPointer (0), num);
 }
 
 template <typename SampleType>

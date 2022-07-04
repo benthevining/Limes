@@ -8,29 +8,6 @@
 #
 # ======================================================================================
 
-#[=======================================================================[.rst:
-
-limes_core
--------------------------
-
-The Limes core library of utilities.
-
-Targets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Limes::limes_core
-
-Install components
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_core_dev
-- limes_core_runtime
-- limes_core (group)
-
-Component name for find_package (Limes)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Core
-
-#]=======================================================================]
-
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)

@@ -31,17 +31,12 @@ project (
 
 enable_testing ()
 
-if (PROJECT_IS_TOP_LEVEL)
-	set (CMAKE_FIND_PACKAGE_PREFER_CONFIG ON)
+option (LIMES_TEST_SYSTEM_INSTALL "Test a version of Limes installed on the system"
+		"${PROJECT_IS_TOP_LEVEL}")
 
+if (LIMES_TEST_SYSTEM_INSTALL)
 	find_package (Limes "${PROJECT_VERSION}" EXACT REQUIRED CONFIG COMPONENTS Libs)
-
-	list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../cmake")
 endif ()
-
-include (OrangesDefaultTarget)
-include (OrangesDefaultWarnings)
-include (OrangesAllIntegrations)
 
 find_package (Catch2 3 REQUIRED)
 
@@ -58,10 +53,9 @@ target_link_libraries (
 	LimesTests
 	PRIVATE # cmake-format: sortable
 			Catch2::Catch2WithMain Limes::Limes Oranges::OrangesUnityBuild
-			Oranges::OrangesDefaultWarnings Oranges::OrangesAllIntegrations)
+			Oranges::OrangesDefaultWarnings)
 
 add_subdirectory (limes_core)
-add_subdirectory (limes_data_structures)
 add_subdirectory (limes_music)
 add_subdirectory (limes_audio)
 
@@ -71,7 +65,7 @@ source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${tests_sources})
 
 add_executable (Limes::LimesTests ALIAS LimesTests)
 
-foreach (tag IN ITEMS core audio music data_structures)
+foreach (tag IN ITEMS core audio music)
 	add_test (NAME "Limes.${tag}" COMMAND Limes::LimesTests "[${tag}]" --warn NoAssertions --order
 										  rand --colour-mode ansi --verbosity high)
 

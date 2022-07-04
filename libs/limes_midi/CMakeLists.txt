@@ -8,33 +8,6 @@
 #
 # ======================================================================================
 
-#[=======================================================================[.rst:
-
-limes_midi
--------------------------
-
-The Limes library of utilities for working with MIDI.
-
-Dependencies
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_core
-
-Targets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Limes::limes_midi
-
-Install components
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_midi_dev
-- limes_midi_runtime
-- limes_midi (group)
-
-Component name for find_package (Limes)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- MIDI
-
-#]=======================================================================]
-
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)

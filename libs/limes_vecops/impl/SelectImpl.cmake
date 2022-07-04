@@ -112,12 +112,12 @@ if (LIMES_USE_VDSP
 		NOT (LIMES_USE_IPP OR LIMES_USE_MIPP OR LIMES_USE_VECOPS_FALLBACK)))
 # cmake-format: on
 
-	find_package (Accelerate MODULE COMPONENTS vDSP vForce BLAS)
+	find_package (Accelerate MODULE)
 
 	set_package_properties (Accelerate PROPERTIES TYPE RECOMMENDED
 							PURPOSE "Apple's accelerated vector math library")
 
-	if (TARGET Accelerate::Accelerate)
+	if (Accelerate_FOUND AND TARGET Accelerate::Accelerate)
 		target_link_libraries (limes_vecops PUBLIC Accelerate::Accelerate)
 
 		__limes_vecops_impl_set_properties (VDSP)
@@ -140,7 +140,7 @@ if (LIMES_USE_IPP
 	set_package_properties (IPP PROPERTIES TYPE RECOMMENDED
 							PURPOSE "Intel's accelerated vector math library")
 
-	if (TARGET IPP::IPP)
+	if (IPP_FOUND AND TARGET IPP::IPP)
 		target_link_libraries (limes_vecops PUBLIC IPP::IPP)
 
 		__limes_vecops_impl_set_properties (IPP)

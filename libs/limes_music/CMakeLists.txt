@@ -8,33 +8,6 @@
 #
 # ======================================================================================
 
-#[=======================================================================[.rst:
-
-limes_music
--------------------------
-
-The Limes library of utilities for working with musical and music-theory related concepts.
-
-Dependencies
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_core
-
-Targets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Limes::limes_music
-
-Install components
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_music_dev
-- limes_music_runtime
-- limes_music (group)
-
-Component name for find_package (Limes)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Music
-
-#]=======================================================================]
-
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)

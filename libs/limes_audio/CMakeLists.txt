@@ -8,33 +8,6 @@
 #
 # ======================================================================================
 
-#[=======================================================================[.rst:
-
-limes_audio
--------------------------
-
-The Limes library of utilities for working with realtime audio.
-
-Dependencies
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_vecops
-
-Targets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Limes::limes_audio
-
-Install components
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_audio_dev
-- limes_audio_runtime
-- limes_audio (group)
-
-Component name for find_package (Limes)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Audio
-
-#]=======================================================================]
-
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)

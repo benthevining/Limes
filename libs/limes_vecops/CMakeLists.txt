@@ -8,59 +8,6 @@
 #
 # ======================================================================================
 
-#[=======================================================================[.rst:
-
-limes_vecops
--------------------------
-
-A vector operations library wrapping various platform- and vendor-specific high-performance APIs.
-
-One of the following backends can be used for this library's functions:
-- Apple vDSP (Accelerate framework)
-- Intel IPP
-- MIPP
-- Plain C++ fallback
-
-This library also provides a FFT class, which can use FFTW as its backend, or else uses the same backend as the functions.
-
-Dependencies
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_core
-
-Options
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- LIMES_USE_VDSP
-- LIMES_USE_IPP
-- LIMES_USE_MIPP
-- LIMES_USE_VECOPS_FALLBACK
-- LIMES_USE_POMMIER
-- LIMES_USE_FFTW
-
-Cache variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- LIMES_VECOPS_BACKEND=<vDSP|IPP|MIPP|Fallback>
-
-Targets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Limes::limes_vecops
-
-Global properties
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- LIMES_VECOPS_IMPLEMENTATION : string name of the vecops implementation being used
-- LIMES_FFT_IMPLEMENTATION : string name of the FFT implementation being used
-
-Install components
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_vecops_dev
-- limes_vecops_runtime
-- limes_vecops (group)
-
-Component name for find_package (Limes)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Vecops
-
-#]=======================================================================]
-
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)

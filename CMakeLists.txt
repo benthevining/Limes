@@ -8,107 +8,6 @@
 #
 # ======================================================================================
 
-#[=======================================================================[.rst:
-
-Limes
--------------------------
-
-The Limes library.
-
-Options
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- LIMES_USE_VDSP
-- LIMES_USE_IPP
-- LIMES_USE_MIPP
-- LIMES_USE_VECOPS_FALLBACK
-- LIMES_USE_POMMIER
-- LIMES_USE_FFTW
-- LIMES_MINIMAL
-- LIMES_BUILD_PROGRAMS
-- LIMES_BUILD_TESTS
-- LIMES_BUILD_DOCS
-- LIMES_BUILD_JUCE
-- LIMES_BUILD_EXAMPLE_PLUGINS
-
-Cache variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- LIMES_VECOPS_BACKEND=<vDSP|IPP|MIPP|Fallback>
-- LIMES_INSTALL_DEST - Directory below INSTALL_PREFIX where the Limes CMake package files will be installed to
-
-Required packages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Oranges
-- Protobuf
-
-Targets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Limes::limes_core
-- Limes::limes_vecops
-- Limes::limes_music
-- Limes::limes_audio
-- Limes::limes_midi
-- Limes::BinaryBuilder
-- Limes::Limes
-
-Install components
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_vecops_dev
-- limes_vecops_runtime
-- limes_music_dev
-- limes_music_runtime
-- limes_core_dev
-- limes_core_runtime
-- limes_audio_dev
-- limes_audio_runtime
-- limes_midi_runtime
-- limes_midi_dev
-- limes_libs_dev
-- limes_libs_runtime
-- limes_binary_builder_dev
-- limes_binary_builder_runtime
-- limes_programs_dev
-- limes_programs_runtime
-- limes_dev
-- limes_runtime
-- limes_doc_pdf
-- limes_doc_html
-- limes_doc_man
-- limes_docs
-
-Install component groups
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_vecops
-- limes_music
-- limes_core
-- limes_audio
-- limes_midi
-- limes_libs
-- limes_binary_builder
-- limes_programs
-- limes_doxy_docs
-- limes_sphinx_docs
-- limes
-
-Install types
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- User
-- Developer
-
-find_package components
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Audio
-- Core
-- Music
-- Vecops
-- MIDI
-- BinaryBuilder
-- FileUtil
-- Libs
-- Programs
-- All
-
-#]=======================================================================]
-
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
@@ -206,7 +105,7 @@ if (LIMES_BUILD_PROGRAMS)
 endif ()
 
 if (LIMES_BUILD_JUCE)
-	# add_subdirectory (juce)
+	add_subdirectory (juce)
 elseif (LIMES_BUILD_EXAMPLE_PLUGINS)
 	message (
 		WARNING
@@ -217,7 +116,7 @@ add_feature_info ("JUCE bindings" "${LIMES_BUILD_JUCE}"
 				  "Build the JUCE API bindings for the Limes libraries")
 
 if (LIMES_BUILD_TESTS)
-	# add_subdirectory (tests)
+	add_subdirectory (tests)
 endif ()
 
 add_feature_info ("Unit tests" "${LIMES_BUILD_TESTS}" "Build the Limes unit test runner")

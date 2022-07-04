@@ -11,32 +11,31 @@
  */
 
 #include <limes_audio.h>
-#include <limes_data_structures.h>
 #include <tests_config.h>
-#include "audio_test_utils.h"
+#include "./audio_test_utils.h"
 #include <catch2/catch_template_test_macros.hpp>
 #include <catch2/catch_approx.hpp>
 
 TEMPLATE_TEST_CASE ("Circular buffer", "[audio]", float, double)
 {
-	limes::ds::vector<TestType> origStorage, circOutput;
+	limes::dsp::AudioBuffer<TestType, 1> origStorage, circOutput;
 
 	limes::dsp::CircularBuffer<TestType> circularBuffer;
 
 	limes::dsp::WhiteNoiseGenerator<TestType> noise;
 
-	auto resizeAllBuffers = [&circularBuffer, &origStorage, &circOutput] (int newSize)
+	auto resizeAllBuffers = [&circularBuffer, &origStorage, &circOutput] (std::size_t newSize)
 	{
 		circularBuffer.resize (newSize);
-		origStorage.reserveAndZero (newSize);
-		circOutput.reserveAndZero (newSize);
+		origStorage.resize (newSize);
+		circOutput.resize (newSize);
 	};
 
 	for (const auto numSamples : limes::tests::test_blocksizes)
 	{
 		DYNAMIC_SECTION ("Blocksize: " << numSamples)
 		{
-			resizeAllBuffers (numSamples);
+			resizeAllBuffers (static_cast<std::size_t> (numSamples));
 
 			noise.getSamples (origStorage);
 
@@ -61,9 +60,12 @@ TEMPLATE_TEST_CASE ("Circular buffer", "[audio]", float, double)
 			{
 				circularBuffer.storeSamples (origStorage);
 
-				circularBuffer.getSamples (circOutput.data(), halfNumSamples);
+				circularBuffer.getSamples (circOutput.getWritePointer (0),
+										   static_cast<std::size_t> (halfNumSamples));
 
-				REQUIRE (limes::tests::allSamplesAreEqual (circOutput.data(), origStorage.data(), halfNumSamples));
+				REQUIRE (limes::tests::allSamplesAreEqual (circOutput.getReadPointer (0),
+														   origStorage.getReadPointer (0),
+														   halfNumSamples));
 			}
 
 			SECTION ("Retrieve more samples than are left in circ buffer")
@@ -75,10 +77,10 @@ TEMPLATE_TEST_CASE ("Circular buffer", "[audio]", float, double)
 
 				circularBuffer.getSamples (circOutput);
 
-				REQUIRE (limes::tests::allSamplesAreZero (circOutput.data(), halfNumSamples));
+				REQUIRE (limes::tests::allSamplesAreZero (circOutput.getReadPointer (0), halfNumSamples));
 
-				REQUIRE (limes::tests::allSamplesAreEqual (circOutput.data() + halfNumSamples,
-														   origStorage.data() + halfNumSamples,
+				REQUIRE (limes::tests::allSamplesAreEqual (circOutput.getReadPointer (0) + halfNumSamples,
+														   origStorage.getReadPointer (0) + halfNumSamples,
 														   halfNumSamples));
 			}
 
@@ -86,7 +88,7 @@ TEMPLATE_TEST_CASE ("Circular buffer", "[audio]", float, double)
 			{
 				circularBuffer.storeSamples (origStorage);
 
-				circularBuffer.resize (halfNumSamples);
+				circularBuffer.resize (static_cast<std::size_t> (halfNumSamples));
 
 				REQUIRE (circularBuffer.getCapacity() >= halfNumSamples);
 				REQUIRE (circularBuffer.getNumStoredSamples() == 0);

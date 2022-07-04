@@ -8,29 +8,6 @@
 #
 # ======================================================================================
 
-#[=======================================================================[.rst:
-
-Limes libraries
--------------------------
-
-The Limes collection of C++ libraries.
-
-Targets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Limes::Limes
-
-Install components
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- limes_libs_dev
-- limes_libs_runtime
-- limes_libs (group)
-
-Component name for find_package (Limes)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-- Libs
-
-#]=======================================================================]
-
 include_guard (GLOBAL)
 
 cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
@@ -91,15 +68,8 @@ add_subdirectory (limes_midi)
 add_subdirectory (limes_audio)
 add_subdirectory (limes_music)
 
-target_link_libraries (
-	Limes
-	INTERFACE Limes::limes_core
-			  Limes::limes_audio
-			  Limes::limes_data_structures
-			  Limes::limes_locale
-			  Limes::limes_midi
-			  Limes::limes_music
-			  Limes::limes_vecops)
+target_link_libraries (Limes INTERFACE Limes::limes_core Limes::limes_audio Limes::limes_midi
+									   Limes::limes_music Limes::limes_vecops)
 
 target_sources (Limes INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/limes.h>
 								$<INSTALL_INTERFACE:${LIMES_INSTALL_INCLUDE_DIR}/limes.h>)

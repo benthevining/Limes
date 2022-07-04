@@ -37,8 +37,8 @@ option (LIMES_INTERNAL_DOCS
 
 include (OrangesGraphviz)
 
-oranges_add_graphviz_target (TARGET LimesDependencyGraph SOURCE_DIR "${Limes_SOURCE_DIR}"
-							 COPY_GRAPH_TO "${Limes_SOURCE_DIR}/util/deps_graph.png")
+# oranges_add_graphviz_target (TARGET LimesDependencyGraph SOURCE_DIR "${Limes_SOURCE_DIR}"
+# COPY_GRAPH_TO "${Limes_SOURCE_DIR}/util/deps_graph.png")
 
 #
 
@@ -108,7 +108,7 @@ unset (all_flag)
 unset (configured_doxyfile)
 unset (configured_script)
 
-add_dependencies (LimesDocs LimesDependencyGraph)
+# add_dependencies (LimesDocs LimesDependencyGraph)
 
 set_target_properties (LimesDocs PROPERTIES FOLDER Utility LABELS "Limes;Utility;Documentation"
 											XCODE_GENERATE_SCHEME OFF)
