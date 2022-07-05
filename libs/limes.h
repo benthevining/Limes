@@ -78,7 +78,7 @@
 	@todo Fix dependency graph build
 	@todo Docs Docker container
 	@todo Review int vs size_t APIs
-	@todo Integrate documentation of CMake modules into Doxygen
+	@todo Write documentation for LimesBinaryBuilder.cmake
 	@todo Android cross compile
 	@todo libharu wrapper for PDFs
 	@todo libUSB wrapper

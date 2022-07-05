@@ -12,62 +12,14 @@
 
 #include "../../limes_namespace.h"
 #include "./Dimensions.h"
-#include <limes_platform.h>
 #include <string>
 #include <sstream>
-#include "../../system/limes_assert.h"
+#include "../../math/mathFunctions.h"
 
 LIMES_BEGIN_NAMESPACE
 
 namespace ds
 {
-
-Dimensions& Dimensions::setWidth (int newWidth)
-{
-	LIMES_ASSERT (newWidth > 0);
-	width = newWidth;
-	return *this;
-}
-
-Dimensions& Dimensions::setHeight (int newHeight)
-{
-	LIMES_ASSERT (newHeight > 0);
-	height = newHeight;
-	return *this;
-}
-
-bool Dimensions::operator== (const Dimensions& other) const noexcept
-{
-	return width == other.width && height == other.height;
-}
-
-bool Dimensions::isValid() const noexcept
-{
-	return width > 0 && height > 0;
-}
-
-int Dimensions::getWidth() const noexcept
-{
-	return width;
-}
-
-int Dimensions::getHeight() const noexcept
-{
-	return height;
-}
-
-double Dimensions::getAspectRatio() const noexcept
-{
-	if (! isValid())
-		return 0.;
-
-	return static_cast<double> (width) / static_cast<double> (height);
-}
-
-bool Dimensions::hasSameAspectRatioAs (const Dimensions& other) const noexcept
-{
-	return getAspectRatio() == other.getAspectRatio();
-}
 
 std::string Dimensions::toString() const noexcept
 {
@@ -81,3 +33,13 @@ std::string Dimensions::toString() const noexcept
 }  // namespace ds
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+
+size_t hash<limes::ds::Dimensions>::operator() (const limes::ds::Dimensions& d) const noexcept
+{
+	return static_cast<size_t> (::limes::math::szudzikPair (d.getWidth(), d.getHeight()));
+}
+
+}  // namespace std

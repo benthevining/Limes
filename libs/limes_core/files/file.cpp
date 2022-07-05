@@ -28,6 +28,7 @@
 #include <cstdio>
 #include <atomic>
 #include "../system/limes_assert.h"
+#include "../system/compiler_warnings.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -259,8 +260,16 @@ CFile File::getCfile (CFile::Mode mode) const noexcept
 
 #pragma mark TempFile
 
-TempFile::TempFile (const std::string_view& filename, bool destroyOnDelete)
-	: File (Directory::getTempFileDirectory().getAbsolutePath() / filename), shouldDelete (destroyOnDelete)
+static inline Path createTmpFilepath (const Path& inputPath)
+{
+	if (inputPath.is_absolute())
+		return inputPath;
+
+	return Directory::getTempFileDirectory().getAbsolutePath() / inputPath;
+}
+
+TempFile::TempFile (const Path& filepath, bool destroyOnDelete)
+	: File (createTmpFilepath (filepath)), shouldDelete (destroyOnDelete)
 {
 	createIfDoesntExist();
 }
@@ -298,14 +307,12 @@ TempFile& TempFile::operator= (TempFile&& other) noexcept
 	return *this;
 }
 
-static std::atomic<int> tempFileCounter = 0;
-
+LIMES_DISABLE_ALL_COMPILER_WARNINGS
 TempFile TempFile::getNextFile()
 {
-	const auto name = std::to_string (tempFileCounter++) + ".tmp";
-
-	return TempFile { name, true };
+	return TempFile { Path { std::tmpnam (nullptr) }, true };
 }
+LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
 }  // namespace files
 

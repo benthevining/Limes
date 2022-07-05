@@ -30,7 +30,7 @@ namespace dsp::osc
 	@ingroup oscillators
 
 	@todo Detunable class that actually owns the oscillators
-	@toto supersaw class
+	@todo supersaw class
  */
 class LIMES_EXPORT DetunableModel final
 {

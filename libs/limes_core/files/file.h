@@ -159,18 +159,20 @@ private:
 	The temporary %file will reside in the %directory returned by \c Directory::getTempFileDirectory() .
 	If you don't care about filenames and just need a temporary %file to work with, use the static method \c getNextFile() .
 	@ingroup files
-	@see Directory::getTempFileDirectory()
+	@see Directory::getTempFileDirectory(), CFile::createTempFile()
  */
 class LIMES_EXPORT TempFile final : public File
 {
 public:
 	/** Creates a temporary %file with the specified filename.
-		The %file will be created on the filesystem when this object is constructed. It will be created in the %directory returned by \c Directory::getTempFileDirectory() .
+		The %file will be created on the filesystem when this object is constructed.
+		If \c filepath is a relative path, then the %directory returned by \c Directory::getTempFileDirectory() will be prepended to this path.
+
 		@param filename The filename of the temporary %file.
 		@param destroyOnDelete If true, the %file will be deleted from the filesystem when this object is destroyed.
 	 */
-	explicit TempFile (const std::string_view& filename,
-					   bool					   destroyOnDelete = true);
+	explicit TempFile (const Path& filepath,
+					   bool		   destroyOnDelete = true);
 
 	/** The temporary %file will be deleted from the filesystem when this object is destroyed, if this object was constructed with the \c destroyOnDelete parameter being \c true . */
 	~TempFile() final;
@@ -186,7 +188,7 @@ public:
 	TempFile& operator= (TempFile&& other) noexcept;
 	///@}
 
-	/** Returns a new temporary %file, with the name generated using a counter specific to the current process. */
+	/** Returns a new temporary %file, with the name generated using the C function \c tmpnam() . */
 	[[nodiscard]] static TempFile getNextFile();
 
 private:

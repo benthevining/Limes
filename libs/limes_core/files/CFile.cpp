@@ -12,14 +12,15 @@
 
 #include "../limes_namespace.h"
 #include "./CFile.h"
+#include "./file.h"
 #include "../system/limes_assert.h"
 #include <string_view>
 #include <limes_platform.h>
 #include <exception>
+#include <cstdio>
 
 #if LIMES_WINDOWS
-#	include <locale>  // for wstring_convert
-#	include <codecvt>
+#	include <windows.h>
 #endif
 
 LIMES_BEGIN_NAMESPACE
@@ -28,8 +29,14 @@ namespace files
 {
 
 CFile::CFile (const Path& filepath, Mode mode) noexcept
+	: path (filepath)
 {
 	open (filepath, mode);
+}
+
+CFile::CFile (std::FILE* fileHandle) noexcept
+	: ptr (fileHandle)
+{
 }
 
 CFile::~CFile() noexcept
@@ -38,9 +45,10 @@ CFile::~CFile() noexcept
 }
 
 CFile::CFile (CFile&& other) noexcept
-	: ptr (other.ptr)
+	: ptr (other.ptr), path (other.path)
 {
 	other.ptr = nullptr;
+	other.path.clear();
 }
 
 CFile& CFile::operator= (CFile&& other) noexcept  // cppcheck-suppress operatorEqVarError
@@ -49,6 +57,10 @@ CFile& CFile::operator= (CFile&& other) noexcept  // cppcheck-suppress operatorE
 
 	ptr		  = other.ptr;
 	other.ptr = nullptr;
+
+	path = other.path;
+	other.path.clear();
+
 	return *this;
 }
 
@@ -78,19 +90,24 @@ static inline std::string_view modeToString (CFile::Mode mode) noexcept
 		case (CFile::Mode::ReadExtended) : return "r+";
 		case (CFile::Mode::WriteExtended) : return "w+";
 		case (CFile::Mode::AppendExtended) : return "a+";
-		default : LIMES_UNREACHABLE;
+		default : LIMES_UNREACHABLE; return "";
 	}
 }
 
-static inline auto pathToString (const Path& path)
+static inline std::string pathToString (const Path& path)
 {
 	auto pathCopy { path };
 
 	const auto pathStr = pathCopy.make_preferred();
 
 #if LIMES_WINDOWS
-	// TODO: this function is deprecated, should replace it with MultiByteToWideCHar()
-	return std::wstring_convert<std::codecvt_utf8<wchar_t>> {}.to_bytes (pathStr);
+	const auto sizeNeeded = WideCharToMultiByte (CP_UTF8, 0, &pathStr[0], static_cast<int> (pathStr.size()), NULL, 0, NULL, NULL);
+
+	std::string strTo { size_needed, 0 };
+
+	WideCharToMultiByte (CP_UTF8, 0, &wstr[0], static_cast<int> (wstr.size()), &strTo[0], size_needed, NULL, NULL);
+
+	return strTo;
 #else
 	return pathStr;
 #endif
@@ -104,10 +121,18 @@ bool CFile::open (const Path& filepath, Mode mode) noexcept
 	{
 		ptr = std::fopen (pathToString (filepath).c_str(), modeToString (mode).data());
 
-		return ptr != nullptr;
+		if (ptr == nullptr)
+			return false;
+
+		path = filepath;
+
+		return true;
 	}
 	catch (std::exception&)
 	{
+		ptr = nullptr;
+		path.clear();
+
 		return false;
 	}
 }
@@ -123,6 +148,8 @@ void CFile::close() noexcept
 		catch (std::exception&)
 		{
 		}
+
+		path.clear();
 	}
 }
 
@@ -134,6 +161,21 @@ bool CFile::isOpen() const noexcept
 CFile::operator bool() const noexcept
 {
 	return isOpen();
+}
+
+Path CFile::getPath() const noexcept
+{
+	return path;
+}
+
+File CFile::getFile() const
+{
+	return File { path };
+}
+
+CFile CFile::createTempFile()
+{
+	return CFile { std::tmpfile() };
 }
 
 }  // namespace files

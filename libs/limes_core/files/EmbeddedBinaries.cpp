@@ -58,3 +58,13 @@ memory::RawData FileInfoList::loadFile (const std::string_view& fileName) const 
 }  // namespace binaries
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+
+size_t hash<limes::binaries::FileInfo>::operator() (const limes::binaries::FileInfo& i) const noexcept
+{
+	return hash<std::string> {}.operator() (i.fullName());
+}
+
+}  // namespace std

@@ -19,11 +19,17 @@
 #include <filesystem>
 #include "../system/compiler_defs.h"
 
+#if LIMES_WINDOWS
+#	include <windows.h>
+#elif defined(__linux__)
+#	include <linux/limits.h>
+#else
+#	include <climits>
+#endif
+
 /** @file
 	This file defines miscellaneous filesystem utility functions.
 	@ingroup files
-
-	@todo get max path length for platform?
  */
 
 LIMES_BEGIN_NAMESPACE
@@ -64,6 +70,16 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool filesystemIsCaseSe
 	return true;
 #else
 	return false;
+#endif
+}
+
+/** Returns the maximum path length possible on the current operating system. */
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr std::uintmax_t maxPathLength() noexcept
+{
+#if LIMES_WINDOWS
+	return static_cast<std::uintmax_t> (MAX_PATH);
+#else
+	return static_cast<std::uintmax_t> (PATH_MAX);
 #endif
 }
 

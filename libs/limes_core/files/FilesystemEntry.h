@@ -35,7 +35,6 @@
 	@ingroup limes_core
 
 	@todo FileWatcher class
-	@todo get/set permissions
  */
 
 /** @dir libs/limes_core/files

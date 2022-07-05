@@ -17,6 +17,8 @@
 #include "../../limes_namespace.h"
 #include <string>
 #include "../../misc/preprocessor.h"
+#include "../../system/limes_assert.h"
+#include <functional>  // for std::hash
 
 /** @dir libs/limes_core/data_structures/dimensions
 	This directory contains the Dimensions class.
@@ -36,9 +38,6 @@ namespace ds
 /** A simple struct that represents the dimensions of something.
 	This class is typically used for working with GUIs.
 	@ingroup data_structures
-	@todo std::hash for this class
-	@todo make entire API constexpr
-	@todo static assertion tests
  */
 struct LIMES_EXPORT Dimensions final
 {
@@ -54,39 +53,88 @@ struct LIMES_EXPORT Dimensions final
 	}
 	///@}
 
-	LIMES_DEFAULT_MOVABLE (Dimensions)
-	LIMES_DEFAULT_COPYABLE (Dimensions)
+	LIMES_CONSTEXPR_MOVABLE (Dimensions)
+	LIMES_CONSTEXPR_COPYABLE (Dimensions)
 
+	/** @name Setters */
+	///@{
 	/** Sets the width of these dimensions. */
-	Dimensions& setWidth (int newWidth);
+	constexpr Dimensions& setWidth (int newWidth) noexcept
+	{
+		LIMES_ASSERT (newWidth > 0);
+		width = newWidth;
+		return *this;
+	}
 
 	/** Sets the height of these dimensions. */
-	Dimensions& setHeight (int newHeight);
+	constexpr Dimensions& setHeight (int newHeight) noexcept
+	{
+		LIMES_ASSERT (newHeight > 0);
+		height = newHeight;
+		return *this;
+	}
+	///@}
 
-	/** Returns true if the passed Dimensions object is equal to this one. */
-	[[nodiscard]] bool operator== (const Dimensions& other) const noexcept;
-
-	/** Returns true if the width and height are both greater than 0. */
-	[[nodiscard]] bool isValid() const noexcept;
-
+	/** @name Getters */
+	///@{
 	/** Returns the width of these dimensions. */
-	[[nodiscard]] int getWidth() const noexcept;
+	[[nodiscard]] constexpr int getWidth() const noexcept
+	{
+		return width;
+	}
 
 	/** Returns the height of these dimensions. */
-	[[nodiscard]] int getHeight() const noexcept;
+	[[nodiscard]] constexpr int getHeight() const noexcept
+	{
+		return height;
+	}
+	///@}
 
-	/** Returns the aspect ratio of the represented dimensions, calculated as width / height.
-		If isValid() return false, then this function will return 0.
+	/** @name Equality comparison */
+	///@{
+	/** Returns true if the passed Dimensions object is equal to this one. */
+	constexpr bool operator== (const Dimensions& other) const noexcept
+	{
+		return width == other.width && height == other.height;
+	}
+
+	/** Returns true if the passed Dimensions object is not equal to this one. */
+	constexpr bool operator!= (const Dimensions& other) const noexcept
+	{
+		return ! (*this == other);
+	}
+	///@}
+
+	/** Returns true if the width and height are both greater than 0. */
+	constexpr bool isValid() const noexcept
+	{
+		return width > 0 && height > 0;
+	}
+
+	/** @name Aspect ratio */
+	///@{
+	/** Returns the aspect ratio of the represented dimensions, calculated as \c width/height.
+		If \c isValid() return false, then this function will return 0.
 	*/
-	[[nodiscard]] double getAspectRatio() const noexcept;
+	[[nodiscard]] constexpr double getAspectRatio() const noexcept
+	{
+		if (! isValid())
+			return 0.;
+
+		return static_cast<double> (width) / static_cast<double> (height);
+	}
 
 	/** Returns true if the passed Dimensions object has the same aspect ratio as this one. */
-	[[nodiscard]] bool hasSameAspectRatioAs (const Dimensions& other) const noexcept;
+	[[nodiscard]] constexpr bool hasSameAspectRatioAs (const Dimensions& other) const noexcept
+	{
+		return getAspectRatio() == other.getAspectRatio();
+	}
+	///@}
 
 	/** Returns a string representation of these dimensions, eg '400x600'. */
 	[[nodiscard]] std::string toString() const noexcept;
 
-	/** Returns a Dimensions object representing the size 1060 x 640. */
+	/** Returns a Dimensions object with the size 1060 x 640. */
 	[[nodiscard]] static constexpr Dimensions getDefault() { return Dimensions { 1060, 640 }; }	 // NOLINT
 
 private:
@@ -96,3 +144,22 @@ private:
 }  // namespace ds
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+
+/** A specialization of \c std::hash for Dimensions objects.
+	@ingroup data_structures
+ */
+template <>
+struct LIMES_EXPORT hash<limes::ds::Dimensions> final
+{
+	hash() = default;
+
+	LIMES_DEFAULT_COPYABLE (hash)
+	LIMES_DEFAULT_MOVABLE (hash)
+
+	size_t operator() (const limes::ds::Dimensions& d) const noexcept;
+};
+
+}  // namespace std

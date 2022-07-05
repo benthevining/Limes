@@ -28,11 +28,11 @@ LIMES_BEGIN_NAMESPACE
 namespace files
 {
 
+class File;
+
 /** This class is a wrapper around a C-style \c FILE* that takes care of freeing the file when the object is destroyed, and provides a few other convenience methods.
 	@ingroup files
 	@see File
-	@todo more utility functions as members
-	@todo retrieve the path from this object?
  */
 class LIMES_EXPORT CFile final
 {
@@ -57,6 +57,13 @@ public:
 		\c fopen() is called to open the file.
 	 */
 	explicit CFile (const Path& filepath, Mode mode) noexcept;
+
+	/** Creates a CFile that takes ownership of the passed \c FILE* .
+		After using this constructor, calling \c getPath() on the created object will return an empty path.
+
+		@note The CFile object will take ownership of the passed pointer, so you should not delete it manually!
+	 */
+	explicit CFile (std::FILE* fileHandle) noexcept;
 
 	/** Move constructor. */
 	CFile (CFile&& other) noexcept;
@@ -85,6 +92,11 @@ public:
 		Note that the pointer may be null, so be careful!
 	 */
 	std::FILE& operator*() const;
+
+	/** Returns the path of the file this object represents.
+		Returns an empty path if no file is currently open, or if this object was constructed by passing it only a \c FILE* .
+	 */
+	[[nodiscard]] Path getPath() const noexcept;
 	///@}
 
 	/** If the file is currently open, this closes it by calling \c fclose() . */
@@ -102,8 +114,22 @@ public:
 	/** Evaluates to true if the file is currently open. */
 	explicit operator bool() const noexcept;
 
+	/** Returns a File object representing this %file.
+
+		If this CFile was constructed without a path (by passing it just a \c std::FILE* ),
+		or if no file is currently open, a File object holding an empty path will be returned.
+	 */
+	[[nodiscard]] File getFile() const;
+
+	/** Creates an automatically named, self-deleting temporary file using the C function \c std::tmpfile .
+		@see TempFile
+	 */
+	[[nodiscard]] static CFile createTempFile();
+
 private:
 	std::FILE* ptr { nullptr };
+
+	Path path {};
 };
 
 }  // namespace files

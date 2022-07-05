@@ -21,6 +21,7 @@
 #include <iterator>
 #include "../misc/preprocessor.h"
 #include "../misc/Algorithm.h"
+#include <functional>  // for std::hash
 
 /** @defgroup binaries Embedded binary data files
 	Utilities for working with binary data files embedded into your source code.
@@ -47,8 +48,7 @@ namespace binaries
 	A full example of how to do this can be seen in the BinaryBuilder source code.
 	@ingroup binaries
 	@see FileInfoList
-	@todo Ability to "shim" binary files to a local directory on the filesystem?
-	@todo std::hash for this class?
+	@todo Ability to "shim" binary files to a local directory on the filesystem
  */
 struct LIMES_EXPORT FileInfo final
 {
@@ -179,3 +179,23 @@ private:
 }  // namespace binaries
 
 LIMES_END_NAMESPACE
+
+namespace std
+{
+
+/** A specialization of \c std::hash for FileInfo objects.
+	The hash value is computed based on the original name and extension of the file.
+	@ingroup binaries
+ */
+template <>
+struct LIMES_EXPORT hash<limes::binaries::FileInfo> final
+{
+	hash() = default;
+
+	LIMES_DEFAULT_COPYABLE (hash)
+	LIMES_DEFAULT_MOVABLE (hash)
+
+	size_t operator() (const limes::binaries::FileInfo& i) const noexcept;
+};
+
+}  // namespace std

@@ -114,31 +114,54 @@ namespace misc
 
 	@todo write unit tests
 	@todo create parser from JSON file spec
-	@todo minimum # of positional arguments
  */
 class LIMES_EXPORT ArgumentParser final
 {
 public:
-	struct LIMES_EXPORT PositionalArgumentsSpec final
-	{
-		[[nodiscard]] static PositionalArgumentsSpec acceptsNone();
-		[[nodiscard]] static PositionalArgumentsSpec acceptsExactly (std::size_t num, const std::string_view& id = "positionalArguments");
-		[[nodiscard]] static PositionalArgumentsSpec acceptsAny (const std::string_view& id = "positionalArguments");
-
-		bool required { false };
-		bool error { false };
-
-		std::size_t min { 0 };
-		std::size_t max { 0 };
-
-		std::string identifier {};
-	};
-
 	/** This constant is a special value that can be passed to any function that takes a parameter
 		specifying a number of arguments, to signify that the number of arguments may be variable
 		-- ie, 1 or more.
 	 */
 	static constexpr auto VARIADIC_ARGUMENTS = static_cast<std::size_t> (-1);
+
+	/** This struct represents the positional arguments accepted by an argument parser.
+
+		Parsers can require positional arguments, treat the presence of any positional arguments as an error,
+		and/or specify a maximum and minimum number of positional arguments.
+	 */
+	struct LIMES_EXPORT PositionalArgumentsSpec final
+	{
+		/** True if the parser requires at least 1 positional argument. */
+		bool required { false };
+
+		/** If true, the parser will treat the presence of any positional arguments as an error. */
+		bool error { false };
+
+		/** The minimum number of positional arguments that must be passed to the parser.
+			This may be set to \c VARIADIC_ARGUMENTS to indicate that the parser accepts any number of positional arguments.
+		 */
+		std::size_t min { 0 };
+
+		/** The maximum number of positional arguments that may be passed to the parser.
+			This may be set to \c VARIADIC_ARGUMENTS to indicate that the parser accepts any number of positional arguments.
+		 */
+		std::size_t max { 0 };
+
+		/** A placeholder identifier for positional arguments, used when printing out the parser's help string. */
+		std::string identifier {};
+
+		/** @name Creation functions */
+		///@{
+		/** Creates a spec for a parser that accepts no positional arguments, and treats any as errors. */
+		[[nodiscard]] static PositionalArgumentsSpec acceptsNone();
+
+		/** Creates a spec for a parser that accepts an exact number of positional arguments. */
+		[[nodiscard]] static PositionalArgumentsSpec acceptsExactly (std::size_t num, const std::string_view& id = "positionalArguments");
+
+		/** Creates a spec for a parser that accepts any number of positional arguments. */
+		[[nodiscard]] static PositionalArgumentsSpec acceptsAny (const std::string_view& id = "positionalArguments");
+		///@}
+	};
 
 	/** Constructs an ArgumentParser.
 
