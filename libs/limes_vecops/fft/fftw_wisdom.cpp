@@ -13,12 +13,16 @@
 #include <limes_namespace.h>
 #include "./limes_fft.h"  // IWYU pragma: associated
 #include <limes_core.h>
-#include <mutex>  // for lock_guard, mutex
 #include <filesystem>
 #include <cstdlib>
 #include <sstream>
 #include <cstdio>
 #include <exception>
+
+#if LIMES_VECOPS_USE_FFTW
+#	include <mutex>  // for lock_guard, mutex
+#	include <atomic>
+#endif
 
 LIMES_BEGIN_NAMESPACE
 
@@ -28,68 +32,66 @@ namespace vecops
 namespace fftw
 {
 
-static std::atomic<bool> useWisdom { true };  // NOLINT
-
 #if LIMES_VECOPS_USE_FFTW
-static files::Directory widom_file_dir;	 // NOLINT
-static std::mutex		wisdom_lock;	 // NOLINT
+static files::Directory	 widom_file_dir;	  // NOLINT
+static std::mutex		 wisdom_lock;		  // NOLINT
+static std::atomic<bool> useWisdom { true };  // NOLINT
 #endif
 
 bool setWisdomFileDir (const files::Directory& directory)
 {
-	if constexpr (! fft::isUsingFFTW())
+#if LIMES_VECOPS_USE_FFTW
+	if (! directory.isValid())
 		return false;
-	else
-	{
-		if (! directory.isValid())
-			return false;
 
-		const std::lock_guard g { wisdom_lock };
+	const std::lock_guard g { wisdom_lock };
 
-		if (widom_file_dir == directory)
-			return false;
+	if (widom_file_dir == directory)
+		return false;
 
-		widom_file_dir = directory;
-		return true;
-	}
+	widom_file_dir = directory;
+	return true;
+#else
+	return false;
+#endif
 }
 
 files::Directory getWisdomFileDir()
 {
-	if constexpr (! fft::isUsingFFTW())
-		return {};
-	else
+#if LIMES_VECOPS_USE_FFTW
+	const std::lock_guard g { wisdom_lock };
+
+	if (! widom_file_dir.isValid())
 	{
-		const std::lock_guard g { wisdom_lock };
-
-		if (! widom_file_dir.isValid())
-		{
-			if (const auto* dir = std::getenv ("FFTW_WISDOM_FILE_DIR"))
-				widom_file_dir = files::Path { dir };
-			else if (const auto* homeDir = std::getenv ("HOME"))
-				widom_file_dir = files::Path { homeDir };
-		}
-
-		return widom_file_dir;
+		if (const auto* dir = std::getenv ("FFTW_WISDOM_FILE_DIR"))
+			widom_file_dir = files::Path { dir };
+		else if (const auto* homeDir = std::getenv ("HOME"))
+			widom_file_dir = files::Path { homeDir };
 	}
+
+	return widom_file_dir;
+#else
+	return {};
+#endif
 }
 
 void enableWisdom (bool shouldUseWisdom)
 {
+#if LIMES_VECOPS_USE_FFTW
 	useWisdom.store (shouldUseWisdom);
+#endif
 }
 
 bool isUsingWisdom()
 {
-	if constexpr (! fft::isUsingFFTW())
+#if LIMES_VECOPS_USE_FFTW
+	if (! getWisdomFileDir().isValid())
 		return false;
-	else
-	{
-		if (! getWisdomFileDir().isValid())
-			return false;
 
-		return useWisdom.load();
-	}
+	return useWisdom.load();
+#else
+	return false;
+#endif
 }
 }  // namespace fftw
 
@@ -116,7 +118,7 @@ bool isUsingWisdom()
 		return nullptr;
 #	endif
 
-	if (! fftw::useWisdom)
+	if (! fftw::useWisdom.load())
 		return {};
 
 	try
