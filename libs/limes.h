@@ -13,7 +13,7 @@
 /** @defgroup limes Limes
 	The Limes library.
 
-	@version 5.0.0
+	@version 5.0.1
 	@author Ben Vining
 	@date 2020 - 2022
 	@copyright GNU public license

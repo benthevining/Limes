@@ -1,5 +1,13 @@
 # Limes changelog
 
+## [5.0.1](https://github.com/benthevining/Limes/compare/v5.0.0...v5.0.1) (2022-07-05)
+
+
+### Bug Fixes
+
+* fixing errors when not using FFTW ([2e3d7ad](https://github.com/benthevining/Limes/commit/2e3d7ad24835573b7adeadad0d0104370b81f74c))
+* fixing path conversion issues in MSVC ([32125ad](https://github.com/benthevining/Limes/commit/32125adbc1b0293279afb643dcce0792bc9fdd71))
+
 ## [5.0.0](https://github.com/benthevining/Limes/compare/v4.8.1...v5.0.0) (2022-07-03)
 
 
