@@ -13,7 +13,10 @@
 #include <limes_music.h>
 #include <limes_core.h>
 #include <tests_config.h>
+
+LIMES_DISABLE_ALL_COMPILER_WARNINGS
 #include <catch2/catch_test_macros.hpp>
+LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
 TEST_CASE ("Interval tests", "[music][harmony]")
 {

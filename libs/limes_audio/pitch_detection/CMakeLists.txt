@@ -23,6 +23,8 @@ oranges_add_source_files (
 		  PitchDetector.cpp
 		  PitchDetector.h
 		  PitchDetectionAlgorithm.cpp
-		  PitchDetectionAlgorithm.h)
+		  PitchDetectionAlgorithm.h
+		  zeroCrossing.h
+		  zeroCrossing.cpp)
 
 set (pitch_detection_files ${pitch_detection_files} PARENT_SCOPE)

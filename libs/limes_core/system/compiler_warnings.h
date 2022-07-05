@@ -122,7 +122,8 @@
 		_Pragma ("GCC diagnostic ignored \"-Woverloaded-virtual\"")			   \
 		_Pragma ("GCC diagnostic ignored \"-Wnoexcept\"")					   \
 		_Pragma ("GCC diagnostic ignored \"-Wc99-extensions\"")				   \
-		_Pragma ("GCC diagnostic ignored \"-Wundef\"")
+		_Pragma ("GCC diagnostic ignored \"-Wundef\"")                         \
+		_Pragma ("GCC diagnostic ignored \"-Wtautological-compare\"")
 // clang-format on
 
 #	define LIMES_REENABLE_ALL_COMPILER_WARNINGS \

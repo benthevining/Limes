@@ -185,7 +185,7 @@ std::uint32_t SHA1::SHABLK (std::uint32_t i) noexcept
 																		 ^ m_block[(i + 8) & 15]
 																		 ^ m_block[(i + 2) & 15]
 																		 ^ m_block[i & 15],
-																	 std::uint32_t (1)));
+																	 static_cast<std::uint32_t> (1)));
 }
 
 

@@ -19,10 +19,6 @@
 #include <exception>
 #include <cstdio>
 
-#if LIMES_WINDOWS
-#	include <windows.h>
-#endif
-
 LIMES_BEGIN_NAMESPACE
 
 namespace files
@@ -98,19 +94,7 @@ static inline std::string pathToString (const Path& path)
 {
 	auto pathCopy { path };
 
-	const auto pathStr = pathCopy.make_preferred();
-
-#if LIMES_WINDOWS
-	const auto sizeNeeded = WideCharToMultiByte (CP_UTF8, 0, &pathStr[0], static_cast<int> (pathStr.size()), NULL, 0, NULL, NULL);
-
-	std::string strTo { size_needed, 0 };
-
-	WideCharToMultiByte (CP_UTF8, 0, &wstr[0], static_cast<int> (wstr.size()), &strTo[0], size_needed, NULL, NULL);
-
-	return strTo;
-#else
-	return pathStr;
-#endif
+	return pathCopy.make_preferred().string();
 }
 
 bool CFile::open (const Path& filepath, Mode mode) noexcept

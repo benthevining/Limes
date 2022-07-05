@@ -27,9 +27,13 @@ namespace vecops
 
 namespace fftw
 {
-static files::Directory	 widom_file_dir;	  // NOLINT
-static std::mutex		 wisdom_lock;		  // NOLINT
+
 static std::atomic<bool> useWisdom { true };  // NOLINT
+
+#if LIMES_VECOPS_USE_FFTW
+static files::Directory widom_file_dir;	 // NOLINT
+static std::mutex		wisdom_lock;	 // NOLINT
+#endif
 
 bool setWisdomFileDir (const files::Directory& directory)
 {

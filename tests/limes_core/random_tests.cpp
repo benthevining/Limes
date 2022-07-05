@@ -12,8 +12,11 @@
 
 #include <limes_core.h>
 #include <type_traits>
+
+LIMES_DISABLE_ALL_COMPILER_WARNINGS
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/catch_approx.hpp>
+LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
 TEST_CASE ("Random number generator", "[core][math]")
 {

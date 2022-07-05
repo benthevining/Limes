@@ -11,10 +11,14 @@
  */
 
 #include <limes_audio.h>
+#include <limes_core.h>
 #include <tests_config.h>
 #include "./audio_test_utils.h"
+
+LIMES_DISABLE_ALL_COMPILER_WARNINGS
 #include <catch2/catch_template_test_macros.hpp>
 #include <catch2/catch_approx.hpp>
+LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
 TEMPLATE_TEST_CASE ("Circular buffer", "[audio]", float, double)
 {
