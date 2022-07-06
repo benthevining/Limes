@@ -136,7 +136,11 @@ class FFTImpl;
 	FFTW can be explicitly enabled or disabled using the \c LIMES_VECOPS_USE_FFTW preprocessor macro. You can also set either \c FFTW_SINGLE_ONLY or \c FFTW_DOUBLE_ONLY to 1 if only one precision of the FFTW library is available.
 	In this case, FFTs being performed with the other datatype will be converted before being processed.
 	You can also define the \c FFTW_HEADER_NAME macro to the name of the header that should be included (including the surrounding \c " or \c \< characters). It defaults to \c \<fftw3.h> .
+
 	@ingroup fft
+
+	@todo template this class with a bool IsInterleaved argument
+	@todo make an FFTResult class for easily retrieving bin values, get freq for bin, get mag/phase of freq, etc
  */
 template <Scalar SampleType>
 class LIMES_EXPORT FFT final

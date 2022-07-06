@@ -40,6 +40,8 @@ namespace files
 /** This class represents a %file on the filesystem.
 	@ingroup files
 	@see CFile
+
+	@todo std in/out streams for this class
  */
 class LIMES_EXPORT File : public FilesystemEntry
 {

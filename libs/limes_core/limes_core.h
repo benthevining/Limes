@@ -90,7 +90,6 @@
 
 #include "memory/RawData.h"
 #include "memory/ReferenceCountedObject.h"
-#include "memory/StaticObjects.h"
 #include "memory/alignment.h"
 #include "memory/AlignedAllocator.h"
 #include "memory/array_pointer.h"
@@ -98,7 +97,6 @@
 #include "memory/MemoryPoolPointer.h"
 #include "memory/MemoryPoolAllocator.h"
 #include "memory/stack_allocator.h"
-#include "memory/OptionalObject.h"
 #include "memory/units.h"
 
 #include "files/FilesystemEntry.h"
@@ -128,7 +126,6 @@
 #include "math/mathFunctions.h"
 #include "math/Fraction.h"
 #include "math/Random.h"
-#include "math/matrix.h"
 #include "math/StatsComputer.h"
 #include "math/geometry/2D/angle.h"
 #include "math/geometry/2D/2Dshape.h"

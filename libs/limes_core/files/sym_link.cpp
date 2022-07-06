@@ -34,7 +34,7 @@ FilesystemEntry SymLink::follow (bool recurse) const noexcept
 {
 	try
 	{
-		FilesystemEntry target { std::filesystem::read_symlink (getAbsolutePath()) };
+		const FilesystemEntry target { std::filesystem::read_symlink (getAbsolutePath()) };
 
 		if (! recurse)
 			return target;
@@ -42,12 +42,27 @@ FilesystemEntry SymLink::follow (bool recurse) const noexcept
 		if (! target.isSymLink())
 			return target;
 
-		return target.getSymLinkObject()->follow();
+		return target.getSymLinkObject()->follow_recurse (0);
 	}
 	catch (std::exception&)
 	{
 		return {};
 	}
+}
+
+FilesystemEntry SymLink::follow_recurse (int counter) const
+{
+	static constexpr auto recursion_depth = 50;
+
+	const FilesystemEntry target { std::filesystem::read_symlink (getAbsolutePath()) };
+
+	if (counter == recursion_depth)
+		return target;
+
+	if (! target.isSymLink())
+		return target;
+
+	return target.getSymLinkObject()->follow_recurse (counter + 1);
 }
 
 bool SymLink::references (const FilesystemEntry& entry) const

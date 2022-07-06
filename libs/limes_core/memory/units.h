@@ -62,9 +62,9 @@ template <Type OrigUnits, Type DestUnits>
 		if constexpr (WorkingWithBits)
 		{
 			if constexpr (OrigUnits > DestUnits)
-				result *= 8;
+				result *= std::uintmax_t (8);
 			else
-				result /= 8;
+				result /= std::uintmax_t (8);
 		}
 
 		return result;

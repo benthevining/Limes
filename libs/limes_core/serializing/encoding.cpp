@@ -165,9 +165,9 @@ std::string Node::getXMLString() const
 	if (isNull())
 		return "";
 
-	if (isArray())
-	{
-	}
+	// if (isArray())
+	// {
+	// }
 
 	LIMES_ASSERT (isObject());
 

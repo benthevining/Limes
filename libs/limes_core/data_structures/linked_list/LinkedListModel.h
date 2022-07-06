@@ -14,6 +14,7 @@
 
 #include <limes_export.h>
 #include "../../limes_namespace.h"
+#include <functional>  // for reference_wrapper
 
 /** @file
 	This file defines the LinkedListModel class.
@@ -46,7 +47,6 @@ namespace ds
 	@see LinkedList
 	@ingroup data_structures
 
-	@todo add a method to reverse an entire linked list
 	@todo write unit tests for this class
  */
 template <typename ObjectType>
@@ -140,6 +140,9 @@ public:
 
 	/** Swaps both of this node's connections with the other node's connections. */
 	constexpr void swapWith (LinkedListModel& otherNode) noexcept;
+
+	/** Reverses the entire linked list. */
+	constexpr void reverse() noexcept;
 
 	/** Returns true if this node has a connection to a node before it in the list.
 		If this returns false, this node is the head of a list.
@@ -253,6 +256,5 @@ private:
 }  // namespace ds
 
 LIMES_END_NAMESPACE
-
 
 #include "./LinkedListModel_impl.h"	 // IWYU pragma: export

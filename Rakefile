@@ -76,7 +76,7 @@ end
 
 desc "Run CMake configuration"
 task :config do
-	exec "cd %s && cmake --preset maintainer" % [limes_root]
+	system "cd %s && cmake --preset maintainer" % [limes_root]
 end
 
 desc "Open the IDE project"
@@ -88,7 +88,7 @@ end
 
 desc "Run the build"
 task :build => :config do
-	exec "cd %s && cmake --build --preset maintainer --config %s" % [limes_root, config]
+	system "cd %s && cmake --build --preset maintainer --config %s" % [limes_root, config]
 end
 
 #
@@ -132,7 +132,7 @@ task :clean do
 	safe_dir_delete(builds)
 	safe_dir_delete(doc)
 
-	exec "pre-commit gc"
+	system "pre-commit gc"
 end
 
 desc "Wipe the cache of downloaded dependencies"

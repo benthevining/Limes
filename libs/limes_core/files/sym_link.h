@@ -45,8 +45,7 @@ public:
 
 	/** Follows the symbolic link to find its target.
 		If the \c recurse option is true, and the immediate target of this symlink is another symlink, then this function will follow *that* symlink, and so on, until a non-symbolic-link filesystem object is reached.
-		@attention Be careful, there is no protection against cycles in this function, so you may invoke an infinite loop!
-		@todo Protect against infinite recursion? Possibly set a max recursion depth...
+		The recursion is limited to a depth of 50 recursive calls.
 	 */
 	[[nodiscard]] FilesystemEntry follow (bool recurse = true) const noexcept;
 
@@ -75,6 +74,9 @@ public:
 	static bool create (const Directory& newDirectory, const Path& target) noexcept;
 	static bool create (const Directory& newDirectory, const FilesystemEntry& target) noexcept;
 	///@}
+
+private:
+	[[nodiscard]] FilesystemEntry follow_recurse (int counter) const;
 };
 
 }  // namespace files

@@ -88,6 +88,7 @@ LIMES_EXPORT bool call_once (Func&& func, std::invoke_result_t<Func>* result = n
 
 /** This class calls a given function when its destructor is executed.
 	@ingroup func
+	@see defer_call()
  */
 template <Function Func>
 class LIMES_EXPORT CallDeferred final
@@ -117,6 +118,17 @@ public:
 private:
 	const Func func;
 };
+
+
+/** Returns a CallDeferred object that holds the passed function.
+	@ingroup func
+	@see CallDeferred
+ */
+template <Function Func>
+[[nodiscard]] constexpr auto defer_call (Func&& function) noexcept
+{
+	return CallDeferred { std::move (function) };
+}
 
 
 /** This generic RAII object allows you to specify a function to be called when it is created and when it is destroyed.

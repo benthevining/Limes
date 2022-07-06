@@ -259,6 +259,21 @@ constexpr bool LinkedListModel<ObjectType>::isLastNodeInList() const noexcept
 	return before != nullptr && after == nullptr;
 }
 
+template <typename ObjectType>
+constexpr void LinkedListModel<ObjectType>::reverse() noexcept
+{
+	LinkedListModel* prev = nullptr;
+
+	for (auto* curr = &getFirstNodeInList();
+		 curr != nullptr;
+		 curr = curr->after)
+	{
+		curr->after = prev;
+
+		prev = curr;
+	}
+}
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 template <typename ObjectType>

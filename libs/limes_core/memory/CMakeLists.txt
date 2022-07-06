@@ -23,11 +23,9 @@ oranges_add_source_files (
 		  MemoryPool.h
 		  MemoryPoolPointer.h
 		  MemoryPoolAllocator.h
-		  OptionalObject.h
 		  ReferenceCountedObject.cpp
 		  ReferenceCountedObject.h
 		  stack_allocator.h
-		  StaticObjects.h
 		  RawData.h
 		  RawData.cpp
 		  units.h)

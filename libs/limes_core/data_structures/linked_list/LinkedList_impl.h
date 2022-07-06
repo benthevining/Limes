@@ -136,6 +136,22 @@ constexpr void LinkedList<ObjectType>::removeNode (const Node& node)
 }
 
 template <typename ObjectType>
+constexpr void LinkedList<ObjectType>::reverse() noexcept
+{
+	if (auto* first = getFirstNodeInChain())
+		first->listNode.reverse();
+}
+
+template <typename ObjectType>
+constexpr int LinkedList<ObjectType>::size() const noexcept
+{
+	if (const auto* first = getFirstNodeInChain())
+		return first->sizeOfList();
+
+	return 0;
+}
+
+template <typename ObjectType>
 constexpr typename LinkedList<ObjectType>::Iterator LinkedList<ObjectType>::begin() const noexcept
 {
 	if (nodes.isEmpty())

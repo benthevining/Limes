@@ -51,6 +51,7 @@ namespace memory
 
 	@todo refactor to use array_pointer internally?
 	@todo allow for non-owning RawData objects that simply reference other memory
+	@todo std in/out streams for this class
  */
 class LIMES_EXPORT RawData final
 {

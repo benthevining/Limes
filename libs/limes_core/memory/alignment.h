@@ -107,6 +107,7 @@ LIMES_EXPORT bool deallocate_aligned (T* ptr) noexcept
 	@tparam T The type of object that will be owned
 	@tparam UseExceptions Whether allocation failure should throw an exception
 	@ingroup memory
+	@todo make this an overload/specialization of array_pointer?
  */
 template <typename T, bool UseExceptions = true>
 class LIMES_EXPORT aligned_pointer final

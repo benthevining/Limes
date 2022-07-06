@@ -21,6 +21,8 @@
 #include <string>			  // for string
 #include "./exec_location.h"  // IWYU pragma: associated
 #include <array>
+#include "../misc.h"
+#include "../../misc/Functions.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -29,37 +31,28 @@ namespace files
 
 std::string getExecutablePath()
 {
-	std::array<char, PATH_MAX> buffer1 {};
-	std::array<char, PATH_MAX> buffer2 {};
+	std::array<char, maxPathLength()> buffer1 {};
+	std::array<char, maxPathLength()> buffer2 {};
 
 	auto* path = buffer1.data();
 
-	do
+	const auto endCB = func::defer_call ([&path, d = buffer1.data()]
+										 {
+			if (path != d)
+				std::free (path); });
+
+	auto size = static_cast<std::uint32_t> (sizeof (buffer1));
+
+	if (_NSGetExecutablePath (path, &size) == -1)
 	{
-		auto size = static_cast<uint32_t> (sizeof (buffer1));
+		path = static_cast<char*> (std::malloc (size));
 
-		if (_NSGetExecutablePath (path, &size) == -1)
-		{
-			path = static_cast<char*> (std::malloc (size));
-
-			if (! _NSGetExecutablePath (path, &size))
-				break;
-		}
-
-		if (const auto* resolved = realpath (path, buffer2.data()))
-		{
-			std::string result { resolved, static_cast<std::string::size_type> (std::strlen (resolved)) };
-
-			if (path != buffer1.data())
-				std::free (path);
-
-			return result;
-		}
+		if (! _NSGetExecutablePath (path, &size))
+			return {};
 	}
-	while (false);
 
-	if (path != buffer1.data())
-		std::free (path);
+	if (const auto* resolved = realpath (path, buffer2.data()))
+		return { resolved };
 
 	return {};
 }
@@ -67,26 +60,26 @@ std::string getExecutablePath()
 std::string getModulePath()
 {
 #if LIMES_MSVC
-#	define WAI_RETURN_ADDRESS() _ReturnAddress()  // NOLINT
+#	define limes_get_return_address() _ReturnAddress()	 // NOLINT
 #elif defined(__GNUC__)
-#	define WAI_RETURN_ADDRESS() __builtin_extract_return_addr (__builtin_return_address (0))  // NOLINT
+#	define limes_get_return_address() __builtin_extract_return_addr (__builtin_return_address (0))	 // NOLINT
 #endif
 
-#ifdef WAI_RETURN_ADDRESS
+#ifdef limes_get_return_address
 
 	Dl_info info;
 
-	if (dladdr (WAI_RETURN_ADDRESS(), &info))
+	if (dladdr (limes_get_return_address(), &info))
 	{
-		char buffer[PATH_MAX];
+		std::array<char, maxPathLength()> buffer {};
 
-		if (auto* resolved = realpath (info.dli_fname, buffer))
-			return { resolved, static_cast<std::string::size_type> (std::strlen (resolved)) };
+		if (const auto* resolved = realpath (info.dli_fname, buffer.data()))
+			return { resolved };
 	}
 
 	return {};
 
-#	undef WAI_RETURN_ADDRESS
+#	undef limes_get_return_address
 
 #else
 	return {};

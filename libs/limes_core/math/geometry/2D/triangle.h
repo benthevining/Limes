@@ -34,8 +34,7 @@ namespace math::geometry
 /** Represents a %triangle.
 	@ingroup TwoDgeometry
 
-	@todo make entire API constexpr
-	@todo static assertion tests
+	@todo static assertion tests / unit tests
  */
 template <Scalar ValueType>
 class LIMES_EXPORT Triangle final : public TwoDShape<ValueType>
@@ -90,7 +89,7 @@ public:
 	[[nodiscard]] constexpr ValueType hypotenuse() const noexcept;
 
 	/** Returns the length of the requested side. */
-	[[nodiscard]] ValueType getSide (Side side) const noexcept;
+	[[nodiscard]] constexpr ValueType getSide (Side side) const noexcept;
 	///@}
 
 	/** Returns the length of the vertical altitude from the triangle's base to the point opposite the base.
@@ -307,7 +306,7 @@ Angle<ValueType> Triangle<ValueType>::getAngle (Side side) const noexcept
 }
 
 template <Scalar ValueType>
-ValueType Triangle<ValueType>::getSide (Side side) const noexcept
+constexpr ValueType Triangle<ValueType>::getSide (Side side) const noexcept
 {
 	if (side == Side::base)
 		return m_base;

@@ -144,6 +144,12 @@ public:
 	/** Removes (and destroys) a node from the list. */
 	constexpr void removeNode (const Node& node);
 
+	/** Reverses the list. */
+	constexpr void reverse() noexcept;
+
+	/** Returns the number of nodes in the list. */
+	constexpr int size() const noexcept;
+
 	/** Convenience typedef for an iterator. */
 	using Iterator = typename LinkedListModel<Node>::Iterator;
 

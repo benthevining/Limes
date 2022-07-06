@@ -35,6 +35,7 @@
 	@ingroup limes_core
 
 	@todo FileWatcher class
+	@todo memory mapped file class
  */
 
 /** @dir libs/limes_core/files
