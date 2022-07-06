@@ -25,24 +25,12 @@
 	This library also provides plain C++ implementations of all its functions, so it can be used without dependencies on any external libraries.
 	Additionally, these fallback implementations can optionally call Julien Pommier's SIMD sin and cos functions, written for both NEON and SSE, if the datatype is \c float .
 	These functions can be explicitly enabled or disabled using the \c LIMES_VECOPS_USE_POMMIER preprocessor macro.
-	The Pommier source code is included in Limes, but using it requires your adherence to its original license; see neon_mathfun.h for a copy of it.
+	The Pommier source code is included in Limes, but using it requires your adherence to its original license; see \c neon_mathfun.h for a copy of it.
 
 	@par "Limes library dependencies"
 	@ref lib_limes_core "limes_core"
 
-	The FFTW library may optionally be used as the backend of the FFT class:
-
-	@dependency \b FFTW
-	<a href="https://www.fftw.org/">The FFTW Fourier transform library</a> can be used as the backend of the @ref limes_vecops "limes_vecops" FFT class.
-	FFTW can be installed to your system with a simple @verbatim cmake \c --install @endverbatim of their git repository.
-	The usage of FFTW is determined by the \c LIMES_USE_FFTW @ref cmakeopt "CMake variable".
-
-	@cmakeopt \b LIMES_USE_FFTW By default, <a href="https://www.fftw.org/">FFTW</a> will be searched for in the system, and if found,
-	will be used for the @ref limes_vecops "limes_vecops" FFT class's backend. However, you can set this option to \c OFF to ignore FFTW.
-	vDSP and IPP also provide FFT implementations.
-
-	And one of the following libraries may be used as the backend for the vector operations functions (vDSP and IPP also provide FFT functions that will
-	be used if FFTW is not available):
+	One of the following libraries may be used as the backend for the vector operations functions:
 
 	@dependency \b Accelerate
 	<a href="https://developer.apple.com/documentation/accelerate?language=objc">Apple's Accelerate framework</a> can be used as the backend for the
@@ -96,9 +84,6 @@
 	@cmakeprop \b LIMES_VECOPS_IMPLEMENTATION
 	String name of the vector operations backend being used for the @ref lib_limes_vecops "limes_vecops" library.
 
-	@cmakeprop \b LIMES_FFT_IMPLEMENTATION
-	String name of the FFT backend being used for the @ref lib_limes_vecops "limes_vecops" library.
-
 	@cmaketarget \b Limes::limes_vecops
 	The @ref lib_limes_vecops "limes_vecops"
 	library target.
@@ -133,6 +118,9 @@
 	@todo write unit tests
 	@todo median
 	@todo mode
+
+	@todo resampler implementations
+	@todo cmake option for libsamplerate
  */
 
 /** @dir libs/limes_vecops

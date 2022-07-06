@@ -16,8 +16,8 @@
 #pragma once
 
 #include <limes_export.h>
-#include <limes_vecops.h>
 #include <limes_namespace.h>
+#include "../limes_vecops.h"
 #include <limes_core.h>
 
 /** @file
@@ -31,9 +31,6 @@ namespace vecops
 {
 
 /// @cond internals
-
-template <Scalar SampleType>
-LIMES_NO_EXPORT constexpr SampleType shiftAmount = SampleType (0.000001);
 
 /** This class defines the interface for any implementation of the FFT class backend.
 	@see FFT
@@ -71,9 +68,13 @@ public:
 
 	virtual void inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept = 0;
 
+	virtual void reset() = 0;
+
 protected:
 	const int fft_size;	 // NOLINT
 	const int m_order;	 // NOLINT
+
+	static constexpr SampleType shiftAmount = SampleType (0.000001);  // NOLINT
 
 private:
 	[[nodiscard]] static LIMES_FORCE_INLINE int orderFromFFTSize (int size) noexcept
@@ -82,7 +83,7 @@ private:
 			if ((size & (1 << i)) != 0)
 				return i;
 
-		LIMES_UNREACHABLE;
+		LIMES_ASSERT_FALSE;
 		return 0;
 	}
 };

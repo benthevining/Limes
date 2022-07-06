@@ -66,11 +66,11 @@ private:
 
 	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept final;
 
+	void reset() final;
+
 	LIMES_FORCE_INLINE void packReal (const SampleType* const re) noexcept;
 
 	LIMES_FORCE_INLINE void unpackReal (SampleType* const re) noexcept;
-
-	LIMES_FORCE_INLINE void unpackComplex (SampleType* const re, SampleType* const im) noexcept;
 
 	LIMES_FORCE_INLINE void vDSP_nyq (SampleType* real, SampleType* imag) const noexcept;
 

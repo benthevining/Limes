@@ -77,7 +77,7 @@ namespace files
 
 	std::array<char, maxPathLength()> output {};
 
-	auto length_ = WideCharToMultiByte (CP_UTF8, 0, buffer2.data(), length, output.data(), maxPathLength(), nullptr, nullptr);
+	auto length_ = WideCharToMultiByte (CP_UTF8, 0, buffer2.data(), length, output.data(), static_cast<int> (maxPathLength()), nullptr, nullptr);
 
 	if (length_ == 0)
 		length_ = WideCharToMultiByte (CP_UTF8, 0, buffer2.data(), length, nullptr, 0, nullptr, nullptr);

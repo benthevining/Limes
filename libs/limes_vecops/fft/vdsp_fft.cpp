@@ -68,7 +68,22 @@ void vDSP_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOu
 
 	vDSP_denyq (m_packed.realp, m_packed.imagp);
 
-	unpackComplex (realOut, imagOut);
+	// unpack
+	{
+		// vDSP forward FFTs are scaled 2x (for some reason)
+		constexpr auto two = SampleType (2.);
+
+		if constexpr (std::is_same_v<SampleType, float>)
+		{
+			vDSP_vsdiv (m_packed.realp, vDSP_Stride (1), &two, realOut, vDSP_Stride (1), vDSP_Length (this->fft_size / 2 + 1));
+			vDSP_vsdiv (m_packed.imagp, vDSP_Stride (1), &two, imagOut, vDSP_Stride (1), vDSP_Length (this->fft_size / 2 + 1));
+		}
+		else
+		{
+			vDSP_vsdivD (m_packed.realp, vDSP_Stride (1), &two, realOut, vDSP_Stride (1), vDSP_Length (this->fft_size / 2 + 1));
+			vDSP_vsdivD (m_packed.imagp, vDSP_Stride (1), &two, imagOut, vDSP_Stride (1), vDSP_Length (this->fft_size / 2 + 1));
+		}
+	}
 }
 
 template <Scalar SampleType>
@@ -285,24 +300,6 @@ LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::unpackReal (SampleType* const re) 
 }
 
 template <Scalar SampleType>
-LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::unpackComplex (SampleType* const re, SampleType* const im) noexcept
-{
-	// vDSP forward FFTs are scaled 2x (for some reason)
-	constexpr auto two = SampleType (2.);
-
-	if constexpr (std::is_same_v<SampleType, float>)
-	{
-		vDSP_vsdiv (m_packed.realp, vDSP_Stride (1), &two, re, vDSP_Stride (1), vDSP_Length (this->fft_size / 2 + 1));
-		vDSP_vsdiv (m_packed.imagp, vDSP_Stride (1), &two, im, vDSP_Stride (1), vDSP_Length (this->fft_size / 2 + 1));
-	}
-	else
-	{
-		vDSP_vsdivD (m_packed.realp, vDSP_Stride (1), &two, re, vDSP_Stride (1), vDSP_Length (this->fft_size / 2 + 1));
-		vDSP_vsdivD (m_packed.imagp, vDSP_Stride (1), &two, im, vDSP_Stride (1), vDSP_Length (this->fft_size / 2 + 1));
-	}
-}
-
-template <Scalar SampleType>
 LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::vDSP_nyq (SampleType* real, SampleType* imag) const noexcept
 {
 	// for ifft input in packed form, pack the DC and Nyquist bins
@@ -322,6 +319,23 @@ LIMES_FORCE_INLINE void vDSP_FFT<SampleType>::vDSP_denyq (SampleType* real, Samp
 	real[hs] = imag[0];
 	imag[hs] = SampleType (0);
 	imag[0]	 = SampleType (0);
+}
+
+template <Scalar SampleType>
+void vDSP_FFT<SampleType>::reset()
+{
+	const auto bufSize = this->fft_size + 2;
+
+	vecops::clear (m_spare, bufSize);
+	vecops::clear (m_spare2, bufSize);
+
+	vecops::clear (m_buf.realp, this->fft_size);
+	vecops::clear (m_buf.imagp, this->fft_size);
+
+	const auto packedSize = this->fft_size / 2 + 1;
+
+	vecops::clear (m_packed.realp, packedSize);
+	vecops::clear (m_packed.imagp, packedSize);
 }
 
 template class vDSP_FFT<float>;

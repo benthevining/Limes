@@ -64,6 +64,8 @@ private:
 
 	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept final;
 
+	void reset() final;
+
 	LIMES_FORCE_INLINE void ipp_pack (const SampleType* re, const SampleType* im) noexcept;
 
 	LIMES_FORCE_INLINE void ipp_unpack (SampleType* const re, SampleType* const im) const noexcept;

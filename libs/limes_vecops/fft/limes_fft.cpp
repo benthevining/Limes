@@ -12,6 +12,7 @@
 
 #include "./limes_fft.h"
 #include <limes_namespace.h>
+#include <limes_core.h>
 
 #if LIMES_VECOPS_USE_FFTW
 #	include "./fftw_fft.h"
@@ -41,6 +42,7 @@ FFT<SampleType>::FFT (int size)
 	  pimpl (std::make_unique<FallbackFFT<SampleType>> (size))
 #endif
 {
+	LIMES_ASSERT (math::isPowerOf2 (size));
 }
 
 template <Scalar SampleType>
@@ -95,6 +97,38 @@ template <Scalar SampleType>
 void FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept
 {
 	pimpl->inverseCepstral (magIn, cepOut);
+}
+
+template <Scalar SampleType>
+void FFT<SampleType>::reset()
+{
+	pimpl->reset();
+}
+
+template <Scalar SampleType>
+double FFT<SampleType>::getFrequencyForBin (int binNumber, double samplerate) const noexcept
+{
+	LIMES_ASSERT (binNumber >= 0);
+
+	const auto size = pimpl->getSize();
+
+	LIMES_ASSERT (binNumber < size);
+
+	return (static_cast<double> (binNumber) * samplerate) / static_cast<double> (size);
+}
+
+template <Scalar SampleType>
+int FFT<SampleType>::getBinForFrequency (double frequency, double samplerate) const noexcept
+{
+	const auto size = pimpl->getSize();
+
+	const auto result = (frequency * static_cast<double> (size)) / samplerate;
+
+	const auto bin = math::round (result);
+
+	LIMES_ASSERT (bin < size);
+
+	return bin;
 }
 
 template class FFT<float>;

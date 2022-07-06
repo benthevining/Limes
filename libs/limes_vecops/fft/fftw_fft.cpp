@@ -50,39 +50,6 @@ namespace vecops
 #	define sin					 sinf
 #endif
 
-
-template <Scalar SampleType, typename ComplexType>
-LIMES_FORCE_INLINE static void fftw_pack (const SampleType* re, const SampleType* im,
-										  ComplexType* m_packed, int fft_size) noexcept
-{
-	const auto hs = fft_size / 2;
-
-	for (auto i = 0; i <= hs; ++i)
-		m_packed[i][0] = re[i];
-
-	if (im == nullptr)
-		for (auto i = 0; i <= hs; ++i)
-			m_packed[i][1] = SampleType (0);
-	else
-		for (auto i = 0; i <= hs; ++i)
-			m_packed[i][1] = im[i];
-}
-
-template <Scalar SampleType, typename ComplexType>
-LIMES_FORCE_INLINE static void fftw_unpack (SampleType* re, SampleType* im,
-											ComplexType* m_packed, int fft_size) noexcept
-{
-	const auto hs = fft_size / 2;
-
-	for (auto i = 0; i <= hs; ++i)
-		re[i] = m_packed[i][0];
-
-	if (im != nullptr)
-		for (auto i = 0; i <= hs; ++i)
-			im[i] = m_packed[i][1];
-}
-
-
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
 LIMES_DISABLE_ALL_COMPILER_WARNINGS
@@ -166,7 +133,17 @@ void FFTW_FFT<SampleType>::forward (const SampleType* realIn, SampleType* realOu
 	else
 		fftw_execute (m_planf);
 
-	fftw_unpack (realOut, imagOut, m_packed, this->fft_size);
+	// unpack
+	{
+		const auto hs = this->fft_size / 2;
+
+		for (auto i = 0; i <= hs; ++i)
+			realOut[i] = m_packed[i][0];
+
+		if (imagOut != nullptr)
+			for (auto i = 0; i <= hs; ++i)
+				imagOut[i] = m_packed[i][1];
+	}
 }
 
 template <Scalar SampleType>
@@ -214,7 +191,20 @@ void FFTW_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleTyp
 template <Scalar SampleType>
 void FFTW_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* imagIn, SampleType* realOut) noexcept
 {
-	fftw_pack (realIn, imagIn, m_packed, this->fft_size);
+	// pack
+	{
+		const auto hs = this->fft_size / 2;
+
+		for (auto i = 0; i <= hs; ++i)
+			m_packed[i][0] = realIn[i];
+
+		if (imagIn == nullptr)
+			for (auto i = 0; i <= hs; ++i)
+				m_packed[i][1] = SampleType (0);
+		else
+			for (auto i = 0; i <= hs; ++i)
+				m_packed[i][1] = imagIn[i];
+	}
 
 	if constexpr (std::is_same_v<SampleType, float>)
 		fftwf_execute (m_plani);
@@ -258,7 +248,7 @@ void FFTW_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType*
 {
 	for (auto i = 0; i <= this->fft_size / 2; ++i)
 	{
-		m_packed[i][0] = std::log (magIn[i] + shiftAmount<float_type>);
+		m_packed[i][0] = std::log (magIn[i] + this->shiftAmount);
 		m_packed[i][1] = SampleType (0.);
 	}
 
@@ -269,6 +259,18 @@ void FFTW_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType*
 
 	if (cepOut != m_buf)
 		vecops::copy (cepOut, m_buf, this->fft_size);
+}
+
+template <Scalar SampleType>
+void FFTW_FFT<SampleType>::reset()
+{
+	vecops::clear (m_buf, this->fft_size);
+
+	for (auto i = 0; i <= this->fft_size / 2; ++i)
+	{
+		m_packed[i][0] = SampleType (0);
+		m_packed[i][1] = SampleType (0);
+	}
 }
 
 template <>

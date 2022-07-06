@@ -99,8 +99,9 @@ target_include_directories (
 
 add_subdirectory (impl) # NB - this must be first!
 add_subdirectory (fft)
+# add_subdirectory (resampling)
 
-set (limes_vecops_sources limes_vecops.h ${impl_files} ${fft_files})
+set (limes_vecops_sources limes_vecops.h ${impl_files} ${fft_files} ${resampling_files})
 
 source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${limes_vecops_sources})
 

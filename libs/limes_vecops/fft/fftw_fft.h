@@ -137,6 +137,8 @@ private:
 
 	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept final;
 
+	void reset() final;
+
 	void init();
 
 	using fft_float_type		  = std::conditional_t<FFTW_DOUBLE_ONLY, double, float>;

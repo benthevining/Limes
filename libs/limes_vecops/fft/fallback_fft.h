@@ -63,6 +63,8 @@ private:
 
 	void inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept final;
 
+	void reset() final;
+
 	// Uses m_a and m_b internally; does not touch m_c or m_d
 	LIMES_FORCE_INLINE void transformF (const SampleType* ri,
 										SampleType* ro, SampleType* io) noexcept;

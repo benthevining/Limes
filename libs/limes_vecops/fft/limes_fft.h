@@ -15,14 +15,26 @@
 #include <memory>		   // for unique_ptr
 #include <limes_export.h>  // for LIMES_EXPORT, LIMES_NO_EXPORT
 #include <string_view>	   // for string_view
-#include <limes_vecops.h>  // for concept Scalar
 #include <limes_namespace.h>
-#include <filesystem>
 #include <limes_core.h>
+#include "../limes_vecops.h"
 
 /** @defgroup fft FFT
 	Fourier transform utilities.
+
 	@ingroup limes_vecops
+
+	@dependency \b FFTW
+	<a href="https://www.fftw.org/">The FFTW Fourier transform library</a> can be used as the backend of the @ref limes_vecops "limes_vecops" FFT class.
+	FFTW can be installed to your system with a simple @verbatim cmake --install @endverbatim of their git repository.
+	The usage of FFTW is determined by the \c LIMES_USE_FFTW @ref cmakeopt "CMake variable".
+
+	@cmakeopt \b LIMES_USE_FFTW By default, <a href="https://www.fftw.org/">FFTW</a> will be searched for in the system, and if found,
+	will be used for the @ref limes_vecops "limes_vecops" FFT class's backend. However, you can set this option to \c OFF to ignore FFTW.
+	vDSP and IPP also provide FFT implementations.
+
+	@cmakeprop \b LIMES_FFT_IMPLEMENTATION
+	String name of the FFT backend being used for the @ref lib_limes_vecops "limes_vecops" library.
  */
 
 /** @defgroup fftw FFTW
@@ -68,6 +80,8 @@ namespace vecops
  */
 namespace fft
 {
+
+#pragma mark Implementation kind checking
 
 /** @ingroup fft
 	@{
@@ -129,31 +143,48 @@ template <Scalar SampleType>
 class FFTImpl;
 /// @endcond
 
+#pragma mark FFT class
+
 /** A class that performs an FFT.
+
+	Only power-of-two FFT lengths are supported.
+	On the time domain side, only real signals are handled.
+
+	@section fft_backend The FFT backend
+
+	Several different FFT libraries can be used as the backend for this class, and there is also a built-in "plain C++" backend available.
+
 	If FFTW is available, it will be used as the backend for this class.
 	Otherwise, the same backend being used for the limes_vecops functions will be used -- vDSP, IPP, or the fallback.
 
-	FFTW can be explicitly enabled or disabled using the \c LIMES_VECOPS_USE_FFTW preprocessor macro. You can also set either \c FFTW_SINGLE_ONLY or \c FFTW_DOUBLE_ONLY to 1 if only one precision of the FFTW library is available.
+	FFTW can be explicitly enabled or disabled using the \c LIMES_VECOPS_USE_FFTW preprocessor macro.
+	You can also set either \c FFTW_SINGLE_ONLY or \c FFTW_DOUBLE_ONLY to 1 if only one precision of the FFTW library is available.
 	In this case, FFTs being performed with the other datatype will be converted before being processed.
-	You can also define the \c FFTW_HEADER_NAME macro to the name of the header that should be included (including the surrounding \c " or \c \< characters). It defaults to \c \<fftw3.h> .
+	You can also define the \c FFTW_HEADER_NAME macro to the name of the header that should be included (including the surrounding \c " or \c \< characters).
+	It defaults to \c \<fftw3.h> .
 
 	@ingroup fft
-
-	@todo template this class with a bool IsInterleaved argument
-	@todo make an FFTResult class for easily retrieving bin values, get freq for bin, get mag/phase of freq, etc
  */
 template <Scalar SampleType>
 class LIMES_EXPORT FFT final
 {
 public:
-	/** Creates an FFT engine with a specified FFT size. */
+	/** Creates an FFT engine with a specified FFT size.
+		Only power-of-two FFT lengths are supported by all backends.
+		An assertion will be thrown if you construct an FFT object with a size that is not a power of 2.
+	 */
 	explicit FFT (int size);
 
 	LIMES_NON_COPYABLE (FFT)
 	LIMES_DEFAULT_MOVABLE (FFT)
 
+	~FFT() = default;
+
 	/** Returns the FFT size of this engine. */
 	[[nodiscard]] int getSize() const noexcept;
+
+	/** Resets the internal state of the FFT engine. */
+	void reset();
 
 	/** @name Forward
 		Perform forward FFTs.
@@ -174,6 +205,7 @@ public:
 
 	///@}
 
+
 	/** @name Inverse
 		Perform inverse FFTs.
 	 */
@@ -193,9 +225,22 @@ public:
 
 	///@}
 
+
+	/** Returns the frequency for a given bin number in the output data.
+		An assertion will be thrown if the given bin number is larger than the FFT size of this engine.
+	 */
+	[[nodiscard]] double getFrequencyForBin (int binNumber, double samplerate) const noexcept;
+
+	/** Returns the bin number for the given frequency in the output data.
+		An assertion will be thrown if the resulting bin number is larger than the FFT size of this engine.
+	 */
+	[[nodiscard]] int getBinForFrequency (double frequency, double samplerate) const noexcept;
+
 private:
 	std::unique_ptr<FFTImpl<SampleType>> pimpl;
 };
+
+#pragma mark FFTW wisdom
 
 /** This namespace contains functions for controlling FFTW wisdom.
 	These functions always exist, but simply do nothing when the FFTW backend is not being used.

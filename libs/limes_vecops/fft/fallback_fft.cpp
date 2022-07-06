@@ -139,7 +139,7 @@ void FallbackFFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleTy
 {
 	for (std::size_t i = 0; i <= static_cast<std::size_t> (m_half); ++i)
 	{
-		m_a[i] = std::log (magIn[i] + shiftAmount<SampleType>);
+		m_a[i] = std::log (magIn[i] + this->shiftAmount);
 		m_b[i] = SampleType (0.);
 	}
 
@@ -315,6 +315,20 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformComplex (const SampleT
 
 		blockEnd = blockSize;
 	}
+}
+
+template <Scalar SampleType>
+void FallbackFFT<SampleType>::reset()
+{
+	clear (m_vr.get(), m_half);
+	clear (m_vi.get(), m_half);
+
+	const auto plusOne = m_half + 1;
+
+	clear (m_a.get(), plusOne);
+	clear (m_b.get(), plusOne);
+	clear (m_c.get(), plusOne);
+	clear (m_d.get(), plusOne);
 }
 
 template class FallbackFFT<float>;

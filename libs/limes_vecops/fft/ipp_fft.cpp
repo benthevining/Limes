@@ -168,13 +168,13 @@ void IPP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* 
 	if constexpr (std::is_same_v<SampleType, float>)
 	{
 		ippsCopy_32f (magIn, m_spare, hs1);
-		ippsAddC_32f_I (shiftAmount<SampleType>, m_spare, hs1);
+		ippsAddC_32f_I (this->shiftAmount, m_spare, hs1);
 		ippsLn_32f_I (m_spare, hs1);
 	}
 	else
 	{
 		ippsCopy_64f (magIn, m_spare, hs1);
-		ippsAddC_64f_I (shiftAmount<double>, m_spare, hs1);
+		ippsAddC_64f_I (this->shiftAmount, m_spare, hs1);
 		ippsLn_64f_I (m_spare, hs1);
 	}
 
@@ -184,6 +184,13 @@ void IPP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* 
 		ippsFFTInv_CCSToR_32f (m_packed, cepOut, m_spec, m_buf);
 	else
 		ippsFFTInv_CCSToR_64f (m_packed, cepOut, m_spec, m_buf);
+}
+
+template <Scalar SampleType>
+void IPP_FFT<SampleType>::reset()
+{
+	vecops::clear (m_packed, this->fft_size + 2);
+	vecops::clear (m_spare, this->fft_size / 2 + 1);
 }
 
 template <Scalar SampleType>
