@@ -1,5 +1,12 @@
 # Limes changelog
 
+## [5.0.2](https://github.com/benthevining/Limes/compare/v5.0.1...v5.0.2) (2022-07-06)
+
+
+### Bug Fixes
+
+* fixed Windows path conversion issues ([a3ec0b7](https://github.com/benthevining/Limes/commit/a3ec0b7b7f13a371c7e84c8dda7ee204d6b37e40))
+
 ## [5.0.1](https://github.com/benthevining/Limes/compare/v5.0.0...v5.0.1) (2022-07-05)
 
 

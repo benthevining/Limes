@@ -14,7 +14,7 @@ cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
 project (
 	Limes
-	VERSION 5.0.1
+	VERSION 5.0.2
 	LANGUAGES CXX
 	DESCRIPTION "C++ utilities and building blocks"
 	HOMEPAGE_URL "www.github.com/benthevining/Limes")
