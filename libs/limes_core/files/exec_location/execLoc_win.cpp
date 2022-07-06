@@ -53,7 +53,7 @@ namespace files
 
 		do
 		{
-			if (const auto* path_ = static_cast<wchar_t*> (std::realloc (path, sizeof (wchar_t) * size_ * 2)))
+			if (auto* path_ = static_cast<wchar_t*> (std::realloc (path, sizeof (wchar_t) * size_ * 2)))
 			{
 				size_ *= 2;
 				path = path_;
