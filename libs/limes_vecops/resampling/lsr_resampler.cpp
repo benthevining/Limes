@@ -28,6 +28,7 @@ int LibsamplerateResampler<SampleType>::resample (SampleType* const * const		  o
 												  int							  incount,
 												  double						  ratio) noexcept
 {
+	return 0;
 }
 
 template <Scalar SampleType>
@@ -37,6 +38,7 @@ int LibsamplerateResampler<SampleType>::resampleInterleaved (SampleType* const		
 															 int					 incount,
 															 double					 ratio) noexcept
 {
+	return 0;
 }
 
 template <Scalar SampleType>

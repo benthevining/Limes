@@ -51,6 +51,7 @@ bool setWisdomFileDir (const files::Directory& directory)
 	widom_file_dir = directory;
 	return true;
 #else
+	misc::ignore_unused (directory);
 	return false;
 #endif
 }
@@ -78,6 +79,8 @@ void enableWisdom (bool shouldUseWisdom)
 {
 #if LIMES_VECOPS_USE_FFTW
 	useWisdom.store (shouldUseWisdom);
+#else
+	misc::ignore_unused (shouldUseWisdom);
 #endif
 }
 

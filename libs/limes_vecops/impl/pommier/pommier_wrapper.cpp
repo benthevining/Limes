@@ -67,7 +67,7 @@ void polarToCartesian_pommier (float* const real, float* const imag, const float
 {
 	int idx = 0, tidx = 0;
 
-	const auto vecOp = [&idx, &tidx, mag, phase, real, imag] (int i)
+	const auto vecOp = [&idx, &tidx, mag, phase, real, imag] (int)	// NOLINT
 	{
 		V4SF fmag, fphase, fre, fim;
 
@@ -101,7 +101,7 @@ void polarToCartesianInterleaved_pommier (float* const dest, const float* const 
 {
 	int idx = 0, tidx = 0;
 
-	const auto vecOp = [&idx, &tidx, mag, phase, dest] (int i)
+	const auto vecOp = [&idx, &tidx, mag, phase, dest] (int)  // NOLINT
 	{
 		V4SF fmag, fphase, fre, fim;
 

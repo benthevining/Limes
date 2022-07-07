@@ -28,6 +28,7 @@ int IPPResampler<SampleType>::resample (SampleType* const * const		out,
 										int								incount,
 										double							ratio) noexcept
 {
+	return 0;
 }
 
 template <Scalar SampleType>
@@ -37,6 +38,7 @@ int IPPResampler<SampleType>::resampleInterleaved (SampleType* const	   out,
 												   int					   incount,
 												   double				   ratio) noexcept
 {
+	return 0;
 }
 
 template <Scalar SampleType>

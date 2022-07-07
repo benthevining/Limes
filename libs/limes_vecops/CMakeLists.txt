@@ -38,8 +38,8 @@ target_compile_options (
 	limes_vecops
 	PRIVATE
 		"$<$<AND:$<PLATFORM_ID:watchOS>,$<CXX_COMPILER_ID:Clang,AppleClang>>:-fgnu-inline-asm>"
-		"$<$<CXX_COMPILER_ID:GNU>:-flax-vector-conversions>"
-	)
+	PUBLIC
+		"$<$<CXX_COMPILER_ID:GNU>:-flax-vector-conversions>")
 # cmake-format: on
 
 set (LIMES_VECOPS_INSTALL_INCLUDE_DIR "${LIMES_INSTALL_INCLUDE_DIR}/limes_vecops")
