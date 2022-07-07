@@ -24,7 +24,7 @@ cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 
 project (
 	LimesTests
-	VERSION 5.0.2
+	VERSION 5.0.3
 	DESCRIPTION "Unit tests for Limes"
 	HOMEPAGE_URL "www.github.com/benthevining/Limes"
 	LANGUAGES CXX)

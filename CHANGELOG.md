@@ -1,5 +1,13 @@
 # Limes changelog
 
+## [5.0.3](https://github.com/benthevining/Limes/compare/v5.0.2...v5.0.3) (2022-07-07)
+
+
+### Bug Fixes
+
+* added -flax-vector-conversions to vecops with GCC ([0eb5aa7](https://github.com/benthevining/Limes/commit/0eb5aa7dc5a81ba946d9afb0e0b42334dd3e81fe))
+* fixing const-correctness in SSE mathfun ([1c5381a](https://github.com/benthevining/Limes/commit/1c5381a11ad919360aa25790b60fef6679b51d85))
+
 ## [5.0.2](https://github.com/benthevining/Limes/compare/v5.0.1...v5.0.2) (2022-07-06)
 
 

@@ -40,7 +40,7 @@
 #define LIMES_BEGIN_NAMESPACE \
 	namespace limes           \
 	{                         \
-	inline namespace v5_0_2   \
+	inline namespace v5_0_3   \
 	{
 
 /** @def LIMES_END_NAMESPACE
