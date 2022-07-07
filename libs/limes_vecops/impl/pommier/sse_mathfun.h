@@ -38,6 +38,8 @@
 	2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software. \n
 	3. This notice may not be removed or altered from any source distribution. \n
 	(this is the zlib license)
+
+	@todo USE_SSE2 macro
  */
 
 #pragma once
