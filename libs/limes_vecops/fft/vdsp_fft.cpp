@@ -14,11 +14,14 @@
 #include <limes_platform.h>
 #include <limes_namespace.h>
 #include <limes_core.h>
+#include "./limes_fft.h"
 
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
 {
+
+static_assert (fft::isUsingVDSP());
 
 static constexpr std::size_t vDSPalignment = 32UL;
 
@@ -28,8 +31,6 @@ vDSP_FFT<SampleType>::vDSP_FFT (int size)
 	  m_spare (static_cast<std::size_t> (this->fft_size) + 2, vDSPalignment, SampleType (0)),
 	  m_spare2 (static_cast<std::size_t> (this->fft_size) + 2, vDSPalignment, SampleType (0))
 {
-	static_assert (fft::isUsingVDSP());
-
 	if constexpr (std::is_same_v<SampleType, float>)
 		m_spec = vDSP_create_fftsetup (vDSP_Length (this->m_order), FFT_RADIX2);
 	else

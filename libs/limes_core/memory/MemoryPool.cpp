@@ -59,7 +59,7 @@ MemoryPool::~MemoryPool()
 	{
 		std::free (memory);
 	}
-	catch (const std::exception&)
+	catch (...)
 	{
 	}
 }

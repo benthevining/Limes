@@ -15,7 +15,6 @@
 #include "../memory/RawData.h"
 #include <string>
 #include <string_view>
-#include <exception>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -49,7 +48,7 @@ memory::RawData FileInfoList::loadFile (const std::string_view& fileName) const 
 
 		return {};
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 		return {};
 	}

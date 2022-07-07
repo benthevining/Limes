@@ -16,7 +16,6 @@
 #include <limes_export.h>
 #include <limes_platform.h>
 #include <cstdlib>
-#include <exception>
 #include <new>
 #include <memory>
 #include "../misc/preprocessor.h"
@@ -68,7 +67,7 @@ LIMES_EXPORT [[nodiscard]] T* allocate_aligned (std::size_t count = 1, std::size
 
 		return typed_ptr;
 	}
-	catch (const std::exception&)
+	catch (...)
 	{
 		return nullptr;
 	}
@@ -95,7 +94,7 @@ LIMES_EXPORT bool deallocate_aligned (T* ptr) noexcept
 
 		return true;
 	}
-	catch (const std::exception&)
+	catch (...)
 	{
 		return false;
 	}

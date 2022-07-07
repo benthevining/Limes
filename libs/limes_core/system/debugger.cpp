@@ -26,7 +26,6 @@
 #	include "../files/file.h"
 #	include "../text/StringUtils.h"
 #	include <string>
-#	include <exception>
 #else  // Linux
 #	include <sys/ptrace.h>
 #endif
@@ -87,7 +86,7 @@ namespace debugger
 
 		return false;
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 		return false;
 	}

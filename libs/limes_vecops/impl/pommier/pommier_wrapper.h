@@ -59,9 +59,13 @@ namespace vecops::pommier
 
 /// @cond internals
 
-LIMES_NO_EXPORT void polarToCartesian (float* const real, float* const imag, const float* const mag, const float* const phase, int size) noexcept;
+LIMES_NO_EXPORT void polarToCartesian (float* const real, float* const imag,
+									   const float* const mag, const float* const phase,
+									   int size) noexcept;
 
-LIMES_NO_EXPORT void polarToCartesianInterleaved (float* const dest, const float* const mag, const float* const phase, int size) noexcept;
+LIMES_NO_EXPORT void polarToCartesianInterleaved (float* const		 dest,
+												  const float* const mag, const float* const phase,
+												  int size) noexcept;
 
 LIMES_NO_EXPORT void sine (float* const data, int size) noexcept;
 
@@ -71,7 +75,9 @@ LIMES_NO_EXPORT void cos (float* const data, int size) noexcept;
 
 LIMES_NO_EXPORT void cosAndCopy (float* const dest, const float* const data, int size) noexcept;
 
-LIMES_NO_EXPORT void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut) noexcept;
+LIMES_NO_EXPORT void sinCos (const float* const data,
+							 int				size,
+							 float* const sinesOut, float* const cosinesOut) noexcept;
 
 /// @endcond
 

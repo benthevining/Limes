@@ -29,7 +29,8 @@
 	FFTW can be installed to your system with a simple @verbatim cmake --install @endverbatim of their git repository.
 	The usage of FFTW is determined by the \c LIMES_USE_FFTW @ref cmakeopt "CMake variable".
 
-	@cmakeopt \b LIMES_USE_FFTW By default, <a href="https://www.fftw.org/">FFTW</a> will be searched for in the system, and if found,
+	@cmakeopt \b LIMES_USE_FFTW
+	By default, <a href="https://www.fftw.org/">FFTW</a> will be searched for in the system, and if found,
 	will be used for the @ref limes_vecops "limes_vecops" FFT class's backend. However, you can set this option to \c OFF to ignore FFTW.
 	vDSP and IPP also provide FFT implementations.
 

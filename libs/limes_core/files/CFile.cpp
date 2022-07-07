@@ -16,7 +16,6 @@
 #include "../system/limes_assert.h"
 #include <string_view>
 #include <limes_platform.h>
-#include <exception>
 #include <cstdio>
 
 LIMES_BEGIN_NAMESPACE
@@ -112,7 +111,7 @@ bool CFile::open (const Path& filepath, Mode mode) noexcept
 
 		return true;
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 		ptr = nullptr;
 		path.clear();
@@ -129,7 +128,7 @@ void CFile::close() noexcept
 		{
 			std::fclose (ptr);
 		}
-		catch (std::exception&)
+		catch (...)
 		{
 		}
 

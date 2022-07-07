@@ -199,7 +199,7 @@ void AlignedAllocator<T, Alignment, UseExceptions>::construct (T* const ptr, con
 		{
 			std::construct_at (ptr, t);
 		}
-		catch (std::exception&)
+		catch (...)
 		{
 		}
 	}
@@ -217,7 +217,7 @@ void AlignedAllocator<T, Alignment, UseExceptions>::construct (T* const ptr, Arg
 		{
 			std::construct_at (ptr, std::forward<Args> (args)...);
 		}
-		catch (std::exception&)
+		catch (...)
 		{
 		}
 	}

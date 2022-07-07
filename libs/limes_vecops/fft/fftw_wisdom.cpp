@@ -17,7 +17,6 @@
 #include <cstdlib>
 #include <sstream>
 #include <cstdio>
-#include <exception>
 
 #if LIMES_VECOPS_USE_FFTW
 #	include <mutex>  // for lock_guard, mutex
@@ -138,7 +137,7 @@ bool isUsingWisdom()
 
 		return fileDir.getChildFile (filename).getCfile (mode);
 	}
-	catch (const std::exception&)
+	catch (...)
 	{
 		return {};
 	}

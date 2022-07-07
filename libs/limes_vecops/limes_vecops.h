@@ -75,7 +75,8 @@
 
 	Additionally, the fallback implementation may leverage Julien Pommier's implementations of SIMD functions for SSE and NEON:
 
-	@cmakeopt \b LIMES_USE_POMMIER If \c ON , Julien Pommier's sin and cosine functions for SSE and NEON will be used,
+	@cmakeopt \b LIMES_USE_POMMIER
+	If \c ON , Julien Pommier's sin and cosine functions for SSE and NEON will be used,
 	if on a platform supporting those instructions. The main use case of this option is to disable these functions.
 	This is not an external dependency, because this code ships as part of Limes's source tree. Usage of this code
 	requires adherence to its original license, which is preserved in these source files.
@@ -113,14 +114,12 @@
 	@todo type conversion functions
 	@todo tone generation functions (sine, saw, square, triangle)
 	@todo filters?
-	@todo resampling (add libsamplerate backend)
 	@todo convolution engine?
 	@todo write unit tests
 	@todo median
 	@todo mode
 
 	@todo resampler implementations
-	@todo cmake option for libsamplerate
  */
 
 /** @dir libs/limes_vecops
@@ -146,7 +145,7 @@
 static_assert (sizeof (float) == 4, "float is not 32-bits wide");
 static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 
-#include "./impl/vecops_macros.h"
+#include "./impl/vecops_macros.h"  // IWYU pragma: export
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -1490,9 +1489,8 @@ LIMES_END_NAMESPACE
 
 /// @cond
 
-#include "impl/fallback_impl.h"
-
 // IWYU pragma: begin_exports
+
 #if LIMES_VECOPS_USE_VDSP
 #	include "impl/vdsp.h"
 #elif LIMES_VECOPS_USE_IPP
@@ -1502,8 +1500,10 @@ LIMES_END_NAMESPACE
 #else
 #	include "impl/fallback.h"
 #endif
-// IWYU pragma: end_exports
 
 #include "fft/limes_fft.h"
+#include "resampling/limes_resampler.h"
+
+// IWYU pragma: end_exports
 
 /// @endcond

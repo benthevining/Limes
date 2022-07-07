@@ -14,11 +14,14 @@
 #include <limes_platform.h>
 #include <limes_namespace.h>
 #include <limes_core.h>
+#include "./limes_fft.h"
 
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
 {
+
+static_assert (fft::isUsingFallback());
 
 static constexpr std::size_t FFTalignment = 32UL;
 
@@ -35,8 +38,6 @@ FallbackFFT<SampleType>::FallbackFFT (int size)
 	  m_c (static_cast<std::size_t> (m_half) + 1, FFTalignment, SampleType (0)),
 	  m_d (static_cast<std::size_t> (m_half) + 1, FFTalignment, SampleType (0))
 {
-	// static_assert (fft::isUsingFallback());
-
 	const auto bits = [halfSize = m_half]
 	{
 		for (auto i = 0;; ++i)

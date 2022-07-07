@@ -12,18 +12,19 @@
 
 #include "./ipp_fft.h"
 #include <limes_namespace.h>
+#include "./limes_fft.h"
 
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
 {
 
+static_assert (fft::isUsingIPP());
+
 template <Scalar SampleType>
 IPP_FFT<SampleType>::IPP_FFT (int size)
 	: FFTImpl<SampleType> (size)
 {
-	static_assert (fft::isUsingIPP());
-
 	int specSize, specBufferSize, bufferSize;  // NOLINT
 
 	if constexpr (std::is_same_v<SampleType, float>)

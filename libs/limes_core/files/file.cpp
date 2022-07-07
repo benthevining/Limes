@@ -13,7 +13,6 @@
 #include "./file.h"
 #include <iterator>	 // for istreambuf_iterator
 #include "../limes_namespace.h"
-#include <exception>   // for exception
 #include <filesystem>  // for path, operator/
 #include <fstream>	   // for string, ifstream, ofstream
 #include <string>	   // for char_traits, operator+
@@ -199,7 +198,7 @@ memory::RawData File::loadAsData() const noexcept
 
 		return memory::RawData { stream };
 	}
-	catch (const std::exception&)
+	catch (...)
 	{
 		return {};
 	}
@@ -215,7 +214,7 @@ std::string File::loadAsString() const noexcept
 
 		return { Iterator (stream), Iterator() };
 	}
-	catch (const std::exception&)
+	catch (...)
 	{
 		return {};
 	}
@@ -250,7 +249,7 @@ CFile File::getCfile (CFile::Mode mode) const noexcept
 	{
 		return CFile { getAbsolutePath(), mode };
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 		return {};
 	}
@@ -282,7 +281,7 @@ TempFile::~TempFile()
 		{
 			deleteIfExists();
 		}
-		catch (std::exception&)
+		catch (...)
 		{
 		}
 	}

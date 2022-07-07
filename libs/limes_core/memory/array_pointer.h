@@ -17,7 +17,6 @@
 #include "../misc/preprocessor.h"
 #include <cstdlib>
 #include <new>
-#include <exception>
 
 /** @file
 	This file defines the array_pointer class.
@@ -185,7 +184,7 @@ void array_pointer<Type, UseExceptions>::free() noexcept (! UseExceptions)
 		{
 			std::free (ptr);
 		}
-		catch (std::exception&)
+		catch (...)
 		{
 		}
 	}
@@ -220,7 +219,7 @@ bool array_pointer<Type, UseExceptions>::reallocate (std::size_t newSize) noexce
 		{
 			ptr = static_cast<Type*> (std::realloc (ptr, newSize * sizeof (Type)));
 		}
-		catch (std::exception&)
+		catch (...)
 		{
 			return false;
 		}

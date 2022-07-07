@@ -8,9 +8,18 @@
 #
 # ======================================================================================
 
-include ("${CMAKE_CURRENT_LIST_DIR}/SelectImpl.cmake")
+set (files # cmake-format: sortable
+		   fallback_impl.cpp fallback_impl.h fp_status.cpp phasor.cpp phasor.h vecops_macros.h)
 
-add_subdirectory (pommier)
+if (LIMES_USE_VDSP)
+	list (APPEND files vdsp.h)
+elseif (LIMES_USE_IPP)
+	list (APPEND files ipp.h)
+elseif (LIMES_USE_MIPP)
+	list (APPEND files mipp.h)
+else ()
+	list (APPEND files fallback.h)
+endif ()
 
 include (OrangesSourceFileUtils)
 
@@ -19,7 +28,8 @@ oranges_add_source_files (
 	TARGET limes_vecops
 	INSTALL_COMPONENT limes_vecops_dev
 	INSTALL_DIR "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
-	FILES # cmake-format: sortable
-		  fallback_impl.cpp fallback_impl.h fp_status.cpp phasor.h phasor.cpp vecops_macros.h)
+	FILES ${files})
+
+add_subdirectory (pommier)
 
 set (impl_files ${impl_files} ${pommier_files} PARENT_SCOPE)

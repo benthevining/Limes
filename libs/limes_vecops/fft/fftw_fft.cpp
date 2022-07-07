@@ -24,6 +24,8 @@ LIMES_BEGIN_NAMESPACE
 namespace vecops
 {
 
+static_assert (fft::isUsingFFTW());
+
 #if FFTW_DOUBLE_ONLY
 #	define fftwf_plan_dft_r2c_1d fftw_plan_dft_r2c_1d
 #	define fftwf_plan_dft_c2r_1d fftw_plan_dft_c2r_1d
@@ -81,8 +83,6 @@ LIMES_REENABLE_ALL_COMPILER_WARNINGS
 template <Scalar SampleType>
 void FFTW_FFT<SampleType>::init()
 {
-	static_assert (fft::isUsingFFTW());
-
 	if (m_extant == 0)
 		fftw_load_wisdom<std::is_same_v<SampleType, double>>();
 

@@ -116,14 +116,18 @@ endif ()
 #
 
 if (Vecops IN_LIST finding_components)
-	if ("@LIMES_VECOPS_USING_IPP@") # LIMES_VECOPS_USING_IPP
+	if ("@LIMES_USE_IPP@") # LIMES_USE_IPP
 		find_dependency (IPP COMPONENTS CORE S VM)
-	elseif ("@LIMES_VECOPS_USING_MIPP@") # LIMES_VECOPS_USING_MIPP
+	elseif ("@LIMES_USE_MIPP@") # LIMES_USE_MIPP
 		find_dependency (MIPP)
 	endif ()
 
-	if ("@LIMES_VECOPS_USING_FFTW@") # LIMES_VECOPS_USING_FFTW
+	if ("@LIMES_USE_FFTW@") # LIMES_USE_FFTW
 		find_dependency (FFTW)
+	endif ()
+
+	if ("@LIMES_USE_LIBSAMPLERATE@") # LIMES_USE_LIBSAMPLERATE
+		find_dependency (SampleRate)
 	endif ()
 endif ()
 

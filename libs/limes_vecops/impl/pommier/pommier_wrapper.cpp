@@ -144,7 +144,7 @@ void sine (float* const data, int size) noexcept
 		const auto result = ::pommier::sin_ps (reg.v);
 
 		for (auto j = 0; j < 4; ++j)
-			data[i + j] = result.f[j];
+			data[i + j] = result[j];
 	};
 
 	const auto scalarOp = [data] (int i)
@@ -167,7 +167,7 @@ void sineAndCopy (float* const dest, const float* const data, int size) noexcept
 		const auto result = ::pommier::sin_ps (reg.v);
 
 		for (auto j = 0; j < 4; ++j)
-			dest[i + j] = result.f[j];
+			dest[i + j] = result[j];
 	};
 
 	const auto scalarOp = [dest, data] (int i)
@@ -190,7 +190,7 @@ void cos (float* const data, int size) noexcept
 		const auto result = ::pommier::cos_ps (reg.v);
 
 		for (auto j = 0; j < 4; ++j)
-			data[i + j] = result.f[j];
+			data[i + j] = result[j];
 	};
 
 	const auto scalarOp = [data] (int i)
@@ -213,7 +213,7 @@ void cosAndCopy (float* const dest, const float* const data, int size) noexcept
 		const auto result = ::pommier::cos_ps (reg.v);
 
 		for (auto j = 0; j < 4; ++j)
-			dest[i + j] = result.f[j];
+			dest[i + j] = result[j];
 	};
 
 	const auto scalarOp = [dest, data] (int i)
@@ -224,7 +224,7 @@ void cosAndCopy (float* const dest, const float* const data, int size) noexcept
 	perform (size, std::move (vecOp), std::move (scalarOp));
 }
 
-void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut) noexcept
+void sinCos (const float* const data, int size, float* const sinesOut, float* const cosinesOut) noexcept
 {
 	const auto vecOp = [data, sinesOut, cosinesOut] (int i)
 	{
@@ -233,7 +233,7 @@ void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut
 		for (auto j = 0; j < 4; ++j)
 			reg.f[j] = data[i + j];
 
-		::pommier::sincos_ps (reg, &sin, &cos);
+		::pommier::sincos_ps (reg.v, &sin.v, &cos.v);
 
 		for (auto j = 0; j < 4; ++j)
 		{

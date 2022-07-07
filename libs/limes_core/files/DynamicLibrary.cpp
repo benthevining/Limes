@@ -14,7 +14,6 @@
 #include "../limes_namespace.h"
 #include <limes_platform.h>
 #include <string>
-#include <exception>
 
 #if LIMES_WINDOWS
 #	include <windows.h>
@@ -51,7 +50,7 @@ DynamicLibrary::~DynamicLibrary()
 	{
 		close();
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 	}
 }
@@ -96,7 +95,7 @@ bool DynamicLibrary::open (const std::string_view& nameOrPath) noexcept
 
 		return handle != nullptr;
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 		return false;
 	}
@@ -127,7 +126,7 @@ void* DynamicLibrary::findFunction (const std::string_view& functionName) noexce
 		return ::dlsym (handle, functionName.data());
 #endif
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 		return nullptr;
 	}

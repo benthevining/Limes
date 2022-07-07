@@ -19,7 +19,6 @@
 #include <string>	// for char_traits
 #include <string_view>
 #include "../hashes/hash.h"	 // for hash
-#include <exception>
 #include "../system/limes_assert.h"
 
 LIMES_BEGIN_NAMESPACE
@@ -111,7 +110,7 @@ bool RawData::writeToStream (std::basic_ostream<char>& outputStream) const noexc
 		outputStream.write (data, static_cast<std::streamsize> (size));
 		return true;
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 		return false;
 	}
@@ -341,7 +340,7 @@ std::string RawData::toString() const noexcept
 	{
 		return { data, size };
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 		return {};
 	}

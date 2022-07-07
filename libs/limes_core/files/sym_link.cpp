@@ -11,7 +11,6 @@
  */
 
 #include "./sym_link.h"
-#include <exception>			// for exception
 #include <filesystem>			// for create_directory_symlink, create_...
 #include "../misc/Functions.h"	// for try_call
 #include "./FilesystemEntry.h"	// for FilesystemEntry, Path
@@ -44,7 +43,7 @@ FilesystemEntry SymLink::follow (bool recurse) const noexcept
 
 		return target.getSymLinkObject()->follow_recurse (0);
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 		return {};
 	}

@@ -140,32 +140,32 @@ v4sf exp_ps (v4sf x) noexcept
 	x	   = vsubq_f32 (x, tmp);
 	x	   = vsubq_f32 (x, z);
 
-	v4sf y = vld1q_dup_f32 (cephes_exp_p[0]);
+	v4sf y = vld1q_dup_f32 (&cephes_exp_p[0]);
 
 	y = vmulq_f32 (y, x);
 	z = vmulq_f32 (x, x);
 
-	const v4sf c1 = vld1q_dup_f32 (cephes_exp_p[1]);
+	const v4sf c1 = vld1q_dup_f32 (&cephes_exp_p[1]);
 
 	y = vaddq_f32 (y, c1);
 	y = vmulq_f32 (y, x);
 
-	const v4sf c2 = vld1q_dup_f32 (cephes_exp_p[2]);
+	const v4sf c2 = vld1q_dup_f32 (&cephes_exp_p[2]);
 
 	y = vaddq_f32 (y, c2);
 	y = vmulq_f32 (y, x);
 
-	const v4sf c3 = vld1q_dup_f32 (cephes_exp_p[3]);
+	const v4sf c3 = vld1q_dup_f32 (&cephes_exp_p[3]);
 
 	y = vaddq_f32 (y, c3);
 	y = vmulq_f32 (y, x);
 
-	const v4sf c4 = vld1q_dup_f32 (cephes_exp_p[4]);
+	const v4sf c4 = vld1q_dup_f32 (&cephes_exp_p[4]);
 
 	y = vaddq_f32 (y, c4);
 	y = vmulq_f32 (y, x);
 
-	const v4sf c5 = vld1q_dup_f32 (cephes_exp_p[5]);
+	const v4sf c5 = vld1q_dup_f32 (&cephes_exp_p[5]);
 
 	y = vaddq_f32 (y, c5);
 

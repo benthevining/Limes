@@ -8,26 +8,43 @@
 #
 # ======================================================================================
 
+include (FeatureSummary)
 include (OrangesGeneratePlatformHeader)
 
-if ((NOT (ORANGES_ARM_NEON OR ORANGES_SSE)) OR (MSVC AND NOT ORANGES_ARM_NEON)) # MSVC doesn't
-	# compile MMX intrinsics used in sse_mathfun
+if (PLAT_SSE OR PLAT_ARM_NEON)
+	set (pom_init ON)
+else ()
+	set (pom_init OFF)
+endif ()
+
+option (LIMES_USE_POMMIER "Use the Pommier SIMD extensions for limes_vecops (SSE or NEON)"
+		"${pom_init}")
+
+unset (pom_init)
+
+mark_as_advanced (FORCE LIMES_USE_POMMIER)
+
+add_feature_info ("Pommier SIMD functions" "${LIMES_USE_POMMIER}"
+				  "Using Julien Pommier's SIMD functions for NEON/SSE")
+
+if (NOT LIMES_USE_POMMIER)
 	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_POMMIER=0)
 
-	set (LIMES_USE_POMMIER FALSE
-		 CACHE BOOL "Use the Pommier SIMD extensions for limes_vecops (SSE or NEON)" FORCE)
-
 	return ()
+endif ()
+
+if (NOT (PLAT_SSE OR PLAT_ARM_NEON))
+	message (FATAL_ERROR "Neither SSE or NEON is detected, LIMES_USE_POMMIER cannot be enabled!")
 endif ()
 
 target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_POMMIER=1)
 
 set (pom_files pommier_wrapper.cpp pommier_wrapper.h)
 
-if (ORANGES_ARM_NEON)
-	set (pom_files ${pom_files} neon_mathfun.cpp neon_mathfun.h)
+if (PLAT_ARM_NEON)
+	list (APPEND pom_files neon_mathfun.cpp neon_mathfun.h)
 else ()
-	set (pom_files ${pom_files} sse_mathfun.cpp sse_mathfun.h)
+	list (APPEND pom_files sse_mathfun.cpp sse_mathfun.h)
 endif ()
 
 include (OrangesSourceFileUtils)

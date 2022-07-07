@@ -16,7 +16,6 @@
 #include <iostream>
 #include <sstream>
 #include <atomic>
-#include <exception>
 #include "../text/StringUtils.h"
 #include <cstdlib>
 #include <mutex>
@@ -87,7 +86,7 @@ static inline void log_assertion (const char* fileName, const char* functionName
 			logOutput.append (log);
 		}
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 	}
 }

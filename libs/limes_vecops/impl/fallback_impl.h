@@ -774,7 +774,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void sinCos (const DataType* const data, Size
 {
 #if LIMES_VECOPS_USE_POMMIER
 	if constexpr (std::is_same_v<DataType, float>)
-		pommier::sinCos (data, size, sinesOut, cosinesOut);
+		pommier::sinCos (data, static_cast<int> (size), sinesOut, cosinesOut);
 	else
 #endif
 		for (auto i = SizeType (0); i < size; ++i)

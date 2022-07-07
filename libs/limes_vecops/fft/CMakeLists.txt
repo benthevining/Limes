@@ -8,57 +8,66 @@
 #
 # ======================================================================================
 
+define_property (
+	GLOBAL
+	PROPERTY LIMES_FFT_IMPLEMENTATION
+	BRIEF_DOCS "Name of the FFT implementation"
+	FULL_DOCS
+		"Name of the underlying FFT implementation library used by limes_vecops. May be vDSP, IPP, FFTW, or Fallback."
+	)
+
+option (LIMES_USE_FFTW "Use FFTW for limes_vecops" ON)
+
+mark_as_advanced (FORCE LIMES_USE_FFTW)
+
+set (files # cmake-format: sortable
+		   fft_common.h fftw_wisdom.cpp limes_fft.cpp limes_fft.h)
+
 include (FeatureSummary)
 
 set_package_properties (FFTW PROPERTIES TYPE RECOMMENDED PURPOSE "FFT acceleration with FFTW")
 
-#
-
-set (files fft_common.h fftw_wisdom.cpp limes_fft.cpp limes_fft.h)
-
 if (LIMES_USE_FFTW)
-	find_package (FFTW)
-
-	if (TARGET FFTW::FFTW)
-		target_link_libraries (limes_vecops PRIVATE FFTW::FFTW)
-
-		target_compile_definitions (limes_vecops PRIVATE LIMES_VECOPS_USE_FFTW=1)
-
-		set (files ${files} fftw_fft.h fftw_fft.cpp)
-
-		set (LIMES_VECOPS_USING_FFTW ON CACHE INTERNAL "")
-
-		set (impl_name FFTW)
-	endif ()
+	find_package (FFTW MODULE)
+else ()
+	set (FFTW_FOUND OFF)
 endif ()
 
-if (NOT LIMES_USE_FFTW OR NOT TARGET FFTW::FFTW)
-	set (LIMES_VECOPS_USING_FFTW OFF CACHE INTERNAL "")
+if (FFTW_FOUND AND TARGET FFTW::FFTW)
+	list (APPEND files fftw_fft.h fftw_fft.cpp)
 
-	get_property (vecops_impl GLOBAL PROPERTY LIMES_VECOPS_IMPLEMENTATION)
+	target_link_libraries (limes_vecops PRIVATE FFTW::FFTW)
 
-	if ("${vecops_impl}" MATCHES vDSP)
-		set (files ${files} vdsp_fft.h vdsp_fft.cpp)
+	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_FFTW=1)
+
+	set (LIMES_USE_FFTW ON CACHE BOOL "Use FFTW for limes_vecops" FORCE)
+
+	set (impl_name FFTW)
+else ()
+	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_FFTW=0)
+
+	set (LIMES_USE_FFTW OFF CACHE BOOL "Use FFTW for limes_vecops" FORCE)
+
+	if (LIMES_USE_VDSP)
+		list (APPEND files vdsp_fft.h vdsp_fft.cpp)
 		set (impl_name vDSP)
-	elseif ("${vecops_impl}" STREQUAL IPP)
-		set (files ${files} ipp_fft.h ipp_fft.cpp)
+	elseif (LIMES_USE_IPP)
+		list (APPEND files ipp_fft.h ipp_fft.cpp)
 		set (impl_name IPP)
 	else ()
-		set (files ${files} fallback_fft.h fallback_fft.cpp)
+		list (APPEND files fallback_fft.h fallback_fft.cpp)
 		set (impl_name Fallback)
 	endif ()
 endif ()
 
 message (DEBUG " -- limes_vecops - using ${impl_name} for FFT")
 
-add_feature_info (FFTW "${impl_name} STREQUAL FFTW"
+add_feature_info (FFTW "${LIMES_USE_FFTW}"
 				  "Using the ${impl_name} backend for the limes_vecops FFT")
 
 set_property (GLOBAL PROPERTY LIMES_FFT_IMPLEMENTATION "${impl_name}")
 
 unset (impl_name)
-
-#
 
 include (OrangesSourceFileUtils)
 

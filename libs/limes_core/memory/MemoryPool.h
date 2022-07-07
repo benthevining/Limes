@@ -17,7 +17,6 @@
 #include <limes_export.h>  // for LIMES_EXPORT, LIMES_NO_EXPORT
 #include "../limes_namespace.h"
 #include <cstddef>				   // for size_t, byte
-#include <exception>			   // for exception
 #include <type_traits>			   // for remove_cv
 #include <vector>				   // for vector
 #include "../misc/preprocessor.h"  // for LIMES_NON_COPYABLE, LIMES_DEFAULT...
@@ -173,7 +172,7 @@ std::unique_ptr<MemoryPool> MemoryPool::createFor (std::size_t desiredCapacity) 
 	{
 		return std::make_unique<MemoryPool> (desiredCapacity * sizeof (ObjectType), sizeof (ObjectType));
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 		return nullptr;
 	}
@@ -234,7 +233,7 @@ void MemoryPool::destruct (ObjectType& object) noexcept
 		deallocate (address);
 		std::destroy_at (address);
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 		return;
 	}

@@ -38,7 +38,7 @@
 #	define FFTW_HEADER_NAME <fftw3.h>
 #endif
 
-#include FFTW_HEADER_NAME
+#include FFTW_HEADER_NAME  // IWYU pragma: keep
 
 #if defined(DOXYGEN) || ! defined(FFTW_SINGLE_ONLY)
 /** @def FFTW_SINGLE_ONLY

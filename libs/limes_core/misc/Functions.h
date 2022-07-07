@@ -17,7 +17,6 @@
 #include <limes_export.h>
 #include "../limes_namespace.h"
 #include <functional>
-#include <exception>
 #include "./preprocessor.h"
 
 /** @defgroup func Functional
@@ -107,7 +106,7 @@ public:
 		{
 			std::invoke (func);
 		}
-		catch (std::exception&)
+		catch (...)
 		{
 		}
 	}
@@ -150,7 +149,7 @@ public:
 		{
 			std::invoke (deferredFunc);
 		}
-		catch (std::exception&)
+		catch (...)
 		{
 		}
 	}
@@ -191,7 +190,7 @@ LIMES_EXPORT consteval decltype (auto) consteval_invoke (Param&&... param) noexc
 	{
 		return std::invoke (std::forward<Param> (param)...);
 	}
-	catch (std::exception&)
+	catch (...)
 	{
 	}
 }
@@ -222,7 +221,7 @@ LIMES_EXPORT constexpr bool try_call (Func&& func, Args&&... args) noexcept
 				return true;
 			}
 		}
-		catch (const std::exception&)
+		catch (...)
 		{
 			return false;
 		}
