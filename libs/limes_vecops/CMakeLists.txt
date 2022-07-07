@@ -36,12 +36,9 @@ target_link_libraries (limes_vecops PUBLIC Limes::limes_core)
 # cmake-format: off
 target_compile_options (
 	limes_vecops
-	# PUBLIC
-	# 	# fixes a bug present when compiling vDSP with GCC
-	# 	"$<$<CXX_COMPILER_ID:GNU>:-flax-vector-conversions>"
 	PRIVATE
-		# allows inline assembly to be used on watchOS
 		"$<$<AND:$<PLATFORM_ID:watchOS>,$<CXX_COMPILER_ID:Clang,AppleClang>>:-fgnu-inline-asm>"
+		"$<$<CXX_COMPILER_ID:GNU>:-flax-vector-conversions>"
 	)
 # cmake-format: on
 

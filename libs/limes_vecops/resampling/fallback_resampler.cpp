@@ -42,6 +42,7 @@ int FallbackResampler<SampleType>::resampleInterleaved (SampleType* const		out,
 template <Scalar SampleType>
 double FallbackResampler<SampleType>::getEffectiveRatio (double inputRatio) const noexcept
 {
+	return inputRatio;
 }
 
 template <Scalar SampleType>

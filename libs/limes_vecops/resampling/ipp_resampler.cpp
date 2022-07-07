@@ -42,6 +42,7 @@ int IPPResampler<SampleType>::resampleInterleaved (SampleType* const	   out,
 template <Scalar SampleType>
 double IPPResampler<SampleType>::getEffectiveRatio (double inputRatio) const noexcept
 {
+	return inputRatio;
 }
 
 template <Scalar SampleType>

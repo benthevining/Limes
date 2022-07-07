@@ -42,6 +42,7 @@ int LibsamplerateResampler<SampleType>::resampleInterleaved (SampleType* const		
 template <Scalar SampleType>
 double LibsamplerateResampler<SampleType>::getEffectiveRatio (double inputRatio) const noexcept
 {
+	return inputRatio;
 }
 
 template <Scalar SampleType>

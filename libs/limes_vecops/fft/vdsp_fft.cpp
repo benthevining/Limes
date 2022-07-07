@@ -258,12 +258,12 @@ void vDSP_FFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType*
 
 	if constexpr (std::is_same_v<SampleType, float>)
 	{
-		vDSP_vsadd (m_spare, vDSP_Stride (1), &shiftAmount<SampleType>, m_spare, vDSP_Stride (1), vDSP_Length (hs1));
+		vDSP_vsadd (m_spare, vDSP_Stride (1), &(this->shiftAmount), m_spare, vDSP_Stride (1), vDSP_Length (hs1));
 		vvlogf (m_spare2, m_spare, &hs1);
 	}
 	else
 	{
-		vDSP_vsaddD (m_spare, vDSP_Stride (1), &shiftAmount<double>, m_spare, vDSP_Stride (1), vDSP_Length (hs1));
+		vDSP_vsaddD (m_spare, vDSP_Stride (1), &(this->shiftAmount), m_spare, vDSP_Stride (1), vDSP_Length (hs1));
 		vvlog (m_spare2, m_spare, &hs1);
 	}
 
@@ -327,8 +327,8 @@ void vDSP_FFT<SampleType>::reset()
 {
 	const auto bufSize = this->fft_size + 2;
 
-	vecops::clear (m_spare, bufSize);
-	vecops::clear (m_spare2, bufSize);
+	vecops::clear (m_spare.get(), bufSize);
+	vecops::clear (m_spare2.get(), bufSize);
 
 	vecops::clear (m_buf.realp, this->fft_size);
 	vecops::clear (m_buf.imagp, this->fft_size);
