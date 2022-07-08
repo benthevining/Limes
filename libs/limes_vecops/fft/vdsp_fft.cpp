@@ -18,10 +18,10 @@
 
 LIMES_BEGIN_NAMESPACE
 
-namespace vecops
+namespace vecops::fft
 {
 
-static_assert (fft::isUsingVDSP());
+static_assert (isUsingVDSP());
 
 static constexpr std::size_t vDSPalignment = 32UL;
 
@@ -342,6 +342,6 @@ void vDSP_FFT<SampleType>::reset()
 template class vDSP_FFT<float>;
 template class vDSP_FFT<double>;
 
-}  // namespace vecops
+}  // namespace vecops::fft
 
 LIMES_END_NAMESPACE

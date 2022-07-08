@@ -112,6 +112,7 @@
 	@todo normalize function
 	@todo pffft FFT backend
 	@todo type conversion functions
+	@todo convert & copy functions
 	@todo tone generation functions (sine, saw, square, triangle)
 	@todo filters?
 	@todo convolution engine?

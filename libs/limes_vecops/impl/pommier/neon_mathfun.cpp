@@ -12,9 +12,12 @@
 
 #include "./neon_mathfun.h"
 #include <array>
+#include <limes_core.h>
 
 namespace pommier
 {
+
+LIMES_DISABLE_ALL_COMPILER_WARNINGS
 
 v4sf log_ps (v4sf x) noexcept
 {
@@ -279,5 +282,7 @@ v4sf cos_ps (v4sf x) noexcept
 	sincos_ps (x, &ysin, &ycos);
 	return ycos;
 }
+
+LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
 }  // namespace pommier

@@ -16,10 +16,10 @@
 
 LIMES_BEGIN_NAMESPACE
 
-namespace vecops
+namespace vecops::fft
 {
 
-static_assert (fft::isUsingIPP());
+static_assert (isUsingIPP());
 
 template <Scalar SampleType>
 IPP_FFT<SampleType>::IPP_FFT (int size)
@@ -244,6 +244,6 @@ LIMES_FORCE_INLINE void IPP_FFT<SampleType>::ipp_unpack (SampleType* const re, S
 	}
 }
 
-}  // namespace vecops
+}  // namespace vecops::fft
 
 LIMES_END_NAMESPACE

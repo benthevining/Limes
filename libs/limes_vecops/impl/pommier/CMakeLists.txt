@@ -9,18 +9,12 @@
 # ======================================================================================
 
 include (FeatureSummary)
+include (CMakeDependentOption)
 include (OrangesGeneratePlatformHeader)
 
-if (PLAT_SSE OR PLAT_ARM_NEON)
-	set (pom_init ON)
-else ()
-	set (pom_init OFF)
-endif ()
-
-option (LIMES_USE_POMMIER "Use the Pommier SIMD extensions for limes_vecops (SSE or NEON)"
-		"${pom_init}")
-
-unset (pom_init)
+cmake_dependent_option (
+	LIMES_USE_POMMIER "Use the Pommier SIMD extensions for limes_vecops (SSE or NEON)" ON
+	"PLAT_SSE OR PLAT_ARM_NEON" OFF)
 
 mark_as_advanced (FORCE LIMES_USE_POMMIER)
 

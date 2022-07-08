@@ -17,6 +17,7 @@
 #include "../misc/preprocessor.h"
 #include <cstdlib>
 #include <new>
+#include <utility>
 
 /** @file
 	This file defines the array_pointer class.
@@ -39,10 +40,13 @@ namespace memory
 	auto intArray = limes::memory::array_pointer<int>{ 50 };
 	@endcode
 
+	@see md_array_pointer
 	@ingroup memory
 
 	@todo write unit tests
 	@todo need to create an underlying shared memory class, to RAIIze the 'non-owning' pointers??
+	@todo bool template param IsAligned?
+	@todo multidimensional array ptr class
  */
 template <typename Type, bool UseExceptions = false>
 class LIMES_EXPORT array_pointer final
@@ -125,7 +129,7 @@ public:
 	///@}
 
 	/** Returns the size of the pointed-to array. */
-	int getSize() const noexcept { return static_cast<int> (size); }
+	std::size_t getSize() const noexcept { return size; }
 
 	/** Frees the allocated memory.
 		If this is a non-owning array pointer that simply references some other memory, then calling this function does nothing.
@@ -206,9 +210,19 @@ bool array_pointer<Type, UseExceptions>::reallocate (std::size_t newSize) noexce
 		return true;
 	}
 
+	auto alloc_ptr = [this, newSize]() -> Type*
+	{
+		if (owning)
+			return static_cast<Type*> (std::realloc (ptr, newSize * sizeof (Type)));
+
+		owning = true;
+
+		return static_cast<Type*> (std::malloc (newSize * sizeof (Type)));
+	};
+
 	if constexpr (UseExceptions)
 	{
-		ptr = static_cast<Type*> (std::realloc (ptr, newSize * sizeof (Type)));
+		ptr = alloc_ptr();
 
 		if (ptr == nullptr)
 			throw std::bad_alloc();	 // cppcheck-suppress throwInNoexceptFunction
@@ -217,10 +231,16 @@ bool array_pointer<Type, UseExceptions>::reallocate (std::size_t newSize) noexce
 	{
 		try
 		{
-			ptr = static_cast<Type*> (std::realloc (ptr, newSize * sizeof (Type)));
+			ptr = alloc_ptr();
 		}
 		catch (...)
 		{
+			if (ptr == nullptr)
+			{
+				size   = 0;
+				owning = false;
+			}
+
 			return false;
 		}
 	}

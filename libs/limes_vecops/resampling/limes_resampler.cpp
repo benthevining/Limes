@@ -27,17 +27,22 @@ namespace vecops
 {
 
 template <Scalar SampleType>
-Resampler<SampleType>::Resampler (const ResamplingParameters& params,
-								  int						  numChannels)
+Resampler<SampleType>::Resampler (const ResamplingParameters& params)
 	:
 #if LIMES_VECOPS_USE_LIBSAMPLERATE
-	  pimpl (std::make_unique<LibsamplerateResampler<SampleType>>())
+	  pimpl (std::make_unique<resampling::LibsamplerateResampler<SampleType>> (params))
 #elif LIMES_VECOPS_USE_IPP
-	  pimpl (std::make_unique<IPPResampler<SampleType>>())
+	  pimpl (std::make_unique<resampling::IPPResampler<SampleType>> (params))
 #else
-	  pimpl (std::make_unique<FallbackResampler<SampleType>>())
+	  pimpl (std::make_unique<resampling::FallbackResampler<SampleType>>())
 #endif
 {
+}
+
+template <Scalar SampleType>
+void Resampler<SampleType>::prepare (double initialSamplerate, int numChannels, int channelSize)
+{
+	pimpl->prepare (initialSamplerate, numChannels, channelSize);
 }
 
 template <Scalar SampleType>
@@ -48,16 +53,6 @@ int Resampler<SampleType>::resample (SampleType* const * const		 out,
 									 double							 ratio) noexcept
 {
 	return pimpl->resample (out, outspace, in, incount, ratio);
-}
-
-template <Scalar SampleType>
-int Resampler<SampleType>::resampleInterleaved (SampleType* const		out,
-												int						outspace,
-												const SampleType* const in,
-												int						incount,
-												double					ratio) noexcept
-{
-	return pimpl->resampleInterleaved (out, outspace, in, incount, ratio);
 }
 
 template <Scalar SampleType>

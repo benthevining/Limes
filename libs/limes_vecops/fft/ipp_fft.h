@@ -27,7 +27,7 @@
 
 LIMES_BEGIN_NAMESPACE
 
-namespace vecops
+namespace vecops::fft
 {
 
 /// @cond internals
@@ -83,6 +83,6 @@ private:
 
 /// @endcond
 
-}  // namespace vecops
+}  // namespace vecops::fft
 
 LIMES_END_NAMESPACE

@@ -131,18 +131,14 @@ static_assert (isUsingFFTW() || isUsingVDSP() || isUsingIPP() || isUsingFallback
 		return "Fallback";
 }
 
-/** @} */
-
-}  // namespace fft
-
 /// @cond internals
-/** An implementation class for FFT.
-	User code needs no knowledge of this class.
-	@ingroup fft
- */
 template <Scalar SampleType>
 class FFTImpl;
 /// @endcond
+
+/** @} */
+
+}  // namespace fft
 
 #pragma mark FFT class
 
@@ -165,6 +161,8 @@ class FFTImpl;
 	It defaults to \c \<fftw3.h> .
 
 	@ingroup fft
+
+	@todo prepare()/releaseResources() ?
  */
 template <Scalar SampleType>
 class LIMES_EXPORT FFT final
@@ -238,7 +236,7 @@ public:
 	[[nodiscard]] int getBinForFrequency (double frequency, double samplerate) const noexcept;
 
 private:
-	std::unique_ptr<FFTImpl<SampleType>> pimpl;
+	std::unique_ptr<fft::FFTImpl<SampleType>> pimpl;
 };
 
 #pragma mark FFTW wisdom

@@ -16,10 +16,15 @@
 
 LIMES_BEGIN_NAMESPACE
 
-namespace vecops
+namespace vecops::resampling
 {
 
-static_assert (resampling::isUsingFallback());
+static_assert (isUsingFallback());
+
+template <Scalar SampleType>
+void FallbackResampler<SampleType>::prepare (double initialSamplerate, int numChannels, int channelSize)
+{
+}
 
 template <Scalar SampleType>
 int FallbackResampler<SampleType>::resample (SampleType* const * const		 out,
@@ -27,16 +32,6 @@ int FallbackResampler<SampleType>::resample (SampleType* const * const		 out,
 											 const SampleType* const * const in,
 											 int							 incount,
 											 double							 ratio) noexcept
-{
-	return 0;
-}
-
-template <Scalar SampleType>
-int FallbackResampler<SampleType>::resampleInterleaved (SampleType* const		out,
-														int						outspace,
-														const SampleType* const in,
-														int						incount,
-														double					ratio) noexcept
 {
 	return 0;
 }
@@ -55,6 +50,6 @@ void FallbackResampler<SampleType>::reset()
 template class FallbackResampler<float>;
 template class FallbackResampler<double>;
 
-}  // namespace vecops
+}  // namespace vecops::resampling
 
 LIMES_END_NAMESPACE

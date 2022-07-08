@@ -19,6 +19,7 @@
 #include <limes_export.h>
 #include <limes_namespace.h>
 #include <limes_core.h>
+#include <memory>
 
 LIMES_DISABLE_ALL_COMPILER_WARNINGS
 #include <samplerate.h>
@@ -31,7 +32,7 @@ LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
 LIMES_BEGIN_NAMESPACE
 
-namespace vecops
+namespace vecops::resampling
 {
 
 /// @cond internals
@@ -40,26 +41,46 @@ template <Scalar SampleType>
 class LIMES_NO_EXPORT LibsamplerateResampler final : public ResamplerImpl<SampleType>
 {
 public:
+	explicit LibsamplerateResampler (const ResamplingParameters& params);
+
+	LIMES_NON_COPYABLE (LibsamplerateResampler)
+	LIMES_DEFAULT_MOVABLE (LibsamplerateResampler)
+
 private:
+	void prepare (double initialSamplerate, int numChannels, int channelSize) final;
+
 	int resample (SampleType* const * const		  out,
 				  int							  outspace,
 				  const SampleType* const * const in,
 				  int							  incount,
 				  double						  ratio) noexcept final;
 
-	int resampleInterleaved (SampleType* const		 out,
-							 int					 outspace,
-							 const SampleType* const in,
-							 int					 incount,
-							 double					 ratio) noexcept final;
+	int resampleInterleaved (float* const		out,
+							 int				outcount,
+							 const float* const in,
+							 int				incount,
+							 double				ratio) noexcept;
 
 	double getEffectiveRatio (double inputRatio) const noexcept final;
 
 	void reset() final;
+
+	std::unique_ptr<SRC_STATE, decltype ([] (SRC_STATE* s)
+										 { src_delete (s); })>
+		m_src;
+
+	int m_quality;
+
+	memory::array_pointer<float> m_iin, m_iout;
+
+	int	   m_channels { 0 };
+	double m_prevRatio { 1. };
+	bool   m_ratioUnset { true };
+	bool   m_smoothRatios { true };
 };
 
 /// @endcond
 
-}  // namespace vecops
+}  // namespace vecops::resampling
 
 LIMES_END_NAMESPACE

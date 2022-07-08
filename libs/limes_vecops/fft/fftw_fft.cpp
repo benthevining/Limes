@@ -21,10 +21,10 @@
 
 LIMES_BEGIN_NAMESPACE
 
-namespace vecops
+namespace vecops::fft
 {
 
-static_assert (fft::isUsingFFTW());
+static_assert (isUsingFFTW());
 
 #if FFTW_DOUBLE_ONLY
 #	define fftwf_plan_dft_r2c_1d fftw_plan_dft_r2c_1d
@@ -282,7 +282,7 @@ int FFTW_FFT<double>::m_extant = 0;	 // NOLINT
 template class FFTW_FFT<float>;
 template class FFTW_FFT<double>;
 
-}  // namespace vecops
+}  // namespace vecops::fft
 
 LIMES_END_NAMESPACE
 

@@ -33,13 +33,13 @@ template <Scalar SampleType>
 FFT<SampleType>::FFT (int size)
 	:
 #if LIMES_VECOPS_USE_FFTW
-	  pimpl (std::make_unique<FFTW_FFT<SampleType>> (size))
+	  pimpl (std::make_unique<fft::FFTW_FFT<SampleType>> (size))
 #elif LIMES_VECOPS_USE_VDSP
-	  pimpl (std::make_unique<vDSP_FFT<SampleType>> (size))
+	  pimpl (std::make_unique<fft::vDSP_FFT<SampleType>> (size))
 #elif LIMES_VECOPS_USE_IPP
-	  pimpl (std::make_unique<IPP_FFT<SampleType>> (size))
+	  pimpl (std::make_unique<fft::IPP_FFT<SampleType>> (size))
 #else
-	  pimpl (std::make_unique<FallbackFFT<SampleType>> (size))
+	  pimpl (std::make_unique<fft::FallbackFFT<SampleType>> (size))
 #endif
 {
 	LIMES_ASSERT (math::isPowerOf2 (size));

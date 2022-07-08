@@ -18,10 +18,10 @@
 
 LIMES_BEGIN_NAMESPACE
 
-namespace vecops
+namespace vecops::fft
 {
 
-static_assert (fft::isUsingFallback());
+static_assert (isUsingFallback());
 
 static constexpr std::size_t FFTalignment = 32UL;
 
@@ -335,6 +335,6 @@ void FallbackFFT<SampleType>::reset()
 template class FallbackFFT<float>;
 template class FallbackFFT<double>;
 
-}  // namespace vecops
+}  // namespace vecops::fft
 
 LIMES_END_NAMESPACE

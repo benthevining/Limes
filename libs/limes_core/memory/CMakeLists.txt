@@ -19,6 +19,7 @@ oranges_add_source_files (
 		  AlignedAllocator.h
 		  alignment.h
 		  array_pointer.h
+		  md_array_pointer.h
 		  MemoryPool.cpp
 		  MemoryPool.h
 		  MemoryPoolPointer.h

@@ -33,6 +33,7 @@ namespace dsp
 	All operations use the functions from limes_vecops where possible.
 	@ingroup limes_audio
 
+	@todo refactor to use md_array_pointer
 	@todo BufferView - always non-owning
 	@todo alias constructor
 	@todo makeCopyOf

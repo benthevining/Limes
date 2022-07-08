@@ -93,6 +93,7 @@
 #include "memory/alignment.h"
 #include "memory/AlignedAllocator.h"
 #include "memory/array_pointer.h"
+#include "memory/md_array_pointer.h"
 #include "memory/MemoryPool.h"
 #include "memory/MemoryPoolPointer.h"
 #include "memory/MemoryPoolAllocator.h"

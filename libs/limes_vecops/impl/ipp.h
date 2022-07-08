@@ -1347,9 +1347,9 @@ template <Scalar DataType, Integral SizeType>
 void polarToCartesianInterleaved (DataType* const dest, const DataType* const mag, const DataType* const phase, SizeType size) noexcept
 {
 	if constexpr (is_float_type<DataType>())
-		ippsPolarToCart_32fc (mag, phase, static_cast<Ipp32fc*> (dest), static_cast<int> (size));
+		ippsPolarToCart_32fc (mag, phase, reinterpret_cast<Ipp32fc*> (dest), static_cast<int> (size));
 	else if constexpr (is_double_type<DataType>())
-		ippsPolarToCart_64fc (mag, phase, static_cast<Ipp64fc*> (dest), static_cast<int> (size));
+		ippsPolarToCart_64fc (mag, phase, reinterpret_cast<Ipp64fc*> (dest), static_cast<int> (size));
 	else
 		fb::polarToCartesianInterleaved (dest, mag, phase, size);
 }
@@ -1369,9 +1369,9 @@ template <Scalar DataType, Integral SizeType>
 void catesianInterleavedToPolar (DataType* const mag, DataType* const phase, const DataType* const src, SizeType size) noexcept
 {
 	if constexpr (is_float_type<DataType>())
-		ippsCartToPolar_32fc (static_cast<const Ipp32fc*> (src), mag, phase, size);
+		ippsCartToPolar_32fc (reinterpret_cast<const Ipp32fc*> (src), mag, phase, size);
 	else if constexpr (is_double_type<DataType>())
-		ippsCartToPolar_64fc (static_cast<const Ipp64fc*> (src), mag, phase, size);
+		ippsCartToPolar_64fc (reinterpret_cast<const Ipp64fc*> (src), mag, phase, size);
 	else
 		fb::catesianInterleavedToPolar (mag, phase, src, size);
 }
@@ -1391,9 +1391,9 @@ template <Scalar DataType, Integral SizeType>
 void cartesianInterleavedToMagnitudes (DataType* const mag, const DataType* const src, SizeType size) noexcept
 {
 	if constexpr (is_float_type<DataType>())
-		ippsMagnitude_32fc (static_cast<const Ipp32fc*> (src), mag, size);
+		ippsMagnitude_32fc (reinterpret_cast<const Ipp32fc*> (src), mag, size);
 	else if constexpr (is_double_type<DataType>())
-		ippsMagnitude_64fc (static_cast<const Ipp64fc*> (src), mag, size);
+		ippsMagnitude_64fc (reinterpret_cast<const Ipp64fc*> (src), mag, size);
 	else
 		fb::cartesianInterleavedToMagnitudes (mag, src, size);
 }

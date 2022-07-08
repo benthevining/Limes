@@ -26,7 +26,7 @@
 
 LIMES_BEGIN_NAMESPACE
 
-namespace vecops
+namespace vecops::resampling
 {
 
 /// @cond internals
@@ -36,17 +36,13 @@ class LIMES_NO_EXPORT FallbackResampler final : public ResamplerImpl<SampleType>
 {
 public:
 private:
+	void prepare (double initialSamplerate, int numChannels, int channelSize) final;
+
 	int resample (SampleType* const * const		  out,
 				  int							  outspace,
 				  const SampleType* const * const in,
 				  int							  incount,
 				  double						  ratio) noexcept final;
-
-	int resampleInterleaved (SampleType* const		 out,
-							 int					 outspace,
-							 const SampleType* const in,
-							 int					 incount,
-							 double					 ratio) noexcept final;
 
 	double getEffectiveRatio (double inputRatio) const noexcept final;
 
@@ -55,6 +51,6 @@ private:
 
 /// @endcond
 
-}  // namespace vecops
+}  // namespace vecops::resampling
 
 LIMES_END_NAMESPACE

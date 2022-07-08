@@ -77,7 +77,7 @@ namespace resampling
 
 #pragma mark Implementation kind checking
 
-/** @ingroup fft
+/** @ingroup resampling
 	@{
  */
 
@@ -105,18 +105,14 @@ namespace resampling
 
 static_assert (isUsingLibSamplerate() || isUsingIPP() || isUsingFallback());
 
-/** @} */
-
-}  // namespace resampling
-
 /// @cond internals
-/** An implementation class for the resampler.
-	User code needs no knowledge of this class.
-	@ingroup resampling
- */
 template <Scalar SampleType>
 class ResamplerImpl;
 /// @endcond
+
+/** @} */
+
+}  // namespace resampling
 
 
 #pragma mark Parameters
@@ -162,21 +158,6 @@ public:
 		effect of this depends on the implementation in use.
 	 */
 	RatioChange ratioChange { RatioChange::SmoothRatioChange };
-
-	/** Rate of expected input prior to resampling: may be used to
-		determine the filter bandwidth for the quality setting. If
-		you don't know what this will be, you can provide an
-		arbitrary rate (such as the default) and the resampler will
-		work fine, but quality may not be as designed.
-	 */
-	double initialSamplerate { 44100. };
-
-	/** Bound on the maximum incount size that may be passed to the
-		resample function before the resampler needs to reallocate
-		its internal buffers. If this is 0, the first time the
-		resampling function is called, internal allocation will occur.
-	 */
-	int maxBuffersize { 1024 };
 };
 
 
@@ -186,24 +167,24 @@ public:
 	@ingroup resampling
 
 	@todo fallback impl
-	@todo IPP impl
-	@todo libsamplerate impl
 	@todo speex impl
  */
 template <Scalar SampleType>
 class LIMES_EXPORT Resampler final
 {
 public:
-	Resampler (const ResamplingParameters& params,
-			   int						   numChannels = 1);
+	Resampler (const ResamplingParameters& params);
 
 	~Resampler() = default;
 
 	LIMES_NON_COPYABLE (Resampler)
 	LIMES_DEFAULT_MOVABLE (Resampler)
 
-	/** @name Resampling */
-	///@{
+	/** Prepares the resampler for processing.
+		This may allocate memory.
+	 */
+	void prepare (double initialSamplerate, int numChannels, int channelSize);
+
 	/** Resample the given multi-channel buffer, where \c incount is the
 		number of frames in the input buffer and \c outspace is the space
 		available in the output buffer. Generally you want \c outspace to
@@ -220,13 +201,6 @@ public:
 				  int							  incount,
 				  double						  ratio) noexcept;
 
-	int resampleInterleaved (SampleType* const		 out,
-							 int					 outspace,
-							 const SampleType* const in,
-							 int					 incount,
-							 double					 ratio) noexcept;
-	///@}
-
 	/** Returns the ratio that will be actually used when the given
 		ratio is requested. For example, if the resampler internally
 		uses a rational approximation of the given ratio, this will
@@ -240,7 +214,7 @@ public:
 	void reset();
 
 private:
-	std::unique_ptr<ResamplerImpl<SampleType>> pimpl;
+	std::unique_ptr<resampling::ResamplerImpl<SampleType>> pimpl;
 };
 
 }  // namespace vecops
