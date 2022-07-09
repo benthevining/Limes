@@ -18,6 +18,7 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 #include "../limes_vecops.h"
+#include "../impl/vecops_macros.h"
 
 /** @defgroup fft FFT
 	Fourier transform utilities.
@@ -171,7 +172,8 @@ class LIMES_EXPORT FFT final
 public:
 	/** Creates an FFT engine with a specified FFT size.
 		Only power-of-two FFT lengths are supported by all backends.
-		An assertion will be thrown if you construct an FFT object with a size that is not a power of 2.
+
+		@throws std::runtime_error An exception will be thrown if you construct an FFT object with a size that is not a power of 2.
 	 */
 	explicit FFT (int size);
 
@@ -182,6 +184,13 @@ public:
 
 	/** Returns the FFT size of this engine. */
 	[[nodiscard]] int getSize() const noexcept;
+
+	/** Changes the size of the FFT.
+		This will cause memory allocation to occur.
+
+		@throws std::runtime_error An exception will be thrown if you pass a size that is not a power of 2.
+	 */
+	void changeSize (int newFFTSize);
 
 	/** Resets the internal state of the FFT engine. */
 	void reset();

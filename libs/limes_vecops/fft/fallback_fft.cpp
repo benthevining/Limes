@@ -23,13 +23,16 @@ namespace vecops::fft
 
 static_assert (isUsingFallback());
 
-static constexpr std::size_t FFTalignment = 32UL;
+static constexpr auto FFTblockTableSize = 16;
+static constexpr auto FFTmaxTabledBlock = 1 << FFTblockTableSize;
+
+static constexpr auto FFTalignment = 32UL;
 
 template <Scalar SampleType>
 FallbackFFT<SampleType>::FallbackFFT (int size)
 	: FFTImpl<SampleType> (size),
 	  m_table (static_cast<std::size_t> (m_half), FFTalignment, 0),
-	  m_sincos (m_blockTableSize * 4, FFTalignment, SampleType (0)),
+	  m_sincos (FFTblockTableSize * 4, FFTalignment, SampleType (0)),
 	  m_sincos_r (static_cast<std::size_t> (m_half), FFTalignment, SampleType (0)),
 	  m_vr (static_cast<std::size_t> (m_half), FFTalignment, SampleType (0)),
 	  m_vi (static_cast<std::size_t> (m_half), FFTalignment, SampleType (0)),
@@ -63,7 +66,7 @@ FallbackFFT<SampleType>::FallbackFFT (int size)
 	}
 
 	// sin and cos tables for complex fft
-	for (std::size_t i = 2, ix = 0; i <= m_maxTabledBlock; i <<= 1)
+	for (std::size_t i = 2, ix = 0; i <= FFTmaxTabledBlock; i <<= 1)
 	{
 		const auto phase	   = SampleType (2.) * math::constants::pi<SampleType> / static_cast<SampleType> (i);
 		const auto doublePhase = phase * SampleType (2.);

@@ -77,9 +77,6 @@ private:
 											  SampleType* ro, SampleType* io,
 											  bool inverse) noexcept;
 
-	static constexpr auto m_blockTableSize = 16;
-	static constexpr auto m_maxTabledBlock = 1 << m_blockTableSize;
-
 	const int m_half { this->fft_size / 2 };
 
 	memory::aligned_pointer<int> m_table;

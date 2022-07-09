@@ -16,8 +16,6 @@
 #include <limes_export.h>
 #include "../misc/preprocessor.h"
 #include <cstdlib>
-#include <new>
-#include <utility>
 
 /** @file
 	This file defines the array_pointer class.
@@ -46,9 +44,6 @@ namespace memory
 	@todo write unit tests
 	@todo need to create an underlying shared memory class, to RAIIze the 'non-owning' pointers??
 	@todo bool template param IsAligned?
-
-	@todo operator ==
-	@todo clear, fill functions
  */
 template <typename Type, bool UseExceptions = false>
 class LIMES_EXPORT array_pointer final
@@ -65,60 +60,77 @@ public:
 	/** Allocates an array with the specified number of elements.
 		@throws std::bad_alloc An exception will be thrown if the UseExceptions template parameter is true and allocation fails.
 	 */
-	explicit array_pointer (std::size_t arraySize) noexcept (! UseExceptions)
-		: ptr (static_cast<Type*> (std::malloc (arraySize * sizeof (Type)))), size (arraySize), owning (true)
-	{
-		if constexpr (UseExceptions)
-			if (ptr == nullptr)
-				throw std::bad_alloc();	 // cppcheck-suppress throwInNoexceptFunction
-	}
+	explicit array_pointer (std::size_t arraySize) noexcept (! UseExceptions);
 
 	/** Creates a non-owning array pointer that refers to the passed memory. */
-	explicit array_pointer (Type* memoryToReference, std::size_t arraySize) noexcept
-		: ptr (memoryToReference), size (arraySize), owning (false)
-	{
-	}
+	explicit array_pointer (Type* memoryToReference, std::size_t arraySize) noexcept;
 	///@}
 
 	/** Destructor. */
-	~array_pointer()
-	{
-		free();
-	}
+	~array_pointer();
 
 	/** @name Copying */
 	///@{
-	/** Creates a non-owning array pointer that references the same memory as the passed pointer. */
-	array_pointer (const array_pointer& other) noexcept
-		: ptr (other.ptr), size (other.size), owning (false)
-	{
-	}
+	/** Copies the \c other pointer's memory into a new pointer. */
+	array_pointer (const array_pointer& other) noexcept (! UseExceptions);
 
-	/** Deallocates this pointer's memory, and assigns it to refer to the memory owned by the other pointer.
-		This object will not take ownership of the underlying memory.
-		@attention The array pointer passed as the right hand side of this operation must outlive the one on the left hand side!
+	/** Copies the \c other pointer's memory into this one.
+		@see copyFrom()
 	 */
-	array_pointer& operator= (const array_pointer& other) noexcept (! UseExceptions)  // cppcheck-suppress operatorEqVarError
-	{
-		return referenceOtherMemory (other.ptr, other.size);
-	}
+	array_pointer& operator= (const array_pointer& other) noexcept (! UseExceptions);
+
+	/** Copies the \c other pointer's memory into this one.
+		@see operator=, copyTo()
+	 */
+	void copyFrom (const array_pointer& other, bool allowAllocation = false) noexcept (! UseExceptions);
+
+	/**	Copies this pointer's memory into the \c other one.
+		@see copyFrom()
+	 */
+	void copyTo (array_pointer& other, bool allowAllocation = false) const noexcept (! UseExceptions);
 	///@}
 
 	LIMES_DEFAULT_MOVABLE (array_pointer)
 
+	/** @name Equality comparisons */
+	///@{
+	/** Returns true if the two array pointers reference the same base memory location. */
+	template <typename OtherType, bool OtherExceptions>
+	bool operator== (const array_pointer<OtherType, OtherExceptions>& other) const noexcept;
+
+	/** Returns true if the two array pointers do not reference the same base memory location. */
+	template <typename OtherType, bool OtherExceptions>
+	bool operator!= (const array_pointer<OtherType, OtherExceptions>& other) const noexcept;
+
+	/** Returns true if the passed pointer is this pointer's root memory location. */
+	template <typename OtherType>
+	bool operator== (OtherType* pointer) const noexcept;
+
+	/** Returns true if the passed pointer is not this pointer's root memory location. */
+	template <typename OtherType>
+	bool operator!= (OtherType* pointer) const noexcept;
+
+	/** Equality comparison specialization for nullptr. */
+	bool operator== (decltype (nullptr)) const noexcept;
+
+	/** Equality comparison specialization for nullptr. */
+	bool operator!= (decltype (nullptr)) const noexcept;
+	///@}
+
+	/** Fills the array with the specified value.
+		@see clear()
+	 */
+	void fill (Type valueToFillWith);
+
+	/** Fills the array with zeroes.
+		@see fill()
+	 */
+	void clear();
+
 	/** Deallocates this pointer's memory, and assigns it to refer to the passed pointer.
 		This object will not take ownership of the underlying memory.
 	 */
-	array_pointer& referenceOtherMemory (Type* memoryToReference, std::size_t arraySize) noexcept (! UseExceptions)	 // cppcheck-suppress operatorEqRetRefThis
-	{
-		free();
-
-		ptr	   = memoryToReference;
-		size   = arraySize;
-		owning = false;
-
-		return *this;
-	}
+	array_pointer& referenceOtherMemory (Type* memoryToReference, std::size_t arraySize) noexcept (! UseExceptions);
 
 	/** @name Accessors
 	 */
@@ -130,8 +142,11 @@ public:
 	Type*				operator->() const noexcept { return ptr; }
 	///@}
 
-	/** Returns the size of the pointed-to array. */
+	/** Returns the size of the pointed-to array, in number of objects. */
 	std::size_t getSize() const noexcept { return size; }
+
+	/** Returns the size of the pointed-to array, in bytes. */
+	std::size_t getSizeBytes() const noexcept { return size * sizeof (Type); }
 
 	/** Frees the allocated memory.
 		If this is a non-owning array pointer that simply references some other memory, then calling this function does nothing.
@@ -145,10 +160,7 @@ public:
 
 	/** Indexes into the array. */
 	template <typename T>
-	decltype (auto) operator[] (T i)
-	{
-		return ptr[static_cast<std::size_t> (i)];
-	}
+	decltype (auto) operator[] (T i);
 
 	/** @name Begin accessors */
 	///@{
@@ -164,6 +176,8 @@ public:
 	///@}
 
 private:
+	void throwOrAssertIfAllocationFailed() const noexcept (! UseExceptions);
+
 	Type* ptr { nullptr };
 
 	std::size_t size { 0 };
@@ -171,91 +185,8 @@ private:
 	bool owning { true };
 };
 
-/*------------------------------------------------------------------------------------------------------------------*/
-
-template <typename Type, bool UseExceptions>
-void array_pointer<Type, UseExceptions>::free() noexcept (! UseExceptions)
-{
-	if (! owning)
-		return;
-
-	if (ptr == nullptr || size == 0)
-		return;
-
-	if constexpr (UseExceptions)
-		std::free (ptr);
-	else
-	{
-		try
-		{
-			std::free (ptr);
-		}
-		catch (...)
-		{
-		}
-	}
-
-	size   = 0;
-	ptr	   = nullptr;
-	owning = false;
-}
-
-template <typename Type, bool UseExceptions>
-bool array_pointer<Type, UseExceptions>::reallocate (std::size_t newSize) noexcept (! UseExceptions)
-{
-	if (newSize == size)
-		return true;
-
-	if (newSize == 0)
-	{
-		free();
-		return true;
-	}
-
-	auto alloc_ptr = [this, newSize]() -> Type*
-	{
-		if (owning)
-			return static_cast<Type*> (std::realloc (ptr, newSize * sizeof (Type)));
-
-		owning = true;
-
-		return static_cast<Type*> (std::malloc (newSize * sizeof (Type)));
-	};
-
-	if constexpr (UseExceptions)
-	{
-		ptr = alloc_ptr();
-
-		if (ptr == nullptr)
-			throw std::bad_alloc();	 // cppcheck-suppress throwInNoexceptFunction
-	}
-	else
-	{
-		try
-		{
-			ptr = alloc_ptr();
-		}
-		catch (...)
-		{
-			if (ptr == nullptr)
-			{
-				size   = 0;
-				owning = false;
-			}
-
-			return false;
-		}
-	}
-
-	if (ptr == nullptr)
-		return false;
-
-	size   = newSize;
-	owning = true;
-
-	return true;
-}
-
 }  // namespace memory
 
 LIMES_END_NAMESPACE
+
+#include "./array_pointer_impl.h"  // IWYU pragma: export

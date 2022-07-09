@@ -13,6 +13,8 @@
 #include "./limes_fft.h"
 #include <limes_namespace.h>
 #include <limes_core.h>
+#include <stdexcept>
+#include <sstream>
 
 #if LIMES_VECOPS_USE_FFTW
 #	include "./fftw_fft.h"
@@ -24,31 +26,62 @@
 #	include "./fallback_fft.h"
 #endif
 
+#include "../impl/vecops_macros.h"
+
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
 {
 
+#if LIMES_VECOPS_USE_FFTW
+template <Scalar SampleType>
+using ImplType = fft::FFTW_FFT<SampleType>;
+#elif LIMES_VECOPS_USE_VDSP
+template <Scalar SampleType>
+using ImplType = fft::vDSP_FFT<SampleType>;
+#elif LIMES_VECOPS_USE_IPP
+template <Scalar SampleType>
+using ImplType = fft::IPP_FFT<SampleType>;
+#else
+template <Scalar SampleType>
+using ImplType = fft::FallbackFFT<SampleType>;
+#endif
+
+static inline void check_fft_size (int newSize)
+{
+	if (! math::isPowerOf2 (newSize))
+	{
+		std::stringstream s;
+
+		s << "FFT: only accepts power-of-2 sizes, but "
+		  << newSize << " was passed!";
+
+		throw std::runtime_error { s.str() };
+	}
+}
+
 template <Scalar SampleType>
 FFT<SampleType>::FFT (int size)
-	:
-#if LIMES_VECOPS_USE_FFTW
-	  pimpl (std::make_unique<fft::FFTW_FFT<SampleType>> (size))
-#elif LIMES_VECOPS_USE_VDSP
-	  pimpl (std::make_unique<fft::vDSP_FFT<SampleType>> (size))
-#elif LIMES_VECOPS_USE_IPP
-	  pimpl (std::make_unique<fft::IPP_FFT<SampleType>> (size))
-#else
-	  pimpl (std::make_unique<fft::FallbackFFT<SampleType>> (size))
-#endif
+	: pimpl (std::make_unique<ImplType<SampleType>> (size))
 {
-	LIMES_ASSERT (math::isPowerOf2 (size));
+	check_fft_size (size);
 }
 
 template <Scalar SampleType>
 int FFT<SampleType>::getSize() const noexcept
 {
 	return pimpl->getSize();
+}
+
+template <Scalar SampleType>
+void FFT<SampleType>::changeSize (int newFFTSize)
+{
+	if (pimpl->getSize() == newFFTSize)
+		return;
+
+	check_fft_size (newFFTSize);
+
+	pimpl.reset (new ImplType<SampleType> (newFFTSize));
 }
 
 template <Scalar SampleType>
