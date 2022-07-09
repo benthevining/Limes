@@ -1,5 +1,18 @@
 # Limes changelog
 
+## [5.1.0](https://github.com/benthevining/Limes/compare/v5.0.3...v5.1.0) (2022-07-09)
+
+
+### Features
+
+* initial commit of Speex code ([9fc7659](https://github.com/benthevining/Limes/commit/9fc7659cc032b963c49ed503fc66003251fad0fb))
+
+
+### Bug Fixes
+
+* fix in vecops macros preprocessor logic ([5cc1b7c](https://github.com/benthevining/Limes/commit/5cc1b7c233cf703c62a32d7aef2ccbc4d933d261))
+* fixing up Speex code ([ae1d5a4](https://github.com/benthevining/Limes/commit/ae1d5a47910f233bc060dd48bb1f9142229110c4))
+
 ## [5.0.3](https://github.com/benthevining/Limes/compare/v5.0.2...v5.0.3) (2022-07-07)
 
 

@@ -18,7 +18,7 @@ endif ()
 
 project (
 	LimesDocs
-	VERSION 5.0.3
+	VERSION 5.1.0
 	LANGUAGES NONE
 	DESCRIPTION "Limes documentation"
 	HOMEPAGE_URL "www.github.com/benthevining/Limes")
