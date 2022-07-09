@@ -11,6 +11,7 @@
  */
 
 #include "./pommier_wrapper.h"
+#include <limes_platform.h>
 
 #if LIMES_ARM_NEON
 #	include "./neon_mathfun.h"

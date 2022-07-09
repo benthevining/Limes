@@ -27,7 +27,7 @@
 #include <cstdint>
 #include <limes_core.h>	 // for concepts Scalar, Integral
 
-#if LIMES_VECOPS_USE_POMMIER
+#if (LIMES_ARM_NEON || LIMES_SSE)
 #	include "./pommier/pommier_wrapper.h"	// IWYU pragma: export
 #endif
 
@@ -369,32 +369,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void squareRootAndCopy (DataType* const dest,
 
 // fast inverse square root from Quake 3
 template <Scalar DataType>
-LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType quake3_fast_inv_sqrt (DataType number) noexcept
-{
-	static_assert (std::is_same_v<DataType, double> || std::is_same_v<DataType, float>);
-
-	using IntType = std::conditional_t<std::is_same_v<DataType, double>,
-									   std::int64_t,
-									   std::int32_t>;
-
-	const auto x2 = number * DataType (0.5);
-
-	auto i = *reinterpret_cast<IntType*> (&number);
-
-	const auto magicConstant = []
-	{
-		if constexpr (std::is_same_v<DataType, double>)
-			return 0x5fe6eb50c7b537a9;
-
-		return 0x5f3759df;
-	}();
-
-	i = magicConstant - (i >> 1);
-
-	const auto y = *reinterpret_cast<DataType*> (&i);
-
-	return y * DataType (1.5) - (x2 * y * y);
-}
+LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType quake3_fast_inv_sqrt (DataType number) noexcept;
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void invSquareRoot (DataType* const dataAndDest, SizeType size) noexcept
@@ -772,7 +747,7 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType standard_deviation (co
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut) noexcept
 {
-#if LIMES_VECOPS_USE_POMMIER
+#if (LIMES_ARM_NEON || LIMES_SSE)
 	if constexpr (std::is_same_v<DataType, float>)
 		pommier::sinCos (data, static_cast<int> (size), sinesOut, cosinesOut);
 	else
@@ -797,7 +772,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void sinCos (const DataType* const data, Size
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void sine (DataType* const data, SizeType size) noexcept
 {
-#if LIMES_VECOPS_USE_POMMIER
+#if (LIMES_ARM_NEON || LIMES_SSE)
 	if constexpr (std::is_same_v<DataType, float>)
 		pommier::sine (data, size);
 	else
@@ -809,7 +784,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void sine (DataType* const data, SizeType siz
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void sineAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
-#if LIMES_VECOPS_USE_POMMIER
+#if (LIMES_ARM_NEON || LIMES_SSE)
 	if constexpr (std::is_same_v<DataType, float>)
 		pommier::sineAndCopy (dest, data, size);
 	else
@@ -845,7 +820,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void arcsineAndCopy (DataType* const dest, co
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void cos (DataType* const data, SizeType size) noexcept
 {
-#if LIMES_VECOPS_USE_POMMIER
+#if (LIMES_ARM_NEON || LIMES_SSE)
 	if constexpr (std::is_same_v<DataType, float>)
 		pommier::cos (data, size);
 	else
@@ -857,7 +832,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void cos (DataType* const data, SizeType size
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void cosAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
-#if LIMES_VECOPS_USE_POMMIER
+#if (LIMES_ARM_NEON || LIMES_SSE)
 	if constexpr (std::is_same_v<DataType, float>)
 		pommier::cosAndCopy (data, size);
 	else
@@ -1316,7 +1291,7 @@ LIMES_NO_EXPORT void magphase (T* const mag, T* const phase, T real, T imag) noe
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesian (DataType* const real, DataType* const imag, const DataType* const mag, const DataType* const phase, SizeType size) noexcept
 {
-#if LIMES_VECOPS_USE_POMMIER
+#if (LIMES_ARM_NEON || LIMES_SSE)
 	if constexpr (std::is_same_v<DataType, float>)
 	{
 		pommier::polarToCartesian (real, imag, mag, phase, static_cast<int> (size));
@@ -1334,7 +1309,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesian (DataType* const real, 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void polarToCartesianInterleaved (DataType* const dest, const DataType* const mag, const DataType* const phase, SizeType size) noexcept
 {
-#if LIMES_VECOPS_USE_POMMIER
+#if (LIMES_ARM_NEON || LIMES_SSE)
 	if constexpr (std::is_same_v<DataType, float>)
 	{
 		pommier::polarToCartesianInterleaved (dest, mag, phase, size);

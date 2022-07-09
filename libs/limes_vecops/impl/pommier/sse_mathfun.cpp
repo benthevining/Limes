@@ -13,9 +13,12 @@
 #include "./sse_mathfun.h"
 #include <mmintrin.h>
 #include <immintrin.h>
+#include <limes_core.h>
 
 namespace pommier
 {
+
+LIMES_DISABLE_ALL_COMPILER_WARNINGS
 
 /* declare some SSE constants -- why can't I figure a better way to do that? */
 #define _PS_CONST(Name, Val) \
@@ -694,5 +697,7 @@ void sincos_ps (v4sf x, v4sf* s, v4sf* c) noexcept
 
 #undef COPY_XMM_TO_MM
 #undef COPY_MM_TO_XMM
+
+LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
 }  // namespace pommier

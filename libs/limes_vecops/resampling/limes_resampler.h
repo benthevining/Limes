@@ -153,6 +153,8 @@ public:
 
 /** A class that can resample a stream of audio in realtime.
 	@ingroup resampling
+
+	@todo MIPP resampler?
  */
 template <Scalar SampleType>
 class LIMES_EXPORT Resampler final

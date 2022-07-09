@@ -42,6 +42,8 @@ void phasor (T* const real, T* const imag, T phase) noexcept
 	else
 		vvsincos (static_cast<double*> (imag), static_cast<double*> (real), static_cast<const double*> (&phase), &one);
 
+	return;
+
 #elif (defined __GNUC__) && (! LACK_SINCOS)
 
 #	if LIMES_APPLE
@@ -53,6 +55,8 @@ void phasor (T* const real, T* const imag, T phase) noexcept
 		sincosf (static_cast<float> (phase), static_cast<float*> (imag), static_cast<float*> (real));
 	else
 		sincos (static_cast<double> (phase), static_cast<double*> (imag), static_cast<double*> (real));
+
+	return;
 
 #	if LIMES_APPLE
 #		undef sincos

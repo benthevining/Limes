@@ -144,12 +144,12 @@ public:
 	 */
 	bool reallocate (std::size_t newSize) noexcept (! UseExceptions);
 
-	/** @name Indexing */
-	///@{
 	/** Indexes into the array. */
-	decltype (auto) operator[] (int i) { return ptr[static_cast<std::size_t> (i)]; }
-	decltype (auto) operator[] (std::size_t i) { return ptr[i]; }
-	///@}
+	template <typename T>
+	decltype (auto) operator[] (T i)
+	{
+		return ptr[static_cast<std::size_t> (i)];
+	}
 
 	/** @name Begin accessors */
 	///@{

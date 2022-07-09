@@ -21,10 +21,6 @@
 #if ! (LIMES_ARM_NEON || LIMES_SSE)
 #	error
 #endif
-
-#if ! LIMES_VECOPS_USE_POMMIER
-#	error
-#endif
 /// @endcond
 
 #include <limes_export.h>

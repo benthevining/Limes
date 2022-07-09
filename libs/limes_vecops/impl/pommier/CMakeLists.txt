@@ -8,30 +8,22 @@
 #
 # ======================================================================================
 
-include (FeatureSummary)
-include (CMakeDependentOption)
 include (OrangesGeneratePlatformHeader)
 
-cmake_dependent_option (
-	LIMES_USE_POMMIER "Use the Pommier SIMD extensions for limes_vecops (SSE or NEON)" ON
-	"PLAT_SSE OR PLAT_ARM_NEON" OFF)
+if (PLAT_SSE OR PLAT_ARM_NEON)
+	set (pom_on ON)
+else ()
+	set (pom_on OFF)
+endif ()
 
-mark_as_advanced (FORCE LIMES_USE_POMMIER)
-
-add_feature_info ("Pommier SIMD functions" "${LIMES_USE_POMMIER}"
+add_feature_info ("Pommier SIMD functions" "${pom_on}"
 				  "Using Julien Pommier's SIMD functions for NEON/SSE")
 
-if (NOT LIMES_USE_POMMIER)
-	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_POMMIER=0)
-
+if (NOT pom_on)
 	return ()
 endif ()
 
-if (NOT (PLAT_SSE OR PLAT_ARM_NEON))
-	message (FATAL_ERROR "Neither SSE or NEON is detected, LIMES_USE_POMMIER cannot be enabled!")
-endif ()
-
-target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_POMMIER=1)
+unset (pom_on)
 
 set (pom_files pommier_wrapper.cpp pommier_wrapper.h)
 

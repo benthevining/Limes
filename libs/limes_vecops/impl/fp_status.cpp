@@ -20,10 +20,6 @@
 #	include <xmmintrin.h>
 #endif
 
-#if LIMES_APPLE
-#	include <TargetConditionals.h>
-#endif
-
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
@@ -69,35 +65,36 @@ LIMES_FORCE_INLINE static void setFpStatusRegister (intptr_t fpsr) noexcept
 #endif
 }
 
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+#undef LIMES__HAS_FP_STATUS_SUPPORT__
+
+#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
+#	define LIMES__HAS_FP_STATUS_SUPPORT__
+#endif
+
+#pragma mark -
+#pragma mark Denormals
+
 [[nodiscard]] static consteval intptr_t getDenormalsMask() noexcept
 {
-#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
+#ifdef LIMES__HAS_FP_STATUS_SUPPORT__
+
 #	if LIMES_SSE
 	return 0x8040;
 #	else
 	return (1 << 24);
 #	endif
-#else
-	return 0;
-#endif
-}
 
-[[nodiscard]] static constexpr intptr_t getFlushToZeroMask() noexcept
-{
-#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
-#	if LIMES_SSE
-	return _MM_FLUSH_ZERO_MASK;
-#	else
-	return (1 << 24 /* FZ */);
-#	endif
-#else
+#else /* LIMES__HAS_FP_STATUS_SUPPORT__ */
 	return 0;
 #endif
 }
 
 void disableDenormalisedNumberSupport (bool shouldDisable) noexcept
 {
-#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
+#ifdef LIMES__HAS_FP_STATUS_SUPPORT__
+
 	const auto mask = getDenormalsMask();
 
 	setFpStatusRegister ((getFpStatusRegister() & (~mask)) | (shouldDisable ? mask : 0));
@@ -108,7 +105,8 @@ void disableDenormalisedNumberSupport (bool shouldDisable) noexcept
 
 bool areDenormalsDisabled() noexcept
 {
-#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
+#ifdef LIMES__HAS_FP_STATUS_SUPPORT__
+
 	const auto mask = getDenormalsMask();
 
 	return ((getFpStatusRegister() & mask) == mask);
@@ -117,12 +115,49 @@ bool areDenormalsDisabled() noexcept
 #endif
 }
 
+ScopedNoDenormals::ScopedNoDenormals() noexcept
+	: fpsr (getFpStatusRegister())
+{
+#ifdef LIMES__HAS_FP_STATUS_SUPPORT__
+	setFpStatusRegister (fpsr | getDenormalsMask());
+#endif
+}
+
+ScopedNoDenormals::~ScopedNoDenormals() noexcept
+{
+#ifdef LIMES__HAS_FP_STATUS_SUPPORT__
+	setFpStatusRegister (fpsr);
+#endif
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+#pragma mark -
+#pragma mark Flush-to-zero
+
+[[nodiscard]] static constexpr intptr_t getFlushToZeroMask() noexcept
+{
+#ifdef LIMES__HAS_FP_STATUS_SUPPORT__
+
+#	if LIMES_SSE
+	return _MM_FLUSH_ZERO_MASK;
+#	else
+	return (1 << 24 /* FZ */);
+#	endif
+
+#else /* LIMES__HAS_FP_STATUS_SUPPORT__ */
+	return 0;
+#endif
+}
+
 void enableFlushToZeroMode (bool shouldEnable) noexcept
 {
-#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
+#ifdef LIMES__HAS_FP_STATUS_SUPPORT__
+
 	const auto mask = getFlushToZeroMask();
 
 	setFpStatusRegister ((getFpStatusRegister() & (~mask)) | (shouldEnable ? mask : 0));
+
 #else
 	misc::ignore_unused (shouldEnable);
 #endif
@@ -130,47 +165,33 @@ void enableFlushToZeroMode (bool shouldEnable) noexcept
 
 bool isFlushToZeroEnabled() noexcept
 {
-#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
+#ifdef LIMES__HAS_FP_STATUS_SUPPORT__
 	const auto mask = getFlushToZeroMask();
 
 	return ((getFpStatusRegister() & mask) == mask);
+
 #else
 	return false;
 #endif
 }
 
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
-ScopedNoDenormals::ScopedNoDenormals() noexcept
-	: fpsr (getFpStatusRegister())
-{
-#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
-	setFpStatusRegister (fpsr | getDenormalsMask());
-#endif
-}
-
-ScopedNoDenormals::~ScopedNoDenormals() noexcept
-{
-#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
-	setFpStatusRegister (fpsr);
-#endif
-}
-
-
 ScopedFlushToZero::ScopedFlushToZero() noexcept
 	: fpsr (getFpStatusRegister())
 {
-#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
+#ifdef LIMES__HAS_FP_STATUS_SUPPORT__
 	setFpStatusRegister (fpsr | getFlushToZeroMask());
 #endif
 }
 
 ScopedFlushToZero::~ScopedFlushToZero() noexcept
 {
-#if LIMES_SSE || (LIMES_ARM_NEON || defined(__arm64__) || defined(__aarch64__))
+#ifdef LIMES__HAS_FP_STATUS_SUPPORT__
 	setFpStatusRegister (fpsr);
 #endif
 }
+
+
+#undef LIMES__HAS_FP_STATUS_SUPPORT__
 
 }  // namespace vecops
 

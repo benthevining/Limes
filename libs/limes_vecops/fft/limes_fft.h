@@ -163,6 +163,7 @@ class FFTImpl;
 	@ingroup fft
 
 	@todo prepare()/releaseResources() ?
+	@todo MIPP FFT?
  */
 template <Scalar SampleType>
 class LIMES_EXPORT FFT final

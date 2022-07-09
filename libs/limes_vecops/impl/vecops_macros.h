@@ -15,11 +15,20 @@
 
 #pragma once
 
-#include <limes_core.h>	 // for LIMES_COMPILER_WARNING, platform defs
+#include <limes_core.h>	 // for LIMES_COMPILER_WARNING
+#include <limes_platform.h>
 
 /** @file
 	This file sets default values for any of the limes_vecops implementation-selecting
 	macros that are not already defined, and checks that the final set of definitions is valid.
+
+	This file defines the following macros:
+	- LIMES_VECOPS_USE_VDSP
+	- LIMES_VECOPS_USE_IPP
+	- LIMES_VECOPS_USE_MIPP
+
+	Only one of these will be defined to 1, the others will be defined to 0. All the macros will be
+	defined to either 1 or 0, so you should check them using \c #if , not \c #ifdef .
 
 	@ingroup limes_vecops
  */
@@ -61,115 +70,186 @@
  */
 #	define LIMES_VECOPS_USE_MIPP 0
 
-/**	@def LIMES_VECOPS_USE_POMMIER
-	1 if the Pommier SIMD extensions are being used, otherwise 0.
-	See neon_mathfun.h for the original license that accompanies these functions.
-	@ingroup limes_vecops
- */
-#	define LIMES_VECOPS_USE_POMMIER 0
-
 #endif /* DOXYGEN */
 
 /// @cond
 
-#pragma mark LIMES_VECOPS_USE_VDSP
 
 /* --- LIMES_VECOPS_USE_VDSP --- */
 
-LIMES_DISABLE_ALL_COMPILER_WARNINGS
-#ifndef LIMES_VECOPS_USE_VDSP
-#	if (LIMES_VECOPS_USE_IPP || LIMES_VECOPS_USE_MIPP)
-#		define LIMES_VECOPS_USE_VDSP 0
-#	elif LIMES_APPLE
-#		define LIMES_VECOPS_USE_VDSP 1
-#	else
-#		define LIMES_VECOPS_USE_VDSP 0
-#	endif
-#endif
-LIMES_REENABLE_ALL_COMPILER_WARNINGS
+#pragma mark LIMES_VECOPS_USE_VDSP
 
-#pragma mark LIMES_VECOPS_USE_IPP
+#ifdef LIMES_VECOPS_USE_VDSP
+
+#	if LIMES_VECOPS_USE_VDSP
+#		ifdef LIMES_VECOPS_USE_IPP
+#			if LIMES_VECOPS_USE_IPP
+LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_VDSP defined to 1, when LIMES_VECOPS_USE_IPP is also defined to 1!")
+// if vdsp and ipp are both 1, prefer vdsp over ipp -- force define ipp to 0
+#				undef LIMES_VECOPS_USE_IPP
+#				define LIMES_VECOPS_USE_IPP 0
+#			endif
+#		endif
+
+#		ifdef LIMES_VECOPS_USE_MIPP
+#			if LIMES_VECOPS_USE_MIPP
+LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_VDSP defined to 1, when LIMES_VECOPS_USE_MIPP is also defined to 1!")
+// if vdsp and mipp are both 1, prefer vdsp over mipp -- force define mipp to 0
+#				undef LIMES_VECOPS_USE_MIPP
+#				define LIMES_VECOPS_USE_MIPP 0
+#			endif
+#		endif
+#	endif
+
+#else /* ifdef LIMES_VECOPS_USE_VDSP */
+
+#	ifdef LIMES_VECOPS_USE_IPP
+#		if LIMES_VECOPS_USE_IPP
+#			define LIMES_VECOPS_USE_VDSP 0
+#		endif
+#	endif
+
+#	ifndef LIMES_VECOPS_USE_VDSP
+#		ifdef LIMES_VECOPS_USE_MIPP
+#			if LIMES_VECOPS_USE_MIPP
+#				define LIMES_VECOPS_USE_VDSP 0
+#			endif
+#		endif
+#	endif
+
+#	ifndef LIMES_VECOPS_USE_VDSP
+#		if LIMES_APPLE && LIMES_HAS_INCLUDE(<Accelerate / Accelerate.h>)
+#			define LIMES_VECOPS_USE_VDSP 1
+#		else
+#			define LIMES_VECOPS_USE_VDSP 0
+#		endif
+#	endif
+
+#endif /* LIMES_VECOPS_USE_VDSP */
+
+#ifndef LIMES_VECOPS_USE_VDSP
+#	error Implementation error - LIMES_VECOPS_USE_VDSP not defined!
+#endif
+
 
 /* --- LIMES_VECOPS_USE_IPP --- */
 
-// clang-format off
-#if LIMES_VECOPS_USE_VDSP
+#pragma mark LIMES_VECOPS_USE_IPP
+
+#ifdef LIMES_VECOPS_USE_IPP
+
 #	if LIMES_VECOPS_USE_IPP
-	LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_IPP evaluated to true, when LIMES_VECOPS_USE_VDSP was already on!")
+#		if LIMES_VECOPS_USE_VDSP
+LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_IPP defined to 1, when LIMES_VECOPS_USE_VDSP is also defined to 1!")
+// if ipp and vdsp are both 1, prefer vdsp over ipp -- force define ipp to 0
+#			undef LIMES_VECOPS_USE_IPP
+#			define LIMES_VECOPS_USE_IPP 0
+#		endif
 #	endif
-// clang-format on
 
-#	undef LIMES_VECOPS_USE_IPP
-#	define LIMES_VECOPS_USE_IPP 0
-#endif
+#	if LIMES_VECOPS_USE_IPP
+#		ifdef LIMES_VECOPS_USE_MIPP
+#			if LIMES_VECOPS_USE_MIPP
+LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_IPP defined to 1, when LIMES_VECOPS_USE_MIPP is also defined to 1!")
+// if ipp and mipp are both 1, prefer ipp over mipp -- force define mipp to 0
+#				undef LIMES_VECOPS_USE_MIPP
+#				define LIMES_VECOPS_USE_MIPP 0
+#			endif
+#		endif
+#	endif
 
-LIMES_DISABLE_ALL_COMPILER_WARNINGS
+#else /* ifdef LIMES_VECOPS_USE_IPP */
+
+#	if LIMES_VECOPS_USE_VDSP
+#		define LIMES_VECOPS_USE_IPP 0
+#	endif
+
+#	ifndef LIMES_VECOPS_USE_IPP
+#		ifdef LIMES_VECOPS_USE_MIPP
+#			if LIMES_VECOPS_USE_MIPP
+#				define LIMES_VECOPS_USE_IPP 0
+#			endif
+#		endif
+#	endif
+
+#	ifndef LIMES_VECOPS_USE_IPP
+#		if LIMES_INTEL && LIMES_HAS_INCLUDE(<ipps.h>)
+#			define LIMES_VECOPS_USE_IPP 1
+#		else
+#			define LIMES_VECOPS_USE_IPP 0
+#		endif
+#	endif
+
+#endif /* LIMES_VECOPS_USE_IPP */
+
 #ifndef LIMES_VECOPS_USE_IPP
-#	if (LIMES_VECOPS_USE_VDSP || LIMES_VECOPS_USE_MIPP)
-#		define LIMES_VECOPS_USE_IPP 0
-#	elif LIMES_INTEL && LIMES_HAS_INCLUDE(<ipps.h>)
-#		define LIMES_VECOPS_USE_IPP 1
-#	else
-#		define LIMES_VECOPS_USE_IPP 0
-#	endif
+#	error Implementation error - LIMES_VECOPS_USE_IPP not defined!
 #endif
-LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
-#pragma mark LIMES_VECOPS_USE_MIPP
 
 /* --- LIMES_VECOPS_USE_MIPP --- */
 
-// clang-format off
-#if (LIMES_VECOPS_USE_VDSP || LIMES_VECOPS_USE_IPP)
+#pragma mark LIMES_VECOPS_USE_MIPP
+
+#ifdef LIMES_VECOPS_USE_MIPP
+
 #	if LIMES_VECOPS_USE_MIPP
-	LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_MIPP evaluated to true, when LIMES_VECOPS_USE_VDSP or LIMES_VECOPS_USE_IPP was already on!")
+#		if LIMES_VECOPS_USE_VDSP
+LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_MIPP defined to 1, when LIMES_VECOPS_USE_VDSP is also defined to 1!")
+// if mipp and vdsp are both 1, prefer vdsp over mipp -- force define mipp to 0
+#			undef LIMES_VECOPS_USE_MIPP
+#			define LIMES_VECOPS_USE_MIPP 0
+#		endif
 #	endif
-// clang-format on
 
-#	undef LIMES_VECOPS_USE_MIPP
-#	define LIMES_VECOPS_USE_MIPP 0
-#endif
+#	if LIMES_VECOPS_USE_MIPP
+#		if LIMES_VECOPS_USE_IPP
+LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_MIPP defined to 1, when LIMES_VECOPS_USE_IPP is also defined to 1!")
+// if mipp and ipp are both 1, prefer ipp over mipp -- force define mipp to 0
+#			undef LIMES_VECOPS_USE_MIPP
+#			define LIMES_VECOPS_USE_MIPP 0
+#		endif
+#	endif
 
-LIMES_DISABLE_ALL_COMPILER_WARNINGS
+#else /* ifdef LIMES_VECOPS_USE_MIPP */
+
+#	if LIMES_VECOPS_USE_VDSP
+#		define LIMES_VECOPS_USE_MIPP 0
+#	endif
+
+#	ifndef LIMES_VECOPS_USE_MIPP
+#		if LIMES_VECOPS_USE_IPP
+#			define LIMES_VECOPS_USE_MIPP 0
+#		endif
+#	endif
+
+#	ifndef LIMES_VECOPS_USE_MIPP
+#		if (LIMES_SSE || LIMES_ARM_NEON || LIMES_AVX || LIMES_AVX512) && LIMES_HAS_INCLUDE(<mipp.h>)
+#			define LIMES_VECOPS_USE_MIPP 1
+#		else
+#			define LIMES_VECOPS_USE_MIPP 0
+#		endif
+#	endif
+
+#endif /* LIMES_VECOPS_USE_MIPP */
+
 #ifndef LIMES_VECOPS_USE_MIPP
-#	if (LIMES_VECOPS_USE_VDSP || LIMES_VECOPS_USE_IPP)
-#		define LIMES_VECOPS_USE_MIPP 0
-#	elif (LIMES_SSE || LIMES_AVX || LIMES_AVX512 || LIMES_ARM_NEON) && LIMES_HAS_INCLUDE(<mipp.h>)
-#		define LIMES_VECOPS_USE_MIPP 1
-#	else
-#		define LIMES_VECOPS_USE_MIPP 0
-#	endif
+#	error Implementation error - LIMES_VECOPS_USE_MIPP not defined!
 #endif
-LIMES_REENABLE_ALL_COMPILER_WARNINGS
 
-#pragma mark Error checking
 
 /* --- wrapup --- */
+
+#pragma mark Error checking
 
 #if ((LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_IPP)     \
 	 || (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_MIPP) \
 	 || (LIMES_VECOPS_USE_IPP && LIMES_VECOPS_USE_MIPP))
-#	error "Only one of LIMES_VECOPS_USE_VDSP, LIMES_VECOPS_USE_IPP, or LIMES_VECOPS_USE_MIPP may be set to 1!"
+#	error Only one of LIMES_VECOPS_USE_VDSP, LIMES_VECOPS_USE_IPP, or LIMES_VECOPS_USE_MIPP may be set to 1!
 #endif
 
-#pragma mark LIMES_VECOPS_USE_POMMIER
-
-/* --- LIMES_VECOPS_USE_POMMIER --- */
-
-// clang-format off
-#ifdef LIMES_VECOPS_USE_POMMIER
-#	if LIMES_VECOPS_USE_POMMIER && ! (LIMES_ARM_NEON || LIMES_SSE)
-#		error Pommier extensions cannot be used if neither NEON nor SSE is available!
-#	endif
-#endif
-// clang-format on
-
-#ifndef LIMES_VECOPS_USE_POMMIER
-#	if (LIMES_ARM_NEON || (LIMES_SSE && ! LIMES_MSVC))	 // MSVC doesn't like to compile MMX intrinsics
-#		define LIMES_VECOPS_USE_POMMIER 1
-#	else
-#		define LIMES_VECOPS_USE_POMMIER 0
-#	endif
+#if ! (LIMES_VECOPS_USE_VDSP || LIMES_VECOPS_USE_IPP || LIMES_VECOPS_USE_MIPP)
+#	error One of LIMES_VECOPS_USE_VDSP, LIMES_VECOPS_USE_IPP, or LIMES_VECOPS_USE_MIPP must be set to 1!
 #endif
 
 /// @endcond

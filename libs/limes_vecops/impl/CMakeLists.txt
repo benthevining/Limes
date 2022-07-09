@@ -8,8 +8,17 @@
 #
 # ======================================================================================
 
-set (files # cmake-format: sortable
-		   fallback_impl.cpp fallback_impl.h fp_status.cpp phasor.cpp phasor.h vecops_macros.h)
+set (
+	files
+	# cmake-format: sortable
+	check_impl.h
+	fallback_impl.cpp
+	fallback_impl.h
+	fp_status.cpp
+	fp_status.h
+	phasor.cpp
+	phasor.h
+	vecops_macros.h)
 
 if (LIMES_USE_VDSP)
 	list (APPEND files vdsp.h)

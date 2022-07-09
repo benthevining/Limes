@@ -89,7 +89,7 @@ configure_file ("${CMAKE_CURRENT_LIST_DIR}/build_docs.cmake" "${configured_scrip
 
 unset (latex_output_dir)
 
-if (Limes_IS_TOP_LEVEL OR PROJECT_IS_TOP_LEVEL)
+if (PROJECT_IS_TOP_LEVEL)
 	set (all_flag ALL)
 endif ()
 

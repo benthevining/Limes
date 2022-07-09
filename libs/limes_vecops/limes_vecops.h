@@ -73,15 +73,6 @@
 	@cmakeopt \b LIMES_VECOPS_BACKEND A string value that can be one of \c VDSP , \c IPP , \c MIPP , or \c FALLBACK .
 	This value overrides the individual boolean toggles. If an unrecognized value is present, a warning will be issued.
 
-	Additionally, the fallback implementation may leverage Julien Pommier's implementations of SIMD functions for SSE and NEON:
-
-	@cmakeopt \b LIMES_USE_POMMIER
-	If \c ON , Julien Pommier's sin and cosine functions for SSE and NEON will be used,
-	if on a platform supporting those instructions. The main use case of this option is to disable these functions.
-	This is not an external dependency, because this code ships as part of Limes's source tree. Usage of this code
-	requires adherence to its original license, which is preserved in these source files.
-	@see sse_mathfun.h neon_mathfun.h
-
 	@cmakeprop \b LIMES_VECOPS_IMPLEMENTATION
 	String name of the vector operations backend being used for the @ref lib_limes_vecops "limes_vecops" library.
 
@@ -144,7 +135,11 @@
 static_assert (sizeof (float) == 4, "float is not 32-bits wide");
 static_assert (sizeof (double) == 8, "double is not 64-bits wide");
 
-#include "./impl/vecops_macros.h"  // IWYU pragma: export
+// IWYU pragma: begin_exports
+#include "./impl/vecops_macros.h"
+#include "./impl/fp_status.h"
+#include "./impl/check_impl.h"
+// IWYU pragma: end_exports
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
@@ -1323,165 +1318,6 @@ LIMES_EXPORT void cartesianInterleavedToMagnitudes (DataType* const mag, const D
 
 /** @} */
 
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
-#pragma mark -
-#pragma mark Floating point mode functions
-
-/** @defgroup vec_fpm Floating point mode functions
-	Floating point mode functions.
-	@ingroup limes_vecops
- */
-
-/* --- Denormals --- */
-
-/** @defgroup vec_denormals Denormalized number support
-	Denormalized number support utilities.
-	@ingroup vec_fpm
- */
-
-/** @ingroup vec_denormals
-	@{
- */
-
-/** Controls whether denormalized numbers are enabled or disabled.
-	@see areDenormalsDisabled, ScopedNoDenormals
- */
-LIMES_EXPORT void disableDenormalisedNumberSupport (bool shouldDisable = true) noexcept;
-
-/** Returns true if denormalized numbers are currently enabled.
-	@see disableDenormalisedNumberSupport
- */
-LIMES_EXPORT [[nodiscard]] bool areDenormalsDisabled() noexcept;
-
-/** An RAII class that disables denormalized numbers when it is constructed, and resets the denormalized number state when it is destructed.
-	@see disableDenormalisedNumberSupport, areDenormalsDisabled
- */
-class LIMES_EXPORT ScopedNoDenormals final
-{
-public:
-	ScopedNoDenormals() noexcept;
-	~ScopedNoDenormals() noexcept;
-
-private:
-	const intptr_t fpsr;
-};
-
-/** @} */
-
-/* --- Flush-to-zero --- */
-
-/** @defgroup vec_ftz Flush-to-zero support
-	Flush-to-zero support utilities.
-	@ingroup vec_fpm
- */
-
-/** @ingroup vec_ftz
-	@{
- */
-
-/** Controls whether flush to zero mode is enabled or disabled.
-	@see isFlushToZeroEnabled, ScopedFlushToZero
- */
-LIMES_EXPORT void enableFlushToZeroMode (bool shouldEnable = true) noexcept;
-
-/** Returns true if flush to zero mode is enabled.
-	@see enableFlushToZeroMode
- */
-LIMES_EXPORT [[nodiscard]] bool isFlushToZeroEnabled() noexcept;
-
-/** An RAII class that enables flush to zero mode when it is constructed, and resets the flush to zero state when it is destructed.
-	@see enableFlushToZeroMode, isFlushToZeroEnabled
- */
-class LIMES_EXPORT ScopedFlushToZero final
-{
-public:
-	ScopedFlushToZero() noexcept;
-	~ScopedFlushToZero() noexcept;
-
-private:
-	const intptr_t fpsr;
-};
-
-/** @} */
-
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
-#pragma mark -
-#pragma mark Implementation kind checking
-
-/** @defgroup vec_impl Implementation kind checking
-	Implementation kind checking functions.
-	@ingroup limes_vecops
- */
-
-/** @ingroup vec_impl
-	@{
- */
-
-/** Returns true if the implementation being used is Apple vDSP. */
-LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingVDSP() noexcept
-{
-#if LIMES_VECOPS_USE_VDSP
-	return true;
-#else
-	return false;
-#endif
-}
-
-/** Returns true if the implementation being used is Intel IPP. */
-LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingIPP() noexcept
-{
-#if LIMES_VECOPS_USE_IPP
-	return true;
-#else
-	return false;
-#endif
-}
-
-/** Returns true if the implementation being used is MIPP. */
-LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingMIPP() noexcept
-{
-#if LIMES_VECOPS_USE_MIPP
-	return true;
-#else
-	return false;
-#endif
-}
-
-/** Returns true if the fallback implementation is being used. */
-LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingFallback() noexcept
-{
-	return ! (isUsingVDSP() || isUsingIPP() || isUsingMIPP());	// cppcheck-suppress knownConditionTrueFalse
-}
-
-static_assert (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingFallback());
-
-/** Returns a string literal with the name of the implementation being used. */
-LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION static consteval const char* getImplementationName() noexcept
-{
-	if constexpr (isUsingVDSP())
-		return "Apple vDSP";
-	else if constexpr (isUsingIPP())
-		return "Intel IPP";
-	else if constexpr (isUsingMIPP())
-		return "MIPP";
-	else
-		return "Fallback";
-}
-
-/** Returns true if the Pommier SIMD extension functions are being used. */
-LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingPommierExtensions() noexcept
-{
-#if LIMES_VECOPS_USE_POMMIER
-	return true;
-#else
-	return false;
-#endif
-}
-
-/** @} */
-
 }  // namespace vecops
 
 LIMES_END_NAMESPACE
@@ -1491,17 +1327,17 @@ LIMES_END_NAMESPACE
 // IWYU pragma: begin_exports
 
 #if LIMES_VECOPS_USE_VDSP
-#	include "impl/vdsp.h"
+#	include "./impl/vdsp.h"
 #elif LIMES_VECOPS_USE_IPP
-#	include "impl/ipp.h"
+#	include "./impl/ipp.h"
 #elif LIMES_VECOPS_USE_MIPP
-#	include "impl/mipp.h"
+#	include "./impl/mipp.h"
 #else
-#	include "impl/fallback.h"
+#	include "./impl/fallback.h"
 #endif
 
-#include "fft/limes_fft.h"
-#include "resampling/limes_resampler.h"
+#include "./fft/limes_fft.h"
+#include "./resampling/limes_resampler.h"
 
 // IWYU pragma: end_exports
 
