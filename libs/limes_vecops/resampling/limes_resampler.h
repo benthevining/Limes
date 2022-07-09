@@ -154,6 +154,7 @@ public:
 /** A class that can resample a stream of audio in realtime.
 	@ingroup resampling
 
+	@todo vDSP resampler?
 	@todo MIPP resampler?
  */
 template <Scalar SampleType>

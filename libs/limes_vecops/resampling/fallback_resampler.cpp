@@ -166,7 +166,7 @@ void FallbackResampler<SampleType>::setRatio (double ratio)
 	else
 	{
 		num	  = big;
-		denom = static_cast<unsigned> (math::round (static_cast<double> (big) * ratio))
+		denom = static_cast<unsigned> (math::round (static_cast<double> (big) * ratio));
 	}
 
 	resampler->set_rate_frac (denom, num,

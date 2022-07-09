@@ -46,7 +46,6 @@ namespace memory
 	@todo write unit tests
 	@todo need to create an underlying shared memory class, to RAIIze the 'non-owning' pointers??
 	@todo bool template param IsAligned?
-	@todo multidimensional array ptr class
 
 	@todo operator ==
 	@todo clear, fill functions
