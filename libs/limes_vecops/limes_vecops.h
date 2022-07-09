@@ -119,8 +119,6 @@
 	@todo write unit tests
 	@todo median
 	@todo mode
-
-	@todo resampler implementations
  */
 
 /** @dir libs/limes_vecops

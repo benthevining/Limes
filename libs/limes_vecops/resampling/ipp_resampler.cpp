@@ -232,12 +232,6 @@ int IPPResampler<SampleType>::doResample (int outspace, double ratio) noexcept
 }
 
 template <Scalar SampleType>
-double IPPResampler<SampleType>::getEffectiveRatio (double inputRatio) const noexcept
-{
-	return inputRatio;
-}
-
-template <Scalar SampleType>
 void IPPResampler<SampleType>::reset()
 {
 	// TODO

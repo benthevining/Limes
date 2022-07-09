@@ -47,6 +47,9 @@ namespace memory
 	@todo need to create an underlying shared memory class, to RAIIze the 'non-owning' pointers??
 	@todo bool template param IsAligned?
 	@todo multidimensional array ptr class
+
+	@todo operator ==
+	@todo clear, fill functions
  */
 template <typename Type, bool UseExceptions = false>
 class LIMES_EXPORT array_pointer final

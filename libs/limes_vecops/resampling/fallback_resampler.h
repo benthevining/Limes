@@ -18,6 +18,9 @@
 #include "./resampler_common.h"
 #include <limes_export.h>
 #include <limes_namespace.h>
+#include "./speex.h"
+#include <memory>
+#include <limes_core.h>
 
 /** @file
 	This file contains a fallback resampler implementation.
@@ -35,6 +38,11 @@ template <Scalar SampleType>
 class LIMES_NO_EXPORT FallbackResampler final : public ResamplerImpl<SampleType>
 {
 public:
+	explicit FallbackResampler (const ResamplingParameters& params);
+
+	LIMES_NON_COPYABLE (FallbackResampler)
+	LIMES_DEFAULT_MOVABLE (FallbackResampler)
+
 private:
 	void prepare (double initialSamplerate, int numChannels, int channelSize) final;
 
@@ -44,9 +52,25 @@ private:
 				  int							  incount,
 				  double						  ratio) noexcept final;
 
-	double getEffectiveRatio (double inputRatio) const noexcept final;
-
 	void reset() final;
+
+	void setRatio (double ratio);
+
+	void doResample (const float* in, unsigned& incount,
+					 float* out, unsigned& outcount,
+					 double ratio);
+
+	int speex_quality { 5 };
+
+	std::unique_ptr<speex::Resampler> resampler;
+
+	double m_initialSampleRate { 44100. };
+
+	memory::array_pointer<float> m_iin, m_iout;
+
+	int	   m_channels { 0 };
+	double m_lastratio { -1. };
+	bool   m_initial { true };
 };
 
 /// @endcond

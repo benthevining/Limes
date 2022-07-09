@@ -34,7 +34,7 @@ Resampler<SampleType>::Resampler (const ResamplingParameters& params)
 #elif LIMES_VECOPS_USE_IPP
 	  pimpl (std::make_unique<resampling::IPPResampler<SampleType>> (params))
 #else
-	  pimpl (std::make_unique<resampling::FallbackResampler<SampleType>>())
+	  pimpl (std::make_unique<resampling::FallbackResampler<SampleType>> (params))
 #endif
 {
 }
@@ -53,12 +53,6 @@ int Resampler<SampleType>::resample (SampleType* const * const		 out,
 									 double							 ratio) noexcept
 {
 	return pimpl->resample (out, outspace, in, incount, ratio);
-}
-
-template <Scalar SampleType>
-double Resampler<SampleType>::getEffectiveRatio (double inputRatio) const noexcept
-{
-	return pimpl->getEffectiveRatio (inputRatio);
 }
 
 template <Scalar SampleType>

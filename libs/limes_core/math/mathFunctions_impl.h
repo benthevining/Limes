@@ -19,6 +19,7 @@
 #include <cmath>
 #include <algorithm>
 #include "../system/limes_assert.h"
+#include <limes_platform.h>
 
 /** @file
 	This file contains implementation details for the math utility functions.
@@ -57,6 +58,14 @@ constexpr T negate (T val) noexcept
 		return -val;
 }
 
+#if LIMES_MSVC
+#	pragma optimize("t", off)
+
+#	ifndef __INTEL_COMPILER
+#		pragma float_control(precise, on, push)
+#	endif
+#endif
+
 template <Scalar T>
 constexpr int round (T val) noexcept
 {
@@ -64,12 +73,42 @@ constexpr int round (T val) noexcept
 		return static_cast<int> (val);
 	else
 	{
-		if (val >= T (0))
-			return static_cast<int> (val + 0.5);
+		if (std::is_constant_evaluated())
+		{
+			if (val >= T (0))
+				return static_cast<int> (val + 0.5);
 
-		return static_cast<int> (val - 0.5);
+			return static_cast<int> (val - 0.5);
+		}
+		else  // faster implementation that doesn't work at compile time
+		{
+#ifdef __INTEL_COMPILER
+#	pragma float_control(precise, on, push)
+#endif
+			union
+			{
+				int	   asInt[2];
+				double asDouble;
+			} n;
+
+			n.asDouble = static_cast<double> (val) + 6755399441055744.;
+
+#if LIMES_BIG_ENDIAN
+			return n.asInt[1];
+#else
+			return n.asInt[0];
+#endif
+		}
 	}
 }
+
+#if LIMES_MSVC
+#	ifndef __INTEL_COMPILER
+#		pragma float_control(pop)
+#	endif
+
+#	pragma optimize("", on)  // resets optimisations to the project defaults
+#endif
 
 template <Scalar T>
 constexpr T limit (T input, T min, T max) noexcept

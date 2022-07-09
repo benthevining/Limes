@@ -130,12 +130,6 @@ public:
 		Fastest
 	};
 
-	enum class Dynamism
-	{
-		RatioOftenChanging,
-		RatioMostlyFixed
-	};
-
 	enum class RatioChange
 	{
 		SmoothRatioChange,
@@ -144,12 +138,6 @@ public:
 
 	/** The quality of the filters used. */
 	Quality quality { Quality::FastTolerable };
-
-	/** Performance hint indicating whether the ratio is expected
-		to change regularly or not. If not, more work may happen on
-		ratio changes to reduce work when ratio is unchanged.
-	 */
-	Dynamism dynamism { Dynamism::RatioMostlyFixed };
 
 	/** Hint indicating whether to smooth transitions, via filter
 		interpolation or some such method, at ratio change
@@ -165,16 +153,15 @@ public:
 
 /** A class that can resample a stream of audio in realtime.
 	@ingroup resampling
-
-	@todo fallback impl
-	@todo speex impl
  */
 template <Scalar SampleType>
 class LIMES_EXPORT Resampler final
 {
 public:
+	/** Creates a resampler with the specified parameters. */
 	Resampler (const ResamplingParameters& params);
 
+	/** Destructor. */
 	~Resampler() = default;
 
 	LIMES_NON_COPYABLE (Resampler)
@@ -200,15 +187,6 @@ public:
 				  const SampleType* const * const in,
 				  int							  incount,
 				  double						  ratio) noexcept;
-
-	/** Returns the ratio that will be actually used when the given
-		ratio is requested. For example, if the resampler internally
-		uses a rational approximation of the given ratio, this will
-		return the closest double to that approximation. Not all
-		implementations support this; an implementation that does not
-		will just return the given ratio.
-	 */
-	[[nodiscard]] double getEffectiveRatio (double inputRatio) const noexcept;
 
 	/** Resets the internal state of the resampler. */
 	void reset();

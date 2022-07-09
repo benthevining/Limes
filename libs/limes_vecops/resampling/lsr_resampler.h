@@ -61,8 +61,6 @@ private:
 							 int				incount,
 							 double				ratio) noexcept;
 
-	double getEffectiveRatio (double inputRatio) const noexcept final;
-
 	void reset() final;
 
 	std::unique_ptr<SRC_STATE, decltype ([] (SRC_STATE* s)

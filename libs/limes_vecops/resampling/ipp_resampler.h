@@ -55,8 +55,6 @@ private:
 				  int							  incount,
 				  double						  ratio) noexcept final;
 
-	double getEffectiveRatio (double inputRatio) const noexcept final;
-
 	void reset() final;
 
 	// to m_outbuf

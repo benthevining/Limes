@@ -49,8 +49,6 @@ public:
 						  int							  incount,
 						  double						  ratio) noexcept = 0;
 
-	virtual double getEffectiveRatio (double inputRatio) const noexcept = 0;
-
 	virtual void reset() = 0;
 
 private:
