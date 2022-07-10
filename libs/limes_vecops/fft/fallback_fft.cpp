@@ -16,6 +16,7 @@
 #include <limes_core.h>
 #include "./limes_fft.h"
 #include "../limes_vecops.h"
+#include <array>
 
 #if LIMES_VECOPS_USE_MIPP
 #	include "../impl/mipp.h"
@@ -155,27 +156,29 @@ void FallbackFFT<SampleType>::inversePolar (const SampleType* magIn, const Sampl
 template <Scalar SampleType>
 void FallbackFFT<SampleType>::inverseCepstral (const SampleType* magIn, SampleType* cepOut) noexcept
 {
-	auto scalar_op = [this] (auto i)
+	auto scalar_op = [this, magIn] (auto i)
 	{
-		m_a[i] = std::log (magIn[i] + this->shiftAmount);
-		m_b[i] = SampleType (0.);
+		m_a[static_cast<std::size_t> (i)] = std::log (magIn[i] + this->shiftAmount);
+		m_b[static_cast<std::size_t> (i)] = SampleType (0.);
 	};
 
 #if LIMES_VECOPS_USE_MIPP
 
-	mipp::Reg<SampleType> a, b;
+	mipp::Reg<SampleType> a;
 
 	const auto shiftRegister = mipp::set1<SampleType> (this->shiftAmount);
-	const auto zeroRegister	 = mipp::set1<SampleType> (SampleType (0));
 
-	auto vector_op = [this, &a, &b, &shiftRegister, &zeroRegister] (auto i)
+	// NB. clang doesn't like auto here for some reason
+	const mipp::Reg<SampleType> zeroRegister = mipp::set1<SampleType> (SampleType (0));
+
+	auto vector_op = [this, &a, &shiftRegister, &zeroRegister, magIn] (auto i)
 	{
 		a.load (&magIn[i]);
 		a += shiftRegister;
 		a = mipp::log (a);
-		a.store (&m_a[i]);
+		a.store (&m_a[static_cast<std::size_t> (i)]);
 
-		zeroRegister.store (&m_b[i]);
+		zeroRegister.store (&m_b[static_cast<std::size_t> (i)]);
 	};
 
 	detail::perform<SampleType> (
@@ -201,7 +204,7 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformF (const SampleType* r
 	{
 		SampleType* a_and_b[2] = { m_a + half_size, m_b + half_size };
 
-		vecops::deinterleave (a_and_b, ri + half_size, 2, this->fft_size - half_size);
+		vecops::deinterleave (a_and_b, ri + half_size, 2, static_cast<std::size_t> (this->fft_size) - half_size);
 	}
 
 	transformComplex (m_a, m_b, m_vr, m_vi, false);
@@ -272,9 +275,10 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformI (const SampleType* r
 	transformComplex (m_vr, m_vi, m_c, m_d, true);
 
 	{
-		SampleType* c_and_d[2] = { m_c + half_size, m_d + half_size };
+		const SampleType* c_and_d[2] = { m_c + half_size, m_d + half_size };
 
-		vecops::interleave (ro + half_size, c_and_d, 2, this->fft_size - half_size);
+		vecops::interleave (ro + half_size, c_and_d, 2,
+							static_cast<std::size_t> (this->fft_size) - half_size);
 	}
 }
 
@@ -299,11 +303,11 @@ LIMES_FORCE_INLINE void FallbackFFT<SampleType>::transformComplex (const SampleT
 		 blockSize <= m_half;
 		 blockSize <<= 1, blockEnd = blockSize)
 	{
-		const auto values = [blockSize, ifactor, this]() -> SampleType[4]
+		const auto values = [blockSize, ifactor, this]() -> std::array<SampleType, 4>
 		{
-			SampleType[4] vals;
+			std::array<SampleType, 4> vals;
 
-			if (blockSize <= m_maxTabledBlock)
+			if (blockSize <= FFTmaxTabledBlock)
 			{
 				std::size_t ix = 0;
 
