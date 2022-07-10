@@ -182,7 +182,7 @@ void Resampler::process (std::size_t	channel_index,
 		const auto istride_save = in_stride;
 		in_stride				= 1;
 
-		process (channel_index, localMem + N - 1, &tmp_in_len, out, &tmp_out_len);
+		process (channel_index, localMem + N - 1, tmp_in_len, out, tmp_out_len);
 		in_stride = istride_save;
 
 		// If we couldn't process all "magic" input samples, save the rest for next time
