@@ -10,16 +10,26 @@
 
 include (OrangesGeneratePlatformHeader)
 
+list (APPEND CMAKE_MESSAGE_INDENT "pommier -- ")
+
 if (PLAT_SSE OR PLAT_ARM_NEON)
 	set (pom_on ON)
 else ()
 	set (pom_on OFF)
 endif ()
 
-add_feature_info ("Pommier SIMD functions" "${pom_on}"
+add_feature_info ("Pommier SIMD functions" pom_on
 				  "Using Julien Pommier's SIMD functions for NEON/SSE")
 
-if (NOT pom_on)
+if (pom_on)
+	message (DEBUG "Using Pommier")
+else ()
+
+	message (DEBUG "Not using Pommier")
+
+	list (POP_BACK CMAKE_MESSAGE_INDENT)
+	unset (pom_on)
+
 	return ()
 endif ()
 
@@ -29,8 +39,10 @@ set (pom_files pommier_wrapper.cpp pommier_wrapper.h)
 
 if (PLAT_ARM_NEON)
 	list (APPEND pom_files neon_mathfun.cpp neon_mathfun.h)
+	message (DEBUG "Using ARM NEON Pommier functions")
 else ()
 	list (APPEND pom_files sse_mathfun.cpp sse_mathfun.h)
+	message (DEBUG "Using SSE Pommier functions")
 endif ()
 
 include (OrangesSourceFileUtils)
@@ -43,3 +55,5 @@ oranges_add_source_files (
 	FILES ${pom_files})
 
 set (pommier_files ${vecops/impl/pommier_files} PARENT_SCOPE)
+
+list (POP_BACK CMAKE_MESSAGE_INDENT)

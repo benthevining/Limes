@@ -81,7 +81,9 @@ private:
 									 { ne10_fft_destroy_c2c_float32 (p); })>
 		plan;
 
-	memory::array_pointer<ne10_fft_cpx_float32_t> inStorage, outStorage memory::array_pointer<SampleType> realStorage, imagStorage;
+	memory::array_pointer<ne10_fft_cpx_float32_t> inStorage, outStorage;
+
+	memory::array_pointer<SampleType> realStorage, imagStorage;
 };
 
 /// @endcond

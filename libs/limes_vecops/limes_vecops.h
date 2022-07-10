@@ -107,6 +107,8 @@
 	@ingroup limes
 
 	@todo use Pommier nat log functions
+	@todo use Pommier funcs elsewhere (fallback FFT, resampler)
+
 	@todo reverse function
 	@todo use std::complex
 	@todo normalize function
@@ -118,6 +120,9 @@
 	@todo write unit tests
 	@todo median
 	@todo mode
+
+	@todo Intel MKL backend
+	@todo ARM performance libraries backend
  */
 
 /** @dir libs/limes_vecops

@@ -42,6 +42,8 @@ FallbackResampler<SampleType>::FallbackResampler (const ResamplingParameters& pa
 template <Scalar SampleType>
 void FallbackResampler<SampleType>::prepare (double initialSamplerate, int numChannels, int channelSize)
 {
+	m_initialSampleRate = initialSamplerate;
+
 	if (resampler.get() == nullptr
 		|| resampler->get_num_channels() != static_cast<std::uint32_t> (numChannels))
 	{
@@ -54,6 +56,8 @@ void FallbackResampler<SampleType>::prepare (double initialSamplerate, int numCh
 		if (resampler.get() == nullptr)
 			throw std::runtime_error { "Fallback resampler: failed to initialize Speex object" };
 	}
+
+	setRatio (m_lastratio);
 
 	if (channelSize > 0 && numChannels > 1)
 	{

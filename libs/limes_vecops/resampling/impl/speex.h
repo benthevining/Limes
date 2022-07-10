@@ -72,6 +72,7 @@ namespace speex
 /** A resampler class based on the Speex library's implementation.
 
 	@todo Template this class to accept double samples
+	@todo use MIPP, Pommier in this class
  */
 class LIMES_NO_EXPORT Resampler final
 {

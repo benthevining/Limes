@@ -19,6 +19,8 @@ project (
 	HOMEPAGE_URL "${Limes_HOMEPAGE_URL}"
 	LANGUAGES CXX ASM)
 
+list (APPEND CMAKE_MESSAGE_INDENT "limes_vecops - ")
+
 add_library (limes_vecops)
 
 include (SelectImpl.cmake)
@@ -110,3 +112,5 @@ cpack_add_component_group (
 	DESCRIPTION "All components of the ${PROJECT_DESCRIPTION}" PARENT_GROUP limes_libs)
 
 add_library (Limes::limes_vecops ALIAS limes_vecops)
+
+list (POP_BACK CMAKE_MESSAGE_INDENT)

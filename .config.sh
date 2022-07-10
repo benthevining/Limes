@@ -23,5 +23,5 @@ export LIMES_PATH="${LIMES_PATH:-$(cd "$(dirname "$0")" && pwd)}"
 
 # Public: This function changes the current working directory to the Limes repository.
 go_limes() {
-	cd "$LIMES_PATH" || exit 1
+	cd "$LIMES_PATH"
 }

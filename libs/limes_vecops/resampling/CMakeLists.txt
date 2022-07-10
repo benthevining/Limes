@@ -8,9 +8,9 @@
 #
 # ======================================================================================
 
-add_subdirectory (impl)
-
 include (OrangesSourceFileUtils)
+
+list (APPEND CMAKE_MESSAGE_INDENT "Resampling -- ")
 
 oranges_add_source_files (
 	DIRECTORY_NAME resampling
@@ -22,4 +22,8 @@ oranges_add_source_files (
 set_source_files_properties (resampler_common.h TARGET_DIRECTORY limes_vecops PROPERTIES ABSTRACT
 																						 ON)
 
+add_subdirectory (impl)
+
 set (resampling_files ${resampling_files} ${impl_files} PARENT_SCOPE)
+
+list (POP_BACK CMAKE_MESSAGE_INDENT)

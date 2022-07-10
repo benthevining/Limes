@@ -8,6 +8,8 @@
 #
 # ======================================================================================
 
+include (FeatureSummary)
+
 define_property (
 	GLOBAL
 	PROPERTY LIMES_RESAMPLER_IMPLEMENTATION
@@ -16,48 +18,71 @@ define_property (
 		"Name of the underlying resampler implementation used by limes_vecops. May be libsamplerate, IPP, or Fallback."
 	)
 
-option (LIMES_USE_LIBSAMPLERATE "Use libsamplerate for resampling" ON)
+if (DEFINED ENV{LIMES_USE_LIBSAMPLERATE})
+
+	unset (CACHE{LIMES_USE_LIBSAMPLERATE})
+
+	if ("$ENV{LIMES_USE_LIBSAMPLERATE}")
+		set (lsr_init ON)
+	else ()
+		set (lsr_init OFF)
+	endif ()
+else ()
+	set (lsr_init ON)
+endif ()
+
+set (lsr_description "Use libsamplerate for resampling")
+
+option (LIMES_USE_LIBSAMPLERATE "${lsr_description}" "${lsr_init}")
+
+unset (lsr_init)
 
 mark_as_advanced (FORCE LIMES_USE_LIBSAMPLERATE)
-
-include (FeatureSummary)
 
 set_package_properties (SampleRate PROPERTIES TYPE RECOMMENDED
 						PURPOSE "Resampling acceleration with libsamplerate")
 
 if (LIMES_USE_LIBSAMPLERATE)
 	find_package (SampleRate MODULE)
-else ()
-	set (SampleRate_FOUND OFF)
 endif ()
 
 if (LIMES_USE_LIBSAMPLERATE AND SampleRate_FOUND AND TARGET SampleRate::samplerate)
+
 	target_link_libraries (limes_vecops PRIVATE SampleRate::samplerate)
 
 	set (files lsr_resampler.h lsr_resampler.cpp)
 
 	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_LIBSAMPLERATE=1)
 
-	set (LIMES_USE_LIBSAMPLERATE ON CACHE BOOL "Use libsamplerate for resampling" FORCE)
+	set (LIMES_USE_LIBSAMPLERATE ON CACHE BOOL "${lsr_description}" FORCE)
 
 	set (impl_name libsamplerate)
+
+	message (DEBUG "Using libsamplerate")
+
 else ()
+
 	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_LIBSAMPLERATE=0)
 
-	set (LIMES_USE_LIBSAMPLERATE OFF CACHE BOOL "Use libsamplerate for resampling" FORCE)
+	set (LIMES_USE_LIBSAMPLERATE OFF CACHE BOOL "${lsr_description}" FORCE)
 
 	if (LIMES_USE_IPP)
 		set (files ipp_resampler.h ipp_resampler.cpp)
 		set (impl_name IPP)
+		message (DEBUG "Using IPP")
 	else ()
 		set (files fallback_resampler.h fallback_resampler.cpp speex.h speex.cpp)
 		set (impl_name Fallback)
+		message (DEBUG "Using fallback")
 	endif ()
+
 endif ()
 
-message (DEBUG " -- limes_vecops - using ${impl_name} for resampling")
+unset (lsr_description)
 
-add_feature_info (libsamplerate "${LIMES_USE_LIBSAMPLERATE}"
+message (VERBOSE " -- limes_vecops - using ${impl_name} for resampling")
+
+add_feature_info (libsamplerate LIMES_USE_LIBSAMPLERATE
 				  "Using the ${impl_name} backend for the limes_vecops resampler")
 
 set_property (GLOBAL PROPERTY LIMES_RESAMPLER_IMPLEMENTATION "${impl_name}")

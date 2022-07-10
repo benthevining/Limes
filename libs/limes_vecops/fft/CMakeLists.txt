@@ -8,9 +8,9 @@
 #
 # ======================================================================================
 
-add_subdirectory (impl)
-
 include (OrangesSourceFileUtils)
+
+list (APPEND CMAKE_MESSAGE_INDENT "FFT -- ")
 
 oranges_add_source_files (
 	DIRECTORY_NAME fft
@@ -21,4 +21,8 @@ oranges_add_source_files (
 
 set_source_files_properties (fft_common.h TARGET_DIRECTORY limes_vecops PROPERTIES ABSTRACT ON)
 
+add_subdirectory (impl)
+
 set (fft_files ${fft_files} ${impl_files} PARENT_SCOPE)
+
+list (POP_BACK CMAKE_MESSAGE_INDENT)
