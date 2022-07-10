@@ -14,11 +14,11 @@
 #include <limes_namespace.h>
 
 #if LIMES_VECOPS_USE_LIBSAMPLERATE
-#	include "./lsr_resampler.h"
+#	include "./impl/lsr_resampler.h"
 #elif LIMES_VECOPS_USE_IPP
-#	include "./ipp_resampler.h"
+#	include "./impl/ipp_resampler.h"
 #else
-#	include "./fallback_resampler.h"
+#	include "./impl/fallback_resampler.h"
 #endif
 
 LIMES_BEGIN_NAMESPACE

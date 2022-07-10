@@ -17,8 +17,8 @@
 #include <string_view>	   // for string_view
 #include <limes_namespace.h>
 #include <limes_core.h>
-#include "../limes_vecops.h"
-#include "../impl/vecops_macros.h"
+#include "../vecops/vecops.h"
+#include "../vecops/vecops_macros.h"
 
 /** @defgroup fft FFT
 	Fourier transform utilities.
@@ -117,13 +117,19 @@ namespace fft
 	return vecops::isUsingIPP() && ! isUsingFFTW();	 // cppcheck-suppress knownConditionTrueFalse
 }
 
+/** Returns true if the NE10 implementation is being used. */
+[[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingNE10() noexcept
+{
+	return vecops::isUsingNE10() && ! isUsingFFTW();  // cppcheck-suppress knownConditionTrueFalse
+}
+
 /** Returns true if the fallback FFT implementation is being used. */
 [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingFallback() noexcept
 {
-	return ! (isUsingFFTW() || isUsingVDSP() || isUsingIPP());	// cppcheck-suppress knownConditionTrueFalse
+	return ! (isUsingFFTW() || isUsingVDSP() || isUsingIPP() || isUsingNE10());	 // cppcheck-suppress knownConditionTrueFalse
 }
 
-static_assert (isUsingFFTW() || isUsingVDSP() || isUsingIPP() || isUsingFallback());
+static_assert (isUsingFFTW() || isUsingVDSP() || isUsingIPP() || isUsingNE10() || isUsingFallback());
 
 /** Returns a string literal with the name of the FFT implementation being used. */
 [[nodiscard]] LIMES_PURE_FUNCTION static consteval const char* getImplementationName() noexcept
@@ -134,6 +140,8 @@ static_assert (isUsingFFTW() || isUsingVDSP() || isUsingIPP() || isUsingFallback
 		return "Apple vDSP";
 	else if constexpr (isUsingIPP())
 		return "Intel IPP";
+	else if constexpr (isUsingNE10())
+		return "NE10";
 	else
 		return "Fallback";
 }

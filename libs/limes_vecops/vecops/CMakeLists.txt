@@ -13,12 +13,10 @@ add_subdirectory (impl)
 include (OrangesSourceFileUtils)
 
 oranges_add_source_files (
-	DIRECTORY_NAME fft
+	DIRECTORY_NAME vecops
 	TARGET limes_vecops
 	INSTALL_COMPONENT limes_vecops_dev
 	INSTALL_DIR "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
-	FILES fft_common.h fftw_wisdom.cpp limes_fft.cpp limes_fft.h)
+	FILES check_impl.h fp_status.cpp fp_status.h vecops_macros.h vecops.h)
 
-set_source_files_properties (fft_common.h TARGET_DIRECTORY limes_vecops PROPERTIES ABSTRACT ON)
-
-set (fft_files ${fft_files} ${impl_files} PARENT_SCOPE)
+set (vecops_files ${vecops_files} ${impl_files} PARENT_SCOPE)

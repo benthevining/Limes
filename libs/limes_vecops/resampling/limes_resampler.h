@@ -16,7 +16,7 @@
 #include <limes_namespace.h>
 #include <memory>
 #include <limes_core.h>
-#include "../limes_vecops.h"
+#include "../vecops/vecops.h"
 
 /** @defgroup resampling Resampling
 	Audio resampling utilities.

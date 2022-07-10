@@ -15,18 +15,19 @@
 #include <limes_core.h>
 #include <stdexcept>
 #include <sstream>
+#include "../vecops/vecops_macros.h"
 
 #if LIMES_VECOPS_USE_FFTW
-#	include "./fftw_fft.h"
+#	include "./impl/fftw_fft.h"
 #elif LIMES_VECOPS_USE_VDSP
-#	include "./vdsp_fft.h"
+#	include "./impl/vdsp_fft.h"
 #elif LIMES_VECOPS_USE_IPP
-#	include "./ipp_fft.h"
+#	include "./impl/ipp_fft.h"
+#elif LIMES_VECOPS_USE_NE10
+#	include "./impl/ne10_fft.h"
 #else
-#	include "./fallback_fft.h"
+#	include "./impl/fallback_fft.h"
 #endif
-
-#include "../impl/vecops_macros.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -34,17 +35,30 @@ namespace vecops
 {
 
 #if LIMES_VECOPS_USE_FFTW
+
 template <Scalar SampleType>
 using ImplType = fft::FFTW_FFT<SampleType>;
+
 #elif LIMES_VECOPS_USE_VDSP
+
 template <Scalar SampleType>
 using ImplType = fft::vDSP_FFT<SampleType>;
+
 #elif LIMES_VECOPS_USE_IPP
+
 template <Scalar SampleType>
 using ImplType = fft::IPP_FFT<SampleType>;
+
+#elif LIMES_VECOPS_USE_NE10
+
+template <Scalar SampleType>
+using ImplType = fft::NE10_FFT<SampleType>;
+
 #else
+
 template <Scalar SampleType>
 using ImplType = fft::FallbackFFT<SampleType>;
+
 #endif
 
 static inline void check_fft_size (int newSize)

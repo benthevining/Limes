@@ -117,17 +117,26 @@ endif ()
 
 if (Vecops IN_LIST finding_components)
 	if ("@LIMES_USE_IPP@") # LIMES_USE_IPP
-		find_dependency (IPP COMPONENTS CORE S VM)
+		find_dependency (
+			IPP
+			7
+			MODULE
+			COMPONENTS
+			CORE
+			S
+			VM)
 	elseif ("@LIMES_USE_MIPP@") # LIMES_USE_MIPP
-		find_dependency (MIPP)
+		find_dependency (MIPP MODULE)
+	elseif ("@LIMES_USE_NE10@") # LIMES_USE_NE10
+		find_dependency (NE10 MODULE)
 	endif ()
 
 	if ("@LIMES_USE_FFTW@") # LIMES_USE_FFTW
-		find_dependency (FFTW)
+		find_dependency (FFTW MODULE)
 	endif ()
 
 	if ("@LIMES_USE_LIBSAMPLERATE@") # LIMES_USE_LIBSAMPLERATE
-		find_dependency (SampleRate)
+		find_dependency (SampleRate MODULE)
 	endif ()
 endif ()
 

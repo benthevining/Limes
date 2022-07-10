@@ -21,7 +21,7 @@ project (
 
 add_library (limes_vecops)
 
-include (impl/SelectImpl.cmake)
+include (SelectImpl.cmake)
 
 set_target_properties (
 	limes_vecops
@@ -55,14 +55,14 @@ target_include_directories (
 	limes_vecops PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
 						$<INSTALL_INTERFACE:${LIMES_VECOPS_INSTALL_INCLUDE_DIR}>)
 
-add_subdirectory (impl)
+add_subdirectory (vecops)
 add_subdirectory (fft)
 add_subdirectory (resampling)
 # add_subdirectory (filters)
 
 set (limes_vecops_sources
 	 # cmake-format: sortable
-	 ${fft_files} ${filters_files} ${impl_files} ${resampling_files} limes_vecops.h)
+	 ${fft_files} ${filters_files} ${resampling_files} ${vecops_files} limes_vecops.h)
 
 source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${limes_vecops_sources})
 

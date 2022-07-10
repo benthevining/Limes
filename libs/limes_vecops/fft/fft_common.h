@@ -17,7 +17,7 @@
 
 #include <limes_export.h>
 #include <limes_namespace.h>
-#include "../limes_vecops.h"
+#include "../vecops/vecops.h"
 #include <limes_core.h>
 
 /** @file

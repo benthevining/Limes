@@ -21,6 +21,7 @@
 #if LIMES_VECOPS_USE_FFTW
 #	include <mutex>  // for lock_guard, mutex
 #	include <atomic>
+#	include "./impl/fftw_fft.h"
 #endif
 
 LIMES_BEGIN_NAMESPACE
@@ -99,8 +100,6 @@ bool isUsingWisdom()
 
 
 #if LIMES_VECOPS_USE_FFTW
-
-#	include "fftw_fft.h"
 
 #	if FFTW_DOUBLE_ONLY
 #		define fftwf_import_wisdom_from_file fftw_import_wisdom_from_file

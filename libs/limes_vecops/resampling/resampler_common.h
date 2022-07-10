@@ -17,7 +17,8 @@
 
 #include <limes_export.h>
 #include <limes_namespace.h>
-#include "../limes_vecops.h"
+#include "../vecops/vecops.h"
+#include "./limes_resampler.h"
 
 /** @file
 	This file contains implementation details common to multiple resampler implementations.
