@@ -24,13 +24,12 @@ static_assert (isUsingFallback());
 
 static inline int getSpeexQuality (ResamplingParameters::Quality q) noexcept
 {
-	if (q == ResamplingParameters::Quality::Best)
-		return 10;
-
-	if (q == ResamplingParameters::Quality::Fastest)
-		return 0;
-
-	return 4;
+	switch (q)
+	{
+		case (ResamplingParameters::Quality::Best) : return 10;
+		case (ResamplingParameters::Quality::Fastest) : return 0;
+		default : return 4;
+	}
 }
 
 template <Scalar SampleType>
@@ -76,8 +75,8 @@ int FallbackResampler<float>::resample (float* const * const	   out,
 	if (ratio != m_lastratio)
 		setRatio (ratio);
 
-	auto uincount  = static_cast<unsigned> (incount);
-	auto uoutcount = static_cast<unsigned> (outspace);
+	auto uincount  = static_cast<std::uint32_t> (incount);
+	auto uoutcount = static_cast<std::uint32_t> (outspace);
 
 	const float* data_in;
 	float*		 data_out;
@@ -98,7 +97,8 @@ int FallbackResampler<float>::resample (float* const * const	   out,
 		data_out = m_iout.get();
 	}
 
-	doResample (data_in, uincount, data_out, uoutcount, ratio);
+	resampler->process_interleaved (data_in, uincount,
+									data_out, uoutcount);
 
 	if (m_channels > 1)
 		vecops::deinterleave (out, m_iout.get(), m_channels, uoutcount);
@@ -118,8 +118,8 @@ int FallbackResampler<double>::resample (double* const * const		 out,
 	if (ratio != m_lastratio)
 		setRatio (ratio);
 
-	auto uincount  = static_cast<unsigned> (incount);
-	auto uoutcount = static_cast<unsigned> (outspace);
+	auto uincount  = static_cast<std::uint32_t> (incount);
+	auto uoutcount = static_cast<std::uint32_t> (outspace);
 
 	LIMES_ASSERT (incount * m_channels > static_cast<int> (m_iin.getSize()));
 	LIMES_ASSERT (outspace * m_channels > static_cast<int> (m_iout.getSize()));
@@ -133,7 +133,8 @@ int FallbackResampler<double>::resample (double* const * const		 out,
 				m_iin[idx++] = static_cast<float> (in[c][s]);
 	}
 
-	doResample (m_iin.get(), uincount, m_iout.get(), uoutcount, ratio);
+	resampler->process_interleaved (m_iin.get(), uincount,
+									m_iout.get(), uoutcount);
 
 	// deinterleave & convert back to doubles
 	{
@@ -180,41 +181,6 @@ void FallbackResampler<SampleType>::setRatio (double ratio)
 		resampler->skip_zeroes();
 		m_initial = false;
 	}
-}
-
-template <Scalar SampleType>
-void FallbackResampler<SampleType>::doResample (const float* in, unsigned& incount,
-												float* out, unsigned& outcount,
-												double /*ratio*/)
-{
-	// auto initial_outcount = static_cast<int>(outcount);
-
-	resampler->process_interleaved (in, &incount,
-									out, &outcount);
-
-	//	bool final = false;
-	//
-	//	if (final)
-	//	{
-	//		int actual	 = int (outcount);
-	//		int expected = std::min (initial_outcount, int (round (incount * ratio)));
-	//
-	//		if (actual < expected)
-	//		{
-	//			unsigned int final_out = expected - actual;
-	//			unsigned int final_in  = (unsigned int) (round (final_out / ratio));
-	//
-	//			if (final_in > 0)
-	//			{
-	//				float* pad = allocate_and_zero<float> (final_in * m_channels);
-	//				err		   = speex_resampler_process_interleaved_float (m_resampler,
-	//																		pad, &final_in,
-	//																		data_out + actual * m_channels, &final_out);
-	//				deallocate (pad);
-	//				outcount += final_out;
-	//			}
-	//		}
-	//	}
 }
 
 template <Scalar SampleType>

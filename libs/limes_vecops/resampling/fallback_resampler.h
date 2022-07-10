@@ -56,10 +56,6 @@ private:
 
 	void setRatio (double ratio);
 
-	void doResample (const float* in, unsigned& incount,
-					 float* out, unsigned& outcount,
-					 double ratio);
-
 	int speex_quality { 5 };
 
 	std::unique_ptr<speex::Resampler> resampler;

@@ -49,8 +49,6 @@ template <Scalar SampleType>
 IPPResampler<SampleType>::IPPResampler (const ResamplingParameters& params)
 	: algHint (algHintFromQuality (params.quality))
 {
-	// setBufSize (params.maxBuffersize + m_history);
-
 	ippsResamplePolyphaseGetSize_32f (static_cast<float> (WINDOW_SIZE),
 									  STEP_SIZE,
 									  &m_specSize,
@@ -191,41 +189,41 @@ int IPPResampler<SampleType>::doResample (int outspace, double ratio) noexcept
 		m_lastread[c] -= moveFrom;
 		m_time[c] -= moveFrom;
 
-		bool final = true;
+		// bool final = true;
 
-		if (final && n < limit)
-		{
-			// Looks like this actually produces too many samples
-			// (additionalcount is a few samples too large).
+		// if (final && n < limit)
+		// {
+		// 	// Looks like this actually produces too many samples
+		// 	// (additionalcount is a few samples too large).
 
-			// Also, we aren't likely to have enough space in the
-			// output buffer as the caller won't have allowed for
-			// all the samples we're retrieving here.
+		// 	// Also, we aren't likely to have enough space in the
+		// 	// output buffer as the caller won't have allowed for
+		// 	// all the samples we're retrieving here.
 
-			// What to do?
+		// 	// What to do?
 
-			auto additionalcount = 0;
+		// 	auto additionalcount = 0;
 
-			for (auto i = 0; i < m_history; ++i)
-				m_inbuf[c][m_lastread[c] + i] = 0.f;
+		// 	for (auto i = 0; i < m_history; ++i)
+		// 		m_inbuf[c][m_lastread[c] + i] = 0.f;
 
-			auto nAdditional = m_lastread[c] - math::round (m_time[c]);
+		// 	auto nAdditional = m_lastread[c] - math::round (m_time[c]);
 
-			if (n + nAdditional > limit)
-				nAdditional = limit - n;
+		// 	if (n + nAdditional > limit)
+		// 		nAdditional = limit - n;
 
-			ippsResamplePolyphase_32f (m_inbuf[c],
-									   nAdditional,
-									   m_outbuf[c],
-									   ratio,
-									   1.f,
-									   &m_time[c],
-									   &additionalcount,
-									   m_state[static_cast<ST> (c)]);
+		// 	ippsResamplePolyphase_32f (m_inbuf[c],
+		// 							   nAdditional,
+		// 							   m_outbuf[c],
+		// 							   ratio,
+		// 							   1.f,
+		// 							   &m_time[c],
+		// 							   &additionalcount,
+		// 							   m_state[static_cast<ST> (c)]);
 
-			if (c == 0)
-				outcount += additionalcount;
-		}
+		// 	if (c == 0)
+		// 		outcount += additionalcount;
+		// }
 	}
 
 	return outcount;

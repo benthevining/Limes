@@ -21,6 +21,12 @@
 /** @defgroup resampling Resampling
 	Audio resampling utilities.
 
+	The resampler class can use the following backends:
+	- libsamplerate
+	- Intel IPP
+	- Apple vDSP
+	- Fallback
+
 	@ingroup limes_vecops
 
 	@dependency \b libsamplerate
@@ -153,8 +159,6 @@ public:
 
 /** A class that can resample a stream of audio in realtime.
 	@ingroup resampling
-
-	@todo MIPP resampler?
  */
 template <Scalar SampleType>
 class LIMES_EXPORT Resampler final

@@ -58,8 +58,11 @@ target_include_directories (
 add_subdirectory (impl)
 add_subdirectory (fft)
 add_subdirectory (resampling)
+# add_subdirectory (filters)
 
-set (limes_vecops_sources limes_vecops.h ${impl_files} ${fft_files} ${resampling_files})
+set (limes_vecops_sources
+	 # cmake-format: sortable
+	 ${fft_files} ${filters_files} ${impl_files} ${resampling_files} limes_vecops.h)
 
 source_group (TREE "${CMAKE_CURRENT_LIST_DIR}" FILES ${limes_vecops_sources})
 

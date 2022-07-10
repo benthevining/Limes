@@ -101,7 +101,6 @@
 	@todo reverse function
 	@todo use std::complex
 	@todo normalize function
-	@todo pffft FFT backend
 	@todo type conversion functions
 	@todo convert & copy functions
 	@todo tone generation functions (sine, saw, square, triangle)
@@ -1185,7 +1184,8 @@ LIMES_EXPORT void applyHanningAndCopy (DataType* const dest, const DataType* con
  */
 
 /** Represents a type of windowing function. */
-LIMES_EXPORT enum class Type {
+enum class LIMES_EXPORT Type
+{
 	Blackman,
 	Hamm,
 	Hanning
@@ -1338,6 +1338,7 @@ LIMES_END_NAMESPACE
 
 #include "./fft/limes_fft.h"
 #include "./resampling/limes_resampler.h"
+//#include "./filters/limes_filters.h"
 
 // IWYU pragma: end_exports
 

@@ -44,6 +44,7 @@ namespace memory
 	@todo write unit tests
 	@todo need to create an underlying shared memory class, to RAIIze the 'non-owning' pointers??
 	@todo bool template param IsAligned?
+	@todo ability to inject custom allocators/deallocators?
  */
 template <typename Type, bool UseExceptions = false>
 class LIMES_EXPORT array_pointer final

@@ -15,6 +15,7 @@
 #include <limes_namespace.h>
 #include <limes_core.h>
 #include "./limes_fft.h"
+#include <Accelerate/Accelerate.h>
 
 LIMES_BEGIN_NAMESPACE
 
@@ -100,15 +101,12 @@ void vDSP_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleT
 	vDSP_denyq (m_packed.realp, m_packed.imagp);
 
 	// unpack
+	for (auto i = 0; i < this->fft_size / 2 + 1; ++i)
 	{
-		// vDSP forward FFTs are scaled 2x (for some reason)
-		for (auto i = 0; i < this->fft_size / 2 + 1; ++i)
-		{
-			const auto i2 = static_cast<ptrdiff_t> (i * 2);
+		const auto i2 = static_cast<ptrdiff_t> (i * 2);
 
-			complexOut[i2]	   = m_packed.realp[i] * SampleType (0.5);
-			complexOut[i2 + 1] = m_packed.imagp[i] * SampleType (0.5);
-		}
+		complexOut[i2]	   = m_packed.realp[i] * SampleType (0.5);	// vDSP forward FFTs are scaled 2x (for some reason)
+		complexOut[i2 + 1] = m_packed.imagp[i] * SampleType (0.5);
 	}
 }
 

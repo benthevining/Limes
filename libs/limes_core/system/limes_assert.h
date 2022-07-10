@@ -25,6 +25,8 @@
 /** @defgroup system System
 	Utilities that may be OS- or compiler-specific.
 	@ingroup limes_core
+
+	@todo LIMES_ASSERT_OR_THROW macro?
  */
 
 /** @dir libs/limes_core/system

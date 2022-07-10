@@ -23,6 +23,12 @@
 /** @defgroup fft FFT
 	Fourier transform utilities.
 
+	The FFT class can use the following backends:
+	- FFTW
+	- Intel IPP
+	- Apple vDSP
+	- Fallback
+
 	@ingroup limes_vecops
 
 	@dependency \b FFTW
@@ -164,7 +170,7 @@ class FFTImpl;
 	@ingroup fft
 
 	@todo prepare()/releaseResources() ?
-	@todo MIPP FFT?
+	@todo pffft backend
  */
 template <Scalar SampleType>
 class LIMES_EXPORT FFT final

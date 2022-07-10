@@ -20,6 +20,7 @@
 #include <algorithm>
 #include "../system/limes_assert.h"
 #include <limes_platform.h>
+#include <type_traits>	// for std::is_constant_evaluated
 
 /** @file
 	This file contains implementation details for the math utility functions.
@@ -34,6 +35,18 @@ namespace math
 /// @cond
 
 #pragma mark Utility functions
+
+template <Scalar T>
+constexpr T max (T a, T b) noexcept
+{
+	return a > b ? a : b;
+}
+
+template <Scalar T>
+constexpr T min (T a, T b) noexcept
+{
+	return a < b ? a : b;
+}
 
 template <Scalar T>
 constexpr T abs (T val) noexcept

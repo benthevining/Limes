@@ -26,13 +26,12 @@ static_assert (isUsingLibSamplerate());
 
 static inline int get_quality_value (ResamplingParameters::Quality q) noexcept
 {
-	if (q == ResamplingParameters::Quality::Best)
-		return SRC_SINC_BEST_QUALITY;
-
-	if (q == ResamplingParameters::Quality::Fastest)
-		return SRC_SINC_FASTEST;
-
-	return SRC_SINC_MEDIUM_QUALITY;
+	switch (q)
+	{
+		case (ResamplingParameters::Quality::Best) : return SRC_SINC_BEST_QUALITY;
+		case (ResamplingParameters::Quality::Fastest) : return SRC_SINC_FASTEST;
+		default : return SRC_SINC_MEDIUM_QUALITY;
+	}
 }
 
 template <Scalar SampleType>

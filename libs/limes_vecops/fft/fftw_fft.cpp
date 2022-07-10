@@ -18,6 +18,7 @@
 #include <limes_platform.h>	 // for LIMES_FORCE_INLINE
 #include <limes_namespace.h>
 #include <limes_core.h>
+#include "../limes_vecops.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -157,7 +158,14 @@ void FFTW_FFT<SampleType>::forwardInterleaved (const SampleType* realIn, SampleT
 	else
 		fftw_execute (m_planf);
 
-	vecops::copy (complexOut, reinterpret_cast<const SampleType*> (m_packed), this->fft_size + 2);
+	// unpack
+	{
+		for (auto i = 0; i < this->fft_size + 2;)
+		{
+			complexOut[i++] = m_packed[i][0];
+			complexOut[i++] = m_packed[i][1];
+		}
+	}
 }
 
 template <Scalar SampleType>
@@ -171,7 +179,7 @@ void FFTW_FFT<SampleType>::forwardPolar (const SampleType* realIn, SampleType* m
 	else
 		fftw_execute (m_planf);
 
-	vecops::catesianInterleavedToPolar (magOut, phaseOut, (const float_type*) m_packed, this->fft_size / 2 + 1);
+	vecops::catesianInterleavedToPolar (magOut, phaseOut, reinterpret_cast<const float_type*> (m_packed), this->fft_size / 2 + 1);
 }
 
 template <Scalar SampleType>
@@ -185,7 +193,7 @@ void FFTW_FFT<SampleType>::forwardMagnitude (const SampleType* realIn, SampleTyp
 	else
 		fftw_execute (m_planf);
 
-	vecops::cartesianInterleavedToMagnitudes (magOut, (const float_type*) m_packed, this->fft_size / 2 + 1);
+	vecops::cartesianInterleavedToMagnitudes (magOut, reinterpret_cast<const float_type*> (m_packed), this->fft_size / 2 + 1);
 }
 
 template <Scalar SampleType>
@@ -218,7 +226,14 @@ void FFTW_FFT<SampleType>::inverse (const SampleType* realIn, const SampleType* 
 template <Scalar SampleType>
 void FFTW_FFT<SampleType>::inverseInterleaved (const SampleType* complexIn, SampleType* realOut) noexcept
 {
-	vecops::copy (reinterpret_cast<SampleType*> (m_packed), complexIn, this->fft_size + 2);
+	// pack
+	{
+		for (auto i = 0; i < this->fft_size + 2;)
+		{
+			m_packed[i][0] = complexIn[i++];
+			m_packed[i][1] = complexIn[i++];
+		}
+	}
 
 	if constexpr (std::is_same_v<SampleType, float>)
 		fftwf_execute (m_plani);

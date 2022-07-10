@@ -67,17 +67,11 @@ concept Integral = std::is_integral_v<T>;
 
 /** A constexpr-enabled max function. */
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T max (T a, T b) noexcept
-{
-	return a > b ? a : b;
-}
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T max (T a, T b) noexcept;
 
 /** A constexpr-enabled min function. */
 template <Scalar T>
-LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T min (T a, T b) noexcept
-{
-	return a < b ? a : b;
-}
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION constexpr T min (T a, T b) noexcept;
 
 /** A constexpr-enabled absolute value function. */
 template <Scalar T>

@@ -71,7 +71,7 @@ namespace speex
 
 /** A resampler class based on the Speex library's implementation.
 
-	@todo Template this class to accept double samples?
+	@todo Template this class to accept double samples
  */
 class LIMES_NO_EXPORT Resampler final
 {
@@ -132,9 +132,9 @@ public:
 	 */
 	void process (std::size_t	 channel_index,
 				  const float*	 in,
-				  std::uint32_t* in_len,
+				  std::uint32_t& in_len,
 				  float*		 out,
-				  std::uint32_t* out_len) noexcept;
+				  std::uint32_t& out_len) noexcept;
 
 	/** Resample an interleaved float array. The input and output buffers must *not* overlap.
 
@@ -146,9 +146,9 @@ public:
 		This is all per-channel.
 	 */
 	void process_interleaved (const float*	 in,
-							  std::uint32_t* in_len,
+							  std::uint32_t& in_len,
 							  float*		 out,
-							  std::uint32_t* out_len) noexcept;
+							  std::uint32_t& out_len) noexcept;
 	///@}
 
 	/** @name Setting the resampling rate/ratio */
@@ -253,7 +253,7 @@ public:
 	std::uint32_t get_num_channels() const noexcept;
 
 private:
-	void update_filter();
+	void update_filter() noexcept;
 
 	template <typename Type>
 	int resample_basic_direct (std::uint32_t channel_index, const float* in, std::uint32_t in_len, float* out, std::uint32_t out_len) noexcept;
@@ -282,7 +282,7 @@ private:
 	memory::array_pointer<std::uint32_t> samp_frac_num { nb_channels };
 	memory::array_pointer<std::uint32_t> magic_samples { nb_channels };
 
-	memory::array_pointer<float> mem, sinc_table;
+	memory::array_pointer<float, false> mem, sinc_table;
 
 	using ResampleFunc = std::function<int (std::uint32_t, const float*, std::uint32_t, float*, std::uint32_t)>;
 

@@ -121,55 +121,6 @@ static constexpr QualityMap quality_map = {
 };
 
 
-/* The slow way of computing a sinc for the table. Should improve that some day */
-[[nodiscard]] static inline float sinc (float cutoff, float x, int N, const FuncDef* window_func) noexcept
-{
-	const auto xx = x * cutoff;
-
-	const auto fabsVal = fabsf (x);
-
-	if (fabsVal < 1e-6)
-		return cutoff;
-
-	if (fabsVal > .5f * N)
-		return 0.f;
-
-	const auto computedVal = [X = std::fabs (2.f * x / N), window_func]
-	{
-		const auto y	= X * window_func->oversample;
-		const auto ind	= math::round (std::floor (y));
-		const auto frac = (y - ind);
-
-		double interp[4];
-
-		const auto fracSqr	= frac * frac;
-		const auto fracCube = fracSqr * frac;
-
-		/* CSE with handle the repeated powers */
-		interp[3] = -0.1666666667 * frac + 0.1666666667 * fracCube;
-		interp[2] = frac + 0.5 * fracSqr - 0.5 * fracCube;
-		interp[0] = -0.3333333333 * frac + 0.5 * fracSqr - 0.1666666667 * fracCube;
-
-		/* Just to make sure we don't have rounding problems */
-		interp[1] = 1. - interp[3] - interp[2] - interp[0];
-
-		/* sum = frac*accum[1] + (1-frac)*accum[2]; */
-		return interp[0]
-				 * window_func->table[ind]
-			 + interp[1]
-				   * window_func->table[ind + 1]
-			 + interp[2]
-				   * window_func->table[ind + 2]
-			 + interp[3]
-				   * window_func->table[ind + 3];
-	}();
-
-	/* FIXME: Can it really be any slower than this? */
-	return cutoff
-		 * std::sin (math::constants::pi<float> * xx)
-		 / (math::constants::pi<float> * xx) * static_cast<float> (computedVal);
-}
-
 /*-------------------------------------------------------------------------------------------------------------------------------------------*/
 
 Resampler::Resampler (std::uint32_t numChannels,
@@ -206,9 +157,9 @@ Resampler::Resampler (std::uint32_t numChannels,
 
 void Resampler::process (std::size_t	channel_index,
 						 const float*	in,
-						 std::uint32_t* in_len,
+						 std::uint32_t& in_len,
 						 float*			out,
-						 std::uint32_t* out_len) noexcept
+						 std::uint32_t& out_len) noexcept
 {
 	const auto N = filt_len;
 
@@ -222,7 +173,7 @@ void Resampler::process (std::size_t	channel_index,
 	if (magic_samples[channel_index] > 0)
 	{
 		auto tmp_in_len = magic_samples[channel_index];
-		tmp_out_len		= *out_len;
+		tmp_out_len		= out_len;
 
 		// magic_samples needs to be set to zero to avoid infinite recursion
 		const auto tmp_magic		 = magic_samples[channel_index];
@@ -244,36 +195,36 @@ void Resampler::process (std::size_t	channel_index,
 		}
 
 		out += tmp_out_len * out_stride;
-		*out_len -= tmp_out_len;
+		out_len -= tmp_out_len;
 	}
 
 	/* Call the right resampler through the function ptr */
-	const auto out_sample = resampler_ptr (static_cast<std::uint32_t> (channel_index), in, *in_len, out, *out_len);
+	const auto out_sample = resampler_ptr (static_cast<std::uint32_t> (channel_index), in, in_len, out, out_len);
 
-	if (last_sample[channel_index] < static_cast<int> (*in_len))
-		*in_len = static_cast<std::uint32_t> (last_sample[channel_index]);
+	if (last_sample[channel_index] < static_cast<int> (in_len))
+		in_len = static_cast<std::uint32_t> (last_sample[channel_index]);
 
-	*out_len = static_cast<std::uint32_t> (static_cast<unsigned> (out_sample) + tmp_out_len);
+	out_len = static_cast<std::uint32_t> (static_cast<unsigned> (out_sample) + tmp_out_len);
 
-	last_sample[channel_index] -= *in_len;
+	last_sample[channel_index] -= in_len;
 
 	std::uint32_t j = 0;
 
-	for (; j < N - 1 - static_cast<std::uint32_t> (*in_len); ++j)
-		localMem[j] = localMem[j + *in_len];
+	for (; j < N - 1 - static_cast<std::uint32_t> (in_len); ++j)
+		localMem[j] = localMem[j + in_len];
 
 	if (in == nullptr)
 		for (; j < N - 1; ++j) localMem[j] = 0;
 	else
-		for (; j < N - 1; ++j) localMem[j] = in[in_stride * (j + *in_len - N + 1)];
+		for (; j < N - 1; ++j) localMem[j] = in[in_stride * (j + in_len - N + 1)];
 }
 
 void Resampler::process_interleaved (const float*	in,
-									 std::uint32_t* in_len,
+									 std::uint32_t& in_len,
 									 float*			out,
-									 std::uint32_t* out_len) noexcept
+									 std::uint32_t& out_len) noexcept
 {
-	const auto bak_len = *out_len;
+	const auto bak_len = out_len;
 
 	const auto istride_save = in_stride;
 	const auto ostride_save = out_stride;
@@ -282,7 +233,7 @@ void Resampler::process_interleaved (const float*	in,
 
 	for (unsigned i = 0; i < nb_channels; ++i)
 	{
-		*out_len = bak_len;
+		out_len = bak_len;
 
 		if (in == nullptr)
 			process (i, nullptr, in_len, out + i, out_len);
@@ -294,7 +245,57 @@ void Resampler::process_interleaved (const float*	in,
 	out_stride = ostride_save;
 }
 
-void Resampler::update_filter()
+/* The slow way of computing a sinc for the table. Should improve that some day */
+[[nodiscard]] static inline float sinc (float cutoff, float x, int N, const FuncDef* window_func) noexcept
+{
+	{
+		const auto fabsVal = fabsf (x);
+
+		if (fabsVal < 1e-6)
+			return cutoff;
+
+		if (fabsVal > .5f * N)
+			return 0.f;
+	}
+
+	const auto computedVal = [X = std::fabs (2.f * x / N), window_func]
+	{
+		const auto y	= X * window_func->oversample;
+		const auto ind	= math::round (std::floor (y));
+		const auto frac = y - ind;
+
+		double interp[4];
+
+		const auto fracSqr	= frac * frac;
+		const auto fracCube = fracSqr * frac;
+
+		/* CSE with handle the repeated powers */
+		interp[3] = -0.1666666667 * frac + 0.1666666667 * fracCube;
+		interp[2] = frac + 0.5 * fracSqr - 0.5 * fracCube;
+		interp[0] = -0.3333333333 * frac + 0.5 * fracSqr - 0.1666666667 * fracCube;
+
+		/* Just to make sure we don't have rounding problems */
+		interp[1] = 1. - interp[3] - interp[2] - interp[0];
+
+		/* sum = frac*accum[1] + (1-frac)*accum[2]; */
+		return interp[0]
+				 * window_func->table[ind]
+			 + interp[1]
+				   * window_func->table[ind + 1]
+			 + interp[2]
+				   * window_func->table[ind + 2]
+			 + interp[3]
+				   * window_func->table[ind + 3];
+	}();
+
+	const auto xx = x * cutoff * math::constants::pi<float>;
+
+	return cutoff
+		 * std::sin (xx)
+		 / xx * static_cast<float> (computedVal);
+}
+
+void Resampler::update_filter() noexcept
 {
 	const auto old_length = filt_len;
 	const auto qualParams = quality_map[static_cast<QualityMap::size_type> (quality)];
@@ -350,12 +351,12 @@ void Resampler::update_filter()
 			}
 
 			if (quality > 8)
-				return [this] (std::uint32_t channel_index, const float* in, std::uint32_t in_len, float* out, std::uint32_t out_len)
+				return [this] (std::uint32_t channel_index, const float* in, std::uint32_t in_len, float* out, std::uint32_t out_len) noexcept
 				{
 					return resample_basic_direct<double> (channel_index, in, in_len, out, out_len);
 				};
 
-			return [this] (std::uint32_t channel_index, const float* in, std::uint32_t in_len, float* out, std::uint32_t out_len)
+			return [this] (std::uint32_t channel_index, const float* in, std::uint32_t in_len, float* out, std::uint32_t out_len) noexcept
 			{
 				return resample_basic_direct<float> (channel_index, in, in_len, out, out_len);
 			};
@@ -372,12 +373,12 @@ void Resampler::update_filter()
 		}
 
 		if (quality > 8)
-			return [this] (std::uint32_t channel_index, const float* in, std::uint32_t in_len, float* out, std::uint32_t out_len)
+			return [this] (std::uint32_t channel_index, const float* in, std::uint32_t in_len, float* out, std::uint32_t out_len) noexcept
 			{
 				return resample_basic_interpolate<double> (channel_index, in, in_len, out, out_len);
 			};
 
-		return [this] (std::uint32_t channel_index, const float* in, std::uint32_t in_len, float* out, std::uint32_t out_len)
+		return [this] (std::uint32_t channel_index, const float* in, std::uint32_t in_len, float* out, std::uint32_t out_len) noexcept
 		{
 			return resample_basic_interpolate<float> (channel_index, in, in_len, out, out_len);
 		};
@@ -394,7 +395,7 @@ void Resampler::update_filter()
 	{
 		mem.reallocate (nb_channels * (filt_len - 1));
 
-		memset (&mem[0], 0, nb_channels * (filt_len - 1));
+		std::memset (&mem[0], 0, nb_channels * (filt_len - 1));
 
 		mem_alloc_size = filt_len - 1;
 
@@ -421,7 +422,9 @@ void Resampler::update_filter()
 
 			for (unsigned j = 0; j < filt_len - 1 + magic_samples[i] + old_magic; ++j)
 			{
-				mem[i * mem_alloc_size + j] = mem[i * mem_alloc_size + j + magic_samples[i]];
+				const auto baseIdx = i * mem_alloc_size + j;
+
+				mem[baseIdx] = mem[baseIdx + magic_samples[i]];
 			}
 
 			magic_samples[i] += old_magic;
@@ -457,7 +460,9 @@ void Resampler::update_filter()
 
 			for (j = old_length - 2 + magic_samples[i]; j >= 0; --j)
 			{
-				mem[i * mem_alloc_size + j + magic_samples[i]] = mem[i * old_alloc_size + j];
+				const auto baseIdx = i * mem_alloc_size + j;
+
+				mem[baseIdx + magic_samples[i]] = mem[baseIdx];
 			}
 
 			for (j = 0; j < magic_samples[i]; ++j)
@@ -475,7 +480,9 @@ void Resampler::update_filter()
 
 			for (j = 0; j < olen - 1; ++j)
 			{
-				mem[i * mem_alloc_size + (filt_len - 2 - j)] = mem[i * mem_alloc_size + (olen - 2 - j)];
+				const auto baseIdx = i * mem_alloc_size;
+
+				mem[baseIdx + (filt_len - 2 - j)] = mem[baseIdx + (olen - 2 - j)];
 			}
 
 			/* Then put zeros for lack of anything better */
@@ -494,7 +501,9 @@ void Resampler::update_filter()
 
 			for (j = 0; j < filt_len - 1 + magic_samples[i]; ++j)
 			{
-				mem[i * mem_alloc_size + j] = mem[i * mem_alloc_size + j + magic_samples[i]];
+				const auto baseIdx = i * mem_alloc_size + j;
+
+				mem[baseIdx] = mem[baseIdx + magic_samples[i]];
 			}
 		}
 	}
@@ -789,8 +798,7 @@ void Resampler::skip_zeroes() noexcept
 
 void Resampler::reset_mem()
 {
-	for (unsigned i = 0; i < nb_channels * (filt_len - 1); ++i)
-		mem[i] = 0.f;
+	std::memset (&mem[0], 0, nb_channels * (filt_len - 1) * sizeof (float));
 
 	for (unsigned i = 0; i < nb_channels; ++i)
 	{
