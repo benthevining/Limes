@@ -119,16 +119,16 @@ repos:
 
   # YAML
     - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
-      rev: 0.2.1
+      rev: 0.2.2
       hooks:
           - id: yamlfmt
             args: [--width, '400', --preserve-quotes]
     - repo: https://github.com/adrienverge/yamllint
-      rev: v1.26.3
+      rev: v1.27.1
       hooks:
           - id: yamllint
     - repo: https://github.com/sirosen/check-jsonschema
-      rev: 0.16.2
+      rev: 0.17.0
       hooks:
           - id: check-github-workflows
           - id: check-jsonschema
@@ -157,7 +157,7 @@ repos:
 
   # Python
     - repo: https://github.com/asottile/pyupgrade
-      rev: v2.34.0
+      rev: v2.37.1
       hooks:
           - id: pyupgrade
     - repo: https://github.com/myint/autoflake
