@@ -56,6 +56,17 @@ int Resampler<SampleType>::resample (SampleType* const * const		 out,
 }
 
 template <Scalar SampleType>
+int Resampler<SampleType>::resample (SampleType* const * const		 out,
+									 int							 outspace,
+									 double							 outSamplerate,
+									 const SampleType* const * const in,
+									 int							 incount,
+									 double							 inSamplerate) noexcept
+{
+	return resample (out, outspace, in, incount, outSamplerate / inSamplerate);
+}
+
+template <Scalar SampleType>
 void Resampler<SampleType>::reset()
 {
 	pimpl->reset();

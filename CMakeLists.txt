@@ -15,49 +15,23 @@ cmake_minimum_required (VERSION 3.22 FATAL_ERROR)
 project (
 	Limes
 	VERSION 5.1.0
-	LANGUAGES CXX
+	LANGUAGES CXX ASM
 	DESCRIPTION "C++ utilities and building blocks"
 	HOMEPAGE_URL "www.github.com/benthevining/Limes")
 
-option (CMAKE_FIND_PACKAGE_PREFER_CONFIG
-		"Prefer config files to find modules in find_package search" ON)
-
-option (BUILD_SHARED_LIBS "Build shared libraries, instead of static" OFF)
-
-option (LIMES_MINIMAL "Build only the core libraries, no extra stuff" OFF)
-
-include (CMakeDependentOption)
-
-cmake_dependent_option (LIMES_BUILD_PROGRAMS "Build the utility programs Limes ships" ON
-						"NOT LIMES_MINIMAL" OFF)
-
-cmake_dependent_option (LIMES_BUILD_TESTS "Build the Limes unit tests" "${PROJECT_IS_TOP_LEVEL}"
-						"NOT LIMES_MINIMAL" OFF)
-
-cmake_dependent_option (LIMES_BUILD_DOCS "Build the Limes documentation" "${PROJECT_IS_TOP_LEVEL}"
-						"NOT LIMES_MINIMAL" OFF)
-
-cmake_dependent_option (LIMES_BUILD_JUCE "Build the JUCE bindings for the Limes libraries" ON
-						"NOT LIMES_MINIMAL" OFF)
-
-option (ORANGES_MAINTAINER_BUILD "Build with static analysis tools and default compiler warnings"
-		"${PROJECT_IS_TOP_LEVEL}")
-
-mark_as_advanced (CMAKE_FIND_PACKAGE_PREFER_CONFIG ORANGES_MAINTAINER_BUILD)
-
 enable_testing ()
 
-#
+include (FeatureSummary)
+include (GNUInstallDirs)
+include (CPackComponent)
+include (CMakeDependentOption)
+include (CMakePackageConfigHelpers)
 
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 find_package (Oranges 3.1.1 REQUIRED)
 
-include (FeatureSummary)
-
 set_package_properties (Oranges PROPERTIES TYPE REQUIRED PURPOSE "Required CMake modules")
-
-#
 
 if (PROJECT_IS_TOP_LEVEL)
 	# cmake-format: off
@@ -82,7 +56,28 @@ endif ()
 
 #
 
-include (GNUInstallDirs)
+option (CMAKE_FIND_PACKAGE_PREFER_CONFIG
+		"Prefer config files to find modules in find_package search" ON)
+
+option (BUILD_SHARED_LIBS "Build shared libraries, instead of static" OFF)
+
+option (LIMES_MINIMAL "Build only the core libraries, no extra stuff" OFF)
+
+cmake_dependent_option (LIMES_BUILD_PROGRAMS "Build the utility programs Limes ships" ON
+						"NOT LIMES_MINIMAL" OFF)
+
+cmake_dependent_option (LIMES_BUILD_TESTS "Build the Limes unit tests" "${PROJECT_IS_TOP_LEVEL}"
+						"NOT LIMES_MINIMAL" OFF)
+
+cmake_dependent_option (LIMES_BUILD_DOCS "Build the Limes documentation" "${PROJECT_IS_TOP_LEVEL}"
+						"NOT LIMES_MINIMAL" OFF)
+
+option (ORANGES_MAINTAINER_BUILD "Build with static analysis tools and default compiler warnings"
+		"${PROJECT_IS_TOP_LEVEL}")
+
+mark_as_advanced (CMAKE_FIND_PACKAGE_PREFER_CONFIG ORANGES_MAINTAINER_BUILD)
+
+#
 
 set (
 	LIMES_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
@@ -96,24 +91,11 @@ set (LIMES_EXPORT_DIR "${CMAKE_CURRENT_BINARY_DIR}/export"
 
 #
 
-include (CPackComponent)
-
 add_subdirectory (libs)
 
 if (LIMES_BUILD_PROGRAMS)
 	add_subdirectory (programs)
 endif ()
-
-if (LIMES_BUILD_JUCE)
-	# add_subdirectory (juce)
-elseif (LIMES_BUILD_EXAMPLE_PLUGINS)
-	message (
-		WARNING
-			"Limes example JUCE plugins cannot be built because the LIMES_BUILD_JUCE option is OFF")
-endif ()
-
-add_feature_info ("JUCE bindings" "${LIMES_BUILD_JUCE}"
-				  "Build the JUCE API bindings for the Limes libraries")
 
 if (LIMES_BUILD_TESTS)
 	add_subdirectory (tests)
@@ -137,8 +119,6 @@ endif ()
 
 install (DIRECTORY cmake DESTINATION "${LIMES_INSTALL_DEST}" COMPONENT limes_dev
 		 PATTERN ".DS_Store${exclude_binbuild}" EXCLUDE)
-
-include (CMakePackageConfigHelpers)
 
 write_basic_package_version_file (Limes-config-version.cmake VERSION "${PROJECT_VERSION}"
 								  COMPATIBILITY SameMajorVersion)

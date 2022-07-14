@@ -136,7 +136,8 @@
             "libs/limes.h",
             "docs/doc/main.doc",
             "docs/CMakeLists.txt",
-            "anypkg.json"
+            "anypkg.json",
+            "juce/modules/lemons_core/lemons_core.h"
           ]
         }
       ],

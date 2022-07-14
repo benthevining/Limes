@@ -53,55 +53,44 @@ define_property (
 set (pref_var_list LIMES_USE_VDSP LIMES_USE_IPP LIMES_USE_MIPP LIMES_USE_NE10
 				   LIMES_USE_VECOPS_FALLBACK)
 
-# check if the user changed any cache variables for this config run - allow changing one to override
-# the others
-if (DEFINED CACHE{LIMES_PREV_VECOPS_PREFS})
-
-	message (TRACE "Checking previous config run's values for changes...")
-
-	list (LENGTH pref_var_list pref_var_list_len)
-
-	math (EXPR pref_var_list_len "${pref_var_list_len} - 1" OUTPUT_FORMAT DECIMAL)
-
-	foreach (idx RANGE "${pref_var_list_len}")
-
-		list (GET LIMES_PREV_VECOPS_PREFS "${idx}" pref_prev_val)
-		list (GET pref_var_list "${idx}" pref_var_name)
-
-		if (NOT DEFINED "${pref_var_name}")
-			continue ()
-		endif ()
-
-		# this option has changed, and it's now on - assume the user wants this option to override
-		# the others
-		if ("${${pref_var_name}}" AND NOT "${pref_prev_val}")
-
-			message (DEBUG "Variable ${pref_var_name} is overriding the others!")
-
-			foreach (var_name IN LISTS pref_var_list)
-				if (NOT "${var_name}" STREQUAL "${pref_var_name}")
-					set ("${var_name}" OFF)
-				endif ()
-			endforeach ()
-
-			break ()
-		endif ()
-
-	endforeach ()
-
-	unset (pref_var_list_len)
-	unset (pref_prev_val)
-	unset (pref_var_name)
-
-endif ()
-
-#
-
 set (LIMES_USE_VDSP_desc "Use vDSP for limes_vecops (best on Apple platforms)")
 set (LIMES_USE_IPP_desc "Use IPP for limes_vecops (best on Intel platforms)")
 set (LIMES_USE_MIPP_desc "Use MIPP for limes_vecops (SSE, AVX, AVX-512, or ARM NEON)")
 set (LIMES_USE_NE10_desc "Use NE10 for limes_vecops (Heavily optimized for ARM, but float only)")
 set (LIMES_USE_VECOPS_FALLBACK_desc "Use the limes_vecops fallback implementation")
+
+set (LIMES_USE_VDSP_def LIMES_VECOPS_USE_VDSP)
+set (LIMES_USE_IPP_def LIMES_VECOPS_USE_IPP)
+set (LIMES_USE_MIPP_def LIMES_VECOPS_USE_MIPP)
+set (LIMES_USE_NE10_def LIMES_VECOPS_USE_NE10)
+
+set (LIMES_USE_VDSP_name vDSP)
+set (LIMES_USE_IPP_name IPP)
+set (LIMES_USE_MIPP_name MIPP)
+set (LIMES_USE_NE10_name NE10)
+set (LIMES_USE_VECOPS_FALLBACK_name Fallback)
+
+set (LIMES_USE_VDSP_req_package Accelerate)
+set (LIMES_USE_VDSP_req_target Accelerate::Accelerate)
+
+set_package_properties (Accelerate PROPERTIES TYPE RECOMMENDED
+						PURPOSE "Apple's accelerated vector math library")
+
+set (LIMES_USE_IPP_req_package IPP)
+set (LIMES_USE_IPP_req_target IPP::IPP)
+
+set_package_properties (IPP PROPERTIES TYPE RECOMMENDED
+						PURPOSE "Intel's accelerated vector math library")
+
+set (LIMES_USE_MIPP_req_package MIPP)
+set (LIMES_USE_MIPP_req_target MIPP::MIPP)
+
+set_package_properties (MIPP PROPERTIES TYPE RECOMMENDED PURPOSE "SIMD vector math acceleration")
+
+set (LIMES_USE_NE10_req_package NE10)
+set (LIMES_USE_NE10_req_target NE10::NE10)
+
+set_package_properties (NE10 PROPERTIES TYPE RECOMMENDED PURPOSE "Optimized ARM math library")
 
 #
 
@@ -125,15 +114,46 @@ if (PLAT_ARM)
 	set (LIMES_USE_NE10_init ON)
 endif ()
 
-if (NOT (LIMES_USE_VDSP_init OR LIMES_USE_IPP_init OR LIMES_USE_MIPP_init OR LIMES_USE_NE10_init))
-	set (LIMES_USE_VECOPS_FALLBACK_init ON)
+set (LIMES_USE_VECOPS_FALLBACK_init ON)
+
+#
+
+if (DEFINED CACHE{LIMES_VECOPS_SAVED_IMPL_PREFS})
+
+	message (TRACE "Values from last time: ${LIMES_VECOPS_SAVED_IMPL_PREFS}")
+
+	list (LENGTH pref_var_list list_length)
+
+	math (EXPR list_length "${list_length} - 1" OUTPUT_FORMAT DECIMAL)
+
+	# cmake-lint: disable=E1120
+	foreach (idx RANGE "${list_length}")
+
+		list (GET pref_var_list "${idx}" var_name)
+		list (GET LIMES_VECOPS_SAVED_IMPL_PREFS "${idx}" prev_value)
+
+		if ("${${var_name}}" AND NOT "${prev_value}")
+
+			message (DEBUG
+					 "${var_name} was changed from OFF to ON, and is overriding the other options")
+
+			set ("${var_name}" ON CACHE BOOL "${${var_name}_desc}" FORCE)
+
+			foreach (other_varname IN LISTS pref_var_list)
+				if (NOT "${other_varname}" STREQUAL "${var_name}")
+					set ("${other_varname}" OFF CACHE BOOL "${${other_varname}_desc}" FORCE)
+				endif ()
+			endforeach ()
+
+		endif ()
+	endforeach ()
 endif ()
 
 #
 
 foreach (var_name IN LISTS pref_var_list)
 
-	message (TRACE "${var_name}_init - initialized to ${${var_name}_init}")
+	message (TRACE "${var_name}_init is: ${${var_name}_init}")
 
 	unset (var_cond)
 
@@ -143,132 +163,57 @@ foreach (var_name IN LISTS pref_var_list)
 		endif ()
 	endforeach ()
 
+	if (NOT "${var_name}" STREQUAL "LIMES_USE_VECOPS_FALLBACK")
+		find_package ("${${var_name}_req_package}" MODULE)
+
+		list (APPEND var_cond "${${var_name}_req_package}_FOUND")
+		list (APPEND var_cond "TARGET ${${var_name}_req_target}")
+	endif ()
+
+	message (TRACE "${var_name} condition list: ${var_cond}")
+
 	cmake_dependent_option ("${var_name}" "${${var_name}_desc}" "${${var_name}_init}" "${var_cond}"
 							OFF)
 
-	unset (${var_name}_init)
-
 	message (DEBUG "${var_name} is: ${${var_name}}")
 
+	# as soon as one is ON, we know that's the one, and the others will be OFF
+	if ("${${var_name}}")
+
+		foreach (other_varname IN LISTS pref_var_list)
+			if (NOT "${other_varname}" STREQUAL "${var_name}")
+				set ("${other_varname}" OFF CACHE BOOL "${${other_varname}_desc}" FORCE)
+
+				if (NOT ("${other_varname}" STREQUAL "LIMES_USE_VECOPS_FALLBACK"))
+					target_compile_definitions (limes_vecops PUBLIC "${${other_varname}_def}=0")
+					message (STATUS "${${other_varname}_def}=0")
+				endif ()
+			endif ()
+		endforeach ()
+
+		target_link_libraries (limes_vecops PUBLIC "${${var_name}_req_target}")
+
+		set ("${var_name}" ON CACHE BOOL "${${var_name}_desc}" FORCE)
+
+		if (NOT ("${var_name}" STREQUAL "LIMES_USE_VECOPS_FALLBACK"))
+			target_compile_definitions (limes_vecops PUBLIC "${${var_name}_def}=1")
+			message (STATUS "${${var_name}_def}=1")
+		endif ()
+
+		set (impl_name "${${var_name}_name}")
+
+		break ()
+
+	endif ()
 endforeach ()
 
-unset (var_cond)
-
 mark_as_advanced (FORCE ${pref_var_list})
-
-#
-
-set_package_properties (Accelerate PROPERTIES TYPE RECOMMENDED
-						PURPOSE "Apple's accelerated vector math library")
-
-set_package_properties (IPP PROPERTIES TYPE RECOMMENDED
-						PURPOSE "Intel's accelerated vector math library")
-
-set_package_properties (MIPP PROPERTIES TYPE RECOMMENDED PURPOSE "SIMD vector math acceleration")
-
-set_package_properties (NE10 PROPERTIES TYPE RECOMMENDED PURPOSE "Optimized ARM math library")
-
-#
-
-set (LIMES_USE_VDSP_def LIMES_VECOPS_USE_VDSP)
-set (LIMES_USE_IPP_def LIMES_VECOPS_USE_IPP)
-set (LIMES_USE_MIPP_def LIMES_VECOPS_USE_MIPP)
-set (LIMES_USE_NE10_def LIMES_VECOPS_USE_NE10)
-
-macro (__limes_vecops_set_only varname)
-	set ("${varname}" ON CACHE BOOL "${${varname}_desc}" FORCE)
-
-	if (NOT ("${varname}" STREQUAL "LIMES_USE_VECOPS_FALLBACK"))
-		target_compile_definitions (limes_vecops PUBLIC "${${varname}_def}=1")
-	endif ()
-
-	foreach (off_varname IN LISTS pref_var_list)
-		if (NOT ("${off_varname}" STREQUAL "${varname}"))
-
-			set ("${off_varname}" OFF CACHE BOOL "${${off_varname}_desc}" FORCE)
-
-			if (NOT ("${off_varname}" STREQUAL "LIMES_USE_VECOPS_FALLBACK"))
-				target_compile_definitions (limes_vecops PUBLIC "${${off_varname}_def}=0")
-			endif ()
-		endif ()
-	endforeach ()
-endmacro ()
-
-#
-
-if (LIMES_USE_VDSP)
-	find_package (Accelerate MODULE)
-endif ()
-
-if (LIMES_USE_VDSP AND Accelerate_FOUND AND TARGET Accelerate::Accelerate)
-
-	target_link_libraries (limes_vecops PUBLIC Accelerate::Accelerate)
-
-	__limes_vecops_set_only (LIMES_USE_VDSP)
-
-	set (impl_name vDSP)
-
-else ()
-
-	if (LIMES_USE_IPP)
-		find_package (IPP 7 MODULE COMPONENTS CORE S VM)
-	endif ()
-
-	if (LIMES_USE_IPP AND IPP_FOUND AND TARGET IPP::IPP)
-
-		target_link_libraries (limes_vecops PUBLIC IPP::IPP)
-
-		__limes_vecops_set_only (LIMES_USE_IPP)
-
-		set (impl_name IPP)
-
-	else ()
-
-		if (LIMES_USE_MIPP)
-			find_package (MIPP MODULE)
-		endif ()
-
-		if (LIMES_USE_MIPP AND MIPP_FOUND AND TARGET MIPP::MIPP)
-
-			target_link_libraries (limes_vecops PUBLIC MIPP::MIPP)
-
-			__limes_vecops_set_only (LIMES_USE_MIPP)
-
-			set (impl_name MIPP)
-
-		else ()
-
-			if (LIMES_USE_NE10)
-				find_package (NE10 MODULE)
-			endif ()
-
-			if (LIMES_USE_NE10 AND NE10_FOUND AND TARGET NE10::NE10)
-
-				target_link_libraries (limes_vecops PUBLIC NE10::NE10)
-
-				__limes_vecops_set_only (LIMES_USE_NE10)
-
-				set (impl_name NE10)
-
-			else ()
-
-				__limes_vecops_set_only (LIMES_USE_VECOPS_FALLBACK)
-
-				set (impl_name Fallback)
-
-			endif ()
-		endif ()
-	endif ()
-endif ()
 
 #
 
 set (num_on 0)
 
 foreach (varname IN LISTS pref_var_list)
-	unset (${varname}_desc)
-	unset (${varname}_def)
-
 	if (${${varname}})
 		math (EXPR num_on "${num_on} + 1" OUTPUT_FORMAT DECIMAL)
 	endif ()
@@ -291,18 +236,18 @@ add_feature_info ("Accelerated vecops" "NOT LIMES_USE_VECOPS_FALLBACK"
 
 set_property (GLOBAL PROPERTY LIMES_VECOPS_IMPLEMENTATION "${impl_name}")
 
-unset (impl_name)
-unset (tmp_prefs_list)
+#
 
-foreach (pref_var IN LISTS pref_var_list)
-	list (APPEND tmp_prefs_list "${${pref_var}}")
+unset (valslist)
+
+foreach (var_name IN LISTS pref_var_list)
+	list (APPEND valslist "${${var_name}}")
 endforeach ()
 
-set (LIMES_PREV_VECOPS_PREFS "${tmp_prefs_list}" CACHE INTERNAL "")
+set (LIMES_VECOPS_SAVED_IMPL_PREFS "${valslist}" CACHE INTERNAL "")
 
-message (TRACE "Saving preferences for next time: ${LIMES_PREV_VECOPS_PREFS}")
+message (TRACE "Saving values for next time: ${LIMES_VECOPS_SAVED_IMPL_PREFS}")
 
-unset (tmp_prefs_list)
-unset (pref_var_list)
+#
 
 list (POP_BACK CMAKE_MESSAGE_INDENT)

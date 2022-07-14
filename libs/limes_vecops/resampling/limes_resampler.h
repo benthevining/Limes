@@ -178,6 +178,8 @@ public:
 	 */
 	void prepare (double initialSamplerate, int numChannels, int channelSize);
 
+	/** @name resampling */
+	///@{
 	/** Resample the given multi-channel buffer, where \c incount is the
 		number of frames in the input buffer and \c outspace is the space
 		available in the output buffer. Generally you want \c outspace to
@@ -193,6 +195,24 @@ public:
 				  const SampleType* const * const in,
 				  int							  incount,
 				  double						  ratio) noexcept;
+
+	/** Resample the given multi-channel buffer, where \c incount is the
+		number of frames in the input buffer and \c outspace is the space
+		available in the output buffer. Generally you want \c outspace to
+		be at least \c ceil(incount*(outSamplerate/inSamplerate)) .
+
+		@return The number of frames actually written to the output
+		buffer. This may be smaller than \c outspace even where the ratio
+		suggests otherwise, particularly at the start of processing
+		where there may be a filter tail to allow for.
+	 */
+	int resample (SampleType* const * const		  out,
+				  int							  outspace,
+				  double						  outSamplerate,
+				  const SampleType* const * const in,
+				  int							  incount,
+				  double						  inSamplerate) noexcept;
+	///@}
 
 	/** Resets the internal state of the resampler. */
 	void reset();
