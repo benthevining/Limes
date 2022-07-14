@@ -17,7 +17,7 @@ oranges_add_source_files (
 	TARGET limes_vecops
 	INSTALL_COMPONENT limes_vecops_dev
 	INSTALL_DIR "${LIMES_VECOPS_INSTALL_INCLUDE_DIR}"
-	FILES fft_common.h fftw_wisdom.cpp limes_fft.cpp limes_fft.h)
+	FILES fft_common.h impl.h fftw_wisdom.cpp limes_fft.cpp limes_fft.h)
 
 set_source_files_properties (fft_common.h TARGET_DIRECTORY limes_vecops PROPERTIES ABSTRACT ON)
 

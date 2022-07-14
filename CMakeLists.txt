@@ -29,7 +29,7 @@ include (CMakePackageConfigHelpers)
 
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
-find_package (Oranges 3.1.1 REQUIRED)
+find_package (Oranges 3.3.0 REQUIRED)
 
 set_package_properties (Oranges PROPERTIES TYPE REQUIRED PURPOSE "Required CMake modules")
 

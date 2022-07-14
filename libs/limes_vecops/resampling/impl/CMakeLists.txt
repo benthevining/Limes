@@ -18,24 +18,9 @@ define_property (
 		"Name of the underlying resampler implementation used by limes_vecops. May be libsamplerate, IPP, or Fallback."
 	)
 
-if (DEFINED ENV{LIMES_USE_LIBSAMPLERATE})
-
-	unset (CACHE{LIMES_USE_LIBSAMPLERATE})
-
-	if ("$ENV{LIMES_USE_LIBSAMPLERATE}")
-		set (lsr_init ON)
-	else ()
-		set (lsr_init OFF)
-	endif ()
-else ()
-	set (lsr_init ON)
-endif ()
-
 set (lsr_description "Use libsamplerate for resampling")
 
-option (LIMES_USE_LIBSAMPLERATE "${lsr_description}" "${lsr_init}")
-
-unset (lsr_init)
+option (LIMES_USE_LIBSAMPLERATE "${lsr_description}" ON)
 
 mark_as_advanced (FORCE LIMES_USE_LIBSAMPLERATE)
 
@@ -48,17 +33,13 @@ endif ()
 
 if (LIMES_USE_LIBSAMPLERATE AND SampleRate_FOUND AND TARGET SampleRate::samplerate)
 
-	target_link_libraries (limes_vecops PRIVATE SampleRate::samplerate)
+	target_link_libraries (limes_vecops PUBLIC SampleRate::samplerate)
 
 	set (files lsr_resampler.h lsr_resampler.cpp)
 
 	target_compile_definitions (limes_vecops PUBLIC LIMES_VECOPS_USE_LIBSAMPLERATE=1)
 
-	set (LIMES_USE_LIBSAMPLERATE ON CACHE BOOL "${lsr_description}" FORCE)
-
 	set (impl_name libsamplerate)
-
-	message (DEBUG "Using libsamplerate")
 
 else ()
 
@@ -69,11 +50,9 @@ else ()
 	if (LIMES_USE_IPP)
 		set (files ipp_resampler.h ipp_resampler.cpp)
 		set (impl_name IPP)
-		message (DEBUG "Using IPP")
 	else ()
 		set (files fallback_resampler.h fallback_resampler.cpp speex.h speex.cpp)
 		set (impl_name Fallback)
-		message (DEBUG "Using fallback")
 	endif ()
 
 endif ()

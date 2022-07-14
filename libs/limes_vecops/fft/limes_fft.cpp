@@ -25,6 +25,8 @@
 #	include "./impl/ipp_fft.h"
 #elif LIMES_VECOPS_USE_NE10
 #	include "./impl/ne10_fft.h"
+#elif LIMES_VECOPS_USE_PFFFT
+#	include "./impl/pffft_fft.h"
 #else
 #	include "./impl/fallback_fft.h"
 #endif
@@ -34,32 +36,41 @@ LIMES_BEGIN_NAMESPACE
 namespace vecops
 {
 
+// clang-format off
+
 #if LIMES_VECOPS_USE_FFTW
 
-template <Scalar SampleType>
-using ImplType = fft::FFTW_FFT<SampleType>;
+	template <Scalar SampleType>
+	using ImplType = fft::FFTW_FFT<SampleType>;
 
 #elif LIMES_VECOPS_USE_VDSP
 
-template <Scalar SampleType>
-using ImplType = fft::vDSP_FFT<SampleType>;
+	template <Scalar SampleType>
+	using ImplType = fft::vDSP_FFT<SampleType>;
 
 #elif LIMES_VECOPS_USE_IPP
 
-template <Scalar SampleType>
-using ImplType = fft::IPP_FFT<SampleType>;
+	template <Scalar SampleType>
+	using ImplType = fft::IPP_FFT<SampleType>;
 
 #elif LIMES_VECOPS_USE_NE10
 
-template <Scalar SampleType>
-using ImplType = fft::NE10_FFT<SampleType>;
+	template <Scalar SampleType>
+	using ImplType = fft::NE10_FFT<SampleType>;
+
+#elif LIMES_VECOPS_USE_PFFFT
+
+	template <Scalar SampleType>
+	using ImplType = fft::pffft_FFT<SampleType>;
 
 #else
 
-template <Scalar SampleType>
-using ImplType = fft::FallbackFFT<SampleType>;
+	template <Scalar SampleType>
+	using ImplType = fft::FallbackFFT<SampleType>;
 
 #endif
+
+// clang-format on
 
 static inline void check_fft_size (int newSize)
 {

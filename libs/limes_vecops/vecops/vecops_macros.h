@@ -10,9 +10,6 @@
  * ======================================================================================
  */
 
-// IWYU pragma: private
-// IWYU pragma: friend limes_vecops.h
-
 #pragma once
 
 #include <limes_core.h>	 // for LIMES_COMPILER_WARNING

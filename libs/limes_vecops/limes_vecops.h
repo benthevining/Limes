@@ -114,15 +114,18 @@
 	@todo normalize function
 	@todo type conversion functions
 	@todo convert & copy functions
-	@todo tone generation functions (sine, saw, square, triangle)
-	@todo filters?
-	@todo convolution engine?
+	@todo tone generation functions
+	@todo filters
+	@todo convolution engine
 	@todo write unit tests
 	@todo median
 	@todo mode
 
 	@todo Intel MKL backend
 	@todo ARM performance libraries backend
+	@todo CUDA backend
+
+	@todo integrate OpenACC
  */
 
 /** @dir libs/limes_vecops

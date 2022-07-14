@@ -86,7 +86,7 @@ LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingFallback() 
 static_assert (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingNE10() || isUsingFallback());
 
 /** Returns a string literal with the name of the implementation being used. */
-LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION static consteval const std::string_view getImplementationName() noexcept
+LIMES_EXPORT [[nodiscard]] LIMES_PURE_FUNCTION static consteval std::string_view getImplementationName() noexcept
 {
 	if constexpr (isUsingVDSP())
 		return "Apple vDSP";

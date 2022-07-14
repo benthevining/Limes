@@ -29,7 +29,7 @@ NE10_FFT<SampleType>::NE10_FFT (int size)
 	  inStorage (static_cast<std::size_t> (this->fft_size)), outStorage (static_cast<std::size_t> (this->fft_size)),
 	  realStorage (static_cast<std::size_t> (this->fft_size)), imagStorage (static_cast<std::size_t> (this->fft_size))
 {
-	if (plan == nullptr)
+	if (plan.get() == nullptr)
 		throw std::runtime_error { "NE10 FFT - failed to initialize!" };
 }
 

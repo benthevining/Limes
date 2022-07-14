@@ -19,6 +19,7 @@
 #include <limes_core.h>
 #include "../vecops/vecops.h"
 #include "../vecops/vecops_macros.h"
+#include "./impl.h"
 
 /** @defgroup fft FFT
 	Fourier transform utilities.
@@ -60,24 +61,6 @@
 	@ingroup fft
  */
 
-#ifdef DOXYGEN
-/** @def LIMES_VECOPS_USE_FFTW
-	1 if the FFTW library is being used, otherwise 0.
-	@ingroup fftw
- */
-#	define LIMES_VECOPS_USE_FFTW 0
-#endif
-
-/// @cond
-#ifndef LIMES_VECOPS_USE_FFTW
-#	if LIMES_HAS_INCLUDE(<fftw3.h>)
-#		define LIMES_VECOPS_USE_FFTW 1	 // NOLINT
-#	else
-#		define LIMES_VECOPS_USE_FFTW 0	 // NOLINT
-#	endif
-#endif
-/// @endcond
-
 LIMES_BEGIN_NAMESPACE
 
 namespace vecops
@@ -89,73 +72,13 @@ namespace vecops
 namespace fft
 {
 
-#pragma mark Implementation kind checking
-
-/** @ingroup fft
-	@{
- */
-
-/** Returns true if the FFTW FFT implementation is being used. */
-[[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingFFTW() noexcept
-{
-#if LIMES_VECOPS_USE_FFTW
-	return true;
-#else
-	return false;
-#endif
-}
-
-/** Returns true if the Apple vDSP FFT implementation is being used. */
-[[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingVDSP() noexcept
-{
-	return vecops::isUsingVDSP() && ! isUsingFFTW();  // cppcheck-suppress knownConditionTrueFalse
-}
-
-/** Returns true if the Intel IPP FFT implementation is being used. */
-[[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingIPP() noexcept
-{
-	return vecops::isUsingIPP() && ! isUsingFFTW();	 // cppcheck-suppress knownConditionTrueFalse
-}
-
-/** Returns true if the NE10 implementation is being used. */
-[[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingNE10() noexcept
-{
-	return vecops::isUsingNE10() && ! isUsingFFTW();  // cppcheck-suppress knownConditionTrueFalse
-}
-
-/** Returns true if the fallback FFT implementation is being used. */
-[[nodiscard]] LIMES_PURE_FUNCTION consteval bool isUsingFallback() noexcept
-{
-	return ! (isUsingFFTW() || isUsingVDSP() || isUsingIPP() || isUsingNE10());	 // cppcheck-suppress knownConditionTrueFalse
-}
-
-static_assert (isUsingFFTW() || isUsingVDSP() || isUsingIPP() || isUsingNE10() || isUsingFallback());
-
-/** Returns a string literal with the name of the FFT implementation being used. */
-[[nodiscard]] LIMES_PURE_FUNCTION static consteval const char* getImplementationName() noexcept
-{
-	if constexpr (isUsingFFTW())
-		return "FFTW";
-	else if constexpr (isUsingVDSP())
-		return "Apple vDSP";
-	else if constexpr (isUsingIPP())
-		return "Intel IPP";
-	else if constexpr (isUsingNE10())
-		return "NE10";
-	else
-		return "Fallback";
-}
-
 /// @cond internals
 template <Scalar SampleType>
 class FFTImpl;
 /// @endcond
 
-/** @} */
-
 }  // namespace fft
 
-#pragma mark FFT class
 
 /** A class that performs an FFT.
 
@@ -167,7 +90,7 @@ class FFTImpl;
 	Several different FFT libraries can be used as the backend for this class, and there is also a built-in "plain C++" backend available.
 
 	If FFTW is available, it will be used as the backend for this class.
-	Otherwise, the same backend being used for the limes_vecops functions will be used -- vDSP, IPP, or the fallback.
+	Otherwise, the same backend being used for the limes_vecops functions will be used -- vDSP, IPP, NE10, or the fallback.
 
 	FFTW can be explicitly enabled or disabled using the \c LIMES_VECOPS_USE_FFTW preprocessor macro.
 	You can also set either \c FFTW_SINGLE_ONLY or \c FFTW_DOUBLE_ONLY to 1 if only one precision of the FFTW library is available.
