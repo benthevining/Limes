@@ -66,7 +66,7 @@
 #endif /* DOXYGEN */
 
 /// @cond
-
+// clang-format off
 
 /* --- LIMES_VECOPS_USE_VDSP --- */
 
@@ -74,32 +74,35 @@
 
 #ifdef LIMES_VECOPS_USE_VDSP
 
-#	if LIMES_VECOPS_USE_VDSP
-#		ifdef LIMES_VECOPS_USE_IPP
-#			if LIMES_VECOPS_USE_IPP
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_VDSP defined to 1, when LIMES_VECOPS_USE_IPP is also defined to 1!")
-// if vdsp and ipp are both 1, prefer vdsp over ipp -- force define ipp to 0
+#	ifdef LIMES_VECOPS_USE_IPP
+#		if (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_IPP)
+			LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_VDSP defined to 1, when LIMES_VECOPS_USE_IPP is also defined to 1!")
+			// if ipp and vdsp are both 1, then check if we're on Intel
+#			if LIMES_INTEL
+#				undef LIMES_VECOPS_USE_VDSP
+#				define LIMES_VECOPS_USE_VDSP 0
+#			else
 #				undef LIMES_VECOPS_USE_IPP
 #				define LIMES_VECOPS_USE_IPP 0
 #			endif
 #		endif
+#	endif
 
-#		ifdef LIMES_VECOPS_USE_MIPP
-#			if LIMES_VECOPS_USE_MIPP
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_VDSP defined to 1, when LIMES_VECOPS_USE_MIPP is also defined to 1!")
-// if vdsp and mipp are both 1, prefer vdsp over mipp -- force define mipp to 0
-#				undef LIMES_VECOPS_USE_MIPP
-#				define LIMES_VECOPS_USE_MIPP 0
-#			endif
+#	ifdef LIMES_VECOPS_USE_MIPP
+#		if (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_MIPP)
+			LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_VDSP defined to 1, when LIMES_VECOPS_USE_MIPP is also defined to 1!")
+			// if vdsp and mipp are both 1, prefer vdsp over mipp -- force define mipp to 0
+#			undef LIMES_VECOPS_USE_MIPP
+#			define LIMES_VECOPS_USE_MIPP 0
 #		endif
+#	endif
 
-#		ifdef LIMES_VECOPS_USE_NE10
-#			if LIMES_VECOPS_USE_NE10
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_VDSP defined to 1, when LIMES_VECOPS_USE_NE10 is also defined to 1!")
-// if vdsp and ne10 are both 1, prefer vdsp over ne10 -- force define ne10 to 0
-#				undef LIMES_VECOPS_USE_NE10
-#				define LIMES_VECOPS_USE_NE10 0
-#			endif
+#	ifdef LIMES_VECOPS_USE_NE10
+#		if (LIMES_VECOPS_USE_VDSP && LIMES_VECOPS_USE_NE10)
+			LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_VDSP defined to 1, when LIMES_VECOPS_USE_NE10 is also defined to 1!")
+			// if vdsp and ne10 are both 1, prefer vdsp over ne10 -- force define ne10 to 0
+#			undef LIMES_VECOPS_USE_NE10
+#			define LIMES_VECOPS_USE_NE10 0
 #		endif
 #	endif
 
@@ -128,17 +131,21 @@ LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_VDSP defined to 1, when LIMES_VECOPS_U
 #	endif
 
 #	ifndef LIMES_VECOPS_USE_VDSP
-#		if LIMES_APPLE && LIMES_HAS_INCLUDE(<Accelerate / Accelerate.h>)
+#		if (LIMES_APPLE && LIMES_HAS_INCLUDE(<Accelerate/Accelerate.h>))
 #			define LIMES_VECOPS_USE_VDSP 1
 #		else
 #			define LIMES_VECOPS_USE_VDSP 0
 #		endif
 #	endif
 
-#endif /* LIMES_VECOPS_USE_VDSP */
+#endif /* ifdef LIMES_VECOPS_USE_VDSP */
 
 #ifndef LIMES_VECOPS_USE_VDSP
 #	error Implementation error - LIMES_VECOPS_USE_VDSP not defined!
+#endif
+
+#if (LIMES_VECOPS_USE_VDSP && ! LIMES_APPLE)
+	LIMES_COMPILER_WARNING ("vDSP is not recommended on non-Apple platforms!")
 #endif
 
 
@@ -148,32 +155,33 @@ LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_VDSP defined to 1, when LIMES_VECOPS_U
 
 #ifdef LIMES_VECOPS_USE_IPP
 
-#	if LIMES_VECOPS_USE_IPP
-#		if LIMES_VECOPS_USE_VDSP
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_IPP defined to 1, when LIMES_VECOPS_USE_VDSP is also defined to 1!")
-// if ipp and vdsp are both 1, prefer vdsp over ipp -- force define ipp to 0
+#	if (LIMES_VECOPS_USE_IPP && LIMES_VECOPS_USE_VDSP)
+		LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_IPP defined to 1, when LIMES_VECOPS_USE_VDSP is also defined to 1!")
+		// if ipp and vdsp are both 1, then check if we're on Intel
+#		if LIMES_INTEL
+#			undef LIMES_VECOPS_USE_VDSP
+#			define LIMES_VECOPS_USE_VDSP 0
+#		else
 #			undef LIMES_VECOPS_USE_IPP
 #			define LIMES_VECOPS_USE_IPP 0
 #		endif
 #	endif
 
-#	if LIMES_VECOPS_USE_IPP
-#		ifdef LIMES_VECOPS_USE_MIPP
-#			if LIMES_VECOPS_USE_MIPP
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_IPP defined to 1, when LIMES_VECOPS_USE_MIPP is also defined to 1!")
-// if ipp and mipp are both 1, prefer ipp over mipp -- force define mipp to 0
-#				undef LIMES_VECOPS_USE_MIPP
-#				define LIMES_VECOPS_USE_MIPP 0
-#			endif
+#	ifdef LIMES_VECOPS_USE_MIPP
+#		if (LIMES_VECOPS_USE_IPP && LIMES_VECOPS_USE_MIPP)
+			LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_IPP defined to 1, when LIMES_VECOPS_USE_MIPP is also defined to 1!")
+			// if ipp and mipp are both 1, prefer ipp over mipp -- force define mipp to 0
+#			undef LIMES_VECOPS_USE_MIPP
+#			define LIMES_VECOPS_USE_MIPP 0
 #		endif
+#	endif
 
-#		ifdef LIMES_VECOPS_USE_NE10
-#			if LIMES_VECOPS_USE_NE10
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_IPP defined to 1, when LIMES_VECOPS_USE_NE10 is also defined to 1!")
-// if ipp and ne10 are both 1, prefer ipp over ne10 -- force define ne10 to 0
-#				undef LIMES_VECOPS_USE_NE10
-#				define LIMES_VECOPS_USE_NE10 0
-#			endif
+#	ifdef LIMES_VECOPS_USE_NE10
+#		if (LIMES_VECOPS_USE_IPP && LIMES_VECOPS_USE_NE10)
+			LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_IPP defined to 1, when LIMES_VECOPS_USE_NE10 is also defined to 1!")
+			// if ipp and ne10 are both 1, prefer ipp over ne10 -- force define ne10 to 0
+#			undef LIMES_VECOPS_USE_NE10
+#			define LIMES_VECOPS_USE_NE10 0
 #		endif
 #	endif
 
@@ -200,17 +208,21 @@ LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_IPP defined to 1, when LIMES_VECOPS_US
 #	endif
 
 #	ifndef LIMES_VECOPS_USE_IPP
-#		if LIMES_INTEL && LIMES_HAS_INCLUDE(<ipps.h>)
+#		if (LIMES_INTEL && LIMES_HAS_INCLUDE(<ipps.h>))
 #			define LIMES_VECOPS_USE_IPP 1
 #		else
 #			define LIMES_VECOPS_USE_IPP 0
 #		endif
 #	endif
 
-#endif /* LIMES_VECOPS_USE_IPP */
+#endif /* ifdef LIMES_VECOPS_USE_IPP */
 
 #ifndef LIMES_VECOPS_USE_IPP
 #	error Implementation error - LIMES_VECOPS_USE_IPP not defined!
+#endif
+
+#if (LIMES_VECOPS_USE_IPP && ! LIMES_INTEL)
+	LIMES_COMPILER_WARNING ("IPP is not recommended on non-Intel platforms!")
 #endif
 
 
@@ -220,32 +232,26 @@ LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_IPP defined to 1, when LIMES_VECOPS_US
 
 #ifdef LIMES_VECOPS_USE_MIPP
 
-#	if LIMES_VECOPS_USE_MIPP
-#		if LIMES_VECOPS_USE_VDSP
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_MIPP defined to 1, when LIMES_VECOPS_USE_VDSP is also defined to 1!")
-// if mipp and vdsp are both 1, prefer vdsp over mipp -- force define mipp to 0
-#			undef LIMES_VECOPS_USE_MIPP
-#			define LIMES_VECOPS_USE_MIPP 0
-#		endif
+#	if (LIMES_VECOPS_USE_MIPP && LIMES_VECOPS_USE_VDSP)
+		LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_MIPP defined to 1, when LIMES_VECOPS_USE_VDSP is also defined to 1!")
+		// if mipp and vdsp are both 1, prefer vdsp over mipp -- force define mipp to 0
+#		undef LIMES_VECOPS_USE_MIPP
+#		define LIMES_VECOPS_USE_MIPP 0
 #	endif
 
-#	if LIMES_VECOPS_USE_MIPP
-#		if LIMES_VECOPS_USE_IPP
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_MIPP defined to 1, when LIMES_VECOPS_USE_IPP is also defined to 1!")
-// if mipp and ipp are both 1, prefer ipp over mipp -- force define mipp to 0
-#			undef LIMES_VECOPS_USE_MIPP
-#			define LIMES_VECOPS_USE_MIPP 0
-#		endif
+#	if (LIMES_VECOPS_USE_MIPP && LIMES_VECOPS_USE_IPP)
+		LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_MIPP defined to 1, when LIMES_VECOPS_USE_IPP is also defined to 1!")
+		// if mipp and ipp are both 1, prefer ipp over mipp -- force define mipp to 0
+#		undef LIMES_VECOPS_USE_MIPP
+#		define LIMES_VECOPS_USE_MIPP 0
 #	endif
 
-#	if LIMES_VECOPS_USE_MIPP
-#		ifdef LIMES_VECOPS_USE_NE10
-#			if LIMES_VECOPS_USE_NE10
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_MIPP defined to 1, when LIMES_VECOPS_USE_NE10 is also defined to 1!")
-// if mipp and ne10 are both 1, prefer mipp over ne10 -- force define ne10 to 0
-#				undef LIMES_VECOPS_USE_NE10
-#				define LIMES_VECOPS_USE_NE10 0
-#			endif
+#	ifdef LIMES_VECOPS_USE_NE10
+#		if (LIMES_VECOPS_USE_MIPP && LIMES_VECOPS_USE_NE10)
+			LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_MIPP defined to 1, when LIMES_VECOPS_USE_NE10 is also defined to 1!")
+			// if mipp and ne10 are both 1, prefer mipp over ne10 -- force define ne10 to 0
+#			undef LIMES_VECOPS_USE_NE10
+#			define LIMES_VECOPS_USE_NE10 0
 #		endif
 #	endif
 
@@ -264,17 +270,21 @@ LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_MIPP defined to 1, when LIMES_VECOPS_U
 #	endif
 
 #	ifndef LIMES_VECOPS_USE_MIPP
-#		if (LIMES_SSE || LIMES_ARM_NEON || LIMES_AVX || LIMES_AVX512) && LIMES_HAS_INCLUDE(<mipp.h>)
+#		if ((LIMES_SSE || LIMES_ARM_NEON || LIMES_AVX || LIMES_AVX512) && LIMES_HAS_INCLUDE(<mipp.h>))
 #			define LIMES_VECOPS_USE_MIPP 1
 #		else
 #			define LIMES_VECOPS_USE_MIPP 0
 #		endif
 #	endif
 
-#endif /* LIMES_VECOPS_USE_MIPP */
+#endif /* ifdef LIMES_VECOPS_USE_MIPP */
 
 #ifndef LIMES_VECOPS_USE_MIPP
 #	error Implementation error - LIMES_VECOPS_USE_MIPP not defined!
+#endif
+
+#if (LIMES_VECOPS_USE_MIPP && ! (LIMES_SSE || LIMES_ARM_NEON || LIMES_AVX || LIMES_AVX512))
+	LIMES_COMPILER_WARNING ("None of MIPP's supported SIMD architectures are available!")
 #endif
 
 
@@ -284,31 +294,25 @@ LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_MIPP defined to 1, when LIMES_VECOPS_U
 
 #ifdef LIMES_VECOPS_USE_NE10
 
-#	if LIMES_VECOPS_USE_NE10
-#		if LIMES_VECOPS_USE_VDSP
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_NE10 defined to 1, when LIMES_VECOPS_USE_VDSP is also defined to 1!")
-// if ne10 and vdsp are both 1, prefer vdsp over ne10 -- force define ne10 to 0
-#			undef LIMES_VECOPS_USE_NE10
-#			define LIMES_VECOPS_USE_NE10 0
-#		endif
+#	if (LIMES_VECOPS_USE_NE10 && LIMES_VECOPS_USE_VDSP)
+		LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_NE10 defined to 1, when LIMES_VECOPS_USE_VDSP is also defined to 1!")
+		// if ne10 and vdsp are both 1, prefer vdsp over ne10 -- force define ne10 to 0
+#		undef LIMES_VECOPS_USE_NE10
+#		define LIMES_VECOPS_USE_NE10 0
 #	endif
 
-#	if LIMES_VECOPS_USE_NE10
-#		if LIMES_VECOPS_USE_IPP
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_NE10 defined to 1, when LIMES_VECOPS_USE_IPP is also defined to 1!")
-// if ne10 and ipp are both 1, prefer ipp over ne10 -- force define ne10 to 0
-#			undef LIMES_VECOPS_USE_NE10
-#			define LIMES_VECOPS_USE_NE10 0
-#		endif
+#	if (LIMES_VECOPS_USE_NE10 && LIMES_VECOPS_USE_IPP)
+		LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_NE10 defined to 1, when LIMES_VECOPS_USE_IPP is also defined to 1!")
+		// if ne10 and ipp are both 1, prefer ipp over ne10 -- force define ne10 to 0
+#		undef LIMES_VECOPS_USE_NE10
+#		define LIMES_VECOPS_USE_NE10 0
 #	endif
 
-#	if LIMES_VECOPS_USE_NE10
-#		if LIMES_VECOPS_USE_MIPP
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_NE10 defined to 1, when LIMES_VECOPS_USE_MIPP is also defined to 1!")
-// if ne10 and mipp are both 1, prefer mipp over ne10 -- force define ne10 to 0
-#			undef LIMES_VECOPS_USE_NE10
-#			define LIMES_VECOPS_USE_NE10 0
-#		endif
+#	if (LIMES_VECOPS_USE_NE10 && LIMES_VECOPS_USE_MIPP)
+		LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_NE10 defined to 1, when LIMES_VECOPS_USE_MIPP is also defined to 1!")
+		// if ne10 and mipp are both 1, prefer mipp over ne10 -- force define ne10 to 0
+#		undef LIMES_VECOPS_USE_NE10
+#		define LIMES_VECOPS_USE_NE10 0
 #	endif
 
 #else /* ifdef LIMES_VECOPS_USE_NE10 */
@@ -325,11 +329,17 @@ LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_NE10 defined to 1, when LIMES_VECOPS_U
 #		endif
 #	endif
 
-#endif /* LIMES_VECOPS_USE_NE10 */
+#endif /* ifdef LIMES_VECOPS_USE_NE10 */
 
 #ifndef LIMES_VECOPS_USE_NE10
 #	error Implementation error - LIMES_VECOPS_USE_NE10 not defined!
 #endif
+
+#if (LIMES_VECOPS_USE_NE10 && ! LIMES_ARM)
+	LIMES_COMPILER_WARNING ("NE10 is not recommended on non-ARM platforms!")
+#endif
+
+// clang-format on
 
 
 /* --- wrapup --- */

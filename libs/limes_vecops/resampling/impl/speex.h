@@ -70,10 +70,8 @@ namespace speex
 {
 
 /** A resampler class based on the Speex library's implementation.
-
-	@todo Template this class to accept double samples
-	@todo use MIPP, Pommier in this class
  */
+template <typename SampleType>
 class LIMES_NO_EXPORT Resampler final
 {
 public:
@@ -131,11 +129,11 @@ public:
 		@param out Output buffer
 		@param out_len Size of the output buffer. Returns the number of samples written
 	 */
-	void process (std::size_t	 channel_index,
-				  const float*	 in,
-				  std::uint32_t& in_len,
-				  float*		 out,
-				  std::uint32_t& out_len) noexcept;
+	void process (std::size_t		channel_index,
+				  const SampleType* in,
+				  std::uint32_t&	in_len,
+				  SampleType*		out,
+				  std::uint32_t&	out_len) noexcept;
 
 	/** Resample an interleaved float array. The input and output buffers must *not* overlap.
 
@@ -146,10 +144,10 @@ public:
 		@param out_len Size of the output buffer. Returns the number of samples written.
 		This is all per-channel.
 	 */
-	void process_interleaved (const float*	 in,
-							  std::uint32_t& in_len,
-							  float*		 out,
-							  std::uint32_t& out_len) noexcept;
+	void process_interleaved (const SampleType* in,
+							  std::uint32_t&	in_len,
+							  SampleType*		out,
+							  std::uint32_t&	out_len) noexcept;
 	///@}
 
 	/** @name Setting the resampling rate/ratio */
@@ -256,11 +254,8 @@ public:
 private:
 	void update_filter() noexcept;
 
-	template <typename Type>
-	int resample_basic_direct (std::uint32_t channel_index, const float* in, std::uint32_t in_len, float* out, std::uint32_t out_len) noexcept;
-
-	template <typename Type>
-	int resample_basic_interpolate (std::uint32_t channel_index, const float* in, std::uint32_t in_len, float* out, std::uint32_t out_len) noexcept;
+	int resample_basic_direct (std::uint32_t channel_index, const SampleType* in, std::uint32_t in_len, SampleType* out, std::uint32_t out_len) noexcept;
+	int resample_basic_interpolate (std::uint32_t channel_index, const SampleType* in, std::uint32_t in_len, SampleType* out, std::uint32_t out_len) noexcept;
 
 	std::uint32_t in_rate { 0 };
 	std::uint32_t out_rate { 0 };
@@ -270,12 +265,10 @@ private:
 	int			  quality { -1 };
 	std::uint32_t nb_channels { 0 };
 	std::uint32_t filt_len { 0 };
-	std::uint32_t mem_alloc_size { 0 };
 	int			  int_advance { 0 };
 	int			  frac_advance { 0 };
-	float		  cutoff { 1.f };
+	SampleType	  cutoff { 1 };
 	std::uint32_t oversample { 0 };
-	int			  initialised { 0 };
 	int			  started { 0 };
 
 	/* These are per-channel */
@@ -283,11 +276,9 @@ private:
 	memory::array_pointer<std::uint32_t> samp_frac_num { nb_channels };
 	memory::array_pointer<std::uint32_t> magic_samples { nb_channels };
 
-	memory::array_pointer<float, false> mem, sinc_table;
+	memory::array_pointer<SampleType, false> mem, sinc_table;
 
-	using ResampleFunc = std::function<int (std::uint32_t, const float*, std::uint32_t, float*, std::uint32_t)>;
-
-	ResampleFunc resampler_ptr { nullptr };
+	bool use_interp_func { true };
 
 	unsigned in_stride { 1 };
 	unsigned out_stride { 1 };

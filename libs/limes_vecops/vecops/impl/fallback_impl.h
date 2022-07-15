@@ -749,6 +749,52 @@ LIMES_NO_EXPORT [[nodiscard]] LIMES_FORCE_INLINE DataType standard_deviation (co
 #pragma mark -
 #pragma mark Trigonometric functions
 
+namespace detail
+{
+/// @cond
+
+/** A Pade approximant continued fraction.
+	Works best for input in the range -pi, pi.
+ */
+template <Scalar DataType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE DataType fast_sine (DataType x) noexcept
+{
+	const auto x2		   = x * x;
+	const auto numerator   = -x * (DataType (-11511339840) + x2 * (DataType (1640635920) + x2 * (DataType (-52785432) + x2 * DataType (479249))));
+	const auto denominator = DataType (11511339840) + x2 * (DataType (277920720) + x2 * (DataType (3177720) + x2 * DataType (18361)));
+
+	return numerator / denominator;
+}
+
+/** A Pade approximant continued fraction.
+	Works best for input in the range -pi, pi.
+ */
+template <Scalar DataType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE DataType fast_cosine (DataType x) noexcept
+{
+	const auto x2		   = x * x;
+	const auto numerator   = -(DataType (-39251520) + x2 * (DataType (18471600) + x2 * (DataType (-1075032) + DataType (14615) * x2)));
+	const auto denominator = DataType (39251520) + x2 * (DataType (1154160) + x2 * (DataType (16632) + x2 * DataType (127)));
+
+	return numerator / denominator;
+}
+
+/** A Pade approximant continued fraction.
+	Works best for input in the range -pi/2, pi/2.
+ */
+template <Scalar DataType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE DataType fast_tangent (DataType x) noexcept
+{
+	const auto x2		   = x * x;
+	const auto numerator   = x * (DataType (-135135) + x2 * (DataType (17325) + x2 * (DataType (-378) + x2)));
+	const auto denominator = DataType (-135135) + x2 * (DataType (62370) + x2 * (DataType (-3150) + DataType (28) * x2));
+
+	return numerator / denominator;
+}
+
+/// @endcond
+}  // namespace detail
+
 /** @ingroup vec_trig */
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut) noexcept
@@ -762,8 +808,8 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void sinCos (const DataType* const data, Size
 		{
 			const auto thisData = data[i];
 
-			sinesOut[i]	  = std::sin (thisData);
-			cosinesOut[i] = std::sin (thisData);
+			sinesOut[i]	  = detail::fast_sine (thisData);
+			cosinesOut[i] = detail::fast_cosine (thisData);
 		}
 }
 
@@ -784,7 +830,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void sine (DataType* const data, SizeType siz
 	else
 #endif
 		for (auto i = SizeType (0); i < size; ++i)
-			data[i] = std::sin (data[i]);
+			data[i] = detail::fast_sine (data[i]);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -796,7 +842,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void sineAndCopy (DataType* const dest, const
 	else
 #endif
 		for (auto i = SizeType (0); i < size; ++i)
-			dest[i] = std::sin (data[i]);
+			dest[i] = detail::fast_sine (data[i]);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -832,7 +878,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void cos (DataType* const data, SizeType size
 	else
 #endif
 		for (auto i = SizeType (0); i < size; ++i)
-			data[i] = std::cos (data[i]);
+			data[i] = detail::fast_cosine (data[i]);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -844,7 +890,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void cosAndCopy (DataType* const dest, const 
 	else
 #endif
 		for (auto i = SizeType (0); i < size; ++i)
-			dest[i] = std::cos (data[i]);
+			dest[i] = detail::fast_cosine (data[i]);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -875,14 +921,14 @@ template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void tan (DataType* const data, SizeType size) noexcept
 {
 	for (auto i = SizeType (0); i < size; ++i)
-		data[i] = std::tan (data[i]);
+		data[i] = detail::fast_tangent (data[i]);
 }
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void tanAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	for (auto i = SizeType (0); i < size; ++i)
-		dest[i] = std::tan (data[i]);
+		dest[i] = detail::fast_tangent (data[i]);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -976,18 +1022,39 @@ namespace exp
 	@{
  */
 
+namespace detail
+{
+
+/// @cond internals
+
+/** A Pade approximant continued fraction.
+	Works best for input in range -6, +4
+ */
+template <Scalar DataType>
+LIMES_NO_EXPORT LIMES_FORCE_INLINE DataType fast_exp (DataType x) noexcept
+{
+	const auto numerator   = DataType (1680) + x * (DataType (840) + x * (DataType (180) + x * (DataType (20) + x)));
+	const auto denominator = DataType (1680) + x * (DataType (-840) + x * (DataType (180) + x * (DataType (-20) + x)));
+
+	return numerator / denominator;
+}
+
+/// @endcond
+
+}  // namespace detail
+
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void e (DataType* const data, SizeType size) noexcept
 {
 	for (auto i = SizeType (0); i < size; ++i)
-		data[i] = std::exp (data[i]);
+		data[i] = detail::fast_exp (data[i]);
 }
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void eAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
 	for (auto i = SizeType (0); i < size; ++i)
-		dest[i] = std::exp (data[i]);
+		dest[i] = detail::fast_exp (data[i]);
 }
 
 template <Scalar DataType, Integral SizeType>

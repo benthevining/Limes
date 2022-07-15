@@ -43,18 +43,18 @@
 #endif
 
 /// @cond
+// clang-format off
 
 #pragma mark LIMES_VECOPS_USE_FFTW
 
 #ifdef LIMES_VECOPS_USE_FFTW
 
-#	if LIMES_VECOPS_USE_FFTW
-#		ifdef LIMES_VECOPS_USE_PFFFT
-#			if LIMES_VECOPS_USE_PFFFT
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_PFFFT and LIMES_VECOPS_USE_FFTW are both 1!")
-#				undef LIMES_VECOPS_USE_PFFFT
-#				define LIMES_VECOPS_USE_PFFFT 0
-#			endif
+#	ifdef LIMES_VECOPS_USE_PFFFT
+#		if (LIMES_VECOPS_USE_FFTW && LIMES_VECOPS_USE_PFFFT)
+			LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_PFFFT and LIMES_VECOPS_USE_FFTW are both 1!")
+			// pffft and FFTW are both on - prefer FFTW
+#			undef LIMES_VECOPS_USE_PFFFT
+#			define LIMES_VECOPS_USE_PFFFT 0
 #		endif
 #	endif
 
@@ -74,21 +74,22 @@ LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_PFFFT and LIMES_VECOPS_USE_FFTW are bo
 #		endif
 #	endif
 
-#endif /* LIMES_VECOPS_USE_FFTW */
+#endif /* ifdef LIMES_VECOPS_USE_FFTW */
+
+#ifndef LIMES_VECOPS_USE_FFTW
+#	error Internal error - LIMES_VECOPS_USE_FFTW not defined!
+#endif
 
 
 #pragma mark LIMES_VECOPS_USE_PFFFT
 
 #ifdef LIMES_VECOPS_USE_PFFFT
 
-#	if LIMES_VECOPS_USE_PFFFT
-#		ifdef LIMES_VECOPS_USE_FFTW
-#			if LIMES_VECOPS_USE_FFTW
-LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_PFFFT and LIMES_VECOPS_USE_FFTW are both 1!")
-#				undef LIMES_VECOPS_USE_PFFFT
-#				define LIMES_VECOPS_USE_PFFFT 0
-#			endif
-#		endif
+#	if (LIMES_VECOPS_USE_PFFFT && LIMES_VECOPS_USE_FFTW)
+		LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_PFFFT and LIMES_VECOPS_USE_FFTW are both 1!")
+		// pffft and FFTW are both on - prefer FFTW
+#		undef LIMES_VECOPS_USE_PFFFT
+#		define LIMES_VECOPS_USE_PFFFT 0
 #	endif
 
 #else /* ifdef LIMES_VECOPS_USE_PFFFT */
@@ -101,18 +102,14 @@ LIMES_COMPILER_WARNING ("LIMES_VECOPS_USE_PFFFT and LIMES_VECOPS_USE_FFTW are bo
 #		define LIMES_VECOPS_USE_PFFFT 0
 #	endif
 
-#endif /* LIMES_VECOPS_USE_PFFFT */
-
-
-#ifndef LIMES_VECOPS_USE_FFTW
-#	error Internal error - LIMES_VECOPS_USE_FFTW not defined!
-#endif
+#endif /* ifdef LIMES_VECOPS_USE_PFFFT */
 
 #ifndef LIMES_VECOPS_USE_PFFFT
 #	error Internal error - LIMES_VECOPS_USE_PFFFT not defined!
 #endif
 
 /// @endcond
+// clang-format on
 
 
 #pragma mark -

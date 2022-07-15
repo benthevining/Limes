@@ -58,11 +58,11 @@ private:
 
 	int speex_quality { 5 };
 
-	std::unique_ptr<speex::Resampler> resampler;
+	std::unique_ptr<speex::Resampler<SampleType>> resampler;
 
 	double m_initialSampleRate { 44100. };
 
-	memory::array_pointer<float> m_iin, m_iout;
+	memory::array_pointer<SampleType> m_iin, m_iout;
 
 	int	   m_channels { 0 };
 	double m_lastratio { -1. };

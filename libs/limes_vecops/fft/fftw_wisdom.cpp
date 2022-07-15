@@ -112,11 +112,15 @@ bool isUsingWisdom()
 [[nodiscard]] static inline files::CFile fftw_get_wisdom_file (bool isDouble, bool save) noexcept
 {
 #	if FFTW_SINGLE_ONLY
+
 	if (isDouble)
 		return nullptr;
+
 #	elif FFTW_DOUBLE_ONLY
+
 	if (! isDouble)
 		return nullptr;
+
 #	endif
 
 	if (! fftw::useWisdom.load())

@@ -49,12 +49,14 @@ void FallbackResampler<SampleType>::prepare (double initialSamplerate, int numCh
 	{
 		const auto rrate = static_cast<std::uint32_t> (math::round (initialSamplerate));
 
-		resampler.reset (new speex::Resampler (static_cast<std::uint32_t> (numChannels),
-											   std::uint32_t (1), std::uint32_t (1),
-											   rrate, rrate, speex_quality));
+		resampler.reset (new speex::Resampler<SampleType> (static_cast<std::uint32_t> (numChannels),
+														   std::uint32_t (1), std::uint32_t (1),
+														   rrate, rrate, speex_quality));
 
 		if (resampler.get() == nullptr)
 			throw std::runtime_error { "Fallback resampler: failed to initialize Speex object" };
+
+		resampler->set_quality (speex_quality);
 	}
 
 	setRatio (m_lastratio);
@@ -68,12 +70,12 @@ void FallbackResampler<SampleType>::prepare (double initialSamplerate, int numCh
 	}
 }
 
-template <>
-int FallbackResampler<float>::resample (float* const * const	   out,
-										int						   outspace,
-										const float* const * const in,
-										int						   incount,
-										double					   ratio) noexcept
+template <Scalar SampleType>
+int FallbackResampler<SampleType>::resample (SampleType* const * const		 out,
+											 int							 outspace,
+											 const SampleType* const * const in,
+											 int							 incount,
+											 double							 ratio) noexcept
 {
 	LIMES_ASSERT (resampler.get() != nullptr);
 
@@ -83,8 +85,8 @@ int FallbackResampler<float>::resample (float* const * const	   out,
 	auto uincount  = static_cast<std::uint32_t> (incount);
 	auto uoutcount = static_cast<std::uint32_t> (outspace);
 
-	const float* data_in;
-	float*		 data_out;
+	const SampleType* data_in;
+	SampleType*		  data_out;
 
 	if (m_channels == 1)
 	{
@@ -107,48 +109,6 @@ int FallbackResampler<float>::resample (float* const * const	   out,
 
 	if (m_channels > 1)
 		vecops::deinterleave (out, m_iout.get(), m_channels, uoutcount);
-
-	return static_cast<int> (uoutcount);
-}
-
-template <>
-int FallbackResampler<double>::resample (double* const * const		 out,
-										 int						 outspace,
-										 const double* const * const in,
-										 int						 incount,
-										 double						 ratio) noexcept
-{
-	LIMES_ASSERT (resampler.get() != nullptr);
-
-	if (ratio != m_lastratio)
-		setRatio (ratio);
-
-	auto uincount  = static_cast<std::uint32_t> (incount);
-	auto uoutcount = static_cast<std::uint32_t> (outspace);
-
-	LIMES_ASSERT (incount * m_channels > static_cast<int> (m_iin.getSize()));
-	LIMES_ASSERT (outspace * m_channels > static_cast<int> (m_iout.getSize()));
-
-	// interleave & convert to float
-	{
-		int idx = 0;
-
-		for (auto s = 0; s < incount; ++s)
-			for (auto c = 0; c < m_channels; ++c)
-				m_iin[idx++] = static_cast<float> (in[c][s]);
-	}
-
-	resampler->process_interleaved (m_iin.get(), uincount,
-									m_iout.get(), uoutcount);
-
-	// deinterleave & convert back to doubles
-	{
-		int idx = 0;
-
-		for (unsigned s = 0; s < uoutcount; ++s)
-			for (auto c = 0; c < m_channels; ++c)
-				out[c][s] = static_cast<double> (m_iout[idx++]);
-	}
 
 	return static_cast<int> (uoutcount);
 }
