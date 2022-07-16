@@ -106,11 +106,6 @@
 
 	@ingroup limes
 
-	@todo use Pommier nat log functions
-	@todo use Pommier funcs elsewhere (fallback FFT, resampler)
-
-	@todo reverse function
-	@todo use std::complex
 	@todo normalize function
 	@todo type conversion functions
 	@todo convert & copy functions
@@ -118,14 +113,10 @@
 	@todo filters
 	@todo convolution engine
 	@todo write unit tests
-	@todo median
-	@todo mode
 
 	@todo Intel MKL backend
 	@todo ARM performance libraries backend
 	@todo CUDA backend
-
-	@todo integrate OpenACC
  */
 
 /** @dir libs/limes_vecops

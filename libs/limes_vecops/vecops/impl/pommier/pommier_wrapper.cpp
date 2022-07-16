@@ -26,6 +26,7 @@
 #include <limes_core.h>
 #include <utility>
 #include <cmath>
+#include "../fallback_impl.h"
 
 LIMES_BEGIN_NAMESPACE
 
@@ -150,7 +151,7 @@ void sine (float* const data, int size) noexcept
 
 	const auto scalarOp = [data] (int i)
 	{
-		data[i] = std::sin (data[i]);
+		data[i] = vecops::fb::detail::fast_sine (data[i]);
 	};
 
 	perform (size, std::move (vecOp), std::move (scalarOp));
@@ -173,7 +174,7 @@ void sineAndCopy (float* const dest, const float* const data, int size) noexcept
 
 	const auto scalarOp = [dest, data] (int i)
 	{
-		dest[i] = std::sin (data[i]);
+		dest[i] = vecops::fb::detail::fast_sine (data[i]);
 	};
 
 	perform (size, std::move (vecOp), std::move (scalarOp));
@@ -196,7 +197,7 @@ void cos (float* const data, int size) noexcept
 
 	const auto scalarOp = [data] (int i)
 	{
-		data[i] = std::cos (data[i]);
+		data[i] = vecops::fb::detail::fast_cosine (data[i]);
 	};
 
 	perform (size, std::move (vecOp), std::move (scalarOp));
@@ -219,7 +220,7 @@ void cosAndCopy (float* const dest, const float* const data, int size) noexcept
 
 	const auto scalarOp = [dest, data] (int i)
 	{
-		dest[i] = std::cos (data[i]);
+		dest[i] = vecops::fb::detail::fast_cosine (data[i]);
 	};
 
 	perform (size, std::move (vecOp), std::move (scalarOp));
@@ -249,8 +250,100 @@ void sinCos (const float* const data, int size, float* const sinesOut, float* co
 	{
 		const auto thisData = data[i];
 
-		sinesOut[i]	  = std::sin (thisData);
-		cosinesOut[i] = std::cos (thisData);
+		sinesOut[i]	  = vecops::fb::detail::fast_sine (data[i]);
+		cosinesOut[i] = vecops::fb::detail::fast_cosine (data[i]);
+	};
+
+	perform (size, std::move (vecOp), std::move (scalarOp));
+}
+
+void natLog (float* const data, int size) noexcept
+{
+	const auto vecOp = [data] (int i)
+	{
+		V4SF reg;
+
+		for (auto j = 0; j < 4; ++j)
+			reg.f[j] = data[i + j];
+
+		const auto result = ::pommier::log_ps (reg.v);
+
+		for (auto j = 0; j < 4; ++j)
+			data[i + j] = result[j];
+	};
+
+	const auto scalarOp = [data] (int i)
+	{
+		data[i] = std::log (data[i]);
+	};
+
+	perform (size, std::move (vecOp), std::move (scalarOp));
+}
+
+void natLogAndCopy (float* const dest, const float* const data, int size) noexcept
+{
+	const auto vecOp = [data, dest] (int i)
+	{
+		V4SF reg;
+
+		for (auto j = 0; j < 4; ++j)
+			reg.f[j] = data[i + j];
+
+		const auto result = ::pommier::log_ps (reg.v);
+
+		for (auto j = 0; j < 4; ++j)
+			dest[i + j] = result[j];
+	};
+
+	const auto scalarOp = [data, dest] (int i)
+	{
+		dest[i] = std::log (data[i]);
+	};
+
+	perform (size, std::move (vecOp), std::move (scalarOp));
+}
+
+void exp (float* const data, int size) noexcept
+{
+	const auto vecOp = [data] (int i)
+	{
+		V4SF reg;
+
+		for (auto j = 0; j < 4; ++j)
+			reg.f[j] = data[i + j];
+
+		const auto result = ::pommier::exp_ps (reg.v);
+
+		for (auto j = 0; j < 4; ++j)
+			data[i + j] = result[j];
+	};
+
+	const auto scalarOp = [data] (int i)
+	{
+		data[i] = vecops::fb::exp::detail::fast_exp (data[i]);
+	};
+
+	perform (size, std::move (vecOp), std::move (scalarOp));
+}
+
+void expAndCopy (float* const dest, const float* const data, int size) noexcept
+{
+	const auto vecOp = [data, dest] (int i)
+	{
+		V4SF reg;
+
+		for (auto j = 0; j < 4; ++j)
+			reg.f[j] = data[i + j];
+
+		const auto result = ::pommier::exp_ps (reg.v);
+
+		for (auto j = 0; j < 4; ++j)
+			dest[i + j] = result[j];
+	};
+
+	const auto scalarOp = [data, dest] (int i)
+	{
+		dest[i] = vecops::fb::exp::detail::fast_exp (data[i]);
 	};
 
 	perform (size, std::move (vecOp), std::move (scalarOp));

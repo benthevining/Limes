@@ -93,8 +93,8 @@ inline __m128 my_movehl_ps (__m128 a, const __m128 b) noexcept
 		: "0"(a), "x"(b));
 	return a;
 }
-#	warning "redefined _mm_movehl_ps (see gcc bug 21179)"
-#	define _mm_movehl_ps my_movehl_ps
+
+#	define _mm_movehl_ps ::pommier::my_movehl_ps
 
 inline __m128 my_cmplt_ps (__m128 a, const __m128 b) noexcept
 {
@@ -105,6 +105,8 @@ inline __m128 my_cmplt_ps (__m128 a, const __m128 b) noexcept
 	return a;
 }
 
+#	define _mm_cmplt_ps ::pommier::my_cmplt_ps
+
 inline __m128 my_cmpgt_ps (__m128 a, const __m128 b) noexcept
 {
 	asm(
@@ -114,6 +116,8 @@ inline __m128 my_cmpgt_ps (__m128 a, const __m128 b) noexcept
 	return a;
 }
 
+#	define _mm_cmpgt_ps ::pommier::my_cmpgt_ps
+
 inline __m128 my_cmpeq_ps (__m128 a, const __m128 b) noexcept
 {
 	asm(
@@ -122,10 +126,10 @@ inline __m128 my_cmpeq_ps (__m128 a, const __m128 b) noexcept
 		: "0"(a), "x"(b));
 	return a;
 }
-#	warning "redefined _mm_cmpxx_ps functions..."
-#	define _mm_cmplt_ps my_cmplt_ps
-#	define _mm_cmpgt_ps my_cmpgt_ps
-#	define _mm_cmpeq_ps my_cmpeq_ps
+
+#	define _mm_cmpeq_ps ::pommier::my_cmpeq_ps
+
+#	warning "redefined _mm_cmpxx_ps functions and _mm_movehl_ps (see gcc bug 21179)..."
 
 #endif /* __MINGW32__ */
 
@@ -136,6 +140,8 @@ inline __m128 my_cmpeq_ps (__m128 a, const __m128 b) noexcept
 v4sf log_ps (v4sf x) noexcept;
 
 
+/** exp() computed for 4 simultaneous floats
+ */
 v4sf exp_ps (v4sf x) noexcept;
 
 

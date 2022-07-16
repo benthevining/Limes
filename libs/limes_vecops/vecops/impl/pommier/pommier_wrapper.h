@@ -75,6 +75,14 @@ LIMES_NO_EXPORT void sinCos (const float* const data,
 							 int				size,
 							 float* const sinesOut, float* const cosinesOut) noexcept;
 
+LIMES_NO_EXPORT void natLog (float* const data, int size) noexcept;
+
+LIMES_NO_EXPORT void natLogAndCopy (float* const dest, const float* const data, int size) noexcept;
+
+LIMES_NO_EXPORT void exp (float* const data, int size) noexcept;
+
+LIMES_NO_EXPORT void expAndCopy (float* const dest, const float* const data, int size) noexcept;
+
 /// @endcond
 
 }  // namespace vecops::pommier

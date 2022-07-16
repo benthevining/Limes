@@ -28,7 +28,11 @@
 #include <limes_core.h>
 
 #if (LIMES_ARM_NEON || LIMES_SSE)
+#	define LIMES__USE_POMMIER 1
+
 #	include "./pommier/pommier_wrapper.h"	// IWYU pragma: export
+#else
+#	define LIMES__USE_POMMIER 0
 #endif
 
 /** @file
@@ -799,7 +803,7 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE DataType fast_tangent (DataType x) noexcept
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void sinCos (const DataType* const data, SizeType size, DataType* const sinesOut, DataType* const cosinesOut) noexcept
 {
-#if (LIMES_ARM_NEON || LIMES_SSE)
+#if LIMES__USE_POMMIER
 	if constexpr (std::is_same_v<DataType, float>)
 		pommier::sinCos (data, static_cast<int> (size), sinesOut, cosinesOut);
 	else
@@ -824,9 +828,9 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void sinCos (const DataType* const data, Size
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void sine (DataType* const data, SizeType size) noexcept
 {
-#if (LIMES_ARM_NEON || LIMES_SSE)
+#if LIMES__USE_POMMIER
 	if constexpr (std::is_same_v<DataType, float>)
-		pommier::sine (data, size);
+		pommier::sine (data, static_cast<int> (size));
 	else
 #endif
 		for (auto i = SizeType (0); i < size; ++i)
@@ -836,9 +840,9 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void sine (DataType* const data, SizeType siz
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void sineAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
-#if (LIMES_ARM_NEON || LIMES_SSE)
+#if LIMES__USE_POMMIER
 	if constexpr (std::is_same_v<DataType, float>)
-		pommier::sineAndCopy (dest, data, size);
+		pommier::sineAndCopy (dest, data, static_cast<int> (size));
 	else
 #endif
 		for (auto i = SizeType (0); i < size; ++i)
@@ -872,9 +876,9 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void arcsineAndCopy (DataType* const dest, co
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void cos (DataType* const data, SizeType size) noexcept
 {
-#if (LIMES_ARM_NEON || LIMES_SSE)
+#if LIMES__USE_POMMIER
 	if constexpr (std::is_same_v<DataType, float>)
-		pommier::cos (data, size);
+		pommier::cos (data, static_cast<int> (size));
 	else
 #endif
 		for (auto i = SizeType (0); i < size; ++i)
@@ -884,9 +888,9 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE void cos (DataType* const data, SizeType size
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void cosAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
-#if (LIMES_ARM_NEON || LIMES_SSE)
+#if LIMES__USE_POMMIER
 	if constexpr (std::is_same_v<DataType, float>)
-		pommier::cosAndCopy (data, size);
+		pommier::cosAndCopy (data, static_cast<int> (size));
 	else
 #endif
 		for (auto i = SizeType (0); i < size; ++i)
@@ -967,15 +971,25 @@ namespace log
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void nat (DataType* const data, SizeType size) noexcept
 {
-	for (auto i = SizeType (0); i < size; ++i)
-		data[i] = std::log (data[i]);
+#if LIMES__USE_POMMIER
+	if constexpr (std::is_same_v<DataType, float>)
+		pommier::natLog (data, static_cast<int> (size));
+	else
+#endif
+		for (auto i = SizeType (0); i < size; ++i)
+			data[i] = std::log (data[i]);
 }
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void natAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
-	for (auto i = SizeType (0); i < size; ++i)
-		dest[i] = std::log (data[i]);
+#if LIMES__USE_POMMIER
+	if constexpr (std::is_same_v<DataType, float>)
+		pommier::natLogAndCopy (dest, data, static_cast<int> (size));
+	else
+#endif
+		for (auto i = SizeType (0); i < size; ++i)
+			dest[i] = std::log (data[i]);
 }
 
 template <Scalar DataType, Integral SizeType>
@@ -1046,15 +1060,25 @@ LIMES_NO_EXPORT LIMES_FORCE_INLINE DataType fast_exp (DataType x) noexcept
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void e (DataType* const data, SizeType size) noexcept
 {
-	for (auto i = SizeType (0); i < size; ++i)
-		data[i] = detail::fast_exp (data[i]);
+#if LIMES__USE_POMMIER
+	if constexpr (std::is_same_v<DataType, float>)
+		pommier::exp (data, static_cast<int> (size));
+	else
+#endif
+		for (auto i = SizeType (0); i < size; ++i)
+			data[i] = detail::fast_exp (data[i]);
 }
 
 template <Scalar DataType, Integral SizeType>
 LIMES_NO_EXPORT LIMES_FORCE_INLINE void eAndCopy (DataType* const dest, const DataType* const data, SizeType size) noexcept
 {
-	for (auto i = SizeType (0); i < size; ++i)
-		dest[i] = detail::fast_exp (data[i]);
+#if LIMES__USE_POMMIER
+	if constexpr (std::is_same_v<DataType, float>)
+		pommier::expAndCopy (dest, data, static_cast<int> (size));
+	else
+#endif
+		for (auto i = SizeType (0); i < size; ++i)
+			dest[i] = detail::fast_exp (data[i]);
 }
 
 template <Scalar DataType, Integral SizeType>
