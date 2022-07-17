@@ -66,10 +66,8 @@ set_target_properties (
 			   FOLDER Limes/programs
 			   EchoString "Building the Limes BinaryBuilder...")
 
-target_link_libraries (
-	BinaryBuilder
-	PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
-			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+target_link_libraries (BinaryBuilder PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget
+											 $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 export (TARGETS BinaryBuilder NAMESPACE Limes:: FILE "${CMAKE_BINARY_DIR}/LimesBinaryBuilder.cmake")
 

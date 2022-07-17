@@ -25,10 +25,17 @@ set_target_properties (
 	LimesDefaultLibrary PROPERTIES VERSION "${Limes_VERSION}" SOVERSION "${Limes_VERSION_MAJOR}"
 								   LABELS Limes FOLDER Limes/libs)
 
-target_link_libraries (
-	LimesDefaultLibrary
-	INTERFACE Oranges::OrangesDefaultCXXTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
-			  $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+target_link_libraries (LimesDefaultLibrary INTERFACE Oranges::OrangesDefaultCXXTarget
+													 $<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+
+include (OrangesCcache)
+include (OrangesIPO)
+include (OrangesUniversalBinary)
+include (OrangesStaticAnalysis)
+
+oranges_enable_ccache (TARGET LimesDefaultLibrary)
+oranges_enable_ipo (TARGET LimesDefaultLibrary)
+oranges_enable_universal_binary (LimesDefaultLibrary)
 
 # cmake-format: off
 install (

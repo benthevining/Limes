@@ -60,10 +60,8 @@ set_target_properties (
 			   FOLDER Limes/programs
 			   EchoString "Building the Limes file utility...")
 
-target_link_libraries (
-	FileUtil
-	PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget $<BUILD_INTERFACE:Oranges::OrangesIPO>
-			$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
+target_link_libraries (FileUtil PRIVATE Limes::limes_core Oranges::OrangesDefaultTarget
+										$<BUILD_INTERFACE:Oranges::OrangesUnityBuild>)
 
 export (TARGETS FileUtil NAMESPACE Limes:: FILE "${CMAKE_BINARY_DIR}/LimesFileUtil.cmake")
 

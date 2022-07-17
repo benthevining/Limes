@@ -29,7 +29,7 @@ include (CMakePackageConfigHelpers)
 
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
-find_package (Oranges 3.3.0 REQUIRED)
+find_package (Oranges 4.0.0 REQUIRED)
 
 set_package_properties (Oranges PROPERTIES TYPE REQUIRED PURPOSE "Required CMake modules")
 
@@ -48,7 +48,6 @@ if (PROJECT_IS_TOP_LEVEL)
 	set (CMAKE_INSTALL_MESSAGE LAZY)
 	set (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION ON)
 
-	include (OrangesWipeCacheTarget)
 	include (OrangesUninstallTarget)
 	include (OrangesDefaultCPackSettings)
 	include (OrangesInstallSystemLibs)
@@ -75,19 +74,17 @@ cmake_dependent_option (LIMES_BUILD_DOCS "Build the Limes documentation" "${PROJ
 option (ORANGES_MAINTAINER_BUILD "Build with static analysis tools and default compiler warnings"
 		"${PROJECT_IS_TOP_LEVEL}")
 
-mark_as_advanced (CMAKE_FIND_PACKAGE_PREFER_CONFIG ORANGES_MAINTAINER_BUILD)
-
-#
-
 set (
 	LIMES_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
 	CACHE STRING
 		  "Directory below INSTALL_PREFIX where the Limes CMake package files will be installed to")
 
-mark_as_advanced (FORCE LIMES_INSTALL_DEST)
+mark_as_advanced (LIMES_INSTALL_DEST)
 
 set (LIMES_EXPORT_DIR "${CMAKE_CURRENT_BINARY_DIR}/export"
 	 CACHE INTERNAL "Directory where build tree export files are being written to")
+
+mark_as_advanced (CMAKE_FIND_PACKAGE_PREFER_CONFIG ORANGES_MAINTAINER_BUILD)
 
 #
 
