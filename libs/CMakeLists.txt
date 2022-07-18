@@ -33,8 +33,8 @@ include (OrangesIPO)
 include (OrangesUniversalBinary)
 include (OrangesStaticAnalysis)
 
-oranges_enable_ccache (TARGET LimesDefaultLibrary)
-oranges_enable_ipo (TARGET LimesDefaultLibrary)
+oranges_enable_ccache (LimesDefaultLibrary)
+oranges_enable_ipo (LimesDefaultLibrary)
 oranges_enable_universal_binary (LimesDefaultLibrary)
 
 # cmake-format: off

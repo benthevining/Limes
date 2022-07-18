@@ -318,6 +318,73 @@
           ]
         }
       },
+      "oranges_enable_ccache": {
+        "kwargs": {
+          "OPTIONS": "+"
+        },
+        "pargs": {
+          "nargs": 1
+        }
+      },
+      "oranges_enable_clang_tidy": {
+        "kwargs": {
+          "CONFIG_FILE": 1,
+          "EXTRA_ARGS": "+",
+          "LANGS": "+"
+        },
+        "pargs": {
+          "nargs": 1
+        }
+      },
+      "oranges_enable_cppcheck": {
+        "kwargs": {
+          "DISABLE": "+",
+          "ENABLE": "+",
+          "EXTRA_ARGS": "+",
+          "LANGS": "+"
+        },
+        "pargs": {
+          "nargs": 1
+        }
+      },
+      "oranges_enable_cpplint": {
+        "kwargs": {
+          "EXTRA_ARGS": "+",
+          "IGNORE": "+",
+          "LANGS": "+",
+          "VERBOSITY": 1
+        },
+        "pargs": {
+          "nargs": 1
+        }
+      },
+      "oranges_enable_ipo": {
+        "pargs": {
+          "flags": [
+            "INCLUDE_DEBUG"
+          ],
+          "nargs": 1
+        }
+      },
+      "oranges_enable_iwyu": {
+        "kwargs": {
+          "EXTRA_ARGS": "+",
+          "LANGS": "+"
+        },
+        "pargs": {
+          "nargs": 1
+        }
+      },
+      "oranges_enable_static_analysis": {
+        "pargs": {
+          "nargs": 1
+        }
+      },
+      "oranges_enable_universal_binary": {
+        "pargs": {
+          "nargs": 1
+        }
+      },
       "oranges_fetch_repository": {
         "kwargs": {
           "BITBUCKET_REPOSITORY": 1,
@@ -404,8 +471,7 @@
         },
         "pargs": {
           "flags": [
-            "NO_AGGREGATE_HEADER",
-            "NO_BUILD_TYPE_MACROS"
+            "NO_AGGREGATE_HEADER"
           ],
           "nargs": 1
         }

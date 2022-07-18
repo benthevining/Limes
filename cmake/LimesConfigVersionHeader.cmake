@@ -36,8 +36,8 @@ function (limes_config_version_header)
 
 	cmake_parse_arguments (LIMES_ARG "" "${oneValueArgs}" "" ${ARGN})
 
-	lemons_require_function_arguments (LIMES_ARG NAMESPACE FUNCTION_NAME)
-	lemons_check_for_unparsed_args (LIMES_ARG)
+	oranges_require_function_arguments (LIMES_ARG NAMESPACE FUNCTION_NAME)
+	oranges_check_for_unparsed_args (LIMES_ARG)
 	oranges_assert_target_argument_is_target (LIMES_ARG)
 
 	if (NOT LIMES_ARG_MAJOR)

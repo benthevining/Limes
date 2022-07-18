@@ -36,7 +36,7 @@ list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 include (CMakeFindDependencyMacro)
 
-find_dependency (Oranges 4.0.0)
+find_dependency (Oranges 4.1.0)
 
 #
 
